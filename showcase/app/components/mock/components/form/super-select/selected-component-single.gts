@@ -7,7 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import { HdsTextBody } from '@hashicorp/design-system-components/components';
 
-interface MockFormSuperSelectSelectedComponentSingleSignature {
+export interface MockFormSuperSelectSelectedComponentSingleSignature {
   Args: {
     option: {
       size: string;

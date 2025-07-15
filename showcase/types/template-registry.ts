@@ -32,10 +32,11 @@ import MockAppMainGenericFormPartialsAddPolicy from '../app/components/mock/app/
 import MockAppMainGenericFormPartialsActions from '../app/components/mock/app/main/generic-form/partials/actions';
 import MockAppMainGenericTextContent from '../app/components/mock/app/main/generic-text-content';
 import MockAppFooterAppFooter from '../app/components/mock/app/footer/app-footer';
+import MockDemoBreakpointsRuler from '../app/components/mock/demo/breakpoints-ruler';
+import MockDemoBreakpointsVisualization from '../app/components/mock/demo/breakpoints-visualization';
+
 import MockComponentsFormKeyValueInputsWithValidationAndLimit from '../app/components/mock/components/form/key-value-inputs/with-validation-and-limit';
 import MockComponentsFormKeyValueInputsWithDynamicInputs from '../app/components/mock/components/form/key-value-inputs/with-dynamic-inputs';
-import MockDemoBreakpointsVisualization from '../app/components/mock/demo/breakpoints-visualization';
-import MockDemoBreakpointsRuler from '../app/components/mock/demo/breakpoints-ruler';
 import MockFormSuperSelectGenericContent from '../app/components/mock/components/form/super-select/generic-content';
 import MockFormSuperSelectSelectedComponentSingle from '../app/components/mock/components/form/super-select/selected-component-single';
 import MockFormSuperSelectSelectedComponentMultiple from '../app/components/mock/components/form/super-select/selected-component-multiple';
@@ -99,16 +100,16 @@ export default interface ShowcaseTemplateRegistry {
   'mock/app/main/generic-text-content': typeof MockAppMainGenericTextContent;
   'Mock::App::Footer::AppFooter': typeof MockAppFooterAppFooter;
   'mock/app/footer/app-footer': typeof MockAppFooterAppFooter;
-  'Mock::Components::Form::KeyValueInputs::WithValidationAndLimit': typeof MockComponentsFormKeyValueInputsWithValidationAndLimit;
-  'mock/components/form/key-value-inputs/with-validation-and-limit': typeof MockComponentsFormKeyValueInputsWithValidationAndLimit;
-  'Mock::Components::Form::KeyValueInputs::WithDynamicInputs': typeof MockComponentsFormKeyValueInputsWithDynamicInputs;
-  'mock/components/form/key-value-inputs/with-dynamic-inputs': typeof MockComponentsFormKeyValueInputsWithDynamicInputs;
   'Mock::Demo::BreakpointsVisualization': typeof MockDemoBreakpointsVisualization;
   'mock/demo/breakpoints-visualizaton': typeof MockDemoBreakpointsVisualization;
   'Mock::Demo::BreakpointsRuler': typeof MockDemoBreakpointsRuler;
   'mock/demo/breakpoints-ruler': typeof MockDemoBreakpointsRuler;
 
   // MOCK COMPONENTS
+  'Mock::Components::Form::KeyValueInputs::WithValidationAndLimit': typeof MockComponentsFormKeyValueInputsWithValidationAndLimit;
+  'mock/components/form/key-value-inputs/with-validation-and-limit': typeof MockComponentsFormKeyValueInputsWithValidationAndLimit;
+  'Mock::Components::Form::KeyValueInputs::WithDynamicInputs': typeof MockComponentsFormKeyValueInputsWithDynamicInputs;
+  'mock/components/form/key-value-inputs/with-dynamic-inputs': typeof MockComponentsFormKeyValueInputsWithDynamicInputs;
   'Mock::Form::SuperSelect::GenericContent': typeof MockFormSuperSelectGenericContent;
   'mock/components/form/super-select/generic-content': typeof MockFormSuperSelectGenericContent;
   'Mock::Form::SuperSelect::SelectedComponentSingle': typeof MockFormSuperSelectSelectedComponentSingle;

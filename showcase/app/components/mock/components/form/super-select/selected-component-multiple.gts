@@ -5,7 +5,7 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-interface MockFormSuperSelectSelectedComponentMultipleSignature {
+export interface MockFormSuperSelectSelectedComponentMultipleSignature {
   Args: {
     option: {
       size: string;

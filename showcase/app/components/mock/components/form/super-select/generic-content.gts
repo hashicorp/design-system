@@ -6,11 +6,10 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import StyleModifier from 'ember-style-modifier';
 
-import ShwPlaceholder, {
-  type ShwPlaceholderSignature,
-} from '../../../../shw/placeholder';
+import ShwPlaceholder from 'showcase/components/shw/placeholder';
+import type { ShwPlaceholderSignature } from 'showcase/components/shw/placeholder';
 
-interface MockFormSuperSelectGenericContentSignature {
+export interface MockFormSuperSelectGenericContentSignature {
   Element: ShwPlaceholderSignature['Element'];
 }
 
