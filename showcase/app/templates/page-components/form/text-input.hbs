@@ -248,7 +248,7 @@
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
@@ -296,10 +296,10 @@
 
   <Shw::Text::H3>Character count</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Character count">
       <Hds::Form::TextInput::Field
-        @value={{this.defaultText}}
+        @value={{this.values.defaultText}}
         {{on "input" (fn this.updateValue "defaultText")}}
         as |F|
       >
@@ -308,7 +308,11 @@
       </Hds::Form::TextInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Character count (custom)">
-      <Hds::Form::TextInput::Field @value={{this.customText}} {{on "input" (fn this.updateValue "customText")}} as |F|>
+      <Hds::Form::TextInput::Field
+        @value={{this.values.customText}}
+        {{on "input" (fn this.updateValue "customText")}}
+        as |F|
+      >
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Label>This is the label text</F.Label>
         <F.CharacterCount @maxLength={{40}} as |CC|>
@@ -323,7 +327,7 @@
     <SG.Item @label="Label + Helper text + Character count">
       <Hds::Form::TextInput::Field
         @isInvalid={{this.fieldIsInvalid}}
-        @value={{this.withHelperText}}
+        @value={{this.values.withHelperText}}
         {{on "input" (fn this.updateValue "withHelperText")}}
         as |F|
       >
