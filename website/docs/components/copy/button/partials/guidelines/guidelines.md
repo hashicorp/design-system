@@ -45,10 +45,10 @@ Since the CopyButton can target almost any associated DOM element, it can be com
 When combining the CopyButton with form inputs:
 
 - Use the [Fieldset](/components/form/primitives?tab=code#formfieldset) form primitive.
-- Wrap the `Base` input control (generally a TextInput, MaskedInput, or Textarea) and CopyButton in a container with an 8px gap between each element. This is not supported by the component out of the box, but can accomplished using a custom layout wrapper.
+- Wrap the `Base` input control (generally a TextInput, MaskedInput, or Textarea) and CopyButton in a container. This is not supported by the component out of the box, but can accomplished using a custom layout wrapper.
 - Use the `isIconOnly` variant of the CopyButton as there is a enough visual association using this layout method.
 
-![Example spacing of a control and CopyButton](/assets/components/copy/copy-button-composition-input-spacing.png)
+![Example container wrapping of a control and CopyButton](/assets/components/copy/copy-button-composition-input-wrapping.png)
 
 This ensures that other form primitives (helper text, error, etc) will span the combined width of the input control and the CopyButton.
 

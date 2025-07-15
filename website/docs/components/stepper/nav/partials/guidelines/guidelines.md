@@ -62,12 +62,6 @@ Don't mix and match inclusion of descriptions.
 
 We recommend a maximum of 4 steps. If that isn’t possible, be mindful of how the content within the title and description will wrap on smaller screens.
 
-## Spacing
-
-There should be 32px of spacing above the Stepper Nav and 24px below.
-
-![](/assets/components/stepper/nav/stepper-nav-spacing-example.png)
-
 ## Resizing behavior
 
 Each step scales evenly to fit within the total width of the Stepper Nav. This ensures consistent touch target sizes for hover, active, and focus states. The total width of the Stepper Nav should match the page content width.
