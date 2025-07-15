@@ -131,6 +131,8 @@ This example depicts the `isStatic` property being used to prevent interaction w
 
 !!! Info
 
+**Differences between Figma and code**
+
 The content type property is only relevant within Figma and doesn’t exist as a property in the code.
 !!!
 
@@ -145,6 +147,8 @@ Content type supports any generic content, local components, or Helios component
 ## Nesting Accordions
 
 !!! Info
+
+**Differences between Figma and code**
 
 Nesting Accordions is only supported [in code](/components/accordion?tab=code#complex-html-content), as Figma does not support nesting an instance inside itself. 
 

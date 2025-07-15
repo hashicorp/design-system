@@ -45,6 +45,8 @@ Columns use as much room as they need to use to fit their content unless a speci
 
 !!! Info
 
+**Differences between Figma and code**
+
 The column placement property is only relevant in Figma and doesn’t exist as a property in code.
 !!!
 
@@ -140,7 +142,11 @@ When using striping in a Table, the first tinted row will be the second row of t
 
 ### Placement
 
+**Differences between Figma and code**
+
 !!! Info
+
+**Differences between Figma and code**
 
 The row placement property is only relevant in Figma and doesn’t exist as a property in code.
 !!!

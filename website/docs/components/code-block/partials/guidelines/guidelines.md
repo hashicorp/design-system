@@ -60,7 +60,9 @@ If a user needs to copy only a portion of the Code Block, the relevant portion c
 
 ## Line numbers
 
-!!! Info
+!!! Insight
+
+**Figma tip**
 
 In the Figma component, the code examples have the appropriate number of lines by default but must be manually hidden or shown to match the length of custom snippets.
 !!!
@@ -82,6 +84,8 @@ Interacting with it again collapses the Code Block back to its set `maxHeight`.
 ## Line highlighting
 
 !!! Info
+
+**Differences between Figma and code**
 
 In the Ember component, lines can be highlighted by passing a single line number, multiple line numbers, or a range of lines. For more examples, refer to the [How to use](/?tab=code#highlightlines) documentation.
 

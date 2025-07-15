@@ -77,6 +77,8 @@ To use icons within your project, first ensure the [Icons library](https://www.f
 
 !!! Insight
 
+**Figma tip**
+
 In Helios, icons are technically components. This means you can swap instances, sizes, and colors quickly within Figma’s design panel in the right sidebar.
 !!!
 
@@ -142,9 +144,9 @@ Helios components are built to be layout-agnostic, meaning laying out components
 
 Unless specifically mentioned in the documentation, the implemented component will fill the parent container. For designers, it’s helpful to use [auto layout](https://help.figma.com/hc/en-us/articles/5731482952599-Using-auto-layout#:~:text=You%20can%20add%20auto%20layout%20to%20a%20selected%20frame%2C%20component,and%20select%20Add%20Auto%20layout) wherever possible. Auto layout closely mimics [CSS Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and other browser layout mechanisms. Setting a Helios component to `fill container` within an auto layout frame typically replicates the experience of a development environment.
 
-!!! Warning
+!!! Insight
 
-**Fixed width components**
+**Figma tip**
 
 Setting a component to a fixed width in Figma is the same as setting a `width` value on a component or element in code. Setting a fixed width generally goes against fluid and responsive best practices and should be avoided in Figma. Instead, use auto layout wherever possible.
 !!!

@@ -73,6 +73,8 @@ If more complex content is necessary to convey the information, consider other d
 
 !!! Info
 
+**Differences between Figma and code**
+
 Text wrapping can be achieved using the property `isMultiline` in Figma.
 !!!
 
