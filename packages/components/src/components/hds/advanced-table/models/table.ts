@@ -312,6 +312,32 @@ export default class HdsAdvancedTableTableModel {
   }
 
   @action
+  stepColumn(column: HdsAdvancedTableColumn, step: number): void {
+    const { table } = column;
+    const oldIndex = table.orderedColumns.indexOf(column);
+    const newIndex = oldIndex + step;
+
+    // Check if the new position is within the array bounds.
+    if (newIndex < 0 || newIndex >= table.orderedColumns.length) {
+      return;
+    }
+
+    const targetColumn = table.orderedColumns[newIndex];
+
+    if (targetColumn === undefined) {
+      return;
+    }
+
+    // Determine the side based on the step direction.
+    const side: HdsAdvancedTableColumnReorderSide =
+      step > 0
+        ? HdsAdvancedTableColumnReorderSideValues.Right
+        : HdsAdvancedTableColumnReorderSideValues.Left;
+
+    table.moveColumnToTarget(column, targetColumn, side);
+  }
+
+  @action
   moveColumnToTerminalPosition(
     column: HdsAdvancedTableColumn,
     position: 'start' | 'end'
