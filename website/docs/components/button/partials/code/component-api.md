@@ -26,8 +26,8 @@
   <C.Property @name="href">
     URL parameter that is passed down to the `<a>` element.
   </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean" @default="false">
-    Controls if the `<a>` link is external and so for security reasons we need to add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it.
+  <C.Property @name="isHrefExternal" @type="boolean">
+    Controls if the `<a>` link is external. When left `undefined` or explicitly set to `true` it adds the `target="_blank"` and `rel="noopener noreferrer"` attributes to the `<a>` tag (for security reasons).
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo/LinkToExternal>` component.
