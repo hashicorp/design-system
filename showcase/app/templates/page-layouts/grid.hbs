@@ -11,7 +11,7 @@
   <Shw::Text::H2>Column width management </Shw::Text::H2>
   <Shw::Text::H3>Column min width</Shw::Text::H3>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     <SG.Item @label="No min width columns (min-width defaults to 0px)">
       <Shw::Outliner>
         <Hds::Layout::Grid @gap="24">
@@ -78,7 +78,7 @@
 
   <Shw::Text::H3>Column width</Shw::Text::H3>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     <SG.Item @label="33.33% width columns">
       <Shw::Outliner>
         <Hds::Layout::Grid @gap="24" @columnWidth="33.33%">
@@ -136,7 +136,7 @@
 
   <Shw::Text::H4 @tag="h3">Single value</Shw::Text::H4>
 
-  <Shw::Grid @columns="4" @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+  <Shw::Grid @columns={{4}} @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     {{#each @model.GAPS as |gap|}}
       <SG.Item @label="gap={{if (eq gap '0') '0 (default)' gap}}">
         <Shw::Outliner>
@@ -155,24 +155,22 @@
 
   <Shw::Grid @columns={{2}} @gap="2rem 4rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     {{! we use only a subset of possible combinations, just for testing purposes }}
-    {{#let (array (array "4" "48") (array "8" "32") (array "12" "24") (array "16" "16")) as |gapsList|}}
-      {{#each gapsList as |gapsArray|}}
-        <SG.Item @label="gap=[{{gapsArray}}]">
-          <Shw::Outliner>
-            <Hds::Layout::Grid @gap={{gapsArray}} @columnMinWidth="50%">
-              <Shw::Placeholder @text="item #1" @width="auto" @height="24" />
-              <Shw::Placeholder @text="item #2" @width="auto" @height="24" />
-              <Shw::Placeholder @text="item #3" @width="auto" @height="24" />
-              <Shw::Placeholder @text="item #4" @width="auto" @height="24" />
-              <Shw::Placeholder @text="item #5" @width="auto" @height="24" />
-              <Shw::Placeholder @text="item #6" @width="auto" @height="24" />
-              <Shw::Placeholder @text="item #7" @width="auto" @height="24" />
-              <Shw::Placeholder @text="item #8" @width="auto" @height="24" />
-            </Hds::Layout::Grid>
-          </Shw::Outliner>
-        </SG.Item>
-      {{/each}}
-    {{/let}}
+    {{#each @model.DEMO_GAP_ARRAYS as |gapsArray|}}
+      <SG.Item @label="gap=[{{gapsArray}}]">
+        <Shw::Outliner>
+          <Hds::Layout::Grid @gap={{gapsArray}} @columnMinWidth="50%">
+            <Shw::Placeholder @text="item #1" @width="auto" @height="24" />
+            <Shw::Placeholder @text="item #2" @width="auto" @height="24" />
+            <Shw::Placeholder @text="item #3" @width="auto" @height="24" />
+            <Shw::Placeholder @text="item #4" @width="auto" @height="24" />
+            <Shw::Placeholder @text="item #5" @width="auto" @height="24" />
+            <Shw::Placeholder @text="item #6" @width="auto" @height="24" />
+            <Shw::Placeholder @text="item #7" @width="auto" @height="24" />
+            <Shw::Placeholder @text="item #8" @width="auto" @height="24" />
+          </Hds::Layout::Grid>
+        </Shw::Outliner>
+      </SG.Item>
+    {{/each}}
   </Shw::Grid>
 
   <br />
@@ -199,7 +197,7 @@
       <Hds::Layout::Grid @gap="16" @align="center" as |LG|>
         <Shw::Placeholder @text="item #1" @height="48" />
         <Shw::Placeholder @text="item #2" @height="48" />
-        <LG.Item @columnWidth="25%">
+        <LG.Item>
           <Hds::Layout::Grid @gap="0">
             <Shw::Placeholder @text="item #3A" @height="24" />
             <Shw::Placeholder @text="item #3B" @height="24" />
@@ -213,7 +211,7 @@
       <Hds::Layout::Grid @gap="48" @align="center" as |LG|>
         <Shw::Placeholder @text="item #1" @height="48" />
         <Shw::Placeholder @text="item #2" @height="48" />
-        <LG.Item @columnWidth="25%">
+        <LG.Item>
           <Hds::Layout::Grid @gap="16">
             <Shw::Placeholder @text="item #3A" @height="24" />
             <Shw::Placeholder @text="item #3B" @height="24" />
@@ -227,7 +225,7 @@
       <Hds::Layout::Grid @gap="48" @align="center" as |LG|>
         <Shw::Placeholder @text="item #1" @height="48" />
         <Shw::Placeholder @text="item #2" @height="48" />
-        <LG.Item @columnWidth="25%">
+        <LG.Item>
           <Hds::Layout::Flex @gap="16">
             <Shw::Placeholder @text="item #3A" @height="24" />
             <Shw::Placeholder @text="item #3B" @height="24" />
@@ -280,11 +278,11 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>colspan</Shw::Text::H3>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="1.5rem" as |SG|>
     <SG.Item @label="1st item w/ colspan=2">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
@@ -343,11 +341,11 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>rowspan</Shw::Text::H3>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="1.5rem" as |SG|>
     <SG.Item @label="1st item w/ rowspan=2">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
@@ -387,11 +385,11 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>colspan & rowspan</Shw::Text::H3>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="1.5rem" as |SG|>
     <SG.Item @label="1st item w/ colspan=2 & rowspan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
@@ -424,10 +422,10 @@
 <section data-test-percy>
   <Shw::Text::H2>Examples</Shw::Text::H2>
 
-  <Shw::Grid @columns="1" @gap="2rem" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
     <SG.Item @label="3 column layout Card layout using columnWidth=33.33%">
       <Hds::Layout::Grid @columnWidth="33.33%" @gap="32">
-        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+        <Hds::Card::Container @level={{@model.HdsCardLevelValues.Mid}} @hasBorder={{true}} {{style padding="24px"}}>
           <Hds::Layout::Grid @columnWidth="100%" @gap="16">
             <Hds::Layout::Flex @align="center" @gap="8">
               <Hds::IconTile @icon="cloud" @size="small" />
@@ -454,11 +452,11 @@
           </Hds::Layout::Grid>
         </Hds::Card::Container>
 
-        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+        <Hds::Card::Container @level={{@model.HdsCardLevelValues.Mid}} @hasBorder={{true}} {{style padding="24px"}}>
           <Hds::Text::Display @tag="h2" @size="300">Card #2</Hds::Text::Display>
         </Hds::Card::Container>
 
-        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+        <Hds::Card::Container @level={{@model.HdsCardLevelValues.Mid}} @hasBorder={{true}} {{style padding="24px"}}>
           <Hds::Text::Display @tag="h2" @size="300">Card #3</Hds::Text::Display>
         </Hds::Card::Container>
       </Hds::Layout::Grid>
@@ -468,7 +466,7 @@
       <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="24" as |LG|>
         <LG.Item @colspan={{2}}>
           <Hds::Card::Container
-            @level="mid"
+            @level={{@model.HdsCardLevelValues.Mid}}
             @hasBorder={{true}}
             {{style padding="24px"}}
             {{style background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)"}}
@@ -489,16 +487,16 @@
           </Hds::Card::Container>
         </LG.Item>
 
-        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+        <Hds::Card::Container @level={{@model.HdsCardLevelValues.Mid}} @hasBorder={{true}} {{style padding="24px"}}>
           <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
         </Hds::Card::Container>
 
-        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+        <Hds::Card::Container @level={{@model.HdsCardLevelValues.Mid}} @hasBorder={{true}} {{style padding="24px"}}>
           <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
         </Hds::Card::Container>
 
         <LG.Item @colspan={{2}}>
-          <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+          <Hds::Card::Container @level={{@model.HdsCardLevelValues.Mid}} @hasBorder={{true}} {{style padding="24px"}}>
             <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
               <Hds::Text::Display @tag="h2" @size="300">HCP Terraform Provider Resources</Hds::Text::Display>
               <Hds::Layout::Grid @columnMinWidth="50%" @gap="24" @tag="ul" class="shw-layouts-grid-plain-list">
