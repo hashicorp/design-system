@@ -132,7 +132,7 @@ Badges can be used in radio cards to display additional information and context.
 
 ## Legend
 
-The  legend is required to provide context for Radio Card's [fieldset](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset).
+The legend is required to provide context for Radio Card's [fieldset](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset).
 
 ![Default legend style](/assets/components/form/radio-card/radio-card-default-legend.png =600x*)
 
