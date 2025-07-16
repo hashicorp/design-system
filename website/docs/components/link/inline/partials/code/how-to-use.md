@@ -47,23 +47,23 @@ Inline Links use the generic `Hds::Interactive` component. Learn more about [how
 
 #### With `@href`
 
-To generate an `<a>` link, pass an `@href` argument with a URL as the value. 
+To generate an `<a>` link, pass an `@href` argument with a URL as the value.
 
-`target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument. 
+By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
 ```handlebars
 Lorem <Hds::Link::Inline @icon="external-link" @href="https://www.hashicorp.com">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.
 ```
 
-If the `@href` argument points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{true}}` to the component and it will omit the `target` and `rel` attributes.
+If the `@href` argument points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
-#### With `@route` 
+#### With `@route`
 
 All the standard arguments for the `<LinkTo/LinkToExternal>` components are supported (e.g., `models/model/query/current-when/replace`).
 
 ##### For `<LinkTo>`
 
-To generate an `<a>` link using a `<LinkTo>` Ember component, pass a `@route` argument. 
+To generate an `<a>` link using a `<LinkTo>` Ember component, pass a `@route` argument.
 
 ```handlebars
 Lorem <Hds::Link::Inline @route="my.page.route" @model="my.page.model">ipsum dolor</Hds::Link::Inline> sit amet consectetur adipiscing elit.

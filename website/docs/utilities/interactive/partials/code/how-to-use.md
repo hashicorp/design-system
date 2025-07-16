@@ -7,7 +7,7 @@ This component is intended only for internal Helios use. If you need to use it, 
 
 ### Default use for `<button>`
 
-When no `@href` or `@route` arguments are provided, it generates an HTML `<button>` element. 
+When no `@href` or `@route` arguments are provided, it generates an HTML `<button>` element.
 
 The `type=“button”` HTML attribute is applied to the element by default, but can be overwritten using the “splattributes”.
 
@@ -26,7 +26,7 @@ We can’t support direct use of the `href` HTML attribute because we rely on th
 
 Provide an `@href` argument to generate an HTML `<a>` link element.
 
-`target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument but can be overridden.
+By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
 ```handlebars{data-execute=false}
 <Hds::Interactive @href="https://google.com">
@@ -34,9 +34,10 @@ Provide an `@href` argument to generate an HTML `<a>` link element.
 </Hds::Interactive>
 ```
 
+
 #### Adding `@isHrefExternal={{false}}`
 
-Provide an `@isHrefExternal` argument to generate an HTML `<a>` link element **without** the HTML `target` and `rel` attributes.
+If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
 ```handlebars{data-execute=false}
 <Hds::Interactive @href="#your-local-anchor-id" @isHrefExternal={{false}}>
