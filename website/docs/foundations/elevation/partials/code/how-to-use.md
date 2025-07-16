@@ -2,7 +2,9 @@
 
 You can apply an `elevation` or `surface` effect to an element via **design tokens** or **CSS helper classes**.
 
-!!! Info
+!!! Warning
+
+**Consumer responsibility**
 
 Note that `border-radius` is not included with this token and needs to be set according to the specs of the UI element.
 !!!

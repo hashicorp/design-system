@@ -222,10 +222,11 @@ Size only pertains to the Figma component and accounts for smaller viewports by 
 
 ### Responsiveness
 
-!!! Info
+!!! Warning 
+
+**Consumer responsibility**
 
 Additional responsive characteristics are the responsibility of the consumer and dependent on the layout and spacing methods defined at the application level.
-
 !!!
 
 The Page Header component in Figma supports two sizes; `large` which accounts for the majority of desktop sizes and large tablets, and `small` which accounts for smaller tablet and mobile devices. The core difference between each variant is the vertical stacking of elements.

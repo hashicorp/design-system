@@ -1,7 +1,8 @@
 !!! Warning
 
-The PowerSelect style overrides are deprecated and will be removed in a future major release. We recommend migrating PowerSelect instances to [SuperSelect](/components/form/super-select).
+**Deprecation notice**
 
+The PowerSelect style overrides are deprecated and will be removed in a future major release. We recommend migrating PowerSelect instances to [SuperSelect](/components/form/super-select).
 !!!
 
 [PowerSelect](https://ember-power-select.com) is a popular Ember add-on aiming to overcome some limitations of the `<select>` tag. We only provide style overrides for this add-on to keep it in line with other form components.

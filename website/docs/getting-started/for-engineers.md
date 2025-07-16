@@ -69,12 +69,11 @@ app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashic
 
 !!! Warning
 
-##### Ensure a box-sizing reset is present
+**Consumer responsibility**
 
 Our component library assumes that a box-sizing reset is applied globally in your application. To ensure components render properly, include the following reset:
 
 `*, *::before, *::after { box-sizing: border-box; }`
-
 !!!
 
 ## Icons

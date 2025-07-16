@@ -228,10 +228,9 @@ There may be special use cases in which the standard text or icon-based toggle d
 
 !!! Warning
 
-**Important**
+**Consumer responsibility**
 
 When used in this way, it's up to the consumer to make sure the implementation is compliant with the [accessibility requirements](/components/rich-tooltip?tab=accessibility).
-
 !!!
 
 ### Advanced options

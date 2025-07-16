@@ -368,7 +368,9 @@ For single selection within a form or larger filter pattern use `ListItem::Radio
 
 ### ListItem::Generic
 
-!!! Info
+!!! Warning
+
+**Consumer responsibility**
 
 When using the “generic” ListItem, the product team is responsible for implementing the layout and accessibility.
 !!!

@@ -186,6 +186,8 @@ The Base and Field components are intended for rare cases where the Group compon
 
 !!! Warning
 
+**Consumer responsibility**
+
 `Form::Checkbox::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
 !!!
 

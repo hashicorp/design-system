@@ -3,7 +3,9 @@
 
 We recommend applying the “focus-ring” style to an element using the **design token** provided as a custom CSS property.
 
-!!! Info 
+!!! Warning 
+
+**Consumer responsibility**
 
 Note that `border-radius` is not included with this token and needs to be set according to the specs of the UI element. Consider using `inherit`.
 !!!
