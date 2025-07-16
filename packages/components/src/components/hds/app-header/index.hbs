@@ -32,11 +32,11 @@
 
   <div class="hds-app-header__actions" id={{this._menuContentId}}>
     <div class="hds-app-header__global-actions">
-      {{yield to="globalActions"}}
+      {{yield (hash close=this.close) to="globalActions"}}
     </div>
 
     <div class="hds-app-header__utility-actions">
-      {{yield to="utilityActions"}}
+      {{yield (hash close=this.close) to="utilityActions"}}
     </div>
   </div>
 </div>
