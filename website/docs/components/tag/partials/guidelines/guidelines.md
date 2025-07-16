@@ -19,6 +19,12 @@ The Tag component can be used in several different layouts, but we commonly see 
 ![Skeleton of an app with tags in a group where they fill the container and wrap onto 4 rows.](/assets/components/tag/tag-layout-group.png =818x*)
 <Doc::ImageCaption @text="Tag layout as a group"/>
 
+## Spacing
+
+As a best practice, use a vertical spacing of 12px and horizontal spacing of 8px between Tags.
+
+![Spacing between tags](/assets/components/tag/tag-spacing.png =304x*)
+
 ## Leading vs. trailing icon
 
 !!! Do
