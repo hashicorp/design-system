@@ -272,7 +272,7 @@ To visually indicate that the link points to an external resource, you can use `
 </ul>
 ```
 
-If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
+If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" or "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
 #### Rendering a LinkTo (with `@route`)
 
