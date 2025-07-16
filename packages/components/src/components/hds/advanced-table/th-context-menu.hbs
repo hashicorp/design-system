@@ -17,7 +17,7 @@
       <D.Interactive
         @icon={{option.icon}}
         data-test-context-option-key={{option.key}}
-        {{on "click" (fn option.action @column @previousColumn @nextColumn D.close)}}
+        {{on "click" (fn option.action D.close)}}
       >
         {{option.label}}
       </D.Interactive>
