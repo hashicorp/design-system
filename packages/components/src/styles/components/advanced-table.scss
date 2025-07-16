@@ -103,6 +103,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       border: 1px solid $hds-advanced-table-border-color;
       border-radius: var(--token-border-radius-small);
       transform: translateX(-50%) translateY(50%);
+      visibility: hidden;
+      opacity: 0;
 
       .hds-icon {
         width: 12px;
@@ -147,6 +149,18 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
         );
         z-index: 1;
         isolation: isolate;
+      }
+
+      &:hover,
+      &.mock-hover {
+        .hds-advanced-table__th-reorder-handle {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+      &.hds-advanced-table__th--is-being-dragged .hds-advanced-table__th-reorder-handle {
+        opacity: 0;
       }
     }
 

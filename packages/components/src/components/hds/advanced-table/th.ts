@@ -152,6 +152,10 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
+    if (this.args.column?.isBeingDragged) {
+      classes.push('hds-advanced-table__th--is-being-dragged');
+    }
+
     return classes.join(' ');
   }
 
