@@ -4,10 +4,7 @@ The Breadcrumb is an application-level UI element, so it’s likely to be implem
 
 ### Basic use
 
-!!! Info
-
 A few parameters were omitted for clarity.
-!!!
 
 ```handlebars
 <Hds::Breadcrumb>

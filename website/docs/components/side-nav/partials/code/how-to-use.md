@@ -10,14 +10,10 @@ It also provides generic guidance on how to use the **layout-only `Hds::SideNav:
 
 Given the complexity and level of customization that an application's navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, [contact the Design Systems Team](/about/support) for support.
 
-!!! Insight
-
 The Side Nav component is intended to be used in combination with the [`Hds::AppFrame`](/layouts/app-frame) component:
 
 - AppFrame takes care of providing a top-level layout for the application's page, but is agnostic of what the actual content is and what dimensions it has.
 - Side Nav takes care of providing the visual elements used to build a top-level navigation for the application, but is agnostic of where it's used (even though it has intrinsic sizing).
-
-!!!
 
 ## Full-featured component
 
@@ -173,11 +169,7 @@ Standard HDS [`Button`](/components/button) and [`Dropdown`](/components/dropdow
 
 You can also add custom elements to the `<:actions>` block, if these don't cover your specific needs. If you add custom elements, you will have to take care of their styling so that they blend in with the rest of the Side Nav elements.
 
-!!! Info
-
 The "actions" block is automatically faded in/out whenever the Side Nav transition between minimized/maximized states (see [Responsiveness](#responsiveness) below for details).
-
-!!!
 
 #### Body (`<:body>`)
 

@@ -36,11 +36,7 @@ The default size is 16px. To use the alternative 24px icon size, set the `@size`
 
 ### Color
 
-!!! Warning
-
 We don’t validate the CSS color string to ensure that the value used is correct.
-
-!!!
 
 The default value is `currentColor` which uses the inherited text color as the icon color. When setting a custom value, we recommend using one of the pre-defined **foreground** color variables to ensure consistency with our design language:
 
@@ -102,13 +98,7 @@ For example, to visually center an icon with a generic text node, you will need 
 
 ### Animated icons
 
-!!! Information
-
-**Note on accessibility**
-
 A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
-
-!!!
 
 The [loading](/icons/library?searchQuery=icon%3Aloading) and [running](/icons/library?searchQuery=icon%3Arunning) icons are animated by default, meaning no additional properties are needed:
 

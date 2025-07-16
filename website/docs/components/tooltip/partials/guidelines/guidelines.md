@@ -38,10 +38,7 @@ The tooltip supports additional placement options: `top-start`, `top-end`, `bott
 
 ## Offset
 
-!!! Info
-
- In some cases, adding an offset may be necessary to adjust the position of the tooltip. Changing the default offset should be done sparingly and only when it’s necessary to make sure that the tooltip does not obscure or cover the trigger or other important information.
-!!!
+In some cases, adding an offset may be necessary to adjust the position of the tooltip. Changing the default offset should be done sparingly and only when it’s necessary to make sure that the tooltip does not obscure or cover the trigger or other important information.
 
 The default and recommended distance between the trigger and the tooltip’s pointer is 4px.
 

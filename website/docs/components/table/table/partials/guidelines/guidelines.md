@@ -175,10 +175,7 @@ For more information on the types of approaches used to implement horizontal scr
 
 ## Multi-select
 
-!!! Info
-
 For more details around using a multi-select Table, recommended patterns, and intended interactions visit the [Multi-select patterns](/patterns/table-multi-select) documentation.
-!!!
 
 A multi-select table includes checkboxes enabling users to select multiple rows in a table to perform bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
 
