@@ -6,10 +6,7 @@ The Radio component has three different variants with their own APIs:
 - `Form::Radio::Field` - the field component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container)
 - `Form::Radio::Base` - the base component: the `<input>` control
 
-!!! Info
-
 Since `radio` controls are always used in a list of options, it’s likely you’ll use `Form::Radio::Group` by default. Reserve `Form::Radio::Base` and `Form::Radio::Field` for custom layouts.
-!!!
 
 ### Form::Radio::Group
 

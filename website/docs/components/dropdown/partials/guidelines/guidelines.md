@@ -26,10 +26,7 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
 
 ToggleIcons come in two sizes: **small** and **medium**.
 
-!!! Info
-
 While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table/table) because the icons and images can become unrecognizable in smaller sizes.
-!!!
 
 ![Example of the two toggle button sizes](/assets/components/dropdown/dropdown-toggle-icon-sizes.png)
 

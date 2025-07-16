@@ -107,16 +107,10 @@ You can insert your own content into the `:body` block and the component will ta
 </Hds::Table>
 ```
 
-!!! Info
-
-**Important**
-
 For clarity, there are a couple of important points to note here:
 
 - provide a `@columns` argument (see [Component API](#component-api) for details about its shape)
 - use the `.data` key to access the `@model` record content (it’s yielded as `data`)
-
-!!!
 
 ### Sortable table
 

@@ -144,11 +144,7 @@ Setting the `@enableCollisionDetection` argument to `true` will automatically ad
 
 You can explicitly control the height or width of a list. Any acceptable value (px, rem, em) can be declared.
 
-!!! Info
-
 The `@height` argument actually sets a `max-height` which prevents the list from growing past a certain height.
-
-!!!
 
 ```handlebars
 <Hds::Dropdown @height="170px" @width="250px" as |D|>
@@ -245,12 +241,7 @@ You can pass an `@icon` argument to add a leading icon:
 
 #### Rendering a link with `@href`
 
-!!! Info
-
-**Internal Link?**
-
 When using the `@href` argument, you’re indicating an external link (instead of a route). So, a few relevant HTML attributes are added—`target="_blank"` and `rel="noopener noreferrer"`. However, if the `@href` really _does_ point to an internal link or uses a different protocol (e.g., `mailto` or `ftp`), pass `@isHrefExternal={{false}}` to the component and it will not add any extra HTML attributes.
-!!!
 
 If you pass an `@href` argument, a link (`<a>` element) will be generated:
 

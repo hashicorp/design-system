@@ -106,10 +106,7 @@ The toggle accepts many different types of content, from text-based content to n
 
 ### Interactive 
 
-!!! Warning
-
 Use this variant only when you need to put interactive elements such as a button or a link within the toggle area. Avoid placing complex elements that may compromise the usability and accessibility of the component.
-!!!
 
 Use `containsInteractive` when nesting interactive content in the toggle. This lets users using assistive technology, access and interact with the nested element.
 
