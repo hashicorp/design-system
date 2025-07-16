@@ -694,6 +694,83 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         .dom('[data-test-context-option-key="move-column-to-end"]')
         .doesNotExist();
     });
+
+    test('clicking the "Move column" context menu option focuses the reorder handle', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th');
+
+      const firstContextMenuToggle = thElements[0].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(firstContextMenuToggle);
+      await click('[data-test-context-option-key="reorder-column"]');
+
+      const firstReorderHandle = thElements[0].querySelector(
+        '.hds-advanced-table__th-reorder-handle',
+      );
+
+      assert.dom(firstReorderHandle).isFocused();
+    });
+
+    test('clicking the "Move column to start" context menu option moves the column to the start', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th');
+
+      const secondContextMenuToggle = thElements[1].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(secondContextMenuToggle);
+      await click('[data-test-context-option-key="move-column-to-start"]');
+
+      const columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[1].key, this.columns[0].key, this.columns[2].key],
+        'The second column is moved to the start',
+      );
+    });
+
+    test('clicking the "Move column to end" context menu option moves the column to the end', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th');
+
+      const secondContextMenuToggle = thElements[1].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(secondContextMenuToggle);
+      await click('[data-test-context-option-key="move-column-to-end"]');
+
+      const columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[0].key, this.columns[2].key, this.columns[1].key],
+        'The second column is moved to the end',
+      );
+    });
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
