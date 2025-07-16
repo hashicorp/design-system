@@ -80,4 +80,15 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
       onReorderDragEnd();
     }
   }
+
+  @action
+  handleKeydown(event: KeyboardEvent): void {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
+      return;
+    }
+
+    const { column } = this.args;
+
+    column.table.stepColumn(column, event.key === 'ArrowLeft' ? -1 : 1);
+  }
 }

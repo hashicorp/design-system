@@ -6,6 +6,7 @@
   aria-label="Reorder {{@column.label}} column"
   {{on "dragstart" this.handleDragStart}}
   {{on "dragend" this.handleDragEnd}}
+  {{on "keydown" this.handleKeydown}}
   ...attributes
 >
   <Hds::Icon @name="move-horizontal" />
