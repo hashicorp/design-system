@@ -103,6 +103,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       border: 1px solid $hds-advanced-table-border-color;
       border-radius: var(--token-border-radius-small);
       transform: translateX(-50%) translateY(50%);
+      visibility: hidden;
+      opacity: 0;
 
       .hds-icon {
         width: 12px;
@@ -150,8 +152,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       }
 
       &:hover,
-      &.mock-hover,
-      &:focus-within {
+      &.mock-hover {
         .hds-advanced-table__th-reorder-handle {
           visibility: visible;
           opacity: 1;
@@ -161,63 +162,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       &.hds-advanced-table__th--is-being-dragged .hds-advanced-table__th-reorder-handle {
         opacity: 0;
       }
-    }
-
-    .hds-advanced-table__th-reorder-drop-target {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1;
-    }
-
-    // is being dragged
-    .hds-advanced-table__th-reorder-drop-target--is-being-dragged {
-      background-color: var(--token-color-surface-primary);
-      opacity: 0.5;
-    }
-
-    // is dragging over
-    .hds-advanced-table__th-reorder-drop-target--is-dragging-over {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1;
-
-      &::after {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background-color: var(--token-color-palette-blue-300);
-        content: "";
-        pointer-events: none;
-      }
-    }
-
-    // dragging over left
-    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left::after {
-      left: 0;
-      transform: translateX(-3px);
-    }
-
-    // dragging over left and is first
-    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left.hds-advanced-table__th-reorder-drop-target--is-first::after {
-      border-radius: $hds-advanced-table-inner-border-radius 0 0 $hds-advanced-table-inner-border-radius;
-      transform: translateX(0);
-    }
-
-    // dragging over right
-    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right::after {
-      right: 0;
-      transform: translateX(3px);
-    }
-
-    // dragging over right and is last
-    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right.hds-advanced-table__th-reorder-drop-target--is-last::after {
-      border-radius: 0 $hds-advanced-table-inner-border-radius $hds-advanced-table-inner-border-radius 0;
-      transform: translateX(0);
     }
 
     .hds-advanced-table__th-reorder-drop-target {
