@@ -640,6 +640,60 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         'Columns order is unchanged after drop on the nearest side',
       );
     });
+
+    test('it should show the context menu with the correct options when reordering is enabled', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th'); // find all header cells
+
+      assert.ok(
+        thElements[0].querySelector('.hds-advanced-table__th-context-menu'),
+        'context menu exists',
+      );
+
+      const firstContextMenuToggle = thElements[0].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(firstContextMenuToggle);
+      assert.dom('[data-test-context-option-key="reorder-column"]').exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-start"]')
+        .doesNotExist();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-end"]')
+        .exists();
+
+      const secondContextMenuToggle = thElements[1].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(secondContextMenuToggle);
+      assert.dom('[data-test-context-option-key="reorder-column"]').exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-start"]')
+        .exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-end"]')
+        .exists();
+
+      const lastContextMenuToggle = thElements[
+        thElements.length - 1
+      ].querySelector('.hds-dropdown-toggle-icon');
+      await click(lastContextMenuToggle);
+      assert.dom('[data-test-context-option-key="reorder-column"]').exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-start"]')
+        .exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-end"]')
+        .doesNotExist();
+    });
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
