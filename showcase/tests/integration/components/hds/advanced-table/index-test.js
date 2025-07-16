@@ -771,6 +771,51 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         'The second column is moved to the end',
       );
     });
+
+    test('pressing "Left Arrow" and "Right Arrow" keys when the reorder handle is focused moves the column', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th');
+      const firstReorderHandle = thElements[0].querySelector(
+        '.hds-advanced-table__th-reorder-handle',
+      );
+      await focus(firstReorderHandle);
+      assert.dom(firstReorderHandle).isFocused();
+
+      await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
+      let columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[1].key, this.columns[0].key, this.columns[2].key],
+        'The first column is moved to the right',
+      );
+      assert.dom(firstReorderHandle).isFocused();
+
+      await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[1].key, this.columns[2].key, this.columns[0].key],
+        'The second column is moved to the right',
+      );
+      assert.dom(firstReorderHandle).isFocused();
+
+      await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowLeft');
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[1].key, this.columns[0].key, this.columns[2].key],
+        'The third column is moved back to the left',
+      );
+      assert.dom(firstReorderHandle).isFocused();
+    });
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
