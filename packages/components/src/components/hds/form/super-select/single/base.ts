@@ -46,7 +46,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     return horizontalPosition as HdsFormSuperSelectHorizontalPositions;
   }
 
-  get resultCountMessage(): string {
+  get resultCountMessageText(): string {
     if (typeof this.args.resultCountMessage === 'string') {
       return this.args.resultCountMessage;
     }

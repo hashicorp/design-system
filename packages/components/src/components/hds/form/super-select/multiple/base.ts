@@ -57,7 +57,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     return this._powerSelectAPI?.resultsCount.toString() || '0';
   }
 
-  get resultCountMessage(): string {
+  get resultCountMessageText(): string {
     if (typeof this.args.resultCountMessage === 'string') {
       return this.args.resultCountMessage;
     }
