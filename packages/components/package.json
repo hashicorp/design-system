@@ -46,7 +46,6 @@
     "@codemirror/state": "^6.5.0",
     "@codemirror/view": "^6.36.2",
     "@ember/render-modifiers": "^2.1.0",
-    "@ember/string": "^3.1.1",
     "@ember/test-waiters": "^3.1.0",
     "@embroider/addon-shim": "^1.10.0",
     "@embroider/macros": "^1.18.0",
@@ -81,6 +80,7 @@
     "@babel/eslint-parser": "^7.27.1",
     "@babel/plugin-transform-typescript": "^7.27.1",
     "@babel/runtime": "^7.27.1",
+    "@ember/string": "^4.0.0",
     "@ember/test-helpers": "^4.0.4",
     "@embroider/addon-dev": "^7.1.4",
     "@eslint/js": "^9.23.0",
@@ -120,6 +120,7 @@
     "webpack": "^5.97.1"
   },
   "peerDependencies": {
+    "@ember/string": ">= 3.1.1",
     "ember-engines": ">= 0.11.0"
   },
   "peerDependenciesMeta": {
