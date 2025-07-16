@@ -4,6 +4,7 @@
   class={{this.classNames}}
   tabindex="0"
   aria-label="Reorder {{@column.label}} column"
+  {{this._registerElement}}
   {{on "dragstart" this.handleDragStart}}
   {{on "dragend" this.handleDragEnd}}
   {{on "keydown" this.handleKeydown}}

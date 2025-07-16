@@ -4,9 +4,11 @@
  */
 
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
+import { scheduleOnce } from '@ember/runloop';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
-import { action } from '@ember/object';
 
 export interface HdsAdvancedTableThReorderHandleSignature {
   Args: {
@@ -39,10 +41,18 @@ function constructDragPreview(width: number, height?: number): HTMLDivElement {
 }
 
 export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvancedTableThReorderHandleSignature> {
+  private _registerElement = modifier((element: HTMLDivElement) => {
+    this.args.column.reorderHandleElement = element;
+  });
+
   get classNames(): string {
     const classes = ['hds-advanced-table__th-reorder-handle'];
 
     return classes.join(' ');
+  }
+
+  private _focusReorderHandle(): void {
+    this.args.column.reorderHandleElement?.focus();
   }
 
   @action
@@ -90,5 +100,9 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
     const { column } = this.args;
 
     column.table.stepColumn(column, event.key === 'ArrowLeft' ? -1 : 1);
+
+    // we need to wait for the next run loop to ensure that the element has been registered with the column after moving
+    // eslint-disable-next-line ember/no-runloop
+    scheduleOnce('afterRender', this, this._focusReorderHandle.bind(this));
   }
 }
