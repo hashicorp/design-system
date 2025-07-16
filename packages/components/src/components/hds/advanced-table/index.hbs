@@ -93,7 +93,7 @@
               @onColumnResize={{@onColumnResize}}
               @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
               @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
-              @onReorderDrop={{this._tableModel.reorderColumn}}
+              @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
               {{this._setColumnWidth column}}
             >
               {{column.label}}

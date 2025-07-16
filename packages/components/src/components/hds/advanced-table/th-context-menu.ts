@@ -13,19 +13,12 @@ import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts'
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
-
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
   label?: string;
   icon?: HdsDropdownToggleIconSignature['Args']['icon'];
-  action?: (
-    column: HdsAdvancedTableColumn,
-    previousColumn?: HdsAdvancedTableColumn,
-    nextColumn?: HdsAdvancedTableColumn,
-    dropdownCloseCallback?: () => void
-  ) => void;
+  action?: (dropdownCloseCallback?: () => void) => void;
 }
-
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
@@ -33,10 +26,6 @@ export interface HdsAdvancedTableThContextMenuSignature {
     hasReorderableColumns?: boolean;
     reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
-    onMoveColumnToPosition?: (
-      column: HdsAdvancedTableColumn,
-      position: 'start' | 'end'
-    ) => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onPinFirstColumn?: () => void;
   };
@@ -49,13 +38,12 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   @tracked private _element!: HdsDropdownSignature['Element'];
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { hasReorderableColumns, hasResizableColumns } = this.args;
+    const { column, hasReorderableColumns, hasResizableColumns } = this.args;
 
-    let optionsGroups: HdsAdvancedTableThContextMenuOption[][] = [];
-
+    let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
     if (hasResizableColumns) {
-      optionsGroups = [
-        ...optionsGroups,
+      allGroups = [
+        ...allGroups,
         [
           {
             key: 'resize-column',
@@ -72,119 +60,41 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
         ],
       ];
     }
-
     if (hasReorderableColumns) {
-      optionsGroups = [
-        ...optionsGroups,
-        [
-          {
-            key: 'reorder-column',
-            label: 'Move column',
-            icon: 'move-horizontal',
-            action: this.moveColumn.bind(this),
-          },
+      let reorderableGroup: HdsAdvancedTableThContextMenuOption[] = [
+        {
+          key: 'reorder-column',
+          label: 'Move column',
+          icon: 'move-horizontal',
+          action: this.moveColumn.bind(this),
+        },
+      ];
+
+      if (!column.isFirst) {
+        reorderableGroup = [
+          ...reorderableGroup,
           {
             key: 'move-column-to-start',
             label: 'Move column to start',
             icon: 'start',
-            action: this.moveColumnToStart.bind(this),
+            action: (close) => this.moveColumnToPosition('start', close),
           },
+        ];
+      }
+
+      if (!column.isLast) {
+        reorderableGroup = [
+          ...reorderableGroup,
           {
-            key: 'reorder-column',
+            key: 'move-column-to-end',
             label: 'Move column to end',
             icon: 'end',
-            action: this.moveColumnToEnd.bind(this),
+            action: (close) => this.moveColumnToPosition('end', close),
           },
-        ],
-      ];
-    }
-
-    // add a seperator between each group
-    optionsGroups = optionsGroups.map((group, index) => {
-      if (index > 0) {
-        return [{ key: 'separator' }, ...group];
+        ];
       }
-      return group;
-    });
 
-    return optionsGroups.flat();
-  }
-
-  @action
-  moveColumn() {
-    console.log(this.args.reorderHandleElement);
-    this.args.reorderHandleElement?.focus();
-  }
-
-  @action
-  moveColumnToStart(
-    _column: HdsAdvancedTableColumn,
-    _previousColumn?: HdsAdvancedTableColumn,
-    _nextColumn?: HdsAdvancedTableColumn,
-    dropdownCloseCallback?: () => void
-  ) {
-    console.log('Move column to start action triggered');
-    dropdownCloseCallback?.();
-  }
-
-  @action
-  moveColumnToEnd(
-    _column: HdsAdvancedTableColumn,
-    _previousColumn?: HdsAdvancedTableColumn,
-    _nextColumn?: HdsAdvancedTableColumn,
-    dropdownCloseCallback?: () => void
-  ) {
-    console.log('Move column to end action triggered');
-    dropdownCloseCallback?.();
-  }
-
-  get _stickyColumnOptions(): HdsAdvancedTableThContextMenuOption[] {
-    const { isStickyColumn } = this.args;
-
-    const translatedPinLabel = this.hdsIntl.t(
-      'hds.advanced-table.th-context-menu.pin',
-      { default: 'Pin column' }
-    );
-    const translatedUnpinLabel = this.hdsIntl.t(
-      'hds.advanced-table.th-context-menu.unpin',
-      { default: 'Unpin column' }
-    );
-
-    return [
-      {
-        key: 'pin-first-column',
-        label: isStickyColumn ? translatedUnpinLabel : translatedPinLabel,
-        icon: isStickyColumn ? 'pin-off' : 'pin',
-        action: this._pinFirstColumn.bind(this),
-      },
-    ];
-  }
-
-  get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const {
-      column,
-      hasReorderableColumns,
-      hasResizableColumns,
-      isStickyColumn,
-    } = this.args;
-
-    let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
-
-    if (hasResizableColumns) {
-      allGroups = [...allGroups, this._resizeOptions];
-    }
-
-    if (hasReorderableColumns && isStickyColumn === undefined) {
-      allGroups = [...allGroups, this._reorderOptions];
-    }
-
-    // we don't allow pinning/unpinning of the sticky column if columns are reorderable
-    if (
-      isStickyColumn !== undefined &&
-      column.isFirst &&
-      !hasReorderableColumns
-    ) {
-      allGroups = [...allGroups, this._stickyColumnOptions];
+      allGroups = [...allGroups, reorderableGroup];
     }
 
     return allGroups.reduce<HdsAdvancedTableThContextMenuOption[]>(
@@ -199,18 +109,31 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     );
   }
 
-  private _registerDropdownToggleElement = modifier(
-    (element: HdsDropdownToggleButtonSignature['Element']) => {
-      this.args.column.thContextMenuToggleElement = element;
-    }
-  );
+  @action
+  private moveColumn() {
+    this.args.reorderHandleElement?.focus();
+  }
 
-  private _resizeColumn() {
+  @action
+  private resizeColumn() {
     this.args.resizeHandleElement?.focus();
   }
 
-  private _resetColumnWidth(dropdownCloseCallback: () => void): void {
-    const { column, onColumnResize } = this.args;
+  @action
+  private moveColumnToPosition(
+    position: 'start' | 'end',
+    dropdownCloseCallback?: () => void
+  ): void {
+    const { column } = this.args;
+
+    column.table.moveColumnToTerminalPosition(column, position);
+
+    dropdownCloseCallback?.();
+  }
+
+  @action
+  private resetColumnWidth(dropdownCloseCallback?: () => void): void {
+    const { onColumnResize, column, previousColumn, nextColumn } = this.args;
 
     column.restoreWidth();
 

@@ -21,6 +21,14 @@ import type {
   HdsAdvancedTableSortingFunction,
 } from '../types';
 
+enum HdsAdvancedTableColumnReorderSideValues {
+  Left = 'left',
+  Right = 'right',
+}
+
+type HdsAdvancedTableColumnReorderSide =
+  `${HdsAdvancedTableColumnReorderSideValues}`;
+
 type HdsAdvancedTableTableArgs = Pick<
   HdsAdvancedTableSignature['Args'],
   | 'model'
@@ -304,13 +312,41 @@ export default class HdsAdvancedTableTableModel {
   }
 
   @action
-  reorderColumn(targetColumn: HdsAdvancedTableColumn, side: 'left' | 'right') {
-    const sourceColumn = this.reorderDraggedColumn;
+  moveColumnToTerminalPosition(
+    column: HdsAdvancedTableColumn,
+    position: 'start' | 'end'
+  ): void {
+    const {
+      targetColumn,
+      side,
+    }: {
+      targetColumn?: HdsAdvancedTableColumn;
+      side: HdsAdvancedTableColumnReorderSide;
+    } =
+      position === 'start'
+        ? {
+            targetColumn: this.orderedColumns[0],
+            side: HdsAdvancedTableColumnReorderSideValues.Left,
+          }
+        : {
+            targetColumn: this.orderedColumns[this.orderedColumns.length - 1],
+            side: HdsAdvancedTableColumnReorderSideValues.Right,
+          };
 
-    if (sourceColumn == null || sourceColumn === targetColumn) {
+    if (targetColumn === undefined) {
       return;
     }
 
+    // Move the column to the target position
+    this.moveColumnToTarget(column, targetColumn, side);
+  }
+
+  @action
+  moveColumnToTarget(
+    sourceColumn: HdsAdvancedTableColumn,
+    targetColumn: HdsAdvancedTableColumn,
+    side: HdsAdvancedTableColumnReorderSide
+  ): void {
     const oldIndex = this.orderedColumns.indexOf(sourceColumn);
     const newIndex = this.orderedColumns.indexOf(targetColumn);
 
@@ -324,7 +360,7 @@ export default class HdsAdvancedTableTableModel {
       // If dropping to the left of the target, insert before the target
       // Adjust for the shift in indices caused by removing the source column
       const adjustedIndex =
-        side === 'right'
+        side === HdsAdvancedTableColumnReorderSideValues.Right
           ? newIndex > oldIndex
             ? newIndex
             : newIndex + 1
@@ -344,5 +380,19 @@ export default class HdsAdvancedTableTableModel {
 
       this.onColumnReorder?.(updated);
     }
+  }
+
+  @action
+  moveColumnToDropTarget(
+    targetColumn: HdsAdvancedTableColumn,
+    side: HdsAdvancedTableColumnReorderSide
+  ) {
+    const sourceColumn = this.reorderDraggedColumn;
+
+    if (sourceColumn == null || sourceColumn === targetColumn) {
+      return;
+    }
+
+    this.moveColumnToTarget(sourceColumn, targetColumn, side);
   }
 }
