@@ -46,6 +46,9 @@ export default class HdsAdvancedTableColumn {
   @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
 
   @tracked isBeingDragged: boolean = false;
+  @tracked
+  reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'] =
+    undefined;
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
   // elements
