@@ -91,30 +91,37 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
     .hds-advanced-table__th-reorder-handle {
       position: absolute;
-      top: -1px;
+      bottom: 0;
       left: 50%;
       z-index: 2;
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
       width: 24px;
       height: 16px;
       background-color: var(--token-color-surface-primary);
       border: 1px solid $hds-advanced-table-border-color;
-      border-radius: 0 0 var(--token-border-radius-small) var(--token-border-radius-small);
-      transform: translateX(-50%);
+      border-radius: var(--token-border-radius-small);
+      transform: translateX(-50%) translateY(50%);
 
       .hds-icon {
         width: 12px;
         height: 12px;
       }
 
-      &:hover {
+      &:hover,
+      &.mock-hover {
         cursor: grab;
       }
 
-      &:active {
+      &:active,
+      &.mock-active {
         cursor: grabbing;
+      }
+
+      &:focus,
+      &.mock-focus {
+        @include hds-focus-ring-with-pseudo-element($position: absolute);
       }
     }
 
@@ -126,13 +133,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       color: var(--token-color-foreground-strong);
       text-align: left;
       background-color: var(--token-color-surface-strong);
-
-      &:hover .hds-advanced-table__th-reorder-handle,
-      &.mock-hover .hds-advanced-table__th-reorder-handle,
-      .hds-advanced-table__th-reorder-handle:focus,
-      .hds-advanced-table__th-reorder-handle.mock-focus {
-        display: flex;
-      }
 
       &:focus,
       &.mock-focus {
