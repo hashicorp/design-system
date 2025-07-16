@@ -6,7 +6,7 @@
 import Route from '@ember/routing/route';
 
 import {
-  AVAILABLE_SIZES as DISPLAY_AVAILABLE_SIZES,
+  SIZES as DISPLAY_AVAILABLE_SIZES,
   AVAILABLE_WEIGHTS_PER_SIZE as DISPLAY_AVAILABLE_WEIGHTS_PER_SIZE,
 } from '@hashicorp/design-system-components/components/hds/text/display';
 import {

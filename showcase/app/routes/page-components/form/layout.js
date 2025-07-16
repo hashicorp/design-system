@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-import { AVAILABLE_SIZES as DISPLAY_AVAILABLE_SIZES } from '@hashicorp/design-system-components/components/hds/text/display';
+import { SIZES as DISPLAY_AVAILABLE_SIZES } from '@hashicorp/design-system-components/components/hds/text/display';
 import { DEFAULT_SIZE as FORM_HEADER_TITLE_DEFAULT_SIZE } from '@hashicorp/design-system-components/components/hds/form/header/title';
 
 export default class PageComponentsFormRoute extends Route {
