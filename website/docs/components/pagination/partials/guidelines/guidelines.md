@@ -62,6 +62,22 @@ While not intended to be used as a solution for a responsive layout, truncation 
 
 Truncation can have a negative impact on the user experience if navigating to a specific page is required, or if seeing all of the pages at once benefits the user.
 
+## Spacing
+
+- When using the pagination bar, the container should be flush on the left & right with the content.
+- When using the pagination, the component should be center aligned with the content it relates to.
+- Make sure there’s enough distance and breathing room between the pagination and unrelated content (e.g. another section below it), so it’s clear what content the pagination is paired with.
+
+When pairing the pagination or pagination bar with your content, we recommend leaving 16px of margin between the pagination and the content it relates to.
+
+If your product uses a significantly higher or lower spacing scale, increase or decrease the spacing accordingly.
+
+![Pagination paired with a Table](/assets/components/pagination/pagination-spacing-tables.png)
+<Doc::ImageCaption @text="Pagination paired with a Table"/>
+
+![Pagination paired with other types of content](/assets/components/pagination/pagination-spacing-not-contained.png)
+<Doc::ImageCaption @text="Pagination paired with other types of content"/>
+
 ## Pagination and filtering
 
 While pagination can be beneficial for dividing up and displaying a large dataset into more manageable chunks, relying _solely_ on pagination and sorting to find a specific record or set of records results in a poor user experience. This is especially true in cursor-based pagination, where it may not be clear to the user where their relative position is within the dataset.
