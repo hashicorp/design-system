@@ -5,7 +5,12 @@
 
 import Route from '@ember/routing/route';
 
-export default class PageComponentsFormRadioRoute extends Route {
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFormSelectModel =
+  ModelFrom<PageComponentsFormSelectRoute>;
+
+export default class PageComponentsFormSelectRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'focus'];

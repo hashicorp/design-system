@@ -28,7 +28,8 @@ export default class PageFramelessDemoFormComplexController extends Controller {
   }
 
   @action
-  setCustomWidthMode(event) {
-    this.customWidthMode = event.target.value;
+  setCustomWidthMode(event: Event) {
+    const { value } = event.target as HTMLSelectElement;
+    this.customWidthMode = value;
   }
 }

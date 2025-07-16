@@ -15,6 +15,7 @@ import type RenderModifiersRegistry from '@ember/render-modifiers/template-regis
 import type ShowcaseTemplateRegistry from './template-registry';
 import type EmberComposableHelpersRegistry from '@nullvoxpopuli/ember-composable-helpers/template-registry';
 import type { HelperLike } from '@glint/template';
+import type BasicDropdownRegistry from 'ember-basic-dropdown/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
@@ -24,6 +25,7 @@ declare module '@glint/environment-ember-loose/registry' {
       PageTitle,
       RenderModifiersRegistry,
       ShowcaseTemplateRegistry,
+      BasicDropdownRegistry,
       EmberComposableHelpersRegistry {
     // TODO: `ember-cli-string-helpers` is deprecated and doesn't provide own types, we need to move to `@ember/string` [HDS-4973](https://hashicorp.atlassian.net/browse/HDS-4973)
     capitalize: HelperLike<{
