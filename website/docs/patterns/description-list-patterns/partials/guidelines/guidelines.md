@@ -84,11 +84,7 @@ Force list items into a single row, instead consider arranging items into unifor
 
 ### Horizontal
 
-!!! Info 
-
 Horizontal orientation should only be used with the standard styling of headings and values. Using two sizes in the horizontal orientation throws off the visual balance of the content in a description list.
-
-!!!
 
 #### Spacing
 
