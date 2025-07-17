@@ -104,7 +104,7 @@ There may be occasions when the standard gap between items in a description list
 
 In horizontal orientations, use your best judgment to adjust the gaps between list items for optimal UI hierarchy.
 
-#### Column width
+#### Width definition
 
 When the list item is oriented horizontally, content length will vary. If the heading and value’s content length is fairly similar, then the width of both the heading and value should be set to fill (50%) of the available space. This often happens when the description list is placed within a card.
 
