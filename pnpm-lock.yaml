@@ -590,8 +590,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       ember-cli-string-helpers:
-        specifier: ^6.1.0
-        version: 6.1.0
+        specifier: ^7.0.0
+        version: 7.0.0(@ember/string@4.0.1)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
       ember-cli-string-utils:
         specifier: ^1.1.0
         version: 1.1.0
@@ -869,8 +869,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       ember-cli-string-helpers:
-        specifier: ^6.1.0
-        version: 6.1.0
+        specifier: ^7.0.0
+        version: 7.0.0(@ember/string@4.0.1)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
       ember-cli-string-utils:
         specifier: ^1.1.0
         version: 1.1.0
@@ -6053,9 +6053,12 @@ packages:
     resolution: {integrity: sha512-YG/lojDxkur9Bnskt7xB6gUOtJ6aPl/+JyGYm9HNDk3GECVHB3SMN3rlGhDKHa1ndS5NK2W2TSLb9bzRbGlMdg==}
     engines: {node: '>= 0.10.0'}
 
-  ember-cli-string-helpers@6.1.0:
-    resolution: {integrity: sha512-Lw8B6MJx2n8CNF2TSIKs+hWLw0FqSYjr2/NRPyquyYA05qsl137WJSYW3ZqTsLgoinHat0DGF2qaCXocLhLmyA==}
-    engines: {node: 10.* || >=12.*}
+  ember-cli-string-helpers@7.0.0:
+    resolution: {integrity: sha512-zqcRR2/7GAkK1jQDQRQIGsNuqvb/y3KUYYHBMUEn8fzMnQki77tSxR3P/9iFcD5iXT4Gb2Sln9HGdFXEC6saow==}
+    engines: {node: '>= 20', pnpm: '>= 10'}
+    peerDependencies:
+      '@ember/string': '>= 3.1.1'
+      ember-source: '>= 3.28.0'
 
   ember-cli-string-utils@1.1.0:
     resolution: {integrity: sha512-PlJt4fUDyBrC/0X+4cOpaGCiMawaaB//qD85AXmDRikxhxVzfVdpuoec02HSiTGTTB85qCIzWBIh8lDOiMyyFg==}
@@ -18601,12 +18604,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-cli-string-helpers@6.1.0:
+  ember-cli-string-helpers@7.0.0(@ember/string@4.0.1)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)):
     dependencies:
       '@babel/core': 7.27.1
-      broccoli-funnel: 3.0.8
-      ember-cli-babel: 7.26.11
-      resolve: 1.22.10
+      '@ember/string': 4.0.1
+      ember-cli-babel: 8.2.0(@babel/core@7.27.1)
+      ember-cli-htmlbars: 6.3.0
+      ember-source: 6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)
     transitivePeerDependencies:
       - supports-color
 
