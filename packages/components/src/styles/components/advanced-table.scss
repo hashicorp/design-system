@@ -99,9 +99,11 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       justify-content: center;
       width: 24px;
       height: 16px;
-      background-color: var(--token-color-surface-primary);
-      border: 1px solid $hds-advanced-table-border-color;
+      color: var(--token-color-foreground-faint);
+      background-color: var(--token-color-surface-interactive);
+      border: 1px solid var(--token-color-border-primary);
       border-radius: var(--token-border-radius-small);
+      box-shadow: var(--token-elevation-low-box-shadow);
       transform: translateX(-50%) translateY(50%);
       visibility: hidden;
       opacity: 0;
@@ -113,17 +115,21 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
       &:hover,
       &.mock-hover {
+        background-color: var(--token-color-surface-interactive-hover);
         cursor: grab;
       }
 
       &:active,
       &.mock-active {
+        background-color: var(--token-color-surface-interactive-active);
         cursor: grabbing;
       }
 
       &:focus,
       &.mock-focus {
         @include hds-focus-ring-with-pseudo-element($position: absolute);
+
+        background-color: var(--token-color-surface-interactive);
       }
     }
 
