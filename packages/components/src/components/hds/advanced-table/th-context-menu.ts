@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { scheduleOnce } from '@ember/runloop';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
@@ -66,7 +67,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
           key: 'reorder-column',
           label: 'Move column',
           icon: 'move-horizontal',
-          action: this.moveColumn.bind(this),
+          action: () => this.moveColumn(),
         },
       ];
 
@@ -111,7 +112,12 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
   @action
   private moveColumn() {
-    this.args.reorderHandleElement?.focus();
+    // eslint-disable-next-line ember/no-runloop
+    scheduleOnce(
+      'afterRender',
+      this,
+      this.args.column.focusReorderHandle.bind(this)
+    );
   }
 
   @action

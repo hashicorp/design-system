@@ -51,10 +51,6 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
     return classes.join(' ');
   }
 
-  private _focusReorderHandle(): void {
-    this.args.column.reorderHandleElement?.focus();
-  }
-
   @action
   handleDragStart(event: DragEvent): void {
     const { column, columnWidth, tableHeight, onReorderDragStart } = this.args;
@@ -103,6 +99,10 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
 
     // we need to wait for the next run loop to ensure that the element has been registered with the column after moving
     // eslint-disable-next-line ember/no-runloop
-    scheduleOnce('afterRender', this, this._focusReorderHandle.bind(this));
+    scheduleOnce(
+      'afterRender',
+      this,
+      this.args.column.focusReorderHandle.bind(this)
+    );
   }
 }
