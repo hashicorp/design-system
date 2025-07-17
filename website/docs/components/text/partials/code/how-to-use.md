@@ -30,7 +30,7 @@ To specify which HTML tag to use to render the element, use the `@tag` argument:
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 While by default the component renders a `<span>`, we invite consumers to:
 

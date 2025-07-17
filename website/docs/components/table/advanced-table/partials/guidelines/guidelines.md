@@ -194,7 +194,7 @@ The Advanced Table supports any combination of expanded or collapsed rows on loa
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
 !!!

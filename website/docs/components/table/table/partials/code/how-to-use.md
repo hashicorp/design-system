@@ -607,7 +607,7 @@ This is a simple example of a table with multi-selection. Notice the `@selection
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 To make the table correctly accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the table’s `tbody`.
 !!!

@@ -140,7 +140,7 @@ When using striping in a Table, start with the second row to allow the Table Hea
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 Striped rows use a subtle background color to differentiate from non-striped rows. Ensure that nested components within striped rows continue to meet contrast accessibility criteria.
 !!!

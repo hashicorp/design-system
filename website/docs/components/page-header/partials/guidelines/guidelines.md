@@ -14,7 +14,7 @@
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 The Page Header renders the title as an `<h1>` element. Ensure this is the only `<h1>` on the page, as more than one `<h1>` can confuse screen readers and impact the semantic hierarchy of the page.
 !!!

@@ -152,7 +152,7 @@ When `@isInteractive` is set to `false`, the component steps do not allow naviga
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 Due to accessibility implications, `@isInteractive` must be set to `false` when using the component without panels.
 !!!

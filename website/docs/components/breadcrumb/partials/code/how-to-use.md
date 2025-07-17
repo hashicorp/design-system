@@ -71,7 +71,7 @@ By setting `@itemsCanWrap` to `false`, it is possible to constrain the text to o
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 The text will automatically truncate and be replaced with an ellipsis to fit within the container. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
 !!!

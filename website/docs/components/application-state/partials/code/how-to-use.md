@@ -175,7 +175,7 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 The default `@titleTag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@titleTag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
 !!!

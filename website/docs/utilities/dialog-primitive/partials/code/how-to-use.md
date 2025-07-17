@@ -49,7 +49,7 @@ The `@titleTag` argument changes the HTML element that wraps the `DialogPrimitiv
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 The default `@titleTag` value is `"div"` as the correct heading level (`h1–`h6) is dependent on the context in which it is used within a page. We strongly encourage consumers to set the appropriate `@titleTag` value to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
 !!!

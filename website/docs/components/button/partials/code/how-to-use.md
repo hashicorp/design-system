@@ -161,7 +161,7 @@ If the button needs to toggle between an "idle" and a "loading" state, we sugges
 
 !!! Warning
 
-**Accessibility pitfalls**
+**Accessibility alert**
 
 Links cannot use the `disabled` attribute (per HTML specification); even if you were to intercept the event, they are still subject to color-contrast conformance requirements.
 !!!
