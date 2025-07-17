@@ -44,6 +44,7 @@ export default class HdsAdvancedTableColumn {
   @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
 
   @tracked isBeingDragged: boolean = false;
+  @tracked thElement?: HTMLDivElement = undefined;
   @tracked
   reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'] =
     undefined;
@@ -155,6 +156,22 @@ export default class HdsAdvancedTableColumn {
 
     this.minWidth = minWidth ?? DEFAULT_MIN_WIDTH;
     this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
+  }
+
+  @action focusReorderHandle(): void {
+    if (this.thElement === undefined) {
+      return;
+    }
+
+    // focus the th element first (parent) to ensure the handle is visible
+    this.thElement.focus({ preventScroll: true });
+
+    if (this.reorderHandleElement === undefined) {
+      return;
+    }
+
+    // then focus the reorder handle element
+    this.reorderHandleElement.focus();
   }
 
   // Sets the column width in pixels, ensuring it respects the min and max width constraints.
