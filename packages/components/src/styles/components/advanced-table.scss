@@ -158,7 +158,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       }
 
       &:hover,
-      &.mock-hover {
+      &.mock-hover,
+      &:focus-within {
         .hds-advanced-table__th-reorder-handle {
           visibility: visible;
           opacity: 1;
