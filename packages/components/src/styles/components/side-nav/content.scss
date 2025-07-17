@@ -92,6 +92,7 @@
   background: var(--token-side-nav-color-surface-primary);
   // "Link" could render as an HTML button element so this overrides the default border style in that case:
   border-color: transparent;
+  border-width: 0;
   border-radius: var(--token-side-nav-body-list-item-border-radius);
 
   &:focus,
