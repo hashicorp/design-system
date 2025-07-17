@@ -16,13 +16,13 @@ Use `Body 200 Regular` with `Foreground / Strong` for values. This style is used
 
 #### Callout
 
-This style is used to emphasize values over headings. It is often used for numerical content, like resources or money. Use `Display 300 / 400 Bold` (depending on content hierarchy) with `Foreground / Strong`. This should only be used for vertical orientation description lists.
+This style is used to emphasize values over headings. It is often used for numerical content, like resources or financial data. Use `Display 300 / 400 Bold` (depending on content hierarchy) with `Foreground / Strong`. This should only be used for vertical orientation description lists.
 
 ![](/assets/patterns/description-list-patterns/description-list-value-callout.png)
 
 !!! Dont
 
-Mix and match visual styles. Ensure visual consistency is maintained by choosing one style in a given space.
+Mix and match visual styles. Ensure visual consistency is maintained by choosing one style in a given description list group.
 
 ![A card with five columns of headings and values. The last column using the callout style while the rest using the standard style.](/assets/patterns/description-list-patterns/description-list-dont-mix-match-styles.png)
 
@@ -36,11 +36,11 @@ We recommend that content is left aligned, even if the values are related to oth
  
 ## Orientation
 
-A description list can be oriented either vertically or horizontally.
+A description list item can be oriented either vertically or horizontally. Use one orientation per description list group.
 
 ### Vertical
 
-Use vertical orientation for designs similar to metacards or summary card experiences. With this orientation, the value in the description list can be styled either using the standard or the callout style.
+Use vertical orientation for designs similar to metadata cards or summary card experiences. With this orientation, the value in the description list item can be styled either using the standard or the callout style.
 
 #### Spacing between the heading and value
 
@@ -48,7 +48,7 @@ Use an 8px gap in between the heading and value. Components can be used in place
 
 ![Two rows of five columns with description list items. First row using the standard style while the second row using the callout style.](/assets/patterns/description-list-patterns/description-list-vertical-spacing-heading-value.png)
 
-In rare instances where the value slot requires additional rows for context, the gap is 4px. The content within the value slot can have multiple rows. Consider the visual hierarchy of the overall grouping during implementation.
+In rare instances where the value slot requires additional rows for context, use a 4px gap. The content within the value slot can have multiple rows. Consider the visual hierarchy of the overall grouping during implementation.
 
 ![Two rows of one column with description list items. Each description list item has a heading and a value with two rows of information. First row uses the standard style while the second row uses the callout style.](/assets/patterns/description-list-patterns/description-list-vertical-value-multiple-lines.png)
 
@@ -102,7 +102,7 @@ There may be occasions when the standard gap between items in a description list
 
 ![Highlighting list items in a horizontal orientation stacked vertically on top of each other with a 4px gap between each other.](/assets/patterns/description-list-patterns/description-list-logical-gap.png)
 
-In horizontal orientations, use your best judgment to adjust the gaps between list items for optimal UI representation.
+In horizontal orientations, use your best judgment to adjust the gaps between list items for optimal UI hierarchy.
 
 #### Column width
 
