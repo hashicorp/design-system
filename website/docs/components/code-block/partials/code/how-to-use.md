@@ -6,7 +6,7 @@ The basic invocation requires a `@value` argument. The component encodes this ar
 
 !!! Warning
 
-**Code pitfalls**
+**Code alert**
 
 If the `\n` escape sequence is used in the `@value` string in Handlebars, it will not be automatically converted to a newline, as it can have unexpected side effects.
 !!!
@@ -115,7 +115,7 @@ console.log(`I am ${codeLang} code`);"
 
 !!! Warning
 
-**Code pitfalls**
+**Code alert**
 
 Due to technical limitations, if the `@value` changes dynamically the line numbers will fail to update.
 !!!

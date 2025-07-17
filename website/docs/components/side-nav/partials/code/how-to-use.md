@@ -347,9 +347,9 @@ _Notice: given the complexity of the component and its usage, is not possible to
 
 Since the `SideNav::PortalTarget` supports multiple portals, each `SideNav::Portal` adds its content to the navigation as a distinct "panel", pushing the previous one out of the viewport through an  animation (the injection of panels and the corresponding sliding animation is entirely controlled via JavaScript). The whole set of panels is automatically faded in/out on Side Nav minimization (see [Responsiveness](#responsiveness) below).
 
-!!! Warning
+!!! Info
 
-**Code pitfalls**
+**Code consideration**
 
 When the Side Nav is used in conjunction with portals, the nesting of navigation/subnavigation levels has to match one-to-one the hierarchy of the routing, otherwise it will not work as one would expect.
 !!!
@@ -470,9 +470,9 @@ If you find yourself in the situation of wanting/needing to customize or change 
 
 By default, the component uses the [ember-a11y-refocus](https://github.com/ember-a11y/ember-a11y-refocus) addon to provide a "navigator narrator" and a "Skip Link" to the navigation (see [the addon documentation for details](https://github.com/ember-a11y/ember-a11y-refocus#what-this-addon-does)).
 
-!!! Warning
+!!! Info
 
-**Code pitfalls**
+**Code consideration**
 
 The addon introduces a refocusing behavior **on route changes** that may interfere with the hosting application (eg. blurring an active element). For details on how to control this behavior, see the section about [customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
 !!!

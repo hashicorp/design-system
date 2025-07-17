@@ -14,9 +14,9 @@ The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to
 ### Basic usage
 
 
-!!! Warning
+!!! Info
 
-**Code pitfalls**
+**Code consideration**
 
 Note: there is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of an individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
 !!!

@@ -51,9 +51,9 @@ If you need to make the content visible by default or control the masking from o
 
 #### Multiline
 
-!!! Warning
+!!! Info
 
-**Code pitfalls**
+**Code consideration**
 
 When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it’s inside a `<textarea>` element.
 
@@ -341,9 +341,9 @@ The default invocation creates a `<input type="text">` or a `<textarea>` control
   name="demo-team-token"
 />
 ```
-!!! Warning
+!!! Info
 
-**Code pitfalls**
+**Code consideration**
 
 When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even though it’s inside a `<textarea>` element.
 

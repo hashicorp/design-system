@@ -616,9 +616,9 @@ To make the Advanced Table accessible, each checkbox used for the selection need
 
 This is a simple example of an Advanced Table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.
 
-!!! Warning
+!!! Info
 
-**Code pitfalls**
+**Code consideration**
 
 If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
 !!!

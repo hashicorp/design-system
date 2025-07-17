@@ -10,9 +10,9 @@ A simple invocation of the component requires a contextual `<PH.Title>` which yi
 
 ### Contextual components
 
-!!! Warning
+!!! Info
 
-**Code pitfalls**
+**Code consideration**
 
 The layout of this component is responsive and adjusts based on the width of its bounding container. The examples captured here may not be indicative of how the component will render within a specific application or layout.
 

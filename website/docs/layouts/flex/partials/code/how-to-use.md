@@ -13,9 +13,9 @@ The `Layout::Flex` and optional `Layout::Flex::Item` components provide a way to
 
 ### Basic usage
 
-!!! Warning 
+!!! Info 
 
-**Code pitfalls**
+**Code consideration**
 
 Note: there is no strict need to use the `Layout::Flex::Item` subcomponent; use it only when necessary to tweak the flex styles of an individual child item via the `@basis/@grow/@shrink` arguments. This avoids rendering extra Ember components.
 !!!

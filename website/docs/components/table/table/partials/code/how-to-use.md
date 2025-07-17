@@ -578,9 +578,9 @@ Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` 
 
 #### Multi-select table using a model
 
-!!! Warning
+!!! Info
 
-**Code pitfalls**
+**Code consideration**
 
 If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
 !!!
@@ -639,9 +639,9 @@ demoOnSelectionChange({
 For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
 
-!!! Warning
+!!! Info
 
-**Code pitfalls**
+**Code consideration**
 
 While it’s technically possible to use the multi-select feature in a table implemented without using a model, we strongly suggest converting the code to provide a `@model` to the table using a local dataset (created using the information/data you need to display).
 !!!
