@@ -458,6 +458,59 @@
     {{/let}}
   </Shw::Grid>
 
+  <Shw::Text::H4>Focus before/after</Shw::Text::H4>
+
+  {{#let (array "before" "after") as |positions|}}
+    {{#each positions as |position|}}
+      <Shw::Grid @columns={{4}} as |SG|>
+        {{#let (array "default" "active") as |states|}}
+          {{#each states as |state|}}
+            <SG.Item @label="{{state}} / focus {{position}}">
+              <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+                <Hds::AppSideNav::List::Link
+                  @text="Packer"
+                  @icon="packer"
+                  @href="#"
+                  mock-state-value={{if (eq position "before") "focus"}}
+                />
+                <Hds::AppSideNav::List::Link @text="Terraform" @icon="terraform" @href="#" mock-state-value={{state}} />
+                <Hds::AppSideNav::List::Link
+                  @text="Vagrant"
+                  @icon="vagrant"
+                  @href="#"
+                  mock-state-value={{if (eq position "after") "focus"}}
+                />
+              </ul>
+            </SG.Item>
+          {{/each}}
+        {{/let}}
+        <SG.Item @label="with @isActive=true / focus {{position}}">
+          <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+            <Hds::AppSideNav::List::Link
+              @text="Packer"
+              @icon="packer"
+              @href="#"
+              mock-state-value={{if (eq position "before") "focus"}}
+            />
+            <Hds::AppSideNav::List::Link
+              @text="Terraform"
+              @icon="terraform"
+              @href="#"
+              @hasSubItems={{true}}
+              @isActive={{true}}
+            />
+            <Hds::AppSideNav::List::Link
+              @text="Vagrant"
+              @icon="vagrant"
+              @href="#"
+              mock-state-value={{if (eq position "after") "focus"}}
+            />
+          </ul>
+        </SG.Item>
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>AppSideNav::List::BackLink</Shw::Text::H3>
