@@ -34,7 +34,7 @@ You can add extra information to the field using helper text. When helper text i
 
 !!! Info
 
-**Accessibility consideration*
+**Accessibility consideration**
 
 If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be taken when considering this feature. If you do need to include a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
 !!!

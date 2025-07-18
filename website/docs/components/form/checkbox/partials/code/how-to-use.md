@@ -245,7 +245,7 @@ In addition to the checked and unchecked states, a checkbox can be in an indeter
 
 !!! Info
 
-**Accessibility consideration*
+**Accessibility consideration**
 
 If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
 !!!
