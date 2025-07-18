@@ -42,6 +42,8 @@ Common examples include:
 
 !!! Info
 
+**Differences between Figma and code**
+
 In Figma, the `critical` Modal color is coupled with the `critical` Button color. However, in code, the Modal footer `yields` components passed to it and can accept any Button type or color. We recommend matching the `critical` colors for both the Modal and Button components to better communicate the severity of a destructive action.
 !!!
 

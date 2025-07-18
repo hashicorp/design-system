@@ -41,7 +41,9 @@ Don’t mix `primary` and `secondary` links within a block of text or adjacent b
 
 ## Icon position
 
-!!! Info
+!!! Insight
+
+**Figma tip**
 
 There is no straight-forward method to add an icon within a block of text in Figma. Some strategies to consider are:
 

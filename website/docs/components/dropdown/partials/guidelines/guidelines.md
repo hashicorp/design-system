@@ -178,6 +178,8 @@ Use icons consistently. Doing so keeps the text aligned so the eye can scan the 
 
 !!! Info
 
+**Differences between Figma and code**
+
 The Figma component will not fully reflect the Badge wrapping behavior expected in the Ember component due to current known limitations in Figma’s auto layout settings.
 !!!
 

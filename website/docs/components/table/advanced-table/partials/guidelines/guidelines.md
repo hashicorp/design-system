@@ -41,8 +41,9 @@ Column width is determined by manually resizing the header column and cells with
 
 !!! Info
 
-The column placement property is only relevant within Figma and doesn’t exist as a property in code.
+**Differences between Figma and code**
 
+The column placement property is only relevant within Figma and doesn’t exist as a property in code.
 !!!
 
 Column placement determines the visual styling based on where the column is placed relative to other columns in the Advanced Table.
@@ -218,8 +219,9 @@ Striping enhances readability by alternating row colors, making it easier to sca
 
 !!! Info
 
-The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
+**Differences between Figma and code**
 
+The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
 !!!
 
 Row placement determines the visual styling based on where the row is placed relative to other rows within the Advanced Table. Only cells with a column placement that is either start or end use the row placement property; column position middle does not use this property.
