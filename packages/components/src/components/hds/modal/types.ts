@@ -16,3 +16,8 @@ export enum HdsModalColorValues {
   Critical = 'critical',
 }
 export type HdsModalColors = `${HdsModalColorValues}`;
+
+export default {
+  HdsModalSizeValues,
+  HdsModalColorValues,
+};

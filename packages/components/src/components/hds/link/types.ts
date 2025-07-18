@@ -24,3 +24,9 @@ export enum HdsLinkStandaloneSizeValues {
 }
 
 export type HdsLinkStandaloneSizes = `${HdsLinkStandaloneSizeValues}`;
+
+export default {
+  HdsLinkIconPositionValues,
+  HdsLinkColorValues,
+  HdsLinkStandaloneSizeValues,
+};
