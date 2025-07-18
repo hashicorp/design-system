@@ -393,36 +393,43 @@
         <SG.Item @label={{state}}>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}}>
-              <div class="shw-component-sim-app-side-nav-list-link-wrapper">
+              <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+                <Hds::AppSideNav::List::Link @text="Packer" @icon="packer" @href="#" />
                 <Hds::AppSideNav::List::Link
-                  @text="Boundary"
-                  @icon="boundary"
+                  @text="Terraform"
+                  @icon="terraform"
                   @badge="Alpha"
                   @count="3"
                   @href="#"
                   mock-state-value={{state}}
                 />
-              </div>
+                <Hds::AppSideNav::List::Link @text="Vagrant" @icon="vagrant" @href="#" />
+              </ul>
             </SF.Item>
             <SF.Item @grow={{true}}>
-              <div class="shw-component-sim-app-side-nav-list-link-wrapper">
+              <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+                <Hds::AppSideNav::List::Link @text="Packer" @icon="packer" @href="#" />
                 <Hds::AppSideNav::List::Link
                   @text="This is a long text that should go on two lines"
-                  @icon="boundary"
+                  @icon="terraform"
                   @href="#"
                   mock-state-value={{state}}
                 />
-              </div>
+                <Hds::AppSideNav::List::Link @text="Vagrant" @icon="vagrant" @href="#" />
+              </ul>
             </SF.Item>
             <SF.Item @grow={{true}}>
-              <div class="shw-component-sim-app-side-nav-list-link-wrapper">
+              <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+                <Hds::AppSideNav::List::Link @text="Packer" @icon="packer" @href="#" />
                 <Hds::AppSideNav::List::Link
-                  @text="Boundary"
-                  @icon="boundary"
+                  @text="Terraform"
+                  @icon="terraform"
+                  @href="#"
                   @hasSubItems={{true}}
                   mock-state-value={{state}}
                 />
-              </div>
+                <Hds::AppSideNav::List::Link @text="Vagrant" @icon="vagrant" @href="#" />
+              </ul>
             </SF.Item>
           </Shw::Flex>
         </SG.Item>
@@ -434,16 +441,18 @@
     {{#let (array "default" "hover" "active" "focus") as |states|}}
       {{#each states as |state|}}
         <SG.Item>
-          <div class="shw-component-sim-app-side-nav-list-link-wrapper">
+          <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+            <Hds::AppSideNav::List::Link @text="Packer" @icon="packer" @href="#" />
             <Hds::AppSideNav::List::Link
-              @text="Boundary"
-              @icon="boundary"
+              @text="Terraform"
+              @icon="terraform"
               @href="#"
               @hasSubItems={{true}}
               @isActive={{true}}
               mock-state-value={{state}}
             />
-          </div>
+            <Hds::AppSideNav::List::Link @text="Vagrant" @icon="vagrant" @href="#" />
+          </ul>
         </SG.Item>
       {{/each}}
     {{/let}}
