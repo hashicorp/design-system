@@ -1,6 +1,6 @@
 ## Typography
 
-List items can be visually styled one of two ways: standard or callout. In either of the options, the title's typography is maintained, while the value is adjusted.
+List items have two visual style options: standard or callout. Both share typography styling for the _title_ but the typography for the _value_ is adjusted.
 
 ### Title
 
