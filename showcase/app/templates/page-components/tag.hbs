@@ -34,7 +34,12 @@
 
   <Shw::Flex @label="With long text" as |SF|>
     <SF.Item>
-      <Hds::Tag @text="This is a very long text that should go on multiple lines" @onDismiss={{this.noop}} />
+      {{#each @model.range as |i|}}
+        <Hds::Tag
+          @text="{{i.index}} This is a very long text that should go on multiple lines"
+          @onDismiss={{this.noop}}
+        />
+      {{/each}}
     </SF.Item>
     <SF.Item>
       <Hds::Tag @text="This is a very long text that should go on multiple lines" />

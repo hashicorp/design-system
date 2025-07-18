@@ -11,6 +11,9 @@ export default class PageComponentsTagRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'active', 'focus'];
-    return { COLORS, TOOLTIP_PLACEMENTS, STATES };
+    const range = Array(1000)
+      .fill(1)
+      .map((n, i) => ({ index: n + i }));
+    return { range, COLORS, TOOLTIP_PLACEMENTS, STATES };
   }
 }
