@@ -30,7 +30,7 @@ Mix and match visual styles. Ensure visual consistency is maintained by choosing
 
 ### Alignment
 
-We recommend that content is left aligned, even if the values are related to other content on the page. This maintains the natural reading flow of the content.
+Content should be left aligned even if values are related to other content on the page with different alignment. This maintains the natural reading flow of the content.
 
 ![A description list with three columns contained in a card sitting above a table. Each list items is aligned to the left while the values in the table in the last columnn are right aligned.](/assets/patterns/description-list-patterns/description-list-alignment-left.png)
  
