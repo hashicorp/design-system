@@ -1,5 +1,7 @@
 ## Typography
 
+List items can be visually styled one of two ways: standard or callout. In either of the options, the title's typography is maintained, while the value is adjusted.
+
 ### Title
 
 Use `Body 200 Semibold` with `Foreground / Primary` for titles.
