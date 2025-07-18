@@ -14,9 +14,9 @@ import { HdsTagTooltipPlacementValues } from './types.ts';
 import type { HdsTagTooltipPlacements } from './types.ts';
 import type { HdsInteractiveSignature } from '../interactive/';
 
-export const COLORS: string[] = Object.values(HdsTagColorValues);
+export const COLORS: HdsTagColors[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
-export const TOOLTIP_PLACEMENTS: string[] = Object.values(
+export const TOOLTIP_PLACEMENTS: HdsTagTooltipPlacements[] = Object.values(
   HdsTagTooltipPlacementValues
 );
 export const DEFAULT_TOOLTIP_PLACEMENT = HdsTagTooltipPlacementValues.Top;

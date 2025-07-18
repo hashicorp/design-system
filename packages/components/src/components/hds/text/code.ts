@@ -25,7 +25,7 @@ type HdsTextCodeSizeNumber = Extract<
 >;
 type HdsTextCodeSizeString = `${HdsTextCodeSizeNumber}`;
 export type HdsTextCodeSizes = HdsTextCodeSizeNumber | HdsTextCodeSizeString;
-export const AVAILABLE_SIZES = [
+export const SIZES: HdsTextCodeSizes[] = [
   HdsTextSizeValues.ThreeHundred,
   HdsTextSizeValues.TwoHundred,
   HdsTextSizeValues.OneHundred,
@@ -34,10 +34,7 @@ export const DEFAULT_SIZE = HdsTextSizeValues.TwoHundred;
 
 export const DEFAULT_WEIGHT = HdsTextWeightValues.Regular;
 export type HdsTextCodeWeight = Extract<HdsTextWeights, 'regular' | 'bold'>;
-export const AVAILABLE_WEIGHTS_PER_SIZE: Record<
-  HdsTextCodeSizes,
-  HdsTextCodeWeight[]
-> = {
+export const WEIGHTS_PER_SIZE: Record<HdsTextCodeSizes, HdsTextCodeWeight[]> = {
   [HdsTextSizeValues.ThreeHundred]: [
     HdsTextWeightValues.Regular,
     HdsTextWeightValues.Bold,
@@ -72,14 +69,7 @@ export interface HdsTextCodeSignature {
 }
 
 export default class HdsTextCode extends Component<HdsTextCodeSignature> {
-  /**
-   * Sets the "size" for the text
-   * Accepted values: see AVAILABLE_SIZES
-   *
-   * @type {HdsTextCodeSizes}
-   *
-   * @param size
-   */
+  // Sets the "size" for the text
   get size(): HdsTextCodeSizes {
     let { size = DEFAULT_SIZE } = this.args;
 
@@ -89,35 +79,28 @@ export default class HdsTextCode extends Component<HdsTextCodeSignature> {
     }
 
     assert(
-      `@size for "Hds::Text::Code" must be one of the following: ${AVAILABLE_SIZES.join(
+      `@size for "Hds::Text::Code" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
-      AVAILABLE_SIZES.includes(size)
+      SIZES.includes(size)
     );
 
     return size;
   }
 
-  /**
-   * Sets the "weight" for the text
-   * Accepted values: see AVAILABLE_WEIGHTS_PER_SIZE
-   *
-   * @type {string}
-   *
-   * @param variant
-   */
+  // Sets the "weight" for the text
   get weight(): HdsTextCodeWeight {
     const { weight = DEFAULT_WEIGHT } = this.args;
 
-    const availableWeights = AVAILABLE_WEIGHTS_PER_SIZE[this.size];
+    const weights = WEIGHTS_PER_SIZE[this.size];
 
     assert(
       `@weight for "Hds::Text::Code" with @size=${
         this.size
-      } must be one of the following: ${availableWeights.join(
+      } must be one of the following: ${weights.join(
         ', '
       )}; received: ${weight}`,
-      availableWeights.includes(weight)
+      weights.includes(weight)
     );
 
     return weight;
