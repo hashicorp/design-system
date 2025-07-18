@@ -142,8 +142,6 @@ When using striping in a Table, the first tinted row will be the second row of t
 
 ### Placement
 
-**Differences between Figma and code**
-
 !!! Info
 
 **Differences between Figma and code**
