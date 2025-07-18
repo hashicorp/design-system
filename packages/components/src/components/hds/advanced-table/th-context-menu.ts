@@ -4,33 +4,30 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { scheduleOnce } from '@ember/runloop';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
-import { tracked } from '@glimmer/tracking';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
-
+import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
-  label: string;
-  icon: HdsDropdownToggleIconSignature['Args']['icon'];
-  action: (
-    column: HdsAdvancedTableColumn,
-    previousColumn?: HdsAdvancedTableColumn,
-    nextColumn?: HdsAdvancedTableColumn,
-    dropdownCloseCallback?: () => void
-  ) => void;
+  label?: string;
+  icon?: HdsDropdownToggleIconSignature['Args']['icon'];
+  action?: (dropdownCloseCallback?: () => void) => void;
 }
-
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
     previousColumn?: HdsAdvancedTableColumn;
     nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
+    hasReorderableColumns?: boolean;
+    reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
@@ -41,44 +38,107 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   @tracked private _element!: HdsDropdownSignature['Element'];
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { hasResizableColumns } = this.args;
+    const { column, hasReorderableColumns, hasResizableColumns } = this.args;
 
-    let options: HdsAdvancedTableThContextMenuOption[] = [];
-
+    let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
     if (hasResizableColumns) {
-      options = [
-        ...options,
-        {
-          key: 'resize-column',
-          label: 'Resize column',
-          icon: 'resize-column',
-          action: this.resizeColumn.bind(this),
-        },
-        {
-          key: 'reset-column-width',
-          label: 'Reset column width',
-          icon: 'rotate-ccw',
-          action: this.resetColumnWidth.bind(this),
-        },
+      allGroups = [
+        ...allGroups,
+        [
+          {
+            key: 'resize-column',
+            label: 'Resize column',
+            icon: 'resize-column',
+            action: this.resizeColumn.bind(this),
+          },
+          {
+            key: 'reset-column-width',
+            label: 'Reset column width',
+            icon: 'rotate-ccw',
+            action: this.resetColumnWidth.bind(this),
+          },
+        ],
       ];
     }
+    if (hasReorderableColumns) {
+      let reorderableGroup: HdsAdvancedTableThContextMenuOption[] = [
+        {
+          key: 'reorder-column',
+          label: 'Move column',
+          icon: 'move-horizontal',
+          action: () => this.moveColumn(),
+        },
+      ];
 
-    return options;
+      if (!column.isFirst) {
+        reorderableGroup = [
+          ...reorderableGroup,
+          {
+            key: 'move-column-to-start',
+            label: 'Move column to start',
+            icon: 'start',
+            action: (close) => this.moveColumnToPosition('start', close),
+          },
+        ];
+      }
+
+      if (!column.isLast) {
+        reorderableGroup = [
+          ...reorderableGroup,
+          {
+            key: 'move-column-to-end',
+            label: 'Move column to end',
+            icon: 'end',
+            action: (close) => this.moveColumnToPosition('end', close),
+          },
+        ];
+      }
+
+      allGroups = [...allGroups, reorderableGroup];
+    }
+
+    return allGroups.reduce<HdsAdvancedTableThContextMenuOption[]>(
+      (options, group, index) => {
+        // Add a separator before each group except the first
+        if (index > 0) {
+          return [...options, { key: 'separator' }, ...group];
+        }
+        return [...options, ...group];
+      },
+      []
+    );
   }
 
   @action
-  resizeColumn() {
+  private moveColumn() {
+    // eslint-disable-next-line ember/no-runloop
+    scheduleOnce(
+      'afterRender',
+      this,
+      this.args.column.focusReorderHandle.bind(this)
+    );
+  }
+
+  @action
+  private resizeColumn() {
     this.args.resizeHandleElement?.focus();
   }
 
   @action
-  resetColumnWidth(
-    column: HdsAdvancedTableColumn,
-    previousColumn?: HdsAdvancedTableColumn,
-    nextColumn?: HdsAdvancedTableColumn,
+  private moveColumnToPosition(
+    position: 'start' | 'end',
     dropdownCloseCallback?: () => void
   ): void {
-    const { onColumnResize } = this.args;
+    const { column } = this.args;
+
+    column.table.moveColumnToTerminalPosition(column, position);
+
+    dropdownCloseCallback?.();
+  }
+
+  @action
+  private resetColumnWidth(dropdownCloseCallback?: () => void): void {
+    const { onColumnResize, column, previousColumn, nextColumn } = this.args;
 
     previousColumn?.onNextColumnWidthRestored(column.imposedWidthDelta);
     nextColumn?.onPreviousColumnWidthRestored();
