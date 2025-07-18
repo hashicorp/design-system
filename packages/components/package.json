@@ -73,6 +73,7 @@
     "luxon": "^3.4.2",
     "prismjs": "^1.30.0",
     "sass": "^1.83.0",
+    "tracked-built-ins": "^4.0.0",
     "tabbable": "^6.2.0",
     "tippy.js": "^6.3.7"
   },
