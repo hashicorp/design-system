@@ -1,9 +1,8 @@
-!!! Info
+!!! Warning
 
-**Just a container**
+**Consumer responsibility**
 
 The layout of the Card itself, and its content, is left to the consumer of the component. The `Hds::Card::Container` is nothing more than a block container—a `<div>`—that provides styling for the `elevation`, `border`, and `background`. Sizing of the card, internal padding, and content alignment are all the consumer’s responsibility.
-
 !!!
 
 ## How to use this component

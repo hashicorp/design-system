@@ -11,7 +11,9 @@
 
 ### Form::CharacterCount
 
-!!! Info
+!!! Warning
+
+**Consumer responsibility**
 
 The character count is not coupled with the invalid state of the field. Instead, it is the responsibility of the consumer to implement validation at the application-level.
 !!!

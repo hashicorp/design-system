@@ -139,6 +139,8 @@ When the routing parameters are provided, the "navigation controls" are rendered
 
 !!! Warning
 
+**Consumer responsibility**
+
 When a pagination component is controlled externally, as described above, at least one routing argument (`@route`, `@model`, or `@models`) **must** be provided.
 !!!
 

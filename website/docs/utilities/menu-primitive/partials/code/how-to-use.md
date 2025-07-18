@@ -1,7 +1,8 @@
 !!! Warning
 
-The `MenuPrimitive` component is deprecated and will be removed in a future major release. It has been replaced internally with the [`PopoverPrimitive`](/utilities/popover-primitive).
+**Deprecation notice**
 
+The `MenuPrimitive` component is deprecated and will be removed in a future major release. It has been replaced internally with the [`PopoverPrimitive`](/utilities/popover-primitive).
 !!!
 
 ## How to use this component
