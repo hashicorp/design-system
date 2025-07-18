@@ -68,7 +68,7 @@
     "concurrently": "^9.1.2",
     "cspell": "^8.17.1",
     "dotenv": "^16.4.7",
-    "ember-a11y-refocus": "^4.1.4",
+    "ember-a11y-refocus": "^5.0.0",
     "ember-a11y-testing": "^7.1.2",
     "ember-auto-import": "^2.10.0",
     "ember-basic-dropdown": "^8.6.1",
