@@ -32,6 +32,8 @@ While the Tooltip and Rich Tooltip overlay the UI and block content underneath, 
 
 !!! Info
 
+**Code consideration**
+
 The DialogPrimitive sub-components are not intended to be used independently of each other or in isolation. If looking to create a dialog-based component, use the `DialogPrimitive::Wrapper` as the foundation.
 !!!
 

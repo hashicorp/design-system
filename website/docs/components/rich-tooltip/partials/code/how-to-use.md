@@ -178,10 +178,11 @@ It's also possible to customize this behavior using the values:
 
 The default option is a combination of `flip`+`shift` and is the suggested one, but there may be use cases where the other options work better in a specific context/use case.
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 More in-depth explanations about the different alignment algorithms and how they work can be found in the Floating UI documentation. See [flip](https://floating-ui.com/docs/flip), [shift](https://floating-ui.com/docs/shift), and [autoPlacement](https://floating-ui.com/docs/autoPlacement).
-
 !!!
 
 In the example below, we use an `auto` placement: try scrolling and/or resizing the page and see how the tooltip changes its position automatically:
