@@ -1,14 +1,15 @@
 ## Typography
 
-List items have two visual style options: standard or callout. Both share typography styling for the _title_ but the typography for the _value_ is adjusted.
 
 ### Title
 
-Use `Body 200 Semibold` with `Foreground / Primary` for titles.
+The title should always use the same styling of  `Body 200 Semibold` with `Foreground / Primary`, regardless of the orientation or value style.
 
 ![](/assets/patterns/description-list-patterns/description-list-heading.png)
 
 ### Value
+
+Values have two visual style options: standard or callout. 
 
 #### Standard
 
