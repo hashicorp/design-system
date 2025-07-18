@@ -261,127 +261,183 @@
 
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="Just text">
-      <Hds::AppSideNav::List::Link @text="Boundary" @href="#" />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @text="Boundary" @href="#" />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @href="#" />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @href="#" />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text + badge">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @badge="Alpha" />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @badge="Alpha" />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text + count">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @count="3" />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @count="3" />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text + count + badge">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text + yielded badgecount/badge">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary">
-        <Hds::BadgeCount @type="inverted" @size="small" @text="3" />
-        <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
-      </Hds::AppSideNav::List::Link>
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary">
+          <Hds::BadgeCount @type="inverted" @size="small" @text="3" />
+          <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
+        </Hds::AppSideNav::List::Link>
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + long text">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="This is a long text that should go on two lines" />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="This is a long text that should go on two lines" />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + long text + count + badge">
-      <Hds::AppSideNav::List::Link
-        @icon="boundary"
-        @text="This is a long text that should go on two lines"
-        @count="3"
-        @badge="Alpha"
-      />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link
+          @icon="boundary"
+          @text="This is a long text that should go on two lines"
+          @count="3"
+          @badge="Alpha"
+        />
+      </ul>
     </SG.Item>
 
     <SG.Item @label="Text, hasSubItems">
-      <Hds::AppSideNav::List::Link @text="Boundary" @href="#" @hasSubItems={{true}} />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @text="Boundary" @href="#" @hasSubItems={{true}} />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text, hasSubItems">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @href="#" @hasSubItems={{true}} />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @href="#" @hasSubItems={{true}} />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text + badge, hasSubItems">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @badge="Alpha" @hasSubItems={{true}} />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @badge="Alpha" @hasSubItems={{true}} />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text + count, hasSubItems">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @hasSubItems={{true}} />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @hasSubItems={{true}} />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text + count + badge, hasSubItems">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link
+          @icon="boundary"
+          @text="Boundary"
+          @count="3"
+          @badge="Alpha"
+          @hasSubItems={{true}}
+        />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text + yielded badgecount/badge, hasSubItems">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
-        <Hds::BadgeCount @type="inverted" @size="small" @text="3" />
-        <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
-      </Hds::AppSideNav::List::Link>
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
+          <Hds::BadgeCount @type="inverted" @size="small" @text="3" />
+          <Hds::Badge @type="inverted" @size="small" @color="success" @text="Beta" />
+        </Hds::AppSideNav::List::Link>
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + long text, hasSubItems">
-      <Hds::AppSideNav::List::Link
-        @icon="boundary"
-        @text="This is a long text that should go on two lines"
-        @hasSubItems={{true}}
-      />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link
+          @icon="boundary"
+          @text="This is a long text that should go on two lines"
+          @hasSubItems={{true}}
+        />
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + long text + count + badge, hasSubItems">
-      <Hds::AppSideNav::List::Link
-        @icon="boundary"
-        @text="This is a long text that should go on two lines"
-        @count="3"
-        @badge="Alpha"
-        @hasSubItems={{true}}
-      />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link
+          @icon="boundary"
+          @text="This is a long text that should go on two lines"
+          @count="3"
+          @badge="Alpha"
+          @hasSubItems={{true}}
+        />
+      </ul>
     </SG.Item>
 
     <SG.Item @label="Just yielded content">
-      <Hds::AppSideNav::List::Link>
-        <Shw::Placeholder @height="20px" @text="yielded content" />
-      </Hds::AppSideNav::List::Link>
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link>
+          <Shw::Placeholder @height="20px" @text="yielded content" />
+        </Hds::AppSideNav::List::Link>
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + yielded content">
       {{! we've added an empty label on purpose, to test the layout in this case }}
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="">
-        <Shw::Placeholder @height="20px" @text="yielded content" />
-      </Hds::AppSideNav::List::Link>
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="">
+          <Shw::Placeholder @height="20px" @text="yielded content" />
+        </Hds::AppSideNav::List::Link>
+      </ul>
     </SG.Item>
     <SG.Item @label="Icon + text + yielded content">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary">
-        <Shw::Placeholder @height="20px" @width="auto" @flex="1 1 0" @text="yielded content" />
-      </Hds::AppSideNav::List::Link>
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary">
+          <Shw::Placeholder @height="20px" @width="auto" @flex="1 1 0" @text="yielded content" />
+        </Hds::AppSideNav::List::Link>
+      </ul>
     </SG.Item>
     <SG.Item @label="With hasSubItems">
-      <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
-        <Shw::Placeholder @height="20px" @width="auto" @flex="1 1 0" @text="yielded content" />
-      </Hds::AppSideNav::List::Link>
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @hasSubItems={{true}}>
+          <Shw::Placeholder @height="20px" @width="auto" @flex="1 1 0" @text="yielded content" />
+        </Hds::AppSideNav::List::Link>
+      </ul>
     </SG.Item>
     <SG.Item @label="Text with no style">
-      <Hds::AppSideNav::List::Link>
-        This text needs local styling
-      </Hds::AppSideNav::List::Link>
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link>
+          This text needs local styling
+        </Hds::AppSideNav::List::Link>
+      </ul>
     </SG.Item>
     <SG.Item @label="Text with local style">
-      <Hds::AppSideNav::List::Link>
-        <span class="hds-typography-body-200 hds-font-weight-medium">
-          This text is locally styled
-        </span>
-      </Hds::AppSideNav::List::Link>
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link>
+          <span class="hds-typography-body-200 hds-font-weight-medium">
+            This text is locally styled
+          </span>
+        </Hds::AppSideNav::List::Link>
+      </ul>
     </SG.Item>
     <SG.Item @label="Default link">
-      <Hds::AppSideNav::List::Link @icon="hashicorp" @text="HashiCorp Cloud Platform" @href="#" />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link @icon="hashicorp" @text="HashiCorp Cloud Platform" @href="#" />
+      </ul>
     </SG.Item>
     <SG.Item @label="External link">
-      <Hds::AppSideNav::List::Link
-        @icon="hashicorp"
-        @text="HashiCorp Cloud Platform"
-        @isHrefExternal={{true}}
-        @href="#"
-      />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link
+          @icon="hashicorp"
+          @text="HashiCorp Cloud Platform"
+          @isHrefExternal={{true}}
+          @href="#"
+        />
+      </ul>
     </SG.Item>
     <SG.Item @label="Internal link">
-      <Hds::AppSideNav::List::Link
-        @icon="hashicorp"
-        @text="HashiCorp Cloud Platform"
-        @isHrefExternal={{false}}
-        @href="#"
-      />
+      <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+        <Hds::AppSideNav::List::Link
+          @icon="hashicorp"
+          @text="HashiCorp Cloud Platform"
+          @isHrefExternal={{false}}
+          @href="#"
+        />
+      </ul>
     </SG.Item>
   </Shw::Grid>
 
@@ -457,6 +513,59 @@
       {{/each}}
     {{/let}}
   </Shw::Grid>
+
+  <Shw::Text::H4>Focus before/after</Shw::Text::H4>
+
+  {{#let (array "before" "after") as |positions|}}
+    {{#each positions as |position|}}
+      <Shw::Grid @columns={{4}} as |SG|>
+        {{#let (array "default" "active") as |states|}}
+          {{#each states as |state|}}
+            <SG.Item @label="{{state}} / focus {{position}}">
+              <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+                <Hds::AppSideNav::List::Link
+                  @text="Packer"
+                  @icon="packer"
+                  @href="#"
+                  mock-state-value={{if (eq position "before") "focus"}}
+                />
+                <Hds::AppSideNav::List::Link @text="Terraform" @icon="terraform" @href="#" mock-state-value={{state}} />
+                <Hds::AppSideNav::List::Link
+                  @text="Vagrant"
+                  @icon="vagrant"
+                  @href="#"
+                  mock-state-value={{if (eq position "after") "focus"}}
+                />
+              </ul>
+            </SG.Item>
+          {{/each}}
+        {{/let}}
+        <SG.Item @label="with @isActive=true / focus {{position}}">
+          <ul class="shw-component-sim-app-side-nav-list-link-wrapper">
+            <Hds::AppSideNav::List::Link
+              @text="Packer"
+              @icon="packer"
+              @href="#"
+              mock-state-value={{if (eq position "before") "focus"}}
+            />
+            <Hds::AppSideNav::List::Link
+              @text="Terraform"
+              @icon="terraform"
+              @href="#"
+              @hasSubItems={{true}}
+              @isActive={{true}}
+            />
+            <Hds::AppSideNav::List::Link
+              @text="Vagrant"
+              @icon="vagrant"
+              @href="#"
+              mock-state-value={{if (eq position "after") "focus"}}
+            />
+          </ul>
+        </SG.Item>
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
 
   <Shw::Divider @level={{2}} />
 
