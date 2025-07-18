@@ -1,5 +1,5 @@
 ---
-title: Description list patterns
+title: Description list
 description: Guidelines and best practices for creating description lists with Helios Foundations.
 caption: Guidelines and best practices for creating description lists with Helios Foundations.
 links:
@@ -7,7 +7,7 @@ links:
 related: ['foundations/typography', 'foundations/colors']
 previewImage: assets/illustrations/patterns/description-list-patterns.jpg
 navigation:
-  keywords: ['description list', 'key value pair', 'pair', 'list']
+  keywords: ['description list', 'key value pair', 'pair', 'list', 'metadata']
 ---
 
 <section data-tab="Guidelines">
