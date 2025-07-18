@@ -1,5 +1,65 @@
 # @hashicorp/design-system-components
 
+## 4.22.0
+
+### Minor Changes
+
+`Layout::Flex` - Fixed issue in which `gap` value was improperly inherited by nested `Flex` components, added "0" as a supported `gap` value.
+
+`Layout::Grid` - Fixed issue in which `gap` & `columnMinWidth` values were improperly inherited by nested `Grid` components, added "0" as a supported `gap` value.
+
+<small class="doc-whats-new-changelog-metadata">[#2987](https://github.com/hashicorp/design-system/pull/2987)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+<!-- START components/form/radio-card -->
+
+`Form::RadioCard` - Fixed styling bug where hover styles were visible when disabled
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3000](https://github.com/hashicorp/design-system/pull/3000)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/form/super-select -->
+
+`Form::SuperSelect` - fix type for the `@resultCountMessage` argument so it can accept a string or a function.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3008](https://github.com/hashicorp/design-system/pull/3008)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START utilities/popover-primitive -->
+
+`PopoverPrimitive` - Updated type of the `anchoredPositionOptions` object in the `setUpPrimitivePopover` modifier to include `arrowSelector` from the `hds-anchored-position` modifier.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3005](https://github.com/hashicorp/design-system/pull/3005)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START /components/app-side-nav -->
+
+`AppSideNav::List::Link` - Removed extra transparent border and background when rendered as a `<button>` element
+
+<!-- END -->
+
+<!-- START /components/side-nav -->
+
+`SideNav::List::Link` - Removed extra transparent border when rendered as a `<button>` element
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3026](https://github.com/hashicorp/design-system/pull/3026)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.21.0
 
 [4.21.0 documentation](https://hds-website-4-21-0.vercel.app/)
