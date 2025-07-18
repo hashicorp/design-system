@@ -1,8 +1,8 @@
 ## Typography
 
-### Heading
+### Title
 
-Use `Body 200 Semibold` with `Foreground / Primary` for headings.
+Use `Body 200 Semibold` with `Foreground / Primary` for titles.
 
 ![](/assets/patterns/description-list-patterns/description-list-heading.png)
 
@@ -10,13 +10,13 @@ Use `Body 200 Semibold` with `Foreground / Primary` for headings.
 
 #### Standard
 
-Use `Body 200 Regular` with `Foreground / Strong` for values when the heading and value are of equal importance.
+Use `Body 200 Regular` with `Foreground / Strong` for values when the title and value are of equal importance.
 
 ![](/assets/patterns/description-list-patterns/description-list-value-standard.png)
 
 #### Callout
 
-Use `Display 300 Bold` or `Display 400 Bold` (depending on existing content hierarchy) with `Foreground / Strong` when the value should be emphasized over the heading. The callout style is often used for numerical content, like resources or financial data. 
+Use `Display 300 Bold` or `Display 400 Bold` (depending on existing content hierarchy) with `Foreground / Strong` when the value should be emphasized over the title. The callout style is often used for numerical content, like resources or financial data. 
 
 The callout style should only be used in the vertical orientation.
 
@@ -26,7 +26,7 @@ The callout style should only be used in the vertical orientation.
 
 Mix and match visual styles. Ensure visual consistency is maintained by choosing one style in a given description list.
 
-![A card with five columns of headings and values. The last column using the callout style while the rest using the standard style.](/assets/patterns/description-list-patterns/description-list-dont-mix-match-styles.png)
+![A card with five columns of titles and values. The last column using the callout style while the rest using the standard style.](/assets/patterns/description-list-patterns/description-list-dont-mix-match-styles.png)
 
 !!!
 
@@ -44,17 +44,17 @@ A list item can be oriented either vertically (stacked) or horizontally (side by
 
 Use vertical orientation for designs similar to metadata cards or summary card experiences. With this orientation, the value in the list item can be styled either using the standard or the callout style.
 
-#### Spacing between the heading and value
+#### Spacing between the title and value
 
-Use an 8px gap between the heading and value. 
+Use an 8px gap between the title and value. 
 
-While text is most common, other elements (like `Badge` , `CopySnippet`, links, etc) may also be used for the value. We recommend one element per value to keep things simple and related to the heading.
+While text is most common, other elements (like `Badge` , `CopySnippet`, links, etc) may also be used for the value. We recommend one element per value to keep things simple and related to the title.
 
 ![Two rows of five columns with description list items. First row using the standard style while the second row using the callout style.](/assets/patterns/description-list-patterns/description-list-vertical-spacing-heading-value.png)
 
 In instances where the value may require additional rows for context, use a 4px gap. When selecting a text style and color, consider the visual hierarchy of the overall description list.
 
-![Two rows of one column with description list items. Each description list item has a heading and a value with two rows of information. First row uses the standard style while the second row uses the callout style.](/assets/patterns/description-list-patterns/description-list-vertical-value-multiple-lines.png)
+![Two rows of one column with description list items. Each description list item has a title and a value with two rows of information. First row uses the standard style while the second row uses the callout style.](/assets/patterns/description-list-patterns/description-list-vertical-value-multiple-lines.png)
 
 #### Spacing between list items
 
@@ -92,15 +92,15 @@ Horizontal orientation should only be used with the standard value styling. Usin
 
 #### Spacing
 
-Use 16px gaps between the heading and value and each row. 
+Use 16px gaps between the title and value and each row. 
 
-While text is most common, other elements (like `Badge` , `CopySnippet`, links, etc) may also be used for the value. We recommend one element per value to keep things simple and related to the heading.
+While text is most common, other elements (like `Badge` , `CopySnippet`, links, etc) may also be used for the value. We recommend one element per value to keep things simple and related to the title.
 
-![Five rows of information showing a vertical gap between the heading and value of 16px and between each row as 16px.](/assets/patterns/description-list-patterns/description-list-horizontal-standard-grid-gaps.png)
+![Five rows of information showing a vertical gap between the title and value of 16px and between each row as 16px.](/assets/patterns/description-list-patterns/description-list-horizontal-standard-grid-gaps.png)
 
 In instances where the value may require additional rows for context, use a 4px gap. When selecting a text style and color, consider the visual hierarchy of the overall description list.
 
-![The gap between the heading and value is 16px. The value has two rows and a 4px gap between each row.](/assets/patterns/description-list-patterns/description-list-horizontal-value-multiple-rows.png)
+![The gap between the title and value is 16px. The value has two rows and a 4px gap between each row.](/assets/patterns/description-list-patterns/description-list-horizontal-value-multiple-rows.png)
 
 ##### Exceptions
 
@@ -112,10 +112,10 @@ In horizontal orientations, use your best judgment to adjust the gaps between li
 
 #### Column width
 
-When the list item is oriented horizontally and the content length of the heading and value is fairly similar, we recommend using equal column widths (50%) to fill the available space.
+When the list item is oriented horizontally and the content length of the title and value is fairly similar, we recommend using equal column widths (50%) to fill the available space.
 
-![A card titled "Cluster details" with a description list below it. Each list item has its heading and value's width at 50% of the cards space.](/assets/patterns/description-list-patterns/description-list-horizontal-fill-example.png)
+![A card titled "Cluster details" with a description list below it. Each list item has its title and value's width at 50% of the cards space.](/assets/patterns/description-list-patterns/description-list-horizontal-fill-example.png)
 
-If the content length of the value is considerably longer than the heading, we recommend that the heading column width be equal to the longest heading content, while the value uses the rest of the available space.
+If the content length of the value is considerably longer than the title, we recommend that the title column width be equal to the longest tite content, while the value uses the rest of the available space.
 
 ![The description list is the primary detail on the page. The header is fixed in each row, while the value's content takes up the remaining space on the page.](/assets/patterns/description-list-patterns/description-list-horizontal-fixed-width-example.png)
