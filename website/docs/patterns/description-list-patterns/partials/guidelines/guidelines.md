@@ -71,7 +71,7 @@ When using the callout value style, use a grid with 24px vertical gaps and 48px 
 
 #### Wrapping
 
-If content is too condensed, wrap content to a new row.
+If content is too condensed, wrap list items to a new row.
 
 !!! Do
 
