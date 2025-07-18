@@ -34,7 +34,7 @@ body.page-components-app-side-nav {
   // used to simulate an "header" container for the app-side-nav
   .shw-component-sim-app-side-nav-header {
     width: 280px;
-    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
     background: $shw-component-app-side-nav-background;
     border: 1px solid $shw-component-app-side-nav-border-color;
   }
@@ -43,7 +43,7 @@ body.page-components-app-side-nav {
   .shw-component-sim-app-side-nav-body {
     width: 280px;
     margin: 0;
-    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
     background: $shw-component-app-side-nav-background;
     border: 1px solid $shw-component-app-side-nav-border-color;
   }
@@ -51,20 +51,21 @@ body.page-components-app-side-nav {
   .shw-component-app-side-nav-home-link-wrapper {
     width: 80px;
     height: 80px;
-    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
     background: $shw-component-app-side-nav-background;
     border: 1px solid $shw-component-app-side-nav-border-color;
   }
 
   .shw-component-sim-app-side-nav-list-link-wrapper {
-    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    margin: 0;
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
     background: $shw-component-app-side-nav-background;
     border: 1px solid $shw-component-app-side-nav-border-color;
   }
 
   .shw-component-sim-app-side-nav-elem-wrapper {
     width: fit-content;
-    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
     background: $shw-component-app-side-nav-background;
   }
 
@@ -81,7 +82,7 @@ body.page-components-app-side-nav {
 
   .shw-component-sim-other-elements {
     width: fit-content;
-    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
     background: $shw-component-app-side-nav-background;
 
     .hds-app-side-nav {
