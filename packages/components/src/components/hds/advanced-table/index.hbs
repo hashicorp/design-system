@@ -61,9 +61,11 @@
               @tooltip={{column.tooltip}}
               @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
-              @hasSelectableRows={{this.isSelectable}}
-              @isStickyColumn={{this._isStickyColumn column}}
+              @isLastColumn={{eq index (sub this._tableModel.orderedColumns.length 1)}}
+              @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @previousColumn={{get this._tableModel.orderedColumns (sub index 1)}}
+              @nextColumn={{get this._tableModel.orderedColumns (add index 1)}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
               @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
@@ -83,9 +85,12 @@
               @hasSelectableRows={{this.isSelectable}}
               @isExpanded={{this._tableModel.expandState}}
               @isExpandable={{column.isExpandable}}
-              @isStickyColumn={{this._isStickyColumn column}}
+              @isLastColumn={{eq index (sub this._tableModel.orderedColumns.length 1)}}
+              @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
+              @previousColumn={{get this._tableModel.orderedColumns (sub index 1)}}
+              @nextColumn={{get this._tableModel.orderedColumns (add index 1)}}
               @tableHeight={{this._tableHeight}}
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
