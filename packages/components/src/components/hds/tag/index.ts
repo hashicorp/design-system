@@ -38,10 +38,6 @@ const overflowed = new TrackedWeakSet<Element>();
 
 const observer = new ResizeObserver((entries) => {
   entries.forEach((entry) => {
-    if (overflowed.has(entry.target)) {
-      return;
-    }
-
     const textContainer = entry.target.querySelector(
       '.hds-tag__text-container'
     );
