@@ -36,7 +36,8 @@ export default class PageComponentsFormBaseElementsController extends Controller
     this.showHighlight = !this.showHighlight;
   }
 
-  @action updateValue(propName: keyof typeof this.values, event: Event) {
+  @action
+  updateValue(propName: keyof typeof this.values, event: Event) {
     const { value } = event.target as HTMLInputElement;
     this.values[propName] = value;
   }

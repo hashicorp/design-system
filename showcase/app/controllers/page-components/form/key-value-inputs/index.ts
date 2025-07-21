@@ -39,7 +39,7 @@ const DEFAULT_DATA = [
   },
 ];
 
-export default class KeyValueInputsController extends Controller {
+export default class PageComponentsFormKeyValueInputsController extends Controller {
   declare model: PageComponentsFormKeyValueInputsModel;
 
   @tracked showHighlight = false;

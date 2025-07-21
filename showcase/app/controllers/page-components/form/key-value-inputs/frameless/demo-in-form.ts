@@ -28,7 +28,7 @@ const DEFAULT_DATA = [
   },
 ];
 
-export default class PageComponentsFormKeyValueInputsDemoInFormController extends Controller {
+export default class PageFramelessFormKeyValueInputsDemoInFormController extends Controller {
   @tracked sampleData = DEFAULT_DATA;
   @deepTracked formErrors: { pluginFile?: string }[] = [];
 

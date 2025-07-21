@@ -27,7 +27,8 @@ export default class PageComponentsFormTextInputController extends Controller {
     return this.values.withHelperText.length > this.maxLength;
   }
 
-  @action updateValue(propName: keyof typeof this.values, event: Event) {
+  @action
+  updateValue(propName: keyof typeof this.values, event: Event) {
     const { value } = event.target as HTMLInputElement;
     this.values[propName] = value;
   }
