@@ -403,6 +403,8 @@ export default class HdsAdvancedTableTableModel {
       }
 
       sourceColumn.isBeingDragged = false;
+      // when a column is moved, reset the imposed width delta
+      sourceColumn.imposedWidthDelta = 0;
 
       this.onColumnReorder?.(updated);
     }
