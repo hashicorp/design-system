@@ -32,9 +32,9 @@ export default class PageComponentsTabsController extends Controller {
   @tracked currentTab_demo2_subtab1: number = 0;
   @tracked currentTab_demo2_subtab2: number = 0;
   // --- we initialize to non-random values to avoid visual regression tests to fail
-  @tracked badge1_demo3: number | undefined = undefined;
-  @tracked badge2_demo3: number = 2;
-  @tracked badge3_demo3: number = 3;
+  @tracked count1_demo3: string | undefined = undefined;
+  @tracked count2_demo3: string = '2';
+  @tracked count3_demo3: string = '3';
   // ---
   @tracked atSelected_demo4: string = 'two';
   // ---
@@ -107,10 +107,10 @@ export default class PageComponentsTabsController extends Controller {
   // DEMO #3
 
   @action
-  updateBadgesValuesDemo3() {
-    this.badge1_demo3 = getRandomInteger();
-    this.badge2_demo3 = getRandomInteger();
-    this.badge3_demo3 = getRandomInteger();
+  updateCountValuesDemo3() {
+    this.count1_demo3 = String(getRandomInteger());
+    this.count2_demo3 = String(getRandomInteger());
+    this.count3_demo3 = String(getRandomInteger());
   }
 
   // DEMO #4
