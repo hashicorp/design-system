@@ -60,6 +60,9 @@
               @nextColumn={{get this._tableModel.columns (add index 1)}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
+              @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
+              @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
+              @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
               {{this._setColumnWidth column}}
             >
               {{column.label}}
