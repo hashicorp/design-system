@@ -83,6 +83,81 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
     assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
   });
 
+  // Close callback
+  test('it should hide the actions when the "close" function is called from global actions', async function (assert) {
+    await render(hbs`
+<Hds::AppHeader id='test-app-header' @breakpoint='10000px'>
+    <:globalActions as |actions|>
+    <Hds::Button id='test-global-action' {{on 'click' actions.close}} @text="Global action" />
+  </:globalActions>
+</Hds::AppHeader>`);
+    await click('.hds-app-header__menu-button');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
+    await click('#test-global-action');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
+  });
+
+  test('it should not do anything when the "close" function is called from global actions in desktop view', async function (assert) {
+    await render(hbs`
+<Hds::AppHeader id='test-app-header' >
+    <:globalActions as |actions|>
+    <Hds::Button id='test-global-action' {{on 'click' actions.close}} @text="Global action" />
+  </:globalActions>
+</Hds::AppHeader>`);
+    assert.dom('#test-app-header').hasClass('hds-app-header--is-desktop');
+    assert
+      .dom('#test-app-header')
+      .doesNotHaveClass('hds-app-header--menu-is-open');
+    assert
+      .dom('#test-app-header')
+      .doesNotHaveClass('hds-app-header--menu-is-closed');
+    await click('#test-global-action');
+    assert.dom('#test-app-header').hasClass('hds-app-header--is-desktop');
+    assert
+      .dom('#test-app-header')
+      .doesNotHaveClass('hds-app-header--menu-is-open');
+    assert
+      .dom('#test-app-header')
+      .doesNotHaveClass('hds-app-header--menu-is-closed');
+  });
+
+  test('it should hide the actions when the "close" function is called from utility actions', async function (assert) {
+    await render(hbs`
+<Hds::AppHeader id='test-app-header' @breakpoint='10000px'>
+  <:utilityActions as |actions|>
+        <Hds::Button id='test-utility-action' {{on 'click' actions.close}} @text="Utility action" />
+  </:utilityActions>
+</Hds::AppHeader>`);
+    await click('.hds-app-header__menu-button');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
+    await click('#test-utility-action');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
+  });
+
+  test('it should not do anything when the "close" function is called from utility actions in desktop view', async function (assert) {
+    await render(hbs`
+<Hds::AppHeader id='test-app-header' >
+    <:utilityActions as |actions|>
+    <Hds::Button id='test-utility-action' {{on 'click' actions.close}} @text="Utility action" />
+  </:utilityActions>
+</Hds::AppHeader>`);
+    assert.dom('#test-app-header').hasClass('hds-app-header--is-desktop');
+    assert
+      .dom('#test-app-header')
+      .doesNotHaveClass('hds-app-header--menu-is-open');
+    assert
+      .dom('#test-app-header')
+      .doesNotHaveClass('hds-app-header--menu-is-closed');
+    await click('#test-utility-action');
+    assert.dom('#test-app-header').hasClass('hds-app-header--is-desktop');
+    assert
+      .dom('#test-app-header')
+      .doesNotHaveClass('hds-app-header--menu-is-open');
+    assert
+      .dom('#test-app-header')
+      .doesNotHaveClass('hds-app-header--menu-is-closed');
+  });
+
   // OPTIONS
 
   // Breakpoint
