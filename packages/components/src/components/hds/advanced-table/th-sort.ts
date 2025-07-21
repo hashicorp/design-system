@@ -42,7 +42,6 @@ export interface HdsAdvancedTableThSortSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
-    hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     sortOrder?: HdsAdvancedTableThSortOrder;
     tooltip?: string;
@@ -52,12 +51,11 @@ export interface HdsAdvancedTableThSortSignature {
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
-    onPinFirstColumn?: () => void;
     onReorderDragEnd?: () => void;
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
-      side: HdsAdvancedTableColumnReorderSide
+      side: 'left' | 'right'
     ) => void;
   };
   Blocks: {
@@ -113,6 +111,12 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     return align;
   }
 
+  get showContextMenu(): boolean {
+    const { hasResizableColumns, hasReorderableColumns } = this.args;
+
+    return (hasResizableColumns || hasReorderableColumns) ?? false;
+  }
+
   get classNames(): string {
     const classes = ['hds-advanced-table__th', 'hds-advanced-table__th--sort'];
 
@@ -138,7 +142,21 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
 
   @action
   handleDragStart(column: HdsAdvancedTableColumn): void {
-    this.args.onReorderDragStart?.(column);
+    const { onReorderDragStart } = this.args;
+
+    if (
+      column === undefined ||
+      column.key === undefined ||
+      typeof onReorderDragStart !== 'function'
+    ) {
+      return;
+    }
+
+    // Set the local state that shows this column is being dragged
+    column.isBeingDragged = true;
+
+    // Call the main action from the parent table component
+    onReorderDragStart(column);
   }
 
   @action onFocusTrapDeactivate(): void {

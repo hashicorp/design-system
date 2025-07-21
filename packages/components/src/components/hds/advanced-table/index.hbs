@@ -66,11 +66,10 @@
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
-              @onPinFirstColumn={{this._onPinFirstColumn}}
               @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
               @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
               @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
-              {{this._registerThElement column}}
+              {{this._setColumnWidth column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::ThSort>
