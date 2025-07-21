@@ -931,8 +931,8 @@
 
   <Shw::Text::H4>Custom result count message</Shw::Text::H4>
 
-  <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
-    <SF.Item>
+  <Shw::Flex {{style padding-bottom="15em" max-width="50%"}} @direction="row" as |SF|>
+    <SF.Item {{style flex="1"}}>
       <Hds::Form::SuperSelect::Multiple::Base
         @resultCountMessage={{(fn this.resultCountMessage @model.SELECTED_PLACES_OPTIONS.length)}}
         @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}

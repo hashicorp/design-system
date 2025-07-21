@@ -38,12 +38,14 @@ dolor`;
     return this.fieldValues.multilineWithErrorMessage.length > this.maxLength;
   }
 
-  @action updateValue(propName: keyof typeof this.fieldValues, event: Event) {
+  @action
+  updateValue(propName: keyof typeof this.fieldValues, event: Event) {
     const { value } = event.target as HTMLInputElement;
     this.fieldValues[propName] = value;
   }
 
-  @action updateIsMasked() {
+  @action
+  updateIsMasked() {
     this.isContentMasked = !this.isContentMasked;
   }
 }

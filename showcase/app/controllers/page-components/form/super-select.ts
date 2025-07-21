@@ -11,7 +11,8 @@ import type { PageComponentsFormSuperSelectModel } from 'showcase/routes/page-co
 export default class PageComponentsFormSuperSelectController extends Controller {
   declare model: PageComponentsFormSuperSelectModel;
 
-  @action resultCountMessage(resultCount: number) {
+  @action
+  resultCountMessage(resultCount: number) {
     return `${resultCount} total`;
   }
 

@@ -28,7 +28,8 @@ export default class PageComponentsFormTextareaController extends Controller {
     return this.values.withErrorMessage.length > this.maxLength;
   }
 
-  @action updateValue(propName: keyof typeof this.values, event: Event) {
+  @action
+  updateValue(propName: keyof typeof this.values, event: Event) {
     const { value } = event.target as HTMLInputElement;
     this.values[propName] = value;
   }

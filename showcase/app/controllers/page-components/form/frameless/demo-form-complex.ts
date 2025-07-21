@@ -17,7 +17,7 @@ const CUSTOM_WIDTH_OPTIONS = {
   // 'field': 'custom width / field',
 };
 
-export default class PageFramelessDemoFormComplexController extends Controller {
+export default class PageFramelessFormDemoFormComplexController extends Controller {
   @tracked showHighlight = false;
   @tracked customWidthMode = 'mixed';
   customWidthOptions = CUSTOM_WIDTH_OPTIONS;
