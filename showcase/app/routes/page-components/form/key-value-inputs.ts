@@ -5,7 +5,12 @@
 
 import Route from '@ember/routing/route';
 
-export default class ComponentsKeyValueInputsRoute extends Route {
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFormKeyValueInputsModel =
+  ModelFrom<PageComponentsFormKeyValueInputsRoute>;
+
+export default class PageComponentsFormKeyValueInputsRoute extends Route {
   model() {
     // Super select demo options data
     const SUPERSELECT_OPTIONS = ['Option 1', 'Option 2', 'Option 3'];

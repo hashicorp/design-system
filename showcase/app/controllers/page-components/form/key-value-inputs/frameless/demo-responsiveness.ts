@@ -22,6 +22,6 @@ const DEFAULT_DATA = [
   },
 ];
 
-export default class KeyValueInputsDemoResponsivenessWithCustomWidthsController extends Controller {
+export default class PageComponentsFormKeyValueInputsDemoResponsivenessController extends Controller {
   sampleData = DEFAULT_DATA;
 }

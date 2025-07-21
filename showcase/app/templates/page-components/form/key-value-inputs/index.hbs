@@ -114,10 +114,12 @@
           <R.Field as |F|>
             <F.Label>Key</F.Label>
             <F.HelperText>The key you enter should be a good key.</F.HelperText>
+            {{! @glint-expect-error }}
             <F.TextInput @value={{R.rowData.key}} />
           </R.Field>
           <R.Field as |F|>
             <F.Label>Value</F.Label>
+            {{! @glint-expect-error }}
             <F.TextInput @value={{R.rowData.value}} />
           </R.Field>
           <R.Generic><Shw::Placeholder @height="36px" @width="200px" @text="generic" /></R.Generic>
@@ -138,7 +140,7 @@
 
   <Shw::Text::H4>2 columns</Shw::Text::H4>
 
-  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}} @onDeleteRowClick={{this.onDeleteRowClick}}>
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
@@ -149,11 +151,13 @@
       <R.Field as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        {{! @glint-expect-error }}
         <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
       <R.Field as |F|>
         <F.Label>Value</F.Label>
+        {{! @glint-expect-error }}
         <F.TextInput @value={{R.rowData.value.text}} />
       </R.Field>
       <R.DeleteRowButton />
@@ -166,7 +170,7 @@
 
   <Shw::Text::H4>1 column</Shw::Text::H4>
 
-  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}} @onDeleteRowClick={{this.onDeleteRowClick}}>
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
@@ -177,6 +181,7 @@
       <R.Field as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        {{! @glint-expect-error }}
         <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
       <R.DeleteRowButton />
@@ -187,7 +192,7 @@
     </:footer>
   </Hds::Form::KeyValueInputs>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Generic slots</Shw::Text::H3>
 
@@ -206,9 +211,11 @@
     </:header>
 
     <:row as |R|>
+      {{! @glint-expect-error }}
       <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        {{! @glint-expect-error }}
         <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
@@ -218,16 +225,17 @@
 
       <R.Field @isOptional={{true}} as |F|>
         <F.Label>Value</F.Label>
+        {{! @glint-expect-error }}
         <F.Textarea @value={{R.rowData.value.text}} />
       </R.Field>
-      <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
+      <R.DeleteRowButton />
       <R.Generic>
         <Shw::Placeholder @height="36px" @width="300px" @text="generic" />
       </R.Generic>
     </:row>
 
     <:footer as |F|>
-      <F.AddRowButton @text="Add tag" @onClick={{this.onAddRowClick}} />
+      <F.AddRowButton @text="Add tag" />
     </:footer>
   </Hds::Form::KeyValueInputs>
 
@@ -246,9 +254,11 @@
     </:header>
 
     <:row as |R|>
+      {{! @glint-expect-error }}
       <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        {{! @glint-expect-error }}
         <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 

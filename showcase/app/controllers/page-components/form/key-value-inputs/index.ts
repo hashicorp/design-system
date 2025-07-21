@@ -7,6 +7,8 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+import type { PageComponentsFormKeyValueInputsModel } from '../../../../routes/page-components/form/key-value-inputs';
+
 const DEFAULT_DATA = [
   {
     id: 1,
@@ -38,6 +40,8 @@ const DEFAULT_DATA = [
 ];
 
 export default class KeyValueInputsController extends Controller {
+  declare model: PageComponentsFormKeyValueInputsModel;
+
   @tracked showHighlight = false;
 
   emptyData = [];

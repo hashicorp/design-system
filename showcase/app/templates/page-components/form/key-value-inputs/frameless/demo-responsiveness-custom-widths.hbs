@@ -16,23 +16,30 @@
       <H.Generic>
         <Shw::Placeholder @height="36px" @text="generic" />
       </H.Generic>
-      <H.Error>There is a error.</H.Error>
     </:header>
 
     <:row as |R|>
+      {{! @glint-expect-error }}
       <R.Field @isInvalid={{(if R.rowData.error true)}} @width="1fr" as |F|>
         <F.Label>Key (1fr)</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        {{! @glint-expect-error }}
         <F.TextInput @value={{R.rowData.key}} />
+        {{! @glint-expect-error }}
         {{#if R.rowData.error}}
+          {{! @glint-expect-error }}
           <F.Error>{{R.rowData.error}}</F.Error>
         {{/if}}
       </R.Field>
 
+      {{! @glint-expect-error }}
       <R.Field @isInvalid={{(if R.rowData.error true)}} @width="2fr" as |F|>
         <F.Label>Value (2fr)</F.Label>
+        {{! @glint-expect-error }}
         <F.Textarea @value={{R.rowData.value}} />
+        {{! @glint-expect-error }}
         {{#if R.rowData.error}}
+          {{! @glint-expect-error }}
           <F.Error>{{R.rowData.error}}</F.Error>
         {{/if}}
       </R.Field>
