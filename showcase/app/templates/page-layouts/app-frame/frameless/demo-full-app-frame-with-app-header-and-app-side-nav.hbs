@@ -6,6 +6,9 @@
 {{page-title "AppFrame Component - Frameless"}}
 
 <Mock::App>
+  <:sidebar as |S|>
+    <S.SideNav @showDevToggle={{true}} />
+  </:sidebar>
   <:main as |M|>
     <M.PageHeader @showActionButton={{true}} />
     <M.GenericTextContent />
