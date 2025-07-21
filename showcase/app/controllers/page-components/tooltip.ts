@@ -5,7 +5,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-import type { PageComponentsTooltipModel } from '../../routes/page-components/tooltip';
+import type { PageComponentsTooltipModel } from 'showcase/routes/page-components/tooltip';
 
 export default class PageComponentsTooltipController extends Controller {
   declare model: PageComponentsTooltipModel;

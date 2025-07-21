@@ -9,7 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 import type RouterService from '@ember/routing/router-service';
-import type { PageComponentsTabsModel } from '../../routes/page-components/tabs';
+import type { PageComponentsTabsModel } from 'showcase/routes/page-components/tabs';
 
 const getRandomInteger = (max = 125) => Math.floor(Math.random() * max);
 

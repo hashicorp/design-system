@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
 import type TimeService from '@hashicorp/design-system-components/services/hds-time';
-import type { PageComponentsTimeModel } from '../../routes/page-components/time';
+import type { PageComponentsTimeModel } from 'showcase/routes/page-components/time';
 
 export default class PageComponentsTimeController extends Controller {
   declare model: PageComponentsTimeModel;
