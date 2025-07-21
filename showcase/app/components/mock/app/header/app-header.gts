@@ -52,11 +52,11 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
           @href="#"
         />
       </:logo>
-      <:globalActions>
+      <:globalActions as |actions|>
         {{#if this.showOrgPicker}}
           <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleButton @text={{this.orgPickerLabel}} @icon="org" />
-            <dd.Checkmark>
+            <dd.Checkmark {{on "click" actions.close}}>
               my-organization
             </dd.Checkmark>
           </HdsDropdown>
@@ -66,8 +66,11 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
         {{#if this.showRegionPicker}}
           <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleButton @text="Europe" @icon="globe" />
-            <dd.Checkmark @selected={{true}}>Europe</dd.Checkmark>
-            <dd.Checkmark>Americas</dd.Checkmark>
+            <dd.Checkmark
+              @selected={{true}}
+              {{on "click" actions.close}}
+            >Europe</dd.Checkmark>
+            <dd.Checkmark {{on "click" actions.close}}>Americas</dd.Checkmark>
           </HdsDropdown>
         {{/if}}
 
@@ -77,10 +80,7 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
         <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
           <dd.ToggleIcon @icon="help" @text="help menu" />
           <dd.Title @text="Help & Support" />
-          <dd.Interactive
-            @route="page-components.app-header"
-            {{on "click" actions.close}}
-          >Documentation</dd.Interactive>
+          <dd.Interactive @href="#">Documentation</dd.Interactive>
           <dd.Interactive @href="#">Tutorials</dd.Interactive>
           <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
           <dd.Interactive @href="#">Changelog</dd.Interactive>
