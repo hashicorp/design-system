@@ -66,8 +66,10 @@ export default class HdsTag extends Component<HdsTagSignature> {
     observer.observe(element);
 
     return () => {
+      if (this._element) {
+        observer.unobserve(this._element);
+      }
       delete this._element;
-      observer.disconnect();
     };
   });
 
