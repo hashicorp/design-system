@@ -374,11 +374,23 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const { isSelectable } = this.args;
     const { orderedColumns } = this._tableModel;
 
+    const DEFAULT_COLUMN_WIDTH = '1fr';
+
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    for (let i = 0; i < orderedColumns.length; i++) {
-      style += ` ${orderedColumns[i]!.appliedWidth}`;
+    const hasCustomColumnWidths = orderedColumns.some(
+      (column) => column.width !== undefined
+    );
+
+    if (hasCustomColumnWidths) {
+      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
+      for (let i = 0; i < orderedColumns.length; i++) {
+        style += ` ${orderedColumns[i]!.width ?? DEFAULT_COLUMN_WIDTH}`;
+      }
+    } else {
+      // if there are no custom column widths, each column is the same width and they take up the available space
+      style += `repeat(${orderedColumns.length}, ${DEFAULT_COLUMN_WIDTH})`;
     }
 
     return style;
