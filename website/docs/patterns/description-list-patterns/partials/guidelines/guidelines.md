@@ -27,7 +27,7 @@ The callout style should only be used in the vertical orientation.
 
 !!! Dont
 
-Mix and match visual styles. Ensure visual consistency is maintained by choosing one style in a given description list.
+Don't mix and match visual styles. Ensure visual consistency is maintained by choosing one style in a given description list.
 
 ![A card with five columns of titles and values. The last column using the callout style while the rest using the standard style.](/assets/patterns/description-list-patterns/description-list-dont-mix-match-styles.png)
 
