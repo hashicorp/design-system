@@ -2,4 +2,6 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Moves `ember-math-helpers` dependency from `devDependencies` to `dependencies`
+<!-- START components/table/advanced-table -->
+Moved `ember-math-helpers` dependency from `devDependencies` to `dependencies`
+<!-- END --> 
