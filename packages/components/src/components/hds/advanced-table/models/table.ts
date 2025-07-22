@@ -209,6 +209,10 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
+  getColumnByKey(key: string): HdsAdvancedTableColumn | undefined {
+    return this.columns.find((column) => column.key === key);
+  }
+
   @action
   setupData(
     args: Pick<
@@ -376,6 +380,7 @@ export default class HdsAdvancedTableTableModel {
 
       sourceColumn.isBeingDragged = false;
       // when a column is moved, reset the imposed width delta
+      // TODO: this should be handled in a more robust way
       sourceColumn.imposedWidthDelta = 0;
 
       this.onColumnReorder?.(updated);

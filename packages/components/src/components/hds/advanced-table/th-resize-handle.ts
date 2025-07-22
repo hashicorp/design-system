@@ -69,7 +69,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startColumnPxWidth: number;
     startNextColumnPxWidth?: number;
   } | null = null;
-  @tracked private _nextColumnDelta: number = 0;
+  // track the width change as it is changing, applied when resizing stops
+  @tracked private _inProgressBorrowedWidth: number = 0;
 
   private _handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private _boundResize: (event: PointerEvent) => void;
@@ -151,9 +152,11 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       currentNextColumnPxWidth ?? 0 // Current next col width before keyboard step
     );
 
-    this._setNextColumnImposedWidthDelta(nextColumn, this._nextColumnDelta);
+    this._setWidthDebts();
 
     this.onColumnResize(column.key, column.width);
+
+    this._inProgressBorrowedWidth = 0;
 
     this._handleElement.scrollIntoView({
       behavior: 'smooth',
@@ -205,7 +208,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
       nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
-      this._nextColumnDelta = actualAppliedDelta;
+
+      this._inProgressBorrowedWidth = actualAppliedDelta;
     } else {
       column.setPxWidth(startColumnPxWidth + deltaX);
     }
@@ -233,28 +237,30 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   private _stopResize(): void {
+    const { column } = this.args;
+
     window.removeEventListener('pointermove', this._boundResize);
     window.removeEventListener('pointerup', this._boundStopResize);
 
-    const { column, nextColumn } = this.args;
-
-    this._setNextColumnImposedWidthDelta(nextColumn, this._nextColumnDelta);
+    this._setWidthDebts();
 
     this.onColumnResize(column.key, column.width);
 
+    this._inProgressBorrowedWidth = 0;
     this.resizing = null;
   }
 
-  private _setNextColumnImposedWidthDelta(
-    nextColumn: HdsAdvancedTableColumn | undefined,
-    delta: number
-  ): void {
-    if (nextColumn === undefined) {
-      return;
+  private _setWidthDebts(): void {
+    const { column } = this.args;
+    const { next: nextColumn } = column.siblings;
+
+    if (nextColumn !== undefined && nextColumn.key !== undefined) {
+      column.widthDebts = {
+        ...column.widthDebts,
+        [nextColumn.key]:
+          (column.widthDebts[nextColumn.key] ?? 0) +
+          this._inProgressBorrowedWidth,
+      };
     }
-
-    nextColumn.imposedWidthDelta = (nextColumn.imposedWidthDelta ?? 0) + delta;
-
-    this._nextColumnDelta = 0;
   }
 }
