@@ -27,18 +27,18 @@ export default class PageComponentsTabsController extends Controller {
 
   @tracked showHighlight = false;
 
-  @tracked currentTab_demo1: number = 0;
-  @tracked currentTab_demo2: number = 0;
-  @tracked currentTab_demo2_subtab1: number = 0;
-  @tracked currentTab_demo2_subtab2: number = 0;
+  @tracked currentTab_demo1 = 0;
+  @tracked currentTab_demo2 = 0;
+  @tracked currentTab_demo2_subtab1 = 0;
+  @tracked currentTab_demo2_subtab2 = 0;
   // --- we initialize to non-random values to avoid visual regression tests to fail
   @tracked count1_demo3: string | undefined = undefined;
-  @tracked count2_demo3: string = '2';
-  @tracked count3_demo3: string = '3';
+  @tracked count2_demo3 = '2';
+  @tracked count3_demo3 = '3';
   // ---
-  @tracked atSelected_demo4: string = 'two';
+  @tracked atSelected_demo4 = 'two';
   // ---
-  @tracked selectedTab_demo5: string = 'two';
+  @tracked selectedTab_demo5 = 'two';
 
   // =============================
   // GENERIC HANDLERS
