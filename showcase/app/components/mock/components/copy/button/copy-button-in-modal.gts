@@ -80,12 +80,10 @@ export default class CopyButtonInModal extends Component {
             </div>
             <p class="shw-text-body">Code block with 'contentEditable'</p>
             <div class="shw-component-copy-button-demo-flex-container">
-              {{!-- prettier-ignore --}}
               <pre class="shw-component-copy-button-code-block"><code
-              id="test-modal-code-block-editable"
-              contenteditable="true"
-            >&lt;h1&gt;Lorem&lt;/h1&gt;
-&lt;p&gt;Ipsum dolor&lt;/p&gt;</code></pre>
+                  id="test-modal-code-block-editable"
+                  contenteditable="true"
+                >&lt;h1&gt;Lorem&lt;/h1&gt; &lt;p&gt;Ipsum dolor&lt;/p&gt;</code></pre>
               <HdsCopyButton
                 @isIconOnly={{true}}
                 @text="Copy the code block content"

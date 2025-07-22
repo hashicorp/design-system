@@ -49,12 +49,10 @@ const CopyButtonInDropdown: TemplateOnlyComponent = <template>
         </div>
         <p class="shw-text-body">Code block with 'contentEditable'</p>
         <div class="shw-component-copy-button-demo-flex-container">
-          {{!-- prettier-ignore --}}
           <pre class="shw-component-copy-button-code-block"><code
-            id="test-dropdown-code-block-editable"
-            contenteditable="true"
-          >&lt;h1&gt;Lorem&lt;/h1&gt;
-&lt;p&gt;Ipsum dolor&lt;/p&gt;</code></pre>
+              id="test-dropdown-code-block-editable"
+              contenteditable="true"
+            >&lt;h1&gt;Lorem&lt;/h1&gt; &lt;p&gt;Ipsum dolor&lt;/p&gt;</code></pre>
           <HdsCopyButton
             @isIconOnly={{true}}
             @text="Copy the code block content"
