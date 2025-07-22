@@ -20,12 +20,6 @@ body.page-components-copy-button {
     align-items: flex-end;
   }
 
-  .shw-component-copy-button-input-component {
-    .hds-copy-button {
-      margin-top: 8px;
-    }
-  }
-
   .shw-component-copy-structured-content {
     margin: 0;
     padding: 16px;
@@ -57,7 +51,7 @@ body.page-components-copy-button {
   .shw-component-copy-button-flex-container {
     display: flex;
     gap: 8px;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .shw-component-copy-button-demo-container {
