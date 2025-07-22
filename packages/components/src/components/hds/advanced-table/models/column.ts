@@ -321,6 +321,7 @@ export default class HdsAdvancedTableColumn {
 
   private collectWidthDebts(): void {
     const { key: thisKey, table } = this;
+
     if (thisKey === undefined) {
       return;
     }

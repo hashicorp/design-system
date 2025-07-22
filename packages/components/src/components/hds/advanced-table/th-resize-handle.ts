@@ -75,7 +75,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startNextColumnPxWidth?: number;
   } | null = null;
   // track the width change as it is changing, applied when resizing stops
-  @tracked private _inProgressBorrowedWidth: number = 0;
+  @tracked private _tempXDelta: number = 0;
 
   private _handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private _boundResize: (event: PointerEvent) => void;
@@ -174,7 +174,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     this.onColumnResize(column.key, column.width);
 
-    this._inProgressBorrowedWidth = 0;
+    this._tempXDelta = 0;
 
     this._handleElement.scrollIntoView({
       behavior: 'smooth',
@@ -257,7 +257,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
       nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
 
-      this._inProgressBorrowedWidth = actualAppliedDelta;
+      this._tempXDelta = actualAppliedDelta;
     } else {
       column.setPxTransientWidth(Math.round(startColumnPxWidth + deltaX));
     }
@@ -312,24 +312,44 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     // reset the transient width
     column.table.resetTransientColumnWidths();
 
-    this._inProgressBorrowedWidth = 0;
+    this._tempXDelta = 0;
     this.resizing = null;
     this._transientDelta = 0;
 
     this.onColumnResize(column.key, column.appliedWidth);
   }
 
+  private _addDebt(
+    borrower: HdsAdvancedTableColumn,
+    lenderKey: string,
+    amount: number
+  ): void {
+    borrower.widthDebts = {
+      ...borrower.widthDebts,
+      [lenderKey]: (borrower.widthDebts[lenderKey] ?? 0) + amount,
+    };
+  }
+
   private _setWidthDebts(): void {
     const { column } = this.args;
     const { next: nextColumn } = column.siblings;
+    const delta = this._tempXDelta;
 
-    if (nextColumn !== undefined && nextColumn.key !== undefined) {
-      column.widthDebts = {
-        ...column.widthDebts,
-        [nextColumn.key]:
-          (column.widthDebts[nextColumn.key] ?? 0) +
-          this._inProgressBorrowedWidth,
-      };
+    if (
+      delta === 0 ||
+      nextColumn === undefined ||
+      nextColumn.key === undefined ||
+      column.key === undefined
+    ) {
+      return;
+    }
+
+    if (delta > 0) {
+      this._addDebt(column, nextColumn.key, delta);
+    } else {
+      const amountBorrowed = -delta;
+
+      this._addDebt(nextColumn, column.key, amountBorrowed);
     }
   }
 }
