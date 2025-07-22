@@ -24,7 +24,6 @@
   ...attributes
 >
   <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
-    {{@column.width}}
     {{#if @column.isVisuallyHidden}}
       <span class="sr-only">{{yield}}</span>
     {{else}}
