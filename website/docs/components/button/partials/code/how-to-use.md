@@ -30,12 +30,6 @@ By default, if you define an icon, it is placed in the leading position (before 
 
 ### Icon-only Button
 
-!!! Insight
-
-**Accessibility tips**
-
-To add a tooltip to an icon-only Button, here’s an example of how to do it in an accessible way: [Accessible Button Tooltip Pattern](https://codepen.io/melsumner/pen/bGGdmMV).
-!!!
 
 If you would like to create an icon-only Button, set `@isIconOnly` to `true`. Note that you still have to define the `@text` value; it will be used as the `aria-label` attribute value on the `Button` element.
 
