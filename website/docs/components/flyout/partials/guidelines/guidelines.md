@@ -17,10 +17,8 @@ While similar in functionality and interaction, the Flyout and [Modal](/componen
 
 #### Complexity
 
-Complexity of content is relative, use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
-
 A Flyout is useful for more complex content, given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with quickly.
-
+Complexity of content is relative, use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
 #### Status and messaging
 
 Flyouts are useful when displaying detailed content that relates to the page, while Modals are useful for messaging status, e.g., confirming a destructive action or warning about the effects of a change.
@@ -144,9 +142,9 @@ The body of the Flyout supports any generic content, local components, or Helios
 
 ## Flyout footer
 
-The footer is **optional** and should be used sparingly as it increases the complexity of the Flyout.
-
 The Flyout footer is a persistent content area at the bottom of the Flyout, and supports additional descriptive content, links, actions, and any other generic content or Helios components.
+The footer is optional and should be used sparingly as it increases the complexity of the Flyout.
+
 
 The Ember and Figma components account for the footer in slightly different ways, though both can achieve the same results:
 

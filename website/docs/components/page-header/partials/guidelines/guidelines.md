@@ -36,9 +36,10 @@ Displays a [Breadcrumb](/components/breadcrumb) to communicate the application h
 
 ## Icon Tile
 
-For consistency and to avoid competing visually with the title, only the `medium` size of the [IconTile](/components/icon-tile) is supported in the Page Header.
+Displays a Helios [IconTile](https://github.com/components/icon-tile) as a visual indicator for the content of the page, object, or product branding.
 
-Displays a Helios [IconTile](/components/icon-tile) as a visual indicator for the content of the page, object, or product branding.
+For consistency and to avoid competing visually with the title, only the medium size of the [IconTile](https://github.com/components/icon-tile) is supported in the Page Header.
+
 
 ![Page Header Icon Tile](/assets/components/page-header/page-header-icon-tile.png =700x*)
 

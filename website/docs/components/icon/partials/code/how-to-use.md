@@ -98,9 +98,11 @@ For example, to visually center an icon with a generic text node, you will need 
 
 ### Animated icons
 
-A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
+The loading and running icons are animated by default, meaning no additional properties are needed:
 
-The [loading](/icons/library?searchQuery=icon%3Aloading) and [running](/icons/library?searchQuery=icon%3Arunning) icons are animated by default, meaning no additional properties are needed:
+A prefers-reduced-motion media query will automatically disable the animation if users set this preference in their environment.
+
+If you need the non-animated version of these icons, use the corresponding loading-static and running-static:
 
 ```handlebars
 <Hds::Icon @name="loading" @size="24" />

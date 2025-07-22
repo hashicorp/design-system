@@ -24,7 +24,6 @@ We recommend using a medium size, but use whichever size fits best in the UI. Fo
 
 ### Primary
 
-Take care when needing multiple links on a page; too many primary links can distract from the end goal.
 
 We recommend using the `primary` variant as the default and for more important links.
 
