@@ -44,6 +44,7 @@ export default class HdsAdvancedTableColumn {
   @tracked width?: string = undefined;
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
   @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
+  @tracked widthDebts: Record<string, number> = {}; // used to track width changes imposed by other columns
 
   @tracked isBeingDragged: boolean = false;
   @tracked thElement?: HTMLDivElement = undefined;
@@ -304,6 +305,43 @@ export default class HdsAdvancedTableColumn {
     this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
   }
 
+  private payWidthDebts(): void {
+    Object.entries(this.widthDebts).forEach(([lenderKey, amount]) => {
+      const lender = this.table.getColumnByKey(lenderKey);
+
+      if (lender) {
+        // Give the width back to the column that lent it to us
+        lender.setPxWidth((lender.pxWidth ?? 0) + amount);
+      }
+    });
+
+    // Clear our own debt ledger, as we've paid everyone back
+    this.widthDebts = {};
+  }
+
+  private collectWidthDebts(): void {
+    const { key: thisKey, table } = this;
+    if (thisKey === undefined) {
+      return;
+    }
+
+    table.columns.forEach((otherColumn) => {
+      const debtToCollect = otherColumn.widthDebts[thisKey] ?? 0;
+
+      if (debtToCollect > 0) {
+        // Take the width back from the column that owes us
+        otherColumn.setPxWidth((otherColumn.pxWidth ?? 0) - debtToCollect);
+        // Clear the debt from their ledger
+        delete otherColumn.widthDebts[thisKey];
+      }
+    });
+  }
+
+  private settleWidthDebts(): void {
+    this.payWidthDebts();
+    this.collectWidthDebts();
+  }
+
   @action focusReorderHandle(): void {
     if (this.thElement === undefined) {
       return;
@@ -337,8 +375,8 @@ export default class HdsAdvancedTableColumn {
 
   @action
   restoreWidth(): void {
-    this.settleWidthDebts();
-
     this.width = this.originalWidth;
+
+    this.settleWidthDebts();
   }
 }

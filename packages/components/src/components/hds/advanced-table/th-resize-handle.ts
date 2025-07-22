@@ -75,9 +75,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startNextColumnPxWidth?: number;
   } | null = null;
   // track the width change as it is changing, applied when resizing stops
-  @tracked private _transientDelta: number = 0;
-  @tracked private _isUpdateQueued: boolean = false;
-  @tracked private _lastPointerEvent: PointerEvent | null = null;
+  @tracked private _inProgressBorrowedWidth: number = 0;
 
   private _handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private _boundResize: (event: PointerEvent) => void;
@@ -172,7 +170,12 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       startNextColumnPxWidth
     );
 
-    // ensure the resize handle remains visible during keyboard navigation.
+    this._setWidthDebts();
+
+    this.onColumnResize(column.key, column.width);
+
+    this._inProgressBorrowedWidth = 0;
+
     this._handleElement.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
@@ -252,13 +255,9 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const actualNewColumnWidth = column.pxAppliedWidth ?? startColumnPxWidth;
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
-      // set the width for the next sibling column
-      this._setColumnWidth(
-        nextColumn,
-        Math.round(startNextColumnPxWidth - actualAppliedDelta)
-      );
+      nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
 
-      this._transientDelta = actualAppliedDelta;
+      this._inProgressBorrowedWidth = actualAppliedDelta;
     } else {
       column.setPxTransientWidth(Math.round(startColumnPxWidth + deltaX));
     }
@@ -310,73 +309,27 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     this._setWidthDebts();
 
-    this._applyTransientWidths();
-
     // reset the transient width
     column.table.resetTransientColumnWidths();
 
-    // reset the resizing state
+    this._inProgressBorrowedWidth = 0;
     this.resizing = null;
     this._transientDelta = 0;
 
     this.onColumnResize(column.key, column.appliedWidth);
   }
 
-  private _addDebt(
-    borrower: HdsAdvancedTableColumn,
-    lenderKey: string,
-    amount: number
-  ): void {
-    borrower.widthDebts = {
-      ...borrower.widthDebts,
-      [lenderKey]: (borrower.widthDebts[lenderKey] ?? 0) + amount,
-    };
-  }
-
   private _setWidthDebts(): void {
     const { column } = this.args;
     const { next: nextColumn } = column.siblings;
-    const delta = this._transientDelta;
 
-    if (
-      delta === 0 ||
-      nextColumn === undefined ||
-      nextColumn.key === undefined ||
-      column.key === undefined
-    ) {
-      return;
-    }
-
-    // Determine the borrower, lender, and the amount of width transferred
-    const borrower = delta > 0 ? column : nextColumn;
-    const lender = delta > 0 ? nextColumn : column;
-    let amount = Math.abs(delta);
-
-    if (borrower.key === undefined || lender.key === undefined) {
-      return;
-    }
-
-    // Check if the lender already has a debt to the borrower.
-    // If so, this transaction is a "payment" against that existing debt.
-    const existingDebt = lender.widthDebts[borrower.key] ?? 0;
-
-    if (existingDebt > 0) {
-      const paymentAmount = Math.min(amount, existingDebt);
-
-      // Reduce the lender's debt by the payment amount
-      lender.widthDebts[borrower.key] = existingDebt - paymentAmount;
-
-      if (lender.widthDebts[borrower.key]! <= 0) {
-        delete lender.widthDebts[borrower.key];
-      }
-
-      // The amount of the new debt is reduced by the amount paid
-      amount = amount - paymentAmount;
-    }
-
-    // If there is still a remaining amount, create a new debt for the borrower.
-    if (amount > 0) {
-      this._addDebt(borrower, lender.key, amount);
+    if (nextColumn !== undefined && nextColumn.key !== undefined) {
+      column.widthDebts = {
+        ...column.widthDebts,
+        [nextColumn.key]:
+          (column.widthDebts[nextColumn.key] ?? 0) +
+          this._inProgressBorrowedWidth,
+      };
     }
   }
 }

@@ -217,22 +217,6 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
-  setTransientColumnWidths(options: { roundValues?: boolean } = {}): void {
-    const roundValues = options.roundValues ?? false;
-
-    this.columns.forEach((column) => {
-      column.pxTransientWidth = roundValues
-        ? Math.round(column.pxWidth)
-        : column.pxWidth;
-    });
-  }
-
-  resetTransientColumnWidths(): void {
-    this.columns.forEach((column) => {
-      column.pxTransientWidth = undefined;
-    });
-  }
-
   getColumnByKey(key: string): HdsAdvancedTableColumn | undefined {
     return this.columns.find((column) => column.key === key);
   }
@@ -404,6 +388,7 @@ export default class HdsAdvancedTableTableModel {
 
       sourceColumn.isBeingDragged = false;
       // when a column is moved, reset the imposed width delta
+      // TODO: this should be handled in a more robust way
       sourceColumn.imposedWidthDelta = 0;
 
       this.onColumnReorder?.(updated);
