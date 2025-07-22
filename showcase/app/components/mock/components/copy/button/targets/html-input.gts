@@ -32,7 +32,7 @@ export const HTML_INPUT_COMPONENTS: inputComponent[] = [
   'select',
 ];
 
-export interface CopyButtonHtmlInputsInputSignature {
+export interface CopyButtonTargetsHtmlInputSignature {
   Args: {
     inputComponent: inputComponent;
   };
@@ -56,7 +56,7 @@ const inputComponentToValueMap: Record<inputComponent, string> = {
   select: '',
 };
 
-const CopyButtonTargetsHtmlInput: TemplateOnlyComponent<CopyButtonTargetsHhtmlInputSignature> =
+const CopyButtonTargetsHtmlInput: TemplateOnlyComponent<CopyButtonTargetsHtmlInputSignature> =
   <template>
     <div class="shw-component-copy-button-flex-container">
       <div>

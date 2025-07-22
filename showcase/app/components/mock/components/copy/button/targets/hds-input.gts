@@ -28,7 +28,7 @@ export interface CopyButtonTargetsHdsInputSignature {
   };
 }
 
-const CopyButtonTargetsHdsInput: TemplateOnlyComponent<CopyButtonTargetsHdsInputsSignature> =
+const CopyButtonTargetsHdsInput: TemplateOnlyComponent<CopyButtonTargetsHdsInputSignature> =
   <template>
     <div class="shw-component-copy-button-flex-container">
       {{#if (eq @inputComponent "text")}}

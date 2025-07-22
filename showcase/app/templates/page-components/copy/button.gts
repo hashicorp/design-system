@@ -1,6 +1,7 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
 import { get } from '@ember/object';
