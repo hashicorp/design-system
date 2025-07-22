@@ -88,7 +88,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication nex
       as |G|
     >
       <G.Legend>Allow this source connect to the destination</G.Legend>
-      <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
         <R.Label>Admin</R.Label>
         <R.Description>Grants full admin capabilities for this project.</R.Description>
       </G.RadioCard>
@@ -108,7 +108,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication nex
       as |G|
     >
       <G.Legend>Allow this source connect to the destination</G.Legend>
-      <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
         <R.Label>Admin</R.Label>
         <R.Description>Grants full admin capabilities for this project.</R.Description>
       </G.RadioCard>
