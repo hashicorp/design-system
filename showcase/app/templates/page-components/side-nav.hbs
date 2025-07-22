@@ -834,8 +834,19 @@
         </span>
       </Hds::SideNav::List::Link>
     </SG.Item>
+    <SG.Item @label="Default link">
+      <Hds::SideNav::List::Link @icon="hashicorp" @text="HashiCorp Cloud Platform" @href="#" />
+    </SG.Item>
     <SG.Item @label="External link">
-      <Hds::SideNav::List::Link @icon="hashicorp" @text="HashiCorp Cloud Platform" @isHrefExternal={{true}} />
+      <Hds::SideNav::List::Link @icon="hashicorp" @text="HashiCorp Cloud Platform" @href="#" @isHrefExternal={{true}} />
+    </SG.Item>
+    <SG.Item @label="Internal link">
+      <Hds::SideNav::List::Link
+        @icon="hashicorp"
+        @text="HashiCorp Cloud Platform"
+        @href="#"
+        @isHrefExternal={{false}}
+      />
     </SG.Item>
   </Shw::Grid>
 
@@ -873,7 +884,6 @@
                 <Hds::SideNav::List::Link
                   @text="Boundary"
                   @icon="boundary"
-                  @href="#"
                   @hasSubItems={{true}}
                   mock-state-value={{state}}
                 />

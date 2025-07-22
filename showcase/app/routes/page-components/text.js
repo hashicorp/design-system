@@ -6,20 +6,20 @@
 import Route from '@ember/routing/route';
 
 import {
-  AVAILABLE_SIZES as DISPLAY_AVAILABLE_SIZES,
-  AVAILABLE_WEIGHTS_PER_SIZE as DISPLAY_AVAILABLE_WEIGHTS_PER_SIZE,
+  SIZES as DISPLAY_AVAILABLE_SIZES,
+  WEIGHTS_PER_SIZE as DISPLAY_AVAILABLE_WEIGHTS_PER_SIZE,
 } from '@hashicorp/design-system-components/components/hds/text/display';
 import {
-  AVAILABLE_SIZES as BODY_AVAILABLE_SIZES,
-  AVAILABLE_WEIGHTS_PER_SIZE as BODY_AVAILABLE_WEIGHTS_PER_SIZE,
+  SIZES as BODY_AVAILABLE_SIZES,
+  WEIGHTS_PER_SIZE as BODY_AVAILABLE_WEIGHTS_PER_SIZE,
 } from '@hashicorp/design-system-components/components/hds/text/body';
 import {
-  AVAILABLE_SIZES as CODE_AVAILABLE_SIZES,
-  AVAILABLE_WEIGHTS_PER_SIZE as CODE_AVAILABLE_WEIGHTS_PER_SIZE,
+  SIZES as CODE_AVAILABLE_SIZES,
+  WEIGHTS_PER_SIZE as CODE_AVAILABLE_WEIGHTS_PER_SIZE,
 } from '@hashicorp/design-system-components/components/hds/text/code';
 import {
-  AVAILABLE_ALIGNS,
-  AVAILABLE_COLORS,
+  ALIGNS as AVAILABLE_ALIGNS,
+  COLORS as AVAILABLE_COLORS,
 } from '@hashicorp/design-system-components/components/hds/text/index';
 
 export default class PageComponentsTextRoute extends Route {

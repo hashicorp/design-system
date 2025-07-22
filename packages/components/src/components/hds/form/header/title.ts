@@ -13,7 +13,7 @@ import type { HdsTextDisplaySignature } from '../../text/display.ts';
 
 export const DEFAULT_SIZE = HdsTextSizeValues.FourHundred;
 export const DEFAULT_TAG = HdsFormHeaderTitleTagValues.Div;
-export const AVAILABLE_TAGS: string[] = Object.values(
+export const TAGS: HdsFormHeaderTitleTags[] = Object.values(
   HdsFormHeaderTitleTagValues
 );
 
@@ -33,10 +33,10 @@ export default class HdsFormHeaderTitle extends Component<HdsFormHeaderTitleSign
     const { tag = DEFAULT_TAG } = this.args;
 
     assert(
-      `@tag for "Hds::Form::Header::Title" must be one of the following: ${AVAILABLE_TAGS.join(
+      `@tag for "Hds::Form::Header::Title" must be one of the following: ${TAGS.join(
         ', '
       )}; received: ${tag}`,
-      AVAILABLE_TAGS.includes(tag)
+      TAGS.includes(tag)
     );
 
     return tag;

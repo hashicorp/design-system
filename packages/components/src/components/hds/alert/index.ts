@@ -21,9 +21,9 @@ import type { HdsAlertDescriptionSignature } from './description.ts';
 import type { HdsIconSignature } from '../icon';
 import type Owner from '@ember/owner';
 
-export const TYPES: string[] = Object.values(HdsAlertTypeValues);
-export const DEFAULT_COLOR = HdsAlertColorValues.Neutral;
-export const COLORS: string[] = Object.values(HdsAlertColorValues);
+export const TYPES: HdsAlertTypes[] = Object.values(HdsAlertTypeValues);
+export const DEFAULT_COLOR: HdsAlertColors = HdsAlertColorValues.Neutral;
+export const COLORS: HdsAlertColors[] = Object.values(HdsAlertColorValues);
 
 export const MAPPING_COLORS_TO_ICONS = {
   [HdsAlertColorValues.Neutral]: 'info',

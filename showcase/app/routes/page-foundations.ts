@@ -5,4 +5,4 @@
 
 import Route from '@ember/routing/route';
 
-export default class PageFoundationsFocusRingRoute extends Route {}
+export default class PageFoundationsRoute extends Route {}

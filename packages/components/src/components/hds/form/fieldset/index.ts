@@ -21,6 +21,10 @@ import type { HdsFormFieldsetLayouts } from './types.ts';
 import type { HdsYieldSignature } from '../../yield/index.ts';
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 
+export const LAYOUT_TYPES: HdsFormFieldsetLayouts[] = Object.values(
+  HdsFormFieldsetLayoutValues
+);
+
 export interface HdsFormFieldsetSignature {
   Args: {
     extraAriaDescribedBy?: string;

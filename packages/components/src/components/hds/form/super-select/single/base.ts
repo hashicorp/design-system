@@ -24,10 +24,12 @@ export const HORIZONTAL_POSITION_MAPPING =
   HdsFormSuperSelectHorizontalPositionToPlacementValues;
 
 export interface HdsFormSuperSelectSingleBaseSignature {
-  Args: PowerSelectSignature['Args'] & {
+  Args: Omit<PowerSelectSignature['Args'], 'resultCountMessage'> & {
     showAfterOptions?: boolean;
     afterOptionsContent?: string;
-    resultCountMessage?: string;
+    resultCountMessage?:
+      | string
+      | PowerSelectSignature['Args']['resultCountMessage'];
     dropdownMaxWidth?: string;
     matchTriggerWidth?: boolean;
     isInvalid?: boolean;
@@ -44,8 +46,20 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     return horizontalPosition as HdsFormSuperSelectHorizontalPositions;
   }
 
-  get resultCountMessage(): string {
+  get resultCountMessageText(): string {
+    if (typeof this.args.resultCountMessage === 'string') {
+      return this.args.resultCountMessage;
+    }
+
     return `${this.powerSelectAPI?.resultsCount || 0} total`;
+  }
+
+  get resultCountMessageFunction(): PowerSelectSignature['Args']['resultCountMessage'] {
+    if (typeof this.args.resultCountMessage === 'function') {
+      return this.args.resultCountMessage;
+    }
+
+    return undefined;
   }
 
   /**

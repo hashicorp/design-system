@@ -12,7 +12,7 @@
   <Shw::Text::H2>Families</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
-    {{#each this.families as |family|}}
+    {{#each @model.FONT_FAMILIES as |family|}}
       <SF.Item @label="{{family}}">
         <p class="hds-font-family-{{family}}">The fox jumped over the lazy dog</p>
       </SF.Item>
@@ -22,7 +22,7 @@
   <Shw::Text::H2>Weights</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
-    {{#each this.weights as |weight|}}
+    {{#each @model.FONT_WEIGHTS as |weight|}}
       <SF.Item @label="{{weight}}">
         <p class="hds-font-family-sans-text hds-font-weight-{{weight}}">The fox jumped over the lazy dog</p>
       </SF.Item>
@@ -39,7 +39,7 @@
       to use.</em></Shw::Text::Body>
 
   <Shw::Flex @direction="column" as |SF|>
-    {{#each-in this.stylesCombinations as |style weights|}}
+    {{#each-in @model.STYLES_COMBINATIONS as |style weights|}}
       <SF.Item @label="{{style}}">
         {{#each weights as |weight|}}
           <p class="hds-typography-{{style}} hds-font-weight-{{weight}}">The fox jumped over the lazy dog ({{weight}})</p>

@@ -12,7 +12,9 @@ import type { HdsFormTextInputTypes } from './types.ts';
 // notice: we don't support all the possible HTML types, only a subset
 // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 export const DEFAULT_TYPE = HdsFormTextInputTypeValues.Text;
-export const TYPES: string[] = Object.values(HdsFormTextInputTypeValues);
+export const TYPES: HdsFormTextInputTypes[] = Object.values(
+  HdsFormTextInputTypeValues
+);
 
 export interface HdsFormTextInputBaseSignature {
   Args: {

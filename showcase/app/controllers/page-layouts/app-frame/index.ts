@@ -8,7 +8,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class PageLayoutsAppFrameController extends Controller {
-  @tracked show3DVisualization = false;
+  @tracked show3DVisualization: boolean = false;
 
   @action
   toggle3DVisualization() {
