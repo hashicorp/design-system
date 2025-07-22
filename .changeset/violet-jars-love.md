@@ -1,5 +1,5 @@
 ---
-"@hashicorp/design-system-components": minor
+"@hashicorp/design-system-components": patch
 ---
 
 `Layout::Flex` - Fixed issue in which `gap` value was improperly inherited by nested `Flex` components, added "0" as a supported `gap` value.
