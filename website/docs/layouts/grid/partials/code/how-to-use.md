@@ -18,7 +18,7 @@ The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to
 
 **Code consideration**
 
-Note: there is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of an individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
+There is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of an individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
 !!!
 
 The simplest way to implement a grid layout is by using the `Layout::Grid` component to wrap content directly. A grid layout of equal width “columns” is created by default.
