@@ -1,6 +1,6 @@
 ## How to use this component
 
-There are two ways to use the Checkbox component:
+There are two ways to use the Toggle component which is based on the HTML checkbox input:
 
 - `Form::Toggle::Base` - the base component: the `<input>` control
 - `Form::Toggle::Field` - the field component: the `<input>` control, with label, helper text, and error messaging (in a wrapping container)
@@ -85,6 +85,8 @@ When helper text is added, the component automatically adds an `aria-describedby
 #### Required vs. optional
 
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication next to the legend text that the field is "required" or "optional".
+
+Note: While the Toggle component is already normally required by the nature of its use for on/off selection, there may be rare instances in which a Toggle is turned off by default but requires the user to interact with it before submitting a form. For example, for accepting terms and conditions.
 
 ```handlebars
 <Hds::Form as |FORM|>
