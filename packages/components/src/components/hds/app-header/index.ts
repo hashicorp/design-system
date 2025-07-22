@@ -24,8 +24,16 @@ export interface HdsAppHeaderSignature {
   };
   Blocks: {
     logo?: [];
-    globalActions?: [];
-    utilityActions?: [];
+    globalActions?: [
+      {
+        close: () => void;
+      },
+    ];
+    utilityActions?: [
+      {
+        close: () => void;
+      },
+    ];
   };
   Element: HTMLDivElement;
 }
@@ -117,6 +125,12 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   @action
   onClickToggle(): void {
     this._isOpen = !this._isOpen;
+  }
+
+  @action close(): void {
+    if (this._isOpen && !this._isDesktop) {
+      this._isOpen = false;
+    }
   }
 
   @action
