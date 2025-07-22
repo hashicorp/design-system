@@ -37,7 +37,7 @@ Don't mix and match visual styles. Ensure visual consistency is maintained by ch
 
 We recommend left-aligning content to maintain the natural reading flow.
 
-![A description list with three columns contained in a card sitting above a table. Each list items is aligned to the left while the values in the table in the last columnn are right aligned.](/assets/patterns/description-list-patterns/description-list-alignment-left.png)
+![A description list with three columns contained in a card sitting above a table. Each list items is aligned to the left while the values in the table in the last column are right aligned.](/assets/patterns/description-list-patterns/description-list-alignment-left.png)
  
 ## Orientation
 
@@ -119,6 +119,6 @@ When the list item is oriented horizontally and the content length of the title 
 
 ![A card titled "Cluster details" with a description list below it. Each list item has its title and value's width at 50% of the cards space.](/assets/patterns/description-list-patterns/description-list-horizontal-fill-example.png)
 
-If the content length of the value is considerably longer than the title, we recommend that the title column width be equal to the longest tite content, while the value uses the rest of the available space.
+If the content length of the value is considerably longer than the title, we recommend that the title column width be equal to the longest title content, while the value uses the rest of the available space.
 
 ![The description list is the primary detail on the page. The header is fixed in each row, while the value's content takes up the remaining space on the page.](/assets/patterns/description-list-patterns/description-list-horizontal-fixed-width-example.png)
