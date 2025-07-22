@@ -100,8 +100,6 @@ If for some reason it's not possible to use conditional logic to control the yie
 
 ### Modals container
 
-If the “modal“ container is empty, a `display: none` style is applied to it.
-
 We also provide an extra container that can be used to display content that sits on top of all the other elements of the page (typically modal elements):
 
 ```handlebars
@@ -146,3 +144,4 @@ If the content is injected dynamically—eg. via JavaScript or via Ember "portal
   </Hds::AppFrame>
 </div>
 ```
+If the “modal“ container is empty, a `display: none` style is applied to it.

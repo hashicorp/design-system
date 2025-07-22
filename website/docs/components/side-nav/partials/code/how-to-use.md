@@ -8,12 +8,12 @@ This section provides in-depth instructions on how consumers can use the **full-
 
 It also provides generic guidance on how to use the **layout-only `Hds::SideNav::Base`** component to build a customized sidebar navigation (if that would be necessary).
 
-Given the complexity and level of customization that an application's navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, [contact the Design Systems Team](/about/support) for support.
-
 The Side Nav component is intended to be used in combination with the [`Hds::AppFrame`](/layouts/app-frame) component:
 
 - AppFrame takes care of providing a top-level layout for the application's page, but is agnostic of what the actual content is and what dimensions it has.
 - Side Nav takes care of providing the visual elements used to build a top-level navigation for the application, but is agnostic of where it's used (even though it has intrinsic sizing).
+
+Given the complexity and level of customization that an application's navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, [contact the Design Systems Team](/about/support) for support.
 
 ## Full-featured component
 

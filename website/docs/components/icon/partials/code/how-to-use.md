@@ -36,7 +36,12 @@ The default size is 16px. To use the alternative 24px icon size, set the `@size`
 
 ### Color
 
+!!! Warning
+
+**Consumer responsibility**
+
 We don’t validate the CSS color string to ensure that the value used is correct.
+!!!
 
 The default value is `currentColor` which uses the inherited text color as the icon color. When setting a custom value, we recommend using one of the pre-defined **foreground** color variables to ensure consistency with our design language:
 
@@ -100,13 +105,13 @@ For example, to visually center an icon with a generic text node, you will need 
 
 The loading and running icons are animated by default, meaning no additional properties are needed:
 
-A prefers-reduced-motion media query will automatically disable the animation if users set this preference in their environment.
-
-If you need the non-animated version of these icons, use the corresponding loading-static and running-static:
-
 ```handlebars
 <Hds::Icon @name="loading" @size="24" />
 ```
+
+A prefers-reduced-motion media query will automatically disable the animation if users set this preference in their environment.
+
+If you need the non-animated version of these icons, use the corresponding loading-static and running-static:
 
 If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
 

@@ -31,13 +31,13 @@ Offset or page-based pagination divides a dataset into pages containing a defaul
 
 ## Truncation
 
-The number of pages equals `total items / items per page`, e.g., if the total number of items is 120 and there are 10 items per page, the number of pages is 12. However, this can be variable depending on the `PageSize` and can determine whether the number of pages extends beyond the threshold of truncation.
-
 By default, in Numbered Pagination, the number of visible pages will be truncated when the total number of pages exceeds seven. What pages are truncated depends on the current page the user is on, with a few notable constants:
 
 - The first and last page will always be displayed (never be truncated).
 - The previous page and next page compared to the current page will always be displayed (unless the current page is the first or last page).
 - A maximum of seven pages or truncated pages will always be displayed.
+
+The number of pages equals `total items / items per page`, e.g., if the total number of items is 120 and there are 10 items per page, the number of pages is 12. However, this can be variable depending on the `PageSize` and can determine whether the number of pages extends beyond the threshold of truncation.
 
 ### Current page examples
 
