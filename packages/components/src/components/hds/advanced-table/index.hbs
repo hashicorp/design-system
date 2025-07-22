@@ -5,7 +5,7 @@
 <div
   class="hds-advanced-table__container
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
-  {{this._didUpdateModel}}
+  {{did-update this.setupTableModelData @columns @model @sortBy @sortOrder}}
   ...attributes
 >
   {{! Caption }}
@@ -30,8 +30,8 @@
     <div class={{this.theadClassNames}} role="rowgroup" {{this._setUpThead}}>
       <Hds::AdvancedTable::Tr
         @selectionScope="col"
-        @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
-        @sortBySelectedOrder={{if (eq this._sortBy @selectableColumnKey) this._sortOrder}}
+        @onClickSortBySelected={{if @selectableColumnKey (fn this._tableModel.setSortBy @selectableColumnKey)}}
+        @sortBySelectedOrder={{if (eq this._tableModel.sortBy @selectableColumnKey) this._tableModel.sortOrder}}
         @isSelectable={{this.isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}
         @didInsert={{this.didInsertSelectAllCheckbox}}
@@ -40,29 +40,45 @@
         @hasStickyColumn={{@hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
-        {{#each @columns as |column index|}}
+        {{#each this._tableModel.columns as |column index|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
-              @sortOrder={{if (eq column.key this._sortBy) this._sortOrder}}
-              @onClickSort={{fn this.setSortBy column.key}}
+              @column={{column}}
+              @sortOrder={{if (eq column.key this._tableModel.sortBy) this._tableModel.sortOrder}}
+              @onClickSort={{if column.key (fn this._tableModel.setSortBy column.key)}}
               @align={{column.align}}
               @tooltip={{column.tooltip}}
+              @hasResizableColumns={{@hasResizableColumns}}
+              @isLastColumn={{eq index (sub this._tableModel.columns.length 1)}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @previousColumn={{get this._tableModel.columns (sub index 1)}}
+              @nextColumn={{get this._tableModel.columns (add index 1)}}
+              @tableHeight={{this._tableHeight}}
+              @onColumnResize={{@onColumnResize}}
+              {{this._setColumnWidth column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::ThSort>
           {{else}}
             <Hds::AdvancedTable::Th
               @align={{column.align}}
-              @tooltip={{column.tooltip}}
-              @isVisuallyHidden={{column.isVisuallyHidden}}
-              @isExpandable={{column.isExpandable}}
-              @onClickToggle={{this._tableModel.toggleAll}}
-              @isExpanded={{this._tableModel.expandState}}
+              @column={{column}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+              @hasResizableColumns={{@hasResizableColumns}}
+              @isExpanded={{this._tableModel.expandState}}
+              @isExpandable={{column.isExpandable}}
+              @isLastColumn={{eq index (sub this._tableModel.columns.length 1)}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @isVisuallyHidden={{column.isVisuallyHidden}}
+              @previousColumn={{get this._tableModel.columns (sub index 1)}}
+              @nextColumn={{get this._tableModel.columns (add index 1)}}
+              @tableHeight={{this._tableHeight}}
+              @tooltip={{column.tooltip}}
+              @onClickToggle={{this._tableModel.toggleAll}}
+              @onColumnResize={{@onColumnResize}}
+              {{this._setColumnWidth column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>
@@ -78,7 +94,7 @@
         we yield the Tr/Td/Th elements _and_ the record itself as `data`
         this means the consumer will *have to* use the `data` key to access it in their template
       -------------------------------------------------------------------------------------------- }}
-      {{#each (sort-by this.getSortCriteria this._tableModel.rows) key=this.identityKey as |record index|}}
+      {{#each this._tableModel.sortedRows key=this.identityKey as |record index|}}
         {{#if this._tableModel.hasRowsWithChildren}}
           <Hds::AdvancedTable::ExpandableTrGroup
             @record={{record}}
@@ -144,6 +160,7 @@
       {{/each}}
     </div>
   </div>
+
   {{#if this.showScrollIndicatorLeft}}
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"

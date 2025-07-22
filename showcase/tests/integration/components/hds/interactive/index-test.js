@@ -31,7 +31,7 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
   });
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      hbs`<Hds::Interactive @route="utilities.interactive" id="test-interactive" />`,
+      hbs`<Hds::Interactive @route="page-utilities.interactive" id="test-interactive" />`,
     );
     assert.dom('#test-interactive').hasTagName('a');
     assert

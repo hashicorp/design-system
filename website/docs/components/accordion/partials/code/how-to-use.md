@@ -101,12 +101,17 @@ With a link in the toggle block and a form in the content.
         </div>
       </:toggle>
       <:content>
-        <p>
-          <Hds::Form::TextInput::Field @type="email" as |F|>
-            <F.Label>Email</F.Label>
-          </Hds::Form::TextInput::Field>
-        </p>
-        <Hds::Button @text="Submit" />
+        <Hds::Form as |FORM|>
+          <FORM.Section>
+            <Hds::Form::TextInput::Field @type="email" as |F|>
+              <F.Label>Email</F.Label>
+            </Hds::Form::TextInput::Field>
+          </FORM.Section>
+
+          <FORM.Footer>
+            <Hds::Button @text="Submit" />
+          </FORM.Footer>
+        </Hds::Form>
       </:content>
     </A.Item>
   </Hds::Accordion>

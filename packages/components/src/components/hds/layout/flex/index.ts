@@ -27,10 +27,17 @@ import type {
 } from './types.ts';
 
 export const DEFAULT_DIRECTION = HdsLayoutFlexDirectionValues.Row;
-export const DIRECTIONS: string[] = Object.values(HdsLayoutFlexDirectionValues);
-export const JUSTIFYS: string[] = Object.values(HdsLayoutFlexJustifyValues);
-export const ALIGNS: string[] = Object.values(HdsLayoutFlexAlignValues);
-export const GAPS: string[] = Object.values(HdsLayoutFlexGapValues);
+export const DIRECTIONS: HdsLayoutFlexDirections[] = Object.values(
+  HdsLayoutFlexDirectionValues
+);
+export const JUSTIFYS: HdsLayoutFlexJustifys[] = Object.values(
+  HdsLayoutFlexJustifyValues
+);
+export const ALIGNS: HdsLayoutFlexAligns[] = Object.values(
+  HdsLayoutFlexAlignValues
+);
+export const DEFAULT_GAP = HdsLayoutFlexGapValues.Zero;
+export const GAPS: HdsLayoutFlexGaps[] = Object.values(HdsLayoutFlexGapValues);
 
 export interface HdsLayoutFlexSignature {
   Args: {
@@ -104,7 +111,7 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
     | [HdsLayoutFlexGaps]
     | [HdsLayoutFlexGaps, HdsLayoutFlexGaps]
     | undefined {
-    const { gap } = this.args;
+    const { gap = DEFAULT_GAP } = this.args;
 
     if (gap) {
       assert(
@@ -124,7 +131,7 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
     }
   }
 
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-layout-flex'];
 
     // add a class based on the @direction argument

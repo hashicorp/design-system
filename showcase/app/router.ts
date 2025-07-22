@@ -12,7 +12,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('foundations', function () {
+  this.route('page-foundations', { path: 'foundations' }, function () {
     this.route('typography');
     this.route('elevation');
     this.route('focus-ring');
@@ -24,7 +24,7 @@ Router.map(function () {
       });
     });
   });
-  this.route('components', function () {
+  this.route('page-components', { path: 'components' }, function () {
     this.route('accordion');
     this.route('advanced-table');
     this.route('alert');
@@ -50,10 +50,23 @@ Router.map(function () {
     this.route('code-editor');
     this.route('dropdown');
     this.route('flyout');
-    this.route('form', function () {
+    this.route('form', function (): void {
+      this.route('frameless', function (): void {
+        this.route('demo-form-basic');
+        this.route('demo-form-complex');
+      });
+      this.route('layout');
       this.route('base-elements');
       this.route('checkbox');
       this.route('file-input');
+      this.route('key-value-inputs', function () {
+        this.route('frameless', function () {
+          this.route('demo-responsiveness');
+          this.route('demo-responsiveness-custom-widths');
+          this.route('demo-in-form');
+          this.route('demo-flows');
+        });
+      });
       this.route('masked-input');
       this.route('radio');
       this.route('select');
@@ -101,7 +114,7 @@ Router.map(function () {
       this.route('snippet');
     });
   });
-  this.route('layouts', function () {
+  this.route('page-layouts', { path: 'layouts' }, function () {
     this.route('app-frame', function () {
       this.route('frameless', function () {
         this.route('demo-full-app-frame');
@@ -115,7 +128,7 @@ Router.map(function () {
     this.route('flex');
     this.route('grid');
   });
-  this.route('utilities', function () {
+  this.route('page-utilities', { path: 'utilities' }, function () {
     this.route('dialog-primitive');
     this.route('disclosure-primitive');
     this.route('dismiss-button');
@@ -123,7 +136,7 @@ Router.map(function () {
     this.route('menu-primitive');
     this.route('popover-primitive');
   });
-  this.route('overrides', function () {
+  this.route('page-overrides', { path: 'overrides' }, function () {
     this.route('power-select');
   });
 });

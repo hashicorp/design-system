@@ -5,6 +5,7 @@
 
 import fs from 'fs';
 import matter from 'gray-matter';
+import { glob } from 'glob';
 
 const readVersionFromPackageJson = (filePath) => {
   try {
@@ -17,62 +18,18 @@ const readVersionFromPackageJson = (filePath) => {
   }
 };
 
-const getComponentPaths = (baseDir) => {
-  const components = {};
-  try {
-    const folders = fs.readdirSync(baseDir, { withFileTypes: true });
-    folders.forEach((folder) => {
-      if (folder.isDirectory()) {
-        const componentPath = `${baseDir}/${folder.name}`;
-        const partialsPath = `${componentPath}/partials`;
-        if (fs.existsSync(partialsPath)) {
-          // we have some special cases where intermediate namespacing is used to group components:
-          if (baseDir.endsWith('/copy')) {
-            components[`copy-${folder.name}`] = componentPath;
-          } else if (baseDir.endsWith('/form')) {
-            if (folder.name === 'primitives') {
-              const primitiveNames = [
-                'character-count',
-                'error',
-                'field',
-                'fieldset',
-                'helper-text',
-                'indicator',
-                'label',
-                'legend',
-              ];
-              primitiveNames.forEach((componentName) => {
-                components[`form-${componentName}`] = componentPath;
-              });
-            } else {
-              components[`form-${folder.name}`] = componentPath;
-            }
-          } else if (baseDir.endsWith('/layouts')) {
-            if (folder.name === 'app-frame') {
-              components[`${folder.name}`] = componentPath;
-            } else {
-              components[`layout-${folder.name}`] = componentPath;
-            }
-          } else if (baseDir.endsWith('/link')) {
-            components[`link-${folder.name}`] = componentPath;
-          } else if (baseDir.endsWith('/stepper')) {
-            // The components/stepper/indicator page contains both the Stepper::Step::Indicator and Stepper::Task::Indicator
-            if (folder.name === 'indicator') {
-              components[`stepper-step-${folder.name}`] = componentPath;
-              components[`stepper-task-${folder.name}`] = componentPath;
-            } else {
-              components[`stepper-${folder.name}`] = componentPath;
-            }
-          } else {
-            components[folder.name] = componentPath;
-          }
-        }
-      }
-    });
-  } catch (err) {
-    console.error(`Error reading components from ${baseDir}:`, err);
-  }
-  return components;
+const getComponentPaths = async () => {
+  const componentPaths = await glob(
+    './docs/{components,layouts,overrides,utilities}/**/partials/',
+    { onlyDirectories: true },
+  );
+  const regex = new RegExp(
+    `(components|layouts|overrides|utilities)\/((?!\/partials).)*`,
+  );
+  const cleanedComponentPaths = componentPaths.map((path) => {
+    return path.match(regex)[0];
+  });
+  return cleanedComponentPaths;
 };
 
 const readChangelogContent = (filePath) => {
@@ -91,67 +48,83 @@ const extractVersion = (changelogContent, version) => {
   return match ? match[0] : null;
 };
 
-const convertComponentNameFormat = (componentName) => {
-  const twoLevelComponentNames = ['copy', 'form', 'layout', 'link', 'stepper'];
-  const threeLevelComponentNames = [
-    'stepper-step-indicator',
-    'stepper-task-indicator',
-  ];
-  if (twoLevelComponentNames.includes(componentName.split('-')[0])) {
-    let words = componentName
-      .split('-')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1));
-    if (threeLevelComponentNames.includes(componentName)) {
-      return words.join('::');
-    } else {
-      return words[0] + '::' + words.slice(1).join('');
-    }
-  } else {
-    return componentName
-      .split('-')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join('');
-  }
-};
-
-const extractComponentChangelogEntries = (components, lastVersionContent) => {
+const extractComponentChangelogEntries = (lastVersionContent) => {
   const componentChangelogEntries = {};
 
-  Object.keys(components).forEach((componentName) => {
-    const formattedComponentName = convertComponentNameFormat(componentName);
-    const regex = new RegExp(`^\`${formattedComponentName}\` - .*$`, 'gm');
-    const matches = lastVersionContent.match(regex);
-    if (matches) {
-      componentChangelogEntries[componentName] = matches;
-    }
-  });
+  // Regular expression to match and capture a block of text delimited by two HTML comments used as START/END markers:
+  // <!-- START ... -->
+  //   ... (any content, including newlines)
+  // <!-- END -->
+  //
+  // Captures the following groups:
+  // - $1 = The full opening comment line (e.g., <!-- START ... -->\n)
+  // - $2 = The component path identifier declared in the "START" marker
+  // - $3 = The content between the start and end comments (non-greedy)
+  // - $4 = The last character of the content
+  // - $4 = The full closing comment line (\n<!-- END -->)
+  //
+  // Flags:
+  // - 'g': global search (find all matches)
+  // - 'm': multiline mode (^ and $ match start/end of line)
+  //
+  // Explanation/demo: https://regex101.com/r/IDnaLU/1
+  //
+  const regex = new RegExp(
+    `^(<!-- START (.*) -->\n)((.|\n)*?)(\n<!-- END -->)$`,
+    'gm',
+  );
+
+  const matchesIterator = lastVersionContent.matchAll(regex);
+  const matches = Array.from(matchesIterator);
+
+  if (matches.length > 0) {
+    matches.forEach((match) => {
+      const [
+        _fullString,
+        _startMarker,
+        componentPath,
+        cleanContent,
+        _entryLastChar,
+        _endMarker,
+      ] = match;
+      if (fs.existsSync(`./docs/${componentPath}`)) {
+        (componentChangelogEntries[componentPath] ??= []).push(cleanContent);
+      } else {
+        // If the path declared in the `START` marker is not present an error is thrown
+        throw new Error(`No path found for changelog entry: ${componentPath}`);
+      }
+    });
+  } else {
+    console.warn(
+      `No changelog entries found in last version content: ${lastVersionContent}`,
+    );
+  }
 
   return componentChangelogEntries;
 };
 
 const updateComponentVersionHistory = (componentChangelogEntries, version) => {
-  Object.keys(componentChangelogEntries).forEach((componentName) => {
-    const versionHistoryPath = `${allComponentsPath[componentName]}/partials/version-history/version-history.md`;
+  Object.keys(componentChangelogEntries).forEach((componentPath) => {
+    const versionHistoryPath = `./docs/${componentPath}/partials/version-history/version-history.md`;
     let versionHistoryContent = '';
 
     if (fs.existsSync(versionHistoryPath)) {
       versionHistoryContent = fs.readFileSync(versionHistoryPath, 'utf8');
     } else {
-      fs.mkdirSync(
-        `${allComponentsPath[componentName]}/partials/version-history`,
-        { recursive: true },
-      );
+      fs.mkdirSync(`./docs/${componentPath}/partials/version-history`, {
+        recursive: true,
+      });
     }
 
     // prevent duplicate sections if the script is called multiple times
     if (!versionHistoryContent.includes(`## ${version}`)) {
       // for each entry, remove the component name and keep only the description (assuming the "`ComponentName` - Description" format)
-      const newEntries = componentChangelogEntries[componentName]
+      const newEntries = componentChangelogEntries[componentPath]
         .map((entry) => {
-          // If the component is a form primitive, we want to keep the component name in the description
+          // If the component is a form primitive or layout, we want to keep the component name in the description
           if (
-            allComponentsPath[componentName] ===
-            './docs/components/form/primitives'
+            componentPath === 'components/form/primitives' ||
+            componentPath === 'components/form/layout'
           ) {
             return entry;
           } else {
@@ -166,8 +139,8 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
 };
 
 const updateComponentFrontMatter = (componentChangelogEntries, version) => {
-  Object.keys(componentChangelogEntries).forEach((componentName) => {
-    const indexPath = `${allComponentsPath[componentName]}/index.md`;
+  Object.keys(componentChangelogEntries).forEach((componentPath) => {
+    const indexPath = `./docs/${componentPath}/index.md`;
 
     if (fs.existsSync(indexPath)) {
       // Fetch the index markdown file
@@ -201,9 +174,9 @@ const updateComponentFrontMatter = (componentChangelogEntries, version) => {
   });
 };
 
-const cleanComponentFrontMatter = (components, version) => {
-  Object.keys(components).forEach((componentName) => {
-    const indexPath = `${components[componentName]}/index.md`;
+const cleanComponentFrontMatter = (componentPaths, version) => {
+  componentPaths.forEach((componentPath) => {
+    const indexPath = `./docs/${componentPath}/index.md`;
 
     if (fs.existsSync(indexPath)) {
       // Fetch the index markdown file
@@ -236,6 +209,23 @@ const cleanComponentFrontMatter = (components, version) => {
   });
 };
 
+const cleanChangelogContent = (filePath) => {
+  try {
+    const content = fs.readFileSync(filePath, 'utf8');
+    const lines = content.split('\n');
+    const newLines = [];
+    lines.forEach((line) => {
+      if (!(line.startsWith('<!-- START') || line.startsWith('<!-- END'))) {
+        newLines.push(line);
+      }
+    });
+    fs.writeFileSync(filePath, newLines.join('\n'), 'utf8');
+  } catch (err) {
+    console.error(`Error cleaning changelog content from ${filePath}:`, err);
+    return null;
+  }
+};
+
 const isNotPatchVersion = (version) => {
   // eslint-disable-next-line no-unused-vars
   const [major, minor, patch] = version.split('.').map(Number);
@@ -248,26 +238,7 @@ const version = readVersionFromPackageJson(
 );
 
 // Determine component paths
-const componentPaths = getComponentPaths('./docs/components');
-const copyComponentPaths = getComponentPaths('./docs/components/copy');
-const formComponentPaths = getComponentPaths('./docs/components/form');
-const linkComponentPaths = getComponentPaths('./docs/components/link');
-const stepperComponentPaths = getComponentPaths('./docs/components/stepper');
-const tableComponentPaths = getComponentPaths('./docs/components/table');
-const layoutComponentPaths = getComponentPaths('./docs/layouts');
-const overrideComponentPaths = getComponentPaths('./docs/overrides');
-const utilityComponentPaths = getComponentPaths('./docs/utilities');
-const allComponentsPath = {
-  ...componentPaths,
-  ...copyComponentPaths,
-  ...formComponentPaths,
-  ...linkComponentPaths,
-  ...stepperComponentPaths,
-  ...tableComponentPaths,
-  ...layoutComponentPaths,
-  ...overrideComponentPaths,
-  ...utilityComponentPaths,
-};
+const allComponentPaths = await getComponentPaths();
 
 // Read the main changelog entry for components
 const changelogContent = readChangelogContent(
@@ -278,7 +249,6 @@ const currentVersionContent = extractVersion(changelogContent, version);
 
 // Extracts changelog entries for each components
 const componentChangelogEntries = extractComponentChangelogEntries(
-  allComponentsPath,
   currentVersionContent,
 );
 
@@ -288,8 +258,12 @@ updateComponentVersionHistory(componentChangelogEntries, version);
 // Check if the current version is a new minor version
 if (isNotPatchVersion(version)) {
   // Clean previous front matter status for all components
-  cleanComponentFrontMatter(allComponentsPath, version);
+  cleanComponentFrontMatter(allComponentPaths, version);
 }
 
 // Update front matter for each updated component
 updateComponentFrontMatter(componentChangelogEntries, version);
+
+// Clean the changelog entries for components
+cleanChangelogContent('./docs/whats-new/release-notes/partials/components.md');
+cleanChangelogContent('../packages/components/CHANGELOG.md');

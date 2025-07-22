@@ -1,3 +1,7 @@
+## 4.21.0
+
+Refactored the Home Link, removed the `@ariaLabel` argument, added `@text` (should replace `@ariaLabel`) and `@isIconOnly` arguments.
+
 ## 4.20.0
 
 Removed usage of `--hds-app-desktop-breakpoint` CSS variable and relied on the `@breakpoint` argument for override of mobile behavior

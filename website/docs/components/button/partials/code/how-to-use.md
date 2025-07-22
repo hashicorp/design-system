@@ -110,17 +110,20 @@ If you’re passing an `@href` or a `@route` argument to the component, this wil
 !!! Info
 
 The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works, please refer to [its documentation page](/utilities/interactive).
+
 !!!
 
 #### With @href
 
 If you pass an `@href` argument, an `<a>` link will be generated.
 
-`target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument but can be overridden. If the `href` points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{false}}` and it will not add the `target` and `rel` attributes.
+By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
 ```handlebars
 <Hds::Button @text="Visit website" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
 ```
+
+If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" or "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
 #### With @route
 

@@ -38,14 +38,21 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .hasText('test');
   });
 
-  // COLUMN MIN WIDTH
+  // OPTIONS
 
-  // Note: A fallback value of 0px is set in the CSS for the `--hds-layout-grid-column-min-width` custom property
-  test('if the @columnMinWidth prop is not declared, --hds-layout-grid-column-min-width should be unset', async function (assert) {
+  // COLUMN MIN WIDTH AND COLUMN WIDTH
+
+  // Notes:
+  // A fallback value of 0px is set in the CSS for the `--hds-layout-grid-column-min-width` custom property
+  // A fallback value of `auto-fit` is set in the CSS for the `--hds-layout-grid-column-fill-type` custom property
+
+  // if neither columnMinWidth or columnWidth are declared, we do not set the inline custom properties
+  test('if neither columnMinWidth or columnWidth are declared, we do not set the inline custom properties', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
     assert
       .dom('#test-layout-grid')
-      .doesNotHaveStyle('--hds-layout-grid-column-min-width');
+      .doesNotHaveStyle('--hds-layout-grid-column-min-width')
+      .doesNotHaveStyle('--hds-layout-grid-column-fill-type');
   });
 
   test('it should render the correct min-width if the @columnMinWidth prop is declared', async function (assert) {
@@ -54,6 +61,16 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     );
     assert
       .dom('#test-layout-grid')
+      .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
+  });
+
+  test('it should set the correct fill type and column width if the @columnWidth prop is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @columnWidth="200px" />`,
+    );
+    assert
+      .dom('#test-layout-grid')
+      .hasStyle({ '--hds-layout-grid-column-fill-type': 'auto-fill' })
       .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
   });
 
@@ -91,15 +108,10 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   // GAP
 
-  test('it should render the element without `gap` class if no @gap is declared', async function (assert) {
+  test('it should render the element with the default `gap` class if no @gap is declared', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
-    assert.dom('#test-layout-grid').doesNotHaveClass(/hds-layout-grid--gap-/);
-    assert
-      .dom('#test-layout-grid')
-      .doesNotHaveClass(/hds-layout-grid--row-gap-/);
-    assert
-      .dom('#test-layout-grid')
-      .doesNotHaveClass(/hds-layout-grid--column-gap-/);
+    assert.dom('#test-layout-grid').hasClass('hds-layout-grid--row-gap-0');
+    assert.dom('#test-layout-grid').hasClass('hds-layout-grid--column-gap-0');
   });
 
   test('it should render the correct CSS classes if the @gap prop is declared as a single value', async function (assert) {
@@ -135,12 +147,27 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should throw an assertion if an incorrect value for @gap is provided', async function (assert) {
     const errorMessage =
-      '@gap for "Hds::Layout::Grid" must be a single value or an array of two values of one of the following: 4, 8, 12, 16, 24, 32, 48; received: 4,foo';
+      '@gap for "Hds::Layout::Grid" must be a single value or an array of two values of one of the following: 0, 4, 8, 12, 16, 24, 32, 48; received: 4,foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Layout::Grid @gap={{array 4 "foo"}} />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if both @columnMinWidth and @columnWidth are declared', async function (assert) {
+    const errorMessage =
+      '@columnMinWidth and @columnWidth for "Hds::Layout::Grid" cannot be used together';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @columnMinWidth="200px" @columnWidth="300px" />`,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

@@ -1,3 +1,11 @@
+## 4.21.0
+
+Added @columnWidth to set "fixed" width for columns
+
+## 4.20.2
+
+added missing types to the barrel export file
+
 ## 4.20.0
 
 Added missing export of component/subcomponent

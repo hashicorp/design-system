@@ -219,7 +219,13 @@ To change this behavior, you can use the `@preserveContentInDom` argument so tha
 ### ListItem::Interactive
 
 `ListItem::Interactive` renders the correct element based on the passing of a `@route`, `@href`, or the addition of a click event (e.g.,
-`\{{on "click" this.myAction}}`). Internally, the component uses the [Hds::Interactive](/utilities/interactive) utility component.
+`\{{on "click" this.myAction}}`).
+
+!!! Info
+
+The `ListItem::Interactive` component uses the generic `Hds::Interactive` component. For more details about how this utility component works, please refer to [its documentation page](/utilities/interactive).
+
+!!!
 
 #### Rendering a button
 
@@ -245,13 +251,6 @@ You can pass an `@icon` argument to add a leading icon:
 
 #### Rendering a link with `@href`
 
-!!! Info
-
-**Internal Link?**
-
-When using the `@href` argument, you’re indicating an external link (instead of a route). So, a few relevant HTML attributes are added—`target="_blank"` and `rel="noopener noreferrer"`. However, if the `@href` really _does_ point to an internal link or uses a different protocol (e.g., `mailto` or `ftp`), pass `@isHrefExternal={{false}}` to the component and it will not add any extra HTML attributes.
-!!!
-
 If you pass an `@href` argument, a link (`<a>` element) will be generated:
 
 ```handlebars
@@ -261,8 +260,9 @@ If you pass an `@href` argument, a link (`<a>` element) will be generated:
   </Hds::Dropdown::ListItem::Interactive>
 </ul>
 ```
+By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
-To indicate that the link points to an external resource, you can use `@trailingIcon` and assign it an icon name like `external-link`, `docs-link`, `guide-link`, or `learn-link`.
+To visually indicate that the link points to an external resource, you can use `@trailingIcon` and assign it an icon name like `external-link`, `docs-link`, `guide-link`, or `learn-link`.
 
 ```handlebars
 <ul class="hds-dropdown__list">
@@ -271,6 +271,8 @@ To indicate that the link points to an external resource, you can use `@trailing
   </Hds::Dropdown::ListItem::Interactive>
 </ul>
 ```
+
+If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" or "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
 #### Rendering a LinkTo (with `@route`)
 

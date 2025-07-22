@@ -11,6 +11,8 @@ export interface HdsFormTextareaBaseSignature {
     value?: string;
     width?: string;
     height?: string;
+    id?: string;
+    ariaDescribedBy?: string;
   };
   Element: HTMLElement;
 }

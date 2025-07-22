@@ -13,7 +13,9 @@ import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-cl
 import type { HdsIconSignature } from '../../icon';
 
 export const DEFAULT_COLOR = HdsCopySnippetColorValues.Primary;
-export const COLORS: string[] = Object.values(HdsCopySnippetColorValues);
+export const COLORS: HdsCopySnippetColors[] = Object.values(
+  HdsCopySnippetColorValues
+);
 
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';

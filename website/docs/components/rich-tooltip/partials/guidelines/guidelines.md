@@ -44,19 +44,6 @@ The Rich Tooltip supports collision detection, meaning the `placement` property 
 
 ![Example of collision detection in the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-collision-detection.png)
 
-## Offset
-
-The default recommended distance between the toggle and the Rich Tooltip pointer is 4px.
-
-![Default spacing for the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-offset-spacing.png)
-
-!!! Dont
-
-Don’t add extra offset if the Rich Tooltip would block important information, appear disconnected from the element it is meant to provide information for, or cause confusion for the user.
-
-![Example of adjusting the offset of the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-offset-dont.png)
-!!!
-
 ## Interaction
 
 The Rich Tooltip supports two interaction methods: a `On hover / On focus` ("soft") interaction and a `On click` interaction. Which one to use depends on:

@@ -57,7 +57,7 @@ module(
 
     test('it should render a <a> link if @route is passed', async function (assert) {
       await render(
-        hbs`<Hds::SideNav::List::BackLink @route="utilities.interactive" />`,
+        hbs`<Hds::SideNav::List::BackLink @route="page-utilities.interactive" />`,
       );
       assert
         .dom('.hds-side-nav__list-item-link--back-link')

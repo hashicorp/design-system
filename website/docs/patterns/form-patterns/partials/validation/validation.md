@@ -1,40 +1,37 @@
+Form validation ensures required fields are not empty, field input is correctly formatted, and the data being submitted matches the requirements for the application. A successful validation strategy relies on three key concepts:
+
+1. **Clear language:** Error messages should be human-readable and easy to understand.
+2. **Placement:** Error messages should be noticeable and display in close proximity to where the error was triggered.
+3. **Timing:** Error messages should display as soon as possible after an error occurs.
+
 !!! Warning
 
-While we provide the structure and visual consistency for validation, the messaging and functionality need to be implemented by the product teams.
+While we provide components and visual design patterns for form validation UI, the messaging and functionality need to be implemented by the product teams.
 !!!
 
-Form validation ensures that fields are correctly formatted, required fields are not empty, and the data being submitted matches the requirements for application. A successful validation strategy relies on three key concepts:
+## Clear validation language
 
-1. **Uses clear language:** the validation message should be human readable and easy to understand.
-2. **Displayed at the right time:** The validation message should be displayed as soon as possible to when the error occurred.
-3. **Displayed in the right place:** the validation message should be noticeable and located where the error occurred.
+Error messages should clearly, but briefly communicate the issue for each impacted input. Using plain language to state the problem and suggested solution helps reduce friction when users are resolving errors in their inputs. 
 
-!!! Info
+![Example of credit card information form with invalid expiration date](/assets/patterns/form-patterns/form-pattern-validation-error-message-example.png)
 
-At this time Helios components only support error validation. If you have a need for success validation in your application please submit a [request](/about/support).
-!!!
 
-## Types of validation
+## Placement by validation type
 
-We recommend using a combination of client-side and server-side validation for the best user experience.
+The location and styling of error messages may impact the cognitive load on the user. Carefully consider which type of validation would be most appropriate for a form based on:
 
-### Client-side
+- The complexity of the data being collected
+- The number of inputs in the form and the length of time expected for a user to complete the form
+- Whether interrupting the user’s flow to prompt them to fix errors will cause undue friction
+- What patterns for errors are used elsewhere in the platform that the user may be expecting
 
-[Client-side validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) is an initial check in the browser to ensure that required fields aren’t empty and the values are in the correct format.
+### Field-level validation
 
-![Example of client side form validation](/assets/components/form/primitives/form-primitives-validation-client.png =600x*)
+The best time to inform a user of an input error is as soon as it’s detected. Using inline [client-side validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) at the **field level** informs the user of an error where and when it happens. Inline validation enables users to correct errors without waiting until the data is submitted. For example, a user creating a password will need to know what requirements haven’t been met when seeing the error message. 
 
-### Server-side
+Use the built-in [invalid input state](/components/form/text-input?tab=code#validation) and the accompanying `Error` contextual component to display field-level errors.
 
-Server-side validation provides a more thorough check on the server once the data has been submitted and helps keep our applications safe.
-
-![Example of server side form validation](/assets/components/form/primitives/form-primitives-validation-server.png =600x*)
-
-## Validation methods
-
-When validation is displayed to the user impacts the time it takes to complete a form and the amount of context-switching required by the user to resolve errors.
-
-The best user experience is often a combination of different methods depending on the type of data being collected, the length of the form, and application security protocols.
+![Example of field-level validation on two fields in a form](/assets/patterns/form-patterns/form-pattern-validation-inline-error.png)
 
 !!! Warning
 
@@ -47,21 +44,51 @@ For this reason, we recommend creating your validation mechanism using our form 
 
 !!!
 
+### Form-level validation
+
+Form-level validation should be used for server-side errors that cannot be checked before data submission or that require additional checks after data submission. This error type should appear at the top of the form and use a Critical Inline [Alert](/components/alert). Using an Alert makes the message a focal point so users can easily see what error(s) occurred during the submission. 
+
+For form-level validation that identifies multiple input-level errors, the alert should contain a message listing **all** errors with links to each invalid field. We recommend using an introductory sentence to give context before listing the items, e.g., “Please correct the following errors and resubmit the form.”
+
+!!! Do
+
+Use form-level validation for overarching form submission errors or for a list of server-side validation errors that link to their respective errored fields.
+
+![Sign in page with authentication error alert at the form level](/assets/patterns/form-patterns/do-form-level-error.png)
+
+!!!
+
+!!! Dont
+
+Never use form-level alerts for  field-specific, inline validations. 
+
+![Credit card info form with a single field-level error and duplicative form-level alert](/assets/patterns/form-patterns/dont-form-level-error.png) 
+
+!!!
+
+
+### Combining field and form-level validation
+
+We recommend always using inline validation to provide immediate feedback, but for complex forms that require both client-side and server-side checks, a combined approach is best. 
+
+![Form with multiple field-level errors and a form-level alert with jump links to each](/assets/patterns/form-patterns/form-pattern-combination-error.png)
+
+
+## Timing validation messages
+
 ### Validation on focus change
 
-Validation on focus change occurs on the client and refers to validating a field when it loses focus via an [`onblur`](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) event.
+Client-side validation occurs when a user leaves the field via an [onblur](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) event. This immediate feedback communicates errors as they happen.
 
-This method is immediate in the sense that it displays an error directly after a field has been filled out, while not interrupting the user while they are in the process of filling out a field.
-
-Use this method **whenever possible** to resolve an error while the user is still in the context of the erroring field. This can help limit the amount of context switching necessary when filling out a form and reduce the cognitive load on the user.
+Because this method minimizes interruption, use it whenever possible so users can resolve errors while still in the context of the form. This can limit the amount of context switching necessary to complete the form successfully and reduce the cognitive load on the user.
 
 <video controls loop width="100%">
   <source src="/assets/patterns/form-patterns/validation-on-focus-change.mp4" />
 </video>
 
-### Validation on submit
+### Validation on submission
 
-Validating a form on submission can occur on the client or the server and can be used to display errors after interacting with the primary submit button in the form. This method can manifest in many use cases including:
+Validating a form on submission can occur on the client or server-side and can be used to display errors after the form has been submitted. This method can applied to in many use cases, including:
 
 - Validating that each required field in a form is filled.
 - Validating that the input data matches the formatting expectations of the application and the server.
@@ -72,31 +99,15 @@ Validating a form on submission can occur on the client or the server and can be
 
 ### Delayed validation
 
-Delayed validation occurs on the client and refers to validating the field after a lapse in keystrokes or a specific interval of time, e.g., `500ms` or 0.5 seconds. Once the user has stopped input into the field or after the interval of time has expired, the field is validated without an `onblur` event occurring.
+Delayed validation occurs on the client-side and refers to validating the field after a lapse in keystrokes or a specific interval of time, e.g., `500ms` or 0.5 seconds. Once the user has stopped typing into the field or after the interval of time has expired, the field is validated without an `onblur` event occurring.
 
-This method can be invasive and result in unintended validation errors by assuming the user has completed filling out a field. Thus, we recommend implementing either of the previous methods prior to delayed validation for most forms.
+This method can be invasive and result in unintended validation errors by assuming the user is done filling out a field. We don’t recommend implementing delayed validation for most forms.
 
-Consider a user entering their credit card information; they may repeatedly reference a physical card when inputting the card number, which can cause extended delays between keystrokes and result in displaying a validation error preemptively.
+Consider a user entering their credit card information; they may repeatedly reference a physical card when inputting the card number, which can cause extended delays between keystrokes and result in a validation error being displayed preemptively.
 
 <video controls loop width="100%">
   <source src="/assets/patterns/form-patterns/delayed-validation-example.mp4" />
 </video>
-
-## Displaying validation
-
-Where validation is displayed impacts the cognitive load on the user and can make resolving errors in long forms more challenging and time consuming.
-
-### Inline validation
-
-Display client-side validation errors within a specific field inline with the field using the built-in [invalid input state](/components/form/text-input?tab=code#validation) and the accompanying `Error` contextual component.
-
-![Inline validation error](/assets/patterns/form-patterns/form-pattern-validation-inline-error.png =800x*)
-
-### Form-level validation
-
-Display server-side errors using a Critical Inline [Alert](/components/alert) above the form listing **all** errors with links to each invalid field.
-
-![Form level validation error](/assets/patterns/form-patterns/form-pattern-validation-form-level-error.png =559x*)
 
 ## Validation interaction
 

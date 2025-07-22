@@ -1,5 +1,17 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+## July 2nd, 2025
+
+This changelog corresponds with the [4.21](/whats-new/release-notes#4210) release.
+
+`KeyValueInputs` - Added new [Template] component.
+
+`Form / Layout` - Added new Form Layout [Template] component.
+
+`AppHeader` - Added `text` property to the home link.
+
+`AdvancedTable` - Added support for resizing columns, restructured the component to support functions within a context menu.
+
 ## June 4th, 2025
 
 This changelog corresponds with the [4.20](/whats-new/release-notes#4200) release.

@@ -87,15 +87,19 @@ The `Label` and `HelperText` contextual components used in the Field component y
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
-<Hds::Form::TextInput::Field @isRequired={{true}} name="demo-aws-account-id" as |F|>
-  <F.Label>AWS Account ID</F.Label>
-  <F.HelperText>Copy this ID to your AWS Resource Access Manager to initiate the resource share.</F.HelperText>
-</Hds::Form::TextInput::Field>
-<br />
-<Hds::Form::TextInput::Field @isOptional={{true}} name="demo-aws-account-id" as |F|>
-  <F.Label>AWS Account ID</F.Label>
-  <F.HelperText>Copy this ID to your AWS Resource Access Manager to initiate the resource share.</F.HelperText>
-</Hds::Form::TextInput::Field>
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::TextInput::Field @isRequired={{true}} name="demo-aws-account-id" as |F|>
+      <F.Label>AWS Account ID</F.Label>
+      <F.HelperText>Copy this ID to your AWS Resource Access Manager to initiate the resource share.</F.HelperText>
+    </Hds::Form::TextInput::Field>
+
+    <Hds::Form::TextInput::Field @isOptional={{true}} name="demo-aws-account-id" as |F|>
+      <F.Label>AWS Account ID</F.Label>
+      <F.HelperText>Copy this ID to your AWS Resource Access Manager to initiate the resource share.</F.HelperText>
+    </Hds::Form::TextInput::Field>
+  </FORM.Section>
+</Hds::Form>
 ```
 
 #### Character count

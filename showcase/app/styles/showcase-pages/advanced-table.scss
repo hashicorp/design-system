@@ -7,10 +7,17 @@
 
 @use "../typography" as *;
 
-body.components-advanced-table {
+body.page-components-advanced-table {
   .shw-component-advanced-table-instruction-list {
     font-size: 1rem;
-    font-family: gilmer-web, Gilmer, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
+    font-family:
+      gilmer-web,
+      Gilmer,
+      -apple-system,
+      blinkmacsystemfont,
+      "Segoe UI",
+      roboto,
+      sans-serif;
     line-height: 1.4;
   }
 
@@ -18,16 +25,17 @@ body.components-advanced-table {
     width: fit-content;
   }
 
-    // align table cell content for icon plus text in cell
-    .shw-component-advanced-table-cell-content-div {
-      display: flex;
-      align-items: center;
+  // align table cell content for icon plus text in cell
+  .shw-component-advanced-table-cell-content-div {
+    display: flex;
+    align-items: center;
+    min-width: 0;
 
-      .hds-icon {
-        flex: none;
-        margin-right: 5px;
-      }
+    .hds-icon {
+      flex: none;
+      margin-right: 5px;
     }
+  }
 
   .shw-component-advanced-table-fixed-width-wrapper {
     width: 400px;
@@ -68,4 +76,11 @@ body.components-advanced-table {
     animation: shw-component-table-user-bounce 1s infinite ease-in-out;
   }
 
+  // utility class for text truncation
+  .shw-component-advanced-table-text-truncate {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
