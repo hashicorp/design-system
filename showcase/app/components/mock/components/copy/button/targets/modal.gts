@@ -11,7 +11,7 @@ import {
 
 import CopyButtonGenericContent from 'showcase/components/mock/components/copy/button/copy-button-generic-demo';
 
-export default class CopyButtonInModal extends Component {
+export default class CopyButtonTargetsModal extends Component {
   @tracked isModalOpen = false;
 
   @action

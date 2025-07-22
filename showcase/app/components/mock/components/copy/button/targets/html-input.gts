@@ -18,7 +18,7 @@ type inputComponent =
   | 'textarea'
   | 'select';
 
-export const INPUT_COMPONENTS: inputComponent[] = [
+export const HTML_INPUT_COMPONENTS: inputComponent[] = [
   'text',
   'password',
   'number',
@@ -32,7 +32,7 @@ export const INPUT_COMPONENTS: inputComponent[] = [
   'select',
 ];
 
-export interface CopyButtonWithVanillaInputSignature {
+export interface CopyButtonHtmlInputsInputSignature {
   Args: {
     inputComponent: inputComponent;
   };
@@ -56,7 +56,7 @@ const inputComponentToValueMap: Record<inputComponent, string> = {
   select: '',
 };
 
-const CopyButtonWithVanillaInput: TemplateOnlyComponent<CopyButtonWithVanillaInputSignature> =
+const CopyButtonTargetsHtmlInput: TemplateOnlyComponent<CopyButtonTargetsHhtmlInputSignature> =
   <template>
     <div class="shw-component-copy-button-flex-container">
       <div>
@@ -95,4 +95,4 @@ const CopyButtonWithVanillaInput: TemplateOnlyComponent<CopyButtonWithVanillaInp
     </div>
   </template>;
 
-export default CopyButtonWithVanillaInput;
+export default CopyButtonTargetsHtmlInput;

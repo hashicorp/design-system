@@ -4,7 +4,7 @@ import { HdsDropdown } from '@hashicorp/design-system-components/components';
 
 import CopyButtonGenericContent from 'showcase/components/mock/components/copy/button/copy-button-generic-demo';
 
-const CopyButtonInDropdown: TemplateOnlyComponent = <template>
+const CopyButtonTargetsDropdown: TemplateOnlyComponent = <template>
   <HdsDropdown @listPosition="bottom-left" as |dd|>
     <dd.ToggleButton @text="Open menu" />
     <dd.Generic>
@@ -13,4 +13,4 @@ const CopyButtonInDropdown: TemplateOnlyComponent = <template>
   </HdsDropdown>
 </template>;
 
-export default CopyButtonInDropdown;
+export default CopyButtonTargetsDropdown;

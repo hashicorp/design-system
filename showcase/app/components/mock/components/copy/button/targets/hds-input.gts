@@ -10,13 +10,13 @@ import {
 
 type inputComponent = 'text' | 'textarea' | 'select';
 
-export const INPUT_COMPONENTS: inputComponent[] = [
+export const HDS_INPUT_COMPONENTS: inputComponent[] = [
   'text',
   'textarea',
   'select',
 ];
 
-export interface CopyButtonWithMaskedInputSignature {
+export interface CopyButtonTargetsHdsInputSignature {
   Args: {
     inputComponent: inputComponent;
     isDisabled?: boolean;
@@ -28,7 +28,7 @@ export interface CopyButtonWithMaskedInputSignature {
   };
 }
 
-const CopyButtonWithMaskedInput: TemplateOnlyComponent<CopyButtonWithMaskedInputSignature> =
+const CopyButtonTargetsHdsInput: TemplateOnlyComponent<CopyButtonTargetsHdsInputsSignature> =
   <template>
     <div class="shw-component-copy-button-flex-container">
       {{#if (eq @inputComponent "text")}}
@@ -74,4 +74,4 @@ that should be copied"
     </div>
   </template>;
 
-export default CopyButtonWithMaskedInput;
+export default CopyButtonTargetsHdsInput;
