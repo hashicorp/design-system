@@ -214,6 +214,13 @@ By default, the size of the tooltip automatically adapts to the size of its cont
 
 There may be special use cases in which the standard text or icon-based toggle doesn't work in a specific context or design. For this reason, custom content can be yielded to the `Toggle` element, but this should be considered an option of last resort, because it could result in a non-accessible implementation.
 
+!!! Warning
+
+**Consumer responsibility**
+
+When used in this way, it's up to the consumer to make sure the implementation is compliant with the [accessibility requirements](/components/rich-tooltip?tab=accessibility).
+!!!
+
 ```handlebars
 <Hds::RichTooltip as |RT|>
   <RT.Toggle>
@@ -225,13 +232,6 @@ There may be special use cases in which the standard text or icon-based toggle d
   </RT.Bubble>
 </Hds::RichTooltip>
 ```
-
-!!! Warning
-
-**Consumer responsibility**
-
-When used in this way, it's up to the consumer to make sure the implementation is compliant with the [accessibility requirements](/components/rich-tooltip?tab=accessibility).
-!!!
 
 ### Advanced options
 
