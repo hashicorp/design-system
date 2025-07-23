@@ -2,7 +2,7 @@
 "@hashicorp/design-system-components": patch
 ---
 
-<!-- START components/advanced-table -->
+<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Removed `ember-math-helpers` dev dependency
 
