@@ -11,6 +11,7 @@ import {
   focus,
   setupOnerror,
   find,
+  findAll,
   triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';
@@ -41,6 +42,102 @@ async function simulateRightPointerDrag(handle) {
   await triggerEvent(handle, 'pointerdown', { clientX: 100 });
   await triggerEvent(handle, 'pointermove', { clientX: 130 });
   await triggerEvent(window, 'pointerup');
+}
+
+function getColumnByLabel(columns, label) {
+  return columns.find((col) => col.label === label);
+}
+
+async function getColumnOrder(columns) {
+  const thElements = await findAll('.hds-advanced-table__th');
+
+  return thElements.map((th) => {
+    const column = getColumnByLabel(columns, th.textContent.trim());
+
+    return column ? column.key : null;
+  });
+}
+
+async function startReorderDrag(handleElement) {
+  return triggerEvent(handleElement, 'dragstart');
+}
+
+function getTargetElementFromColumnIndex(index) {
+  const dropTargets = findAll('.hds-advanced-table__th-reorder-drop-target');
+  const target = dropTargets[index];
+
+  if (target === null) {
+    throw new Error(
+      `Target column at index ${index} not found after drag started.`,
+    );
+  }
+
+  return target;
+}
+
+function getDragTargetPosition(targetElement, targetPosition) {
+  const targetRect = targetElement.getBoundingClientRect();
+  let clientX;
+
+  switch (targetPosition) {
+    case 'left':
+      clientX = targetRect.left + 1;
+      break;
+    case 'right':
+      clientX = targetRect.right - 1;
+      break;
+    default:
+      throw new Error(
+        `Invalid targetPosition: ${targetPosition}. Use 'left' or 'right'.`,
+      );
+  }
+
+  return { clientX, clientY: targetRect.top + targetRect.height / 2 };
+}
+
+async function dragOverTarget(target, { clientX, clientY }) {
+  await triggerEvent(target, 'dragenter', { clientX, clientY });
+  await triggerEvent(target, 'dragover', { clientX, clientY });
+}
+
+async function simulateColumnReorderDrag({
+  handleElement,
+  targetIndex,
+  targetPosition = 'left',
+}) {
+  await startReorderDrag(handleElement);
+
+  const target = getTargetElementFromColumnIndex(targetIndex);
+  const { clientX, clientY } = getDragTargetPosition(target, targetPosition);
+
+  const eventOptions = { clientX, clientY };
+
+  await dragOverTarget(target, eventOptions);
+
+  // return the target event options for further use, if needed
+  return { target, eventOptions };
+}
+
+async function simulateColumnReorderDrop({
+  target,
+  handleElement,
+  eventOptions,
+}) {
+  await triggerEvent(target, 'drop', eventOptions);
+  await triggerEvent(handleElement, 'dragend');
+}
+
+async function simulateColumnReorderDragAndDrop({
+  handleElement,
+  targetIndex,
+  targetPosition = 'left',
+}) {
+  const { target, eventOptions } = await simulateColumnReorderDrag({
+    handleElement,
+    targetIndex,
+    targetPosition,
+  });
+  await simulateColumnReorderDrop({ target, handleElement, eventOptions });
 }
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
@@ -160,6 +257,19 @@ const setNestedTableData = (context) => {
   ]);
 };
 
+const setReorderableColumnsTableData = (context) => {
+  context.set('model', [
+    { id: '1', artist: 'Nick Drake', album: 'Pink Moon', year: '1972' },
+    { id: '2', artist: 'The Beatles', album: 'Abbey Road', year: '1969' },
+    { id: '3', artist: 'Melanie', album: 'Candles in the Rain', year: '1971' },
+  ]);
+  context.set('columns', [
+    { key: 'artist', label: 'Artist' },
+    { key: 'album', label: 'Album' },
+    { key: 'year', label: 'Year' },
+  ]);
+};
+
 const setResizableColumnsTableData = (context) => {
   context.set('model', [
     { id: '1', col1: 'A', col2: 'B' },
@@ -242,6 +352,349 @@ const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
   setupRenderingTest(hooks);
+
+  module('column reordering', function (hooks) {
+    hooks.beforeEach(function () {
+      setReorderableColumnsTableData(this);
+    });
+
+    test('it renders reorder handles when reordering is enabled', async function (assert) {
+      this.set('hasReorderableColumns', false);
+
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{this.hasReorderableColumns}}
+/>`,
+      );
+
+      assert
+        .dom('.hds-advanced-table__th-reorder-handle')
+        .doesNotExist(
+          'No reorder handles are rendered when reordering is disabled',
+        );
+
+      this.set('hasReorderableColumns', true);
+
+      assert
+        .dom('.hds-advanced-table__th-reorder-handle')
+        .exists({ count: 3 }, 'All columns have a reorder handle');
+    });
+
+    test('columns can be reordered by dragging and dropping', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      let columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        this.columns.map((col) => col.key),
+        'Initial column order is correct',
+      );
+
+      const expectedDropTargetIndex = 2;
+      const expectedDropTargetDropSide = 'right';
+
+      // get the first reorder handle
+      const reorderHandle = find('.hds-advanced-table__th-reorder-handle');
+
+      // drag to the right side of the last column
+      const { target, eventOptions } = await simulateColumnReorderDrag({
+        handleElement: reorderHandle,
+        targetIndex: expectedDropTargetIndex,
+        targetPosition: expectedDropTargetDropSide,
+      });
+
+      // get all drop targets for test reference
+      const dropTargets = findAll(
+        '.hds-advanced-table__th-reorder-drop-target',
+      );
+      const originDropTarget = dropTargets[0];
+      const destinationDropTarget = dropTargets[expectedDropTargetIndex];
+
+      assert
+        .dom(originDropTarget)
+        .hasClass(
+          'hds-advanced-table__th-reorder-drop-target--is-being-dragged',
+          'First column is being dragged',
+        );
+      assert
+        .dom(destinationDropTarget)
+        .hasClass(
+          'hds-advanced-table__th-reorder-drop-target--is-dragging-over',
+        )
+        .hasClass(
+          `hds-advanced-table__th-reorder-drop-target--is-dragging-over--${expectedDropTargetDropSide}`,
+        );
+
+      await simulateColumnReorderDrop({
+        target,
+        handleElement: reorderHandle,
+        eventOptions,
+      });
+
+      columnOrder = await getColumnOrder(this.columns);
+
+      assert
+        .dom('.hds-advanced-table__th-reorder-drop-target')
+        .doesNotExist('Drop targets are removed after drop');
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[1].key, this.columns[2].key, this.columns[0].key],
+        'Columns are reordered correctly after drag and drop',
+      );
+    });
+
+    test('dropping a target on the nearest side of the next sibling does not reorder columns', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const initialColumnOrder = this.columns.map((col) => col.key);
+
+      let columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        initialColumnOrder,
+        'Initial column order is correct',
+      );
+
+      const reorderHandle = find('.hds-advanced-table__th-reorder-handle');
+
+      const { target, eventOptions } = await simulateColumnReorderDrag({
+        handleElement: reorderHandle,
+        targetIndex: 1,
+        targetPosition: 'left',
+      });
+
+      const dropTargets = findAll(
+        '.hds-advanced-table__th-reorder-drop-target',
+      );
+      const originDropTarget = dropTargets[0];
+      const destinationDropTarget = dropTargets[1];
+
+      assert
+        .dom(originDropTarget)
+        .hasClass(
+          'hds-advanced-table__th-reorder-drop-target--is-being-dragged',
+          'First column is being dragged',
+        );
+      assert
+        .dom(destinationDropTarget)
+        .doesNotHaveClass(
+          'hds-advanced-table__th-reorder-drop-target--is-dragging-over',
+        )
+        .doesNotHaveClass(
+          'hds-advanced-table__th-reorder-drop-target--is-dragging-over--left',
+        );
+
+      await simulateColumnReorderDrop({
+        target,
+        handleElement: reorderHandle,
+        eventOptions,
+      });
+
+      columnOrder = await getColumnOrder(this.columns);
+
+      assert
+        .dom('.hds-advanced-table__th-reorder-drop-target')
+        .doesNotExist('Drop targets are removed after drop');
+      assert.deepEqual(
+        columnOrder,
+        initialColumnOrder,
+        'Columns order is unchanged after drop on the nearest side',
+      );
+    });
+
+    test('it should show the context menu with the correct options when reordering is enabled', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th'); // find all header cells
+
+      assert.ok(
+        thElements[0].querySelector('.hds-advanced-table__th-context-menu'),
+        'context menu exists',
+      );
+
+      const firstContextMenuToggle = thElements[0].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(firstContextMenuToggle);
+      assert.dom('[data-test-context-option-key="reorder-column"]').exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-start"]')
+        .doesNotExist();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-end"]')
+        .exists();
+
+      const secondContextMenuToggle = thElements[1].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(secondContextMenuToggle);
+      assert.dom('[data-test-context-option-key="reorder-column"]').exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-start"]')
+        .exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-end"]')
+        .exists();
+
+      const lastContextMenuToggle = thElements[
+        thElements.length - 1
+      ].querySelector('.hds-dropdown-toggle-icon');
+      await click(lastContextMenuToggle);
+      assert.dom('[data-test-context-option-key="reorder-column"]').exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-start"]')
+        .exists();
+      assert
+        .dom('[data-test-context-option-key="move-column-to-end"]')
+        .doesNotExist();
+    });
+
+    test('clicking the "Move column" context menu option focuses the reorder handle', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th');
+
+      const firstContextMenuToggle = thElements[0].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(firstContextMenuToggle);
+      await click('[data-test-context-option-key="reorder-column"]');
+
+      const firstReorderHandle = thElements[0].querySelector(
+        '.hds-advanced-table__th-reorder-handle',
+      );
+
+      assert.dom(firstReorderHandle).isFocused();
+    });
+
+    test('clicking the "Move column to start" context menu option moves the column to the start', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th');
+
+      const secondContextMenuToggle = thElements[1].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(secondContextMenuToggle);
+      await click('[data-test-context-option-key="move-column-to-start"]');
+
+      const columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[1].key, this.columns[0].key, this.columns[2].key],
+        'The second column is moved to the start',
+      );
+    });
+
+    test('clicking the "Move column to end" context menu option moves the column to the end', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th');
+
+      const secondContextMenuToggle = thElements[1].querySelector(
+        '.hds-dropdown-toggle-icon',
+      );
+      await click(secondContextMenuToggle);
+      await click('[data-test-context-option-key="move-column-to-end"]');
+
+      const columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[0].key, this.columns[2].key, this.columns[1].key],
+        'The second column is moved to the end',
+      );
+    });
+
+    test('pressing "Left Arrow" and "Right Arrow" keys when the reorder handle is focused moves the column', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const thElements = findAll('.hds-advanced-table__th');
+      const firstReorderHandle = thElements[0].querySelector(
+        '.hds-advanced-table__th-reorder-handle',
+      );
+      await focus(firstReorderHandle);
+      assert.dom(firstReorderHandle).isFocused();
+
+      await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
+      let columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[1].key, this.columns[0].key, this.columns[2].key],
+        'The first column is moved to the right',
+      );
+      assert.dom(firstReorderHandle).isFocused();
+
+      await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[1].key, this.columns[2].key, this.columns[0].key],
+        'The second column is moved to the right',
+      );
+      assert.dom(firstReorderHandle).isFocused();
+
+      await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowLeft');
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        [this.columns[1].key, this.columns[0].key, this.columns[2].key],
+        'The third column is moved back to the left',
+      );
+      assert.dom(firstReorderHandle).isFocused();
+    });
+  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     setSortableTableData(this);

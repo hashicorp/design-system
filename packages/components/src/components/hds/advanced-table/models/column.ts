@@ -6,8 +6,10 @@
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
+import type { HdsAdvancedTableThReorderHandleSignature } from '../th-reorder-handle.ts';
 import type HdsAdvancedTableModel from './table.ts';
 import type {
+  HdsAdvancedTableCell,
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
 } from '../types';
@@ -31,7 +33,6 @@ export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
-  @tracked isReorderable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
@@ -41,10 +42,24 @@ export default class HdsAdvancedTableColumn {
   @tracked width?: string = undefined;
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
   @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
+  @tracked widthDebts: Record<string, number> = {}; // used to track width changes imposed by other columns
 
+  @tracked isBeingDragged: boolean = false;
+  @tracked thElement?: HTMLDivElement = undefined;
+  @tracked
+  reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'] =
+    undefined;
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
   table: HdsAdvancedTableModel;
+
+  get cells(): HdsAdvancedTableCell[] {
+    return this.table.flattenedVisibleRows.map((row) => {
+      const cell = row.cells.find((cell) => cell.columnKey === this.key);
+
+      return cell!;
+    });
+  }
 
   get pxWidth(): number | undefined {
     if (isPxSize(this.width)) {
@@ -65,6 +80,44 @@ export default class HdsAdvancedTableColumn {
     if (isPxSize(this.maxWidth)) {
       return pxToNumber(this.maxWidth!);
     }
+  }
+
+  get index(): number {
+    const { orderedColumns } = this.table;
+
+    if (orderedColumns.length === 0) {
+      return -1;
+    }
+
+    return orderedColumns.findIndex((column) => column.key === this.key);
+  }
+
+  get isFirst(): boolean {
+    return this.index === 0;
+  }
+
+  get isLast(): boolean {
+    return this.index === this.table.orderedColumns.length - 1;
+  }
+
+  get siblings(): {
+    previous?: HdsAdvancedTableColumn;
+    next?: HdsAdvancedTableColumn;
+  } {
+    const { index, table } = this;
+    const { orderedColumns } = table;
+
+    if (index === -1) {
+      return {};
+    }
+
+    return {
+      previous: index > 0 ? orderedColumns[index - 1] : undefined,
+      next:
+        index < orderedColumns.length - 1
+          ? orderedColumns[index + 1]
+          : undefined,
+    };
   }
 
   constructor(args: {
@@ -106,6 +159,60 @@ export default class HdsAdvancedTableColumn {
     this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
   }
 
+  private payWidthDebts(): void {
+    Object.entries(this.widthDebts).forEach(([lenderKey, amount]) => {
+      const lender = this.table.getColumnByKey(lenderKey);
+
+      if (lender) {
+        // Give the width back to the column that lent it to us
+        lender.setPxWidth((lender.pxWidth ?? 0) + amount);
+      }
+    });
+
+    // Clear our own debt ledger, as we've paid everyone back
+    this.widthDebts = {};
+  }
+
+  private collectWidthDebts(): void {
+    const { key: thisKey, table } = this;
+
+    if (thisKey === undefined) {
+      return;
+    }
+
+    table.columns.forEach((otherColumn) => {
+      const debtToCollect = otherColumn.widthDebts[thisKey] ?? 0;
+
+      if (debtToCollect > 0) {
+        // Take the width back from the column that owes us
+        otherColumn.setPxWidth((otherColumn.pxWidth ?? 0) - debtToCollect);
+        // Clear the debt from their ledger
+        delete otherColumn.widthDebts[thisKey];
+      }
+    });
+  }
+
+  private settleWidthDebts(): void {
+    this.payWidthDebts();
+    this.collectWidthDebts();
+  }
+
+  @action focusReorderHandle(): void {
+    if (this.thElement === undefined) {
+      return;
+    }
+
+    // focus the th element first (parent) to ensure the handle is visible
+    this.thElement.focus({ preventScroll: true });
+
+    if (this.reorderHandleElement === undefined) {
+      return;
+    }
+
+    // then focus the reorder handle element
+    this.reorderHandleElement.focus();
+  }
+
   // Sets the column width in pixels, ensuring it respects the min and max width constraints.
   @action
   setPxWidth(newPxWidth: number): void {
@@ -122,29 +229,10 @@ export default class HdsAdvancedTableColumn {
     }
   }
 
-  // This method is called when the column width is changed by the previous column.
-  @action
-  onPreviousColumnWidthRestored(): void {
-    const restoredWidth = (this.pxWidth ?? 0) + this.imposedWidthDelta;
-
-    this.setPxWidth(restoredWidth);
-
-    this.imposedWidthDelta = 0;
-  }
-
-  // This method is called when the next column width is restored.
-  @action
-  onNextColumnWidthRestored(imposedWidthDelta: number): void {
-    this.setPxWidth((this.pxWidth ?? 0) - imposedWidthDelta);
-  }
-
   @action
   restoreWidth(): void {
     this.width = this.originalWidth;
-    this.imposedWidthDelta = 0;
 
-    if (this.key === undefined) {
-      return;
-    }
+    this.settleWidthDebts();
   }
 }
