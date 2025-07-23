@@ -19,8 +19,6 @@ interface HdsAdvancedTableThContextMenuOption {
   icon: HdsDropdownToggleIconSignature['Args']['icon'];
   action: (
     column: HdsAdvancedTableColumn,
-    previousColumn?: HdsAdvancedTableColumn,
-    nextColumn?: HdsAdvancedTableColumn,
     dropdownCloseCallback?: () => void
   ) => void;
 }
@@ -28,8 +26,6 @@ interface HdsAdvancedTableThContextMenuOption {
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    previousColumn?: HdsAdvancedTableColumn;
-    nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
@@ -41,19 +37,25 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   @tracked private _element!: HdsDropdownSignature['Element'];
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { hasResizableColumns } = this.args;
+    const { column, hasResizableColumns } = this.args;
 
     let options: HdsAdvancedTableThContextMenuOption[] = [];
 
     if (hasResizableColumns) {
+      if (!column.isLast) {
+        options = [
+          ...options,
+          {
+            key: 'resize-column',
+            label: 'Resize column',
+            icon: 'resize-column',
+            action: this.resizeColumn.bind(this),
+          },
+        ];
+      }
+
       options = [
         ...options,
-        {
-          key: 'resize-column',
-          label: 'Resize column',
-          icon: 'resize-column',
-          action: this.resizeColumn.bind(this),
-        },
         {
           key: 'reset-column-width',
           label: 'Reset column width',
@@ -74,11 +76,11 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   @action
   resetColumnWidth(
     column: HdsAdvancedTableColumn,
-    previousColumn?: HdsAdvancedTableColumn,
-    nextColumn?: HdsAdvancedTableColumn,
     dropdownCloseCallback?: () => void
   ): void {
     const { onColumnResize } = this.args;
+
+    const { previous: previousColumn, next: nextColumn } = column.siblings;
 
     previousColumn?.onNextColumnWidthRestored(column.imposedWidthDelta);
     nextColumn?.onPreviousColumnWidthRestored();

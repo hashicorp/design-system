@@ -38,13 +38,10 @@ export interface HdsAdvancedTableThSignature {
     hasResizableColumns?: boolean;
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
-    isLastColumn?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     isVisuallyHidden?: boolean;
     newLabel?: string;
-    previousColumn?: HdsAdvancedTableColumn;
-    nextColumn?: HdsAdvancedTableColumn;
     parentId?: string;
     rowspan?: number;
     scope?: HdsAdvancedTableScope;

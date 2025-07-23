@@ -67,6 +67,41 @@ export default class HdsAdvancedTableColumn {
     }
   }
 
+  get index(): number {
+    const { columns } = this.table;
+
+    if (columns.length === 0) {
+      return -1;
+    }
+
+    return columns.findIndex((column) => column.key === this.key);
+  }
+
+  get isFirst(): boolean {
+    return this.index === 0;
+  }
+
+  get isLast(): boolean {
+    return this.index !== -1 && this.index === this.table.columns.length - 1;
+  }
+
+  get siblings(): {
+    previous?: HdsAdvancedTableColumn;
+    next?: HdsAdvancedTableColumn;
+  } {
+    const { index, table } = this;
+    const { columns } = table;
+
+    if (index === -1) {
+      return {};
+    }
+
+    return {
+      previous: this.isFirst ? undefined : columns[index - 1],
+      next: this.isLast ? undefined : columns[index + 1],
+    };
+  }
+
   constructor(args: {
     column: HdsAdvancedTableColumnType;
     table: HdsAdvancedTableModel;
