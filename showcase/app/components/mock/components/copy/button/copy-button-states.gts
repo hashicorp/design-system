@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Component from '@glimmer/component';
 import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
@@ -6,7 +11,6 @@ import { modifier } from 'ember-modifier';
 
 import ShwGrid from 'showcase/components/shw/grid';
 
-// HDS Components
 import { HdsCopyButton } from '@hashicorp/design-system-components/components';
 import {
   SIZES,
@@ -15,6 +19,10 @@ import {
 } from '@hashicorp/design-system-components/components/hds/copy/button/index';
 
 const STATES = ['default', 'hover', 'active', 'focus'];
+
+export interface CopyButtonStatesSignature {
+  Element: HTMLDivElement;
+}
 
 export default class CopyButtonStates extends Component {
   replaceCopyStatus = modifier((container: HTMLDivElement) => {

@@ -1,7 +1,11 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 
 import {
   HdsButton,
@@ -9,20 +13,24 @@ import {
   HdsModal,
 } from '@hashicorp/design-system-components/components';
 
+import type { HdsButtonSignature } from '@hashicorp/design-system-components/components/hds/button/index';
+
 import CopyButtonGenericContent from 'showcase/components/mock/components/copy/button/copy-button-generic-demo';
+
+export interface CopyButtonInModalSignature {
+  Element: HdsButtonSignature['Element'];
+}
 
 export default class CopyButtonInModal extends Component {
   @tracked isModalOpen = false;
 
-  @action
-  openModal() {
+  openModal = () => {
     this.isModalOpen = true;
-  }
+  };
 
-  @action
-  closeModal() {
+  closeModal = () => {
     this.isModalOpen = false;
-  }
+  };
 
   <template>
     <HdsButton

@@ -12,6 +12,10 @@ import {
 
 import ShwDivider from 'showcase/components/shw/divider';
 
+export interface CopyButtonGenericContentSignature {
+  Element: HTMLDivElement;
+}
+
 const CopyButtonGenericContent: TemplateOnlyComponent = <template>
   <div class="shw-component-copy-button-demo-container">
     <p class="shw-text-h4">With HDS components</p>

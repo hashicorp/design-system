@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { eq } from 'ember-truth-helpers';
 
@@ -16,19 +21,16 @@ export const INPUT_COMPONENTS: inputComponent[] = [
   'select',
 ];
 
-export interface CopyButtonWithMaskedInputSignature {
+export interface CopyButtonWithInputSignature {
   Args: {
     inputComponent: inputComponent;
     isDisabled?: boolean;
     isReadOnly?: boolean;
   };
   Element: HTMLDivElement;
-  Blocks: {
-    default: [];
-  };
 }
 
-const CopyButtonWithMaskedInput: TemplateOnlyComponent<CopyButtonWithMaskedInputSignature> =
+const CopyButtonWithInput: TemplateOnlyComponent<CopyButtonWithInputSignature> =
   <template>
     <div class="shw-component-copy-button-flex-container">
       {{#if (eq @inputComponent "text")}}
@@ -36,7 +38,7 @@ const CopyButtonWithMaskedInput: TemplateOnlyComponent<CopyButtonWithMaskedInput
           @value="036140285924"
           disabled={{@isDisabled}}
           readonly={{@isReadOnly}}
-          @id="test-input"
+          @id="test-input-{{@inputComponent}}"
           as |F|
         >
           <F.Label>Input Label</F.Label>
@@ -49,14 +51,14 @@ that should be copied"
           aria-label="With Textarea::Base"
           disabled={{@isDisabled}}
           readonly={{@isReadOnly}}
-          id="test-input"
+          @id="test-input-{{@inputComponent}}"
         />
       {{else if (eq @inputComponent "select")}}
         <HdsFormSelectBase
           disabled={{@isDisabled}}
           readonly={{@isReadOnly}}
           aria-label="Select"
-          id="test-input"
+          @id="test-input-{{@inputComponent}}"
           as |C|
         >
           <C.Options>
@@ -68,10 +70,10 @@ that should be copied"
       {{/if}}
       <HdsCopyButton
         @text="Copy the input value"
-        @targetToCopy="#test-input"
+        @targetToCopy="#test-input-{{@inputComponent}}"
         @isIconOnly={{true}}
       />
     </div>
   </template>;
 
-export default CopyButtonWithMaskedInput;
+export default CopyButtonWithInput;

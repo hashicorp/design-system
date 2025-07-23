@@ -44,12 +44,13 @@ const maskedInputVariantToLabelMap: Record<
   'masked-input-field': 'With MaskedInput::Field',
 };
 
-export default class PageComponentCopyButton extends Component {
-  get bigIntNumber() {
-    const bigIntNumber = BigInt(12345678910);
-    return bigIntNumber;
-  }
+export interface PageComponentCopyButtonSignature {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  Args: {};
+  Element: HTMLElement;
+}
 
+export default class PageComponentCopyButton extends Component<PageComponentCopyButtonSignature> {
   get targetNodeElement() {
     const element = document.querySelector('#test-target-node-element');
     if (!element) {
@@ -152,7 +153,7 @@ export default class PageComponentCopyButton extends Component {
         <SF.Item>
           <HdsCopyButton
             @text="Copy a Bigint number"
-            @textToCopy={{this.bigIntNumber}}
+            @textToCopy={{BigInt 12345678910}}
           />
         </SF.Item>
       </ShwFlex>

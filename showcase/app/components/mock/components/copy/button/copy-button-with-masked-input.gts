@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { eq } from 'ember-truth-helpers';
 
@@ -25,9 +30,6 @@ export interface CopyButtonWithMaskedInputSignature {
     variant: variant;
   };
   Element: HTMLDivElement;
-  Blocks: {
-    default: [];
-  };
 }
 
 const CopyButtonWithMaskedInput: TemplateOnlyComponent<CopyButtonWithMaskedInputSignature> =
