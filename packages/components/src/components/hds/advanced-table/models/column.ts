@@ -82,7 +82,7 @@ export default class HdsAdvancedTableColumn {
   }
 
   get isLast(): boolean {
-    return this.index === this.table.columns.length - 1;
+    return this.index !== -1 && this.index === this.table.columns.length - 1;
   }
 
   get siblings(): {
