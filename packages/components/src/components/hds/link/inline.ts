@@ -12,10 +12,12 @@ import type { HdsLinkColors, HdsLinkIconPositions } from './types.ts';
 import type { HdsIconSignature } from '../icon';
 import type Owner from '@ember/owner';
 
-export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Trailing;
+export const DEFAULT_ICON_POSITION = HdsLinkIconPositionValues.Trailing;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
-export const ICONPOSITIONS: string[] = Object.values(HdsLinkIconPositionValues);
-export const COLORS: string[] = Object.values(HdsLinkColorValues);
+export const ICON_POSITIONS: HdsLinkIconPositions[] = Object.values(
+  HdsLinkIconPositionValues
+);
+export const COLORS: HdsLinkColors[] = Object.values(HdsLinkColorValues);
 
 export interface HdsLinkInlineSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -63,13 +65,13 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
   get iconPosition(): HdsLinkIconPositions {
-    const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
+    const { iconPosition = DEFAULT_ICON_POSITION } = this.args;
 
     assert(
-      `@iconPosition for "Hds::Link::Inline" must be one of the following: ${ICONPOSITIONS.join(
+      `@iconPosition for "Hds::Link::Inline" must be one of the following: ${ICON_POSITIONS.join(
         ', '
       )}; received: ${iconPosition}`,
-      ICONPOSITIONS.includes(iconPosition)
+      ICON_POSITIONS.includes(iconPosition)
     );
 
     return iconPosition;
