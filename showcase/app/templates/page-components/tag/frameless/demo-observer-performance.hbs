@@ -12,10 +12,7 @@
 
   <Hds::Layout::Grid @columnWidth="150px" @gap="16">
     {{#each @model.DEMO_RANGE as |i|}}
-      <Hds::Tag
-        @text="{{i.index}} This is a very long text that should go on multiple lines"
-        @onDismiss={{this.noop}}
-      />
+      <Hds::Tag @text="{{i.index}} This is a very long text that should go on multiple lines" />
     {{/each}}
   </Hds::Layout::Grid>
 </div>
