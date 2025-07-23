@@ -44,9 +44,9 @@ Note: If you choose to use the `Card` as a list item, you must wrap it either in
 
 At the moment, we do not recommend using the Card component as an interactive element, although we may add this feature in the future. Despite this, some products have implemented designs that provide visual feedback to the user interacting with a Card by changing the elevation style (on `:hover` or `:active`).
 
-As a stopgap, we have introduced two specific arguments `@levelHover` and `@levelActive` to allow users to declare the specific "level" they want to use for each of these interactive states.
+There are two specific arguments `@levelHover` and `@levelActive` to allow users to declare the specific "level" they want to use for each of these interactive states.
 
-<!-- TODO: this example doesn't work. should we update it or leave out for launch?
+TODO: this example doesn't work. should we update it or leave out for launch?
 
 !!! Warning
 
@@ -58,10 +58,8 @@ In the following example, the Card transitions between these elevations _mid →
 ```handlebars
 <div class="my-custom-class-to-set-the-card-layout">
   <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder={{true}}>
-    <div class="my-custom-class-to-set-the-content-layout">
-      [Your content here]
-    </div>
+    <h2 class="hds-typography-display-200 hds-font-weight-medium hds-foreground-strong">Testing</h2>
   </Hds::Card::Container>
 </div>
 ```
--->
+
