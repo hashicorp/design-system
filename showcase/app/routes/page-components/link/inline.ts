@@ -5,6 +5,10 @@
 
 import Route from '@ember/routing/route';
 import { COLORS } from '@hashicorp/design-system-components/components/hds/link/inline';
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsLinkInlineModel =
+  ModelFrom<PageComponentsLinkInlineRoute>;
 
 export default class PageComponentsLinkInlineRoute extends Route {
   model() {
