@@ -8,36 +8,67 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 
-const updateSteps = (steps, stepNumber) => {
+import type { PageComponentsStepperListModel } from 'showcase/routes/page-components/stepper/list';
+import { clone } from 'showcase/utils/clone';
+
+import { HdsStepperStatusesValues as STEP_STATUSES_ENUM } from '@hashicorp/design-system-components/components/hds/stepper/types';
+
+type ListData = {
+  title: string;
+  status: STEP_STATUSES_ENUM;
+  description: string;
+};
+
+const DEFAULT_DATA: ListData[] = [
+  {
+    title: 'Step 1',
+    status: STEP_STATUSES_ENUM.Complete,
+    description: 'Description for Step 1',
+  },
+  {
+    title: 'Step 2',
+    status: STEP_STATUSES_ENUM.Progress,
+    description: 'Description for Step 2',
+  },
+  {
+    title: 'Step 3',
+    status: STEP_STATUSES_ENUM.Incomplete,
+    description: 'Description for Step 3',
+  },
+];
+
+const updateSteps = (steps: ListData[], stepNumber: number) => {
   steps.forEach((step, index) => {
     if (index < stepNumber) {
-      step.status = 'complete';
+      step.status = STEP_STATUSES_ENUM.Complete;
     } else if (index === stepNumber) {
-      step.status = 'progress';
+      step.status = STEP_STATUSES_ENUM.Progress;
     } else {
-      step.status = 'incomplete';
+      step.status = STEP_STATUSES_ENUM.Incomplete;
     }
   });
 };
 
-const updateStepsProcessing = (steps, stepNumber) => {
+const updateStepsProcessing = (steps: ListData[], stepNumber: number) => {
   steps.forEach((step, index) => {
     if (index < stepNumber) {
-      step.status = 'complete';
+      step.status = STEP_STATUSES_ENUM.Complete;
     } else if (index === stepNumber) {
-      step.status = 'processing';
+      step.status = STEP_STATUSES_ENUM.Processing;
     } else {
-      step.status = 'incomplete';
+      step.status = STEP_STATUSES_ENUM.Incomplete;
     }
   });
 };
 
 export default class PageComponentsStepperListController extends Controller {
+  declare model: PageComponentsStepperListModel;
+
   @tracked currentStep_demo1 = 1;
   @tracked currentStep_demo2 = 1;
 
-  @deepTracked steps_demo1 = this.model.stepsDemo1;
-  @deepTracked steps_demo2 = this.model.stepsDemo2;
+  @deepTracked steps_demo1 = clone(DEFAULT_DATA);
+  @deepTracked steps_demo2 = clone(DEFAULT_DATA);
 
   // =============================
   // DEMOS
