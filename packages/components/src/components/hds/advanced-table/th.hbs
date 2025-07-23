@@ -69,18 +69,15 @@
       {{#if this.showContextMenu}}
         <Hds::AdvancedTable::ThContextMenu
           @column={{@column}}
-          @previousColumn={{@previousColumn}}
-          @nextColumn={{@nextColumn}}
           @hasResizableColumns={{@hasResizableColumns}}
           @resizeHandleElement={{this._resizeHandleElement}}
           @onColumnResize={{@onColumnResize}}
         />
       {{/if}}
 
-      {{#if (and @hasResizableColumns (not @isLastColumn))}}
+      {{#if (and @hasResizableColumns (not @column.isLast))}}
         <Hds::AdvancedTable::ThResizeHandle
           @column={{@column}}
-          @nextColumn={{@nextColumn}}
           @hasResizableColumns={{@hasResizableColumns}}
           @tableHeight={{@tableHeight}}
           @onColumnResize={{@onColumnResize}}

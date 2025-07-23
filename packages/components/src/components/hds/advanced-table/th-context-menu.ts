@@ -19,8 +19,6 @@ interface HdsAdvancedTableThContextMenuOption {
   icon: HdsDropdownToggleIconSignature['Args']['icon'];
   action: (
     column: HdsAdvancedTableColumn,
-    previousColumn?: HdsAdvancedTableColumn,
-    nextColumn?: HdsAdvancedTableColumn,
     dropdownCloseCallback?: () => void
   ) => void;
 }
@@ -28,8 +26,6 @@ interface HdsAdvancedTableThContextMenuOption {
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    previousColumn?: HdsAdvancedTableColumn;
-    nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
@@ -74,11 +70,11 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   @action
   resetColumnWidth(
     column: HdsAdvancedTableColumn,
-    previousColumn?: HdsAdvancedTableColumn,
-    nextColumn?: HdsAdvancedTableColumn,
     dropdownCloseCallback?: () => void
   ): void {
     const { onColumnResize } = this.args;
+
+    const { previous: previousColumn, next: nextColumn } = column.siblings;
 
     previousColumn?.onNextColumnWidthRestored(column.imposedWidthDelta);
     nextColumn?.onPreviousColumnWidthRestored();
