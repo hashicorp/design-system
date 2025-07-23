@@ -103,7 +103,11 @@ Router.map(function () {
       });
     });
     this.route('table');
-    this.route('tag');
+    this.route('tag', function () {
+      this.route('frameless', function () {
+        this.route('demo-observer-performance');
+      });
+    });
     this.route('text');
     this.route('time');
     this.route('toast');

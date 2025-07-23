@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { TrackedWeakSet } from 'tracked-built-ins';
 import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 
@@ -33,23 +34,42 @@ export interface HdsTagSignature {
   Element: HTMLSpanElement;
 }
 
+const overflowed = new TrackedWeakSet<Element>();
+
+const observer = new ResizeObserver((entries) => {
+  entries.forEach((entry) => {
+    const textContainer = entry.target.querySelector(
+      '.hds-tag__text-container'
+    );
+    if (
+      textContainer &&
+      textContainer.scrollHeight > textContainer.clientHeight
+    ) {
+      overflowed.add(entry.target);
+    } else {
+      overflowed.delete(entry.target);
+    }
+  });
+});
+
 export default class HdsTag extends Component<HdsTagSignature> {
-  @tracked private _isTextOverflow!: boolean;
-  private _observer!: ResizeObserver;
+  @tracked private _element?: HTMLElement;
+  private get _isTextOverflow(): boolean {
+    if (!this._element) {
+      return false;
+    }
+    return overflowed.has(this._element);
+  }
 
   private _setUpObserver = modifier((element: HTMLElement) => {
-    // Used to detect when text is clipped to one line, and tooltip should be added
-    this._observer = new ResizeObserver((entries) => {
-      entries.forEach((entry) => {
-        this._isTextOverflow = this._isOverflow(
-          entry.target.querySelector('.hds-tag__text-container')!
-        );
-      });
-    });
-    this._observer.observe(element);
+    this._element = element;
+    observer.observe(element);
 
     return () => {
-      this._observer.disconnect();
+      if (this._element) {
+        observer.unobserve(this._element);
+      }
+      delete this._element;
     };
   });
 
@@ -149,9 +169,5 @@ export default class HdsTag extends Component<HdsTagSignature> {
     }
 
     return classes.join(' ');
-  }
-
-  private _isOverflow(el: Element): boolean {
-    return el.scrollHeight > el.clientHeight;
   }
 }
