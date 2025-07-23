@@ -88,9 +88,20 @@ export default class ComponentsTableRoute extends Route {
 }
 ```
 
+!!! Warning
+
+**Consumer responsibility**
+
 For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
 
-You can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided:
+!!!
+
+Then, in the template code you will need to:
+
+- pass the data model to the `@model` argument of the Table component
+- provide a `@columns` argument to describe the expected columns (see [Component API](#component-api) for details)
+- insert your own content into the `:body` block (the component will take care of looping over the `@model`)
+- use the `.data` key to access the `@model` record content (it’s yielded as `data`)
 
 ```handlebars
 <Hds::Table
@@ -106,11 +117,6 @@ You can insert your own content into the `:body` block and the component will ta
   </:body>
 </Hds::Table>
 ```
-
-For clarity, there are a couple of important points to note here:
-
-- provide a `@columns` argument (see [Component API](#component-api) for details about its shape)
-- use the `.data` key to access the `@model` record content (it’s yielded as `data`)
 
 ### Sortable table
 
