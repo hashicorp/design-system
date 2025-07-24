@@ -35,14 +35,11 @@
 .hds-app-side-nav__content-panel {
   padding: 0 var(--token-app-side-nav-wrapper-padding-horizontal);
 
-  // the panel itself should not be scrollable,
-  // applying the style in this way prevents focus rings from being cut off
-  &:not(:has(:focus, .mock-focus)) {
-    overflow: hidden;
-  }
-
   &[aria-hidden="true"] {
     max-height: 0; // prevents hidden panels from causing scrolling
+    // prevent unwanted scrolling when navigating from panel with long content to panel with short content
+    // applying only to hidden panels, prevents Item focus rings from being cut off
+    overflow: hidden;
   }
 }
 
