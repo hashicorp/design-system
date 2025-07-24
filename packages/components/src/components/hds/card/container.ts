@@ -24,14 +24,14 @@ export const DEFAULT_LEVEL = HdsCardLevelValues.Base;
 export const DEFAULT_BACKGROUND = HdsCardBackgroundValues.NeutralPrimary;
 export const DEFAULT_OVERFLOW = HdsCardOverflowValues.Visible;
 export const DEFAULT_TAG = HdsCardTagValues.Div;
-export const AVAILABLE_LEVELS: string[] = Object.values(HdsCardLevelValues);
-export const AVAILABLE_BACKGROUNDS: string[] = Object.values(
+export const LEVELS: HdsCardLevel[] = Object.values(HdsCardLevelValues);
+export const BACKGROUNDS: HdsCardBackground[] = Object.values(
   HdsCardBackgroundValues
 );
-export const AVAILABLE_OVERFLOWS: string[] = Object.values(
+export const OVERFLOWS: HdsCardOverflow[] = Object.values(
   HdsCardOverflowValues
 );
-export const AVAILABLE_TAGS: string[] = Object.values(HdsCardTagValues);
+export const TAGS: HdsCardTag[] = Object.values(HdsCardTagValues);
 
 export interface HdsCardContainerSignature {
   Args: {
@@ -55,10 +55,10 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
     const { level = DEFAULT_LEVEL } = this.args;
 
     assert(
-      `@level for "Hds::Card::Container" must be one of the following: ${AVAILABLE_LEVELS.join(
+      `@level for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
         ', '
       )}; received: ${level}`,
-      AVAILABLE_LEVELS.includes(level)
+      LEVELS.includes(level)
     );
 
     return level;
@@ -70,10 +70,10 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
 
     if (levelHover) {
       assert(
-        `@levelHover for "Hds::Card::Container" must be one of the following: ${AVAILABLE_LEVELS.join(
+        `@levelHover for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
           ', '
         )}; received: ${levelHover}`,
-        AVAILABLE_LEVELS.includes(levelHover)
+        LEVELS.includes(levelHover)
       );
     }
 
@@ -86,10 +86,10 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
 
     if (levelActive) {
       assert(
-        `@levelActive for "Hds::Card::Container" must be one of the following: ${AVAILABLE_LEVELS.join(
+        `@levelActive for "Hds::Card::Container" must be one of the following: ${LEVELS.join(
           ', '
         )}; received: ${levelActive}`,
-        AVAILABLE_LEVELS.includes(levelActive)
+        LEVELS.includes(levelActive)
       );
     }
 
@@ -101,10 +101,10 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
     const { background = DEFAULT_BACKGROUND } = this.args;
 
     assert(
-      `@background for "Hds::Card::Container" must be one of the following: ${AVAILABLE_BACKGROUNDS.join(
+      `@background for "Hds::Card::Container" must be one of the following: ${BACKGROUNDS.join(
         ', '
       )}; received: ${background}`,
-      AVAILABLE_BACKGROUNDS.includes(background)
+      BACKGROUNDS.includes(background)
     );
 
     return background;
@@ -115,10 +115,10 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
     const { overflow = DEFAULT_OVERFLOW } = this.args;
 
     assert(
-      `@overflow for "Hds::Card::Container" must be one of the following: ${AVAILABLE_OVERFLOWS.join(
+      `@overflow for "Hds::Card::Container" must be one of the following: ${OVERFLOWS.join(
         ', '
       )}; received: ${overflow}`,
-      AVAILABLE_OVERFLOWS.includes(overflow)
+      OVERFLOWS.includes(overflow)
     );
 
     return overflow;
@@ -128,8 +128,8 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
     const { tag = DEFAULT_TAG } = this.args;
 
     assert(
-      `@tag for "Hds::Card::Container" must be one of the following: ${AVAILABLE_TAGS.join(', ')}; received: ${tag}`,
-      AVAILABLE_TAGS.includes(tag)
+      `@tag for "Hds::Card::Container" must be one of the following: ${TAGS.join(', ')}; received: ${tag}`,
+      TAGS.includes(tag)
     );
 
     return tag;
