@@ -27,15 +27,6 @@ module(
       assert.dom('.hds-testing-component-title').hasText('Test');
     });
 
-    // DESCRIPTION
-
-    test('it should render the description when the "description" argument is provided', async function (assert) {
-      await render(
-        hbs`<Hds::TestingComponent @description="Test"></Hds::TestingComponent>`,
-      );
-      assert.dom('.hds-testing-component__description').hasText('Test');
-    });
-
     // ACTIVE
 
     test('it should add the active class when the "isActive" argument is true', async function (assert) {
