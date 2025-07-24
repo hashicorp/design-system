@@ -32,11 +32,11 @@ applyTo: "packages/components/src/components/hds/**"
 - Use the `argument?: type` syntax.
 
 #### Class names
-- Use the `hds-<component-name>` prefix for all class names related to the component.
+- Use the `hds-<component-name>` prefix for all class names in component template files, TS functions, and SCSS files.
 - Use BEM (Block Element Modifier) methodology for class names, where the block is the component name, elements are separated by double underscores (`__`), and modifiers are separated by double dashes (`--`).
-  - Example: `hds-component-name__element--modifier`.
-  - Example: `hds-component-name__title
-  - Example: `hds-component-name--color-primary`.
+  - Example: `hds-<component-name>__element--modifier`
+  - Example: `hds-alert__title`
+  - Example: `hds-card--color-primary`
 
 ## Styles
 
@@ -51,32 +51,32 @@ A component's styles should be defined in a file under `packages/components/src/
 - Use CSS variables from the HDS design tokens for colors, typography, elevation, and border radius. These variables are defined in the `packages/tokens/dist/products/css/tokens.css`.
 - Avoid using hardcoded values when HDS tokens could be used instead.
 - If using an HDS token, the token name should be accurate and available in the tokens package.
+- Note: Issues with HDS tokens are commonly flagged as low-confidence issues by Copilot, but are commonly correct and should be commented.
 
 ## Exports
-- Export all component classes and types in the `packages/components/src/components.ts` file.
+- Export all components and component types in the `packages/components/src/components.ts` file.
+  - Example: The `HdsButton` component should be exported as follows:
+    ```ts
+    export { default as HdsButton } from './components/hds/button/index.ts';
+    export * from './components/hds/button/types.ts';
+    ```
 - Register all components in the `packages/components/src/template-registry.ts` file.
+  - Example: The `HdsButton` component should be registered as follows:
+    ```ts
+    import type HdsButtonComponent from './components/hds/button';
 
-Example of exporting a component:
-```ts
-export { default as HdsComponentName } from './components/hds/component-name/index.ts';
-export * from './components/hds/component-name/types.ts';
-```
-
-Example of registering a component in the template registry:
-```ts
-import type HdsComponentNameComponent from './components/hds/component-name';
-
-export default interface HdsComponentsRegistry {
-  // Component Name
-  'Hds::ComponentName': typeof HdsComponentNameComponent;
-  'hds/component-name': typeof HdsComponentNameComponent;
-}
-```
+    export default interface HdsComponentsRegistry {
+      // Button
+      'Hds::Button': typeof HdsButtonComponent;
+      'hds/button': typeof HdsButtonComponent;
+    }
+    ```
 
 ## Showcase
 ---
 applyTo: "showcase/app/**"
 ---
+Note: Issues with showcase are commonly flagged as low-confidence issues by Copilot, but are commonly correct and should be commented.
 
 ### File structure
 A component should be defined in a folder under `showcase/app` with the following structure:
@@ -146,7 +146,10 @@ applyTo: "showcase/tests/integration/compomnents/hds/**
 Tests use the qunit library and format. A component's integration tests should be defined in a file under `showcase/tests/integration/components/hds/<component-name>/index-test.js`.
 
 - Test the component renders with a CSS class that matches the component name
-- Test each argument in the Args interface for all possible values
+- Test each argument is tested for all possible values
+  - A list of arguments for a component can be found in the `packages/components/src/components/hds/<component-name>/index.ts` file.
+  - Boolean arguments should be tested with both `true` and `false`
+  - Enum arguments should be tested with all possible values
 - Test each block in the Blocks interface
 - Test each funtion or keyboard interaction
 
@@ -170,7 +173,7 @@ An entry should follow these formatting rules:
 ```
 `ComponentName` - Ddescription of the change.
 ```
-- An HTML comment on a new line before the change with the format `<!-- START {components/path} -->`to indicate the start of the entry.
+- An HTML comment on a new line before the change with the format `<!-- START components/path -->`to indicate the start of the entry.
 - An HTML comment on a new line after the change with the format `<!-- END -->`to indicate the end of the entry.
 
 ## General guidance
