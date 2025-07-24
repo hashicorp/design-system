@@ -107,7 +107,9 @@ You can generate a link with the visual appearance of a button, by passing an `@
 
 If you’re passing an `@href` or a `@route` argument to the component, this will generate an `<a>` link, not a `<button>`. In this case, no `type` is needed.
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works, please refer to [its documentation page](/utilities/interactive).
 

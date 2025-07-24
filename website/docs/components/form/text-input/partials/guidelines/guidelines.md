@@ -43,6 +43,8 @@ The `TextInput` component has a visibility toggle feature for password fields. B
 
 !!! Info
 
+**Code consideration**
+
 Date and time fields use the native browser functionality for the popovers. Some browsers do not display an icon or popover.
 !!!
 

@@ -271,10 +271,11 @@ How resizing for the cell content works is determined by the implementation. For
 
 ### Sortable Advanced Table
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers)
-
 !!!
 
 Add `isSortable=true` to the hash for each column that should be sortable.
@@ -616,8 +617,9 @@ This is a simple example of an Advanced Table with multi-selection. Notice the `
 
 !!! Info
 
-If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
+**Code consideration**
 
+If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
 !!!
 
 ```handlebars

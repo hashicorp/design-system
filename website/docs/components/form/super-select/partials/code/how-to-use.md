@@ -98,8 +98,9 @@ To group similar sets of options, pass a nested data structure specifying the `g
 
 !!! Warning
 
-If options are implemented as an array of strings and have the same name, they will be treated as the same, so selecting one will select others with the same name. To avoid this, implement your options using objects. (e.g. [{name: "name", label: "label"}, ...])
+**Code alert**
 
+If options are implemented as an array of strings and have the same name, they will be treated as the same, so selecting one will select others with the same name. To avoid this, implement your options using objects. (e.g. [{name: "name", label: "label"}, ...])
 !!!
 
 **Nested data structure example:**

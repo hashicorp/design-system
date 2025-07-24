@@ -349,10 +349,9 @@ Since the `SideNav::PortalTarget` supports multiple portals, each `SideNav::Port
 
 !!! Info
 
-**Important**
+**Code consideration**
 
 When the Side Nav is used in conjunction with portals, the nesting of navigation/subnavigation levels has to match one-to-one the hierarchy of the routing, otherwise it will not work as one would expect.
-
 !!!
 
 
@@ -473,10 +472,9 @@ By default, the component uses the [ember-a11y-refocus](https://github.com/ember
 
 !!! Info
 
-**Notice**
+**Code consideration**
 
 The addon introduces a refocusing behavior **on route changes** that may interfere with the hosting application (eg. blurring an active element). For details on how to control this behavior, see the section about [customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
-
 !!!
 
 This functionality can be disabled using the `@hasA11yRefocus=\{{false}}` argument, if that is necessary.

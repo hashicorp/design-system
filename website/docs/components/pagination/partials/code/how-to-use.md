@@ -215,14 +215,13 @@ It is also possible to show the SizeSelector (hidden by default):
 <Hds::Pagination::Compact @showSizeSelector={{true}} />
 ```
 
-!!! Warning
+!!! Info
 
-**Warning**
+**Code consideration**
 
 When the "page size" is used in the context of a cursor-based pagination, it can lead to increased complexity and potential UX/usability issues (eg. when the cursor is `prev` and the page size is changed, the behavior may different from what is expected by the user).
 
 **Be mindful of this limitations and implement your code accordingly.**
-
 !!!
 
 ### Event handling
