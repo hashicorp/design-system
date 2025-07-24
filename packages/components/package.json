@@ -355,6 +355,7 @@
       "./components/hds/tabs/panel.js": "./dist/_app_/components/hds/tabs/panel.js",
       "./components/hds/tabs/tab.js": "./dist/_app_/components/hds/tabs/tab.js",
       "./components/hds/tag/index.js": "./dist/_app_/components/hds/tag/index.js",
+      "./components/hds/testing-component/index.js": "./dist/_app_/components/hds/testing-component/index.js",
       "./components/hds/text/body.js": "./dist/_app_/components/hds/text/body.js",
       "./components/hds/text/code.js": "./dist/_app_/components/hds/text/code.js",
       "./components/hds/text/display.js": "./dist/_app_/components/hds/text/display.js",

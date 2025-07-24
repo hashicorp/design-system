@@ -190,6 +190,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/tag');
     await percySnapshot('Tag');
 
+    await visit('/components/testing-component');
+    await percySnapshot('TestingComponent');
+
     await visit('/components/text');
     await percySnapshot('Text');
 

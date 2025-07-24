@@ -108,6 +108,7 @@ Router.map(function () {
         this.route('demo-observer-performance');
       });
     });
+    this.route('testing-component');
     this.route('text');
     this.route('time');
     this.route('toast');

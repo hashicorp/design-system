@@ -1,0 +1,35 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "TestingComponent Component"}}
+
+<Shw::Text::H1>TestingComponent</Shw::Text::H1>
+
+<section data-test-percy>
+  <Hds::TestingComponent @title="Lorem ipsum dolor sir" @description="Lorem ipsum dolor sit" />
+
+  <Shw::Text::H2>Colors</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Primary">
+      <Hds::TestingComponent @title="Lorem ipsum dolor sir" @color="primary" />
+    </SF.Item>
+    <SF.Item @label="Secondary">
+      <Hds::TestingComponent @title="Lorem ipsum dolor sir" @color="secondary" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Active</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="inactive">
+      <Hds::TestingComponent @title="Lorem ipsum dolor sir" />
+    </SF.Item>
+    <SF.Item @label="active">
+      <Hds::TestingComponent @title="Lorem ipsum dolor sir" @isActive={{true}} />
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
