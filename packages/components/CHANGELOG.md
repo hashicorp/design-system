@@ -1,5 +1,131 @@
 # @hashicorp/design-system-components
 
+## 4.21.1
+
+### Patch Changes
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Removed `ember-math-helpers` dev dependency
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3043](https://github.com/hashicorp/design-system/pull/3043)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/form/radio-card -->
+
+`Form::RadioCard` - Fixed styling bug where hover styles were visible when disabled
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3000](https://github.com/hashicorp/design-system/pull/3000)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Make `@ember/string` a peerDependency to allow consuming apps to choose to use `3.x` or `4.x`. This unblocks apps that need `4.x` for vite compatibility, while retaining `3.x` support as well for older apps.
+
+<small class="doc-whats-new-changelog-metadata">[#3028](https://github.com/hashicorp/design-system/pull/3028) - Thanks [@RobbieTheWagner](https://github.com/RobbieTheWagner) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/form/super-select -->
+
+`Form::SuperSelect` - fix type for the `@resultCountMessage` argument so it can accept a string or a function.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3008](https://github.com/hashicorp/design-system/pull/3008)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/app-side-nav-->
+
+`AppSideNav::List::Link` - Applied transparent background to the element to avoid overlapping with previous item's focus ring
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3032](https://github.com/hashicorp/design-system/pull/3032)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Make the `@hasResizableColumns` argument optional for the `ThSort` component.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3051](https://github.com/hashicorp/design-system/pull/3051)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START utilities/popover-primitive -->
+
+`PopoverPrimitive` - Updated type of the `anchoredPositionOptions` object in the `setUpPrimitivePopover` modifier to include `arrowSelector` from the `hds-anchored-position` modifier.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3005](https://github.com/hashicorp/design-system/pull/3005)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START /components/app-side-nav -->
+
+`AppSideNav::List::Link` - Removed extra transparent border and background when rendered as a `<button>` element
+
+<!-- END -->
+
+<!-- START /components/side-nav -->
+
+`SideNav::List::Link` - Removed extra transparent border when rendered as a `<button>` element
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3026](https://github.com/hashicorp/design-system/pull/3026)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/tag -->
+
+`Tag` - Fixed a performance issue when many tags are present on a page caused by the ResizeObserver
+
+<!-- END -->
+
+Dependencies - Added `tracked-built-ins`
+
+<small class="doc-whats-new-changelog-metadata">[#3033](https://github.com/hashicorp/design-system/pull/3033) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/app-side-nav-->
+
+`AppSideNav::Panel - Fixed issue causing the focus ring of the first and last items within the Panel to be cut off
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3045](https://github.com/hashicorp/design-system/pull/3045)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/app-header -->
+
+`AppHeader` - return `close` callback to the `:globalActions` and `:utilityActions` named blocks so the menu actions can be hidden programmatically when the component is in a mobile view.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3031](https://github.com/hashicorp/design-system/pull/3031)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Layout::Flex` - Fixed issue in which `gap` value was improperly inherited by nested `Flex` components, added "0" as a supported `gap` value.
+
+`Layout::Grid` - Fixed issue in which `gap` & `columnMinWidth` values were improperly inherited by nested `Grid` components, added "0" as a supported `gap` value.
+
+<small class="doc-whats-new-changelog-metadata">[#2987](https://github.com/hashicorp/design-system/pull/2987)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.21.0
 
 [4.21.0 documentation](https://hds-website-4-21-0.vercel.app/)
