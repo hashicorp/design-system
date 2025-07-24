@@ -10,7 +10,9 @@ import { HdsStepperStatusesValues } from '../types.ts';
 import type { HdsStepperStatuses } from '../types.ts';
 
 export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
-export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
+export const STATUSES: HdsStepperStatuses[] = Object.values(
+  HdsStepperStatusesValues
+);
 
 export interface HdsStepperStepIndicatorSignature {
   Args: {

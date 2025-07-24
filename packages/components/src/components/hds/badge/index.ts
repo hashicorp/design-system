@@ -15,9 +15,9 @@ import {
 import type { HdsBadgeColors, HdsBadgeSizes, HdsBadgeTypes } from './types.ts';
 import type { HdsIconSignature } from '../icon';
 
-export const SIZES: string[] = Object.values(HdsBadgeSizeValues);
-export const TYPES: string[] = Object.values(HdsBadgeTypeValues);
-export const COLORS: string[] = Object.values(HdsBadgeColorValues);
+export const SIZES: HdsBadgeSizes[] = Object.values(HdsBadgeSizeValues);
+export const TYPES: HdsBadgeTypes[] = Object.values(HdsBadgeTypeValues);
+export const COLORS: HdsBadgeColors[] = Object.values(HdsBadgeColorValues);
 export const DEFAULT_SIZE = HdsBadgeSizeValues.Medium;
 export const DEFAULT_TYPE = HdsBadgeTypeValues.Filled;
 export const DEFAULT_COLOR = HdsBadgeColorValues.Neutral;
