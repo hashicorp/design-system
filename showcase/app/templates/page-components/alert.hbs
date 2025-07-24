@@ -63,7 +63,7 @@
       </Hds::Alert>
     </SG.Item>
     <SG.Item>
-      <Hds::Alert @type="inline" @color="highlight" @icon="" as |A|>
+      <Hds::Alert @type="inline" @color="highlight" @icon={{false}} as |A|>
         <A.Title>Without icon</A.Title>
         <A.Description>Lorem ipsum dolor sit amet.</A.Description>
       </Hds::Alert>
@@ -255,7 +255,7 @@
       </Hds::Alert>
     </SG.Item>
     <SG.Item>
-      <Hds::Alert @type="inline" @color="neutral" @icon="" @onDismiss={{this.noop}} as |A|>
+      <Hds::Alert @type="inline" @color="neutral" @icon={{false}} @onDismiss={{this.noop}} as |A|>
         <A.Title>With the dismiss button and no icon</A.Title>
         <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
       </Hds::Alert>
