@@ -7,6 +7,10 @@ import Route from '@ember/routing/route';
 
 import { STATUSES as STATUS_LINK_STATUSES } from '@hashicorp/design-system-components/components/hds/app-footer/status-link';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsAppFooterModel = ModelFrom<PageComponentsAppFooterRoute>;
+
 export default class PageComponentsAppFooterRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
