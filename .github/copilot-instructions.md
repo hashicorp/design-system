@@ -33,8 +33,13 @@ applyTo: "packages/components/src/components/**"
 
 #### Class names
 - Use the `hds-<component-name>` prefix for all class names in component template files, TS functions, and SCSS files.
-- Use BEM (Block Element Modifier) methodology for class names
+- Use BEM methodology for class names, where the block is the component name, elements are separated by double underscores (`__`), and modifiers are separated by double dashes (`--`).
+  - Example: `hds-component-name__element--modifier`.
+  - Example: `hds-component-name__title
+  - Example: `hds-component-name--color-primary`.
+  - Incorrect example: `hds-component-name-element`
 - Use a consistent naming structure throughout a component
+- Check for class name alignment in a component's template (`.hbs`), TS file, and SCSS file.
 
 ## Styles
 
