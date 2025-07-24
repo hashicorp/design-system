@@ -66,8 +66,9 @@ Alternatively, the toggle behavior can be enabled via "click" events:
 
 !!! Warning
 
-Important: if you don't apply either `@enableSoftEvents` or `@enableClickEvents` the popover will not become visible with any kind of interaction (unless it's rendered already opened via the special `@isOpen` argument).
+**Consumer responsibility**
 
+Important: if you don't apply either `@enableSoftEvents` or `@enableClickEvents` the popover will not become visible with any kind of interaction (unless it's rendered already opened via the special `@isOpen` argument).
 !!!
 
 ### Content positioning

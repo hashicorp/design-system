@@ -136,11 +136,12 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
 
 !!! Warning
 
+**Deprecation notice**
+
 The `SideNav::Header::IconButton` subcomponent is now deprecated. Use the `Hds::Button` component with the `isIconOnly` variant instead.
 
 * [Example usage of an Icon-only Button](/components/side-nav?tab=code#actions) within the Side Nav `:actions` block.
 * [Icon-only Button documentation](/components/button?tab=code#icon-only-button)
-
 !!!
 
 The `SideNav::Header::IconButton` component.

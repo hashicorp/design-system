@@ -22,8 +22,9 @@ The provided breakpoints serve as a cohesive _starting_ point for design, which 
 
 !!! insight
 
-If a custom value already exists that is relatively close to an established breakpoint, we recommend migrating it to the nearest standard breakpoint. This creates a consistent and predictable experience for the user as they work within (and across) the HashiCorp product suite.
+**Migration tip** 
 
+If a custom value already exists that is relatively close to an established breakpoint, we recommend migrating it to the nearest standard breakpoint. This creates a consistent and predictable experience for the user as they work within (and across) the HashiCorp product suite.
 !!!
 
 ## Designing with purpose
