@@ -1,3 +1,7 @@
+## 4.21.1
+
+Fixed type for the `@resultCountMessage` argument so it can accept a string or a function.
+
 ## 4.21.0
 
 Enhanced display of grouped options when only selected options are shown in the `SuperSelect::Multiple`
