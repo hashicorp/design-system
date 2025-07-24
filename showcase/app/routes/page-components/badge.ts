@@ -11,6 +11,10 @@ import {
   COLORS as BADGE_COLORS,
 } from '@hashicorp/design-system-components/components/hds/badge/index';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsBadgeModel = ModelFrom<PageComponentsBadgeRoute>;
+
 export default class PageComponentsBadgeRoute extends Route {
   model() {
     return {

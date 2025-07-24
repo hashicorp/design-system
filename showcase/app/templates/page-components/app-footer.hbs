@@ -80,8 +80,11 @@
           <AF.ExtraBefore>
             <Hds::Dropdown as |D|>
               <D.ToggleButton @text="Theme" @color="secondary" @size="small" />
+              {{! @glint-expect-error }}
               <D.Interactive @icon="monitor" {{on "click" D.close}}>System</D.Interactive>
+              {{! @glint-expect-error }}
               <D.Interactive @icon="moon" {{on "click" D.close}}>Dark</D.Interactive>
+              {{! @glint-expect-error }}
               <D.Interactive @icon="sun" {{on "click" D.close}}>Light</D.Interactive>
             </Hds::Dropdown>
           </AF.ExtraBefore>
