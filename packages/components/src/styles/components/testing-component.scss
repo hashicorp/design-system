@@ -9,7 +9,7 @@
 
 .hds-testing-component {
   padding: 16px;
-  color: var(--token-color-foreground-primary);
+  color: var(--token-color-foreground-missing);
   background-color: var(--token-color-surface-faint);
   border: 1px solid var(--token-color-border-strong);
   border-radius: var(--token-border-radius-small);
@@ -25,7 +25,12 @@
   }
 
   &-active {
-    color: var(--token-color-foreground-action);
+    color: var(--token-color-foreground-missing);
+    border-color: var(--token-color-border-action);
+  }
+
+  &-unused {
+    color: var(--token-color-foreground-missing);
     border-color: var(--token-color-border-action);
   }
 }
