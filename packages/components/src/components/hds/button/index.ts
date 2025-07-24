@@ -20,14 +20,14 @@ import type {
 import type { HdsInteractiveSignature } from '../interactive/';
 import type { HdsIconSignature } from '../icon';
 
-export const SIZES: string[] = Object.values(HdsButtonSizeValues);
-export const COLORS: string[] = Object.values(HdsButtonColorValues);
-export const ICONPOSITIONS: string[] = Object.values(
+export const SIZES: HdsButtonSizes[] = Object.values(HdsButtonSizeValues);
+export const COLORS: HdsButtonColors[] = Object.values(HdsButtonColorValues);
+export const ICON_POSITIONS: HdsButtonIconPositions[] = Object.values(
   HdsButtonIconPositionValues
 );
 export const DEFAULT_SIZE = HdsButtonSizeValues.Medium;
 export const DEFAULT_COLOR = HdsButtonColorValues.Primary;
-export const DEFAULT_ICONPOSITION = HdsButtonIconPositionValues.Leading;
+export const DEFAULT_ICON_POSITION = HdsButtonIconPositionValues.Leading;
 
 export interface HdsButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -127,13 +127,13 @@ export default class HdsButton extends Component<HdsButtonSignature> {
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
   get iconPosition(): HdsButtonIconPositions {
-    const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
+    const { iconPosition = DEFAULT_ICON_POSITION } = this.args;
 
     assert(
-      `@iconPosition for "Hds::Button" must be one of the following: ${ICONPOSITIONS.join(
+      `@iconPosition for "Hds::Button" must be one of the following: ${ICON_POSITIONS.join(
         ', '
       )}; received: ${iconPosition}`,
-      ICONPOSITIONS.includes(iconPosition)
+      ICON_POSITIONS.includes(iconPosition)
     );
 
     return iconPosition;
