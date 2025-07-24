@@ -14,7 +14,9 @@ import type { HdsApplicationStateHeaderSignature } from './header';
 import type { HdsApplicationStateBodySignature } from './body';
 import type { HdsApplicationStateFooterSignature } from './footer';
 
-export const ALIGNS: string[] = Object.values(HdsApplicationStateAlignValues);
+export const ALIGNS: HdsApplicationStateAligns[] = Object.values(
+  HdsApplicationStateAlignValues
+);
 export interface HdsApplicationStateSignature {
   Args: {
     align?: HdsApplicationStateAligns;
