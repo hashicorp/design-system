@@ -34,10 +34,12 @@
 
 .hds-app-side-nav__content-panel {
   padding: 0 var(--token-app-side-nav-wrapper-padding-horizontal);
-  overflow: hidden; // the panel itself does not need to be scrollable
 
   &[aria-hidden="true"] {
     max-height: 0; // prevents hidden panels from causing scrolling
+    // prevent unwanted scrolling when navigating from panel with long content to panel with short content
+    // applying only to hidden panels, prevents Item focus rings from being cut off
+    overflow: hidden;
   }
 }
 
