@@ -21,6 +21,7 @@ export interface HdsTestingComponentComponentSignature {
     description?: string;
     color?: HdsTestingComponentColors;
     isActive?: boolean;
+    unusedArgument?: string;
   };
   Blocks: {
     default: [];
