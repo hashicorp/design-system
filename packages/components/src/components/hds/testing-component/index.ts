@@ -54,7 +54,7 @@ export default class HdsTestingComponentComponent extends Component<HdsTestingCo
     classes.push(`hds-testing-component--color-${this.color}`);
 
     if (this.args.isActive) {
-      classes.push('hds-testing-component--active');
+      classes.push('hds-testing-component-active');
     }
 
     return classes.join(' ');

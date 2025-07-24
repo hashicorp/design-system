@@ -24,7 +24,7 @@ module(
       await render(
         hbs`<Hds::TestingComponent @title="Test"></Hds::TestingComponent>`,
       );
-      assert.dom('.hds-testing-component__title').hasText('Test');
+      assert.dom('.hds-testing-component-title').hasText('Test');
     });
 
     // DESCRIPTION
@@ -44,7 +44,7 @@ module(
       );
       assert
         .dom('.hds-testing-component')
-        .hasClass('hds-testing-component--active');
+        .hasClass('hds-testing-component-active');
     });
 
     // COLOR
