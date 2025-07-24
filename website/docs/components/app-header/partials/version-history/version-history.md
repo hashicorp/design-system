@@ -1,3 +1,7 @@
+## 4.21.1
+
+Added `close` callback to the `:globalActions` and `:utilityActions` named blocks so the menu actions can be hidden programmatically when the component is in a mobile view.
+
 ## 4.21.0
 
 Refactored the Home Link, removed the `@ariaLabel` argument, added `@text` (should replace `@ariaLabel`) and `@isIconOnly` arguments.
