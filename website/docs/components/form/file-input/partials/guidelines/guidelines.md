@@ -12,6 +12,8 @@ Because the File Input is based on the native HTML input, the content and visual
 
 !!! Info
 
+**Differences between Figma and code**
+
 Due to limitations in Figma, truncation will occur at the end of the text, while in the browser, truncation occurs in the middle. 
 
 ![visual difference in truncation between figma and browser](/assets/components/form/file-input/file-input-truncation.png)

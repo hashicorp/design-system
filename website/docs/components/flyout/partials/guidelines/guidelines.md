@@ -212,7 +212,9 @@ Multiple dismissal options are available that can be customized in production wi
 
 ## Positioning and responsive sizing
 
-!!! Info
+!!! Insight
+
+**Figma tip**
 
 In Figma, the Flyout should be paired with the [Overlay](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-32335&t=gWdKy44MzTP4cTRo-1) component which obscures the main page content the Flyout sits on top of. Using the Flyout without the overlay is currently not supported and helps to communicate visually the `inert` nature of the main page.
 
