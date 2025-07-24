@@ -223,7 +223,6 @@ import type HdsTableTrComponent from './components/hds/table/tr';
 import type HdsTabsComponent from './components/hds/tabs';
 import type HdsTabsPanelComponent from './components/hds/tabs/panel';
 import type HdsTabsTabComponent from './components/hds/tabs/tab';
-import type HdsTestingComponentComponent from './components/hds/testing-component';
 import type HdsTextComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
@@ -992,10 +991,6 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Tabs::Tab': typeof HdsTabsTabComponent;
   'hds/tabs/tab': typeof HdsTabsTabComponent;
-
-  // Testing Component
-  'Hds::TestingComponent': typeof HdsTestingComponentComponent;
-  'hds/testing-component': typeof HdsTestingComponentComponent;
 
   // Text
   'Hds::Text': typeof HdsTextComponent;
