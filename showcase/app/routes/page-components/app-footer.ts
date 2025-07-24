@@ -9,7 +9,8 @@ import { STATUSES as STATUS_LINK_STATUSES } from '@hashicorp/design-system-compo
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
-export type PageComponentsAppFooterModel = ModelFrom<PageComponentsAppFooterRoute>;
+export type PageComponentsAppFooterModel =
+  ModelFrom<PageComponentsAppFooterRoute>;
 
 export default class PageComponentsAppFooterRoute extends Route {
   model() {
