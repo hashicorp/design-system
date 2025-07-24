@@ -1,0 +1,108 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// STEPPER > LIST
+//
+
+$hds-stepper-list-gap-spacing: 16px;
+
+.hds-stepper-list {
+  display: flex;
+  flex-direction: column;
+  gap: $hds-stepper-list-gap-spacing;
+}
+
+.hds-stepper-list,
+.hds-stepper-list__step {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+// SUB COMPONENT: STEPPER > LIST > STEP
+
+.hds-stepper-list__step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+
+  &:not(:last-of-type) {
+    .hds-stepper-list__step-progress {
+      &::before,
+      &::after {
+        position: absolute;
+        top: 1px;
+        left: 11px;
+        z-index: -1;
+        width: 2px;
+        content: "";
+      }
+
+      // Progress Bar - background line
+      &::before {
+        height: calc(100% + $hds-stepper-list-gap-spacing);
+        background:
+          linear-gradient(0deg, var(--token-color-palette-alpha-200) 0%, var(--token-color-palette-alpha-200) 100%),
+          var(--token-color-palette-neutral-100);
+      }
+
+      // Progress bar - completed line
+      &::after {
+        background-color: var(--token-color-palette-neutral-700);
+      }
+    }
+  }
+}
+
+.hds-stepper-list__step-progress {
+  position: relative;
+  isolation: isolate;
+}
+
+.hds-stepper-list__step-text {
+  margin-top: 2px;
+}
+
+.hds-stepper-list__step-description {
+  margin-top: 4px;
+}
+
+.hds-stepper-list__step-content {
+  margin-top: 8px;
+}
+
+// STATUSES
+
+// Complete
+
+.hds-stepper-list__step {
+  &:not(:last-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
+    height: calc(100% + $hds-stepper-list-gap-spacing - 4px);
+  }
+
+  &:not(:last-of-type, :first-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
+    top: -4px;
+    height: calc(100% + $hds-stepper-list-gap-spacing);
+  }
+
+  &:not(:first-of-type):last-of-type.hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
+    position: absolute;
+    top: -4px;
+    left: 11px;
+    z-index: -1;
+    width: 2px;
+    height: 6px;
+    background-color: var(--token-color-palette-neutral-700);
+    content: "";
+  }
+
+  // Border radius for progress bar line if completed step is followed by a step that is not complete
+  &.hds-stepper-list__step--complete:has(+ :not(.hds-stepper-list__step--complete)) {
+    .hds-stepper-list__step-progress::after {
+      border-radius: 0 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small);
+    }
+  }
+}

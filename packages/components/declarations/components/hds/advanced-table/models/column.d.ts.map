@@ -1,0 +1,1 @@
+{"version":3,"file":"column.d.ts","sourceRoot":"","sources":["../../../../../src/components/hds/advanced-table/models/column.ts"],"names":[],"mappings":"AAAA,UAAU,0BAA0B;IAClC,GAAG,EAAE,MAAM,CAAC;CACb;AAED,MAAM,CAAC,OAAO,OAAO,sBAAsB;IACzC,GAAG,EAAE,MAAM,CAAC;gBAEA,EAAE,GAAG,EAAE,EAAE,0BAA0B;CAGhD"}

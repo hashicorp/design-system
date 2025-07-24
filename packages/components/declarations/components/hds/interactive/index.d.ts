@@ -1,0 +1,46 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+import Component from '@glimmer/component';
+import type Owner from '@ember/owner';
+import type { LinkTo } from '@ember/routing';
+export interface HdsInteractiveSignature {
+    Args: {
+        href?: string;
+        isHrefExternal?: boolean;
+        isRouteExternal?: boolean;
+        route?: string;
+        models?: unknown[];
+        model?: unknown;
+        query?: Record<string, unknown>;
+        'current-when'?: string | boolean;
+        replace?: boolean;
+    };
+    Blocks: {
+        default: [];
+    };
+    Element: HTMLAnchorElement | HTMLButtonElement;
+}
+export default class HdsInteractive extends Component<HdsInteractiveSignature> {
+    linkToExternal: LinkTo | null;
+    constructor(owner: Owner, args: HdsInteractiveSignature['Args']);
+    resolveLinkToExternal(): Promise<void>;
+    /**
+     * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
+     *
+     * @param isHrefExternal
+     * @type boolean
+     * @default true
+     */
+    get isHrefExternal(): boolean;
+    /**
+     * Determines if a @route value is "external" (uses the LinkToExternal component instead of LinkTo)
+     *
+     * @param isRouteExternal
+     * @type boolean
+     * @default false
+     */
+    get isRouteExternal(): boolean;
+    onKeyUp(event: KeyboardEvent): void;
+}

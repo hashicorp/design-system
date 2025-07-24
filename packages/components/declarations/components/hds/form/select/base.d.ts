@@ -1,0 +1,31 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+import Component from '@glimmer/component';
+import type { ComponentLike } from '@glint/template';
+import type { HdsYieldSignature } from '../../yield';
+export interface HdsFormSelectBaseSignature {
+    Args: {
+        isInvalid?: boolean;
+        width?: string;
+        id?: string;
+        ariaDescribedBy?: string;
+    };
+    Blocks: {
+        default: [
+            {
+                Options?: ComponentLike<HdsYieldSignature>;
+            }
+        ];
+    };
+    Element: HTMLSelectElement;
+}
+export default class HdsFormSelectBase extends Component<HdsFormSelectBaseSignature> {
+    /**
+     * Get the class names to apply to the component.
+     * @method classNames
+     * @return {string} The "class" attribute to apply to the component.
+     */
+    get classNames(): string;
+}

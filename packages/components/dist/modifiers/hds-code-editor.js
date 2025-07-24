@@ -1,0 +1,425 @@
+import { buildTask } from 'ember-concurrency/async-arrow-runtime';
+import Modifier from 'ember-modifier';
+import { assert, warn } from '@ember/debug';
+import { registerDestructor } from '@ember/destroyable';
+import 'ember-concurrency';
+import config from 'ember-get-config';
+import { Compartment } from '@codemirror/state';
+import { EditorView } from '@codemirror/view';
+import { guidFor } from '@ember/object/internals';
+import { isEmpty } from '@ember/utils';
+import hdsDark from './hds-code-editor/themes/hds-dark-theme.js';
+import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.js';
+
+async function defineStreamLanguage(streamParser) {
+  const {
+    StreamLanguage
+  } = await import('@codemirror/language');
+  return StreamLanguage.define(streamParser);
+}
+function getCSPNonceFromMeta() {
+  const meta = document.querySelector('meta[http-equiv="Content-Security-Policy"]');
+  if (meta === null) {
+    return undefined;
+  }
+  const content = meta.getAttribute('content');
+  if (content === null) {
+    return undefined;
+  }
+
+  // searches for either "style-src" or "script-src" followed by anything until a token like 'nonce-<value>'
+  const match = content.match(/(?:style-src|script-src)[^;]*'nonce-([^']+)'/);
+  return match ? match[1] : undefined;
+}
+const LOADER_HEIGHT = '164px';
+const LANGUAGES = {
+  rego: {
+    load: async () => {
+      const {
+        rego
+      } = await import('./hds-code-editor/languages/rego.js');
+      return defineStreamLanguage(rego);
+    }
+  },
+  ruby: {
+    load: async () => {
+      const {
+        ruby
+      } = await import('@codemirror/legacy-modes/mode/ruby');
+      return defineStreamLanguage(ruby);
+    }
+  },
+  sentinel: {
+    load: async () => {
+      const {
+        sentinel
+      } = await import('./hds-code-editor/languages/sentinel.js');
+      return defineStreamLanguage(sentinel);
+    }
+  },
+  shell: {
+    load: async () => {
+      const {
+        shell
+      } = await import('@codemirror/legacy-modes/mode/shell');
+      return defineStreamLanguage(shell);
+    }
+  },
+  go: {
+    load: async () => (await import('@codemirror/lang-go')).go()
+  },
+  hcl: {
+    load: async () => (await import('codemirror-lang-hcl')).hcl()
+  },
+  javascript: {
+    load: async () => (await import('@codemirror/lang-javascript')).javascript()
+  },
+  json: {
+    load: async () => (await import('@codemirror/lang-json')).json(),
+    loadLinter: async onLint => {
+      const linter = await import('./hds-code-editor/linters/json-linter.js');
+      return linter.default(onLint);
+    }
+  },
+  markdown: {
+    load: async () => (await import('@codemirror/lang-markdown')).markdown()
+  },
+  sql: {
+    load: async () => (await import('@codemirror/lang-sql')).sql()
+  },
+  yaml: {
+    load: async () => (await import('@codemirror/lang-yaml')).yaml()
+  }
+};
+class HdsCodeEditorModifier extends Modifier {
+  editor;
+  element;
+  onBlur;
+  onInput;
+  blurHandler;
+  intersectionObserver;
+  mutationObserver;
+  lineWrappingCompartment = new Compartment();
+  constructor(owner, args) {
+    super(owner, args);
+    registerDestructor(this, () => {
+      this.intersectionObserver?.disconnect();
+      this.mutationObserver?.disconnect();
+      if (this.onBlur !== undefined) {
+        this.element.removeEventListener('blur', this.blurHandler);
+      }
+    });
+  }
+  modify(element, positional, named) {
+    const {
+      hasLineWrapping = false
+    } = named;
+
+    // if the editor already exists, update the line wrapping
+    if (this.editor) {
+      this.editor.dispatch({
+        effects: this.lineWrappingCompartment.reconfigure(hasLineWrapping ? EditorView.lineWrapping : [])
+      });
+    }
+    // if the editor does not exist, setup the editor
+    else {
+      // the intersection observer makes loading unreliable in tests
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      if (config.environment === 'test') {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
+        this._setupTask.perform(element, positional, named);
+      } else {
+        this.intersectionObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && this.editor === undefined) {
+              // eslint-disable-next-line @typescript-eslint/no-floating-promises
+              this._setupTask.perform(element, positional, named);
+            }
+          });
+        }, {
+          rootMargin: LOADER_HEIGHT
+        });
+        this.intersectionObserver.observe(element);
+      }
+    }
+  }
+  _setupEditorBlurHandler(element, onBlur) {
+    const inputElement = element.querySelector('.cm-content');
+    if (inputElement === null) {
+      return;
+    }
+    this.blurHandler = event => onBlur(this.editor, event);
+    inputElement.addEventListener('blur', this.blurHandler);
+  }
+  _setupEditorAriaLabel(editor, {
+    ariaLabel,
+    ariaLabelledBy
+  }) {
+    assert('`hds-code-editor` modifier - Either `ariaLabel` or `ariaLabelledBy` must be provided', ariaLabel !== undefined || ariaLabelledBy !== undefined);
+    if (ariaLabel !== undefined) {
+      editor.dom.querySelector('[role="textbox"]')?.setAttribute('aria-label', ariaLabel);
+    } else if (ariaLabelledBy !== undefined) {
+      editor.dom.querySelector('[role="textbox"]')?.setAttribute('aria-labelledby', ariaLabelledBy);
+    }
+  }
+  _setupEditorAriaDescribedBy(editor, {
+    ariaDescribedBy,
+    lintingDescriptionElement
+  }) {
+    if (ariaDescribedBy === undefined && lintingDescriptionElement === undefined) {
+      return;
+    }
+    const ariaDescribedByArray = [];
+    if (ariaDescribedBy !== undefined) {
+      ariaDescribedByArray.push(ariaDescribedBy);
+    }
+    if (lintingDescriptionElement !== undefined) {
+      ariaDescribedByArray.push(lintingDescriptionElement.id);
+    }
+    editor.dom.querySelector('[role="textbox"]')?.setAttribute('aria-describedby', ariaDescribedByArray.join(' '));
+  }
+  _createLintingDescriptionElement() {
+    const element = document.createElement('p');
+    element.id = `lint-panel-instructions-${this.element.id}`;
+    element.classList.add('sr-only');
+    element.textContent = 'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel';
+    this.element.insertAdjacentElement('beforebegin', element);
+    return element;
+  }
+  _setupEditorAriaAttributes(editor, {
+    ariaDescribedBy,
+    ariaLabel,
+    ariaLabelledBy,
+    lintingDescriptionElement
+  }) {
+    this._setupEditorAriaLabel(editor, {
+      ariaLabel,
+      ariaLabelledBy
+    });
+    this._setupEditorAriaDescribedBy(editor, {
+      ariaDescribedBy,
+      lintingDescriptionElement
+    });
+  }
+  _loadLanguageExtensionsTask = buildTask(() => ({
+    context: this,
+    generator: function* ({
+      language,
+      isLintingEnabled,
+      onLint
+    }) {
+      if (language === undefined) {
+        return;
+      }
+      try {
+        const validLanguageKeys = Object.keys(LANGUAGES);
+        assert(`\`hds-code-editor\` modifier - \`language\` must be one of the following: ${validLanguageKeys.join(', ')}; received: ${language}`, validLanguageKeys.includes(language));
+        let extensionPromises = [LANGUAGES[language].load()];
+        if (isLintingEnabled && LANGUAGES[language].loadLinter) {
+          extensionPromises = [...extensionPromises, LANGUAGES[language].loadLinter(onLint)];
+        }
+        return Promise.all(extensionPromises);
+      } catch (error) {
+        warn(`\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(error)}`, {
+          id: 'hds-code-editor.load-language-task.import-failed'
+        });
+      }
+    }
+  }), {
+    drop: true
+  }, "_loadLanguageExtensionsTask", null);
+  _buildExtensionsTask = buildTask(() => ({
+    context: this,
+    generator: function* ({
+      cspNonce,
+      extraKeys,
+      language,
+      hasLineWrapping,
+      isLintingEnabled,
+      onLint
+    }) {
+      const [{
+        keymap,
+        lineNumbers,
+        highlightActiveLineGutter,
+        highlightSpecialChars,
+        highlightActiveLine
+      }, {
+        defaultKeymap,
+        history,
+        historyKeymap
+      }, {
+        bracketMatching,
+        syntaxHighlighting
+      }] = yield Promise.all([import('@codemirror/view'), import('@codemirror/commands'), import('@codemirror/language')]);
+      const languageExtensions = yield this._loadLanguageExtensionsTask.perform({
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        language,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        isLintingEnabled,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        onLint
+      });
+      const handleUpdateExtension = EditorView.updateListener.of(update => {
+        // toggle a class if the update has/does not have a selection
+        if (update.selectionSet) {
+          update.view.dom.classList.toggle('cm-hasSelection', !update.state.selection.main.empty);
+        }
+
+        // call the onInput callback if the document has changed
+        if (!update.docChanged || this.onInput === undefined) {
+          return;
+        }
+        this.onInput(update.state.doc.toString(), update.view);
+      });
+      const lineWrappingExtension = this.lineWrappingCompartment.of(hasLineWrapping ? EditorView.lineWrapping : []);
+      let extensions = [lineWrappingExtension, bracketMatching(), highlightActiveLine(), highlightActiveLineGutter(), highlightSpecialChars(), history(), keymap.of([...defaultKeymap, ...historyKeymap]),
+      // custom extensions
+      handleUpdateExtension,
+      // hds dark theme
+      hdsDark, syntaxHighlighting(hdsDarkHighlightStyle)];
+      if (extraKeys !== undefined) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        const customKeyMap = Object.entries(extraKeys).map(([key, value]) => ({
+          key: key,
+          run: value
+        }));
+        extensions = [keymap.of(customKeyMap), ...extensions];
+      }
+      if (languageExtensions !== undefined) {
+        extensions = [...extensions, ...languageExtensions];
+      }
+
+      // add nonce to the editor view if it exists
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const nonce = cspNonce ?? getCSPNonceFromMeta();
+      if (nonce !== undefined) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        extensions = [...extensions, EditorView.cspNonce.of(nonce)];
+      }
+
+      // ensure we add lineNumber last in the stack to create the right gutter order for linting
+      extensions = [...extensions, lineNumbers()];
+      return extensions;
+    }
+  }), {
+    drop: true
+  }, "_buildExtensionsTask", null);
+  _createEditorTask = buildTask(() => ({
+    context: this,
+    generator: function* (element, {
+      cspNonce,
+      language,
+      extraKeys,
+      value,
+      hasLineWrapping,
+      isLintingEnabled,
+      onLint
+    }) {
+      try {
+        const {
+          EditorState
+        } = yield import('@codemirror/state');
+        const extensions = yield this._buildExtensionsTask.perform({
+          cspNonce,
+          extraKeys,
+          language,
+          hasLineWrapping: hasLineWrapping ?? false,
+          isLintingEnabled,
+          onLint
+        });
+        const state = EditorState.create({
+          doc: value,
+          extensions
+        });
+        const editor = new EditorView({
+          state,
+          parent: element
+        });
+        return editor;
+      } catch (error) {
+        console.error(`\`hds-code-editor\` modifier - Failed to setup the CodeMirror editor. Error: ${JSON.stringify(error)}`);
+      }
+    }
+  }), {
+    drop: true
+  }, "_createEditorTask", null);
+  _setupEditorMutationObserver() {
+    this.mutationObserver = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
+        mutation.removedNodes.forEach(node => {
+          if (!(node instanceof HTMLElement)) {
+            return;
+          }
+          const removedNodeContainsLintPanel = node.querySelector('.cm-panel-lint') !== null;
+          if (removedNodeContainsLintPanel) {
+            this.editor.focus();
+          }
+        });
+      });
+    });
+    this.mutationObserver.observe(this.element, {
+      childList: true,
+      subtree: true
+    });
+  }
+  _setupTask = buildTask(() => ({
+    context: this,
+    generator: function* (element, _positional, named) {
+      const {
+        onBlur,
+        onInput,
+        onLint,
+        onSetup,
+        ariaDescribedBy,
+        ariaLabel,
+        ariaLabelledBy,
+        cspNonce,
+        extraKeys,
+        hasLineWrapping,
+        isLintingEnabled,
+        language,
+        value
+      } = named;
+      this.onInput = onInput;
+      this.onBlur = onBlur;
+      this.element = element;
+      this.element.id = isEmpty(this.element.id) ? guidFor(this) : this.element.id;
+      const editor = yield this._createEditorTask.perform(element, {
+        onLint,
+        cspNonce,
+        hasLineWrapping,
+        isLintingEnabled,
+        extraKeys,
+        language,
+        value
+      });
+      if (editor === undefined) {
+        return;
+      }
+      this.editor = editor;
+      element.editor = editor;
+      if (onBlur !== undefined) {
+        this._setupEditorBlurHandler(element, onBlur);
+      }
+      let lintingDescriptionElement = null;
+      if (isLintingEnabled && language !== undefined && LANGUAGES[language]?.loadLinter !== undefined) {
+        // insert a new dom element above the editor
+        lintingDescriptionElement = this._createLintingDescriptionElement();
+        this._setupEditorMutationObserver();
+      }
+      this._setupEditorAriaAttributes(editor, {
+        ariaDescribedBy,
+        ariaLabel,
+        ariaLabelledBy,
+        lintingDescriptionElement: lintingDescriptionElement ?? undefined
+      });
+      onSetup?.(this.editor);
+    }
+  }), {
+    drop: true
+  }, "_setupTask", null);
+}
+
+export { HdsCodeEditorModifier as default, getCSPNonceFromMeta };
+//# sourceMappingURL=hds-code-editor.js.map

@@ -1,0 +1,118 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// CODE-EDITOR
+//
+
+@use "theme";
+
+.hds-code-editor {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--hds-code-editor-color-surface-primary);
+  border: 1px solid var(--hds-code-editor-color-border-strong);
+
+  &.hds-code-editor--is-standalone {
+    border-radius: var(--token-border-radius-medium);
+  }
+
+  &.hds-code-editor--is-full-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    border: none;
+    border-radius: 0;
+
+    .hds-code-editor__editor {
+      max-height: unset;
+    }
+  }
+
+  .hds-code-editor__header {
+    display: flex;
+    gap: 12px;
+    align-items: start;
+    padding: 16px;
+    background-color: var(--hds-code-editor-color-surface-faint);
+    border-bottom: 1px solid var(--hds-code-editor-color-border-primary);
+  }
+
+  .hds-code-editor__header-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .hds-code-editor__title {
+    color: var(--hds-code-editor-color-foreground-primary);
+
+    + .hds-code-editor__description {
+      margin-top: 4px;
+    }
+  }
+
+  .hds-code-editor__description {
+    color: var(--hds-code-editor-color-foreground-faint);
+  }
+
+  .hds-code-editor__title + .hds-code-editor__header-generic,
+  .hds-code-editor__description + .hds-code-editor__header-generic {
+    margin-top: 12px;
+  }
+
+  .hds-code-editor__header-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    .hds-button {
+      outline-offset: 0;
+    }
+  }
+
+  .hds-code-editor__editor {
+    flex-grow: 1;
+    overflow: auto;
+  }
+
+  .hds-code-editor__loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 164px;
+    color: var(--hds-code-editor-color-foreground-primary);
+    background-color: var(--hds-code-editor-color-surface-primary);
+  }
+
+  .hds-button {
+    color: var(--hds-code-editor-color-foreground-primary);
+    background-color: var(--hds-code-editor-color-surface-faint);
+    border: 1px solid var(--hds-code-editor-color-border-strong);
+
+    &:focus,
+    &:hover {
+      background-color: var(--hds-code-editor-color-surface-primary);
+      border-color: var(--hds-code-editor-color-focus-action-internal);
+
+      &::before {
+        border-color: var(--hds-code-editor-color-focus-action-external);
+      }
+
+      .hds-button__icon {
+        color: var(--hds-code-editor-color-foreground-primary);
+      }
+    }
+
+    &:active {
+      background-color: var(--hds-code-editor-color-surface-interactive-active);
+    }
+
+    .hds-button__icon {
+      color: var(--hds-code-editor-color-foreground-primary);
+    }
+  }
+}
