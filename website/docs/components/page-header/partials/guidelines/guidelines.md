@@ -14,8 +14,9 @@
 
 !!! Warning
 
-The Page Header renders the title as an `<h1>` element. Ensure this is the only `<h1>` on the page, as more than one `<h1>` can confuse screen readers and impact the semantic hierarchy of the page.
+**Accessibility alert**
 
+The Page Header renders the title as an `<h1>` element. Ensure this is the only `<h1>` on the page, as more than one `<h1>` can confuse screen readers and impact the semantic hierarchy of the page.
 !!!
 
 Displays the title or topmost heading of the page. We recommend not exceeding 50 characters in length, but in the case of a longer value (e.g., a user or automatically generated value) the title will wrap to multiple lines.

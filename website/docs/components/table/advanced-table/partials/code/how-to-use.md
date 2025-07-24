@@ -607,10 +607,9 @@ Add `isSelectable=true` to create a multi-select Advanced Table. The `onSelectio
 
 !!! Warning
 
-**Important**
+**Accessibility alert**
 
 To make the Advanced Table accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the Advanced Table's body.
-
 !!!
 
 This is a simple example of an Advanced Table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.

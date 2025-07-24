@@ -150,10 +150,11 @@ When `@isInteractive` is set to `false`, the component steps do not allow naviga
 
 ### Without panels
 
-!!! Info
+!!! Warning
+
+**Accessibility alert**
 
 Due to accessibility implications, `@isInteractive` must be set to `false` when using the component without panels.
-
 !!!
 
 The component can be used without the `[S].Panel` contextual component, or `<:body>` named block. In this use case, the component operates similar to a static list. This can be used if the content of the steps is outside of the component.

@@ -42,10 +42,11 @@ Use Icon Tiles as a decorative element or accessory next to a text label for the
 
 ## Using with interactive elements
 
-!!! Info
+!!! Insight
+
+**Accessibility tips**
 
 For more information on making interactive and non-interactive elements easily distinguishable, refer to the [WCAG 2.1 Guideline 1.4: Distinguishable.](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable)
-
 !!!
 
 Avoid placing Icon Tiles immediately next to secondary icon only button variants. Even though they visually look different, their proximity can confuse users because they share similar characteristics. [Distinguishability](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable), an accessibility standard, discourages interfaces from using elements that look alike but behave differently when in close visual proximity. 

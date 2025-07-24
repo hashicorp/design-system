@@ -39,10 +39,11 @@ as |CB|>
 
 The `@tag` argument changes the HTML element that wraps the `[CB].Title` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if a CodeBlock is within a subsection of the page below a heading level 2, the value should be `"h3"`. 
 
-!!! Insight
+!!! Warning
 
-The default `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+**Accessibility alert**
 
+The default `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to the appropriate heading tag to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
 !!!
 
 ```handlebars

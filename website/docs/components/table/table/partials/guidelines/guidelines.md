@@ -122,7 +122,17 @@ Don’t center header labels or cell content within a table.
 
 ### Striping
 
-!!! Info
+While striping is not required, we recommend it for the added usability benefits.
+
+When using striping in a Table, start with the second row to allow the Table Header to be further differentiated from the the row directly beneath it.
+
+![Table striping examples](/assets/components/table/table-striping.png)
+
+#### Benefits of striping
+
+!!! Warning
+
+**Accessibility alert**
 
 Striped rows use a subtle background color to differentiate from non-striped rows. Confirm that nested components within striped rows continue to meet contrast accessibility criteria.
 !!!

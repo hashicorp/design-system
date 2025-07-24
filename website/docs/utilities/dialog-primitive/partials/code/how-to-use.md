@@ -47,10 +47,11 @@ The `DialogPrimitive` serves as the foundation for dialog derived components lik
 
 The `@titleTag` argument changes the HTML element that wraps the `DialogPrimitive::Header` tagline and "title" content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if the `DialogPrimitive` is used as a Split Window, the value should be `"h2"`. 
 
-!!! Insight
+!!! Warning
+
+**Accessibility alert**
 
 The default `@titleTag` value is `"div"` as the correct heading level (`h1–`h6) is dependent on the context in which it is used within a page. We strongly encourage consumers to set the appropriate `@titleTag` value to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
-
 !!!
 
 ```handlebars
