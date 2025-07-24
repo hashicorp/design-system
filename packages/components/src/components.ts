@@ -320,7 +320,7 @@ export * from './components/hds/tabs/types.ts';
 export { default as HdsTag } from './components/hds/tag/index.ts';
 export * from './components/hds/tag/types.ts';
 
-// Tag
+// Testing Component
 export { default as HdsTestingComponent } from './components/hds/testing-component/index.ts';
 export * from './components/hds/testing-component/types.ts';
 

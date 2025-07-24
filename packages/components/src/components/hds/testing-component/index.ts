@@ -15,7 +15,7 @@ export const COLORS: HdsTestingComponentColors[] = Object.values(
   HdsTestingComponentColorValues
 );
 
-export interface HdsTestingComponentComponentSignature {
+export interface HdsTestingComponentSignature {
   Args: {
     title?: string;
     description?: string;
@@ -29,8 +29,7 @@ export interface HdsTestingComponentComponentSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsTestingComponentComponent extends Component<HdsTestingComponentComponentSignature> {
-  // Determines the color scheme for the alert.
+export default class HdsTestingComponent extends Component<HdsTestingComponentSignature> {
   get color(): HdsTestingComponentColors {
     const { color = DEFAULT_COLOR } = this.args;
 
