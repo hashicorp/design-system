@@ -21,7 +21,7 @@
 
 ## Components packages
 ---
-applyTo: "packages/components/src/components/hds/**"
+applyTo: "packages/components/src/components/**"
 ---
 
 ### Component files
@@ -33,10 +33,8 @@ applyTo: "packages/components/src/components/hds/**"
 
 #### Class names
 - Use the `hds-<component-name>` prefix for all class names in component template files, TS functions, and SCSS files.
-- Use BEM (Block Element Modifier) methodology for class names, where the block is the component name, elements are separated by double underscores (`__`), and modifiers are separated by double dashes (`--`).
-  - Example: `hds-<component-name>__element--modifier`
-  - Example: `hds-alert__title`
-  - Example: `hds-card--color-primary`
+- Use BEM (Block Element Modifier) methodology for class names
+- Use a consistent naming structure throughout a component
 
 ## Styles
 
@@ -107,7 +105,7 @@ The showcase template should include:
 - Include all pages under the `showcase/app/templates/page-components` folder in the `showcase/app/router.ts` file.
 - Define a route with the format `this.route('component-name');` for each component.
 
-### Testing
+## Testing
 ---
 applyTo: "showcase/tests/**"
 ---
@@ -125,12 +123,12 @@ tests
 
 Compare a component's test suite against its corresponding component in the `packages/components/src/components/hds/component-name` folder.
 
-### Acceptance test
+### Acceptance testing
 The `tests/acceptance/components/hds/<component-name>.js` file contains the acceptance test for the component.
 The acceptance test should:
 - Call `allyAudit` to check for accessibility issues.
 
-#### Percy visual regeression test
+### Percy visual regeression test
 ---
 applyTo: "showcase/tests/acceptance/percy-test.js"
 ---
