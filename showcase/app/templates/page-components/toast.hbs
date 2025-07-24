@@ -44,7 +44,7 @@
       </Hds::Toast>
     </SF.Item>
     <SF.Item>
-      <Hds::Toast @color="highlight" @icon="" @onDismiss={{this.noop}} as |T|>
+      <Hds::Toast @color="highlight" @icon={{false}} @onDismiss={{this.noop}} as |T|>
         <T.Title>Without icon</T.Title>
         <T.Description>Lorem ipsum dolor sit amet.</T.Description>
       </Hds::Toast>
@@ -80,7 +80,7 @@
           </Hds::Toast>
         </SF.Item>
         <SF.Item>
-          <Hds::Toast @type="inline" @color="success" as |A|>
+          <Hds::Toast @color="success" as |A|>
             <A.Title>A toast comparing different types of links in the description</A.Title>
             <A.Description>
               Description with
