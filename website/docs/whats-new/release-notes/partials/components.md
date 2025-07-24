@@ -93,7 +93,7 @@ Dependencies - Added `tracked-built-ins`
 <div class="doc-whats-new-changelog-separator"></div>
 
 
-`AppSideNav::Panel - Fixed issue causing the focus ring of the first and last items within the Panel to be cut off
+`AppSideNav::Panel` - Fixed issue causing the focus ring of the first and last items within the Panel to be cut off
 
 
 <small class="doc-whats-new-changelog-metadata">[#3045](https://github.com/hashicorp/design-system/pull/3045)</small>
