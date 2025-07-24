@@ -2,6 +2,7 @@
 
 Removed extra transparent border and background when rendered as a `<button>` element
 
+Applied transparent background to the `AppSideNav::List::Link` element to avoid overlapping with previous item's focus ring
 
 ## 4.20.0
 
