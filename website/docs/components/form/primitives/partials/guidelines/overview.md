@@ -2,7 +2,7 @@ Form Primitives are used to compose form fields.
 
 We use Form Primitives as the building blocks for the “field” and “group” controls. While we recommend using our pre-defined “field” and “group” controls because they provide built-in accessibility support, you can use the Form Primitives to implement custom layouts or controls as necessary.
 
-More details on how to assemble form components in larger form patterns can be found in the [form patterns](https://github.com/patterns/form-patterns) documentation.```
+More details on how to assemble form components in larger form patterns can be found in the [form patterns](https://github.com/patterns/form-patterns) documentation.
 
 
 - `Form::Label` is the label associated with the form control

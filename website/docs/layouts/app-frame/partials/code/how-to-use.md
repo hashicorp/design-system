@@ -145,3 +145,10 @@ If the content is injected dynamically—eg. via JavaScript or via Ember "portal
 </div>
 ```
 If the “modal“ container is empty, a `display: none` style is applied to it.
+
+!! Info
+
+**Code consideration**
+
+Use when flagging implementation patterns or technical details that affect code behavior, architecture, or maintainability, but don’t block core functionality.
+!!!
