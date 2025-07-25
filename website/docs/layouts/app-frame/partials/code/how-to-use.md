@@ -146,7 +146,7 @@ If the content is injected dynamically—eg. via JavaScript or via Ember "portal
 ```
 If the “modal“ container is empty, a `display: none` style is applied to it.
 
-!! Info
+!!! Info
 
 **Code consideration**
 
