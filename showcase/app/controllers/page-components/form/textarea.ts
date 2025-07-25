@@ -30,7 +30,7 @@ export default class PageComponentsFormTextareaController extends Controller {
 
   @action
   updateValue(propName: keyof typeof this.values, event: Event) {
-    const { value } = event.target as HTMLInputElement;
+    const { value } = event.target as HTMLTextAreaElement;
     this.values[propName] = value;
   }
 }

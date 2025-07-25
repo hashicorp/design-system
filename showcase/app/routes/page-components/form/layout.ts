@@ -10,9 +10,10 @@ import { DEFAULT_SIZE as FORM_HEADER_TITLE_DEFAULT_SIZE } from '@hashicorp/desig
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
-export type PageComponentsFormModel = ModelFrom<PageComponentsFormRoute>;
+export type PageComponentsFormLayoutModel =
+  ModelFrom<PageComponentsFormLayoutRoute>;
 
-export default class PageComponentsFormRoute extends Route {
+export default class PageComponentsFormLayoutRoute extends Route {
   model() {
     const RADIOCARDS_GENERIC = [
       {

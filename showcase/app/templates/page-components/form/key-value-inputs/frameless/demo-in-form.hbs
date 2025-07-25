@@ -91,11 +91,11 @@
                       <F.Label>OS and architecture</F.Label>
                       <F.Select name="plugin-os">
                         <option></option>
-                        {{! @glint-expect-error }}
+                        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                         <option selected={{if (eq "darwin - arm64" R.rowData.os) true}}>darwin - arm64</option>
-                        {{! @glint-expect-error }}
+                        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                         <option selected={{if (eq "linux - 386" R.rowData.os) true}}>linux - 386</option>
-                        {{! @glint-expect-error }}
+                        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                         <option selected={{if (eq "windows - amd64" R.rowData.os) true}}>windows - amd64</option>
                       </F.Select>
                     </R.Field>

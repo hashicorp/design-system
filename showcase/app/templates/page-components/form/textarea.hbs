@@ -36,44 +36,44 @@
     {{#each variants as |variant|}}
       <Shw::Grid @columns={{3}} as |SG|>
         {{#each @model.STATES as |state|}}
-          {{! template-lint-disable simple-unless }}
-          {{#unless (and (eq variant "disabled") (eq state "focus"))}}
-            <SG.Item
-              @label="{{capitalize variant}} / {{capitalize state}}"
-              mock-state-value={{state}}
-              mock-state-selector="textarea"
-            >
-              <Shw::Flex @direction="column" as |SF|>
-                <SF.Item>
-                  <Hds::Form::Textarea::Base
-                    aria-label="textarea example as {{state}}"
-                    disabled={{if (eq variant "disabled") "disabled"}}
-                    readonly={{if (eq variant "readonly") "readonly"}}
-                    @isInvalid={{if (eq variant "invalid") true}}
-                  />
-                </SF.Item>
-                <SF.Item>
-                  <Hds::Form::Textarea::Base
-                    aria-label="textarea example as with placeholder in{{state}}"
-                    placeholder="Placeholder"
-                    disabled={{if (eq variant "disabled") "disabled"}}
-                    readonly={{if (eq variant "readonly") "readonly"}}
-                    @isInvalid={{if (eq variant "invalid") true}}
-                  />
-                </SF.Item>
-                <SF.Item>
-                  <Hds::Form::Textarea::Base
-                    aria-label="textarea example with value as {{state}}"
-                    @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-                    disabled={{if (eq variant "disabled") "disabled"}}
-                    readonly={{if (eq variant "readonly") "readonly"}}
-                    @isInvalid={{if (eq variant "invalid") true}}
-                  />
-                </SF.Item>
-              </Shw::Flex>
-            </SG.Item>
-          {{/unless}}
-          {{! template-lint-enable simple-unless }}
+          {{#let (and (eq variant "disabled") (eq state "focus")) as |dontDisplay|}}
+            {{#unless dontDisplay}}
+              <SG.Item
+                @label="{{capitalize variant}} / {{capitalize state}}"
+                mock-state-value={{state}}
+                mock-state-selector="textarea"
+              >
+                <Shw::Flex @direction="column" as |SF|>
+                  <SF.Item>
+                    <Hds::Form::Textarea::Base
+                      aria-label="textarea example as {{state}}"
+                      disabled={{if (eq variant "disabled") "disabled"}}
+                      readonly={{if (eq variant "readonly") "readonly"}}
+                      @isInvalid={{if (eq variant "invalid") true}}
+                    />
+                  </SF.Item>
+                  <SF.Item>
+                    <Hds::Form::Textarea::Base
+                      aria-label="textarea example as with placeholder in{{state}}"
+                      placeholder="Placeholder"
+                      disabled={{if (eq variant "disabled") "disabled"}}
+                      readonly={{if (eq variant "readonly") "readonly"}}
+                      @isInvalid={{if (eq variant "invalid") true}}
+                    />
+                  </SF.Item>
+                  <SF.Item>
+                    <Hds::Form::Textarea::Base
+                      aria-label="textarea example with value as {{state}}"
+                      @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
+                      disabled={{if (eq variant "disabled") "disabled"}}
+                      readonly={{if (eq variant "readonly") "readonly"}}
+                      @isInvalid={{if (eq variant "invalid") true}}
+                    />
+                  </SF.Item>
+                </Shw::Flex>
+              </SG.Item>
+            {{/unless}}
+          {{/let}}
         {{/each}}
       </Shw::Grid>
     {{/each}}

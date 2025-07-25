@@ -8,7 +8,7 @@ import { action } from '@ember/object';
 import { deepTracked } from 'ember-deep-tracked';
 import { tracked } from '@glimmer/tracking';
 
-type BinaryData = {
+type PluginBinaryData = {
   os: string;
   id: number;
 };
@@ -28,14 +28,14 @@ const DEFAULT_DATA = [
   },
 ];
 
-export default class PageFramelessFormKeyValueInputsDemoInFormController extends Controller {
+export default class PageComponentsFramelessFormKeyValueInputsDemoInFormController extends Controller {
   @tracked sampleData = DEFAULT_DATA;
-  @deepTracked formErrors: { pluginFile?: string }[] = [];
+  @deepTracked formErrors: { pluginBinaryFile?: string }[] = [];
 
   @action
   onDeleteRowClick(item: unknown) {
     this.sampleData = this.sampleData.filter(
-      (data) => data.id !== (item as BinaryData).id,
+      (data) => data.id !== (item as PluginBinaryData).id,
     );
   }
 
@@ -69,13 +69,13 @@ export default class PageFramelessFormKeyValueInputsDemoInFormController extends
       if (inputHtmlElement.files?.length === 0) {
         this.formErrors[index] = {
           ...this.formErrors[index],
-          pluginFile: 'File is required',
+          pluginBinaryFile: 'File is required',
         };
         hasErrors = true;
       } else {
         this.formErrors[index] = {
           ...this.formErrors[index],
-          pluginFile: undefined,
+          pluginBinaryFile: undefined,
         };
       }
     });

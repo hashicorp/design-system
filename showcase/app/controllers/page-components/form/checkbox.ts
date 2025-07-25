@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-import type { PageComponentsFormCheckboxModel } from '../../../routes/page-components/form/checkbox';
+import type { PageComponentsFormCheckboxModel } from 'showcase/routes/page-components/form/checkbox';
 
 export default class PageComponentsFormCheckboxController extends Controller {
   declare model: PageComponentsFormCheckboxModel;

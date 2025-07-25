@@ -40,7 +40,6 @@
           <SG.Item>
             <Hds::Form::Checkbox::Base indeterminate={{true}} aria-label="Indeterminate checkbox" />
           </SG.Item>
-          {{! template-lint-disable simple-unless }}
           {{#unless (eq state "focus")}}
             <SG.Item>
               <Hds::Form::Checkbox::Base disabled="disabled" aria-label="Disabled checkbox" />
@@ -60,7 +59,6 @@
               />
             </SG.Item>
           {{/unless}}
-          {{! template-lint-enable simple-unless }}
         </Shw::Grid>
       </SF.Item>
     {{/each}}

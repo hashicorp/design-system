@@ -72,27 +72,28 @@
             <SF.Item>
               <Shw::Flex @direction="column" as |SF|>
                 {{#each variants as |variant|}}
-                  {{! template-lint-disable simple-unless }}
-                  {{#unless (and (eq variant "disabled") (eq state "focus"))}}
-                    <SF.Item
-                      @label="{{capitalize variant}} / {{capitalize state}}"
-                      mock-state-value={{state}}
-                      mock-state-selector="select"
-                    >
-                      <Hds::Form::Select::Base
-                        aria-label="{{state}}"
-                        disabled={{if (eq variant "disabled") "disabled"}}
-                        @isInvalid={{if (eq variant "invalid") true}}
-                        multiple={{if (eq type "multiple") true null}}
-                        as |F|
+                  {{#let (and (eq variant "disabled") (eq state "focus")) as |dontDisplay|}}
+                    {{#unless dontDisplay}}
+                      <SF.Item
+                        @label="{{capitalize variant}} / {{capitalize state}}"
+                        mock-state-value={{state}}
+                        mock-state-selector="select"
                       >
-                        <F.Options>
-                          <option selected>Lorem ipsum dolor</option>
-                          <option>Sine qua non est</option>
-                        </F.Options>
-                      </Hds::Form::Select::Base>
-                    </SF.Item>
-                  {{/unless}}
+                        <Hds::Form::Select::Base
+                          aria-label="{{state}}"
+                          disabled={{if (eq variant "disabled") "disabled"}}
+                          @isInvalid={{if (eq variant "invalid") true}}
+                          multiple={{if (eq type "multiple") true null}}
+                          as |F|
+                        >
+                          <F.Options>
+                            <option selected>Lorem ipsum dolor</option>
+                            <option>Sine qua non est</option>
+                          </F.Options>
+                        </Hds::Form::Select::Base>
+                      </SF.Item>
+                    {{/unless}}
+                  {{/let}}
                 {{/each}}
               </Shw::Flex>
             </SF.Item>

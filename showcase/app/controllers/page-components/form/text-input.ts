@@ -12,7 +12,7 @@ import type { PageComponentsFormTextInputModel } from 'showcase/routes/page-comp
 export default class PageComponentsFormTextInputController extends Controller {
   declare model: PageComponentsFormTextInputModel;
 
-  @deepTracked values = {
+  @deepTracked fieldValues = {
     defaultText: 'Lorem ipsum dolor',
     customText: 'Lorem ipsum dolor',
     withHelperText: 'Lorem ipsum dolor sit amet',
@@ -24,12 +24,12 @@ export default class PageComponentsFormTextInputController extends Controller {
   noop() {}
 
   get fieldIsInvalid() {
-    return this.values.withHelperText.length > this.maxLength;
+    return this.fieldValues.withHelperText.length > this.maxLength;
   }
 
   @action
-  updateValue(propName: keyof typeof this.values, event: Event) {
+  updateValue(propName: keyof typeof this.fieldValues, event: Event) {
     const { value } = event.target as HTMLInputElement;
-    this.values[propName] = value;
+    this.fieldValues[propName] = value;
   }
 }

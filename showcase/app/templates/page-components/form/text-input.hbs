@@ -299,7 +299,7 @@
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Character count">
       <Hds::Form::TextInput::Field
-        @value={{this.values.defaultText}}
+        @value={{this.fieldValues.defaultText}}
         {{on "input" (fn this.updateValue "defaultText")}}
         as |F|
       >
@@ -309,7 +309,7 @@
     </SG.Item>
     <SG.Item @label="Label + Helper text + Character count (custom)">
       <Hds::Form::TextInput::Field
-        @value={{this.values.customText}}
+        @value={{this.fieldValues.customText}}
         {{on "input" (fn this.updateValue "customText")}}
         as |F|
       >
@@ -327,7 +327,7 @@
     <SG.Item @label="Label + Helper text + Character count">
       <Hds::Form::TextInput::Field
         @isInvalid={{this.fieldIsInvalid}}
-        @value={{this.values.withHelperText}}
+        @value={{this.fieldValues.withHelperText}}
         {{on "input" (fn this.updateValue "withHelperText")}}
         as |F|
       >

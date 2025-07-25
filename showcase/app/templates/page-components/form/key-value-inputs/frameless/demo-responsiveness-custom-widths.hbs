@@ -19,27 +19,27 @@
     </:header>
 
     <:row as |R|>
-      {{! @glint-expect-error }}
+      {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090}}
       <R.Field @isInvalid={{(if R.rowData.error true)}} @width="1fr" as |F|>
         <F.Label>Key (1fr)</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090}}
         <F.TextInput @value={{R.rowData.key}} />
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090}}
         {{#if R.rowData.error}}
-          {{! @glint-expect-error }}
+          {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090}}
           <F.Error>{{R.rowData.error}}</F.Error>
         {{/if}}
       </R.Field>
 
-      {{! @glint-expect-error }}
+      {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
       <R.Field @isInvalid={{(if R.rowData.error true)}} @width="2fr" as |F|>
         <F.Label>Value (2fr)</F.Label>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090}}
         <F.Textarea @value={{R.rowData.value}} />
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{#if R.rowData.error}}
-          {{! @glint-expect-error }}
+          {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
           <F.Error>{{R.rowData.error}}</F.Error>
         {{/if}}
       </R.Field>

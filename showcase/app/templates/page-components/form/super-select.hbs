@@ -59,23 +59,24 @@
         <SG.Item>
           <Shw::Flex @direction="column" as |SF|>
             {{#each variants as |variant|}}
-              {{! template-lint-disable simple-unless }}
-              {{#unless (and (eq variant "disabled") (eq state "focus"))}}
-                <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
-                  <Hds::Form::SuperSelect::Single::Base
-                    @onChange={{fn (mut @model.SELECTED_OPTION)}}
-                    @options={{@model.OPTIONS}}
-                    @selected={{@model.SELECTED_OPTION}}
-                    @disabled={{if (eq variant "disabled") true}}
-                    @isInvalid={{if (eq variant "invalid") true}}
-                    @ariaLabel="Label"
-                    class="mock-{{state}}"
-                    as |option|
-                  >
-                    {{option}}
-                  </Hds::Form::SuperSelect::Single::Base>
-                </SF.Item>
-              {{/unless}}
+              {{#let (and (eq variant "disabled") (eq state "focus")) as |dontDisplay|}}
+                {{#unless dontDisplay}}
+                  <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
+                    <Hds::Form::SuperSelect::Single::Base
+                      @onChange={{fn (mut @model.SELECTED_OPTION)}}
+                      @options={{@model.OPTIONS}}
+                      @selected={{@model.SELECTED_OPTION}}
+                      @disabled={{if (eq variant "disabled") true}}
+                      @isInvalid={{if (eq variant "invalid") true}}
+                      @ariaLabel="Label"
+                      class="mock-{{state}}"
+                      as |option|
+                    >
+                      {{option}}
+                    </Hds::Form::SuperSelect::Single::Base>
+                  </SF.Item>
+                {{/unless}}
+              {{/let}}
             {{/each}}
           </Shw::Flex>
         </SG.Item>
@@ -382,7 +383,7 @@
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Single::Field>
     </SG.Item>
@@ -395,7 +396,7 @@
       >
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Single::Field>
     </SG.Item>
@@ -409,7 +410,7 @@
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text
           <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Single::Field>
     </SG.Item>
@@ -422,7 +423,7 @@
         as |F|
       >
         <F.Label>This is the label</F.Label>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
         <F.Error>This is the error</F.Error>
       </Hds::Form::SuperSelect::Single::Field>
@@ -437,7 +438,7 @@
       >
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
         <F.Error>This is the error</F.Error>
       </Hds::Form::SuperSelect::Single::Field>
@@ -452,7 +453,7 @@
       >
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
         <F.Error as |E|>
           <E.Message>First error message</E.Message>
@@ -476,7 +477,7 @@
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Single::Field>
     </SG.Item>
@@ -489,7 +490,7 @@
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Single::Field>
     </SG.Item>
@@ -510,7 +511,7 @@
       >
         <F.Label>Lorem ipsum dolor</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Single::Field>
     </SG.Item>
@@ -534,12 +535,12 @@
         <F.Options>
           {{#let F.options as |option|}}
             <div class="shw-component-form-super-select-option-rich-header">
-              {{! @glint-expect-error }}
+              {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
               <strong>{{option.size}}</strong>
-              {{! @glint-expect-error }}
+              {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
               <strong>{{option.price}}/hr</strong>
             </div>
-            {{! @glint-expect-error }}
+            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
             <div>{{option.description}}</div>
           {{/let}}
         </F.Options>
@@ -559,12 +560,12 @@
         <F.Options>
           {{#let F.options as |option|}}
             <div class="shw-component-form-super-select-option-rich-header">
-              {{! @glint-expect-error }}
+              {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
               <strong>{{option.size}}</strong>
-              {{! @glint-expect-error }}
+              {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
               <strong>{{option.price}}/hr</strong>
             </div>
-            {{! @glint-expect-error }}
+            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
             <div>{{option.description}}</div>
           {{/let}}
         </F.Options>
@@ -581,7 +582,7 @@
       >
         <F.Label>Label</F.Label>
         <F.Options>
-          {{! @glint-expect-error }}
+          {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
           {{F.options}}
         </F.Options>
       </Hds::Form::SuperSelect::Single::Field>
@@ -639,22 +640,24 @@
         <SG.Item>
           <Shw::Flex @direction="column" as |SF|>
             {{#each variants as |variant|}}
-              {{#unless (and (eq variant "disabled") (eq state "focus"))}}
-                <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
-                  <Hds::Form::SuperSelect::Multiple::Base
-                    @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
-                    @options={{@model.PLACES_OPTIONS}}
-                    @selected={{@model.SELECTED_PLACES_OPTIONS}}
-                    @disabled={{if (eq variant "disabled") true}}
-                    @isInvalid={{if (eq variant "invalid") true}}
-                    @ariaLabel="Label"
-                    class="mock-{{state}}"
-                    as |option|
-                  >
-                    {{option}}
-                  </Hds::Form::SuperSelect::Multiple::Base>
-                </SF.Item>
-              {{/unless}}
+              {{#let (and (eq variant "disabled") (eq state "focus")) as |dontDisplay|}}
+                {{#unless dontDisplay}}
+                  <SF.Item @label="{{capitalize variant}} / {{capitalize state}}">
+                    <Hds::Form::SuperSelect::Multiple::Base
+                      @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+                      @options={{@model.PLACES_OPTIONS}}
+                      @selected={{@model.SELECTED_PLACES_OPTIONS}}
+                      @disabled={{if (eq variant "disabled") true}}
+                      @isInvalid={{if (eq variant "invalid") true}}
+                      @ariaLabel="Label"
+                      class="mock-{{state}}"
+                      as |option|
+                    >
+                      {{option}}
+                    </Hds::Form::SuperSelect::Multiple::Base>
+                  </SF.Item>
+                {{/unless}}
+              {{/let}}
             {{/each}}
           </Shw::Flex>
         </SG.Item>
@@ -961,7 +964,7 @@
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
@@ -974,7 +977,7 @@
       >
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
@@ -988,7 +991,7 @@
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text
           <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
@@ -1001,7 +1004,7 @@
         as |F|
       >
         <F.Label>This is the label</F.Label>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
         <F.Error>This is the error</F.Error>
       </Hds::Form::SuperSelect::Multiple::Field>
@@ -1016,7 +1019,7 @@
       >
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
         <F.Error>This is the error</F.Error>
       </Hds::Form::SuperSelect::Multiple::Field>
@@ -1031,7 +1034,7 @@
       >
         <F.Label>This is the label</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
         <F.Error as |E|>
           <E.Message>First error message</E.Message>
@@ -1055,7 +1058,7 @@
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
@@ -1068,7 +1071,7 @@
         as |F|
       >
         <F.Label>Lorem ipsum dolor</F.Label>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
@@ -1089,7 +1092,7 @@
       >
         <F.Label>Lorem ipsum dolor</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         {{F.options}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
@@ -1113,12 +1116,12 @@
         <F.Options>
           {{#let F.options as |option|}}
             <div class="shw-component-form-super-select-option-rich-header">
-              {{! @glint-expect-error }}
+              {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
               <strong>{{option.size}}</strong>
-              {{! @glint-expect-error }}
+              {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
               <strong>{{option.price}}/hr</strong>
             </div>
-            {{! @glint-expect-error }}
+            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
             <div>{{option.description}}</div>
           {{/let}}
         </F.Options>
@@ -1138,12 +1141,12 @@
         <F.Options>
           {{#let F.options as |option|}}
             <div class="shw-component-form-super-select-option-rich-header">
-              {{! @glint-expect-error }}
+              {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
               <strong>{{option.size}}</strong>
-              {{! @glint-expect-error }}
+              {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
               <strong>{{option.price}}/hr</strong>
             </div>
-            {{! @glint-expect-error }}
+            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
             <div>{{option.description}}</div>
           {{/let}}
         </F.Options>
@@ -1160,7 +1163,7 @@
       >
         <F.Label>Label</F.Label>
         <F.Options>
-          {{! @glint-expect-error }}
+          {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
           {{F.options}}
         </F.Options>
       </Hds::Form::SuperSelect::Multiple::Field>

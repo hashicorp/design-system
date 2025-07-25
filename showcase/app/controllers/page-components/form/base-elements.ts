@@ -8,7 +8,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 
-import type { PageComponentsFormBaseElementsModel } from '../../../routes/page-components/form/base-elements';
+import type { PageComponentsFormBaseElementsModel } from 'showcase/routes/page-components/form/base-elements';
 
 export default class PageComponentsFormBaseElementsController extends Controller {
   declare model: PageComponentsFormBaseElementsModel;

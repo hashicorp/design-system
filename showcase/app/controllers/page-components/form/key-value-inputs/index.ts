@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-import type { PageComponentsFormKeyValueInputsModel } from '../../../../routes/page-components/form/key-value-inputs';
+import type { PageComponentsFormKeyValueInputsModel } from 'showcase/routes/page-components/form/key-value-inputs';
 
 const DEFAULT_DATA = [
   {

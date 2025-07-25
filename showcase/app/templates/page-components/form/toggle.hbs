@@ -34,7 +34,6 @@
           <SG.Item>
             <Hds::Form::Toggle::Base checked="checked" aria-label="Checked toggle" />
           </SG.Item>
-          {{! template-lint-disable simple-unless }}
           {{#unless (eq state "focus")}}
             <SG.Item>
               <Hds::Form::Toggle::Base disabled="disabled" aria-label="Disabled toggle" />
@@ -43,7 +42,6 @@
               <Hds::Form::Toggle::Base checked="checked" disabled="disabled" aria-label="Checked, disabled toggle" />
             </SG.Item>
           {{/unless}}
-          {{! template-lint-enable simple-unless }}
         </Shw::Grid>
       </SF.Item>
     {{/each}}

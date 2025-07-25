@@ -7,10 +7,10 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-import type { PageComponentsFormModel } from 'showcase/routes/page-components/form/layout';
+import type { PageComponentsFormLayoutModel } from 'showcase/routes/page-components/form/layout';
 
-export default class PageComponentsFormController extends Controller {
-  declare model: PageComponentsFormModel;
+export default class PageComponentsFormLayoutController extends Controller {
+  declare model: PageComponentsFormLayoutModel;
 
   @tracked showHighlight = false;
   @tracked showDemoCustomWidthsToggleContent = {};

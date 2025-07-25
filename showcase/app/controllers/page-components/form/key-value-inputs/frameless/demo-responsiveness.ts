@@ -22,6 +22,6 @@ const DEFAULT_DATA = [
   },
 ];
 
-export default class PageFramelessFormKeyValueInputsDemoResponsivenessController extends Controller {
+export default class PageComponentsFramelessFormKeyValueInputsDemoResponsivenessController extends Controller {
   sampleData = DEFAULT_DATA;
 }
