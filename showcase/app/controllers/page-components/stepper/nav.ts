@@ -7,7 +7,11 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+import type { PageComponentsStepperNavModel } from 'showcase/routes/page-components/stepper/nav';
+
 export default class PageComponentsStepperNavController extends Controller {
+  declare model: PageComponentsStepperNavModel;
+
   queryParams = [
     'currentStep_demo1',
     'currentStep_demo2',
@@ -43,13 +47,11 @@ export default class PageComponentsStepperNavController extends Controller {
   // DEMOS
   // =============================
   get currentStepDemo1() {
-    return this.currentStep_demo1 !== undefined
-      ? parseInt(this.currentStep_demo1, 10)
-      : 1;
+    return this.currentStep_demo1 !== undefined ? this.currentStep_demo1 : 1;
   }
 
   @action
-  updateCurrentStepDemo1(_element, stepNumber) {
+  updateCurrentStepDemo1(event: MouseEvent, stepNumber: number) {
     this.currentStep_demo1 = stepNumber;
   }
 
@@ -64,13 +66,11 @@ export default class PageComponentsStepperNavController extends Controller {
   }
 
   get currentStepDemo2() {
-    return this.currentStep_demo2 !== undefined
-      ? parseInt(this.currentStep_demo2, 10)
-      : 1;
+    return this.currentStep_demo2 !== undefined ? this.currentStep_demo2 : 1;
   }
 
   @action
-  updateCurrentStepDemo2(_element, stepNumber) {
+  updateCurrentStepDemo2(event: MouseEvent, stepNumber: number) {
     this.currentStep_demo2 = stepNumber;
   }
 
@@ -85,13 +85,11 @@ export default class PageComponentsStepperNavController extends Controller {
   }
 
   get currentStepDemo3() {
-    return this.currentStep_demo3 !== undefined
-      ? parseInt(this.currentStep_demo3, 10)
-      : 1;
+    return this.currentStep_demo3 !== undefined ? this.currentStep_demo3 : 1;
   }
 
   @action
-  updateCurrentStepDemo3(_element, stepNumber) {
+  updateCurrentStepDemo3(event: MouseEvent, stepNumber: number) {
     this.currentStep_demo3 = stepNumber;
   }
 
@@ -106,13 +104,11 @@ export default class PageComponentsStepperNavController extends Controller {
   }
 
   get currentStepDemo4() {
-    return this.currentStep_demo4 !== undefined
-      ? parseInt(this.currentStep_demo4, 10)
-      : 1;
+    return this.currentStep_demo4 !== undefined ? this.currentStep_demo4 : 1;
   }
 
   @action
-  updateCurrentStepDemo4(_element, stepNumber) {
+  updateCurrentStepDemo4(event: MouseEvent, stepNumber: number) {
     this.currentStep_demo4 = stepNumber;
   }
 
@@ -127,13 +123,11 @@ export default class PageComponentsStepperNavController extends Controller {
   }
 
   get currentStepDemo5() {
-    return this.currentStep_demo5 !== undefined
-      ? parseInt(this.currentStep_demo5, 10)
-      : 0;
+    return this.currentStep_demo5 !== undefined ? this.currentStep_demo5 : 0;
   }
 
   @action
-  updateCurrentStepDemo5(_element, stepNumber) {
+  updateCurrentStepDemo5(event: MouseEvent, stepNumber: number) {
     this.currentStep_demo5 = stepNumber;
   }
 

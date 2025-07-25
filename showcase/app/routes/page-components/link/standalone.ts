@@ -8,6 +8,10 @@ import {
   COLORS,
   SIZES,
 } from '@hashicorp/design-system-components/components/hds/link/standalone';
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsLinkStandaloneModel =
+  ModelFrom<PageComponentsLinkStandaloneRoute>;
 
 export default class PageComponentsLinkStandaloneRoute extends Route {
   model() {

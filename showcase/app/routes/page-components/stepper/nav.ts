@@ -5,6 +5,11 @@
 
 import Route from '@ember/routing/route';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsStepperNavModel =
+  ModelFrom<PageComponentsStepperNavRoute>;
+
 export default class PageComponentsStepperNavRoute extends Route {
   model() {
     const NAV_STATES = ['default', 'hover', 'active', 'focus'];
