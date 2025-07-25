@@ -8,6 +8,11 @@ import { action } from '@ember/object';
 import { deepTracked } from 'ember-deep-tracked';
 import { tracked } from '@glimmer/tracking';
 
+type PluginBinaryData = {
+  os: string;
+  id: number;
+};
+
 const DEFAULT_DATA = [
   {
     os: 'darwin - arm64',
@@ -23,13 +28,15 @@ const DEFAULT_DATA = [
   },
 ];
 
-export default class KeyValueInputsDemoInFormController extends Controller {
+export default class PageComponentsFramelessFormKeyValueInputsDemoInFormController extends Controller {
   @tracked sampleData = DEFAULT_DATA;
-  @deepTracked formErrors = [];
+  @deepTracked formErrors: { pluginBinaryFile?: string }[] = [];
 
   @action
-  onDeleteRowClick(item) {
-    this.sampleData = this.sampleData.filter((data) => data.id !== item.id);
+  onDeleteRowClick(item: unknown) {
+    this.sampleData = this.sampleData.filter(
+      (data) => data.id !== (item as PluginBinaryData).id,
+    );
   }
 
   @action
@@ -37,18 +44,19 @@ export default class KeyValueInputsDemoInFormController extends Controller {
     this.sampleData = [
       ...this.sampleData,
       {
-        key: '',
-        value: '',
+        os: '',
         id: this.sampleData.length + 1,
       },
     ];
   }
 
   @action
-  onSubmitForm(event) {
+  onSubmitForm(event: Event) {
     event.preventDefault();
 
-    const formElement = document.getElementById('create-plugin-form');
+    const formElement = document.getElementById(
+      'create-plugin-form',
+    ) as HTMLFormElement;
 
     let hasErrors = false;
 
@@ -56,21 +64,23 @@ export default class KeyValueInputsDemoInFormController extends Controller {
       'input[name="plugin-file"]',
     );
     pluginFileInputs.forEach((input, index) => {
-      if (input.files.length === 0) {
+      const inputHtmlElement = input as HTMLInputElement;
+
+      if (inputHtmlElement.files?.length === 0) {
         this.formErrors[index] = {
           ...this.formErrors[index],
-          pluginFile: 'File is required',
+          pluginBinaryFile: 'File is required',
         };
         hasErrors = true;
       } else {
         this.formErrors[index] = {
           ...this.formErrors[index],
-          pluginFile: undefined,
+          pluginBinaryFile: undefined,
         };
       }
     });
 
-    if (!hasErrors) {
+    if (!hasErrors && formElement) {
       const data = new FormData(formElement);
       alert('Form submitted successfully');
       console.log('Form Data:', Object.fromEntries(data.entries()));

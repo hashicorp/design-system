@@ -34,7 +34,6 @@
           <SG.Item>
             <Hds::Form::Toggle::Base checked="checked" aria-label="Checked toggle" />
           </SG.Item>
-          {{! template-lint-disable simple-unless }}
           {{#unless (eq state "focus")}}
             <SG.Item>
               <Hds::Form::Toggle::Base disabled="disabled" aria-label="Disabled toggle" />
@@ -43,7 +42,6 @@
               <Hds::Form::Toggle::Base checked="checked" disabled="disabled" aria-label="Checked, disabled toggle" />
             </SG.Item>
           {{/unless}}
-          {{! template-lint-enable simple-unless }}
         </Shw::Grid>
       </SF.Item>
     {{/each}}
@@ -67,7 +65,7 @@
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::Toggle::Field as |F|>
         <F.Label>This is the label text</F.Label>
@@ -115,7 +113,7 @@
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Disabled / Checked">
       <Hds::Form::Toggle::Field checked="checked" disabled={{true}} as |F|>
         <F.Label>This is the label</F.Label>
@@ -130,7 +128,7 @@
 
   <Shw::Text::H3>Vertical layout / Single field</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="With legend">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -170,7 +168,7 @@
 
   <Shw::Text::H3>Vertical layout / Multiple fields</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="With legend">
       <Hds::Form::Toggle::Group as |G|>
         <G.Legend>Legend of the group</G.Legend>

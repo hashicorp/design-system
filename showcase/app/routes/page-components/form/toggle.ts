@@ -5,7 +5,12 @@
 
 import Route from '@ember/routing/route';
 
-export default class PageComponentsFormMaskedInputRoute extends Route {
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFormToggleModel =
+  ModelFrom<PageComponentsFormToggleRoute>;
+
+export default class PageComponentsFormToggleRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'focus'];

@@ -5,7 +5,12 @@
 
 import Route from '@ember/routing/route';
 
-export default class PageComponentsFormToggleRoute extends Route {
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFormCheckboxModel =
+  ModelFrom<PageComponentsFormCheckboxRoute>;
+
+export default class PageComponentsFormCheckboxRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'focus'];

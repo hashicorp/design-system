@@ -7,7 +7,10 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PageComponentsFileInputController extends Controller {
+import type { PageComponentsFormFileInputModel } from 'showcase/routes/page-components/form/file-input';
+
+export default class PageComponentsFormFileInputController extends Controller {
+  declare model: PageComponentsFormFileInputModel;
   @tracked showHighlight = false;
 
   @action

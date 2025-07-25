@@ -5,6 +5,11 @@
 
 import Route from '@ember/routing/route';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFormRadioCardModel =
+  ModelFrom<PageComponentsFormRadioCardRoute>;
+
 export default class PageComponentsFormRadioCardRoute extends Route {
   model() {
     const STATES = ['default', 'hover', 'focus', 'disabled'];

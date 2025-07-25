@@ -8,7 +8,12 @@ import Route from '@ember/routing/route';
 import { SIZES as DISPLAY_AVAILABLE_SIZES } from '@hashicorp/design-system-components/components/hds/text/display';
 import { DEFAULT_SIZE as FORM_HEADER_TITLE_DEFAULT_SIZE } from '@hashicorp/design-system-components/components/hds/form/header/title';
 
-export default class PageComponentsFormRoute extends Route {
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFormLayoutModel =
+  ModelFrom<PageComponentsFormLayoutRoute>;
+
+export default class PageComponentsFormLayoutRoute extends Route {
   model() {
     const RADIOCARDS_GENERIC = [
       {

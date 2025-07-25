@@ -6,7 +6,16 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
+import type { PageComponentsFormSuperSelectModel } from 'showcase/routes/page-components/form/super-select';
+
 export default class PageComponentsFormSuperSelectController extends Controller {
+  declare model: PageComponentsFormSuperSelectModel;
+
+  @action
+  resultCountMessage(resultCount: number) {
+    return `${resultCount} total`;
+  }
+
   @action
   noop() {}
 }
