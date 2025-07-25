@@ -7,17 +7,21 @@
 // LAYOUT > GRID
 //
 
+@use "../../mixins/breakpoints" as *;
+
 .hds-layout-grid {
   // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a default value within calc()
   // https://drafts.csswg.org/css-values/#calc-type-checking
-  // We initialize the variable here to prevent inheritance issues in nested grids
+
+  // We initialize the variables here to prevent inheritance issues in nested grids
   --hds-layout-grid-column-min-width: 0px;
+  --hds-layout-grid-column-fill-type: auto-fit;
 
   display: grid;
 
   // The column gap value is subtracted from the column-min-width to prevent overflow & simplify API for consumers
   grid-template-columns: repeat(
-    var(--hds-layout-grid-column-fill-type, auto-fit),
+    var(--hds-layout-grid-column-fill-type),
     minmax(calc(var(--hds-layout-grid-column-min-width) - var(--hds-layout-grid-column-gap)), 1fr)
   );
 
@@ -25,6 +29,41 @@
   // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
   // These variables can be used by the consumers as an escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
   gap: var(--hds-layout-grid-row-gap) var(--hds-layout-grid-column-gap);
+}
+
+// responsive column widths (sm, md, lg)
+
+// Note: We repeat the calculation using the view specific variables as
+// resetting just the variable values themselves doesn't work as the inline styles take precedence
+
+// "sm" view, 0–768px (mobile devices)
+.hds-layout-grid--column-width-sm {
+  @include hds-breakpoint-below("md") {
+    grid-template-columns: repeat(
+      var(--hds-layout-grid-column-fill-type-sm),
+      minmax(calc(var(--hds-layout-grid-column-width-sm) - var(--hds-layout-grid-column-gap)), 1fr)
+    );
+  }
+}
+
+// "md" view, 768px–1088px (tablets and small laptops)
+.hds-layout-grid--column-width-md {
+  @include hds-breakpoint-between("md", "lg") {
+    grid-template-columns: repeat(
+      var(--hds-layout-grid-column-fill-type-md),
+      minmax(calc(var(--hds-layout-grid-column-width-md) - var(--hds-layout-grid-column-gap)), 1fr)
+    );
+  }
+}
+
+// "lg" view, 1088px–above (large laptops and desktops)
+.hds-layout-grid--column-width-lg {
+  @include hds-breakpoint-above("lg") {
+    grid-template-columns: repeat(
+      var(--hds-layout-grid-column-fill-type-lg),
+      minmax(calc(var(--hds-layout-grid-column-width-lg) - var(--hds-layout-grid-column-gap)), 1fr)
+    );
+  }
 }
 
 // align
