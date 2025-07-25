@@ -23,7 +23,6 @@
 
 By default, the Application State has horizontal auto margins applied to it, always centering it on the page or containing element. This can be overridden with CSS properties.
 !!!
-!!!
 
 The Application State supports two alignment options: `left` (default) and `center`. The alignment affects text alignment, action placement/alignment in the footer, and media placement; however, it does not change the default page alignment.
 
