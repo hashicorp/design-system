@@ -40,10 +40,13 @@ const DEFAULT_DATA: ListData[] = [
 const updateSteps = (steps: ListData[], stepNumber: number) => {
   steps.forEach((step, index) => {
     if (index < stepNumber) {
+      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
       step.status = STEP_STATUSES_ENUM.Complete;
     } else if (index === stepNumber) {
+      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
       step.status = STEP_STATUSES_ENUM.Progress;
     } else {
+      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
       step.status = STEP_STATUSES_ENUM.Incomplete;
     }
   });
@@ -52,10 +55,13 @@ const updateSteps = (steps: ListData[], stepNumber: number) => {
 const updateStepsProcessing = (steps: ListData[], stepNumber: number) => {
   steps.forEach((step, index) => {
     if (index < stepNumber) {
+      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
       step.status = STEP_STATUSES_ENUM.Complete;
     } else if (index === stepNumber) {
+      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
       step.status = STEP_STATUSES_ENUM.Processing;
     } else {
+      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
       step.status = STEP_STATUSES_ENUM.Incomplete;
     }
   });

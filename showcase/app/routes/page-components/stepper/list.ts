@@ -17,6 +17,7 @@ export default class PageComponentsStepperListRoute extends Route {
   model() {
     return {
       STEP_STATUSES,
+      // TODO: will not need this after https://hashicorp.atlassian.net/browse/HDS-5169
       STEP_STATUSES_ENUM,
     };
   }
