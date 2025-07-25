@@ -16,11 +16,6 @@
 
 **Code consideration**
 
-!!! Info
-
-**Code consideration**
-
-
 By default, the Application State has horizontal auto margins applied to it, always centering it on the page or containing element. This can be overridden with CSS properties.
 !!!
 
