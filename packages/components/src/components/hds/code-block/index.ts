@@ -44,7 +44,9 @@ import 'prismjs/components/prism-yaml';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-handlebars';
 
-export const LANGUAGES: string[] = Object.values(HdsCodeBlockLanguageValues);
+export const LANGUAGES: HdsCodeBlockLanguages[] = Object.values(
+  HdsCodeBlockLanguageValues
+);
 
 export interface HdsCodeBlockSignature {
   Args: {
