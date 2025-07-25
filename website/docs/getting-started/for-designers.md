@@ -159,10 +159,7 @@ Components and patterns unique to your product should be designed and built loca
 
 When creating local components for your product, it’s helpful to separate them from your main project files and house them in their own Figma library file. Using a dedicated library creates a consistent location for your product’s local components so that other designers on your team can access and use them.
 
-!!! Insight
-
 Consider using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) methods when designing and building local components. Helios components generally correspond with `atoms` and `molecules`, while more complex components correspond to `organisms`.
-!!!
 
 ## Resources
 

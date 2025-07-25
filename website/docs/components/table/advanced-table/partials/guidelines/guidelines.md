@@ -247,8 +247,9 @@ Use horizontal scrolling when the number of columns expands beyond the viewport 
 
 !!! Info
 
-Multi-select and sorting are not supported for nested rows at this time.
+**Nested rows limitations**
 
+Multi-select and sorting are not supported for nested rows at this time.
 !!!
 
 Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)

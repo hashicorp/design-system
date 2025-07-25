@@ -23,13 +23,7 @@ We currently only provide CSS helpers for the “semantic” colors, so if you n
 <div class="hds-foreground-primary hds-surface-faint hds-border-strong">...</div>
 ```
 
-!!! Info
-
-**A note about border width**
-
 When a “border-color” CSS helper is used on an element a `1px solid` border is applied to it. If needing a different border `width/style`, it’s ok to override it.
-!!!
-
 
 ### Design tokens
 

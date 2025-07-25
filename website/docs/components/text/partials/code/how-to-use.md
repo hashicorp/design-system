@@ -102,10 +102,12 @@ Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, etc.):
 ```handlebars
 <Hds::Text::Body @tag="p" @color="#FF0000">This text has a "#FF0000" (red) color applied</Hds::Text::Body>
 ```
-!!! Warning
+
+!!! Warning 
+
+**Consumer responsibility**
 
 We don’t validate the CSS color string to ensure that the value used is correct.
-
 !!!
 
 ### Structured content

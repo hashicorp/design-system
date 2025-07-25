@@ -77,10 +77,7 @@ When the content area consists of a contained component (e.g., table, card, etc)
 
 ### Nested
 
-!!! Warning
-
 We don’t recommend using a nested tab structure, but if you must, don’t go beyond 2 levels of nesting. If finding that you need to go beyond 2 levels of nesting, consider using another navigation pattern or re-evaluating the information architecture of your product.
-!!!
 
 When nesting tabs, regardless of if your content area consists of contained or non-contained components; we recommend:
 

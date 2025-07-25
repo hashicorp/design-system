@@ -144,11 +144,7 @@ Setting the `@enableCollisionDetection` argument to `true` will automatically ad
 
 You can explicitly control the height or width of a list. Any acceptable value (px, rem, em) can be declared.
 
-!!! Info
-
 The `@height` argument actually sets a `max-height` which prevents the list from growing past a certain height.
-
-!!!
 
 ```handlebars
 <Hds::Dropdown @height="170px" @width="250px" as |D|>

@@ -140,13 +140,7 @@ If the route is external to your current engine, you have to pass `@isRouteExter
 
 ### Loading state
 
-!!! Info
-
-While applying an explicit width to the button is possible in general, we suggest limiting the application of this override **only** to this specific use case and letting the button resize accordingly to its content.
-
-!!!
-
-If the button needs to toggle between an "idle" and a "loading" state, we suggest applying a width to it (via inline style or CSS class) to prevent the button from resizing on click (and potentially causing layout shifts):
+If the button needs to toggle between an "idle" and a "loading" state, we suggest applying a width to it (via inline style or CSS class) to prevent the button from resizing on click (and potentially causing layout shifts).
 
 ```handlebars
 <Hds::Button
@@ -156,6 +150,8 @@ If the button needs to toggle between an "idle" and a "loading" state, we sugges
   {{on "click" this.toggleIsLoading}}
 />
 ```
+
+We suggest limiting the application of this override only to this specific use case and letting the button resize accordingly to its content.
 
 ### Disabled Buttons
 
