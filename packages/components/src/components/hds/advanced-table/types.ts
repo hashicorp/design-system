@@ -113,3 +113,14 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
 }
 
 export type HdsAdvancedTableModel = Array<Record<string, unknown>>;
+
+export default {
+  HdsAdvancedTableDensityValues,
+  HdsAdvancedTableHorizontalAlignmentValues,
+  HdsAdvancedTableScopeValues,
+  HdsAdvancedTableThExpandIconValues,
+  HdsAdvancedTableThSortOrderIconValues,
+  HdsAdvancedTableThSortOrderLabelValues,
+  HdsAdvancedTableThSortOrderValues,
+  HdsAdvancedTableVerticalAlignmentValues,
+};

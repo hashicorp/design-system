@@ -22,3 +22,9 @@ export enum HdsBadgeCountColorValues {
   NeutralDarkMode = 'neutral-dark-mode',
 }
 export type HdsBadgeCountColors = `${HdsBadgeCountColorValues}`;
+
+export default {
+  HdsBadgeCountSizeValues,
+  HdsBadgeCountTypeValues,
+  HdsBadgeCountColorValues,
+};
