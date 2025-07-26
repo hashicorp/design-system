@@ -53,7 +53,6 @@
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
-              {{this._setColumnWidth column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::ThSort>
@@ -72,7 +71,6 @@
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
               @onColumnResize={{@onColumnResize}}
-              {{this._setColumnWidth column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>

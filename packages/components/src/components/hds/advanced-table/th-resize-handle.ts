@@ -164,11 +164,16 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
   @action
   startResize(event: PointerEvent): void {
+    const { column } = this.args;
+    const { table } = column;
+    const { next: nextColumn } = column.siblings;
+
+    if (table.columns.some((col) => col.width === undefined)) {
+      table.setInitialColumnWidths();
+    }
+
     event.preventDefault();
     event.stopPropagation();
-
-    const { column } = this.args;
-    const { next: nextColumn } = column.siblings;
 
     this.resizing = {
       startX: event.clientX,

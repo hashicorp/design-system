@@ -164,6 +164,10 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
+
+    if (this.args.column !== undefined) {
+      this.args.column.thElement = element;
+    }
   }
 
   private _registerResizeHandleElement = modifier(

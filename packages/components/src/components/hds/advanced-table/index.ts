@@ -11,7 +11,6 @@ import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
-import { schedule } from '@ember/runloop';
 
 import HdsAdvancedTableTableModel from './models/table.ts';
 
@@ -413,20 +412,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return classes.join(' ');
   }
-
-  private _setColumnWidth = modifier(
-    (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
-      // eslint-disable-next-line ember/no-runloop
-      schedule('afterRender', () => {
-        const width = element.offsetWidth;
-
-        if (column.width === undefined) {
-          column.setPxWidth(width);
-          column.originalWidth = `${width}px`;
-        }
-      });
-    }
-  );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollHandler = () => {
