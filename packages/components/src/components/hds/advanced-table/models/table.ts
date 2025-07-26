@@ -152,6 +152,20 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
+  setInitialColumnWidths() {
+    this.columns.forEach((column) => {
+      const { thElement, width } = column;
+
+      if (width !== undefined) {
+        return;
+      }
+
+      const thElementWidth = thElement?.offsetWidth ?? 0;
+
+      column.setPxWidth(thElementWidth);
+    });
+  }
+
   @action
   setupData(
     args: Pick<

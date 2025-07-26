@@ -41,6 +41,7 @@ export default class HdsAdvancedTableColumn {
   @tracked width?: string = undefined;
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
   @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
+  @tracked thElement?: HTMLDivElement = undefined;
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
