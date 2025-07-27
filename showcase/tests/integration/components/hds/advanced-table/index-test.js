@@ -13,7 +13,6 @@ import {
   find,
   triggerEvent,
   triggerKeyEvent,
-  settled,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
