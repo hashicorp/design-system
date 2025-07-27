@@ -29,7 +29,6 @@ import type {
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
 } from './types.ts';
-import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
@@ -415,7 +414,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     const updateHorizontalScrollIndicators = () => {
-      // Re-evaluate horizontal scroll indicators based on content overflow
       if (element.clientWidth < element.scrollWidth) {
         this.showScrollIndicatorRight = true;
       } else {
@@ -499,7 +497,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         updateMeasurements();
-        // Only re-evaluate horizontal scroll indicators on resize
         updateHorizontalScrollIndicators();
       });
     });
