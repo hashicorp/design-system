@@ -7,8 +7,8 @@ import Route from '@ember/routing/route';
 
 import {
   DEFAULT_LEVEL as CONTAINER_DEFAULT_LEVEL,
-  AVAILABLE_LEVELS as CONTAINER_LEVELS,
-  AVAILABLE_BACKGROUNDS as CONTAINER_BACKGROUNDS,
+  LEVELS as CONTAINER_LEVELS,
+  BACKGROUNDS as CONTAINER_BACKGROUNDS,
 } from '@hashicorp/design-system-components/components/hds/card/container';
 export default class PageComponentsCardRoute extends Route {
   model() {
