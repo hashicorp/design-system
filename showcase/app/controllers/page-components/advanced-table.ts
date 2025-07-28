@@ -461,5 +461,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
   );
 
   @action
-  noop() {}
+  noop() {
+    // no-op
+  }
 }

@@ -11,11 +11,15 @@ import {
   COLORS as BADGE_COLORS,
 } from '@hashicorp/design-system-components/components/hds/badge/index';
 
-import { clone } from 'showcase/utils/clone';
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
 export type PageComponentsAdvancedTableModel =
   ModelFrom<PageComponentsAdvancedTableRoute>;
+
+// basic function that clones an array of objects (not deep)
+export const clone = <T>(arr: T[]): T[] => {
+  return arr.map((item) => ({ ...item }));
+};
 
 const STATES = ['default', 'hover', 'active', 'focus'];
 
