@@ -48,7 +48,7 @@
   <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.TASK_STATUSES as |status|}}
       <SG.Item @label={{capitalize status}}>
-        <Hds::Stepper::Task::Indicator @status={{status}} @text="1" />
+        <Hds::Stepper::Task::Indicator @status={{status}} />
       </SG.Item>
     {{/each}}
   </Shw::Grid>
