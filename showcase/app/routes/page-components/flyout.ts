@@ -7,6 +7,10 @@ import Route from '@ember/routing/route';
 
 import { SIZES } from '@hashicorp/design-system-components/components/hds/flyout/index';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFlyoutModel = ModelFrom<PageComponentsFlyoutRoute>;
+
 export default class PageComponentsFlyoutRoute extends Route {
   model() {
     return {

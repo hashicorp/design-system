@@ -180,7 +180,7 @@
   <button type="button" {{on "click" (fn this.activateFlyout "mediumFlyoutActive")}}>Open medium flyout</button>
   <button type="button" {{on "click" (fn this.activateFlyout "largeFlyoutActive")}}>Open large flyout</button>
 
-  {{#if this.mediumFlyoutActive}}
+  {{#if this.flyouts.mediumFlyoutActive}}
     <Hds::Flyout id="medium-flyout" @onClose={{fn this.deactivateFlyout "mediumFlyoutActive"}} as |F|>
       <F.Header>
         Medium flyout title
@@ -218,7 +218,7 @@
     </Hds::Flyout>
   {{/if}}
 
-  {{#if this.largeFlyoutActive}}
+  {{#if this.flyouts.largeFlyoutActive}}
     <Hds::Flyout id="large-flyout" @size="large" @onClose={{fn this.deactivateFlyout "largeFlyoutActive"}} as |F|>
       <F.Header>
         Large flyout title
@@ -262,7 +262,7 @@
     </D.Interactive>
   </Hds::Dropdown>
 
-  {{#if this.dropdownInitiatedFlyoutActive}}
+  {{#if this.flyouts.dropdownInitiatedFlyoutActive}}
     <Hds::Flyout
       id="dropdown-initiated-flyout"
       @onClose={{fn this.deactivateFlyout "dropdownInitiatedFlyoutActive"}}
@@ -292,7 +292,7 @@
     </D.Interactive>
   </Hds::Dropdown>
 
-  {{#if this.dropdownInitiatedWithReturnedFocusFlyoutActive}}
+  {{#if this.flyouts.dropdownInitiatedWithReturnedFocusFlyoutActive}}
     <Hds::Flyout
       id="dropdown-initiated-flyout-with-returned-focus"
       @onClose={{fn this.deactivateFlyout "dropdownInitiatedWithReturnedFocusFlyoutActive"}}
@@ -317,7 +317,7 @@
   <button type="button" {{on "click" (fn this.activateFlyout "deactivateFlyoutOnCloseActive")}}>Deactivated with
     `onClose`</button>
 
-  {{#if this.deactivateFlyoutOnCloseActive}}
+  {{#if this.flyouts.deactivateFlyoutOnCloseActive}}
     <Hds::Flyout
       id="deactivate-flyout-on-close"
       @onClose={{fn this.deactivateFlyout "deactivateFlyoutOnCloseActive"}}
@@ -349,7 +349,7 @@
 
   <button type="button" {{on "click" (fn this.activateFlyout "deactivateFlyoutOnDestroyActive")}}>Deactivated on destroy</button>
 
-  {{#if this.deactivateFlyoutOnDestroyActive}}
+  {{#if this.flyouts.deactivateFlyoutOnDestroyActive}}
     <Hds::Flyout
       id="deactivate-flyout-on-destruction"
       @onClose={{fn this.deactivateFlyout "deactivateFlyoutOnDestroyActive"}}
@@ -380,7 +380,7 @@
   <button type="button" {{on "click" (fn this.activateFlyout "deactivateFlyoutOnSubmitActive")}}>Deactivated on form
     submit</button>
 
-  {{#if this.deactivateFlyoutOnSubmitActive}}
+  {{#if this.flyouts.deactivateFlyoutOnSubmitActive}}
     <Hds::Flyout
       id="deactivate-flyout-on-submit"
       @onClose={{fn this.deactivateFlyout "deactivateFlyoutOnSubmitActive"}}
@@ -401,7 +401,7 @@
           <Hds::Form::TextInput::Field name="deactivate-flyout-on-submit__input" as |F|>
             <F.Label>Fill in this input</F.Label>
             <F.HelperText>This is a fake input, used to emulate validation on submit</F.HelperText>
-            {{#if this.deactivateFlyoutOnSubmitValidationError}}
+            {{#if this.flyouts.deactivateFlyoutOnSubmitValidationError}}
               <F.Error>Fill in the input above</F.Error>
             {{/if}}
           </Hds::Form::TextInput::Field>
