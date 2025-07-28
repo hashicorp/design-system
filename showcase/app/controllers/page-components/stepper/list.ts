@@ -9,9 +9,13 @@ import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 
 import type { PageComponentsStepperListModel } from 'showcase/routes/page-components/stepper/list';
-import { clone } from 'showcase/utils/clone';
 
 import { HdsStepperStatusesValues as STEP_STATUSES_ENUM } from '@hashicorp/design-system-components/components/hds/stepper/types';
+
+// basic function that clones an array of objects (not deep)
+export const clone = <T>(arr: T[]): T[] => {
+  return arr.map((item) => ({ ...item }));
+};
 
 type ListData = {
   title: string;
@@ -22,16 +26,19 @@ type ListData = {
 const DEFAULT_DATA: ListData[] = [
   {
     title: 'Step 1',
+    // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
     status: STEP_STATUSES_ENUM.Complete,
     description: 'Description for Step 1',
   },
   {
     title: 'Step 2',
+    // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
     status: STEP_STATUSES_ENUM.Progress,
     description: 'Description for Step 2',
   },
   {
     title: 'Step 3',
+    // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
     status: STEP_STATUSES_ENUM.Incomplete,
     description: 'Description for Step 3',
   },

@@ -51,7 +51,7 @@ export default class PageComponentsStepperNavController extends Controller {
   }
 
   @action
-  updateCurrentStepDemo1(event: MouseEvent, stepNumber: number) {
+  updateCurrentStepDemo1(_event: MouseEvent, stepNumber: number) {
     this.currentStep_demo1 = stepNumber;
   }
 
@@ -70,7 +70,7 @@ export default class PageComponentsStepperNavController extends Controller {
   }
 
   @action
-  updateCurrentStepDemo2(event: MouseEvent, stepNumber: number) {
+  updateCurrentStepDemo2(_event: MouseEvent, stepNumber: number) {
     this.currentStep_demo2 = stepNumber;
   }
 
@@ -89,7 +89,7 @@ export default class PageComponentsStepperNavController extends Controller {
   }
 
   @action
-  updateCurrentStepDemo3(event: MouseEvent, stepNumber: number) {
+  updateCurrentStepDemo3(_event: MouseEvent, stepNumber: number) {
     this.currentStep_demo3 = stepNumber;
   }
 
@@ -108,7 +108,7 @@ export default class PageComponentsStepperNavController extends Controller {
   }
 
   @action
-  updateCurrentStepDemo4(event: MouseEvent, stepNumber: number) {
+  updateCurrentStepDemo4(_event: MouseEvent, stepNumber: number) {
     this.currentStep_demo4 = stepNumber;
   }
 
@@ -127,7 +127,7 @@ export default class PageComponentsStepperNavController extends Controller {
   }
 
   @action
-  updateCurrentStepDemo5(event: MouseEvent, stepNumber: number) {
+  updateCurrentStepDemo5(_event: MouseEvent, stepNumber: number) {
     this.currentStep_demo5 = stepNumber;
   }
 

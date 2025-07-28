@@ -7,9 +7,9 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-import type { PageComponentsAccordionModel } from 'showcase/routes/page-components/accordion';
+import type { HdsAccordionForceStates } from '@hashicorp/design-system-components/components/hds/accordion/types';
 
-type AccordionState = 'open' | 'close';
+import type { PageComponentsAccordionModel } from 'showcase/routes/page-components/accordion';
 
 export default class PageComponentsAccordionController extends Controller {
   declare model: PageComponentsAccordionModel;
@@ -17,8 +17,8 @@ export default class PageComponentsAccordionController extends Controller {
   @action
   noop() {}
 
-  @tracked stateAll: AccordionState = 'close';
-  @tracked stateSingle: AccordionState = 'close';
+  @tracked stateAll: HdsAccordionForceStates = 'close';
+  @tracked stateSingle: HdsAccordionForceStates = 'close';
 
   @action
   toggleStateAll() {

@@ -155,14 +155,13 @@
       </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Incomplete">
-      {{! template-lint-disable no-inline-styles }}
       <Hds::Stepper::Nav
         @ariaLabel="Label"
         @isInteractive={{false}}
         class="shw-component-stepper-nav-step-mock-incomplete"
         as |S|
       >
-        <S.Step style="display: none;">
+        <S.Step {{style display="none"}}>
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
@@ -173,7 +172,6 @@
         <S.Panel />
         <S.Panel />
       </Hds::Stepper::Nav>
-      {{! template-lint-enable no-inline-styles }}
     </SG.Item>
   </Shw::Grid>
 
@@ -199,9 +197,8 @@
       </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Incomplete">
-      {{! template-lint-disable no-inline-styles }}
       <Hds::Stepper::Nav @ariaLabel="Label" class="shw-component-stepper-nav-step-mock-incomplete" as |S|>
-        <S.Step style="display: none;">
+        <S.Step {{style display="none"}}>
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
@@ -212,7 +209,6 @@
         <S.Panel />
         <S.Panel />
       </Hds::Stepper::Nav>
-      {{! template-lint-enable no-inline-styles }}
     </SG.Item>
   </Shw::Grid>
 
