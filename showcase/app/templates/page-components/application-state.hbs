@@ -502,6 +502,7 @@
 
   <Shw::Flex @direction="column" @gap="4rem" as |SF|>
     <SF.Item @label="In a card">
+      {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5154 }}
       <Hds::Card::Container @level={{@model.CARD_LEVELS.Mid}} @hasBorder={{true}} {{style padding="40px"}}>
         <Hds::ApplicationState @align="center" as |A|>
           <A.Header @title="No stacks" />

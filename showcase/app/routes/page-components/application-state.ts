@@ -18,6 +18,7 @@ export default class PageComponentsApplicationStateRoute extends Route {
   model() {
     return {
       ALIGNS,
+      // TODO - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5154
       CARD_LEVELS,
     };
   }
