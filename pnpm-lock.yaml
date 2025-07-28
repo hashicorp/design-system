@@ -475,6 +475,9 @@ importers:
       '@babel/plugin-proposal-decorators':
         specifier: ^7.27.1
         version: 7.27.1(@babel/core@7.27.1)
+      '@codemirror/lint':
+        specifier: ^6.8.4
+        version: 6.8.5
       '@codemirror/state':
         specifier: ^6.5.0
         version: 6.5.1

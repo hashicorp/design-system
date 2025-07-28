@@ -6,8 +6,15 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
+
+import type { HdsCodeEditorLanguages } from '@hashicorp/design-system-components/modifiers/hds-code-editor/types';
+
+import type { PageComponentsCodeEditorModel } from 'showcase/routes/page-components/code-editor';
 
 export default class PageComponentsCodeEditorController extends Controller {
+  declare model: PageComponentsCodeEditorModel;
+
   @tracked hasLineWrapping = true;
 
   @tracked demoCode =
@@ -19,7 +26,11 @@ export default class PageComponentsCodeEditorController extends Controller {
   "data": null,
 }`;
 
-  languages = [
+  languages: {
+    value: HdsCodeEditorLanguages;
+    label: string;
+    code: string;
+  }[] = [
     {
       value: 'rego',
       label: 'Rego',
@@ -154,20 +165,20 @@ SELECT 'Enjoy coding!';`,
   ];
 
   @action
-  toggleLineWrapping(event) {
-    this.hasLineWrapping = event.target.checked;
+  toggleLineWrapping(event: Event) {
+    this.hasLineWrapping = (event.target as HTMLInputElement).checked;
   }
 
   @action
-  setDemoCode(value) {
+  setDemoCode(value: string) {
     this.demoCode = value;
   }
 
   @action
-  handleLint(diagnostics, value) {
-    console.log({
-      'Lint diagnostics': diagnostics,
-      'Lint value': value,
-    });
+  handleLint(diagnostics: DiagnosticType[], value: string) {
+    console.group('Linting Results');
+    console.log('Diagnostics:', diagnostics);
+    console.log('Value:', value);
+    console.groupEnd();
   }
 }
