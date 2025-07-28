@@ -1,5 +1,9 @@
 ---
-"@hashicorp/design-system-components": patch
+"@hashicorp/design-system-components": minor
 ---
 
-`AdvancedTable` - Fixed bug with automatic column resizing and scroll-shadow placement
+<!-- START components/advanced-table -->
+
+- Fixed bug with automatic column resizing and scroll-shadow placement.
+- Removed default column `maxSize`.
+<!-- END -->
