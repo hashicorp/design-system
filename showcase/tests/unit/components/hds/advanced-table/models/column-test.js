@@ -5,7 +5,6 @@
 
 import { module, test } from 'qunit';
 import HdsAdvancedTableColumn, {
-  DEFAULT_MAX_WIDTH,
   DEFAULT_MIN_WIDTH,
 } from '@hashicorp/design-system-components/components/hds/advanced-table/models/column';
 
@@ -37,11 +36,6 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       column.minWidth,
       DEFAULT_MIN_WIDTH,
       'minWidth is set to the default value when width is not provided',
-    );
-    assert.strictEqual(
-      column.maxWidth,
-      DEFAULT_MAX_WIDTH,
-      'maxWidth is set to the default value when width is not provided',
     );
     assert.strictEqual(
       column.tooltip,

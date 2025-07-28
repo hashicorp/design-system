@@ -13,7 +13,6 @@ import type {
 } from '../types';
 
 export const DEFAULT_MIN_WIDTH = '150px';
-export const DEFAULT_MAX_WIDTH = '800px';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -31,12 +30,11 @@ export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
-  @tracked isReorderable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
   @tracked minWidth?: `${number}px` = DEFAULT_MIN_WIDTH;
-  @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
+  @tracked maxWidth?: `${number}px` = undefined;
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
@@ -139,7 +137,7 @@ export default class HdsAdvancedTableColumn {
     this.originalWidth = width;
 
     this.minWidth = minWidth ?? DEFAULT_MIN_WIDTH;
-    this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
+    this.maxWidth = maxWidth;
   }
 
   // Sets the column width in pixels, ensuring it respects the min and max width constraints.
