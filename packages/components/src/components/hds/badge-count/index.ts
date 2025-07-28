@@ -17,9 +17,15 @@ import type {
   HdsBadgeCountTypes,
 } from './types.ts';
 
-export const SIZES: string[] = Object.values(HdsBadgeCountSizeValues);
-export const TYPES: string[] = Object.values(HdsBadgeCountTypeValues);
-export const COLORS: string[] = Object.values(HdsBadgeCountColorValues);
+export const SIZES: HdsBadgeCountSizes[] = Object.values(
+  HdsBadgeCountSizeValues
+);
+export const TYPES: HdsBadgeCountTypes[] = Object.values(
+  HdsBadgeCountTypeValues
+);
+export const COLORS: HdsBadgeCountColors[] = Object.values(
+  HdsBadgeCountColorValues
+);
 export const DEFAULT_SIZE = HdsBadgeCountSizeValues.Medium;
 export const DEFAULT_TYPE = HdsBadgeCountTypeValues.Filled;
 export const DEFAULT_COLOR = HdsBadgeCountColorValues.Neutral;
