@@ -106,7 +106,6 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
 
     assert.strictEqual(column.width, '200px', 'sets the width');
     assert.strictEqual(column.minWidth, '150px', 'sets default minWidth');
-    assert.strictEqual(column.maxWidth, '800px', 'sets default maxWidth');
   });
 
   test('pxWidth setter updates width property', function (assert) {

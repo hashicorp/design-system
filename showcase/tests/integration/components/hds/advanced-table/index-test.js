@@ -11,6 +11,7 @@ import {
   focus,
   setupOnerror,
   find,
+  settled,
   triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';
@@ -1823,6 +1824,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       </div>
     `);
 
+    // eslint-disable-next-line ember/no-settled-after-test-helper
+    await settled();
+
     const table = find('#data-test-advanced-table');
     const container = find('#resize-test-container');
 
@@ -1839,6 +1843,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
 
     this.set('width', '100%');
+    await settled();
 
     assert.ok(
       table.offsetWidth === container.offsetWidth,
@@ -1848,6 +1853,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .dom(
         '.hds-advanced-table__scroll-indicator.hds-advanced-table__scroll-indicator-right',
       )
-      .exists('Scroll indicator no longer visible when table fits container');
+      .doesNotExist(
+        'Scroll indicator no longer visible when table fits container',
+      );
   });
 });
