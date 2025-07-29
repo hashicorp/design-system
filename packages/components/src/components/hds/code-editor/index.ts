@@ -9,6 +9,10 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import { guidFor } from '@ember/object/internals';
 
+import HdsCodeEditorDescription from './description.ts';
+import HdsCodeEditorTitle from './title.ts';
+
+import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
 import type { ComponentLike } from '@glint/template';
 import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '../../../modifiers/hds-code-editor.ts';
@@ -28,8 +32,14 @@ export interface HdsCodeEditorSignature {
   Blocks: {
     default: [
       {
-        Title?: ComponentLike<HdsCodeEditorTitleSignature>;
-        Description?: ComponentLike<HdsCodeEditorDescriptionSignature>;
+        Title?: WithBoundArgs<
+          typeof HdsCodeEditorTitle,
+          'onInsert' | 'editorId'
+        >;
+        Description?: WithBoundArgs<
+          typeof HdsCodeEditorDescription,
+          'onInsert' | 'editorId'
+        >;
         Generic?: ComponentLike<HdsCodeEditorGenericSignature>;
       },
     ];
