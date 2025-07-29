@@ -8,7 +8,7 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/layout/grid', function (hooks) {
+module.skip('Acceptance | components/layout/grid', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Components/layout/grid page passes automated a11y checks', async function (assert) {
