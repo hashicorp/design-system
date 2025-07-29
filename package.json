@@ -26,7 +26,8 @@
   },
   "pnpm": {
     "overrides": {
-      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11"
+      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11",
+      "ember-get-config": "git://github.com/mansona/ember-get-config.git#config-meta-loader"
     },
     "patchedDependencies": {
       "broccoli-asset-rewrite": "patches/broccoli-asset-rewrite.patch"
