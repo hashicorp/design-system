@@ -1663,18 +1663,16 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     let newGridValues = getTableGridValues(table);
 
-    assert.notEqual(
-      newGridValues,
-      originalGridValues,
-      'Grid values changed after drag',
+    assert.notOk(
+      gridValuesAreEqual(originalGridValues, newGridValues),
+      'Grid values are not equal after resizing',
     );
 
     await performContextMenuAction(th, 'reset-column-width');
 
     newGridValues = getTableGridValues(table);
-    assert.deepEqual(
-      newGridValues,
-      originalGridValues,
+    assert.ok(
+      gridValuesAreEqual(originalGridValues, newGridValues),
       'Grid values reset to initial state after resetting column width',
     );
   });
