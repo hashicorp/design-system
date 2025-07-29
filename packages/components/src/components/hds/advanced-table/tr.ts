@@ -20,7 +20,7 @@ export interface BaseHdsAdvancedTableTrSignature {
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
     isLastRow?: boolean;
     isSelectable?: boolean;
-    isSelected?: false;
+    isSelected?: boolean;
     isParentRow?: boolean;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
@@ -62,6 +62,10 @@ export type HdsAdvancedTableTrSignature =
   | BaseHdsAdvancedTableTrSignature
   | SelectableHdsAdvancedTableTrArgs;
 export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSignature> {
+  get isSelected(): boolean {
+    return this.args.isSelected ?? false;
+  }
+
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(

@@ -43,6 +43,13 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
   const checkboxSelector =
     '#data-test-advanced-table-tr > .hds-advanced-table__th--is-selectable input.hds-advanced-table__checkbox';
 
+  test('it should not render a checkbox if `@isSelectable` is not set', async function (assert) {
+    await render(
+      hbs`<Hds::AdvancedTable::Tr id="data-test-advanced-table-tr" />`,
+    );
+    assert.dom(checkboxSelector).doesNotExist();
+  });
+
   test('it should render a checkbox if `@isSelectable` is `true`', async function (assert) {
     await render(
       hbs`<Hds::AdvancedTable::Tr
