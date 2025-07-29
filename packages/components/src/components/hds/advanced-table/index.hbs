@@ -52,6 +52,7 @@
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
+              @tableWidth={{this._tableWidth}}
               @onColumnResize={{@onColumnResize}}
             >
               {{column.label}}
@@ -68,6 +69,7 @@
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
               @tableHeight={{this._tableHeight}}
+              @tableWidth={{this._tableWidth}}
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
               @onColumnResize={{@onColumnResize}}

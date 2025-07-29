@@ -54,6 +54,7 @@ export interface HdsAdvancedTableThResizeHandleSignature {
     column: HdsAdvancedTableColumn;
     hasResizableColumns: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     tableHeight?: number;
+    tableWidth?: number;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
   Blocks: {

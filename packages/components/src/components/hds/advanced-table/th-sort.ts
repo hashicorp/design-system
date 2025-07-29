@@ -44,6 +44,7 @@ export interface HdsAdvancedTableThSortSignature {
     rowspan?: number;
     colspan?: number;
     tableHeight?: number;
+    tableWidth?: number;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];

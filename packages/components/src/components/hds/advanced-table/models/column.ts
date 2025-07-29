@@ -13,6 +13,8 @@ import type {
 } from '../types';
 
 export const DEFAULT_MIN_WIDTH = '150px';
+// this is a very large value to ensure that the column can expand to fill the available space if there are few columns
+export const DEFAULT_MAX_WIDTH = '2000px';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -34,7 +36,7 @@ export default class HdsAdvancedTableColumn {
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
   @tracked minWidth?: `${number}px` = DEFAULT_MIN_WIDTH;
-  @tracked maxWidth?: `${number}px` = undefined;
+  @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
