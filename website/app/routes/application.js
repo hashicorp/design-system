@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import fetch from 'fetch';
-import config from 'ember-get-config';
+import config from 'website/config/environment';
 
 export default class ApplicationRoute extends Route {
   model() {
