@@ -121,15 +121,15 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
   @action
   handleKeydown(event: KeyboardEvent): void {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
+      return;
+    }
+
     event.preventDefault();
     event.stopPropagation();
 
     const { column } = this.args;
     const { table } = column;
-
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
-      return;
-    }
 
     if (table.columns.some((col) => col.width === undefined)) {
       table.setInitialColumnWidths();
