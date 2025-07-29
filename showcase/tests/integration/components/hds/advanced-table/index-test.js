@@ -18,6 +18,16 @@ import {
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
+function gridValuesAreEqual(newGridValues, originalGridValues) {
+  return newGridValues.every((newGridValue, index) => {
+    const newGridValueInt = parseInt(newGridValue, 10);
+    const originalGridValueInt = parseInt(originalGridValues[index], 10);
+
+    // Allow for small pixel differences due to CSS grid subpixel rendering in different environments
+    return Math.abs(newGridValueInt - originalGridValueInt) <= 1;
+  });
+}
+
 function getTableGridValues(tableElement) {
   const computedStyle = window.getComputedStyle(tableElement);
   const gridTemplateColumns = computedStyle.getPropertyValue(
@@ -1483,20 +1493,19 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     let newGridValues = getTableGridValues(table);
 
-    assert.notDeepEqual(
-      newGridValues,
-      originalGridValues,
-      'Grid values changed after ArrowRight',
+    assert.notOk(
+      gridValuesAreEqual(originalGridValues, newGridValues),
+      'Grid values are not equal after ArrowRight',
     );
 
     // Send ArrowLeft key
     await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
 
     newGridValues = getTableGridValues(table);
-    assert.deepEqual(
-      newGridValues,
-      originalGridValues,
-      'Grid values reverted after ArrowLeft',
+
+    assert.ok(
+      gridValuesAreEqual(originalGridValues, newGridValues),
+      'Grid values are equal after ArrowLeft',
     );
   });
 
