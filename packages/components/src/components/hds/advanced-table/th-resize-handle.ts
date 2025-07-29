@@ -121,6 +121,9 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
   @action
   handleKeydown(event: KeyboardEvent): void {
+    event.preventDefault();
+    event.stopPropagation();
+
     const { column } = this.args;
     const { table } = column;
 
@@ -131,9 +134,6 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     if (table.columns.some((col) => col.width === undefined)) {
       table.setInitialColumnWidths();
     }
-
-    event.preventDefault();
-    event.stopPropagation();
 
     const { next: nextColumn } = column.siblings;
 
