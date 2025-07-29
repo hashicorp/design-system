@@ -7,15 +7,21 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+import type { PageComponentButtonModel } from 'showcase/routes/page-components/button';
+
 export default class PageComponentsButtonController extends Controller {
+  declare model: PageComponentButtonModel;
+
   @tracked isLoading = false;
-  @tracked timer;
+  @tracked timer: ReturnType<typeof setTimeout> | undefined;
 
   @action
   toggleIsLoading() {
     this.isLoading = !this.isLoading;
 
-    clearTimeout(this.timer);
+    if (this.timer) {
+      clearTimeout(this.timer);
+    }
     // make it go back to the idle state
     this.timer = setTimeout(() => {
       this.isLoading = false;
