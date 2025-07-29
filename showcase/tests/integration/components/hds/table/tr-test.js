@@ -31,9 +31,7 @@ module('Integration | Component | hds/table/tr', function (hooks) {
     '#data-test-table-tr > .hds-table__th--is-selectable input.hds-table__checkbox';
 
   test('it should not render a checkbox if `@isSelectable` is not set', async function (assert) {
-    await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" />`,
-    );
+    await render(hbs`<Hds::Table::Tr id="data-test-table-tr" />`);
     assert.dom(checkboxSelector).doesNotExist();
   });
 
