@@ -5,4 +5,9 @@
 
 import Route from '@ember/routing/route';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsSegmentedGroupModel =
+  ModelFrom<PageComponentsSegmentedGroupRoute>;
+
 export default class PageComponentsSegmentedGroupRoute extends Route {}
