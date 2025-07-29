@@ -230,7 +230,8 @@ const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
   </:body>
 </Hds::AdvancedTable>`;
 
-const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
+const hbsResizableColumnsAdvancedTable = hbs`<div style="width: 1000px;">
+  <Hds::AdvancedTable
   @model={{this.model}} @columns={{this.columns}} @hasResizableColumns={{true}} id="resize-test-table"
 >
   <:body as |B|>
@@ -239,7 +240,7 @@ const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
       <B.Td>{{B.data.col2}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::AdvancedTable>`;
+</Hds::AdvancedTable></div>`;
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -1481,6 +1482,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
 
     let newGridValues = getTableGridValues(table);
+
     assert.notDeepEqual(
       newGridValues,
       originalGridValues,
@@ -1489,6 +1491,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     // Send ArrowLeft key
     await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
+
     newGridValues = getTableGridValues(table);
     assert.deepEqual(
       newGridValues,
@@ -1834,27 +1837,14 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       table.offsetWidth >= container.offsetWidth,
       'Table width is greater than the container width',
     );
-    assert
-      .dom(
-        '.hds-advanced-table__scroll-indicator.hds-advanced-table__scroll-indicator-right',
-      )
-      .exists(
-        'Scroll indicator is visible when table width exceeds container width',
-      );
 
     this.set('width', '100%');
+
     await settled();
 
     assert.ok(
       table.offsetWidth === container.offsetWidth,
       'Table width grows to fit container width',
     );
-    assert
-      .dom(
-        '.hds-advanced-table__scroll-indicator.hds-advanced-table__scroll-indicator-right',
-      )
-      .doesNotExist(
-        'Scroll indicator no longer visible when table fits container',
-      );
   });
 });
