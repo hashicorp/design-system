@@ -18,12 +18,13 @@ import type { HdsIconSignature } from '../icon';
 import type { ModifierLike } from '@glint/template';
 import type { SetupPrimitiveToggleModifier } from '../popover-primitive';
 
-export const ICONPOSITIONS: string[] = Object.values(
-  HdsRichTooltipToggleIconPositionValues
-);
-export const DEFAULT_ICONPOSITION =
+export const ICON_POSITIONS: HdsRichTooltipToggleIconPositions[] =
+  Object.values(HdsRichTooltipToggleIconPositionValues);
+export const DEFAULT_ICON_POSITION =
   HdsRichTooltipToggleIconPositionValues.Trailing;
-export const SIZES: string[] = Object.values(HdsRichTooltipToggleSizeValues);
+export const SIZES: HdsRichTooltipToggleSizes[] = Object.values(
+  HdsRichTooltipToggleSizeValues
+);
 
 export interface HdsRichTooltipToggleSignature {
   Args: {
@@ -61,13 +62,13 @@ export default class HdsRichTooltipToggle extends Component<HdsRichTooltipToggle
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
   get iconPosition(): HdsRichTooltipToggleIconPositions {
-    const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
+    const { iconPosition = DEFAULT_ICON_POSITION } = this.args;
 
     assert(
-      `@iconPosition for "Hds::RichTooltip::Toggle" must be one of the following: ${ICONPOSITIONS.join(
+      `@iconPosition for "Hds::RichTooltip::Toggle" must be one of the following: ${ICON_POSITIONS.join(
         ', '
       )}; received: ${iconPosition}`,
-      ICONPOSITIONS.includes(iconPosition)
+      ICON_POSITIONS.includes(iconPosition)
     );
 
     return iconPosition;

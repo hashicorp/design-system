@@ -50,6 +50,11 @@ export const PLACEMENTS: Placement[] = [
   'left-end',
 ];
 
+type EnableCollisionDetectionOptions = 'shift' | 'flip' | 'auto';
+
+export const ENABLE_COLLISION_DETECTION_OPTIONS: EnableCollisionDetectionOptions[] =
+  ['shift', 'flip', 'auto'];
+
 // share the same default value of "padding" for `flip/shift/autoPlacement` options
 // this refers to the minimum distance from the boundaries' edges (the viewport)
 // before the floating element changes its position (flips, shifts, or autoplace itself)
@@ -63,7 +68,7 @@ export type FloatingUIOptions = {
   shiftOptions?: ShiftOptions;
   autoPlacementOptions?: AutoPlacementOptions;
   middlewareExtra?: Middleware[];
-  enableCollisionDetection?: boolean | 'shift' | 'flip' | 'auto';
+  enableCollisionDetection?: boolean | EnableCollisionDetectionOptions;
   arrowElement?: ArrowOptions['element'];
   arrowPadding?: ArrowOptions['padding'];
   matchToggleWidth?: boolean;
