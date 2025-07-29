@@ -9,7 +9,7 @@
   draggable="false"
   role="slider"
   aria-orientation="horizontal"
-  aria-valuenow={{@column.thElement.offsetWidth}}
+  aria-valuenow={{or @column.pxWidth @column.thElement.offsetWidth}}
   aria-valuemin={{@column.pxMinWidth}}
   aria-valuemax={{@column.pxMaxWidth}}
   tabindex="0"
