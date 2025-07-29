@@ -57,6 +57,7 @@
     "@glint/template": "^1.5.2",
     "@hashicorp/design-system-components": "workspace:*",
     "@hashicorp/design-system-tokens": "workspace:*",
+    "@nullvoxpopuli/ember-composable-helpers": "^5.2.11",
     "@percy/cli": "^1.30.5",
     "@percy/ember": "^4.2.0",
     "@tsconfig/ember": "^3.0.10",
