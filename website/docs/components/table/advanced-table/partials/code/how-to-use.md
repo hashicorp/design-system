@@ -47,9 +47,9 @@ You can insert your own content into the `:body` block and the component will ta
 <Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
-    (hash label="Artist")
-    (hash label="Album")
-    (hash label="Year")
+    (hash key="artist" label="Artist")
+    (hash key="album" label="Album")
+    (hash key="year" label="Year")
   }}
 >
   <:body as |B|>
