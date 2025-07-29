@@ -13,8 +13,7 @@ import type {
 } from '../types';
 
 export const DEFAULT_MIN_WIDTH = '150px';
-// this is a very large value to ensure that the column can expand to fill the available space if there are few columns
-export const DEFAULT_MAX_WIDTH = '2000px';
+export const DEFAULT_MAX_WIDTH = '800px';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -22,10 +21,6 @@ function isPxSize(value?: string): boolean {
   }
 
   return /^-?\d+(\.\d+)?px$/.test(value);
-}
-
-function pxToNumber(pxString: string): number {
-  return parseFloat(pxString.slice(0, -2));
 }
 
 export default class HdsAdvancedTableColumn {
@@ -49,7 +44,7 @@ export default class HdsAdvancedTableColumn {
 
   get pxWidth(): number | undefined {
     if (isPxSize(this.width)) {
-      return pxToNumber(this.width!);
+      return parseFloat(this.width!);
     }
   }
   set pxWidth(value: number) {
@@ -58,13 +53,13 @@ export default class HdsAdvancedTableColumn {
 
   get pxMinWidth(): number | undefined {
     if (isPxSize(this.minWidth)) {
-      return pxToNumber(this.minWidth!);
+      return parseFloat(this.minWidth!);
     }
   }
 
   get pxMaxWidth(): number | undefined {
     if (isPxSize(this.maxWidth)) {
-      return pxToNumber(this.maxWidth!);
+      return parseFloat(this.maxWidth!);
     }
   }
 
@@ -139,7 +134,7 @@ export default class HdsAdvancedTableColumn {
     this.originalWidth = width;
 
     this.minWidth = minWidth ?? DEFAULT_MIN_WIDTH;
-    this.maxWidth = maxWidth;
+    this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
   }
 
   // Sets the column width in pixels, ensuring it respects the min and max width constraints.
