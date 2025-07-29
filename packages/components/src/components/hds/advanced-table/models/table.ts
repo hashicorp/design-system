@@ -163,6 +163,7 @@ export default class HdsAdvancedTableTableModel {
       const thElementWidth = thElement?.offsetWidth ?? 0;
 
       column.setPxWidth(thElementWidth);
+      column.originalWidth = `${thElementWidth}px`;
     });
   }
 
