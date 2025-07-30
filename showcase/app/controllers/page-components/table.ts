@@ -620,7 +620,7 @@ export default class PageComponentsTableController extends Controller {
     console.log('Selected Row Keys:', selectedRowsKeys);
     console.groupEnd();
     this.multiSelectUserData__demo4.forEach((user) => {
-      user.isSelected = selectedRowsKeys.includes(user.id);
+      user.isSelected = selectedRowsKeys.includes(String(user.id));
     });
   }
 
