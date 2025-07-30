@@ -12,8 +12,8 @@ import type { HdsIconSizes, HdsIconColors } from './types';
 import type { IconName } from '@hashicorp/flight-icons/svg';
 import type Owner from '@ember/owner';
 
-export const AVAILABLE_COLORS: string[] = Object.values(HdsIconColorValues);
-export const AVAILABLE_NAMES = iconNames;
+export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
+export const NAMES = iconNames;
 
 export interface HdsIconSignature {
   Args: {
@@ -51,7 +51,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   get predefinedColor(): HdsIconColors | undefined {
     const { color } = this.args;
 
-    if (color && AVAILABLE_COLORS.includes(color)) {
+    if (color && COLORS.includes(color as HdsIconColors)) {
       return color as HdsIconColors;
     } else {
       return undefined;

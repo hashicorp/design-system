@@ -34,6 +34,15 @@ import type {
   Middleware,
 } from '@floating-ui/dom';
 
+export enum HdsEnableCollisionDetectionOptions {
+  Shift = 'shift',
+  Flip = 'flip',
+  Auto = 'auto',
+}
+
+export type HdsEnableCollisionDetection =
+  `${HdsEnableCollisionDetectionOptions}`;
+
 export const DEFAULT_PLACEMENT = 'bottom';
 export const PLACEMENTS: Placement[] = [
   'top',
@@ -50,6 +59,9 @@ export const PLACEMENTS: Placement[] = [
   'left-end',
 ];
 
+export const ENABLE_COLLISION_DETECTION_OPTIONS: HdsEnableCollisionDetection[] =
+  Object.values(HdsEnableCollisionDetectionOptions);
+
 // share the same default value of "padding" for `flip/shift/autoPlacement` options
 // this refers to the minimum distance from the boundaries' edges (the viewport)
 // before the floating element changes its position (flips, shifts, or autoplace itself)
@@ -63,7 +75,7 @@ export type FloatingUIOptions = {
   shiftOptions?: ShiftOptions;
   autoPlacementOptions?: AutoPlacementOptions;
   middlewareExtra?: Middleware[];
-  enableCollisionDetection?: boolean | 'shift' | 'flip' | 'auto';
+  enableCollisionDetection?: boolean | HdsEnableCollisionDetection;
   arrowElement?: ArrowOptions['element'];
   arrowPadding?: ArrowOptions['padding'];
   matchToggleWidth?: boolean;
