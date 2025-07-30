@@ -34,6 +34,8 @@ import type {
   Middleware,
 } from '@floating-ui/dom';
 
+import type { HdsEnableCollisionDetection } from './hds-code-editor/types.ts';
+
 export const DEFAULT_PLACEMENT = 'bottom';
 export const PLACEMENTS: Placement[] = [
   'top',
@@ -50,9 +52,7 @@ export const PLACEMENTS: Placement[] = [
   'left-end',
 ];
 
-type EnableCollisionDetectionOptions = 'shift' | 'flip' | 'auto';
-
-export const ENABLE_COLLISION_DETECTION_OPTIONS: EnableCollisionDetectionOptions[] =
+export const ENABLE_COLLISION_DETECTION_OPTIONS: HdsEnableCollisionDetection[] =
   ['shift', 'flip', 'auto'];
 
 // share the same default value of "padding" for `flip/shift/autoPlacement` options
@@ -68,7 +68,7 @@ export type FloatingUIOptions = {
   shiftOptions?: ShiftOptions;
   autoPlacementOptions?: AutoPlacementOptions;
   middlewareExtra?: Middleware[];
-  enableCollisionDetection?: boolean | EnableCollisionDetectionOptions;
+  enableCollisionDetection?: boolean | HdsEnableCollisionDetection;
   arrowElement?: ArrowOptions['element'];
   arrowPadding?: ArrowOptions['padding'];
   matchToggleWidth?: boolean;
