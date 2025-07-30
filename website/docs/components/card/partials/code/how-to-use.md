@@ -54,18 +54,15 @@ There are three arguments: `@level`, `@levelHover` and `@levelActive`. These all
 </div>
 ```
 
-where the `.doc-card-interactive-demo` class is something like this:
+Using SCSS, the `.doc-card-interactive-demo` class would look something like this:
 
-```css
+```scss
 .doc-card-interactive-demo {
   .hds-card__container {
-    position: relative;
 
     a {
       display: block;
       padding: 16px;
-      color: var(--token-color-foreground-primary);
-      text-decoration: none;
       border-radius: inherit;
 
       &:focus {
@@ -77,6 +74,4 @@ where the `.doc-card-interactive-demo` class is something like this:
 }
 ```
 
-This example implements a basic interactive card which uses a link to wrap the entire static content.
-
-For further assistance on implementing interactive cards, [contact the Design System Team](https://helios.hashicorp.design/about/support).
+This example implements a basic interactive card which uses a link to wrap the entirety of the static content area. For further assistance on implementing interactive cards, [contact the Design System Team](https://helios.hashicorp.design/about/support).
