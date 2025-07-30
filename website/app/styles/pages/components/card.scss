@@ -23,16 +23,28 @@
   .doc-card-interactive-demo{
     .hds-card__container{
       position:relative;
+      padding:16px;
 
       a{
         color:var(--token-color-foreground-strong);
         text-decoration:none;
+
+        &:focus{
+          outline:none;
+        }
       }
 
       a::after {
         position: absolute;
+        right:0;
+        top:0;
+        left:0;
+        bottom:0;
         content: '';
-        inset: 0;
+      }
+
+      &:focus-within{
+        box-shadow: var(--token-focus-ring-action-box-shadow);
       }
     }
   }

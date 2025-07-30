@@ -8,7 +8,9 @@ Use a card container to help build more consistently styled cards.
 
 ### Static cards
 
-Static cards may have interactive elements within them but are not actionable or interactive on their own.
+Static cards may have interactive elements within them but are not actionable or interactive on their own. Card should not have any elevations applied to it to appear visually flat.
+
+![A static card titled "Billing summary" with an info notification and a link.](/assets/components/card/card-static-flat-looking.png)
 
 ### Interactive cards
 
