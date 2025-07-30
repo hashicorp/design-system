@@ -25,7 +25,7 @@
         @value="package main
 import 'fmt'
 func main() {
-  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  res = 'Lorem ipsum dolor sit amet'
   fmt.Println(res)
 }"
       />
@@ -50,11 +50,11 @@ func main() {
     <SG.Item @forceMinWidth={{true}} as |SGI|>
       <SGI.Label>new lines with
         <code>\n</code>
-        escape sequence in JavaScript
+        escape sequence in Ruby
       </SGI.Label>
       <Hds::CodeBlock
         @language="ruby"
-        @ariaLabel="new lines with escape sequence in JavaScript"
+        @ariaLabel="new lines with escape sequence in Ruby"
         @value={{this.textWithNewline}}
       />
     </SG.Item>
@@ -218,8 +218,7 @@ end'
       <Hds::CodeBlock
         @language="ruby"
         @ariaLabel="hasLineWrapping=false (default)"
-        @value="codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';
-console.log(codeLand);"
+        @value="codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
       />
     </SG.Item>
     <SG.Item @label="hasLineWrapping=true" @forceMinWidth={{true}}>
@@ -252,7 +251,7 @@ console.log(codeLand);"
         @value="package main
 import 'fmt'
 func main() {
-  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  res = 'Lorem ipsum dolor sit amet'
   fmt.Println(res)
 }"
       />
@@ -264,7 +263,7 @@ func main() {
         @value="package main
 import 'fmt'
 func main() {
-  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  res = 'Lorem ipsum dolor sit amet'
   fmt.Println(res)
 }"
         as |CB|
@@ -481,11 +480,11 @@ func main() {
       />
     </SG.Item>
 
-    <SG.Item @label="Highlight lines 6-10" @forceMinWidth={{true}}>
+    <SG.Item @label="Highlight lines 10-12" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
         @language="ruby"
-        @highlightLines="6-10"
+        @highlightLines="10-12"
         @ariaLabel="Highlight lines 6-10"
         @value="def convert_object_to_array(obj)
   arr = obj.keys
@@ -508,13 +507,13 @@ end"
       />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
-    <SG.Item @label="Highlight lines 7-11, lineNumberStart 2" @forceMinWidth={{true}}>
+    <SG.Item @label="Highlight lines 14-17, lineNumberStart 2" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
         @language="ruby"
-        @highlightLines="7-11"
+        @highlightLines="14-17"
         @lineNumberStart={{2}}
-        @ariaLabel="Highlight lines 7-11, lineNumberStart 2"
+        @ariaLabel="Highlight lines 14-17, lineNumberStart 2"
         @value="def convert_object_to_array(obj)
   arr = obj.keys
            .map { |key| [key, obj[key]] }
@@ -711,7 +710,7 @@ end'
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <span class="shw-component-code-block-visibility-hidden" id="test-target">Copy me</span>
+  <span class="shw-component-code-block-display-none" id="test-target">Copy me</span>
   <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}} class="shw-component-code-block-copy-button">
@@ -742,7 +741,7 @@ end'
   <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     <SF.Item @label="Within Tabs">
       <Hds::Tabs {{style width="400px"}} as |T|>
-        <T.Tab>JavaScript</T.Tab>
+        <T.Tab>Ruby</T.Tab>
         <T.Tab>Go</T.Tab>
         <T.Tab>Lorem</T.Tab>
 
@@ -750,7 +749,7 @@ end'
           <Hds::CodeBlock
             @language="ruby"
             @highlightLines="2"
-            @ariaLabel="JavaScript within tabs"
+            @ariaLabel="Ruby within tabs"
             @value='Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/noble64"
 end'

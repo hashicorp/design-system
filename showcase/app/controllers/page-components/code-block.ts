@@ -20,15 +20,7 @@ func main() {
   fm.Println(res)
 }`;
 
-export default class PageComponentsCodeBlockController extends Controller {
-  declare model: PageComponentsCodeBlockModel;
-
-  @service declare router: RouterService;
-  @tracked isModalActive = false;
-  @tracked input: string | undefined = '';
-  @tracked value_demo1 = VALUE_START_DEMO1;
-
-  value_new_demo1 = `package main
+const VALUE_DEMO1_LONGER = `package main
 import 'fmt'
 func main() {
   res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
@@ -38,6 +30,16 @@ func main2() {
   res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
   fm.Println(res)
 }`;
+
+export default class PageComponentsCodeBlockController extends Controller {
+  declare model: PageComponentsCodeBlockModel;
+
+  @service declare router: RouterService;
+  @tracked isModalActive = false;
+  @tracked input: string | undefined = '';
+  @tracked value_demo1 = VALUE_START_DEMO1;
+
+  value_new_demo1 = VALUE_DEMO1_LONGER;
 
   constructor(owner: Owner) {
     super(owner);
@@ -75,7 +77,7 @@ func main2() {
   }
 
   get codeValue() {
-    let value = `codeLang='ruby';`;
+    let value = `codeLang = 'ruby';`;
     if (this.input !== '') {
       value += `\n\n${this.input} = "the input is: ${this.input}"`;
     }
