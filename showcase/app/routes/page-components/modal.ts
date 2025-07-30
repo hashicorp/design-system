@@ -9,20 +9,10 @@ import {
   COLORS,
   SIZES,
 } from '@hashicorp/design-system-components/components/hds/modal/index';
-import { NAMES } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
 export type PageComponentsModalModel = ModelFrom<PageComponentsModalRoute>;
-
-const colorToIconMap: Record<
-  (typeof COLORS)[number],
-  (typeof NAMES)[number] | undefined
-> = {
-  neutral: undefined,
-  warning: 'alert-triangle',
-  critical: 'alert-diamond',
-};
 
 export default class PageComponentsModalRoute extends Route {
   model() {
@@ -42,7 +32,6 @@ export default class PageComponentsModalRoute extends Route {
       SUPERSELECT_SELECTED_OPTION2,
       SUPERSELECT_OPTIONS3,
       SUPERSELECT_SELECTED_OPTION3,
-      COLOR_TO_ICON_MAP: colorToIconMap,
     };
   }
 }

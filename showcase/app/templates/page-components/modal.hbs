@@ -40,7 +40,7 @@
     {{#each @model.COLORS as |color|}}
       <SF.Item @label={{capitalize color}} class="shw-component-modal-sample-item">
         <Hds::Modal open @color={{color}} id="modal-example-{{color}}" as |M|>
-          <M.Header @icon={{get @model.COLOR_TO_ICON_MAP color}} @tagline="Tagline">
+          <M.Header @icon={{get this.colorToIconMap color}} @tagline="Tagline">
             {{capitalize color}}
           </M.Header>
           <M.Body>
@@ -654,7 +654,7 @@
           <Hds::Form::TextInput::Field name="deactivate-modal-on-submit__input" as |F|>
             <F.Label>Fill in this input</F.Label>
             <F.HelperText>This is a fake input, used to emulate validation on submit</F.HelperText>
-            {{#if this.modals.deactivateModalOnSubmitValidationError}}
+            {{#if this.deactivateModalOnSubmitValidationError}}
               <F.Error>Fill in the input above</F.Error>
             {{/if}}
           </Hds::Form::TextInput::Field>

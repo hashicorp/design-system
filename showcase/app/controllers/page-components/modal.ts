@@ -8,6 +8,9 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 
+import { COLORS } from '@hashicorp/design-system-components/components/hds/modal/index';
+import { NAMES as ICON_NAMES } from '@hashicorp/design-system-components/components/hds/icon/index';
+
 import type { PageComponentsModalModel } from 'showcase/routes/page-components/modal';
 
 export default class PageComponentsModalController extends Controller {
@@ -28,10 +31,19 @@ export default class PageComponentsModalController extends Controller {
     deactivateModalOnCloseActive: false,
     deactivateModalOnDestroyActive: false,
     deactivateModalOnSubmitActive: false,
-    deactivateModalOnSubmitValidationError: false,
   };
 
   @tracked isDismissDisabled: boolean | undefined = undefined;
+  @tracked deactivateModalOnSubmitValidationError = false;
+
+  colorToIconMap: Record<
+    (typeof COLORS)[number],
+    (typeof ICON_NAMES)[number] | undefined
+  > = {
+    neutral: undefined,
+    warning: 'alert-triangle',
+    critical: 'alert-diamond',
+  };
 
   @action
   activateModal(modal: keyof typeof this.modals) {
@@ -60,9 +72,9 @@ export default class PageComponentsModalController extends Controller {
       const value = formData.get('deactivate-modal-on-submit__input');
 
       if (!value) {
-        this.modals.deactivateModalOnSubmitValidationError = true;
+        this.deactivateModalOnSubmitValidationError = true;
       } else {
-        this.modals.deactivateModalOnSubmitValidationError = false;
+        this.deactivateModalOnSubmitValidationError = false;
         this.modals.deactivateModalOnSubmitActive = false;
       }
     }
