@@ -51,10 +51,6 @@ export type HdsTableTrSignature =
   | BaseHdsTableTrSignature
   | SelectableHdsTableTrArgs;
 export default class HdsTableTr extends Component<HdsTableTrSignature> {
-  get isSelected(): boolean {
-    return this.args.isSelected ?? false;
-  }
-
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(
