@@ -18,12 +18,3 @@ export enum HdsCodeEditorLanguageValues {
 }
 
 export type HdsCodeEditorLanguages = `${HdsCodeEditorLanguageValues}`;
-
-export enum HdsEnableCollisionDetectionOptions {
-  Shift = 'shift',
-  Flip = 'flip',
-  Auto = 'auto',
-}
-
-export type HdsEnableCollisionDetection =
-  `${HdsEnableCollisionDetectionOptions}`;

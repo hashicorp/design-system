@@ -34,7 +34,14 @@ import type {
   Middleware,
 } from '@floating-ui/dom';
 
-import type { HdsEnableCollisionDetection } from './hds-code-editor/types.ts';
+export enum HdsEnableCollisionDetectionOptions {
+  Shift = 'shift',
+  Flip = 'flip',
+  Auto = 'auto',
+}
+
+export type HdsEnableCollisionDetection =
+  `${HdsEnableCollisionDetectionOptions}`;
 
 export const DEFAULT_PLACEMENT = 'bottom';
 export const PLACEMENTS: Placement[] = [
@@ -53,7 +60,7 @@ export const PLACEMENTS: Placement[] = [
 ];
 
 export const ENABLE_COLLISION_DETECTION_OPTIONS: HdsEnableCollisionDetection[] =
-  ['shift', 'flip', 'auto'];
+  Object.values(HdsEnableCollisionDetectionOptions);
 
 // share the same default value of "padding" for `flip/shift/autoPlacement` options
 // this refers to the minimum distance from the boundaries' edges (the viewport)
