@@ -13,7 +13,7 @@ import type {
 } from '../types';
 
 export const DEFAULT_MIN_WIDTH = '150px';
-export const DEFAULT_MAX_WIDTH = '800px';
+export const DEFAULT_MAX_WIDTH = '1200px';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -124,17 +124,12 @@ export default class HdsAdvancedTableColumn {
     minWidth,
     maxWidth,
   }: HdsAdvancedTableColumnType): void {
-    if (width === undefined) {
-      return;
-    }
-
-    this.width = width;
-
-    // capture the width at the time of instantiation so it can be restored
-    this.originalWidth = width;
-
     this.minWidth = minWidth ?? DEFAULT_MIN_WIDTH;
     this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
+
+    if (width !== undefined) {
+      this.setPxWidth(parseFloat(width));
+    }
   }
 
   // Sets the column width in pixels, ensuring it respects the min and max width constraints.

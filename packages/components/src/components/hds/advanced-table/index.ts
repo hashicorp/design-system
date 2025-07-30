@@ -7,13 +7,13 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import type Owner from '@ember/owner';
-
+import { schedule } from '@ember/runloop';
 import HdsAdvancedTableTableModel from './models/table.ts';
 
+import type Owner from '@ember/owner';
+import type { WithBoundArgs } from '@glint/template';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
@@ -33,6 +33,7 @@ import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
 import type HdsAdvancedTableTr from './tr.ts';
+import type HdsAdvancedTableColumnType from './models/column.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -412,6 +413,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return classes.join(' ');
   }
+
+  // after the columns have been rendered, we need to set the original width of each column
+  private _setColumnOriginalWidth = modifier(
+    (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
+      // eslint-disable-next-line ember/no-runloop
+      schedule('afterRender', () => {
+        column.originalWidth = `${element.offsetWidth}px`;
+      });
+    }
+  );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     const updateHorizontalScrollIndicators = () => {
