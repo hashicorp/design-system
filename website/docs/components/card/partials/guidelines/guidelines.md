@@ -14,11 +14,11 @@ Static cards may have interactive elements within them but are not actionable or
 
 ### Interactive cards
 
-Interactive cards are actionable, e.g., they can be hovered over, clicked, or focused on. If a card is interactive, it should not include additional interactive elements within it.
+Interactive cards are actionable, e.g., they can be hovered over, clicked, and focused on. If a card is interactive, it should not include additional interactive elements within it.
 
 !!! Dont
 
-Don't nest interactive elements within an interactive card. This is because screen reader users cannot access nested interactions properly. 
+Don't nest interactive elements within an interactive card. Screen reader users cannot access nested interactions properly. 
 
 ![An interactive card with a table with links and buttons within causing a nested interactive.](/assets/components/card/card-dont-nest-interactive.png)
 
