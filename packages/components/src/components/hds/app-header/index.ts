@@ -49,7 +49,7 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   // Generates a unique ID for the Menu Content
   private _menuContentId = 'hds-menu-content-' + guidFor(this);
 
-  // we use the `lg` breakpoint for `desktop` viewports, but consumers can override its value
+  // we use the `md` breakpoint for `desktop` viewports, but consumers can override its value
   private _desktopMQVal = this.args.breakpoint ?? hdsBreakpoints['md'].px;
 
   constructor(owner: Owner, args: Record<string, never>) {
