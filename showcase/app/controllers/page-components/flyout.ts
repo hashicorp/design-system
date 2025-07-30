@@ -6,6 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { deepTracked } from 'ember-deep-tracked';
+import { tracked } from '@glimmer/tracking';
 
 import type { PageComponentsFlyoutModel } from 'showcase/routes/page-components/flyout';
 
@@ -20,8 +21,9 @@ export default class PageComponentsFlyoutController extends Controller {
     deactivateFlyoutOnCloseActive: false,
     deactivateFlyoutOnDestroyActive: false,
     deactivateFlyoutOnSubmitActive: false,
-    deactivateFlyoutOnSubmitValidationError: false,
   };
+
+  @tracked deactivateFlyoutOnSubmitValidationError = false;
 
   @action
   activateFlyout(flyout: keyof typeof this.flyouts) {
@@ -42,9 +44,9 @@ export default class PageComponentsFlyoutController extends Controller {
       const value = formData.get('deactivate-flyout-on-submit__input');
 
       if (!value) {
-        this.flyouts.deactivateFlyoutOnSubmitValidationError = true;
+        this.deactivateFlyoutOnSubmitValidationError = true;
       } else {
-        this.flyouts.deactivateFlyoutOnSubmitValidationError = false;
+        this.deactivateFlyoutOnSubmitValidationError = false;
         this.flyouts.deactivateFlyoutOnSubmitActive = false;
       }
     }

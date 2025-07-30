@@ -401,7 +401,7 @@
           <Hds::Form::TextInput::Field name="deactivate-flyout-on-submit__input" as |F|>
             <F.Label>Fill in this input</F.Label>
             <F.HelperText>This is a fake input, used to emulate validation on submit</F.HelperText>
-            {{#if this.flyouts.deactivateFlyoutOnSubmitValidationError}}
+            {{#if this.deactivateFlyoutOnSubmitValidationError}}
               <F.Error>Fill in the input above</F.Error>
             {{/if}}
           </Hds::Form::TextInput::Field>
