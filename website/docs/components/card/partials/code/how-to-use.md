@@ -42,7 +42,7 @@ Note: If you choose to use the `Card` as a list item, you must wrap it either in
 
 ### Interactive states
 
-There are three arguments: `@level`, `@levelHover` and `@levelActive`. These allow consumers to declare the specific "level" they want to use for each of these interactive states. Following our guidelines, the example transitions between _mid → high → mid_ elevations on these iteration states _default → hover → active_:
+The `@level`, `@levelHover`, and `@levelActive` arguments can be used to declare the specific elevation of the Card for each interactive state. Following the guidelines, this example transitions between _mid → high → mid_ elevation for the corresponding interactive states; _default → hover → active_.
 
 ```handlebars
 <div class="doc-card-interactive-demo">

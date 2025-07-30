@@ -18,7 +18,7 @@ Interactive cards are actionable, e.g., they can be hovered over, clicked, and f
 
 !!! Dont
 
-Don't nest interactive elements within an interactive card. Screen reader users cannot access nested interactions properly. 
+Don't nest interactive elements within an interactive card. Assistive technology and keyboard users cannot access nested interactive elements properly. 
 
 ![An interactive card with a table with links and buttons within causing a nested interactive.](/assets/components/card/card-dont-nest-interactive.png)
 
