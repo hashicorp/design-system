@@ -90,6 +90,11 @@ The Advanced Table component itself is where most of the options will be applied
     <li>the new width of the resized columns as CSS pixel value (e.g., 1px).</li>
     </ul>
   </C.Property>
+  <!-- @Zack to add additional component API docs -->
+  <C.Property @name="hasReorderableColumns" @type="boolean" @default="false">
+    If set to `true`, allows users to change the order of columns by dragging and dropping the column to a different position, by moving focus to the drag target when in action mode, or via the movement options conditionally rendered in the context menu.
+  </C.Property>
+  <!-- /Reorderable column API docs -->
   <C.Property @name="sortBy" @type="string">
     If defined, the value should be set to the key of the column that should be pre-sorted.
   </C.Property>

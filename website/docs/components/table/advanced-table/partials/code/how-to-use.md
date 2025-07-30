@@ -269,6 +269,10 @@ How resizing for the cell content works is determined by the implementation. For
 </style>
 ```
 
+### Reorderable columns
+
+<!-- TODO -->
+
 ### Sortable Advanced Table
 
 !!! Info

@@ -16,13 +16,14 @@ To prevent a column from being resized beyond a reasonable amount, the Advanced 
 
 ## Column reordering
 
-The Advanced Table supports reordering columns to customze the default visual order the data set is rendered in.
+The Advanced Table supports reordering columns to customize the visual order the data set is rendered in.
 
 This is supported via multiple entry points:
 
 - Hovering on the table header with a mouse and dragging the column with the drag target. When a drag event is detected, a drop target will be displayed to communicate where in the table the column will be rendered.
+- Moving focus to the drag target with the keyboard when in "action" mode of the Advanced Table.
 - "Move column" within the context menu moves focus to the drag target allowing reordering left and right with the arrow keys.
-- "Move column to start/end" within the context menu will move the column either to the start or end of the table. These options are rendered _conditionally_, e.g., a column in the start/first position will not have an option to move to start because it already occupies that position.
+- "Move column to start/end" within the context menu will move the column either to the start or end of the table. These options are rendered conditionally, e.g., a column in the start/first position will not have an option to move to start because it already occupies that position.
 
 ![An example of a mouse user hovering on the table header which displays the drag target](/assets/components/table/advanced-table/advanced-table-hover-table-header.png)
 

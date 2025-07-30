@@ -122,17 +122,13 @@ Don’t center header labels or cell content within a table.
 
 ### Column view functions
 
-The Advanced Table supports several methods and functions that allow the user to control how they view the data presented in the component, including resizing columns and reordering columns.
+The Advanced Table supports several methods and functions that allow the user to control how they view the data presented in the table, including resizing columns and reordering columns.
 
 When either `hasResizableColumns` or `hasReorderableColumns` is set to true on the Advanced Table, actions related to each function are rendered in a context menu in the table header. These functions are not customizable and are not available directly within the Figma component. Instead, we've provided [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=UHpPyO7erZKLy4SD-1) that you can copy and paste into your design files.
 
-Visit the [specifications](?tab=specifications#view-functions) for more details on this functionality.
-
 ![An example of the open context menu in the Advanced Table displaying actions to control the width and order of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
 
-#### Resiable columns
-
-#### Reordering columns
+Visit the [specifications](?tab=specifications#view-functions) for more details on this functionality.
 
 ## Column and row span
 
