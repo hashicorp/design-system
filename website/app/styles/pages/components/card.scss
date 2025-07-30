@@ -28,10 +28,10 @@
         color:var(--token-color-foreground-strong);
         text-decoration:none;
       }
-      
+
       a::after {
-        content: '';
         position: absolute;
+        content: '';
         inset: 0;
       }
     }
