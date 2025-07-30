@@ -20,31 +20,21 @@
     padding: 24px;
   }
 
-  .doc-card-interactive-demo{
-    .hds-card__container{
-      position:relative;
-      padding:16px;
+  .doc-card-interactive-demo {
+    .hds-card__container {
+      position: relative;
 
-      a{
-        color:var(--token-color-foreground-strong);
-        text-decoration:none;
+      a {
+        display: block;
+        padding: 16px;
+        color: var(--token-color-foreground-primary);
+        text-decoration: none;
+        border-radius: inherit;
 
-        &:focus{
-          outline:none;
+        &:focus {
+          outline: none;
+          box-shadow: var(--token-focus-ring-action-box-shadow);
         }
-      }
-
-      a::after {
-        position: absolute;
-        top:0;
-        right:0;
-        bottom:0;
-        left:0;
-        content: '';
-      }
-
-      &:focus-within{
-        box-shadow: var(--token-focus-ring-action-box-shadow);
       }
     }
   }

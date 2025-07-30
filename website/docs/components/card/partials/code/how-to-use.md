@@ -46,14 +46,37 @@ There are three arguments: `@level`, `@levelHover` and `@levelActive`. These all
 
 ```handlebars
 <div class="doc-card-interactive-demo">
-  <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder={{true}} class="">
-      <a href="#route">
-        [Static title]
+  <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder={{true}}>
+      <a href="#">
+        [Your static content here]
       </a>
-      <br />
-      [More static content]
   </Hds::Card::Container>
 </div>
 ```
 
-This example implements a basic interactive card which takes the link from the static title and elevates it using `position: absolute` with an `inset: 0` to fully cover the card itself. For further assistance on implementing interactive cards, [contact the Design System Team](https://helios.hashicorp.design/about/support).
+where the `.doc-card-interactive-demo` class is something like this:
+
+```css
+.doc-card-interactive-demo {
+  .hds-card__container {
+    position: relative;
+
+    a {
+      display: block;
+      padding: 16px;
+      color: var(--token-color-foreground-primary);
+      text-decoration: none;
+      border-radius: inherit;
+
+      &:focus {
+        outline: none;
+        box-shadow: var(--token-focus-ring-action-box-shadow);
+      }
+    }
+  }
+}
+```
+
+This example implements a basic interactive card which uses a link to wrap the entire static content.
+
+For further assistance on implementing interactive cards, [contact the Design System Team](https://helios.hashicorp.design/about/support).
