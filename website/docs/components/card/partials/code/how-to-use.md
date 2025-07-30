@@ -42,24 +42,18 @@ Note: If you choose to use the `Card` as a list item, you must wrap it either in
 
 ### Interactive states
 
-At the moment, we do not recommend using the Card component as an interactive element, although we may add this feature in the future. Despite this, some products have implemented designs that provide visual feedback to the user interacting with a Card by changing the elevation style (on `:hover` or `:active`).
-
-There are two specific arguments `@levelHover` and `@levelActive` to allow users to declare the specific "level" they want to use for each of these interactive states.
-
-TODO: this example doesn't work. should we update it or leave out for launch?
-
-!!! Warning
-
-This is only an example and not a recommendation. If you have any doubt about which level to use for the different states, please speak with your product designer or contact the Design Systems Team.
-!!!
-
-In the following example, the Card transitions between these elevations _mid → high → mid_ depending on these iteration states _rest → hover → active_:
+There are three arguments: `@level`, `@levelHover` and `@levelActive`. These allow consumers to declare the specific "level" they want to use for each of these interactive states. Following our guidelines, the example transitions between _mid → high → mid_ elevations on these iteration states _default → hover → active_:
 
 ```handlebars
-<div class="my-custom-class-to-set-the-card-layout">
-  <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder={{true}}>
-    <h2 class="hds-typography-display-200 hds-font-weight-medium hds-foreground-strong">Testing</h2>
+<div class="doc-card-interactive-demo">
+  <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder={{true}} class="">
+      <a href="#gosomeplace">
+        [Static title]
+      </a>
+      <br />
+      [More static content]
   </Hds::Card::Container>
 </div>
 ```
 
+This example implements a basic interactive card which takes the link from the static title and elevates it using `position: absolute` with an `inset: 0` to fully incapsulate the card itself. For further assistance on implementing interactive cards, [contact the Design System Team](https://helios.hashicorp.design/about/support).

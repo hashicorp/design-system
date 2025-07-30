@@ -36,17 +36,15 @@ When the card is interactive, ensure elements within are static elements only.
 
 ### Base
 
-Use the `base` level for static cards.
+Use for **static cards**.
 
 ### Mid
 
-- For **static cards** use `mid` as the default level.
-- For **interactive cards** use `mid` as the rested state.
+Use for **interactive cards** as the rested (default) and active (pressed) states.
 
 ### High
 
-- For **static cards** use `high` for emphasis, but use sparingly.
-- For **interactive cards** use `high` for the raised state.
+Use for **interactive cards** as the raised (hover) state.
 
 ## Border
 
