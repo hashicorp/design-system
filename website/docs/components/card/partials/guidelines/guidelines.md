@@ -12,7 +12,7 @@ Static cards may have interactive elements within them but are not actionable or
 
 ### Interactive cards
 
-Interactive cards are actionable, e.g., they can be hovered over, clicked, or focused on. If a card is interactive, it should not include additional linkable elements within it.
+Interactive cards are actionable, e.g., they can be hovered over, clicked, or focused on. If a card is interactive, it should not include additional interactive elements within it.
 
 !!! Dont
 
