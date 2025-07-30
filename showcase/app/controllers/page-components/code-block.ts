@@ -13,7 +13,7 @@ import type RouterService from '@ember/routing/router-service';
 
 import type { PageComponentsCodeBlockModel } from 'showcase/routes/page-components/code-block';
 
-const VALUE_START_DEMO1 = `package main
+const VALUE_DEMO1_SHORTER = `package main
 import 'fmt'
 func main() {
   res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
@@ -37,9 +37,7 @@ export default class PageComponentsCodeBlockController extends Controller {
   @service declare router: RouterService;
   @tracked isModalActive = false;
   @tracked input: string | undefined = '';
-  @tracked value_demo1 = VALUE_START_DEMO1;
-
-  value_new_demo1 = VALUE_DEMO1_LONGER;
+  @tracked value_demo1 = VALUE_DEMO1_SHORTER;
 
   constructor(owner: Owner) {
     super(owner);
@@ -106,10 +104,10 @@ export default class PageComponentsCodeBlockController extends Controller {
 
   @action
   onUpdateClickDemo1() {
-    if (this.value_demo1 === VALUE_START_DEMO1) {
-      this.value_demo1 = this.value_new_demo1;
+    if (this.value_demo1 === VALUE_DEMO1_SHORTER) {
+      this.value_demo1 = VALUE_DEMO1_LONGER;
     } else {
-      this.value_demo1 = VALUE_START_DEMO1;
+      this.value_demo1 = VALUE_DEMO1_SHORTER;
     }
   }
 }
