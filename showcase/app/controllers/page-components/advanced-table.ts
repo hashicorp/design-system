@@ -407,8 +407,9 @@ export default class PageComponentsAdvancedTableController extends Controller {
   @action
   multiSelectAnimateSelectedUsers_demo4() {
     this.multiSelectUserData__demo4.forEach((user) => {
-      user.isAnimated = user.isSelected;
+      user.isAnimated = user.isSelected ? user.isSelected : false;
     });
+
     // eslint-disable-next-line ember/no-runloop
     later(() => {
       this.multiSelectResetUserAnimation_demo4();

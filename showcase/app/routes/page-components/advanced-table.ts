@@ -6,10 +6,11 @@
 import Route from '@ember/routing/route';
 
 import { DENSITIES } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
-import {
-  TYPES as BADGE_TYPES,
-  COLORS as BADGE_COLORS,
-} from '@hashicorp/design-system-components/components/hds/badge/index';
+import type {
+  HdsBadgeColors,
+  HdsBadgeTypes,
+} from '@hashicorp/design-system-components/components/hds/badge/types';
+import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
@@ -32,13 +33,13 @@ interface MusicEntity {
     year: number;
     quote: string;
     'vinyl-cost': string;
-    icon: string;
-    'badge-type': typeof BADGE_TYPES;
+    icon: HdsIconSignature['Args']['name'];
+    'badge-type': HdsBadgeTypes;
     'badge-color': {
-      name: typeof BADGE_COLORS;
+      name: HdsBadgeColors;
       key: number;
     };
-    color: typeof BADGE_COLORS;
+    color: HdsBadgeColors;
   };
 }
 
@@ -160,7 +161,9 @@ export default class PageComponentsAdvancedTableRoute extends Route {
       selectableDataDemo2: clone(selectableData),
       userData,
       userDataDemo3: clone(userData.slice(0, 16)),
-      userDataDemo4: clone(userData.slice(0, 4)),
+      userDataDemo4: clone(
+        userData.slice(0, 4).map((user) => ({ ...user, isAnimated: false })),
+      ),
       manyColumns,
       nestedData,
       nestedDataCustom,
