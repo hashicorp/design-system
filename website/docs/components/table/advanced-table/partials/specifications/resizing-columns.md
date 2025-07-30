@@ -10,6 +10,6 @@ The Figma component does not support this resizing feature. Instead, we publish 
 
 ### Minimum and maximum width
 
-The Advanced Table sets a default minimum column width of 150px and a maximum of 2000px. These limits ensure table usability and accessibility. To use different values, they can be overridden via the [component API](/components/table/advanced-table?tab=code#advancedtable).
+The Advanced Table sets a default minimum column width of `150px` and a maximum of `2000px`. These limits ensure table usability and accessibility. To use different values, they can be overridden via the [component API](/components/table/advanced-table?tab=code#advancedtable).
 
 ![An example of a column being resized to the minimum default width](/assets/components/table/advanced-table/advanced-table-resize-min-width.png)
