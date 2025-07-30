@@ -210,7 +210,10 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       },
     });
 
-    assert.strictEqual(column.width, '200px', 'initial width is set');
+    // this is set by a modifier seperate from the class instance
+    column.originalWidth = '200px';
+
+    assert.strictEqual(column.width, '200px', 'original width is set');
 
     column.setPxWidth(300);
     assert.strictEqual(column.width, '300px', 'width is updated');
