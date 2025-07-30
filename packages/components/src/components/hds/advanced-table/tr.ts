@@ -20,7 +20,7 @@ export interface BaseHdsAdvancedTableTrSignature {
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
     isLastRow?: boolean;
     isSelectable?: boolean;
-    isSelected?: false;
+    isSelected?: boolean;
     isParentRow?: boolean;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;

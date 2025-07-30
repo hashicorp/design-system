@@ -171,7 +171,7 @@ This component can contain `Hds::AdvancedTable::Th` or `Hds::AdvancedTable::Td` 
   <C.Property @name="isSelected" @type="boolean" @default="false">
     Sets the initial selection state for the row (used in conjunction with setting `isSelectable` on the Advanced Table).
   </C.Property>
-  <C.Property @name="selectionKey" @type="string | number">
+  <C.Property @name="selectionKey" @type="string">
     Required value to associate an unique identifier to each table row (used in conjunction with setting `isSelectable` on the Advanced Table and returned in the `onSelectionChange` callback arguments). It’s required if `isSelectable={{true}}`.
   </C.Property>
   <C.Property @name="selectionAriaLabelSuffix" @type="string">
