@@ -37,7 +37,7 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
   constructor(owner: Owner, args: MockAppHeaderAppHeaderSignature['Args']) {
     super(owner, args);
     this.showOrgPicker = this.args.showOrgPicker ?? true;
-    this.orgPickerLabel = this.args.orgPickerLabel ?? 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW';
+    this.orgPickerLabel = this.args.orgPickerLabel ?? 'organization-name';
     this.showRegionPicker = this.args.showRegionPicker ?? true;
     this.showSearch = this.args.showSearch ?? true;
   }
