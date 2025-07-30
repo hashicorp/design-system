@@ -8,17 +8,17 @@ Use a card container to help build more consistently styled cards.
 
 ### Static cards
 
-Static cards may have interactive elements within them but are not actionable or interactive on their own. Card should not have any elevations applied to it to appear visually flat.
+Static cards may contain interactive elements but must not be actionable or interactive on their own. They should not have any shadows applied to them, so that they can be differentiated from an interactive card.
 
 ![A static card titled "Billing summary" with an info notification and a link.](/assets/components/card/card-static-flat-looking.png)
 
 ### Interactive cards
 
-Interactive cards are actionable, e.g., they can be hovered over, clicked, and focused on. If a card is interactive, it should not include additional interactive elements within it.
+Interactive cards are actionable, e.g., they can be hovered over, clicked, or focused on. If a card is interactive, it should not include nested interactive elements within it.
 
 !!! Dont
 
-Don't nest interactive elements within an interactive card. Assistive technology and keyboard users cannot access nested interactive elements properly. 
+Don't nest interactive elements within an interactive card. Screen reader users cannot access nested interactions properly. 
 
 ![An interactive card with a table with links and buttons within causing a nested interactive.](/assets/components/card/card-dont-nest-interactive.png)
 
@@ -26,7 +26,7 @@ Don't nest interactive elements within an interactive card. Assistive technology
 
 !!! Do
 
-When the card is interactive, ensure elements within are static elements only.
+When the card is interactive, only static elements should be contained within it.
 
 ![An interactive card with a table with links and buttons within.](/assets/components/card/card-do-flat-internal.png)
 
@@ -42,11 +42,11 @@ Use for **static cards**.
 
 ### Mid
 
-Use for **interactive cards** as the rested (default) and active (pressed) states.
+Use for the rested (default) and active (pressed) states of **interactive cards**.
 
 ### High
 
-Use for **interactive cards** as the raised (hover) state.
+Use for the raised (hover) state of **interactive cards**.
 
 ## Border
 

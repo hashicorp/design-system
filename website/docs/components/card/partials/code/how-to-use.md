@@ -59,7 +59,6 @@ Using SCSS, the `.doc-card-interactive-demo` class would look something like thi
 ```scss
 .doc-card-interactive-demo {
   .hds-card__container {
-
     a {
       display: block;
       padding: 16px;
