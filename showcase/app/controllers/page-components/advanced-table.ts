@@ -37,14 +37,14 @@ const updateModelWithSelectAllState = <T>(
 };
 
 function updateModelWithSelectableRowsStates<
-  T extends { id: string; isSelected?: boolean },
+  T extends { id: number; isSelected?: boolean },
 >(
   modelData: T[],
   selectableRowsStates: HdsAdvancedTableOnSelectionChangeSignature['selectableRowsStates'],
 ): void {
   // Create a map from id to row for quick lookup
   const modelDataMap: Map<string, T> = new Map(
-    modelData.map((modelRow) => [modelRow.id, modelRow]),
+    modelData.map((modelRow) => [String(modelRow.id), modelRow]),
   );
 
   selectableRowsStates.forEach((row) => {
@@ -166,7 +166,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
       });
     } else {
       const recordToUpdate = this.multiSelectSelectableData.find(
-        (modelRow) => modelRow.id === selectionKey,
+        (modelRow) => modelRow.id === Number(selectionKey),
       );
 
       if (recordToUpdate) {
@@ -189,7 +189,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
     } else {
       const remainder = this.multiSelectFilterRows__demo1 === 'even' ? 0 : 1;
       return this.multiSelectModelData__demo1.filter(
-        (item) => parseInt(item.id) % 2 === remainder,
+        (item) => item.id % 2 === remainder,
       );
     }
   }
@@ -372,7 +372,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
     } else {
       selectableRowsStates.forEach((row) => {
         const recordToUpdate = this.multiSelectModelData__demo3.find(
-          (modelRow) => modelRow.id === row.selectionKey,
+          (modelRow) => String(modelRow.id) === row.selectionKey,
         );
         if (recordToUpdate) {
           recordToUpdate.isSelected = row.isSelected;
@@ -400,7 +400,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
     console.log('Selected Rows Keys:', selectedRowsKeys);
     console.groupEnd();
     this.multiSelectUserData__demo4.forEach((user) => {
-      user.isSelected = selectedRowsKeys.includes(user.id);
+      user.isSelected = selectedRowsKeys.includes(String(user.id));
     });
   }
 
