@@ -25,19 +25,16 @@ type ListData = {
 const DEFAULT_DATA: ListData[] = [
   {
     title: 'Step 1',
-    // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
     status: 'complete',
     description: 'Description for Step 1',
   },
   {
     title: 'Step 2',
-    // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
     status: 'progress',
     description: 'Description for Step 2',
   },
   {
     title: 'Step 3',
-    // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
     status: 'incomplete',
     description: 'Description for Step 3',
   },
