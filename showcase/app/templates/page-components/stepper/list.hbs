@@ -14,64 +14,56 @@
   <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item @label="Default">
       <Hds::Stepper::List @titleTag="h3" @ariaLabel="Label" {{style width="200px"}} as |S|>
-        {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169 }}
-        <S.Step @status={{@model.STEP_STATUSES_ENUM.Complete}}>
+        <S.Step @status="complete">
           <:title>Title</:title>
           <:description>Description</:description>
           <:content>
             <Shw::Placeholder @text="Step 1: Generic content" @height="20" />
           </:content>
         </S.Step>
-        {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169 }}
-        <S.Step @status={{@model.STEP_STATUSES_ENUM.Complete}}>
+        <S.Step @status="complete">
           <:title>Title</:title>
           <:description>Description</:description>
           <:content>
             <Shw::Placeholder @text="Step 2: Generic content" @height="20" />
           </:content>
         </S.Step>
-        {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169 }}
-        <S.Step @status={{@model.STEP_STATUSES_ENUM.Progress}}>
+        <S.Step @status="progress">
           <:title>Title</:title>
           <:description>Description</:description>
           <:content>
             <Shw::Placeholder @text="Step 3: Generic content" @height="20" />
           </:content>
         </S.Step>
-        {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169 }}
-        <S.Step @status={{@model.STEP_STATUSES_ENUM.Incomplete}}>
+        <S.Step @status="incomplete">
           <:title>Title</:title>
         </S.Step>
       </Hds::Stepper::List>
     </SG.Item>
     <SG.Item @label="All complete">
       <Hds::Stepper::List @titleTag="h3" {{style width="200px"}} @ariaLabel="Label" as |S|>
-        {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169 }}
-        <S.Step @status={{@model.STEP_STATUSES_ENUM.Complete}}>
+        <S.Step @status="complete">
           <:title>Title</:title>
           <:description>Description</:description>
           <:content>
             <Shw::Placeholder @text="Step 1: Generic content" @height="20" />
           </:content>
         </S.Step>
-        {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169 }}
-        <S.Step @status={{@model.STEP_STATUSES_ENUM.Complete}}>
+        <S.Step @status="complete">
           <:title>Title</:title>
           <:description>Description</:description>
           <:content>
             <Shw::Placeholder @text="Step 2: Generic content" @height="20" />
           </:content>
         </S.Step>
-        {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169 }}
-        <S.Step @status={{@model.STEP_STATUSES_ENUM.Complete}}>
+        <S.Step @status="complete">
           <:title>Title</:title>
           <:description>Description</:description>
           <:content>
             <Shw::Placeholder @text="Step 3: Generic content" @height="20" />
           </:content>
         </S.Step>
-        {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169 }}
-        <S.Step @status={{@model.STEP_STATUSES_ENUM.Complete}}>
+        <S.Step @status="complete">
           <:title>Title</:title>
         </S.Step>
       </Hds::Stepper::List>
@@ -91,7 +83,6 @@
     {{#each @model.STEP_STATUSES as |status|}}
       <SG.Item @label="{{capitalize status}}">
         <Hds::Stepper::List @ariaLabel="Label" as |S|>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169 }}
           <S.Step @status={{status}}>
             <:title>Title</:title>
             <:description>Description</:description>

@@ -6,7 +6,6 @@
 import Route from '@ember/routing/route';
 
 import { STATUSES as STEP_STATUSES } from '@hashicorp/design-system-components/components/hds/stepper/step/indicator';
-import { HdsStepperStatusesValues as STEP_STATUSES_ENUM } from '@hashicorp/design-system-components/components/hds/stepper/types';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
@@ -17,8 +16,6 @@ export default class PageComponentsStepperListRoute extends Route {
   model() {
     return {
       STEP_STATUSES,
-      // TODO: will not need this after https://hashicorp.atlassian.net/browse/HDS-5169
-      STEP_STATUSES_ENUM,
     };
   }
 }
