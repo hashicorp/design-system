@@ -1,6 +1,6 @@
 ## How to use this component
 
-The basic invocation requires two or more buttons to be provided as children:
+The basic invocation should include two or more buttons to be provided as children:
 
 ```handlebars
 <Hds::ButtonSet>
@@ -9,14 +9,54 @@ The basic invocation requires two or more buttons to be provided as children:
 </Hds::ButtonSet>
 ```
 
-### Equal width buttons
-
-If you want to have buttons with equal width, apply a width (via inline style or CSS class) to the `ButtonSet` container and the argument `@isFullWidth={{true}}` to the `Button` components:
+Other button-like components can also be used as children such as the `Dropdown`.
 
 ```handlebars
-<Hds::ButtonSet {{style width="15rem"}}>
+<Hds::ButtonSet>
+  <Hds::Dropdown as |D|>
+    <D.ToggleButton @color="secondary" @text="Select an option" />
+    <D.Title @text="Title Text" />
+    <D.Description @text="Descriptive text goes here." />
+    <D.Interactive @href="#">Add</D.Interactive>
+    <D.Interactive @href="#">Add More</D.Interactive>
+    <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
+    <D.Separator />
+    <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
+  </Hds::Dropdown>
+
+  <Hds::Button @text="Submit" type="submit" />
+</Hds::ButtonSet>
+```
+
+### Equal width buttons
+
+If you want buttons with equal widths, set `@isFullWidth` to `true` on the `Button` components. To constrain the overall max-width, you can also add a width to the `ButtonSet` container (via an inline style or CSS class).
+
+Note: The ButtonSet is full-width (100%) by default.
+
+```handlebars
+<Hds::ButtonSet {{style maxWidth="15rem"}}>
   <Hds::Button @text="Save" @isFullWidth={{true}} />
   <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" @isFullWidth={{true}} />
+</Hds::ButtonSet>
+```
+
+Issue: The `Dropdown` does not have an `isFullWidth` option for the outer wrapper. Setting isFullWidth to “true” on the nested ToggleButton does not have the same effect.
+
+```handlebars
+<Hds::ButtonSet>
+  <Hds::Dropdown as |D|>
+    <D.ToggleButton @isFullWidth={{true}} @color="secondary" @text="Select an option" />
+    <D.Title @text="Title Text" />
+    <D.Description @text="Descriptive text goes here." />
+    <D.Interactive @href="#">Add</D.Interactive>
+    <D.Interactive @href="#">Add More</D.Interactive>
+    <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
+    <D.Separator />
+    <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
+  </Hds::Dropdown>
+
+  <Hds::Button @isFullWidth={{true}} @text="Submit" type="submit" />
 </Hds::ButtonSet>
 ```
 
