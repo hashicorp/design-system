@@ -14,7 +14,7 @@ Static cards may contain interactive elements but must not be actionable or inte
 
 ### Interactive cards
 
-Interactive cards are actionable, e.g., they can be hovered over, clicked, or focused on. If a card is interactive, it should not include nested interactive elements within it.
+Interactive cards are actionable, e.g., they can be hovered over, clicked, or focused on. 
 
 !!! Dont
 
