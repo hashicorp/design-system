@@ -8,9 +8,8 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 
+import type { HdsStepperStatuses } from '@hashicorp/design-system-components/components/hds/stepper/types';
 import type { PageComponentsStepperListModel } from 'showcase/routes/page-components/stepper/list';
-
-import { HdsStepperStatusesValues as STEP_STATUSES_ENUM } from '@hashicorp/design-system-components/components/hds/stepper/types';
 
 // basic function that clones an array of objects (not deep)
 export const clone = <T>(arr: T[]): T[] => {
@@ -19,27 +18,24 @@ export const clone = <T>(arr: T[]): T[] => {
 
 type ListData = {
   title: string;
-  status: STEP_STATUSES_ENUM;
+  status: HdsStepperStatuses;
   description: string;
 };
 
 const DEFAULT_DATA: ListData[] = [
   {
     title: 'Step 1',
-    // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
-    status: STEP_STATUSES_ENUM.Complete,
+    status: 'complete',
     description: 'Description for Step 1',
   },
   {
     title: 'Step 2',
-    // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
-    status: STEP_STATUSES_ENUM.Progress,
+    status: 'progress',
     description: 'Description for Step 2',
   },
   {
     title: 'Step 3',
-    // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
-    status: STEP_STATUSES_ENUM.Incomplete,
+    status: 'incomplete',
     description: 'Description for Step 3',
   },
 ];
@@ -47,14 +43,11 @@ const DEFAULT_DATA: ListData[] = [
 const updateSteps = (steps: ListData[], stepNumber: number) => {
   steps.forEach((step, index) => {
     if (index < stepNumber) {
-      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
-      step.status = STEP_STATUSES_ENUM.Complete;
+      step.status = 'complete';
     } else if (index === stepNumber) {
-      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
-      step.status = STEP_STATUSES_ENUM.Progress;
+      step.status = 'progress';
     } else {
-      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
-      step.status = STEP_STATUSES_ENUM.Incomplete;
+      step.status = 'incomplete';
     }
   });
 };
@@ -62,14 +55,11 @@ const updateSteps = (steps: ListData[], stepNumber: number) => {
 const updateStepsProcessing = (steps: ListData[], stepNumber: number) => {
   steps.forEach((step, index) => {
     if (index < stepNumber) {
-      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
-      step.status = STEP_STATUSES_ENUM.Complete;
+      step.status = 'complete';
     } else if (index === stepNumber) {
-      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
-      step.status = STEP_STATUSES_ENUM.Processing;
+      step.status = 'processing';
     } else {
-      // TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5169
-      step.status = STEP_STATUSES_ENUM.Incomplete;
+      step.status = 'incomplete';
     }
   });
 };
