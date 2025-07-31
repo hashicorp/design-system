@@ -46,7 +46,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error }}
         <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
         <B.Td>
@@ -88,7 +88,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Th> {{B.data.name}}</B.Th>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -113,7 +113,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Th> {{B.data.name}}</B.Th>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -142,7 +142,7 @@
     >
       <:body as |B|>
         {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-        <B.Tr @selectionKey={{B.data.id}}>
+        <B.Tr @selectionKey="{{B.data.id}}">
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
           <B.Td>
@@ -192,7 +192,7 @@
     <:body as |B|>
       <B.Tr
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @selectionKey={{B.data.id}}
+        @selectionKey="{{B.data.id}}"
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @isSelected={{B.data.isSelected}}
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -232,7 +232,7 @@
       <:body as |B|>
         <B.Tr
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionKey={{B.data.id}}
+          @selectionKey="{{B.data.id}}"
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -270,7 +270,7 @@
     >
       <:body as |B|>
         {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-        <B.Tr @selectionKey={{B.data.id}}>
+        <B.Tr @selectionKey="{{B.data.id}}">
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Th>{{B.data.id}}</B.Th>
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -305,7 +305,7 @@
       <:body as |B|>
         <B.Tr
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionKey={{B.data.id}}
+          @selectionKey="{{B.data.id}}"
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -342,7 +342,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -365,7 +365,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -388,7 +388,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -412,7 +412,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -444,7 +444,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.peer-name}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -497,7 +497,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.peer-name}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -546,7 +546,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -577,7 +577,7 @@
     <:body as |B|>
       <B.Tr
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @selectionKey={{B.data.id}}
+        @selectionKey="{{B.data.id}}"
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @isSelected={{B.data.isSelected}}
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -609,7 +609,7 @@
     <:body as |B|>
       <B.Tr
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @selectionKey={{B.data.id}}
+        @selectionKey="{{B.data.id}}"
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @isSelected={{B.data.isSelected}}
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -632,7 +632,7 @@
   <Hds::AdvancedTable @model={{this.model.music}} @columns={{this.columnResizeColumns}} @hasResizableColumns={{true}}>
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
         <B.Td>
@@ -667,7 +667,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
         <B.Td>
@@ -706,7 +706,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
         <B.Td>
@@ -744,7 +744,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
         <B.Td>
@@ -829,7 +829,7 @@
     <:body as |B|>
       <B.Tr
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @selectionKey={{B.data.id}}
+        @selectionKey="{{B.data.id}}"
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @isSelected={{B.data.isSelected}}
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -888,7 +888,7 @@
       <:body as |B|>
         <B.Tr
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionKey={{B.data.id}}
+          @selectionKey="{{B.data.id}}"
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -963,7 +963,7 @@
       <:body as |B|>
         <B.Tr
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionKey={{B.data.id}}
+          @selectionKey="{{B.data.id}}"
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1020,7 +1020,7 @@
     <:body as |B|>
       <B.Tr
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @selectionKey={{B.data.id}}
+        @selectionKey="{{B.data.id}}"
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @isSelected={{B.data.isSelected}}
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1067,7 +1067,7 @@
                 >
                   <:body as |B|>
                     {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                    <B.Tr @selectionKey={{B.data.id}}>
+                    <B.Tr @selectionKey="{{B.data.id}}">
                       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                       <B.Td>{{B.data.id}}</B.Td>
                       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1109,7 +1109,7 @@
           >
             <:body as |B|>
               {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-              <B.Tr @selectionKey={{B.data.id}}>
+              <B.Tr @selectionKey="{{B.data.id}}">
                 {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 <B.Td>{{B.data.id}}</B.Td>
                 {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1142,7 +1142,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1176,7 +1176,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1202,7 +1202,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1229,7 +1229,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.artist}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1254,7 +1254,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      <B.Tr @selectionKey={{B.data.id}}>
+      <B.Tr @selectionKey="{{B.data.id}}">
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Td>{{B.data.id}}</B.Td>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1282,7 +1282,7 @@
       <:body as |B|>
         <B.Tr
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionKey={{B.data.id}}
+          @selectionKey="{{B.data.id}}"
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -1313,7 +1313,7 @@
   >
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
-      <B.Tr id={{B.data.id}} @selectionKey={{B.data.id}}>
+      <B.Tr id={{B.data.id}} @selectionKey="{{B.data.id}}">
         {{#if (get B.data "name")}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Th @rowspan={{B.data.name.rowspan}} @colspan={{B.data.name.colspan}}>{{#if B.data.name.text}}
