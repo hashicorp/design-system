@@ -41,6 +41,14 @@ import MockFormSuperSelectGenericContent from '../app/components/mock/components
 import MockFormSuperSelectSelectedComponentSingle from '../app/components/mock/components/form/super-select/selected-component-single';
 import MockFormSuperSelectSelectedComponentMultiple from '../app/components/mock/components/form/super-select/selected-component-multiple';
 
+// PAGE-COMPONENTS
+import CopyButtonInDropdown from '../app/controllers/page-components/copy/button/copy-button-in-dropdown';
+import CopyButtonInModal from '../app/controllers/page-components/copy/button/copy-button-in-modal';
+import CopyButtonStates from '../app/controllers/page-components/copy/button/copy-button-states';
+import CopyButtonWithInput from '../app/controllers/page-components/copy/button/copy-button-with-input';
+import CopyButtonWithHTMLInput from '../app/controllers/page-components/copy/button/copy-button-with-html-input';
+import CopyButtonWithMaskedInput from '../app/controllers/page-components/copy/button/copy-button-with-masked-input';
+
 export default interface ShowcaseTemplateRegistry {
   // SHW COMPONENTS
   'Shw::Autoscrollable': typeof ShwAutoscrollable;
@@ -116,4 +124,18 @@ export default interface ShowcaseTemplateRegistry {
   'mock/components/form/super-select/selected-component-single': typeof MockFormSuperSelectSelectedComponentSingle;
   'Mock::Form::SuperSelect::SelectedComponentMultiple': typeof MockFormSuperSelectSelectedComponentMultiple;
   'mock/components/form/super-select/selected-component-multiple': typeof MockFormSuperSelectSelectedComponentMultiple;
+
+  // PAGE COMPONENTS
+  'PageComponents::Copy::Button::CopyButtonInDropdown': typeof CopyButtonInDropdown;
+  'page-components/copy/button/copy-button-in-dropdown': typeof CopyButtonInDropdown;
+  'PageComponents::Copy::Button::CopyButtonInModal': typeof CopyButtonInModal;
+  'page-components/copy/button/copy-button-in-modal': typeof CopyButtonInModal;
+  'PageComponents::Copy::Button::CopyButtonStates': typeof CopyButtonStates;
+  'page-components/copy/button/copy-button-states': typeof CopyButtonStates;
+  'PageComponents::Copy::Button::CopyButtonWithInput': typeof CopyButtonWithInput;
+  'page-components/copy/button/copy-button-with-input': typeof CopyButtonWithInput;
+  'PageComponents::Copy::Button::CopyButtonWithHtmlInput': typeof CopyButtonWithHTMLInput;
+  'page-components/copy/button/copy-button-with-html-input': typeof CopyButtonWithHTMLInput;
+  'PageComponents::Copy::Button::CopyButtonWithMaskedInput': typeof CopyButtonWithMaskedInput;
+  'page-components/copy/button/copy-button-with-masked-input': typeof CopyButtonWithMaskedInput;
 }

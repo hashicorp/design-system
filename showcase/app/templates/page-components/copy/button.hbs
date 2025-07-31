@@ -1,0 +1,202 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Copy::Button Component"}}
+
+<Shw::Text::H1>Copy::Button</Shw::Text::H1>
+
+<section data-test-percy>
+  <input type="hidden" id="targetToCopy" value="This is some text stored in a hidden &lt;input&gt; element" />
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Default">
+      <Hds::Copy::Button @text="Copy" @targetToCopy="#targetToCopy" />
+    </SF.Item>
+    <SF.Item @label="Icon only">
+      <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @targetToCopy="#targetToCopy" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Sizes</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    {{#each @model.SIZES as |size|}}
+      <SF.Item @label={{capitalize size}}>
+        <Hds::Copy::Button @text="Copy" @size={{size}} @targetToCopy="#targetToCopy" />
+      </SF.Item>
+    {{/each}}
+    <SF.Item @label="Full width">
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Copy::Button @text="Copy" @isFullWidth={{true}} @targetToCopy="#targetToCopy" />
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>States</Shw::Text::H2>
+
+  <PageComponents::Copy::Button::CopyButtonStates />
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Compositions</Shw::Text::H2>
+
+  {{#each @model.MASKED_INPUT_VARIANTS as |variant|}}
+    <Shw::Flex as |SF|>
+      {{#let (array false true) as |isMultilineOptions|}}
+        {{#each isMultilineOptions as |isMultiline|}}
+          <SF.Item @label={{get this.maskedInputVariantToLabelMap variant}}>
+            <PageComponents::Copy::Button::CopyButtonWithMaskedInput
+              @variant={{variant}}
+              @isMultiline={{isMultiline}}
+            />
+          </SF.Item>
+        {{/each}}
+      {{/let}}
+    </Shw::Flex>
+  {{/each}}
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Demo</Shw::Text::H2>
+
+  <Shw::Text::H3>With <code>text</code> as argument</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Hds::Copy::Button @text="Copy a secret key" @textToCopy="someSecretThingGoesHere" />
+    </SF.Item>
+    <SF.Item>
+      {{! context: https://github.com/hashicorp/design-system/pull/1564 }}
+      <Hds::Copy::Button @text="Copy a number" @textToCopy={{123456789}} />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Copy::Button @text="Copy a Bigint number" @textToCopy={{this.bigint}} />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Special cases</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Hds::Copy::Button @text="Copy an empty string" @textToCopy="" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Copy::Button @text="Copy the number '0'" @textToCopy={{0}} />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>With <code>target</code> element</Shw::Text::H3>
+
+  <Shw::Text::H4>Target types</Shw::Text::H4>
+
+  <Shw::Flex @gap="2rem" as |SF|>
+    <SF.Item @label="Target as a CSS selector (string)">
+      <div class="shw-component-copy-button-flex-container">
+        <p class="shw-text-body" id="test-target-string">Lorem ipsum dolor</p>
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the content in the node"
+          @targetToCopy="#test-target-string"
+        />
+      </div>
+    </SF.Item>
+    <SF.Item @label="Target as a DOM element (Node)">
+      <div class="shw-component-copy-button-flex-container">
+        <p class="shw-text-body" id="test-target-node-element">Lorem ipsum dolor</p>
+        <Hds::Copy::Button
+          @isIconOnly={{true}}
+          @text="Copy the content in the node"
+          @targetToCopy={{this.targetNodeElement}}
+        />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>HDS components</Shw::Text::H4>
+
+  <Shw::Grid @columns={{3}} @gap="2rem" as |SG|>
+    {{#each @model.INPUT_COMPONENTS as |inputComponent|}}
+      <SG.Item @label={{capitalize inputComponent}}>
+        <PageComponents::Copy::Button::CopyButtonWithInput @inputComponent={{inputComponent}} />
+      </SG.Item>
+      {{#unless (eq inputComponent "select")}}
+        <SG.Item @label="{{capitalize inputComponent}} (readonly)">
+          <PageComponents::Copy::Button::CopyButtonWithInput @inputComponent={{inputComponent}} @isReadOnly={{true}} />
+        </SG.Item>
+      {{/unless}}
+      <SG.Item @label="{{capitalize inputComponent}} (disabled)">
+        <PageComponents::Copy::Button::CopyButtonWithInput @inputComponent={{inputComponent}} @isDisabled={{true}} />
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Grid @columns={{3}} @gap="2rem" as |SG|>
+    <SG.Item @label="Within a Dropdown">
+      <PageComponents::Copy::Button::CopyButtonInDropdown />
+    </SG.Item>
+    <SG.Item @label="Within a Modal">
+      <PageComponents::Copy::Button::CopyButtonInModal />
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H4>HTML blocks</Shw::Text::H4>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item @label="Structured content">
+      <Hds::Copy::Button @text="Copy the content below" @targetToCopy="#test-structured-content" />
+      <ul class="shw-component-copy-structured-content" id="test-structured-content">
+        <li class="shw-text-body">
+          <p>This whole list is the
+            <span><strong>target</strong>
+              <em>element</em></span></p>
+        </li>
+        <li class="shw-text-body">
+          <p>The button will
+            <code>copy</code>
+            the
+            <a href="#">text</a>
+            in this
+            <cite>target</cite>
+            element.</p>
+        </li>
+      </ul>
+    </SG.Item>
+    <SG.Item @label="With hidden content">
+      <Hds::Copy::Button @text="Copy the content below" @targetToCopy="#test-hidden-content" />
+      <p class="shw-text-body" id="test-hidden-content">This paragraph contains some
+        <strong class="shw-component-copy-button-display-none">not</strong>
+        hidden content
+        <strong class="shw-component-copy-button-visibility-hidden">, or not?</strong>
+      </p>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item @label="Code block">
+      <Hds::Copy::Button @text="Copy the code block" @targetToCopy="#test-code-block" />
+      <pre class="shw-component-copy-button-code-block"><code id="test-code-block">&lt;h1&gt;A page header
+          example&lt;/h1&gt; &lt;p&gt;Some paragraph text also&lt;/p&gt;</code></pre>
+    </SG.Item>
+    <SG.Item @label="Code block with 'contenteditable'">
+      <Hds::Copy::Button @text="Edit and copy the code block" @targetToCopy="#test-code-block-editable" />
+      <pre class="shw-component-copy-button-code-block"><code
+          id="test-code-block-editable"
+          contenteditable="true"
+        >&lt;h1&gt;A page header example&lt;/h1&gt; &lt;p&gt;Some paragraph text also&lt;/p&gt;</code></pre>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H4>HTML input elements</Shw::Text::H4>
+  <Shw::Flex @gap="2rem" as |SF|>
+    {{#each @model.HTML_INPUT_COMPONENTS as |inputComponent|}}
+      <SF.Item @label="{{capitalize inputComponent}} input">
+        <PageComponents::Copy::Button::CopyButtonWithHtmlInput @inputComponent={{inputComponent}} />
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+</section>
