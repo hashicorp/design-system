@@ -4,22 +4,18 @@
  */
 
 import Route from '@ember/routing/route';
-import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  role: 'Owner' | 'Admin' | 'Contributor';
-}
+import { fetchJson } from 'showcase/utils/fetchJson';
+
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+import type { User } from 'showcase/utils/fetchJson/types';
 
 export type PageComponentsPaginationModel =
   ModelFrom<PageComponentsPaginationRoute>;
 
 export default class PageComponentsPaginationRoute extends Route {
   async model() {
-    const response = await fetch('/api/mock-users.json');
-    const records = (await response.json()) as User[];
+    const records = await fetchJson<User[]>('/api/mock-users.json');
 
     return { records };
   }
