@@ -17,8 +17,7 @@ const STATES = ['default', 'hover', 'active', 'focus'];
 
 export default class PageComponentsTableRoute extends Route {
   async model() {
-
-    const {data: music} = await fetchJson('/api/folk.json');
+    const { data: music } = await fetchJson('/api/folk.json');
     const clusters = await fetchJson('/api/mock-clusters-with-status.json');
     const manycolumns = await fetchJson('/api/mock-many-columns.json');
     const selectableData = await fetchJson('/api/mock-selectable-data.json');
