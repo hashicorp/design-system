@@ -44,7 +44,7 @@ interface MusicEntity {
 }
 
 interface User {
-  id: string;
+  id: number;
   name: string;
   email: string;
   role: 'Owner' | 'Admin' | 'Contributor';
@@ -53,7 +53,7 @@ interface User {
 }
 
 interface Cluster {
-  id: string;
+  id: number;
   'peer-name': string;
   'cluster-partition': string;
   status: string;
@@ -64,7 +64,7 @@ interface Cluster {
 }
 
 interface SelectableItem {
-  id: string;
+  id: number;
   lorem: string;
   ipsum: string;
   dolor: string;
@@ -83,7 +83,7 @@ interface UserWithMoreColumns {
 }
 
 interface SpanningEntity {
-  id: string;
+  id: number;
   name?:
     | {
         text: string;
@@ -101,7 +101,7 @@ interface SpanningEntity {
 }
 
 interface Policy {
-  id: string;
+  id: number;
   name: string;
   description: string;
   status: string;
@@ -110,7 +110,7 @@ interface Policy {
 }
 
 interface PolicyCustom {
-  id: string;
+  id: number;
   name: string;
   description: string;
   status: string;
