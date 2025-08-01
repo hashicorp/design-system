@@ -3,8 +3,8 @@
 ---
 
 - Added `ember-intl` as a dependency
-- Added `hdsIntl` service for translations with default fallback values
-- Added `hds-t` helper which uses the `hds-intl` service to provide translations in templates
+- Added `hdsIntl` service for translations in HDS components with default fallback values
+- Added `hds-t` helper which uses the `hds-intl` service to provide translations in HSD templates
 
 <!-- START components/advanced-table -->
 
