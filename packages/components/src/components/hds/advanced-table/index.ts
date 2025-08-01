@@ -11,7 +11,6 @@ import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
-import { schedule } from '@ember/runloop';
 
 import HdsAdvancedTableTableModel from './models/table.ts';
 
@@ -30,7 +29,6 @@ import type {
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
 } from './types.ts';
-import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
@@ -384,23 +382,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const { isSelectable } = this.args;
     const { columns } = this._tableModel;
 
-    const DEFAULT_COLUMN_WIDTH = '1fr';
-
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    const hasCustomColumnWidths = columns.some(
-      (column) => column.width !== undefined
-    );
-
-    if (hasCustomColumnWidths) {
-      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
-      for (let i = 0; i < columns.length; i++) {
-        style += ` ${columns[i]!.width ?? DEFAULT_COLUMN_WIDTH}`;
-      }
-    } else {
-      // if there are no custom column widths, each column is the same width and they take up the available space
-      style += `repeat(${columns.length}, ${DEFAULT_COLUMN_WIDTH})`;
+    // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
+    for (let i = 0; i < columns.length; i++) {
+      style += ` ${columns[i]!.width}`;
     }
 
     return style;
@@ -445,20 +432,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return classes.join(' ');
   }
-
-  private _setColumnWidth = modifier(
-    (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
-      // eslint-disable-next-line ember/no-runloop
-      schedule('afterRender', () => {
-        const width = element.offsetWidth;
-
-        if (column.width === undefined) {
-          column.setPxWidth(width);
-          column.originalWidth = `${width}px`;
-        }
-      });
-    }
-  );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollWrapperElement = element;
