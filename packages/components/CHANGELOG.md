@@ -1,22 +1,147 @@
 # @hashicorp/design-system-components
 
+## 4.22.0
+
+### Minor Changes
+
+Added `ember-intl` as a dependency
+
+- Added `hdsIntl` service for translations in HDS components with default fallback values
+- Added `hds-t` helper which uses the `hds-intl` service to provide translations in HSD templates
+
+<!-- START components/advanced-table -->
+
+`AdvancedTable` - Translated template strings. Removed extraneous screen-reader-only text.
+
+<!-- END -->
+
+<!-- START components/app-footer -->
+
+`AppFooter` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/app-side-nav -->
+
+`AppSideNav` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/application-state -->
+
+`ApplicationState` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/code-editor -->
+
+`CodeEditor` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/dismiss-button -->
+
+`DismissButton` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/masked-input -->
+
+`MaskedInput` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/super-select -->
+
+`SuperSelect` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/pagination -->
+
+`Pagination` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/side-nav -->
+
+`SideNav` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/table -->
+
+`Table` - Translated template strings
+
+<!-- END -->
+
+<!-- START components/time -->
+
+`Time` - Translated template strings
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#2878](https://github.com/hashicorp/design-system/pull/2878)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`AppHeader` - Changed the default breakpoint from `lg` to `md`.
+
+<small class="doc-whats-new-changelog-metadata">[#3072](https://github.com/hashicorp/design-system/pull/3072)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/stepper/list -->
+
+`Stepper::List` - Fixed type for `status` argument in `List::Step` to be `HdsStepperStatuses` instead of enum `HdsStepperStatusesValues`
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3073](https://github.com/hashicorp/design-system/pull/3073)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
+
+<!-- END -->
+
+<!-- START components/table/table -->
+
+`Table::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3066](https://github.com/hashicorp/design-system/pull/3066)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/code-editor -->
+
+`CodeEditor` - fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3068](https://github.com/hashicorp/design-system/pull/3068)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.21.1
 
 [4.20.1 documentation](https://hds-website-4-20-1.vercel.app/)
 
 ### Patch Changes
 
-
 `AdvancedTable` - Removed `ember-math-helpers` dev dependency
-
 
 <small class="doc-whats-new-changelog-metadata">[#3043](https://github.com/hashicorp/design-system/pull/3043)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Form::RadioCard` - Fixed styling bug where hover styles were visible when disabled
-
 
 <small class="doc-whats-new-changelog-metadata">[#3000](https://github.com/hashicorp/design-system/pull/3000)</small>
 
@@ -28,53 +153,39 @@ Make `@ember/string` a peerDependency to allow consuming apps to choose to use `
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Form::SuperSelect` - fix type for the `@resultCountMessage` argument so it can accept a string or a function.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3008](https://github.com/hashicorp/design-system/pull/3008)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav::List::Link` - Applied transparent background to the element to avoid overlapping with previous item's focus ring
-
 
 <small class="doc-whats-new-changelog-metadata">[#3032](https://github.com/hashicorp/design-system/pull/3032)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Make the `@hasResizableColumns` argument optional for the `ThSort` component.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3051](https://github.com/hashicorp/design-system/pull/3051)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `PopoverPrimitive` - Updated type of the `anchoredPositionOptions` object in the `setUpPrimitivePopover` modifier to include `arrowSelector` from the `hds-anchored-position` modifier.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3005](https://github.com/hashicorp/design-system/pull/3005)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav::List::Link` - Removed extra transparent border and background when rendered as a `<button>` element
 
-
-
 `SideNav::List::Link` - Removed extra transparent border when rendered as a `<button>` element
-
 
 <small class="doc-whats-new-changelog-metadata">[#3026](https://github.com/hashicorp/design-system/pull/3026)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Tag` - Fixed a performance issue when many tags are present on a page caused by the ResizeObserver
-
 
 Dependencies - Added `tracked-built-ins`
 
@@ -82,17 +193,13 @@ Dependencies - Added `tracked-built-ins`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav::Panel` - Fixed issue causing the focus ring of the first and last items within the Panel to be cut off
-
 
 <small class="doc-whats-new-changelog-metadata">[#3045](https://github.com/hashicorp/design-system/pull/3045)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppHeader` - return `close` callback to the `:globalActions` and `:utilityActions` named blocks so the menu actions can be hidden programmatically when the component is in a mobile view.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3031](https://github.com/hashicorp/design-system/pull/3031)</small>
 
