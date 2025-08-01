@@ -4,6 +4,9 @@
  */
 
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
+
+import type HdsIntlService from '../../../services/hds-intl';
 
 export interface HdsDismissButtonSignature {
   Args: {
@@ -13,12 +16,14 @@ export interface HdsDismissButtonSignature {
 }
 
 export default class HdsDismissButton extends Component<HdsDismissButtonSignature> {
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'Dismiss'
-   */
+  @service hdsIntl!: HdsIntlService;
+
   get ariaLabel(): string {
-    return this.args.ariaLabel ?? 'Dismiss';
+    return (
+      this.args.ariaLabel ??
+      this.hdsIntl.t('hds.components.dismiss-button.aria-label', {
+        default: 'Dismiss',
+      })
+    );
   }
 }

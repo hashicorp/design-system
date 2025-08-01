@@ -96,7 +96,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       .dom(
         '.hds-pagination .hds-pagination-nav__page-item:last-child .hds-pagination-nav__control',
       )
-      .hasText('page 10');
+      .hasText('Page 10');
     assert
       .dom('.hds-pagination .hds-pagination-nav__arrow--direction-next')
       .exists();
@@ -165,7 +165,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     <Hds::Pagination::Numbered @totalItems={{100}} @currentPage={{2}} />
     `);
     assert.dom('.hds-pagination-nav__number--is-selected').exists();
-    assert.dom('.hds-pagination-nav__number--is-selected').hasText('page 2');
+    assert.dom('.hds-pagination-nav__number--is-selected').hasText('Page 2');
   });
 
   // TRUNCATION

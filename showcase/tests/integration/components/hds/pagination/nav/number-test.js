@@ -29,7 +29,7 @@ module('Integration | Component | hds/pagination/nav/number', function (hooks) {
     await render(hbs`
         <Hds::Pagination::Nav::Number @page={{5}} />
       `);
-    assert.dom('.hds-pagination-nav__control').hasText('page 5');
+    assert.dom('.hds-pagination-nav__control').hasText('Page 5');
   });
 
   // SELECTED

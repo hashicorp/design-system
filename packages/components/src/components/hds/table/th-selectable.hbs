@@ -20,7 +20,6 @@
       {{on "change" this.onSelectionChange}}
     />
     {{#if this.isSortable}}
-      <span id={{this._labelId}} class="sr-only">selection state</span>
       <Hds::Table::ThButtonSort
         @sortOrder={{@sortBySelectedOrder}}
         @onClick={{@onClickSortBySelected}}

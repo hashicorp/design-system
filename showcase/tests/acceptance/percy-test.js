@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { visit, click, waitFor } from '@ember/test-helpers';
+import { visit, click, fillIn, waitFor } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import percySnapshot from '@percy/ember';
 import config from 'showcase/config/environment';
@@ -30,6 +30,14 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/foundations/focus-ring');
     await percySnapshot('FocusRing');
+
+    // Take snapshots for English, Spanish, and None (Fallback) translations
+    await visit('/internationalization/translation');
+    await percySnapshot('Translation - English');
+    await fillIn('.hds-form-select', 'es-es');
+    await percySnapshot('Translation - Spanish');
+    await fillIn('.hds-form-select', '');
+    await percySnapshot('Translation - None (Fallback)');
 
     // for the breakpoints we use a frameless page
     await visit(

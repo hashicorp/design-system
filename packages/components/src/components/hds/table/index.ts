@@ -6,9 +6,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 
+import type HdsIntlService from '../../../services/hds-intl.ts';
 import {
   HdsTableDensityValues,
   HdsTableThSortOrderValues,
@@ -89,6 +91,8 @@ export interface HdsTableSignature {
 }
 
 export default class HdsTable extends Component<HdsTableSignature> {
+  @service hdsIntl!: HdsIntlService;
+
   @tracked sortBy;
   @tracked sortOrder;
   @tracked
@@ -134,7 +138,23 @@ export default class HdsTable extends Component<HdsTableSignature> {
       return this.args.sortedMessageText;
     } else if (this.sortBy && this.sortOrder) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
+      const translatedSortOrder = {
+        [HdsTableThSortOrderValues.Asc]: this.hdsIntl.t(
+          'hds.components.common.ascending',
+          { default: 'ascending' }
+        ),
+        [HdsTableThSortOrderValues.Desc]: this.hdsIntl.t(
+          'hds.components.common.descending',
+          { default: 'descending' }
+        ),
+      }[this.sortOrder];
+      const lowerCaseTranslatedSortOrder = translatedSortOrder.toLowerCase();
+
+      return this.hdsIntl.t('hds.components.table.sorted-message-text', {
+        sortBy: this.sortBy,
+        sortOrder: lowerCaseTranslatedSortOrder,
+        default: `Sorted by ${this.sortBy} ${lowerCaseTranslatedSortOrder}`,
+      });
     } else {
       return '';
     }

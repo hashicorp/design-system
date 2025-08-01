@@ -97,6 +97,7 @@
     "babel-plugin-ember-template-compilation": "^2.4.1",
     "concurrently": "^9.1.2",
     "ember-basic-dropdown": "^8.6.1",
+    "ember-intl": "^7.3.0",
     "ember-source": "^6.4.0",
     "ember-template-lint": "^7.0.2",
     "ember-template-lint-plugin-prettier": "^5.0.0",
@@ -121,10 +122,14 @@
   },
   "peerDependencies": {
     "@ember/string": "^3.1.1 || ^4.0.0",
-    "ember-engines": ">= 0.11.0"
+    "ember-engines": ">= 0.11.0",
+    "ember-intl": "^7.3.0"
   },
   "peerDependenciesMeta": {
     "ember-engines": {
+      "optional": true
+    },
+    "ember-intl": {
       "optional": true
     }
   },
@@ -369,6 +374,7 @@
       "./helpers/hds-format-relative.js": "./dist/_app_/helpers/hds-format-relative.js",
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
+      "./helpers/hds-t.js": "./dist/_app_/helpers/hds-t.js",
       "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
       "./modifiers/hds-advanced-table-cell.js": "./dist/_app_/modifiers/hds-advanced-table-cell.js",
       "./modifiers/hds-advanced-table-cell/dom-management.js": "./dist/_app_/modifiers/hds-advanced-table-cell/dom-management.js",
@@ -385,6 +391,7 @@
       "./modifiers/hds-code-editor/types.js": "./dist/_app_/modifiers/hds-code-editor/types.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
+      "./services/hds-intl.js": "./dist/_app_/services/hds-intl.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"
     }
   },
@@ -409,7 +416,8 @@
   "files": [
     "addon-main.cjs",
     "declarations",
-    "dist"
+    "dist",
+    "translations"
   ],
   "engines": {
     "node": ">= 18"
