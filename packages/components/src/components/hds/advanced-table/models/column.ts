@@ -31,14 +31,15 @@ export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
-  @tracked isReorderable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
+  @tracked tooltip?: string = undefined;
+
+  // width properties
+  @tracked width?: string = '1fr'; // default to '1fr' to allow flexible width
   @tracked minWidth?: `${number}px` = DEFAULT_MIN_WIDTH;
   @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
-  @tracked tooltip?: string = undefined;
-  @tracked width?: string = undefined;
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
   @tracked widthDebts: Record<string, number> = {}; // used to track width changes imposed by other columns
 
@@ -127,7 +128,7 @@ export default class HdsAdvancedTableColumn {
     Object.entries(this.widthDebts).forEach(([lenderKey, amount]) => {
       const lender = this.table.getColumnByKey(lenderKey);
 
-      if (lender) {
+      if (lender !== undefined) {
         // Give the width back to the column that lent it to us
         lender.setPxWidth((lender.pxWidth ?? 0) + amount);
       }
@@ -166,11 +167,7 @@ export default class HdsAdvancedTableColumn {
     minWidth,
     maxWidth,
   }: HdsAdvancedTableColumnType): void {
-    if (width === undefined) {
-      return;
-    }
-
-    this.width = width;
+    this.width = width ?? '1fr'; // default to '1fr' if not provided
 
     // capture the width at the time of instantiation so it can be restored
     this.originalWidth = width;
