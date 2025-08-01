@@ -127,7 +127,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
       &:focus,
       &.mock-focus {
-        @include hds-focus-ring-with-pseudo-element($position: absolute);
+        @include hds-focus-ring-with-pseudo-element-focus-always-visible($position: absolute);
 
         background-color: var(--token-color-surface-interactive);
       }
