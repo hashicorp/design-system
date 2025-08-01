@@ -35,6 +35,7 @@ export default class HdsAdvancedTableColumn {
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
   @tracked tooltip?: string = undefined;
+  @tracked thElement?: HTMLDivElement = undefined;
 
   // width properties
   @tracked width?: string = '1fr'; // default to '1fr' to allow flexible width
