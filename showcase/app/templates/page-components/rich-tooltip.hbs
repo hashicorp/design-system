@@ -44,41 +44,60 @@
 
   <Shw::Text::H4>Sizes</Shw::Text::H4>
 
-  {{#let (array "inherited" "small" "medium" "large") as |sizes|}}
-    {{#each sizes as |size|}}
-      <Shw::Flex @label="{{capitalize size}} {{if (eq size 'inherited') '(default)'}}" as |SF|>
-        <SF.Item>
-          <Hds::RichTooltip as |RT|>
-            <RT.Toggle @text="Lorem ipsum dolor" @size={{if (eq size "inherited") undefined size}} />
-            <RT.Bubble>
-              <Shw::Placeholder @text="generic content" @height="40" />
-            </RT.Bubble>
-          </Hds::RichTooltip>
-        </SF.Item>
-        <SF.Item>
-          <Hds::RichTooltip as |RT|>
-            <RT.Toggle @text="Lorem ipsum dolor" @size={{if (eq size "inherited") undefined size}} @icon="info" />
-            <RT.Bubble>
-              <Shw::Placeholder @text="generic content" @height="40" />
-            </RT.Bubble>
-          </Hds::RichTooltip>
-        </SF.Item>
-        <SF.Item>
-          <Hds::RichTooltip as |RT|>
-            <RT.Toggle
-              @text="Lorem ipsum dolor"
-              @size={{if (eq size "inherited") undefined size}}
-              @icon="info"
-              @iconPosition="leading"
-            />
-            <RT.Bubble>
-              <Shw::Placeholder @text="generic content" @height="40" />
-            </RT.Bubble>
-          </Hds::RichTooltip>
-        </SF.Item>
-      </Shw::Flex>
-    {{/each}}
-  {{/let}}
+  <Shw::Flex @label="Inherited (default)" as |SF|>
+    <SF.Item>
+      <Hds::RichTooltip as |RT|>
+        <RT.Toggle @text="Lorem ipsum dolor" />
+        <RT.Bubble>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </RT.Bubble>
+      </Hds::RichTooltip>
+    </SF.Item>
+    <SF.Item>
+      <Hds::RichTooltip as |RT|>
+        <RT.Toggle @text="Lorem ipsum dolor" @icon="info" />
+        <RT.Bubble>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </RT.Bubble>
+      </Hds::RichTooltip>
+    </SF.Item>
+    <SF.Item>
+      <Hds::RichTooltip as |RT|>
+        <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @iconPosition="leading" />
+        <RT.Bubble>
+          <Shw::Placeholder @text="generic content" @height="40" />
+        </RT.Bubble>
+      </Hds::RichTooltip>
+    </SF.Item>
+  </Shw::Flex>
+  {{#each @model.TOGGLE_SIZES as |size|}}
+    <Shw::Flex @label="{{capitalize size}}" as |SF|>
+      <SF.Item>
+        <Hds::RichTooltip as |RT|>
+          <RT.Toggle @text="Lorem ipsum dolor" @size={{size}} />
+          <RT.Bubble>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </RT.Bubble>
+        </Hds::RichTooltip>
+      </SF.Item>
+      <SF.Item>
+        <Hds::RichTooltip as |RT|>
+          <RT.Toggle @text="Lorem ipsum dolor" @size={{size}} @icon="info" />
+          <RT.Bubble>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </RT.Bubble>
+        </Hds::RichTooltip>
+      </SF.Item>
+      <SF.Item>
+        <Hds::RichTooltip as |RT|>
+          <RT.Toggle @text="Lorem ipsum dolor" @size={{size}} @icon="info" @iconPosition="leading" />
+          <RT.Bubble>
+            <Shw::Placeholder @text="generic content" @height="40" />
+          </RT.Bubble>
+        </Hds::RichTooltip>
+      </SF.Item>
+    </Shw::Flex>
+  {{/each}}
 
   <Shw::Divider @level={{2}} />
 
@@ -305,22 +324,20 @@
     {{/let}}
     <SF.Item />
     <SF.Item />
-    {{#let (array "flip" "shift" "auto") as |detections|}}
-      {{#each detections as |detection|}}
-        <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
-          <Shw::Autoscrollable @verticalShift={{30}}>
-            <div class="shw-component-rich-tooltip-collision-detection-wrapper">
-              <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
-                <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-                <RT.Bubble @enableCollisionDetection={{detection}}>
-                  <Shw::Placeholder @text="generic content" @height="30" />
-                </RT.Bubble>
-              </Hds::RichTooltip>
-            </div>
-          </Shw::Autoscrollable>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
+    {{#each @model.ENABLE_COLLISION_DETECTION_OPTIONS as |detection|}}
+      <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+        <Shw::Autoscrollable @verticalShift={{30}}>
+          <div class="shw-component-rich-tooltip-collision-detection-wrapper">
+            <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+              <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
+              <RT.Bubble @enableCollisionDetection={{detection}}>
+                <Shw::Placeholder @text="generic content" @height="30" />
+              </RT.Bubble>
+            </Hds::RichTooltip>
+          </div>
+        </Shw::Autoscrollable>
+      </SF.Item>
+    {{/each}}
     <SF.Item />
   </Shw::Grid>
 
@@ -477,22 +494,20 @@
   <Shw::Text::Body>Used within a parent with explicit text alignment</Shw::Text::Body>
 
   <Shw::Grid class="shw-component-tooltip-text-alignment" @columns={{3}} {{style margin-bottom="9rem"}} as |SG|>
-    {{#let (array "left" "center" "right") as |alignments|}}
-      {{#each alignments as |alignment|}}
-        <SG.Item @label="text-align = {{alignment}}" {{style text-align=alignment}}>
-          <Shw::Outliner>
-            Lorem
-            <Hds::RichTooltip @isOpen={{true}} as |RT|>
-              <RT.Toggle @text="ipsum dolor" @isInline={{true}} @icon="info" />
-              <RT.Bubble @width="200px" @enableCollisionDetection={{false}}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </RT.Bubble>
-            </Hds::RichTooltip>
-            sit amet.
-          </Shw::Outliner>
-        </SG.Item>
-      {{/each}}
-    {{/let}}
+    {{#each @model.TEXT_ALIGNMENTS as |alignment|}}
+      <SG.Item @label="text-align = {{alignment}}" {{style text-align=alignment}}>
+        <Shw::Outliner>
+          Lorem
+          <Hds::RichTooltip @isOpen={{true}} as |RT|>
+            <RT.Toggle @text="ipsum dolor" @isInline={{true}} @icon="info" />
+            <RT.Bubble @width="200px" @enableCollisionDetection={{false}}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </RT.Bubble>
+          </Hds::RichTooltip>
+          sit amet.
+        </Shw::Outliner>
+      </SG.Item>
+    {{/each}}
   </Shw::Grid>
 
   <Shw::Divider />
@@ -860,13 +875,16 @@
         <:body as |B|>
           <B.Tr>
             <B.Td>
+              {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
               <Hds::Link::Inline @href="#showcase">{{B.data.peer-name}}</Hds::Link::Inline>
             </B.Td>
             <B.Td>
               <div class="shw-component-rich-tooltip-demo-table-cell-content-flex">
+                {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                 <Hds::Icon @name={{B.data.cluster-icon}} @isInline={{true}} />
                 <div>
                   <Hds::RichTooltip as |RT|>
+                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                     <RT.Toggle @text={{B.data.cluster-partition}} />
                     <RT.Bubble>
                       <Hds::Text::Body @size="100" @tag="p">Lorem ipsum dolor sit amet</Hds::Text::Body>
@@ -880,14 +898,18 @@
               <Hds::RichTooltip as |RT|>
                 <RT.Toggle>
                   <Hds::Badge
+                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                     @text={{capitalize B.data.status.text}}
+                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                     @color={{B.data.status.color}}
+                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                     @icon={{B.data.status.icon}}
                     @type="outlined"
                   />
                 </RT.Toggle>
                 <RT.Bubble>
                   <Hds::Text::Body @size="100" @tag="p">The status is
+                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                     <strong>{{B.data.status.text}}</strong>. Refer to the
                     <Hds::Link::Inline @href="#"> documentation</Hds::Link::Inline>
                     for more details about this status.</Hds::Text::Body>
@@ -896,6 +918,7 @@
             </B.Td>
             <B.Td>
               <Hds::RichTooltip as |RT|>
+                {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                 <RT.Toggle @text={{B.data.tagsCount}} @icon="info" @iconPosition="leading" />
                 <RT.Bubble>
                   <Hds::Text::Body @size="100" @tag="p" @weight="semibold">Tags:</Hds::Text::Body>
@@ -908,6 +931,7 @@
                   </div>
                   <Hds::Text::Body @size="100" @tag="p">
                     <Hds::Link::Inline @href="#" @icon="sidebar" @iconPosition="leading">See all
+                      {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                       {{B.data.tagsCount}}
                       tags</Hds::Link::Inline>
                   </Hds::Text::Body>
@@ -963,7 +987,7 @@
             <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
               perferendis culpa expedita assumenda at
               <Hds::RichTooltip as |RT|>
-                <RT.Toggle @etxt="nisi minus unde fuga iure" @isInline={{true}} @icon="info" @iconPosition="leading" />
+                <RT.Toggle @text="nisi minus unde fuga iure" @isInline={{true}} @icon="info" @iconPosition="leading" />
                 <RT.Bubble>
                   <Shw::Placeholder @text="generic content" @height="30" />
                 </RT.Bubble>
@@ -987,6 +1011,7 @@
           <RT.Bubble @placement="top-start">
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
               adipisicing elit.</Hds::Text::Body>
+            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5170 }}
             <Hds::Button @text="Got it" @size="small" {{on "click" RT.close}} />
           </RT.Bubble>
         </Hds::RichTooltip>
@@ -1000,6 +1025,7 @@
           <RT.Bubble @placement="top-start">
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
               adipisicing elit.</Hds::Text::Body>
+            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5170 }}
             <Hds::Button @text="Got it" @size="small" {{on "click" RT.close}} />
           </RT.Bubble>
         </Hds::RichTooltip>
@@ -1015,6 +1041,7 @@
         <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @size="medium" />
         <RT.Bubble @placement="top">
           <div class="shw-component-rich-tooltip-content-interactive">
+            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5170 }}
             <button type="button" {{on "click" RT.close}} title="Button that closes the popover on click">x</button>
             <ul>
               <li>
@@ -1030,6 +1057,7 @@
                 {{/let}}
               </li>
               <li>
+                {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5170 }}
                 <button type="button" {{on "click" RT.close}}>Got it!</button>
               </li>
             </ul>
@@ -1049,16 +1077,47 @@
 
   <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Only text">
-      <Hds::RichTooltip::Toggle @text="Lorem ipsum dolor" />
+      <Hds::PopoverPrimitive as |PP|>
+        <Hds::RichTooltip::Toggle
+          @text="Lorem ipsum dolor"
+          @popoverId="unique-popover-id"
+          @isOpen={{false}}
+          @setupPrimitiveToggle={{PP.setupPrimitiveToggle}}
+        />
+      </Hds::PopoverPrimitive>
     </SF.Item>
     <SF.Item @label="Text + Icon (trailing/default)">
-      <Hds::RichTooltip::Toggle @icon="info" @text="Lorem ipsum dolor" @iconPosition="trailing" />
+      <Hds::PopoverPrimitive as |PP|>
+        <Hds::RichTooltip::Toggle
+          @icon="info"
+          @text="Lorem ipsum dolor"
+          @iconPosition="trailing"
+          @popoverId="unique-popover-id"
+          @isOpen={{false}}
+          @setupPrimitiveToggle={{PP.setupPrimitiveToggle}}
+        />
+      </Hds::PopoverPrimitive>
     </SF.Item>
     <SF.Item @label="Icon (leading) + Text">
-      <Hds::RichTooltip::Toggle @icon="info" @iconPosition="leading" @text="Lorem ipsum dolor" />
+      <Hds::PopoverPrimitive as |PP|>
+        <Hds::RichTooltip::Toggle
+          @icon="info"
+          @iconPosition="leading"
+          @text="Lorem ipsum dolor"
+          @popoverId="unique-popover-id"
+          @isOpen={{false}}
+          @setupPrimitiveToggle={{PP.setupPrimitiveToggle}}
+        />
+      </Hds::PopoverPrimitive>
     </SF.Item>
     <SF.Item @label="Generic (yielded)">
-      <Hds::RichTooltip::Toggle>Lorem ipsum dolor</Hds::RichTooltip::Toggle>
+      <Hds::PopoverPrimitive as |PP|>
+        <Hds::RichTooltip::Toggle
+          @popoverId="unique-popover-id"
+          @isOpen={{false}}
+          @setupPrimitiveToggle={{PP.setupPrimitiveToggle}}
+        >Lorem ipsum dolor</Hds::RichTooltip::Toggle>
+      </Hds::PopoverPrimitive>
     </SF.Item>
   </Shw::Flex>
 
@@ -1070,14 +1129,28 @@
         {{#each sizes as |size|}}
           <div {{style font-size=size line-height="1.4"}}>
             Lorem
-            <Hds::RichTooltip::Toggle @icon="info" @isInline={{true}} @text="ipsum dolor" />
+            <Hds::PopoverPrimitive as |PP|>
+              <Hds::RichTooltip::Toggle
+                @icon="info"
+                @isInline={{true}}
+                @text="ipsum dolor"
+                @popoverId="unique-popover-id"
+                @isOpen={{false}}
+                @setupPrimitiveToggle={{PP.setupPrimitiveToggle}}
+              />
+            </Hds::PopoverPrimitive>
             sit amet
-            <Hds::RichTooltip::Toggle
-              @icon="info"
-              @iconPosition="leading"
-              @isInline={{true}}
-              @text="consectetur adipiscing"
-            />
+            <Hds::PopoverPrimitive as |PP|>
+              <Hds::RichTooltip::Toggle
+                @icon="info"
+                @iconPosition="leading"
+                @isInline={{true}}
+                @text="consectetur adipiscing"
+                @popoverId="unique-popover-id"
+                @isOpen={{false}}
+                @setupPrimitiveToggle={{PP.setupPrimitiveToggle}}
+              />
+            </Hds::PopoverPrimitive>
             elit.
           </div>
         {{/each}}
@@ -1085,21 +1158,46 @@
     </SF.Item>
   </Shw::Flex>
 
-  {{#let (array "small" "medium" "large") as |sizes|}}
-    {{#each sizes as |size|}}
-      <Shw::Flex @label="{{capitalize size}}" as |SF|>
-        <SF.Item>
-          <Hds::RichTooltip::Toggle @size={{size}} @text="Lorem ipsum dolor" />
-        </SF.Item>
-        <SF.Item>
-          <Hds::RichTooltip::Toggle @icon="info" @size={{size}} @text="Lorem ipsum dolor" />
-        </SF.Item>
-        <SF.Item>
-          <Hds::RichTooltip::Toggle @icon="info" @iconPosition="leading" @size={{size}} @text="Lorem ipsum dolor" />
-        </SF.Item>
-      </Shw::Flex>
-    {{/each}}
-  {{/let}}
+  {{#each @model.TOGGLE_SIZES as |size|}}
+    <Shw::Flex @label="{{capitalize size}}" as |SF|>
+      <SF.Item>
+        <Hds::PopoverPrimitive as |PP|>
+          <Hds::RichTooltip::Toggle
+            @size={{size}}
+            @text="Lorem ipsum dolor"
+            @popoverId="unique-popover-id"
+            @isOpen={{false}}
+            @setupPrimitiveToggle={{PP.setupPrimitiveToggle}}
+          />
+        </Hds::PopoverPrimitive>
+      </SF.Item>
+      <SF.Item>
+        <Hds::PopoverPrimitive as |PP|>
+          <Hds::RichTooltip::Toggle
+            @icon="info"
+            @size={{size}}
+            @text="Lorem ipsum dolor"
+            @popoverId="unique-popover-id"
+            @isOpen={{false}}
+            @setupPrimitiveToggle={{PP.setupPrimitiveToggle}}
+          />
+        </Hds::PopoverPrimitive>
+      </SF.Item>
+      <SF.Item>
+        <Hds::PopoverPrimitive as |PP|>
+          <Hds::RichTooltip::Toggle
+            @icon="info"
+            @iconPosition="leading"
+            @size={{size}}
+            @text="Lorem ipsum dolor"
+            @popoverId="unique-popover-id"
+            @isOpen={{false}}
+            @setupPrimitiveToggle={{PP.setupPrimitiveToggle}}
+          />
+        </Hds::PopoverPrimitive>
+      </SF.Item>
+    </Shw::Flex>
+  {{/each}}
 
   <Shw::Divider @level={{2}} />
 
@@ -1114,12 +1212,20 @@
       </Shw::Outliner>
     </SF.Item>
     <SF.Item @label="Bubble (popover)" class="shw-component-rich-tooltip-bubble-standalone">
-      <Hds::RichTooltip::Bubble @isOpen={{true}}>
+      {{! @glint-expect-error - @setupPrimitivePopper is a required arg, but we are not passing to test the bubble in isolation }}
+      <Hds::RichTooltip::Bubble @isOpen={{true}} @popoverId="unique-popover-id" @arrowId="unique-arrow-id">
         <Shw::Placeholder @text="generic content" width="250px" @height="40" />
       </Hds::RichTooltip::Bubble>
     </SF.Item>
     <SF.Item @label="With fixed width/height" class="shw-component-rich-tooltip-bubble-standalone">
-      <Hds::RichTooltip::Bubble @width="250px" @height="125px" @isOpen={{true}}>
+      {{! @glint-expect-error - @setupPrimitivePopper is a required arg, but we are not passing to test the bubble in isolation }}
+      <Hds::RichTooltip::Bubble
+        @width="250px"
+        @height="125px"
+        @isOpen={{true}}
+        @popoverId="unique-popover-id"
+        @arrowId="unique-arrow-id"
+      >
         <Shw::Placeholder @text="generic content" width="100%" @height="100%" />
       </Hds::RichTooltip::Bubble>
     </SF.Item>

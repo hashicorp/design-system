@@ -5,7 +5,18 @@
 
 import Route from '@ember/routing/route';
 
-import { PLACEMENTS } from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
+import { SIZES as TOGGLE_SIZES } from '@hashicorp/design-system-components/components/hds/rich-tooltip/toggle';
+import {
+  PLACEMENTS,
+  ENABLE_COLLISION_DETECTION_OPTIONS,
+} from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
+
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsRichTooltipModel =
+  ModelFrom<PageComponentsRichTooltipRoute>;
+
+type TextAlignOptions = 'left' | 'center' | 'right';
 
 export default class PageComponentsRichTooltipRoute extends Route {
   model() {
@@ -47,10 +58,15 @@ export default class PageComponentsRichTooltipRoute extends Route {
       },
     ];
 
+    const TEXT_ALIGNMENTS: TextAlignOptions[] = ['left', 'center', 'right'];
+
     return {
       PLACEMENTS,
       STATES,
       DEMO_TABLE_DATA,
+      TOGGLE_SIZES,
+      ENABLE_COLLISION_DETECTION_OPTIONS,
+      TEXT_ALIGNMENTS,
     };
   }
 }
