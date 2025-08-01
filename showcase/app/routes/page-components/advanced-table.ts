@@ -7,7 +7,7 @@ import Route from '@ember/routing/route';
 
 import { DENSITIES } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
 
-import { fetchJson } from 'showcase/utils/fetchJson';
+import fetchJson from 'showcase/utils/FetchJson';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 import type {
@@ -19,7 +19,7 @@ import type {
   SpanningEntity,
   Policy,
   PolicyCustom,
-} from 'showcase/utils/fetchJson/types';
+} from 'showcase/utils/FetchJson';
 
 export type PageComponentsAdvancedTableModel =
   ModelFrom<PageComponentsAdvancedTableRoute>;

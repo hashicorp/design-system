@@ -9,6 +9,7 @@ import type {
 } from '@hashicorp/design-system-components/components/hds/badge/types';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
+// Types for the API data used in showcase demos
 export interface MusicEntity {
   id: string;
   type: string;
@@ -101,4 +102,17 @@ export interface PolicyCustom {
   status: string;
   isOpen?: boolean;
   data?: Policy[];
+}
+
+/**
+ * Fetches JSON from a URL and returns the parsed result, typed as T.
+ */
+export default async function fetchJson<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch ${url}: ${response.status} ${response.statusText}`,
+    );
+  }
+  return response.json() as Promise<T>;
 }

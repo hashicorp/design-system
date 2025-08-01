@@ -5,10 +5,10 @@
 
 import Route from '@ember/routing/route';
 
-import { fetchJson } from 'showcase/utils/fetchJson';
+import fetchJson from 'showcase/utils/FetchJson';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
-import type { User } from 'showcase/utils/fetchJson/types';
+import type { User } from 'showcase/utils/FetchJson';
 
 export type PageComponentsPaginationModel =
   ModelFrom<PageComponentsPaginationRoute>;

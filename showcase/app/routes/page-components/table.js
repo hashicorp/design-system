@@ -6,7 +6,7 @@
 import Route from '@ember/routing/route';
 import { DENSITIES } from '@hashicorp/design-system-components/components/hds/table/index';
 
-import { fetchJson } from 'showcase/utils/fetchJson';
+import fetchJson from 'showcase/utils/FetchJson';
 
 // basic function that clones an array of objects (not deep)
 const clone = (arr) => {
