@@ -41,26 +41,35 @@ Note: If you choose to use the `Card` as a list item, you must wrap it either in
 
 ### Interactive states
 
-At the moment, we do not recommend using the Card component as an interactive element, although we may add this feature in the future. Despite this, some products have implemented designs that provide visual feedback to the user interacting with a Card by changing the elevation style (on `:hover` or `:active`).
-
-As a stopgap, we have introduced two specific arguments `@levelHover` and `@levelActive` to allow users to declare the specific "level" they want to use for each of these interactive states.
-
-<!-- TODO: this example doesn't work. should we update it or leave out for launch?
-
-!!! Warning
-
-This is only an example and not a recommendation. If you have any doubt about which level to use for the different states, please speak with your product designer or contact the Design Systems Team.
-!!!
-
-In the following example, the Card transitions between these elevations _mid → high → mid_ depending on these iteration states _rest → hover → active_:
+The `@level`, `@levelHover`, and `@levelActive` arguments can be used to declare the specific elevation of the Card for each interactive state. Following the guidelines, this example transitions between _mid → high → mid_ elevation for the corresponding interactive states; _default → hover → active_.
 
 ```handlebars
-<div class="my-custom-class-to-set-the-card-layout">
+<div class="doc-card-interactive-demo">
   <Hds::Card::Container @level="mid" @levelHover="high" @levelActive="mid" @hasBorder={{true}}>
-    <div class="my-custom-class-to-set-the-content-layout">
-      [Your content here]
-    </div>
+      <a href="#">
+        [Your static content here]
+      </a>
   </Hds::Card::Container>
 </div>
 ```
--->
+
+Using SCSS, the `.doc-card-interactive-demo` class would look something like this:
+
+```scss
+.doc-card-interactive-demo {
+  .hds-card__container {
+    a {
+      display: block;
+      padding: 16px;
+      border-radius: inherit;
+
+      &:focus {
+        outline: none;
+        box-shadow: var(--token-focus-ring-action-box-shadow);
+      }
+    }
+  }
+}
+```
+
+This example implements a basic interactive card which uses a link to wrap the entirety of the static content area. For further assistance on implementing interactive cards, [contact the Design System Team](https://helios.hashicorp.design/about/support).
