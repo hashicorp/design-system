@@ -30,9 +30,9 @@ Other button-like components can also be used as children such as the `Dropdown`
 
 ### Equal width buttons
 
-If you want buttons with equal widths, set `@isFullWidth` to `true` on the `Button` components. To constrain the overall max-width, you can also add a width to the `ButtonSet` container (via an inline style or CSS class).
+If you want buttons with equal widths, set `@isFullWidth` to `true` on the `Button` components. Since the ButtonSet is full-width (100%) by default, you will likely want to constrain its overall width by adding a `max-width` to the `ButtonSet` container (via an inline style or CSS class).
 
-Note: The ButtonSet is full-width (100%) by default.
+Note: .
 
 ```handlebars
 <Hds::ButtonSet {{style maxWidth="15rem"}}>
