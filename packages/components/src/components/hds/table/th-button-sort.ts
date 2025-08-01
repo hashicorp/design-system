@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 import {
   HdsTableThSortOrderIconValues,
@@ -15,6 +16,7 @@ import type {
   HdsTableThSortOrderIcons,
   HdsTableThSortOrderLabels,
 } from './types.ts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 export interface HdsTableThButtonSortSignature {
   Args: {
     labelId?: string;
@@ -27,6 +29,8 @@ export interface HdsTableThButtonSortSignature {
 const NOOP = () => {};
 
 export default class HdsTableThButtonSort extends Component<HdsTableThButtonSortSignature> {
+  @service hdsIntl!: HdsIntlService;
+
   // Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
   private _prefixLabelId = 'prefix-' + guidFor(this);
   private _suffixLabelId = 'suffix-' + guidFor(this);
@@ -45,9 +49,18 @@ export default class HdsTableThButtonSort extends Component<HdsTableThButtonSort
   // Determines the label (suffix) to use in the `aria-labelledby` attribute of the button,
   // used to indicate what will happen if the user clicks on the button
   get sortOrderLabel(): HdsTableThSortOrderLabels {
-    return this.args.sortOrder === HdsTableThSortOrderValues.Asc
-      ? HdsTableThSortOrderLabelValues.Desc
-      : HdsTableThSortOrderLabelValues.Asc;
+    const { sortOrder } = this.args;
+
+    const translatedLabel =
+      sortOrder === HdsTableThSortOrderValues.Asc
+        ? this.hdsIntl.t('hds.components.common.descending', {
+            default: 'descending',
+          })
+        : this.hdsIntl.t('hds.components.common.ascending', {
+            default: 'ascending',
+          });
+
+    return translatedLabel as HdsTableThSortOrderLabels;
   }
 
   get onClick(): () => void {
