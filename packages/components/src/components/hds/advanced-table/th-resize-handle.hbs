@@ -13,7 +13,11 @@
   aria-valuemin={{@column.pxMinWidth}}
   aria-valuemax={{@column.pxMaxWidth}}
   tabindex="0"
-  aria-label="Resize {{@column.label}} column"
+  aria-label={{hds-t
+    "hds.components.advanced-table.th-resize-handle.aria-label"
+    label=@column.label
+    default=(concat "Resize " @column.label " column")
+  }}
   {{this._registerHandleElement}}
   {{on "pointerdown" this.startResize}}
   {{on "keydown" this.handleKeydown}}
