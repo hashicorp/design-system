@@ -13,7 +13,7 @@ import type {
 } from '../types';
 
 export const DEFAULT_MIN_WIDTH = '150px';
-export const DEFAULT_MAX_WIDTH = '800px';
+export const DEFAULT_MAX_WIDTH = '1200px';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -23,15 +23,10 @@ function isPxSize(value?: string): boolean {
   return /^-?\d+(\.\d+)?px$/.test(value);
 }
 
-function pxToNumber(pxString: string): number {
-  return parseFloat(pxString.slice(0, -2));
-}
-
 export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
-  @tracked isReorderable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
@@ -41,6 +36,7 @@ export default class HdsAdvancedTableColumn {
   @tracked width?: string = undefined;
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
   @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
+  @tracked thElement?: HTMLDivElement = undefined;
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
@@ -48,7 +44,7 @@ export default class HdsAdvancedTableColumn {
 
   get pxWidth(): number | undefined {
     if (isPxSize(this.width)) {
-      return pxToNumber(this.width!);
+      return parseFloat(this.width!);
     }
   }
   set pxWidth(value: number) {
@@ -57,13 +53,13 @@ export default class HdsAdvancedTableColumn {
 
   get pxMinWidth(): number | undefined {
     if (isPxSize(this.minWidth)) {
-      return pxToNumber(this.minWidth!);
+      return parseFloat(this.minWidth!);
     }
   }
 
   get pxMaxWidth(): number | undefined {
     if (isPxSize(this.maxWidth)) {
-      return pxToNumber(this.maxWidth!);
+      return parseFloat(this.maxWidth!);
     }
   }
 

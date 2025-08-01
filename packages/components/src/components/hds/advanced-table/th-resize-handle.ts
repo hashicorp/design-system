@@ -129,6 +129,12 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     event.stopPropagation();
 
     const { column } = this.args;
+    const { table } = column;
+
+    if (table.columns.some((col) => col.width === undefined)) {
+      table.setInitialColumnWidths();
+    }
+
     const { next: nextColumn } = column.siblings;
 
     const currentColumnPxWidth = column.pxWidth;
@@ -168,7 +174,12 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     event.stopPropagation();
 
     const { column } = this.args;
+    const { table } = column;
     const { next: nextColumn } = column.siblings;
+
+    if (table.columns.some((col) => col.width === undefined)) {
+      table.setInitialColumnWidths();
+    }
 
     this.resizing = {
       startX: event.clientX,

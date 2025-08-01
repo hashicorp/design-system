@@ -140,6 +140,10 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
 
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
+
+    if (this.args.column !== undefined) {
+      this.args.column.thElement = element;
+    }
   }
 
   private _registerResizeHandleElement = modifier(

@@ -181,7 +181,7 @@ Reset the column to its original width by choosing the "Reset column width" opti
 </Hds::AdvancedTable>
 ```
 
-By default, the minimum and maximum width of each column are set to `150px` and `800px` respectively. This can be overridden if necessary by passing either a `minWidth` or `maxWidth` argument to the `columns` array.
+By default, the minimum and maximum width of each column are set to `150px` and `2000px` respectively. This can be overridden if necessary by passing either a `minWidth` or `maxWidth` argument to the `columns` array.
 
 ```handlebars
 <Hds::AdvancedTable

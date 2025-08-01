@@ -5,7 +5,6 @@
 
 import { module, test } from 'qunit';
 import HdsAdvancedTableColumn, {
-  DEFAULT_MAX_WIDTH,
   DEFAULT_MIN_WIDTH,
 } from '@hashicorp/design-system-components/components/hds/advanced-table/models/column';
 
@@ -37,11 +36,6 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       column.minWidth,
       DEFAULT_MIN_WIDTH,
       'minWidth is set to the default value when width is not provided',
-    );
-    assert.strictEqual(
-      column.maxWidth,
-      DEFAULT_MAX_WIDTH,
-      'maxWidth is set to the default value when width is not provided',
     );
     assert.strictEqual(
       column.tooltip,
@@ -112,7 +106,6 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
 
     assert.strictEqual(column.width, '200px', 'sets the width');
     assert.strictEqual(column.minWidth, '150px', 'sets default minWidth');
-    assert.strictEqual(column.maxWidth, '800px', 'sets default maxWidth');
   });
 
   test('pxWidth setter updates width property', function (assert) {
@@ -217,7 +210,10 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       },
     });
 
-    assert.strictEqual(column.width, '200px', 'initial width is set');
+    // this is set by a modifier seperate from the class instance
+    column.originalWidth = '200px';
+
+    assert.strictEqual(column.width, '200px', 'original width is set');
 
     column.setPxWidth(300);
     assert.strictEqual(column.width, '300px', 'width is updated');

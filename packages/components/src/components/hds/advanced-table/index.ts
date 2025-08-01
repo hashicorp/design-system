@@ -7,14 +7,13 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import type Owner from '@ember/owner';
 import { schedule } from '@ember/runloop';
-
 import HdsAdvancedTableTableModel from './models/table.ts';
 
+import type Owner from '@ember/owner';
+import type { WithBoundArgs } from '@glint/template';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
@@ -30,11 +29,11 @@ import type {
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
 } from './types.ts';
-import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
 import type HdsAdvancedTableTr from './tr.ts';
+import type HdsAdvancedTableColumnType from './models/column.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -414,21 +413,25 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _setColumnWidth = modifier(
+  // after the columns have been rendered, we need to set the original width of each column
+  private _setColumnOriginalWidth = modifier(
     (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
       // eslint-disable-next-line ember/no-runloop
       schedule('afterRender', () => {
-        const width = element.offsetWidth;
-
-        if (column.width === undefined) {
-          column.setPxWidth(width);
-          column.originalWidth = `${width}px`;
-        }
+        column.originalWidth = `${element.offsetWidth}px`;
       });
     }
   );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
+    const updateHorizontalScrollIndicators = () => {
+      if (element.clientWidth < element.scrollWidth) {
+        this.showScrollIndicatorRight = true;
+      } else {
+        this.showScrollIndicatorRight = false;
+      }
+    };
+
     this._scrollHandler = () => {
       // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
       const SCROLL_BUFFER = 6;
@@ -505,6 +508,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         updateMeasurements();
+        updateHorizontalScrollIndicators();
       });
     });
 
@@ -512,10 +516,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     updateMeasurements();
 
-    // on render check if should show right scroll indicator
-    if (element.clientWidth < element.scrollWidth) {
-      this.showScrollIndicatorRight = true;
-    }
+    // on render check if should show horizontal scroll indicators
+    updateHorizontalScrollIndicators();
 
     // on render check if should show bottom scroll indicator
     if (element.clientHeight < element.scrollHeight) {
