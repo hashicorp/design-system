@@ -8,7 +8,6 @@ import { service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 import {
   HdsTableThSortOrderIconValues,
-  HdsTableThSortOrderLabelValues,
   HdsTableThSortOrderValues,
 } from './types.ts';
 import type {
