@@ -4,26 +4,24 @@
  */
 
 import Route from '@ember/routing/route';
-import {
-  SIZES,
-  SUCCESS_ICON,
-  ERROR_ICON,
-} from '@hashicorp/design-system-components/components/hds/copy/button/index';
+
+import { SIZES } from '@hashicorp/design-system-components/components/hds/copy/button/index';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+import { INPUT_COMPONENTS as HTML_INPUT_COMPONENTS } from 'showcase/components/page-components/copy/button/copy-button-with-html-input';
+import { INPUT_COMPONENTS } from 'showcase/components/page-components/copy/button/copy-button-with-input';
+import { MASKED_INPUT_VARIANTS } from 'showcase/components/page-components/copy/button/copy-button-with-masked-input';
 
 export type PageComponentsCopyButtonModel =
   ModelFrom<PageComponentsCopyButtonRoute>;
 
 export default class PageComponentsCopyButtonRoute extends Route {
   model() {
-    // these are used only for presentation purpose in the showcase
-    const STATES = ['default', 'hover', 'active', 'focus'];
     return {
       SIZES,
-      STATES,
-      SUCCESS_ICON,
-      ERROR_ICON,
+      INPUT_COMPONENTS,
+      HTML_INPUT_COMPONENTS,
+      MASKED_INPUT_VARIANTS,
     };
   }
 }
