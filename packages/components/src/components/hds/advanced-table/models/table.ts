@@ -152,6 +152,10 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
+  getColumnByKey(key: string): HdsAdvancedTableColumn | undefined {
+    return this.columns.find((column) => column.key === key);
+  }
+
   @action
   setupData(
     args: Pick<

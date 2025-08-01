@@ -114,10 +114,6 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   ): void {
     const { onColumnResize } = this.args;
 
-    const { previous: previousColumn, next: nextColumn } = column.siblings;
-
-    previousColumn?.onNextColumnWidthRestored(column.imposedWidthDelta);
-    nextColumn?.onPreviousColumnWidthRestored();
     column.restoreWidth();
 
     if (typeof onColumnResize === 'function' && column.key !== undefined) {
