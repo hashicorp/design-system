@@ -20,9 +20,12 @@ const clone = (arr) => {
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 export default class PageComponentsTableRoute extends Route {
-   model() {
+  model() {
     return {
-      music: folkMusic.map((record) => ({ id: record.id, ...record.attributes })),
+      music: folkMusic.map((record) => ({
+        id: record.id,
+        ...record.attributes,
+      })),
       selectableData,
       selectableDataDemo1: clone(selectableData),
       selectableDataDemo2: clone(selectableData),
