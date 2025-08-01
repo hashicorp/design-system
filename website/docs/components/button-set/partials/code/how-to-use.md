@@ -1,6 +1,12 @@
 ## How to use this component
 
-The basic invocation should include two or more buttons to be provided as children:
+!!! Info
+
+For guidance on button organization, grouping of button types, and related information please refer to the [button organization](/patterns/button-organization) pattern documentation.
+
+!!!
+
+The basic invocation `ButtonSet` should include two or more buttons to be provided as children. (If used with only one button there will be no noticeable visual difference.)
 
 ```handlebars
 <Hds::ButtonSet>
@@ -9,7 +15,7 @@ The basic invocation should include two or more buttons to be provided as childr
 </Hds::ButtonSet>
 ```
 
-Other button-like components can also be used as children such as the `Dropdown`.
+Other button-like components can also be used as children such as the [Dropdown](/components/dropdown).
 
 ```handlebars
 <Hds::ButtonSet>
@@ -32,8 +38,6 @@ Other button-like components can also be used as children such as the `Dropdown`
 
 If you want buttons with equal widths, set `@isFullWidth` to `true` on the `Button` components. Since the ButtonSet is full-width (100%) by default, you will likely want to constrain its overall width by adding a `max-width` to the `ButtonSet` container (via an inline style or CSS class).
 
-Note: .
-
 ```handlebars
 <Hds::ButtonSet {{style maxWidth="15rem"}}>
   <Hds::Button @text="Save" @isFullWidth={{true}} />
@@ -41,7 +45,13 @@ Note: .
 </Hds::ButtonSet>
 ```
 
-Issue: The `Dropdown` does not have an `isFullWidth` option for the outer wrapper. Setting isFullWidth to “true” on the nested ToggleButton does not have the same effect.
+!!! Warning
+
+**Code alert**
+
+The `Dropdown` does not have an `isFullWidth` option for the outer wrapper. Setting isFullWidth to “true” on the nested ToggleButton does not have the same effect.
+
+!!!
 
 ```handlebars
 <Hds::ButtonSet>
