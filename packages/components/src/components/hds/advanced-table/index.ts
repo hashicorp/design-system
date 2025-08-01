@@ -29,6 +29,7 @@ import type {
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
 } from './types.ts';
+import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
@@ -432,6 +433,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return classes.join(' ');
   }
+
+  private _registerThElement = modifier(
+    (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
+      if (column === undefined) {
+        return;
+      }
+
+      column.thElement = element;
+    }
+  );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollWrapperElement = element;
