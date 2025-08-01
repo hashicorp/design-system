@@ -30,24 +30,18 @@ export default class HdsPaginationInfo extends Component<HdsPaginationInfoSignat
   get translatedItemsRange(): string {
     const { itemsRangeStart, itemsRangeEnd, totalItems } = this.args;
 
-    let translationKey = 'hds.components.pagination.info.page_range';
-    let interpolationProps: {
-      itemsRangeStart: number;
-      itemsRangeEnd: number;
-      totalItems?: number;
-    } = {
-      itemsRangeStart,
-      itemsRangeEnd,
-    };
-    let defaultValue = `${itemsRangeStart}–${itemsRangeEnd}`;
+    let translationKey: string;
+    let defaultValue: string;
+    let interpolationProps: object;
 
     if (this.showTotalItems) {
       translationKey = 'hds.components.pagination.info.page_range_with_total';
-      interpolationProps = {
-        ...interpolationProps,
-        totalItems,
-      };
-      defaultValue = `${defaultValue} of ${totalItems}`;
+      defaultValue = `${itemsRangeStart}–${itemsRangeEnd} of ${totalItems}`;
+      interpolationProps = { itemsRangeStart, itemsRangeEnd, totalItems };
+    } else {
+      translationKey = 'hds.components.pagination.info.page_range';
+      defaultValue = `${itemsRangeStart}–${itemsRangeEnd}`;
+      interpolationProps = { itemsRangeStart, itemsRangeEnd };
     }
 
     return this.hdsIntl.t(translationKey, {

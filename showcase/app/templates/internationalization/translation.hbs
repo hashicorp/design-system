@@ -61,7 +61,7 @@
 
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item as |SGI|>
-      <SGI.Label>Using the <code>hds-t</code> helper"</SGI.Label>
+      <SGI.Label>Using the <code>hds-t</code> helper</SGI.Label>
       <Hds::ApplicationState as |A|>
         <A.Header
           @title={{hds-t
@@ -95,7 +95,7 @@
       </Hds::ApplicationState>
     </SG.Item>
     <SG.Item as |SGI|>
-      <SGI.Label>Using the <code>ember-intl</code> <code>t</code> helper"</SGI.Label>
+      <SGI.Label>Using the <code>ember-intl</code> <code>t</code> helper</SGI.Label>
       {{#if (eq this.lang "")}}
         <Shw::Text::Body>
           <code>ember-intl</code>
@@ -116,7 +116,7 @@
       {{/if}}
     </SG.Item>
     <SG.Item as |SGI|>
-      <SGI.Label>Using the <code>hds-intl</code> service"</SGI.Label>
+      <SGI.Label>Using the <code>hds-intl</code> service</SGI.Label>
       <Hds::ApplicationState as |A|>
         <A.Header @title={{this.hdsIntlTranslations.title}} @icon="flag" />
         <A.Body @text={{this.hdsIntlTranslations.body}} />
