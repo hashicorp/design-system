@@ -14,32 +14,32 @@ export interface SelectableItem {
 const SelectableItems: SelectableItem[] = [
   {
     id: 1,
-    lorem: "1",
-    ipsum: "Cell Content",
-    dolor: "Cell Content",
-    isSelected: false
+    lorem: '1',
+    ipsum: 'Cell Content',
+    dolor: 'Cell Content',
+    isSelected: false,
   },
   {
     id: 2,
-    lorem: "2",
-    ipsum: "Cell Content",
-    dolor: "Cell Content",
-    isSelected: true
+    lorem: '2',
+    ipsum: 'Cell Content',
+    dolor: 'Cell Content',
+    isSelected: true,
   },
   {
     id: 3,
-    lorem: "3",
-    ipsum: "Cell Content",
-    dolor: "Cell Content",
-    isSelected: false
+    lorem: '3',
+    ipsum: 'Cell Content',
+    dolor: 'Cell Content',
+    isSelected: false,
   },
   {
     id: 4,
-    lorem: "4",
-    ipsum: "Cell Content",
-    dolor: "Cell Content",
-    isSelected: false
-  }
-]
+    lorem: '4',
+    ipsum: 'Cell Content',
+    dolor: 'Cell Content',
+    isSelected: false,
+  },
+];
 
 export default SelectableItems;

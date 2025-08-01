@@ -7,7 +7,7 @@ import Route from '@ember/routing/route';
 
 import { DENSITIES } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
 
-import type { ModelFrom } from 'showcase/utils/model-from-route';
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
 import clusterData from 'showcase/mocks/cluster-data';
 import folkMusic from 'showcase/mocks/folk-data';
@@ -31,7 +31,10 @@ const STATES = ['default', 'hover', 'active', 'focus'];
 export default class PageComponentsAdvancedTableRoute extends Route {
   model() {
     return {
-      music: folkMusic.map((record) => ({ id: record.id, ...record.attributes })),
+      music: folkMusic.map((record) => ({
+        id: record.id,
+        ...record.attributes,
+      })),
       userDataShort: clone(userData.slice(0, 5)),
       clusters: clusterData,
       spanningManualData: spanningCellData,

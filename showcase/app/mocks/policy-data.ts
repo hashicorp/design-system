@@ -15,59 +15,59 @@ export interface Policy {
 const Policies: Policy[] = [
   {
     id: 1,
-    name: "Policy set 1",
-    status: "PASS",
-    description: "",
+    name: 'Policy set 1',
+    status: 'PASS',
+    description: '',
     children: [
       {
         id: 11,
-        name: "test-advisory-pass.sentinel",
-        status: "PASS",
-        description: "Sample description for this thing."
+        name: 'test-advisory-pass.sentinel',
+        status: 'PASS',
+        description: 'Sample description for this thing.',
       },
       {
         id: 12,
-        name: "test-hard-mandatory-pass.sentinel",
-        status: "PASS",
-        description: "Sample description for this thing."
-      }
-    ]
+        name: 'test-hard-mandatory-pass.sentinel',
+        status: 'PASS',
+        description: 'Sample description for this thing.',
+      },
+    ],
   },
   {
     id: 2,
-    name: "Policy set 2",
-    status: "FAIL",
-    description: "",
+    name: 'Policy set 2',
+    status: 'FAIL',
+    description: '',
     isOpen: true,
     children: [
       {
         id: 21,
-        name: "test-advisory-pass.sentinel",
-        status: "PASS",
-        description: "Sample description for this thing.",
+        name: 'test-advisory-pass.sentinel',
+        status: 'PASS',
+        description: 'Sample description for this thing.',
         children: [
           {
             id: 211,
-            name: "test-advisory-pass.sentinel.primary",
-            status: "PASS",
-            description: "Sample description for this thing."
+            name: 'test-advisory-pass.sentinel.primary',
+            status: 'PASS',
+            description: 'Sample description for this thing.',
           },
           {
             id: 212,
-            name: "test-hard-mandatory-pass.sentinel.secondary",
-            status: "FAIL",
-            description: "Sample description for this thing."
-          }
-        ]
+            name: 'test-hard-mandatory-pass.sentinel.secondary',
+            status: 'FAIL',
+            description: 'Sample description for this thing.',
+          },
+        ],
       },
       {
         id: 22,
-        name: "test-hard-mandatory-pass.sentinel",
-        status: "FAIL",
-        description: "Sample description for this thing."
-      }
-    ]
-  }
-]
+        name: 'test-hard-mandatory-pass.sentinel',
+        status: 'FAIL',
+        description: 'Sample description for this thing.',
+      },
+    ],
+  },
+];
 
 export default Policies;
