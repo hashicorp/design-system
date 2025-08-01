@@ -40,10 +40,7 @@
     {{#each @model.COLORS as |color|}}
       <SF.Item @label={{capitalize color}} class="shw-component-modal-sample-item">
         <Hds::Modal open @color={{color}} id="modal-example-{{color}}" as |M|>
-          <M.Header
-            @icon={{concat (if (eq color "warning") "alert-triangle") (if (eq color "critical") "alert-diamond")}}
-            @tagline="Tagline"
-          >
+          <M.Header @icon={{get this.colorToIconMap color}} @tagline="Tagline">
             {{capitalize color}}
           </M.Header>
           <M.Body>
@@ -226,7 +223,7 @@
 
   <button type="button" {{on "click" (fn this.activateModal "basicModalActive")}}>Open basic modal</button>
 
-  {{#if this.basicModalActive}}
+  {{#if this.modals.basicModalActive}}
     <Hds::Modal id="basic-modal" @onClose={{fn this.deactivateModal "basicModalActive"}} as |M|>
       <M.Header>
         Modal title
@@ -242,7 +239,7 @@
 
   <button type="button" {{on "click" (fn this.activateModal "longModalActive")}}>Open long content modal</button>
 
-  {{#if this.longModalActive}}
+  {{#if this.modals.longModalActive}}
     <Hds::Modal id="long-modal" @size="small" @onClose={{fn this.deactivateModal "longModalActive"}} as |M|>
       <M.Header>
         Modal title
@@ -282,7 +279,7 @@
   <button type="button" {{on "click" (fn this.activateModal "formModalActive")}}>Open form modal</button>
 
   {{! template-lint-disable no-autofocus-attribute }}
-  {{#if this.formModalActive}}
+  {{#if this.modals.formModalActive}}
     <Hds::Modal id="form-modal" @onClose={{fn this.deactivateModal "formModalActive"}} as |M|>
       <M.Header>
         Why do you want to leave the beta?
@@ -311,7 +308,7 @@
 
   <button type="button" {{on "click" (fn this.activateModal "tabsModalActive")}}>Open tabs modal</button>
 
-  {{#if this.tabsModalActive}}
+  {{#if this.modals.tabsModalActive}}
     <Hds::Modal id="tabs-modal" @onClose={{fn this.deactivateModal "tabsModalActive"}} as |M|>
       <M.Header>
         Modal title
@@ -343,7 +340,7 @@
 
   <button type="button" {{on "click" (fn this.activateModal "dropdownModalActive")}}>Open dropdown modal</button>
 
-  {{#if this.dropdownModalActive}}
+  {{#if this.modals.dropdownModalActive}}
     <Hds::Modal id="dropdown-modal" @onClose={{fn this.deactivateModal "dropdownModalActive"}} as |M|>
       <M.Header>
         Modal title
@@ -369,7 +366,7 @@
 
   <button type="button" {{on "click" (fn this.activateModal "superselectModalActive1")}}>Open super-select modal (base)</button>
 
-  {{#if this.superselectModalActive1}}
+  {{#if this.modals.superselectModalActive1}}
     <Hds::Modal id="superselect-modal1" @onClose={{fn this.deactivateModal "superselectModalActive1"}} as |M|>
       <M.Header>
         Modal title
@@ -400,7 +397,7 @@
   <button type="button" {{on "click" (fn this.activateModal "superselectModalActive2")}}>Open super-select modal (with
     search) [bug]</button>
 
-  {{#if this.superselectModalActive2}}
+  {{#if this.modals.superselectModalActive2}}
     <Hds::Modal id="superselect-modal2" @onClose={{fn this.deactivateModal "superselectModalActive2"}} as |M|>
       <M.Header>
         Modal title
@@ -433,7 +430,7 @@
   <button type="button" {{on "click" (fn this.activateModal "superselectModalActive3")}}>Open super-select modal (with
     search) [fix]</button>
 
-  {{#if this.superselectModalActive3}}
+  {{#if this.modals.superselectModalActive3}}
     <Hds::Modal
       id="superselect-modal3"
       class="shw-component-modal-with-super-select-fix-overflow"
@@ -473,7 +470,7 @@
 
   <button type="button" {{on "click" (fn this.activateModal "dismissDisabledModalActive")}}>Open non-dismissable modal</button>
 
-  {{#if this.dismissDisabledModalActive}}
+  {{#if this.modals.dismissDisabledModalActive}}
     <Hds::Modal
       id="dismiss-disabled-modal"
       @isDismissDisabled={{this.isDismissDisabled}}
@@ -519,7 +516,7 @@
     </D.Interactive>
   </Hds::Dropdown>
 
-  {{#if this.dropdownInitiatedModalActive}}
+  {{#if this.modals.dropdownInitiatedModalActive}}
     <Hds::Modal
       id="dropdown-initiated-modal"
       @onClose={{fn this.deactivateModal "dropdownInitiatedModalActive"}}
@@ -549,7 +546,7 @@
     </D.Interactive>
   </Hds::Dropdown>
 
-  {{#if this.dropdownInitiatedWithReturnedFocusModalActive}}
+  {{#if this.modals.dropdownInitiatedWithReturnedFocusModalActive}}
     <Hds::Modal
       id="dropdown-initiated-modal-with-returned-focus"
       @onClose={{fn this.deactivateModal "dropdownInitiatedWithReturnedFocusModalActive"}}
@@ -573,7 +570,7 @@
 
   <button type="button" {{on "click" (fn this.activateModal "deactivateModalOnCloseActive")}}>Deactivated with `onClose`</button>
 
-  {{#if this.deactivateModalOnCloseActive}}
+  {{#if this.modals.deactivateModalOnCloseActive}}
     <Hds::Modal
       id="deactivate-modal-on-close"
       @onClose={{fn this.deactivateModal "deactivateModalOnCloseActive"}}
@@ -605,7 +602,7 @@
 
   <button type="button" {{on "click" (fn this.activateModal "deactivateModalOnDestroyActive")}}>Deactivated on destroy</button>
 
-  {{#if this.deactivateModalOnDestroyActive}}
+  {{#if this.modals.deactivateModalOnDestroyActive}}
     <Hds::Modal
       id="deactivate-modal-on-destruction"
       @onClose={{fn this.deactivateModal "deactivateModalOnDestroyActive"}}
@@ -636,7 +633,7 @@
   <button type="button" {{on "click" (fn this.activateModal "deactivateModalOnSubmitActive")}}>Deactivated on form
     submit</button>
 
-  {{#if this.deactivateModalOnSubmitActive}}
+  {{#if this.modals.deactivateModalOnSubmitActive}}
     <Hds::Modal
       id="deactivate-modal-on-submit"
       @onClose={{fn this.deactivateModal "deactivateModalOnSubmitActive"}}

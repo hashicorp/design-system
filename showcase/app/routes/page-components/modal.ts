@@ -10,6 +10,10 @@ import {
   SIZES,
 } from '@hashicorp/design-system-components/components/hds/modal/index';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsModalModel = ModelFrom<PageComponentsModalRoute>;
+
 export default class PageComponentsModalRoute extends Route {
   model() {
     const SUPERSELECT_OPTIONS1 = ['Option 1', 'Option 2', 'Option 3'];

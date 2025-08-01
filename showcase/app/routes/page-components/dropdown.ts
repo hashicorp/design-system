@@ -9,6 +9,11 @@ import { COLORS as TOGGLE_BUTTON_COLORS } from '@hashicorp/design-system-compone
 import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
 import { POSITIONS } from '@hashicorp/design-system-components/components/hds/dropdown/index';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsDropdownModel =
+  ModelFrom<PageComponentsDropdownRoute>;
+
 export default class PageComponentsDropdownRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
