@@ -172,10 +172,12 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const { column } = this.args;
     const { next: nextColumn } = column.siblings;
 
+    column.table.onStartColumnResize();
+
     this.resizing = {
       startX: event.clientX,
-      startColumnPxWidth: column.pxWidth ?? 0,
-      startNextColumnPxWidth: nextColumn?.pxWidth ?? 0,
+      startColumnPxWidth: column.pxAppliedWidth ?? 0,
+      startNextColumnPxWidth: nextColumn?.pxAppliedWidth ?? 0,
     };
 
     window.addEventListener('pointermove', this._boundResize);
@@ -201,16 +203,18 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
         startNextColumnPxWidth
       );
 
-      column.setPxWidth(startColumnPxWidth + effectiveDelta);
+      column.setPxTransientWidth(startColumnPxWidth + effectiveDelta);
 
       // the actual new column width may differ from the intended width due to min/max constraints.
-      const actualNewColumnWidth = column.pxWidth ?? startColumnPxWidth;
+      const actualNewColumnWidth = column.pxAppliedWidth ?? startColumnPxWidth;
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
-      nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
+      nextColumn.setPxTransientWidth(
+        startNextColumnPxWidth - actualAppliedDelta
+      );
       this._tempXDelta = actualAppliedDelta;
     } else {
-      column.setPxWidth(startColumnPxWidth + deltaX);
+      column.setPxTransientWidth(startColumnPxWidth + deltaX);
     }
   }
 
@@ -238,16 +242,27 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
   private _stopResize(): void {
     const { column } = this.args;
+    const { next: nextColumn } = column.siblings;
 
     window.removeEventListener('pointermove', this._boundResize);
     window.removeEventListener('pointerup', this._boundStopResize);
 
     this._setWidthDebts();
 
-    this.onColumnResize(column.key, column.width);
+    // apply the final width to the columns
+    column.width = column.appliedWidth;
+    if (nextColumn !== undefined) {
+      nextColumn.width = nextColumn.appliedWidth;
+    }
 
-    this._tempXDelta = 0;
+    // reset the transient width
+    column.table.onStopColumnResize();
+
+    // reset the resizing state
     this.resizing = null;
+    this._tempXDelta = 0;
+
+    this.onColumnResize(column.key, column.appliedWidth);
   }
 
   private _addDebt(

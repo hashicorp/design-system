@@ -152,6 +152,19 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
+  onStartColumnResize(): void {
+    this.columns.forEach((column) => {
+      column.pxTransientWidth =
+        column.pxWidth ?? column.thElement?.offsetWidth ?? 0;
+    });
+  }
+
+  onStopColumnResize(): void {
+    this.columns.forEach((column) => {
+      column.pxTransientWidth = undefined;
+    });
+  }
+
   getColumnByKey(key: string): HdsAdvancedTableColumn | undefined {
     return this.columns.find((column) => column.key === key);
   }
