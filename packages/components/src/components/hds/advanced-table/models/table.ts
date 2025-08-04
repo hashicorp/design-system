@@ -155,8 +155,7 @@ export default class HdsAdvancedTableTableModel {
 
   onStartColumnResize(): void {
     this.columns.forEach((column) => {
-      const width =
-        column.pxWidth ?? column.thElement?.getBoundingClientRect().width ?? 0;
+      const width = column.pxWidth ?? column.thElement?.offsetWidth ?? 0;
 
       column.pxTransientWidth = width;
     });
