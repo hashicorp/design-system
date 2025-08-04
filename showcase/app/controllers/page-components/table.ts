@@ -211,9 +211,10 @@ export default class PageComponentsTableController extends Controller {
 
   @action
   extraOnSortCallback_demo3() {
-    console.log(
-      `extraOnSortCallback called with customSortBy='${this.customSortBy_demo3}' and customSortOrder='${this.customSortOrder_demo3}'`,
-    );
+    console.group('extraOnSortCallback called with:');
+    console.log('customSortBy:', this.customSortBy_demo3);
+    console.log('customSortOrder:', this.customSortOrder_demo3);
+    console.groupEnd();
   }
 
   // CUSTOM SORTING DEMO #4
