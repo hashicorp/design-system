@@ -2256,14 +2256,12 @@
                       {{capitalize state}}
                     </span>
                   </div>
-                  {{#if this.thResizeHandleTable}}
-                    <Hds::AdvancedTable::ThResizeHandle
-                      mock-state-value={{state}}
-                      @column={{get this.thResizeHandleTable.columns 0}}
-                      @hasResizableColumns={{true}}
-                      aria-valuenow="200"
-                    />
-                  {{/if}}
+                  <Hds::AdvancedTable::ThResizeHandle
+                    mock-state-value={{state}}
+                    @column={{get this.thResizeHandleTable.columns 0}}
+                    @hasResizableColumns={{true}}
+                    aria-valuenow="200"
+                  />
                 </Hds::Layout::Flex>
               </div>
             {{/each}}

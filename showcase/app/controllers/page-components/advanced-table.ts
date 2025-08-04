@@ -15,7 +15,7 @@ import type {
   HdsAdvancedTableOnSelectionChangeSignature,
   HdsAdvancedTableThSortOrder,
 } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
-import HdsAdvancedTable from '@hashicorp/design-system-components/components/hds/advanced-table/models/table';
+import HdsAdvancedTableModel from '@hashicorp/design-system-components/components/hds/advanced-table/models/table';
 
 // we use an array to declare the custom sorting order for the clusters' status
 const customSortingCriteriaArray = [
@@ -85,7 +85,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
   // @ts-expect-error - we need to reevaluate how we get the data for the table demos when we break up the template files into sub components
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
   @tracked focusableElementsVisible = false;
-  @deepTracked thResizeHandleTable = new HdsAdvancedTable({
+  @deepTracked thResizeHandleTable = new HdsAdvancedTableModel({
     // @ts-expect-error - this will be fixed in HDS-5090
     model: this.model.userDataShort,
     columns: [
@@ -145,7 +145,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
   onSelectionChangeLogArguments(
     args: HdsAdvancedTableOnSelectionChangeSignature,
   ) {
-    console.group('Selection Change Arguments');
+    console.group('onSelectionChangeLogArguments');
     console.log('Selection Key:', args.selectionKey);
     console.log('Checkbox Element:', args.selectionCheckboxElement);
     console.log('Selectable Rows Keys:', args.selectedRowsKeys);
@@ -221,7 +221,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsAdvancedTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
+    console.group('onSelectionChangeWithModel__demo1');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -292,7 +292,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsAdvancedTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
+    console.group('onMultiSelectPaginatedSelectionChange__demo2');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -359,7 +359,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsAdvancedTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
+    console.group('onMultiSelectUsersSelectionChange__demo3');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -396,7 +396,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
   onMultiSelectSelectionChange__demo4({
     selectedRowsKeys,
   }: HdsAdvancedTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
+    console.group('onMultiSelectSelectionChange__demo4');
     console.log('Selected Rows Keys:', selectedRowsKeys);
     console.groupEnd();
     this.multiSelectUserData__demo4.forEach((user) => {
