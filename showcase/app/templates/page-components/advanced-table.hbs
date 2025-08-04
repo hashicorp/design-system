@@ -47,7 +47,7 @@
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
       <B.Tr @selectionKey="{{B.data.id}}">
-        {{! @glint-expect-error }}
+        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
         <B.Td>
           <div class="shw-component-advanced-table-cell-content-div">
