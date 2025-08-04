@@ -22,10 +22,7 @@ const STATES = ['default', 'hover', 'active', 'focus'];
 export default class PageComponentsTableRoute extends Route {
   model() {
     return {
-      music: folkMusic.map((record) => ({
-        id: record.id,
-        ...record.attributes,
-      })),
+      music: folkMusic,
       selectableData,
       selectableDataDemo1: clone(selectableData),
       selectableDataDemo2: clone(selectableData),
