@@ -48,7 +48,6 @@ export default class HdsAdvancedTableTableModel {
   @tracked sortBy: HdsAdvancedTableTableArgs['sortBy'] = undefined;
   @tracked sortOrder: HdsAdvancedTableTableArgs['sortOrder'] =
     HdsAdvancedTableThSortOrderValues.Asc;
-  @tracked tableElement?: HTMLDivElement = undefined;
 
   childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
   hasResizableColumns?: HdsAdvancedTableTableArgs['hasResizableColumns'];
