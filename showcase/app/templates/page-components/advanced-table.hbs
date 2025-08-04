@@ -36,6 +36,7 @@
   </ul>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
@@ -129,6 +130,7 @@
   <Shw::Text::H2>Horizontal scrolling indicators</Shw::Text::H2>
   <div class="shw-component-advanced-table-fixed-width-wrapper">
     <Hds::AdvancedTable
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model.music}}
       @isStriped={{true}}
       @maxHeight="400px"
@@ -333,6 +335,7 @@
   <Shw::Text::H4>Sortable table (all columns sortable)</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -356,6 +359,7 @@
   <Shw::Text::H4>Sortable table (only some columns sortable)</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -379,6 +383,7 @@
   <Shw::Text::H4>Sortable table, one column right-aligned</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -402,6 +407,7 @@
   <Shw::Text::H4>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -536,6 +542,7 @@
   <Shw::Text::H2>Tooltip</Shw::Text::H2>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true tooltip="Artist performing the album")
@@ -629,6 +636,7 @@
 
   <Shw::Text::H2>Resizable columns</Shw::Text::H2>
 
+  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
   <Hds::AdvancedTable @model={{this.model.music}} @columns={{this.columnResizeColumns}} @hasResizableColumns={{true}}>
     <:body as |B|>
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
@@ -661,6 +669,7 @@
   <Shw::Text::H4 @tag="h3">Resizable columns with sorting</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{this.columnResizeColumnsWithSorting}}
     @hasResizableColumns={{true}}
@@ -696,6 +705,7 @@
   <Shw::Text::H4 @tag="h3">Resizable columns with truncated cell content</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist")
@@ -734,6 +744,7 @@
   <Shw::Text::H4>With dynamic focusable content in cells</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist")
@@ -1131,6 +1142,7 @@
   <Shw::Text::H4 @tag="h3">Sortable table, last column not sortable, visually hidden and with custom width.</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -1166,6 +1178,7 @@
   <Shw::Text::H4 @tag="h3">Table where last column has right-aligned text</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -1192,6 +1205,7 @@
   <Shw::Text::H4 @tag="h3">Table with multi-line content</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @caption="table with multi-line content"
     @columns={{array
@@ -1219,6 +1233,7 @@
 
   <Shw::Text::H3>AdvancedTable with custom column widths</Shw::Text::H3>
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @caption="table with multi-line content"
     @columns={{array

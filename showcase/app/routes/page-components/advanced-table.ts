@@ -31,10 +31,7 @@ const STATES = ['default', 'hover', 'active', 'focus'];
 export default class PageComponentsAdvancedTableRoute extends Route {
   model() {
     return {
-      music: folkMusic.map((record) => ({
-        id: record.id,
-        ...record.attributes,
-      })),
+      music: folkMusic,
       userDataShort: clone(userData.slice(0, 5)),
       clusters: clusterData,
       spanningManualData: spanningCellData,
