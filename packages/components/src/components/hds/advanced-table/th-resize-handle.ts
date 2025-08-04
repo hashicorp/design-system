@@ -41,13 +41,10 @@ function calculateEffectiveDelta(
     const absDeltaX = -deltaX;
     const maxCanShrinkCol = startColW - colMin;
 
-    // For expanding neighbor: only clamp min width, allow shrinking from above max width
     let maxCanExpandNext: number;
     if (startNextColW > nextMax) {
-      // If neighbor is above max width, allow unlimited expansion until it reaches max width
       maxCanExpandNext = Infinity;
     } else {
-      // If neighbor is at or below max width, apply normal max width constraint
       maxCanExpandNext = nextMax - startNextColW;
     }
 
