@@ -51,7 +51,7 @@ export default class HdsAdvancedTableColumn {
   table: HdsAdvancedTableModel;
 
   get appliedWidth(): string {
-    return this.transientWidth ?? this.width ?? '1fr';
+    return this.transientWidth ?? this.width;
   }
   get pxAppliedWidth(): number | undefined {
     if (isPxSize(this.appliedWidth)) {
