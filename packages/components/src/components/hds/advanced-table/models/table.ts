@@ -48,6 +48,7 @@ export default class HdsAdvancedTableTableModel {
   @tracked sortBy: HdsAdvancedTableTableArgs['sortBy'] = undefined;
   @tracked sortOrder: HdsAdvancedTableTableArgs['sortOrder'] =
     HdsAdvancedTableThSortOrderValues.Asc;
+  @tracked tableElement?: HTMLDivElement = undefined;
 
   childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
   hasResizableColumns?: HdsAdvancedTableTableArgs['hasResizableColumns'];
@@ -154,8 +155,10 @@ export default class HdsAdvancedTableTableModel {
 
   onStartColumnResize(): void {
     this.columns.forEach((column) => {
-      column.pxTransientWidth =
-        column.pxWidth ?? column.thElement?.offsetWidth ?? 0;
+      const width =
+        column.pxWidth ?? column.thElement?.getBoundingClientRect().width ?? 0;
+
+      column.pxTransientWidth = width;
     });
   }
 
