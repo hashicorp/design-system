@@ -434,6 +434,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
+  private _registerTableElement = modifier((element: HTMLDivElement) => {
+    this._tableModel.tableElement = element;
+  });
+
   private _registerThElement = modifier(
     (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
       if (column === undefined) {
