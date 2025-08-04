@@ -285,19 +285,15 @@
   <Hds::Table @onSort={{this.extraOnSortCallback_demo3}}>
     <:head as |H|>
       <H.Tr>
-        {{#if H.setSortBy}}
-          <H.ThSort
-            @onClickSort={{fn this.onClickThSort__demo3 "peer-name" H.setSortBy}}
-            @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}
-          >Peer name</H.ThSort>
-        {{/if}}
+        <H.ThSort
+          @onClickSort={{fn this.onClickThSort__demo3 "peer-name" H.setSortBy}}
+          @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}
+        >Peer name</H.ThSort>
         <H.Th>Cluster partition</H.Th>
-        {{#if H.setSortBy}}
-          <H.ThSort
-            @onClickSort={{fn this.onClickThSort__demo3 "status" H.setSortBy}}
-            @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
-          >Status</H.ThSort>
-        {{/if}}
+        <H.ThSort
+          @onClickSort={{fn this.onClickThSort__demo3 "status" H.setSortBy}}
+          @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
+        >Status</H.ThSort>
         <H.Th>Imported services</H.Th>
         <H.Th>Exported services</H.Th>
         <H.Th @align="right">Actions</H.Th>
