@@ -10,6 +10,7 @@ import {
   click,
   focus,
   setupOnerror,
+  settled,
   find,
   triggerEvent,
   triggerKeyEvent,
@@ -1927,5 +1928,70 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column')
       .doesNotExist();
+  });
+
+  // Resize behavior tests
+  test('columns will grow to fill available space when width is not explicitly set', async function (assert) {
+    this.set('width', '300px');
+
+    await render(hbs`
+      <div id="resize-test-container" {{style width=this.width}}>
+        <Hds::AdvancedTable
+          id='data-test-advanced-table'
+          @columns={{array
+            (hash key='name' label='Name')
+            (hash key='biography' label='Biography')
+            (hash key='occupation' label='Occupation')
+            (hash key='age' label='Age')
+            (hash key='hair' label='Hair Color')
+            (hash key='eyes' label='Eye Color')
+            (hash key='salary' label='Salary')
+          }}
+          @model={{array
+            (hash
+              name="John Jacob Jingleheimer Schmidt"
+              biography="A long biography text that should cause overflow. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              occupation="Professional Name Repeater"
+              age=42
+              hair="Brown"
+              eyes="Blue"
+              salary=1000000
+            )
+          }}
+        >
+          <:body as |B|>
+            <B.Tr>
+              <B.Td>{{B.data.name}}</B.Td>
+              <B.Td>{{B.data.biography}}</B.Td>
+              <B.Td>{{B.data.occupation}}</B.Td>
+              <B.Td>{{B.data.age}}</B.Td>
+              <B.Td>{{B.data.hair}}</B.Td>
+              <B.Td>{{B.data.eyes}}</B.Td>
+              <B.Td>{{B.data.salary}}</B.Td>
+            </B.Tr>
+          </:body>
+        </Hds::AdvancedTable>
+      </div>
+    `);
+
+    // eslint-disable-next-line ember/no-settled-after-test-helper
+    await settled();
+
+    const table = find('#data-test-advanced-table');
+    const container = find('#resize-test-container');
+
+    assert.ok(
+      table.offsetWidth >= container.offsetWidth,
+      'Table width is greater than the container width',
+    );
+
+    this.set('width', '100%');
+
+    await settled();
+
+    assert.ok(
+      table.offsetWidth === container.offsetWidth,
+      'Table width grows to fit container width',
+    );
   });
 });
