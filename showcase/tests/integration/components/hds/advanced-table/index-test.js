@@ -10,13 +10,23 @@ import {
   click,
   focus,
   setupOnerror,
-  settled,
   find,
+  settled,
   triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
+
+function gridValuesAreEqual(newGridValues, originalGridValues) {
+  return newGridValues.every((newGridValue, index) => {
+    const newGridValueInt = parseInt(newGridValue, 10);
+    const originalGridValueInt = parseInt(originalGridValues[index], 10);
+
+    // Allow for small pixel differences due to CSS grid subpixel rendering in different environments
+    return Math.abs(newGridValueInt - originalGridValueInt) <= 1;
+  });
+}
 
 function getTableGridValues(tableElement) {
   const computedStyle = window.getComputedStyle(tableElement);
@@ -257,7 +267,8 @@ const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
   </:body>
 </Hds::AdvancedTable>`;
 
-const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
+const hbsResizableColumnsAdvancedTable = hbs`<div style="width: 1000px;">
+  <Hds::AdvancedTable
   @model={{this.model}} @columns={{this.columns}} @hasResizableColumns={{true}} id="resize-test-table"
 >
   <:body as |B|>
@@ -266,7 +277,7 @@ const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
       <B.Td>{{B.data.col2}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::AdvancedTable>`;
+</Hds::AdvancedTable></div>`;
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -1438,19 +1449,20 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
 
     let newGridValues = getTableGridValues(table);
-    assert.notDeepEqual(
-      newGridValues,
-      originalGridValues,
-      'Grid values changed after ArrowRight',
+
+    assert.notOk(
+      gridValuesAreEqual(originalGridValues, newGridValues),
+      'Grid values are not equal after ArrowRight',
     );
 
     // Send ArrowLeft key
     await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
+
     newGridValues = getTableGridValues(table);
-    assert.deepEqual(
-      newGridValues,
-      originalGridValues,
-      'Grid values reverted after ArrowLeft',
+
+    assert.ok(
+      gridValuesAreEqual(originalGridValues, newGridValues),
+      'Grid values are equal after ArrowLeft',
     );
   });
 
@@ -1608,18 +1620,16 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     let newGridValues = getTableGridValues(table);
 
-    assert.notEqual(
-      newGridValues,
-      originalGridValues,
-      'Grid values changed after drag',
+    assert.notOk(
+      gridValuesAreEqual(originalGridValues, newGridValues),
+      'Grid values are not equal after resizing',
     );
 
     await performContextMenuAction(th, 'reset-column-width');
 
     newGridValues = getTableGridValues(table);
-    assert.deepEqual(
-      newGridValues,
-      originalGridValues,
+    assert.ok(
+      gridValuesAreEqual(originalGridValues, newGridValues),
       'Grid values reset to initial state after resetting column width',
     );
   });
