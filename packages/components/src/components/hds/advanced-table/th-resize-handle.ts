@@ -40,7 +40,16 @@ function calculateEffectiveDelta(
   else if (deltaX < 0) {
     const absDeltaX = -deltaX;
     const maxCanShrinkCol = startColW - colMin;
-    const maxCanExpandNext = nextMax - startNextColW;
+
+    // For expanding neighbor: only clamp min width, allow shrinking from above max width
+    let maxCanExpandNext: number;
+    if (startNextColW > nextMax) {
+      // If neighbor is above max width, allow unlimited expansion until it reaches max width
+      maxCanExpandNext = Infinity;
+    } else {
+      // If neighbor is at or below max width, apply normal max width constraint
+      maxCanExpandNext = nextMax - startNextColW;
+    }
 
     effectiveDelta = -Math.min(absDeltaX, maxCanShrinkCol, maxCanExpandNext);
     effectiveDelta = Math.min(0, effectiveDelta);
@@ -225,9 +234,17 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const actualNewColumnWidth = column.pxAppliedWidth ?? startColumnPxWidth;
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
-      nextColumn.setPxTransientWidth(
-        startNextColumnPxWidth - actualAppliedDelta
-      );
+      const nextColumnNewWidth = startNextColumnPxWidth - actualAppliedDelta;
+
+      // Check if the next column is outside its min/max bounds
+      const nextMaxWidth = nextColumn.pxMaxWidth ?? Infinity;
+      if (startNextColumnPxWidth > nextMaxWidth) {
+        // allow resizing if column is already above max width
+        nextColumn.pxTransientWidth = nextColumnNewWidth;
+      } else {
+        nextColumn.setPxTransientWidth(nextColumnNewWidth);
+      }
+
       this._transientDelta = actualAppliedDelta;
     } else {
       column.setPxTransientWidth(startColumnPxWidth + deltaX);
