@@ -153,7 +153,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const { column } = this.args;
     const { next: nextColumn } = column.siblings;
 
-    column.table.onStartColumnResize();
+    column.table.setTransientColumnWidths();
 
     const currentColumnPxWidth = column.pxAppliedWidth;
     const currentNextColumnPxWidth = nextColumn?.pxAppliedWidth;
@@ -181,7 +181,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     this._applyTransientWidths();
 
     // reset the transient width
-    column.table.onStopColumnResize();
+    column.table.resetTransientColumnWidths();
 
     // reset the resizing state
     this._transientDelta = 0;
@@ -197,7 +197,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const { column } = this.args;
     const { next: nextColumn } = column.siblings;
 
-    column.table.onStartColumnResize();
+    column.table.setTransientColumnWidths();
 
     this.resizing = {
       startX: event.clientX,
@@ -284,7 +284,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     this._applyTransientWidths();
 
     // reset the transient width
-    column.table.onStopColumnResize();
+    column.table.resetTransientColumnWidths();
 
     // reset the resizing state
     this.resizing = null;

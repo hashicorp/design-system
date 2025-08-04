@@ -152,7 +152,7 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
-  onStartColumnResize(): void {
+  setTransientColumnWidths(): void {
     this.columns.forEach((column) => {
       const width = column.pxWidth ?? column.thElement?.offsetWidth ?? 0;
 
@@ -160,7 +160,7 @@ export default class HdsAdvancedTableTableModel {
     });
   }
 
-  onStopColumnResize(): void {
+  resetTransientColumnWidths(): void {
     this.columns.forEach((column) => {
       column.pxTransientWidth = undefined;
     });
