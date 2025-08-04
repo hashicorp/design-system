@@ -413,6 +413,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
+    const updateHorizontalScrollIndicators = () => {
+      if (element.clientWidth < element.scrollWidth) {
+        this.showScrollIndicatorRight = true;
+      } else {
+        this.showScrollIndicatorRight = false;
+      }
+    };
+
     this._scrollHandler = () => {
       // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
       const SCROLL_BUFFER = 6;
@@ -489,6 +497,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         updateMeasurements();
+        updateHorizontalScrollIndicators();
       });
     });
 
@@ -497,9 +506,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     updateMeasurements();
 
     // on render check if should show right scroll indicator
-    if (element.clientWidth < element.scrollWidth) {
-      this.showScrollIndicatorRight = true;
-    }
+    updateHorizontalScrollIndicators();
 
     // on render check if should show bottom scroll indicator
     if (element.clientHeight < element.scrollHeight) {
