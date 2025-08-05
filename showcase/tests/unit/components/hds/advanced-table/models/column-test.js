@@ -190,21 +190,21 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
 
     column.setPxTransientWidth(100);
     assert.strictEqual(
-      column.width,
+      column.transientWidth,
       '150px',
       'respects minimum width constraint',
     );
 
     column.setPxTransientWidth(300);
     assert.strictEqual(
-      column.width,
+      column.transientWidth,
       '250px',
       'respects maximum width constraint',
     );
 
     column.setPxTransientWidth(200);
     assert.strictEqual(
-      column.width,
+      column.transientWidth,
       '200px',
       'sets exact width when within constraints',
     );
@@ -220,7 +220,7 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
 
     assert.strictEqual(column.width, '200px', 'initial width is set');
 
-    column.setPxWidth(300);
+    column.pxWidth = 300;
     assert.strictEqual(column.width, '300px', 'width is updated');
 
     column.restoreWidth();
