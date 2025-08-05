@@ -33,7 +33,7 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
   test('it provides the correct accessible name and description when passed in @text and @ariaDescribedBy content in the toggle button', async function (assert) {
     await render(
       hbs`
-        <h2 id="reveal-description">GitHub apps</h2>
+        <span id="reveal-description">GitHub apps</span>
         <Hds::Reveal @text="Show More" @ariaDescribedBy="reveal-description">
           Additional content
         </Hds::Reveal>`,
