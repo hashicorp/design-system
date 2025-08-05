@@ -9,7 +9,7 @@
   <C.Property @name="textWhenOpen" @type="string">
     Plain text which displays on the toggle button while the content is displayed.
   </C.Property>
-  <C.Property @name="ariaDescribedby" @type="string">
+  <C.Property @name="ariaDescribedBy" @type="string">
     If given the value of an element's ID, will be added as the toggle's `aria-description` attribute value.
   </C.Property>
   <C.Property @name="isOpen" @default="false" @type="boolean">
