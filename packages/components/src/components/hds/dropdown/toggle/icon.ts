@@ -7,7 +7,10 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import { HdsDropdownToggleIconSizeValues } from './types.ts';
+import {
+  HdsDropdownToggleIconSizeValues,
+  HdsDropdownToggleIconAllowedListValues,
+} from './types.ts';
 
 import type { HdsIconSignature } from '../../icon';
 import type { HdsDropdownToggleIconSizes } from './types';
@@ -17,6 +20,10 @@ import type Owner from '@ember/owner';
 
 export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
+
+export const ALLOWED_LIST: string[] = Object.values(
+  HdsDropdownToggleIconAllowedListValues
+);
 
 export interface HdsDropdownToggleIconSignature {
   Args: {
@@ -112,6 +119,17 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
    * @default true
    */
   get hasChevron(): boolean {
+    const { icon, hasChevron } = this.args;
+
+    if (icon && !ALLOWED_LIST.includes(icon) && hasChevron === false) {
+      assert(
+        `@hasChevron for "Hds::Dropdown::Toggle::Icon" must be true unless the icon is one of the following: ${ALLOWED_LIST.join(
+          ', '
+        )}; received: ${icon}`,
+        ALLOWED_LIST.includes(icon)
+      );
+    }
+
     return this.args.hasChevron ?? true;
   }
 

@@ -155,4 +155,18 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+  test('it should throw an assertion if an incorrect value for @icon is provided and @hasChevron is false', async function (assert) {
+    const errorMessage =
+      '@hasChevron for "Hds::Dropdown::Toggle::Icon" must be true unless the icon is one of the following: more-horizontal, more-vertical; received: user';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @hasChevron={{false}}/>`,
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
 });
