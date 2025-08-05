@@ -38,7 +38,10 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
           Additional content
         </Hds::Reveal>`,
     );
-    assert.dom('.hds-reveal__toggle-button').hasText('Show More').hasAria('describedby', 'reveal-description');
+    assert
+      .dom('.hds-reveal__toggle-button')
+      .hasText('Show More')
+      .hasAria('describedby', 'reveal-description');
   });
 
   test('it shows and hides passed in content when the toggle is triggered', async function (assert) {
