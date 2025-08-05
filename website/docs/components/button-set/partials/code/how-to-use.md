@@ -6,7 +6,7 @@ For guidance on button organization, grouping of button types, and related infor
 
 !!!
 
-The basic invocation `ButtonSet` should include two or more buttons to be provided as children. (If used with only one button there will be no noticeable visual difference.)
+The basic `ButtonSet` invocation should include two or more buttons to be provided as children. (If used with only one button there will be no noticeable visual difference.)
 
 ```handlebars
 <Hds::ButtonSet>
