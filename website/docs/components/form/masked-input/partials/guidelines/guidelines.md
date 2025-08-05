@@ -90,7 +90,3 @@ For tracking the number of characters entered into a MaskedInput and defining re
 ## Error validation
 
 For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
-
-## Content
-
-For high-level content recommendations, refer to our [Primitives](/components/form/primitives) documentation.

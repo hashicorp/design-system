@@ -32,7 +32,3 @@ For tracking the number of characters entered into a Textarea and defining requi
 ## Error validation
 
 For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns) documentation.
-
-## Content
-
-For high-level content recommendations, refer to our [Primitives](/components/form/primitives) documentation.

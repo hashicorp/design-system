@@ -153,8 +153,3 @@ ButtonSet is a layout component that provides consistent spacing between multipl
 </Doc::Layout>
 
 More detailed examples and guidance on button organization can be found in the [button organization](/patterns/button-organization) pattern documentation.
-
-## Content
-
-- Text should be short and to the point (~25 characters). Buttons should not consist of full sentences, but should provide enough context to be useful.
-- Language should be used consistently within each product (e.g., when using "Edit" on one page, use that same convention throughout the rest of the application, not "Change").

@@ -126,9 +126,3 @@ Badges are commonly used to communicate status of items and objects. To avoid re
 <Hds::Badge @color="success" @type="filled" @icon="check" @text="Successful" />
 <Hds::Badge @color="warning" @type="filled" @icon="alert-triangle" @text="Degraded" />
 <Hds::Badge @color="critical" @type="filled" @icon="x" @text="Error" />
-
-## Content
-
-- Labels should be short and to the point (~25 characters). They should not consist of full sentences but should provide enough context to be useful, especially when using status badges.
-- Use language consistently within each product. For example, when using “In Progress” for one badge, use that same convention throughout the rest of the application.
-- Since Badges are not interactive, they don’t support links. Consider moving the link outside of the Badge instead.
