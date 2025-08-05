@@ -1,19 +1,16 @@
-design-system-components
-==============================================================================
+# design-system-components - TEST
 
 A package containing the components for the Helios Design System.
 
 [![npm version](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components.svg)](https://badge.fury.io/js/%40hashicorp%2Fdesign-system-components)
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.28 or above
-* Ember CLI v3.28 or above
-* Node.js v16 or above
+- Ember.js v3.28 or above
+- Ember CLI v3.28 or above
+- Node.js v16 or above
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```bash
 pnpm add @hashicorp/design-system-components
@@ -43,22 +40,19 @@ sassOptions: {
 Finally, add this line to the top of your app's style file (`app.scss` or similar):
 
 ```scss
-@import '@hashicorp/design-system-components';
+@import "@hashicorp/design-system-components";
 ```
 
 ⚠️ **Notice**: our component library assumes that a `*, *::before, *::after { box-sizing: border-box; }` reset is applied globally in the CSS of the application. If in your use case this is not true, please speak with the Design Systems Team (we can try to find a workaround).
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 See the dedicated components website: https://helios.hashicorp.design/components
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [Mozilla Public License 2.0](LICENSE.md).
