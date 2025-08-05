@@ -1,4 +1,4 @@
-## General Recommendations
+## General recommendations
 
 ### Form::Label
 

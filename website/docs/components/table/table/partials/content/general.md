@@ -1,4 +1,4 @@
-## General content
+## General recommendations
 
 While we are not prescriptive about what goes into a cell, there are some best practices to consider:
 
