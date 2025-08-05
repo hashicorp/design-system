@@ -3,16 +3,16 @@
 The Dropdown component is composed of different child components each with their own APIs:
 
 - The Dropdown component
-    - Optional header and footer
+  - Optional header and footer
 - Toggle components to open/close the Dropdown
-    - ToggleButton
-    - ToggleIcon
+  - ToggleButton
+  - ToggleIcon
 - ListItem components, to build the Dropdown’s list items
-    - Description
-    - Generic
-    - Interactive
-    - Separator
-    - Title
+  - Description
+  - Generic
+  - Interactive
+  - Separator
+  - Title
 
 ### Dropdown
 
@@ -68,7 +68,7 @@ The Dropdown component is composed of different child components each with their
     If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a `block` layout.
   </C.Property>
   <C.Property @name="enableCollisionDetection" @type="boolean" @default="false" @values={{array "true" "false"}}>
-     Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.
+    Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.
   </C.Property>
   <C.Property @name="isOpen" @type="boolean" @default="false" @values={{array "true" "false"}}>
     Controls if the list should be rendered initially opened.
@@ -136,7 +136,7 @@ The `Dropdown::Toggle::Icon` component, yielded as contextual component.
     Acceptable value: any [icon](/icons/library) name.
   </C.Property>
   <C.Property @name="hasChevron" @type="boolean" @default="true">
-    Per design, `false` is only currently allowed when the "more-horizontal" icon is used; it is set to `true` by default.
+    Per design, `false` is only currently allowed when the "more-horizontal" or "more-vertical" icons are used; it is set to `true` by default.
   </C.Property>
   <C.Property @name="imageSrc" @type="string"/>
   <C.Property @name="...attributes">
@@ -295,7 +295,7 @@ The `Dropdown::ListItem::Checkmark` component, yielded as contextual component.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-    <br/><br/>
+  <br/><br/>
     In this component, the `...attributes` are not supported on the root element (an `<li>` element) but on the underlying element/component (`<button>`, `<a>`, `<LinkTo>` or `<LinkToExternal>` depending on the `@route/@href` arguments).
   </C.Property>
 </Doc::ComponentApi>
