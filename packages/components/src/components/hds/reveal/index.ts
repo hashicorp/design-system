@@ -14,6 +14,7 @@ export interface HdsRevealSignature {
     text: HdsRevealToggleButtonSignature['Args']['text'];
     textWhenOpen?: HdsRevealToggleButtonSignature['Args']['text'];
     isOpen?: HdsRevealToggleButtonSignature['Args']['isOpen'];
+    ariaDescribedby?: HdsRevealToggleButtonSignature['Args']['ariaDescribedby'];
   };
   Blocks: {
     default: [];

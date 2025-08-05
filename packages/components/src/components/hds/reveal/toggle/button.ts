@@ -11,6 +11,7 @@ export interface HdsRevealToggleButtonSignature {
   Args: {
     text: string;
     isOpen?: boolean;
+    ariaDescribedby?: string;
   };
   Element: HdsButtonSignature['Element'];
 }

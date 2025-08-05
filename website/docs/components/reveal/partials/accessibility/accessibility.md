@@ -4,6 +4,8 @@
 
 Reveal is conformant if the text does not change when the user interacts with the toggle button. In cases where the button text does change upon interaction, the toggle button is not conformant.
 
+For improved accessibility, ensure use of the `aria-describedby` attribute (see the API docs) to provide the toggle with a more accessible name.
+
 ## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:

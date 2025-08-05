@@ -9,5 +9,6 @@
   @icon="chevron-down"
   aria-expanded={{if @isOpen "true" "false"}}
   class={{this.classNames}}
+  aria-describedby={{if @ariaDescribedby @ariaDescribedby null}}
   ...attributes
 />
