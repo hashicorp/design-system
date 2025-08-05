@@ -64,7 +64,9 @@ minifyCSS: {
 Import the CSS by adding this configuration in `ember-cli-build.js`.
 
 ```js
-app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css');
+app.import(
+  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css",
+);
 ```
 
 !!! Warning
@@ -160,12 +162,14 @@ Single icons can be imported and used directly as standalone React/SVG component
 
 ```javascript
 // import the React/TypeScript file (using 'require')
-const { IconArrowRight24 } = require('@hashicorp/flight-icons/svg-react/arrow-right-24');
+const {
+  IconArrowRight24,
+} = require("@hashicorp/flight-icons/svg-react/arrow-right-24");
 // or import the React/TypeScript file (using 'import')
-import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-24';
+import { IconArrowRight24 } from "@hashicorp/flight-icons/svg-react/arrow-right-24";
 
 // elsewhere in the file
-<IconArrowRight24 />
+<IconArrowRight24 />;
 ```
 
 #### Animated icons
@@ -181,12 +185,12 @@ Then declare them the same way you would with any other icon.
 
 ```javascript
 // if you’re using the 'svg-react' icons
-import { IconLoading16 } from '@hashicorp/flight-icons/svg-react/loading-16'
-<IconLoading16 />
+import { IconLoading16 } from "@hashicorp/flight-icons/svg-react/loading-16";
+<IconLoading16 />;
 
 // if you’re using the 'svg' icons
-import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
-<InlineSvg src={svgLoading16} />
+import svgLoading16 from "@hashicorp/flight-icons/svg/loading-16.svg?include";
+<InlineSvg src={svgLoading16} />;
 ```
 
 If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
@@ -216,7 +220,7 @@ Import design tokens as CSS variables by adding one of the following lines to th
 @use "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
 
 // for HashiCorp web/marketing websites
-@use '@hashicorp/design-system-tokens/dist/marketing/css/tokens.css';
+@use "@hashicorp/design-system-tokens/dist/marketing/css/tokens.css";
 ```
 
 ### Import styles as CSS helper classes
@@ -256,11 +260,69 @@ For more examples and guidelines read [the tokens documentation](/foundations/to
 Our styles, components and icons are supported by the following browsers:
 
 | Browser        | Version         |
-|----------------|-----------------|
+| -------------- | --------------- |
 | Chrome         | last 2 versions |
 | Safari         | last 2 versions |
 | Firefox        | last 2 versions |
 | Microsoft Edge | last 2 versions |
+
+## Internationalization
+
+We use [`ember-intl`](https://github.com/ember-intl/ember-intl) to handle internationalization in HDS components.
+
+### Default behavior
+
+By default, HDS components display text in English when `ember-intl` is not installed in your application. This ensures components work out of the box without additional configuration.
+
+### Setting up internationalization
+
+To enable internationalization in your application:
+
+1. Install `ember-intl` as a peer dependency in your application:
+
+```bash
+pnpm add ember-intl
+```
+
+2. Configure your application to use one of the supported HDS translation locales.
+
+For detailed setup instructions, refer to the [ember-intl quickstart guide](https://ember-intl.github.io/ember-intl/docs/quickstart).
+
+### Translation support
+
+#### Using HDS-provided translations
+
+You can use translations provided by HDS by setting your application's locale to a supported value. Components will automatically display the appropriate translation for that locale.
+
+Currently supported locales:
+
+- `en-us` (English - United States)
+
+!!! Info
+
+**Additional locale support**
+
+We plan to add support for additional locales in the future.
+!!!
+
+#### Providing custom translations
+
+You can provide your own translations for HDS components by creating translation files that match the translation key paths used in our components.
+
+For example, to translate the "Error" text used in components:
+
+1. Create a translation key that matches the HDS path: `hds.components.common.error`
+2. Provide your translation value in the desired locale file
+
+```yaml
+# translations/fr-fr.yaml
+hds:
+  components:
+    common:
+      error: "Erreur"
+```
+
+When your application uses the `fr-fr` locale, components will display "Erreur" instead of the default English "Error".
 
 ## Code editor setup
 
