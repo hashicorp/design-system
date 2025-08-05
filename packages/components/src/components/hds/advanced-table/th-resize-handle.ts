@@ -225,13 +225,17 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
         startNextColumnPxWidth
       );
 
-      column.setPxTransientWidth(startColumnPxWidth + effectiveDelta);
+      column.setPxTransientWidth(
+        Math.round(startColumnPxWidth + effectiveDelta)
+      );
 
       // the actual new column width may differ from the intended width due to min/max constraints.
       const actualNewColumnWidth = column.pxAppliedWidth ?? startColumnPxWidth;
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
-      const nextColumnNewWidth = startNextColumnPxWidth - actualAppliedDelta;
+      const nextColumnNewWidth = Math.round(
+        startNextColumnPxWidth - actualAppliedDelta
+      );
 
       // Check if the next column is outside its min/max bounds
       const nextMaxWidth = nextColumn.pxMaxWidth ?? Infinity;
@@ -244,7 +248,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
       this._transientDelta = actualAppliedDelta;
     } else {
-      column.setPxTransientWidth(startColumnPxWidth + deltaX);
+      column.setPxTransientWidth(Math.round(startColumnPxWidth + deltaX));
     }
   }
 
