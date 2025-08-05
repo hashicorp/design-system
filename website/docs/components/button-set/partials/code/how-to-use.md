@@ -15,7 +15,7 @@ The basic invocation `ButtonSet` should include two or more buttons to be provid
 </Hds::ButtonSet>
 ```
 
-Other button-like components can also be used as children such as the [Dropdown](/components/dropdown).
+Other button-like components, such as the [Dropdown](/components/dropdown), can also be used as children.
 
 ```handlebars
 <Hds::ButtonSet>
@@ -42,31 +42,6 @@ If you want buttons with equal widths, set `@isFullWidth` to `true` on the `Butt
 <Hds::ButtonSet {{style maxWidth="15rem"}}>
   <Hds::Button @text="Save" @isFullWidth={{true}} />
   <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" @isFullWidth={{true}} />
-</Hds::ButtonSet>
-```
-
-!!! Warning
-
-**Code alert**
-
-The `Dropdown` does not have an `isFullWidth` option for the outer wrapper. Setting isFullWidth to “true” on the nested ToggleButton does not have the same effect.
-
-!!!
-
-```handlebars
-<Hds::ButtonSet>
-  <Hds::Dropdown as |D|>
-    <D.ToggleButton @isFullWidth={{true}} @color="secondary" @text="Select an option" />
-    <D.Title @text="Title Text" />
-    <D.Description @text="Descriptive text goes here." />
-    <D.Interactive @href="#">Add</D.Interactive>
-    <D.Interactive @href="#">Add More</D.Interactive>
-    <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
-    <D.Separator />
-    <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
-  </Hds::Dropdown>
-
-  <Hds::Button @isFullWidth={{true}} @text="Submit" type="submit" />
 </Hds::ButtonSet>
 ```
 
