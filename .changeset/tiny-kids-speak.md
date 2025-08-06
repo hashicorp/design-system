@@ -1,5 +1,5 @@
 ---
-"@hashicorp/design-system-components": patch
+"@hashicorp/design-system-components": minor
 ---
 
 <!-- START components/reveal -->
