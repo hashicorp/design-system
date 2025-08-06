@@ -18,6 +18,7 @@ devdot
 dialogprimitive
 dropdowm
 duplicative
+Erreur
 flexbox
 flyouts
 frontmatter
