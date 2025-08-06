@@ -4,6 +4,6 @@
 
 <!-- START components/dropdown -->
 
-`Dropdown::ToggleIcon` - Added assertion to provide improved developer guidance for the `hasChevron` attribute.
+`Dropdown` - Added assertion to the `ToggleIcon` to provide improved developer guidance for the `hasChevron` attribute
 
 <!-- END -->
