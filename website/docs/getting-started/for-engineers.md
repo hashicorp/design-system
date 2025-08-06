@@ -294,7 +294,7 @@ Support for additional locales is planned as future work.
 
 #### Providing custom translations
 
-You can provide your own translations for HDS components by creating translation files that match the [translation key paths used in our components](https://github.com/hashicorp/design-system/tree/main/packages/components/translations).
+You can provide custom translations or override existing HDS translations by creating translation files that match the [translation key paths used in our components](https://github.com/hashicorp/design-system/tree/main/packages/components/translations).
 
 For example, to translate the "Error" text used in components:
 
