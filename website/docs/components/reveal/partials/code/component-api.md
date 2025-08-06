@@ -9,6 +9,9 @@
   <C.Property @name="textWhenOpen" @type="string">
     Plain text which displays on the toggle button while the content is displayed.
   </C.Property>
+  <C.Property @name="ariaDescribedBy" @type="string">
+    Accepts a string. The ariaDescribedBy value is applied to the toggle's `aria-description` attribute value.
+  </C.Property>
   <C.Property @name="isOpen" @default="false" @type="boolean">
     Toggles the visibility of the content when the toggle button is interacted with. To display content on page load, set the value to true.
   </C.Property>
