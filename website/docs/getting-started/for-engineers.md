@@ -292,7 +292,7 @@ Currently supported locales in HDS:
 
 Support for additional locales is planned as future work.
 
-#### Providing custom translations and overriding existing translations
+#### Customizing translations
 
 You can provide custom translations or override existing HDS translations by creating translation files that match the [translation key paths used in our components](https://github.com/hashicorp/design-system/tree/main/packages/components/translations).
 
