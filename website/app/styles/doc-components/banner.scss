@@ -68,12 +68,7 @@
 
 // variants
 
-.doc-banner--type-info,
-.doc-banner--type-information {
-  --doc-banner-border-color: var(--doc-color-feedback-information-200);
-  --doc-banner-title-color: var(--doc-color-feedback-information-200);
-}
-
+// top priority
 .doc-banner--type-warning {
   --doc-banner-border-color: var(--doc-color-feedback-warning-100);
   --doc-banner-title-color: var(--doc-color-feedback-warning-100);
@@ -84,6 +79,14 @@
   --doc-banner-title-color: var(--doc-color-feedback-critical-100);
 }
 
+// mid priority
+.doc-banner--type-info,
+.doc-banner--type-information {
+  --doc-banner-border-color: var(--doc-color-feedback-information-200);
+  --doc-banner-title-color: var(--doc-color-feedback-information-200);
+}
+
+// low priority
 .doc-banner--type-insight {
   --doc-banner-title-color: var(--doc-color-black);
   position: relative;
@@ -106,4 +109,10 @@
   .doc-banner__content {
     z-index: 1;
   }
+}
+
+// no priority
+.doc-banner--type-callout {
+  --doc-banner-border-color: var(--doc-color-gray-500);
+  background: var(--doc-color-gray-600);
 }
