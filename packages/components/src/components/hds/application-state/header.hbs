@@ -5,7 +5,7 @@
 <div class="hds-application-state__header" ...attributes>
   {{#if @errorCode}}
     <Hds::Text::Body class="hds-application-state__error-code" @tag="div" @size="100" @weight="medium" @color="faint">
-      {{hds-t "hds.components.common.error" default="Error"}}
+      {{hds-t "hds.application-state.header.error" default="ERROR"}}
       {{@errorCode}}
     </Hds::Text::Body>
   {{/if}}
