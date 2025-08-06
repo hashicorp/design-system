@@ -4,12 +4,12 @@ navigation:
   order: 103
 ---
 
-!!! Info
+We’re happy to provide support to HashiCorp product teams that use Helios. Use these resources to get help.
+
+!!! callout
 
 Many resources and links on this page are only available to HashiCorp employees.
 !!!
-
-We’re happy to provide support to HashiCorp product teams that use Helios. Use these resources to get help.
 
 ## Live support
 

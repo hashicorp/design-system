@@ -1,9 +1,9 @@
-!!! Warning
+## How to use this component
+
+!!! callout
 
 This component is intended only for internal Helios use. If you need to use it, contact the Design Systems Team.
 !!!
-
-## How to use this component
 
 ### Default use for `<button>`
 
