@@ -13,7 +13,7 @@ import { HdsFormMaskedInputBase } from '@hashicorp/design-system-components/comp
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 
-import { INTERACTION_STATES } from 'showcase/utils/ComponentStates';
+import { INTERACTION_STATES } from 'showcase/utils/component-states';
 
 export interface MaskedInputStatesSignature {
   Args: {
