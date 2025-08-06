@@ -21,7 +21,7 @@ import type Owner from '@ember/owner';
 export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
 
-export const ALLOWED_LIST: string[] = Object.values(
+export const ALLOWED_ICON_LIST: string[] = Object.values(
   HdsDropdownToggleIconAllowedListValues
 );
 
@@ -119,14 +119,15 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
    * @default true
    */
   get hasChevron(): boolean {
-    const { icon, hasChevron } = this.args;
-
-    if (icon && !ALLOWED_LIST.includes(icon) && hasChevron === false) {
+    if (
+      this.args.icon &&
+      !ALLOWED_ICON_LIST.includes(this.args.icon) &&
+      this.args.hasChevron === false
+    ) {
       assert(
-        `@hasChevron for "Hds::Dropdown::Toggle::Icon" must be true unless the icon is one of the following: ${ALLOWED_LIST.join(
+        `@hasChevron for "Hds::Dropdown::Toggle::Icon" must be true unless the icon is one of the following: ${ALLOWED_ICON_LIST.join(
           ', '
-        )}; received: ${icon}`,
-        ALLOWED_LIST.includes(icon)
+        )}; received: ${this.args.icon}`
       );
     }
 
