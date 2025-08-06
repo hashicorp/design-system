@@ -290,12 +290,7 @@ Currently supported locales:
 
 - `en-us` (English - United States)
 
-!!! Info
-
-**Additional locale support**
-
-We plan to add support for additional locales in the future.
-!!!
+Support for additional locales is planned as future work.
 
 #### Providing custom translations
 
