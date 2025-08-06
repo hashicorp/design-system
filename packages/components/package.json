@@ -33,6 +33,7 @@
     "prepublishOnly": "pnpm build && test -f 'dist/styles/@hashicorp/design-system-components.css' || (echo 'The pre-compiled CSS file was not found' && exit 1)"
   },
   "dependencies": {
+    "@carbon/charts": "1.23.15",
     "@codemirror/commands": "^6.8.0",
     "@codemirror/lang-go": "^6.0.1",
     "@codemirror/lang-javascript": "^6.2.2",
@@ -199,6 +200,9 @@
       "./components/hds/button-set/index.js": "./dist/_app_/components/hds/button-set/index.js",
       "./components/hds/button/index.js": "./dist/_app_/components/hds/button/index.js",
       "./components/hds/card/container.js": "./dist/_app_/components/hds/card/container.js",
+      "./components/hds/charts/donut/data.js": "./dist/_app_/components/hds/charts/donut/data.js",
+      "./components/hds/charts/donut/index.js": "./dist/_app_/components/hds/charts/donut/index.js",
+      "./components/hds/charts/donut/options.js": "./dist/_app_/components/hds/charts/donut/options.js",
       "./components/hds/code-block/copy-button.js": "./dist/_app_/components/hds/code-block/copy-button.js",
       "./components/hds/code-block/description.js": "./dist/_app_/components/hds/code-block/description.js",
       "./components/hds/code-block/index.js": "./dist/_app_/components/hds/code-block/index.js",

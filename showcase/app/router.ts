@@ -11,31 +11,31 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function () {
-  this.route('page-foundations', { path: 'foundations' }, function () {
+Router.map(function (): void {
+  this.route('page-foundations', { path: 'foundations' }, function (): void {
     this.route('typography');
     this.route('elevation');
     this.route('focus-ring');
-    this.route('breakpoints', function () {
-      this.route('frameless', function () {
+    this.route('breakpoints', function (): void {
+      this.route('frameless', function (): void {
         this.route('demo-viewport-breakpoints-visualization');
         this.route('demo-viewport-breakpoints-visualization-with-ui-shell');
         this.route('demo-viewport-breakpoints-page-padding');
       });
     });
   });
-  this.route('page-components', { path: 'components' }, function () {
+  this.route('page-components', { path: 'components' }, function (): void {
     this.route('accordion');
     this.route('advanced-table');
     this.route('alert');
     this.route('app-footer');
-    this.route('app-header', function () {
-      this.route('frameless', function () {
+    this.route('app-header', function (): void {
+      this.route('frameless', function (): void {
         this.route('demo-responsiveness');
       });
     });
-    this.route('app-side-nav', function () {
-      this.route('frameless', function () {
+    this.route('app-side-nav', function (): void {
+      this.route('frameless', function (): void {
         this.route('demo-responsiveness');
       });
     });
@@ -46,6 +46,9 @@ Router.map(function () {
     this.route('button');
     this.route('button-set');
     this.route('card');
+    this.route('charts', function (): void {
+      this.route('donut');
+    });
     this.route('code-block');
     this.route('code-editor');
     this.route('dropdown');
