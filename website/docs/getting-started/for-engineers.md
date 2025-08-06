@@ -273,7 +273,7 @@ By default, HDS components display text in English when `ember-intl` is not inst
 ### Setting up internationalization
 
 To enable internationalization in your application:
-1. Install `ember-intl` as a peer dependency in your application:
+1. Install `ember-intl` as a dependency in your application:
 ```bash
 pnpm add ember-intl
 ```
