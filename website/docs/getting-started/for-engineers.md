@@ -286,7 +286,7 @@ For detailed setup instructions, refer to the [ember-intl quickstart guide](http
 
 You can use translations provided by HDS by setting your application's locale to a supported value. Components will automatically display the appropriate translation for that locale.
 
-Currently supported locales:
+Currently supported locales in HDS:
 
 - `en-us` (English - United States)
 
