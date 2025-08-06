@@ -159,6 +159,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   // CURRENT PAGE
+
   test('the selected page match the passed in @currentPage value', async function (assert) {
     await render(hbs`
     <Hds::Pagination::Numbered @totalItems={{100}} @currentPage={{2}} />
