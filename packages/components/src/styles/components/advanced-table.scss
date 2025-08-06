@@ -165,6 +165,7 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       text-align: center;
 
       .hds-advanced-table__th-content {
+        flex-grow: 1;
         justify-content: center;
       }
     }
@@ -174,6 +175,7 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       text-align: right;
 
       .hds-advanced-table__th-content {
+        flex-grow: 1;
         justify-content: flex-end;
       }
     }
@@ -472,20 +474,14 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
 
   .hds-advanced-table__th--align-center,
   .hds-advanced-table__td--align-center {
+    justify-content: center;
     text-align: center;
-
-    .hds-advanced-table__th-content {
-      justify-content: center;
-    }
   }
 
   .hds-advanced-table__th--align-right,
   .hds-advanced-table__td--align-right {
+    justify-content: flex-end;
     text-align: right;
-
-    .hds-advanced-table__th-content {
-      justify-content: flex-end;
-    }
   }
 
   // vertical alignment (applied at table level)
