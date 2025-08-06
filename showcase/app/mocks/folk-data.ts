@@ -3,10 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type {
-  HdsBadgeColors,
-  HdsBadgeTypes,
-} from '@hashicorp/design-system-components/components/hds/badge/types';
+import type { HdsBadgeColors } from '@hashicorp/design-system-components/components/hds/badge/types';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 export interface MusicEntity {
@@ -18,12 +15,7 @@ export interface MusicEntity {
   quote: string;
   'vinyl-cost': string;
   icon: HdsIconSignature['Args']['name'];
-  'badge-type': HdsBadgeTypes;
-  'badge-color': {
-    name: HdsBadgeColors;
-    key: number;
-  };
-  color: HdsBadgeColors;
+  'badge-color': HdsBadgeColors;
 }
 
 const FolkMusic: MusicEntity[] = [
@@ -37,12 +29,7 @@ const FolkMusic: MusicEntity[] = [
       "The song is very special. It's an old song by a guy named Nick Drake. It's called 'Pink Moon' and is actually a very good introduction to Nick Drake if you're not familiar with him. It's very transporting. And to us seemed very fitting for a beautiful drive in the country on a very special night.",
     'vinyl-cost': '29.27',
     icon: 'boundary-color',
-    'badge-type': 'outlined',
-    'badge-color': {
-      name: 'neutral',
-      key: 5,
-    },
-    color: 'neutral',
+    'badge-color': 'neutral',
   },
   {
     id: '2',
@@ -54,12 +41,7 @@ const FolkMusic: MusicEntity[] = [
       "it was the Beatles' last love letter to the world...lush, rich, smooth, epic, emotional and utterly gorgeous",
     'vinyl-cost': '25.99',
     icon: 'consul-color',
-    'badge-type': 'outlined',
-    'badge-color': {
-      name: 'neutral',
-      key: 5,
-    },
-    color: 'neutral',
+    'badge-color': 'neutral',
   },
   {
     id: '3',
@@ -71,12 +53,7 @@ const FolkMusic: MusicEntity[] = [
       'Candles in the Rain matched material and interpretation with greater skill than she had in the past, and it ranks with her finest work',
     'vinyl-cost': '46.49',
     icon: 'terraform-color',
-    'badge-type': 'outlined',
-    'badge-color': {
-      name: 'highlight',
-      key: 4,
-    },
-    color: 'highlight',
+    'badge-color': 'highlight',
   },
   {
     id: '4',
@@ -88,12 +65,7 @@ const FolkMusic: MusicEntity[] = [
       'By fusing the Chuck Berry beat of the Rolling Stones and the Beatles with the leftist, folk tradition of the folk revival, Dylan really had brought it back home, creating a new kind of rock & roll that made every type of artistic tradition available to rock.',
     'vinyl-cost': '29.00',
     icon: 'nomad-color',
-    'badge-type': 'outlined',
-    'badge-color': {
-      name: 'success',
-      key: 3,
-    },
-    color: 'success',
+    'badge-color': 'success',
   },
   {
     id: '5',
@@ -105,12 +77,7 @@ const FolkMusic: MusicEntity[] = [
       '(It) struck a chord with music fans, especially because of its attractive mixture of folk, country, gospel, and blues elements, all of them carefully understated and distanced.',
     'vinyl-cost': '16.00',
     icon: 'waypoint-color',
-    'badge-type': 'outlined',
-    'badge-color': {
-      name: 'warning',
-      key: 2,
-    },
-    color: 'warning',
+    'badge-color': 'warning',
   },
   {
     id: '6',
@@ -122,12 +89,7 @@ const FolkMusic: MusicEntity[] = [
       'Perhaps the most delicately textured album to close out the 1960s from any major rock act.',
     'vinyl-cost': '20.49',
     icon: 'vagrant-color',
-    'badge-type': 'outlined',
-    'badge-color': {
-      name: 'critical',
-      key: 1,
-    },
-    color: 'critical',
+    'badge-color': 'critical',
   },
 ];
 
