@@ -18,6 +18,7 @@ import HdsAdvancedTableTableModel from './models/table.ts';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
+  HdsAdvancedTableHorizontalAlignmentValues,
 } from './types.ts';
 import type {
   HdsAdvancedTableColumn,
@@ -45,6 +46,10 @@ export const VALIGNMENTS: HdsAdvancedTableVerticalAlignment[] = Object.values(
   HdsAdvancedTableVerticalAlignmentValues
 );
 export const DEFAULT_VALIGN = HdsAdvancedTableVerticalAlignmentValues.Top;
+
+export const ALIGNMENTS: HdsAdvancedTableHorizontalAlignment[] = Object.values(
+  HdsAdvancedTableHorizontalAlignmentValues
+);
 
 const DEFAULT_SCROLL_DIMENSIONS = {
   bottom: '0px',

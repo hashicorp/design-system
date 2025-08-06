@@ -18,7 +18,7 @@ import {
   ERROR_ICON,
 } from '@hashicorp/design-system-components/components/hds/copy/button/index';
 
-import { INTERACTION_STATES } from 'showcase/utils/ComponentStates';
+import { INTERACTION_STATES } from 'showcase/utils/component-states';
 
 export interface CopyButtonStatesSignature {
   Element: HTMLDivElement;

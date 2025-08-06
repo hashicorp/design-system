@@ -12,6 +12,7 @@ import { later } from '@ember/runloop';
 import type { PageComponentsAdvancedTableModel } from 'showcase/routes/page-components/advanced-table';
 import type { SelectableItem } from 'showcase/mocks/selectable-item-data';
 import type { User } from 'showcase/mocks/user-data';
+import clusters from 'showcase/mocks/cluster-data';
 
 import type {
   HdsAdvancedTableOnSelectionChangeSignature,
@@ -98,7 +99,7 @@ export default class PageComponentsAdvancedTableController extends Controller {
   });
 
   get clustersWithExtraData() {
-    return this.model.clusters.map((record) => {
+    return clusters.map((record) => {
       return {
         ...record,
         'status-sort-order': customSortingCriteriaArray.indexOf(
