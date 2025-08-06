@@ -9,7 +9,7 @@ import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import {
   HdsDropdownToggleIconSizeValues,
-  HdsDropdownToggleIconAllowedListValues,
+  HdsDropdownToggleIconAllowedIconValues,
 } from './types.ts';
 
 import type { HdsIconSignature } from '../../icon';
@@ -22,7 +22,7 @@ export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
 
 export const ALLOWED_LIST: string[] = Object.values(
-  HdsDropdownToggleIconAllowedListValues
+  HdsDropdownToggleIconAllowedIconValues
 );
 
 export interface HdsDropdownToggleIconSignature {
