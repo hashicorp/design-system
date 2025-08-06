@@ -23,9 +23,9 @@ export enum HdsDropdownToggleButtonColorValues {
 export type HdsDropdownToggleButtonColors =
   `${HdsDropdownToggleButtonColorValues}`;
 
-export enum HdsDropdownToggleIconAllowedListValues {
+export enum HdsDropdownToggleIconAllowedIconValues {
   MoreHorizontal = 'more-horizontal',
   MoreVertical = 'more-vertical',
 }
-export type HdsDropdownToggleIconAllowedList =
-  `${HdsDropdownToggleIconAllowedListValues}`;
+export type HdsDropdownToggleIconAllowedIcons =
+  `${HdsDropdownToggleIconAllowedIconValues}`;
