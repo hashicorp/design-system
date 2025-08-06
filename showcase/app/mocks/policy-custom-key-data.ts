@@ -38,7 +38,6 @@ const Policies: PolicyCustomData[] = [
     name: 'Policy set 2',
     status: 'FAIL',
     description: '',
-    isOpen: true,
     data: [
       {
         id: 21,
