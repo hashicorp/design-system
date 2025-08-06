@@ -270,7 +270,7 @@ We use [`ember-intl`](https://github.com/ember-intl/ember-intl) to handle intern
 
 By default, HDS components display text in English when `ember-intl` is not installed in your application. This ensures components work out of the box without additional configuration.
 
-### Setting up internationalization
+### Set up
 
 To enable internationalization in your application:
 1. Install `ember-intl` as a dependency in your application:
@@ -306,7 +306,7 @@ For example, to translate the "Error" text used in components:
 hds:
   components:
     common:
-      error: "Erreur"
+      error: Erreur
 ```
 
 When your application uses the `fr-fr` locale, components will display "Erreur" instead of the default English "Error".
