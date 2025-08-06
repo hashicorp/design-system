@@ -112,7 +112,7 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
   }
 
   /**
-   * Indicates if a dropdown chevron icon should be displayed; should be displayed unless the "more-horizontal" icon is used.
+   * Indicates if a dropdown chevron icon should be displayed; should be displayed unless the "more-horizontal" or "more-vertical" icons are used.
    *
    * @param hasChevron
    * @type {boolean}
