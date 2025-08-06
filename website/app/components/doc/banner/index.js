@@ -13,6 +13,7 @@ export const TYPES = [
   'warning',
   'critical',
   'insight',
+  'callout',
 ];
 
 export default class DocBannerComponent extends Component {
@@ -41,6 +42,9 @@ export default class DocBannerComponent extends Component {
         break;
       case 'insight':
         icon = 'bulb';
+        break;
+      case 'callout':
+        icon = 'discussion-circle';
         break;
       default:
         break;

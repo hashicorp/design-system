@@ -59,6 +59,18 @@ This is a paragraph
 - A list
 !!!
 
+A callout banner (`callout`)
+
+!!! Callout
+
+**This is the title**
+
+This is a paragraph
+- This is
+- A list
+
+!!!
+
 -----
 
 !!! Info
