@@ -1,0 +1,552 @@
+import Component from '@glimmer/component';
+import { array, hash, fn, get } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
+import { call } from '@nullvoxpopuli/ember-composable-helpers';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+
+import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
+
+// HDS Components
+import {
+  HdsBadge,
+  HdsDropdown,
+  HdsTable,
+} from '@hashicorp/design-system-components/components';
+
+import type { HdsTableThSortOrder } from '@hashicorp/design-system-components/components/hds/table/types';
+import type { PageComponentsTableModel } from 'showcase/routes/page-components/table';
+
+export interface MockTableCustomSortingSignature {
+  Args: {
+    model: PageComponentsTableModel;
+  };
+  Element: HTMLElement;
+}
+
+export default class MockTableCustomSorting extends Component<MockTableCustomSortingSignature> {
+  declare model: PageComponentsTableModel;
+
+  @tracked demoCustomSort_sortOrder = 'asc';
+  @tracked demoCustonSortYieldHead_sortBy: string | undefined = undefined;
+  @tracked demoCustonSortYieldHead_sortOrder = 'asc';
+
+  customSortingCriteriaArray = ['failing', 'active', 'establishing', 'pending'];
+
+  get clustersWithExtraData() {
+    return this.args.model.clusters.map((record) => {
+      return {
+        ...record,
+        'status-sort-order': this.customSortingCriteriaArray.indexOf(
+          record['status'],
+        ),
+      };
+    });
+  }
+
+  // CUSTOM SORTING DEMO
+  // Sortable table with custom `sortingFunction` declared in the column hash
+
+  get demoCustomSortSortingFunction(): <T>(s1: T, s2: T) => number {
+    return (s1, s2) => {
+      // check that s1 and s2 are objects and have the 'status' property
+      if (
+        s1 instanceof Object &&
+        s2 instanceof Object &&
+        'status' in s1 &&
+        'status' in s2 &&
+        typeof s1['status'] === 'string' &&
+        typeof s2['status'] === 'string'
+      ) {
+        const index1 = this.customSortingCriteriaArray.indexOf(s1['status']);
+        const index2 = this.customSortingCriteriaArray.indexOf(s2['status']);
+        if (index1 < index2) {
+          return this.demoCustomSort_sortOrder === 'asc' ? -1 : 1;
+        } else if (index1 > index2) {
+          return this.demoCustomSort_sortOrder === 'asc' ? 1 : -1;
+        } else {
+          return 0;
+        }
+      }
+      return 0;
+    };
+  }
+
+  @action
+  demoCustomSortOnSort(_sortBy: string, sortOrder: HdsTableThSortOrder) {
+    this.demoCustomSort_sortOrder = sortOrder;
+  }
+
+  // CUSTOM SORTING DEMO - YIELDED PROPS TO HEAD
+  // Sortable table with custom sorting using yielded `<ThSort>`
+
+  @action
+  onClickThSort(column: string, setSortBy?: (column: string) => void) {
+    // NOTICE: this code is a direct clone of the internal code of `Hds::Table` backing class
+    // we need to keep an internal state of the sorting
+    if (this.demoCustonSortYieldHead_sortBy === column) {
+      // check to see if the column is already sorted and invert the sort order if so
+      this.demoCustonSortYieldHead_sortOrder =
+        this.demoCustonSortYieldHead_sortOrder === 'asc' ? 'desc' : 'asc';
+    } else {
+      // otherwise, set the sort order to ascending
+      this.demoCustonSortYieldHead_sortBy = column;
+      this.demoCustonSortYieldHead_sortOrder = 'asc';
+    }
+    // update the sorting icons for the table
+    if (setSortBy && typeof setSortBy === 'function') {
+      setSortBy(column);
+    }
+  }
+
+  get demoCustomSortYieldHead_sortedData() {
+    const clonedModelClusters = Array.from(this.args.model.clusters);
+    if (this.demoCustonSortYieldHead_sortBy === 'peer-name') {
+      clonedModelClusters.sort((s1, s2) => {
+        const name1 = s1['peer-name'].toLowerCase();
+        const name2 = s2['peer-name'].toLowerCase();
+        if (name1 < name2) {
+          return this.demoCustonSortYieldHead_sortOrder === 'asc' ? -1 : 1;
+        }
+        if (name1 > name2) {
+          return this.demoCustonSortYieldHead_sortOrder === 'asc' ? 1 : -1;
+        }
+        return 0;
+      });
+    } else if (this.demoCustonSortYieldHead_sortBy === 'status') {
+      clonedModelClusters.sort((s1, s2) => {
+        const index1 = this.customSortingCriteriaArray.indexOf(s1['status']);
+        const index2 = this.customSortingCriteriaArray.indexOf(s2['status']);
+        if (index1 < index2) {
+          return this.demoCustonSortYieldHead_sortOrder === 'asc' ? -1 : 1;
+        } else if (index1 > index2) {
+          return this.demoCustonSortYieldHead_sortOrder === 'asc' ? 1 : -1;
+        } else {
+          return 0;
+        }
+      });
+    }
+    return clonedModelClusters;
+  }
+
+  @action
+  demoCustomSortYieldHead_extraOnSortCallback() {
+    console.group(
+      'demoCustomSortYieldHead_extraOnSortCallback invoked with arguments:',
+    );
+    console.log('customSortBy:', this.demoCustonSortYieldHead_sortBy);
+    console.log('customSortOrder:', this.demoCustonSortYieldHead_sortOrder);
+    console.groupEnd();
+  }
+
+  // CUSTOM SORTING DEMO - YIELDED PROPS TO HEAD + BODY
+  // Sortable table with custom sorting using yielded `<ThSort>` + `sortBy/sortOrder/setSortBy` properties
+
+  demoCustomSortYieldBody_onSort = (sortBy?: string, sortOrder?: string) => {
+    // here goes the logic for the custom sorting of the `model` array based on `sortBy/sortOrder`
+    const clonedModelClusters = Array.from(this.args.model.clusters);
+    if (sortBy === 'peer-name') {
+      clonedModelClusters.sort((s1, s2) => {
+        const name1 = s1['peer-name'].toLowerCase();
+        const name2 = s2['peer-name'].toLowerCase();
+        if (name1 < name2) {
+          return sortOrder === 'asc' ? -1 : 1;
+        }
+        if (name1 > name2) {
+          return sortOrder === 'asc' ? 1 : -1;
+        }
+        return 0;
+      });
+    } else if (sortBy === 'status') {
+      clonedModelClusters.sort((s1, s2) => {
+        const index1 = this.customSortingCriteriaArray.indexOf(s1['status']);
+        const index2 = this.customSortingCriteriaArray.indexOf(s2['status']);
+        if (index1 < index2) {
+          return sortOrder === 'asc' ? -1 : 1;
+        } else if (index1 > index2) {
+          return sortOrder === 'asc' ? 1 : -1;
+        } else {
+          return 0;
+        }
+      });
+    }
+    return clonedModelClusters;
+  };
+
+  <template>
+    <ShwTextH3>Custom sorting</ShwTextH3>
+
+    <ShwTextH4>Sortable table with custom sorting done via extra key added to
+      the data model</ShwTextH4>
+
+    <HdsTable
+      @model={{this.clustersWithExtraData}}
+      @columns={{array
+        (hash label="Peer name" isSortable=true key="peer-name")
+        (hash label="Cluster partition")
+        (hash label="Status" isSortable=true key="status-sort-order")
+        (hash label="Imported services")
+        (hash label="Exported services")
+        (hash label="Actions" align="right")
+      }}
+      @sortBy="status-sort-order"
+      @sortOrder="asc"
+    >
+      <:body as |B|>
+        <B.Tr>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.peer-name}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.cluster-partition}}</B.Td>
+          <B.Td>
+            {{#if (eq (get B.data "status") "failing")}}
+              <HdsBadge
+                @text="Failing"
+                @color="critical"
+                @icon="x"
+                @type="outlined"
+              />
+            {{else if (eq (get B.data "status") "active")}}
+              <HdsBadge
+                @text="Active"
+                @color="success"
+                @icon="check"
+                @type="outlined"
+              />
+            {{else if (eq (get B.data "status") "pending")}}
+              <HdsBadge
+                @text="Pending"
+                @color="neutral"
+                @icon="loading"
+                @type="outlined"
+              />
+            {{else if (eq (get B.data "status") "establishing")}}
+              <HdsBadge
+                @text="Establishing"
+                @color="highlight"
+                @icon="loading"
+                @type="outlined"
+              />
+            {{/if}}
+          </B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.services.imported}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.services.exported}}</B.Td>
+          <B.Td @align="right">
+            <HdsDropdown @isInline={{true}} as |dd|>
+              <dd.ToggleIcon
+                @icon="more-horizontal"
+                @text="Overflow Options"
+                @hasChevron={{false}}
+                @size="small"
+              />
+              <dd.Interactive
+                @route="page-components.table"
+              >Create</dd.Interactive>
+              <dd.Interactive
+                @route="page-components.table"
+              >Read</dd.Interactive>
+              <dd.Interactive
+                @route="page-components.table"
+              >Update</dd.Interactive>
+              <dd.Separator />
+              <dd.Interactive
+                @route="page-components.table"
+                @color="critical"
+                @icon="trash"
+              >Delete</dd.Interactive>
+            </HdsDropdown>
+          </B.Td>
+        </B.Tr>
+      </:body>
+    </HdsTable>
+
+    <ShwTextH4>Sortable table with custom
+      <code>sortingFunction</code>
+      declared in the column hash</ShwTextH4>
+
+    <HdsTable
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+      @model={{@model.clusters}}
+      @columns={{array
+        (hash label="Peer name" isSortable=true key="peer-name")
+        (hash label="Cluster partition")
+        (hash
+          label="Status"
+          isSortable=true
+          key="status"
+          sortingFunction=this.demoCustomSortSortingFunction
+        )
+        (hash label="Imported services")
+        (hash label="Exported services")
+        (hash label="Actions" align="right")
+      }}
+      @sortBy="status"
+      @sortOrder="asc"
+      @onSort={{this.demoCustomSortOnSort}}
+    >
+      <:body as |B|>
+        <B.Tr>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.peer-name}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.cluster-partition}}</B.Td>
+          <B.Td>
+            {{#if (eq (get B.data "status") "failing")}}
+              <HdsBadge
+                @text="Failing"
+                @color="critical"
+                @icon="x"
+                @type="outlined"
+              />
+            {{else if (eq (get B.data "status") "active")}}
+              <HdsBadge
+                @text="Active"
+                @color="success"
+                @icon="check"
+                @type="outlined"
+              />
+            {{else if (eq (get B.data "status") "pending")}}
+              <HdsBadge
+                @text="Pending"
+                @color="neutral"
+                @icon="loading"
+                @type="outlined"
+              />
+            {{else if (eq (get B.data "status") "establishing")}}
+              <HdsBadge
+                @text="Establishing"
+                @color="highlight"
+                @icon="loading"
+                @type="outlined"
+              />
+            {{/if}}
+          </B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.services.imported}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.services.exported}}</B.Td>
+          <B.Td @align="right">
+            <HdsDropdown @isInline={{true}} as |dd|>
+              <dd.ToggleIcon
+                @icon="more-horizontal"
+                @text="Overflow Options"
+                @hasChevron={{false}}
+                @size="small"
+              />
+              <dd.Interactive
+                @route="page-components.table"
+              >Create</dd.Interactive>
+              <dd.Interactive
+                @route="page-components.table"
+              >Read</dd.Interactive>
+              <dd.Interactive
+                @route="page-components.table"
+              >Update</dd.Interactive>
+              <dd.Separator />
+              <dd.Interactive
+                @route="page-components.table"
+                @color="critical"
+                @icon="trash"
+              >Delete</dd.Interactive>
+            </HdsDropdown>
+          </B.Td>
+        </B.Tr>
+      </:body>
+    </HdsTable>
+
+    <ShwTextH4>Sortable table with custom sorting using yielded
+      <code>&lt;ThSort&gt;</code>
+      +
+      <code>sortBy/sortOrder/setSortBy</code>
+      properties (<code>&lt;:head&gt;</code>
+      only)</ShwTextH4>
+
+    <HdsTable @onSort={{this.demoCustomSortYieldHead_extraOnSortCallback}}>
+      <:head as |H|>
+        <H.Tr>
+          <H.ThSort
+            @onClickSort={{fn this.onClickThSort "peer-name" H.setSortBy}}
+            @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}
+          >Peer name</H.ThSort>
+          <H.Th>Cluster partition</H.Th>
+          <H.ThSort
+            @onClickSort={{fn this.onClickThSort "status" H.setSortBy}}
+            @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
+          >Status</H.ThSort>
+          <H.Th>Imported services</H.Th>
+          <H.Th>Exported services</H.Th>
+          <H.Th @align="right">Actions</H.Th>
+        </H.Tr>
+      </:head>
+      <:body as |B|>
+        {{#each this.demoCustomSortYieldHead_sortedData as |item|}}
+          <B.Tr>
+            <B.Td>{{item.peer-name}}</B.Td>
+            <B.Td>{{item.cluster-partition}}</B.Td>
+            <B.Td>
+              {{#if (eq (get item "status") "failing")}}
+                <HdsBadge
+                  @text="Failing"
+                  @color="critical"
+                  @icon="x"
+                  @type="outlined"
+                />
+              {{else if (eq (get item "status") "active")}}
+                <HdsBadge
+                  @text="Active"
+                  @color="success"
+                  @icon="check"
+                  @type="outlined"
+                />
+              {{else if (eq (get item "status") "pending")}}
+                <HdsBadge
+                  @text="Pending"
+                  @color="neutral"
+                  @icon="loading"
+                  @type="outlined"
+                />
+              {{else if (eq (get item "status") "establishing")}}
+                <HdsBadge
+                  @text="Establishing"
+                  @color="highlight"
+                  @icon="loading"
+                  @type="outlined"
+                />
+              {{/if}}
+            </B.Td>
+            <B.Td>{{item.services.imported}}</B.Td>
+            <B.Td>{{item.services.exported}}</B.Td>
+            <B.Td @align="right">
+              <HdsDropdown @isInline={{true}} as |dd|>
+                <dd.ToggleIcon
+                  @icon="more-horizontal"
+                  @text="Overflow Options"
+                  @hasChevron={{false}}
+                  @size="small"
+                />
+                <dd.Interactive
+                  @route="page-components.table"
+                >Create</dd.Interactive>
+                <dd.Interactive
+                  @route="page-components.table"
+                >Read</dd.Interactive>
+                <dd.Interactive
+                  @route="page-components.table"
+                >Update</dd.Interactive>
+                <dd.Separator />
+                <dd.Interactive
+                  @route="page-components.table"
+                  @color="critical"
+                  @icon="trash"
+                >Delete</dd.Interactive>
+              </HdsDropdown>
+            </B.Td>
+          </B.Tr>
+        {{/each}}
+      </:body>
+    </HdsTable>
+
+    <ShwTextH4>Sortable table with custom sorting using yielded
+      <code>&lt;ThSort&gt;</code>
+      +
+      <code>sortBy/sortOrder/setSortBy</code>
+      properties (<code>&lt;:head&gt;</code>
+      +
+      <code>&lt;:body&gt;</code>)</ShwTextH4>
+
+    <HdsTable>
+      <:head as |H|>
+        <H.Tr>
+          {{#if H.setSortBy}}
+            <H.ThSort
+              @onClickSort={{fn H.setSortBy "peer-name"}}
+              @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}
+            >Peer name</H.ThSort>
+          {{/if}}
+          <H.Th>Cluster partition</H.Th>
+          {{#if H.setSortBy}}
+            <H.ThSort
+              @onClickSort={{fn H.setSortBy "status"}}
+              @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
+            >Status</H.ThSort>
+          {{/if}}
+          <H.Th>Imported services</H.Th>
+          <H.Th>Exported services</H.Th>
+          <H.Th @align="right">Actions</H.Th>
+        </H.Tr>
+      </:head>
+      <:body as |B|>
+        {{#each
+          (call (fn this.demoCustomSortYieldBody_onSort B.sortBy B.sortOrder))
+          as |item|
+        }}
+          <B.Tr>
+            <B.Td>{{item.peer-name}}</B.Td>
+            <B.Td>{{item.cluster-partition}}</B.Td>
+            <B.Td>
+              {{#if (eq (get item "status") "failing")}}
+                <HdsBadge
+                  @text="Failing"
+                  @color="critical"
+                  @icon="x"
+                  @type="outlined"
+                />
+              {{else if (eq (get item "status") "active")}}
+                <HdsBadge
+                  @text="Active"
+                  @color="success"
+                  @icon="check"
+                  @type="outlined"
+                />
+              {{else if (eq (get item "status") "pending")}}
+                <HdsBadge
+                  @text="Pending"
+                  @color="neutral"
+                  @icon="loading"
+                  @type="outlined"
+                />
+              {{else if (eq (get item "status") "establishing")}}
+                <HdsBadge
+                  @text="Establishing"
+                  @color="highlight"
+                  @icon="loading"
+                  @type="outlined"
+                />
+              {{/if}}
+            </B.Td>
+            <B.Td>{{item.services.imported}}</B.Td>
+            <B.Td>{{item.services.exported}}</B.Td>
+            <B.Td @align="right">
+              <HdsDropdown @isInline={{true}} as |dd|>
+                <dd.ToggleIcon
+                  @icon="more-horizontal"
+                  @text="Overflow Options"
+                  @hasChevron={{false}}
+                  @size="small"
+                />
+                <dd.Interactive
+                  @route="page-components.table"
+                >Create</dd.Interactive>
+                <dd.Interactive
+                  @route="page-components.table"
+                >Read</dd.Interactive>
+                <dd.Interactive
+                  @route="page-components.table"
+                >Update</dd.Interactive>
+                <dd.Separator />
+                <dd.Interactive
+                  @route="page-components.table"
+                  @color="critical"
+                  @icon="trash"
+                >Delete</dd.Interactive>
+              </HdsDropdown>
+            </B.Td>
+          </B.Tr>
+        {{/each}}
+      </:body>
+    </HdsTable>
+  </template>
+}
