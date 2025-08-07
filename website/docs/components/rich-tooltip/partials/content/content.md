@@ -12,13 +12,13 @@ This is a common use case for a Rich Tooltip due to the lack of support for inte
 
 Compared to the "standard" [Tooltip](/components/tooltip), the Rich Tooltip supports more structure and layout methods to better organize the content hierarchically.
 
-![Structured content within the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-content-structure.png)
+![Rich tooltip with paragraph text and list of tags inside.](/assets/components/rich-tooltip/rich-tooltip-content-structure.png)
 
 ### Key-value pairs
 
 Use the Rich Tooltip to display supplemental key-value pairs or metadata related to an element.
 
-![Key-value pairs within the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-content-key-value-pair.png)
+![](/assets/components/rich-tooltip/rich-tooltip-content-key-value-pair.png)
 
 ### Overflow content
 
