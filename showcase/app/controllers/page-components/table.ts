@@ -421,7 +421,9 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('onSelectionChangeWithoutModel__demo1 invoked with arguments:');
+    console.group(
+      'onSelectionChangeWithoutModel__demo1 invoked with arguments:',
+    );
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -505,7 +507,9 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('onMultiSelectPaginatedSelectionChange__demo2 invoked with arguments:');
+    console.group(
+      'onMultiSelectPaginatedSelectionChange__demo2 invoked with arguments:',
+    );
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -572,7 +576,9 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('onMultiSelectUsersSelectionChange__demo3 invoked with arguments:');
+    console.group(
+      'onMultiSelectUsersSelectionChange__demo3 invoked with arguments:',
+    );
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -609,7 +615,9 @@ export default class PageComponentsTableController extends Controller {
   onMultiSelectSelectionChange__demo4({
     selectedRowsKeys,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('onMultiSelectSelectionChange__demo4 invoked with arguments:');
+    console.group(
+      'onMultiSelectSelectionChange__demo4 invoked with arguments:',
+    );
     console.log('Selected Row Keys:', selectedRowsKeys);
     console.groupEnd();
     this.multiSelectUserData__demo4.forEach((user) => {
