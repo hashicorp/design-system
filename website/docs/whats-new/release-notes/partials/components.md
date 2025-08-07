@@ -83,6 +83,7 @@ Added `ember-intl` as a dependency
 
 <div class="doc-whats-new-changelog-separator"></div>
 
+
 **Patch changes**
 
 

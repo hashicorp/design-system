@@ -1,5 +1,9 @@
 # [HDS Patterns UI Kit](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?node-id=2-45&t=fNe7ySCHJjgJXH5N-1)
 
+## August 7th, 2025
+
+`Description List` - Added a new Template to standardize how key-value pairs are displayed.
+
 ## June 4th, 2025
 
 `Application Template` - Updated to include each of the breakpoints for their widths.
