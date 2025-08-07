@@ -6,14 +6,18 @@
 import Route from '@ember/routing/route';
 import { DENSITIES } from '@hashicorp/design-system-components/components/hds/table/index';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
 import clusters from 'showcase/mocks/cluster-data';
 import folkMusic from 'showcase/mocks/folk-music-data';
 import selectableItems from 'showcase/mocks/selectable-item-data';
 import users from 'showcase/mocks/user-data';
 import userWithMoreColumns from 'showcase/mocks/user-with-more-columns-data';
 
+export type PageComponentsTableModel = ModelFrom<PageComponentsTableRoute>;
+
 // basic function that clones an array of objects (not deep)
-const clone = (arr) => {
+export const clone = <T>(arr: T[]): T[] => {
   return arr.map((item) => ({ ...item }));
 };
 
@@ -26,12 +30,14 @@ export default class PageComponentsTableRoute extends Route {
       selectableData: selectableItems,
       selectableDataDemo1: clone(selectableItems),
       selectableDataDemo2: clone(selectableItems),
+      userDataDemo3: clone(users.slice(0, 16)),
+      userDataDemo4: clone(
+        users.slice(0, 4).map((user) => ({ ...user, isAnimated: false })),
+      ),
       selectableDataDemo5: clone(selectableItems),
       selectableDataDemo6: clone(selectableItems),
-      userDataDemo3: clone(users.slice(0, 16)),
-      userDataDemo4: clone(users.slice(0, 4)),
       clusters,
-      manycolumns: userWithMoreColumns,
+      userMoreColumnsData: userWithMoreColumns,
       DENSITIES,
       STATES,
     };

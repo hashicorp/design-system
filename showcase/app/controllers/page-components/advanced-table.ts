@@ -10,6 +10,8 @@ import { deepTracked } from 'ember-deep-tracked';
 import { later } from '@ember/runloop';
 
 import type { PageComponentsAdvancedTableModel } from 'showcase/routes/page-components/advanced-table';
+import type { SelectableItem } from 'showcase/mocks/selectable-item-data';
+import type { User } from 'showcase/mocks/user-data';
 
 import type {
   HdsAdvancedTableOnSelectionChangeSignature,
@@ -25,12 +27,12 @@ const customSortingCriteriaArray = [
   'pending',
 ];
 
-const updateModelWithSelectAllState = <T>(
-  modelData: T[],
+const updateModelWithSelectAllState = (
+  modelData: SelectableItem[] | User[],
   selectAllState: boolean,
 ) => {
   modelData.forEach((modelRow) => {
-    if (modelRow instanceof Object && 'isSelected' in modelRow) {
+    if (modelRow instanceof Object) {
       modelRow.isSelected = selectAllState;
     }
   });
