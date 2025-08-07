@@ -14,6 +14,7 @@
   <Shw::Text::H4 @tag="h3">Table with model</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist")
@@ -71,6 +72,7 @@
   <Shw::Text::H4>Sortable table (all columns sortable)</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -93,6 +95,7 @@
   <Shw::Text::H4>Sortable table (only some columns sortable)</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -115,6 +118,7 @@
   <Shw::Text::H4>Sortable table, one column right-aligned</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -137,6 +141,7 @@
   <Shw::Text::H4>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -405,6 +410,7 @@
   <Shw::Text::H4 @tag="h3">Table with model (sortable and non-sortable columns)</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true tooltip="Artist performing the album")
@@ -916,7 +922,6 @@
   <Hds::Table
     @isSelectable={{true}}
     @onSelectionChange={{this.onMultiSelectSelectionChange__demo4}}
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.multiSelectUserData__demo4}}
     @columns={{array
       (hash key="id" label="ID")
@@ -1050,6 +1055,7 @@
   <Shw::Text::H4 @tag="h3">Sortable table, last column not sortable, visually hidden and with custom width.</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -1084,6 +1090,7 @@
   <Shw::Text::H4 @tag="h3">Table where last column has right-aligned text</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -1109,6 +1116,7 @@
   <Shw::Text::H4 @tag="h3">Table with various cell content</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -1130,6 +1138,7 @@
           </div>
         </B.Td>
         <B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
         </B.Td>
         <B.Td>
@@ -1146,6 +1155,7 @@
   <Shw::Text::H4 @tag="h3">Table with multi-line content</Shw::Text::H4>
 
   <Hds::Table
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @caption="table with multi-line content"
     @columns={{array
@@ -1176,7 +1186,7 @@
 
   <Hds::Table
     {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-    @model={{this.model.manycolumns}}
+    @model={{this.model.userMoreColumnsData}}
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="200px")
       (hash key="last_name" label="Last Name" isSortable=true width="200px")
@@ -1209,7 +1219,7 @@
 
   <Hds::Table
     {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-    @model={{this.model.manycolumns}}
+    @model={{this.model.userMoreColumnsData}}
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="200px")
       (hash key="last_name" label="Last Name" isSortable=true width="200px")
@@ -1239,7 +1249,7 @@
 
   <Hds::Table
     {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-    @model={{this.model.manycolumns}}
+    @model={{this.model.userMoreColumnsData}}
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="20%")
       (hash key="last_name" label="Last Name" isSortable=true width="20%")
@@ -1268,7 +1278,7 @@
 
   <Hds::Table
     {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-    @model={{this.model.manycolumns}}
+    @model={{this.model.userMoreColumnsData}}
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="20%")
       (hash key="last_name" label="Last Name" isSortable=true width="20%")
@@ -1304,7 +1314,7 @@
   <div class="shw-component-table-scrollable-wrapper">
     <Hds::Table
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{this.model.manycolumns}}
+      @model={{this.model.userMoreColumnsData}}
       @columns={{array
         (hash key="first_name" label="First Name" isSortable=true width="200px")
         (hash key="last_name" label="Last Name" isSortable=true width="200px")
@@ -1347,7 +1357,7 @@
     <div class="shw-component-table-max-content-width">
       <Hds::Table
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @model={{this.model.manycolumns}}
+        @model={{this.model.userMoreColumnsData}}
         @columns={{array
           (hash key="first_name" label="First Name" isSortable=true width="200px")
           (hash key="last_name" label="Last Name" isSortable=true width="200px")

@@ -15,7 +15,8 @@ import type {
   HdsTableThSortOrder,
 } from '@hashicorp/design-system-components/components/hds/table/types';
 
-import type { MockDataSelectable } from '../../routes/page-components/table';
+import type { SelectableItem } from 'showcase/mocks/selectable-item-data';
+import type { User } from 'showcase/mocks/user-data';
 
 type MultiSelectNoModel = {
   row1: boolean;
@@ -32,12 +33,12 @@ const customSortingCriteriaArray = [
   'pending',
 ];
 
-const updateModelWithSelectAllState = <T>(
-  modelData: T[],
+const updateModelWithSelectAllState = (
+  modelData: SelectableItem[] | User[],
   selectAllState: boolean,
 ) => {
   modelData.forEach((modelRow) => {
-    if (modelRow instanceof Object && 'isSelected' in modelRow) {
+    if (modelRow instanceof Object) {
       modelRow.isSelected = selectAllState;
     }
   });
@@ -108,7 +109,7 @@ export default class PageComponentsTableController extends Controller {
     // @ts-expect-error - we need to reevaluate how we get the data for the table demos when we break up the template files into sub components
     ...this.model.selectableDataDemo5,
   ];
-  @tracked customSortBy_demo6: keyof MockDataSelectable | undefined = undefined;
+  @tracked customSortBy_demo6: keyof SelectableItem | undefined = undefined;
   @tracked customSortOrder_demo6 = 'asc';
   @deepTracked multiSelectSelectableData__demo6 = [
     // @ts-expect-error - we need to reevaluate how we get the data for the table demos when we break up the template files into sub components
@@ -264,14 +265,13 @@ export default class PageComponentsTableController extends Controller {
     if (selectionKey) {
       if (selectionKey === 'all' && selectionCheckboxElement) {
         this.multiSelectSelectableData__demo5.forEach(
-          (modelRow: MockDataSelectable) => {
+          (modelRow: SelectableItem) => {
             modelRow.isSelected = selectionCheckboxElement.checked;
           },
         );
       } else {
         const recordToUpdate = this.multiSelectSelectableData__demo5.find(
-          (modelRow: MockDataSelectable) =>
-            modelRow.id === Number(selectionKey),
+          (modelRow: SelectableItem) => modelRow.id === Number(selectionKey),
         );
 
         if (recordToUpdate) {
@@ -286,7 +286,7 @@ export default class PageComponentsTableController extends Controller {
 
   get sortedMultiSelect__demo6() {
     const clonedMultiSelect = Array.from(this.multiSelectSelectableData__demo6);
-    clonedMultiSelect.sort((s1: MockDataSelectable, s2: MockDataSelectable) => {
+    clonedMultiSelect.sort((s1: SelectableItem, s2: SelectableItem) => {
       if (this.customSortBy_demo6) {
         const v1 = s1[this.customSortBy_demo6];
         const v2 = s2[this.customSortBy_demo6];
@@ -304,7 +304,7 @@ export default class PageComponentsTableController extends Controller {
 
   @action
   customOnSort_demo6(sortBy: string, sortOrder: string) {
-    this.customSortBy_demo6 = sortBy as keyof MockDataSelectable;
+    this.customSortBy_demo6 = sortBy as keyof SelectableItem;
     this.customSortOrder_demo6 = sortOrder;
   }
 
@@ -316,14 +316,13 @@ export default class PageComponentsTableController extends Controller {
     if (selectionKey) {
       if (selectionKey === 'all' && selectionCheckboxElement) {
         this.multiSelectSelectableData__demo5.forEach(
-          (modelRow: MockDataSelectable) => {
+          (modelRow: SelectableItem) => {
             modelRow.isSelected = selectionCheckboxElement.checked;
           },
         );
       } else {
         const recordToUpdate = this.multiSelectSelectableData__demo5.find(
-          (modelRow: MockDataSelectable) =>
-            modelRow.id === Number(selectionKey),
+          (modelRow: SelectableItem) => modelRow.id === Number(selectionKey),
         );
 
         if (recordToUpdate) {
@@ -628,7 +627,7 @@ export default class PageComponentsTableController extends Controller {
   @action
   multiSelectAnimateSelectedUsers_demo4() {
     this.multiSelectUserData__demo4.forEach((user) => {
-      user.isAnimated = user.isSelected;
+      user.isAnimated = user.isSelected ? user.isSelected : false;
     });
     // eslint-disable-next-line ember/no-runloop
     later(() => {
