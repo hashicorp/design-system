@@ -10,13 +10,12 @@ import { deepTracked } from 'ember-deep-tracked';
 import { later } from '@ember/runloop';
 
 import type { PageComponentsTableModel } from '../../routes/page-components/table';
-import type { HdsTableOnSelectionChangeSignature } from '@hashicorp/design-system-components/components/hds/table/types';
-
 import type {
-  MockDataCluster,
-  MockDataSelectable,
-  MockDataUser,
-} from '../../routes/page-components/table';
+  HdsTableOnSelectionChangeSignature,
+  HdsTableThSortOrder,
+} from '@hashicorp/design-system-components/components/hds/table/types';
+
+import type { MockDataSelectable } from '../../routes/page-components/table';
 
 type MultiSelectNoModel = {
   row1: boolean;
@@ -33,29 +32,35 @@ const customSortingCriteriaArray = [
   'pending',
 ];
 
-const updateModelWithSelectAllState = (
-  modelData: MockDataSelectable[] | MockDataUser[],
+const updateModelWithSelectAllState = <T>(
+  modelData: T[],
   selectAllState: boolean,
 ) => {
   modelData.forEach((modelRow) => {
-    modelRow.isSelected = selectAllState;
+    if (modelRow instanceof Object && 'isSelected' in modelRow) {
+      modelRow.isSelected = selectAllState;
+    }
   });
 };
 
-const updateModelWithSelectableRowsStates = (
-  modelData: MockDataSelectable[] | MockDataUser[],
+function updateModelWithSelectableRowsStates<
+  T extends { id: number; isSelected?: boolean },
+>(
+  modelData: T[],
   selectableRowsStates: HdsTableOnSelectionChangeSignature['selectableRowsStates'],
-) => {
-  const modelDataMap = new Map(
-    modelData.map((modelRow) => [modelRow.id, modelRow]),
+): void {
+  // Create a map from id to row for quick lookup
+  const modelDataMap: Map<string, T> = new Map(
+    modelData.map((modelRow) => [String(modelRow.id), modelRow]),
   );
+
   selectableRowsStates.forEach((row) => {
-    // safe to assume that there is always a record for the "selectionKey" since it's coming from the model (the selectable "rows" are a subset of the model dataset)
-    modelDataMap.get(Number(row.selectionKey))!.isSelected = row.isSelected
-      ? true
-      : false;
+    const record = modelDataMap.get(row.selectionKey);
+    if (record) {
+      record.isSelected = row.isSelected;
+    }
   });
-};
+}
 
 export default class PageComponentsTableController extends Controller {
   declare model: PageComponentsTableModel;
@@ -110,11 +115,8 @@ export default class PageComponentsTableController extends Controller {
     ...this.model.selectableDataDemo6,
   ];
 
-  // CUSTOM SORTING DEMO #1
-  // Sortable table with custom sorting done via extra key added to the data model
-
-  get clustersWithExtraData_demo1(): Record<string, unknown>[] {
-    return this.model.clusters.map((record: MockDataCluster) => {
+  get clustersWithExtraData() {
+    return this.model.clusters.map((record) => {
       return {
         ...record,
         'status-sort-order': customSortingCriteriaArray.indexOf(
@@ -153,7 +155,7 @@ export default class PageComponentsTableController extends Controller {
   }
 
   @action
-  customOnSort_demo2(_sortBy: string, sortOrder: string) {
+  customOnSort_demo2(_sortBy: string, sortOrder: HdsTableThSortOrder) {
     this.customSortOrder_demo2 = sortOrder;
   }
 
@@ -331,20 +333,15 @@ export default class PageComponentsTableController extends Controller {
     }
   }
 
-  // // GENERIC MULTI-SELECT FUNCTIONALITIES
+  // GENERIC MULTI-SELECT FUNCTIONALITIES
 
   @action
-  onSelectionChangeLogArguments({
-    selectionKey,
-    selectionCheckboxElement,
-    selectableRowsStates,
-    selectedRowsKeys,
-  }: HdsTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
-    console.log('Selection Key:', selectionKey);
-    console.log('Checkbox Element:', selectionCheckboxElement);
-    console.log('Selectable Rows States:', selectableRowsStates);
-    console.log('Selected Rows Keys:', selectedRowsKeys);
+  onSelectionChangeLogArguments(args: HdsTableOnSelectionChangeSignature) {
+    console.group('onSelectionChangeLogArguments');
+    console.log('Selection Key:', args.selectionKey);
+    console.log('Checkbox Element:', args.selectionCheckboxElement);
+    console.log('Selectable Rows Keys:', args.selectedRowsKeys);
+    console.log('Selectable Rows States:', args.selectableRowsStates);
     console.groupEnd();
   }
 
@@ -369,20 +366,23 @@ export default class PageComponentsTableController extends Controller {
 
   @action
   toggleMultiSelectToggleScope__demo1(event: Event) {
-    const checkbox = event.target as HTMLInputElement;
-    this.multiSelectToggleScope__demo1 = checkbox.checked;
+    this.multiSelectToggleScope__demo1 = (
+      event.target as HTMLInputElement
+    ).checked;
   }
 
   @action
   toggleMultiSelectToggleDebug__demo1(event: Event) {
-    const checkbox = event.target as HTMLInputElement;
-    this.multiSelectToggleDebug__demo1 = checkbox.checked;
+    this.multiSelectToggleDebug__demo1 = (
+      event.target as HTMLInputElement
+    ).checked;
   }
 
   @action
   onChangeMultiSelectFilter__demo1(event: Event) {
-    const checkbox = event.target as HTMLInputElement;
-    this.multiSelectFilterRows__demo1 = checkbox.value;
+    this.multiSelectFilterRows__demo1 = (
+      event.target as HTMLInputElement
+    ).value;
   }
 
   @action
@@ -391,7 +391,7 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
+    console.group('onSelectionChangeWithModel__demo1');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -421,7 +421,7 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
+    console.group('onSelectionChangeWithoutModel__demo1');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -456,19 +456,21 @@ export default class PageComponentsTableController extends Controller {
     }
   }
 
-  // // MULTI-SELECT DEMO #2
-  // // Multi-select table with pagination
+  // MULTI-SELECT DEMO #2
+  // Multi-select table with pagination
 
   @action
   toggleMultiSelectPaginatedToggleScope__demo2(event: Event) {
-    const checkbox = event.target as HTMLInputElement;
-    this.multiSelectToggleScope__demo2 = checkbox.checked;
+    this.multiSelectToggleScope__demo2 = (
+      event.target as HTMLInputElement
+    ).checked;
   }
 
   @action
   toggleMultiSelectPaginatedToggleDebug__demo2(event: Event) {
-    const checkbox = event.target as HTMLInputElement;
-    this.multiSelectToggleDebug__demo2 = checkbox.checked;
+    this.multiSelectToggleDebug__demo2 = (
+      event.target as HTMLInputElement
+    ).checked;
   }
 
   get multiSelectPaginatedTotalItems_demo2() {
@@ -503,43 +505,39 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
+    console.group('onMultiSelectPaginatedSelectionChange__demo2');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
     console.groupEnd();
-    if (selectionKey) {
-      if (
-        selectionKey === 'all' &&
-        selectionCheckboxElement &&
-        this.multiSelectToggleScope__demo2
-      ) {
-        updateModelWithSelectAllState(
-          this.multiSelectSelectableData__demo2,
-          selectionCheckboxElement.checked,
-        );
-      } else {
-        updateModelWithSelectableRowsStates(
-          this.multiSelectSelectableData__demo2,
-          selectableRowsStates,
-        );
-      }
+    if (selectionKey === 'all' && this.multiSelectToggleScope__demo2) {
+      updateModelWithSelectAllState(
+        this.multiSelectSelectableData__demo2,
+        selectionCheckboxElement ? selectionCheckboxElement.checked : false,
+      );
+    } else {
+      updateModelWithSelectableRowsStates(
+        this.multiSelectSelectableData__demo2,
+        selectableRowsStates,
+      );
     }
   }
 
-  // // MULTI-SELECT DEMO #3
-  // // Delete selected rows
+  // MULTI-SELECT DEMO #3
+  // Delete selected rows
 
   @action
   toggleMultiSelectPaginatedToggleScope__demo3(event: Event) {
-    const checkbox = event.target as HTMLInputElement;
-    this.multiSelectToggleScope__demo3 = checkbox.checked;
+    this.multiSelectToggleScope__demo3 = (
+      event.target as HTMLInputElement
+    ).checked;
   }
 
   @action
   toggleMultiSelectPaginatedToggleDebug__demo3(event: Event) {
-    const checkbox = event.target as HTMLInputElement;
-    this.multiSelectToggleDebug__demo3 = checkbox.checked;
+    this.multiSelectToggleDebug__demo3 = (
+      event.target as HTMLInputElement
+    ).checked;
   }
 
   get multiSelectUsersTotalItems_demo3() {
@@ -574,31 +572,25 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
+    console.group('onMultiSelectUsersSelectionChange__demo3');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
     console.groupEnd();
-    if (selectionKey) {
-      if (
-        selectionKey === 'all' &&
-        selectionCheckboxElement &&
-        this.multiSelectToggleScope__demo3
-      ) {
-        updateModelWithSelectAllState(
-          this.multiSelectUserData__demo3,
-          selectionCheckboxElement.checked,
+    if (selectionKey === 'all' && this.multiSelectToggleScope__demo3) {
+      updateModelWithSelectAllState(
+        this.multiSelectUserData__demo3,
+        selectionCheckboxElement ? selectionCheckboxElement.checked : false,
+      );
+    } else {
+      selectableRowsStates.forEach((row) => {
+        const recordToUpdate = this.multiSelectUserData__demo3.find(
+          (modelRow) => String(modelRow.id) === row.selectionKey,
         );
-      } else {
-        selectableRowsStates.forEach((row) => {
-          const recordToUpdate = this.multiSelectUserData__demo3.find(
-            (modelRow) => modelRow.id === Number(row.selectionKey),
-          );
-          if (recordToUpdate) {
-            recordToUpdate.isSelected = row.isSelected;
-          }
-        });
-      }
+        if (recordToUpdate) {
+          recordToUpdate.isSelected = row.isSelected;
+        }
+      });
     }
   }
 
@@ -610,14 +602,14 @@ export default class PageComponentsTableController extends Controller {
     this.multiSelectUserData__demo3 = [...newData];
   }
 
-  // // MULTI-SELECT DEMO #4
-  // // Execute action on selected rows
+  // MULTI-SELECT DEMO #4
+  // Execute action on selected rows
 
   @action
   onMultiSelectSelectionChange__demo4({
     selectedRowsKeys,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('Selection Change with Model Arguments');
+    console.group('onMultiSelectSelectionChange__demo4');
     console.log('Selected Row Keys:', selectedRowsKeys);
     console.groupEnd();
     this.multiSelectUserData__demo4.forEach((user) => {
