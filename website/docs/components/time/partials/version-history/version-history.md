@@ -1,3 +1,8 @@
+## 4.22.0
+
+Translated template strings
+
+
 ## 4.20.0
 
 Fixed type error where the `TooltipButton` text could be undefined.

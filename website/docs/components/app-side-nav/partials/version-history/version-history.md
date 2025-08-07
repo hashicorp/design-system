@@ -1,3 +1,8 @@
+## 4.22.0
+
+Translated template strings
+
+
 ## 4.21.1
 
 Removed extra transparent border and background when rendered as a `<button>` element

@@ -23,8 +23,6 @@ navigation:
     - field group
     - button set
     - input
-status:
-  added: 4.21.0
 ---
 
 <section data-tab="Guidelines">

@@ -23,87 +23,61 @@ Added `ember-intl` as a dependency
 - Added `hdsIntl` service for translations in HDS components with default fallback values
 - Added `hds-t` helper which uses the `hds-intl` service to provide translations in HSD templates
 
-<!-- START components/advanced-table -->
 
 `AdvancedTable` - Translated template strings. Removed extraneous screen-reader-only text.
 
-<!-- END -->
 
-<!-- START components/app-footer -->
 
 `AppFooter` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/app-side-nav -->
 
 `AppSideNav` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/application-state -->
 
 `ApplicationState` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/code-editor -->
 
 `CodeEditor` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/dismiss-button -->
 
 `DismissButton` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/masked-input -->
 
 `MaskedInput` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/super-select -->
 
 `SuperSelect` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/pagination -->
 
 `Pagination` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/side-nav -->
 
 `SideNav` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/table -->
 
 `Table` - Translated template strings
 
-<!-- END -->
 
-<!-- START components/time -->
 
 `Time` - Translated template strings
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#2878](https://github.com/hashicorp/design-system/pull/2878)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/reveal -->
 
 `Reveal` - Added support for the `aria-describedby` attribute on the toggle.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3084](https://github.com/hashicorp/design-system/pull/3084)</small>
 
@@ -111,43 +85,37 @@ Added `ember-intl` as a dependency
 
 **Patch changes**
 
+
 `AppHeader` - Changed the default breakpoint from `lg` to `md`.
+
 
 <small class="doc-whats-new-changelog-metadata">[#3072](https://github.com/hashicorp/design-system/pull/3072)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/stepper/list -->
 
 `Stepper::List` - Fixed type for `status` argument in `List::Step` to be `HdsStepperStatuses` instead of enum `HdsStepperStatusesValues`
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3073](https://github.com/hashicorp/design-system/pull/3073)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
 
-<!-- END -->
 
-<!-- START components/table/table -->
 
 `Table::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3066](https://github.com/hashicorp/design-system/pull/3066)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/code-editor -->
 
 `CodeEditor` - fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3068](https://github.com/hashicorp/design-system/pull/3068)</small>
 

@@ -1,3 +1,8 @@
+## 4.22.0
+
+Translated template strings
+
+
 ## 4.21.1
 
 Fixed type for the `@resultCountMessage` argument so it can accept a string or a function.

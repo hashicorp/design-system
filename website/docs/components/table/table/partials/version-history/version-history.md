@@ -1,3 +1,8 @@
+## 4.22.0
+
+Updated `@isSelected` argument type from `false` to `boolean`
+
+
 ## 4.17.1
 
 Removed unused `updateAriaLabel` function and event listener
