@@ -14,6 +14,8 @@
 
 ## 4.22.0
 
+[4.22.0 documentation](https://hds-website-4-22-0.vercel.app/)
+
 **Minor changes**
 
 Added `ember-intl` as a dependency
@@ -153,7 +155,7 @@ Added `ember-intl` as a dependency
 
 ## 4.21.1
 
-[4.20.1 documentation](https://hds-website-4-20-1.vercel.app/)
+[4.21.1 documentation](https://hds-website-4-21-1.vercel.app/)
 
 **Patch changes**
 
