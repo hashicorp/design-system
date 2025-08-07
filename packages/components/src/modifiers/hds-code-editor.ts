@@ -6,13 +6,16 @@
 import Modifier from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
-import { task, restartableTask } from 'ember-concurrency';
+import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
 import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
 import { service } from '@ember/service';
+import { buildWaiter } from '@ember/test-waiters';
+import { next } from '@ember/runloop';
+import { tracked } from '@glimmer/tracking';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -44,6 +47,8 @@ type HdsCodeEditorBlurHandler = (
 interface HdsCodeEditorExtraKeys {
   [key: string]: () => void;
 }
+
+const waiter = buildWaiter('@hashicorp/design-system-components:code-editor');
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -165,6 +170,8 @@ const LANGUAGES: Record<
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
   @service declare hdsIntl: HdsIntlService;
 
+  @tracked private _waiterToken: unknown;
+
   editor!: EditorViewType;
   element!: HTMLElementWithEditor;
 
@@ -195,9 +202,12 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ): void {
+    const { value, hasLineWrapping } = named;
+
     // if the editor already exists, update its state
     if (this.editor) {
-      void this._updateTask.perform(named);
+      // eslint-disable-next-line ember/no-runloop
+      next(this, this._updateEditorState, { value, hasLineWrapping });
     }
     // if the editor does not exist, setup the editor
     else {
@@ -225,6 +235,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       }
     }
   }
+
+  private _updateEditorState = ({
+    value,
+    hasLineWrapping = false,
+  }: {
+    value?: string;
+    hasLineWrapping?: boolean;
+  }) => {
+    const transactions: TransactionSpec = {
+      effects: this.lineWrappingCompartment.reconfigure(
+        hasLineWrapping ? EditorView.lineWrapping : []
+      ),
+    };
+
+    if (value !== undefined && value !== this.editor.state.doc.toString()) {
+      transactions.changes = {
+        from: 0,
+        to: this.editor.state.doc.length,
+        insert: value,
+      };
+    }
+
+    this.editor.dispatch(transactions);
+  };
 
   private _setupEditorBlurHandler(
     element: HTMLElementWithEditor,
@@ -335,30 +369,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       lintingDescriptionElement,
     });
   }
-
-  private _updateTask = restartableTask(
-    async (named: NamedArgs<HdsCodeEditorSignature>) => {
-      const { value, hasLineWrapping = false } = named;
-      const transactions: TransactionSpec = {
-        effects: this.lineWrappingCompartment.reconfigure(
-          hasLineWrapping ? EditorView.lineWrapping : []
-        ),
-      };
-
-      if (value !== undefined && value !== this.editor.state.doc.toString()) {
-        transactions.changes = {
-          from: 0,
-          to: this.editor.state.doc.length,
-          insert: value,
-        };
-      }
-
-      this.editor.dispatch(transactions);
-
-      // explicitly wait for the next browser paint cycle
-      await new Promise((resolve) => requestAnimationFrame(resolve));
-    }
-  );
 
   private _loadLanguageExtensionsTask = task(
     { drop: true },
