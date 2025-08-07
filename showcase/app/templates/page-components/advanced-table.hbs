@@ -103,7 +103,6 @@
   <Shw::Text::H3>With nested rows and custom children key</Shw::Text::H3>
 
   <Hds::AdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.nestedDataCustom}}
     @childrenKey="data"
     @columns={{array
