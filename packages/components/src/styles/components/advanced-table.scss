@@ -165,7 +165,6 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       text-align: center;
 
       .hds-advanced-table__th-content {
-        flex-grow: 1;
         justify-content: center;
       }
     }
@@ -175,7 +174,6 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       text-align: right;
 
       .hds-advanced-table__th-content {
-        flex-grow: 1;
         justify-content: flex-end;
       }
     }
@@ -265,6 +263,7 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
 // multi-select (isSelectable=true)
 .hds-advanced-table__th-content {
   display: flex;
+  flex-grow: 1;
   flex-shrink: 1;
   gap: 8px;
   align-items: center;
