@@ -48,6 +48,7 @@ export default class PageComponentsAdvancedTableRoute extends Route {
         const { children, ...rest } = policy;
         return {
           ...rest,
+          isOpen: false,
           data: children,
         };
       }),
