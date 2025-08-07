@@ -12,7 +12,6 @@ import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 import clusterData from 'showcase/mocks/cluster-data';
 import folkMusicData from 'showcase/mocks/folk-music-data';
 import userWithManyColumnsData from 'showcase/mocks/user-with-more-columns-data';
-import policyCustomData from 'showcase/mocks/policy-custom-key-data';
 import policyData from 'showcase/mocks/policy-data';
 import selectableItemsData from 'showcase/mocks/selectable-items-data';
 import spanningCellData from 'showcase/mocks/spanning-cell-data';
@@ -45,7 +44,13 @@ export default class PageComponentsAdvancedTableRoute extends Route {
       ),
       manyColumns: userWithManyColumnsData,
       nestedData: policyData,
-      nestedDataCustom: policyCustomData,
+      nestedDataCustom: policyData.map((policy) => {
+        const { children, ...rest } = policy;
+        return {
+          ...rest,
+          data: policy.children,
+        }
+      }),
       DENSITIES,
       STATES,
     };
