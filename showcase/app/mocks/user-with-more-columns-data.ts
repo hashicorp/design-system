@@ -14,7 +14,7 @@ export interface UserWithMoreColumns {
   bio: string;
 }
 
-const UsersWithMoreColumns: UserWithMoreColumns[] = [
+const usersWithMoreColumns: UserWithMoreColumns[] = [
   {
     first_name: 'Judith',
     last_name: 'Maxene',
@@ -47,4 +47,4 @@ const UsersWithMoreColumns: UserWithMoreColumns[] = [
   },
 ];
 
-export default UsersWithMoreColumns;
+export default usersWithMoreColumns;

@@ -14,7 +14,7 @@ export interface Cluster {
   };
 }
 
-const Clusters: Cluster[] = [
+const clusters: Cluster[] = [
   {
     id: 1,
     'peer-name': 'cluster-2-partition-2',
@@ -76,4 +76,4 @@ const Clusters: Cluster[] = [
     },
   },
 ];
-export default Clusters;
+export default clusters;

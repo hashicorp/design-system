@@ -25,7 +25,7 @@ export interface SpanningCell {
   email?: string;
 }
 
-const SpanningCells: SpanningCell[] = [
+const spanningCells: SpanningCell[] = [
   {
     id: 1,
     name: {
@@ -84,4 +84,4 @@ const SpanningCells: SpanningCell[] = [
   },
 ];
 
-export default SpanningCells;
+export default spanningCells;

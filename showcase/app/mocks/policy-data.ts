@@ -12,7 +12,7 @@ export interface Policy {
   children?: Policy[];
 }
 
-const Policies: Policy[] = [
+const policies: Policy[] = [
   {
     id: 1,
     name: 'Policy set 1',
@@ -70,4 +70,4 @@ const Policies: Policy[] = [
   },
 ];
 
-export default Policies;
+export default policies;

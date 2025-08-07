@@ -12,7 +12,7 @@ export interface User {
   isAnimated?: boolean;
 }
 
-const Users: User[] = [
+const users: User[] = [
   {
     id: 1,
     name: 'Burnaby Kuscha',
@@ -249,4 +249,4 @@ const Users: User[] = [
   },
 ];
 
-export default Users;
+export default users;

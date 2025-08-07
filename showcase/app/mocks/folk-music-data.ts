@@ -6,7 +6,7 @@
 import type { HdsBadgeColors } from '@hashicorp/design-system-components/components/hds/badge/types';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
-export interface FolkMusicEntity {
+export interface FolkMusic {
   id: string;
   artist: string;
   album: string;
@@ -17,7 +17,7 @@ export interface FolkMusicEntity {
   'badge-color': HdsBadgeColors;
 }
 
-const FolkMusic: FolkMusicEntity[] = [
+const folkMusic: FolkMusic[] = [
   {
     id: '1',
     artist: 'Nick Drake',
@@ -86,4 +86,4 @@ const FolkMusic: FolkMusicEntity[] = [
   },
 ];
 
-export default FolkMusic;
+export default folkMusic;

@@ -11,7 +11,7 @@ export interface SelectableItem {
   isSelected: boolean;
 }
 
-const SelectableItems: SelectableItem[] = [
+const selectableItems: SelectableItem[] = [
   {
     id: 1,
     lorem: '1',
@@ -42,4 +42,4 @@ const SelectableItems: SelectableItem[] = [
   },
 ];
 
-export default SelectableItems;
+export default selectableItems;
