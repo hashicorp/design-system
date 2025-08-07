@@ -114,7 +114,7 @@ Added `ember-intl` as a dependency
 <div class="doc-whats-new-changelog-separator"></div>
 
 
-`CodeEditor` - fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
+`CodeEditor` - Fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
 
 
 <small class="doc-whats-new-changelog-metadata">[#3068](https://github.com/hashicorp/design-system/pull/3068)</small>

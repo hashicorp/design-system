@@ -11,61 +11,35 @@ Added `ember-intl` as a dependency
 - Added `hdsIntl` service for translations in HDS components with default fallback values
 - Added `hds-t` helper which uses the `hds-intl` service to provide translations in HSD templates
 
-
 `AdvancedTable` - Translated template strings. Removed extraneous screen-reader-only text.
-
-
 
 `AppFooter` - Translated template strings
 
-
-
 `AppSideNav` - Translated template strings
-
-
 
 `ApplicationState` - Translated template strings
 
-
-
 `CodeEditor` - Translated template strings
-
-
 
 `DismissButton` - Translated template strings
 
-
-
 `MaskedInput` - Translated template strings
-
-
 
 `SuperSelect` - Translated template strings
 
-
-
 `Pagination` - Translated template strings
-
-
 
 `SideNav` - Translated template strings
 
-
-
 `Table` - Translated template strings
 
-
-
 `Time` - Translated template strings
-
 
 <small class="doc-whats-new-changelog-metadata">[#2878](https://github.com/hashicorp/design-system/pull/2878)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Reveal` - Added support for the `aria-describedby` attribute on the toggle.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3084](https://github.com/hashicorp/design-system/pull/3084)</small>
 
@@ -73,37 +47,27 @@ Added `ember-intl` as a dependency
 
 ### Patch Changes
 
-
 `AppHeader` - Changed the default breakpoint from `lg` to `md`.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3072](https://github.com/hashicorp/design-system/pull/3072)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Stepper::List` - Fixed type for `status` argument in `List::Step` to be `HdsStepperStatuses` instead of enum `HdsStepperStatusesValues`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3073](https://github.com/hashicorp/design-system/pull/3073)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
 
-
-
 `Table::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3066](https://github.com/hashicorp/design-system/pull/3066)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
-`CodeEditor` - fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
-
+`CodeEditor` - Fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
 
 <small class="doc-whats-new-changelog-metadata">[#3068](https://github.com/hashicorp/design-system/pull/3068)</small>
 

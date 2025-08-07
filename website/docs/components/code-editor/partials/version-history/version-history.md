@@ -3,7 +3,7 @@
 Translated template strings
 
 
-fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
+Fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
 
 
 ## 4.19.0
