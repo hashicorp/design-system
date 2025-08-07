@@ -25,7 +25,7 @@ import type {
   StreamLanguage as StreamLanguageType,
   StreamParser as StreamParserType,
 } from '@codemirror/language';
-import type { Extension } from '@codemirror/state';
+import type { Extension, TransactionSpec } from '@codemirror/state';
 import type {
   EditorView as EditorViewType,
   KeyBinding,
@@ -195,15 +195,25 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ): void {
-    const { hasLineWrapping = false } = named;
+    const { value, hasLineWrapping = false } = named;
 
-    // if the editor already exists, update the line wrapping
+    // if the editor already exists, update its state
     if (this.editor) {
-      this.editor.dispatch({
+      const transactions: TransactionSpec = {
         effects: this.lineWrappingCompartment.reconfigure(
           hasLineWrapping ? EditorView.lineWrapping : []
         ),
-      });
+      };
+
+      if (value !== undefined && value !== this.editor.state.doc.toString()) {
+        transactions.changes = {
+          from: 0,
+          to: this.editor.state.doc.length,
+          insert: value,
+        };
+      }
+
+      this.editor.dispatch(transactions);
     }
     // if the editor does not exist, setup the editor
     else {
