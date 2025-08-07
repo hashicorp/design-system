@@ -15,7 +15,6 @@ import policies from 'showcase/mocks/policy-data';
 import selectableItems from 'showcase/mocks/selectable-item-data';
 import spanningCells from 'showcase/mocks/spanning-cell-data';
 import users from 'showcase/mocks/user-data';
-import userWithMoreColumns from 'showcase/mocks/user-with-more-columns-data';
 
 export type PageComponentsAdvancedTableModel =
   ModelFrom<PageComponentsAdvancedTableRoute>;
@@ -42,7 +41,6 @@ export default class PageComponentsAdvancedTableRoute extends Route {
       userDataDemo4: clone(
         users.slice(0, 4).map((user) => ({ ...user, isAnimated: false })),
       ),
-      manyColumns: userWithMoreColumns,
       nestedData: policies,
       nestedDataCustom: policies.map((policy) => {
         const { children, ...rest } = policy;
