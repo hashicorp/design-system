@@ -1,3 +1,11 @@
+## 4.22.0
+
+Translated template strings. Removed extraneous screen-reader-only text.
+
+
+Updated `@isSelected` argument type from `false` to `boolean`
+
+
 ## 4.21.1
 
 Removed `ember-math-helpers` dev dependency

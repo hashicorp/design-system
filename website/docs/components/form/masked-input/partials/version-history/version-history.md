@@ -1,3 +1,8 @@
+## 4.22.0
+
+Translated template strings
+
+
 ## 4.21.0
 
 Added `@ariaDescribedBy` argument to `Form::MaskedInput::Base`.

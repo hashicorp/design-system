@@ -1,3 +1,11 @@
+## 4.22.0
+
+Translated template strings
+
+
+Fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
+
+
 ## 4.19.0
 
 Updated focus ring colors in interactive elements to fix a11y color contrast issues
