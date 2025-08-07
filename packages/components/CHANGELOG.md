@@ -111,8 +111,6 @@ Added `ember-intl` as a dependency
 
 ## 4.21.1
 
-[4.21.1 documentation](https://hds-website-4-21-1.vercel.app/)
-
 ### Patch Changes
 
 `AdvancedTable` - Removed `ember-math-helpers` dev dependency
