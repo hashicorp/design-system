@@ -14,7 +14,6 @@
 
 ## 4.21.1
 
-[4.20.1 documentation](https://hds-website-4-20-1.vercel.app/)
 
 **Patch changes**
 
