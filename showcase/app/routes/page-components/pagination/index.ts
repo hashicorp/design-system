@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-import userData from 'showcase/mocks/user-data';
+import users from 'showcase/mocks/user-data';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
@@ -14,6 +14,6 @@ export type PageComponentsPaginationModel =
 
 export default class PageComponentsPaginationRoute extends Route {
   model() {
-    return { records: userData };
+    return { records: users };
   }
 }

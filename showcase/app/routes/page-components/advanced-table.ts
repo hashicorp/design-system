@@ -9,13 +9,13 @@ import { DENSITIES } from '@hashicorp/design-system-components/components/hds/ad
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
-import clusterData from 'showcase/mocks/cluster-data';
-import folkMusicData from 'showcase/mocks/folk-music-data';
-import userWithManyColumnsData from 'showcase/mocks/user-with-more-columns-data';
-import policyData from 'showcase/mocks/policy-data';
-import selectableItemsData from 'showcase/mocks/selectable-items-data';
-import spanningCellData from 'showcase/mocks/spanning-cell-data';
-import userData from 'showcase/mocks/user-data';
+import clusters from 'showcase/mocks/cluster-data';
+import folkMusic from 'showcase/mocks/folk-music-data';
+import policies from 'showcase/mocks/policy-data';
+import selectableItems from 'showcase/mocks/selectable-items-data';
+import spanningCells from 'showcase/mocks/spanning-cell-data';
+import users from 'showcase/mocks/user-data';
+import userWithMoreColumns from 'showcase/mocks/user-with-more-columns-data';
 
 export type PageComponentsAdvancedTableModel =
   ModelFrom<PageComponentsAdvancedTableRoute>;
@@ -30,21 +30,21 @@ const STATES = ['default', 'hover', 'active', 'focus'];
 export default class PageComponentsAdvancedTableRoute extends Route {
   model() {
     return {
-      music: folkMusicData,
-      userDataShort: clone(userData.slice(0, 5)),
-      clusters: clusterData,
-      spanningManualData: spanningCellData,
-      selectableData: selectableItemsData,
-      selectableDataDemo1: clone(selectableItemsData),
-      selectableDataDemo2: clone(selectableItemsData),
-      userData: userData,
-      userDataDemo3: clone(userData.slice(0, 16)),
+      music: folkMusic,
+      userDataShort: clone(users.slice(0, 5)),
+      clusters,
+      spanningManualData: spanningCells,
+      selectableData: selectableItems,
+      selectableDataDemo1: clone(selectableItems),
+      selectableDataDemo2: clone(selectableItems),
+      userData: users,
+      userDataDemo3: clone(users.slice(0, 16)),
       userDataDemo4: clone(
-        userData.slice(0, 4).map((user) => ({ ...user, isAnimated: false })),
+        users.slice(0, 4).map((user) => ({ ...user, isAnimated: false })),
       ),
-      manyColumns: userWithManyColumnsData,
-      nestedData: policyData,
-      nestedDataCustom: policyData.map((policy) => {
+      manyColumns: userWithMoreColumns,
+      nestedData: policies,
+      nestedDataCustom: policies.map((policy) => {
         const { children, ...rest } = policy;
         return {
           ...rest,

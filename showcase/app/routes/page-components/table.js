@@ -6,11 +6,11 @@
 import Route from '@ember/routing/route';
 import { DENSITIES } from '@hashicorp/design-system-components/components/hds/table/index';
 
-import clusterData from 'showcase/mocks/cluster-data';
-import folkMusicData from 'showcase/mocks/folk-music-data';
-import userWithManyColumnsData from 'showcase/mocks/user-with-more-columns-data';
-import selectableItemsData from 'showcase/mocks/selectable-items-data';
-import userData from 'showcase/mocks/user-data';
+import clusters from 'showcase/mocks/cluster-data';
+import folkMusic from 'showcase/mocks/folk-music-data';
+import selectableItems from 'showcase/mocks/selectable-items-data';
+import users from 'showcase/mocks/user-data';
+import userWithMoreColumns from 'showcase/mocks/user-with-more-columns-data';
 
 // basic function that clones an array of objects (not deep)
 const clone = (arr) => {
@@ -22,16 +22,16 @@ const STATES = ['default', 'hover', 'active', 'focus'];
 export default class PageComponentsTableRoute extends Route {
   model() {
     return {
-      music: folkMusicData,
-      selectableData: selectableItemsData,
-      selectableDataDemo1: clone(selectableItemsData),
-      selectableDataDemo2: clone(selectableItemsData),
-      selectableDataDemo5: clone(selectableItemsData),
-      selectableDataDemo6: clone(selectableItemsData),
-      userDataDemo3: clone(userData.slice(0, 16)),
-      userDataDemo4: clone(userData.slice(0, 4)),
-      clusters: clusterData,
-      manycolumns: userWithManyColumnsData,
+      music: folkMusic,
+      selectableData: selectableItems,
+      selectableDataDemo1: clone(selectableItems),
+      selectableDataDemo2: clone(selectableItems),
+      selectableDataDemo5: clone(selectableItems),
+      selectableDataDemo6: clone(selectableItems),
+      userDataDemo3: clone(users.slice(0, 16)),
+      userDataDemo4: clone(users.slice(0, 4)),
+      clusters,
+      manycolumns: userWithMoreColumns,
       DENSITIES,
       STATES,
     };
