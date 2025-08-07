@@ -3,13 +3,13 @@
 ## August 7th, 2025
 This changelog corresponds with the [4.22](/whats-new/release-notes#4220) release.
 
-`Modal` - Bug fix for tagline color inheritance.
+`Modal` - Fixed a color inheritance bug for the tagline.
 
 `SuperSelect` - Updated the tags to better reflect the Ember component functionality. Added missing boolean property for helper text.
 
-`Tab` - Auto layout bug fix to correct indicator length for longer text.
+`Tab` - Fixed an auto layout bug to correct indicator length for longer text.
 
-`RadioCard` - Bug fix to the color override of the icons within each card.
+`RadioCard` - Fixed a color override bug for the icons within each card.
 
 `Form Primitives` - Added a text properrty for the number/count in CharacterCount.
 

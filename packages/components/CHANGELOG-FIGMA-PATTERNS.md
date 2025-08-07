@@ -2,7 +2,7 @@
 
 ## August 7th, 2025
 
-`Description List` - New component template that standardizes how key value pairs can be displayed. 
+`Description List` - Added a new Template to standardize how key-value pairs are displayed. 
 
 ## June 4th, 2025
 
