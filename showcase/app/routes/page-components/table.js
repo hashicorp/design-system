@@ -8,7 +8,7 @@ import { DENSITIES } from '@hashicorp/design-system-components/components/hds/ta
 
 import clusters from 'showcase/mocks/cluster-data';
 import folkMusic from 'showcase/mocks/folk-music-data';
-import selectableItems from 'showcase/mocks/selectable-items-data';
+import selectableItems from 'showcase/mocks/selectable-item-data';
 import users from 'showcase/mocks/user-data';
 import userWithMoreColumns from 'showcase/mocks/user-with-more-columns-data';
 
