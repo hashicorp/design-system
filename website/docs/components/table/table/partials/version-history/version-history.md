@@ -1,7 +1,8 @@
 ## 4.22.0
 
-- Updated `@isSelected` argument type from `false` to `boolean`
-- Translated template strings
+Updated `@isSelected` argument type from `false` to `boolean`
+
+Translated template strings
 
 ## 4.17.1
 
