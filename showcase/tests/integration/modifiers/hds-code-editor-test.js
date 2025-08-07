@@ -48,6 +48,23 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert.dom('#code-editor-wrapper .cm-editor').includesText(val);
   });
 
+  test('it should update the editor value when the value changes', async function (assert) {
+    const initialValue = 'Initial Value';
+    const updatedValue = 'Updated Value';
+
+    this.set('val', initialValue);
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value=this.val}} />`,
+    );
+
+    assert.dom('#code-editor-wrapper .cm-editor').includesText(initialValue);
+
+    this.set('val', updatedValue);
+    console.log('Updated value:', updatedValue);
+
+    assert.dom('#code-editor-wrapper .cm-editor').includesText(updatedValue);
+  });
+
   // onBlur
   test('it should call the onBlur action when the code editor loses focus', async function (assert) {
     const blurSpy = sinon.spy();

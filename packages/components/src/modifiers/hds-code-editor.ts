@@ -6,7 +6,7 @@
 import Modifier from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
-import { task } from 'ember-concurrency';
+import { task, restartableTask } from 'ember-concurrency';
 import config from 'ember-get-config';
 import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
@@ -195,25 +195,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ): void {
-    const { value, hasLineWrapping = false } = named;
-
     // if the editor already exists, update its state
     if (this.editor) {
-      const transactions: TransactionSpec = {
-        effects: this.lineWrappingCompartment.reconfigure(
-          hasLineWrapping ? EditorView.lineWrapping : []
-        ),
-      };
-
-      if (value !== undefined && value !== this.editor.state.doc.toString()) {
-        transactions.changes = {
-          from: 0,
-          to: this.editor.state.doc.length,
-          insert: value,
-        };
-      }
-
-      this.editor.dispatch(transactions);
+      void this._updateTask.perform(named);
     }
     // if the editor does not exist, setup the editor
     else {
@@ -351,6 +335,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       lintingDescriptionElement,
     });
   }
+
+  private _updateTask = restartableTask(
+    async (named: NamedArgs<HdsCodeEditorSignature>) => {
+      const { value, hasLineWrapping = false } = named;
+      const transactions: TransactionSpec = {
+        effects: this.lineWrappingCompartment.reconfigure(
+          hasLineWrapping ? EditorView.lineWrapping : []
+        ),
+      };
+
+      if (value !== undefined && value !== this.editor.state.doc.toString()) {
+        transactions.changes = {
+          from: 0,
+          to: this.editor.state.doc.length,
+          insert: value,
+        };
+      }
+
+      this.editor.dispatch(transactions);
+
+      // explicitly wait for the next browser paint cycle
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+    }
+  );
 
   private _loadLanguageExtensionsTask = task(
     { drop: true },
