@@ -48,8 +48,8 @@ export default class PageComponentsAdvancedTableRoute extends Route {
         const { children, ...rest } = policy;
         return {
           ...rest,
-          data: policy.children,
-        }
+          data: children,
+        };
       }),
       DENSITIES,
       STATES,

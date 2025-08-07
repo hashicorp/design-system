@@ -8,7 +8,6 @@ import type { HdsIconSignature } from '@hashicorp/design-system-components/compo
 
 export interface FolkMusicEntity {
   id: string;
-  type: string;
   artist: string;
   album: string;
   year: number;
@@ -21,7 +20,6 @@ export interface FolkMusicEntity {
 const FolkMusic: FolkMusicEntity[] = [
   {
     id: '1',
-    type: 'folk',
     artist: 'Nick Drake',
     album: 'Pink Moon',
     year: 1972,
@@ -33,7 +31,6 @@ const FolkMusic: FolkMusicEntity[] = [
   },
   {
     id: '2',
-    type: 'folk',
     artist: 'The Beatles',
     album: 'Abbey Road',
     year: 1969,
@@ -45,7 +42,6 @@ const FolkMusic: FolkMusicEntity[] = [
   },
   {
     id: '3',
-    type: 'folk',
     artist: 'Melanie',
     album: 'Candles in the Rain',
     year: 1971,
@@ -57,7 +53,6 @@ const FolkMusic: FolkMusicEntity[] = [
   },
   {
     id: '4',
-    type: 'folk',
     artist: 'Bob Dylan',
     album: 'Bringing It All Back Home',
     year: 1965,
@@ -69,7 +64,6 @@ const FolkMusic: FolkMusicEntity[] = [
   },
   {
     id: '5',
-    type: 'folk',
     artist: 'James Taylor',
     album: 'Sweet Baby James',
     year: 1970,
@@ -81,7 +75,6 @@ const FolkMusic: FolkMusicEntity[] = [
   },
   {
     id: '6',
-    type: 'folk',
     artist: 'Simon and Garfunkel',
     album: 'Bridge Over Troubled Waters',
     year: 1970,
