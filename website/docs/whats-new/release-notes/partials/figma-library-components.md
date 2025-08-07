@@ -12,6 +12,19 @@
 </p>
 
 
+### August 7th, 2025
+This changelog corresponds with the [4.22](/whats-new/release-notes#4220) release.
+
+`Modal` - Bug fix for tagline color inheritance.
+
+`SuperSelect` - Updated the tags to better reflect the Ember component functionality. Added missing boolean property for helper text.
+
+`Tab` - Auto layout bug fix to correct indicator length for longer text.
+
+`RadioCard` - Bug fix to the color override of the icons within each card.
+
+`Form Primitives` - Added a text properrty for the number/count in CharacterCount.
+
 ### July 2nd, 2025
 
 This changelog corresponds with the [4.21](/whats-new/release-notes#4210) release.
@@ -154,22 +167,6 @@ In many cases, replacing v1.0 library components with the components in the Figm
   - Changing the body text color from `Foreground/Faint` to `Foreground/Primary`
 
 _Adding support for three actions within the `ApplicationState` results in a breaking change to the previous actions. Before updating the library, we recommend annotating the text and icon name (with a comment or otherwise) in files that are in progress or still being referenced by engineering._
-
-### February 27th, 2024
-
-#### Breaking changes
-
-`Alert` and `Toast` - Updated the `StandaloneLink` to the secondary variant from the primary variant to align with our documented usage recommendations.
-
-_Updating the `StandaloneLink` to the secondary variant will revert any changes you've made to the text and leading icon properties. Prior to updating the library we recommend annotating (with a comment or otherwise) work that is in progress or is still being referenced by engineering with the intended text and icon variant._
-
-`Table` - multiple enhancements to the `Table` components including:
-
-- Added support for multi-selection with `Header Column / Selection` and `Cell / Selection`.
-- Added support for a `Tooltip` in the `Header Column` component.
-- Updated the visual language of the sort button in `Header Column` by decoupling the sort functionality into a nested `Sort Button`
-
-_Adding support for a `Tooltip` and updates to the `Sort Button` result in a breaking change in sortable variants. While the `Label` in the `Header Column` should persist, we recommend annotating (with a comment or otherwise) work that is in-progress or still being referenced by engineering with the columns that are intended to be sortable._
 
 
 ---

@@ -12,6 +12,10 @@
 </p>
 
 
+### August 7th, 2025
+
+`Description List` - New component template that standardizes how key value pairs can be displayed. 
+
 ### June 4th, 2025
 
 `Application Template` - Updated to include each of the breakpoints for their widths.
