@@ -213,7 +213,7 @@ export default class PageComponentsTableController extends Controller {
 
   @action
   extraOnSortCallback_demo3() {
-    console.group('extraOnSortCallback called with:');
+    console.group('extraOnSortCallback_demo3 invoked:');
     console.log('customSortBy:', this.customSortBy_demo3);
     console.log('customSortOrder:', this.customSortOrder_demo3);
     console.groupEnd();
@@ -337,7 +337,7 @@ export default class PageComponentsTableController extends Controller {
 
   @action
   onSelectionChangeLogArguments(args: HdsTableOnSelectionChangeSignature) {
-    console.group('onSelectionChangeLogArguments');
+    console.group('onSelectionChangeLogArguments invoked with arguments:');
     console.log('Selection Key:', args.selectionKey);
     console.log('Checkbox Element:', args.selectionCheckboxElement);
     console.log('Selectable Rows Keys:', args.selectedRowsKeys);
@@ -391,7 +391,7 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('onSelectionChangeWithModel__demo1');
+    console.group('onSelectionChangeWithModel__demo1 invoked with arguments:');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -421,7 +421,7 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('onSelectionChangeWithoutModel__demo1');
+    console.group('onSelectionChangeWithoutModel__demo1 invoked with arguments:');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -505,7 +505,7 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('onMultiSelectPaginatedSelectionChange__demo2');
+    console.group('onMultiSelectPaginatedSelectionChange__demo2 invoked with arguments:');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -572,7 +572,7 @@ export default class PageComponentsTableController extends Controller {
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('onMultiSelectUsersSelectionChange__demo3');
+    console.group('onMultiSelectUsersSelectionChange__demo3 invoked with arguments:');
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
     console.log('Selectable Rows States:', selectableRowsStates);
@@ -609,7 +609,7 @@ export default class PageComponentsTableController extends Controller {
   onMultiSelectSelectionChange__demo4({
     selectedRowsKeys,
   }: HdsTableOnSelectionChangeSignature) {
-    console.group('onMultiSelectSelectionChange__demo4');
+    console.group('onMultiSelectSelectionChange__demo4 invoked with arguments:');
     console.log('Selected Row Keys:', selectedRowsKeys);
     console.groupEnd();
     this.multiSelectUserData__demo4.forEach((user) => {
