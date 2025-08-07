@@ -5,12 +5,12 @@ navigation:
   label: For designers
 ---
 
-The Design Systems Team maintains and publishes Figma libraries which contain foundational styles, components, patterns, and icons.
-
 !!! callout
 
 Many resources and links on this page are only available to HashiCorp employees.
 !!!
+
+The Design Systems Team maintains and publishes Figma libraries which contain foundational styles, components, patterns, and icons.
 
 ## Enabling Helios libraries
 

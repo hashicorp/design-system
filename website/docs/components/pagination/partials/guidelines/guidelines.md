@@ -11,6 +11,12 @@
 
 ## Numbered vs Compact
 
+!!! callout 
+
+We strongly suggest that you talk to your engineering team to see which pagination variant is right for your project.
+
+!!!
+
 Cursor and offset are the most common types of pagination. Currently, most HashiCorp products use cursor-based pagination.
 
 Cursor-based pagination allows users to navigate to the next or previous set of records no matter where the user is located within the dataset (record 1 or 300). This type of pagination uses the latest record that has been delivered to the client from a database to determine the _relative_ location within the data set, rather than the exact page number.
@@ -22,12 +28,6 @@ Offset or page-based pagination divides a dataset into pages containing a defaul
 
 ![Supported by offset and cursor based pagination.](/assets/components/pagination/pagination-cursor-example.png)
 <Doc::ImageCaption @text="Supported by offset and cursor based pagination."/>
-
-!!! callout 
-
-We strongly suggest that you talk to your engineering team to see which pagination variant is right for your project.
-
-!!!
 
 ## Truncation
 
