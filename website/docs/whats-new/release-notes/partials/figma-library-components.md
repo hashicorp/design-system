@@ -23,7 +23,7 @@ This changelog corresponds with the [4.22](/whats-new/release-notes#4220) releas
 
 `RadioCard` - Bug fix to the color override of the icons within each card.
 
-`Form Primitives` - Added a text properrty for the number/count in CharacterCount.
+`Form Primitives` - Added a text property for the number/count in CharacterCount.
 
 ### July 2nd, 2025
 
