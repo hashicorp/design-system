@@ -2,7 +2,7 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-export interface SpanningEntity {
+export interface SpanningCell {
   id: number;
   name?:
     | {
@@ -25,7 +25,7 @@ export interface SpanningEntity {
   email?: string;
 }
 
-const SpanningCells: SpanningEntity[] = [
+const SpanningCells: SpanningCell[] = [
   {
     id: 1,
     name: {

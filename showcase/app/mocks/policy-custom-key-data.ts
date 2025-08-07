@@ -3,16 +3,16 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export interface PolicyCustomData {
+export interface Policy {
   id: number;
   name: string;
   description: string;
   status: string;
   isOpen?: boolean;
-  data?: PolicyCustomData[];
+  data?: Policy[];
 }
 
-const Policies: PolicyCustomData[] = [
+const Policies: Policy[] = [
   {
     id: 1,
     name: 'Policy set 1',

@@ -10,11 +10,11 @@ import { DENSITIES } from '@hashicorp/design-system-components/components/hds/ad
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
 import clusterData from 'showcase/mocks/cluster-data';
-import folkMusic from 'showcase/mocks/folk-data';
-import manyColumnsData from 'showcase/mocks/many-columns-data';
+import folkMusicData from 'showcase/mocks/folk-music-data';
+import userWithManyColumnsData from 'showcase/mocks/user-with-more-columns-data';
 import policyCustomData from 'showcase/mocks/policy-custom-key-data';
 import policyData from 'showcase/mocks/policy-data';
-import selectableData from 'showcase/mocks/selectable-data';
+import selectableItemsData from 'showcase/mocks/selectable-items-data';
 import spanningCellData from 'showcase/mocks/spanning-cell-data';
 import userData from 'showcase/mocks/user-data';
 
@@ -31,19 +31,19 @@ const STATES = ['default', 'hover', 'active', 'focus'];
 export default class PageComponentsAdvancedTableRoute extends Route {
   model() {
     return {
-      music: folkMusic,
+      music: folkMusicData,
       userDataShort: clone(userData.slice(0, 5)),
       clusters: clusterData,
       spanningManualData: spanningCellData,
-      selectableData,
-      selectableDataDemo1: clone(selectableData),
-      selectableDataDemo2: clone(selectableData),
+      selectableData: selectableItemsData,
+      selectableDataDemo1: clone(selectableItemsData),
+      selectableDataDemo2: clone(selectableItemsData),
       userData: userData,
       userDataDemo3: clone(userData.slice(0, 16)),
       userDataDemo4: clone(
         userData.slice(0, 4).map((user) => ({ ...user, isAnimated: false })),
       ),
-      manyColumns: manyColumnsData,
+      manyColumns: userWithManyColumnsData,
       nestedData: policyData,
       nestedDataCustom: policyCustomData,
       DENSITIES,
