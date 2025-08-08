@@ -14,7 +14,7 @@ import {
   HdsBadge,
 } from '@hashicorp/design-system-components/components';
 
-import folkMusic from 'showcase/mocks/folk-data';
+import folkMusic from 'showcase/mocks/folk-music-data';
 
 export interface AdvancedTableResizableSignature {
   Args: {

@@ -10,7 +10,7 @@ import { deepTracked } from 'ember-deep-tracked';
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 import type { HdsAdvancedTableOnSelectionChangeSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
 
-import selectableData from 'showcase/mocks/selectable-data';
+import selectableData from 'showcase/mocks/selectable-item-data';
 
 export interface AdvancedTableSelectableSignature {
   Args: {
