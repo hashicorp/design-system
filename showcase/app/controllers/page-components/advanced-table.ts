@@ -8,6 +8,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { later } from '@ember/runloop';
+import type Owner from '@ember/owner';
 
 import type { PageComponentsAdvancedTableModel } from 'showcase/routes/page-components/advanced-table';
 import type { SelectableItem } from 'showcase/mocks/selectable-item-data';
@@ -87,15 +88,30 @@ export default class PageComponentsAdvancedTableController extends Controller {
   // @ts-expect-error - we need to reevaluate how we get the data for the table demos when we break up the template files into sub components
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
   @tracked focusableElementsVisible = false;
-  @deepTracked thResizeHandleTable = new HdsAdvancedTableModel({
-    // @ts-expect-error - this will be fixed in HDS-5090
-    model: this.model.userDataShort,
-    columns: [
-      {
-        label: 'Label',
-      },
-    ],
-  });
+
+  sampleTableModel!: HdsAdvancedTableModel;
+
+  constructor(owner: Owner) {
+    super(owner);
+
+    this.sampleTableModel = new HdsAdvancedTableModel({
+      model: [
+        {
+          value: 'lorem',
+        },
+        {
+          value: 'ipsum',
+        },
+      ],
+      hasResizableColumns: true,
+      columns: [
+        {
+          label: 'Label',
+          isVisuallyHidden: true,
+        },
+      ],
+    });
+  }
 
   get clustersWithExtraData() {
     return this.model.clusters.map((record) => {

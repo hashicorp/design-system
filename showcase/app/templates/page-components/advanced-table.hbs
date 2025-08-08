@@ -1703,7 +1703,7 @@
             <Hds::AdvancedTable::Th>Lorem</Hds::AdvancedTable::Th>
             <Hds::AdvancedTable::Th>Ipsum</Hds::AdvancedTable::Th>
             <Hds::AdvancedTable::Th>Dolor</Hds::AdvancedTable::Th>
-            <Hds::AdvancedTable::Th @isVisuallyHidden={{true}}>Sit amet</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th @column={{get this.sampleTableModel.columns 0}}>Sit amet</Hds::AdvancedTable::Th>
           </div>
         </div>
       </div>
@@ -1718,7 +1718,7 @@
             <Hds::AdvancedTable::Th>Lorem</Hds::AdvancedTable::Th>
             <Hds::AdvancedTable::Th>Ipsum</Hds::AdvancedTable::Th>
             <Hds::AdvancedTable::Th>Dolor</Hds::AdvancedTable::Th>
-            <Hds::AdvancedTable::Th @isVisuallyHidden={{true}}>Sit amet</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th @column={{get this.sampleTableModel.columns 0}}>Sit amet</Hds::AdvancedTable::Th>
           </div>
         </div>
       </div>
@@ -1733,7 +1733,7 @@
             <Hds::AdvancedTable::Th>Lorem</Hds::AdvancedTable::Th>
             <Hds::AdvancedTable::Th>Ipsum</Hds::AdvancedTable::Th>
             <Hds::AdvancedTable::Th>Dolor</Hds::AdvancedTable::Th>
-            <Hds::AdvancedTable::Th @isVisuallyHidden={{true}}>Sit amet</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th @column={{get this.sampleTableModel.columns 0}}>Sit amet</Hds::AdvancedTable::Th>
           </div>
         </div>
       </div>
@@ -2272,7 +2272,7 @@
                   </div>
                   <Hds::AdvancedTable::ThResizeHandle
                     mock-state-value={{state}}
-                    @column={{get this.thResizeHandleTable.columns 0}}
+                    @column={{get this.sampleTableModel.columns 0}}
                     @hasResizableColumns={{true}}
                     aria-valuenow="200"
                   />
