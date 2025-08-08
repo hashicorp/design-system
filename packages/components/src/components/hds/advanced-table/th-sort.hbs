@@ -44,10 +44,23 @@
       />
 
       {{#if @column}}
+        {{#if @hasReorderableColumns}}
+          <Hds::AdvancedTable::ThReorderHandle
+            @column={{@column}}
+            @columnWidth={{this._element.clientWidth}}
+            @tableHeight={{@tableHeight}}
+            @onReorderDragStart={{this.handleDragStart}}
+            @onReorderDragEnd={{@onReorderDragEnd}}
+            {{this._registerReorderHandleElement}}
+          />
+        {{/if}}
+
         {{#if this.showContextMenu}}
           <Hds::AdvancedTable::ThContextMenu
             @column={{@column}}
+            @hasReorderableColumns={{@hasReorderableColumns}}
             @hasResizableColumns={{@hasResizableColumns}}
+            @reorderHandleElement={{this._reorderHandleElement}}
             @resizeHandleElement={{this._resizeHandleElement}}
             @onColumnResize={{@onColumnResize}}
           />
@@ -65,4 +78,12 @@
       {{/if}}
     </Hds::Layout::Flex>
   </Hds::Layout::Flex>
+
+  {{#if @column.table.hasColumnBeingDragged}}
+    <Hds::AdvancedTable::ThReorderDropTarget
+      @column={{@column}}
+      @tableHeight={{@tableHeight}}
+      @onReorderDrop={{@onReorderDrop}}
+    />
+  {{/if}}
 </div>

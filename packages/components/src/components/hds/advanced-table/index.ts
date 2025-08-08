@@ -29,6 +29,7 @@ import type {
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
+  HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
@@ -115,6 +116,7 @@ export interface HdsAdvancedTableSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     caption?: string;
     columns: HdsAdvancedTableColumn[];
+    columnOrder?: string[];
     density?: HdsAdvancedTableDensities;
     identityKey?: string;
     isSelectable?: boolean;
@@ -126,11 +128,13 @@ export interface HdsAdvancedTableSignature {
     sortedMessageText?: string;
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
+    hasReorderableColumns?: boolean;
     hasResizableColumns?: boolean;
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
     onSelectionChange?: (
       selection: HdsAdvancedTableOnSelectionChangeSignature
@@ -205,6 +209,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const {
       model,
       columns,
+      columnOrder,
       childrenKey,
       hasResizableColumns,
       sortBy,
@@ -216,6 +221,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
       columns,
+      columnOrder,
       childrenKey,
       hasResizableColumns,
       sortBy,
@@ -350,25 +356,25 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
     const { isSelectable } = this.args;
-    const { columns } = this._tableModel;
+    const { orderedColumns } = this._tableModel;
 
     const DEFAULT_COLUMN_WIDTH = '1fr';
 
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    const hasCustomColumnWidths = columns.some(
+    const hasCustomColumnWidths = orderedColumns.some(
       (column) => column.width !== undefined
     );
 
     if (hasCustomColumnWidths) {
       // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
-      for (let i = 0; i < columns.length; i++) {
-        style += ` ${columns[i]!.width ?? DEFAULT_COLUMN_WIDTH}`;
+      for (let i = 0; i < orderedColumns.length; i++) {
+        style += ` ${orderedColumns[i]!.width ?? DEFAULT_COLUMN_WIDTH}`;
       }
     } else {
       // if there are no custom column widths, each column is the same width and they take up the available space
-      style += `repeat(${columns.length}, ${DEFAULT_COLUMN_WIDTH})`;
+      style += `repeat(${orderedColumns.length}, ${DEFAULT_COLUMN_WIDTH})`;
     }
 
     return style;

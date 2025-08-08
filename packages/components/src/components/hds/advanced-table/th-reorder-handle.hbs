@@ -1,0 +1,14 @@
+{{! template-lint-disable no-pointer-down-event-binding }}
+<div
+  draggable="true"
+  class={{this.classNames}}
+  tabindex="0"
+  aria-label="Reorder {{@column.label}} column"
+  {{this._registerElement}}
+  {{on "dragstart" this.handleDragStart}}
+  {{on "dragend" this.handleDragEnd}}
+  {{on "keydown" this.handleKeydown}}
+  ...attributes
+>
+  <Hds::Icon @name="move-horizontal" />
+</div>
