@@ -14,13 +14,13 @@ To use the Sass helpers provided by the design system, you must import the corre
 @use "mixins/breakpoints" as *;
 ```
 
-!!! info
+Once the file is imported, you will have access to the Sass helpers described below.
+
+!!! callout
 
 If you are not able to import the file using the declaration above, [contact the Design Systems Team](/about/support) for support.
 
 !!!
-
-Once the file is imported, you will have access to the Sass helpers described below.
 
 #### Mixins
 

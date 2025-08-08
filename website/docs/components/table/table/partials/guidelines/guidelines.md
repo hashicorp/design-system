@@ -205,11 +205,6 @@ For more details around using a multi-select Table, recommended patterns, and in
 
 ### Intended interaction
 
-!!! Info
-
-This documentation currently covers only fundamental multi-select table interactions. We're working to include more comprehensive patterns for handling actions when multiple rows are selected and how this impacts filtering and pagination within a data set. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
-!!!
-
 - When individual rows are selected, the parent checkbox in the Table header changes to display an indeterminate state. 
 - When no or some rows (but not all) are selected in a single Table, clicking the parent checkbox in the Table header will change to display as checked and all rows on that page will be selected.
 - When all rows are selected in a single Table, the parent checkbox in the header appears as checked. Clicking the parent checkbox will deselect all rows on that page.
@@ -221,3 +216,8 @@ This documentation currently covers only fundamental multi-select table interact
     type="video/mp4"
   />
 </video>
+
+!!! callout
+
+This documentation currently covers only fundamental multi-select table interactions. We're working to include more comprehensive patterns for handling actions when multiple rows are selected and how this impacts filtering and pagination within a data set. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
+!!!
