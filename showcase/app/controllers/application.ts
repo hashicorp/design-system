@@ -7,18 +7,23 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
+import type RouterService from '@ember/routing/router-service';
+import type Owner from '@ember/owner';
+
 export default class ApplicationController extends Controller {
-  @service router;
+  @service declare readonly router: RouterService;
 
   @tracked isFrameless = false;
 
-  constructor() {
-    super(...arguments);
-    this.router.on('routeDidChange', this, 'routeDidChange');
+  constructor(owner: Owner) {
+    super(owner);
+    this.router.on('routeDidChange', this.routeDidChange.bind(this));
   }
 
   routeDidChange() {
     // it's a "framless" page (we infer it from the URL for simplicity)
-    this.isFrameless = this.router?.currentURL?.includes('frameless');
+    this.isFrameless = this.router?.currentURL?.includes('frameless')
+      ? true
+      : false;
   }
 }
