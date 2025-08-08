@@ -55,7 +55,7 @@ export default class HdsAdvancedTableColumn {
 
   get cells(): HdsAdvancedTableCell[] {
     return this.table.flattenedVisibleRows.map((row) => {
-      const cell = row.cells.find((cell) => cell!.columnKey === this.key);
+      const cell = row.cells.find((cell) => cell.columnKey === this.key);
 
       return cell!;
     });
