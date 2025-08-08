@@ -41,8 +41,4 @@ export default class PageComponentsController extends Controller {
       });
     });
   }
-
-  willDestroy() {
-    this.router.off('routeDidChange', this.routeDidChange.bind(this));
-  }
 }
