@@ -182,10 +182,6 @@ The Figma component will not fully reflect the Badge wrapping behavior expected 
 
 Refer to the [Badge guidelines](/components/badge) to help inform choices around color and icon use. 
 
-### Content
-
-While there are no character limits for ListItems, we recommend keeping them short and concise so the List is easy to scan.
-
 ## Critical action patterns
 
 We recommend adding a second confirmation layer after the user clicks “Delete” (e.g., showing a confirmation Modal that requires the user to take another action before proceeding). This safeguards against accidental clicks by requiring users to confirm the destructive action.

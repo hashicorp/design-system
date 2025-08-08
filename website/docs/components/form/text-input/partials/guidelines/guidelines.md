@@ -119,7 +119,3 @@ For tracking the number of characters entered into a TextInput and defining requ
 ## Error validation
 
 For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns?tab=validation) documentation.
-
-## Content
-
-For high-level content recommendations, refer to our [Primitives](/components/form/primitives) documentation.

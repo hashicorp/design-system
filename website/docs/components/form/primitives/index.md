@@ -31,6 +31,10 @@ navigation:
   @include "partials/code/component-api.md"
 </section>
 
+<section data-tab="Content">
+  @include "partials/content/content.md"
+</section>
+
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
