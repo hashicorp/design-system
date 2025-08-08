@@ -6,12 +6,13 @@ It’s primarily a wrapper for [ember-power-select](https://ember-power-select.c
 
 !!! Warning
 
+**Consumer responsibility**
+
 ember-power-select 8.0, and by extension the Super Select component, requires the following line in your `application.hbs`. [Read more about migrating from 7.0 to 8.0](https://ember-power-select.com/docs/migrate-7-0-to-8-0).
 
 ```markup
 <BasicDropdownWormhole />
 ```
-
 !!!
 
 We provide two main components with similar APIs: `Form::SuperSelect::Single` and `Form::SuperSelect::Multiple`.
@@ -98,8 +99,9 @@ To group similar sets of options, pass a nested data structure specifying the `g
 
 !!! Warning
 
-If options are implemented as an array of strings and have the same name, they will be treated as the same, so selecting one will select others with the same name. To avoid this, implement your options using objects. (e.g. [{name: "name", label: "label"}, ...])
+**Code alert**
 
+If options are implemented as an array of strings and have the same name, they will be treated as the same, so selecting one will select others with the same name. To avoid this, implement your options using objects. (e.g. [{name: "name", label: "label"}, ...])
 !!!
 
 **Nested data structure example:**
@@ -280,7 +282,9 @@ You can add extra information to the field using [Helper Text](/components/form/
 
 #### Extra content in label and helper text
 
-!!! Warning
+!!! Info
+
+**Accessibility consideration**
 
 If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
 !!!
@@ -301,6 +305,40 @@ For example:
   <F.HelperText>This is an experimental feature (<Hds::Link::Inline @href="#">read more</Hds::Link::Inline>).</F.HelperText>
   <F.Options>{{F.options}}</F.Options>
 </Hds::Form::SuperSelect::Single::Field>
+```
+
+#### Required vs. optional
+
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
+
+```handlebars
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::SuperSelect::Single::Field
+      @isRequired={{true}}
+      @onChange={{fn (mut this.SELECTED_OPTION)}}
+      @selected={{this.SELECTED_OPTION}}
+      @options={{this.OPTIONS}}
+      @searchEnabled={{true}}
+      as |F|
+    >
+      <F.Label>This is the label</F.Label>
+      <F.Options>{{F.options}}</F.Options>
+    </Hds::Form::SuperSelect::Single::Field>
+
+    <Hds::Form::SuperSelect::Single::Field
+      @isOptional={{true}}
+      @onChange={{fn (mut this.SELECTED_OPTION)}}
+      @selected={{this.SELECTED_OPTION}}
+      @options={{this.OPTIONS}}
+      @searchEnabled={{true}}
+      as |F|
+    >
+      <F.Label>This is the label</F.Label>
+      <F.Options>{{F.options}}</F.Options>
+    </Hds::Form::SuperSelect::Single::Field>
+  </FORM.Section>
+</Hds::Form>
 ```
 
 ### Base components

@@ -14,6 +14,7 @@
   align-items: flex-start;
   margin: 16px 0 24px;
   padding: 12px;
+  background: var(--doc-banner-background-color, --doc-color-white);
   border: 1px solid var(--doc-banner-border-color);
   border-left-width: 4px;
   border-radius: 3px;
@@ -33,7 +34,6 @@
 }
 
 .doc-banner__content {
-
   // we need to override the margin of the children in some cases
   > *:first-child {
     margin-top: 0;
@@ -68,12 +68,7 @@
 
 // variants
 
-.doc-banner--type-info,
-.doc-banner--type-information {
-  --doc-banner-border-color: var(--doc-color-feedback-information-200);
-  --doc-banner-title-color: var(--doc-color-feedback-information-200);
-}
-
+// top priority
 .doc-banner--type-warning {
   --doc-banner-border-color: var(--doc-color-feedback-warning-100);
   --doc-banner-title-color: var(--doc-color-feedback-warning-100);
@@ -84,10 +79,18 @@
   --doc-banner-title-color: var(--doc-color-feedback-critical-100);
 }
 
+// mid priority
+.doc-banner--type-info,
+.doc-banner--type-information {
+  --doc-banner-border-color: var(--doc-color-feedback-information-200);
+  --doc-banner-title-color: var(--doc-color-feedback-information-200);
+}
+
+// low priority
 .doc-banner--type-insight {
   --doc-banner-title-color: var(--doc-color-black);
+  --doc-banner-background-color: linear-gradient(50.7deg, #63d0ff 0%, #844fba 100%);
   position: relative;
-  background: linear-gradient(50.7deg, #63d0ff 0%, #844fba 100%);
   isolation: isolate;
 
   &::before {
@@ -105,5 +108,18 @@
   .doc-banner__icon,
   .doc-banner__content {
     z-index: 1;
+  }
+}
+
+// no priority
+.doc-banner--type-callout {
+  --doc-banner-border-color: var(--doc-color-gray-500);
+  --doc-banner-title-color: var(--doc-color-gray-200);
+  --doc-banner-background-color: var(--doc-color-gray-600);
+  color: var(--doc-color-gray-200);
+
+  // by design, all text & text-like content (bullets, icons) should use the same color
+  .doc-markdown-ul > li::marker, .doc-markdown-ol > li::marker {
+    color: var(--doc-color-gray-200);
   }
 }

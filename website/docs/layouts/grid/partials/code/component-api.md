@@ -23,7 +23,7 @@
     <br /><br />
     <em>Note: we only expose a subset of the values allowed for this property, which cover the most common use cases.</em>
   </C.Property>
-  <C.Property @name="gap" @type="enum" @values={{array "4" "8" "12" "16" "32" "48"}}>
+  <C.Property @name="gap" @type="enum" @values={{array "0" "4" "8" "12" "16" "32" "48"}} @default="0">
     The gap spacing between rows and columns of the grid. Specify as either a single value or array of two values for setting the row and column spacing separately.
   </C.Property>
   <C.Property @name="...attributes">

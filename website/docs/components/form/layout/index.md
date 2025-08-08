@@ -23,8 +23,6 @@ navigation:
     - field group
     - button set
     - input
-status:
-  added: 4.21.0
 ---
 
 <section data-tab="Guidelines">
@@ -39,6 +37,7 @@ status:
 
 <section data-tab="Specifications">
   @include "partials/specifications/anatomy.md"
+  @include "partials/specifications/spacing.md"
 </section>
 
 <section data-tab="Accessibility">

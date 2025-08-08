@@ -14,7 +14,9 @@ import type { HdsIconSignature } from '../../icon';
 import type { HdsStepperStatuses } from '../types.ts';
 
 export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
-export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
+export const STATUSES: HdsStepperStatuses[] = Object.values(
+  HdsStepperStatusesValues
+);
 
 export const MAPPING_STATUS_TO_ICONS = HdsStepperStatusToIconsValues;
 

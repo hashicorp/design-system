@@ -15,7 +15,7 @@ export interface BaseHdsTableTrSignature {
   Args: {
     selectableColumnKey?: HdsTableSignature['Args']['selectableColumnKey'];
     isSelectable?: boolean;
-    isSelected?: false;
+    isSelected?: boolean;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope?: HdsTableScope;

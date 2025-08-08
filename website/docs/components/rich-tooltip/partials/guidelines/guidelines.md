@@ -35,6 +35,8 @@ The Rich Tooltip supports additional placement options: `top-start`, `top-end`, 
 
 !!! Info
 
+**Code consideration**
+
 The placement property is _relative_ to the element that toggles the component, rather than the direction of the pointer. E.g., `placement=left` will render the component to the _left_ of the toggle, but the pointer will be pointing to the right.
 !!!
 
@@ -43,19 +45,6 @@ The placement property is _relative_ to the element that toggles the component, 
 The Rich Tooltip supports collision detection, meaning the `placement` property might be overridden depending on the position of the component relative to the edge of the viewport. This ensures that the component doesn't extend outside of the viewport while still being associated with the toggle element.
 
 ![Example of collision detection in the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-collision-detection.png)
-
-## Offset
-
-The default recommended distance between the toggle and the Rich Tooltip pointer is 4px.
-
-![Default spacing for the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-offset-spacing.png)
-
-!!! Dont
-
-Don’t add extra offset if the Rich Tooltip would block important information, appear disconnected from the element it is meant to provide information for, or cause confusion for the user.
-
-![Example of adjusting the offset of the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-offset-dont.png)
-!!!
 
 ## Interaction
 

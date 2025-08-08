@@ -31,16 +31,13 @@ Offset or page-based pagination divides a dataset into pages containing a defaul
 
 ## Truncation
 
-!!! Info
-
-The number of pages equals `total items / items per page`, e.g., if the total number of items is 120 and there are 10 items per page, the number of pages is 12. However, this can be variable depending on the `PageSize` and can determine whether the number of pages extends beyond the threshold of truncation.
-!!!
-
 By default, in Numbered Pagination, the number of visible pages will be truncated when the total number of pages exceeds seven. What pages are truncated depends on the current page the user is on, with a few notable constants:
 
 - The first and last page will always be displayed (never be truncated).
 - The previous page and next page compared to the current page will always be displayed (unless the current page is the first or last page).
 - A maximum of seven pages or truncated pages will always be displayed.
+
+The number of pages equals `total items / items per page`, e.g., if the total number of items is 120 and there are 10 items per page, the number of pages is 12. However, this can be variable depending on the `PageSize` and can determine whether the number of pages extends beyond the threshold of truncation.
 
 ### Current page examples
 
@@ -82,4 +79,6 @@ If your product uses a significantly higher or lower spacing scale, increase or 
 
 While pagination can be beneficial for dividing up and displaying a large dataset into more manageable chunks, relying _solely_ on pagination and sorting to find a specific record or set of records results in a poor user experience. This is especially true in cursor-based pagination, where it may not be clear to the user where their relative position is within the dataset.
 
-Instead, more effort should be put into [filtering](/patterns/filter-patterns) the data set to limit the number of returned results, with pagination used as an enhancement.
+### Reflect filtered numbers
+
+When [filtering](/patterns/filter-patterns), the data set will limit the number of returned results and should be reflected in the pagination's total number count.

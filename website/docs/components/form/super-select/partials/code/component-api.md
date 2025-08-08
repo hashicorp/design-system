@@ -11,16 +11,11 @@ The Single and Multiple base components have nearly identical APIs to the 8.2.0 
 
 While the [ember-power-select documentation](https://ember-power-select.com/docs) has the full list of supported options for the base components, we’ve included the most common ones here for your convenience as well as the options for which default values have been overridden.
 
-!!! Info
+The default values of some [ember-power-select](https://ember-power-select.com/docs/api-reference) options have been overridden to either resolve accessibility issues or to customize according to our needs:
 
-The default values of some [ember-power-select](https://ember-power-select.com/docs/api-reference) options have been overridden to either resolve accessibility issues or to customize according to our needs.
-
-Overrides to fix accessibility issues:
 
 - `renderInPlace`: Always set as `true`. The opener element or “trigger” must be next to dropdown content it hides & reveals.
 - `searchFieldPosition`: Always set to `"before-options"`. Rendering the search input within the trigger is not compliant because it nests interactive elements within each other.
-
-!!!
 
 ### SuperSelect::Single::Base
 

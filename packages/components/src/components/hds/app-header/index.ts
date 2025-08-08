@@ -24,8 +24,16 @@ export interface HdsAppHeaderSignature {
   };
   Blocks: {
     logo?: [];
-    globalActions?: [];
-    utilityActions?: [];
+    globalActions?: [
+      {
+        close: () => void;
+      },
+    ];
+    utilityActions?: [
+      {
+        close: () => void;
+      },
+    ];
   };
   Element: HTMLDivElement;
 }
@@ -41,8 +49,8 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   // Generates a unique ID for the Menu Content
   private _menuContentId = 'hds-menu-content-' + guidFor(this);
 
-  // we use the `lg` breakpoint for `desktop` viewports, but consumers can override its value
-  private _desktopMQVal = this.args.breakpoint ?? hdsBreakpoints['lg'].px;
+  // we use the `md` breakpoint for `desktop` viewports, but consumers can override its value
+  private _desktopMQVal = this.args.breakpoint ?? hdsBreakpoints['md'].px;
 
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
@@ -117,6 +125,12 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   @action
   onClickToggle(): void {
     this._isOpen = !this._isOpen;
+  }
+
+  @action close(): void {
+    if (this._isOpen && !this._isDesktop) {
+      this._isOpen = false;
+    }
   }
 
   @action

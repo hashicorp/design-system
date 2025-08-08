@@ -20,8 +20,6 @@ navigation:
     - pair
     - input
     - form
-status:
-  added: 4.21.0
 ---
 
 <section data-tab="Guidelines">

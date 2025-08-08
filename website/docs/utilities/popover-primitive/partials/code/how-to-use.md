@@ -15,12 +15,10 @@ The primitive also uses the [Floating UI](https://floating-ui.com/) third-party 
 
 !!! Insight
 
-**Learn more**
+**Code tip**
 
 - For details about the native web Popover API, see: [MDN / Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
 - For details about the Floating UI third-party library, see: [Floating UI](https://floating-ui.com/)
-
-
 !!!
 
 The internal logic and APIs of this component are quite complex; it's impossible to describe everything in detail. Below we provide a few basic examples, but if you need more in-depth knowledge of how the primitive can be configured and used, we suggest looking at the source code of the component itself as well as the `hds-anchored-position` modifier, which is a custom wrapper around the Floating UI library.
@@ -68,8 +66,9 @@ Alternatively, the toggle behavior can be enabled via "click" events:
 
 !!! Warning
 
-Important: if you don't apply either `@enableSoftEvents` or `@enableClickEvents` the popover will not become visible with any kind of interaction (unless it's rendered already opened via the special `@isOpen` argument).
+**Consumer responsibility**
 
+Important: if you don't apply either `@enableSoftEvents` or `@enableClickEvents` the popover will not become visible with any kind of interaction (unless it's rendered already opened via the special `@isOpen` argument).
 !!!
 
 ### Content positioning

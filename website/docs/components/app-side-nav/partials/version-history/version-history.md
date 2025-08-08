@@ -1,3 +1,14 @@
+## 4.22.0
+
+Translated template strings
+
+
+## 4.21.1
+
+Removed extra transparent border and background when rendered as a `<button>` element
+
+Applied transparent background to the `AppSideNav::List::Link` element to avoid overlapping with previous item's focus ring
+
 ## 4.20.0
 
 Removed usage of `--hds-app-desktop-breakpoint` CSS variable, added `@breakpoint` argument, and relied on it for override of mobile behavior

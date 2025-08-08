@@ -1,5 +1,19 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+## August 7th, 2025
+
+This changelog corresponds with the [4.22](/whats-new/release-notes#4220) release.
+
+`Modal` - Fixed a color inheritance bug for the tagline.
+
+`SuperSelect` - Updated the tags to better reflect the Ember component functionality. Added missing boolean property for helper text.
+
+`Tab` - Fixed an auto layout bug to correct indicator length for longer text.
+
+`RadioCard` - Fixed a color override bug for the icons within each card.
+
+`Form Primitives` - Added a text property for the number/count in CharacterCount.
+
 ## July 2nd, 2025
 
 This changelog corresponds with the [4.21](/whats-new/release-notes#4210) release.

@@ -30,6 +30,20 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
     assert.dom('.hds-reveal__toggle-button').hasText('More options');
   });
 
+  test('it provides the correct accessible name and description when passed in @text and @ariaDescribedBy content in the toggle button', async function (assert) {
+    await render(
+      hbs`
+        <span id="reveal-description">GitHub apps</span>
+        <Hds::Reveal @text="Show More" @ariaDescribedBy="reveal-description">
+          Additional content
+        </Hds::Reveal>`,
+    );
+    assert
+      .dom('.hds-reveal__toggle-button')
+      .hasText('Show More')
+      .hasAria('describedby', 'reveal-description');
+  });
+
   test('it shows and hides passed in content when the toggle is triggered', async function (assert) {
     await render(
       hbs`

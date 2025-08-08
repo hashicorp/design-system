@@ -2,9 +2,10 @@
 
 ### When to use
 
-- When large datasets benefit from being viewed in a scrollable container instead of with pagination.
+- For large data sets with many properties that benefit from being viewed in a scrollable container.
 - When an expandable table is needed for hierarchical data.
 - When users would benefit from more efficient keyboard navigation, such as when there are many rows or columns.
+- When users would benefit from customizing the view of the data set (column width, order, etc).
 
 ### When not to use
 
@@ -41,8 +42,9 @@ Column width is determined by manually resizing the header column and cells with
 
 !!! Info
 
-The column placement property is only relevant within Figma and doesn’t exist as a property in code.
+**Differences between Figma and code**
 
+The column placement property is only relevant within Figma and doesn’t exist as a property in code.
 !!!
 
 Column placement determines the visual styling based on where the column is placed relative to other columns in the Advanced Table.
@@ -201,10 +203,11 @@ The Advanced Table supports any combination of expanded or collapsed rows on loa
 
 ### Striping
 
-!!! Info
+!!! Warning
+
+**Accessibility alert**
 
 Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
-
 !!!
 
 Striping enhances readability by alternating row colors, making it easier to scan tabular data.
@@ -218,8 +221,9 @@ Striping enhances readability by alternating row colors, making it easier to sca
 
 !!! Info
 
-The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
+**Differences between Figma and code**
 
+The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
 !!!
 
 Row placement determines the visual styling based on where the row is placed relative to other rows within the Advanced Table. Only cells with a column placement that is either start or end use the row placement property; column position middle does not use this property.
@@ -244,8 +248,9 @@ Use horizontal scrolling when the number of columns expands beyond the viewport 
 
 !!! Info
 
-Multi-select and sorting are not supported for nested rows at this time.
+**Nested rows limitations**
 
+Multi-select and sorting are not supported for nested rows at this time.
 !!!
 
 Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)

@@ -4,10 +4,11 @@ To use this component, you must either include the yielded `Title` component, pr
 
 The basic invocation requires a `@value` argument. The component encodes this argument before displaying it.
 
-!!! Info
+!!! Warning
+
+**Code alert**
 
 If the `\n` escape sequence is used in the `@value` string in Handlebars, it will not be automatically converted to a newline, as it can have unexpected side effects.
-
 !!!
 
 ```handlebars
@@ -39,10 +40,11 @@ as |CB|>
 
 The `@tag` argument changes the HTML element that wraps the `[CB].Title` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if a CodeBlock is within a subsection of the page below a heading level 2, the value should be `"h3"`. 
 
-!!! Insight
+!!! Warning
 
-The default `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+**Accessibility alert**
 
+The default `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to the appropriate heading tag to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
 !!!
 
 ```handlebars
@@ -112,10 +114,11 @@ console.log(`I am ${codeLang} code`);"
 />
 ```
 
-!!! Info
+!!! Warning
+
+**Code alert**
 
 Due to technical limitations, if the `@value` changes dynamically the line numbers will fail to update.
-
 !!!
 
 ### Line wrapping

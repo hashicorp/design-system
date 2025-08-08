@@ -27,11 +27,17 @@ import type {
 } from './types.ts';
 
 export const DEFAULT_DIRECTION = HdsLayoutFlexDirectionValues.Row;
-export const DIRECTIONS: string[] = Object.values(HdsLayoutFlexDirectionValues);
-export const JUSTIFYS: string[] = Object.values(HdsLayoutFlexJustifyValues);
-export const ALIGNS: string[] = Object.values(HdsLayoutFlexAlignValues);
+export const DIRECTIONS: HdsLayoutFlexDirections[] = Object.values(
+  HdsLayoutFlexDirectionValues
+);
+export const JUSTIFYS: HdsLayoutFlexJustifys[] = Object.values(
+  HdsLayoutFlexJustifyValues
+);
+export const ALIGNS: HdsLayoutFlexAligns[] = Object.values(
+  HdsLayoutFlexAlignValues
+);
 export const DEFAULT_GAP = HdsLayoutFlexGapValues.Zero;
-export const GAPS: string[] = Object.values(HdsLayoutFlexGapValues);
+export const GAPS: HdsLayoutFlexGaps[] = Object.values(HdsLayoutFlexGapValues);
 
 export interface HdsLayoutFlexSignature {
   Args: {

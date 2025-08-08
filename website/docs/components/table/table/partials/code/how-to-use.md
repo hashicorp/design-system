@@ -88,9 +88,20 @@ export default class ComponentsTableRoute extends Route {
 }
 ```
 
+!!! Warning
+
+**Consumer responsibility**
+
 For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
 
-You can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided:
+!!!
+
+Then, in the template code you will need to:
+
+- pass the data model to the `@model` argument of the Table component
+- provide a `@columns` argument to describe the expected columns (see [Component API](#component-api) for details)
+- insert your own content into the `:body` block (the component will take care of looping over the `@model`)
+- use the `.data` key to access the `@model` record content (it’s yielded as `data`)
 
 ```handlebars
 <Hds::Table
@@ -107,23 +118,13 @@ You can insert your own content into the `:body` block and the component will ta
 </Hds::Table>
 ```
 
-!!! Info
-
-**Important**
-
-For clarity, there are a couple of important points to note here:
-
-- provide a `@columns` argument (see [Component API](#component-api) for details about its shape)
-- use the `.data` key to access the `@model` record content (it’s yielded as `data`)
-
-!!!
-
 ### Sortable table
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers).
-
 !!!
 
 Add `isSortable=true` to the hash for each column that should be sortable.
@@ -390,12 +391,13 @@ To indicate that the table’s content should have a middle vertical-align, use 
 
 #### Vertical alignment with additional cell content
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 Note that vertical-align only applies to inline, inline-block and table-cell elements: you can’t use it to vertically align block-level elements ([see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)).
 
 If you have more than just text content in the table cell, you'll want to wrap that content in a flex box and style accordingly.
-
 !!!
 
 ```handlebars
@@ -578,8 +580,9 @@ Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` 
 
 !!! Info
 
-If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
+**Code consideration**
 
+If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
 !!!
 
 This is a simple example of a table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.
@@ -607,10 +610,9 @@ This is a simple example of a table with multi-selection. Notice the `@selection
 
 !!! Warning
 
-**Important**
+**Accessibility alert**
 
 To make the table correctly accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the table’s `tbody`.
-
 !!!
 
 Here’s an example of what a `@onSelectionChange` callback function could look like.
@@ -638,10 +640,9 @@ For details about the arguments provided to the `@onSelectionChange` callback fu
 
 !!! Info
 
-**Multi-select table without a model**
+**Code consideration**
 
 While it’s technically possible to use the multi-select feature in a table implemented without using a model, we strongly suggest converting the code to provide a `@model` to the table using a local dataset (created using the information/data you need to display).
-
 !!!
 
 #### Multi-select table using a model with sorting by selection state

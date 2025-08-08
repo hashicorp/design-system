@@ -39,9 +39,20 @@ export default class ComponentsAdvancedTableRoute extends Route {
 }
 ```
 
+!!! Warning
+
+**Consumer responsibility**
+
 For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
 
-You can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided:
+!!!
+
+Then, in the template code you will need to:
+
+- pass the data model to the `@model` argument of the AdvancedTable component
+- provide a `@columns` argument to describe the expected columns (see [Component API](#component-api) for details)
+- insert your own content into the `:body` block (the component will take care of looping over the `@model`)
+- use the `.data` key to access the `@model` record content (it’s yielded as `data`)
 
 ```handlebars
 <Hds::AdvancedTable
@@ -61,17 +72,6 @@ You can insert your own content into the `:body` block and the component will ta
   </:body>
 </Hds::AdvancedTable>
 ```
-
-!!! Info
-
-**Important**
-
-For clarity, there are a couple of important points to note here:
-
-- provide a `@columns` argument (see [Component API](#component-api) for details about its shape)
-- use the `.data` key to access the `@model` record content (it’s yielded as `data`)
-
-!!!
 
 ### Nested rows
 
@@ -271,10 +271,11 @@ How resizing for the cell content works is determined by the implementation. For
 
 ### Sortable Advanced Table
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers)
-
 !!!
 
 Add `isSortable=true` to the hash for each column that should be sortable.
@@ -607,18 +608,18 @@ Add `isSelectable=true` to create a multi-select Advanced Table. The `onSelectio
 
 !!! Warning
 
-**Important**
+**Accessibility alert**
 
 To make the Advanced Table accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the Advanced Table's body.
-
 !!!
 
 This is a simple example of an Advanced Table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.
 
 !!! Info
 
-If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
+**Code consideration**
 
+If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
 !!!
 
 ```handlebars

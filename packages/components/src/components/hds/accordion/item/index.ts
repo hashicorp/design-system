@@ -19,10 +19,10 @@ import type {
   HdsAccordionItemTitleTags,
 } from '../types.ts';
 
-export const SIZES: string[] = Object.values(HdsAccordionSizeValues);
+export const SIZES: HdsAccordionSizes[] = Object.values(HdsAccordionSizeValues);
 export const DEFAULT_SIZE = HdsAccordionSizeValues.Medium;
 
-export const TYPES: string[] = Object.values(HdsAccordionTypeValues);
+export const TYPES: HdsAccordionTypes[] = Object.values(HdsAccordionTypeValues);
 export const DEFAULT_TYPE = HdsAccordionTypeValues.Card;
 
 const TEXT_SIZE_MAP = {

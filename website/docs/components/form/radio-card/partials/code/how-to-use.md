@@ -8,6 +8,8 @@
 
 !!! Warning
 
+**Consumer responsibility**
+
 The `<Hds::Form::RadioCard::Group>` component does not provide the logic for handling the mutually exclusive nature of radio controls (when a Radio Card is checked, any other Radio Cards with the same name that were previously checked become unchecked). You can implement this yourself in an `\{{on "change" this.onChange}}` function or manage the `checked` state of Radio Cards by updating the underlying data.
 !!!
 
@@ -73,6 +75,56 @@ Customizable options include:
     </R.Generic>
   </G.RadioCard>
 </Hds::Form::RadioCard::Group>
+```
+
+#### Required vs. optional
+
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication next to the legend text that the field is “required” or “optional”.
+
+```handlebars
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::RadioCard::Group
+      @isRequired={{true}}
+      @name="radio-card-layout-required"
+      as |G|
+    >
+      <G.Legend>Allow this source connect to the destination</G.Legend>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Admin</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Read</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Write</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+    </Hds::Form::RadioCard::Group>
+
+    <Hds::Form::RadioCard::Group
+      @isOptional={{true}}
+      @name="radio-card-layout-optional"
+      as |G|
+    >
+      <G.Legend>Allow this source connect to the destination</G.Legend>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Admin</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Read</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Write</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+    </Hds::Form::RadioCard::Group>
+  </FORM.Section>
+</Hds::Form>
 ```
 
 ### Layout and control position

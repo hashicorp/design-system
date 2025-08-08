@@ -22,6 +22,8 @@ navigation:
     - side navigation
     - sidenav
     - sidebar
+status:
+  updated: 4.22.0
 ---
 
 <section data-tab="Guidelines">

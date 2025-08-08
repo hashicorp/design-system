@@ -22,12 +22,14 @@ import type { HdsIconSignature } from '../icon';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
-export const SIZES: string[] = Object.values(HdsIconTileSizeValues);
-export const COLORS: string[] = Object.values({
+export const SIZES: HdsIconTileSizes[] = Object.values(HdsIconTileSizeValues);
+export const COLORS: HdsIconTileColors[] = Object.values({
   ...HdsIconTileColorNeutral,
   ...HdsIconTileProductValues,
 });
-export const PRODUCTS: string[] = Object.values(HdsIconTileProductValues);
+export const PRODUCTS: HdsIconTileProducts[] = Object.values(
+  HdsIconTileProductValues
+);
 
 export interface HdsIconTileSignature {
   Args: {
@@ -54,7 +56,7 @@ export default class HdsIconTile extends Component<HdsIconTileSignature> {
     return size;
   }
 
-  get color(): string {
+  get color() {
     let { color = DEFAULT_COLOR } = this.args;
 
     // if it's a "logo" then we overwrite any @color parameter passed
@@ -67,7 +69,7 @@ export default class HdsIconTile extends Component<HdsIconTileSignature> {
       `@color for "Hds::IconTile" must be one of the following: ${COLORS.join(
         ', '
       )}; received: ${color}`,
-      COLORS.includes(color)
+      COLORS.includes(color as HdsIconTileColors)
     );
 
     return color;

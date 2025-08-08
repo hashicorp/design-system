@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { restartableTask, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
-import { AVAILABLE_NAMES } from '@hashicorp/design-system-components/components/hds/icon/index';
+import { NAMES } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import catalog from '@hashicorp/flight-icons/catalog.json';
 
@@ -19,7 +19,7 @@ export default class Index extends Component {
   @service router;
 
   allIcons = catalog.assets
-    .filter(({ iconName }) => AVAILABLE_NAMES.includes(iconName))
+    .filter(({ iconName }) => NAMES.includes(iconName))
     .map(({ iconName, fileName, size, description, category }) => {
       category = category.toLowerCase(); // category names in json begin with uppercase letter
 

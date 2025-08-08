@@ -1,3 +1,8 @@
+## 4.22.0
+
+Translated template strings
+
+
 ## 4.20.0
 
 Replaced custom breakpoint (`1000px`) with standard `lg` (`1088px`) breakpoint

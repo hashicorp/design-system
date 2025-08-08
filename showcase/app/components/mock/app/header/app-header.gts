@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { on } from '@ember/modifier';
 
 // HDS components
 import {
@@ -51,22 +52,25 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
           @href="#"
         />
       </:logo>
-      <:globalActions>
+      <:globalActions as |actions|>
         {{#if this.showOrgPicker}}
           <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleButton @text={{this.orgPickerLabel}} @icon="org" />
-            <dd.Checkmark>
+            <dd.Checkmark {{on "click" actions.close}}>
               my-organization
             </dd.Checkmark>
           </HdsDropdown>
         {{/if}}
       </:globalActions>
-      <:utilityActions>
+      <:utilityActions as |actions|>
         {{#if this.showRegionPicker}}
           <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleButton @text="Europe" @icon="globe" />
-            <dd.Checkmark @selected={{true}}>Europe</dd.Checkmark>
-            <dd.Checkmark>Americas</dd.Checkmark>
+            <dd.Checkmark
+              @selected={{true}}
+              {{on "click" actions.close}}
+            >Europe</dd.Checkmark>
+            <dd.Checkmark {{on "click" actions.close}}>Americas</dd.Checkmark>
           </HdsDropdown>
         {{/if}}
 

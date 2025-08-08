@@ -23,7 +23,7 @@ const waiter = buildWaiter('@hashicorp/design-system-components:flyout');
 
 export const DEFAULT_SIZE = HdsFlyoutSizesValues.Medium;
 export const DEFAULT_HAS_OVERLAY = true;
-export const SIZES: string[] = Object.values(HdsFlyoutSizesValues);
+export const SIZES: HdsFlyoutSizes[] = Object.values(HdsFlyoutSizesValues);
 
 export interface HdsFlyoutSignature {
   Args: {

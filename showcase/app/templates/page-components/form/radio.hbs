@@ -34,7 +34,6 @@
           <SG.Item>
             <Hds::Form::Radio::Base checked="checked" aria-label="Checked radio" />
           </SG.Item>
-          {{! template-lint-disable simple-unless }}
           {{#unless (eq state "focus")}}
             <SG.Item>
               <Hds::Form::Radio::Base disabled="disabled" aria-label="Disabled radio" />
@@ -43,7 +42,6 @@
               <Hds::Form::Radio::Base checked="checked" disabled="disabled" aria-label="Checked, disabled radio" />
             </SG.Item>
           {{/unless}}
-          {{! template-lint-enable simple-unless }}
         </Shw::Grid>
       </SF.Item>
     {{/each}}
@@ -71,7 +69,7 @@
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::Radio::Field as |F|>
         <F.Label>This is the label text</F.Label>
@@ -119,7 +117,7 @@
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Disabled">
       <Hds::Form::Radio::Field disabled as |F|>
         <F.Label>This is the label text</F.Label>
@@ -140,7 +138,7 @@
 
   <Shw::Text::H3>Vertical layout</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="With legend">
       <Hds::Form::Radio::Group @name="control-vertical-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>
@@ -390,6 +388,7 @@
       <Hds::Form::Radio::Group @name="control-booleans" as |G|>
         {{#let (array true false) as |bools|}}
           {{#each bools as |bool|}}
+            {{! @glint-expect-error - this is a special case for consumers who pass a boolean value to the radio field }}
             <G.RadioField @id={{bool}} @value={{bool}} as |F|>
               <F.Label>{{bool}}</F.Label>
             </G.RadioField>

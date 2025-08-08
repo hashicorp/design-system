@@ -55,7 +55,7 @@ export default class HdsAdvancedTableColumn {
 
   get cells(): HdsAdvancedTableCell[] {
     return this.table.flattenedVisibleRows.map((row) => {
-      const cell = row.cells.find((cell) => cell.columnKey === this.key);
+      const cell = row.cells.find((cell) => cell!.columnKey === this.key);
 
       return cell!;
     });
@@ -97,7 +97,9 @@ export default class HdsAdvancedTableColumn {
   }
 
   get isLast(): boolean {
-    return this.index === this.table.orderedColumns.length - 1;
+    return (
+      this.index !== -1 && this.index === this.table.orderedColumns.length - 1
+    );
   }
 
   get siblings(): {
@@ -112,11 +114,8 @@ export default class HdsAdvancedTableColumn {
     }
 
     return {
-      previous: index > 0 ? orderedColumns[index - 1] : undefined,
-      next:
-        index < orderedColumns.length - 1
-          ? orderedColumns[index + 1]
-          : undefined,
+      previous: this.isFirst ? undefined : orderedColumns[index - 1],
+      next: this.isLast ? undefined : orderedColumns[index + 1],
     };
   }
 

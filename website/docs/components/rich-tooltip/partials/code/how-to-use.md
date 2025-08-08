@@ -178,10 +178,11 @@ It's also possible to customize this behavior using the values:
 
 The default option is a combination of `flip`+`shift` and is the suggested one, but there may be use cases where the other options work better in a specific context/use case.
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 More in-depth explanations about the different alignment algorithms and how they work can be found in the Floating UI documentation. See [flip](https://floating-ui.com/docs/flip), [shift](https://floating-ui.com/docs/shift), and [autoPlacement](https://floating-ui.com/docs/autoPlacement).
-
 !!!
 
 In the example below, we use an `auto` placement: try scrolling and/or resizing the page and see how the tooltip changes its position automatically:
@@ -214,6 +215,13 @@ By default, the size of the tooltip automatically adapts to the size of its cont
 
 There may be special use cases in which the standard text or icon-based toggle doesn't work in a specific context or design. For this reason, custom content can be yielded to the `Toggle` element, but this should be considered an option of last resort, because it could result in a non-accessible implementation.
 
+!!! Warning
+
+**Consumer responsibility**
+
+When used in this way, it's up to the consumer to make sure the implementation is compliant with the [accessibility requirements](/components/rich-tooltip?tab=accessibility).
+!!!
+
 ```handlebars
 <Hds::RichTooltip as |RT|>
   <RT.Toggle>
@@ -225,14 +233,6 @@ There may be special use cases in which the standard text or icon-based toggle d
   </RT.Bubble>
 </Hds::RichTooltip>
 ```
-
-!!! Warning
-
-**Important**
-
-When used in this way, it's up to the consumer to make sure the implementation is compliant with the [accessibility requirements](/components/rich-tooltip?tab=accessibility).
-
-!!!
 
 ### Advanced options
 

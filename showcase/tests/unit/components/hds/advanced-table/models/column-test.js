@@ -229,4 +229,252 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       'width is restored to original value',
     );
   });
+
+  test('index getter returns correct column position', function (assert) {
+    // Create mock table with multiple columns
+    const mockTable = {
+      columns: [
+        new HdsAdvancedTableColumn({
+          column: { label: 'First', key: 'first' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Second', key: 'second' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Third', key: 'third' },
+          table: null,
+        }),
+      ],
+    };
+
+    // Set table reference for each column
+    mockTable.columns.forEach((col) => (col.table = mockTable));
+
+    assert.strictEqual(
+      mockTable.columns[0].index,
+      0,
+      'first column has index 0',
+    );
+    assert.strictEqual(
+      mockTable.columns[1].index,
+      1,
+      'second column has index 1',
+    );
+    assert.strictEqual(
+      mockTable.columns[2].index,
+      2,
+      'third column has index 2',
+    );
+  });
+
+  test('index getter returns -1 when table has no columns', function (assert) {
+    const mockTable = { columns: [] };
+    const column = new HdsAdvancedTableColumn({
+      column: { label: 'Test', key: 'test' },
+      table: mockTable,
+    });
+
+    assert.strictEqual(column.index, -1, 'returns -1 when no columns exist');
+  });
+
+  test('index getter returns -1 when column key does not exist in table', function (assert) {
+    const mockTable = {
+      columns: [
+        new HdsAdvancedTableColumn({
+          column: { label: 'Other', key: 'other' },
+          table: null,
+        }),
+      ],
+    };
+    mockTable.columns[0].table = mockTable;
+
+    const column = new HdsAdvancedTableColumn({
+      column: { label: 'Test', key: 'nonexistent' },
+      table: mockTable,
+    });
+
+    assert.strictEqual(
+      column.index,
+      -1,
+      'returns -1 when column key not found',
+    );
+  });
+
+  test('isFirst getter identifies first column correctly', function (assert) {
+    const mockTable = {
+      columns: [
+        new HdsAdvancedTableColumn({
+          column: { label: 'First', key: 'first' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Second', key: 'second' },
+          table: null,
+        }),
+      ],
+    };
+
+    mockTable.columns.forEach((col) => (col.table = mockTable));
+
+    assert.true(
+      mockTable.columns[0].isFirst,
+      'first column returns true for isFirst',
+    );
+    assert.false(
+      mockTable.columns[1].isFirst,
+      'second column returns false for isFirst',
+    );
+  });
+
+  test('isFirst getter returns false when index is -1', function (assert) {
+    const mockTable = { columns: [] };
+    const column = new HdsAdvancedTableColumn({
+      column: { label: 'Test', key: 'test' },
+      table: mockTable,
+    });
+
+    assert.false(column.isFirst, 'returns false when index is -1');
+  });
+
+  test('isLast getter identifies last column correctly', function (assert) {
+    const mockTable = {
+      columns: [
+        new HdsAdvancedTableColumn({
+          column: { label: 'First', key: 'first' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Second', key: 'second' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Third', key: 'third' },
+          table: null,
+        }),
+      ],
+    };
+
+    mockTable.columns.forEach((col) => (col.table = mockTable));
+
+    assert.false(
+      mockTable.columns[0].isLast,
+      'first column returns false for isLast',
+    );
+    assert.false(
+      mockTable.columns[1].isLast,
+      'middle column returns false for isLast',
+    );
+    assert.true(
+      mockTable.columns[2].isLast,
+      'last column returns true for isLast',
+    );
+  });
+
+  test('isLast getter returns false when index is -1', function (assert) {
+    const mockTable = { columns: [] };
+    const column = new HdsAdvancedTableColumn({
+      column: { label: 'Test', key: 'test' },
+      table: mockTable,
+    });
+
+    assert.false(column.isLast, 'returns false when index is -1');
+  });
+
+  test('siblings getter returns correct previous and next columns', function (assert) {
+    const mockTable = {
+      columns: [
+        new HdsAdvancedTableColumn({
+          column: { label: 'First', key: 'first' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Second', key: 'second' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Third', key: 'third' },
+          table: null,
+        }),
+      ],
+    };
+
+    mockTable.columns.forEach((col) => (col.table = mockTable));
+
+    // Test first column siblings
+    const firstSiblings = mockTable.columns[0].siblings;
+    assert.strictEqual(
+      firstSiblings.previous,
+      undefined,
+      'first column has no previous sibling',
+    );
+    assert.strictEqual(
+      firstSiblings.next,
+      mockTable.columns[1],
+      'first column next is second column',
+    );
+
+    // Test middle column siblings
+    const middleSiblings = mockTable.columns[1].siblings;
+    assert.strictEqual(
+      middleSiblings.previous,
+      mockTable.columns[0],
+      'middle column previous is first column',
+    );
+    assert.strictEqual(
+      middleSiblings.next,
+      mockTable.columns[2],
+      'middle column next is third column',
+    );
+
+    // Test last column siblings
+    const lastSiblings = mockTable.columns[2].siblings;
+    assert.strictEqual(
+      lastSiblings.previous,
+      mockTable.columns[1],
+      'last column previous is second column',
+    );
+    assert.strictEqual(
+      lastSiblings.next,
+      undefined,
+      'last column has no next sibling',
+    );
+  });
+
+  test('siblings getter returns empty object when index is -1', function (assert) {
+    const mockTable = { columns: [] };
+    const column = new HdsAdvancedTableColumn({
+      column: { label: 'Test', key: 'test' },
+      table: mockTable,
+    });
+
+    const siblings = column.siblings;
+    assert.deepEqual(siblings, {}, 'returns empty object when index is -1');
+  });
+
+  test('siblings getter works with single column', function (assert) {
+    const mockTable = {
+      columns: [
+        new HdsAdvancedTableColumn({
+          column: { label: 'Only', key: 'only' },
+          table: null,
+        }),
+      ],
+    };
+
+    mockTable.columns[0].table = mockTable;
+
+    const siblings = mockTable.columns[0].siblings;
+    assert.strictEqual(
+      siblings.previous,
+      undefined,
+      'single column has no previous sibling',
+    );
+    assert.strictEqual(
+      siblings.next,
+      undefined,
+      'single column has no next sibling',
+    );
+  });
 });

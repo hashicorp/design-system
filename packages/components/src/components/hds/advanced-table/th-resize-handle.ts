@@ -52,7 +52,6 @@ function calculateEffectiveDelta(
 export interface HdsAdvancedTableThResizeHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     tableHeight?: number;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
@@ -130,7 +129,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     event.preventDefault();
     event.stopPropagation();
 
-    const { column, nextColumn } = this.args;
+    const { column } = this.args;
+    const { next: nextColumn } = column.siblings;
 
     const currentColumnPxWidth = column.pxWidth;
     const currentNextColumnPxWidth = nextColumn?.pxWidth;
@@ -170,7 +170,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     event.preventDefault();
     event.stopPropagation();
 
-    const { column, nextColumn } = this.args;
+    const { column } = this.args;
+    const { next: nextColumn } = column.siblings;
 
     this.resizing = {
       startX: event.clientX,
@@ -222,7 +223,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     event.preventDefault();
 
-    const { column, nextColumn } = this.args;
+    const { column } = this.args;
+    const { next: nextColumn } = column.siblings;
     const { startX, startColumnPxWidth, startNextColumnPxWidth } =
       this.resizing;
     const deltaX = event.clientX - startX;

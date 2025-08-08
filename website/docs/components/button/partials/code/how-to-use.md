@@ -1,7 +1,8 @@
 !!! Info
 
-Due to differences in text rendering between Figma and web browsers, the `Button` Ember component uses `font-weight` 400 vs. the Figma component which uses `font-weight` 500.
+**Differences between Figma and code**
 
+Due to differences in text rendering between Figma and web browsers, the `Button` Ember component uses `font-weight` 400 vs. the Figma component which uses `font-weight` 500.
 !!!
 
 ## How to use this component
@@ -30,10 +31,6 @@ By default, if you define an icon, it is placed in the leading position (before 
 
 ### Icon-only Button
 
-!!! Info
-
-To add a tooltip to an icon-only Button, here’s an example of how to do it in an accessible way: [Accessible Button Tooltip Pattern](https://codepen.io/melsumner/pen/bGGdmMV).
-!!!
 
 If you would like to create an icon-only Button, set `@isIconOnly` to `true`. Note that you still have to define the `@text` value; it will be used as the `aria-label` attribute value on the `Button` element.
 
@@ -111,20 +108,25 @@ You can generate a link with the visual appearance of a button, by passing an `@
 
 If you’re passing an `@href` or a `@route` argument to the component, this will generate an `<a>` link, not a `<button>`. In this case, no `type` is needed.
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 The `Hds::Button` component uses the generic `Hds::Interactive` component. For more details about how this utility component works, please refer to [its documentation page](/utilities/interactive).
+
 !!!
 
 #### With @href
 
 If you pass an `@href` argument, an `<a>` link will be generated.
 
-`target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied by default. This is the most common case, as internal links are generally handled using a `@route` argument but can be overridden. If the `href` points to an internal link, or uses a different protocol (e.g., "mailto" of "ftp"), pass `@isHrefExternal={{false}}` and it will not add the `target` and `rel` attributes.
+By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
 ```handlebars
 <Hds::Button @text="Visit website" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
 ```
+
+If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" or "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
 #### With @route
 
@@ -138,13 +140,7 @@ If the route is external to your current engine, you have to pass `@isRouteExter
 
 ### Loading state
 
-!!! Info
-
-While applying an explicit width to the button is possible in general, we suggest limiting the application of this override **only** to this specific use case and letting the button resize accordingly to its content.
-
-!!!
-
-If the button needs to toggle between an "idle" and a "loading" state, we suggest applying a width to it (via inline style or CSS class) to prevent the button from resizing on click (and potentially causing layout shifts):
+If the button needs to toggle between an "idle" and a "loading" state, we suggest applying a width to it (via inline style or CSS class) to prevent the button from resizing on click (and potentially causing layout shifts).
 
 ```handlebars
 <Hds::Button
@@ -155,9 +151,13 @@ If the button needs to toggle between an "idle" and a "loading" state, we sugges
 />
 ```
 
+We suggest limiting the application of this override only to this specific use case and letting the button resize accordingly to its content.
+
 ### Disabled Buttons
 
-!!! Info
+!!! Warning
+
+**Accessibility alert**
 
 Links cannot use the `disabled` attribute (per HTML specification); even if you were to intercept the event, they are still subject to color-contrast conformance requirements.
 !!!

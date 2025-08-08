@@ -45,6 +45,8 @@ Columns use as much room as they need to use to fit their content unless a speci
 
 !!! Info
 
+**Differences between Figma and code**
+
 The column placement property is only relevant in Figma and doesn’t exist as a property in code.
 !!!
 
@@ -122,7 +124,17 @@ Don’t center header labels or cell content within a table.
 
 ### Striping
 
-!!! Info
+While striping is not required, we recommend it for the added usability benefits.
+
+When using striping in a Table, start with the second row to allow the Table Header to be further differentiated from the the row directly beneath it.
+
+![Table striping examples](/assets/components/table/table-striping.png)
+
+#### Benefits of striping
+
+!!! Warning
+
+**Accessibility alert**
 
 Striped rows use a subtle background color to differentiate from non-striped rows. Confirm that nested components within striped rows continue to meet contrast accessibility criteria.
 !!!
@@ -141,6 +153,8 @@ When using striping in a Table, the first tinted row will be the second row of t
 ### Placement
 
 !!! Info
+
+**Differences between Figma and code**
 
 The row placement property is only relevant in Figma and doesn’t exist as a property in code.
 !!!
@@ -175,11 +189,6 @@ For more information on the types of approaches used to implement horizontal scr
 
 ## Multi-select
 
-!!! Info
-
-For more details around using a multi-select Table, recommended patterns, and intended interactions visit the [Multi-select patterns](/patterns/table-multi-select) documentation.
-!!!
-
 A multi-select table includes checkboxes enabling users to select multiple rows in a table to perform bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
 
 A multi-select consists of: 
@@ -191,6 +200,8 @@ A multi-select consists of:
 2. Row level select is used in each table row allowing for the selection of an individual row.
 
 ![Example of multi-select within table cells](/assets/components/table/multi-select-cells.png)
+
+For more details around using a multi-select Table, recommended patterns, and intended interactions visit the [Multi-select patterns](/patterns/table-multi-select) documentation.
 
 ### Intended interaction
 

@@ -115,8 +115,8 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
   </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean" @default="false">
-    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
+  <C.Property @name="isHrefExternal" @type="boolean">
+    Controls whether or not the `<a>` link is external. When left `undefined` or explicitly set to `true` it adds the `target="_blank"` and `rel="noopener noreferrer"` attributes to the `<a>` tag (for security reasons).
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
@@ -136,11 +136,12 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
 
 !!! Warning
 
+**Deprecation notice**
+
 The `SideNav::Header::IconButton` subcomponent is now deprecated. Use the `Hds::Button` component with the `isIconOnly` variant instead.
 
 * [Example usage of an Icon-only Button](/components/side-nav?tab=code#actions) within the Side Nav `:actions` block.
 * [Icon-only Button documentation](/components/button?tab=code#icon-only-button)
-
 !!!
 
 The `SideNav::Header::IconButton` component.
@@ -154,8 +155,8 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
   </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean" @default="false">
-    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
+  <C.Property @name="isHrefExternal" @type="boolean">
+    Controls whether or not the `<a>` link is external. When left `undefined` or explicitly set to `true` it adds the `target="_blank"` and `rel="noopener noreferrer"` attributes to the `<a>` tag (for security reasons).
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
@@ -269,8 +270,8 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
   </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean" @default="false">
-    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
+  <C.Property @name="isHrefExternal" @type="boolean">
+    Controls whether or not the `<a>` link is external. When left `undefined` or explicitly set to `true` it adds the `target="_blank"` and `rel="noopener noreferrer"` attributes to the `<a>` tag (for security reasons).
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
@@ -326,8 +327,8 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
   </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean" @default="false">
-    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default. If set to `true`, displays a right aligned “external-link” icon.
+  <C.Property @name="isHrefExternal" @type="boolean">
+    Controls whether or not the `<a>` link is external. When left `undefined` or explicitly set to `true` it adds the `target="_blank"` and `rel="noopener noreferrer"` attributes to the `<a>` tag (for security reasons). If explicitly set to `true`, it displays also a right aligned “external-link” icon.
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.

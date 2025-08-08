@@ -1,3 +1,12 @@
+## 4.22.0
+
+Translated template strings
+
+
+## 4.21.1
+
+Removed extra transparent border when rendered as a `<button>` element
+
 ## 4.20.0
 
 Fixed component types for `SideNav::Portal` and `SideNav::Portal::Target` to no longer require `@target` or `@name`.

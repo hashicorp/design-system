@@ -8,11 +8,29 @@ Use a card container to help build more consistently styled cards.
 
 ### Static cards
 
-Static cards may have interactive elements within them but are not actionable or interactive on their own.
+Static cards may contain interactive elements but must not be actionable or interactive on their own. They should not have any shadows applied to them, so that they can be differentiated from an interactive card.
+
+![A static card titled "Billing summary" with an info notification and a link.](/assets/components/card/card-static-flat-looking.png)
 
 ### Interactive cards
 
-Interactive cards are actionable (e.g., it can be hovered, clicked, focused, etc.)
+Interactive cards are actionable, e.g., they can be hovered over, clicked, or focused on. 
+
+!!! Dont
+
+If you're using an interactive element (like an `<a>` or `<button>`) as the main content wrapper inside `Card::Container`, avoid placing other interactive elements inside it. This kind of nesting creates accessibility issues—particularly for screen reader users—because nested interactive elements can't be reliably accessed or operated.
+
+![An interactive card with a table with links and buttons within causing a nested interactive.](/assets/components/card/card-dont-nest-interactive.png)
+
+!!!
+
+!!! Do
+
+When the card is interactive, only static elements should be contained within it.
+
+![An interactive card with a table with links and buttons within.](/assets/components/card/card-do-flat-internal.png)
+
+!!!
 
 ## Levels
 
@@ -20,17 +38,15 @@ Interactive cards are actionable (e.g., it can be hovered, clicked, focused, etc
 
 ### Base
 
-Use the `base` level for static cards.
+Use for **static cards**.
 
 ### Mid
 
-- For **static cards** use `mid` as the default level.
-- For **interactive cards** use `mid` as the rested state.
+Use for the rested (default) and active (pressed) states of **interactive cards**.
 
 ### High
 
-- For **static cards** use `high` for emphasis, but use sparingly.
-- For **interactive cards** use `high` for the raised state.
+Use for the raised (hover) state of **interactive cards**.
 
 ## Border
 

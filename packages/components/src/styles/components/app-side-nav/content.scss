@@ -34,10 +34,12 @@
 
 .hds-app-side-nav__content-panel {
   padding: 0 var(--token-app-side-nav-wrapper-padding-horizontal);
-  overflow: hidden; // the panel itself does not need to be scrollable
 
   &[aria-hidden="true"] {
     max-height: 0; // prevents hidden panels from causing scrolling
+    // prevent unwanted scrolling when navigating from panel with long content to panel with short content
+    // applying only to hidden panels, prevents Item focus rings from being cut off
+    overflow: hidden;
   }
 }
 
@@ -70,7 +72,6 @@
 
 // <li> element
 .hds-app-side-nav__list-item {
-  position: relative; // for the "active" state indicator
   list-style-type: none;
 
   & + & {
@@ -89,14 +90,18 @@
     var(--token-app-side-nav-body-list-item-padding-horizontal);
   color: var(--token-app-side-nav-color-foreground-primary);
   text-decoration: none;
-  // "Link" could render as an HTML button element so this overrides the default border style in that case:
+  // "Link" could render as an HTML button element so these override the default background and border styles in that case
+  background: transparent;
   border-color: transparent;
+  border-width: 0;
   border-radius: var(--token-app-side-nav-body-list-item-border-radius);
 
   // :Focus
   &:focus,
   &.mock-focus {
     @include hds-focus-ring-with-pseudo-element();
+    // to move the item link above the siblings elements when they have a solid background (eg. active) so that the focus ring is not cut out
+    z-index: 1;
   }
 
   // :Hover
@@ -128,6 +133,7 @@
   // Important: This element does not doing anything when interacted with so should not change color according to state
   &.active,
   &.active:hover:focus {
+    position: relative; // for the "active" indicator bar to be correctly positioned
     background: var(--token-color-surface-strong);
 
     // indicator bar

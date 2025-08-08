@@ -20,9 +20,9 @@
 
   <Shw::Text::H4 @tag="h3">Text::Display</Shw::Text::H4>
   <Shw::Flex @direction="column" as |SF|>
-    {{#each this.model.DISPLAY_AVAILABLE_SIZES as |size|}}
+    {{#each @model.DISPLAY_SIZES as |size|}}
       <SF.Item @label="size={{size}}">
-        {{#let (get this.model.DISPLAY_AVAILABLE_WEIGHTS_PER_SIZE size) as |weights|}}
+        {{#let (get @model.DISPLAY_WEIGHTS_PER_SIZE size) as |weights|}}
           {{#each weights as |weight|}}
             <Hds::Text::Display @size={{size}} @tag="p" @weight={{weight}}>The fox jumped over the lazy dog ({{weight}})</Hds::Text::Display>
           {{/each}}
@@ -33,9 +33,9 @@
 
   <Shw::Text::H4 @tag="h3">Text::Body</Shw::Text::H4>
   <Shw::Flex @direction="column" as |SF|>
-    {{#each this.model.BODY_AVAILABLE_SIZES as |size|}}
+    {{#each @model.BODY_SIZES as |size|}}
       <SF.Item @label="size={{size}}">
-        {{#let (get this.model.BODY_AVAILABLE_WEIGHTS_PER_SIZE size) as |weights|}}
+        {{#let (get @model.BODY_WEIGHTS_PER_SIZE size) as |weights|}}
           {{#each weights as |weight|}}
             <Hds::Text::Body @size={{size}} @tag="p" @weight={{weight}}>The fox jumped over the lazy dog ({{weight}})</Hds::Text::Body>
           {{/each}}
@@ -46,9 +46,9 @@
 
   <Shw::Text::H4 @tag="h3">Text::Code</Shw::Text::H4>
   <Shw::Flex @direction="column" as |SF|>
-    {{#each this.model.CODE_AVAILABLE_SIZES as |size|}}
+    {{#each @model.CODE_SIZES as |size|}}
       <SF.Item @label="size={{size}}">
-        {{#let (get this.model.CODE_AVAILABLE_WEIGHTS_PER_SIZE size) as |weights|}}
+        {{#let (get @model.CODE_WEIGHTS_PER_SIZE size) as |weights|}}
           {{#each weights as |weight|}}
             <Hds::Text::Code @size={{size}} @tag="p" @weight={{weight}}>The fox jumped over the lazy dog ({{weight}})</Hds::Text::Code>
           {{/each}}
@@ -61,11 +61,11 @@
 
   <Shw::Text::H2>Alignment</Shw::Text::H2>
   <Shw::Grid @columns={{3}} as |SG|>
-    {{#each this.model.AVAILABLE_ALIGNS as |alignment|}}
+    {{#each @model.ALIGNS as |alignment|}}
       <SG.Item>
         <Shw::Flex @direction="column" as |SF|>
           <SF.Item @label="parent with text-align={{alignment}}">
-            <Shw::Outliner {{style text-align=alignment}}>
+            <Shw::Outliner {{style textAlign=alignment}}>
               <Hds::Text::Body @size="200" @tag="p">The fox jumped over the lazy dog</Hds::Text::Body>
             </Shw::Outliner>
           </SF.Item>
@@ -99,7 +99,7 @@
 
   <Shw::Text::H4 @tag="h3">Pre-defined colors</Shw::Text::H4>
   <Shw::Flex @direction="row" @gap="2rem" as |SF|>
-    {{#each this.model.AVAILABLE_COLORS as |color|}}
+    {{#each @model.COLORS as |color|}}
       <SF.Item @label={{color}}>
         <div class="shw-component-text-sample-color--{{color}}">
           <Hds::Text::Body @size="300" @weight="semibold" @tag="p" @color={{color}}>Lorem ipsum dolor</Hds::Text::Body>

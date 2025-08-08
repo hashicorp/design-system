@@ -25,7 +25,7 @@ type HdsTextBodySizeNumber = Extract<
 >;
 type HdsTextBodySizeString = `${HdsTextBodySizeNumber}`;
 export type HdsTextBodySizes = HdsTextBodySizeNumber | HdsTextBodySizeString;
-export const AVAILABLE_SIZES = [
+export const SIZES: HdsTextBodySizes[] = [
   HdsTextSizeValues.ThreeHundred,
   HdsTextSizeValues.TwoHundred,
   HdsTextSizeValues.OneHundred,
@@ -37,10 +37,7 @@ export type HdsTextBodyWeight = Extract<
   HdsTextWeights,
   'regular' | 'medium' | 'semibold'
 >;
-export const AVAILABLE_WEIGHTS_PER_SIZE: Record<
-  HdsTextBodySizes,
-  HdsTextBodyWeight[]
-> = {
+export const WEIGHTS_PER_SIZE: Record<HdsTextBodySizes, HdsTextBodyWeight[]> = {
   300: [
     HdsTextWeightValues.Regular,
     HdsTextWeightValues.Medium,
@@ -78,14 +75,7 @@ export interface HdsTextBodySignature {
 }
 
 export default class HdsTextBody extends Component<HdsTextBodySignature> {
-  /**
-   * Sets the "size" for the text
-   * Accepted values: see AVAILABLE_SIZES
-   *
-   * @param size
-   * @type {HdsTextBodySizes}
-   *
-   */
+  // Sets the "size" for the text
   get size(): HdsTextBodySizes {
     let { size = DEFAULT_SIZE } = this.args;
 
@@ -95,35 +85,28 @@ export default class HdsTextBody extends Component<HdsTextBodySignature> {
     }
 
     assert(
-      `@size for "Hds::Text::Body" must be one of the following: ${AVAILABLE_SIZES.join(
+      `@size for "Hds::Text::Body" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
-      AVAILABLE_SIZES.includes(size)
+      SIZES.includes(size)
     );
 
     return size;
   }
 
-  /**
-   * Sets the "weight" for the text
-   * Accepted values: see AVAILABLE_WEIGHTS_PER_SIZE
-   *
-   * @param weight
-   * @type {HdsTextWeights}
-   *
-   */
+  // Sets the "weight" for the text
   get weight(): HdsTextWeights {
     const { weight = DEFAULT_WEIGHT } = this.args;
 
-    const availableWeights = AVAILABLE_WEIGHTS_PER_SIZE[this.size];
+    const weights = WEIGHTS_PER_SIZE[this.size];
 
     assert(
       `@weight for "Hds::Text::Body" with @size=${
         this.size
-      } must be one of the following: ${availableWeights.join(
+      } must be one of the following: ${weights.join(
         ', '
       )}; received: ${weight}`,
-      availableWeights.includes(weight)
+      weights.includes(weight)
     );
 
     return weight;

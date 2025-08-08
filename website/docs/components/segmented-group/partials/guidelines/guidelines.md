@@ -2,6 +2,8 @@
 
 !!! Info
 
+**Differences between Figma and code**
+
 How these components are published and assembled is fundamentally different between the Figma and Ember components.
 
 - In Figma, we publish multiple primitive `Segment` components (`Segmented Button`, `Segmented Dropdown`, and `Segmented Input`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also made available for more simple instances.

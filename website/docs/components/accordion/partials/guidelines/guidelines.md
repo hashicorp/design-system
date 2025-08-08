@@ -106,10 +106,7 @@ The toggle accepts many different types of content, from text-based content to n
 
 ### Interactive 
 
-!!! Warning
-
 Use this variant only when you need to put interactive elements such as a button or a link within the toggle area. Avoid placing complex elements that may compromise the usability and accessibility of the component.
-!!!
 
 Use `containsInteractive` when nesting interactive content in the toggle. This lets users using assistive technology, access and interact with the nested element.
 
@@ -131,6 +128,8 @@ This example depicts the `isStatic` property being used to prevent interaction w
 
 !!! Info
 
+**Differences between Figma and code**
+
 The content type property is only relevant within Figma and doesn’t exist as a property in the code.
 !!!
 
@@ -145,6 +144,8 @@ Content type supports any generic content, local components, or Helios component
 ## Nesting Accordions
 
 !!! Info
+
+**Differences between Figma and code**
 
 Nesting Accordions is only supported [in code](/components/accordion?tab=code#complex-html-content), as Figma does not support nesting an instance inside itself. 
 

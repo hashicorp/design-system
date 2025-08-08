@@ -80,8 +80,6 @@
       {{#if this.showContextMenu}}
         <Hds::AdvancedTable::ThContextMenu
           @column={{@column}}
-          @previousColumn={{@previousColumn}}
-          @nextColumn={{@nextColumn}}
           @hasReorderableColumns={{@hasReorderableColumns}}
           @hasResizableColumns={{@hasResizableColumns}}
           @reorderHandleElement={{this._reorderHandleElement}}
@@ -90,10 +88,9 @@
         />
       {{/if}}
 
-      {{#if (and @hasResizableColumns (not @isLastColumn) (not @column.table.hasColumnBeingDragged))}}
+      {{#if (and @hasResizableColumns (not @column.isLast) (not @column.table.hasColumnBeingDragged))}}
         <Hds::AdvancedTable::ThResizeHandle
           @column={{@column}}
-          @nextColumn={{@nextColumn}}
           @hasResizableColumns={{@hasResizableColumns}}
           @tableHeight={{@tableHeight}}
           @onColumnResize={{@onColumnResize}}

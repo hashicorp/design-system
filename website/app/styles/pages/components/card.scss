@@ -19,4 +19,21 @@
     margin: 0; // styles are being inherited from doc-markdown list styles
     padding: 24px;
   }
+
+  .doc-card-interactive-demo {    
+    .hds-card__container {
+      a {
+        display: block;
+        padding: 16px;
+        color: var(--token-color-foreground-primary);
+        text-decoration: none;
+        border-radius: inherit;
+
+        &:focus {
+          outline: none;
+          box-shadow: var(--token-focus-ring-action-box-shadow);
+        }
+      }
+    }
+  }
 }

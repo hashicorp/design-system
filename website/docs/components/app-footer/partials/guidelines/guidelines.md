@@ -68,7 +68,9 @@ The App Footer supports both `Light` and `Dark` theme options. The dark theme ca
 
 ## Responsiveness
 
-!!! Warning 
+!!! Info 
+
+**Differences between Figma and code**
 
 Due to limitations in Figma, the component may not be a direct translation to what is rendered in the browser. The Ember component should be the source of truth for proper wrapping.
 !!!

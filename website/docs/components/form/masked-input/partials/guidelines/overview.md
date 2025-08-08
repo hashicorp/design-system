@@ -1,6 +1,6 @@
-!!! Warning
+!!! Info
 
-**Important to know**
+**Code consideration**
 
 This component is meant for **visual obfuscation** only. Consumers should be aware that the hidden text value could still be obtained through other means (e.g., copying it from the input, via JavaScript, via the developer tools, etc.).
 !!!

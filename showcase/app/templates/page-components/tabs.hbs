@@ -362,12 +362,12 @@
 
   <div class="shw-component-tabs-example-heading">
     <Shw::Text::Body>Variable tabs width</Shw::Text::Body>
-    <button type="button" {{on "click" this.updateBadgesValuesDemo3}}>update badge values</button>
+    <button type="button" {{on "click" this.updateCountValuesDemo3}}>Update count values</button>
   </div>
   <Hds::Tabs as |T|>
-    <T.Tab @count={{this.badge1_demo3}}>One</T.Tab>
-    <T.Tab @count={{this.badge2_demo3}}>Two</T.Tab>
-    <T.Tab @count={{this.badge3_demo3}}>Three</T.Tab>
+    <T.Tab @count={{this.count1_demo3}}>One</T.Tab>
+    <T.Tab @count={{this.count2_demo3}}>Two</T.Tab>
+    <T.Tab @count={{this.count3_demo3}}>Three</T.Tab>
     <T.Panel><Shw::Placeholder @text="Content of first tab" @height="50" /></T.Panel>
     <T.Panel><Shw::Placeholder @text="Content of second tab" @height="50" /></T.Panel>
     <T.Panel><Shw::Placeholder @text="Content of third tab" @height="50" /></T.Panel>

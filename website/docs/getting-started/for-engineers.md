@@ -69,12 +69,11 @@ app.import('node_modules/@hashicorp/design-system-components/dist/styles/@hashic
 
 !!! Warning
 
-##### Ensure a box-sizing reset is present
+**Consumer responsibility**
 
 Our component library assumes that a box-sizing reset is applied globally in your application. To ensure components render properly, include the following reset:
 
 `*, *::before, *::after { box-sizing: border-box; }`
-
 !!!
 
 ## Icons
@@ -262,6 +261,55 @@ Our styles, components and icons are supported by the following browsers:
 | Safari         | last 2 versions |
 | Firefox        | last 2 versions |
 | Microsoft Edge | last 2 versions |
+
+## Internationalization
+
+We use [`ember-intl`](https://github.com/ember-intl/ember-intl) to handle internationalization in HDS components.
+
+### Default behavior
+
+By default, HDS components display text in English when `ember-intl` is not installed in your application. This ensures components work out of the box without additional configuration.
+
+### Set up
+
+To enable internationalization in your application:
+1. Install `ember-intl` as a dependency in your application:
+```bash
+pnpm add ember-intl
+```
+2. Configure your application to use one of the supported HDS translation locales.
+For detailed setup instructions, refer to the [ember-intl quickstart guide](https://ember-intl.github.io/ember-intl/docs/quickstart).
+
+### Translation support
+
+#### Using HDS-provided translations
+
+You can use translations provided by HDS by setting your application's locale to a supported value. Components will automatically display the appropriate translation for that locale.
+
+Currently supported locales in HDS:
+
+- `en-us` (English - United States)
+
+Support for additional locales is planned as future work.
+
+#### Customizing translations
+
+You can provide custom translations or override existing HDS translations by creating translation files that match the [translation key paths used in our components](https://github.com/hashicorp/design-system/tree/main/packages/components/translations).
+
+For example, to translate the "Error" text used in components:
+
+1. Create a translation key that matches the HDS path: `hds.components.common.error`
+2. Provide your translation value in the desired locale file
+
+```yaml
+# translations/fr-fr.yaml
+hds:
+  components:
+    common:
+      error: Erreur
+```
+
+When your application uses the `fr-fr` locale, components will display "Erreur" instead of the default English "Error".
 
 ## Code editor setup
 

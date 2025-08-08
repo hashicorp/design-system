@@ -4,10 +4,7 @@ The Breadcrumb is an application-level UI element, so it’s likely to be implem
 
 ### Basic use
 
-!!! Info
-
 A few parameters were omitted for clarity.
-!!!
 
 ```handlebars
 <Hds::Breadcrumb>
@@ -71,8 +68,9 @@ By setting `@itemsCanWrap` to `false`, it is possible to constrain the text to o
 
 !!! Warning
 
-The text will automatically truncate and be replaced with an ellipsis to fit within the container. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
+**Accessibility alert**
 
+The text will automatically truncate and be replaced with an ellipsis to fit within the container. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
 !!!
 
 ```handlebars

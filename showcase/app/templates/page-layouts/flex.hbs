@@ -129,7 +129,7 @@
   <Shw::Text::H4 @tag="h3">Single value</Shw::Text::H4>
 
   {{#each @model.DIRECTIONS as |direction|}}
-    <Shw::Grid @columns="4" @gap="1rem 2rem" as |SG|>
+    <Shw::Grid @columns={{4}} @gap="1rem 2rem" as |SG|>
       {{#each @model.GAPS as |gap|}}
         <SG.Item
           @label="gap={{if (eq gap '0') '0 (default)' gap}}"
@@ -150,24 +150,22 @@
 
   <Shw::Flex @gap="2rem 4rem" as |SF|>
     {{! we use only a subset of possible combinations, just for testing purposes }}
-    {{#let (array (array "4" "48") (array "8" "32") (array "12" "24") (array "16" "16")) as |gapsList|}}
-      {{#each gapsList as |gapsArray|}}
-        <SF.Item @label="gap=[{{gapsArray}}]" class="shw-layout-flex-example-outline-flex-container">
-          <div {{style width="500px"}}>
-            <Hds::Layout::Flex @gap={{gapsArray}} @wrap={{true}}>
-              <Shw::Placeholder @text="item #1" @width="100px" @height="24" />
-              <Shw::Placeholder @text="item #2" @width="100px" @height="24" />
-              <Shw::Placeholder @text="item #3" @width="100px" @height="24" />
-              <Shw::Placeholder @text="item #4" @width="100px" @height="24" />
-              <Shw::Placeholder @text="item #5" @width="100px" @height="24" />
-              <Shw::Placeholder @text="item #6" @width="100px" @height="24" />
-              <Shw::Placeholder @text="item #7" @width="100px" @height="24" />
-              <Shw::Placeholder @text="item #8" @width="100px" @height="24" />
-            </Hds::Layout::Flex>
-          </div>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
+    {{#each @model.DEMO_GAP_ARRAYS as |gapsArray|}}
+      <SF.Item @label="gap=[{{gapsArray}}]" class="shw-layout-flex-example-outline-flex-container">
+        <div {{style width="500px"}}>
+          <Hds::Layout::Flex @gap={{gapsArray}} @wrap={{true}}>
+            <Shw::Placeholder @text="item #1" @width="100px" @height="24" />
+            <Shw::Placeholder @text="item #2" @width="100px" @height="24" />
+            <Shw::Placeholder @text="item #3" @width="100px" @height="24" />
+            <Shw::Placeholder @text="item #4" @width="100px" @height="24" />
+            <Shw::Placeholder @text="item #5" @width="100px" @height="24" />
+            <Shw::Placeholder @text="item #6" @width="100px" @height="24" />
+            <Shw::Placeholder @text="item #7" @width="100px" @height="24" />
+            <Shw::Placeholder @text="item #8" @width="100px" @height="24" />
+          </Hds::Layout::Flex>
+        </div>
+      </SF.Item>
+    {{/each}}
   </Shw::Flex>
 
   <br />
@@ -236,7 +234,7 @@
       <Hds::Layout::Grid @gap="48" @align="center" as |LG|>
         <Shw::Placeholder @text="item #1" @height="48" />
         <Shw::Placeholder @text="item #2" @height="48" />
-        <LG.Item @basis="25%" @grow="0" @shrink="0">
+        <LG.Item>
           <Hds::Layout::Flex @gap="16">
             <Shw::Placeholder @text="item #3A" @height="24" />
             <Shw::Placeholder @text="item #3B" @height="24" />
@@ -557,7 +555,6 @@
     <SF.Item
       @label="centered content"
       class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
-      @tag="section"
     >
       <Hds::Layout::Flex @justify="center" @align="center" {{style width="300px" height="200px"}}>
         <Hds::Text::Body @size="200" @tag="p" {{style padding="4px 8px"}}>I am centered</Hds::Text::Body>

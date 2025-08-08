@@ -1,23 +1,20 @@
 !!! Warning
 
-The `Hds::SideNav` component is now deprecated. Use the [`Hds::AppSideNav`](/components/app-side-nav) component instead.
+**Deprecation notice**
 
+The `Hds::SideNav` component is now deprecated. Use the [`Hds::AppSideNav`](/components/app-side-nav) component instead.
 !!!
 
 This section provides in-depth instructions on how consumers can use the **full-featured `Hds::SideNav`** component to build a "standard" sidebar navigation with responsive behavior, animations/transitions, support for portals, etc.
 
 It also provides generic guidance on how to use the **layout-only `Hds::SideNav::Base`** component to build a customized sidebar navigation (if that would be necessary).
 
-Given the complexity and level of customization that an application's navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, [contact the Design Systems Team](/about/support) for support.
-
-!!! Insight
-
 The Side Nav component is intended to be used in combination with the [`Hds::AppFrame`](/layouts/app-frame) component:
 
 - AppFrame takes care of providing a top-level layout for the application's page, but is agnostic of what the actual content is and what dimensions it has.
 - Side Nav takes care of providing the visual elements used to build a top-level navigation for the application, but is agnostic of where it's used (even though it has intrinsic sizing).
 
-!!!
+Given the complexity and level of customization that an application's navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, [contact the Design Systems Team](/about/support) for support.
 
 ## Full-featured component
 
@@ -173,11 +170,7 @@ Standard HDS [`Button`](/components/button) and [`Dropdown`](/components/dropdow
 
 You can also add custom elements to the `<:actions>` block, if these don't cover your specific needs. If you add custom elements, you will have to take care of their styling so that they blend in with the rest of the Side Nav elements.
 
-!!! Info
-
 The "actions" block is automatically faded in/out whenever the Side Nav transition between minimized/maximized states (see [Responsiveness](#responsiveness) below for details).
-
-!!!
 
 #### Body (`<:body>`)
 
@@ -349,10 +342,9 @@ Since the `SideNav::PortalTarget` supports multiple portals, each `SideNav::Port
 
 !!! Info
 
-**Important**
+**Code consideration**
 
 When the Side Nav is used in conjunction with portals, the nesting of navigation/subnavigation levels has to match one-to-one the hierarchy of the routing, otherwise it will not work as one would expect.
-
 !!!
 
 
@@ -473,10 +465,9 @@ By default, the component uses the [ember-a11y-refocus](https://github.com/ember
 
 !!! Info
 
-**Notice**
+**Code consideration**
 
 The addon introduces a refocusing behavior **on route changes** that may interfere with the hosting application (eg. blurring an active element). For details on how to control this behavior, see the section about [customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
-
 !!!
 
 This functionality can be disabled using the `@hasA11yRefocus=\{{false}}` argument, if that is necessary.

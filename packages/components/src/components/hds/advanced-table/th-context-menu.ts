@@ -23,8 +23,6 @@ interface HdsAdvancedTableThContextMenuOption {
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    previousColumn?: HdsAdvancedTableColumn;
-    nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
     hasReorderableColumns?: boolean;
     reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
@@ -37,64 +35,83 @@ export interface HdsAdvancedTableThContextMenuSignature {
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
   @tracked private _element!: HdsDropdownSignature['Element'];
 
-  get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { column, hasReorderableColumns, hasResizableColumns } = this.args;
+  get _resizeOptions(): HdsAdvancedTableThContextMenuOption[] {
+    const { column } = this.args;
 
-    let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
-    if (hasResizableColumns) {
-      allGroups = [
-        ...allGroups,
-        [
-          {
-            key: 'resize-column',
-            label: 'Resize column',
-            icon: 'resize-column',
-            action: this.resizeColumn.bind(this),
-          },
-          {
-            key: 'reset-column-width',
-            label: 'Reset column width',
-            icon: 'rotate-ccw',
-            action: this.resetColumnWidth.bind(this),
-          },
-        ],
+    let resizeOptions: HdsAdvancedTableThContextMenuOption[] = [
+      {
+        key: 'reset-column-width',
+        label: 'Reset column width',
+        icon: 'rotate-ccw',
+        action: this.resetColumnWidth.bind(this),
+      },
+    ];
+
+    if (!column.isLast) {
+      resizeOptions = [
+        {
+          key: 'resize-column',
+          label: 'Resize column',
+          icon: 'resize-column',
+          action: this.resizeColumn.bind(this),
+        },
+        ...resizeOptions,
       ];
     }
-    if (hasReorderableColumns) {
-      let reorderableGroup: HdsAdvancedTableThContextMenuOption[] = [
+
+    return resizeOptions;
+  }
+
+  get _reorderOptions(): HdsAdvancedTableThContextMenuOption[] {
+    const { column } = this.args;
+
+    let reorderOptions: HdsAdvancedTableThContextMenuOption[] = [
+      {
+        key: 'reorder-column',
+        label: 'Move column',
+        icon: 'move-horizontal',
+        action: () => this.moveColumn(),
+      },
+    ];
+
+    if (!column.isFirst) {
+      reorderOptions = [
+        ...reorderOptions,
         {
-          key: 'reorder-column',
-          label: 'Move column',
-          icon: 'move-horizontal',
-          action: () => this.moveColumn(),
+          key: 'move-column-to-start',
+          label: 'Move column to start',
+          icon: 'start',
+          action: (close) => this.moveColumnToPosition('start', close),
         },
       ];
+    }
 
-      if (!column.isFirst) {
-        reorderableGroup = [
-          ...reorderableGroup,
-          {
-            key: 'move-column-to-start',
-            label: 'Move column to start',
-            icon: 'start',
-            action: (close) => this.moveColumnToPosition('start', close),
-          },
-        ];
-      }
+    if (!column.isLast) {
+      reorderOptions = [
+        ...reorderOptions,
+        {
+          key: 'move-column-to-end',
+          label: 'Move column to end',
+          icon: 'end',
+          action: (close) => this.moveColumnToPosition('end', close),
+        },
+      ];
+    }
 
-      if (!column.isLast) {
-        reorderableGroup = [
-          ...reorderableGroup,
-          {
-            key: 'move-column-to-end',
-            label: 'Move column to end',
-            icon: 'end',
-            action: (close) => this.moveColumnToPosition('end', close),
-          },
-        ];
-      }
+    return reorderOptions;
+  }
 
-      allGroups = [...allGroups, reorderableGroup];
+  get _options(): HdsAdvancedTableThContextMenuOption[] {
+    const { hasReorderableColumns, hasResizableColumns } = this.args;
+
+    let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
+
+    if (hasResizableColumns) {
+      allGroups = [...allGroups, this._resizeOptions];
+    }
+
+    if (hasReorderableColumns) {
+      allGroups = [...allGroups, this._reorderOptions];
     }
 
     return allGroups.reduce<HdsAdvancedTableThContextMenuOption[]>(

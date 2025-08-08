@@ -4,11 +4,15 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { on } from '@ember/modifier';
+import style from 'ember-style-modifier/modifiers/style';
 
 // HDS components
 import {
   HdsAppSideNav,
   HdsAppSideNavList,
+  HdsFormToggleField,
 } from '@hashicorp/design-system-components/components';
 
 // types
@@ -19,8 +23,7 @@ export interface MockAppSidebarAppSideNavSignature {
   Args: {
     isResponsive?: HdsAppSideNavSignature['Args']['isResponsive'];
     isCollapsible?: HdsAppSideNavSignature['Args']['isCollapsible'];
-    showHeader?: boolean;
-    showFooter?: boolean;
+    showDevToggle?: boolean;
   };
   Element: HdsAppSideNavSignature['Element'];
 }
@@ -28,16 +31,17 @@ export interface MockAppSidebarAppSideNavSignature {
 export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAppSideNavSignature> {
   isResponsive;
   isCollapsible;
-  showHeader;
-  showFooter;
+  @tracked showMockInteractionState = false;
 
   constructor(owner: Owner, args: MockAppSidebarAppSideNavSignature['Args']) {
     super(owner, args);
     this.isResponsive = this.args.isResponsive ?? true;
     this.isCollapsible = this.args.isCollapsible ?? true;
-    this.showHeader = this.args.showHeader ?? true;
-    this.showFooter = this.args.showFooter ?? true;
   }
+
+  toggleMockInteractionState = () => {
+    this.showMockInteractionState = !this.showMockInteractionState;
+  };
 
   <template>
     <HdsAppSideNav
@@ -57,10 +61,30 @@ export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAp
         as |SNL|
       >
         <SNL.Title>Services</SNL.Title>
-        <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
-        <SNL.Link @text="Consul" @icon="consul" @href="#" />
-        <SNL.Link @text="Packer" @icon="packer" @href="#" />
-        <SNL.Link @text="Vault" @icon="vault" @href="#" />
+        <SNL.Link
+          @text={{if this.showMockInteractionState "isActive" "Boundary"}}
+          @icon="boundary"
+          @href="#"
+          class="active"
+        />
+        <SNL.Link
+          @text={{if this.showMockInteractionState ":focus" "Consul"}}
+          @icon="consul"
+          @href="#"
+          class="mock-focus"
+        />
+        <SNL.Link
+          @text={{if this.showMockInteractionState ":hover" "Packer"}}
+          @icon="packer"
+          @href="#"
+          class="mock-hover"
+        />
+        <SNL.Link
+          @text={{if this.showMockInteractionState ":active" "Vault"}}
+          @icon="vault"
+          @href="#"
+          class="mock-active"
+        />
         <SNL.Link
           @text="Vault Secrets"
           @icon="vault-secrets-square"
@@ -110,6 +134,18 @@ export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAp
           @icon="guide"
           @text="Documentation"
         />
+        {{#if @showDevToggle}}
+          <SNL.ExtraAfter>
+            <div {{style margin="32px 6px"}}>
+              <HdsFormToggleField
+                {{on "change" this.toggleMockInteractionState}}
+                as |F|
+              >
+                <F.Label>Show mock states</F.Label>
+              </HdsFormToggleField>
+            </div>
+          </SNL.ExtraAfter>
+        {{/if}}
       </HdsAppSideNavList>
     </HdsAppSideNav>
   </template>

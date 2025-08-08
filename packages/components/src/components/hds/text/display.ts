@@ -21,9 +21,9 @@ export const DEFAULT_SIZE = HdsTextSizeValues.TwoHundred;
 
 // Filter out reverse mappings from enum
 // https://www.typescriptlang.org/docs/handbook/enums.html#reverse-mappings
-export const AVAILABLE_SIZES = Object.values(HdsTextSizeValues).filter(
+export const SIZES: HdsTextSizes[] = Object.values(HdsTextSizeValues).filter(
   (v): boolean => typeof v === 'number'
-);
+) as HdsTextSizes[];
 
 export type HdsTextDisplayWeight = Extract<
   HdsTextWeights,
@@ -39,10 +39,7 @@ export const DEFAULT_WEIGHTS_PER_SIZE: Record<
   [HdsTextSizeValues.TwoHundred]: HdsTextWeightValues.Semibold,
   [HdsTextSizeValues.OneHundred]: HdsTextWeightValues.Medium,
 };
-export const AVAILABLE_WEIGHTS_PER_SIZE: Record<
-  HdsTextSizes,
-  HdsTextDisplayWeight[]
-> = {
+export const WEIGHTS_PER_SIZE: Record<HdsTextSizes, HdsTextDisplayWeight[]> = {
   [HdsTextSizeValues.FiveHundred]: [HdsTextWeightValues.Bold],
   [HdsTextSizeValues.FourHundred]: [
     HdsTextWeightValues.Medium,
@@ -78,14 +75,7 @@ export interface HdsTextDisplaySignature {
 }
 
 export default class HdsTextDisplay extends Component<HdsTextDisplaySignature> {
-  /**
-   * Sets the "size" for the text
-   * Accepted values: see AVAILABLE_SIZES
-   *
-   * @type {HdsTextSizes}
-   *
-   * @param size
-   */
+  // Sets the "size" for the text
   get size(): HdsTextSizes {
     let { size = DEFAULT_SIZE } = this.args;
 
@@ -95,35 +85,28 @@ export default class HdsTextDisplay extends Component<HdsTextDisplaySignature> {
     }
 
     assert(
-      `@size for "Hds::Text::Display" must be one of the following: ${AVAILABLE_SIZES.join(
+      `@size for "Hds::Text::Display" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
-      AVAILABLE_SIZES.includes(size)
+      SIZES.includes(size)
     );
 
     return size;
   }
 
-  /**
-   * Sets the "weight" for the text
-   * Accepted values: see AVAILABLE_WEIGHTS_PER_SIZE
-   *
-   * @type {HdsTextDisplayWeight}
-   *
-   * @param variant
-   */
+  // Sets the "weight" for the text
   get weight(): HdsTextDisplayWeight {
     let { weight } = this.args;
 
     if (weight) {
-      const availableWeights = AVAILABLE_WEIGHTS_PER_SIZE[this.size];
+      const weights = WEIGHTS_PER_SIZE[this.size];
       assert(
         `@weight for "Hds::Text::Display" with @size=${
           this.size
-        } must be one of the following: ${availableWeights.join(
+        } must be one of the following: ${weights.join(
           ', '
         )}; received: ${weight}`,
-        availableWeights.includes(weight)
+        weights.includes(weight)
       );
     } else {
       // use the default (first item in the array)

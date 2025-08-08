@@ -53,14 +53,13 @@ If you need to make the content visible by default or control the masking from o
 
 !!! Info
 
-**Important to know**
+**Code consideration**
 
 When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it’s inside a `<textarea>` element.
 
 When the text is not masked, the newline characters will be respected. This means it may occupy more lines than when it’s masked (see the example above).
 
 Something to keep in mind when designing and implementing functionality that makes use of this component.
-
 !!!
 
 Set `@isMultiline` argument to `true` to render a `<textarea>`
@@ -116,7 +115,9 @@ You can add extra information to the field using helper text. When helper text i
 
 #### Extra content in label and helper text
 
-!!! Warning
+!!! Info
+
+**Accessibility consideration**
 
 If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be used when considering this feature. If needing to use a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
 !!!
@@ -344,14 +345,13 @@ The default invocation creates a `<input type="text">` or a `<textarea>` control
 ```
 !!! Info
 
-**Important to know**
+**Code consideration**
 
 When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even though it’s inside a `<textarea>` element.
 
 Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it’s masked (try the example above).
 
 Something to keep in mind when designing and implementing functionality that requires this component.
-
 !!!
 
 When the `@isMultiline` argument is set to `true`, it creates a `<textarea>` control with an automatically generated `ID` attribute. You can also adjust the height of `<textarea>` either by using the `rows` attribute or by setting a custom `@height` value.

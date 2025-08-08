@@ -11,7 +11,9 @@ import type { Props as TippyProps } from 'tippy.js';
 import { HdsTooltipPlacementValues } from './types.ts';
 import type { HdsTooltipPlacements } from './types.ts';
 
-export const PLACEMENTS: string[] = Object.values(HdsTooltipPlacementValues);
+export const PLACEMENTS: HdsTooltipPlacements[] = Object.values(
+  HdsTooltipPlacementValues
+);
 
 export interface HdsTooltipSignature {
   Args: {

@@ -15,6 +15,7 @@ module.exports = async function () {
     scenarios: [
       {
         name: 'ember-lts-3.28',
+        allowedToFail: true,
         npm: {
           devDependencies: {
             '@ember/test-helpers': '^2.0.0',

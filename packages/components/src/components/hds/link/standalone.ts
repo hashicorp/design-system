@@ -31,12 +31,16 @@ export interface HdsLinkStandaloneSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Leading;
+export const DEFAULT_ICON_POSITION = HdsLinkIconPositionValues.Leading;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
 export const DEFAULT_SIZE = HdsLinkStandaloneSizeValues.Medium;
-export const ICONPOSITIONS: string[] = Object.values(HdsLinkIconPositionValues);
-export const COLORS: string[] = Object.values(HdsLinkColorValues);
-export const SIZES: string[] = Object.values(HdsLinkStandaloneSizeValues);
+export const ICON_POSITIONS: HdsLinkIconPositions[] = Object.values(
+  HdsLinkIconPositionValues
+);
+export const COLORS: HdsLinkColors[] = Object.values(HdsLinkColorValues);
+export const SIZES: HdsLinkStandaloneSizes[] = Object.values(
+  HdsLinkStandaloneSizeValues
+);
 
 export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignature> {
   constructor(owner: Owner, args: HdsLinkStandaloneSignature['Args']) {
@@ -105,13 +109,13 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
   get iconPosition(): HdsLinkIconPositions {
-    const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
+    const { iconPosition = DEFAULT_ICON_POSITION } = this.args;
 
     assert(
-      `@iconPosition for "Hds::Link::Standalone" must be one of the following: ${ICONPOSITIONS.join(
+      `@iconPosition for "Hds::Link::Standalone" must be one of the following: ${ICON_POSITIONS.join(
         ', '
       )}; received: ${iconPosition}`,
-      ICONPOSITIONS.includes(iconPosition)
+      ICON_POSITIONS.includes(iconPosition)
     );
 
     return iconPosition;

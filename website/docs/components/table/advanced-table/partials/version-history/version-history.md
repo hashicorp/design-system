@@ -1,3 +1,17 @@
+## 4.22.0
+
+Translated template strings. Removed extraneous screen-reader-only text.
+
+
+Updated `@isSelected` argument type from `false` to `boolean`
+
+
+## 4.21.1
+
+Removed `ember-math-helpers` dev dependency
+
+Made the `@hasResizableColumns` argument optional for the `ThSort` component.
+
 ## 4.21.0
 
 Added `hasResizableColumns` argument. When `true`, allows the table's columns to be resized with both a click-and-drag and a keyboard interface.
@@ -35,4 +49,3 @@ Refactored keyboard navigation to a new modifier `hds-advanced-table-cell` for r
 ## 4.16.0
 
 Added `AdvancedTable` component and related sub-components
-

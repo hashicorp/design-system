@@ -242,6 +242,7 @@ import type HdsLinkToModelsHelper from './helpers/hds-link-to-models.ts';
 import type HdsLinkToQueryHelper from './helpers/hds-link-to-query.ts';
 import type HdsFormatDateHelper from './helpers/hds-format-date.ts';
 import type HdsFormatRelativeHelper from './helpers/hds-format-relative.ts';
+import type HdsTHelper from './helpers/hds-t.ts';
 
 // modifiers
 import type HdsAnchoredPositionModifier from './modifiers/hds-anchored-position.ts';
@@ -1047,6 +1048,9 @@ export default interface HdsComponentsRegistry {
 
   // hds-format-relative
   'hds-format-relative': typeof HdsFormatRelativeHelper;
+
+  // hds-t
+  'hds-t': typeof HdsTHelper;
 
   // ----- MODIFIERS ----------------------------------------------------
 

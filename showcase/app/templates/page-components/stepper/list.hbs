@@ -41,7 +41,7 @@
       </Hds::Stepper::List>
     </SG.Item>
     <SG.Item @label="All complete">
-      <Hds::Stepper::List @titleTag="h3" {{style width="200px"}} as |S|>
+      <Hds::Stepper::List @titleTag="h3" {{style width="200px"}} @ariaLabel="Label" as |S|>
         <S.Step @status="complete">
           <:title>Title</:title>
           <:description>Description</:description>
@@ -79,6 +79,7 @@
   <Shw::Text::H4>Status</Shw::Text::H4>
 
   <Shw::Grid @columns={{4}} as |SG|>
+
     {{#each @model.STEP_STATUSES as |status|}}
       <SG.Item @label="{{capitalize status}}">
         <Hds::Stepper::List @ariaLabel="Label" as |S|>

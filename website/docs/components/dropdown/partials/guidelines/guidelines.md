@@ -26,10 +26,7 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
 
 ToggleIcons come in two sizes: **small** and **medium**.
 
-!!! Info
-
 While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table/table) because the icons and images can become unrecognizable in smaller sizes.
-!!!
 
 ![Example of the two toggle button sizes](/assets/components/dropdown/dropdown-toggle-icon-sizes.png)
 
@@ -177,6 +174,8 @@ Use icons consistently. Doing so keeps the text aligned so the eye can scan the 
 ![Dropdown width badges in various places](/assets/components/dropdown/dropdown-interactive-badge-example.png)
 
 !!! Info
+
+**Differences between Figma and code**
 
 The Figma component will not fully reflect the Badge wrapping behavior expected in the Ember component due to current known limitations in Figma’s auto layout settings.
 !!!

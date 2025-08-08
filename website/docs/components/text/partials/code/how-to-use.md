@@ -28,13 +28,14 @@ To specify which HTML tag to use to render the element, use the `@tag` argument:
 <Hds::Text::Code @tag="pre">Code sample</Hds::Text::Code>
 ```
 
-!!! Insight
+!!! Warning
+
+**Accessibility alert**
 
 While by default the component renders a `<span>`, we invite consumers to:
 
 - consider which semantic HTML tag is the correct one for the context in which the text is used
 - always set a `@tag` value accordingly, to make the semantic choice explicit
-
 !!!
 
 ### Size
@@ -101,10 +102,12 @@ Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, etc.):
 ```handlebars
 <Hds::Text::Body @tag="p" @color="#FF0000">This text has a "#FF0000" (red) color applied</Hds::Text::Body>
 ```
-!!! Warning
+
+!!! Warning 
+
+**Consumer responsibility**
 
 We don’t validate the CSS color string to ensure that the value used is correct.
-
 !!!
 
 ### Structured content

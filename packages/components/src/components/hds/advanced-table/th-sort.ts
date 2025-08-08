@@ -9,7 +9,6 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
-import HdsAdvancedTableColumn from './models/column.ts';
 import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
 
@@ -29,6 +28,7 @@ import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cel
 import type { HdsAdvancedTableThSignature } from './th.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
+import type HdsAdvancedTableColumn from './models/column.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -46,10 +46,7 @@ export interface HdsAdvancedTableThSortSignature {
     tooltip?: string;
     rowspan?: number;
     colspan?: number;
-    previousColumn?: HdsAdvancedTableColumn;
-    nextColumn?: HdsAdvancedTableColumn;
     tableHeight?: number;
-    isLastColumn?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];

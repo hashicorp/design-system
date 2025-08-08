@@ -23,8 +23,8 @@ const waiter = buildWaiter('@hashicorp/design-system-components:modal');
 export const DEFAULT_SIZE = HdsModalSizeValues.Medium;
 export const DEFAULT_COLOR = HdsModalColorValues.Neutral;
 
-export const SIZES: string[] = Object.values(HdsModalSizeValues);
-export const COLORS: string[] = Object.values(HdsModalColorValues);
+export const SIZES: HdsModalSizes[] = Object.values(HdsModalSizeValues);
+export const COLORS: HdsModalColors[] = Object.values(HdsModalColorValues);
 
 export interface HdsModalSignature {
   Args: {

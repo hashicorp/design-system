@@ -6,9 +6,7 @@
     "lint": "eslint --cache .",
     "lint:fix": "eslint . --fix",
     "test": "codemod-cli test",
-    "test:coverage": "codemod-cli test --coverage",
-    "update-docs": "codemod-cli update-docs",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+    "update-docs": "codemod-cli update-docs"
   },
   "bin": "./bin/cli.js",
   "keywords": [
@@ -29,7 +27,6 @@
     "codemod-cli": "^3.2.0"
   },
   "devDependencies": {
-    "coveralls": "^3.1.1",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-node": "^11.1.0",
