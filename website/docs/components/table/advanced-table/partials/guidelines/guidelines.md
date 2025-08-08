@@ -2,9 +2,10 @@
 
 ### When to use
 
-- When large datasets benefit from being viewed in a scrollable container instead of with pagination.
+- For large data sets with many properties that benefit from being viewed in a scrollable container.
 - When an expandable table is needed for hierarchical data.
 - When users would benefit from more efficient keyboard navigation, such as when there are many rows or columns.
+- When users would benefit from customizing the view of the data set (column width, order, etc).
 
 ### When not to use
 
