@@ -603,6 +603,7 @@
 
   <Hds::AdvancedTable
     @isSelectable={{true}}
+    @selectableColumnKey="isSelected"
     @onSelectionChange={{this.onMultiSelectSelectionChange}}
     {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.multiSelectSelectableData}}
