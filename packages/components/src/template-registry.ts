@@ -22,28 +22,24 @@ import type HdsAdvancedTableExpandableTrGroupComponent from './components/hds/ad
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
-import type HdsAppHeaderComponent from './components/hds/app-header';
-import type HdsAppHeaderHomeLinkComponent from './components/hds/app-header/home-link';
-import type HdsAppHeaderMenuButtonComponent from './components/hds/app-header/menu-button';
+
 import type HdsAppFooterComponent from './components/hds/app-footer';
 import type HdsAppFooterCopyrightComponent from './components/hds/app-footer/copyright';
 import type HdsAppFooterItemComponent from './components/hds/app-footer/item';
 import type HdsAppFooterLegalLinksComponent from './components/hds/app-footer/legal-links';
 import type HdsAppFooterLinkComponent from './components/hds/app-footer/link';
 import type HdsAppFooterStatusLinkComponent from './components/hds/app-footer/status-link';
-import type HdsBadgeComponent from './components/hds/badge';
-import type HdsBadgeCountComponent from './components/hds/badge-count';
-import type HdsBreadcrumbComponent from './components/hds/breadcrumb/index.ts';
-import type HdsBreadcrumbItemComponent from './components/hds/breadcrumb/item';
-import type HdsBreadcrumbTruncationComponent from './components/hds/breadcrumb/truncation.ts';
-import type HdsButtonComponent from './components/hds/button';
-import type HdsButtonSetComponent from './components/hds/button-set';
+
 import type HdsAppFrameComponent from './components/hds/app-frame';
 import type HdsAppFrameFooterComponent from './components/hds/app-frame/parts/footer';
 import type HdsAppFrameHeaderComponent from './components/hds/app-frame/parts/header';
 import type HdsAppFrameMainComponent from './components/hds/app-frame/parts/main';
 import type HdsAppFrameModalsComponent from './components/hds/app-frame/parts/modals';
 import type HdsAppFrameSidebarComponent from './components/hds/app-frame/parts/sidebar';
+
+import type HdsAppHeaderComponent from './components/hds/app-header';
+import type HdsAppHeaderHomeLinkComponent from './components/hds/app-header/home-link';
+import type HdsAppHeaderMenuButtonComponent from './components/hds/app-header/menu-button';
 
 import type HdsAppSideNavComponent from './components/hds/app-side-nav';
 import type HdsAppSideNavToggleButtonComponent from './components/hds/app-side-nav/toggle-button';
@@ -60,7 +56,18 @@ import type HdsApplicationStateBodyComponent from './components/hds/application-
 import type HdsApplicationStateFooterComponent from './components/hds/application-state/footer';
 import type HdsApplicationStateHeaderComponent from './components/hds/application-state/header';
 import type HdsApplicationStateMediaComponent from './components/hds/application-state/media';
+
+import type HdsBadgeComponent from './components/hds/badge';
+import type HdsBadgeCountComponent from './components/hds/badge-count';
+import type HdsBreadcrumbComponent from './components/hds/breadcrumb/index.ts';
+import type HdsBreadcrumbItemComponent from './components/hds/breadcrumb/item';
+import type HdsBreadcrumbTruncationComponent from './components/hds/breadcrumb/truncation.ts';
+import type HdsButtonComponent from './components/hds/button';
+import type HdsButtonSetComponent from './components/hds/button-set';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
+
+import type HdsChartsDonut from './components/hds/charts/donut/index.ts';
+
 import type HdsCodeEditorComponent from './components/hds/code-editor/index.ts';
 import type HdsCodeEditorDescriptionComponent from './components/hds/code-editor/description.ts';
 import type HdsCodeEditorGenericComponent from './components/hds/code-editor/generic.ts';
@@ -432,6 +439,9 @@ export default interface HdsComponentsRegistry {
   'hds/card': typeof HdsCardContainerComponent;
   'Hds::Card::Container': typeof HdsCardContainerComponent;
   'hds/card/container': typeof HdsCardContainerComponent;
+
+  // Charts
+  'Hds::Charts::Donut': typeof HdsChartsDonut;
 
   // Code Block
   'Hds::CodeBlock': typeof HdsCodeBlockComponent;

@@ -29,7 +29,11 @@
 
     <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="1.5rem"}}>
       <Hds::Text::Display @tag="p" @size="200">Service Instances</Hds::Text::Display>
-      <Hds::Charts::Donut @title="Instances health" @data={{this.model.SERVICE_HEALTH_DATA}} />
+      <Hds::Charts::Donut
+        @title="Instances health"
+        @data={{this.model.SERVICE_HEALTH_DATA}}
+        @colorMap={{hash Critical="#c00005" Warning="#d3a029" Healthy="#008a22"}}
+      />
     </Hds::Card::Container>
   </Hds::Layout::Grid>
 </section>
