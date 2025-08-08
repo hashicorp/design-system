@@ -139,7 +139,8 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       &.mock-focus::after,
       &:hover::after,
       &.mock-hover::after,
-      &.hds-advanced-table__th-resize-handle--resizing::after {
+      &.hds-advanced-table__th-resize-handle--resizing::after,
+      &.mock-active::after {
         width: 3px;
         transform: translateX(-10.5px); // (width of the handle (24px) - width of the visual handle (3px)) / 2 == 10.5px
       }
@@ -151,7 +152,8 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
 
       &:focus::after,
       &.mock-focus::after,
-      &.hds-advanced-table__th-resize-handle--resizing::after {
+      &.hds-advanced-table__th-resize-handle--resizing::after,
+      &.mock-active::after {
         background-color: var(--token-color-palette-blue-300);
       }
     }
