@@ -12,7 +12,10 @@ import data from './data.js';
 import '@carbon/charts/styles.css';
 
 export interface HdsChartsDonutSignature {
-  // Args: {};
+  Args: {
+    title?: string;
+    data?: Array<{ group: string; value: number }>;
+  };
   Blocks: {
     default: [];
   };
@@ -25,9 +28,17 @@ export default class HdsChartsDonut extends Component<HdsChartsDonutSignature> {
 
   @action
   setupChart(element: HTMLDivElement): void {
+    const chartData = this.args.data || data;
+
+    // Merge the dynamic title into the options
+    const chartOptions = {
+      ...options,
+      title: this.args.title || options.title, // Use the passed title or fallback to the default
+    };
+
     this.chart = new DonutChart(element, {
-      data,
-      options,
+      data: chartData,
+      options: chartOptions,
     });
   }
 }

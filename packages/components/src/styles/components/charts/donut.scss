@@ -8,6 +8,16 @@
 //
 
 .hds-charts-donut {
-  // add the component styles here
-  outline: 1px dotted red;
+  // outline: 1px dotted red; // for testing - see boundaries of chart container
+
+  // increase stroke definition on slices (especially for resized/shrunken charts)
+  .slice {
+    stroke: #fff;
+    stroke-width: 1px;
+  }
+
+  // The size of the title affects the rendered size of the donut chart
+  .title {
+    min-height: 1.3em;
+  }
 }
