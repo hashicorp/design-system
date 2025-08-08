@@ -32,6 +32,27 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
   private _element!: HdsAdvancedTableThReorderDropTargetSignature['Element'];
 
+  private _registerElement = modifier(
+    (element: HdsAdvancedTableThReorderDropTargetSignature['Element']) => {
+      this._element = element;
+    }
+  );
+
+  private _resetDragState(): void {
+    this._dragCount = 0;
+    this._isDraggingOver = false;
+    this._dragSide = null;
+  }
+
+  // determines whether the drag event is occurring on the left or right side of the element
+  private _getDragSide(event: DragEvent): 'left' | 'right' {
+    const rect = this._element.getBoundingClientRect();
+    const mouseX = event.clientX;
+    const elementMiddleX = rect.left + rect.width / 2;
+
+    return mouseX < elementMiddleX ? 'left' : 'right';
+  }
+
   get classNames(): string {
     const { column } = this.args;
 
@@ -59,25 +80,17 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
     return classes.join(' ');
   }
 
-  private _registerElement = modifier(
-    (element: HdsAdvancedTableThReorderDropTargetSignature['Element']) => {
-      this._element = element;
+  private get _height(): `${number}px` | undefined {
+    const { tableHeight } = this.args;
+
+    if (tableHeight === undefined) {
+      return undefined;
     }
-  );
 
-  private _resetDragState(): void {
-    this._dragCount = 0;
-    this._isDraggingOver = false;
-    this._dragSide = null;
-  }
+    // subtract 2px to account for borders
+    const height = tableHeight - 4;
 
-  // determines whether the drag event is occurring on the left or right side of the element
-  private _getDragSide(event: DragEvent): 'left' | 'right' {
-    const rect = this._element.getBoundingClientRect();
-    const mouseX = event.clientX;
-    const elementMiddleX = rect.left + rect.width / 2;
-
-    return mouseX < elementMiddleX ? 'left' : 'right';
+    return `${height}px`;
   }
 
   @action

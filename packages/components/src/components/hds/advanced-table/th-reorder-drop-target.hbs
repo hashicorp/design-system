@@ -2,7 +2,7 @@
   class={{this.classNames}}
   aria-hidden="true"
   role="presentation"
-  {{style height=(if @tableHeight (concat (sub @tableHeight 2) "px"))}}
+  {{style height=this._height}}
   {{this._registerElement}}
   {{on "dragover" this.handleDragOver}}
   {{on "dragenter" this.handleDragEnter}}
