@@ -11,12 +11,12 @@
 
 <section data-test-percy>
   <Hds::Layout::Grid @columnWidth="33.33%" @gap="12">
-    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="1.5rem"}}>
+    <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>
       <Hds::Text::Display @size="300">Clusters</Hds::Text::Display>
       <Hds::Charts::Donut @data={{this.model.CLUSTERS_DATA}} />
     </Hds::Card::Container>
 
-    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="1.5rem"}}>
+    <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>
       <Hds::Layout::Flex @direction="column" @gap="12">
         <div>
           <Hds::Text::Display @tag="p" @size="300">Services</Hds::Text::Display>
@@ -27,7 +27,7 @@
       </Hds::Layout::Flex>
     </Hds::Card::Container>
 
-    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="1.5rem"}}>
+    <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>
       <Hds::Text::Display @tag="p" @size="200">Service Instances</Hds::Text::Display>
       <Hds::Charts::Donut
         @title="Instances health"
