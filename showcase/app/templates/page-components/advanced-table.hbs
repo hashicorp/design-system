@@ -1680,8 +1680,33 @@
 
   <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" role="grid" {{style gridTemplateColumns="repeat(6, 1fr)"}}>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        role="grid"
+        {{style gridTemplateColumns="repeat(6, 1fr)"}}
+      >
         <div class="hds-advanced-table__thead" role="rowgroup">
+          <div class="hds-advanced-table__tr" role="row">
+            <Hds::AdvancedTable::Th>Left</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th
+              @isExpandable={{true}}
+              @tooltip="Here is more information"
+            >Left</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th @align="center">Center</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th
+              @align="center"
+              @isExpandable={{true}}
+              @tooltip="Here is more information"
+            >Center</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th @align="right">Right</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th
+              @align="right"
+              @isExpandable={{true}}
+              @tooltip="Here is more information"
+            >Right</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+        <div class="hds-advanced-table__tbody" role="rowgroup">
           <div class="hds-advanced-table__tr" role="row">
             <Hds::AdvancedTable::Th>Left</Hds::AdvancedTable::Th>
             <Hds::AdvancedTable::Th
