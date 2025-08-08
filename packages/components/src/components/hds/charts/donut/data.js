@@ -1,6 +1,6 @@
 export default [
   {
-    group: '2V2N 9KYPM version 1',
+    group: '2V2N 9KYPM version 1', // group = label/category
     value: 20000,
   },
   {

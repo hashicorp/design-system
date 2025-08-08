@@ -10,5 +10,26 @@
 <Shw::Text::H2>Carbon Charts test</Shw::Text::H2>
 
 <section data-test-percy>
-  <Hds::Charts::Donut />
+  <Hds::Layout::Grid @columnWidth="33.33%" @gap="12">
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="1.5rem"}}>
+      <Hds::Text::Display @size="300">Clusters</Hds::Text::Display>
+      <Hds::Charts::Donut @data={{this.model.CLUSTERS_DATA}} />
+    </Hds::Card::Container>
+
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="1.5rem"}}>
+      <Hds::Layout::Flex @direction="column" @gap="12">
+        <div>
+          <Hds::Text::Display @tag="p" @size="300">Services</Hds::Text::Display>
+          <Hds::Text::Body @tag="p" @size="200">From clusters above v1.14.0</Hds::Text::Body>
+        </div>
+        <Hds::Text::Display @tag="p" @size="500">5</Hds::Text::Display>
+        <Hds::Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="View services" @href="#" />
+      </Hds::Layout::Flex>
+    </Hds::Card::Container>
+
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="1.5rem"}}>
+      <Hds::Text::Display @tag="p" @size="200">Service Instances</Hds::Text::Display>
+      <Hds::Charts::Donut @title="Instances health" @data={{this.model.SERVICE_HEALTH_DATA}} />
+    </Hds::Card::Container>
+  </Hds::Layout::Grid>
 </section>
