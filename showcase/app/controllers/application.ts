@@ -11,7 +11,7 @@ import type RouterService from '@ember/routing/router-service';
 import type Owner from '@ember/owner';
 
 export default class ApplicationController extends Controller {
-  @service declare router: RouterService;
+  @service declare readonly router: RouterService;
 
   @tracked isFrameless = false;
 
