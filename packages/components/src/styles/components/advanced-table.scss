@@ -206,22 +206,24 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     // dragging over left
     .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left::after {
       left: 0;
-      transform: translateX(-2.5px);
+      transform: translateX(-3px);
     }
 
     // dragging over left and is first
     .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left.hds-advanced-table__th-reorder-drop-target--is-first::after {
+      border-radius: $hds-advanced-table-inner-border-radius 0 0 $hds-advanced-table-inner-border-radius;
       transform: translateX(0);
     }
 
     // dragging over right
     .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right::after {
       right: 0;
-      transform: translateX(2.5px);
+      transform: translateX(3px);
     }
 
     // dragging over right and is last
     .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right.hds-advanced-table__th-reorder-drop-target--is-last::after {
+      border-radius: 0 $hds-advanced-table-inner-border-radius $hds-advanced-table-inner-border-radius 0;
       transform: translateX(0);
     }
 
