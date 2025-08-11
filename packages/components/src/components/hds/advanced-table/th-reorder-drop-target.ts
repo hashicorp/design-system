@@ -80,7 +80,7 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
     return classes.join(' ');
   }
 
-  private get _height(): `${number}px` | undefined {
+  get height(): `${number}px` | undefined {
     const { tableHeight } = this.args;
 
     if (tableHeight === undefined) {
