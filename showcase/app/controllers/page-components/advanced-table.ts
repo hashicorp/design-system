@@ -110,9 +110,11 @@ export default class PageComponentsAdvancedTableController extends Controller {
         {
           label: 'Label',
           isVisuallyHidden: true,
+          width: '200px',
         },
         {
           label: 'Status',
+          width: '200px',
         },
       ],
     });
