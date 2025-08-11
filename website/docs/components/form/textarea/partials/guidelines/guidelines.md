@@ -51,7 +51,7 @@ _Test and interact with the default messaging examples in the [primitive code](/
 
 The default messages provide a consistent messaging pattern for the component by clearly communicating length requirements to the user while displaying their progress towards meeting the requirements.
 
-![A workspace name input with the text "work" entered. If the character count is showing current length, it reads "4 characters entered". If maximum length, it reads "21 characters remaining". If minimum length, it reads "1 character remaining".](/assets/components/form/textarea/textarea-character-count-defaults-filled.png)
+![A workspace name textarea with the text "work" entered. If the character count is showing current length, it reads "4 characters entered". If maximum length, it reads "21 characters remaining". If minimum length, it reads "1 character remaining".](/assets/components/form/textarea/textarea-character-count-defaults-filled.png)
 
 ### Usage in Figma
 
@@ -67,7 +67,7 @@ A custom message in the character count is supported and can be used when a prod
 
 Avoid presenting duplicate information between the helper text and the character count. Helper text should be used to provide persistent requirements while character count represents more of a progress indicator towards a length requirement.
 
-![Workspace name input where the helper text says there is a 5 character minimum and the character count below the input also says there is a 5 character minimum.](/assets/components/form/textarea/textarea-character-count-dont-helper-text-overlap.png)
+![Workspace name textarea where the helper text says there is a 5 character minimum and the character count below the textarea also says there is a 5 character minimum.](/assets/components/form/textarea/textarea-character-count-dont-helper-text-overlap.png)
 
 !!!
 
