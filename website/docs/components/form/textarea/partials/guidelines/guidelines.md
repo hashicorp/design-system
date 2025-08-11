@@ -38,7 +38,7 @@ Use a character count to communicate the current length of the value in a textar
 
 ### Default messages
 
-Depending on which property (or properties) are passed to the component, a different default message will be displayed by the component to communicate the relationship between the current length of the input value (`currentLength`) and the maximum length (`maxLength`), minimum length (`minLength`), or both.
+Depending on which property (or properties) are passed to the component, a different default message will be displayed by the component to communicate the relationship between the current length of the textarea value (`currentLength`) and the maximum length (`maxLength`), minimum length (`minLength`), or both.
 
 <video width="100%" controls loop>
   <source
