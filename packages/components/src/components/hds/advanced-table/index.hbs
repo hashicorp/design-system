@@ -48,7 +48,6 @@
               @onClickSort={{if column.key (fn this._tableModel.setSortBy column.key)}}
               @align={{column.align}}
               @tooltip={{column.tooltip}}
-              @hasPinnableFirstColumn={{this.hasPinnableFirstColumn}}
               @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
               @hasResizableColumns={{@hasResizableColumns}}
               @isStickyColumn={{if (and (eq index 0) this.hasStickyFirstColumn) true}}
@@ -65,7 +64,6 @@
               @align={{column.align}}
               @column={{column}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
-              @hasPinnableFirstColumn={{this.hasPinnableFirstColumn}}
               @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
               @hasResizableColumns={{@hasResizableColumns}}
               @isExpanded={{this._tableModel.expandState}}

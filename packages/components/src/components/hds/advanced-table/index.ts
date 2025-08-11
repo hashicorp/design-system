@@ -129,7 +129,6 @@ export interface HdsAdvancedTableSignature {
     hasResizableColumns?: boolean;
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
-    hasPinnableFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
@@ -267,20 +266,15 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return childrenKey;
   }
 
-  get hasStickyFirstColumn(): boolean {
+  get hasStickyFirstColumn(): boolean | undefined {
     // The user-controlled `hasPinnedFirstColumn` variable takes precedence over the model's `hasStickyFirstColumn` property.
     if (this.hasPinnedFirstColumn !== undefined) {
       return this.hasPinnedFirstColumn;
-    } else if (this.args.hasStickyFirstColumn) {
+    } else if (this.args.hasStickyFirstColumn === false) {
       return this.args.hasStickyFirstColumn;
     }
 
-    return false;
-  }
-
-  get hasPinnableFirstColumn(): boolean {
-    const { hasPinnableFirstColumn = false } = this.args;
-    return hasPinnableFirstColumn;
+    return undefined;
   }
 
   get hasScrollIndicator(): boolean {
@@ -511,7 +505,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         element,
         this._theadElement,
         this.hasStickyHeader,
-        this.hasStickyFirstColumn
+        this.hasStickyFirstColumn ? true : false
       );
 
       if (this.hasStickyFirstColumn) {
