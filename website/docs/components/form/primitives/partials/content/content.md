@@ -7,7 +7,7 @@
 
 - Use helper text to give the user extra details about the data you’re asking them to input, e.g., formatting requirements such as MM-DD-YYYY.
 
-## Error
+## Errors
 
 - Error messages should provide the user with enough context to guide them in resolving the error.
 - Keep labels and legends short and to the point (ie. "Select one option")
