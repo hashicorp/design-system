@@ -100,7 +100,7 @@ Depending on which property (or properties) are passed to the component, a diffe
 
 <video width="100%" controls loop>
   <source
-    src="/assets/components/form/primitives/character-count-default-interactions.mp4"
+    src="/assets/components/form/masked-input/masked-input-character-count-default-interactions.mp4"
     type="video/mp4"
   />
 </video>
