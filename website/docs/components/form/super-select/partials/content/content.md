@@ -1,8 +1,6 @@
-## General recommendations
-
 For general content recommendations, refer to the [Primitives](/components/form/primitives?tab=content) documentation.
 
-### Options list
+## Options list
 
 - Keep option content clear and concise; avoid full sentences.
 - Avoid repeating the same word at the beginning of list options.
