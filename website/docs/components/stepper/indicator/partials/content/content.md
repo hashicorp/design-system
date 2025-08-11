@@ -1,3 +1,3 @@
 ## General recommendations
 
-The Step Indicator should be numerical (1, 2, 3) in its sequencing.
+The Step Indicator must be numerical (1, 2, 3) in its sequencing.

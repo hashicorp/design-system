@@ -1,4 +1,4 @@
-## Action recommendations
+## Actions
 
 - Modal actions should be concise and not written as sentences. Most of the time, one or two words are adequate for an action. 
 - We generally don’t recommend using icons on actions within Modals.
