@@ -1,2 +1,1 @@
-aria-description: Use left and right arrow keys while focused on this button to move the column to a new position.
-aria-label: "Reorder {columnLabel} column"
+aria-label: "Reorder {{columnLabel}} column"
