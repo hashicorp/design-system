@@ -5,6 +5,7 @@
 
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 import type { HdsAdvancedTableThReorderHandleSignature } from '../th-reorder-handle.ts';
 import type HdsAdvancedTableModel from './table.ts';
@@ -35,7 +36,7 @@ export default class HdsAdvancedTableColumn {
   @tracked isExpandable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
-  @tracked key?: string = undefined;
+  @tracked key: string = guidFor(this);
   @tracked minWidth?: `${number}px` = DEFAULT_MIN_WIDTH;
   @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
   @tracked tooltip?: string = undefined;

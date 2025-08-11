@@ -53,8 +53,6 @@ export default class HdsAdvancedTableRow {
   constructor(args: HdsAdvancedTableRowArgs) {
     const { columns } = args;
 
-    console.log(columns);
-
     this.cells = columns.map((column) => {
       const cell = args[column.key ?? ''];
 

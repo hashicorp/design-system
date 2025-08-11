@@ -52,7 +52,10 @@ function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
 }
 
 function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
-  return rows.reduce((acc, row) => acc + 1 + getChildrenCount(row.children), 0);
+  return rows.reduce(
+    (acc, row) => acc + 1 + getChildrenCount(row.children ?? []),
+    0
+  );
 }
 
 export default class HdsAdvancedTableTableModel {
@@ -88,12 +91,7 @@ export default class HdsAdvancedTableTableModel {
 
     this.setupData({ model, columns, sortBy, sortOrder });
 
-    this.columnOrder =
-      columnOrder ??
-      this.columns.map((column) => {
-        // todo: make this work without column keys correctly
-        return column.key ?? '';
-      });
+    this.columnOrder = columnOrder ?? this.columns.map((column) => column.key);
 
     this.onColumnReorder = onColumnReorder;
   }
