@@ -34,7 +34,7 @@ For shorter, simpler forms (e.g., login/signup and feedback requests), indicate 
 The character count is not coupled with the invalid state of the field. Instead, it is the responsibility of the consumer to implement validation at the application-level.
 !!!
 
-Use a character count to communicate the current length of the value in an input and whether it meets or exceeds the length requirements passed to the component. The component accepts multiple arguments to set length requirements and exposes several computed values to support custom messages. Visit the [primitive code](/components/form/primitives?tab=code#formcharactercount-1) documentation for more details.
+Use a character count to communicate the current length of the value in a textarea and whether it meets or exceeds the length requirements passed to the component. The component accepts multiple arguments to set length requirements and exposes several computed values to support custom messages. Visit the [primitive code](/components/form/primitives?tab=code#formcharactercount-1) documentation for more details.
 
 ### Default messages
 
