@@ -8,92 +8,7 @@
 <Shw::Text::H1>AdvancedTable</Shw::Text::H1>
 
 <section data-test-percy>
-  {{!-- <Hds::AdvancedTable
-    @model={{this.model.music}}
-    @columnOrder={{array "artist" "album" "year" "other"}}
-    @hasReorderableColumns={{true}}
-    @columns={{array
-      (hash key="artist" label="Artist" tooltip="More information.")
-      (hash key="album" label="Album" tooltip="More information.")
-      (hash key="year" label="Release Year" tooltip="More information.")
-      (hash key="other" label="Additional Actions")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr as |R|>
-        {{#each R.orderedCells as |cell|}}
-          {{#if (eq cell.columnKey "artist")}}
-            <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
-          {{else if (eq cell.columnKey "album")}}
-            <B.Td>
-              <div class="shw-component-advanced-table-cell-content-div">
-                <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
-                {{B.data.album}}
-              </div>
-            </B.Td>
-          {{else if (eq cell.columnKey "year")}}
-
-            <B.Td>
-              <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
-            </B.Td>
-          {{else if (eq cell.columnKey "other")}}
-            <B.Td>
-              <Hds::ButtonSet>
-                <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
-                <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
-                <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
-              </Hds::ButtonSet>
-            </B.Td>
-          {{/if}}
-        {{/each}}
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable> --}}
-
-  <Hds::AdvancedTable
-    @model={{this.model.music}}
-    @columnOrder={{array "artist" "album" "year" "other"}}
-    @hasResizableColumns={{true}}
-    @hasReorderableColumns={{true}}
-    @columns={{array
-      (hash key="artist" label="Artist" tooltip="More information.")
-      (hash key="album" label="Album" tooltip="More information.")
-      (hash key="year" label="Release Year" tooltip="More information.")
-      (hash key="other" label="Additional Actions")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr as |R|>
-        {{#each R.orderedCells as |cell|}}
-          {{#if (eq cell.columnKey "artist")}}
-            <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
-          {{else if (eq cell.columnKey "album")}}
-            <B.Td>
-              <div class="shw-component-advanced-table-cell-content-div">
-                <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
-                {{B.data.album}}
-              </div>
-            </B.Td>
-          {{else if (eq cell.columnKey "year")}}
-
-            <B.Td>
-              <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
-            </B.Td>
-          {{else if (eq cell.columnKey "other")}}
-            <B.Td>
-              <Hds::ButtonSet>
-                <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
-                <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
-                <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
-              </Hds::ButtonSet>
-            </B.Td>
-          {{/if}}
-        {{/each}}
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable>
-
-  {{!-- <Shw::Text::Body>
+  <Shw::Text::Body>
     <a
       class="shw-frame__open-link"
       href="/layouts/app-frame/frameless/demo-full-app-frame-with-advanced-table"
@@ -2757,6 +2672,7 @@
                   <Hds::AdvancedTable::ThResizeHandle
                     mock-state-value={{state}}
                     @column={{get this.sampleTableModel.columns 0}}
+                    @hasResizableColumns={{true}}
                     aria-valuenow="200"
                   />
                 </Hds::Layout::Flex>
@@ -2769,7 +2685,7 @@
         </div>
       </div>
     </SF.Item>
-  </Shw::Flex> --}}
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
