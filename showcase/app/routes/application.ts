@@ -8,7 +8,7 @@ import { service } from '@ember/service';
 import type IntlService from 'ember-intl/services/intl';
 
 export default class ApplicationRoute extends Route {
-  @service declare intl: IntlService;
+  @service declare readonly intl: IntlService;
 
   beforeModel() {
     this.intl.setLocale(['en-us']);
