@@ -25,9 +25,59 @@ For shorter, simpler forms (e.g., login/signup and feedback requests), indicate 
 
 [Marking required fields in forms](https://www.nngroup.com/articles/required-fields/)
 
-## Character count
+## Character Count
 
-For tracking the number of characters entered into a Textarea and defining requirements around minimum and maximum length, refer to the [Character count](/components/form/primitives#formcharactercount) documentation.
+!!! Warning
+
+**Consumer responsibility**
+
+The character count is not coupled with the invalid state of the field. Instead, it is the responsibility of the consumer to implement validation at the application-level.
+!!!
+
+Use a character count to communicate the current length of the value in an input and whether it meets or exceeds the length requirements passed to the component. The component accepts multiple arguments to set length requirements and exposes several computed values to support custom messages. Visit the [primitive code](/components/form/primitives?tab=code#formcharactercount-1) documentation for more details.
+
+### Default messages
+
+Depending on which property (or properties) are passed to the component, a different default message will be displayed by the component to communicate the relationship between the current length of the input value (`currentLength`) and the maximum length (`maxLength`), minimum length (`minLength`), or both.
+
+<video width="100%" controls loop>
+  <source
+    src="/assets/components/form/primitives/character-count-default-interactions.mp4"
+    type="video/mp4"
+  />
+</video>
+
+_Test and interact with the default messaging examples in the [primitive code](/components/form/primitives?tab=code#formcharactercount-1) documentation._
+
+The default messages provide a consistent messaging pattern for the component by clearly communicating length requirements to the user while displaying their progress towards meeting the requirements.
+
+![A workspace name input with the text "work" entered. If the character count is showing current length, it reads "4 characters entered". If maximum length, it reads "21 characters remaining". If minimum length, it reads "1 character remaining".](/assets/components/form/textarea/textarea-character-count-defaults-filled.png)
+
+### Usage in Figma
+
+For representative consistency, the Figma component mirrors the default messages that are rendered in the Ember component and are labelled as such; `currentLength` (the default variant), `maxLength`, `minLength`, and `custom`.
+
+In all variants except the `custom` variant, we recommend _only_ overriding the numerical value (e.g., "{numerical value} characters is allowed"). Overriding the text in these variants will require a custom implementation on the engineering side, instead, the `custom` variant should be used.
+
+### Custom messages
+
+A custom message in the character count is supported and can be used when a product or application-specific message or term is required, e.g., "registry" or "workspace".
+
+!!! Dont
+
+Avoid presenting duplicate information between the helper text and the character count. Helper text should be used to provide persistent requirements while character count represents more of a progress indicator towards a length requirement.
+
+![Workspace name input where the helper text says there is a 5 character minimum and the character count below the input also says there is a 5 character minimum.](/assets/components/form/textarea/textarea-character-count-dont-helper-text-overlap.png)
+
+!!!
+
+!!! Dont
+
+Don’t use the character count to display static details about the field. Use [helper text](/components/form/primitives?tab=content#helper-text) to provide extra details about the information being requested and the character count to communicate the user’s progress toward meeting the requirements.
+
+![](/assets/components/form/textarea/textarea-character-count-dont-helper-text.png)
+
+!!!
 
 ## Error validation
 

@@ -13,6 +13,7 @@
 - For a list of metadata elements (like selected filters), consider [Tag](/components/tag).
 - For dismissable elements, consider [Tag](/components/tag).
 - For longer status messages, consider [Alert](/components/alert).
+- For linked content, consider [Standalone Links](/components/link/standalone).
 
 ## Color
 

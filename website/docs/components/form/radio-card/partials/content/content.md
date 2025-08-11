@@ -1,6 +1,4 @@
-## General recommendations
-
-### Form::Label
+### Label
 
 !!! Warning
 
