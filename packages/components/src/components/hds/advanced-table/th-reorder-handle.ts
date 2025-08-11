@@ -13,7 +13,6 @@ import type HdsAdvancedTableColumn from './models/column.ts';
 export interface HdsAdvancedTableThReorderHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    columnWidth: number;
     tableHeight?: number;
     onReorderDragStart: (column: HdsAdvancedTableColumn) => void;
     onReorderDragEnd?: () => void;
@@ -53,23 +52,32 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
 
   @action
   handleDragStart(event: DragEvent): void {
-    const { column, columnWidth, tableHeight, onReorderDragStart } = this.args;
+    const { column, tableHeight, onReorderDragStart } = this.args;
 
-    if (column.key === undefined || typeof onReorderDragStart !== 'function') {
+    const { key, thElement } = column;
+
+    if (
+      key === undefined ||
+      thElement === undefined ||
+      typeof onReorderDragStart !== 'function'
+    ) {
       return;
     }
 
-    event.dataTransfer?.setData('text/plain', column.key);
+    const thElementWidth = thElement.offsetWidth;
+
+    event.dataTransfer?.setData('text/plain', key);
 
     if (event.dataTransfer) {
       event.dataTransfer.effectAllowed = 'move';
     }
 
-    const dragPreview = constructDragPreview(columnWidth, tableHeight);
+    const dragPreview = constructDragPreview(thElementWidth, tableHeight);
 
     document.body.appendChild(dragPreview);
 
-    event.dataTransfer?.setDragImage(dragPreview, columnWidth / 2, 10);
+    // set the drag image, center it, and offset it vertically by 10px
+    event.dataTransfer?.setDragImage(dragPreview, thElementWidth / 2, 10);
 
     setTimeout(() => document.body.removeChild(dragPreview), 0);
 

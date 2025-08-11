@@ -69,7 +69,6 @@
       {{#if @hasReorderableColumns}}
         <Hds::AdvancedTable::ThReorderHandle
           @column={{@column}}
-          @columnWidth={{this._element.clientWidth}}
           @tableHeight={{@tableHeight}}
           @onReorderDragStart={{this.handleDragStart}}
           @onReorderDragEnd={{@onReorderDragEnd}}
