@@ -35,6 +35,8 @@ export interface HdsAdvancedTableThSignature {
     colspan?: number;
     depth?: number;
     hasExpandAllButton?: boolean;
+    hasPinnableFirstColumn?: boolean;
+    hasStickyFirstColumn?: boolean;
     hasResizableColumns?: boolean;
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
@@ -50,6 +52,7 @@ export interface HdsAdvancedTableThSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onPinFirstColumn?: () => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
   Blocks: {
@@ -143,9 +146,13 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get showContextMenu(): boolean {
-    const { hasResizableColumns } = this.args;
+    const { column, hasPinnableFirstColumn, hasResizableColumns } = this.args;
 
-    return hasResizableColumns ?? false;
+    return (
+      (hasResizableColumns ||
+        (hasPinnableFirstColumn && column && column.isFirst)) ??
+      false
+    );
   }
 
   @action onFocusTrapDeactivate(): void {
