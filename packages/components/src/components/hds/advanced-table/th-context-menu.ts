@@ -26,7 +26,6 @@ interface HdsAdvancedTableThContextMenuOption {
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    hasPinnableFirstColumn?: boolean;
     hasStickyFirstColumn?: boolean;
     hasResizableColumns?: boolean;
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
@@ -40,12 +39,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   @tracked private _element!: HdsDropdownSignature['Element'];
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const {
-      column,
-      hasPinnableFirstColumn,
-      hasStickyFirstColumn,
-      hasResizableColumns,
-    } = this.args;
+    const { column, hasStickyFirstColumn, hasResizableColumns } = this.args;
 
     let options: HdsAdvancedTableThContextMenuOption[] = [];
 
@@ -73,7 +67,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       ];
     }
 
-    if (hasPinnableFirstColumn && column.isFirst) {
+    if (hasStickyFirstColumn !== undefined && column.isFirst) {
       options = [
         ...options,
         {
