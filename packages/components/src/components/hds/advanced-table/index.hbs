@@ -37,7 +37,7 @@
         @didInsert={{this.didInsertSelectAllCheckbox}}
         @willDestroy={{this.willDestroySelectAllCheckbox}}
         @selectionAriaLabelSuffix="all rows"
-        @hasStickyColumn={{@hasStickyFirstColumn}}
+        @hasStickyColumn={{this.hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
         {{#each this._tableModel.columns as |column index|}}
@@ -48,11 +48,14 @@
               @onClickSort={{if column.key (fn this._tableModel.setSortBy column.key)}}
               @align={{column.align}}
               @tooltip={{column.tooltip}}
+              @hasPinnableFirstColumn={{this.hasPinnableFirstColumn}}
+              @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
               @hasResizableColumns={{@hasResizableColumns}}
-              @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
+              @isStickyColumn={{if (and (eq index 0) this.hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
+              @onPinFirstColumn={{this._onPinFirstColumn}}
               {{this._setColumnWidth column}}
             >
               {{column.label}}
@@ -62,16 +65,19 @@
               @align={{column.align}}
               @column={{column}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+              @hasPinnableFirstColumn={{this.hasPinnableFirstColumn}}
+              @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
               @hasResizableColumns={{@hasResizableColumns}}
               @isExpanded={{this._tableModel.expandState}}
               @isExpandable={{column.isExpandable}}
-              @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
+              @isStickyColumn={{if (and (eq index 0) this.hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
               @tableHeight={{this._tableHeight}}
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
               @onColumnResize={{@onColumnResize}}
+              @onPinFirstColumn={{this._onPinFirstColumn}}
               {{this._setColumnWidth column}}
             >
               {{column.label}}
@@ -135,13 +141,13 @@
                 didInsert=this.didInsertRowCheckbox
                 willDestroy=this.willDestroyRowCheckbox
                 selectionAriaLabelSuffix=@selectionAriaLabelSuffix
-                hasStickyColumn=@hasStickyFirstColumn
+                hasStickyColumn=this.hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
               )
               Th=(component
                 "hds/advanced-table/th"
                 scope="row"
-                isStickyColumn=@hasStickyFirstColumn
+                isStickyColumn=this.hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
               )
               Td=(component "hds/advanced-table/td" align=@align)

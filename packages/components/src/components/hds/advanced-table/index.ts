@@ -129,6 +129,7 @@ export interface HdsAdvancedTableSignature {
     hasResizableColumns?: boolean;
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
+    hasPinnableFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
@@ -193,6 +194,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked scrollIndicatorDimensions = DEFAULT_SCROLL_DIMENSIONS;
   @tracked isStickyColumnPinned = false;
   @tracked isStickyHeaderPinned = false;
+  @tracked hasPinnedFirstColumn: boolean | undefined = undefined;
   @tracked showScrollIndicatorLeft = false;
   @tracked showScrollIndicatorRight = false;
   @tracked showScrollIndicatorTop = false;
@@ -244,6 +246,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         !hasResizableColumns
       );
     }
+
+    if (hasStickyFirstColumn) {
+      this.hasPinnedFirstColumn = true;
+    }
   }
 
   get identityKey(): string | undefined {
@@ -261,8 +267,24 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return childrenKey;
   }
 
+  get hasStickyFirstColumn(): boolean {
+    // The user-controlled `hasPinnedFirstColumn` variable takes precedence over the model's `hasStickyFirstColumn` property.
+    if (this.hasPinnedFirstColumn !== undefined) {
+      return this.hasPinnedFirstColumn;
+    } else if (this.args.hasStickyFirstColumn) {
+      return this.args.hasStickyFirstColumn;
+    }
+
+    return false;
+  }
+
+  get hasPinnableFirstColumn(): boolean {
+    const { hasPinnableFirstColumn = false } = this.args;
+    return hasPinnableFirstColumn;
+  }
+
   get hasScrollIndicator(): boolean {
-    if (this.args.hasStickyFirstColumn) {
+    if (this.hasStickyFirstColumn) {
       return true;
     }
 
@@ -435,7 +457,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
       // left scroll indicator and sticky column styles
       if (element.scrollLeft > SCROLL_BUFFER && !this.showScrollIndicatorLeft) {
-        if (this.args.hasStickyFirstColumn) {
+        if (this.hasStickyFirstColumn) {
           this.isStickyColumnPinned = true;
         }
         this.showScrollIndicatorLeft = true;
@@ -489,10 +511,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         element,
         this._theadElement,
         this.hasStickyHeader,
-        hasStickyFirstColumn
+        this.hasStickyFirstColumn
       );
 
-      if (hasStickyFirstColumn) {
+      if (this.hasStickyFirstColumn) {
         this.stickyColumnOffset = getStickyColumnLeftOffset(
           this._theadElement,
           isSelectable
@@ -500,7 +522,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       }
     };
 
-    const { hasStickyFirstColumn = false, isSelectable = false } = this.args;
+    const { isSelectable = false } = this.args;
 
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
@@ -637,4 +659,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
     }
   }
+
+  private _onPinFirstColumn = () => {
+    this.hasPinnedFirstColumn = this.hasPinnedFirstColumn ? false : true;
+  };
 }

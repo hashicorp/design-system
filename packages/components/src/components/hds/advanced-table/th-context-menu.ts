@@ -26,9 +26,12 @@ interface HdsAdvancedTableThContextMenuOption {
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
+    hasPinnableFirstColumn?: boolean;
+    hasStickyFirstColumn?: boolean;
     hasResizableColumns?: boolean;
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onPinFirstColumn?: () => void;
   };
   Element: HdsDropdownSignature['Element'];
 }
@@ -37,7 +40,12 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   @tracked private _element!: HdsDropdownSignature['Element'];
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { column, hasResizableColumns } = this.args;
+    const {
+      column,
+      hasPinnableFirstColumn,
+      hasStickyFirstColumn,
+      hasResizableColumns,
+    } = this.args;
 
     let options: HdsAdvancedTableThContextMenuOption[] = [];
 
@@ -65,6 +73,18 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       ];
     }
 
+    if (hasPinnableFirstColumn && column.isFirst) {
+      options = [
+        ...options,
+        {
+          key: 'pin-first-column',
+          label: hasStickyFirstColumn ? 'Unpin column' : 'Pin column',
+          icon: 'pin',
+          action: this.pinFirstColumn.bind(this),
+        },
+      ];
+    }
+
     return options;
   }
 
@@ -88,6 +108,20 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     if (typeof onColumnResize === 'function' && column.key !== undefined) {
       onColumnResize(column.key, column.width);
+    }
+
+    dropdownCloseCallback?.();
+  }
+
+  @action
+  pinFirstColumn(
+    column: HdsAdvancedTableColumn,
+    dropdownCloseCallback?: () => void
+  ): void {
+    const { onPinFirstColumn } = this.args;
+
+    if (typeof onPinFirstColumn === 'function') {
+      onPinFirstColumn();
     }
 
     dropdownCloseCallback?.();
