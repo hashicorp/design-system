@@ -96,12 +96,7 @@ export default class HdsAdvancedTableTableModel {
 
     this.setupData({ model, columns, sortBy, sortOrder });
 
-    this.columnOrder =
-      columnOrder ??
-      this.columns.map((column) => {
-        // todo: make this work without column keys correctly
-        return column.key ?? '';
-      });
+    this.columnOrder = columnOrder ?? this.columns.map((column) => column.key);
 
     this.onColumnReorder = onColumnReorder;
   }
