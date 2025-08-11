@@ -1,8 +1,6 @@
-## General recommendations
-
 When content within the tag is not user-generated, it should be concise and consistent with the category name.
 
-### Truncation
+## Long tags
 
 !!! Info
 
