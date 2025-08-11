@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { service } from '@ember/service';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
@@ -12,6 +13,7 @@ import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts'
 import type { HdsAdvancedTableSignature } from './index.ts';
 import { tracked } from '@glimmer/tracking';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
@@ -36,6 +38,8 @@ export interface HdsAdvancedTableThContextMenuSignature {
 }
 
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
+  @service hdsIntl!: HdsIntlService;
+
   @tracked private _element!: HdsDropdownSignature['Element'];
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
@@ -45,22 +49,30 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     if (hasResizableColumns) {
       if (!column.isLast) {
+        const translatedResizeLabel = this.hdsIntl.t(
+          'hds.advanced-table.th-context-menu.resize',
+          { default: 'Resize column' }
+        );
         options = [
           ...options,
           {
             key: 'resize-column',
-            label: 'Resize column',
+            label: translatedResizeLabel,
             icon: 'resize-column',
             action: this.resizeColumn.bind(this),
           },
         ];
       }
 
+      const translatedResetWidthLabel = this.hdsIntl.t(
+        'hds.advanced-table.th-context-menu.reset-width',
+        { default: 'Resize column width' }
+      );
       options = [
         ...options,
         {
           key: 'reset-column-width',
-          label: 'Reset column width',
+          label: translatedResetWidthLabel,
           icon: 'rotate-ccw',
           action: this.resetColumnWidth.bind(this),
         },
@@ -68,11 +80,21 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     }
 
     if (hasStickyFirstColumn !== undefined && column.isFirst) {
+      const translatedPinLabel = this.hdsIntl.t(
+        'hds.advanced-table.th-context-menu.pin',
+        { default: 'Pin column' }
+      );
+      const translatedUnpinLabel = this.hdsIntl.t(
+        'hds.advanced-table.th-context-menu.unpin',
+        { default: 'Unpin column' }
+      );
       options = [
         ...options,
         {
           key: 'pin-first-column',
-          label: hasStickyFirstColumn ? 'Unpin column' : 'Pin column',
+          label: hasStickyFirstColumn
+            ? translatedUnpinLabel
+            : translatedPinLabel,
           icon: 'pin',
           action: this.pinFirstColumn.bind(this),
         },
