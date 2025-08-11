@@ -53,6 +53,8 @@ export default class HdsAdvancedTableRow {
   constructor(args: HdsAdvancedTableRowArgs) {
     const { columns } = args;
 
+    console.log(columns);
+
     this.cells = columns.map((column) => {
       const cell = args[column.key ?? ''];
 
@@ -74,8 +76,12 @@ export default class HdsAdvancedTableRow {
 
     if (Array.isArray(childModels)) {
       this.children = childModels.map(
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        (child) => new HdsAdvancedTableRow(child)
+        (child) =>
+          new HdsAdvancedTableRow({
+            ...(child as HdsAdvancedTableRowArgs),
+            columns: args.columns,
+            childrenKey: this.childrenKey,
+          })
       );
     }
   }
