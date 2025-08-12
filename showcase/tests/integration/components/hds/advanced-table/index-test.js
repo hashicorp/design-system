@@ -793,6 +793,34 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasClass('hds-advanced-table--valign-top');
   });
 
+  test('it throws an assertion if @hasReorderableColumns and has nested rows', async function (assert) {
+    const errorMessage =
+      'Cannot have reorderable columns if there are nested rows.';
+
+    setNestedTableData(this);
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::AdvancedTable
+      id='data-test-advanced-table'
+      @hasReorderableColumns={{true}}
+      @model={{this.model}}
+      @columns={{this.columns}}
+    >
+      <:body as |B|>
+        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>`);
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
   test('it throws an assertion if @isStriped and has nested rows', async function (assert) {
     const errorMessage =
       '@isStriped must not be true if there are nested rows.';

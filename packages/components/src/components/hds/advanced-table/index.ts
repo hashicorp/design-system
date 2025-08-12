@@ -211,6 +211,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       columns,
       columnOrder,
       childrenKey,
+      hasReorderableColumns,
       hasResizableColumns,
       sortBy,
       sortOrder,
@@ -233,6 +234,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       const sortableColumns = columns.filter((column) => column.isSortable);
       const sortableColumnLabels = sortableColumns.map(
         (column) => column.label
+      );
+
+      assert(
+        'Cannot have reorderable columns if there are nested rows.',
+        !hasReorderableColumns
       );
 
       assert(
