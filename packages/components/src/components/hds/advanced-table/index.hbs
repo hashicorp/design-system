@@ -50,7 +50,7 @@
               @tooltip={{column.tooltip}}
               @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
               @hasResizableColumns={{@hasResizableColumns}}
-              @isStickyColumn={{if (and (eq index 0) this.hasStickyFirstColumn) true}}
+              @isStickyColumn={{if (and column.isFirst this.hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
@@ -68,7 +68,7 @@
               @hasResizableColumns={{@hasResizableColumns}}
               @isExpanded={{this._tableModel.expandState}}
               @isExpandable={{column.isExpandable}}
-              @isStickyColumn={{if (and (eq index 0) this.hasStickyFirstColumn) true}}
+              @isStickyColumn={{if (and column.isFirst this.hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
               @tableHeight={{this._tableHeight}}
