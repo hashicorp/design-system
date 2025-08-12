@@ -101,13 +101,9 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   }
 
   get showContextMenu(): boolean {
-    const { column, isStickyColumn, hasResizableColumns } = this.args;
+    const { hasResizableColumns, isStickyColumn } = this.args;
 
-    return (
-      (hasResizableColumns ||
-        (isStickyColumn !== undefined && column && column.isFirst)) ??
-      false
-    );
+    return (hasResizableColumns || isStickyColumn !== undefined) ?? false;
   }
 
   get classNames(): string {

@@ -144,13 +144,9 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get showContextMenu(): boolean {
-    const { column, isStickyColumn, hasResizableColumns } = this.args;
+    const { hasResizableColumns, isStickyColumn } = this.args;
 
-    return (
-      (hasResizableColumns ||
-        (isStickyColumn !== undefined && column && column.isFirst)) ??
-      false
-    );
+    return (hasResizableColumns || isStickyColumn !== undefined) ?? false;
   }
 
   @action onFocusTrapDeactivate(): void {
