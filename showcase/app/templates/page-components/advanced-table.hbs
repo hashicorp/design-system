@@ -216,7 +216,6 @@
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model.userData}}
       @maxHeight="400px"
-      @hasReorderableColumns={{true}}
       @hasStickyHeader={{false}}
       @columns={{array
         (hash key="id" label="ID" width="auto")
@@ -235,16 +234,15 @@
           @isSelected={{B.data.isSelected}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @selectionAriaLabelSuffix="row #{{B.data.id}}"
-          as |R|
         >
-          {{#each R.orderedCells as |C|}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            {{#if (eq C.columnKey "id")}}
-              <B.Th>{{C.content}}</B.Th>
-            {{else}}
-              <B.Td>{{C.content}}</B.Td>
-            {{/if}}
-          {{/each}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Th>{{B.data.id}}</B.Th>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.name}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.email}}</B.Td>
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
     </Hds::AdvancedTable>

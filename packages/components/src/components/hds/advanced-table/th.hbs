@@ -100,11 +100,13 @@
     {{/if}}
   </Hds::Layout::Flex>
 
-  {{#if (and @column.table.hasColumnBeingDragged (not @isStickyColumn))}}
-    <Hds::AdvancedTable::ThReorderDropTarget
-      @column={{@column}}
-      @tableHeight={{@tableHeight}}
-      @onReorderDrop={{@onReorderDrop}}
-    />
+  {{#if @column}}
+    {{#if (and @column.table.hasColumnBeingDragged (not @isStickyColumn))}}
+      <Hds::AdvancedTable::ThReorderDropTarget
+        @column={{@column}}
+        @tableHeight={{@tableHeight}}
+        @onReorderDrop={{@onReorderDrop}}
+      />
+    {{/if}}
   {{/if}}
 </div>

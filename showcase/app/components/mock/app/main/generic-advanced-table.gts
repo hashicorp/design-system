@@ -6,6 +6,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { deepTracked } from 'ember-deep-tracked';
 import { get } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
 
 // HDS components
 import {
@@ -524,6 +525,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
       @columns={{this.demoColumns}}
       @model={{this.demoModel}}
       @maxHeight="600px"
+      @hasReorderableColumns={{true}}
       @isSelectable={{true}}
       @isStriped={{true}}
       @onSelectionChange={{this.onSelectionChange}}
@@ -531,80 +533,97 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     >
       <:body as |B|>
         {{! @glint-expect-error }}
-        <B.Tr @selectionKey={{get B.data "name"}}>
-          <B.Th>
-            <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
-              {{get B.data "name"}}
-            </HdsLinkInline>
-          </B.Th>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
-              {{get B.data "project-name"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
-              {{get B.data "current-run-id"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            <HdsBadge
-              @type="outlined"
-              {{! @glint-expect-error }}
-              @text={{get B.data "run-status"}}
-              {{! @glint-expect-error }}
-              @color={{get B.data "run-status-color"}}
-            />
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "current-run-applied"}}
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "vcs-repo"}}
-          </B.Td>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
-              {{get B.data "module-count"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "modules"}}
-          </B.Td>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
-              {{get B.data "provider-count"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "providers"}}
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "terraform-version"}}
-          </B.Td>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
-              {{! @glint-expect-error }}
-              {{get B.data "state-terraform-version"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "created"}}
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "updated"}}
-          </B.Td>
+        <B.Tr @selectionKey={{get B.data "name"}} as |R|>
+          {{#each R.orderedCells as |C|}}
+            {{#if (eq C.columnKey "name")}}
+              <B.Th>
+                <HdsLinkInline @href="www.google.com">
+                  {{! @glint-expect-error }}
+                  {{get B.data "name"}}
+                </HdsLinkInline>
+              </B.Th>
+            {{else if (eq C.columnKey "project-name")}}
+              <B.Td>
+                <HdsLinkInline @href="www.google.com">
+                  {{! @glint-expect-error }}
+                  {{get B.data "project-name"}}
+                </HdsLinkInline>
+              </B.Td>
+            {{else if (eq C.columnKey "current-run-id")}}
+              <B.Td>
+                <HdsLinkInline @href="www.google.com">
+                  {{! @glint-expect-error }}
+                  {{get B.data "current-run-id"}}
+                </HdsLinkInline>
+              </B.Td>
+            {{else if (eq C.columnKey "run-status")}}
+              <B.Td>
+                <HdsBadge
+                  @type="outlined"
+                  {{! @glint-expect-error }}
+                  @text={{get B.data "run-status"}}
+                  {{! @glint-expect-error }}
+                  @color={{get B.data "run-status-color"}}
+                />
+              </B.Td>
+            {{else if (eq C.columnKey "current-run-applied")}}
+              <B.Td>
+                {{! @glint-expect-error }}
+                {{get B.data "current-run-applied"}}
+              </B.Td>
+            {{else if (eq C.columnKey "vcs-repo")}}
+              <B.Td>
+                {{! @glint-expect-error }}
+                {{get B.data "vcs-repo"}}
+              </B.Td>
+            {{else if (eq C.columnKey "module-count")}}
+              <B.Td>
+                <HdsLinkInline @href="www.google.com">
+                  {{! @glint-expect-error }}
+                  {{get B.data "module-count"}}
+                </HdsLinkInline>
+              </B.Td>
+            {{else if (eq C.columnKey "modules")}}
+              <B.Td>
+                {{! @glint-expect-error }}
+                {{get B.data "modules"}}
+              </B.Td>
+            {{else if (eq C.columnKey "provider-count")}}
+              <B.Td>
+                <HdsLinkInline @href="www.google.com">
+                  {{! @glint-expect-error }}
+                  {{get B.data "provider-count"}}
+                </HdsLinkInline>
+              </B.Td>
+            {{else if (eq C.columnKey "providers")}}
+              <B.Td>
+                {{! @glint-expect-error }}
+                {{get B.data "providers"}}
+              </B.Td>
+            {{else if (eq C.columnKey "terraform-version")}}
+              <B.Td>
+                {{! @glint-expect-error }}
+                {{get B.data "terraform-version"}}
+              </B.Td>
+            {{else if (eq C.columnKey "state-terraform-version")}}
+              <B.Td>
+                <HdsLinkInline @href="www.google.com">
+                  {{! @glint-expect-error }}
+                  {{get B.data "state-terraform-version"}}
+                </HdsLinkInline>
+              </B.Td>
+            {{else if (eq C.columnKey "created")}}
+              <B.Td>
+                {{! @glint-expect-error }}
+                {{get B.data "created"}}
+              </B.Td>
+            {{else if (eq C.columnKey "updated")}}
+              <B.Td>
+                {{! @glint-expect-error }}
+                {{get B.data "updated"}}
+              </B.Td>
+            {{/if}}
+          {{/each}}
         </B.Tr>
       </:body>
     </HdsAdvancedTable>
