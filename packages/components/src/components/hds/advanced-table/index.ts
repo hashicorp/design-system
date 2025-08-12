@@ -231,6 +231,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       columns,
       columnOrder,
       childrenKey,
+      hasReorderableColumns,
       hasResizableColumns,
       sortBy,
       sortOrder,
@@ -252,8 +253,25 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     this._runAssertions();
 
-    if (hasStickyFirstColumn) {
-      this.hasPinnedFirstColumn = true;
+      assert(
+        'Cannot have reorderable columns if there are nested rows.',
+        !hasReorderableColumns
+      );
+
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
+        sortableColumns.length === 0
+      );
+
+      assert(
+        'Cannot have a sticky first column if there are nested rows.',
+        !hasStickyFirstColumn
+      );
+
+      assert(
+        `Cannot have resizable columns if there are nested rows.`,
+        !hasResizableColumns
+      );
     }
   }
 
