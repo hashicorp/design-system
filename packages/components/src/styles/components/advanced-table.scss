@@ -89,50 +89,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   .hds-advanced-table__tr {
     display: contents;
 
-    .hds-advanced-table__th-reorder-handle {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 16px;
-      color: var(--token-color-foreground-faint);
-      background-color: var(--token-color-surface-interactive);
-      border: 1px solid var(--token-color-border-primary);
-      border-radius: var(--token-border-radius-small);
-      box-shadow: var(--token-elevation-low-box-shadow);
-      transform: translateX(-50%) translateY(50%);
-      visibility: hidden;
-      opacity: 0;
-
-      .hds-icon {
-        width: 12px;
-        height: 12px;
-      }
-
-      &:hover,
-      &.mock-hover {
-        background-color: var(--token-color-surface-interactive-hover);
-        cursor: grab;
-      }
-
-      &:active,
-      &.mock-active {
-        background-color: var(--token-color-surface-interactive-active);
-        cursor: grabbing;
-      }
-
-      &:focus,
-      &.mock-focus {
-        @include hds-focus-ring-with-pseudo-element-focus-always-visible($position: absolute);
-
-        background-color: var(--token-color-surface-interactive);
-      }
-    }
-
     .hds-advanced-table__th {
       position: relative;
       align-content: center;
@@ -403,27 +359,18 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   left: 50%;
   z-index: 2;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 24px;
-  height: 24px;
+  height: 16px;
+  color: var(--token-color-foreground-faint);
+  background-color: var(--token-color-surface-interactive);
+  border: 1px solid var(--token-color-border-primary);
+  border-radius: var(--token-border-radius-small);
+  box-shadow: var(--token-elevation-low-box-shadow);
   transform: translateX(-50%) translateY(50%);
   visibility: hidden;
   opacity: 0;
-
-  .hds-advanced-table__th-reorder-handle__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 16px;
-    color: var(--token-color-foreground-faint);
-    background-color: var(--token-color-surface-interactive);
-    border: 1px solid var(--token-color-border-primary);
-    border-radius: var(--token-border-radius-small);
-    box-shadow: var(--token-elevation-low-box-shadow);
-  }
 
   .hds-icon {
     width: 12px;
@@ -432,29 +379,21 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   &:hover,
   &.mock-hover {
+    background-color: var(--token-color-surface-interactive-hover);
     cursor: grab;
-
-    .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--token-color-surface-interactive-hover);
-    }
   }
 
   &:active,
   &.mock-active {
+    background-color: var(--token-color-surface-interactive-active);
     cursor: grabbing;
-
-    .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--token-color-surface-interactive-hover);
-    }
   }
 
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element-focus-always-visible($position: absolute, $top: 3px, $bottom: 3px);
+    @include hds-focus-ring-with-pseudo-element-focus-always-visible($position: absolute);
 
-    .hds-advanced-table__th-reorder-handle__inner {
-      background-color: var(--token-color-surface-interactive);
-    }
+    background-color: var(--token-color-surface-interactive);
   }
 }
 
