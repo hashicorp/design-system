@@ -222,7 +222,6 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
   &.hds-advanced-table__thead--has-resizable-columns {
     .hds-advanced-table__th .hds-advanced-table__th-content-text {
       display: block;
-      width: 100%;
       min-width: 30px;
       overflow: hidden;
       white-space: nowrap;
