@@ -35,7 +35,6 @@ export interface HdsAdvancedTableThSignature {
     colspan?: number;
     depth?: number;
     hasExpandAllButton?: boolean;
-    hasStickyFirstColumn?: boolean;
     hasResizableColumns?: boolean;
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
@@ -145,11 +144,11 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get showContextMenu(): boolean {
-    const { column, hasStickyFirstColumn, hasResizableColumns } = this.args;
+    const { column, isStickyColumn, hasResizableColumns } = this.args;
 
     return (
       (hasResizableColumns ||
-        (hasStickyFirstColumn !== undefined && column && column.isFirst)) ??
+        (isStickyColumn !== undefined && column && column.isFirst)) ??
       false
     );
   }
