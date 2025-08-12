@@ -373,7 +373,7 @@ export default class HdsAdvancedTableTableModel {
             ? newIndex - 1
             : newIndex;
 
-      updated.splice(adjustedIndex, 0, sourceColumn.key as string); // Insert at new position
+      updated.splice(adjustedIndex, 0, sourceColumn.key); // Insert at new position
 
       this.columnOrder = updated;
 

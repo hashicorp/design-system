@@ -44,7 +44,7 @@
       />
 
       {{#if @column}}
-        {{#if @hasReorderableColumns}}
+        {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
           <Hds::AdvancedTable::ThReorderHandle
             @column={{@column}}
             @tableHeight={{@tableHeight}}
@@ -79,7 +79,7 @@
     </Hds::Layout::Flex>
   </Hds::Layout::Flex>
 
-  {{#if @column.table.hasColumnBeingDragged}}
+  {{#if (and @column.table.hasColumnBeingDragged (not @isStickyColumn))}}
     <Hds::AdvancedTable::ThReorderDropTarget
       @column={{@column}}
       @tableHeight={{@tableHeight}}

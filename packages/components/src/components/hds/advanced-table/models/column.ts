@@ -39,7 +39,7 @@ export default class HdsAdvancedTableColumn {
   @tracked isExpandable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
-  @tracked key: string = guidFor(this);
+  @tracked key: string;
   @tracked minWidth?: `${number}px` = DEFAULT_MIN_WIDTH;
   @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
   @tracked tooltip?: string = undefined;
