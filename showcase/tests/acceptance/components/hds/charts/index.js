@@ -8,10 +8,10 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/charts/donut', function (hooks) {
+module('Acceptance | components/charts', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Components/charts/donut page passes automated a11y checks', async function (assert) {
+  test('Components/charts page passes automated a11y checks', async function (assert) {
     await visit('/components/charts/donut');
 
     await a11yAudit();

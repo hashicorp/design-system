@@ -46,9 +46,9 @@ Router.map(function (): void {
     this.route('button');
     this.route('button-set');
     this.route('card');
-    this.route('charts', function (): void {
-      this.route('donut');
-    });
+
+    this.route('charts', function (): void {});
+
     this.route('code-block');
     this.route('code-editor');
     this.route('dropdown');

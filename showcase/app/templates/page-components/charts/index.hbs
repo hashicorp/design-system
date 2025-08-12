@@ -3,17 +3,17 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "Charts::Donut Component"}}
+{{page-title "Charts"}}
 
-<Shw::Text::H1>Charts::Donut</Shw::Text::H1>
+<Shw::Text::H1>Charts</Shw::Text::H1>
 
-<Shw::Text::H2>Carbon Charts test</Shw::Text::H2>
+<Shw::Text::H2>Carbon Charts Donut</Shw::Text::H2>
 
 <section data-test-percy>
   <Hds::Layout::Grid @columnWidth="33.33%" @gap="12">
     <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>
       <Hds::Text::Display @size="300">Clusters</Hds::Text::Display>
-      <Hds::Charts::Donut @data={{this.model.CLUSTERS_DATA}} />
+      <Hds::Charts::Donut @data={{this.model.DONUT_CLUSTERS_DATA}} />
     </Hds::Card::Container>
 
     <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>
@@ -31,8 +31,24 @@
       <Hds::Text::Display @tag="p" @size="200">Service Instances</Hds::Text::Display>
       <Hds::Charts::Donut
         @title="Instances health"
-        @data={{this.model.SERVICE_HEALTH_DATA}}
+        @data={{this.model.DONUT_SERVICE_HEALTH_DATA}}
         @colorMap={{hash Critical="#c00005" Warning="#d3a029" Healthy="#008a22"}}
+      />
+    </Hds::Card::Container>
+  </Hds::Layout::Grid>
+
+  <Shw::Text::H2>Carbon Charts Meter</Shw::Text::H2>
+
+  <Hds::Layout::Grid @columnWidth="100%" @gap="12">
+    <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>
+      <Hds::Charts::Meter @title="Pending run" @data={{this.model.METER_DATABASE_TRANSACTIONS_DATA}} />
+    </Hds::Card::Container>
+
+    <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>
+      <Hds::Charts::Meter
+        @title="Billable managed resources"
+        @data={{this.model.METER_BILLABLE_RESOURCES_DATA}}
+        @total="50000"
       />
     </Hds::Card::Container>
   </Hds::Layout::Grid>

@@ -6,14 +6,15 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-import { DonutChart } from '@carbon/charts';
+import { MeterChart } from '@carbon/charts';
 import options from './options.js';
 import '@carbon/charts/styles.css';
-export interface HdsChartsDonutSignature {
+
+export interface HdsChartsMeterSignature {
   Args: {
     title?: string;
     data: Array<{ group: string; value: number }>;
-    colorMap?: { [key: string]: string }; // Optional custom colors for the chart segments/slices
+    total?: number; // if not passed in it will be calculated from the data
   };
   Blocks: {
     default: [];
@@ -21,24 +22,34 @@ export interface HdsChartsDonutSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsChartsDonut extends Component<HdsChartsDonutSignature> {
-  chart: DonutChart | null = null;
+export default class HdsChartsMeter extends Component<HdsChartsMeterSignature> {
+  chart: MeterChart | null = null;
 
   @action
   setupChart(element: HTMLDivElement): void {
     const chartData = this.args.data;
 
+    // Dynamically calculate the total from the passed-in data
+    const chartTotal = chartData.reduce(
+      (sum, item): number => sum + item.value,
+      0
+    );
+
     // Merge the dynamic options into the default options
     const chartOptions = {
       ...options,
       title: this.args.title || options.title,
-      color: {
-        scale: this.args.colorMap,
+      meter: {
+        ...options.meter,
+        proportional: {
+          ...options.meter.proportional,
+          total: this.args.total || chartTotal,
+        },
       },
     };
 
-    // Create the DonutChart instance
-    this.chart = new DonutChart(element, {
+    // Create the MeterChart instance
+    this.chart = new MeterChart(element, {
       data: chartData,
       options: chartOptions,
     });

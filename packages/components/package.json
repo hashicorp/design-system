@@ -202,6 +202,8 @@
       "./components/hds/card/container.js": "./dist/_app_/components/hds/card/container.js",
       "./components/hds/charts/donut/index.js": "./dist/_app_/components/hds/charts/donut/index.js",
       "./components/hds/charts/donut/options.js": "./dist/_app_/components/hds/charts/donut/options.js",
+      "./components/hds/charts/meter/index.js": "./dist/_app_/components/hds/charts/meter/index.js",
+      "./components/hds/charts/meter/options.js": "./dist/_app_/components/hds/charts/meter/options.js",
       "./components/hds/code-block/copy-button.js": "./dist/_app_/components/hds/code-block/copy-button.js",
       "./components/hds/code-block/description.js": "./dist/_app_/components/hds/code-block/description.js",
       "./components/hds/code-block/index.js": "./dist/_app_/components/hds/code-block/index.js",
