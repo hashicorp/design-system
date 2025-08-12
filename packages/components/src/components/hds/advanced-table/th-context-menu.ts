@@ -92,9 +92,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
         ...options,
         {
           key: 'pin-first-column',
-          label: isStickyColumn
-            ? translatedUnpinLabel
-            : translatedPinLabel,
+          label: isStickyColumn ? translatedUnpinLabel : translatedPinLabel,
           icon: 'pin',
           action: this.pinFirstColumn.bind(this),
         },

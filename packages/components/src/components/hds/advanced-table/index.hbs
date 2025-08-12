@@ -40,7 +40,7 @@
         @hasStickyColumn={{this.hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
-        {{#each this._tableModel.columns as |column index|}}
+        {{#each this._tableModel.columns as |column|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
               @column={{column}}
