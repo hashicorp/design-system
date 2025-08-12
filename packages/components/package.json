@@ -200,6 +200,8 @@
       "./components/hds/button-set/index.js": "./dist/_app_/components/hds/button-set/index.js",
       "./components/hds/button/index.js": "./dist/_app_/components/hds/button/index.js",
       "./components/hds/card/container.js": "./dist/_app_/components/hds/card/container.js",
+      "./components/hds/charts/bar/index.js": "./dist/_app_/components/hds/charts/bar/index.js",
+      "./components/hds/charts/bar/options.js": "./dist/_app_/components/hds/charts/bar/options.js",
       "./components/hds/charts/donut/index.js": "./dist/_app_/components/hds/charts/donut/index.js",
       "./components/hds/charts/donut/options.js": "./dist/_app_/components/hds/charts/donut/options.js",
       "./components/hds/charts/meter/index.js": "./dist/_app_/components/hds/charts/meter/index.js",

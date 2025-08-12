@@ -68,6 +68,7 @@ import type HdsCardContainerComponent from './components/hds/card/container.ts';
 
 import type HdsChartsDonut from './components/hds/charts/donut/index.ts';
 import type HdsChartsMeter from './components/hds/charts/meter/index.ts';
+import type HdsChartsBar from './components/hds/charts/bar/index.ts';
 
 import type HdsCodeEditorComponent from './components/hds/code-editor/index.ts';
 import type HdsCodeEditorDescriptionComponent from './components/hds/code-editor/description.ts';
@@ -444,6 +445,7 @@ export default interface HdsComponentsRegistry {
   // Charts
   'Hds::Charts::Donut': typeof HdsChartsDonut;
   'Hds::Charts::Meter': typeof HdsChartsMeter;
+  'Hds::Charts::Bar': typeof HdsChartsBar;
 
   // Code Block
   'Hds::CodeBlock': typeof HdsCodeBlockComponent;

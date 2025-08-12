@@ -52,4 +52,10 @@
       />
     </Hds::Card::Container>
   </Hds::Layout::Grid>
+
+  <Shw::Text::H2>Carbon Charts Bar</Shw::Text::H2>
+
+  <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>
+    <Hds::Charts::Bar @title="Average billable managed resources" @data={{this.model.BAR_MANAGED_RESOURCES_DATA}} />
+  </Hds::Card::Container>
 </section>

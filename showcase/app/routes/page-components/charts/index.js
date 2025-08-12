@@ -70,6 +70,59 @@ const METER_BILLABLE_RESOURCES_DATA = [
   },
 ];
 
+// Bar data
+
+const BAR_MANAGED_RESOURCES_DATA = [
+  {
+    date: '2025-01',
+    value: 9000,
+  },
+  {
+    date: '2025-02',
+    value: 12000,
+  },
+  {
+    date: '2025-03',
+    value: 10000,
+  },
+  {
+    date: '2025-04',
+    value: 13000,
+  },
+  {
+    date: '2025-05',
+    value: 14000,
+  },
+  {
+    date: '2025-06',
+    value: 15000,
+  },
+  {
+    date: '2025-07',
+    value: 15000,
+  },
+  {
+    date: '2025-08',
+    value: 18000,
+  },
+  {
+    date: '2025-09',
+    value: 21000,
+  },
+  {
+    date: '2025-10',
+    value: 22000,
+  },
+  {
+    date: '2025-11',
+    value: 24000,
+  },
+  {
+    date: '2025-12',
+    value: 27000,
+  },
+];
+
 export default class PageComponentsChartsRoute extends Route {
   async model() {
     return {
@@ -77,6 +130,7 @@ export default class PageComponentsChartsRoute extends Route {
       DONUT_CLUSTERS_DATA,
       METER_DATABASE_TRANSACTIONS_DATA,
       METER_BILLABLE_RESOURCES_DATA,
+      BAR_MANAGED_RESOURCES_DATA,
     };
   }
 }

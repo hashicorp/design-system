@@ -4,8 +4,10 @@
  */
 
 //
-// CHARTS > DONUT
+// CHARTS
 //
+
+// > DONUT
 
 .hds-charts-donut {
   // outline: 1px dotted red; // for testing - see boundaries of chart container
@@ -19,5 +21,13 @@
   // The size of the title affects the rendered size of the donut chart
   .title {
     min-height: 1.3em;
+  }
+}
+
+// > BAR
+
+.hds-charts-bar {
+  .graph-frame {
+    overflow: hidden; // cut off bottom line which overflows container
   }
 }
