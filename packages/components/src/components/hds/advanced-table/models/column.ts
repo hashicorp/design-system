@@ -36,7 +36,7 @@ export default class HdsAdvancedTableColumn {
   @tracked isExpandable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
-  @tracked key: string = guidFor(this);
+  @tracked key: string;
   @tracked minWidth?: `${number}px` = DEFAULT_MIN_WIDTH;
   @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
   @tracked tooltip?: string = undefined;
@@ -135,7 +135,7 @@ export default class HdsAdvancedTableColumn {
     this.isExpandable = 'isExpandable' in column ? column.isExpandable : false;
     this.isSortable = column.isSortable ?? false;
     this.isVisuallyHidden = column.isVisuallyHidden ?? false;
-    this.key = column.key;
+    this.key = column.key ?? guidFor(this);
     this.tooltip = column.tooltip;
     this._setWidthValues(column);
     this.sortingFunction = column.sortingFunction;
