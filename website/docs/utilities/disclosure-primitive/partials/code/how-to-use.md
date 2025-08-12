@@ -1,12 +1,16 @@
 
 ## How to use this component
 
+!!! Callout
+
+This component is intended only for internal Helios use. If you need to use it, contact the Design Systems Team.
+!!!
+
 The `DisclosurePrimitive` component renders an interactive element that triggers a custom event handler provided by the `:toggle` block (passed via `hash` by Ember). To comply with accessibility best practices, this element is usually a button or a component that renders a button.
 
 When the content is disclosed, the container can be closed by toggling the button (`click` or `enter/return`).
 
-**Note:** [MenuPrimitive](/utilities/menu-primitive), another variant of this primitive, includes extra functionality to close the content panel by either clicking outside of the content, or via the `esc` key.
-
+The [MenuPrimitive](/utilities/menu-primitive), another variant of this primitive, includes extra functionality to close the content panel by either clicking outside of the content, or via the `esc` key.
 
 ```handlebars
 <Hds::DisclosurePrimitive>
@@ -18,10 +22,6 @@ When the content is disclosed, the container can be closed by toggling the butto
   </:content>
 </Hds::DisclosurePrimitive>
 ```
-!!! callout
-
-This component is intended only for internal Helios use. If you need to use it, contact the Design Systems Team.
-!!!
 
 ### Content positioning
 

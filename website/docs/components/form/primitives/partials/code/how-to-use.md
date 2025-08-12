@@ -222,6 +222,11 @@ The layout of the content inside the "control" container is the responsibility o
 
 ### Form::Fieldset
 
+!!! callout
+
+It’s unlikely that you’ll need to use this component directly, but if you do contact the Design Systems Team so we can provide support.
+!!!
+
 The default invocation includes a set of contextual components, one or more fields (in this case radio buttons within a label), and a `@layout` argument. Depending on the context, you may want to pass just the legend, just the helper text, both or none, while the error message is likely conditional to the validation of the inputs provided by the user.
 
 The layout of the content inside the "control" container is the responsibility of the product team.
@@ -246,7 +251,3 @@ The layout of the content inside the "control" container is the responsibility o
   <F.Error>This is the error</F.Error>
 </Hds::Form::Fieldset>
 ```
-!!! callout
-
-It’s unlikely that you’ll need to use this component directly, but if you do contact the Design Systems Team so we can provide support.
-!!!
