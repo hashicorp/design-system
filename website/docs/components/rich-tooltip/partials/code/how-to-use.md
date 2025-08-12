@@ -238,7 +238,7 @@ When used in this way, it's up to the consumer to make sure the implementation i
 
 There might be special use cases in which consumers may need to fine tune the Rich Tooltip behavior. Below we provide some some examples.
 
-!!! callout
+!!! Callout
 
 If your use case requires customizing the component behavior or functionality, [contact the Design Systems Team](/about/support) first before actually implementing the changes (as we may already have your case covered).
 

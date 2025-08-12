@@ -162,7 +162,7 @@ You can pass more than one `D.Description` contextual component to have multiple
 
 ### Generic content
 
-!!! callout
+!!! Callout
 
 Use this method with caution and as an escape hatch. Contact the Design Systems Team to check that the solution is conformant and satisfies accessibility criteria.
 !!!

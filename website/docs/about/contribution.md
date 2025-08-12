@@ -7,7 +7,7 @@ navigation:
 
 Thank you for your interest in contributing to the Helios Design System. We think of contributions as an opportunity for **collaboration across teams** and are open to various forms of collaboration, even direct contribution, as long as they follow our [collaborative process](/about/contribution/#our-collaborative-process). 
 
-!!! callout
+!!! Callout
 
 We’re currently accepting collaborations only from HashiCorp employees. Some resources and links on this page are only available to HashiCorp employees.
 

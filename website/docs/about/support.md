@@ -6,7 +6,7 @@ navigation:
 
 We’re happy to provide support to HashiCorp product teams that use Helios. Use these resources to get help.
 
-!!! callout
+!!! Callout
 
 Many resources and links on this page are only available to HashiCorp employees.
 !!!

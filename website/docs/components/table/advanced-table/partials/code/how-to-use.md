@@ -299,7 +299,7 @@ Add `isSortable=true` to the hash for each column that should be sortable.
 </Hds::AdvancedTable>
 ```
 
-!!! callout
+!!! Callout
 
 At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
 
@@ -598,7 +598,7 @@ A multi-select Advanced Table includes checkboxes enabling users to select multi
 
 Add `isSelectable=true` to create a multi-select Advanced Table. The `onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected rows change. You must also pass a `selectionKey` to each row which gets passed back through the `onSelectionChange` callback which maps the row selection on the Advanced Table to an item in your data model.
 
-!!! callout
+!!! Callout
 
 At this time, the Advanced Table does not support multi-select nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
 

@@ -60,7 +60,7 @@ Here is an example of a custom action to reveal secrets.
 
 ![The Code Editor with the title “CodeEditor title”. The custom yielded section has a “Reveal secrets” toggle.](/assets/components/code-editor/code-editor-primary-yielded-elements.png)
 
-!!! callout
+!!! Callout
 
 The Code Editor has limited support for dark mode styles. Buttons have pre-defined dark mode styles, but all other components require manual color adjustments until a dark mode theme is released. Please [contact the Design Systems Team](/about/support) for help translating components into dark mode.
 

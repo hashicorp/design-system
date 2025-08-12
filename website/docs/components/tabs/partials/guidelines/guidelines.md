@@ -135,7 +135,7 @@ Tabs will fill 100% of the parent container, unless explicitly set to something 
   <T.Panel>“We are the music-makers, And we are the dreamers of dreams, Wandering by lone sea-breakers, And sitting by desolate streams. World-losers and world-forsakers, Upon whom the pale moon gleams; Yet we are the movers and shakers, Of the world forever, it seems.” – <em>Arthur O’Shaughnessy, Poems of Arthur O’Shaughnessy</em></T.Panel>
 </Hds::Tabs>
 
-!!! callout
+!!! Callout
 
 Do you have a need for a more elegant overflow experience? Please let us know by [submitting a request](https://go.hashi.co/hds-support).
 !!!
