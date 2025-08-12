@@ -1,4 +1,4 @@
-The tooltip should contain text only. Basic text formatting, such as bold and italic, is supported.
+The tooltip should only contain text. Basic text formatting, such as bold and italic, is supported.
 
 If more complex content is necessary to convey the information, consider other display components or moving the content to the page.
 

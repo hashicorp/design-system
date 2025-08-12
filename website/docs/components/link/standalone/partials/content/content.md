@@ -1,6 +1,6 @@
 ## General recommendations
 
-- Use language consistently within each product (e.g., if “Edit” is used on one page, use that same convention throughout, instead of a similar word such as "Change").
+Use language consistently within each product (e.g., if “Edit” is used on one page, use that same convention throughout, instead of a similar word such as "Change").
 
 !!! Do
 
