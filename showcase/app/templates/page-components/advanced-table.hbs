@@ -2273,7 +2273,6 @@
                   <Hds::AdvancedTable::ThResizeHandle
                     mock-state-value={{state}}
                     @column={{get this.sampleTableModel.columns 0}}
-                    @hasResizableColumns={{true}}
                     aria-valuenow="200"
                   />
                 </Hds::Layout::Flex>
@@ -2286,6 +2285,24 @@
         </div>
       </div>
     </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThReorderHandle</Shw::Text::H3>
+
+  <Shw::Flex @direction="row" @gap="2rem" class="shw-component-advanced-table-reorder-handle-container" as |SF|>
+    {{#each @model.STATES as |state|}}
+      <SF.Item {{style position="relative" height="50px"}} @grow={{true}} @label={{capitalize state}}>
+        <Hds::AdvancedTable::ThReorderHandle
+          mock-state-value={{state}}
+          @column={{get this.sampleTableModel.columns 0}}
+          @tableHeight={{110}}
+          @onReorderDragStart={{this.noop}}
+          @onReorderDragEnd={{this.noop}}
+        />
+      </SF.Item>
+    {{/each}}
   </Shw::Flex>
 
 </section>

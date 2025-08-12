@@ -90,7 +90,6 @@
       {{#if (and @hasResizableColumns (not @column.isLast) (not @column.table.hasColumnBeingDragged))}}
         <Hds::AdvancedTable::ThResizeHandle
           @column={{@column}}
-          @hasResizableColumns={{@hasResizableColumns}}
           @tableHeight={{@tableHeight}}
           @onColumnResize={{@onColumnResize}}
           {{this._registerResizeHandleElement}}

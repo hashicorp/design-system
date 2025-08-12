@@ -52,7 +52,6 @@ function calculateEffectiveDelta(
 export interface HdsAdvancedTableThResizeHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    hasResizableColumns: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     tableHeight?: number;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
