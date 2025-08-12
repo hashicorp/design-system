@@ -37,7 +37,6 @@ export interface HdsAdvancedTableThSortSignature {
   Args: {
     column?: HdsAdvancedTableThSignature['Args']['column'];
     align?: HdsAdvancedTableHorizontalAlignment;
-    hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     sortOrder?: HdsAdvancedTableThSortOrder;
@@ -102,11 +101,11 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   }
 
   get showContextMenu(): boolean {
-    const { column, hasStickyFirstColumn, hasResizableColumns } = this.args;
+    const { column, isStickyColumn, hasResizableColumns } = this.args;
 
     return (
       (hasResizableColumns ||
-        (hasStickyFirstColumn !== undefined && column && column.isFirst)) ??
+        (isStickyColumn !== undefined && column && column.isFirst)) ??
       false
     );
   }

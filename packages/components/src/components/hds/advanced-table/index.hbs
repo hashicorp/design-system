@@ -48,9 +48,8 @@
               @onClickSort={{if column.key (fn this._tableModel.setSortBy column.key)}}
               @align={{column.align}}
               @tooltip={{column.tooltip}}
-              @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
               @hasResizableColumns={{@hasResizableColumns}}
-              @isStickyColumn={{if (and column.isFirst this.hasStickyFirstColumn) true}}
+              @isStickyColumn={{this._isStickyColumn column}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
@@ -64,11 +63,10 @@
               @align={{column.align}}
               @column={{column}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
-              @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
               @hasResizableColumns={{@hasResizableColumns}}
               @isExpanded={{this._tableModel.expandState}}
               @isExpandable={{column.isExpandable}}
-              @isStickyColumn={{if (and column.isFirst this.hasStickyFirstColumn) true}}
+              @isStickyColumn={{this._isStickyColumn column}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
               @tableHeight={{this._tableHeight}}

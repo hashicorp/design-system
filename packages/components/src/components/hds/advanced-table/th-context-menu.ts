@@ -28,7 +28,7 @@ interface HdsAdvancedTableThContextMenuOption {
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    hasStickyFirstColumn?: boolean;
+    isStickyColumn?: boolean;
     hasResizableColumns?: boolean;
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
@@ -43,7 +43,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   @tracked private _element!: HdsDropdownSignature['Element'];
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { column, hasStickyFirstColumn, hasResizableColumns } = this.args;
+    const { column, isStickyColumn, hasResizableColumns } = this.args;
 
     let options: HdsAdvancedTableThContextMenuOption[] = [];
 
@@ -79,7 +79,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       ];
     }
 
-    if (hasStickyFirstColumn !== undefined && column.isFirst) {
+    if (isStickyColumn !== undefined && column.isFirst) {
       const translatedPinLabel = this.hdsIntl.t(
         'hds.advanced-table.th-context-menu.pin',
         { default: 'Pin column' }
@@ -92,7 +92,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
         ...options,
         {
           key: 'pin-first-column',
-          label: hasStickyFirstColumn
+          label: isStickyColumn
             ? translatedUnpinLabel
             : translatedPinLabel,
           icon: 'pin',
