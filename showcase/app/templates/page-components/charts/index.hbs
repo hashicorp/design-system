@@ -13,7 +13,7 @@
   <Hds::Layout::Grid @columnWidth="33.33%" @gap="12">
     <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>
       <Hds::Text::Display @size="300">Clusters</Hds::Text::Display>
-      <Hds::Charts::Donut @data={{this.model.DONUT_CLUSTERS_DATA}} />
+      <Hds::Charts::Donut @data={{this.model.DONUT_CLUSTERS_DATA}} @title="Cluster types" />
     </Hds::Card::Container>
 
     <Hds::Card::Container @hasBorder={{true}} {{style padding="1.5rem"}}>

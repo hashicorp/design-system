@@ -1,5 +1,5 @@
 export default {
-  title: ' ', // Set title using @title on the component
+  title: '', // Set title using @title on the component
   resizable: true,
   legend: {
     // alignment: 'left', // = alignment w/i container, options: 'left', 'right', 'center'
