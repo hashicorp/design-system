@@ -661,12 +661,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _isStickyColumn = (
     column: HdsAdvancedTableColumnType
   ): boolean | undefined => {
-    if (column.isFirst) {
-      if (this.hasStickyFirstColumn) {
-        return true;
-      } else if (this.hasStickyFirstColumn === false) {
-        return false;
-      }
+    if (column.isFirst && this.hasStickyFirstColumn !== undefined) {
+      return this.hasStickyFirstColumn;
     }
     return undefined;
   };
