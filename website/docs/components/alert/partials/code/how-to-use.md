@@ -162,9 +162,11 @@ You can pass more than one `D.Description` contextual component to have multiple
 
 ### Generic content
 
-!!! Callout
+!!! Warning
 
-Use this method with caution and as an escape hatch. Contact the Design Systems Team to check that the solution is conformant and satisfies accessibility criteria.
+**Accessibility alert**
+
+Use this method with caution and as an escape hatch. Contact the [Design Systems Team](https://helios.hashicorp.design/about/support) to check that the solution is conformant and satisfies accessibility criteria.
 !!!
 
 Use the `Generic` contextual component to insert custom content. Generic content will appear after the title, description, and actions. Application teams will need to implement spacing, layout, and styling for generic content.
