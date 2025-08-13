@@ -1,22 +1,89 @@
 # @hashicorp/design-system-components
 
-## 4.21.1
+## 4.22.0
 
-[4.20.1 documentation](https://hds-website-4-20-1.vercel.app/)
+[4.22.0 documentation](https://hds-website-4-22-0.vercel.app/)
+
+### Minor Changes
+
+Added `ember-intl` as a dependency
+
+- Added `hdsIntl` service for translations in HDS components with default fallback values
+- Added `hds-t` helper which uses the `hds-intl` service to provide translations in HSD templates
+
+`AdvancedTable` - Translated template strings. Removed extraneous screen-reader-only text.
+
+`AppFooter` - Translated template strings
+
+`AppSideNav` - Translated template strings
+
+`ApplicationState` - Translated template strings
+
+`CodeEditor` - Translated template strings
+
+`DismissButton` - Translated template strings
+
+`MaskedInput` - Translated template strings
+
+`SuperSelect` - Translated template strings
+
+`Pagination` - Translated template strings
+
+`SideNav` - Translated template strings
+
+`Table` - Translated template strings
+
+`Time` - Translated template strings
+
+<small class="doc-whats-new-changelog-metadata">[#2878](https://github.com/hashicorp/design-system/pull/2878)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Reveal` - Added support for the `aria-describedby` attribute on the toggle.
+
+<small class="doc-whats-new-changelog-metadata">[#3084](https://github.com/hashicorp/design-system/pull/3084)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
 
 ### Patch Changes
 
+`AppHeader` - Changed the default breakpoint from `lg` to `md`.
+
+<small class="doc-whats-new-changelog-metadata">[#3072](https://github.com/hashicorp/design-system/pull/3072)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Stepper::List` - Fixed type for `status` argument in `List::Step` to be `HdsStepperStatuses` instead of enum `HdsStepperStatusesValues`
+
+<small class="doc-whats-new-changelog-metadata">[#3073](https://github.com/hashicorp/design-system/pull/3073)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
+
+`Table::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
+
+<small class="doc-whats-new-changelog-metadata">[#3066](https://github.com/hashicorp/design-system/pull/3066)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeEditor` - Fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
+
+<small class="doc-whats-new-changelog-metadata">[#3068](https://github.com/hashicorp/design-system/pull/3068)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+## 4.21.1
+
+### Patch Changes
 
 `AdvancedTable` - Removed `ember-math-helpers` dev dependency
-
 
 <small class="doc-whats-new-changelog-metadata">[#3043](https://github.com/hashicorp/design-system/pull/3043)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Form::RadioCard` - Fixed styling bug where hover styles were visible when disabled
-
 
 <small class="doc-whats-new-changelog-metadata">[#3000](https://github.com/hashicorp/design-system/pull/3000)</small>
 
@@ -28,53 +95,39 @@ Make `@ember/string` a peerDependency to allow consuming apps to choose to use `
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Form::SuperSelect` - fix type for the `@resultCountMessage` argument so it can accept a string or a function.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3008](https://github.com/hashicorp/design-system/pull/3008)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav::List::Link` - Applied transparent background to the element to avoid overlapping with previous item's focus ring
-
 
 <small class="doc-whats-new-changelog-metadata">[#3032](https://github.com/hashicorp/design-system/pull/3032)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Make the `@hasResizableColumns` argument optional for the `ThSort` component.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3051](https://github.com/hashicorp/design-system/pull/3051)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `PopoverPrimitive` - Updated type of the `anchoredPositionOptions` object in the `setUpPrimitivePopover` modifier to include `arrowSelector` from the `hds-anchored-position` modifier.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3005](https://github.com/hashicorp/design-system/pull/3005)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav::List::Link` - Removed extra transparent border and background when rendered as a `<button>` element
 
-
-
 `SideNav::List::Link` - Removed extra transparent border when rendered as a `<button>` element
-
 
 <small class="doc-whats-new-changelog-metadata">[#3026](https://github.com/hashicorp/design-system/pull/3026)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Tag` - Fixed a performance issue when many tags are present on a page caused by the ResizeObserver
-
 
 Dependencies - Added `tracked-built-ins`
 
@@ -82,17 +135,13 @@ Dependencies - Added `tracked-built-ins`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav::Panel` - Fixed issue causing the focus ring of the first and last items within the Panel to be cut off
-
 
 <small class="doc-whats-new-changelog-metadata">[#3045](https://github.com/hashicorp/design-system/pull/3045)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppHeader` - return `close` callback to the `:globalActions` and `:utilityActions` named blocks so the menu actions can be hidden programmatically when the component is in a mobile view.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3031](https://github.com/hashicorp/design-system/pull/3031)</small>
 
@@ -3107,12 +3156,10 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 - [#1444](https://github.com/hashicorp/design-system/pull/1444) [`5a4d036e1`](https://github.com/hashicorp/design-system/commit/5a4d036e1dd349dfde1b1f8e278d332fac7abe7e) Thanks [@MelSumner](https://github.com/MelSumner)! - Internal accessibility tweaks for dropdown component
 
 - [#1395](https://github.com/hashicorp/design-system/pull/1395) [`e6e0c22c5`](https://github.com/hashicorp/design-system/commit/e6e0c22c538e381f4a97428dc35cf1295ce6ae21) Thanks [@alex-ju](https://github.com/alex-ju)! - Upgraded Ember.js to latest stable release 4.12, including upgrades to:
-
   - `ember-auto-import` from `2.6.0` to `2.6.3`
   - `ember-cli-htmlbars` from `6.1.0` to `6.2.0`
 
   Upgraded the following dependencies:
-
   - `ember-focus-trap` from `1.0.1` to `1.0.2`
   - `ember-keyboard` from `8.1.0` to `8.2.0`
   - `ember-truth-helpers` from `3.0.0` to `3.1.1`
@@ -3123,7 +3170,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 - [#1425](https://github.com/hashicorp/design-system/pull/1425) [`921aa03b9`](https://github.com/hashicorp/design-system/commit/921aa03b95f56da21e794ee62ecc96019f5c4bb7) Thanks [@didoo](https://github.com/didoo)! - `Table` - Set `min-height` instead of `height` for the table head cells + Updated the cells' internal padding to align with the design specs in Figma
 
 - [#1433](https://github.com/hashicorp/design-system/pull/1433) [`9aa5291d1`](https://github.com/hashicorp/design-system/commit/9aa5291d187bc867baf7c069c9dd17856cb5f79f) Thanks [@didoo](https://github.com/didoo)! - - Updated CSS code of components to use flex `gap`
-
   - Fixed an issue with `Hds::Sidenav::Link` that was generating an empty node
 
   This will lead to a minimal visual impact on some edge cases of `Alert/Toast` (multiple description items) and `SideNav` (text + generic content)
@@ -3229,7 +3275,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 ### Minor Changes
 
 - [#1283](https://github.com/hashicorp/design-system/pull/1283) [`d0ae66503`](https://github.com/hashicorp/design-system/commit/d0ae665033e6b83a65c2dcde8630985f76872901) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - - Add new `TooltipButton` component and `hds-tooltip` modifier
-
   - Add design tokens for `Tooltip`
 
 - [#1316](https://github.com/hashicorp/design-system/pull/1316) [`5763ffbca`](https://github.com/hashicorp/design-system/commit/5763ffbca564d3a23b8a497393acc43729d92de8) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `SegmentedGroup` component
@@ -3289,7 +3334,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 - [#1185](https://github.com/hashicorp/design-system/pull/1185) [`a883e7fd7`](https://github.com/hashicorp/design-system/commit/a883e7fd763ae7a93ecc5ef3d49ed0230b48ea11) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Checkmark`, `Checkbox` and `Radio` as `Hds::Dropdown::ListItem`s
 
   Rename `Hds::Dropdown::ListItem` internal CSS classes as follows:
-
   - `hds-dropdown-list-item--copy-item` → `hds-dropdown-list-item--variant-copy-item`
   - `hds-dropdown-list-item--description` → `hds-dropdown-list-item--variant-description`
   - `hds-dropdown-list-item--generic` → `hds-dropdown-list-item--variant-generic`
@@ -3304,7 +3348,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
   Rename `Hds::Dropdown` internal CSS class `hds-dropdown-list` → `hds-dropdown__list`
 
   The `hds-dropdown__list` element is now wrapped in a `hds-dropdown__content` element to accommodate the new header and footer elements. As a result, the following modifiers will be applied to the wrapper element.
-
   - `hds-dropdown-list--fixed-width` → `hds-dropdown__content--fixed-width`
   - `hds-dropdown-list--position-left` → `hds-dropdown__content--position-left`
   - `hds-dropdown-list--position-right` → `hds-dropdown__content--position-right`
@@ -3314,7 +3357,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 - [#1266](https://github.com/hashicorp/design-system/pull/1266) [`082842b59`](https://github.com/hashicorp/design-system/commit/082842b59321f843c4955e4cdaf2ce2674a8913d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `@icon`, `@count`, `@badge` and `@badgeCount` to `Dropdown::Toggle::Button`
 
   `Hds::Dropdown::Toggle::Button` and `Hds::Dropdown::Toggle::Icon` now share the chevron element. As a result, we renamed internal CSS classes as follows:
-
   - `hds-button__text` → `hds-dropdown-toggle-button__text`
   - `hds-button__icon` → `hds-dropdown-toggle-chevron`
 
@@ -3329,7 +3371,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 - [#1276](https://github.com/hashicorp/design-system/pull/1276) [`5ad29412d`](https://github.com/hashicorp/design-system/commit/5ad29412d2edc0cc4265d3c0bbbf388e821f1cc7) Thanks [@alex-ju](https://github.com/alex-ju)! - Allow small `@size` on `Dropdown::Toggle::Icon`
 
 - [#1262](https://github.com/hashicorp/design-system/pull/1262) [`3eb78b8de`](https://github.com/hashicorp/design-system/commit/3eb78b8de7c678cff977c9d3a677c47a3216caad) Thanks [@alex-ju](https://github.com/alex-ju)! - Add new `@listPositions` for `Dropdown` as follows:
-
   - `bottom-left`
   - `bottom-right` (default)
   - `top-left`
@@ -3376,7 +3417,6 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 - [#1201](https://github.com/hashicorp/design-system/pull/1201) [`5b11fe34c`](https://github.com/hashicorp/design-system/commit/5b11fe34c5dec1f96b75ee20d77f83d92bc4e962) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add @label argument to Pagination::SizeSelector component and associated @sizeSelectorLabel argument to Pagination::Numbered component to make Pagination::SizeSelector label text customizeable.
 
 - [#1160](https://github.com/hashicorp/design-system/pull/1160) [`b71c0c07f`](https://github.com/hashicorp/design-system/commit/b71c0c07fa809819eef3e0bb090af51aec563918) Thanks [@MelSumner](https://github.com/MelSumner)! - Added new custom sort feature support to table component:
-
   - Adds `sortingFunction` support in `@columns` declaration
   - Adds `sortedMessageText` support for custom sorting message
   - Updates the `aria-sort` to fallback to "none" instead of "null" (per spec)
@@ -3593,7 +3633,6 @@ This release signifies the first major release of the HashiCorp Design System. M
 #### Form controls components
 
 - [#447](https://github.com/hashicorp/design-system/pull/447) [`0b1e9855`](https://github.com/hashicorp/design-system/commit/0b1e985586b8f531a6208ea5ce25ac74faa77dda) Thanks [@didoo](https://github.com/didoo)!
-
   - Added the form **`TextInput`** controls (`Base`, `Field`)
   - Added the form **`Textarea`** controls (`Base`, `Field`)
   - Added the form **`Select`** controls (`Base`, `Field`)
@@ -3786,7 +3825,6 @@ This release signifies the first major release of the HashiCorp Design System. M
 ### Minor Changes (Some Breaking)
 
 - [#200](https://github.com/hashicorp/design-system/pull/200) [`a8072537`](https://github.com/hashicorp/design-system/commit/a8072537542791398d375cde4a7a85c2955c66da) Thanks [@didoo](https://github.com/didoo)! - Updated Dropdown component:
-
   - added chevron animation for `toggle` elements
   - fixed issue with `list-item/interactive` height
   - added handling of dynamic `width` for the list

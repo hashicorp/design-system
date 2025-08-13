@@ -36,7 +36,3 @@ Interactive tasks are part of a list of tasks that can be completed in any order
 Non-interactive tasks are part of a list of tasks which can be completed in any order. They are not interactive but serve as a visual list item indicator. 
 
 ![](/assets/components/stepper/indicator/task-noninteractive.png)
-
-## Content
-
-While the most common example of content within a Step Indicator is numerical (1, 2, 3), other types of sequential ordering may also be used (A, B, C).

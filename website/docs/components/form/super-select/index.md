@@ -20,7 +20,7 @@ navigation:
     - dropdown
     - powerselect
 status:
-  updated: 4.21.1
+  updated: 4.22.0
 ---
 
 <section data-tab="Guidelines">
@@ -36,6 +36,10 @@ status:
 <section data-tab="Specifications">
   @include "partials/specifications/anatomy.md"
   @include "partials/specifications/states.md"
+</section>
+
+<section data-tab="Content">
+  @include "partials/content/content.md"
 </section>
 
 <section data-tab="Accessibility">

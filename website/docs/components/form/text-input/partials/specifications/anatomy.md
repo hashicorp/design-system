@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of the TextInput](/assets/components/form/text-input/textinput-anatomy.png =593x*)
+![Anatomy of the TextInput](/assets/components/form/text-input/text-input-anatomy.png =593x*)
 
 | Element           | Usage                                                       |
 |-------------------|-------------------------------------------------------------|

@@ -12,21 +12,129 @@
   </a>
 </p>
 
-## 4.21.1
+## 4.22.0
+
+[4.22.0 documentation](https://hds-website-4-22-0.vercel.app/)
+
+**Minor changes**
+
+Added `ember-intl` as a dependency
+
+- Added `hdsIntl` service for translations in HDS components with default fallback values
+- Added `hds-t` helper which uses the `hds-intl` service to provide translations in HSD templates
+
+
+`AdvancedTable` - Translated template strings. Removed extraneous screen-reader-only text.
+
+
+
+`AppFooter` - Translated template strings
+
+
+
+`AppSideNav` - Translated template strings
+
+
+
+`ApplicationState` - Translated template strings
+
+
+
+`CodeEditor` - Translated template strings
+
+
+
+`DismissButton` - Translated template strings
+
+
+
+`MaskedInput` - Translated template strings
+
+
+
+`SuperSelect` - Translated template strings
+
+
+
+`Pagination` - Translated template strings
+
+
+
+`SideNav` - Translated template strings
+
+
+
+`Table` - Translated template strings
+
+
+
+`Time` - Translated template strings
+
+
+<small class="doc-whats-new-changelog-metadata">[#2878](https://github.com/hashicorp/design-system/pull/2878)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Reveal` - Added support for the `aria-describedby` attribute on the toggle.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3084](https://github.com/hashicorp/design-system/pull/3084)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 
 **Patch changes**
 
 
-`AdvancedTable` - Removed `ember-math-helpers` dev dependency
+`AppHeader` - Changed the default breakpoint from `lg` to `md`.
 
+
+<small class="doc-whats-new-changelog-metadata">[#3072](https://github.com/hashicorp/design-system/pull/3072)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Stepper::List` - Fixed type for `status` argument in `List::Step` to be `HdsStepperStatuses` instead of enum `HdsStepperStatusesValues`
+
+
+<small class="doc-whats-new-changelog-metadata">[#3073](https://github.com/hashicorp/design-system/pull/3073)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
+
+
+
+`Table::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
+
+
+<small class="doc-whats-new-changelog-metadata">[#3066](https://github.com/hashicorp/design-system/pull/3066)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`CodeEditor` - Fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3068](https://github.com/hashicorp/design-system/pull/3068)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+## 4.21.1
+
+[4.21.1 documentation](https://hds-website-4-21-1.vercel.app/)
+
+**Patch changes**
+
+`AdvancedTable` - Removed `ember-math-helpers` dev dependency
 
 <small class="doc-whats-new-changelog-metadata">[#3043](https://github.com/hashicorp/design-system/pull/3043)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Form::RadioCard` - Fixed styling bug where hover styles were visible when disabled
-
 
 <small class="doc-whats-new-changelog-metadata">[#3000](https://github.com/hashicorp/design-system/pull/3000)</small>
 
@@ -38,53 +146,39 @@ Make `@ember/string` a peerDependency to allow consuming apps to choose to use `
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Form::SuperSelect` - fix type for the `@resultCountMessage` argument so it can accept a string or a function.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3008](https://github.com/hashicorp/design-system/pull/3008)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav::List::Link` - Applied transparent background to the element to avoid overlapping with previous item's focus ring
-
 
 <small class="doc-whats-new-changelog-metadata">[#3032](https://github.com/hashicorp/design-system/pull/3032)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Make the `@hasResizableColumns` argument optional for the `ThSort` component.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3051](https://github.com/hashicorp/design-system/pull/3051)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `PopoverPrimitive` - Updated type of the `anchoredPositionOptions` object in the `setUpPrimitivePopover` modifier to include `arrowSelector` from the `hds-anchored-position` modifier.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3005](https://github.com/hashicorp/design-system/pull/3005)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav::List::Link` - Removed extra transparent border and background when rendered as a `<button>` element
 
-
-
 `SideNav::List::Link` - Removed extra transparent border when rendered as a `<button>` element
-
 
 <small class="doc-whats-new-changelog-metadata">[#3026](https://github.com/hashicorp/design-system/pull/3026)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Tag` - Fixed a performance issue when many tags are present on a page caused by the ResizeObserver
-
 
 Dependencies - Added `tracked-built-ins`
 
@@ -92,17 +186,13 @@ Dependencies - Added `tracked-built-ins`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav::Panel` - Fixed issue causing the focus ring of the first and last items within the Panel to be cut off
-
 
 <small class="doc-whats-new-changelog-metadata">[#3045](https://github.com/hashicorp/design-system/pull/3045)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppHeader` - return `close` callback to the `:globalActions` and `:utilityActions` named blocks so the menu actions can be hidden programmatically when the component is in a mobile view.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3031](https://github.com/hashicorp/design-system/pull/3031)</small>
 
@@ -1604,83 +1694,6 @@ Add explicit `ember-get-config` dependency for use in the icon sprite initialize
 **🔄 Updated dependencies:**
 
 - @hashicorp/design-system-tokens@2.2.0
-
-## 4.7.0
-
-[4.7.0 documentation](https://hds-website-4-7-0.vercel.app/)
-
-**Minor changes**
-
-`FileInput`, `MaskedInput`, `Select`, `TextInput`, `Textarea` - Converted to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2244](https://github.com/hashicorp/design-system/pull/2244)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Loads the `hds-icon` sprite in the `components` package, and ensures it is only loaded once.
-
-<small class="doc-whats-new-changelog-metadata">[#2198](https://github.com/hashicorp/design-system/pull/2198)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Form::TextInput` - added support for `"month"`, `"week"`, and `"tel"` input types
-
-<small class="doc-whats-new-changelog-metadata">[#2251](https://github.com/hashicorp/design-system/pull/2251)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`DialogPrimitive` - Added set of utility "dialog" sub-components to act as primitives for `Modal` and `Flyout` (and to be used as standalone subcomponents if needed)
-
-`Modal` - Replaced internal subcomponents to use the `DialogPrimitive` components.
-
-`Flyout` - Replaced internal subcomponents to use the `DialogPrimitive` components.
-
-<small class="doc-whats-new-changelog-metadata">[#2211](https://github.com/hashicorp/design-system/pull/2211)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Modal`: Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2258](https://github.com/hashicorp/design-system/pull/2258)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Converted form primitives to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2217](https://github.com/hashicorp/design-system/pull/2217)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Checkbox`, `Radio`, `RadioCard`, `Toggle` - Converted components to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2240](https://github.com/hashicorp/design-system/pull/2240)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Flyout`: Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2264](https://github.com/hashicorp/design-system/pull/2264)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`DialogPrimitive` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2249](https://github.com/hashicorp/design-system/pull/2249)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Badge`: updated `@text` argument type to include numbers.
-
-<small class="doc-whats-new-changelog-metadata">[#2270](https://github.com/hashicorp/design-system/pull/2270)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@3.5.0
-- @hashicorp/ember-flight-icons@5.1.3
 
 
 ---

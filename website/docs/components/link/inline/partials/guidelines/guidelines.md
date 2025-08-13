@@ -67,25 +67,7 @@ Use a leading icon when using service icons (e.g., GitHub).
 
 <span class="hds-typography-body-300">Edit this page on <Hds::Link::Inline @color="primary" @icon="github" @iconPosition="leading" @href="#">GitHub</Hds::Link::Inline>.</span>
 
-## Content
-
-!!! Do
-
-Highlight the most relevant word or short phrase as it relates to the target of the link. For example:
-
-<span class="hds-typography-body-300">Learn more about deploying a Vault Cluster on HCP in the <Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="#">HashiCorp Developer tutorial library</Hds::Link::Inline>.</span>
-
-!!!
-
-!!! Dont
-
-Don’t wrap an entire sentence or text block in a link.
-
-<span class="hds-typography-body-300"><Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="#">Learn more about deploying a Vault Cluster on HCP in the HashiCorp Developer tutorial library</Hds::Link::Inline>.</span>
-
-!!!
-
-### Display sizes
+## Display sizes
 
 We don't recommend using links within `Display` sizes as these are generally reserved for titles and headlines.
 

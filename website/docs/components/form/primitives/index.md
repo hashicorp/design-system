@@ -19,8 +19,6 @@ navigation:
     - fieldset
     - input
     - character count
-status:
-  updated: 4.21.0
 ---
 
 <section data-tab="Guidelines">
@@ -31,6 +29,10 @@ status:
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
+</section>
+
+<section data-tab="Content">
+  @include "partials/content/content.md"
 </section>
 
 <section data-tab="Accessibility">

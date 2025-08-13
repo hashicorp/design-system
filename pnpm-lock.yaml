@@ -529,6 +529,9 @@ importers:
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
+      '@nullvoxpopuli/ember-composable-helpers':
+        specifier: ^5.2.11
+        version: 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
       '@percy/cli':
         specifier: ^1.30.5
         version: 1.31.1(typescript@5.9.2)

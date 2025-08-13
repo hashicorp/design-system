@@ -1,3 +1,8 @@
+## 4.22.0
+
+Changed the default breakpoint from `lg` to `md`.
+
+
 ## 4.21.1
 
 Added `close` callback to the `:globalActions` and `:utilityActions` named blocks so the menu actions can be hidden programmatically when the component is in a mobile view.
