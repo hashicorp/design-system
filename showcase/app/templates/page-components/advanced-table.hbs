@@ -623,8 +623,8 @@
 
   <Shw::Text::H2>Reorderable columns</Shw::Text::H2>
 
+  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
   <Hds::AdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{this.columnReorderColumns}}
     @hasReorderableColumns={{true}}
@@ -633,8 +633,8 @@
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
       <B.Tr @selectionKey="{{B.data.id}}" as |R|>
         {{#each R.orderedCells as |C|}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           {{#if (eq C.columnKey "artist")}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
           {{else}}
             <B.Td>
@@ -646,7 +646,6 @@
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
-                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
               {{else}}
                 <Hds::ButtonSet>
@@ -665,16 +664,16 @@
   <Shw::Text::H4 @tag="h3">Reorderable columns with sorting</Shw::Text::H4>
 
   <Hds::AdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{this.columnReorderColumnsWithSorting}}
     @hasReorderableColumns={{true}}
   >
     <:body as |B|>
-      <B.Tr as |R|>
+      {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
+      <B.Tr @selectionKey="{{B.data.id}}" as |R|>
         {{#each R.orderedCells as |C|}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           {{#if (eq C.columnKey "artist")}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
           {{else}}
             <B.Td>
@@ -686,7 +685,6 @@
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
-                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
               {{else}}
                 <Hds::ButtonSet>
@@ -701,157 +699,6 @@
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>
-
-  <Shw::Text::H4 @tag="h3">Reorderable columns with sticky header</Shw::Text::H4>
-
-  <Hds::AdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-    @model={{this.model.music}}
-    @columns={{this.columnReorderColumnsWithSorting}}
-    @hasReorderableColumns={{true}}
-    @hasStickyHeader={{true}}
-    @maxHeight="200px"
-  >
-    <:body as |B|>
-      <B.Tr as |R|>
-        {{#each R.orderedCells as |C|}}
-          {{#if (eq C.columnKey "artist")}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
-          {{else}}
-            <B.Td>
-              {{#if (eq C.columnKey "album")}}
-                <div class="shw-component-advanced-table-cell-content-div">
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                  <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                  {{B.data.album}}
-                </div>
-              {{else if (eq C.columnKey "year")}}
-                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
-              {{else}}
-                <Hds::ButtonSet>
-                  <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
-                  <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
-                  <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
-                </Hds::ButtonSet>
-              {{/if}}
-            </B.Td>
-          {{/if}}
-        {{/each}}
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable>
-
-  <Shw::Text::H4 @tag="h3">Reorderable columns with horizontal overflow</Shw::Text::H4>
-
-  <div>
-    <Hds::AdvancedTable
-      @isSelectable={{true}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{this.model.infrastructureResources}}
-      @columns={{array
-        (hash key="resource_id" label="Resource ID" width="350px")
-        (hash key="status" label="Current Status" width="175px")
-        (hash key="namespace" label="Namespace")
-        (hash key="provider_name" label="Provider Name" width="175px")
-        (hash key="created_at" label="Created At" width="175px")
-        (hash key="last_run_time" label="Last Run" width="175px")
-        (hash key="lease_duration" label="Lease Duration" width="175px")
-        (hash key="workspace" label="Workspace")
-        (hash key="datacenter" label="Datacenter")
-        (hash key="job_spec_version" label="Job Spec Version" width="200px")
-        (hash key="attached_policies" label="Attached Policies" width="200px")
-        (hash key="target_endpoint" label="Target Endpoint")
-        (hash key="audit_device_path" label="Audit Device Path")
-        (hash key="tags" label="Tags")
-      }}
-      @hasReorderableColumns={{true}}
-    >
-      <:body as |B|>
-        <B.Tr
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionKey="{{B.data.id}}"
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @isSelected={{B.data.isSelected}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
-          as |R|
-        >
-          {{#each R.orderedCells as |C|}}
-            <B.Td>
-              {{#if (eq C.columnKey "status")}}
-                {{#if (eq (get B.data "status") "failing")}}
-                  <Hds::Badge @text="Failing" @color="critical" @icon="x" @type="outlined" />
-                {{else if (eq (get B.data "status") "active")}}
-                  <Hds::Badge @text="Active" @color="success" @icon="check" @type="outlined" />
-                {{else if (eq (get B.data "status") "pending")}}
-                  <Hds::Badge @text="Pending" @color="neutral" @icon="loading" @type="outlined" />
-                {{else if (eq (get B.data "status") "establishing")}}
-                  <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" @type="outlined" />
-                {{/if}}
-              {{else if (or (eq C.columnKey "created_at") (eq C.columnKey "last_run_time"))}}
-                {{#if (eq C.columnKey "created_at")}}
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                  {{format-date (get B.data "created_at")}}
-                {{else}}
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                  {{format-date (get B.data "last_run_time")}}
-                {{/if}}
-              {{else if (or (eq C.columnKey "attached_policies") (eq C.columnKey "tags"))}}
-                <Hds::Layout::Flex @align="center" @gap="4">
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                  {{#each C.content as |content|}}
-                    <Hds::Badge @text={{content}} @type="outlined" @color="neutral" />
-                  {{/each}}
-                </Hds::Layout::Flex>
-              {{else}}
-                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                {{C.content}}
-              {{/if}}
-            </B.Td>
-          {{/each}}
-        </B.Tr>
-      </:body>
-    </Hds::AdvancedTable>
-  </div>
-
-  <Shw::Text::H4 @tag="h3">Reorderable columns with selectable rows</Shw::Text::H4>
-
-  <div>
-    <Hds::AdvancedTable
-      @isSelectable={{true}}
-      @onSelectionChange={{this.onSelectionChangeLogArguments}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{this.model.selectableData}}
-      @columns={{array
-        (hash key="lorem" label="Row #" isSortable=true)
-        (hash key="ipsum" label="Ipsum")
-        (hash key="dolor" label="Dolor")
-      }}
-      @hasReorderableColumns={{true}}
-    >
-      <:body as |B|>
-        <B.Tr
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionKey="{{B.data.id}}"
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @isSelected={{B.data.isSelected}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
-          as |R|
-        >
-          {{#each R.orderedCells as |C|}}
-            <B.Td>
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-              {{C.content}}
-            </B.Td>
-          {{/each}}
-        </B.Tr>
-      </:body>
-    </Hds::AdvancedTable>
-  </div>
 
   <Shw::Divider @level={{2}} />
 
@@ -958,7 +805,6 @@
   <Shw::Text::H4 @tag="h3">Resizable and reorderable columns</Shw::Text::H4>
 
   <Hds::AdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{this.columnResizeColumns}}
     @hasResizableColumns={{true}}
@@ -968,8 +814,8 @@
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
       <B.Tr @selectionKey="{{B.data.id}}" as |R|>
         {{#each R.orderedCells as |C|}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           {{#if (eq C.columnKey "artist")}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
           {{else}}
             <B.Td>
@@ -981,7 +827,6 @@
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
-                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
               {{else}}
                 <Hds::ButtonSet>
