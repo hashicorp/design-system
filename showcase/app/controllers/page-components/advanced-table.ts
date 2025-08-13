@@ -28,6 +28,29 @@ const customSortingCriteriaArray = [
   'pending',
 ];
 
+const musicColumns = [
+  {
+    key: 'artist',
+    label: 'Artist',
+    tooltip: 'More information.',
+  },
+  {
+    key: 'album',
+    label: 'Album',
+    tooltip: 'More information.',
+    width: '350px',
+  },
+  {
+    key: 'year',
+    label: 'Release Year',
+    tooltip: 'More information.',
+  },
+  {
+    key: 'other',
+    label: 'Additional Actions',
+  },
+];
+
 const updateModelWithSelectAllState = (
   modelData: SelectableItem[] | User[],
   selectAllState: boolean,
@@ -447,34 +470,25 @@ export default class PageComponentsAdvancedTableController extends Controller {
   }
 
   // COLUMN RESIZING DEMO
-  columnResizeColumns = [
-    {
-      key: 'artist',
-      label: 'Artist',
-      tooltip: 'More information.',
-    },
-    {
-      key: 'album',
-      label: 'Album',
-      tooltip: 'More information.',
-      width: '350px',
-    },
-    {
-      key: 'year',
-      label: 'Release Year',
-      tooltip: 'More information.',
-    },
-    {
-      key: 'other',
-      label: 'Additional Actions',
-    },
-  ];
+  columnResizeColumns = musicColumns;
 
   columnResizeColumnsWithSorting = this.columnResizeColumns.map(
     (column, index) => {
       return {
         ...column,
         isSortable: index !== this.columnResizeColumns.length - 1, // last column is not sortable
+      };
+    },
+  );
+
+  // COLUMN REORDERING DEMO
+  columnReorderColumns = musicColumns;
+
+  columnReorderColumnsWithSorting = this.columnReorderColumns.map(
+    (column, index) => {
+      return {
+        ...column,
+        isSortable: index !== this.columnReorderColumns.length - 1, // last column is not sortable
       };
     },
   );

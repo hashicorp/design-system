@@ -633,6 +633,87 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H2>Reorderable columns</Shw::Text::H2>
+
+  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{this.columnReorderColumns}}
+    @hasReorderableColumns={{true}}
+  >
+    <:body as |B|>
+      {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
+      <B.Tr @selectionKey="{{B.data.id}}" as |R|>
+        {{#each R.orderedCells as |C|}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          {{#if (eq C.columnKey "artist")}}
+            <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+          {{else}}
+            <B.Td>
+              {{#if (eq C.columnKey "album")}}
+                <div class="shw-component-advanced-table-cell-content-div">
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  {{B.data.album}}
+                </div>
+              {{else if (eq C.columnKey "year")}}
+                <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
+              {{else}}
+                <Hds::ButtonSet>
+                  <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+                  <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+                  <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+                </Hds::ButtonSet>
+              {{/if}}
+            </B.Td>
+          {{/if}}
+        {{/each}}
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4 @tag="h3">Reorderable columns with sorting</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{this.columnReorderColumnsWithSorting}}
+    @hasReorderableColumns={{true}}
+  >
+    <:body as |B|>
+      {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
+      <B.Tr @selectionKey="{{B.data.id}}" as |R|>
+        {{#each R.orderedCells as |C|}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          {{#if (eq C.columnKey "artist")}}
+            <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+          {{else}}
+            <B.Td>
+              {{#if (eq C.columnKey "album")}}
+                <div class="shw-component-advanced-table-cell-content-div">
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  {{B.data.album}}
+                </div>
+              {{else if (eq C.columnKey "year")}}
+                <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
+              {{else}}
+                <Hds::ButtonSet>
+                  <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+                  <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+                  <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+                </Hds::ButtonSet>
+              {{/if}}
+            </B.Td>
+          {{/if}}
+        {{/each}}
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H2>Resizable columns</Shw::Text::H2>
 
   {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -732,6 +813,46 @@
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <span class="shw-component-advanced-table-text-truncate">{{B.data.quote}}</span>
         </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4 @tag="h3">Resizable and reorderable columns</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{this.columnResizeColumns}}
+    @hasResizableColumns={{true}}
+    @hasReorderableColumns={{true}}
+  >
+    <:body as |B|>
+      {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
+      <B.Tr @selectionKey="{{B.data.id}}" as |R|>
+        {{#each R.orderedCells as |C|}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          {{#if (eq C.columnKey "artist")}}
+            <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+          {{else}}
+            <B.Td>
+              {{#if (eq C.columnKey "album")}}
+                <div class="shw-component-advanced-table-cell-content-div">
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  {{B.data.album}}
+                </div>
+              {{else if (eq C.columnKey "year")}}
+                <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
+              {{else}}
+                <Hds::ButtonSet>
+                  <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+                  <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+                  <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+                </Hds::ButtonSet>
+              {{/if}}
+            </B.Td>
+          {{/if}}
+        {{/each}}
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>
