@@ -30,7 +30,12 @@
     {{this._setUpScrollWrapper}}
   >
     {{! Header }}
-    <div class={{this.theadClassNames}} role="rowgroup" {{this._setUpThead}}>
+    <div
+      class={{this.theadClassNames}}
+      role="rowgroup"
+      {{this._setUpThead}}
+      {{on "dragleave" (fn (mut this._tableModel.reorderHoveredColumn) null)}}
+    >
       <Hds::AdvancedTable::Tr
         @selectionScope="col"
         @onClickSortBySelected={{if @selectableColumnKey (fn this._tableModel.setSortBy @selectableColumnKey)}}

@@ -62,6 +62,7 @@ export default class HdsAdvancedTableTableModel {
   @tracked columns: HdsAdvancedTableColumn[] = [];
   @tracked columnOrder: string[] = [];
   @tracked reorderDraggedColumn: HdsAdvancedTableColumn | null = null;
+  @tracked reorderHoveredColumn: HdsAdvancedTableColumn | null = null;
   @tracked rows: HdsAdvancedTableRow[] = [];
   @tracked sortBy: HdsAdvancedTableTableArgs['sortBy'] = undefined;
   @tracked sortOrder: HdsAdvancedTableTableArgs['sortOrder'] =
