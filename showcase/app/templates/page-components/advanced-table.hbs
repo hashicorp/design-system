@@ -1555,7 +1555,7 @@
       <div
         class="hds-advanced-table hds-advanced-table--density-medium"
         role="grid"
-        {{style gridTemplateColumns="repeat(3, 1fr)"}}
+        {{style gridTemplateColumns="repeat(4, 1fr)"}}
       >
         <div class="hds-advanced-table__thead hds-advanced-table__thead--has-resizable-columns" role="rowgroup">
           <div class="hds-advanced-table__tr" role="row">
@@ -1576,6 +1576,8 @@
               @column={{get this.sampleTableModel.columns 1}}
               @hasResizableColumns={{true}}
             >Right</Hds::AdvancedTable::ThSort>
+            {{! Note: need a last column to avoid a scrollbar}}
+            <Hds::AdvancedTable::ThSort>Last column</Hds::AdvancedTable::ThSort>
           </div>
         </div>
       </div>
@@ -1735,7 +1737,7 @@
       <div
         class="hds-advanced-table hds-advanced-table--density-medium"
         role="grid"
-        {{style gridTemplateColumns="repeat(3, 1fr)"}}
+        {{style gridTemplateColumns="repeat(4, 1fr)"}}
       >
         <div class="hds-advanced-table__thead hds-advanced-table__thead--has-resizable-columns" role="rowgroup">
           <div class="hds-advanced-table__tr" role="row">
@@ -1759,6 +1761,8 @@
               @column={{get this.sampleTableModel.columns 1}}
               @hasResizableColumns={{true}}
             >Right</Hds::AdvancedTable::Th>
+            {{! Note: need a last column to avoid a scrollbar}}
+            <Hds::AdvancedTable::Th>Last column</Hds::AdvancedTable::Th>
           </div>
         </div>
         <div class="hds-advanced-table__tbody" role="rowgroup">
@@ -1777,6 +1781,8 @@
               @isExpandable={{true}}
               @tooltip="Here is more information"
             >Right</Hds::AdvancedTable::Th>
+            {{! Note: need a last column to avoid a scrollbar}}
+            <Hds::AdvancedTable::Th>Last column</Hds::AdvancedTable::Th>
           </div>
         </div>
       </div>
