@@ -219,5 +219,5 @@ For more details around using a multi-select Table, recommended patterns, and in
 
 !!! Callout
 
-This documentation currently covers only fundamental multi-select table interactions. We're working to include more comprehensive patterns for handling actions when multiple rows are selected and how this impacts filtering and pagination within a data set. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
+This example covers basic multi-select table interactions. We're working to include more complex patterns for handling actions when multiple rows are selected and how this impacts filtering and pagination within a data set. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
 !!!
