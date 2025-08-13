@@ -27,8 +27,7 @@ export interface HdsAdvancedTableThReorderDropTargetSignature {
 
 export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAdvancedTableThReorderDropTargetSignature> {
   @tracked private _dragSide: 'left' | 'right' | null = null;
-  @tracked private _isDraggingOver = false;
-  @tracked private _dragCount = 0;
+  @tracked private _isUpdateQueued: boolean = false;
 
   private _element!: HdsAdvancedTableThReorderDropTargetSignature['Element'];
 
@@ -38,12 +37,6 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
     }
   );
 
-  private _resetDragState(): void {
-    this._dragCount = 0;
-    this._isDraggingOver = false;
-    this._dragSide = null;
-  }
-
   // determines whether the drag event is occurring on the left or right side of the element
   private _getDragSide(event: DragEvent): 'left' | 'right' {
     const rect = this._element.getBoundingClientRect();
@@ -51,6 +44,12 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
     const elementMiddleX = rect.left + rect.width / 2;
 
     return mouseX < elementMiddleX ? 'left' : 'right';
+  }
+
+  get isDraggingOver(): boolean {
+    const { table } = this.args.column;
+
+    return table.reorderHoveredColumn?.key === this.args.column.key;
   }
 
   get classNames(): string {
@@ -68,7 +67,7 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
       classes.push(
         'hds-advanced-table__th-reorder-drop-target--is-being-dragged'
       );
-    } else if (this._isDraggingOver && this._dragSide !== null) {
+    } else if (this.isDraggingOver && this._dragSide !== null) {
       classes.push(
         ...[
           'hds-advanced-table__th-reorder-drop-target--is-dragging-over',
@@ -97,46 +96,37 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
   handleDragOver(event: DragEvent): void {
     event.preventDefault();
 
-    const { column } = this.args;
-    const { reorderDraggedColumn } = column.table;
-
-    if (column.isBeingDragged || reorderDraggedColumn === null) {
+    if (this._isUpdateQueued) {
       return;
     }
 
-    const { next, previous } = reorderDraggedColumn.siblings;
-    const dragSide = this._getDragSide(event);
+    this._isUpdateQueued = true;
 
-    if (
-      (column === previous && dragSide === 'left') ||
-      (column === next && dragSide === 'right') ||
-      (column !== previous && column !== next)
-    ) {
-      this._dragSide = dragSide;
-    }
-  }
+    requestAnimationFrame(() => {
+      const { column } = this.args;
+      const { table } = column;
 
-  @action
-  handleDragEnter(event: DragEvent): void {
-    event.preventDefault();
+      if (table.reorderDraggedColumn !== null) {
+        if (table.reorderDraggedColumn.key === column.key) {
+          table.reorderHoveredColumn = null;
+        } else {
+          table.reorderHoveredColumn = column;
 
-    this._dragCount = this._dragCount + 1;
+          const { next, previous } = table.reorderDraggedColumn.siblings;
+          const dragSide = this._getDragSide(event);
 
-    if (this._dragCount === 1) {
-      this._isDraggingOver = true;
-    }
-  }
+          if (
+            (column === previous && dragSide === 'left') ||
+            (column === next && dragSide === 'right') ||
+            (column !== previous && column !== next)
+          ) {
+            this._dragSide = dragSide;
+          }
+        }
+      }
 
-  @action
-  handleDragLeave(event: DragEvent): void {
-    event.preventDefault();
-
-    this._dragCount = this._dragCount - 1;
-
-    // ensure count doesn't go negative and reset isDraggingOver when appropriate
-    if (this._dragCount <= 0) {
-      this._resetDragState();
-    }
+      this._isUpdateQueued = false;
+    });
   }
 
   @action
@@ -145,9 +135,6 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
     const { column, onReorderDrop } = this.args;
     const { _dragSide } = this;
-
-    // reset drag state completely when an item is dropped
-    this._resetDragState();
 
     if (
       column === undefined ||
@@ -158,5 +145,8 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
     }
 
     onReorderDrop(column, _dragSide);
+
+    this._dragSide = null;
+    column.table.reorderHoveredColumn = null;
   }
 }

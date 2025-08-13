@@ -151,6 +151,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
       &::after {
         position: absolute;
+        pointer-events: none;
         top: 0;
         bottom: 0;
         width: 4px;
