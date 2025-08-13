@@ -66,7 +66,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
       const translatedResetWidthLabel = this.hdsIntl.t(
         'hds.advanced-table.th-context-menu.reset-width',
-        { default: 'Resize column width' }
+        { default: 'Reset column width' }
       );
       options = [
         ...options,
