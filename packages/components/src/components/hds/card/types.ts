@@ -8,9 +8,7 @@ export enum HdsCardBackgroundValues {
   NeutralSecondary = 'neutral-secondary',
 }
 
-export type HdsCardBackground =
-  | HdsCardBackgroundValues.NeutralSecondary
-  | HdsCardBackgroundValues.NeutralPrimary;
+export type HdsCardBackground = `${HdsCardBackgroundValues}`;
 
 export enum HdsCardLevelValues {
   Base = 'base',
@@ -18,19 +16,14 @@ export enum HdsCardLevelValues {
   High = 'high',
 }
 
-export type HdsCardLevel =
-  | HdsCardLevelValues.Base
-  | HdsCardLevelValues.Mid
-  | HdsCardLevelValues.High;
+export type HdsCardLevel = `${HdsCardLevelValues}`;
 
 export enum HdsCardOverflowValues {
   Hidden = 'hidden',
   Visible = 'visible',
 }
 
-export type HdsCardOverflow =
-  | HdsCardOverflowValues.Hidden
-  | HdsCardOverflowValues.Visible;
+export type HdsCardOverflow = `${HdsCardOverflowValues}`;
 
 export enum HdsCardTagValues {
   Div = 'div',
