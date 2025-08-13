@@ -6,7 +6,7 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 
-export default class InternationalizationTranslationRoute extends Route {
+export default class PageInternationalizationTranslationRoute extends Route {
   @service intl;
 
   _localeOnEntry = null;
