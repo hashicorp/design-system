@@ -3,7 +3,7 @@
 
 !!! Callout
 
-This component is intended only for internal Helios use. If you need to use it, contact the Design Systems Team.
+This component is intended only for internal Helios use. If you need to use it, [contact the Design Systems Team](/about/support).
 !!!
 
 The `DisclosurePrimitive` component renders an interactive element that triggers a custom event handler provided by the `:toggle` block (passed via `hash` by Ember). To comply with accessibility best practices, this element is usually a button or a component that renders a button.
