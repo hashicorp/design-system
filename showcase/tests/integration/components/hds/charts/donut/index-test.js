@@ -12,7 +12,14 @@ module('Integration | Component | hds/charts/donut/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Charts::Donut id="test-charts-donut" />`);
+    this.data = [
+      { group: 'group 1', value: 2 },
+      { group: 'group 2', value: 4 },
+    ];
+
+    await render(
+      hbs`<Hds::Charts::Donut @data={{this.data}} @title="Test donut" id="test-charts-donut" />`,
+    );
     assert.dom('#test-charts-donut').hasClass('hds-charts-donut');
   });
 });

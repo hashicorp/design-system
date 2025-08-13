@@ -12,7 +12,14 @@ module('Integration | Component | hds/charts/meter/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Charts::Meter id="test-charts-meter" />`);
+    this.data = [
+      { group: 'Test group 1', value: 30 },
+      { group: 'Test group 2', value: 70 },
+    ];
+
+    await render(
+      hbs`<Hds::Charts::Meter @data={{this.data}} @title="Test meter" id="test-charts-meter" />`,
+    );
     assert.dom('#test-charts-meter').hasClass('hds-charts-meter');
   });
 });

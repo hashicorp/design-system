@@ -12,7 +12,14 @@ module('Integration | Component | hds/charts/bar/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Charts::Bar id="test-charts-bar" />`);
+    this.data = [
+      { date: '2025-01', value: 1000 },
+      { date: '2025-02', value: 1500 },
+    ];
+
+    await render(
+      hbs`<Hds::Charts::Bar @data={{this.data}} @title="Test bar" id="test-charts-bar" />`,
+    );
     assert.dom('#test-charts-bar').hasClass('hds-charts-bar');
   });
 });
