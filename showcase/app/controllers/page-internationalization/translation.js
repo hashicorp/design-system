@@ -28,7 +28,7 @@ const SERVICE_TRANSLATIONS = {
   },
 };
 
-export default class InternationalizationTranslationController extends Controller {
+export default class PageInternationalizationTranslationController extends Controller {
   @service intl;
   @service hdsIntl;
 
