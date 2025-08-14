@@ -7,14 +7,13 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import type Owner from '@ember/owner';
 import { schedule } from '@ember/runloop';
-
 import HdsAdvancedTableTableModel from './models/table.ts';
 
+import type Owner from '@ember/owner';
+import type { WithBoundArgs } from '@glint/template';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
@@ -46,6 +45,8 @@ export const VALIGNMENTS: HdsAdvancedTableVerticalAlignment[] = Object.values(
   HdsAdvancedTableVerticalAlignmentValues
 );
 export const DEFAULT_VALIGN = HdsAdvancedTableVerticalAlignmentValues.Top;
+
+export const BORDER_WIDTH = 1;
 
 const DEFAULT_SCROLL_DIMENSIONS = {
   bottom: '0px',
@@ -495,7 +496,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     element.addEventListener('scroll', this._scrollHandler);
 
     const updateMeasurements = () => {
-      this._tableHeight = element.clientHeight;
+      this._tableHeight = element.offsetHeight;
 
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,

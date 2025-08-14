@@ -7,11 +7,11 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import { BORDER_WIDTH } from './index.ts';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
-const TABLE_BORDER_WIDTH = 1;
 const KEYBOARD_RESIZE_STEP = 10;
 
 function calculateEffectiveDelta(
@@ -97,7 +97,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       return;
     }
 
-    return `${tableHeight - TABLE_BORDER_WIDTH * 2}px`;
+    return `${tableHeight - BORDER_WIDTH * 2}px`;
   }
 
   get classNames(): string {

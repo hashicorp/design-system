@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import { BORDER_WIDTH } from './index.ts';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 
@@ -79,17 +80,14 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
     return classes.join(' ');
   }
 
-  get height(): `${number}px` | undefined {
+  get height(): string | undefined {
     const { tableHeight } = this.args;
 
     if (tableHeight === undefined) {
-      return undefined;
+      return;
     }
 
-    // subtract 2px to account for borders
-    const height = tableHeight - 4;
-
-    return `${height}px`;
+    return `${tableHeight - BORDER_WIDTH * 2}px`;
   }
 
   @action
