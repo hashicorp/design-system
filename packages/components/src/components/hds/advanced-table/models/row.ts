@@ -87,10 +87,6 @@ export default class HdsAdvancedTableRow {
   @action
   updateColumnOrder(columnOrder: string[]) {
     this.columnOrder = columnOrder;
-
-    for (const child of this.children) {
-      child.updateColumnOrder(columnOrder);
-    }
   }
 
   @action

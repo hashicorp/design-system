@@ -90,7 +90,7 @@ export default class HdsAdvancedTableTableModel {
     this.hasResizableColumns = hasResizableColumns;
     this.onSort = onSort;
 
-    this.setupData({ model, columns, sortBy, sortOrder });
+    this.setupData({ model, columns, columnOrder, sortBy, sortOrder });
 
     this.columnOrder = columnOrder ?? this.columns.map((column) => column.key);
 
@@ -216,10 +216,10 @@ export default class HdsAdvancedTableTableModel {
   setupData(
     args: Pick<
       HdsAdvancedTableTableArgs,
-      'model' | 'columns' | 'sortBy' | 'sortOrder'
+      'model' | 'columns' | 'columnOrder' | 'sortBy' | 'sortOrder'
     >
   ) {
-    const { model, columns, sortBy, sortOrder } = args;
+    const { model, columns, columnOrder, sortBy, sortOrder } = args;
 
     this.sortBy = sortBy;
     this.sortOrder = sortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
@@ -231,6 +231,8 @@ export default class HdsAdvancedTableTableModel {
           table: this,
         })
     );
+
+    this.columnOrder = columnOrder ?? [];
 
     this.rows = model.map((row) => {
       return new HdsAdvancedTableRow({
@@ -378,9 +380,6 @@ export default class HdsAdvancedTableTableModel {
       }
 
       sourceColumn.isBeingDragged = false;
-      // when a column is moved, reset the imposed width delta
-      // TODO: this should be handled in a more robust way
-      sourceColumn.imposedWidthDelta = 0;
 
       this.onColumnReorder?.(updated);
     }

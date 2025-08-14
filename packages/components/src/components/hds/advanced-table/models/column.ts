@@ -42,7 +42,6 @@ export default class HdsAdvancedTableColumn {
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
-  @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
   @tracked widthDebts: Record<string, number> = {}; // used to track width changes imposed by other columns
 
   @tracked isBeingDragged: boolean = false;
@@ -98,9 +97,7 @@ export default class HdsAdvancedTableColumn {
   }
 
   get isLast(): boolean {
-    return (
-      this.index !== -1 && this.index === this.table.orderedColumns.length - 1
-    );
+    return this.index !== -1 && this.index === this.table.columns.length - 1;
   }
 
   get siblings(): {
