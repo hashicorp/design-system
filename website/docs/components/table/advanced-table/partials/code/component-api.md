@@ -122,8 +122,8 @@ The Advanced Table component itself is where most of the options will be applied
   <C.Property @name="hasStickyHeader" @type="boolean">
     Determines if the Advanced Table has a sticky header. If set to `true`, must be used with the `@maxHeight` argument. If `@maxHeight` is set and `@hasStickyHeader` is `false`, there will not be a sticky header.
   </C.Property>
-  <C.Property @name="hasStickyFirstColumn" @type="boolean" @default="false">
-    Determines if the Advanced Table has a sticky first column.
+  <C.Property @name="hasStickyFirstColumn" @type="boolean | undefined" @default="undefined">
+    Determines if the Advanced Table has a sticky first column. If set to `true` or `false` a context menu item will be shown allowing the user to change the state of the column's stickiness. If `undefined` no menu item will be shown.
   </C.Property>
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
     If set, determines the density (height) of the body’s rows.
