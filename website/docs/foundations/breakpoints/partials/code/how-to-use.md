@@ -19,7 +19,6 @@ Once the file is imported, you will have access to the Sass helpers described be
 !!! Callout
 
 If you are not able to import the file using the declaration above, [contact the Design Systems Team](/about/support) for support.
-
 !!!
 
 #### Mixins

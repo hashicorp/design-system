@@ -278,6 +278,12 @@ How resizing for the cell content works is determined by the implementation. For
 This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers)
 !!!
 
+!!! Callout
+
+At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
+
+!!!
+
 Add `isSortable=true` to the hash for each column that should be sortable.
 
 ```handlebars
@@ -298,12 +304,6 @@ Add `isSortable=true` to the hash for each column that should be sortable.
   </:body>
 </Hds::AdvancedTable>
 ```
-
-!!! Callout
-
-At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
-
-!!!
 
 #### Pre-sorting columns
 
