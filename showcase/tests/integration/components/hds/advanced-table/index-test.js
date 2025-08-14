@@ -221,19 +221,6 @@ async function simulateColumnReorderDrop({
   await triggerEvent(handleElement, 'dragend');
 }
 
-async function simulateColumnReorderDragAndDrop({
-  handleElement,
-  targetIndex,
-  targetPosition = 'left',
-}) {
-  const { target, eventOptions } = await simulateColumnReorderDrag({
-    handleElement,
-    targetIndex,
-    targetPosition,
-  });
-  await simulateColumnReorderDrop({ target, handleElement, eventOptions });
-}
-
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setTableData = (context) => {
   context.set('model', [
@@ -815,6 +802,54 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         'The third column is moved back to the left',
       );
       assert.dom(firstReorderHandle).isFocused();
+    });
+
+    test('passing in columnOrder sets the initial order of the table columns', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+          id='data-test-advanced-table'
+          @model={{this.model}}
+          @columns={{this.columns}}
+          @columnOrder={{array "album" "year" "artist"}}
+          @hasReorderableColumns={{true}}
+        />`,
+      );
+
+      const columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        ['album', 'year', 'artist'],
+        'The initial column order is set correctly',
+      );
+    });
+
+    test('updating columnOrder externally changes the order of the table columns', async function (assert) {
+      this.set('columnOrder', ['artist', 'album', 'year']);
+
+      await render(
+        hbs`<Hds::AdvancedTable
+          id='data-test-advanced-table'
+          @model={{this.model}}
+          @columns={{this.columns}}
+          @columnOrder={{this.columnOrder}}
+          @hasReorderableColumns={{true}}
+        />`,
+      );
+
+      let columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        ['artist', 'album', 'year'],
+        'The initial column order is set correctly',
+      );
+
+      this.set('columnOrder', ['year', 'album', 'artist']);
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        ['year', 'album', 'artist'],
+        'The column order is updated correctly',
+      );
     });
   });
 

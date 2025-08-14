@@ -726,4 +726,5 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   background-color: $hds-advanced-table-drag-preview-background-color;
   border: 5px solid var(--token-color-focus-action-external);
   border-radius: var(--token-border-radius-medium);
+  box-shadow: var(--token-elevation-mid-box-shadow);
 }
