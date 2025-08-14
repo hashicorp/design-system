@@ -121,9 +121,11 @@ export default class PageComponentsAdvancedTableController extends Controller {
       model: [
         {
           value: 'lorem',
+          status: 'active',
         },
         {
           value: 'ipsum',
+          status: 'active',
         },
       ],
       hasResizableColumns: true,
@@ -131,6 +133,11 @@ export default class PageComponentsAdvancedTableController extends Controller {
         {
           label: 'Label',
           isVisuallyHidden: true,
+          width: '200px',
+        },
+        {
+          label: 'Status',
+          width: '200px',
         },
       ],
     });

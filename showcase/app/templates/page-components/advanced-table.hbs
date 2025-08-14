@@ -411,7 +411,7 @@
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
       (hash key="album" label="Album" isSortable=true)
-      (hash key="year" label="Release Year")
+      (hash key="year" label="Release Year" align="right")
     }}
     @sortBy="artist"
   >
@@ -1655,21 +1655,50 @@
 
   <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" role="grid" {{style gridTemplateColumns="repeat(6, 1fr)"}}>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        role="grid"
+        {{style gridTemplateColumns="repeat(3, 1fr)"}}
+      >
         <div class="hds-advanced-table__thead" role="rowgroup">
           <div class="hds-advanced-table__tr" role="row">
             <Hds::AdvancedTable::ThSort>Left</Hds::AdvancedTable::ThSort>
-            <Hds::AdvancedTable::ThSort @tooltip="Here is more information">Left</Hds::AdvancedTable::ThSort>
             <Hds::AdvancedTable::ThSort @align="center">Center</Hds::AdvancedTable::ThSort>
+            <Hds::AdvancedTable::ThSort @align="right">Right</Hds::AdvancedTable::ThSort>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @label="Alignment with all interactive elements" as |SF|>
+    <SF.Item @grow={{true}}>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        role="grid"
+        {{style gridTemplateColumns="repeat(4, 1fr)"}}
+      >
+        <div class="hds-advanced-table__thead hds-advanced-table__thead--has-resizable-columns" role="rowgroup">
+          <div class="hds-advanced-table__tr" role="row">
+            <Hds::AdvancedTable::ThSort
+              @tooltip="Here is more information"
+              @column={{get this.sampleTableModel.columns 1}}
+              @hasResizableColumns={{true}}
+            >Left</Hds::AdvancedTable::ThSort>
             <Hds::AdvancedTable::ThSort
               @align="center"
               @tooltip="Here is more information"
+              @column={{get this.sampleTableModel.columns 1}}
+              @hasResizableColumns={{true}}
             >Center</Hds::AdvancedTable::ThSort>
-            <Hds::AdvancedTable::ThSort @align="right">Right</Hds::AdvancedTable::ThSort>
             <Hds::AdvancedTable::ThSort
               @align="right"
               @tooltip="Here is more information"
+              @column={{get this.sampleTableModel.columns 1}}
+              @hasResizableColumns={{true}}
             >Right</Hds::AdvancedTable::ThSort>
+            {{! Note: need a last column to avoid a scrollbar}}
+            <Hds::AdvancedTable::ThSort>Last column</Hds::AdvancedTable::ThSort>
           </div>
         </div>
       </div>
@@ -1801,15 +1830,80 @@
 
   <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" role="grid" {{style gridTemplateColumns="repeat(6, 1fr)"}}>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        role="grid"
+        {{style gridTemplateColumns="repeat(3, 1fr)"}}
+      >
         <div class="hds-advanced-table__thead" role="rowgroup">
           <div class="hds-advanced-table__tr" role="row">
             <Hds::AdvancedTable::Th>Left</Hds::AdvancedTable::Th>
-            <Hds::AdvancedTable::Th @tooltip="Here is more information">Left</Hds::AdvancedTable::Th>
             <Hds::AdvancedTable::Th @align="center">Center</Hds::AdvancedTable::Th>
-            <Hds::AdvancedTable::Th @align="center" @tooltip="Here is more information">Center</Hds::AdvancedTable::Th>
             <Hds::AdvancedTable::Th @align="right">Right</Hds::AdvancedTable::Th>
-            <Hds::AdvancedTable::Th @align="right" @tooltip="Here is more information">Right</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+        <div class="hds-advanced-table__tbody" role="rowgroup">
+          <div class="hds-advanced-table__tr" role="row">
+            <Hds::AdvancedTable::Th>Left</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th @align="center">Center</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th @align="right">Right</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @label="Alignment with all interactive elements" as |SF|>
+    <SF.Item @grow={{true}}>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        role="grid"
+        {{style gridTemplateColumns="repeat(4, 1fr)"}}
+      >
+        <div class="hds-advanced-table__thead hds-advanced-table__thead--has-resizable-columns" role="rowgroup">
+          <div class="hds-advanced-table__tr" role="row">
+            <Hds::AdvancedTable::Th
+              @isExpandable={{true}}
+              @tooltip="Here is more information"
+              @column={{get this.sampleTableModel.columns 1}}
+              @hasResizableColumns={{true}}
+            >Left</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th
+              @align="center"
+              @isExpandable={{true}}
+              @tooltip="Here is more information"
+              @column={{get this.sampleTableModel.columns 1}}
+              @hasResizableColumns={{true}}
+            >Center</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th
+              @align="right"
+              @isExpandable={{true}}
+              @tooltip="Here is more information"
+              @column={{get this.sampleTableModel.columns 1}}
+              @hasResizableColumns={{true}}
+            >Right</Hds::AdvancedTable::Th>
+            {{! Note: need a last column to avoid a scrollbar}}
+            <Hds::AdvancedTable::Th>Last column</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+        <div class="hds-advanced-table__tbody" role="rowgroup">
+          <div class="hds-advanced-table__tr" role="row">
+            <Hds::AdvancedTable::Th
+              @isExpandable={{true}}
+              @tooltip="Here is more information"
+            >Left</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th
+              @align="center"
+              @isExpandable={{true}}
+              @tooltip="Here is more information"
+            >Center</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th
+              @align="right"
+              @isExpandable={{true}}
+              @tooltip="Here is more information"
+            >Right</Hds::AdvancedTable::Th>
+            {{! Note: need a last column to avoid a scrollbar}}
+            <Hds::AdvancedTable::Th>Last column</Hds::AdvancedTable::Th>
           </div>
         </div>
       </div>

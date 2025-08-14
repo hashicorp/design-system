@@ -35,17 +35,17 @@ status:
   @include "partials/code/component-api.md"
 </section>
 
+<section data-tab="Specifications">
+  @include "partials/specifications/anatomy.md"
+  @include "partials/specifications/states.md"
+</section>
+
 <section data-tab="Content">
   @include "partials/content/general.md"
   @include "partials/content/icon-usage.md"
   @include "partials/content/link-usage.md"
   @include "partials/content/badge-usage.md"
   @include "partials/content/null-values.md"
-</section>
-
-<section data-tab="Specifications">
-  @include "partials/specifications/anatomy.md"
-  @include "partials/specifications/states.md"
 </section>
 
 <section data-tab="Accessibility">
