@@ -7,5 +7,5 @@
 <!-- END -->
 
 <!-- START components/icon-tile -->
-`IconTile` - Updated exported `IconTileColors` type to use template literals instead of enum values. 
+`IconTile` - Updated exported `HdsIconTileColors` type to use template literals instead of enum values. 
 <!-- END -->
