@@ -10,6 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
+import { schedule } from '@ember/runloop';
 import HdsAdvancedTableTableModel from './models/table.ts';
 
 import type Owner from '@ember/owner';
@@ -483,9 +484,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     const updateMeasurements = () => {
       this._tableHeight = element.offsetHeight;
-
-      const hasFirstColumnPxWidth =
-        this._tableModel.columns[0]?.pxWidth !== undefined;
 
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,

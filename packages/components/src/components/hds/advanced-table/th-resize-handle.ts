@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
-import { requestAnimationFrameWaiter } from './utils.ts';
 import { BORDER_WIDTH } from './index.ts';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
