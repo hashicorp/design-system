@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-import { HdsAdvancedTableScopeValues } from './types.ts';
+// import { HdsAdvancedTableScopeValues } from './types.ts';
 import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableThSortOrder,
@@ -47,20 +47,19 @@ export interface BaseHdsAdvancedTableTrSignature {
   Element: HTMLDivElement;
 }
 
-// Extended interface for selectable rows
-export interface SelectableHdsAdvancedTableTrArgs
-  extends BaseHdsAdvancedTableTrSignature {
-  Args: BaseHdsAdvancedTableTrSignature['Args'] & {
-    isSelectable: true;
-    selectionScope?: HdsAdvancedTableScopeValues.Row;
-    selectionKey: string; // Now required for selectable rows
-  };
-}
+// // Extended interface for selectable rows
+// export interface SelectableHdsAdvancedTableTrArgs
+//   extends BaseHdsAdvancedTableTrSignature {
+//   Args: BaseHdsAdvancedTableTrSignature['Args'] & {
+//     isSelectable: true;
+//     selectionScope?: HdsAdvancedTableScopeValues.Row;
+//     selectionKey: string; // Now required for selectable rows
+//   };
+// }
 
 // Union type to combine both possible states
-export type HdsAdvancedTableTrSignature =
-  | BaseHdsAdvancedTableTrSignature
-  | SelectableHdsAdvancedTableTrArgs;
+export type HdsAdvancedTableTrSignature = BaseHdsAdvancedTableTrSignature;
+// | SelectableHdsAdvancedTableTrArgs;
 export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSignature> {
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
