@@ -47,7 +47,13 @@ export interface BaseHdsAdvancedTableTrSignature {
   Element: HTMLDivElement;
 }
 
-// // Extended interface for selectable rows
+/*
+ * NOTE: There is currently an issue with `WithBoundArgs` or Glint that causes a typing error where @selectionKey is set as always required.
+ *
+ * Until this is fixed, we are holding off on doing a union with the SelectableHdsAdvancedTableTrArgs
+ */
+
+// Extended interface for selectable rows
 // export interface SelectableHdsAdvancedTableTrArgs
 //   extends BaseHdsAdvancedTableTrSignature {
 //   Args: BaseHdsAdvancedTableTrSignature['Args'] & {
@@ -60,6 +66,7 @@ export interface BaseHdsAdvancedTableTrSignature {
 // Union type to combine both possible states
 export type HdsAdvancedTableTrSignature = BaseHdsAdvancedTableTrSignature;
 // | SelectableHdsAdvancedTableTrArgs;
+
 export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSignature> {
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
