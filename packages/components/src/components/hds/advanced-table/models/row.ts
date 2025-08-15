@@ -39,15 +39,15 @@ export default class HdsAdvancedTableRow {
   }
 
   get orderedCells(): HdsAdvancedTableCell[] {
-    return this.columnOrder.reduce((acc, key) => {
+    return this.columnOrder.map((key) => {
       const cell = this.cells.find((cell) => cell.columnKey === key);
 
-      if (cell) {
-        acc.push(cell);
+      if (cell === undefined) {
+        throw new Error(`Column with key ${key} not found`);
       }
 
-      return acc;
-    }, [] as HdsAdvancedTableCell[]);
+      return cell;
+    });
   }
 
   constructor(args: HdsAdvancedTableRowArgs) {
