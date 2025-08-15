@@ -302,9 +302,10 @@ export default class HdsAdvancedTableTableModel {
     const { table } = column;
     const oldIndex = table.orderedColumns.indexOf(column);
     const newIndex = oldIndex + step;
+    const startBoundary = table.hasStickyFirstColumn ? 1 : 0;
 
     // Check if the new position is within the array bounds.
-    if (newIndex < 0 || newIndex >= table.orderedColumns.length) {
+    if (newIndex < startBoundary || newIndex >= table.orderedColumns.length) {
       return;
     }
 
