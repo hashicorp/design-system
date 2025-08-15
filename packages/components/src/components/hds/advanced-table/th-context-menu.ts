@@ -25,6 +25,7 @@ export interface HdsAdvancedTableThContextMenuSignature {
     column: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
     hasReorderableColumns?: boolean;
+    isStickyColumn?: boolean;
     reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
@@ -74,7 +75,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       },
     ];
 
-    if (!column.isFirst) {
+    if (!column.isFirstNonSticky) {
       reorderOptions = [
         ...reorderOptions,
         {
@@ -102,7 +103,8 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { hasReorderableColumns, hasResizableColumns } = this.args;
+    const { hasReorderableColumns, hasResizableColumns, isStickyColumn } =
+      this.args;
 
     let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
 
@@ -110,7 +112,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       allGroups = [...allGroups, this._resizeOptions];
     }
 
-    if (hasReorderableColumns) {
+    if (hasReorderableColumns && isStickyColumn !== true) {
       allGroups = [...allGroups, this._reorderOptions];
     }
 
