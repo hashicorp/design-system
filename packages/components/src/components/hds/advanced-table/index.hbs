@@ -145,7 +145,7 @@
                   scope="row"
                   onClickToggle=T.onClickToggle
                 )
-                Td=(component "hds/advanced-table/td" align=@align columns=this._tableModel.columns)
+                Td=(component "hds/advanced-table/td" align=@align)
                 data=T.data
                 isOpen=T.isExpanded
                 rowIndex=T.rowIndex
@@ -175,7 +175,7 @@
                 isStickyColumn=this.hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
               )
-              Td=(component "hds/advanced-table/td" align=@align columns=this._tableModel.columns)
+              Td=(component "hds/advanced-table/td" align=@align)
               data=record
               rowIndex=index
             )
