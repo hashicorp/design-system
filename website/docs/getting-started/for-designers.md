@@ -19,6 +19,8 @@ The Design Systems Team maintains and publishes Figma libraries which contain fo
 If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Foundations, Components, Patterns, and Icon libraries.
 !!!
 
+Once the libraries are enabled, you can access the components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar. In contrast, styles published by the Foundations library are available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) within the right sidebar.
+
 1. Open the Library modal via one of the following methods:
 
       - Click the `Assets` panel in the left sidebar, then click the `book` icon to open the modal.
@@ -42,8 +44,6 @@ If you are not a member of the HDS Design System UI Kit team, you will need to l
       - [HDS Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1)
 
    ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries-toggle.png)
-
-Once the libraries are enabled, you can access the components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar. In contrast, styles published by the Foundations library are available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) within the right sidebar.
 
 ## Foundational styles
 
