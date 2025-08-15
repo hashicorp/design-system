@@ -25,7 +25,9 @@
   grid-area: header;
 
   // Make header position sticky/fixed if the viewport height is greater than 480px
-  @media (height >= 480px) {
+  // Note: HCP in prod doesn't support newer media queries, so we use the old syntax
+  // stylelint-disable-next-line media-feature-range-notation
+  @media (min-height: 480px) {
     position: sticky;
     top: 0;
     right: 0;
@@ -42,7 +44,9 @@
   min-height: 100vh;
 
   // Modify sidenav layout when used together with fixed app-header
-  @media (height >= 480px) {
+  // Note: HCP in prod doesn't support newer media queries, so we use the old syntax
+  // stylelint-disable-next-line media-feature-range-notation
+  @media (min-height: 480px) {
     .hds-app-frame--has-header-with-sidebar & {
       top: var(--token-app-header-height);
       height: calc(100vh - var(--token-app-header-height));
