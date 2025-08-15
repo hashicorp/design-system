@@ -114,6 +114,10 @@ export default class HdsAdvancedTableColumn {
     return this.index === 0;
   }
 
+  get isFirstNonSticky(): boolean {
+    return this.table.hasStickyFirstColumn ? this.index === 1 : this.isFirst;
+  }
+
   get isLast(): boolean {
     return this.index !== -1 && this.index === this.table.columns.length - 1;
   }

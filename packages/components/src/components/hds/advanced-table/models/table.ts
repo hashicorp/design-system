@@ -36,6 +36,7 @@ type HdsAdvancedTableTableArgs = Pick<
   | 'columnOrder'
   | 'childrenKey'
   | 'hasResizableColumns'
+  | 'hasStickyFirstColumn'
   | 'sortBy'
   | 'sortOrder'
   | 'onSort'
@@ -75,6 +76,7 @@ export default class HdsAdvancedTableTableModel {
 
   childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
   hasResizableColumns?: HdsAdvancedTableTableArgs['hasResizableColumns'];
+  hasStickyFirstColumn?: HdsAdvancedTableTableArgs['hasStickyFirstColumn'];
   onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
   onSort?: HdsAdvancedTableSignature['Args']['onSort'];
 
@@ -85,6 +87,7 @@ export default class HdsAdvancedTableTableModel {
       columnOrder,
       childrenKey,
       hasResizableColumns,
+      hasStickyFirstColumn,
       sortBy,
       sortOrder,
       onColumnReorder,
@@ -93,6 +96,7 @@ export default class HdsAdvancedTableTableModel {
 
     this.childrenKey = childrenKey;
     this.hasResizableColumns = hasResizableColumns;
+    this.hasStickyFirstColumn = hasStickyFirstColumn;
     this.onSort = onSort;
 
     this.setupData({ model, columns, columnOrder, sortBy, sortOrder });
@@ -324,6 +328,10 @@ export default class HdsAdvancedTableTableModel {
     column: HdsAdvancedTableColumn,
     position: 'start' | 'end'
   ): void {
+    const firstNonStickyColumn = this.orderedColumns.find(
+      (column) => column.isFirstNonSticky
+    );
+
     const {
       targetColumn,
       side,
@@ -333,7 +341,7 @@ export default class HdsAdvancedTableTableModel {
     } =
       position === 'start'
         ? {
-            targetColumn: this.orderedColumns[0],
+            targetColumn: firstNonStickyColumn,
             side: HdsAdvancedTableColumnReorderSideValues.Left,
           }
         : {

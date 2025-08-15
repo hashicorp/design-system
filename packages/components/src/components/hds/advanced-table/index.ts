@@ -246,6 +246,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       columnOrder,
       childrenKey,
       hasResizableColumns,
+      hasStickyFirstColumn,
       sortBy,
       sortOrder,
       onColumnReorder: this._onColumnReorder.bind(this),
