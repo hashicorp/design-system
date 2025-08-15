@@ -851,6 +851,152 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         'The column order is updated correctly',
       );
     });
+
+    module('with @hasStickyFirstColumn enabled', function () {
+      test('dropping a column on a sticky column does not trigger a reorder', async function (assert) {
+        await render(
+          hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+  @hasStickyFirstColumn={{true}}
+/>`,
+        );
+
+        const initialColumnOrder = this.columns.map((col) => col.key);
+
+        let columnOrder = await getColumnOrder(this.columns);
+        assert.deepEqual(
+          columnOrder,
+          initialColumnOrder,
+          'Initial column order is correct',
+        );
+
+        const thirdReorderHandle = findAll(
+          '.hds-advanced-table__th-reorder-handle',
+        )[2];
+
+        const { target, eventOptions } = await simulateColumnReorderDrag({
+          handleElement: thirdReorderHandle,
+          targetIndex: 0,
+          targetPosition: 'left',
+        });
+
+        const dropTargets = findAll(
+          '.hds-advanced-table__th-reorder-drop-target',
+        );
+        const destinationDropTarget = dropTargets[0];
+
+        assert
+          .dom(thirdReorderHandle)
+          .hasClass(
+            'hds-advanced-table__th-reorder-drop-target--is-being-dragged',
+            'Third column is being dragged',
+          );
+        assert
+          .dom(destinationDropTarget)
+          .doesNotHaveClass(
+            'hds-advanced-table__th-reorder-drop-target--is-dragging-over',
+          )
+          .doesNotHaveClass(
+            'hds-advanced-table__th-reorder-drop-target--is-dragging-over--left',
+          );
+
+        await simulateColumnReorderDrop({
+          target,
+          handleElement: thirdReorderHandle,
+          eventOptions,
+        });
+
+        columnOrder = await getColumnOrder(this.columns);
+
+        assert
+          .dom('.hds-advanced-table__th-reorder-drop-target')
+          .doesNotExist('Drop targets are removed after drop');
+        assert.deepEqual(
+          columnOrder,
+          initialColumnOrder,
+          'Columns order is unchanged after dropping on the sticky first column',
+        );
+      });
+
+      test('the context menu for the sticky column does not render when reordering is enabled but no other context menu options are available', async function (assert) {
+        await render(
+          hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+  @hasStickyFirstColumn={{true}}
+/>`,
+        );
+
+        assert
+          .dom(
+            '.hds-advanced-table__th:first-of-type .hds-advanced-table__th-context-menu',
+          )
+          .doesNotExist('context menu does not render for the sticky column');
+      });
+
+      test('clicking the "Move column to start" context menu option moves the column to the first non-sticky column position', async function (assert) {
+        await render(
+          hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+  @hasStickyFirstColumn={{true}}
+/>`,
+        );
+
+        const thElements = findAll('.hds-advanced-table__th');
+
+        const thirdContextMenuToggle = thElements[2].querySelector(
+          '.hds-dropdown-toggle-icon',
+        );
+        await click(thirdContextMenuToggle);
+        await click('[data-test-context-option-key="move-column-to-start"]');
+
+        const columnOrder = await getColumnOrder(this.columns);
+        assert.deepEqual(
+          columnOrder,
+          [this.columns[0].key, this.columns[2].key, this.columns[1].key],
+          'The third column is moved to the first non-sticky position',
+        );
+      });
+
+      test('pressing "Left Arrow" when the reorder handle of the first non-sticky column is focused does not reposition the column before the sticky column', async function (assert) {
+        await render(
+          hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+  @hasStickyFirstColumn={{true}}
+/>`,
+        );
+
+        const thElements = findAll('.hds-advanced-table__th');
+        const firstNonStickyColumnReorderHandle = thElements[1].querySelector(
+          '.hds-advanced-table__th-reorder-handle',
+        );
+        await focus(firstNonStickyColumnReorderHandle);
+        assert.dom(firstNonStickyColumnReorderHandle).isFocused();
+
+        await triggerKeyEvent(
+          firstNonStickyColumnReorderHandle,
+          'keydown',
+          'ArrowLeft',
+        );
+        let columnOrder = await getColumnOrder(this.columns);
+        assert.deepEqual(
+          columnOrder,
+          [this.columns[0].key, this.columns[1].key, this.columns[2].key],
+          'column order is unchanged',
+        );
+      });
+    });
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
