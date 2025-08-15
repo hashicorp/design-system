@@ -11,7 +11,7 @@
 
 ## Numbered vs Compact
 
-!!! Warning 
+!!! Callout 
 
 We strongly suggest that you talk to your engineering team to see which pagination variant is right for your project.
 

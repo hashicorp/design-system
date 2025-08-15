@@ -5,7 +5,7 @@ navigation:
   label: For designers
 ---
 
-!!! Info
+!!! Callout
 
 Many resources and links on this page are only available to HashiCorp employees.
 !!!
@@ -38,7 +38,7 @@ The Design Systems Team maintains and publishes Figma libraries which contain fo
 
    ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries-toggle.png)
 
-!!! Info
+!!! Callout
 
 If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Foundations, Components, Patterns, and Icon libraries.
 !!!

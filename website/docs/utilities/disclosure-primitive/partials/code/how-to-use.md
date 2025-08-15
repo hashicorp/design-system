@@ -1,6 +1,6 @@
-!!! Warning
+!!! Callout
 
-This component is intended only for internal Helios use. If you need to use it, contact the Design Systems Team.
+This component is intended only for internal Helios use. If you need to use it, [contact the Design Systems Team](/about/support).
 !!!
 
 ## How to use this component
@@ -9,8 +9,7 @@ The `DisclosurePrimitive` component renders an interactive element that triggers
 
 When the content is disclosed, the container can be closed by toggling the button (`click` or `enter/return`).
 
-**Note:** [MenuPrimitive](/utilities/menu-primitive), another variant of this primitive, includes extra functionality to close the content panel by either clicking outside of the content, or via the `esc` key.
-
+The [MenuPrimitive](/utilities/menu-primitive), another variant of this primitive, includes extra functionality to close the content panel by either clicking outside of the content, or via the `esc` key.
 
 ```handlebars
 <Hds::DisclosurePrimitive>
