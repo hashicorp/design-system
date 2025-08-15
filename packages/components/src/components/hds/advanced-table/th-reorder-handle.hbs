@@ -1,0 +1,18 @@
+{{! template-lint-disable no-pointer-down-event-binding }}
+<div
+  draggable="true"
+  class={{this.classNames}}
+  tabindex="0"
+  aria-label={{hds-t
+    "hds.components.advanced-table.th-reorder-handle.aria-label"
+    columnLabel=@column.label
+    default=(concat "Reorder " @column.label " column")
+  }}
+  {{this._registerElement}}
+  {{on "dragstart" this.handleDragStart}}
+  {{on "dragend" this.handleDragEnd}}
+  {{on "keydown" this.handleKeydown}}
+  ...attributes
+>
+  <Hds::Icon @name="move-horizontal" />
+</div>

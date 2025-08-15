@@ -7,11 +7,11 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import { BORDER_WIDTH } from './index.ts';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
-const TABLE_BORDER_WIDTH = 1;
 const KEYBOARD_RESIZE_STEP = 10;
 
 function calculateEffectiveDelta(
@@ -52,7 +52,6 @@ function calculateEffectiveDelta(
 export interface HdsAdvancedTableThResizeHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    hasResizableColumns: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     tableHeight?: number;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
@@ -68,7 +67,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startColumnPxWidth: number;
     startNextColumnPxWidth?: number;
   } | null = null;
-  @tracked private _nextColumnDelta: number = 0;
+  // track the width change as it is changing, applied when resizing stops
+  @tracked private _tempXDelta: number = 0;
 
   private _handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private _boundResize: (event: PointerEvent) => void;
@@ -97,7 +97,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       return;
     }
 
-    return `${tableHeight - TABLE_BORDER_WIDTH * 2}px`;
+    return `${tableHeight - BORDER_WIDTH * 2}px`;
   }
 
   get classNames(): string {
@@ -151,9 +151,11 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       currentNextColumnPxWidth ?? 0 // Current next col width before keyboard step
     );
 
-    this._setNextColumnImposedWidthDelta(nextColumn, this._nextColumnDelta);
+    this._setWidthDebts();
 
     this.onColumnResize(column.key, column.width);
+
+    this._tempXDelta = 0;
 
     this._handleElement.scrollIntoView({
       behavior: 'smooth',
@@ -206,7 +208,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
       nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
-      this._nextColumnDelta = actualAppliedDelta;
+
+      this._tempXDelta = actualAppliedDelta;
     } else {
       column.setPxWidth(startColumnPxWidth + deltaX);
     }
@@ -235,29 +238,50 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   private _stopResize(): void {
+    const { column } = this.args;
+
     window.removeEventListener('pointermove', this._boundResize);
     window.removeEventListener('pointerup', this._boundStopResize);
 
-    const { column } = this.args;
-    const { next: nextColumn } = column.siblings;
-
-    this._setNextColumnImposedWidthDelta(nextColumn, this._nextColumnDelta);
+    this._setWidthDebts();
 
     this.onColumnResize(column.key, column.width);
 
+    this._tempXDelta = 0;
     this.resizing = null;
   }
 
-  private _setNextColumnImposedWidthDelta(
-    nextColumn: HdsAdvancedTableColumn | undefined,
-    delta: number
+  private _addDebt(
+    borrower: HdsAdvancedTableColumn,
+    lenderKey: string,
+    amount: number
   ): void {
-    if (nextColumn === undefined) {
+    borrower.widthDebts = {
+      ...borrower.widthDebts,
+      [lenderKey]: (borrower.widthDebts[lenderKey] ?? 0) + amount,
+    };
+  }
+
+  private _setWidthDebts(): void {
+    const { column } = this.args;
+    const { next: nextColumn } = column.siblings;
+    const delta = this._tempXDelta;
+
+    if (
+      delta === 0 ||
+      nextColumn === undefined ||
+      nextColumn.key === undefined ||
+      column.key === undefined
+    ) {
       return;
     }
 
-    nextColumn.imposedWidthDelta = (nextColumn.imposedWidthDelta ?? 0) + delta;
+    if (delta > 0) {
+      this._addDebt(column, nextColumn.key, delta);
+    } else {
+      const amountBorrowed = -delta;
 
-    this._nextColumnDelta = 0;
+      this._addDebt(nextColumn, column.key, amountBorrowed);
+    }
   }
 }
