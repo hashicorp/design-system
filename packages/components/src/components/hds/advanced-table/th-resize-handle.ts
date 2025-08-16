@@ -40,7 +40,13 @@ function calculateEffectiveDelta(
   else if (deltaX < 0) {
     const absDeltaX = -deltaX;
     const maxCanShrinkCol = startColW - colMin;
-    const maxCanExpandNext = nextMax - startNextColW;
+
+    let maxCanExpandNext: number;
+    if (startNextColW > nextMax) {
+      maxCanExpandNext = Infinity;
+    } else {
+      maxCanExpandNext = nextMax - startNextColW;
+    }
 
     effectiveDelta = -Math.min(absDeltaX, maxCanShrinkCol, maxCanExpandNext);
     effectiveDelta = Math.min(0, effectiveDelta);
@@ -68,7 +74,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startColumnPxWidth: number;
     startNextColumnPxWidth?: number;
   } | null = null;
-  @tracked private _nextColumnDelta: number = 0;
+  @tracked private _transientDelta: number = 0;
 
   private _handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private _boundResize: (event: PointerEvent) => void;
@@ -110,6 +116,17 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     return classes.join(' ');
   }
 
+  private _applyTransientWidths() {
+    const { column } = this.args;
+    const { next: nextColumn } = column.siblings;
+
+    column.width = column.appliedWidth;
+
+    if (nextColumn !== undefined) {
+      nextColumn.width = nextColumn.appliedWidth;
+    }
+  }
+
   @action
   onColumnResize(key?: string, width?: string): void {
     const { onColumnResize } = this.args;
@@ -121,7 +138,9 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
   @action
   handleKeydown(event: KeyboardEvent): void {
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
+    const validKeys = ['ArrowLeft', 'ArrowRight'];
+
+    if (!validKeys.includes(event.key)) {
       return;
     }
 
@@ -131,17 +150,13 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const { column } = this.args;
     const { next: nextColumn } = column.siblings;
 
-    const currentColumnPxWidth = column.pxWidth;
-    const currentNextColumnPxWidth = nextColumn?.pxWidth;
+    column.table.setTransientColumnWidths();
 
-    let deltaX = 0;
-    if (event.key === 'ArrowLeft') {
-      deltaX = -KEYBOARD_RESIZE_STEP;
-    } else if (event.key === 'ArrowRight') {
-      deltaX = KEYBOARD_RESIZE_STEP;
-    }
+    const currentColumnPxWidth = column.pxAppliedWidth;
+    const currentNextColumnPxWidth = nextColumn?.pxAppliedWidth;
 
-    if (deltaX === 0) return;
+    const deltaX =
+      event.key === 'ArrowLeft' ? -KEYBOARD_RESIZE_STEP : KEYBOARD_RESIZE_STEP;
 
     this._applyResizeDelta(
       deltaX,
@@ -151,15 +166,24 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       currentNextColumnPxWidth ?? 0 // Current next col width before keyboard step
     );
 
-    this._setNextColumnImposedWidthDelta(nextColumn, this._nextColumnDelta);
-
-    this.onColumnResize(column.key, column.width);
-
+    // ensure the resize handle stays in view
     this._handleElement.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'nearest',
     });
+
+    this._setWidthDebts();
+
+    this._applyTransientWidths();
+
+    // reset the transient width
+    column.table.resetTransientColumnWidths();
+
+    // reset the resizing state
+    this._transientDelta = 0;
+
+    this.onColumnResize(column.key, column.width);
   }
 
   @action
@@ -170,10 +194,12 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const { column } = this.args;
     const { next: nextColumn } = column.siblings;
 
+    column.table.setTransientColumnWidths();
+
     this.resizing = {
       startX: event.clientX,
-      startColumnPxWidth: column.pxWidth ?? 0,
-      startNextColumnPxWidth: nextColumn?.pxWidth ?? 0,
+      startColumnPxWidth: column.pxAppliedWidth ?? 0,
+      startNextColumnPxWidth: nextColumn?.pxAppliedWidth ?? 0,
     };
 
     window.addEventListener('pointermove', this._boundResize);
@@ -199,16 +225,30 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
         startNextColumnPxWidth
       );
 
-      column.setPxWidth(startColumnPxWidth + effectiveDelta);
+      column.setPxTransientWidth(
+        Math.round(startColumnPxWidth + effectiveDelta)
+      );
 
       // the actual new column width may differ from the intended width due to min/max constraints.
-      const actualNewColumnWidth = column.pxWidth ?? startColumnPxWidth;
+      const actualNewColumnWidth = column.pxAppliedWidth ?? startColumnPxWidth;
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
-      nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
-      this._nextColumnDelta = actualAppliedDelta;
+      const nextColumnNewWidth = Math.round(
+        startNextColumnPxWidth - actualAppliedDelta
+      );
+
+      // Check if the next column is outside its min/max bounds
+      const nextMaxWidth = nextColumn.pxMaxWidth ?? Infinity;
+      if (startNextColumnPxWidth > nextMaxWidth) {
+        // allow resizing if column is already above max width
+        nextColumn.pxTransientWidth = nextColumnNewWidth;
+      } else {
+        nextColumn.setPxTransientWidth(nextColumnNewWidth);
+      }
+
+      this._transientDelta = actualAppliedDelta;
     } else {
-      column.setPxWidth(startColumnPxWidth + deltaX);
+      column.setPxTransientWidth(Math.round(startColumnPxWidth + deltaX));
     }
   }
 
@@ -235,29 +275,56 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   private _stopResize(): void {
+    const { column } = this.args;
+
     window.removeEventListener('pointermove', this._boundResize);
     window.removeEventListener('pointerup', this._boundStopResize);
 
-    const { column } = this.args;
-    const { next: nextColumn } = column.siblings;
+    this._setWidthDebts();
 
-    this._setNextColumnImposedWidthDelta(nextColumn, this._nextColumnDelta);
+    this._applyTransientWidths();
 
-    this.onColumnResize(column.key, column.width);
+    // reset the transient width
+    column.table.resetTransientColumnWidths();
 
+    // reset the resizing state
     this.resizing = null;
+    this._transientDelta = 0;
+
+    this.onColumnResize(column.key, column.appliedWidth);
   }
 
-  private _setNextColumnImposedWidthDelta(
-    nextColumn: HdsAdvancedTableColumn | undefined,
-    delta: number
+  private _addDebt(
+    borrower: HdsAdvancedTableColumn,
+    lenderKey: string,
+    amount: number
   ): void {
-    if (nextColumn === undefined) {
+    borrower.widthDebts = {
+      ...borrower.widthDebts,
+      [lenderKey]: (borrower.widthDebts[lenderKey] ?? 0) + amount,
+    };
+  }
+
+  private _setWidthDebts(): void {
+    const { column } = this.args;
+    const { next: nextColumn } = column.siblings;
+    const delta = this._transientDelta;
+
+    if (
+      delta === 0 ||
+      nextColumn === undefined ||
+      nextColumn.key === undefined ||
+      column.key === undefined
+    ) {
       return;
     }
 
-    nextColumn.imposedWidthDelta = (nextColumn.imposedWidthDelta ?? 0) + delta;
+    if (delta > 0) {
+      this._addDebt(column, nextColumn.key, delta);
+    } else {
+      const amountBorrowed = -delta;
 
-    this._nextColumnDelta = 0;
+      this._addDebt(nextColumn, column.key, amountBorrowed);
+    }
   }
 }

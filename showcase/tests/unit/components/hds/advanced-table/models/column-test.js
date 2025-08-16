@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import HdsAdvancedTableColumn, {
   DEFAULT_MAX_WIDTH,
   DEFAULT_MIN_WIDTH,
+  DEFAULT_WIDTH,
 } from '@hashicorp/design-system-components/components/hds/advanced-table/models/column';
 
 module('Unit | Component | hds/advanced-table/models/column', function () {
@@ -50,8 +51,8 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
     );
     assert.strictEqual(
       column.width,
-      undefined,
-      'width is undefined when not provided',
+      DEFAULT_WIDTH,
+      'width is set to the default when not provided',
     );
   });
 
@@ -177,7 +178,7 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
     );
   });
 
-  test('setPxWidth respects min/max constraints', function (assert) {
+  test('setPxTransientWidth respects min/max constraints', function (assert) {
     const column = new HdsAdvancedTableColumn({
       column: {
         label: 'Constrained Width',
@@ -187,23 +188,23 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       },
     });
 
-    column.setPxWidth(100);
+    column.setPxTransientWidth(100);
     assert.strictEqual(
-      column.width,
+      column.transientWidth,
       '150px',
       'respects minimum width constraint',
     );
 
-    column.setPxWidth(300);
+    column.setPxTransientWidth(300);
     assert.strictEqual(
-      column.width,
+      column.transientWidth,
       '250px',
       'respects maximum width constraint',
     );
 
-    column.setPxWidth(200);
+    column.setPxTransientWidth(200);
     assert.strictEqual(
-      column.width,
+      column.transientWidth,
       '200px',
       'sets exact width when within constraints',
     );
@@ -219,7 +220,7 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
 
     assert.strictEqual(column.width, '200px', 'initial width is set');
 
-    column.setPxWidth(300);
+    column.pxWidth = 300;
     assert.strictEqual(column.width, '300px', 'width is updated');
 
     column.restoreWidth();

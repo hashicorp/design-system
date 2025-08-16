@@ -11,7 +11,6 @@ import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
-import { schedule } from '@ember/runloop';
 
 import HdsAdvancedTableTableModel from './models/table.ts';
 
@@ -352,23 +351,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const { isSelectable } = this.args;
     const { columns } = this._tableModel;
 
-    const DEFAULT_COLUMN_WIDTH = '1fr';
-
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    const hasCustomColumnWidths = columns.some(
-      (column) => column.width !== undefined
-    );
-
-    if (hasCustomColumnWidths) {
-      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
-      for (let i = 0; i < columns.length; i++) {
-        style += ` ${columns[i]!.width ?? DEFAULT_COLUMN_WIDTH}`;
-      }
-    } else {
-      // if there are no custom column widths, each column is the same width and they take up the available space
-      style += `repeat(${columns.length}, ${DEFAULT_COLUMN_WIDTH})`;
+    for (let i = 0; i < columns.length; i++) {
+      style += ` ${columns[i]!.appliedWidth}`;
     }
 
     return style;
@@ -414,21 +401,25 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _setColumnWidth = modifier(
+  private _registerThElement = modifier(
     (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
-      // eslint-disable-next-line ember/no-runloop
-      schedule('afterRender', () => {
-        const width = element.offsetWidth;
+      if (column === undefined) {
+        return;
+      }
 
-        if (column.width === undefined) {
-          column.setPxWidth(width);
-          column.originalWidth = `${width}px`;
-        }
-      });
+      column.thElement = element;
     }
   );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
+    const updateHorizontalScrollIndicators = () => {
+      if (element.clientWidth < element.scrollWidth) {
+        this.showScrollIndicatorRight = true;
+      } else {
+        this.showScrollIndicatorRight = false;
+      }
+    };
+
     this._scrollHandler = () => {
       // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
       const SCROLL_BUFFER = 6;
@@ -505,6 +496,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         updateMeasurements();
+        updateHorizontalScrollIndicators();
       });
     });
 
@@ -513,9 +505,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     updateMeasurements();
 
     // on render check if should show right scroll indicator
-    if (element.clientWidth < element.scrollWidth) {
-      this.showScrollIndicatorRight = true;
-    }
+    updateHorizontalScrollIndicators();
 
     // on render check if should show bottom scroll indicator
     if (element.clientHeight < element.scrollHeight) {
