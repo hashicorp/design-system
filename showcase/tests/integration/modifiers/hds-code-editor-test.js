@@ -11,6 +11,7 @@ import {
   setupOnerror,
   focus,
   blur,
+  settled,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
@@ -46,6 +47,23 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value=this.val}} />`,
     );
     assert.dom('#code-editor-wrapper .cm-editor').includesText(val);
+  });
+
+  test('it should update the editor value when the value changes', async function (assert) {
+    const initialValue = 'Initial Value';
+    const updatedValue = 'Updated Value';
+
+    this.set('val', initialValue);
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value=this.val}} />`,
+    );
+
+    assert.dom('#code-editor-wrapper .cm-editor').includesText(initialValue);
+
+    this.set('val', updatedValue);
+    await settled();
+
+    assert.dom('#code-editor-wrapper .cm-editor').includesText(updatedValue);
   });
 
   // onBlur
@@ -155,6 +173,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       .hasClass('cm-lineWrapping');
 
     this.set('hasLineWrapping', false);
+    await settled();
     assert
       .dom('#code-editor-wrapper .cm-editor .cm-content')
       .doesNotHaveClass('cm-lineWrapping');
