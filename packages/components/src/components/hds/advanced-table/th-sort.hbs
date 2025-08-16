@@ -47,9 +47,11 @@
         {{#if this.showContextMenu}}
           <Hds::AdvancedTable::ThContextMenu
             @column={{@column}}
+            @isStickyColumn={{@isStickyColumn}}
             @hasResizableColumns={{@hasResizableColumns}}
             @resizeHandleElement={{this._resizeHandleElement}}
             @onColumnResize={{@onColumnResize}}
+            @onPinFirstColumn={{@onPinFirstColumn}}
           />
         {{/if}}
 

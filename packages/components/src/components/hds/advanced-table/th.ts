@@ -50,6 +50,7 @@ export interface HdsAdvancedTableThSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onPinFirstColumn?: () => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
   Blocks: {
@@ -143,9 +144,9 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get showContextMenu(): boolean {
-    const { hasResizableColumns } = this.args;
+    const { hasResizableColumns, isStickyColumn } = this.args;
 
-    return hasResizableColumns ?? false;
+    return (hasResizableColumns || isStickyColumn !== undefined) ?? false;
   }
 
   @action onFocusTrapDeactivate(): void {
