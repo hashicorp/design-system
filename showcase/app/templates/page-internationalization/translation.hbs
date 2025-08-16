@@ -23,7 +23,7 @@
     <code>ember-intl</code>. The locale will be reset back to its initial value when leaving the page.
   </Shw::Text::Body>
 
-  <Hds::Form::Select::Field @value={{this.lang}} {{on "change" this.setLang}} as |F|>
+  <Hds::Form::Select::Field {{on "change" this.setLang}} as |F|>
     <F.Label>{{hds-t
         "showcase.pages.internationalization.translation.language"
         default="Language (Fallback translation)"
