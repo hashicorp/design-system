@@ -12,8 +12,7 @@
   <Shw::Text::H2>Elevation</Shw::Text::H2>
 
   <div class="shw-component-card-wrapper">
-    {{! template-lint-disable no-potential-path-strings }}
-    <Shw::Grid @label="@level" @columns={{3}} {{style width="fit-content"}} as |SG|>
+    <Shw::Grid @label="Level" @columns={{3}} {{style width="fit-content"}} as |SG|>
       {{#each @model.CONTAINER_LEVELS as |level|}}
         <SG.Item>
           <Hds::Card::Container @level={{level}}>
@@ -22,7 +21,7 @@
         </SG.Item>
       {{/each}}
     </Shw::Grid>
-    <Shw::Grid @label="@levelHover" @columns={{3}} {{style width="fit-content"}} as |SG|>
+    <Shw::Grid @label="Level Hover" @columns={{3}} {{style width="fit-content"}} as |SG|>
       {{#each @model.CONTAINER_LEVELS as |level|}}
         <SG.Item>
           <Hds::Card::Container @levelHover={{level}} mock-state-value="hover">
@@ -31,7 +30,7 @@
         </SG.Item>
       {{/each}}
     </Shw::Grid>
-    <Shw::Grid @label="@levelActive" @columns={{3}} {{style width="fit-content"}} as |SG|>
+    <Shw::Grid @label="Level Active" @columns={{3}} {{style width="fit-content"}} as |SG|>
       {{#each @model.CONTAINER_LEVELS as |level|}}
         <SG.Item>
           <Hds::Card::Container @levelActive={{level}} mock-state-value="active">
@@ -40,7 +39,6 @@
         </SG.Item>
       {{/each}}
     </Shw::Grid>
-    {{! template-lint-enable no-potential-path-strings }}
   </div>
 
   <Shw::Text::H2>Border</Shw::Text::H2>
@@ -63,11 +61,7 @@
     <Shw::Grid @columns={{2}} {{style width="fit-content"}} as |SG|>
       {{#each @model.CONTAINER_BACKGROUNDS as |background|}}
         <SG.Item>
-          <Hds::Card::Container
-            @level={{@model.CONTAINER_LEVEL_VALUES.Mid}}
-            @hasBorder={{true}}
-            @background={{background}}
-          >
+          <Hds::Card::Container @level="mid" @hasBorder={{true}} @background={{background}}>
             <Shw::Placeholder @text={{background}} @width="200" @height="200" @background="transparent" />
           </Hds::Card::Container>
         </SG.Item>
@@ -80,7 +74,7 @@
   <div class="shw-component-card-wrapper">
     <Shw::Grid @columns={{2}} @gap="2rem" {{style width="fit-content"}} as |SG|>
       <SG.Item>
-        <Hds::Card::Container @level={{@model.CONTAINER_LEVEL_VALUES.Mid}} @hasBorder={{true}}>
+        <Hds::Card::Container @level="mid" @hasBorder={{true}}>
           <div class="shw-component-card-overflow__wrapper-relative">
             <Shw::Placeholder @text="visible (default)" @width="200" @height="200" @background="#e1f5fe" />
             <div class="shw-component-card-overflow__content-absolute"></div>
@@ -88,11 +82,7 @@
         </Hds::Card::Container>
       </SG.Item>
       <SG.Item>
-        <Hds::Card::Container
-          @level={{@model.CONTAINER_LEVEL_VALUES.Mid}}
-          @hasBorder={{true}}
-          @overflow={{@model.CONTAINER_OVERFLOW_VALUES.Hidden}}
-        >
+        <Hds::Card::Container @level="mid" @hasBorder={{true}} @overflow="hidden">
           <div class="shw-component-card-overflow__wrapper-relative">
             <Shw::Placeholder @text="hidden" @width="200" @height="200" @background="#e1f5fe" />
             <div class="shw-component-card-overflow__content-absolute"></div>
@@ -107,14 +97,14 @@
   <div class="shw-component-card-wrapper">
     <Shw::Grid @columns={{2}} @gap="2rem" {{style width="fit-content"}} as |SG|>
       <SG.Item @label="Card using default div tag">
-        <Hds::Card::Container @level={{@model.CONTAINER_LEVEL_VALUES.Mid}} @hasBorder={{true}}>
+        <Hds::Card::Container @level="mid" @hasBorder={{true}}>
           <Shw::Placeholder @text="div" @width="200" @height="200" @background="transparent" />
         </Hds::Card::Container>
       </SG.Item>
 
       <SG.Item @label="Card using list item tag">
         <ul class="shw-component-card-list">
-          <Hds::Card::Container @level={{@model.CONTAINER_LEVEL_VALUES.Mid}} @hasBorder={{true}} @tag="li">
+          <Hds::Card::Container @level="mid" @hasBorder={{true}} @tag="li">
             <Shw::Placeholder @text="li" @width="200" @height="200" @background="transparent" />
           </Hds::Card::Container>
         </ul>
