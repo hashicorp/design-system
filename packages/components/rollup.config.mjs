@@ -10,6 +10,8 @@ import scss from 'rollup-plugin-scss';
 import process from 'process';
 import path from 'node:path';
 
+import lightningCssValidator from './rollup-plugin-lightningcss-validator.mjs';
+
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
@@ -55,11 +57,20 @@ const plugins = [
     includePaths: [
       'node_modules/@hashicorp/design-system-tokens/dist/products/css',
     ],
+    sourceMap: true,
+    sourceMapEmbed: true, // <-- embed map into CSS we can read later
+    sourceMapContents: true, // <-- include original sources in the map
   }),
 
   scss({
     fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
+    sourceMap: true,
+    sourceMapEmbed: true, // <-- embed map into CSS we can read later
+    sourceMapContents: true, // <-- include original sources in the map
   }),
+
+  // fail build if any invalid CSS is found in emitted .css files
+  lightningCssValidator(),
 
   // Ensure that standalone .hbs files are properly integrated as Javascript.
   addon.hbs(),
