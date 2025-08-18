@@ -19,26 +19,21 @@ import users from 'showcase/mocks/user-data';
 export type PageComponentsAdvancedTableModel =
   ModelFrom<PageComponentsAdvancedTableRoute>;
 
-// basic function that clones an array of objects (not deep)
-export const clone = <T>(arr: T[]): T[] => {
-  return arr.map((item) => ({ ...item }));
-};
-
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 export default class PageComponentsAdvancedTableRoute extends Route {
   model() {
     return {
       music: folkMusic,
-      userDataShort: clone(users.slice(0, 5)),
+      userDataShort: structuredClone(users.slice(0, 5)),
       clusters,
       spanningManualData: spanningCells,
       selectableData: selectableItems,
-      selectableDataDemo1: clone(selectableItems),
-      selectableDataDemo2: clone(selectableItems),
+      selectableDataDemo1: structuredClone(selectableItems),
+      selectableDataDemo2: structuredClone(selectableItems),
       userData: users,
-      userDataDemo3: clone(users.slice(0, 16)),
-      userDataDemo4: clone(
+      userDataDemo3: structuredClone(users.slice(0, 16)),
+      userDataDemo4: structuredClone(
         users.slice(0, 4).map((user) => ({ ...user, isAnimated: false })),
       ),
       nestedData: policies,

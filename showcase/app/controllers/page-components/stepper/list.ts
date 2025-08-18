@@ -11,11 +11,6 @@ import { deepTracked } from 'ember-deep-tracked';
 import type { HdsStepperStatuses } from '@hashicorp/design-system-components/components/hds/stepper/types';
 import type { PageComponentsStepperListModel } from 'showcase/routes/page-components/stepper/list';
 
-// basic function that clones an array of objects (not deep)
-export const clone = <T>(arr: T[]): T[] => {
-  return arr.map((item) => ({ ...item }));
-};
-
 type ListData = {
   title: string;
   status: HdsStepperStatuses;
@@ -70,8 +65,8 @@ export default class PageComponentsStepperListController extends Controller {
   @tracked currentStep_demo1 = 1;
   @tracked currentStep_demo2 = 1;
 
-  @deepTracked steps_demo1 = clone(DEFAULT_DATA);
-  @deepTracked steps_demo2 = clone(DEFAULT_DATA);
+  @deepTracked steps_demo1 = structuredClone(DEFAULT_DATA);
+  @deepTracked steps_demo2 = structuredClone(DEFAULT_DATA);
 
   // =============================
   // DEMOS
