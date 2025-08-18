@@ -165,27 +165,23 @@ export default class HdsAdvancedTableColumn {
   }
 
   private collectWidthDebts(): void {
-    const { key: thisKey, table } = this;
-
-    if (thisKey === undefined) {
-      return;
-    }
-
-    table.columns.forEach((otherColumn) => {
-      const debtToCollect = otherColumn.widthDebts[thisKey] ?? 0;
+    this.table.columns.forEach((otherColumn) => {
+      const debtToCollect = otherColumn.widthDebts[this.key] ?? 0;
 
       if (debtToCollect > 0) {
+        // otherColumn.collectWidthDebts();
+
         // Take the width back from the column that owes us
         otherColumn.pxWidth = (otherColumn.pxWidth ?? 0) - debtToCollect;
         // Clear the debt from their ledger
-        delete otherColumn.widthDebts[thisKey];
+        delete otherColumn.widthDebts[this.key];
       }
     });
   }
 
   private settleWidthDebts(): void {
-    this.payWidthDebts();
     this.collectWidthDebts();
+    this.payWidthDebts();
   }
 
   // set initial width values
@@ -220,8 +216,8 @@ export default class HdsAdvancedTableColumn {
 
   @action
   restoreWidth(): void {
-    this.width = this.originalWidth ?? this.width;
-
     this.settleWidthDebts();
+
+    this.width = this.originalWidth ?? this.width;
   }
 }
