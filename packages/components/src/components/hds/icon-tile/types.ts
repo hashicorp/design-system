@@ -31,4 +31,6 @@ export enum HdsIconTileColorNeutral {
   Neutral = 'neutral',
 }
 
-export type HdsIconTileColors = HdsIconTileProducts | HdsIconTileColorNeutral;
+export type HdsIconTileColors =
+  | HdsIconTileProducts
+  | `${HdsIconTileColorNeutral}`;
