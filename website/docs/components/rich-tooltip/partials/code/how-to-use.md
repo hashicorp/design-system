@@ -30,7 +30,7 @@ The `Bubble` element is a pure container that yields the children inside the "po
 
 !!! Callout
 
-We apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, [contact the Design Systems Team](/about/support).
+We apply a CSS reset (`all: initial`) to the bubble content container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, [contact the Design Systems Team](/about/support).
 
 !!!
 
