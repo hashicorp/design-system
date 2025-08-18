@@ -12,6 +12,26 @@
   </a>
 </p>
 
+## 4.22.1
+
+**Patch changes**
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Fixed styles for right and center aligned cells.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3093](https://github.com/hashicorp/design-system/pull/3093)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppFrame` - Changed media query styles for frame header and sidebar containers to use level 3 vs level 4 CSS syntax
+
+<small class="doc-whats-new-changelog-metadata">[#3110](https://github.com/hashicorp/design-system/pull/3110)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.22.0
 
 [4.22.0 documentation](https://hds-website-4-22-0.vercel.app/)
@@ -23,108 +43,69 @@ Added `ember-intl` as a dependency
 - Added `hdsIntl` service for translations in HDS components with default fallback values
 - Added `hds-t` helper which uses the `hds-intl` service to provide translations in HSD templates
 
-
 `AdvancedTable` - Translated template strings. Removed extraneous screen-reader-only text.
-
-
 
 `AppFooter` - Translated template strings
 
-
-
 `AppSideNav` - Translated template strings
-
-
 
 `ApplicationState` - Translated template strings
 
-
-
 `CodeEditor` - Translated template strings
-
-
 
 `DismissButton` - Translated template strings
 
-
-
 `MaskedInput` - Translated template strings
-
-
 
 `SuperSelect` - Translated template strings
 
-
-
 `Pagination` - Translated template strings
-
-
 
 `SideNav` - Translated template strings
 
-
-
 `Table` - Translated template strings
 
-
-
 `Time` - Translated template strings
-
 
 <small class="doc-whats-new-changelog-metadata">[#2878](https://github.com/hashicorp/design-system/pull/2878)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Reveal` - Added support for the `aria-describedby` attribute on the toggle.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3084](https://github.com/hashicorp/design-system/pull/3084)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 **Patch changes**
 
-
 `AppHeader` - Changed the default breakpoint from `lg` to `md`.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3072](https://github.com/hashicorp/design-system/pull/3072)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Stepper::List` - Fixed type for `status` argument in `List::Step` to be `HdsStepperStatuses` instead of enum `HdsStepperStatusesValues`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3073](https://github.com/hashicorp/design-system/pull/3073)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
 
-
-
 `Table::Tr` - Updated `@isSelected` argument type from `false` to `boolean`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3066](https://github.com/hashicorp/design-system/pull/3066)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CodeEditor` - Fixed the type of the CodeEditor signature to indicate that the `[CE].Title` and `[CE].Description` have bound arguments.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3068](https://github.com/hashicorp/design-system/pull/3068)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
 ## 4.21.1
-
-[4.21.1 documentation](https://hds-website-4-21-1.vercel.app/)
 
 **Patch changes**
 
@@ -1627,73 +1608,6 @@ Migrated all internal instances of `FlightIcon` to `Hds::Icon`
 <small class="doc-whats-new-changelog-metadata">[#2317](https://github.com/hashicorp/design-system/pull/2317)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 4.8.0
-
-[4.8.0 documentation](https://hds-website-4-8-0.vercel.app/)
-
-**Minor changes**
-
-`AppHeader` - Added new component.
-
-`SideNav` - Added new `withAppHeader` option.
-
-<small class="doc-whats-new-changelog-metadata">[#2161](https://github.com/hashicorp/design-system/pull/2161)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown` - Converted component to TypeScript
-
-`MenuPrimitive` - Converted component to TypeScript
-
-`TooltipModifier` - Converted modifier to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2272](https://github.com/hashicorp/design-system/pull/2272)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Breadcrumb` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2304](https://github.com/hashicorp/design-system/pull/2304)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`ApplicationState`:
-
-- Spacing and alignment updates
-- New `@align` (`left` (default), `center`) argument for aligning content
-- Added new yielded `Media` child component
-
-`ApplicationState::Header`:
-
-- The header now supports an optional `@titleTag` argument that can override the default title element (`div`)
-
-`ApplicationState::Footer`:
-
-- The footer now yields `Button` and `Dropdown` components as well as `LinkStandalone`
-- The visual separator has been removed to modernize the component’s visual look
-
-<small class="doc-whats-new-changelog-metadata">[#2274](https://github.com/hashicorp/design-system/pull/2274)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SegmentedGroup` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2094](https://github.com/hashicorp/design-system/pull/2094)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-Add explicit `ember-get-config` dependency for use in the icon sprite initializer
-
-<small class="doc-whats-new-changelog-metadata">[#2283](https://github.com/hashicorp/design-system/pull/2283)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/design-system-tokens@2.2.0
 
 
 ---
