@@ -4,21 +4,17 @@
 
 ### Patch Changes
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Fixed styles for right and center aligned cells.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3093](https://github.com/hashicorp/design-system/pull/3093)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START layouts/app-frame -->
 
 `AppFrame` - Changed media query styles for frame header and sidebar containers to use level 3 vs level 4 CSS syntax
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3110](https://github.com/hashicorp/design-system/pull/3110)</small>
 
