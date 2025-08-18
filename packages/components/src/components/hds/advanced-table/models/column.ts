@@ -5,6 +5,7 @@
 
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 import type HdsAdvancedTableModel from './table.ts';
 import type {
@@ -34,7 +35,7 @@ export default class HdsAdvancedTableColumn {
   @tracked isExpandable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
-  @tracked key?: string = undefined;
+  @tracked key: string;
   @tracked tooltip?: string = undefined;
   @tracked thElement?: HTMLDivElement = undefined;
 
@@ -143,7 +144,7 @@ export default class HdsAdvancedTableColumn {
     this.isExpandable = 'isExpandable' in column ? column.isExpandable : false;
     this.isSortable = column.isSortable ?? false;
     this.isVisuallyHidden = column.isVisuallyHidden ?? false;
-    this.key = column.key;
+    this.key = column.key ?? guidFor(this);
     this.tooltip = column.tooltip;
     this._setWidthValues(column);
     this.sortingFunction = column.sortingFunction;
