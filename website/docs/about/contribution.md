@@ -5,7 +5,7 @@ navigation:
   order: 104
 ---
 
-!!! Info
+!!! Callout
 
 We’re currently accepting collaborations only from HashiCorp employees. Some resources and links on this page are only available to HashiCorp employees.
 
