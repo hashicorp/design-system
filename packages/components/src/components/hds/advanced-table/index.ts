@@ -59,7 +59,8 @@ const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
   hasStickyHeader: boolean,
-  hasStickyFirstColumn: boolean
+  hasStickyFirstColumn: boolean,
+  hasFirstColumnPxWidth: boolean
 ) => {
   const horizontalScrollBarHeight =
     scrollWrapper.offsetHeight - scrollWrapper.clientHeight;
@@ -81,7 +82,7 @@ const getScrollIndicatorDimensions = (
     });
 
     // offsets the left: -1px position if there are multiple sticky columns
-    if (stickyColumnHeaders.length > 1) {
+    if (stickyColumnHeaders.length > 1 || hasFirstColumnPxWidth) {
       leftOffset -= 1;
     }
   }
@@ -501,11 +502,15 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const updateMeasurements = () => {
       this._tableHeight = element.clientHeight;
 
+      const hasFirstColumnPxWidth =
+        this._tableModel.columns[0]?.pxWidth !== undefined;
+
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,
         this.hasStickyHeader,
-        this.hasStickyFirstColumn ? true : false
+        this.hasStickyFirstColumn ? true : false,
+        hasFirstColumnPxWidth
       );
 
       if (this.hasStickyFirstColumn) {

@@ -6,4 +6,6 @@
 `AdvancedTable` - Added support for pinning first column in context menu
 
 `AdvancedTable` - Translated template strings in context menu
+
+`AdvancedTable` - Fixed style for scroll indicator when first column is sticky and has a px width
 <!-- END -->
