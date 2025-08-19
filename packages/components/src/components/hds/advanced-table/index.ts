@@ -81,7 +81,7 @@ const getScrollIndicatorDimensions = (
       leftOffset += elAsHTMLElement.offsetWidth;
     });
 
-    // offsets the left: -1px position if there are multiple sticky columns
+    // offsets the left: -1px position if there are multiple sticky columns or the first column has a fixed pixel width
     if (stickyColumnHeaders.length > 1 || hasFirstColumnPxWidth) {
       leftOffset -= 1;
     }
