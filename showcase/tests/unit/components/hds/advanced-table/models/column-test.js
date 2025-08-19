@@ -29,10 +29,9 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       false,
       'isVisuallyHidden is false when not provided',
     );
-    assert.strictEqual(
-      column.key,
-      undefined,
-      'key is undefined when not provided',
+    assert.ok(
+      typeof column.key === 'string',
+      'key defaults to a uuid when not provided',
     );
     assert.strictEqual(
       column.minWidth,
@@ -211,11 +210,30 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('restoreWidth sets width back to original value', function (assert) {
+    // Create mock table with multiple columns
+    const mockTable = {
+      columns: [
+        new HdsAdvancedTableColumn({
+          column: { label: 'First', key: 'first' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Second', key: 'second' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Third', key: 'third' },
+          table: null,
+        }),
+      ],
+    };
+
     const column = new HdsAdvancedTableColumn({
       column: {
         label: 'Restore Test',
         width: '200px',
       },
+      table: mockTable,
     });
 
     assert.strictEqual(column.width, '200px', 'initial width is set');
