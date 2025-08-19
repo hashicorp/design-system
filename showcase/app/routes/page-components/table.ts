@@ -16,11 +16,6 @@ import userWithMoreColumns from 'showcase/mocks/user-with-more-columns-data';
 
 export type PageComponentsTableModel = ModelFrom<PageComponentsTableRoute>;
 
-// basic function that clones an array of objects (not deep)
-export const clone = <T>(arr: T[]): T[] => {
-  return arr.map((item) => ({ ...item }));
-};
-
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 export default class PageComponentsTableRoute extends Route {
@@ -28,14 +23,14 @@ export default class PageComponentsTableRoute extends Route {
     return {
       music: folkMusic,
       selectableData: selectableItems,
-      selectableDataDemo1: clone(selectableItems),
-      selectableDataDemo2: clone(selectableItems),
-      userDataDemo3: clone(users.slice(0, 16)),
-      userDataDemo4: clone(
+      selectableDataDemo1: structuredClone(selectableItems),
+      selectableDataDemo2: structuredClone(selectableItems),
+      userDataDemo3: structuredClone(users.slice(0, 16)),
+      userDataDemo4: structuredClone(
         users.slice(0, 4).map((user) => ({ ...user, isAnimated: false })),
       ),
-      selectableDataDemo5: clone(selectableItems),
-      selectableDataDemo6: clone(selectableItems),
+      selectableDataDemo5: structuredClone(selectableItems),
+      selectableDataDemo6: structuredClone(selectableItems),
       clusters,
       userMoreColumnsData: userWithMoreColumns,
       DENSITIES,
