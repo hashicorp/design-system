@@ -13,9 +13,6 @@ import { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
 import { service } from '@ember/service';
-import { buildWaiter } from '@ember/test-waiters';
-import { next } from '@ember/runloop';
-import { tracked } from '@glimmer/tracking';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -37,6 +34,7 @@ import type {
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
 
+import { Transaction } from '@codemirror/state';
 type HTMLElementWithEditor = HTMLElement & { editor: EditorViewType };
 
 type HdsCodeEditorBlurHandler = (
@@ -47,8 +45,6 @@ type HdsCodeEditorBlurHandler = (
 interface HdsCodeEditorExtraKeys {
   [key: string]: () => void;
 }
-
-const waiter = buildWaiter('@hashicorp/design-system-components:code-editor');
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -170,8 +166,6 @@ const LANGUAGES: Record<
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
   @service declare hdsIntl: HdsIntlService;
 
-  @tracked private _waiterToken: unknown;
-
   editor!: EditorViewType;
   element!: HTMLElementWithEditor;
 
@@ -206,8 +200,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
     // if the editor already exists, update its state
     if (this.editor) {
-      // eslint-disable-next-line ember/no-runloop
-      next(this, this._updateEditorState, { value, hasLineWrapping });
+      this._updateEditorState({ value, hasLineWrapping });
     }
     // if the editor does not exist, setup the editor
     else {
@@ -465,8 +458,16 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
             );
           }
 
+          const isUserUpdate = update.transactions.some((transaction) => {
+            // this will only be defined if the transaction is a user event
+            const userEventType = transaction.annotation(Transaction.userEvent);
+            if (userEventType) {
+              return true;
+            }
+            return false;
+          });
           // call the onInput callback if the document has changed
-          if (!update.docChanged || this.onInput === undefined) {
+          if (!update.docChanged || this.onInput === undefined || !isUserUpdate) {
             return;
           }
           this.onInput(update.state.doc.toString(), update.view);

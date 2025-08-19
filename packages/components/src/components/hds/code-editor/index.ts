@@ -8,10 +8,13 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import { guidFor } from '@ember/object/internals';
+import { EditorView } from '@codemirror/view';
+import { StateEffect } from '@codemirror/state';
 
 import HdsCodeEditorDescription from './description.ts';
 import HdsCodeEditorTitle from './title.ts';
 
+import type { ViewUpdate } from '@codemirror/view';
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
 import type { ComponentLike } from '@glint/template';
@@ -19,7 +22,6 @@ import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '.
 import type { HdsCodeEditorDescriptionSignature } from './description';
 import type { HdsCodeEditorTitleSignature } from './title';
 import type { HdsCodeEditorGenericSignature } from './generic';
-import type { EditorView } from '@codemirror/view';
 import type { HdsCopyButtonSignature } from '../copy/button/index.ts';
 
 export interface HdsCodeEditorSignature {
@@ -139,7 +141,6 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
 
   @action
   onInput(newValue: string, editorView: EditorView): void {
-    this._value = newValue;
     this.args.onInput?.(newValue, editorView);
   }
 
@@ -153,6 +154,13 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @action
   onSetup(editorView: EditorView): void {
     this._isSetupComplete = true;
+    const valUpdateExtension = EditorView.updateListener.of(
+        (update: ViewUpdate) => {
+    this._value = update.state.doc.toString();
+        });
+    editorView.dispatch({
+      effects: StateEffect.appendConfig.of([valUpdateExtension])
+    });
     this.args.onSetup?.(editorView);
   }
 }

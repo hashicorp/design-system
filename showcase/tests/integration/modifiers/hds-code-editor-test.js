@@ -9,9 +9,10 @@ import {
   render,
   waitFor,
   setupOnerror,
+  fillIn,
+  triggerEvent,
   focus,
   blur,
-  settled,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
@@ -61,7 +62,6 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert.dom('#code-editor-wrapper .cm-editor').includesText(initialValue);
 
     this.set('val', updatedValue);
-    await settled();
 
     assert.dom('#code-editor-wrapper .cm-editor').includesText(updatedValue);
   });
@@ -83,7 +83,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   });
 
   // onInput
-  test('it should call the onInput action when the code editor value changes', async function (assert) {
+  test('it should call the onInput action when the code editor value changes from user input', async function (assert) {
     const inputSpy = sinon.spy();
 
     this.setProperties({
@@ -96,15 +96,36 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     await setupCodeEditor(
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onInput=this.handleInput onSetup=this.handleSetup}} />`,
     );
+    // simulate user input
+    await fillIn('.cm-content', 'Test string');
+    await triggerEvent('.cm-content', 'input');
 
+    assert.ok(inputSpy.calledOnceWith('Test string', this.editorView));
+  });
+
+  // programmatic onInput
+  test('it should not call the onInput action when the code editor value changes programmatically', async function (assert) {
+    const inputSpy = sinon.spy();
+
+    this.setProperties({
+      handleInput: inputSpy,
+      handleSetup: (editorView) => {
+        this.set('editorView', editorView);
+      },
+    });
+
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onInput=this.handleInput onSetup=this.handleSetup}} />`,
+    );
     this.editorView.dispatch({
       changes: {
-        from: this.editorView.state.selection.main.from,
+        from: 0,
+        to: this.editorView.state.selection.main.from,
         insert: 'Test string',
       },
     });
 
-    assert.ok(inputSpy.calledOnceWith('Test string', this.editorView));
+    assert.ok(inputSpy.notCalled);
   });
 
   // onLint
@@ -173,7 +194,6 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       .hasClass('cm-lineWrapping');
 
     this.set('hasLineWrapping', false);
-    await settled();
     assert
       .dom('#code-editor-wrapper .cm-editor .cm-content')
       .doesNotHaveClass('cm-lineWrapping');

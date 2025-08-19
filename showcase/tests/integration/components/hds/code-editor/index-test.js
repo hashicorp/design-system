@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, render, waitFor } from '@ember/test-helpers';
+import { click, render, rerender, fillIn, triggerEvent, waitFor } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -202,10 +202,13 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // copy
   test('it should copy the code editor value to the clipboard when the copy button is clicked', async function (assert) {
+    this.value = 'Test Code';
     const clipboardStub = sinon.stub(window.navigator.clipboard, 'writeText');
 
     this.setProperties({
-      handleInput: () => {},
+      handleInput: (val) => {
+        this.set('value', val);
+      },
       handleSetup: (editorView) => {
         this.set('editorView', editorView);
       },
@@ -215,7 +218,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor
         @ariaLabel="code editor"
         @hasCopyButton={{true}}
-        @value="Test Code"
+        @value={{this.value}}
         @onInput={{this.handleInput}}
         @onSetup={{this.handleSetup}}
       />`,
@@ -224,15 +227,16 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await click('.hds-code-editor__copy-button');
     assert.true(clipboardStub.calledWith('Test Code'));
 
-    this.editorView.dispatch({
-      changes: {
-        from: this.editorView.state.selection.main.from,
-        insert: 'Additional text. ',
-      },
-    });
+    const newValue = `Additional text.
+
+
+
+      Test Code`;
+    this.set('value', newValue);
+    await rerender();
 
     await click('.hds-code-editor__copy-button');
-    assert.true(clipboardStub.calledWith('Additional text. Test Code'));
+    assert.true(clipboardStub.calledWith(newValue));
 
     sinon.restore();
   });
@@ -318,12 +322,9 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor @ariaLabel="code editor" @onInput={{this.handleInput}} @onSetup={{this.handleSetup}} />`,
     );
 
-    this.editorView.dispatch({
-      changes: {
-        from: this.editorView.state.selection.main.from,
-        insert: 'Test string',
-      },
-    });
+    // simulate user input
+    await fillIn('.cm-content', 'Test string');
+    await triggerEvent('.cm-content', 'input');
 
     assert.ok(inputSpy.calledOnceWith('Test string'));
   });
