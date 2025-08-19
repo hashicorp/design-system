@@ -7,7 +7,11 @@ There are a few things to consider when implementing a sticky header or column:
 - Instances of the Advanced Table with nested rows, expandable rows, and `colSpan` or `rowSpan` do not support a sticky column because what classifies as the first column is variable depending on these properties.
 - Setting the first column as sticky in a table with multi-selection will couple the multi-select column and the first column of data together.
 
-![An Advanced Table with a sticky column, where the user has scrolled to showcase the overlapping nature of the column.](/assets/components/table/advanced-table/advanced-table-sticky-column.png)
+If `hasStickyFirstColumn` is set to true in the Ember component, a function will be exposed in the context menu allowing users to "Pin" and "Unpin" the first column in the Advanced Table.
+
+![An Advanced Table with the context menu open and a single option that states "Pin column"](/assets/components/table/advanced-table/advanced-table-pin-column.png)
+
+![An Advanced Table with a pinned column with the context menu open and a single option that states "Unpin column"](/assets/components/table/advanced-table/advanced-table-unpin-column.png)
 
 !!! Info
 
