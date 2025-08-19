@@ -130,7 +130,8 @@
 }
 
 // prevent interaction with AppHeader when SideNav is open/expanded
-.hds-app-frame:has(.hds-side-nav--is-not-minimized) .hds-app-header--is-mobile {
+.hds-app-frame:has(.hds-side-nav--is-not-minimized) .hds-app-header--is-mobile,
+.hds-app-frame:has(.hds-app-side-nav--is-not-minimized) .hds-app-header--is-mobile {
   .hds-button,
   .hds-dropdown-toggle-button,
   .hds-dropdown-toggle-icon,
