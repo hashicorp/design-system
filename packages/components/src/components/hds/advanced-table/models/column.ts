@@ -151,9 +151,9 @@ export default class HdsAdvancedTableColumn {
     debtor: HdsAdvancedTableColumn,
     debtToCollect: number
   ): number {
-    // Calculate the debtor's available width above its minimum constraint.
+    // Calculate the debtor's available width above its minimum constraint
     const surplus = Math.max(0, (debtor.pxWidth ?? 0) - debtor.pxMinWidth);
-    // The amount we can actually take is the smaller of the debt or the surplus.
+    // The amount we can actually take is the smaller of the debt or the surplus
     const paymentAmount = Math.min(debtToCollect, surplus);
 
     if (paymentAmount > 0) {
@@ -206,14 +206,14 @@ export default class HdsAdvancedTableColumn {
       const subDebtOwed = subDebtor.widthDebts[debtor.key] ?? 0;
       const amountToRequest = Math.min(amountStillNeeded, subDebtOwed);
 
-      // The sub-debtor pays from its own surplus in a direct transfer to the original collector (`this`).
+      // The sub-debtor pays from its own surplus in a direct transfer to the original collector (`this`)
       const paymentAmount = this._collectFromSurplus(
         subDebtor,
         amountToRequest
       );
 
       if (paymentAmount > 0) {
-        totalCollected += paymentAmount;
+        totalCollected = totalCollected + paymentAmount;
         // Update the sub-debtor's ledger
         this._updateSubDebtLedger(subDebtor, debtor.key, paymentAmount);
       }
