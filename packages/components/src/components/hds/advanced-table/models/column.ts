@@ -42,8 +42,8 @@ export default class HdsAdvancedTableColumn {
   // width properties
   @tracked transientWidth?: `${number}px` = undefined; // used for transient width changes
   @tracked width: string = DEFAULT_WIDTH;
-  @tracked minWidth?: `${number}px` = DEFAULT_MIN_WIDTH;
-  @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
+  @tracked minWidth: `${number}px` = DEFAULT_MIN_WIDTH;
+  @tracked maxWidth: `${number}px` = DEFAULT_MAX_WIDTH;
   @tracked originalWidth: string = this.width; // used to restore the width when resetting
   @tracked widthDebts: Record<string, number> = {}; // used to track width changes imposed by other columns
 
@@ -82,16 +82,12 @@ export default class HdsAdvancedTableColumn {
     this.width = `${value}px`;
   }
 
-  get pxMinWidth(): number | undefined {
-    if (isPxSize(this.minWidth)) {
-      return pxToNumber(this.minWidth!);
-    }
+  get pxMinWidth(): number {
+    return isPxSize(this.minWidth) ? pxToNumber(this.minWidth) : 0;
   }
 
-  get pxMaxWidth(): number | undefined {
-    if (isPxSize(this.maxWidth)) {
-      return pxToNumber(this.maxWidth!);
-    }
+  get pxMaxWidth(): number {
+    return isPxSize(this.maxWidth) ? pxToNumber(this.maxWidth) : Infinity;
   }
 
   get index(): number {
@@ -150,6 +146,136 @@ export default class HdsAdvancedTableColumn {
     this.sortingFunction = column.sortingFunction;
   }
 
+  // Collects debt from a debtor's surplus width
+  private _collectFromSurplus(
+    debtor: HdsAdvancedTableColumn,
+    debtToCollect: number
+  ): number {
+    // Calculate the debtor's available width above its minimum constraint.
+    const surplus = Math.max(0, (debtor.pxWidth ?? 0) - debtor.pxMinWidth);
+    // The amount we can actually take is the smaller of the debt or the surplus.
+    const paymentAmount = Math.min(debtToCollect, surplus);
+
+    if (paymentAmount > 0) {
+      debtor.pxWidth = (debtor.pxWidth ?? 0) - paymentAmount;
+
+      this.pxWidth = (this.pxWidth ?? 0) + paymentAmount;
+    }
+
+    return paymentAmount;
+  }
+
+  // Updates the ledger for a sub-debtor after it has made a payment
+  private _updateSubDebtLedger(
+    subDebtor: HdsAdvancedTableColumn,
+    creditorKey: string,
+    amountPaid: number
+  ) {
+    const originalDebt = subDebtor.widthDebts[creditorKey] ?? 0;
+    const remainingDebt = originalDebt - amountPaid;
+
+    if (remainingDebt > 0) {
+      subDebtor.widthDebts[creditorKey] = remainingDebt;
+    } else {
+      delete subDebtor.widthDebts[creditorKey];
+    }
+  }
+
+  // Facilitates a cascading collection from a debtor's own debtors if the debtor has a shortfall
+  private _collectFromSubDebtors(
+    debtor: HdsAdvancedTableColumn,
+    shortfall: number
+  ): number {
+    if (shortfall <= 0) {
+      return 0;
+    }
+
+    let totalCollected = 0;
+
+    const subDebtors = this.table.columns.filter(
+      (column) => column.widthDebts[debtor.key]
+    );
+
+    for (const subDebtor of subDebtors) {
+      const amountStillNeeded = shortfall - totalCollected;
+
+      if (amountStillNeeded <= 0) {
+        break;
+      }
+
+      const subDebtOwed = subDebtor.widthDebts[debtor.key] ?? 0;
+      const amountToRequest = Math.min(amountStillNeeded, subDebtOwed);
+
+      // The sub-debtor pays from its own surplus in a direct transfer to the original collector (`this`).
+      const paymentAmount = this._collectFromSurplus(
+        subDebtor,
+        amountToRequest
+      );
+
+      if (paymentAmount > 0) {
+        totalCollected += paymentAmount;
+        // Update the sub-debtor's ledger
+        this._updateSubDebtLedger(subDebtor, debtor.key, paymentAmount);
+      }
+    }
+
+    return totalCollected;
+  }
+
+  // Updates the primary debt ledger after all collection attempts are complete
+  private _updatePrimaryDebtLedger(
+    debtor: HdsAdvancedTableColumn,
+    remainingDebt: number
+  ) {
+    const originalDebt = debtor.widthDebts[this.key] ?? 0;
+
+    if (remainingDebt <= 0) {
+      delete debtor.widthDebts[this.key];
+    } else if (remainingDebt < originalDebt) {
+      debtor.widthDebts[this.key] = remainingDebt;
+    }
+  }
+
+  /*
+   * Collects all debts owed to this column. For each debtor, it first attempts a
+   * direct payment from the debtor's available surplus width (width above its
+   * minimum). If a shortfall remains, it triggers a cascading collection where
+   * the debtor facilitates a direct payment from its own sub-debtors to the
+   * original collector.
+   */
+  private collectWidthDebts(): void {
+    const { key: thisKey, table } = this;
+
+    table.columns.forEach((debtor) => {
+      let debtToCollect = debtor.widthDebts[thisKey] ?? 0;
+
+      if (debtToCollect <= 0) {
+        return;
+      }
+
+      // Attempt a direct payment from the debtor's surplus
+      const paymentFromSurplus = this._collectFromSurplus(
+        debtor,
+        debtToCollect
+      );
+
+      // Reduce the amount we still need to collect
+      debtToCollect = debtToCollect - paymentFromSurplus;
+
+      // If a shortfall remains, trigger the cascading collection
+      if (debtToCollect > 0) {
+        const paymentFromCascade = this._collectFromSubDebtors(
+          debtor,
+          debtToCollect
+        );
+
+        debtToCollect = debtToCollect - paymentFromCascade;
+      }
+
+      this._updatePrimaryDebtLedger(debtor, debtToCollect);
+    });
+  }
+
   private payWidthDebts(): void {
     Object.entries(this.widthDebts).forEach(([lenderKey, amount]) => {
       const lender = this.table.getColumnByKey(lenderKey);
@@ -162,21 +288,6 @@ export default class HdsAdvancedTableColumn {
 
     // Clear our own debt ledger, as we've paid everyone back
     this.widthDebts = {};
-  }
-
-  private collectWidthDebts(): void {
-    this.table.columns.forEach((otherColumn) => {
-      const debtToCollect = otherColumn.widthDebts[this.key] ?? 0;
-
-      if (debtToCollect > 0) {
-        // otherColumn.collectWidthDebts();
-
-        // Take the width back from the column that owes us
-        otherColumn.pxWidth = (otherColumn.pxWidth ?? 0) - debtToCollect;
-        // Clear the debt from their ledger
-        delete otherColumn.widthDebts[this.key];
-      }
-    });
   }
 
   private settleWidthDebts(): void {
