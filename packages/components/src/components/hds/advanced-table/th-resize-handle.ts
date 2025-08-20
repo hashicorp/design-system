@@ -319,12 +319,44 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       return;
     }
 
-    if (delta > 0) {
-      this._addDebt(column, nextColumn.key, delta);
-    } else {
-      const amountBorrowed = -delta;
+    // Determine the borrower, lender, and the amount of width transferred
+    const borrower = delta > 0 ? column : nextColumn;
+    const lender = delta > 0 ? nextColumn : column;
+    let amount = Math.abs(delta);
 
-      this._addDebt(nextColumn, column.key, amountBorrowed);
+    if (borrower.key === undefined || lender.key === undefined) {
+      return;
     }
+
+    // Check if the lender already has a debt to the borrower.
+    // If so, this transaction is a "payment" against that existing debt.
+    const existingDebt = lender.widthDebts[borrower.key] ?? 0;
+
+    if (existingDebt > 0) {
+      const paymentAmount = Math.min(amount, existingDebt);
+
+      // Reduce the lender's debt by the payment amount
+      lender.widthDebts[borrower.key] = existingDebt - paymentAmount;
+
+      if (lender.widthDebts[borrower.key]! <= 0) {
+        delete lender.widthDebts[borrower.key];
+      }
+
+      // The amount of the new debt is reduced by the amount paid
+      amount = amount - paymentAmount;
+    }
+
+    // If there is still a remaining amount, create a new debt for the borrower.
+    if (amount > 0) {
+      this._addDebt(borrower, lender.key, amount);
+    }
+
+    // if (delta > 0) {
+    //   this._addDebt(column, nextColumn.key, delta);
+    // } else {
+    //   const amountBorrowed = -delta;
+
+    //   this._addDebt(nextColumn, column.key, amountBorrowed);
+    // }
   }
 }

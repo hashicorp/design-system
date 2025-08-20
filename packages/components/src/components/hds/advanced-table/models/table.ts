@@ -71,6 +71,15 @@ export default class HdsAdvancedTableTableModel {
     this.setupData({ model, columns, sortBy, sortOrder });
   }
 
+  get debug() {
+    return this.columns.map((column) => ({
+      key: column.key,
+      label: column.label,
+      appliedWidth: column.appliedWidth,
+      widthDebts: column.widthDebts,
+    }));
+  }
+
   get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
     const currentColumn = this.columns.find(
