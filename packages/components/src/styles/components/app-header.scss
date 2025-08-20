@@ -130,6 +130,7 @@
 }
 
 // prevent interaction with AppHeader when SideNav is open/expanded
+// Note: ".hds-side-nav--is-not-minimized" references the old SideNav. Delete once SideNav code is fully removed.
 .hds-app-frame:has(.hds-side-nav--is-not-minimized) .hds-app-header--is-mobile,
 .hds-app-frame:has(.hds-app-side-nav--is-not-minimized) .hds-app-header--is-mobile {
   .hds-button,
