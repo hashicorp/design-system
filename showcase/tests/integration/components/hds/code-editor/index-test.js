@@ -5,7 +5,14 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, render, rerender, fillIn, triggerEvent, waitFor } from '@ember/test-helpers';
+import {
+  click,
+  render,
+  rerender,
+  fillIn,
+  triggerEvent,
+  waitFor,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
