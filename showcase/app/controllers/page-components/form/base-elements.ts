@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { deepTracked } from 'ember-deep-tracked';
+import { TrackedObject } from 'tracked-built-ins';
 
 import type { PageComponentsFormBaseElementsModel } from 'showcase/routes/page-components/form/base-elements';
 
@@ -14,7 +14,7 @@ export default class PageComponentsFormBaseElementsController extends Controller
   declare model: PageComponentsFormBaseElementsModel;
 
   @tracked showHighlight = false;
-  @deepTracked values = {
+  values = new TrackedObject({
     value1: '',
     value2: 'cl',
     value3: '',
@@ -29,7 +29,7 @@ export default class PageComponentsFormBaseElementsController extends Controller
     value12: 'cluster',
     value13: 'cluster-length-is-longer-than',
     value14: 'Lorem ipsum dolor',
-  };
+  });
 
   @action
   toggleHighlight() {

@@ -5,7 +5,7 @@
 
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { deepTracked } from 'ember-deep-tracked';
+import { TrackedObject } from 'tracked-built-ins';
 import { tracked } from '@glimmer/tracking';
 
 import type { PageComponentsFlyoutModel } from 'showcase/routes/page-components/flyout';
@@ -13,7 +13,7 @@ import type { PageComponentsFlyoutModel } from 'showcase/routes/page-components/
 export default class PageComponentsFlyoutController extends Controller {
   declare model: PageComponentsFlyoutModel;
 
-  @deepTracked flyouts = {
+  flyouts = new TrackedObject({
     mediumFlyoutActive: false,
     largeFlyoutActive: false,
     dropdownInitiatedFlyoutActive: false,
@@ -21,7 +21,7 @@ export default class PageComponentsFlyoutController extends Controller {
     deactivateFlyoutOnCloseActive: false,
     deactivateFlyoutOnDestroyActive: false,
     deactivateFlyoutOnSubmitActive: false,
-  };
+  });
 
   @tracked deactivateFlyoutOnSubmitValidationError = false;
 
