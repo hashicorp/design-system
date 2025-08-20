@@ -36,7 +36,7 @@ export interface HdsPopoverPrimitiveSignature {
         popoverElement?: HTMLElement;
         isOpen: boolean;
         showPopover: () => void;
-        hidePopover: () => void;
+        hidePopover: (event?: PointerEvent) => void;
         togglePopover: () => void;
       },
     ];
@@ -208,7 +208,9 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   }
 
   @action
-  hidePopover(): void {
+  // the event may be passed by the `on` modifier, so we need to keep it as an argument here
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  hidePopover(_event?: MouseEvent): void {
     try {
       if (this._popoverElement) {
         this._popoverElement.hidePopover();
