@@ -24,7 +24,7 @@ export interface HdsRichTooltipSignature {
           'arrowId' | 'popoverId' | 'setupPrimitivePopover' | 'isOpen'
         >;
         isOpen?: boolean;
-        close?: () => void;
+        close: (event?: PointerEvent) => void;
       },
     ];
   };
