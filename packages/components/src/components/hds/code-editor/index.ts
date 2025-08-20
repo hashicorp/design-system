@@ -155,11 +155,12 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   onSetup(editorView: EditorView): void {
     this._isSetupComplete = true;
     const valUpdateExtension = EditorView.updateListener.of(
-        (update: ViewUpdate) => {
-    this._value = update.state.doc.toString();
-        });
+      (update: ViewUpdate) => {
+        this._value = update.state.doc.toString();
+      }
+    );
     editorView.dispatch({
-      effects: StateEffect.appendConfig.of([valUpdateExtension])
+      effects: StateEffect.appendConfig.of([valUpdateExtension]),
     });
     this.args.onSetup?.(editorView);
   }

@@ -467,7 +467,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
             return false;
           });
           // call the onInput callback if the document has changed
-          if (!update.docChanged || this.onInput === undefined || !isUserUpdate) {
+          if (
+            !update.docChanged ||
+            this.onInput === undefined ||
+            !isUserUpdate
+          ) {
             return;
           }
           this.onInput(update.state.doc.toString(), update.view);

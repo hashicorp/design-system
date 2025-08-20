@@ -119,8 +119,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     );
     this.editorView.dispatch({
       changes: {
-        from: 0,
-        to: this.editorView.state.selection.main.from,
+        from: this.editorView.state.selection.main.from,
         insert: 'Test string',
       },
     });
