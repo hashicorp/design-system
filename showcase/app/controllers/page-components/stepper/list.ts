@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { deepTracked } from 'ember-deep-tracked';
+import { TrackedArray, TrackedObject } from 'tracked-built-ins';
 
 import type { HdsStepperStatuses } from '@hashicorp/design-system-components/components/hds/stepper/types';
 import type { PageComponentsStepperListModel } from 'showcase/routes/page-components/stepper/list';
@@ -16,24 +16,6 @@ type ListData = {
   status: HdsStepperStatuses;
   description: string;
 };
-
-const DEFAULT_DATA: ListData[] = [
-  {
-    title: 'Step 1',
-    status: 'complete',
-    description: 'Description for Step 1',
-  },
-  {
-    title: 'Step 2',
-    status: 'progress',
-    description: 'Description for Step 2',
-  },
-  {
-    title: 'Step 3',
-    status: 'incomplete',
-    description: 'Description for Step 3',
-  },
-];
 
 const updateSteps = (steps: ListData[], stepNumber: number) => {
   steps.forEach((step, index) => {
@@ -65,8 +47,41 @@ export default class PageComponentsStepperListController extends Controller {
   @tracked currentStep_demo1 = 1;
   @tracked currentStep_demo2 = 1;
 
-  @deepTracked steps_demo1 = structuredClone(DEFAULT_DATA);
-  @deepTracked steps_demo2 = structuredClone(DEFAULT_DATA);
+  steps_demo1: ListData[] = new TrackedArray([
+    new TrackedObject({
+      title: 'Step 1',
+      status: 'complete',
+      description: 'Description for Step 1',
+    }),
+    new TrackedObject({
+      title: 'Step 2',
+      status: 'progress',
+      description: 'Description for Step 2',
+    }),
+    new TrackedObject({
+      title: 'Step 3',
+      status: 'incomplete',
+      description: 'Description for Step 3',
+    }),
+  ]);
+
+  steps_demo2: ListData[] = new TrackedArray([
+    new TrackedObject({
+      title: 'Step 1',
+      status: 'complete',
+      description: 'Description for Step 1',
+    }),
+    new TrackedObject({
+      title: 'Step 2',
+      status: 'progress',
+      description: 'Description for Step 2',
+    }),
+    new TrackedObject({
+      title: 'Step 3',
+      status: 'incomplete',
+      description: 'Description for Step 3',
+    }),
+  ]);
 
   // =============================
   // DEMOS

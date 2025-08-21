@@ -6,21 +6,21 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { deepTracked } from 'ember-deep-tracked';
+import { TrackedObject } from 'tracked-built-ins';
 
 import type { PageComponentsFormMaskedInputModel } from 'showcase/routes/page-components/form/masked-input';
 
 export default class PageComponentsFormMaskedInputController extends Controller {
   declare model: PageComponentsFormMaskedInputModel;
 
-  @deepTracked fieldValues = {
+  fieldValues = new TrackedObject({
     defaultText: 'Lorem ipsum dolor',
     customText: 'Lorem ipsum dolor',
     withErrorMessage: 'Lorem ipsum dolor sit amet',
     multilineDefaultText: 'Lorem ipsum dolor',
     multilineCustomText: 'Lorem ipsum dolor',
     multilineWithErrorMessage: 'Lorem ipsum dolor sit amet',
-  };
+  });
 
   @tracked isContentMasked = true;
 

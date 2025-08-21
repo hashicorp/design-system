@@ -5,19 +5,19 @@
 
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { deepTracked } from 'ember-deep-tracked';
+import { TrackedObject } from 'tracked-built-ins';
 
 import type { PageComponentsFormTextareaModel } from 'showcase/routes/page-components/form/textarea';
 
 export default class PageComponentsFormTextareaController extends Controller {
   declare model: PageComponentsFormTextareaModel;
 
-  @deepTracked values = {
+  values = new TrackedObject({
     defaultText: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
     customText: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
     withErrorMessage:
       'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-  };
+  });
 
   maxLength = 50;
 

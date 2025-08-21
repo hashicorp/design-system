@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { deepTracked } from 'ember-deep-tracked';
+import { TrackedObject } from 'tracked-built-ins';
 
 import { COLORS } from '@hashicorp/design-system-components/components/hds/modal/index';
 import { NAMES as ICON_NAMES } from '@hashicorp/design-system-components/components/hds/icon/index';
@@ -16,7 +16,7 @@ import type { PageComponentsModalModel } from 'showcase/routes/page-components/m
 export default class PageComponentsModalController extends Controller {
   declare model: PageComponentsModalModel;
 
-  @deepTracked modals = {
+  modals = new TrackedObject({
     basicModalActive: false,
     longModalActive: false,
     formModalActive: false,
@@ -31,7 +31,7 @@ export default class PageComponentsModalController extends Controller {
     deactivateModalOnCloseActive: false,
     deactivateModalOnDestroyActive: false,
     deactivateModalOnSubmitActive: false,
-  };
+  });
 
   @tracked isDismissDisabled: boolean | undefined = undefined;
   @tracked deactivateModalOnSubmitValidationError = false;

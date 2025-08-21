@@ -5,18 +5,18 @@
 
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { deepTracked } from 'ember-deep-tracked';
+import { TrackedObject } from 'tracked-built-ins';
 
 import type { PageComponentsFormTextInputModel } from 'showcase/routes/page-components/form/text-input';
 
 export default class PageComponentsFormTextInputController extends Controller {
   declare model: PageComponentsFormTextInputModel;
 
-  @deepTracked fieldValues = {
+  fieldValues = new TrackedObject({
     defaultText: 'Lorem ipsum dolor',
     customText: 'Lorem ipsum dolor',
     withHelperText: 'Lorem ipsum dolor sit amet',
-  };
+  });
 
   maxLength = 20;
 
