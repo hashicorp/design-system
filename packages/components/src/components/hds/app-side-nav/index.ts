@@ -50,7 +50,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     });
   }
 
-  private _setUpBodyElement = modifier(() => {
+  private _setUpBodyElement = modifier((): void => {
     this._body = document.body;
     // Store the initial `overflow` value of `<body>` so we can reset to it
     this._bodyInitialOverflowValue =
@@ -102,6 +102,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     return this.args.isCollapsible ?? false;
   }
 
+  // traps focus if isResponsive is enabled and it's in mobile view with side nav expanded (overlaying content)
   get shouldTrapFocus(): boolean {
     return this.isResponsive && !this._isDesktop && !this._isMinimized;
   }
