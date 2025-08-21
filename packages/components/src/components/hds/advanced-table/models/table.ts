@@ -163,7 +163,8 @@ export default class HdsAdvancedTableTableModel {
 
   setTransientColumnWidths(): void {
     this.columns.forEach((column) => {
-      column.pxTransientWidth = column.thElement?.offsetWidth ?? 0;
+      column.pxTransientWidth =
+        column.thElement?.getBoundingClientRect().width ?? 0;
     });
   }
 
