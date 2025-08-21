@@ -47,6 +47,7 @@ export interface HdsAdvancedTableThSortSignature {
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onPinFirstColumn?: () => void;
   };
   Blocks: {
     default?: [];
@@ -100,9 +101,9 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   }
 
   get showContextMenu(): boolean {
-    const { hasResizableColumns } = this.args;
+    const { hasResizableColumns, isStickyColumn } = this.args;
 
-    return hasResizableColumns ?? false;
+    return (hasResizableColumns || isStickyColumn !== undefined) ?? false;
   }
 
   get classNames(): string {
