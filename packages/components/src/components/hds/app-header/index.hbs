@@ -20,7 +20,7 @@
     />
   {{/if}}
 
-  {{yield to="logo"}}
+  {{yield (hash close=this.close) to="logo"}}
 
   {{#if (not this._isDesktop)}}
     <Hds::AppHeader::MenuButton

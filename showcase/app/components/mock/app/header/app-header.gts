@@ -44,14 +44,17 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
 
   <template>
     <HdsAppHeader>
-      <:logo>
+      <:logo as |actions|>
         <HdsAppHeaderHomeLink
           @icon="hashicorp"
           @text="HashiCorp home menu"
           @isIconOnly={{true}}
           @href="#"
+          @isHrefExternal={{false}}
+          {{on "click" actions.close}}
         />
       </:logo>
+
       <:globalActions as |actions|>
         {{#if this.showOrgPicker}}
           <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
@@ -62,6 +65,7 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
           </HdsDropdown>
         {{/if}}
       </:globalActions>
+
       <:utilityActions as |actions|>
         {{#if this.showRegionPicker}}
           <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
