@@ -9,9 +9,9 @@ There are a few things to consider when implementing a sticky header or column:
 
 If `hasStickyFirstColumn` is set to true or false in the Ember component, a control will be exposed in the context menu allowing users to "Pin" and "Unpin" the first column in the Advanced Table.
 
-![An Advanced Table with the context menu open and a single option that states "Pin column"](/assets/components/table/advanced-table/advanced-table-pin-column.png)
+![An Advanced Table with the context menu open and a single "Pin column" option](/assets/components/table/advanced-table/advanced-table-pin-column.png)
 
-![An Advanced Table with a pinned column with the context menu open and a single option that states "Unpin column"](/assets/components/table/advanced-table/advanced-table-unpin-column.png)
+![An Advanced Table with a pinned column with the context menu open and a single "Unpin column" option](/assets/components/table/advanced-table/advanced-table-unpin-column.png)
 
 !!! Info
 

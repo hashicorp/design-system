@@ -594,7 +594,7 @@ The component adds the sticky styles to the `[B].Th` component in each row. If t
 </Hds::AdvancedTable>
 ```
 
-If `@hasStickyFirstColumn` is set to `false` the column will not be sticky, but in the header cell context menu there will be the option for the user to pin or unpin the column. If `@hasStickyFirstColumn` is `undefined`, no option will be available in the header cell context menu.
+If `@hasStickyFirstColumn` is set to `false`, the column will not be sticky, but in the header cell context menu there will be the option for the user to pin or unpin the column. If `@hasStickyFirstColumn` is `undefined`, no option will be available in the header cell context menu.
 
 ```handlebars
 <Hds::AdvancedTable
