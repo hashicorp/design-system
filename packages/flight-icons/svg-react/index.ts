@@ -884,6 +884,8 @@ export { IconPencilTool24 } from './pencil-tool-24';
 export { IconPencilTool16 } from './pencil-tool-16';
 export { IconPin24 } from './pin-24';
 export { IconPin16 } from './pin-16';
+export { IconPinOff24 } from './pin-off-24';
+export { IconPinOff16 } from './pin-off-16';
 export { IconPower24 } from './power-24';
 export { IconPower16 } from './power-16';
 export { IconPrinter24 } from './printer-24';

@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2025-06-25T21:50:47.532Z",
+  "lastRunTimeISO": "2025-08-20T23:58:48.772Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -8861,6 +8861,26 @@
       "fileName": "pin-16",
       "iconName": "pin",
       "description": "pin, pinned",
+      "category": "Interface",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "8687:169",
+      "fileName": "pin-off-24",
+      "iconName": "pin-off",
+      "description": "unpin, pin, off",
+      "category": "Interface",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "8687:172",
+      "fileName": "pin-off-16",
+      "iconName": "pin-off",
+      "description": "unpin, pin, off",
       "category": "Interface",
       "size": "16",
       "width": 16,
