@@ -216,8 +216,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     this.resizing = {
       startX: event.clientX,
-      startColumnPxWidth: column.pxAppliedWidth ?? 0,
-      startNextColumnPxWidth: nextColumn?.pxAppliedWidth ?? 0,
+      startColumnPxWidth: Math.round(column.pxAppliedWidth ?? 0),
+      startNextColumnPxWidth: Math.round(nextColumn?.pxAppliedWidth ?? 0),
     };
 
     window.addEventListener('pointermove', this._boundResize);
