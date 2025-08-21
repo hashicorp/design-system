@@ -23,7 +23,11 @@ export interface HdsAppHeaderSignature {
     a11yRefocusExcludeAllQueryParams?: boolean;
   };
   Blocks: {
-    logo?: [];
+    logo?: [
+      {
+        close: () => void;
+      },
+    ];
     globalActions?: [
       {
         close: () => void;

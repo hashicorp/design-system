@@ -87,13 +87,27 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
   test('it should hide the actions when the "close" function is called in mobile view', async function (assert) {
     await render(hbs`
 <Hds::AppHeader id='test-app-header' @breakpoint='10000px'>
-    <:globalActions as |actions|>
+  <:logo as |actions|>
+    <Hds::AppHeader::HomeLink
+      @icon="hashicorp"
+      @text="HashiCorp"
+      id="test-home-link"
+      {{on "click" actions.close}}
+    />
+  </:logo>
+  <:globalActions as |actions|>
     <Hds::Button id='test-global-action' {{on 'click' actions.close}} @text="Global action" />
   </:globalActions>
-    <:utilityActions as |actions|>
-        <Hds::Button id='test-utility-action' {{on 'click' actions.close}} @text="Utility action" />
+  <:utilityActions as |actions|>
+    <Hds::Button id='test-utility-action' {{on 'click' actions.close}} @text="Utility action" />
   </:utilityActions>
 </Hds::AppHeader>`);
+
+    // test logo actions close
+    await click('.hds-app-header__menu-button');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
+    await click('#test-home-link');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
 
     // test global actions close
     await click('.hds-app-header__menu-button');
