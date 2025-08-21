@@ -21,7 +21,7 @@ interface HdsAdvancedTableThContextMenuOption {
   icon: HdsDropdownToggleIconSignature['Args']['icon'];
   action: (
     column: HdsAdvancedTableColumn,
-    dropdownCloseCallback?: () => void
+    dropdownCloseCallback: () => void
   ) => void;
 }
 
@@ -110,7 +110,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   @action
   resetColumnWidth(
     column: HdsAdvancedTableColumn,
-    dropdownCloseCallback?: () => void
+    dropdownCloseCallback: () => void
   ): void {
     const { onColumnResize } = this.args;
 
@@ -124,13 +124,13 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       onColumnResize(column.key, column.width);
     }
 
-    dropdownCloseCallback?.();
+    dropdownCloseCallback();
   }
 
   @action
   pinFirstColumn(
     column: HdsAdvancedTableColumn,
-    dropdownCloseCallback?: () => void
+    dropdownCloseCallback: () => void
   ): void {
     const { onPinFirstColumn } = this.args;
 
@@ -138,6 +138,6 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       onPinFirstColumn();
     }
 
-    dropdownCloseCallback?.();
+    dropdownCloseCallback();
   }
 }

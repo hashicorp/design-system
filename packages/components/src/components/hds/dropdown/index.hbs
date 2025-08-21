@@ -10,6 +10,7 @@
           "hds/dropdown/toggle/button" isOpen=PP.isOpen setupPrimitiveToggle=PP.setupPrimitiveToggle
         )
         ToggleIcon=(component "hds/dropdown/toggle/icon" isOpen=PP.isOpen setupPrimitiveToggle=PP.setupPrimitiveToggle)
+        close=PP.hidePopover
       )
     }}
     <div
@@ -19,7 +20,7 @@
       {{PP.setupPrimitivePopover anchoredPositionOptions=this.anchoredPositionOptions}}
     >
       {{#if (or PP.isOpen @preserveContentInDom)}}
-        {{yield (hash Header=(component "hds/dropdown/header"))}}
+        {{yield (hash Header=(component "hds/dropdown/header") close=PP.hidePopover)}}
         <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
           {{yield
             (hash
