@@ -48,12 +48,8 @@ jobs:
       - name: Build Components
         run: pnpm build
         working-directory: packages/components
-      - name: Lint Showcase
+      - name: Lint All
         run: pnpm lint
-        working-directory: showcase
-      - name: Lint Components
-        run: pnpm lint
-        working-directory: packages/components
       - name: Run Tests
         run: pnpm test:ember:percy
         working-directory: showcase
