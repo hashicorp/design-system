@@ -94,7 +94,9 @@ export default class PageInternationalizationTranslationController extends Contr
     try {
       this.intl.setLocale(value);
     } catch {
-      // will throw an error if the locale is unset
+      console.error(
+        `No locale found for the provided language code. Using fallback translation.`,
+      );
     }
   }
 }
