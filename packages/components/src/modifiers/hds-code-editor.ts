@@ -13,6 +13,7 @@ import { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
 import { service } from '@ember/service';
+import { buildWaiter } from '@ember/test-waiters';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -45,6 +46,8 @@ type HdsCodeEditorBlurHandler = (
 interface HdsCodeEditorExtraKeys {
   [key: string]: () => void;
 }
+
+const waiter = buildWaiter('hds-code-editor');
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -450,6 +453,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
       const handleUpdateExtension = EditorView.updateListener.of(
         (update: ViewUpdate) => {
+          const token = waiter.beginAsync();
           // toggle a class if the update has/does not have a selection
           if (update.selectionSet) {
             update.view.dom.classList.toggle(
@@ -472,9 +476,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
             this.onInput === undefined ||
             !isUserUpdate
           ) {
+            waiter.endAsync(token);
             return;
           }
           this.onInput(update.state.doc.toString(), update.view);
+          waiter.endAsync(token);
         }
       );
 

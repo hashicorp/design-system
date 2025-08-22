@@ -330,6 +330,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     );
 
     // simulate user input
+    await click('.cm-content');
     await fillIn('.cm-content', 'Test string');
     await triggerEvent('.cm-content', 'input');
 

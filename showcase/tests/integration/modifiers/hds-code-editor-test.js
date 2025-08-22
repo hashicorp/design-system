@@ -12,6 +12,7 @@ import {
   fillIn,
   triggerEvent,
   focus,
+  click,
   blur,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -97,6 +98,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onInput=this.handleInput onSetup=this.handleSetup}} />`,
     );
     // simulate user input
+    await click('.cm-content');
     await fillIn('.cm-content', 'Test string');
     await triggerEvent('.cm-content', 'input');
 
