@@ -228,7 +228,9 @@ export default class TimeService extends Service {
   async register(id: Date): Promise<() => void> {
     this.#listeners.add(id);
 
-    await this.start.perform();
+    if (!this.start.isRunning) {
+      await this.start.perform();
+    }
 
     return (): void => {
       this.unregister(id);
