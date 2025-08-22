@@ -451,11 +451,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._scrollWrapperElement = element;
 
     const updateHorizontalScrollIndicators = () => {
-      if (element.clientWidth < element.scrollWidth) {
-        this.showScrollIndicatorRight = true;
-      } else {
-        this.showScrollIndicatorRight = false;
-      }
+      this.showScrollIndicatorRight = element.clientWidth < element.scrollWidth;
     };
 
     this._scrollHandler = () => {
