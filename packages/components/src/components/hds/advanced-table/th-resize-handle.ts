@@ -208,6 +208,14 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     window.addEventListener('pointerup', this._boundStopResize);
   }
 
+  private _setColumnWidth(column: HdsAdvancedTableColumn, width: number): void {
+    if (width > column.pxMaxWidth || width < column.pxMinWidth) {
+      column.pxTransientWidth = width;
+    } else {
+      column.setPxTransientWidth(width);
+    }
+  }
+
   private _applyResizeDelta(
     deltaX: number,
     column: HdsAdvancedTableColumn,
@@ -227,7 +235,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
         startNextColumnPxWidth
       );
 
-      column.setPxTransientWidth(
+      this._setColumnWidth(
+        column,
         Math.round(startColumnPxWidth + effectiveDelta)
       );
 
@@ -235,18 +244,10 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const actualNewColumnWidth = column.pxAppliedWidth ?? startColumnPxWidth;
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
-      const nextColumnNewWidth = Math.round(
-        startNextColumnPxWidth - actualAppliedDelta
+      this._setColumnWidth(
+        nextColumn,
+        Math.round(startNextColumnPxWidth - actualAppliedDelta)
       );
-
-      // check if the next column is outside its min/max bounds
-      const nextMaxWidth = nextColumn.pxMaxWidth ?? Infinity;
-      if (startNextColumnPxWidth > nextMaxWidth) {
-        // allow resizing if column is already above max width or below min width
-        nextColumn.pxTransientWidth = nextColumnNewWidth;
-      } else {
-        nextColumn.setPxTransientWidth(nextColumnNewWidth);
-      }
 
       this._transientDelta = actualAppliedDelta;
     } else {
