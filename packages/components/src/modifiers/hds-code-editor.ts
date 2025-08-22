@@ -8,7 +8,7 @@ import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
-import { Compartment } from '@codemirror/state';
+import { Compartment, Transaction } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
@@ -35,7 +35,6 @@ import type {
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
 
-import { Transaction } from '@codemirror/state';
 type HTMLElementWithEditor = HTMLElement & { editor: EditorViewType };
 
 type HdsCodeEditorBlurHandler = (
@@ -454,6 +453,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       const handleUpdateExtension = EditorView.updateListener.of(
         (update: ViewUpdate) => {
           const token = waiter.beginAsync();
+
           // toggle a class if the update has/does not have a selection
           if (update.selectionSet) {
             update.view.dom.classList.toggle(
@@ -465,21 +465,14 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           const isUserUpdate = update.transactions.some((transaction) => {
             // this will only be defined if the transaction is a user event
             const userEventType = transaction.annotation(Transaction.userEvent);
-            if (userEventType) {
-              return true;
-            }
-            return false;
+
+            return userEventType !== undefined;
           });
-          // call the onInput callback if the document has changed
-          if (
-            !update.docChanged ||
-            this.onInput === undefined ||
-            !isUserUpdate
-          ) {
-            waiter.endAsync(token);
-            return;
+
+          if (update.docChanged && isUserUpdate) {
+            this.onInput?.(update.state.doc.toString(), update.view);
           }
-          this.onInput(update.state.doc.toString(), update.view);
+
           waiter.endAsync(token);
         }
       );

@@ -14,9 +14,9 @@ import { StateEffect } from '@codemirror/state';
 import HdsCodeEditorDescription from './description.ts';
 import HdsCodeEditorTitle from './title.ts';
 
+import type Owner from '@ember/owner';
 import type { ViewUpdate } from '@codemirror/view';
 import type { WithBoundArgs } from '@glint/template';
-import type Owner from '@ember/owner';
 import type { ComponentLike } from '@glint/template';
 import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '../../../modifiers/hds-code-editor.ts';
 import type { HdsCodeEditorDescriptionSignature } from './description';
@@ -154,14 +154,17 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @action
   onSetup(editorView: EditorView): void {
     this._isSetupComplete = true;
-    const valUpdateExtension = EditorView.updateListener.of(
+
+    const valueUpdateExtension = EditorView.updateListener.of(
       (update: ViewUpdate) => {
         this._value = update.state.doc.toString();
       }
     );
+
     editorView.dispatch({
-      effects: StateEffect.appendConfig.of([valUpdateExtension]),
+      effects: StateEffect.appendConfig.of([valueUpdateExtension]),
     });
+
     this.args.onSetup?.(editorView);
   }
 }
