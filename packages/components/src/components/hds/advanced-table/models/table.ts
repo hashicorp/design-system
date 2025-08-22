@@ -72,15 +72,6 @@ export default class HdsAdvancedTableTableModel {
     this.setupData({ model, columns, sortBy, sortOrder });
   }
 
-  get debug() {
-    return this.columns.map((column) => ({
-      key: column.key,
-      label: column.label,
-      appliedWidth: column.appliedWidth,
-      widthDebts: column.widthDebts,
-    }));
-  }
-
   get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
     const currentColumn = this.columns.find(
@@ -162,10 +153,13 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
-  setTransientColumnWidths(): void {
+  setTransientColumnWidths(options: { roundValues?: boolean } = {}): void {
+    const roundValues = options.roundValues ?? false;
+
     this.columns.forEach((column) => {
-      column.pxTransientWidth =
-        column.thElement?.getBoundingClientRect().width ?? 0;
+      column.pxTransientWidth = roundValues
+        ? Math.round(column.pxWidth)
+        : column.pxWidth;
     });
   }
 

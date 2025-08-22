@@ -73,9 +73,11 @@ export default class HdsAdvancedTableColumn {
     }
   }
 
-  get pxWidth(): number | undefined {
+  get pxWidth(): number {
     if (isPxSize(this.width)) {
       return pxToNumber(this.width);
+    } else {
+      return this.thElement?.offsetWidth ?? 0;
     }
   }
   set pxWidth(value: number) {
