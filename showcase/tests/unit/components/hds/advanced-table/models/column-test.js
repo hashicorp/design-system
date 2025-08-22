@@ -133,9 +133,15 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('isPxSize utility function works correctly', function (assert) {
+    const thElement = document.createElement('div');
+    thElement.style.width = '100px';
+    document.body.appendChild(thElement);
+
     const column = new HdsAdvancedTableColumn({
       column: { label: 'Test' },
     });
+
+    column.thElement = thElement;
 
     // Setting valid px values
     column.width = '100px';
@@ -155,25 +161,29 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
     column.width = '100%';
     assert.strictEqual(
       column.pxWidth,
-      undefined,
-      'returns undefined for percentage values',
+      100,
+      'returns the width of the thElement',
     );
 
     column.width = '10em';
     assert.strictEqual(
       column.pxWidth,
-      undefined,
-      'returns undefined for em values',
+      100,
+      'returns the width of the thElement',
     );
 
     column.width = 'auto';
-    assert.strictEqual(column.pxWidth, undefined, 'returns undefined for auto');
+    assert.strictEqual(
+      column.pxWidth,
+      100,
+      'returns the width of the thElement',
+    );
 
     column.width = undefined;
     assert.strictEqual(
       column.pxWidth,
-      undefined,
-      'returns undefined when width is undefined',
+      100,
+      'returns the width of the thElement',
     );
   });
 
