@@ -13,6 +13,7 @@ import { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
 import { service } from '@ember/service';
+import { buildWaiter } from '@ember/test-waiters';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -25,7 +26,7 @@ import type {
   StreamLanguage as StreamLanguageType,
   StreamParser as StreamParserType,
 } from '@codemirror/language';
-import type { Extension } from '@codemirror/state';
+import type { Extension, TransactionSpec } from '@codemirror/state';
 import type {
   EditorView as EditorViewType,
   KeyBinding,
@@ -34,6 +35,7 @@ import type {
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
 
+import { Transaction } from '@codemirror/state';
 type HTMLElementWithEditor = HTMLElement & { editor: EditorViewType };
 
 type HdsCodeEditorBlurHandler = (
@@ -44,6 +46,8 @@ type HdsCodeEditorBlurHandler = (
 interface HdsCodeEditorExtraKeys {
   [key: string]: () => void;
 }
+
+const waiter = buildWaiter('hds-code-editor');
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -195,15 +199,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ): void {
-    const { hasLineWrapping = false } = named;
+    const { value, hasLineWrapping } = named;
 
-    // if the editor already exists, update the line wrapping
+    // if the editor already exists, update its state
     if (this.editor) {
-      this.editor.dispatch({
-        effects: this.lineWrappingCompartment.reconfigure(
-          hasLineWrapping ? EditorView.lineWrapping : []
-        ),
-      });
+      this._updateEditorState({ value, hasLineWrapping });
     }
     // if the editor does not exist, setup the editor
     else {
@@ -231,6 +231,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       }
     }
   }
+
+  private _updateEditorState = ({
+    value,
+    hasLineWrapping = false,
+  }: {
+    value?: string;
+    hasLineWrapping?: boolean;
+  }) => {
+    const transactions: TransactionSpec = {
+      effects: this.lineWrappingCompartment.reconfigure(
+        hasLineWrapping ? EditorView.lineWrapping : []
+      ),
+    };
+
+    if (value !== undefined && value !== this.editor.state.doc.toString()) {
+      transactions.changes = {
+        from: 0,
+        to: this.editor.state.doc.length,
+        insert: value,
+      };
+    }
+
+    this.editor.dispatch(transactions);
+  };
 
   private _setupEditorBlurHandler(
     element: HTMLElementWithEditor,
@@ -429,6 +453,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
       const handleUpdateExtension = EditorView.updateListener.of(
         (update: ViewUpdate) => {
+          const token = waiter.beginAsync();
           // toggle a class if the update has/does not have a selection
           if (update.selectionSet) {
             update.view.dom.classList.toggle(
@@ -437,11 +462,25 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
             );
           }
 
+          const isUserUpdate = update.transactions.some((transaction) => {
+            // this will only be defined if the transaction is a user event
+            const userEventType = transaction.annotation(Transaction.userEvent);
+            if (userEventType) {
+              return true;
+            }
+            return false;
+          });
           // call the onInput callback if the document has changed
-          if (!update.docChanged || this.onInput === undefined) {
+          if (
+            !update.docChanged ||
+            this.onInput === undefined ||
+            !isUserUpdate
+          ) {
+            waiter.endAsync(token);
             return;
           }
           this.onInput(update.state.doc.toString(), update.view);
+          waiter.endAsync(token);
         }
       );
 
