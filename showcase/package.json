@@ -31,7 +31,7 @@
     "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\"",
     "test:ember": "pnpm build:packages && ember test",
     "test:ember-compatibility": "ember try:each",
-    "test:ember:percy": "percy exec ember exam --preserve-test-name --split=8 --parallel",
+    "test:ember:percy": "PERCY_PARALLEL_TOTAL=4 percy exec -- ember exam --preserve-test-name --split=8 --parallel",
     "test:a11y": "pnpm build:packages && ENABLE_A11Y_AUDIT=true ember test --server -f=\"Acceptance\"",
     "test:a11y-report": "pnpm build:packages && ENABLE_A11Y_AUDIT=true ENABLE_A11Y_MIDDLEWARE_REPORTER=true ember test -f=\"Acceptance\""
   },

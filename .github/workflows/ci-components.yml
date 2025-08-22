@@ -48,14 +48,17 @@ jobs:
       - name: Build Components
         run: pnpm build
         working-directory: packages/components
-      - name: Lint All
+      - name: Lint Showcase
         run: pnpm lint
+        working-directory: showcase
+      - name: Lint Components
+        run: pnpm lint
+        working-directory: packages/components
       - name: Run Tests
         run: pnpm test:ember:percy
         working-directory: showcase
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
-          PERCY_PARALLEL_TOTAL: 8
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
