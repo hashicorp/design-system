@@ -190,6 +190,10 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
   @action
   startResize(event: PointerEvent): void {
+    if (event.button !== 0) {
+      return;
+    }
+
     event.preventDefault();
     event.stopPropagation();
 
@@ -235,6 +239,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
         startNextColumnPxWidth
       );
 
+      // set the width for the current column
       this._setColumnWidth(
         column,
         Math.round(startColumnPxWidth + effectiveDelta)
@@ -244,6 +249,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const actualNewColumnWidth = column.pxAppliedWidth ?? startColumnPxWidth;
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
+      // set the width for the next sibling column
       this._setColumnWidth(
         nextColumn,
         Math.round(startNextColumnPxWidth - actualAppliedDelta)
