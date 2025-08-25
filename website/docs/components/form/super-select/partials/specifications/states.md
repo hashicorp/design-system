@@ -9,15 +9,15 @@ Because disabled states completely remove the interactive function of an element
 
 ### Trigger
 
-![Showing the different states for the SuperSelect trigger](/assets/components/form/super-select/super-select-trigger-states.png =800x*)
+![Showing the different states for the SuperSelect trigger](/assets/components/form/super-select/super-select-trigger-states.png)
 
 ### ListItem
 
 #### Checkmark
 
-![Showing the different states for the SuperSelect list item checkmark variant](/assets/components/form/super-select/super-select-listitem-checkmark-states.png =432x*)
+![Showing the different states for the SuperSelect list item checkmark variant](/assets/components/form/super-select/super-select-listitem-checkmark-states.png)
 
 
 #### Checkbox
 
-![Showing the different states for the SuperSelect list item checkbox variant](/assets/components/form/super-select/super-select-listitem-checkbox-states.png =432x*)
+![Showing the different states for the SuperSelect list item checkbox variant](/assets/components/form/super-select/super-select-listitem-checkbox-states.png)
