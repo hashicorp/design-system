@@ -175,7 +175,6 @@
   <Hds::AdvancedTable
     @isSelectable={{true}}
     @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.userData}}
     @columns={{array
       (hash key="id" label="ID" width="auto")
@@ -213,7 +212,6 @@
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model.userData}}
       @maxHeight="400px"
       @hasStickyHeader={{false}}
@@ -252,7 +250,6 @@
 
   <div class="shw-component-advanced-table-fixed-width-wrapper">
     <Hds::AdvancedTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model.userData}}
       @columns={{array
         (hash key="id" label="ID" width="auto")
@@ -286,7 +283,6 @@
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model.userData}}
       @columns={{array
         (hash key="id" label="ID" width="auto")
@@ -560,7 +556,6 @@
   <Hds::AdvancedTable
     @isSelectable={{true}}
     @onSelectionChange={{this.onSelectionChangeLogArguments}}
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.selectableData}}
     @columns={{array
       (hash key="lorem" label="Row #")
@@ -592,7 +587,6 @@
   <Hds::AdvancedTable
     @isSelectable={{true}}
     @onSelectionChange={{this.onMultiSelectSelectionChange}}
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.multiSelectSelectableData}}
     @columns={{array
       (hash key="lorem" label="Row #" isSortable=true)
@@ -812,7 +806,6 @@
   <Hds::AdvancedTable
     @isSelectable={{true}}
     @onSelectionChange={{this.onSelectionChangeWithModel__demo1}}
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.multiSelectFilteredData__demo1}}
     @columns={{array
       (hash key="lorem" label="Row #")
@@ -871,7 +864,6 @@
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectPaginatedSelectionChange__demo2}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.multiSelectPaginatedData_demo2}}
       @columns={{array
         (hash key="lorem" label="Row #")
@@ -945,7 +937,6 @@
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.multiSelectUsersData_demo3}}
       @columns={{array
         (hash key="id" label="ID")
@@ -1050,7 +1041,6 @@
                 <Hds::AdvancedTable
                   @isSelectable={{bool}}
                   @density={{if (not (eq density "default")) density}}
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   @model={{this.model.userDataShort}}
                   @columns={{array
                     (hash key="id" label="ID")
@@ -1092,7 +1082,6 @@
           <Hds::AdvancedTable
             @isStriped={{true}}
             @isSelectable={{bool}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @model={{this.model.userDataShort}}
             @columns={{array
               (hash key="id" label="ID")
@@ -1237,7 +1226,6 @@
   <Shw::Text::H3>Selectable AdvancedTable with custom column widths</Shw::Text::H3>
   <Hds::AdvancedTable
     @isSelectable={{true}}
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.userDataShort}}
     @columns={{array
       (hash key="id" label="ID (120px)" width="120px")
@@ -1269,7 +1257,6 @@
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model.userDataShort}}
       @columns={{array (hash key="id" label="ID" width="150px") (hash key="name" label="Name" width="150px")}}
     >
