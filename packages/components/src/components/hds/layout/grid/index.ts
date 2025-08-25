@@ -29,6 +29,11 @@ export interface HdsLayoutGridSignature {
     tag?: AvailableTagNames;
     columnMinWidth?: string;
     columnWidth?: string;
+
+    columnWidthSm?: string;
+    columnWidthMd?: string;
+    columnWidthLg?: string;
+
     align?: HdsLayoutGridAligns;
     gap?: HdsLayoutGridGaps | [HdsLayoutGridGaps, HdsLayoutGridGaps];
   };
@@ -104,6 +109,15 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     const inlineStyles: {
       '--hds-layout-grid-column-min-width'?: string;
       '--hds-layout-grid-column-fill-type'?: string;
+
+      // responsize
+      '--hds-layout-grid-column-width-sm'?: string;
+      '--hds-layout-grid-column-width-md'?: string;
+      '--hds-layout-grid-column-width-lg'?: string;
+
+      '--hds-layout-grid-column-fill-type-sm'?: string;
+      '--hds-layout-grid-column-fill-type-md'?: string;
+      '--hds-layout-grid-column-fill-type-lg'?: string;
     } = {};
 
     // if both columnMinWidth and columnWidth are passed in, we throw an error
@@ -119,6 +133,25 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       inlineStyles['--hds-layout-grid-column-min-width'] =
         this.args.columnWidth;
       inlineStyles['--hds-layout-grid-column-fill-type'] = 'auto-fill';
+    }
+
+    // Responsize column widths
+    if (this.args.columnWidthSm) {
+      inlineStyles['--hds-layout-grid-column-width-sm'] =
+        this.args.columnWidthSm;
+      inlineStyles['--hds-layout-grid-column-fill-type-sm'] = 'auto-fill';
+    }
+
+    if (this.args.columnWidthMd) {
+      inlineStyles['--hds-layout-grid-column-width-md'] =
+        this.args.columnWidthMd;
+      inlineStyles['--hds-layout-grid-column-fill-type-md'] = 'auto-fill';
+    }
+
+    if (this.args.columnWidthLg) {
+      inlineStyles['--hds-layout-grid-column-width-lg'] =
+        this.args.columnWidthLg;
+      inlineStyles['--hds-layout-grid-column-fill-type-lg'] = 'auto-fill';
     }
 
     return inlineStyles;
@@ -141,6 +174,19 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
         classes.push(`hds-layout-grid--row-gap-${this.gap[0]}`);
         classes.push(`hds-layout-grid--column-gap-${this.gap[0]}`);
       }
+    }
+
+    // add classes based on responsive width arguments
+    if (this.args.columnWidthSm) {
+      classes.push('hds-layout-grid--column-width-sm');
+    }
+
+    if (this.args.columnWidthMd) {
+      classes.push('hds-layout-grid--column-width-md');
+    }
+
+    if (this.args.columnWidthLg) {
+      classes.push('hds-layout-grid--column-width-lg');
     }
 
     return classes.join(' ');
