@@ -453,6 +453,101 @@
 
   <Shw::Divider />
 
+  <Shw::Text::H2>Context</Shw::Text::H2>
+
+  <Shw::Text::H3>Flush Accordion used within containers</Shw::Text::H3>
+
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item @label="In a Card w/ no padding">
+      <Hds::Card::Container @hasBorder={{true}}>
+        <Hds::Accordion @type="flush" as |A|>
+          <A.Item>
+            <:toggle>Item one</:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </A.Item>
+
+          <A.Item @isStatic={{true}}>
+            <:toggle>Item two</:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </A.Item>
+
+          <A.Item @containsInteractive={{true}}>
+            <:toggle>Item three</:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </A.Item>
+        </Hds::Accordion>
+      </Hds::Card::Container>
+    </SG.Item>
+
+    <SG.Item @label="in a Card w/ padding">
+      <Hds::Card::Container @hasBorder={{true}} {{style padding="16px"}}>
+        <Hds::Accordion @type="flush" as |A|>
+          <A.Item>
+            <:toggle>Item one</:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </A.Item>
+
+          <A.Item @isStatic={{true}}>
+            <:toggle>Item two</:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </A.Item>
+
+          <A.Item @containsInteractive={{true}}>
+            <:toggle>Item three</:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </A.Item>
+        </Hds::Accordion>
+      </Hds::Card::Container>
+    </SG.Item>
+
+    <SG.Item @label="in a Flyout" class="shw-component-flyout-sample-item">
+      <Hds::Flyout open id="flyout-example-one-action" as |F|>
+        <F.Header>Title</F.Header>
+        <F.Body>
+          <Hds::Accordion @type="flush" as |A|>
+            <A.Item>
+              <:toggle>Item one</:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </A.Item>
+
+            <A.Item @isStatic={{true}}>
+              <:toggle>Item two</:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </A.Item>
+
+            <A.Item @containsInteractive={{true}}>
+              <:toggle>Item three</:toggle>
+              <:content>
+                <Shw::Placeholder @text="generic content" @height="40" />
+              </:content>
+            </A.Item>
+          </Hds::Accordion>
+        </F.Body>
+        <F.Footer>
+          <Hds::Button type="submit" @text="Primary" />
+        </F.Footer>
+      </Hds::Flyout>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Base elements</Shw::Text::H2>
 
   <Shw::Text::H3>Accordion::Item</Shw::Text::H3>
