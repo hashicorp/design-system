@@ -1,16 +1,16 @@
 ## Anatomy
 
-![Anatomy of SuperSelect](/assets/components/form/super-select/super-select-anatomy.png =667x*)
+![Anatomy of SuperSelect](/assets/components/form/super-select/super-select-anatomy.png)
 
 
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
+| Element           | Usage                                                       |
+|-------------------|-------------------------------------------------------------|
 | Label             | Required                                                    |
 | Indicator         | Optional                                                    |
 | Helper text       | Optional                                                    |
 | Selected option(s)| Optional                                                    |
 | Control           | Required                                                    |
 | Error message     | Triggered by system                                         |
-|  Before options     | Optional                                                    |
+|  Before options   | Optional                                                    |
 | List              | Required                                                    |
-| After options      | Optional                                                    |
+| After options     | Optional                                                    |

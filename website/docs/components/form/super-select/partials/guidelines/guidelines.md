@@ -17,13 +17,13 @@
 
 Selection is limited to a single option item.
 
-![Single selection example with list open](/assets/components/form/super-select/super-select-single-variant-text.png =504x*)
+![Single selection example with list open](/assets/components/form/super-select/super-select-single-variant-text.png)
 
 ### Multiple
 
 Multiple options can be selected.
 
-![Multiple selection example with list open](/assets/components/form/super-select/super-select-multiple-variant.png =504x*)
+![Multiple selection example with list open](/assets/components/form/super-select/super-select-multiple-variant.png)
 
 ## Trigger value states
 
@@ -59,19 +59,19 @@ BeforeOptions allows for either a search field or generic content to be displaye
 
 If enabled, search allows the user to filter results based on a query.
 
-![Search enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-before-options-search.png =836x*)
+![Search enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-before-options-search.png)
 
 #### Generic content
 
 If enabled, generic content will occupy this space.
 
-![Generic content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-before-options-custom-content.png =836x*)
+![Generic content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-before-options-custom-content.png)
 
 !!! Dont
 
 We recommend against placing heavy UI elements in custom content as it can draw attention away from the list options and will only be visible when the menu is open. Consider placing such content outside the list relative to the trigger for better visibility.
 
-![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-dont-visually-heavy.png =836x*)
+![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-dont-visually-heavy.png)
 
 !!!
 
@@ -111,13 +111,13 @@ The “Clear selected” button clears all selections and reverts the Super Sele
 
 The footer can contain generic content instead of the default content. This is helpful in maintaining the standard appearance of the footer container while allowing for custom usage.
 
-![Showing the footer with generic content inside.](/assets/components/form/super-select/super-select-single-multiple-footer-custom-content.png =836x*) 
+![Showing the footer with generic content inside.](/assets/components/form/super-select/super-select-single-multiple-footer-custom-content.png) 
 
 #### Generic content
 
 If enabled, generic content will occupy this space.
 
-![Showing the afterOptions slot with generic content](/assets/components/form/super-select/super-select-after-options-custom-content.png =836x*)
+![Showing the afterOptions slot with generic content](/assets/components/form/super-select/super-select-after-options-custom-content.png)
 
 ## List
 
@@ -125,7 +125,7 @@ If enabled, generic content will occupy this space.
 
 Lists can be positioned to the left or right, as well as above or below the trigger as necessary to fit within the UI. These options are only available when `matchTriggerWidth` is set to `false`. This effects the ember component only.
 
-![Showing the different list positions (left, right + top and bottom)](/assets/components/form/super-select/super-select-list-positioning.png =836x*)
+![Showing the different list positions (left, right + top and bottom)](/assets/components/form/super-select/super-select-list-positioning.png)
 
 ### Width
 
@@ -154,7 +154,7 @@ There are four types of ListItems, two of which are component-specific.
 
 ListItems can be grouped visually by adding a title and a separator. The last group in the list doesn’t require a separator.
 
-![Groups of list items represented in both Single and Multiple components](/assets/components/form/super-select/super-select-group-list-items.png =836x*)
+![Groups of list items represented in both Single and Multiple components](/assets/components/form/super-select/super-select-group-list-items.png)
 
 ## Required and optional
 
