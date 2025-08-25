@@ -75,6 +75,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   } | null = null;
   // track the width change as it is changing, applied when resizing stops
   @tracked private _tempXDelta: number = 0;
+  @tracked private _isUpdateQueued: boolean = false;
+  @tracked private _lastPointerEvent: PointerEvent | null = null;
 
   private _handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private _boundResize: (event: PointerEvent) => void;
@@ -271,7 +273,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     this._isUpdateQueued = true;
 
-    requestAnimationFrameWaiter(() => {
+    requestAnimationFrame(() => {
       if (this.resizing === null || this._lastPointerEvent === null) {
         this._isUpdateQueued = false;
 
@@ -285,7 +287,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const { column } = this.args;
       const { next: nextColumn } = column.siblings;
       const { startX, startColumnPxWidth, startNextColumnPxWidth } =
-        this.resizing;
+        this.resizing!;
       const deltaX = event.clientX - startX;
 
       this._applyResizeDelta(
@@ -305,6 +307,9 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     window.removeEventListener('pointermove', this._boundResize);
     window.removeEventListener('pointerup', this._boundStopResize);
+
+    this._isUpdateQueued = false;
+    this._lastPointerEvent = null;
 
     this._setWidthDebts();
 
