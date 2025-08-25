@@ -555,15 +555,50 @@ If you want to set the `maxHeight` but not have a sticky header, set `hasStickyH
 
 #### Horizontal scrolling
 
-There may be cases when it’s necessary to show an Advanced Table with a large number of columns and allow the user to scroll horizontally. The `@hasStickyFirstColumn` argument can be used to help users identify each row by persisting the first column as they scroll.
+!!! Info
+
+`@hasStickyFirstColumn` is not supported in instances of the Advanced Table that have nested rows.
+!!!
+
+There may be cases when it’s necessary to show an Advanced Table with a large number of columns and allow the user to scroll horizontally. The `@hasStickyFirstColumn` argument can be used to help users identify each row by persisting the first column as they scroll. In the header cell context menu, the user can also control pinning or unpinning the column.
 
 The component adds the sticky styles to the `[B].Th` component in each row. If there is not a `[B].Th`, the styles will not work correctly.
-
-Note: Using `@hasStickyFirstColumn` with nested rows is not supported.
 
 ```handlebars
 <Hds::AdvancedTable
   @hasStickyFirstColumn={{true}}
+  @model={{this.demoDataWithLargeNumberOfColumns}}
+  @columns={{array
+    (hash key="first_name" label="First Name" isSortable=true)
+    (hash key="last_name" label="Last Name" isSortable=true)
+    (hash key="age" label="Age" isSortable=true)
+    (hash key="email" label="Email")
+    (hash key="phone" label="Phone")
+    (hash key="bio" label="Biography" width="350px")
+    (hash key="education" label="Education Degree")
+    (hash key="occupation" label="Occupation")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Th>{{B.data.first_name}}</B.Th>
+      <B.Td>{{B.data.last_name}}</B.Td>
+      <B.Td>{{B.data.age}}</B.Td>
+      <B.Td>{{B.data.email}}</B.Td>
+      <B.Td>{{B.data.phone}}</B.Td>
+      <B.Td>{{B.data.bio}}</B.Td>
+      <B.Td>{{B.data.education}}</B.Td>
+      <B.Td>{{B.data.occupation}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+```
+
+If `@hasStickyFirstColumn` is set to `false`, the column will not be sticky, but in the header cell context menu there will be the option for the user to pin or unpin the column. If `@hasStickyFirstColumn` is `undefined`, no option will be available in the header cell context menu.
+
+```handlebars
+<Hds::AdvancedTable
+  @hasStickyFirstColumn={{false}}
   @model={{this.demoDataWithLargeNumberOfColumns}}
   @columns={{array
     (hash key="first_name" label="First Name" isSortable=true)
