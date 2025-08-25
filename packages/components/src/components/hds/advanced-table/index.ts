@@ -57,6 +57,8 @@ const DEFAULT_SCROLL_DIMENSIONS = {
   width: '0px',
 };
 
+const DEFAULT_COLUMN_WIDTH = '1fr';
+
 const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
@@ -398,8 +400,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const { isSelectable } = this.args;
     const { orderedColumns } = this._tableModel;
 
-    const DEFAULT_COLUMN_WIDTH = '1fr';
-
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
@@ -460,22 +460,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _setColumnWidth = modifier(
-    (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
-      // eslint-disable-next-line ember/no-runloop
-      schedule('afterRender', () => {
-        const width = element.offsetWidth;
+  private _registerGridElement = modifier((element: HTMLDivElement) => {
+    this._tableModel.gridElement = element;
+  });
 
-        if (column.width === undefined) {
-          column.setPxWidth(width);
-          column.originalWidth = `${width}px`;
-        }
-      });
+  private _registerThElement = modifier(
+    (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
+      if (column === undefined) {
+        return;
+      }
+
+      column.thElement = element;
     }
   );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollWrapperElement = element;
+
+    const updateHorizontalScrollIndicators = () => {
+      this.showScrollIndicatorRight = element.clientWidth < element.scrollWidth;
+    };
 
     this._scrollHandler = () => {
       this._updateScrollIndicators(element);
@@ -512,6 +516,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
         updateMeasurements();
+        updateHorizontalScrollIndicators();
       });
     });
 
@@ -520,9 +525,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     updateMeasurements();
 
     // on render check if should show right scroll indicator
-    if (element.clientWidth < element.scrollWidth) {
-      this.showScrollIndicatorRight = true;
-    }
+    updateHorizontalScrollIndicators();
 
     // on render check if should show bottom scroll indicator
     if (element.clientHeight < element.scrollHeight) {

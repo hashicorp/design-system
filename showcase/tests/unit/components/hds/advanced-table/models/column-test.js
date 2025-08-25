@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import HdsAdvancedTableColumn, {
   DEFAULT_MAX_WIDTH,
   DEFAULT_MIN_WIDTH,
+  DEFAULT_WIDTH,
 } from '@hashicorp/design-system-components/components/hds/advanced-table/models/column';
 
 module('Unit | Component | hds/advanced-table/models/column', function () {
@@ -28,10 +29,9 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       false,
       'isVisuallyHidden is false when not provided',
     );
-    assert.strictEqual(
-      column.key,
-      undefined,
-      'key is undefined when not provided',
+    assert.ok(
+      typeof column.key === 'string',
+      'key defaults to a uuid when not provided',
     );
     assert.strictEqual(
       column.minWidth,
@@ -50,8 +50,8 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
     );
     assert.strictEqual(
       column.width,
-      undefined,
-      'width is undefined when not provided',
+      DEFAULT_WIDTH,
+      'width is set to the default when not provided',
     );
   });
 
@@ -133,9 +133,15 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('isPxSize utility function works correctly', function (assert) {
+    const thElement = document.createElement('div');
+    thElement.style.width = '100px';
+    document.body.appendChild(thElement);
+
     const column = new HdsAdvancedTableColumn({
       column: { label: 'Test' },
     });
+
+    column.thElement = thElement;
 
     // Setting valid px values
     column.width = '100px';
@@ -155,29 +161,33 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
     column.width = '100%';
     assert.strictEqual(
       column.pxWidth,
-      undefined,
-      'returns undefined for percentage values',
+      100,
+      'returns the width of the thElement',
     );
 
     column.width = '10em';
     assert.strictEqual(
       column.pxWidth,
-      undefined,
-      'returns undefined for em values',
+      100,
+      'returns the width of the thElement',
     );
 
     column.width = 'auto';
-    assert.strictEqual(column.pxWidth, undefined, 'returns undefined for auto');
+    assert.strictEqual(
+      column.pxWidth,
+      100,
+      'returns the width of the thElement',
+    );
 
     column.width = undefined;
     assert.strictEqual(
       column.pxWidth,
-      undefined,
-      'returns undefined when width is undefined',
+      100,
+      'returns the width of the thElement',
     );
   });
 
-  test('setPxWidth respects min/max constraints', function (assert) {
+  test('setPxTransientWidth respects min/max constraints', function (assert) {
     const column = new HdsAdvancedTableColumn({
       column: {
         label: 'Constrained Width',
@@ -187,39 +197,58 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       },
     });
 
-    column.setPxWidth(100);
+    column.setPxTransientWidth(100);
     assert.strictEqual(
-      column.width,
+      column.transientWidth,
       '150px',
       'respects minimum width constraint',
     );
 
-    column.setPxWidth(300);
+    column.setPxTransientWidth(300);
     assert.strictEqual(
-      column.width,
+      column.transientWidth,
       '250px',
       'respects maximum width constraint',
     );
 
-    column.setPxWidth(200);
+    column.setPxTransientWidth(200);
     assert.strictEqual(
-      column.width,
+      column.transientWidth,
       '200px',
       'sets exact width when within constraints',
     );
   });
 
   test('restoreWidth sets width back to original value', function (assert) {
+    // Create mock table with multiple columns
+    const mockTable = {
+      columns: [
+        new HdsAdvancedTableColumn({
+          column: { label: 'First', key: 'first' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Second', key: 'second' },
+          table: null,
+        }),
+        new HdsAdvancedTableColumn({
+          column: { label: 'Third', key: 'third' },
+          table: null,
+        }),
+      ],
+    };
+
     const column = new HdsAdvancedTableColumn({
       column: {
         label: 'Restore Test',
         width: '200px',
       },
+      table: mockTable,
     });
 
     assert.strictEqual(column.width, '200px', 'initial width is set');
 
-    column.setPxWidth(300);
+    column.pxWidth = 300;
     assert.strictEqual(column.width, '300px', 'width is updated');
 
     column.restoreWidth();

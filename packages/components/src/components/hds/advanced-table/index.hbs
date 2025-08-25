@@ -27,6 +27,7 @@
       --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
       max-height=@maxHeight
     }}
+    {{this._registerGridElement}}
     {{this._setUpScrollWrapper}}
   >
     {{! Header }}
@@ -67,7 +68,7 @@
               @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
               @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
               @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
-              {{this._setColumnWidth column}}
+              {{this._registerThElement column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::ThSort>
@@ -92,7 +93,7 @@
               @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
               @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
               @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
-              {{this._setColumnWidth column}}
+              {{this._registerThElement column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>
