@@ -84,37 +84,32 @@
               </:header>
 
               <:row as |R|>
-                {{#if (not-eq R.rowIndex undefined)}}
-                  {{! @glint-expect-error - with the if statement above, we know R.rowIndex is defined }}
-                  {{#let (get this.formErrors R.rowIndex) as |rowErrors|}}
-                    <R.Field as |F|>
-                      <F.Label>OS and architecture</F.Label>
-                      <F.Select name="plugin-os">
-                        <option></option>
-                        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
-                        <option selected={{if (eq "darwin - arm64" R.rowData.os) true}}>darwin - arm64</option>
-                        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
-                        <option selected={{if (eq "linux - 386" R.rowData.os) true}}>linux - 386</option>
-                        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
-                        <option selected={{if (eq "windows - amd64" R.rowData.os) true}}>windows - amd64</option>
-                      </F.Select>
-                    </R.Field>
+                <R.Field as |F|>
+                  <F.Label>OS and architecture</F.Label>
+                  <F.Select name="plugin-os">
+                    <option></option>
+                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
+                    <option selected={{if (eq "darwin - arm64" R.rowData.os) true}}>darwin - arm64</option>
+                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
+                    <option selected={{if (eq "linux - 386" R.rowData.os) true}}>linux - 386</option>
+                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
+                    <option selected={{if (eq "windows - amd64" R.rowData.os) true}}>windows - amd64</option>
+                  </F.Select>
+                </R.Field>
 
-                    {{#let (get rowErrors "pluginFile") as |fileError|}}
-                      <R.Field @isInvalid={{(if (not-eq fileError undefined) true)}} as |F|>
-                        <F.Label>File</F.Label>
-                        <F.FileInput name="plugin-file" />
-                        {{#if (not-eq fileError undefined)}}
-                          <F.Error>
-                            {{! @glint-expect-error - file error is unknown type for some reason }}
-                            {{fileError}}
-                          </F.Error>
-                        {{/if}}
-                      </R.Field>
-                    {{/let}}
-                    <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
-                  {{/let}}
-                {{/if}}
+                {{#let (get R.rowData "validationMessage") as |fileError|}}
+                  <R.Field @isInvalid={{(if (not-eq fileError undefined) true)}} as |F|>
+                    <F.Label>File</F.Label>
+                    <F.FileInput name="plugin-file" />
+                    {{#if (not-eq fileError undefined)}}
+                      <F.Error>
+                        {{! @glint-expect-error - file error is unknown type for some reason }}
+                        {{fileError}}
+                      </F.Error>
+                    {{/if}}
+                  </R.Field>
+                {{/let}}
+                <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
               </:row>
 
               <:footer as |F|>

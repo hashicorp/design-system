@@ -5,12 +5,13 @@
 
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { deepTracked } from 'ember-deep-tracked';
-import { tracked } from '@glimmer/tracking';
+import type Owner from '@ember/owner';
+import { TrackedArray, TrackedObject } from 'tracked-built-ins';
 
 type PluginBinaryData = {
   os: string;
   id: number;
+  validationMessage?: string;
 };
 
 const DEFAULT_DATA = [
@@ -29,25 +30,35 @@ const DEFAULT_DATA = [
 ];
 
 export default class PageComponentsFramelessFormKeyValueInputsDemoInFormController extends Controller {
-  @tracked sampleData = DEFAULT_DATA;
-  @deepTracked formErrors: { pluginBinaryFile?: string }[] = [];
+  sampleData = new TrackedArray<PluginBinaryData>([]);
 
-  @action
-  onDeleteRowClick(item: unknown) {
-    this.sampleData = this.sampleData.filter(
-      (data) => data.id !== (item as PluginBinaryData).id,
+  constructor(owner: Owner) {
+    super(owner);
+    DEFAULT_DATA.forEach((item) =>
+      this.sampleData.push(new TrackedObject(item)),
     );
   }
 
   @action
+  onDeleteRowClick(_item: unknown, rowIndex: number) {
+    if (rowIndex < 0 || rowIndex >= this.sampleData.length) {
+      console.error(
+        'Trying to delete a row with index out of boundaries of the `@data` array',
+      );
+    } else {
+      // Remove the item at the specific index
+      this.sampleData.splice(rowIndex, 1);
+    }
+  }
+
+  @action
   onAddRowClick() {
-    this.sampleData = [
-      ...this.sampleData,
-      {
+    this.sampleData.push(
+      new TrackedObject({
         os: '',
         id: this.sampleData.length + 1,
-      },
-    ];
+      }),
+    );
   }
 
   @action
@@ -65,18 +76,15 @@ export default class PageComponentsFramelessFormKeyValueInputsDemoInFormControll
     );
     pluginFileInputs.forEach((input, index) => {
       const inputHtmlElement = input as HTMLInputElement;
+      const dataFromSampleData = this.sampleData[index];
 
-      if (inputHtmlElement.files?.length === 0) {
-        this.formErrors[index] = {
-          ...this.formErrors[index],
-          pluginBinaryFile: 'File is required',
-        };
-        hasErrors = true;
-      } else {
-        this.formErrors[index] = {
-          ...this.formErrors[index],
-          pluginBinaryFile: undefined,
-        };
+      if (dataFromSampleData !== undefined) {
+        if (inputHtmlElement.files?.length === 0) {
+          dataFromSampleData.validationMessage = 'File is required';
+          hasErrors = true;
+        } else {
+          dataFromSampleData.validationMessage = undefined;
+        }
       }
     });
 

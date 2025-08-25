@@ -50,18 +50,6 @@ interface FormModel extends Record<PropertyKey, unknown> {
 
 const SUPERSELECT_OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
 
-const EMPTY_KVP_ITEM: KvpItem = {
-  id: 0,
-  key: '',
-  value: '',
-};
-
-const EMPTY_MODEL: FormModel = {
-  'thing-name': '',
-  'thing-description': '',
-  'kvp-list': [structuredClone(EMPTY_KVP_ITEM)],
-};
-
 const Instructions = <template>
   <ShwTextH4 @tag="h3">Instructions</ShwTextH4>
   <ShwLabel {{style margin-bottom="32px"}}>
@@ -103,7 +91,13 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
   model = new TrackedObject<FormModel>({
     'thing-name': '',
     'thing-description': '',
-    'kvp-list': new TrackedArray([EMPTY_KVP_ITEM]),
+    'kvp-list': new TrackedArray([
+      new TrackedObject({
+        id: 0,
+        key: '',
+        value: '',
+      }),
+    ]),
   });
 
   // we use the same function on all the different kind of inputs
@@ -167,11 +161,13 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
   };
 
   onAddRowClick = () => {
-    this.model['kvp-list'].push({
-      id: this.model['kvp-list'].length + 1,
-      key: '',
-      value: '',
-    });
+    this.model['kvp-list'].push(
+      new TrackedObject({
+        id: this.model['kvp-list'].length + 1,
+        key: '',
+        value: '',
+      }),
+    );
   };
 
   get canDeleteRow() {
@@ -196,7 +192,7 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
         'Trying to delete a row with index out of boundaries of the `@data` array',
       );
     } else if (rowIndex === 0 && this.model['kvp-list'].length === 1) {
-      this.model['kvp-list'] = [structuredClone(EMPTY_KVP_ITEM)];
+      this.model['kvp-list'].splice(rowIndex, this.model['kvp-list'].length);
     } else {
       // Remove the item at the specific index
       this.model['kvp-list'].splice(rowIndex, 1);
@@ -231,7 +227,16 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
   };
 
   onResetButtonClick = () => {
-    this.model = structuredClone(EMPTY_MODEL);
+    this.model['thing-name'] = '';
+    this.model['thing-description'] = '';
+    this.model['kvp-list'].splice(0, this.model['kvp-list'].length);
+    this.model['kvp-list'].push(
+      new TrackedObject({
+        id: 0,
+        key: '',
+        value: '',
+      }),
+    );
   };
 
   onToggleAlwaysShowDeleteButtonClick = () => {

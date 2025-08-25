@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
-// import { deepTracked } from 'ember-deep-tracked';
 import { or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier/modifiers/style';
 import { TrackedArray, TrackedObject } from 'tracked-built-ins';
@@ -29,7 +28,6 @@ import ShwLabel from '../../../../shw/label';
 
 // types
 import type { HdsFormSignature } from '@hashicorp/design-system-components/components/hds/form/index';
-import type Owner from '@ember/owner';
 
 export interface MockComponentsFormKeyValueInputsWithValidationAndLimitSignature {
   Args: {
@@ -38,7 +36,7 @@ export interface MockComponentsFormKeyValueInputsWithValidationAndLimitSignature
   Element: HTMLDivElement;
 }
 
-interface TagItem {
+interface TagItem extends Record<PropertyKey, unknown> {
   id: number;
   'tag-name': string;
   'tag-description': string;
@@ -64,12 +62,6 @@ const EMPTY_TAG_ITEM: TagItem = {
   id: 0,
   'tag-name': '',
   'tag-description': '',
-};
-
-const EMPTY_MODEL: FormModel = {
-  'entity-name': { value: '' },
-  'entity-description': { value: '' },
-  'tags-list': { value: [] },
 };
 
 const Instructions = <template>
@@ -112,18 +104,14 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   // Some examples of how the key-value pattern is implemented in the consumers' codebases:
   // - https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
   // - https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
-  // @deepTracked model: FormModel = structuredClone(EMPTY_MODEL);
 
-  model = new TrackedObject(EMPTY_MODEL);
-
-  constructor(
-    owner: Owner,
-    args: MockComponentsFormKeyValueInputsWithValidationAndLimitSignature['Args'],
-  ) {
-    super(owner, args);
-
-    this.model['tags-list'].value = new TrackedArray([EMPTY_TAG_ITEM]);
-  }
+  model = new TrackedObject<FormModel>({
+    'entity-name': new TrackedObject({ value: '' }),
+    'entity-description': new TrackedObject({ value: '' }),
+    'tags-list': new TrackedObject({
+      value: new TrackedArray([new TrackedObject(EMPTY_TAG_ITEM)]),
+    }),
+  });
 
   formElement: HdsFormSignature['Element'] | null = null;
   setFormElementRef = modifier((element: HdsFormSignature['Element']) => {
@@ -137,10 +125,9 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       | null;
     if (target) {
       const field = target.name;
-      const newModel = structuredClone(this.model);
 
       if (field === 'entity-name' || field === 'entity-description') {
-        newModel[field].value = target.value;
+        this.model[field].value = target.value;
       } else {
         const match = field.match(/^(tag-name|tag-description)-(\d+)$/);
         if (match) {
@@ -149,14 +136,12 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
           if (
             key &&
             index !== undefined &&
-            newModel['tags-list'].value[index]
+            this.model['tags-list'].value[index]
           ) {
-            newModel['tags-list'].value[index][key] = target.value;
+            this.model['tags-list'].value[index][key] = target.value;
           }
         }
       }
-
-      this.model = newModel;
     }
   };
 
@@ -165,11 +150,13 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   }
 
   onAddRowClick = () => {
-    this.model['tags-list'].value.push({
-      id: this.model['tags-list'].value.length + 1,
-      'tag-name': '',
-      'tag-description': '',
-    });
+    this.model['tags-list'].value.push(
+      new TrackedObject({
+        id: this.model['tags-list'].value.length + 1,
+        'tag-name': '',
+        'tag-description': '',
+      }),
+    );
   };
 
   get canDeleteRow() {
@@ -264,7 +251,21 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   };
 
   onResetButtonClick = () => {
-    this.model = structuredClone(EMPTY_MODEL);
+    // Reset entity name
+    this.model['entity-name'].value = '';
+    this.model['entity-name'].validationMessage = null;
+
+    // Reset entity description
+    this.model['entity-description'].value = '';
+    this.model['entity-description'].validationMessage = null;
+
+    // Reset tags list
+    this.model['tags-list'].validationMessage = null;
+    this.model['tags-list'].value.splice(
+      0,
+      this.model['tags-list'].value.length,
+    );
+    this.model['tags-list'].value.push(new TrackedObject(EMPTY_TAG_ITEM));
   };
 
   onToggleAlwaysShowDeleteButtonClick = () => {
