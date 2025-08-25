@@ -11,11 +11,22 @@ import {
   focus,
   setupOnerror,
   find,
+  settled,
   triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
+
+function gridValuesAreEqual(newGridValues, originalGridValues) {
+  return newGridValues.every((newGridValue, index) => {
+    const newGridValueInt = parseInt(newGridValue, 10);
+    const originalGridValueInt = parseInt(originalGridValues[index], 10);
+
+    // Allow for small pixel differences due to CSS grid subpixel rendering in different environments
+    return Math.abs(newGridValueInt - originalGridValueInt) <= 1;
+  });
+}
 
 function getTableGridValues(tableElement) {
   const computedStyle = window.getComputedStyle(tableElement);
@@ -38,9 +49,9 @@ async function performContextMenuAction(th, key) {
 }
 
 async function simulateRightPointerDrag(handle) {
-  await triggerEvent(handle, 'pointerdown', { clientX: 100 });
-  await triggerEvent(handle, 'pointermove', { clientX: 130 });
-  await triggerEvent(window, 'pointerup');
+  await triggerEvent(handle, 'pointerdown', { clientX: 100, button: 0 });
+  await triggerEvent(handle, 'pointermove', { clientX: 130, buttons: 1 });
+  await triggerEvent(window, 'pointerup', { button: 0 });
 }
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
@@ -256,7 +267,8 @@ const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
   </:body>
 </Hds::AdvancedTable>`;
 
-const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
+const hbsResizableColumnsAdvancedTable = hbs`<div style="width: 1000px;">
+  <Hds::AdvancedTable
   @model={{this.model}} @columns={{this.columns}} @hasResizableColumns={{true}} id="resize-test-table"
 >
   <:body as |B|>
@@ -265,7 +277,7 @@ const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
       <B.Td>{{B.data.col2}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::AdvancedTable>`;
+</Hds::AdvancedTable></div>`;
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -1437,19 +1449,20 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
 
     let newGridValues = getTableGridValues(table);
-    assert.notDeepEqual(
-      newGridValues,
-      originalGridValues,
-      'Grid values changed after ArrowRight',
+
+    assert.notOk(
+      gridValuesAreEqual(originalGridValues, newGridValues),
+      'Grid values are not equal after ArrowRight',
     );
 
     // Send ArrowLeft key
     await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
+
     newGridValues = getTableGridValues(table);
-    assert.deepEqual(
-      newGridValues,
-      originalGridValues,
-      'Grid values reverted after ArrowLeft',
+
+    assert.ok(
+      gridValuesAreEqual(originalGridValues, newGridValues),
+      'Grid values are equal after ArrowLeft',
     );
   });
 
@@ -1607,18 +1620,16 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     let newGridValues = getTableGridValues(table);
 
-    assert.notEqual(
-      newGridValues,
-      originalGridValues,
-      'Grid values changed after drag',
+    assert.notOk(
+      gridValuesAreEqual(originalGridValues, newGridValues),
+      'Grid values are not equal after resizing',
     );
 
     await performContextMenuAction(th, 'reset-column-width');
 
     newGridValues = getTableGridValues(table);
-    assert.deepEqual(
-      newGridValues,
-      originalGridValues,
+    assert.ok(
+      gridValuesAreEqual(originalGridValues, newGridValues),
       'Grid values reset to initial state after resetting column width',
     );
   });
@@ -1927,5 +1938,70 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column')
       .doesNotExist();
+  });
+
+  // Resize behavior tests
+  test('columns will grow to fill available space when width is not explicitly set', async function (assert) {
+    this.set('width', '300px');
+
+    await render(hbs`
+      <div id="resize-test-container" {{style width=this.width}}>
+        <Hds::AdvancedTable
+          id='data-test-advanced-table'
+          @columns={{array
+            (hash key='name' label='Name')
+            (hash key='biography' label='Biography')
+            (hash key='occupation' label='Occupation')
+            (hash key='age' label='Age')
+            (hash key='hair' label='Hair Color')
+            (hash key='eyes' label='Eye Color')
+            (hash key='salary' label='Salary')
+          }}
+          @model={{array
+            (hash
+              name="John Jacob Jingleheimer Schmidt"
+              biography="A long biography text that should cause overflow. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              occupation="Professional Name Repeater"
+              age=42
+              hair="Brown"
+              eyes="Blue"
+              salary=1000000
+            )
+          }}
+        >
+          <:body as |B|>
+            <B.Tr>
+              <B.Td>{{B.data.name}}</B.Td>
+              <B.Td>{{B.data.biography}}</B.Td>
+              <B.Td>{{B.data.occupation}}</B.Td>
+              <B.Td>{{B.data.age}}</B.Td>
+              <B.Td>{{B.data.hair}}</B.Td>
+              <B.Td>{{B.data.eyes}}</B.Td>
+              <B.Td>{{B.data.salary}}</B.Td>
+            </B.Tr>
+          </:body>
+        </Hds::AdvancedTable>
+      </div>
+    `);
+
+    // eslint-disable-next-line ember/no-settled-after-test-helper
+    await settled();
+
+    const table = find('#data-test-advanced-table');
+    const container = find('#resize-test-container');
+
+    assert.ok(
+      table.offsetWidth >= container.offsetWidth,
+      'Table width is greater than the container width',
+    );
+
+    this.set('width', '100%');
+
+    await settled();
+
+    assert.ok(
+      table.offsetWidth === container.offsetWidth,
+      'Table width grows to fit container width',
+    );
   });
 });

@@ -48,6 +48,7 @@ export default class HdsAdvancedTableTableModel {
   @tracked sortBy: HdsAdvancedTableTableArgs['sortBy'] = undefined;
   @tracked sortOrder: HdsAdvancedTableTableArgs['sortOrder'] =
     HdsAdvancedTableThSortOrderValues.Asc;
+  @tracked gridElement?: HTMLDivElement = undefined;
 
   childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
   hasResizableColumns?: HdsAdvancedTableTableArgs['hasResizableColumns'];
@@ -150,6 +151,26 @@ export default class HdsAdvancedTableTableModel {
     } else {
       return false;
     }
+  }
+
+  setTransientColumnWidths(options: { roundValues?: boolean } = {}): void {
+    const roundValues = options.roundValues ?? false;
+
+    this.columns.forEach((column) => {
+      column.pxTransientWidth = roundValues
+        ? Math.round(column.pxWidth)
+        : column.pxWidth;
+    });
+  }
+
+  resetTransientColumnWidths(): void {
+    this.columns.forEach((column) => {
+      column.pxTransientWidth = undefined;
+    });
+  }
+
+  getColumnByKey(key: string): HdsAdvancedTableColumn | undefined {
+    return this.columns.find((column) => column.key === key);
   }
 
   @action

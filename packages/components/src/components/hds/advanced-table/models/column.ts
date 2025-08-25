@@ -5,6 +5,7 @@
 
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 import type HdsAdvancedTableModel from './table.ts';
 import type {
@@ -12,6 +13,7 @@ import type {
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
 } from '../types';
 
+export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
 export const DEFAULT_MIN_WIDTH = '150px';
 export const DEFAULT_MAX_WIDTH = '800px';
 
@@ -31,40 +33,63 @@ export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
-  @tracked isReorderable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
-  @tracked key?: string = undefined;
-  @tracked minWidth?: `${number}px` = DEFAULT_MIN_WIDTH;
-  @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
+  @tracked key: string;
   @tracked tooltip?: string = undefined;
-  @tracked width?: string = undefined;
-  @tracked originalWidth?: string = undefined; // used to restore the width when resetting
-  @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
+  @tracked thElement?: HTMLDivElement = undefined;
+
+  // width properties
+  @tracked transientWidth?: `${number}px` = undefined; // used for transient width changes
+  @tracked width: string = DEFAULT_WIDTH;
+  @tracked minWidth: `${number}px` = DEFAULT_MIN_WIDTH;
+  @tracked maxWidth: `${number}px` = DEFAULT_MAX_WIDTH;
+  @tracked originalWidth: string = this.width; // used to restore the width when resetting
+  @tracked widthDebts: Record<string, number> = {}; // used to track width changes imposed by other columns
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
   table: HdsAdvancedTableModel;
 
-  get pxWidth(): number | undefined {
+  get appliedWidth(): string {
+    return this.transientWidth ?? this.width;
+  }
+  get pxAppliedWidth(): number | undefined {
+    if (isPxSize(this.appliedWidth)) {
+      return pxToNumber(this.appliedWidth);
+    }
+  }
+
+  get pxTransientWidth(): number | undefined {
+    if (this.transientWidth !== undefined) {
+      return pxToNumber(this.transientWidth);
+    }
+  }
+  set pxTransientWidth(value: number | undefined) {
+    if (value !== undefined && value >= 0) {
+      this.transientWidth = `${value}px`;
+    } else {
+      this.transientWidth = undefined;
+    }
+  }
+
+  get pxWidth(): number {
     if (isPxSize(this.width)) {
-      return pxToNumber(this.width!);
+      return pxToNumber(this.width);
+    } else {
+      return this.thElement?.offsetWidth ?? 0;
     }
   }
   set pxWidth(value: number) {
     this.width = `${value}px`;
   }
 
-  get pxMinWidth(): number | undefined {
-    if (isPxSize(this.minWidth)) {
-      return pxToNumber(this.minWidth!);
-    }
+  get pxMinWidth(): number {
+    return isPxSize(this.minWidth) ? pxToNumber(this.minWidth) : 0;
   }
 
-  get pxMaxWidth(): number | undefined {
-    if (isPxSize(this.maxWidth)) {
-      return pxToNumber(this.maxWidth!);
-    }
+  get pxMaxWidth(): number {
+    return isPxSize(this.maxWidth) ? pxToNumber(this.maxWidth) : Infinity;
   }
 
   get index(): number {
@@ -117,37 +142,130 @@ export default class HdsAdvancedTableColumn {
     this.isExpandable = 'isExpandable' in column ? column.isExpandable : false;
     this.isSortable = column.isSortable ?? false;
     this.isVisuallyHidden = column.isVisuallyHidden ?? false;
-    this.key = column.key;
+    this.key = column.key ?? guidFor(this);
     this.tooltip = column.tooltip;
     this._setWidthValues(column);
     this.sortingFunction = column.sortingFunction;
   }
 
+  // main collection function
+  private collectWidthDebts(): void {
+    this.table.columns.forEach((debtor) => {
+      const debtToCollect = debtor.widthDebts[this.key] ?? 0;
+
+      if (debtToCollect <= 0) {
+        return;
+      }
+
+      const amountPaid = debtor._sourceFundsForPayment(debtToCollect);
+
+      if (amountPaid > 0) {
+        this.pxWidth = (this.pxWidth ?? 0) + amountPaid;
+
+        const remainingDebt = debtToCollect - amountPaid;
+
+        if (remainingDebt > 0) {
+          debtor.widthDebts[this.key] = remainingDebt;
+        } else {
+          delete debtor.widthDebts[this.key];
+        }
+      }
+    });
+  }
+
+  // function for recursively recovering width debts without ending up in a deficit
+  private _sourceFundsForPayment(amountNeeded: number): number {
+    let fundsSourced = 0;
+
+    // preferentially source width from our own surplus first
+    const surplus = Math.max(0, (this.pxWidth ?? 0) - this.pxMinWidth);
+    const paymentFromSurplus = Math.min(amountNeeded, surplus);
+
+    if (paymentFromSurplus > 0) {
+      this.pxWidth = (this.pxWidth ?? 0) - paymentFromSurplus;
+
+      fundsSourced = fundsSourced + paymentFromSurplus;
+    }
+
+    // if we dont have enough to cover, source from debtors recursively
+    const shortfall = amountNeeded - fundsSourced;
+
+    if (shortfall > 0) {
+      const ourDebtors = this.table.columns.filter(
+        (column) => column.widthDebts[this.key]
+      );
+
+      for (const subDebtor of ourDebtors) {
+        const amountStillNeeded = amountNeeded - fundsSourced;
+
+        if (amountStillNeeded <= 0) {
+          break;
+        }
+
+        const subDebtOwed = subDebtor.widthDebts[this.key] ?? 0;
+        const amountToRequest = Math.min(amountStillNeeded, subDebtOwed);
+
+        const collectedFromSubDebtor =
+          subDebtor._sourceFundsForPayment(amountToRequest);
+
+        if (collectedFromSubDebtor > 0) {
+          fundsSourced = fundsSourced + collectedFromSubDebtor;
+
+          // Update the sub-debtor's ledger.
+          const remainingSubDebt = subDebtOwed - collectedFromSubDebtor;
+
+          if (remainingSubDebt > 0) {
+            subDebtor.widthDebts[this.key] = remainingSubDebt;
+          } else {
+            delete subDebtor.widthDebts[this.key];
+          }
+        }
+      }
+    }
+
+    return fundsSourced;
+  }
+
+  private payWidthDebts(): void {
+    Object.entries(this.widthDebts).forEach(([lenderKey, amount]) => {
+      const lender = this.table.getColumnByKey(lenderKey);
+
+      if (lender !== undefined) {
+        // Give the width back to the column that lent it to us
+        lender.pxWidth = (lender.pxWidth ?? 0) + amount;
+      }
+    });
+
+    // Clear our own debt ledger, as we've paid everyone back
+    this.widthDebts = {};
+  }
+
+  private settleWidthDebts(): void {
+    this.collectWidthDebts();
+    this.payWidthDebts();
+  }
+
+  // set initial width values
   private _setWidthValues({
     width,
     minWidth,
     maxWidth,
   }: HdsAdvancedTableColumnType): void {
-    if (width === undefined) {
-      return;
-    }
-
-    this.width = width;
+    this.width = width ?? DEFAULT_WIDTH;
 
     // capture the width at the time of instantiation so it can be restored
-    this.originalWidth = width;
+    this.originalWidth = this.width;
 
     this.minWidth = minWidth ?? DEFAULT_MIN_WIDTH;
     this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
   }
 
   // Sets the column width in pixels, ensuring it respects the min and max width constraints.
-  @action
-  setPxWidth(newPxWidth: number): void {
+  setPxTransientWidth(newPxWidth: number): void {
     const pxMinWidth = this.pxMinWidth ?? 1;
     const minLimitedPxWidth = Math.max(newPxWidth, pxMinWidth);
 
-    this.pxWidth =
+    this.pxTransientWidth =
       this.pxMaxWidth !== undefined
         ? Math.min(minLimitedPxWidth, this.pxMaxWidth)
         : minLimitedPxWidth;
@@ -157,29 +275,10 @@ export default class HdsAdvancedTableColumn {
     }
   }
 
-  // This method is called when the column width is changed by the previous column.
-  @action
-  onPreviousColumnWidthRestored(): void {
-    const restoredWidth = (this.pxWidth ?? 0) + this.imposedWidthDelta;
-
-    this.setPxWidth(restoredWidth);
-
-    this.imposedWidthDelta = 0;
-  }
-
-  // This method is called when the next column width is restored.
-  @action
-  onNextColumnWidthRestored(imposedWidthDelta: number): void {
-    this.setPxWidth((this.pxWidth ?? 0) - imposedWidthDelta);
-  }
-
   @action
   restoreWidth(): void {
-    this.width = this.originalWidth;
-    this.imposedWidthDelta = 0;
+    this.settleWidthDebts();
 
-    if (this.key === undefined) {
-      return;
-    }
+    this.width = this.originalWidth ?? this.width;
   }
 }
