@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export interface SelectableItem {
+export interface SelectableItem extends Record<PropertyKey, unknown> {
   id: number;
   lorem: string;
   ipsum: string;

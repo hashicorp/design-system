@@ -6,7 +6,8 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
-import { deepTracked } from 'ember-deep-tracked';
+import { TrackedArray, TrackedObject } from 'tracked-built-ins';
+
 import { eq, or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier/modifiers/style';
 
@@ -40,7 +41,7 @@ interface KvpItem {
   value: string | string[];
 }
 
-interface FormModel {
+interface FormModel extends Record<PropertyKey, unknown> {
   'thing-name': string;
   'thing-description': string;
   'kvp-list': KvpItem[];
@@ -99,7 +100,11 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
   // Some examples of how the key-value pattern is implemented in the consumers' codebases:
   // - https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
   // - https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
-  @deepTracked model: FormModel = structuredClone(EMPTY_MODEL);
+  model = new TrackedObject<FormModel>({
+    'thing-name': '',
+    'thing-description': '',
+    'kvp-list': new TrackedArray([EMPTY_KVP_ITEM]),
+  });
 
   // we use the same function on all the different kind of inputs
   // except the SuperSelect, which returns a special set of arguments

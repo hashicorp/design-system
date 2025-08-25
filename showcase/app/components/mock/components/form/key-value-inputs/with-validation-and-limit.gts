@@ -7,9 +7,10 @@ import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
-import { deepTracked } from 'ember-deep-tracked';
+// import { deepTracked } from 'ember-deep-tracked';
 import { or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier/modifiers/style';
+import { TrackedArray, TrackedObject } from 'tracked-built-ins';
 
 // HDS components
 import {
@@ -28,6 +29,7 @@ import ShwLabel from '../../../../shw/label';
 
 // types
 import type { HdsFormSignature } from '@hashicorp/design-system-components/components/hds/form/index';
+import type Owner from '@ember/owner';
 
 export interface MockComponentsFormKeyValueInputsWithValidationAndLimitSignature {
   Args: {
@@ -43,7 +45,7 @@ interface TagItem {
   validationMessage?: string | null;
 }
 
-interface FormModel {
+interface FormModel extends Record<PropertyKey, unknown> {
   'entity-name': {
     value: string;
     validationMessage?: string | null;
@@ -67,7 +69,7 @@ const EMPTY_TAG_ITEM: TagItem = {
 const EMPTY_MODEL: FormModel = {
   'entity-name': { value: '' },
   'entity-description': { value: '' },
-  'tags-list': { value: [structuredClone(EMPTY_TAG_ITEM)] },
+  'tags-list': { value: [] },
 };
 
 const Instructions = <template>
@@ -110,7 +112,18 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   // Some examples of how the key-value pattern is implemented in the consumers' codebases:
   // - https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
   // - https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
-  @deepTracked model: FormModel = structuredClone(EMPTY_MODEL);
+  // @deepTracked model: FormModel = structuredClone(EMPTY_MODEL);
+
+  model = new TrackedObject(EMPTY_MODEL);
+
+  constructor(
+    owner: Owner,
+    args: MockComponentsFormKeyValueInputsWithValidationAndLimitSignature['Args'],
+  ) {
+    super(owner, args);
+
+    this.model['tags-list'].value = new TrackedArray([EMPTY_TAG_ITEM]);
+  }
 
   formElement: HdsFormSignature['Element'] | null = null;
   setFormElementRef = modifier((element: HdsFormSignature['Element']) => {
@@ -124,8 +137,10 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       | null;
     if (target) {
       const field = target.name;
+      const newModel = structuredClone(this.model);
+
       if (field === 'entity-name' || field === 'entity-description') {
-        this.model[field].value = target.value;
+        newModel[field].value = target.value;
       } else {
         const match = field.match(/^(tag-name|tag-description)-(\d+)$/);
         if (match) {
@@ -134,12 +149,14 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
           if (
             key &&
             index !== undefined &&
-            this.model['tags-list'].value[index]
+            newModel['tags-list'].value[index]
           ) {
-            this.model['tags-list'].value[index][key] = target.value;
+            newModel['tags-list'].value[index][key] = target.value;
           }
         }
       }
+
+      this.model = newModel;
     }
   };
 

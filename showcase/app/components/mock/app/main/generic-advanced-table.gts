@@ -4,7 +4,7 @@
  */
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { deepTracked } from 'ember-deep-tracked';
+import { TrackedArray, TrackedObject } from 'tracked-built-ins';
 import { get } from '@ember/helper';
 
 // HDS components
@@ -17,8 +17,11 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
+import type Owner from '@ember/owner';
 
 export interface MockAppMainGenericAdvancedTableSignature {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  Args: {};
   Element: HTMLDivElement;
 }
 
@@ -496,17 +499,28 @@ const updateModelWithSelectableRowsStates = (
 
 export default class MockAppMainGenericAdvancedTable extends Component<MockAppMainGenericAdvancedTableSignature> {
   demoColumns = SAMPLE_COLUMNS;
-  @deepTracked demoModel: HdsAdvancedTableSignature['Args']['model'] = [
-    ...SAMPLE_MODEL,
-  ];
+  demoModel: typeof SAMPLE_MODEL = new TrackedArray([]);
+
+  constructor(
+    owner: Owner,
+    args: MockAppMainGenericAdvancedTableSignature['Args'],
+  ) {
+    super(owner, args);
+    SAMPLE_MODEL.forEach((item) => {
+      this.demoModel.push(new TrackedObject(item));
+    });
+  }
 
   @action onSelectionChange({
     selectionKey,
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsAdvancedTableOnSelectionChangeSignature) {
-    // eslint-disable-next-line prefer-rest-params
-    console.log(...arguments);
+    console.group('Selection change arguments');
+    console.log('selectionKey:', selectionKey);
+    console.log('selectionCheckboxElement:', selectionCheckboxElement);
+    console.log('selectableRowsStates:', selectableRowsStates);
+    console.groupEnd();
 
     if (selectionKey === 'all' && this.demoModel) {
       const state = selectionCheckboxElement

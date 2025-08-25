@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export interface User {
+export interface User extends Record<PropertyKey, unknown> {
   id: number;
   name: string;
   email: string;
