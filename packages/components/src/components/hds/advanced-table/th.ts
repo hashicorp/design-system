@@ -38,6 +38,7 @@ export interface HdsAdvancedTableThSignature {
     hasExpandAllButton?: boolean;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
+    hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
     isStickyColumn?: boolean;
@@ -52,6 +53,7 @@ export interface HdsAdvancedTableThSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onPinFirstColumn?: () => void;
     onReorderDragEnd?: () => void;
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
@@ -157,7 +159,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get showContextMenu(): boolean {
-    const { hasResizableColumns, hasReorderableColumns, isStickyColumn } =
+    const { hasReorderableColumns, hasResizableColumns, isStickyColumn } =
       this.args;
 
     const showReorderOptions = hasReorderableColumns && isStickyColumn !== true;

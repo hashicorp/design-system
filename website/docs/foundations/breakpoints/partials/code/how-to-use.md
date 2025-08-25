@@ -6,6 +6,11 @@ Our design system defines [breakpoint values](/foundations/breakpoints#the-range
 
 ### Sass
 
+!!! Callout
+
+If you are not able to import the file using the example declaration, [contact the Design Systems Team](/about/support) for support.
+!!!
+
 To use the Sass helpers provided by the design system, you must import the corresponding Sass file (via `@use`, [as recommended](https://sass-lang.com/documentation/at-rules/use/#differences-from-import)) from the `@hashicorp/design-system-components` package:
 
 
@@ -13,12 +18,6 @@ To use the Sass helpers provided by the design system, you must import the corre
 // from @hashicorp/design-system-components package
 @use "mixins/breakpoints" as *;
 ```
-
-!!! info
-
-If you are not able to import the file using the declaration above, [contact the Design Systems Team](/about/support) for support.
-
-!!!
 
 Once the file is imported, you will have access to the Sass helpers described below.
 

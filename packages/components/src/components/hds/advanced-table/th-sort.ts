@@ -41,6 +41,7 @@ export interface HdsAdvancedTableThSortSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
+    hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     sortOrder?: HdsAdvancedTableThSortOrder;
     tooltip?: string;
@@ -50,6 +51,7 @@ export interface HdsAdvancedTableThSortSignature {
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onPinFirstColumn?: () => void;
     onReorderDragEnd?: () => void;
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
@@ -111,7 +113,7 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   }
 
   get showContextMenu(): boolean {
-    const { hasResizableColumns, hasReorderableColumns, isStickyColumn } =
+    const { hasReorderableColumns, hasResizableColumns, isStickyColumn } =
       this.args;
 
     const showReorderOptions = hasReorderableColumns && isStickyColumn !== true;

@@ -1,3 +1,8 @@
+## 4.22.1
+
+Fixed styles for right and center aligned cells.
+
+
 ## 4.22.0
 
 Translated template strings. Removed extraneous screen-reader-only text.

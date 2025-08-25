@@ -45,10 +45,10 @@
         @didInsert={{this.didInsertSelectAllCheckbox}}
         @willDestroy={{this.willDestroySelectAllCheckbox}}
         @selectionAriaLabelSuffix="all rows"
-        @hasStickyColumn={{@hasStickyFirstColumn}}
+        @hasStickyColumn={{this.hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
-        {{#each this._tableModel.orderedColumns as |column index|}}
+        {{#each this._tableModel.orderedColumns as |column|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
               @column={{column}}
@@ -58,10 +58,12 @@
               @tooltip={{column.tooltip}}
               @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
-              @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
+              @hasStickyFirstColumn={{@hasStickyFirstColumn}}
+              @isStickyColumn={{this._isStickyColumn column}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
+              @onPinFirstColumn={{this._onPinFirstColumn}}
               @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
               @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
               @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
@@ -76,15 +78,17 @@
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
               @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
+              @hasStickyFirstColumn={{@hasStickyFirstColumn}}
               @isExpanded={{this._tableModel.expandState}}
               @isExpandable={{column.isExpandable}}
-              @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
+              @isStickyColumn={{this._isStickyColumn column}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
               @tableHeight={{this._tableHeight}}
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
               @onColumnResize={{@onColumnResize}}
+              @onPinFirstColumn={{this._onPinFirstColumn}}
               @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
               @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
               @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
@@ -152,14 +156,14 @@
                 didInsert=this.didInsertRowCheckbox
                 willDestroy=this.willDestroyRowCheckbox
                 selectionAriaLabelSuffix=@selectionAriaLabelSuffix
-                hasStickyColumn=@hasStickyFirstColumn
+                hasStickyColumn=this.hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
                 data=record
               )
               Th=(component
                 "hds/advanced-table/th"
                 scope="row"
-                isStickyColumn=@hasStickyFirstColumn
+                isStickyColumn=this.hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
               )
               Td=(component "hds/advanced-table/td" align=@align)

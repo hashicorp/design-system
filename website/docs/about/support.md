@@ -4,7 +4,7 @@ navigation:
   order: 103
 ---
 
-!!! Info
+!!! Callout
 
 Many resources and links on this page are only available to HashiCorp employees.
 !!!

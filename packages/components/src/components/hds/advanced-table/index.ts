@@ -61,7 +61,9 @@ const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
   hasStickyHeader: boolean,
-  hasStickyFirstColumn: boolean
+  hasStickyFirstColumn: boolean,
+  hasFirstColumnPxWidth: boolean,
+  isStickyColumnPinned: boolean
 ) => {
   const horizontalScrollBarHeight =
     scrollWrapper.offsetHeight - scrollWrapper.clientHeight;
@@ -82,8 +84,13 @@ const getScrollIndicatorDimensions = (
       leftOffset += elAsHTMLElement.offsetWidth;
     });
 
-    // offsets the left: -1px position if there are multiple sticky columns
-    if (stickyColumnHeaders.length > 1) {
+    // offsets the left: -1px position if there are multiple sticky columns or the first column has a fixed pixel width
+    if (stickyColumnHeaders.length > 1 || hasFirstColumnPxWidth) {
+      leftOffset -= 1;
+    }
+
+    // offsets the left: -1px position if the sticky column is already pinned when the scroll indicator is calculated
+    if (isStickyColumnPinned) {
       leftOffset -= 1;
     }
   }
@@ -100,7 +107,8 @@ const getScrollIndicatorDimensions = (
 
 const getStickyColumnLeftOffset = (
   theadElement: HTMLDivElement,
-  hasRowSelection: boolean
+  hasRowSelection: boolean,
+  isStickyColumnPinned: boolean
 ) => {
   // if there is no select checkbox column, the sticky column is all the way to the left
   if (!hasRowSelection) return '0px';
@@ -109,7 +117,14 @@ const getStickyColumnLeftOffset = (
     '.hds-advanced-table__th--is-selectable'
   ) as HTMLElement;
 
-  return `${selectableCell?.offsetWidth}px`;
+  let leftOffset = selectableCell?.offsetWidth ?? 0;
+
+  // if the sticky column is pinned when the offset is calculated, we need to account for the increased width of the border
+  if (isStickyColumnPinned && leftOffset > 0) {
+    leftOffset -= 2;
+  }
+
+  return `${leftOffset}px`;
 };
 
 export interface HdsAdvancedTableSignature {
@@ -194,10 +209,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _scrollHandler!: (event: Event) => void;
   private _resizeObserver!: ResizeObserver;
   private _theadElement!: HTMLDivElement;
+  private _scrollWrapperElement!: HTMLDivElement;
 
   @tracked scrollIndicatorDimensions = DEFAULT_SCROLL_DIMENSIONS;
   @tracked isStickyColumnPinned = false;
   @tracked isStickyHeaderPinned = false;
+  @tracked hasPinnedFirstColumn: boolean | undefined = undefined;
   @tracked showScrollIndicatorLeft = false;
   @tracked showScrollIndicatorRight = false;
   @tracked showScrollIndicatorTop = false;
@@ -258,6 +275,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         !hasResizableColumns
       );
     }
+
+    if (hasStickyFirstColumn) {
+      this.hasPinnedFirstColumn = true;
+    }
   }
 
   get identityKey(): string | undefined {
@@ -275,8 +296,19 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return childrenKey;
   }
 
+  get hasStickyFirstColumn(): boolean | undefined {
+    // The user-controlled `hasPinnedFirstColumn` variable takes precedence over the model's `hasStickyFirstColumn` property.
+    if (this.hasPinnedFirstColumn !== undefined) {
+      return this.hasPinnedFirstColumn;
+    } else if (this.args.hasStickyFirstColumn === false) {
+      return this.args.hasStickyFirstColumn;
+    }
+
+    return undefined;
+  }
+
   get hasScrollIndicator(): boolean {
-    if (this.args.hasStickyFirstColumn) {
+    if (this.hasStickyFirstColumn) {
       return true;
     }
 
@@ -443,55 +475,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
+    this._scrollWrapperElement = element;
+
     this._scrollHandler = () => {
-      // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
-      const SCROLL_BUFFER = 6;
-
-      // left scroll indicator and sticky column styles
-      if (element.scrollLeft > SCROLL_BUFFER && !this.showScrollIndicatorLeft) {
-        if (this.args.hasStickyFirstColumn) {
-          this.isStickyColumnPinned = true;
-        }
-        this.showScrollIndicatorLeft = true;
-      } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
-        this.isStickyColumnPinned = false;
-        this.showScrollIndicatorLeft = false;
-      }
-
-      // the right edge is how far the user can scroll, which is the full width of the table - the visible section of the table (also subtract the buffer)
-      const rightEdge =
-        element.scrollWidth - element.clientWidth - SCROLL_BUFFER;
-
-      // right scroll indicator
-      if (element.scrollLeft < rightEdge) {
-        this.showScrollIndicatorRight = true;
-      } else {
-        this.showScrollIndicatorRight = false;
-      }
-
-      // sticky header
-      if (element.scrollTop > 0) {
-        if (this.hasStickyHeader) {
-          this.isStickyHeaderPinned = true;
-        }
-        this.showScrollIndicatorTop = true;
-      } else {
-        if (this.hasStickyHeader) {
-          this.isStickyHeaderPinned = false;
-        }
-        this.showScrollIndicatorTop = false;
-      }
-
-      // the bottom edge is how far the user can scroll, which is the full height of the table - the visible section of the table (also subtract the buffer)
-      const bottomEdge =
-        element.scrollHeight - element.clientHeight - SCROLL_BUFFER;
-
-      // bottom scroll indicator
-      if (element.scrollTop < bottomEdge) {
-        this.showScrollIndicatorBottom = true;
-      } else {
-        this.showScrollIndicatorBottom = false;
-      }
+      this._updateScrollIndicators(element);
     };
 
     element.addEventListener('scroll', this._scrollHandler);
@@ -499,22 +486,28 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const updateMeasurements = () => {
       this._tableHeight = element.offsetHeight;
 
+      const hasFirstColumnPxWidth =
+        this._tableModel.columns[0]?.pxWidth !== undefined;
+
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,
         this.hasStickyHeader,
-        hasStickyFirstColumn
+        this.hasStickyFirstColumn ? true : false,
+        hasFirstColumnPxWidth,
+        this.isStickyColumnPinned
       );
 
-      if (hasStickyFirstColumn) {
+      if (this.hasStickyFirstColumn) {
         this.stickyColumnOffset = getStickyColumnLeftOffset(
           this._theadElement,
-          isSelectable
+          isSelectable,
+          this.isStickyColumnPinned
         );
       }
     };
 
-    const { hasStickyFirstColumn = false, isSelectable = false } = this.args;
+    const { isSelectable = false } = this.args;
 
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
@@ -657,4 +650,71 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
     }
   }
+
+  private _updateScrollIndicators(element: HTMLElement): void {
+    // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
+    const SCROLL_BUFFER = 6;
+
+    // left scroll indicator and sticky column styles
+    if (element.scrollLeft > SCROLL_BUFFER) {
+      if (this.hasStickyFirstColumn) {
+        this.isStickyColumnPinned = true;
+      }
+      if (!this.showScrollIndicatorLeft) {
+        this.showScrollIndicatorLeft = true;
+      }
+    } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
+      this.isStickyColumnPinned = false;
+      this.showScrollIndicatorLeft = false;
+    }
+
+    // the right edge is how far the user can scroll, which is the full width of the table - the visible section of the table (also subtract the buffer)
+    const rightEdge = element.scrollWidth - element.clientWidth - SCROLL_BUFFER;
+
+    // right scroll indicator
+    if (element.scrollLeft < rightEdge) {
+      this.showScrollIndicatorRight = true;
+    } else {
+      this.showScrollIndicatorRight = false;
+    }
+
+    // sticky header
+    if (element.scrollTop > 0) {
+      if (this.hasStickyHeader) {
+        this.isStickyHeaderPinned = true;
+      }
+      this.showScrollIndicatorTop = true;
+    } else {
+      if (this.hasStickyHeader) {
+        this.isStickyHeaderPinned = false;
+      }
+      this.showScrollIndicatorTop = false;
+    }
+
+    // the bottom edge is how far the user can scroll, which is the full height of the table - the visible section of the table (also subtract the buffer)
+    const bottomEdge =
+      element.scrollHeight - element.clientHeight - SCROLL_BUFFER;
+
+    // bottom scroll indicator
+    if (element.scrollTop < bottomEdge) {
+      this.showScrollIndicatorBottom = true;
+    } else {
+      this.showScrollIndicatorBottom = false;
+    }
+  }
+
+  private _onPinFirstColumn = (): void => {
+    this.hasPinnedFirstColumn = this.hasPinnedFirstColumn ? false : true;
+    // we need to retrigger the scroll indicator updates if the pinned state is changed when the table is already scrolled
+    this._updateScrollIndicators(this._scrollWrapperElement);
+  };
+
+  private _isStickyColumn = (
+    column: HdsAdvancedTableColumnType
+  ): boolean | undefined => {
+    if (column.isFirst && this.hasStickyFirstColumn !== undefined) {
+      return this.hasStickyFirstColumn;
+    }
+    return undefined;
+  };
 }

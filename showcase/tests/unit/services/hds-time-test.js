@@ -112,7 +112,7 @@ module('Unit | Service | time', function (hooks) {
     );
   });
 
-  test(`it can register and unregister listeners`, function (assert) {
+  test(`it can register and unregister listeners`, async function (assert) {
     let id = Date.now();
     assert.strictEqual(
       this.service.listeners.size,
@@ -123,7 +123,7 @@ module('Unit | Service | time', function (hooks) {
       this.service.listeners.has(id),
       'the registered id does not exist yet',
     );
-    let unregister = this.service.register(id);
+    let unregister = await this.service.register(id);
     assert.ok(this.service.listeners.has(id), 'the registered id exists');
     assert.strictEqual(
       this.service.listeners.size,

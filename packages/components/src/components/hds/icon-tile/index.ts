@@ -69,7 +69,7 @@ export default class HdsIconTile extends Component<HdsIconTileSignature> {
       `@color for "Hds::IconTile" must be one of the following: ${COLORS.join(
         ', '
       )}; received: ${color}`,
-      COLORS.includes(color as HdsIconTileColors)
+      COLORS.includes(color)
     );
 
     return color;

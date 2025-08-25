@@ -1011,7 +1011,6 @@
           <RT.Bubble @placement="top-start">
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
               adipisicing elit.</Hds::Text::Body>
-            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5170 }}
             <Hds::Button @text="Got it" @size="small" {{on "click" RT.close}} />
           </RT.Bubble>
         </Hds::RichTooltip>
@@ -1025,7 +1024,6 @@
           <RT.Bubble @placement="top-start">
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
               adipisicing elit.</Hds::Text::Body>
-            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5170 }}
             <Hds::Button @text="Got it" @size="small" {{on "click" RT.close}} />
           </RT.Bubble>
         </Hds::RichTooltip>
@@ -1041,7 +1039,6 @@
         <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @size="medium" />
         <RT.Bubble @placement="top">
           <div class="shw-component-rich-tooltip-content-interactive">
-            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5170 }}
             <button type="button" {{on "click" RT.close}} title="Button that closes the popover on click">x</button>
             <ul>
               <li>
@@ -1057,7 +1054,6 @@
                 {{/let}}
               </li>
               <li>
-                {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5170 }}
                 <button type="button" {{on "click" RT.close}}>Got it!</button>
               </li>
             </ul>

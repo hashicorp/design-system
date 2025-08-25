@@ -4,11 +4,10 @@
  */
 
 import Service from '@ember/service';
-import { task, timeout } from 'ember-concurrency';
+import { dropTask, timeout } from 'ember-concurrency';
 import { tracked } from '@glimmer/tracking';
 import { DateTime } from 'luxon';
 import { isTesting } from '@embroider/macros';
-import type { TaskGenerator } from 'ember-concurrency';
 import type {
   DisplayType,
   DefaultDisplayType,
@@ -228,10 +227,9 @@ export default class TimeService extends Service {
   // Subscribes a listener to the ticking task for time changes.
   register(id: Date): () => void {
     this.#listeners.add(id);
-    // @ts-expect-error - TS2339: Property 'perform' does not exist on type '() => TaskGenerator<string | undefined>'
-    // note: we could potentially use taskFor via `ember-concurrency-ts` to avoid this exception
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    this.start.perform();
+
+    void this.start.perform();
+
     return (): void => {
       this.unregister(id);
     };
@@ -242,8 +240,7 @@ export default class TimeService extends Service {
     return this.#listeners.delete(id);
   }
 
-  @task({ drop: true })
-  *start(): TaskGenerator<string | undefined> {
+  start = dropTask(async () => {
     while (this.listeners.size) {
       this.now = Date.now();
       // When testing and canceling a EC task, a timer will never resolve and
@@ -251,9 +248,9 @@ export default class TimeService extends Service {
       // This condition breaks the test out of that.
       // via: http://ember-concurrency.com/docs/testing-debugging/
       if (isTesting()) return;
-      yield timeout(SECOND_IN_MS);
+      await timeout(SECOND_IN_MS);
     }
-  }
+  });
 
   // Transforms a JS date to a string representing the UTC ISO date.
   toIsoUtcString(date: Date): string | undefined {

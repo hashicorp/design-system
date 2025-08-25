@@ -278,6 +278,11 @@ How resizing for the cell content works is determined by the implementation. For
 This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers)
 !!!
 
+!!! Callout
+
+At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
+!!!
+
 Add `isSortable=true` to the hash for each column that should be sortable.
 
 ```handlebars
@@ -298,12 +303,6 @@ Add `isSortable=true` to the hash for each column that should be sortable.
   </:body>
 </Hds::AdvancedTable>
 ```
-
-!!! Warning
-
-At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
-
-!!!
 
 #### Pre-sorting columns
 
@@ -594,10 +593,9 @@ Note: Using `@hasStickyFirstColumn` with nested rows is not supported.
 
 ### Multi-select Advanced Table
 
-!!! Warning
+!!! Callout
 
 At this time, the Advanced Table does not support multi-select nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
-
 !!!
 
 A multi-select Advanced Table includes checkboxes enabling users to select multiple rows for purposes of performing bulk operations. Checking or unchecking the checkbox in the Advanced Table header either selects or deselects the checkboxes on each row in the body. Individual checkboxes in the rows can also be selected or deselected.

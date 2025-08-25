@@ -28,9 +28,9 @@ The text and icon are rendered inside an HTML `<button>` element (which technica
 
 The `Bubble` element is a pure container that yields the children inside the "popover" tooltip bubble. Consumers can pass whatever content they need to it, but they are responsible for styling and structuring it according to their needs/context.
 
-!!! Info
+!!! Callout
 
-Note: we apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, [contact the Design Systems Team](/about/support).
+We apply a CSS reset (`all: initial`) to the bubble content container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, [contact the Design Systems Team](/about/support).
 
 !!!
 
@@ -236,10 +236,9 @@ When used in this way, it's up to the consumer to make sure the implementation i
 
 ### Advanced options
 
-!!! Insight
+!!! Callout
 
 If your use case requires customizing the component behavior or functionality, [contact the Design Systems Team](/about/support) first before actually implementing the changes (as we may already have your case covered).
-
 !!!
 
 There might be special use cases in which consumers may need to fine tune the Rich Tooltip behavior. Below we provide some some examples.

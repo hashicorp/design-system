@@ -65,7 +65,7 @@ export interface HdsDropdownSignature {
         Title?: ComponentLike<HdsDropdownListItemTitleSignature>;
         ToggleButton?: ComponentLike<HdsDropdownToggleButtonSignature>;
         ToggleIcon?: ComponentLike<HdsDropdownToggleIconSignature>;
-        close?: () => void;
+        close: (event?: Event) => void;
       },
     ];
   };

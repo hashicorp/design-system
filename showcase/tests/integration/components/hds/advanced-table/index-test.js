@@ -128,6 +128,13 @@ async function simulateColumnReorderDrop({
 }
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
+const setTableData = (context) => {
+  context.set('model', [
+    { name: 'Bob', age: 20, country: 'USA' },
+    { name: 'Alice', age: 25, country: 'UK' },
+    { name: 'Charlie', age: 30, country: 'Canada' },
+  ]);
+};
 const setSortableTableData = (context) => {
   context.set('model', [
     {
@@ -277,6 +284,25 @@ const setResizableColumnsTableData = (context) => {
   ]);
 };
 
+const hbsAdvancedTable = hbs`<Hds::AdvancedTable
+  id='data-advanced-test-table'
+  @model={{this.model}}
+  @columns={{array
+    (hash key='name' label='Name')
+    (hash key='age' label='Age')
+    (hash key='country' label='Country')
+  }}
+  @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
+>
+  <:body as |B|>
+    <B.Tr id={{B.rowIndex}}>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.age}}</B.Td>
+      <B.Td>{{B.data.country}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`;
+
 const hbsSortableAdvancedTable = hbs`<Hds::AdvancedTable
   @model={{this.model}}
   @sortBy={{this.sortBy}}
@@ -285,6 +311,7 @@ const hbsSortableAdvancedTable = hbs`<Hds::AdvancedTable
   @columns={{this.columns}}
   @sortedMessageText={{this.sortedMessageText}}
   @caption={{this.caption}}
+  @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
   id='data-test-advanced-table'
 >
   <:body as |B|>
@@ -1161,57 +1188,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasStyle({ maxHeight: '75px' });
   });
 
-  test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument', async function (assert) {
-    setSortableTableData(this);
-
-    await render(
-      hbs`<Hds::AdvancedTable
-  id='data-test-advanced-table'
-  @model={{this.model}}
-  @columns={{this.columns}}
-  @hasStickyFirstColumn={{true}}
->
-<:body as |B|>
-    <B.Tr>
-      <B.Th>{{B.data.artist}}</B.Th>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::AdvancedTable>`,
-    );
-
-    assert
-      .dom(
-        '.hds-advanced-table__th--sort.hds-advanced-table__th--is-sticky-column',
-      )
-      .exists({ count: 1 });
-
-    assert
-      .dom(
-        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--sort)',
-      )
-      .exists({ count: 3 });
-  });
-
-  test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument when also selectable', async function (assert) {
-    setSelectableTableData(this);
-    this.set('hasStickyFirstColumn', true);
-    await render(hbsSelectableAdvancedTable);
-
-    assert
-      .dom(
-        '.hds-advanced-table__th--is-selectable.hds-advanced-table__th--is-sticky-column',
-      )
-      .exists({ count: 4 });
-
-    assert
-      .dom(
-        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--is-selectable)',
-      )
-      .exists({ count: 4 });
-  });
-
   test('it should render a table based on the data model passed', async function (assert) {
     this.set('model', [
       { key: 'artist', name: 'Test 1', description: 'Test 1 description' },
@@ -1267,29 +1243,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       });
     };
 
-    this.set('model', [
-      { name: 'Bob', age: 20, country: 'USA' },
-      { name: 'Alice', age: 25, country: 'UK' },
-      { name: 'Charlie', age: 30, country: 'Canada' },
-    ]);
-
-    await render(hbs`<Hds::AdvancedTable
-  id='data-advanced-test-table'
-  @model={{this.model}}
-  @columns={{array
-    (hash key='name' label='Name')
-    (hash key='age' label='Age')
-    (hash key='country' label='Country')
-  }}
->
-  <:body as |B|>
-    <B.Tr id={{B.rowIndex}}>
-      <B.Td>{{B.data.name}}</B.Td>
-      <B.Td>{{B.data.age}}</B.Td>
-      <B.Td>{{B.data.country}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::AdvancedTable>`);
+    setTableData(this);
+    await render(hbsAdvancedTable);
 
     assert.dom(`${bodySelector} ${rowSelector}`).exists({ count: 3 });
     assert.deepEqual(getBodyContent(), [
@@ -1895,7 +1850,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   const expandRowButtonSelector =
     '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th[role="rowheader"] .hds-advanced-table__th-button--expand';
 
-  // nesting
+  // Nesting
 
   test('it renders a nested table when the model has rows with children key', async function (assert) {
     setNestedTableData(this);
@@ -2103,6 +2058,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert.dom(expandAllButton).hasAria('expanded', 'true');
   });
+
+  // Resizing
 
   test('it should allow resizing columns with the resize handle (pointer events)', async function (assert) {
     setResizableColumnsTableData(this);
@@ -2439,5 +2396,198 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       onColumnResizeSpy.calledTwice,
       'onColumnResize was called again after resetting column width',
     );
+  });
+
+  // Sticky Columns
+
+  test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument', async function (assert) {
+    setSortableTableData(this);
+
+    await render(
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasStickyFirstColumn={{true}}
+>
+<:body as |B|>
+    <B.Tr>
+      <B.Th>{{B.data.artist}}</B.Th>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`,
+    );
+
+    assert
+      .dom(
+        '.hds-advanced-table__th--sort.hds-advanced-table__th--is-sticky-column',
+      )
+      .exists({ count: 1 });
+
+    assert
+      .dom(
+        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--sort)',
+      )
+      .exists({ count: 3 });
+  });
+
+  test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument when also selectable', async function (assert) {
+    setSelectableTableData(this);
+    this.set('hasStickyFirstColumn', true);
+    await render(hbsSelectableAdvancedTable);
+
+    assert
+      .dom(
+        '.hds-advanced-table__th--is-selectable.hds-advanced-table__th--is-sticky-column',
+      )
+      .exists({ count: 4 });
+
+    assert
+      .dom(
+        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--is-selectable)',
+      )
+      .exists({ count: 4 });
+  });
+
+  test('it should show the context menu when the @hasStickyFirstColumn argument is true', async function (assert) {
+    setTableData(this);
+    this.set('hasStickyFirstColumn', true);
+    await render(hbsAdvancedTable);
+
+    const th = find('.hds-advanced-table__th'); // find the first header cell
+
+    assert.ok(
+      th.querySelector('.hds-advanced-table__th-context-menu'),
+      'context menu exists',
+    );
+
+    const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
+    await click(contextMenuToggle);
+
+    assert.dom('[data-test-context-option-key="pin-first-column"]').exists();
+  });
+
+  test('it should show the context menu when the @hasStickyFirstColumn argument is false', async function (assert) {
+    setTableData(this);
+    this.set('hasStickyFirstColumn', false);
+    await render(hbsAdvancedTable);
+
+    const th = find('.hds-advanced-table__th'); // find the first header cell
+
+    assert.ok(
+      th.querySelector('.hds-advanced-table__th-context-menu'),
+      'context menu exists',
+    );
+
+    const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
+    await click(contextMenuToggle);
+
+    assert.dom('[data-test-context-option-key="pin-first-column"]').exists();
+  });
+
+  test('it should not show the context menu when the @hasStickyFirstColumn argument is undefined', async function (assert) {
+    setTableData(this);
+    await render(hbsAdvancedTable);
+
+    const th = find('.hds-advanced-table__th'); // find the first header cell
+
+    assert.notOk(
+      th.querySelector('.hds-advanced-table__th-context-menu'),
+      'context menu exists',
+    );
+  });
+
+  test('it should toggle column pinning when the context menu item is clicked', async function (assert) {
+    setTableData(this);
+    this.set('hasStickyFirstColumn', false);
+    await render(hbsAdvancedTable);
+
+    const th = find('.hds-advanced-table__th'); // find the first header cell
+
+    // Pin column
+    await performContextMenuAction(th, 'pin-first-column');
+
+    assert
+      .dom('.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column')
+      .exists({ count: 1 });
+
+    // Unpin column
+    await performContextMenuAction(th, 'pin-first-column');
+
+    assert
+      .dom('.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column')
+      .doesNotExist();
+  });
+
+  test('it should show the context menu when the @hasStickyFirstColumn argument is true and the column is sortable', async function (assert) {
+    setSortableTableData(this);
+    this.set('hasStickyFirstColumn', true);
+    await render(hbsSortableAdvancedTable);
+
+    const th = find('.hds-advanced-table__th--sort'); // find the first header cell
+
+    assert.ok(
+      th.querySelector('.hds-advanced-table__th-context-menu'),
+      'context menu exists',
+    );
+
+    const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
+    await click(contextMenuToggle);
+
+    assert.dom('[data-test-context-option-key="pin-first-column"]').exists();
+  });
+
+  test('it should show the context menu when the @hasStickyFirstColumn argument is false and the column is sortable', async function (assert) {
+    setSortableTableData(this);
+    this.set('hasStickyFirstColumn', false);
+    await render(hbsSortableAdvancedTable);
+
+    const th = find('.hds-advanced-table__th--sort'); // find the first header cell
+
+    assert.ok(
+      th.querySelector('.hds-advanced-table__th-context-menu'),
+      'context menu exists',
+    );
+
+    const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
+    await click(contextMenuToggle);
+
+    assert.dom('[data-test-context-option-key="pin-first-column"]').exists();
+  });
+
+  test('it should not show the context menu when the @hasStickyFirstColumn argument is undefined', async function (assert) {
+    setSortableTableData(this);
+    await render(hbsSortableAdvancedTable);
+
+    const th = find('.hds-advanced-table__th--sort'); // find the first header cell
+
+    assert.notOk(
+      th.querySelector('.hds-advanced-table__th-context-menu'),
+      'context menu exists',
+    );
+  });
+
+  test('it should toggle column pinning when the context menu item is clicked and the column is sortable', async function (assert) {
+    setSortableTableData(this);
+    this.set('hasStickyFirstColumn', false);
+    await render(hbsSortableAdvancedTable);
+
+    const th = find('.hds-advanced-table__th--sort'); // find the first header cell
+
+    // Pin column
+    await performContextMenuAction(th, 'pin-first-column');
+
+    assert
+      .dom('.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column')
+      .exists({ count: 1 });
+
+    // Unpin column
+    await performContextMenuAction(th, 'pin-first-column');
+
+    assert
+      .dom('.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column')
+      .doesNotExist();
   });
 });

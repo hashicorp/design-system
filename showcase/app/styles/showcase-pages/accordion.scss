@@ -22,4 +22,15 @@ body.page-components-accordion {
     // this variable is set on the parent element
     --hds-accordion-item-focus-ring-offset: 0;
   }
+
+  .shw-component-flyout-sample-item {
+    // Note: Percy wasn't seeing the styles applied via selecting by the [open] attribute
+    // (which the Flyout showpage uses for similar examples)
+    .hds-flyout {
+      position: relative;
+      z-index: initial;
+      display: flex;
+      height: 40vh;
+    }
+  }
 }
