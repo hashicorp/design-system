@@ -69,6 +69,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   } | null = null;
   // track the width change as it is changing, applied when resizing stops
   @tracked private _tempXDelta: number = 0;
+  @tracked private _isUpdateQueued: boolean = false;
+  @tracked private _lastPointerEvent: PointerEvent | null = null;
 
   private _handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private _boundResize: (event: PointerEvent) => void;
@@ -216,25 +218,41 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   private _resize(event: PointerEvent): void {
-    if (this.resizing === null) {
+    this._lastPointerEvent = event;
+
+    if (this._isUpdateQueued) {
       return;
     }
 
-    event.preventDefault();
+    this._isUpdateQueued = true;
 
-    const { column } = this.args;
-    const { next: nextColumn } = column.siblings;
-    const { startX, startColumnPxWidth, startNextColumnPxWidth } =
-      this.resizing;
-    const deltaX = event.clientX - startX;
+    requestAnimationFrame(() => {
+      if (this.resizing === null || this._lastPointerEvent === null) {
+        this._isUpdateQueued = false;
 
-    this._applyResizeDelta(
-      deltaX,
-      column,
-      startColumnPxWidth, // Width at the start of the drag
-      nextColumn,
-      startNextColumnPxWidth // Width of next col at the start of the drag
-    );
+        return;
+      }
+
+      const event = this._lastPointerEvent;
+
+      event.preventDefault();
+
+      const { column } = this.args;
+      const { next: nextColumn } = column.siblings;
+      const { startX, startColumnPxWidth, startNextColumnPxWidth } =
+        this.resizing!;
+      const deltaX = event.clientX - startX;
+
+      this._applyResizeDelta(
+        deltaX,
+        column,
+        startColumnPxWidth, // Width at the start of the drag
+        nextColumn,
+        startNextColumnPxWidth // Width of next col at the start of the drag
+      );
+
+      this._isUpdateQueued = false;
+    });
   }
 
   private _stopResize(): void {
@@ -242,6 +260,9 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     window.removeEventListener('pointermove', this._boundResize);
     window.removeEventListener('pointerup', this._boundStopResize);
+
+    this._isUpdateQueued = false;
+    this._lastPointerEvent = null;
 
     this._setWidthDebts();
 
