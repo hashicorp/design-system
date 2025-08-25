@@ -49,9 +49,9 @@ async function performContextMenuAction(th, key) {
 }
 
 async function simulateRightPointerDrag(handle) {
-  await triggerEvent(handle, 'pointerdown', { clientX: 100 });
-  await triggerEvent(handle, 'pointermove', { clientX: 130 });
-  await triggerEvent(window, 'pointerup');
+  await triggerEvent(handle, 'pointerdown', { clientX: 100, button: 0 });
+  await triggerEvent(handle, 'pointermove', { clientX: 130, buttons: 1 });
+  await triggerEvent(window, 'pointerup', { button: 0 });
 }
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
