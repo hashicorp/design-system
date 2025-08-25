@@ -23,7 +23,7 @@ The Advanced Table component itself is where most of the options will be applied
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="model" @type="array">
-    The data model to be used by the Advanced Table. The model can have any shape, but for nested rows there are two expected keys.
+    The data model to be used by the Advanced Table. **This array should be treated as immutable. Any updates must be made by passing a new array.** The model can have any shape, but for nested rows there are two expected keys.
     <Doc::ComponentApi as |C|>
       <C.Property @name="children" @type="array">
         If there are nested rows, the Advanced Table will use the `children` key in the model to render the child content. The key can be changed by setting `childrenKey` argument on the `Hds::AdvancedTable`.
