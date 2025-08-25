@@ -129,11 +129,11 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   }
 
   @action
-  async didInsertNode(): Promise<void> {
+  didInsertNode(): void {
     const date = this.date;
 
     if (dateIsValid(date)) {
-      await this.hdsTime.register(date);
+      this.hdsTime.register(date);
     }
   }
 

@@ -225,10 +225,10 @@ export default class TimeService extends Service {
   }
 
   // Subscribes a listener to the ticking task for time changes.
-  async register(id: Date): Promise<() => void> {
+  register(id: Date): () => void {
     this.#listeners.add(id);
 
-    await this.start.perform();
+    void this.start.perform();
 
     return (): void => {
       this.unregister(id);
