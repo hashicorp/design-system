@@ -24,6 +24,7 @@
       --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
       max-height=@maxHeight
     }}
+    {{this._registerGridElement}}
     {{this._setUpScrollWrapper}}
   >
     {{! Header }}
@@ -54,7 +55,7 @@
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
               @onPinFirstColumn={{this._onPinFirstColumn}}
-              {{this._setColumnWidth column}}
+              {{this._registerThElement column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::ThSort>
@@ -74,7 +75,7 @@
               @onClickToggle={{this._tableModel.toggleAll}}
               @onColumnResize={{@onColumnResize}}
               @onPinFirstColumn={{this._onPinFirstColumn}}
-              {{this._setColumnWidth column}}
+              {{this._registerThElement column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>
