@@ -290,12 +290,31 @@ export default class PageComponentsTableController extends Controller {
       if (this.customSortBy_demo6) {
         const v1 = s1[this.customSortBy_demo6];
         const v2 = s2[this.customSortBy_demo6];
-        if (v1 < v2) {
-          return this.customSortOrder_demo6 === 'asc' ? -1 : 1;
+
+        // Handle different value types for comparison
+        if (typeof v1 === 'string' && typeof v2 === 'string') {
+          const comparison = v1.localeCompare(v2);
+          return this.customSortOrder_demo6 === 'asc'
+            ? comparison
+            : -comparison;
         }
-        if (v1 > v2) {
-          return this.customSortOrder_demo6 === 'asc' ? 1 : -1;
+
+        if (typeof v1 === 'number' && typeof v2 === 'number') {
+          return this.customSortOrder_demo6 === 'asc' ? v1 - v2 : v2 - v1;
         }
+
+        if (typeof v1 === 'boolean' && typeof v2 === 'boolean') {
+          const comparison = Number(v1) - Number(v2);
+          return this.customSortOrder_demo6 === 'asc'
+            ? comparison
+            : -comparison;
+        }
+
+        // Fallback: convert to string for comparison
+        const str1 = String(v1);
+        const str2 = String(v2);
+        const comparison = str1.localeCompare(str2);
+        return this.customSortOrder_demo6 === 'asc' ? comparison : -comparison;
       }
       return 0;
     });

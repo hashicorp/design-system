@@ -476,7 +476,6 @@
   <Hds::Table
     @isSelectable={{true}}
     @onSelectionChange={{this.onSelectionChangeLogArguments}}
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.selectableData}}
     @columns={{array
       (hash key="lorem" label="Row #")
@@ -548,7 +547,6 @@
     @isSelectable={{true}}
     @selectableColumnKey="isSelected"
     @onSelectionChange={{this.onMultiSelectSelectionChange__demo5}}
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.multiSelectSelectableData__demo5}}
     @columns={{array
       (hash key="lorem" label="Row #" isSortable=true)
@@ -666,7 +664,6 @@
       <Hds::Table
         @isSelectable={{true}}
         @onSelectionChange={{this.onSelectionChangeWithModel__demo1}}
-        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @model={{this.multiSelectFilteredData__demo1}}
         @columns={{array
           (hash key="lorem" label="Row #")
@@ -780,7 +777,6 @@
     <Hds::Table
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectPaginatedSelectionChange__demo2}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.multiSelectPaginatedData_demo2}}
       @columns={{array
         (hash key="lorem" label="Row #")
@@ -859,7 +855,6 @@
     <Hds::Table
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.multiSelectUsersData_demo3}}
       @columns={{array
         (hash key="id" label="ID")
