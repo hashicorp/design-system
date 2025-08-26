@@ -61,7 +61,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
           </SG.Item>
 
           <SG.Item @label="Multiple items">
-            <MockWithPlaceholderContent @type={{type}} @numberOfItems={{3}} />
+            <MockWithToggleVariants @type={{type}} />
           </SG.Item>
         </ShwGrid>
 
