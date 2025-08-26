@@ -6,6 +6,12 @@ The Modal component is conformant when used as directed.
 
 ## Focus and focus order
 
+!!! info
+
+Browsers use a variety of heuristics to decide when to visually show focus state based on what is considered most useful to users. For that reason, even though the Modal’s dismiss button is focused by default, it may not visually appear to be focused.
+
+!!!
+
 - When the modal is open, focus moves to the first interactive element within the modal and is trapped within the component.
 - Since a Modal is a complex pattern that can contain any combination of nested components and content, nested elements must adhere to their individual accessibility criteria.
 

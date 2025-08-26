@@ -447,16 +447,23 @@ export default class PageComponentsAdvancedTableController extends Controller {
     console.group('onMultiSelectSelectionChange__demo4');
     console.log('Selected Rows Keys:', selectedRowsKeys);
     console.groupEnd();
-    this.multiSelectUserData__demo4.forEach((user) => {
-      user.isSelected = selectedRowsKeys.includes(String(user.id));
-    });
+    this.multiSelectUserData__demo4 = this.multiSelectUserData__demo4.map(
+      (user) => {
+        user.isSelected = selectedRowsKeys.includes(String(user.id));
+        return user;
+      },
+    );
   }
 
   @action
   multiSelectAnimateSelectedUsers_demo4() {
-    this.multiSelectUserData__demo4.forEach((user) => {
-      user.isAnimated = user.isSelected ? user.isSelected : false;
-    });
+    this.multiSelectUserData__demo4 = this.multiSelectUserData__demo4.map(
+      (user) => {
+        user.isAnimated = user.isSelected ? user.isSelected : false;
+
+        return user;
+      },
+    );
 
     // eslint-disable-next-line ember/no-runloop
     later(() => {
@@ -466,9 +473,12 @@ export default class PageComponentsAdvancedTableController extends Controller {
 
   @action
   multiSelectResetUserAnimation_demo4() {
-    this.multiSelectUserData__demo4.forEach((user) => {
-      user.isAnimated = false;
-    });
+    this.multiSelectUserData__demo4 = this.multiSelectUserData__demo4.map(
+      (user) => {
+        user.isAnimated = false;
+        return user;
+      },
+    );
   }
 
   // Example where dynamically add more focusable elements to a cell
