@@ -381,8 +381,8 @@ export default class HdsAdvancedTableColumn {
 
   @action
   restoreWidth(): void {
-    this.width = this.originalWidth;
-
     this.settleWidthDebts();
+
+    this.width = this.originalWidth;
   }
 }
