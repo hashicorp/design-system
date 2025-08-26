@@ -6,6 +6,7 @@
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { isEmpty } from '@ember/utils';
 import HdsAdvancedTableColumn from './column.ts';
 import { HdsAdvancedTableThSortOrderValues } from '../types.ts';
 
@@ -97,7 +98,7 @@ export default class HdsAdvancedTableTableModel {
 
     this.setupData({ model, columns, columnOrder, sortBy, sortOrder });
 
-    this.columnOrder = columnOrder ?? this.columns.map((column) => column.key);
+    this.setColumnOrder(columnOrder);
 
     this.onColumnReorder = onColumnReorder;
   }
@@ -233,6 +234,12 @@ export default class HdsAdvancedTableTableModel {
     return this.columns.find((column) => column.key === key);
   }
 
+  setColumnOrder(columnOrder?: string[]): void {
+    this.columnOrder = isEmpty(columnOrder)
+      ? this.columns.map((column) => column.key)
+      : columnOrder!; // ensured non-empty
+  }
+
   @action
   setupData(
     args: Pick<
@@ -253,7 +260,7 @@ export default class HdsAdvancedTableTableModel {
         })
     );
 
-    this.columnOrder = columnOrder ?? [];
+    this.setColumnOrder(columnOrder);
 
     this.rows = model.map((row) => {
       return new HdsAdvancedTableRow({
@@ -399,7 +406,7 @@ export default class HdsAdvancedTableTableModel {
 
       updated.splice(adjustedIndex, 0, sourceColumn.key); // Insert at new position
 
-      this.columnOrder = updated;
+      this.setColumnOrder(updated);
 
       for (const row of this.rows) {
         row.updateColumnOrder(updated);

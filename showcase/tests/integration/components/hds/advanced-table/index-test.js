@@ -113,12 +113,13 @@ async function dragOverTarget(target, { clientX, clientY }) {
 
 async function simulateColumnReorderDrag({
   handleElement,
+  targetElement,
   targetIndex,
   targetPosition = 'left',
 }) {
   await startReorderDrag(handleElement);
 
-  const target = getTargetElementFromColumnIndex(targetIndex);
+  const target = targetElement ?? getTargetElementFromColumnIndex(targetIndex);
   const { clientX, clientY } = getDragTargetPosition(target, targetPosition);
 
   const eventOptions = { clientX, clientY };
@@ -687,9 +688,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
 
       const thElements = findAll('.hds-advanced-table__th');
+      const firstThElement = thElements[0];
       const firstReorderHandle = thElements[0].querySelector(
         '.hds-advanced-table__th-reorder-handle',
       );
+      await focus(firstThElement);
       await focus(firstReorderHandle);
       assert.dom(firstReorderHandle).isFocused();
 
@@ -770,7 +773,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     });
 
     module('with @hasStickyFirstColumn enabled', function () {
-      test('dropping a column on a sticky column does not trigger a reorder', async function (assert) {
+      test('when dragging a column, the sticky column does not have a drop target', async function (assert) {
         await render(
           hbs`<Hds::AdvancedTable
   id='data-test-advanced-table'
@@ -790,39 +793,32 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           'Initial column order is correct',
         );
 
-        const thirdReorderHandle = findAll(
+        const secondReorderHandle = findAll(
           '.hds-advanced-table__th-reorder-handle',
-        )[2];
+        )[1];
 
         const { target, eventOptions } = await simulateColumnReorderDrag({
-          handleElement: thirdReorderHandle,
-          targetIndex: 0,
+          handleElement: secondReorderHandle,
+          targetElement: findAll('.hds-advanced-table__th')[0],
           targetPosition: 'left',
         });
 
-        const dropTargets = findAll(
-          '.hds-advanced-table__th-reorder-drop-target',
-        );
-        const destinationDropTarget = dropTargets[0];
-
         assert
-          .dom(thirdReorderHandle)
+          .dom(findAll('.hds-advanced-table__th-reorder-drop-target')[1])
           .hasClass(
             'hds-advanced-table__th-reorder-drop-target--is-being-dragged',
             'Third column is being dragged',
           );
+
         assert
-          .dom(destinationDropTarget)
-          .doesNotHaveClass(
-            'hds-advanced-table__th-reorder-drop-target--is-dragging-over',
+          .dom(
+            '.hds-advanced-table__th:first-of-type .hds-advanced-table__th-reorder-drop-target',
           )
-          .doesNotHaveClass(
-            'hds-advanced-table__th-reorder-drop-target--is-dragging-over--left',
-          );
+          .doesNotExist('Drop target is not rendered on sticky column');
 
         await simulateColumnReorderDrop({
           target,
-          handleElement: thirdReorderHandle,
+          handleElement: secondReorderHandle,
           eventOptions,
         });
 
@@ -895,9 +891,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         );
 
         const thElements = findAll('.hds-advanced-table__th');
-        const firstNonStickyColumnReorderHandle = thElements[1].querySelector(
-          '.hds-advanced-table__th-reorder-handle',
-        );
+        const firstNonStickyThElement = thElements[1];
+        const firstNonStickyColumnReorderHandle =
+          firstNonStickyThElement.querySelector(
+            '.hds-advanced-table__th-reorder-handle',
+          );
+        await focus(firstNonStickyThElement);
         await focus(firstNonStickyColumnReorderHandle);
         assert.dom(firstNonStickyColumnReorderHandle).isFocused();
 
