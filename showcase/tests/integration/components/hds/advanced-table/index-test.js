@@ -12,6 +12,7 @@ import {
   setupOnerror,
   find,
   findAll,
+  settled,
   triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';

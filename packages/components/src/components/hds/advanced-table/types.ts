@@ -112,7 +112,7 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
   }[];
 }
 
-export type HdsAdvancedTableModel = Array<Record<string, unknown>>;
+export type HdsAdvancedTableModel = object[];
 
 export type HdsAdvancedTableColumnResizeCallback = (
   columnKey: string,
