@@ -14,14 +14,14 @@ import { HdsAccordion } from '@hashicorp/design-system-components/components';
 
 import type { HdsAccordionForceStates } from '@hashicorp/design-system-components/components/hds/accordion/types';
 
-export interface PageComponentsAccordionSignature {
+export interface MockWithExternalControlSignature {
   Args: {
     variant: 'all' | 'single';
   };
   Element: HTMLDivElement;
 }
 
-export default class MockWithExternalControl extends Component<PageComponentsAccordionSignature> {
+export default class MockWithExternalControl extends Component<MockWithExternalControlSignature> {
   @tracked state: HdsAccordionForceStates = 'close';
 
   get buttonLabel(): string {
