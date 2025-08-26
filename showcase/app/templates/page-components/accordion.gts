@@ -33,6 +33,7 @@ import { TYPES } from '@hashicorp/design-system-components/components/hds/accord
 
 import MockWithExternalControl from 'showcase/components/page-components/accordion/examples/mock-with-external-control';
 import MockWithPlaceholderContent from 'showcase/components/page-components/accordion/examples/mock-with-placeholder-content';
+import MockWithToggleVariants from 'showcase/components/page-components/accordion/examples/mock-with-toggle-variants';
 
 import MatrixAccordionItem from 'showcase/components/page-components/accordion/sections/matrix-accordion-item';
 import MatrixAccordionItemButton from 'showcase/components/page-components/accordion/sections/matrix-accordion-item-button';
@@ -79,28 +80,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
         <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
           {{#each TYPES as |type|}}
             <SG.Item @label={{type}}>
-              <HdsAccordion @size={{size}} @type={{type}} as |A|>
-                <A.Item>
-                  <:toggle>Item one</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </A.Item>
-
-                <A.Item @isStatic={{true}}>
-                  <:toggle>Item two</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </A.Item>
-
-                <A.Item @containsInteractive={{true}}>
-                  <:toggle>Item three</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </A.Item>
-              </HdsAccordion>
+              <MockWithToggleVariants @size={{size}} @type={{type}} />
             </SG.Item>
           {{/each}}
         </ShwGrid>
@@ -424,55 +404,13 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
       <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
         <SG.Item @label="In a Card w/ no padding">
           <HdsCardContainer @hasBorder={{true}}>
-            <HdsAccordion @type="flush" as |A|>
-              <A.Item>
-                <:toggle>Item one</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-
-              <A.Item @isStatic={{true}}>
-                <:toggle>Item two</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-
-              <A.Item @containsInteractive={{true}}>
-                <:toggle>Item three</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-            </HdsAccordion>
+            <MockWithToggleVariants @type="flush" />
           </HdsCardContainer>
         </SG.Item>
 
         <SG.Item @label="in a Card w/ padding">
           <HdsCardContainer @hasBorder={{true}} {{style padding="16px"}}>
-            <HdsAccordion @type="flush" as |A|>
-              <A.Item>
-                <:toggle>Item one</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-
-              <A.Item @isStatic={{true}}>
-                <:toggle>Item two</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-
-              <A.Item @containsInteractive={{true}}>
-                <:toggle>Item three</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-            </HdsAccordion>
+            <MockWithToggleVariants @type="flush" />
           </HdsCardContainer>
         </SG.Item>
 
@@ -480,28 +418,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
           <HdsFlyout open id="flyout-example-one-action" as |F|>
             <F.Header>Title</F.Header>
             <F.Body>
-              <HdsAccordion @type="flush" as |A|>
-                <A.Item>
-                  <:toggle>Item one</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </A.Item>
-
-                <A.Item @isStatic={{true}}>
-                  <:toggle>Item two</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </A.Item>
-
-                <A.Item @containsInteractive={{true}}>
-                  <:toggle>Item three</:toggle>
-                  <:content>
-                    <ShwPlaceholder @text="generic content" @height="40" />
-                  </:content>
-                </A.Item>
-              </HdsAccordion>
+              <MockWithToggleVariants @type="flush" />
             </F.Body>
             <F.Footer>
               <HdsButton type="submit" @text="Primary" />
