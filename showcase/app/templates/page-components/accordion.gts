@@ -2,13 +2,12 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-import Component from '@glimmer/component';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
 import { eq, lt, and, or, not, notEq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
 import { pageTitle } from 'ember-page-title';
-import { tracked } from '@glimmer/tracking';
 import style from 'ember-style-modifier';
 
 import ShwDivider from 'showcase/components/shw/divider';
@@ -38,36 +37,13 @@ import { SIZES } from '@hashicorp/design-system-components/components/hds/accord
 import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 import HdsAccordionItemButton from '@hashicorp/design-system-components/components/hds/accordion/item/button';
 
-import type { HdsAccordionForceStates } from '@hashicorp/design-system-components/components/hds/accordion/types';
+import MockWithExternalControl from 'showcase/components/page-components/accordion/examples/MockWithExternalControl';
 
 export interface PageComponentsAccordionSignature {
   Element: HTMLDivElement;
 }
 
-export default class PageComponentsAccordion extends Component<PageComponentsAccordionSignature> {
-  @tracked stateAll: HdsAccordionForceStates = 'close';
-  @tracked stateSingle: HdsAccordionForceStates = 'close';
-
-  toggleStateAll = () => {
-    if (this.stateAll === 'open') {
-      this.stateAll = 'close';
-    } else {
-      this.stateAll = 'open';
-    }
-  };
-
-  toggleStateSingle = () => {
-    if (this.stateSingle === 'open') {
-      this.stateSingle = 'close';
-    } else {
-      this.stateSingle = 'open';
-    }
-  };
-
-  onClickToggleSingle = () => {
-    this.stateSingle = this.stateSingle === 'open' ? 'close' : 'open';
-  };
-
+const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSignature> =
   <template>
     {{pageTitle "Accordion Component"}}
 
@@ -439,69 +415,10 @@ export default class PageComponentsAccordion extends Component<PageComponentsAcc
 
       <ShwGrid {{style gap="2rem"}} @columns={{2}} as |SG|>
         <SG.Item @label="All items">
-          <button
-            type="button"
-            {{style padding=".25rem" marginBottom="1rem"}}
-            {{on "click" this.toggleStateAll}}
-          >
-            {{if (eq this.stateAll "open") "Collapse all" "Expand all"}}
-          </button>
-          <HdsAccordion @forceState={{this.stateAll}} as |A|>
-            <A.Item>
-              <:toggle>Item one</:toggle>
-              <:content>
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-            <A.Item>
-              <:toggle>Item two</:toggle>
-              <:content>
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-            <A.Item>
-              <:toggle>Item Three</:toggle>
-              <:content>
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-          </HdsAccordion>
+          <MockWithExternalControl @variant="all" />
         </SG.Item>
         <SG.Item @label="Single item">
-          <button
-            type="button"
-            {{style padding=".25rem" marginBottom="1rem"}}
-            {{on "click" this.toggleStateSingle}}
-          >
-            {{if
-              (eq this.stateSingle "open")
-              "Collapse item 2"
-              "Expand item 2"
-            }}
-          </button>
-          <HdsAccordion as |A|>
-            <A.Item>
-              <:toggle>Item one</:toggle>
-              <:content>
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-            <A.Item
-              @forceState={{this.stateSingle}}
-              @onClickToggle={{this.onClickToggleSingle}}
-            >
-              <:toggle>Item two</:toggle>
-              <:content>
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-            <A.Item>
-              <:toggle>Item Three</:toggle>
-              <:content>
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </:content>
-            </A.Item>
-          </HdsAccordion>
+          <MockWithExternalControl @variant="single" />
         </SG.Item>
       </ShwGrid>
 
@@ -927,5 +844,6 @@ export default class PageComponentsAccordion extends Component<PageComponentsAcc
         {{/let}}
       {{/each}}
     </section>
-  </template>
-}
+  </template>;
+
+export default PageComponentsAccordion;
