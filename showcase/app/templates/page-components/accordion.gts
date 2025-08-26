@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
 import { eq, lt, and, or, not, notEq } from 'ember-truth-helpers';
@@ -49,28 +48,25 @@ export default class PageComponentsAccordion extends Component<PageComponentsAcc
   @tracked stateAll: HdsAccordionForceStates = 'close';
   @tracked stateSingle: HdsAccordionForceStates = 'close';
 
-  @action
-  toggleStateAll() {
+  toggleStateAll = () => {
     if (this.stateAll === 'open') {
       this.stateAll = 'close';
     } else {
       this.stateAll = 'open';
     }
-  }
+  };
 
-  @action
-  toggleStateSingle() {
+  toggleStateSingle = () => {
     if (this.stateSingle === 'open') {
       this.stateSingle = 'close';
     } else {
       this.stateSingle = 'open';
     }
-  }
+  };
 
-  @action
-  onClickToggleSingle() {
+  onClickToggleSingle = () => {
     this.stateSingle = this.stateSingle === 'open' ? 'close' : 'open';
-  }
+  };
 
   <template>
     {{pageTitle "Accordion Component"}}
