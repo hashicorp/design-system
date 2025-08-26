@@ -35,7 +35,7 @@ import {
 import { SIZES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
-import MockWithExternalControl from 'showcase/components/page-components/accordion/examples/MockWithExternalControl';
+import MockWithExternalControl from 'showcase/components/page-components/accordion/examples/mock-with-external-control';
 
 import MatrixAccordionItemButton from 'showcase/components/page-components/accordion/sections/matrix-accordion-item-button';
 
