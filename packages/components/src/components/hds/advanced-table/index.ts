@@ -9,7 +9,6 @@ import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import { schedule } from '@ember/runloop';
 import HdsAdvancedTableTableModel from './models/table.ts';
 
 import type Owner from '@ember/owner';
