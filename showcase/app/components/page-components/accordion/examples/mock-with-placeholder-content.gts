@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { get } from '@ember/object';
 import { helper } from '@ember/component/helper';
 import { or } from 'ember-truth-helpers';
 
@@ -26,6 +27,12 @@ const range = helper(([count]: [number]) => {
   return Array.from({ length: count }, (_, index) => index + 1);
 });
 
+const mapNumberToString: Record<number, string> = {
+  1: 'one',
+  2: 'two',
+  3: 'three',
+};
+
 const MockWithPlaceholderContent: TemplateOnlyComponent<MockWithPlaceholderContentSignature> =
   <template>
     <HdsAccordion @type={{@type}} @titleTag={{@titleTag}} as |A|>
@@ -35,10 +42,10 @@ const MockWithPlaceholderContent: TemplateOnlyComponent<MockWithPlaceholderConte
             {{#if @labelPrefix}}
               {{@labelPrefix}}
               item
-              {{item}}
+              {{get mapNumberToString item}}
             {{else}}
               Item
-              {{item}}
+              {{get mapNumberToString item}}
             {{/if}}
           </:toggle>
           <:content>
