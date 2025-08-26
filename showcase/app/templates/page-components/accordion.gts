@@ -487,33 +487,6 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
 
       <ShwDivider @level={{2}} />
 
-      <ShwTextH4>containsInteractive</ShwTextH4>
-
-      <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
-        {{#each TYPES as |type|}}
-          <SG.Item @label="containsInteractive=false (default)">
-            <HdsAccordionItem @type={{type}}>
-              <:toggle>Item one</:toggle>
-              <:content>
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </:content>
-            </HdsAccordionItem>
-          </SG.Item>
-        {{/each}}
-        {{#each TYPES as |type|}}
-          <SG.Item @label="containsInteractive=true">
-            <HdsAccordionItem @type={{type}} @containsInteractive={{true}}>
-              <:toggle>Item one</:toggle>
-              <:content>
-                <ShwPlaceholder @text="generic content" @height="40" />
-              </:content>
-            </HdsAccordionItem>
-          </SG.Item>
-        {{/each}}
-      </ShwGrid>
-
-      <ShwDivider @level={{2}} />
-
       <ShwTextH4>isStatic</ShwTextH4>
 
       <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
