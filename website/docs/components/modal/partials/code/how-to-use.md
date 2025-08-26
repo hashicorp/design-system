@@ -12,6 +12,12 @@ As an overlaying component, the `Hds::Modal` is rendered on the [top layer](http
 
 ## Focus and focus trap
 
+!!! callout
+
+Browsers use a variety of heuristics to decide when to visually show focus state based on what is considered most useful to users. For that reason, even though the Modal’s dismiss button is focused by default, it may not visually appear to be focused.
+
+!!!
+
 This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-focus-trap) to prevent the focus from going outside the Modal and to dismiss the Modal when clicking outside the Modal. This Ember modifier requires at least one interactive element to be present within the Modal, which is by default achieved by the dismiss button in the header.
 
 When a Modal is opened with the keyboard, the focus is automatically set to the first focusable element inside the Modal, which is the “Dismiss” button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming the Modal.
