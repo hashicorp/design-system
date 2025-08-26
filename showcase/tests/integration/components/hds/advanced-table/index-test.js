@@ -11,6 +11,7 @@ import {
   focus,
   setupOnerror,
   find,
+  findAll,
   settled,
   triggerEvent,
   triggerKeyEvent,
