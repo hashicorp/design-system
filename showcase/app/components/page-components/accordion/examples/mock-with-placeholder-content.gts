@@ -13,7 +13,9 @@ import { HdsAccordion } from '@hashicorp/design-system-components/components';
 import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
 
 export interface MockWithPlaceholderContentSignature {
-  Args: HdsAccordionSignature['Args'] & {
+  Args: {
+    type?: HdsAccordionSignature['Args']['type'];
+    titleTag?: HdsAccordionSignature['Args']['titleTag'];
     numberOfItems?: 1 | 2 | 3;
     labelPrefix?: string;
   };
@@ -26,7 +28,7 @@ const range = helper(([count]: [number]) => {
 
 const MockWithPlaceholderContent: TemplateOnlyComponent<MockWithPlaceholderContentSignature> =
   <template>
-    <HdsAccordion @type={{@type}} as |A|>
+    <HdsAccordion @type={{@type}} @titleTag={{@titleTag}} as |A|>
       {{#each (range (or @numberOfItems 1)) as |item|}}
         <A.Item>
           <:toggle>
