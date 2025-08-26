@@ -286,7 +286,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const { column } = this.args;
       const { next: nextColumn } = column.siblings;
       const { startX, startColumnPxWidth, startNextColumnPxWidth } =
-        this.resizing!;
+        this.resizing;
       const deltaX = event.clientX - startX;
 
       this._applyResizeDelta(
