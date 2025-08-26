@@ -32,6 +32,7 @@ import { SIZES } from '@hashicorp/design-system-components/components/hds/accord
 import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
 import MockWithExternalControl from 'showcase/components/page-components/accordion/examples/mock-with-external-control';
+import MockWithPlaceholderContent from 'showcase/components/page-components/accordion/examples/mock-with-placeholder-content';
 
 import MatrixAccordionItem from 'showcase/components/page-components/accordion/sections/matrix-accordion-item';
 import MatrixAccordionItemButton from 'showcase/components/page-components/accordion/sections/matrix-accordion-item-button';
@@ -55,39 +56,11 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
 
         <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
           <SG.Item @label="One item">
-            <HdsAccordion @type={{type}} as |A|>
-              <A.Item>
-                <:toggle>Item one</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-            </HdsAccordion>
+            <MockWithPlaceholderContent @type={{type}} />
           </SG.Item>
 
           <SG.Item @label="Multiple items">
-            <HdsAccordion @type={{type}} as |A|>
-              <A.Item>
-                <:toggle>Item one</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-
-              <A.Item @isStatic={{true}}>
-                <:toggle>Item two</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-
-              <A.Item @containsInteractive={{true}}>
-                <:toggle>Item three</:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-            </HdsAccordion>
+            <MockWithPlaceholderContent @type={{type}} @numberOfItems={{3}} />
           </SG.Item>
         </ShwGrid>
 
@@ -273,14 +246,10 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
               <A.Item @isOpen={{true}}>
                 <:toggle>Item one</:toggle>
                 <:content>
-                  <HdsAccordion @type={{type}} as |AA|>
-                    <AA.Item>
-                      <:toggle>Nested item one</:toggle>
-                      <:content>
-                        <ShwPlaceholder @text="generic content" @height="40" />
-                      </:content>
-                    </AA.Item>
-                  </HdsAccordion>
+                  <MockWithPlaceholderContent
+                    @type={{type}}
+                    @labelPrefix="Nested"
+                  />
                 </:content>
               </A.Item>
             </HdsAccordion>
@@ -291,20 +260,11 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
               <A.Item @isOpen={{true}}>
                 <:toggle>Item one</:toggle>
                 <:content>
-                  <HdsAccordion @type={{type}} as |AA|>
-                    <AA.Item>
-                      <:toggle>Nested item one</:toggle>
-                      <:content>
-                        <ShwPlaceholder @text="generic content" @height="40" />
-                      </:content>
-                    </AA.Item>
-                    <AA.Item>
-                      <:toggle>Nested item two</:toggle>
-                      <:content>
-                        <ShwPlaceholder @text="generic content" @height="40" />
-                      </:content>
-                    </AA.Item>
-                  </HdsAccordion>
+                  <MockWithPlaceholderContent
+                    @type={{type}}
+                    @numberOfItems={{2}}
+                    @labelPrefix="Nested"
+                  />
                 </:content>
               </A.Item>
             </HdsAccordion>
@@ -426,16 +386,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
       <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
         {{#each TYPES as |type|}}
           <SG.Item @label="With a custom title tag">
-            <HdsAccordion @type={{type}} @titleTag="h2" as |A|>
-              <A.Item>
-                <:toggle>
-                  Item one
-                </:toggle>
-                <:content>
-                  <ShwPlaceholder @text="generic content" @height="40" />
-                </:content>
-              </A.Item>
-            </HdsAccordion>
+            <MockWithPlaceholderContent @type={{type}} @titleTag="h2" />
           </SG.Item>
         {{/each}}
       </ShwGrid>
