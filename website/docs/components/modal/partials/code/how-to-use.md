@@ -12,7 +12,7 @@ As an overlaying component, the `Hds::Modal` is rendered on the [top layer](http
 
 ## Focus and focus trap
 
-!!! callout
+!!! info
 
 Browsers use a variety of heuristics to decide when to visually show focus state based on what is considered most useful to users. For that reason, even though the Modal’s dismiss button is focused by default, it may not visually appear to be focused.
 
