@@ -1,0 +1,924 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import { assert } from '@ember/debug';
+import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import type { WithBoundArgs } from '@glint/template';
+import { modifier } from 'ember-modifier';
+
+import HdsAdvancedTableTableModel from './models/table.ts';
+
+import {
+  HdsAdvancedTableDensityValues,
+  HdsAdvancedTableVerticalAlignmentValues,
+} from './types.ts';
+
+import { fn, hash } from '@ember/helper';
+import type Owner from '@ember/owner';
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import style from 'ember-style-modifier';
+import { eq } from 'ember-truth-helpers';
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
+import HdsAdvancedTableExpandableTrGroup from './expandable-tr-group.gts';
+import type HdsAdvancedTableColumnType from './models/column.ts';
+import HdsAdvancedTableTd from './td.gts';
+import HdsAdvancedTableThSort from './th-sort.gts';
+import HdsAdvancedTableTh from './th.gts';
+import HdsAdvancedTableTr from './tr.gts';
+import type {
+  HdsAdvancedTableColumn,
+  HdsAdvancedTableDensities,
+  HdsAdvancedTableExpandState,
+  HdsAdvancedTableHorizontalAlignment,
+  HdsAdvancedTableModel,
+  HdsAdvancedTableOnSelectionChangeSignature,
+  HdsAdvancedTableSelectableRow,
+  HdsAdvancedTableThSortOrder,
+  HdsAdvancedTableVerticalAlignment,
+} from './types.ts';
+
+export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
+  HdsAdvancedTableDensityValues
+);
+export const DEFAULT_DENSITY = HdsAdvancedTableDensityValues.Medium;
+
+export const VALIGNMENTS: HdsAdvancedTableVerticalAlignment[] = Object.values(
+  HdsAdvancedTableVerticalAlignmentValues
+);
+export const DEFAULT_VALIGN = HdsAdvancedTableVerticalAlignmentValues.Top;
+
+const DEFAULT_SCROLL_DIMENSIONS = {
+  bottom: '0px',
+  height: '0px',
+  left: '0px',
+  right: '0px',
+  top: '0px',
+  width: '0px',
+};
+
+const getScrollIndicatorDimensions = (
+  scrollWrapper: HTMLDivElement,
+  theadElement: HTMLDivElement,
+  hasStickyHeader: boolean,
+  hasStickyFirstColumn: boolean,
+  hasFirstColumnPxWidth: boolean,
+  isStickyColumnPinned: boolean
+) => {
+  const horizontalScrollBarHeight =
+    scrollWrapper.offsetHeight - scrollWrapper.clientHeight;
+  const verticalScrollBarWidth =
+    scrollWrapper.offsetWidth - scrollWrapper.clientWidth;
+
+  let leftOffset = 0;
+
+  if (hasStickyFirstColumn) {
+    const stickyColumnHeaders = theadElement.querySelectorAll(
+      '.hds-advanced-table__th--is-sticky-column'
+    );
+
+    stickyColumnHeaders?.forEach((el) => {
+      // querySelectorAll returns Elements, which don't have offsetWidth
+      // need to use offsetWidth to account for the cell borders
+      const elAsHTMLElement = el as HTMLElement;
+      leftOffset += elAsHTMLElement.offsetWidth;
+    });
+
+    // offsets the left: -1px position if there are multiple sticky columns or the first column has a fixed pixel width
+    if (stickyColumnHeaders.length > 1 || hasFirstColumnPxWidth) {
+      leftOffset -= 1;
+    }
+
+    // offsets the left: -1px position if the sticky column is already pinned when the scroll indicator is calculated
+    if (isStickyColumnPinned) {
+      leftOffset -= 1;
+    }
+  }
+
+  return {
+    bottom: `${horizontalScrollBarHeight}px`,
+    height: `${scrollWrapper.offsetHeight - horizontalScrollBarHeight}px`,
+    left: `${leftOffset}px`,
+    right: `${verticalScrollBarWidth}px`,
+    top: hasStickyHeader ? `${theadElement.offsetHeight}px` : '0px',
+    width: `${scrollWrapper.offsetWidth - verticalScrollBarWidth}px`,
+  };
+};
+
+const getStickyColumnLeftOffset = (
+  theadElement: HTMLDivElement,
+  hasRowSelection: boolean,
+  isStickyColumnPinned: boolean
+) => {
+  // if there is no select checkbox column, the sticky column is all the way to the left
+  if (!hasRowSelection) return '0px';
+
+  const selectableCell = theadElement.querySelector(
+    '.hds-advanced-table__th--is-selectable'
+  ) as HTMLElement;
+
+  let leftOffset = selectableCell?.offsetWidth ?? 0;
+
+  // if the sticky column is pinned when the offset is calculated, we need to account for the increased width of the border
+  if (isStickyColumnPinned && leftOffset > 0) {
+    leftOffset -= 2;
+  }
+
+  return `${leftOffset}px`;
+};
+
+export interface HdsAdvancedTableSignature {
+  Args: {
+    align?: HdsAdvancedTableHorizontalAlignment;
+    caption?: string;
+    columns: HdsAdvancedTableColumn[];
+    density?: HdsAdvancedTableDensities;
+    identityKey?: string;
+    isSelectable?: boolean;
+    isStriped?: boolean;
+    model: HdsAdvancedTableModel;
+    selectionAriaLabelSuffix?: string;
+    sortBy?: string;
+    selectableColumnKey?: string;
+    sortedMessageText?: string;
+    sortOrder?: HdsAdvancedTableThSortOrder;
+    valign?: HdsAdvancedTableVerticalAlignment;
+    hasResizableColumns?: boolean;
+    hasStickyHeader?: boolean;
+    hasStickyFirstColumn?: boolean;
+    childrenKey?: string;
+    maxHeight?: string;
+    onColumnResize?: (columnKey: string, newWidth?: string) => void;
+    onSelectionChange?: (
+      selection: HdsAdvancedTableOnSelectionChangeSignature
+    ) => void;
+    onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
+  };
+  Blocks: {
+    body?: [
+      {
+        Td?: WithBoundArgs<typeof HdsAdvancedTableTd, 'align'>;
+        Tr?: WithBoundArgs<
+          typeof HdsAdvancedTableTr,
+          | 'selectionScope'
+          | 'isLastRow'
+          | 'isSelectable'
+          | 'onSelectionChange'
+          | 'didInsert'
+          | 'willDestroy'
+          | 'selectionAriaLabelSuffix'
+          | 'hasStickyColumn'
+          | 'isStickyColumnPinned'
+          | 'isParentRow'
+          | 'depth'
+          | 'displayRow'
+        >;
+        Th?: WithBoundArgs<
+          typeof HdsAdvancedTableTh,
+          | 'depth'
+          | 'isExpandable'
+          | 'isExpanded'
+          | 'newLabel'
+          | 'parentId'
+          | 'scope'
+          | 'isStickyColumn'
+          | 'isStickyColumnPinned'
+          | 'onClickToggle'
+        >;
+        data?: Record<string, unknown>;
+        rowIndex?: number | string;
+        isOpen?: HdsAdvancedTableExpandState;
+      },
+    ];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
+  @tracked
+  private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
+    undefined;
+  @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
+  @tracked private _tableHeight = 0;
+  private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
+  private _captionId = 'caption-' + guidFor(this);
+  private _tableModel!: HdsAdvancedTableTableModel;
+  private _scrollHandler!: (event: Event) => void;
+  private _resizeObserver!: ResizeObserver;
+  private _theadElement!: HTMLDivElement;
+  private _scrollWrapperElement!: HTMLDivElement;
+
+  @tracked scrollIndicatorDimensions = DEFAULT_SCROLL_DIMENSIONS;
+  @tracked isStickyColumnPinned = false;
+  @tracked isStickyHeaderPinned = false;
+  @tracked hasPinnedFirstColumn: boolean | undefined = undefined;
+  @tracked showScrollIndicatorLeft = false;
+  @tracked showScrollIndicatorRight = false;
+  @tracked showScrollIndicatorTop = false;
+  @tracked showScrollIndicatorBottom = false;
+  @tracked stickyColumnOffset = '0px';
+
+  constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
+    super(owner, args);
+
+    const {
+      model,
+      columns,
+      childrenKey,
+      hasResizableColumns,
+      sortBy,
+      sortOrder,
+      hasStickyFirstColumn,
+      onSort,
+    } = args;
+
+    this._tableModel = new HdsAdvancedTableTableModel({
+      model,
+      columns,
+      childrenKey,
+      hasResizableColumns,
+      sortBy,
+      sortOrder,
+      onSort,
+    });
+
+    if (this._tableModel.hasRowsWithChildren) {
+      const sortableColumns = columns.filter((column) => column.isSortable);
+      const sortableColumnLabels = sortableColumns.map(
+        (column) => column.label
+      );
+
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
+        sortableColumns.length === 0
+      );
+
+      assert(
+        'Cannot have a sticky first column if there are nested rows.',
+        !hasStickyFirstColumn
+      );
+
+      assert(
+        `Cannot have resizable columns if there are nested rows.`,
+        !hasResizableColumns
+      );
+    }
+
+    if (hasStickyFirstColumn) {
+      this.hasPinnedFirstColumn = true;
+    }
+  }
+
+  get identityKey(): string | undefined {
+    // we have to provide a way for the consumer to pass undefined because Ember tries to interpret undefined as missing an arg and therefore falls back to the default
+    if (this.args.identityKey === 'none') {
+      return undefined;
+    } else {
+      return this.args.identityKey ?? '@identity';
+    }
+  }
+
+  get childrenKey(): string {
+    const { childrenKey = 'children' } = this.args;
+
+    return childrenKey;
+  }
+
+  get hasStickyFirstColumn(): boolean | undefined {
+    // The user-controlled `hasPinnedFirstColumn` variable takes precedence over the model's `hasStickyFirstColumn` property.
+    if (this.hasPinnedFirstColumn !== undefined) {
+      return this.hasPinnedFirstColumn;
+    } else if (this.args.hasStickyFirstColumn === false) {
+      return this.args.hasStickyFirstColumn;
+    }
+
+    return undefined;
+  }
+
+  get hasScrollIndicator(): boolean {
+    if (this.hasStickyFirstColumn) {
+      return true;
+    }
+
+    return false;
+  }
+
+  get sortedMessageText(): string {
+    const { sortedMessageText } = this.args;
+    const { sortBy, sortOrder } = this._tableModel;
+
+    if (sortedMessageText !== undefined) {
+      return sortedMessageText;
+    } else if (sortBy !== undefined && sortOrder !== undefined) {
+      // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
+      return `Sorted by ${sortBy} ${sortOrder}ending`;
+    } else {
+      return '';
+    }
+  }
+
+  get isSelectable(): boolean {
+    const { isSelectable = false } = this.args;
+
+    if (this._tableModel.hasRowsWithChildren) {
+      assert(
+        '@isSelectable must not be true if there are nested rows.',
+        !isSelectable
+      );
+      return isSelectable;
+    }
+
+    return isSelectable;
+  }
+
+  get isStriped(): boolean {
+    const { isStriped = false } = this.args;
+
+    if (this._tableModel.hasRowsWithChildren) {
+      assert(
+        '@isStriped must not be true if there are nested rows.',
+        !isStriped
+      );
+      return isStriped;
+    }
+
+    return isStriped;
+  }
+
+  get density(): HdsAdvancedTableDensities {
+    const { density = DEFAULT_DENSITY } = this.args;
+
+    assert(
+      `@density for "Hds::Table" must be one of the following: ${DENSITIES.join(
+        ', '
+      )}; received: ${density}`,
+      DENSITIES.includes(density)
+    );
+
+    return density;
+  }
+
+  get hasStickyHeader(): boolean {
+    if (this.args.maxHeight && this.args.hasStickyHeader !== false) {
+      return true;
+    } else if (this.args.hasStickyHeader && !this.args.maxHeight) {
+      assert('Must set @maxHeight to use @hasStickyHeader.', false);
+    }
+
+    return false;
+  }
+
+  get valign(): HdsAdvancedTableVerticalAlignment {
+    const { valign = DEFAULT_VALIGN } = this.args;
+
+    assert(
+      `@valign for "Hds::Table" must be one of the following: ${VALIGNMENTS.join(
+        ', '
+      )}; received: ${valign}`,
+      VALIGNMENTS.includes(valign)
+    );
+
+    return valign;
+  }
+
+  // returns the grid-template-columns CSS attribute for the grid
+  get gridTemplateColumns(): string {
+    const { isSelectable } = this.args;
+    const { columns } = this._tableModel;
+
+    // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
+    let style = isSelectable ? 'min-content ' : '';
+
+    for (let i = 0; i < columns.length; i++) {
+      style += ` ${columns[i]!.appliedWidth}`;
+    }
+
+    return style;
+  }
+
+  get classNames(): string {
+    const classes = ['hds-advanced-table'];
+
+    if (this.isStriped) {
+      classes.push('hds-advanced-table--striped');
+    }
+
+    if (this.density) {
+      classes.push(`hds-advanced-table--density-${this.density}`);
+    }
+
+    if (this.valign) {
+      classes.push(`hds-advanced-table--valign-${this.valign}`);
+    }
+
+    if (this._tableModel.hasRowsWithChildren) {
+      classes.push(`hds-advanced-table--nested`);
+    }
+
+    return classes.join(' ');
+  }
+
+  get theadClassNames(): string {
+    const classes = ['hds-advanced-table__thead'];
+
+    if (this.hasStickyHeader) {
+      classes.push('hds-advanced-table__thead--sticky');
+    }
+
+    if (this.isStickyHeaderPinned) {
+      classes.push('hds-advanced-table__thead--is-pinned');
+    }
+
+    if (this._tableModel.hasResizableColumns) {
+      classes.push('hds-advanced-table__thead--has-resizable-columns');
+    }
+
+    return classes.join(' ');
+  }
+
+  private _registerGridElement = modifier((element: HTMLDivElement) => {
+    this._tableModel.gridElement = element;
+  });
+
+  private _registerThElement = modifier(
+    (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
+      if (column === undefined) {
+        return;
+      }
+
+      column.thElement = element;
+    }
+  );
+
+  private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
+    this._scrollWrapperElement = element;
+
+    const updateHorizontalScrollIndicators = () => {
+      this.showScrollIndicatorRight = element.clientWidth < element.scrollWidth;
+    };
+
+    this._scrollHandler = () => {
+      this._updateScrollIndicators(element);
+    };
+
+    element.addEventListener('scroll', this._scrollHandler);
+
+    const updateMeasurements = () => {
+      this._tableHeight = element.clientHeight;
+
+      const hasFirstColumnPxWidth =
+        this._tableModel.columns[0]?.pxWidth !== undefined;
+
+      this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
+        element,
+        this._theadElement,
+        this.hasStickyHeader,
+        this.hasStickyFirstColumn ? true : false,
+        hasFirstColumnPxWidth,
+        this.isStickyColumnPinned
+      );
+
+      if (this.hasStickyFirstColumn) {
+        this.stickyColumnOffset = getStickyColumnLeftOffset(
+          this._theadElement,
+          isSelectable,
+          this.isStickyColumnPinned
+        );
+      }
+    };
+
+    const { isSelectable = false } = this.args;
+
+    this._resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach(() => {
+        updateMeasurements();
+        updateHorizontalScrollIndicators();
+      });
+    });
+
+    this._resizeObserver.observe(element);
+
+    updateMeasurements();
+
+    // on render check if should show right scroll indicator
+    updateHorizontalScrollIndicators();
+
+    // on render check if should show bottom scroll indicator
+    if (element.clientHeight < element.scrollHeight) {
+      this.showScrollIndicatorBottom = true;
+    }
+
+    return () => {
+      element.removeEventListener('scroll', this._scrollHandler);
+      this._resizeObserver.disconnect();
+    };
+  });
+
+  private _setUpThead = modifier((element: HTMLDivElement) => {
+    this._theadElement = element;
+  });
+
+  onSelectionChangeCallback(
+    checkbox?: HdsFormCheckboxBaseSignature['Element'],
+    selectionKey?: string
+  ): void {
+    const { onSelectionChange } = this.args;
+
+    if (typeof onSelectionChange !== 'function') return;
+
+    onSelectionChange({
+      selectionKey: selectionKey,
+      selectionCheckboxElement: checkbox,
+      selectedRowsKeys: this._selectableRows.reduce<string[]>((acc, row) => {
+        if (row.checkbox.checked) {
+          acc.push(row.selectionKey);
+        }
+        return acc;
+      }, []),
+      selectableRowsStates: this._selectableRows.reduce(
+        (
+          acc: { selectionKey: string; isSelected: boolean | undefined }[],
+          row
+        ) => {
+          acc.push({
+            selectionKey: row.selectionKey,
+            isSelected: row.checkbox.checked,
+          });
+          return acc;
+        },
+        []
+      ),
+    });
+  }
+
+  @action
+  setupTableModelData(): void {
+    const { columns, model, sortBy, sortOrder } = this.args;
+
+    this._tableModel.setupData({ columns, model, sortBy, sortOrder });
+  }
+
+  @action
+  onSelectionAllChange(): void {
+    this._selectableRows.forEach((row) => {
+      row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
+    });
+    this._isSelectAllCheckboxSelected =
+      this._selectAllCheckbox?.checked ?? false;
+    this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
+  }
+
+  @action
+  onSelectionRowChange(
+    checkbox?: HdsFormCheckboxBaseSignature['Element'],
+    selectionKey?: string
+  ): void {
+    this.setSelectAllState();
+    this.onSelectionChangeCallback(checkbox, selectionKey);
+  }
+
+  @action
+  didInsertSelectAllCheckbox(
+    checkbox: HdsFormCheckboxBaseSignature['Element']
+  ): void {
+    this._selectAllCheckbox = checkbox;
+  }
+
+  @action
+  willDestroySelectAllCheckbox(): void {
+    this._selectAllCheckbox = undefined;
+  }
+
+  @action
+  didInsertRowCheckbox(
+    checkbox: HdsFormCheckboxBaseSignature['Element'],
+    selectionKey?: string
+  ): void {
+    if (selectionKey) {
+      this._selectableRows.push({ selectionKey, checkbox });
+    }
+    this.setSelectAllState();
+  }
+
+  @action
+  willDestroyRowCheckbox(selectionKey?: string): void {
+    this._selectableRows = this._selectableRows.filter(
+      (row) => row.selectionKey !== selectionKey
+    );
+    this.setSelectAllState();
+  }
+
+  @action
+  setSelectAllState(): void {
+    if (this._selectAllCheckbox) {
+      const selectableRowsCount = this._selectableRows.length;
+      const selectedRowsCount = this._selectableRows.filter(
+        (row) => row.checkbox.checked
+      ).length;
+
+      this._selectAllCheckbox.checked =
+        selectedRowsCount === selectableRowsCount;
+      this._selectAllCheckbox.indeterminate =
+        selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
+      this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
+    }
+  }
+
+  private _updateScrollIndicators(element: HTMLElement): void {
+    // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
+    const SCROLL_BUFFER = 6;
+
+    // left scroll indicator and sticky column styles
+    if (element.scrollLeft > SCROLL_BUFFER) {
+      if (this.hasStickyFirstColumn) {
+        this.isStickyColumnPinned = true;
+      }
+      if (!this.showScrollIndicatorLeft) {
+        this.showScrollIndicatorLeft = true;
+      }
+    } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
+      this.isStickyColumnPinned = false;
+      this.showScrollIndicatorLeft = false;
+    }
+
+    // the right edge is how far the user can scroll, which is the full width of the table - the visible section of the table (also subtract the buffer)
+    const rightEdge = element.scrollWidth - element.clientWidth - SCROLL_BUFFER;
+
+    // right scroll indicator
+    if (element.scrollLeft < rightEdge) {
+      this.showScrollIndicatorRight = true;
+    } else {
+      this.showScrollIndicatorRight = false;
+    }
+
+    // sticky header
+    if (element.scrollTop > 0) {
+      if (this.hasStickyHeader) {
+        this.isStickyHeaderPinned = true;
+      }
+      this.showScrollIndicatorTop = true;
+    } else {
+      if (this.hasStickyHeader) {
+        this.isStickyHeaderPinned = false;
+      }
+      this.showScrollIndicatorTop = false;
+    }
+
+    // the bottom edge is how far the user can scroll, which is the full height of the table - the visible section of the table (also subtract the buffer)
+    const bottomEdge =
+      element.scrollHeight - element.clientHeight - SCROLL_BUFFER;
+
+    // bottom scroll indicator
+    if (element.scrollTop < bottomEdge) {
+      this.showScrollIndicatorBottom = true;
+    } else {
+      this.showScrollIndicatorBottom = false;
+    }
+  }
+
+  private _onPinFirstColumn = (): void => {
+    this.hasPinnedFirstColumn = this.hasPinnedFirstColumn ? false : true;
+    // we need to retrigger the scroll indicator updates if the pinned state is changed when the table is already scrolled
+    this._updateScrollIndicators(this._scrollWrapperElement);
+  };
+
+  private _isStickyColumn = (
+    column: HdsAdvancedTableColumnType
+  ): boolean | undefined => {
+    if (column.isFirst && this.hasStickyFirstColumn !== undefined) {
+      return this.hasStickyFirstColumn;
+    }
+    return undefined;
+  };
+
+  <template>
+    <div
+      class="hds-advanced-table__container
+        {{(if
+          this.isStickyHeaderPinned
+          'hds-advanced-table__container--header-is-pinned'
+        )}}"
+      {{didUpdate this.setupTableModelData @columns @model @sortBy @sortOrder}}
+      ...attributes
+    >
+      {{! Caption }}
+      <div
+        id={{this._captionId}}
+        class="sr-only hds-advanced-table__caption"
+        aria-live="polite"
+      >
+        {{@caption}}
+        {{this.sortedMessageText}}
+      </div>
+
+      {{! Grid }}
+      <div
+        class={{this.classNames}}
+        role="grid"
+        aria-describedby={{this._captionId}}
+        {{style
+          grid-template-columns=this.gridTemplateColumns
+          --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
+          max-height=@maxHeight
+        }}
+        {{this._registerGridElement}}
+        {{this._setUpScrollWrapper}}
+      >
+        {{! Header }}
+        <div
+          class={{this.theadClassNames}}
+          role="rowgroup"
+          {{this._setUpThead}}
+        >
+          <HdsAdvancedTableTr
+            @selectionScope="col"
+            @onClickSortBySelected={{if
+              @selectableColumnKey
+              (fn this._tableModel.setSortBy @selectableColumnKey)
+            }}
+            @sortBySelectedOrder={{if
+              (eq this._tableModel.sortBy @selectableColumnKey)
+              this._tableModel.sortOrder
+            }}
+            @isSelectable={{this.isSelectable}}
+            @onSelectionChange={{this.onSelectionAllChange}}
+            @didInsert={{this.didInsertSelectAllCheckbox}}
+            @willDestroy={{this.willDestroySelectAllCheckbox}}
+            @selectionAriaLabelSuffix="all rows"
+            @hasStickyColumn={{this.hasStickyFirstColumn}}
+            @isStickyColumnPinned={{this.isStickyColumnPinned}}
+          >
+            {{#each this._tableModel.columns as |column|}}
+              {{#if column.isSortable}}
+                <HdsAdvancedTableThSort
+                  @column={{column}}
+                  @sortOrder={{if
+                    (eq column.key this._tableModel.sortBy)
+                    this._tableModel.sortOrder
+                  }}
+                  @onClickSort={{if
+                    column.key
+                    (fn this._tableModel.setSortBy column.key)
+                  }}
+                  @align={{column.align}}
+                  @tooltip={{column.tooltip}}
+                  @hasResizableColumns={{@hasResizableColumns}}
+                  @isStickyColumn={{this._isStickyColumn column}}
+                  @isStickyColumnPinned={{this.isStickyColumnPinned}}
+                  @tableHeight={{this._tableHeight}}
+                  @onColumnResize={{@onColumnResize}}
+                  @onPinFirstColumn={{this._onPinFirstColumn}}
+                  {{this._registerThElement column}}
+                >
+                  {{column.label}}
+                </HdsAdvancedTableThSort>
+              {{else}}
+                <HdsAdvancedTableTh
+                  @align={{column.align}}
+                  @column={{column}}
+                  @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+                  @hasResizableColumns={{@hasResizableColumns}}
+                  @isExpanded={{this._tableModel.expandState}}
+                  @isExpandable={{column.isExpandable}}
+                  @isStickyColumn={{this._isStickyColumn column}}
+                  @isStickyColumnPinned={{this.isStickyColumnPinned}}
+                  @isVisuallyHidden={{column.isVisuallyHidden}}
+                  @tableHeight={{this._tableHeight}}
+                  @tooltip={{column.tooltip}}
+                  @onClickToggle={{this._tableModel.toggleAll}}
+                  @onColumnResize={{@onColumnResize}}
+                  @onPinFirstColumn={{this._onPinFirstColumn}}
+                  {{this._registerThElement column}}
+                >
+                  {{column.label}}
+                </HdsAdvancedTableTh>
+              {{/if}}
+            {{/each}}
+          </HdsAdvancedTableTr>
+        </div>
+
+        {{! Body }}
+        <div class="hds-advanced-table__tbody" role="rowgroup">
+          {{! ----------------------------------------------------------------------------------------
+        IMPORTANT: we loop on the model array and for each record
+        we yield the Tr/Td/Th elements _and_ the record itself as data
+        this means the consumer will *have to* use the data key to access it in their template
+      -------------------------------------------------------------------------------------------- }}
+          {{#each
+            this._tableModel.sortedRows key=this.identityKey
+            as |record index|
+          }}
+            {{#if this._tableModel.hasRowsWithChildren}}
+              <HdsAdvancedTableExpandableTrGroup
+                @record={{record}}
+                @rowIndex={{index}}
+                @onClickToggle={{record.onClickToggle}}
+                as |T|
+              >
+                {{yield
+                  (hash
+                    Tr=(component
+                      HdsAdvancedTableTr
+                      isLastRow=(eq
+                        this._tableModel.lastVisibleRow.id T.data.id
+                      )
+                      isParentRow=T.isExpandable
+                      depth=T.depth
+                      displayRow=T.shouldDisplayChildRows
+                    )
+                    Th=(component
+                      HdsAdvancedTableTh
+                      depth=T.depth
+                      isExpandable=T.isExpandable
+                      isExpanded=T.isExpanded
+                      newLabel=T.id
+                      parentId=T.parentId
+                      scope="row"
+                      onClickToggle=T.onClickToggle
+                    )
+                    Td=(component HdsAdvancedTableTd align=@align)
+                    data=T.data
+                    isOpen=T.isExpanded
+                    rowIndex=T.rowIndex
+                  )
+                  to="body"
+                }}
+              </HdsAdvancedTableExpandableTrGroup>
+            {{else}}
+              {{yield
+                (hash
+                  Tr=(component
+                    HdsAdvancedTableTr
+                    selectionScope="row"
+                    isLastRow=(eq this._tableModel.lastVisibleRow.id record.id)
+                    isSelectable=this.isSelectable
+                    onSelectionChange=this.onSelectionRowChange
+                    didInsert=this.didInsertRowCheckbox
+                    willDestroy=this.willDestroyRowCheckbox
+                    selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+                    hasStickyColumn=this.hasStickyFirstColumn
+                    isStickyColumnPinned=this.isStickyColumnPinned
+                  )
+                  Th=(component
+                    HdsAdvancedTableTh
+                    scope="row"
+                    isStickyColumn=this.hasStickyFirstColumn
+                    isStickyColumnPinned=this.isStickyColumnPinned
+                  )
+                  Td=(component HdsAdvancedTableTd align=@align)
+                  data=record
+                  rowIndex=index
+                )
+                to="body"
+              }}
+            {{/if}}
+          {{/each}}
+        </div>
+      </div>
+
+      {{#if this.showScrollIndicatorLeft}}
+        <div
+          class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
+          {{style
+            height=this.scrollIndicatorDimensions.height
+            left=this.scrollIndicatorDimensions.left
+          }}
+        />
+      {{/if}}
+
+      {{#if this.showScrollIndicatorRight}}
+        <div
+          class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
+          {{style
+            height=this.scrollIndicatorDimensions.height
+            right=this.scrollIndicatorDimensions.right
+          }}
+        />
+      {{/if}}
+
+      {{#if this.showScrollIndicatorTop}}
+        <div
+          class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top"
+          {{style
+            top=this.scrollIndicatorDimensions.top
+            width=this.scrollIndicatorDimensions.width
+          }}
+        />
+      {{/if}}
+
+      {{#if this.showScrollIndicatorBottom}}
+        <div
+          class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-bottom"
+          {{style
+            bottom=this.scrollIndicatorDimensions.bottom
+            width=this.scrollIndicatorDimensions.width
+          }}
+        />
+      {{/if}}
+    </div>
+  </template>
+}

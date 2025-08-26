@@ -1,0 +1,80 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import Component from '@glimmer/component';
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+
+export interface HdsBreadcrumbSignature {
+  Args: {
+    ariaLabel?: string;
+    itemsCanWrap?: boolean;
+    didInsert?: () => void;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLElement;
+}
+
+const NOOP = () => {};
+
+export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
+  /**
+   * @param onDidInsert
+   * @type {function}
+   * @default () => {}
+   */
+  get didInsert(): () => void {
+    const { didInsert } = this.args;
+
+    if (typeof didInsert === 'function') {
+      return didInsert;
+    } else {
+      return NOOP;
+    }
+  }
+
+  /**
+   * @param itemsCanWrap
+   * @type {boolean}
+   * @default true
+   */
+  get itemsCanWrap(): boolean {
+    return this.args.itemsCanWrap ?? true;
+  }
+
+  /**
+   * @param ariaLabel
+   * @type {string}
+   * @default 'breadcrumbs'
+   */
+  get ariaLabel(): string {
+    return this.args.ariaLabel ?? 'breadcrumbs';
+  }
+
+  /**
+   * Get the class names to apply to the component.
+   * @method Breadcrumb#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames(): string {
+    const classes = ['hds-breadcrumb'];
+
+    // add a class based on the @itemsCanWrap argument
+    if (this.itemsCanWrap) {
+      classes.push('hds-breadcrumb--items-can-wrap');
+    }
+
+    return classes.join(' ');
+  }
+
+  <template>
+    <nav class={{this.classNames}} aria-label={{this.ariaLabel}} ...attributes>
+      <ol class="hds-breadcrumb__list" {{didInsert this.didInsert}}>
+        {{yield}}
+      </ol>
+    </nav>
+  </template>
+}

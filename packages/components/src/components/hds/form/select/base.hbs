@@ -1,7 +1,0 @@
-{{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
-}}
-<select class={{this.classNames}} {{style width=@width}} id={{@id}} aria-describedby={{@ariaDescribedBy}} ...attributes>
-  {{yield (hash Options=(component "hds/yield"))}}
-</select>

@@ -83,6 +83,9 @@ export default ts.config(
       parserOptions: parserOptions.esm.ts,
     },
     extends: [...ts.configs.recommendedTypeChecked, ember.configs.gts],
+    rules: {
+      'ember/no-at-ember-render-modifiers': 'off',
+    },
   },
   {
     files: ['src/**/*'],
