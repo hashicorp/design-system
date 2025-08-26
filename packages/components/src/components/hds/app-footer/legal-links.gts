@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import hdsT from '../../../helpers/hds-t.ts';
 import HdsAppFooterItem from './item.gts';
 import HdsAppFooterLink from './link.gts';
 
@@ -87,19 +88,31 @@ export default class HdsAppFooterLegalLinks extends Component<HdsAppFooterLegalL
         ...attributes
       >
         <HdsAppFooterLink @href={{this.hrefForSupport}}>
-          Support
+          {{hdsT
+            "hds.components.app-footer.legal-links.support"
+            default="Support"
+          }}
         </HdsAppFooterLink>
         <HdsAppFooterLink @href={{this.hrefForTerms}}>
-          Terms
+          {{hdsT "hds.components.app-footer.legal-links.terms" default="Terms"}}
         </HdsAppFooterLink>
         <HdsAppFooterLink @href={{this.hrefForPrivacy}}>
-          Privacy
+          {{hdsT
+            "hds.components.app-footer.legal-links.privacy"
+            default="Privacy"
+          }}
         </HdsAppFooterLink>
         <HdsAppFooterLink @href={{this.hrefForSecurity}}>
-          Security
+          {{hdsT
+            "hds.components.app-footer.legal-links.security"
+            default="Security"
+          }}
         </HdsAppFooterLink>
         <HdsAppFooterLink @href={{this.hrefForAccessibility}}>
-          Accessibility
+          {{hdsT
+            "hds.components.app-footer.legal-links.accessibility"
+            default="Accessibility"
+          }}
         </HdsAppFooterLink>
       </ul>
     </HdsAppFooterItem>

@@ -3,21 +3,20 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { registerDestructor } from '@ember/destroyable';
+import { fn } from '@ember/helper';
+import { on } from '@ember/modifier';
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import { registerDestructor } from '@ember/destroyable';
-import { on } from '@ember/modifier';
-import { fn } from '@ember/helper';
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 // @ts-expect-error: missing types
 import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
-
 import HdsAppSideNavToggleButton from './toggle-button.gts';
 
 import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
 
+import hdsT from '../../../helpers/hds-t.ts';
 import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
 
 export interface HdsAppSideNavSignature {
@@ -246,10 +245,14 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       {{on "transitionstart" (fn this.setTransition "start")}}
       {{on "transitionend" (fn this.setTransition "end")}}
       {{focusTrap isActive=this.shouldTrapFocus}}
-      {{didInsert this.didInsert}}
+      {{this._setUpBodyElement}}
     >
-      <h2 class="sr-only" id="hds-app-side-nav-header">Application local
-        navigation</h2>
+      <h2 class="sr-only" id="hds-app-side-nav-header">
+        {{hdsT
+          "hds.components.app-side-nav.screen-reader-label"
+          default="Application local navigation"
+        }}
+      </h2>
 
       <div class="hds-app-side-nav__wrapper">
         {{#if this.showToggleButton}}
@@ -267,7 +270,10 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
           />
         {{/if}}
 
-        <div class="hds-app-side-nav__wrapper-body">
+        <div
+          class="hds-app-side-nav__wrapper-body"
+          {{this._setUpNavWrapperBody}}
+        >
           {{~yield~}}
         </div>
       </div>

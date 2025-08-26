@@ -11,6 +11,8 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import { focusable, type FocusableElement } from 'tabbable';
+// @ts-expect-error: missing types
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 import {
@@ -19,10 +21,18 @@ import {
   HdsAdvancedTableThSortOrderValues,
 } from './types.ts';
 
+import { hash } from '@ember/helper';
+import { and, not } from 'ember-truth-helpers';
+import hdsAdvancedTableCell from '../../../modifiers/hds-advanced-table-cell.ts';
+import HdsLayoutFlex from '../layout/flex/index.gts';
 import type { HdsAdvancedTableSignature } from './index.ts';
-import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
-import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
-import type { HdsAdvancedTableThSignature } from './th.ts';
+import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.gts';
+import HdsAdvancedTableThButtonSort from './th-button-sort.gts';
+import HdsAdvancedTableThButtonTooltip from './th-button-tooltip.gts';
+import HdsAdvancedTableThContextMenu from './th-context-menu.gts';
+import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.gts';
+import HdsAdvancedTableThResizeHandle from './th-resize-handle.gts';
+import type { HdsAdvancedTableThSignature } from './th.gts';
 import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableThSortOrder,
@@ -149,4 +159,81 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
       this._resizeHandleElement = element;
     }
   );
+
+  <template>
+    <div
+      class={{this.classNames}}
+      aria-sort={{this.ariaSort}}
+      role="columnheader"
+      aria-rowspan={{@rowspan}}
+      aria-colspan={{@colspan}}
+      {{hdsAdvancedTableCell
+        handleEnableFocusTrap=this.enableFocusTrap
+        shouldTrapFocus=this._shouldTrapFocus
+        setCellElement=this.setElement
+      }}
+      {{focusTrap
+        isActive=this._shouldTrapFocus
+        focusTrapOptions=(hash
+          onDeactivate=this.onFocusTrapDeactivate
+          initialFocus=this.getInitialFocus
+          clickOutsideDeactivates=true
+        )
+      }}
+      ...attributes
+    >
+      <HdsLayoutFlex @justify="space-between" @align="center" @gap="8">
+        <div class="hds-advanced-table__th-content">
+          <span
+            id={{this._labelId}}
+            class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold"
+          >
+            {{yield}}
+          </span>
+
+          {{#if @tooltip}}
+            <HdsAdvancedTableThButtonTooltip
+              @tooltip={{@tooltip}}
+              @labelId={{this._labelId}}
+            />
+          {{/if}}
+        </div>
+
+        <HdsLayoutFlex
+          class="hds-advanced-table__th-actions"
+          @align="center"
+          @gap="8"
+        >
+          <HdsAdvancedTableThButtonSort
+            @sortOrder={{@sortOrder}}
+            @onClick={{@onClickSort}}
+            @labelId={{this._labelId}}
+          />
+
+          {{#if @column}}
+            {{#if this.showContextMenu}}
+              <HdsAdvancedTableThContextMenu
+                @column={{@column}}
+                @isStickyColumn={{@isStickyColumn}}
+                @hasResizableColumns={{@hasResizableColumns}}
+                @resizeHandleElement={{this._resizeHandleElement}}
+                @onColumnResize={{@onColumnResize}}
+                @onPinFirstColumn={{@onPinFirstColumn}}
+              />
+            {{/if}}
+
+            {{#if (and @hasResizableColumns (not @column.isLast))}}
+              <HdsAdvancedTableThResizeHandle
+                @column={{@column}}
+                @hasResizableColumns={{@hasResizableColumns}}
+                @tableHeight={{@tableHeight}}
+                @onColumnResize={{@onColumnResize}}
+                {{this._registerResizeHandleElement}}
+              />
+            {{/if}}
+          {{/if}}
+        </HdsLayoutFlex>
+      </HdsLayoutFlex>
+    </div>
+  </template>
 }

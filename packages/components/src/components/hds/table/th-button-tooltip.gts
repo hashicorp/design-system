@@ -9,6 +9,7 @@ import { guidFor } from '@ember/object/internals';
 
 import hdsTooltip from '../../../modifiers/hds-tooltip.ts';
 import HdsIcon from '../icon/index.gts';
+import hdsT from '../../../helpers/hds-t.ts';
 
 export interface HdsTableThButtonTooltipSignature {
   Args: {
@@ -47,7 +48,12 @@ export default class HdsTableThButtonTooltip extends Component<HdsTableThButtonT
       <span
         id={{this._prefixLabelId}}
         class="hds-table__th-button-aria-label-hidden-segment"
-      >More information for</span>
+      >
+        {{hdsT
+          "hds.components.common.tooltip-prefix"
+          default="More information for"
+        }}
+      </span>
       <HdsIcon @name="info" />
     </button>
   </template>

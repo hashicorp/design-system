@@ -13,6 +13,16 @@ import { HdsTagColorValues, HdsTagTooltipPlacementValues } from './types.ts';
 
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
 import type { HdsTagColors, HdsTagTooltipPlacements } from './types.ts';
+import { on } from '@ember/modifier';
+import HdsTextBody from '../text/body.gts';
+import HdsIcon from '../icon/index.gts';
+import { or } from 'ember-truth-helpers';
+import HdsInteractive from '../interactive/index.gts';
+import { hash } from '@ember/helper';
+import hdsTooltip from '../../../modifiers/hds-tooltip.ts';
+import hdsLinkToModels from '../../../helpers/hds-link-to-models.ts';
+import hdsLinkToQuery from '../../../helpers/hds-link-to-query.ts';
+import HdsTooltipButton from '../tooltip-button/index.gts';
 
 export const COLORS: HdsTagColors[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
@@ -169,4 +179,96 @@ export default class HdsTag extends Component<HdsTagSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <span class={{this.classNames}} {{this._setUpObserver}} ...attributes>
+      {{#if this.onDismiss}}
+        <button
+          class="hds-tag__dismiss"
+          type="button"
+          aria-label={{this.ariaLabel}}
+          {{on "click" this.onDismiss}}
+        >
+          <HdsIcon class="hds-tag__dismiss-icon" @name="x" @size="16" />
+        </button>
+      {{/if}}
+      {{#if (or @href @route)}}
+        {{#if this._isTextOverflow}}
+          <HdsInteractive
+            class="hds-tag__link"
+            @current-when={{@current-when}}
+            @models={{hdsLinkToModels @model @models}}
+            @query={{hdsLinkToQuery @query}}
+            @replace={{@replace}}
+            @route={{@route}}
+            @isRouteExternal={{@isRouteExternal}}
+            @href={{@href}}
+            @isHrefExternal={{@isHrefExternal}}
+            {{hdsTooltip
+              this.text
+              options=(hash placement=this.tooltipPlacement)
+            }}
+          >
+            <HdsTextBody
+              @tag="span"
+              @size="100"
+              @weight="medium"
+              class="hds-tag__text-container"
+            >
+              {{this.text}}
+            </HdsTextBody>
+          </HdsInteractive>
+        {{else}}
+          <HdsInteractive
+            class="hds-tag__link"
+            @current-when={{@current-when}}
+            @models={{hdsLinkToModels @model @models}}
+            @query={{hdsLinkToQuery @query}}
+            @replace={{@replace}}
+            @route={{@route}}
+            @isRouteExternal={{@isRouteExternal}}
+            @href={{@href}}
+            @isHrefExternal={{@isHrefExternal}}
+          >
+            <HdsTextBody
+              @tag="span"
+              @size="100"
+              @weight="medium"
+              class="hds-tag__text-container"
+            >
+              {{this.text}}
+            </HdsTextBody>
+          </HdsInteractive>
+        {{/if}}
+      {{else}}
+        {{#if this._isTextOverflow}}
+          <HdsTooltipButton
+            class="hds-tag__text"
+            @text={{this.text}}
+            @placement={{this.tooltipPlacement}}
+          >
+            <HdsTextBody
+              @tag="span"
+              @size="100"
+              @weight="medium"
+              class="hds-tag__text-container"
+            >
+              {{this.text}}
+            </HdsTextBody>
+          </HdsTooltipButton>
+        {{else}}
+          <span class="hds-tag__text">
+            <HdsTextBody
+              @tag="span"
+              @size="100"
+              @weight="medium"
+              class="hds-tag__text-container"
+            >
+              {{this.text}}
+            </HdsTextBody>
+          </span>
+        {{/if}}
+      {{/if}}
+    </span>
+  </template>
 }

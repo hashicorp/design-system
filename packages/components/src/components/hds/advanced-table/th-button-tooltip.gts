@@ -3,12 +3,13 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 
-import HdsIcon from '../icon/index.gts';
+import hdsT from '../../../helpers/hds-t.ts';
 import hdsTooltip from '../../../modifiers/hds-tooltip.ts';
+import HdsIcon from '../icon/index.gts';
 
 export interface HdsAdvancedTableThButtonTooltipSignature {
   Args: {
@@ -49,8 +50,13 @@ export default class HdsAdvancedTableThButtonTooltip extends Component<HdsAdvanc
     >
       <span
         id={{this._prefixLabelId}}
-        class="hds-advanced-table__th-button-aria-label-hidden-segment"
-      >More information for</span>
+        class="hds-table__th-button-aria-label-hidden-segment"
+      >
+        {{hdsT
+          "hds.components.common.tooltip-prefix"
+          default="More information for"
+        }}
+      </span>
       <HdsIcon @name="info" />
     </button>
   </template>

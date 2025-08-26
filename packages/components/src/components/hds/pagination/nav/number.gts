@@ -13,6 +13,7 @@ import hdsLinkToModels from '../../../../helpers/hds-link-to-models.ts';
 import hdsLinkToQuery from '../../../../helpers/hds-link-to-query.ts';
 
 import type { HdsInteractiveSignature } from '../../interactive/index.gts';
+import hdsT from '../../../../helpers/hds-t.ts';
 
 interface HdsPaginationNavNumberArgs {
   page: number;
@@ -70,10 +71,13 @@ export default class HdsPaginationControlNumber extends Component<HdsPaginationN
       ...attributes
       aria-current={{if @isSelected "page" null}}
     >
-      <HdsTextBody @tag="span" @size="100" @weight="medium"><span
-          class="sr-only"
-        >page
-        </span>{{this.page}}</HdsTextBody>
+      <HdsTextBody @tag="span" @size="100" @weight="medium">
+        <span class="sr-only">{{hdsT
+            "hds.components.pagination.nav.number.screen-reader-label"
+            default="page"
+          }}</span>
+        {{this.page}}
+      </HdsTextBody>
     </HdsInteractive>
   </template>
 }

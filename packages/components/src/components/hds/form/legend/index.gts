@@ -45,7 +45,7 @@ export default class HdsFormLegend extends Component<HdsFormLegendSignature> {
   }
 
   <template>
-    <legend class={{this.classNames}} ...attributes>
+    <legend class={{this.classNames}} id={{@id}} ...attributes>
       {{yield}}
       <HdsFormIndicator
         @isRequired={{@isRequired}}

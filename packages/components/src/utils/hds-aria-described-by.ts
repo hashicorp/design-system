@@ -9,8 +9,8 @@ import { tracked } from '@glimmer/tracking';
 import type Component from '@glimmer/component';
 import type { HdsFormFieldSignature } from '../components/hds/form/field/index.gts';
 import type { HdsFormFieldsetSignature } from '../components/hds/form/fieldset/index.gts';
-import type { HdsFormKeyValueInputsFieldSignature } from '../components/hds/form/key-value-inputs/field';
-import type { HdsFormKeyValueInputsSignature } from '../components/hds/form/key-value-inputs/index';
+import type { HdsFormKeyValueInputsFieldSignature } from '../components/hds/form/key-value-inputs/field.gts';
+import type { HdsFormKeyValueInputsSignature } from '../components/hds/form/key-value-inputs/index.gts';
 
 type ElementSet = Set<HTMLElement>;
 

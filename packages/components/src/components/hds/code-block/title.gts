@@ -44,11 +44,13 @@ export default class HdsCodeBlockTitle extends Component<HdsCodeBlockTitleSignat
 
   <template>
     <HdsTextBody
+      id={{this._id}}
       @size="200"
       @tag={{this.componentTag}}
       @weight="semibold"
       class="hds-code-block__title"
       ...attributes
+      {{this._setUpTitle @didInsertNode}}
     >
       {{yield}}
     </HdsTextBody>

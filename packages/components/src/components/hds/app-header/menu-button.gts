@@ -3,12 +3,13 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { on } from '@ember/modifier';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
 
 import HdsButton from '../button/index.gts';
 
+import hdsT from '../../../helpers/hds-t.ts';
 import type { HdsButtonSignature } from '../button/index.gts';
 
 export interface HdsAppHeaderMenuButtonSignature {
@@ -37,7 +38,7 @@ export default class HdsAppHeaderMenuButton extends Component<HdsAppHeaderMenuBu
   <template>
     <HdsButton
       class="hds-app-header__menu-button"
-      @text="Menu"
+      @text={{hdsT "hds.components.common.menu" default="Menu"}}
       @icon={{this.icon}}
       @iconPosition="trailing"
       {{on "click" this.onClick}}

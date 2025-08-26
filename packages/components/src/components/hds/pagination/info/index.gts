@@ -9,6 +9,7 @@ import Component from '@glimmer/component';
 import type HdsIntlService from '../../../../services/hds-intl';
 import type { HdsTextBodySignature } from '../../text/body.gts';
 import type { HdsPaginationNumberedSignature } from '../numbered/index.gts';
+import HdsTextBody from '../../text/body.gts';
 
 export interface HdsPaginationInfoSignature {
   Args: {
@@ -49,4 +50,16 @@ export default class HdsPaginationInfo extends Component<HdsPaginationInfoSignat
       default: defaultValue,
     });
   }
+
+  <template>
+    <HdsTextBody
+      class="hds-pagination-info"
+      @tag="div"
+      @size="100"
+      @weight="medium"
+      ...attributes
+    >
+      {{this.translatedItemsRange}}
+    </HdsTextBody>
+  </template>
 }

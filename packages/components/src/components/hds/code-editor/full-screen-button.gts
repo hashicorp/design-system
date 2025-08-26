@@ -3,11 +3,12 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
+import Component from '@glimmer/component';
 
 import HdsButton from '../button/index.gts';
 
+import hdsT from '../../../helpers/hds-t.ts';
 import type { HdsButtonSignature } from '../button/index.gts';
 
 export interface HdsCodeEditorFullScreenButtonSignature {
@@ -44,7 +45,10 @@ export default class HdsCodeEditorFullScreenButton extends Component<HdsCodeEdit
       @color="secondary"
       @size="small"
       @icon={{this.state}}
-      @text="Toggle full screen view"
+      @text={{hdsT
+        "hds.components.code-editor.full-screen-button.text"
+        default="Toggle full screen view"
+      }}
       {{on "click" @onToggleFullScreen}}
       ...attributes
     />

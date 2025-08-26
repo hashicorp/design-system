@@ -43,20 +43,20 @@ export { default as HdsAppFooterStatusLink } from './components/hds/app-footer/s
 export * from './components/hds/app-footer/types.ts';
 
 // AppHeader
-export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.ts';
-export { default as HdsAppHeader } from './components/hds/app-header/index.ts';
-export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.ts';
+export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.gts';
+export { default as HdsAppHeader } from './components/hds/app-header/index.gts';
+export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.gts';
 
 // AppSideNav
-export { default as HdsAppSideNav } from './components/hds/app-side-nav/index.ts';
-export { default as HdsAppSideNavListBackLink } from './components/hds/app-side-nav/list/back-link.ts';
-export { default as HdsAppSideNavList } from './components/hds/app-side-nav/list/index.ts';
-export { default as HdsAppSideNavListItem } from './components/hds/app-side-nav/list/item.ts';
-export { default as HdsAppSideNavListLink } from './components/hds/app-side-nav/list/link.ts';
-export { default as HdsAppSideNavListTitle } from './components/hds/app-side-nav/list/title.ts';
-export { default as HdsAppSideNavPortal } from './components/hds/app-side-nav/portal/index.ts';
-export { default as HdsAppSideNavPortalTarget } from './components/hds/app-side-nav/portal/target.ts';
-export { default as HdsAppSideNavToggleButton } from './components/hds/app-side-nav/toggle-button.ts';
+export { default as HdsAppSideNav } from './components/hds/app-side-nav/index.gts';
+export { default as HdsAppSideNavListBackLink } from './components/hds/app-side-nav/list/back-link.gts';
+export { default as HdsAppSideNavList } from './components/hds/app-side-nav/list/index.gts';
+export { default as HdsAppSideNavListItem } from './components/hds/app-side-nav/list/item.gts';
+export { default as HdsAppSideNavListLink } from './components/hds/app-side-nav/list/link.gts';
+export { default as HdsAppSideNavListTitle } from './components/hds/app-side-nav/list/title.gts';
+export { default as HdsAppSideNavPortal } from './components/hds/app-side-nav/portal/index.gts';
+export { default as HdsAppSideNavPortalTarget } from './components/hds/app-side-nav/portal/target.gts';
+export { default as HdsAppSideNavToggleButton } from './components/hds/app-side-nav/toggle-button.gts';
 
 // ApplicationState
 export { default as HdsApplicationStateBody } from './components/hds/application-state/body.gts';
@@ -135,16 +135,16 @@ export { default as HdsFlyout } from './components/hds/flyout/index.gts';
 export * from './components/hds/flyout/types.ts';
 
 // Form > Layout
-export { default as HdsFormFooter } from './components/hds/form/footer/index.ts';
-export { default as HdsFormHeaderDescription } from './components/hds/form/header/description.ts';
-export { default as HdsFormHeader } from './components/hds/form/header/index.ts';
-export { default as HdsFormHeaderTitle } from './components/hds/form/header/title.ts';
-export { default as HdsForm } from './components/hds/form/index.ts';
-export { default as HdsFormSectionHeader } from './components/hds/form/section/header.ts';
-export { default as HdsFormSection } from './components/hds/form/section/index.ts';
-export { default as HdsFormSectionMultiFieldGroup } from './components/hds/form/section/multi-field-group/index.ts';
-export { default as HdsFormSectionMultiFieldGroupItem } from './components/hds/form/section/multi-field-group/item.ts';
-export { default as HdsFormSeparator } from './components/hds/form/separator/index.ts';
+export { default as HdsFormFooter } from './components/hds/form/footer/index.gts';
+export { default as HdsFormHeaderDescription } from './components/hds/form/header/description.gts';
+export { default as HdsFormHeader } from './components/hds/form/header/index.gts';
+export { default as HdsFormHeaderTitle } from './components/hds/form/header/title.gts';
+export { default as HdsForm } from './components/hds/form/index.gts';
+export { default as HdsFormSectionHeader } from './components/hds/form/section/header.gts';
+export { default as HdsFormSection } from './components/hds/form/section/index.gts';
+export { default as HdsFormSectionMultiFieldGroup } from './components/hds/form/section/multi-field-group/index.gts';
+export { default as HdsFormSectionMultiFieldGroupItem } from './components/hds/form/section/multi-field-group/item.gts';
+export { default as HdsFormSeparator } from './components/hds/form/separator/index.gts';
 export * from './components/hds/form/types.ts';
 
 // Form > Base elements
@@ -172,11 +172,11 @@ export { default as HdsFormFileInputField } from './components/hds/form/file-inp
 
 // Form > KeyValueInputs
 
-export { default as HdsFormKeyValueInputsAddRowButton } from './components/hds/form/key-value-inputs/add-row-button.ts';
-export { default as HdsFormKeyValueInputsDeleteRowButton } from './components/hds/form/key-value-inputs/delete-row-button.ts';
-export { default as HdsFormKeyValueInputsField } from './components/hds/form/key-value-inputs/field.ts';
-export { default as HdsFormKeyValueInputsGeneric } from './components/hds/form/key-value-inputs/generic.ts';
-export { default as HdsFormKeyValueInputs } from './components/hds/form/key-value-inputs/index.ts';
+export { default as HdsFormKeyValueInputsAddRowButton } from './components/hds/form/key-value-inputs/add-row-button.gts';
+export { default as HdsFormKeyValueInputsDeleteRowButton } from './components/hds/form/key-value-inputs/delete-row-button.gts';
+export { default as HdsFormKeyValueInputsField } from './components/hds/form/key-value-inputs/field.gts';
+export { default as HdsFormKeyValueInputsGeneric } from './components/hds/form/key-value-inputs/generic.gts';
+export { default as HdsFormKeyValueInputs } from './components/hds/form/key-value-inputs/index.gts';
 
 // Form > MaskedInput
 export { default as HdsFormMaskedInputBase } from './components/hds/form/masked-input/base.gts';
@@ -353,13 +353,13 @@ export { default as HdsAppFrameModals } from './components/hds/app-frame/parts/m
 export { default as HdsAppFrameSidebar } from './components/hds/app-frame/parts/sidebar.gts';
 
 // Layout > Flex
-export { default as HdsLayoutFlex } from './components/hds/layout/flex/index.ts';
-export { default as HdsLayoutFlexItem } from './components/hds/layout/flex/item.ts';
+export { default as HdsLayoutFlex } from './components/hds/layout/flex/index.gts';
+export { default as HdsLayoutFlexItem } from './components/hds/layout/flex/item.gts';
 export * from './components/hds/layout/flex/types.ts';
 
 // Layout > Grid
-export { default as HdsLayoutGrid } from './components/hds/layout/grid/index.ts';
-export { default as HdsLayoutGridItem } from './components/hds/layout/grid/item.ts';
+export { default as HdsLayoutGrid } from './components/hds/layout/grid/index.gts';
+export { default as HdsLayoutGridItem } from './components/hds/layout/grid/item.gts';
 // we're being explicit with exports here as AvailableTagNames and AvailableElements are overlapping the Flex exports
 export {
   HdsLayoutGridAlignValues,

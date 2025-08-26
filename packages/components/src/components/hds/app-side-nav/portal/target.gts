@@ -12,19 +12,6 @@ import PortalTarget from 'ember-stargate/components/portal-target';
 
 import type { HdsAppSideNavPortalSignature } from './index.gts';
 
-// import { PortalTargetSignature } from 'ember-stargate/components/portal-target';
-interface PortalTargetSignature {
-  Element: HTMLDivElement;
-  Args: {
-    name: string;
-    multiple?: boolean;
-    onChange?: (count: number) => void;
-  };
-  Blocks: {
-    default: [number];
-  };
-}
-
 import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import type { Registry as Services } from '@ember/service';
 

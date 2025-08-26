@@ -6,16 +6,14 @@
 import Component from '@glimmer/component';
 import { LinkTo } from '@ember/routing';
 import { on } from '@ember/modifier';
-import { assert } from '@ember/debug';
-import {
-  dependencySatisfies,
-  importSync,
-  macroCondition,
-} from '@embroider/macros';
+
 import hdsLinkToModels from '../../../helpers/hds-link-to-models.ts';
 import hdsLinkToQuery from '../../../helpers/hds-link-to-query.ts';
+import { hdsResolveLinkToExternal } from '../../../utils/hds-resolve-link-to-external.ts';
 
 import type Owner from '@ember/owner';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export interface HdsInteractiveSignature {
   Args: {
@@ -38,26 +36,22 @@ export interface HdsInteractiveSignature {
 }
 
 export default class HdsInteractive extends Component<HdsInteractiveSignature> {
-  linkToComponent = LinkTo;
+  @tracked linkToExternal: LinkTo | null = null;
 
   constructor(owner: Owner, args: HdsInteractiveSignature['Args']) {
     super(owner, args);
 
-    if (this.args.isRouteExternal) {
-      if (macroCondition(dependencySatisfies('ember-engines', '*'))) {
-        // @ts-expect-error: shape is unknown
-        this.linkToComponent = importSync(
-          'ember-engines/components/link-to-external-component.js'
-        ).default as LinkTo;
-      } else {
-        assert(
-          `@isRouteExternal is only available when using the "ember-engines" addon. Please install it to use this feature.`,
-          false
-        );
-      }
+    // we want to avoid resolving the component if it's not needed
+    if (args.isRouteExternal) {
+      void this.resolveLinkToExternal();
     }
   }
 
+  async resolveLinkToExternal() {
+    this.linkToExternal = await hdsResolveLinkToExternal(
+      this.args.isRouteExternal
+    );
+  }
   /**
    * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
    *
@@ -80,25 +74,37 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
     return this.args.isRouteExternal ?? false;
   }
 
-  onKeyUp = (event: KeyboardEvent): void => {
+  @action
+  onKeyUp(event: KeyboardEvent): void {
     if (event.key === ' ' || event.code === 'Space') {
       (event.target as HTMLElement).click();
     }
-  };
+  }
 
   <template>
     {{! IMPORTANT: we removed the newlines before/after the yield to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/231#issuecomment-1123502499) }}
     {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the link (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
     {{! NOTICE: we can't support the direct use of the "href" HTML attribute via ...attributes in the <a> elements, because we need to rely on the "@href" Ember argument to differentiate between different types of generated output }}
     {{~#if @route~}}
-      <this.linkToComponent
-        @current-when={{@current-when}}
-        @models={{hdsLinkToModels @model @models}}
-        @query={{hdsLinkToQuery @query}}
-        @replace={{@replace}}
-        @route={{@route}}
-        ...attributes
-      >{{yield}}</this.linkToComponent>
+      {{~#if this.isRouteExternal~}}
+        <this.linkToExternal
+          @current-when={{@current-when}}
+          @models={{hdsLinkToModels @model @models}}
+          @query={{hdsLinkToQuery @query}}
+          @replace={{@replace}}
+          @route={{@route}}
+          ...attributes
+        >{{yield}}</this.linkToExternal>
+      {{~else~}}
+        <LinkTo
+          @current-when={{@current-when}}
+          @models={{hdsLinkToModels @model @models}}
+          @query={{hdsLinkToQuery @query}}
+          @replace={{@replace}}
+          @route={{@route}}
+          ...attributes
+        >{{yield}}</LinkTo>
+      {{~/if~}}
     {{~else if @href~}}
       {{~#if this.isHrefExternal~}}
         <a

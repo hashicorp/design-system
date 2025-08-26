@@ -194,7 +194,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
             (component
               HdsFormSuperSelectAfterOptions
               content=@afterOptionsContent
-              resultCountMessage=this.resultCountMessage
+              resultCountMessage=this.resultCountMessageText
               showNoSelectedMessage=this._showNoSelectedMessage
               showOnlySelected=this._showOnlySelected
               showSelected=this.showSelected
@@ -219,7 +219,6 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
         @dropdownClass={{@dropdownClass}}
         @extra={{@extra}}
         @groupComponent={{HdsFormSuperSelectOptionGroup}}
-        HdsFormSuperSelectAOptionGroup
         @horizontalPosition={{@horizontalPosition}}
         @initiallyOpened={{@initiallyOpened}}
         @labelText={{@labelText}}
@@ -241,7 +240,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
         @preventScroll={{@preventScroll}}
         @registerAPI={{this.setPowerSelectAPI}}
         @renderInPlace={{true}}
-        @resultCountMessage={{@resultCountMessage}}
+        @resultCountMessage={{this.resultCountMessageFunction}}
         @scrollTo={{@scrollTo}}
         @search={{@search}}
         @searchEnabled={{@searchEnabled}}

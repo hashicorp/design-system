@@ -3,10 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { guidFor } from '@ember/object/internals';
 import { on } from '@ember/modifier';
+import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 
+import hdsT from '../../../helpers/hds-t.ts';
 import HdsIcon from '../icon/index.gts';
 import {
   HdsAdvancedTableThSortOrderIconValues,
@@ -93,7 +94,9 @@ export default class HdsAdvancedTableThButtonSort extends Component<HdsAdvancedT
       <span
         id={{this._prefixLabelId}}
         class="hds-advanced-table__th-button-aria-label-hidden-segment"
-      >Sort by</span>
+      >
+        {{hdsT "hds.components.common.sort-by" default="Sort by"}}
+      </span>
       <span
         id={{this._suffixLabelId}}
         class="hds-advanced-table__th-button-aria-label-hidden-segment"

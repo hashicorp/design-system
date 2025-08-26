@@ -20,6 +20,7 @@ import type {
   HdsTableThSortOrderIcons,
   HdsTableThSortOrderLabels,
 } from './types.ts';
+import hdsT from '../../../helpers/hds-t.ts';
 
 export interface HdsTableThButtonSortSignature {
   Args: {
@@ -102,11 +103,15 @@ export default class HdsTableThButtonSort extends Component<HdsTableThButtonSort
       <span
         id={{this._prefixLabelId}}
         class="hds-table__th-button-aria-label-hidden-segment"
-      >Sort by</span>
+      >
+        {{hdsT "hds.components.common.sort-by" default="Sort by"}}
+      </span>
       <span
         id={{this._suffixLabelId}}
         class="hds-table__th-button-aria-label-hidden-segment"
-      >{{this.sortOrderLabel}}</span>
+      >
+        {{this.sortOrderLabel}}
+      </span>
       <HdsIcon @name={{this.icon}} />
     </button>
   </template>

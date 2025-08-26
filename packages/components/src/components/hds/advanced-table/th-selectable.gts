@@ -3,28 +3,28 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
-import { on } from '@ember/modifier';
 
-import HdsAdvancedTableThButtonSort from './th-button-sort.gts';
 import HdsFormCheckboxBase from '../form/checkbox/base.gts';
+import HdsAdvancedTableThButtonSort from './th-button-sort.gts';
 import HdsAdvancedTableTh from './th.gts';
 import {
-  HdsAdvancedTableThSortOrderValues,
   HdsAdvancedTableThSortOrderLabelValues,
+  HdsAdvancedTableThSortOrderValues,
 } from './types.ts';
 
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
+import type { HdsAdvancedTableThSignature } from './th.gts';
 import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableThSortOrderLabels,
 } from './types.ts';
-import type { HdsAdvancedTableThSignature } from './th.gts';
 
 export interface HdsAdvancedTableThSelectableSignature {
   Args: {
@@ -122,7 +122,6 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
           {{on "change" this.onSelectionChange}}
         />
         {{#if this.isSortable}}
-          <span id={{this._labelId}} class="sr-only">selection state</span>
           <HdsAdvancedTableThButtonSort
             @sortOrder={{@sortBySelectedOrder}}
             @onClick={{@onClickSortBySelected}}

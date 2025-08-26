@@ -24,7 +24,7 @@ import type {
   HdsStepperNavStepIds,
   HdsStepperTitleTags,
 } from '../types.ts';
-import HdsStepperNavPanelComponent from './panel.ts';
+import HdsStepperNavPanelComponent from './panel.gts';
 
 const STEP_ELEMENT_SELECTOR = '.hds-stepper-nav__step-content';
 const PANEL_ELEMENT_SELECTOR = '.hds-stepper-nav__panel';

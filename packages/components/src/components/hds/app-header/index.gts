@@ -3,20 +3,21 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import { registerDestructor } from '@ember/destroyable';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { registerDestructor } from '@ember/destroyable';
 import { and, not } from 'ember-truth-helpers';
 // @ts-expect-error: missing types
 import NavigationNarrator from 'ember-a11y-refocus/components/navigation-narrator';
 // @ts-expect-error: missing types
 import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
-import HdsAppHeaderMenuButton from './menu-button.gts';
 import type Owner from '@ember/owner';
+import HdsAppHeaderMenuButton from './menu-button.gts';
 
+import { hash } from '@ember/helper';
 import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
 
 export interface HdsAppHeaderSignature {
@@ -171,7 +172,7 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
         />
       {{/if}}
 
-      {{yield to="logo"}}
+      {{yield (hash close=this.close) to="logo"}}
 
       {{#if (not this._isDesktop)}}
         <HdsAppHeaderMenuButton
@@ -183,11 +184,11 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
 
       <div class="hds-app-header__actions" id={{this._menuContentId}}>
         <div class="hds-app-header__global-actions">
-          {{yield to="globalActions"}}
+          {{yield (hash close=this.close) to="globalActions"}}
         </div>
 
         <div class="hds-app-header__utility-actions">
-          {{yield to="utilityActions"}}
+          {{yield (hash close=this.close) to="utilityActions"}}
         </div>
       </div>
     </div>

@@ -3,23 +3,24 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { hash } from '@ember/helper';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 import HdsYield from '../../yield/index.gts';
-import HdsAppSideNavListItem from './item.gts';
 import HdsAppSideNavListBackLink from './back-link.gts';
-import HdsAppSideNavListTitle from './title.gts';
+import HdsAppSideNavListItem from './item.gts';
 import HdsAppSideNavListLink from './link.gts';
+import HdsAppSideNavListTitle from './title.gts';
 
 import type { ComponentLike } from '@glint/template';
+import hdsT from '../../../../helpers/hds-t.ts';
 import type { HdsYieldSignature } from '../../yield/index.gts';
-import type { HdsAppSideNavListItemSignature } from './item.gts';
 import type { HdsAppSideNavListBackLinkSignature } from './back-link.gts';
-import type { HdsAppSideNavListTitleSignature } from './title.gts';
+import type { HdsAppSideNavListItemSignature } from './item.gts';
 import type { HdsAppSideNavListLinkSignature } from './link.gts';
+import type { HdsAppSideNavListTitleSignature } from './title.gts';
 
 export interface HdsAppSideNavListSignature {
   Blocks: {
@@ -52,10 +53,13 @@ export default class HdsAppSideNavList extends Component<HdsAppSideNavListSignat
   <template>
     <nav
       class="hds-app-side-nav__list-wrapper"
-      aria-labelledby="hds-app-side-nav-header"
+      aria-label={{hdsT
+        "hds.components.app-side-nav.list.aria-label"
+        default="Application local"
+      }}
       ...attributes
     >
-      {{yield (hash ExtraBefore=HdsYield)}}
+      {{yield (hash ExtraBefore=(component HdsYield))}}
       <ul
         class="hds-app-side-nav__list"
         role="list"
@@ -72,7 +76,7 @@ export default class HdsAppSideNavList extends Component<HdsAppSideNavListSignat
           )
         }}
       </ul>
-      {{yield (hash ExtraAfter=HdsYield)}}
+      {{yield (hash ExtraAfter=(component HdsYield))}}
     </nav>
   </template>
 }

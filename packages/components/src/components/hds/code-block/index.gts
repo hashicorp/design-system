@@ -13,14 +13,10 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 
 import { hash } from '@ember/helper';
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
-import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 import style from 'ember-style-modifier';
 import Prism from 'prismjs';
 
 import HdsCodeBlockCopyButton from './copy-button.gts';
-import HdsCodeBlockDescription from './description.gts';
-import HdsCodeBlockTitle from './title.gts';
 import { HdsCodeBlockLanguageValues } from './types.ts';
 
 import type { SafeString } from '@ember/template';
@@ -31,8 +27,8 @@ import type { HdsCodeBlockDescriptionSignature } from './description.gts';
 import type { HdsCodeBlockTitleSignature } from './title.gts';
 import type { HdsCodeBlockLanguages } from './types.ts';
 
-import HdsCodeBlockDescriptionComponent from './description.ts';
-import HdsCodeBlockTitleComponent from './title.ts';
+import HdsCodeBlockDescription from './description.gts';
+import HdsCodeBlockTitle from './title.gts';
 
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
@@ -49,8 +45,10 @@ import 'prismjs/components/prism-yaml';
 // These imports are required to overcome a global variable clash in Helios website
 // where language import are overriden by the Prism instance in `CodeBlock`
 // Note that `prism-handlebars` is dependant on `prism-markup-templating`
+import { on } from '@ember/modifier';
 import 'prismjs/components/prism-handlebars';
 import 'prismjs/components/prism-markup-templating';
+import HdsButton from '../button/index.gts';
 
 export const LANGUAGES: HdsCodeBlockLanguages[] = Object.values(
   HdsCodeBlockLanguageValues
@@ -76,12 +74,9 @@ export interface HdsCodeBlockSignature {
   Blocks: {
     default: [
       {
-        Title?: WithBoundArgs<
-          typeof HdsCodeBlockTitleComponent,
-          'didInsertNode'
-        >;
+        Title?: WithBoundArgs<typeof HdsCodeBlockTitle, 'didInsertNode'>;
         Description?: WithBoundArgs<
-          typeof HdsCodeBlockDescriptionComponent,
+          typeof HdsCodeBlockDescription,
           'didInsertNode'
         >;
       },
@@ -357,24 +352,37 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   }
 
   <template>
-    <div class={{this.classNames}} ...attributes>
+    <div class={{this.classNames}} ...attributes {{this._setUpCodeObserver}}>
       <div class="hds-code-block__header">
-        {{~yield (hash Title=HdsCodeBlockTitle)~}}
-        {{~yield (hash Description=HdsCodeBlockDescription)~}}
+        {{~yield
+          (hash
+            Title=(component
+              HdsCodeBlockTitle didInsertNode=this.registerTitleElement
+            )
+          )
+        ~}}
+        {{~yield
+          (hash
+            Description=(component
+              HdsCodeBlockDescription
+              didInsertNode=this.registerDescriptionElement
+            )
+          )
+        ~}}
       </div>
       <div class="hds-code-block__body">
         {{! content within pre tag is whitespace-sensitive; do not add new lines! }}
         <pre
           class="hds-code-block__code"
-          {{style maxHeight=@maxHeight}}
+          {{style maxHeight=this.maxHeight}}
           data-line={{@highlightLines}}
           data-start={{@lineNumberStart}}
           id={{this._preCodeId}}
+          aria-label={{@ariaLabel}}
+          aria-labelledby={{this.ariaLabelledBy}}
+          aria-describedby={{this.ariaDescribedBy}}
           tabindex="0"
-        ><code
-            {{didInsert this.setPrismCode}}
-            {{didUpdate this.setPrismCode this.code @language}}
-          >
+        ><code {{this._setUpCodeBlockCode}}>
             {{~this._prismCode~}}
           </code></pre>
 
@@ -387,6 +395,18 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
           />
         {{/if}}
       </div>
+      {{#if this.showFooter}}
+        <div class="hds-code-block__overlay-footer">
+          <HdsButton
+            class="hds-code-block__height-toggle-button"
+            @text={{if this._isExpanded "Show less code" "Show more code"}}
+            @color="secondary"
+            @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
+            @size="small"
+            {{on "click" this.toggleExpanded}}
+          />
+        </div>
+      {{/if}}
     </div>
   </template>
 }

@@ -52,7 +52,8 @@ export default class HdsReveal extends Component<HdsRevealSignature> {
     >
       <:toggle as |t|>
         <HdsRevealToggleButton
-          aria-controls={{this._contentId}}
+          aria-controls={{t.contentId}}
+          aria-describedby={{@ariaDescribedBy}}
           @text={{this.getText t.isOpen}}
           @isOpen={{t.isOpen}}
           {{on "click" t.onClickToggle}}
@@ -62,7 +63,6 @@ export default class HdsReveal extends Component<HdsRevealSignature> {
       <:content>
         <div
           class="hds-reveal__content hds-typography-body-200 hds-foreground-primary"
-          id={{this._contentId}}
         >
           {{yield}}
         </div>

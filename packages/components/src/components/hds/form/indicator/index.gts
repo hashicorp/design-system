@@ -5,11 +5,12 @@
 
 import Component from '@glimmer/component';
 
-import HdsTextBody from '../../text/body.gts';
 import HdsBadge from '../../badge/index.gts';
+import HdsTextBody from '../../text/body.gts';
 
-import type { HdsTextBodySignature } from '../../text/body.gts';
+import hdsT from '../../../../helpers/hds-t.ts';
 import type { HdsBadgeSignature } from '../../badge/index.gts';
+import type { HdsTextBodySignature } from '../../text/body.gts';
 
 export interface HdsFormIndicatorSignature {
   Args: {
@@ -43,7 +44,12 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
         tag="span"
         @size="100"
         @weight="regular"
-      >(Optional)</HdsTextBody>
+      >
+        ({{hdsT
+          "hds.components.form.common.optional_field_indicator"
+          default="Optional"
+        }})
+      </HdsTextBody>
     {{/if}}
     {{#if @isRequired}}
       &nbsp;<HdsBadge
@@ -51,7 +57,10 @@ export default class HdsFormIndicator extends Component<HdsFormIndicatorSignatur
         class={{this.classNames}}
         @size="small"
         @color="neutral"
-        @text="Required"
+        @text={{hdsT
+          "hds.components.form.common.required_field_indicator"
+          default="Required"
+        }}
       />
     {{/if}}
   </template>

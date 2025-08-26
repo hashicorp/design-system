@@ -3,16 +3,17 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import Component from '@glimmer/component';
 
-import HdsInteractive from '../interactive/index.gts';
-import HdsIcon from '../icon/index.gts';
 import hdsLinkToModels from '../../../helpers/hds-link-to-models.ts';
 import hdsLinkToQuery from '../../../helpers/hds-link-to-query.ts';
+import HdsIcon from '../icon/index.gts';
+import HdsInteractive from '../interactive/index.gts';
 
 import type { HdsIconSignature } from '../icon';
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
+import HdsTextDisplay from '../text/display.gts';
 
 export interface HdsAppHeaderHomeLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -63,9 +64,15 @@ export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLink
       @href={{@href}}
       @isHrefExternal={{@isHrefExternal}}
       ...attributes
-      aria-label={{this.ariaLabel}}
+      aria-label={{if this.isIconOnly this.text null}}
     >
       <HdsIcon @name={{@icon}} @color={{@color}} @stretched={{true}} />
+      {{#unless this.isIconOnly}}
+        <HdsTextDisplay
+          @size="100"
+          @color="foreground-high-contrast"
+        >{{this.text}}</HdsTextDisplay>
+      {{/unless}}
     </HdsInteractive>
   </template>
 }

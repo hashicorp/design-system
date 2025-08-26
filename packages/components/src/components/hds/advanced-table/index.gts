@@ -18,12 +18,18 @@ import {
   HdsAdvancedTableVerticalAlignmentValues,
 } from './types.ts';
 
+import { fn, hash } from '@ember/helper';
 import type Owner from '@ember/owner';
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import style from 'ember-style-modifier';
+import { eq } from 'ember-truth-helpers';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
+import HdsAdvancedTableExpandableTrGroup from './expandable-tr-group.gts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
-import type HdsAdvancedTableTd from './td.ts';
-import type HdsAdvancedTableTh from './th.ts';
-import type HdsAdvancedTableTr from './tr.ts';
+import HdsAdvancedTableTd from './td.gts';
+import HdsAdvancedTableThSort from './th-sort.gts';
+import HdsAdvancedTableTh from './th.gts';
+import HdsAdvancedTableTr from './tr.gts';
 import type {
   HdsAdvancedTableColumn,
   HdsAdvancedTableDensities,
@@ -688,4 +694,231 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
     return undefined;
   };
+
+  <template>
+    <div
+      class="hds-advanced-table__container
+        {{(if
+          this.isStickyHeaderPinned
+          'hds-advanced-table__container--header-is-pinned'
+        )}}"
+      {{didUpdate this.setupTableModelData @columns @model @sortBy @sortOrder}}
+      ...attributes
+    >
+      {{! Caption }}
+      <div
+        id={{this._captionId}}
+        class="sr-only hds-advanced-table__caption"
+        aria-live="polite"
+      >
+        {{@caption}}
+        {{this.sortedMessageText}}
+      </div>
+
+      {{! Grid }}
+      <div
+        class={{this.classNames}}
+        role="grid"
+        aria-describedby={{this._captionId}}
+        {{style
+          grid-template-columns=this.gridTemplateColumns
+          --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
+          max-height=@maxHeight
+        }}
+        {{this._registerGridElement}}
+        {{this._setUpScrollWrapper}}
+      >
+        {{! Header }}
+        <div
+          class={{this.theadClassNames}}
+          role="rowgroup"
+          {{this._setUpThead}}
+        >
+          <HdsAdvancedTableTr
+            @selectionScope="col"
+            @onClickSortBySelected={{if
+              @selectableColumnKey
+              (fn this._tableModel.setSortBy @selectableColumnKey)
+            }}
+            @sortBySelectedOrder={{if
+              (eq this._tableModel.sortBy @selectableColumnKey)
+              this._tableModel.sortOrder
+            }}
+            @isSelectable={{this.isSelectable}}
+            @onSelectionChange={{this.onSelectionAllChange}}
+            @didInsert={{this.didInsertSelectAllCheckbox}}
+            @willDestroy={{this.willDestroySelectAllCheckbox}}
+            @selectionAriaLabelSuffix="all rows"
+            @hasStickyColumn={{this.hasStickyFirstColumn}}
+            @isStickyColumnPinned={{this.isStickyColumnPinned}}
+          >
+            {{#each this._tableModel.columns as |column|}}
+              {{#if column.isSortable}}
+                <HdsAdvancedTableThSort
+                  @column={{column}}
+                  @sortOrder={{if
+                    (eq column.key this._tableModel.sortBy)
+                    this._tableModel.sortOrder
+                  }}
+                  @onClickSort={{if
+                    column.key
+                    (fn this._tableModel.setSortBy column.key)
+                  }}
+                  @align={{column.align}}
+                  @tooltip={{column.tooltip}}
+                  @hasResizableColumns={{@hasResizableColumns}}
+                  @isStickyColumn={{this._isStickyColumn column}}
+                  @isStickyColumnPinned={{this.isStickyColumnPinned}}
+                  @tableHeight={{this._tableHeight}}
+                  @onColumnResize={{@onColumnResize}}
+                  @onPinFirstColumn={{this._onPinFirstColumn}}
+                  {{this._registerThElement column}}
+                >
+                  {{column.label}}
+                </HdsAdvancedTableThSort>
+              {{else}}
+                <HdsAdvancedTableTh
+                  @align={{column.align}}
+                  @column={{column}}
+                  @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+                  @hasResizableColumns={{@hasResizableColumns}}
+                  @isExpanded={{this._tableModel.expandState}}
+                  @isExpandable={{column.isExpandable}}
+                  @isStickyColumn={{this._isStickyColumn column}}
+                  @isStickyColumnPinned={{this.isStickyColumnPinned}}
+                  @isVisuallyHidden={{column.isVisuallyHidden}}
+                  @tableHeight={{this._tableHeight}}
+                  @tooltip={{column.tooltip}}
+                  @onClickToggle={{this._tableModel.toggleAll}}
+                  @onColumnResize={{@onColumnResize}}
+                  @onPinFirstColumn={{this._onPinFirstColumn}}
+                  {{this._registerThElement column}}
+                >
+                  {{column.label}}
+                </HdsAdvancedTableTh>
+              {{/if}}
+            {{/each}}
+          </HdsAdvancedTableTr>
+        </div>
+
+        {{! Body }}
+        <div class="hds-advanced-table__tbody" role="rowgroup">
+          {{! ----------------------------------------------------------------------------------------
+        IMPORTANT: we loop on the model array and for each record
+        we yield the Tr/Td/Th elements _and_ the record itself as data
+        this means the consumer will *have to* use the data key to access it in their template
+      -------------------------------------------------------------------------------------------- }}
+          {{#each
+            this._tableModel.sortedRows key=this.identityKey
+            as |record index|
+          }}
+            {{#if this._tableModel.hasRowsWithChildren}}
+              <HdsAdvancedTableExpandableTrGroup
+                @record={{record}}
+                @rowIndex={{index}}
+                @onClickToggle={{record.onClickToggle}}
+                as |T|
+              >
+                {{yield
+                  (hash
+                    Tr=(component
+                      HdsAdvancedTableTr
+                      isLastRow=(eq
+                        this._tableModel.lastVisibleRow.id T.data.id
+                      )
+                      isParentRow=T.isExpandable
+                      depth=T.depth
+                      displayRow=T.shouldDisplayChildRows
+                    )
+                    Th=(component
+                      HdsAdvancedTableTh
+                      depth=T.depth
+                      isExpandable=T.isExpandable
+                      isExpanded=T.isExpanded
+                      newLabel=T.id
+                      parentId=T.parentId
+                      scope="row"
+                      onClickToggle=T.onClickToggle
+                    )
+                    Td=(component HdsAdvancedTableTd align=@align)
+                    data=T.data
+                    isOpen=T.isExpanded
+                    rowIndex=T.rowIndex
+                  )
+                  to="body"
+                }}
+              </HdsAdvancedTableExpandableTrGroup>
+            {{else}}
+              {{yield
+                (hash
+                  Tr=(component
+                    HdsAdvancedTableTr
+                    selectionScope="row"
+                    isLastRow=(eq this._tableModel.lastVisibleRow.id record.id)
+                    isSelectable=this.isSelectable
+                    onSelectionChange=this.onSelectionRowChange
+                    didInsert=this.didInsertRowCheckbox
+                    willDestroy=this.willDestroyRowCheckbox
+                    selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+                    hasStickyColumn=this.hasStickyFirstColumn
+                    isStickyColumnPinned=this.isStickyColumnPinned
+                  )
+                  Th=(component
+                    HdsAdvancedTableTh
+                    scope="row"
+                    isStickyColumn=this.hasStickyFirstColumn
+                    isStickyColumnPinned=this.isStickyColumnPinned
+                  )
+                  Td=(component HdsAdvancedTableTd align=@align)
+                  data=record
+                  rowIndex=index
+                )
+                to="body"
+              }}
+            {{/if}}
+          {{/each}}
+        </div>
+      </div>
+
+      {{#if this.showScrollIndicatorLeft}}
+        <div
+          class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
+          {{style
+            height=this.scrollIndicatorDimensions.height
+            left=this.scrollIndicatorDimensions.left
+          }}
+        />
+      {{/if}}
+
+      {{#if this.showScrollIndicatorRight}}
+        <div
+          class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
+          {{style
+            height=this.scrollIndicatorDimensions.height
+            right=this.scrollIndicatorDimensions.right
+          }}
+        />
+      {{/if}}
+
+      {{#if this.showScrollIndicatorTop}}
+        <div
+          class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top"
+          {{style
+            top=this.scrollIndicatorDimensions.top
+            width=this.scrollIndicatorDimensions.width
+          }}
+        />
+      {{/if}}
+
+      {{#if this.showScrollIndicatorBottom}}
+        <div
+          class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-bottom"
+          {{style
+            bottom=this.scrollIndicatorDimensions.bottom
+            width=this.scrollIndicatorDimensions.width
+          }}
+        />
+      {{/if}}
+    </div>
+  </template>
 }

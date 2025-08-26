@@ -174,7 +174,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
             (component
               HdsFormSuperSelectAfterOptions
               content=@afterOptionsContent
-              resultCountMessage=this.resultCountMessage
+              resultCountMessage=this.resultCountMessageText
             )
           )
         }}
@@ -214,7 +214,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
         @preventScroll={{@preventScroll}}
         @registerAPI={{this.setPowerSelectAPI}}
         @renderInPlace={{true}}
-        @resultCountMessage={{@resultCountMessage}}
+        @resultCountMessage={{this.resultCountMessageFunction}}
         @scrollTo={{@scrollTo}}
         @search={{@search}}
         @searchEnabled={{@searchEnabled}}

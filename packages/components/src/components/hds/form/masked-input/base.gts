@@ -152,6 +152,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
           @isInvalid={{@isInvalid}}
           @height={{@height}}
           id={{this.id}}
+          aria-describedby={{@ariaDescribedBy}}
           ...attributes
         />
       {{else}}
@@ -160,6 +161,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
           @value={{@value}}
           @isInvalid={{@isInvalid}}
           id={{this.id}}
+          aria-describedby={{@ariaDescribedBy}}
           ...attributes
         />
       {{/if}}

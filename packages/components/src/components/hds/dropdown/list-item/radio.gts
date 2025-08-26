@@ -10,8 +10,8 @@ import HdsFormRadioBase from '../../form/radio/base.gts';
 import HdsIcon from '../../icon/index.gts';
 import HdsTextBody from '../../text/body.gts';
 
-import type { HdsIconSignature } from '../../icon';
 import type { HdsFormRadioBaseSignature } from '../../form/radio/base.gts';
+import type { HdsIconSignature } from '../../icon';
 
 export interface HdsDropdownListItemRadioSignature {
   Args: HdsFormRadioBaseSignature['Args'] & {
@@ -49,17 +49,19 @@ export default class HdsDropdownListItemRadio extends Component<HdsDropdownListI
             <HdsIcon @name={{@icon}} />
           </div>
         {{/if}}
-        <span class="hds-dropdown-list-item__text-content">{{yield}}</span>
-
+        <HdsTextBody
+          @tag="span"
+          @size="200"
+          @weight="medium"
+          class="hds-dropdown-list-item__text-content"
+        >{{yield}}</HdsTextBody>
         {{#if @count}}
           <HdsTextBody
-            class="hds-dropdown-list-item__count"
             @tag="span"
             @size="100"
             @weight="medium"
-          >
-            {{@count}}
-          </HdsTextBody>
+            class="hds-dropdown-list-item__count"
+          >{{@count}}</HdsTextBody>
         {{/if}}
       </label>
     </li>

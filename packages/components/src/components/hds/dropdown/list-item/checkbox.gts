@@ -9,8 +9,9 @@ import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import HdsFormCheckboxBase from '../../form/checkbox/base.gts';
 import HdsIcon from '../../icon/index.gts';
 
-import type { HdsIconSignature } from '../../icon';
 import type { HdsFormCheckboxBaseSignature } from '../../form/checkbox/base.gts';
+import type { HdsIconSignature } from '../../icon';
+import HdsTextBody from '../../text/body.gts';
 
 export interface HdsDropdownListItemCheckboxSignature {
   Args: HdsFormCheckboxBaseSignature['Args'] & {
@@ -48,11 +49,19 @@ export default class HdsDropdownListItemCheckbox extends Component<HdsDropdownLi
             <HdsIcon @name={{@icon}} />
           </span>
         {{/if}}
-        <span class="hds-dropdown-list-item__text-content">{{yield}}</span>
+        <HdsTextBody
+          @tag="span"
+          @size="200"
+          @weight="medium"
+          class="hds-dropdown-list-item__text-content"
+        >{{yield}}</HdsTextBody>
         {{#if @count}}
-          <span
-            class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium"
-          >{{@count}}</span>
+          <HdsTextBody
+            @tag="span"
+            @size="100"
+            @weight="medium"
+            class="hds-dropdown-list-item__count"
+          >{{@count}}</HdsTextBody>
         {{/if}}
       </label>
     </li>

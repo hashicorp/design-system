@@ -9,8 +9,8 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import sortBy from '@nullvoxpopuli/ember-composable-helpers/helpers/sort-by';
 import { eq } from 'ember-truth-helpers';
+import { sortBy } from '@nullvoxpopuli/ember-composable-helpers';
 
 import type HdsIntlService from '../../../services/hds-intl.ts';
 import HdsTableTd from './td.gts';
@@ -430,8 +430,8 @@ export default class HdsTable extends Component<HdsTableSignature> {
         IMPORTANT: we loop on the model array and for each record
         we yield the Tr/Td/Th elements _and_ the record itself as data
         this means the consumer will *have to* use the data key to access it in their template
-  -------------------------------------------------------------------------------------------- }}
-          {{! @glint-expect-error }}{{! prettier-ignore}}
+      -------------------------------------------------------------------------------------------- }}
+          {{! @glint-expect-error: [HDS-4380](https://hashicorp.atlassian.net/browse/HDS-4380) }}{{! prettier-ignore }}
           {{#each (sortBy this.getSortCriteria @model) key=this.identityKey as |record index|}}
             {{yield
               (hash

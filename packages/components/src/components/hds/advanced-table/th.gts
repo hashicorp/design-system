@@ -10,13 +10,24 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import { focusable, type FocusableElement } from 'tabbable';
+// @ts-expect-error: missing types
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 import HdsAdvancedTableColumn from './models/column.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
 
+import { hash } from '@ember/helper';
 import type Owner from '@ember/owner';
+import style from 'ember-style-modifier';
+import { and, not } from 'ember-truth-helpers';
+import hdsAdvancedTableCell from '../../../modifiers/hds-advanced-table-cell.ts';
+import HdsLayoutFlex from '../layout/flex/index.gts';
 import type { HdsAdvancedTableSignature } from './index.ts';
-import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
+import HdsAdvancedTableThButtonExpand from './th-button-expand.gts';
+import HdsAdvancedTableThButtonTooltip from './th-button-tooltip.gts';
+import HdsAdvancedTableThContextMenu from './th-context-menu.gts';
+import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.gts';
+import HdsAdvancedTableThResizeHandle from './th-resize-handle.gts';
 import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableHorizontalAlignment,
@@ -103,7 +114,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return align;
   }
 
-  // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
+  // rowspan and colspan have to return auto if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
   get rowspan(): string {
     if (this.args.rowspan) {
       return `span ${this.args.rowspan}`;
@@ -213,31 +224,11 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       }}
       ...attributes
     >
-      {{#if @isVisuallyHidden}}
-        <span class="sr-only">{{yield}}</span>
-      {{else}}
-        {{#if @tooltip}}
-          <div class="hds-advanced-table__th-content">
-            {{#if @isExpandable}}
-              <HdsAdvancedTableThButtonExpand
-                @labelId={{this._labelId}}
-                @onToggle={{@onClickToggle}}
-                @isExpanded={{@isExpanded}}
-                @isExpandAll={{@hasExpandAllButton}}
-                {{this._manageExpandButton}}
-              />
-            {{/if}}
-            <span
-              id={{this._labelId}}
-              class="hds-typography-body-200 hds-font-weight-semibold"
-            >{{yield}}</span>
-            <HdsAdvancedTableThButtonTooltip
-              @tooltip={{@tooltip}}
-              @labelId={{this._labelId}}
-            />
-          </div>
+      <HdsLayoutFlex @justify="space-between" @align="center" @gap="8">
+        {{#if @column.isVisuallyHidden}}
+          <span class="sr-only">{{yield}}</span>
         {{else}}
-          <div class="hds-advanced-table__th-content">
+          {{#if @tooltip}}
             {{#if @isExpandable}}
               <HdsAdvancedTableThButtonExpand
                 @labelId={{this._labelId}}
@@ -247,13 +238,60 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
                 {{this._manageExpandButton}}
               />
             {{/if}}
-            <span
-              class="hds-typography-body-200 hds-font-weight-semibold"
-              id={{this._labelId}}
-            >{{yield}}</span>
-          </div>
+            <div class="hds-advanced-table__th-content">
+              <span
+                id={{this._labelId}}
+                class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold"
+              >
+                {{yield}}
+              </span>
+              <HdsAdvancedTableThButtonTooltip
+                @tooltip={{@tooltip}}
+                @labelId={{this._labelId}}
+              />
+            </div>
+          {{else}}
+            {{#if @isExpandable}}
+              <HdsAdvancedTableThButtonExpand
+                @labelId={{this._labelId}}
+                @onToggle={{@onClickToggle}}
+                @isExpanded={{@isExpanded}}
+                @isExpandAll={{@hasExpandAllButton}}
+                {{this._manageExpandButton}}
+              />
+            {{/if}}
+            <div class="hds-advanced-table__th-content">
+              <span
+                class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold"
+                id={{this._labelId}}
+              >{{yield}}</span>
+            </div>
+          {{/if}}
         {{/if}}
-      {{/if}}
+
+        {{#if @column}}
+          {{#if this.showContextMenu}}
+            <HdsAdvancedTableThContextMenu
+              @column={{@column}}
+              @isStickyColumn={{@isStickyColumn}}
+              @hasResizableColumns={{@hasResizableColumns}}
+              @resizeHandleElement={{this._resizeHandleElement}}
+              @onColumnResize={{@onColumnResize}}
+              @onPinFirstColumn={{@onPinFirstColumn}}
+            />
+          {{/if}}
+
+          {{#if (and @hasResizableColumns (not @column.isLast))}}
+            <HdsAdvancedTableThResizeHandle
+              @column={{@column}}
+              @hasResizableColumns={{@hasResizableColumns}}
+              @tableHeight={{@tableHeight}}
+              @onColumnResize={{@onColumnResize}}
+              {{this._registerResizeHandleElement}}
+            />
+          {{/if}}
+        {{/if}}
+      </HdsLayoutFlex>
     </div>
   </template>
 }

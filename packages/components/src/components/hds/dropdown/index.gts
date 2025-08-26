@@ -3,19 +3,17 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { hash } from '@ember/helper';
-import { or } from 'ember-truth-helpers';
-import style from 'ember-style-modifier';
+import { action } from '@ember/object';
 import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import Component from '@glimmer/component';
+import style from 'ember-style-modifier';
+import { or } from 'ember-truth-helpers';
 
 import HdsPopoverPrimitive from '../popover-primitive/index.gts';
-import HdsDropdownToggleButton from './toggle/button.gts';
-import HdsDropdownToggleIcon from './toggle/icon.gts';
-import HdsDropdownHeader from './header.gts';
 import HdsDropdownFooter from './footer.gts';
+import HdsDropdownHeader from './header.gts';
 import HdsDropdownListItemCheckbox from './list-item/checkbox.gts';
 import HdsDropdownListItemCheckmark from './list-item/checkmark.gts';
 import HdsDropdownListItemCopyItem from './list-item/copy-item.gts';
@@ -25,6 +23,8 @@ import HdsDropdownListItemInteractive from './list-item/interactive.gts';
 import HdsDropdownListItemRadio from './list-item/radio.gts';
 import HdsDropdownListItemSeparator from './list-item/separator.gts';
 import HdsDropdownListItemTitle from './list-item/title.gts';
+import HdsDropdownToggleButton from './toggle/button.gts';
+import HdsDropdownToggleIcon from './toggle/icon.gts';
 import {
   // map Dropdown's `listPosition` values to PopoverPrimitive's `placement` values
   HdsDropdownPositionToPlacementValues,
@@ -32,24 +32,11 @@ import {
   HdsDropdownPositionValues,
 } from './types.ts';
 
-import type { ComponentLike } from '@glint/template';
 import type { MenuPrimitiveSignature } from '../menu-primitive/index.gts';
-import type { HdsDropdownFooterSignature } from './footer.gts';
-import type { HdsDropdownHeaderSignature } from './header.gts';
-import type { HdsDropdownListItemCheckboxSignature } from './list-item/checkbox.gts';
-import type { HdsDropdownListItemCheckmarkSignature } from './list-item/checkmark.gts';
-import type { HdsDropdownListItemCopyItemSignature } from './list-item/copy-item.gts';
-import type { HdsDropdownListItemDescriptionSignature } from './list-item/description.gts';
-import type { HdsDropdownListItemGenericSignature } from './list-item/generic.gts';
-import type { HdsDropdownListItemInteractiveSignature } from './list-item/interactive.gts';
-import type { HdsDropdownListItemRadioSignature } from './list-item/radio.gts';
-import type { HdsDropdownListItemSeparatorSignature } from './list-item/separator.gts';
-import type { HdsDropdownListItemTitleSignature } from './list-item/title.gts';
-import type { HdsDropdownToggleButtonSignature } from './toggle/button.gts';
-import type { HdsDropdownToggleIconSignature } from './toggle/icon.gts';
 import type { HdsDropdownPositions } from './types.ts';
 
 import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
+import type { WithBoundArgs } from '@glint/template';
 
 export const DEFAULT_POSITION = HdsDropdownPositionValues.BottomRight;
 export const POSITIONS: HdsDropdownPositions[] = Object.values(
@@ -70,20 +57,26 @@ export interface HdsDropdownSignature {
   Blocks: {
     default: [
       {
-        Footer?: ComponentLike<HdsDropdownFooterSignature>;
-        Header?: ComponentLike<HdsDropdownHeaderSignature>;
-        Checkbox?: ComponentLike<HdsDropdownListItemCheckboxSignature>;
-        Checkmark?: ComponentLike<HdsDropdownListItemCheckmarkSignature>;
-        CopyItem?: ComponentLike<HdsDropdownListItemCopyItemSignature>;
-        Description?: ComponentLike<HdsDropdownListItemDescriptionSignature>;
-        Generic?: ComponentLike<HdsDropdownListItemGenericSignature>;
-        Interactive?: ComponentLike<HdsDropdownListItemInteractiveSignature>;
-        Radio?: ComponentLike<HdsDropdownListItemRadioSignature>;
-        Separator?: ComponentLike<HdsDropdownListItemSeparatorSignature>;
-        Title?: ComponentLike<HdsDropdownListItemTitleSignature>;
-        ToggleButton?: ComponentLike<HdsDropdownToggleButtonSignature>;
-        ToggleIcon?: ComponentLike<HdsDropdownToggleIconSignature>;
-        close: (event?: Event) => void;
+        Footer?: typeof HdsDropdownFooter;
+        Header?: typeof HdsDropdownHeader;
+        Checkbox?: typeof HdsDropdownListItemCheckbox;
+        Checkmark?: typeof HdsDropdownListItemCheckmark;
+        CopyItem?: typeof HdsDropdownListItemCopyItem;
+        Description?: typeof HdsDropdownListItemDescription;
+        Generic?: typeof HdsDropdownListItemGeneric;
+        Interactive?: typeof HdsDropdownListItemInteractive;
+        Radio?: typeof HdsDropdownListItemRadio;
+        Separator?: typeof HdsDropdownListItemSeparator;
+        Title?: typeof HdsDropdownListItemTitle;
+        ToggleButton?: WithBoundArgs<
+          typeof HdsDropdownToggleButton,
+          'isOpen' | 'setupPrimitiveToggle'
+        >;
+        ToggleIcon?: WithBoundArgs<
+          typeof HdsDropdownToggleIcon,
+          'isOpen' | 'setupPrimitiveToggle'
+        >;
+        close?: (event?: Event) => void;
       },
     ];
   };
@@ -224,6 +217,63 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
         >
           {{#if (or PP.isOpen @preserveContentInDom)}}
             {{yield (hash Header=HdsDropdownHeader)}}
+            <ul class="hds-dropdown__list" {{didInsert this.didInsertList}}>
+              {{yield
+                (hash
+                  close=PP.hidePopover
+                  Checkbox=HdsDropdownListItemCheckbox
+                  Checkmark=HdsDropdownListItemCheckmark
+                  CopyItem=HdsDropdownListItemCopyItem
+                  Description=HdsDropdownListItemDescription
+                  Generic=HdsDropdownListItemGeneric
+                  Interactive=HdsDropdownListItemInteractive
+                  Radio=HdsDropdownListItemRadio
+                  Separator=HdsDropdownListItemSeparator
+                  Title=HdsDropdownListItemTitle
+                )
+              }}
+            </ul>
+            {{yield (hash close=PP.hidePopover Footer=HdsDropdownFooter)}}
+          {{/if}}
+        </div>
+      </div>
+    </HdsPopoverPrimitive>
+    <HdsPopoverPrimitive
+      @isOpen={{@isOpen}}
+      @onClose={{@onClose}}
+      @enableClickEvents={{true}}
+      as |PP|
+    >
+      <div
+        class={{this.classNames}}
+        ...attributes
+        {{PP.setupPrimitiveContainer}}
+      >
+        {{yield
+          (hash
+            ToggleButton=(component
+              HdsDropdownToggleButton
+              isOpen=PP.isOpen
+              setupPrimitiveToggle=PP.setupPrimitiveToggle
+            )
+            ToggleIcon=(component
+              HdsDropdownToggleIcon
+              isOpen=PP.isOpen
+              setupPrimitiveToggle=PP.setupPrimitiveToggle
+            )
+            close=PP.hidePopover
+          )
+        }}
+        <div
+          tabindex="-1"
+          class={{this.classNamesContent}}
+          {{style width=@width max-height=@height}}
+          {{PP.setupPrimitivePopover
+            anchoredPositionOptions=this.anchoredPositionOptions
+          }}
+        >
+          {{#if (or PP.isOpen @preserveContentInDom)}}
+            {{yield (hash Header=HdsDropdownHeader close=PP.hidePopover)}}
             <ul class="hds-dropdown__list" {{didInsert this.didInsertList}}>
               {{yield
                 (hash

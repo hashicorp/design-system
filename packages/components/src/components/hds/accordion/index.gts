@@ -3,15 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { hash } from '@ember/helper';
+import Component from '@glimmer/component';
 
 import HdsAccordionItem, {
-  SIZES,
   DEFAULT_SIZE,
-  TYPES,
   DEFAULT_TYPE,
+  SIZES,
+  TYPES,
 } from './item/index.gts';
 import { HdsAccordionItemTitleTagValues } from './types.ts';
 
@@ -19,9 +19,9 @@ import type { ComponentLike } from '@glint/template';
 import type { HdsAccordionItemSignature } from './item/index.gts';
 import type {
   HdsAccordionForceStates,
+  HdsAccordionItemTitleTags,
   HdsAccordionSizes,
   HdsAccordionTypes,
-  HdsAccordionItemTitleTags,
 } from './types.ts';
 
 export interface HdsAccordionSignature {

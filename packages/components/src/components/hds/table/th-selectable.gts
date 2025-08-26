@@ -128,7 +128,6 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
           {{on "change" this.onSelectionChange}}
         />
         {{#if this.isSortable}}
-          <span id={{this._labelId}} class="sr-only">selection state</span>
           <HdsTableThButtonSort
             @sortOrder={{@sortBySelectedOrder}}
             @onClick={{@onClickSortBySelected}}

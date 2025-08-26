@@ -99,15 +99,19 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
     >
       <div class="hds-disclosure-primitive__toggle">
         {{yield
-          (hash onClickToggle=this.onClickToggle isOpen=this.isOpen)
+          (hash
+            onClickToggle=this.onClickToggle
+            isOpen=this.isOpen
+            contentId=this._contentId
+          )
           to="toggle"
         }}
       </div>
-      {{#if this.isOpen}}
-        <div class="hds-disclosure-primitive__content">
+      <div class="hds-disclosure-primitive__content" id={{this._contentId}}>
+        {{#if this.isOpen}}
           {{yield (hash close=this.close) to="content"}}
-        </div>
-      {{/if}}
+        {{/if}}
+      </div>
     </div>
   </template>
 }

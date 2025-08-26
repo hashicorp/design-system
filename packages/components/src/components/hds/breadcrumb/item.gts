@@ -3,22 +3,19 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
-import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 import { LinkTo } from '@ember/routing';
-import {
-  dependencySatisfies,
-  importSync,
-  macroCondition,
-} from '@embroider/macros';
-import HdsIcon from '../icon/index.gts';
+import { htmlSafe } from '@ember/template';
+import Component from '@glimmer/component';
 import hdsLinkToModels from '../../../helpers/hds-link-to-models.ts';
 import hdsLinkToQuery from '../../../helpers/hds-link-to-query.ts';
+import { hdsResolveLinkToExternal } from '../../../utils/hds-resolve-link-to-external.ts';
+import HdsIcon from '../icon/index.gts';
 
+import type Owner from '@ember/owner';
 import type { SafeString } from '@ember/template';
 import type { HdsIconSignature } from '../icon';
-import type Owner from '@ember/owner';
+import { tracked } from '@glimmer/tracking';
 
 export interface HdsBreadcrumbItemSignature {
   Args: {
@@ -38,24 +35,21 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
-  linkToComponent = LinkTo;
+  @tracked linkToExternal: LinkTo | null = null;
 
   constructor(owner: Owner, args: HdsBreadcrumbItemSignature['Args']) {
     super(owner, args);
 
-    if (this.args.isRouteExternal) {
-      if (macroCondition(dependencySatisfies('ember-engines', '*'))) {
-        // @ts-expect-error: shape is unknown
-        this.linkToComponent = importSync(
-          'ember-engines/components/link-to-external-component.js'
-        ).default as LinkTo;
-      } else {
-        assert(
-          `@isRouteExternal is only available when using the "ember-engines" addon. Please install it to use this feature.`,
-          false
-        );
-      }
+    // we want to avoid resolving the component if it's not needed
+    if (args.isRouteExternal) {
+      void this.resolveLinkToExternal();
     }
+  }
+
+  async resolveLinkToExternal() {
+    this.linkToExternal = await hdsResolveLinkToExternal(
+      this.args.isRouteExternal
+    );
   }
 
   /**
@@ -115,21 +109,39 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
           <span class="hds-breadcrumb__text">{{@text}}</span>
         </div>
       {{else}}
-        <this.linkToComponent
-          class="hds-breadcrumb__link"
-          @current-when={{@current-when}}
-          @models={{hdsLinkToModels @model @models}}
-          @query={{hdsLinkToQuery @query}}
-          @replace={{@replace}}
-          @route={{@route}}
-        >
-          {{#if @icon}}
-            <div class="hds-breadcrumb__icon">
-              <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
-            </div>
-          {{/if}}
-          <span class="hds-breadcrumb__text">{{@text}}</span>
-        </this.linkToComponent>
+        {{#if @isRouteExternal}}
+          <this.linkToExternal
+            class="hds-breadcrumb__link"
+            @current-when={{@current-when}}
+            @models={{hdsLinkToModels @model @models}}
+            @query={{hdsLinkToQuery @query}}
+            @replace={{@replace}}
+            @route={{@route}}
+          >
+            {{#if @icon}}
+              <div class="hds-breadcrumb__icon">
+                <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+              </div>
+            {{/if}}
+            <span class="hds-breadcrumb__text">{{@text}}</span>
+          </this.linkToExternal>
+        {{else}}
+          <LinkTo
+            class="hds-breadcrumb__link"
+            @current-when={{@current-when}}
+            @models={{hdsLinkToModels @model @models}}
+            @query={{hdsLinkToQuery @query}}
+            @replace={{@replace}}
+            @route={{@route}}
+          >
+            {{#if @icon}}
+              <div class="hds-breadcrumb__icon">
+                <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+              </div>
+            {{/if}}
+            <span class="hds-breadcrumb__text">{{@text}}</span>
+          </LinkTo>
+        {{/if}}
       {{/if}}
     </li>
   </template>

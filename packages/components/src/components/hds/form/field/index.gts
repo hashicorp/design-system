@@ -3,31 +3,32 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
-import { getElementId } from '../../../../utils/hds-get-element-id.ts';
+import Component from '@glimmer/component';
 import {
   ariaDescribedBy,
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
-import { HdsFormFieldLayoutValues } from './types.ts';
-import HdsFormLabelComponent from '../label/index.gts';
-import HdsFormHelperTextComponent from '../helper-text/index.gts';
+import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import HdsFormCharacterCountComponent from '../character-count/index.gts';
 import HdsFormErrorComponent from '../error/index.gts';
+import HdsFormHelperTextComponent from '../helper-text/index.gts';
+import HdsFormLabelComponent from '../label/index.gts';
+import { HdsFormFieldLayoutValues } from './types.ts';
 
-import type { HdsFormFieldLayouts } from './types.ts';
-import type { ComponentLike, WithBoundArgs } from '@glint/template';
-import type { HdsYieldSignature } from '../../yield/index.gts';
-import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 import { hash } from '@ember/helper';
-import HdsFormLabel from '../label/index.gts';
-import HdsFormHelperText from '../helper-text/index.gts';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
+import { eq } from 'ember-truth-helpers';
+import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
+import type { HdsYieldSignature } from '../../yield/index.gts';
 import HdsYield from '../../yield/index.gts';
 import HdsFormCharacterCount from '../character-count/index.gts';
 import HdsFormError from '../error/index.gts';
+import HdsFormHelperText from '../helper-text/index.gts';
+import HdsFormLabel from '../label/index.gts';
+import type { HdsFormFieldLayouts } from './types.ts';
 
 export const LAYOUT_TYPES = Object.values(HdsFormFieldLayoutValues);
 
@@ -146,10 +147,6 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
   }
 
   <template>
-    {{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
-}}
     <div class={{this.classNames}} ...attributes>
       {{yield
         (hash
@@ -162,20 +159,34 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
           )
         )
       }}
-      {{yield
-        (hash
-          HelperText=(component
-            HdsFormHelperText
-            controlId=this.id
-            onInsert=this.appendDescriptor
-            contextualClass="hds-form-field__helper-text"
+      {{#unless (eq @layout "flag")}}
+        {{yield
+          (hash
+            HelperText=(component
+              HdsFormHelperText
+              controlId=this.id
+              onInsert=this.appendDescriptor
+              contextualClass="hds-form-field__helper-text"
+            )
           )
-        )
-      }}
+        }}
+      {{/unless}}
       <div class="hds-form-field__control">
         {{! @glint-expect-error }}{{! prettier-ignore}}
-        {{yield (hash Control=HdsYield id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
+        {{yield (hash Control=(component HdsYield) id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
       </div>
+      {{#if (eq @layout "flag")}}
+        {{yield
+          (hash
+            HelperText=(component
+              HdsFormHelperText
+              controlId=this.id
+              onInsert=this.appendDescriptor
+              contextualClass="hds-form-field__helper-text"
+            )
+          )
+        }}
+      {{/if}}
       {{yield
         (hash
           CharacterCount=(component

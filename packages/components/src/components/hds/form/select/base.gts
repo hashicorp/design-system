@@ -50,7 +50,13 @@ export default class HdsFormSelectBase extends Component<HdsFormSelectBaseSignat
   }
 
   <template>
-    <select class={{this.classNames}} {{style width=@width}} ...attributes>
+    <select
+      class={{this.classNames}}
+      {{style width=@width}}
+      id={{@id}}
+      aria-describedby={{@ariaDescribedBy}}
+      ...attributes
+    >
       {{yield (hash Options=HdsYield)}}
     </select>
   </template>

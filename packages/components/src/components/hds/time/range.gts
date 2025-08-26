@@ -81,7 +81,7 @@ export default class HdsTimeRange extends Component<HdsTimeRangeSignature> {
       <time datetime={{this.startDateIsoUtcString}}>
         {{~hdsFormatDate @startDate this.startDateDisplayFormat~}}
       </time>
-      –
+      &ndash;
       <time datetime={{this.endDateIsoUtcString}}>
         {{~hdsFormatDate @endDate this.endDateDisplayFormat~}}
       </time>

@@ -3,34 +3,31 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
-import { guidFor } from '@ember/object/internals';
 // @ts-expect-error: missing types
 import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
-import HdsCodeEditorDescription from './description.ts';
-import HdsCodeEditorTitle from './title.ts';
-
-import type { WithBoundArgs } from '@glint/template';
-import type Owner from '@ember/owner';
-import type { ComponentLike } from '@glint/template';
-import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '../../../modifiers/hds-code-editor.ts';
-import type { HdsCodeEditorDescriptionSignature } from './description.gts';
-import type { HdsCodeEditorTitleSignature } from './title.gts';
-import type { HdsCodeEditorGenericSignature } from './generic.gts';
 import type { EditorView } from '@codemirror/view';
-import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
 import { hash } from '@ember/helper';
+import type Owner from '@ember/owner';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import { or } from 'ember-truth-helpers';
-import HdsIcon from '../icon/index.gts';
+import hdsT from '../../../helpers/hds-t.ts';
+import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '../../../modifiers/hds-code-editor.ts';
 import hdsCodeEditor from '../../../modifiers/hds-code-editor.ts';
-import HdsCodeEditorFullScreenButton from './full-screen-button.gts';
+import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
 import HdsCopyButton from '../copy/button/index.gts';
-import HdsCodeEditorGeneric from './generic.gts';
+import HdsIcon from '../icon/index.gts';
+import type { HdsCodeEditorDescriptionSignature } from './description.gts';
 import HdsCodeEditorDescription from './description.gts';
+import HdsCodeEditorFullScreenButton from './full-screen-button.gts';
+import type { HdsCodeEditorGenericSignature } from './generic.gts';
+import HdsCodeEditorGeneric from './generic.gts';
+import type { HdsCodeEditorTitleSignature } from './title.gts';
 import HdsCodeEditorTitle from './title.gts';
 
 export interface HdsCodeEditorSignature {
@@ -241,7 +238,10 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
       {{#unless this._isSetupComplete}}
         <div class="hds-code-editor__loader" aria-live="polite" role="status">
           <HdsIcon @name="loading" @size="24" />
-          <span class="sr-only">Loading</span>
+          <span class="sr-only">{{hdsT
+              "hds.components.common.loading"
+              default="Loading"
+            }}</span>
         </div>
       {{/unless}}
     </div>

@@ -4,6 +4,7 @@
  */
 
 import type { TOC } from '@ember/component/template-only';
+import hdsT from '../../../helpers/hds-t.ts';
 
 export interface HdsSideNavBaseSignature {
   Blocks: {
@@ -22,7 +23,12 @@ export interface HdsSideNavBaseSignature {
 const HdsSideNavBase: TOC<HdsSideNavBaseSignature> = <template>
   {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes the empty element to still have visible padding - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
   <div class="hds-side-nav" ...attributes>
-    <h2 class="sr-only" id="hds-side-nav-header">Application local navigation</h2>
+    <h2 class="sr-only" id="hds-side-nav-header">
+      {{hdsT
+        "hds.components.app-side-nav.screen-reader-label"
+        default="Application local navigation"
+      }}
+    </h2>
 
     <div class="hds-side-nav__wrapper">
       {{yield to="root"}}

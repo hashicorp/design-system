@@ -5,11 +5,12 @@
 
 import Component from '@glimmer/component';
 
-import HdsTextBody from '../text/body.gts';
 import HdsIcon from '../icon/index.gts';
+import HdsTextBody from '../text/body.gts';
 import HdsTextDisplay from '../text/display.gts';
 import { HdsApplicationStateTitleTagValues } from './types.ts';
 
+import hdsT from '../../../helpers/hds-t.ts';
 import type { HdsIconSignature } from '../icon';
 import type { HdsApplicationStateTitleTags } from './types.ts';
 
@@ -38,7 +39,7 @@ export default class HdsApplicationStateHeader extends Component<HdsApplicationS
           @weight="medium"
           @color="faint"
         >
-          ERROR
+          {{hdsT "hds.application-state.header.error" default="ERROR"}}
           {{@errorCode}}
         </HdsTextBody>
       {{/if}}

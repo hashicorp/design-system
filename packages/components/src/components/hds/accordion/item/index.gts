@@ -3,26 +3,26 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { guidFor } from '@ember/object/internals';
 import { hash } from '@ember/helper';
+import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 import { eq, or } from 'ember-truth-helpers';
 
-import HdsAccordionItemButton from './button.gts';
 import HdsDisclosurePrimitive from '../../disclosure-primitive/index.gts';
 import HdsTextBody from '../../text/body.gts';
-import {
-  HdsAccordionSizeValues,
-  HdsAccordionTypeValues,
-  HdsAccordionItemTitleTagValues,
-} from '../types.ts';
 import type {
   HdsAccordionForceStates,
+  HdsAccordionItemTitleTags,
   HdsAccordionSizes,
   HdsAccordionTypes,
-  HdsAccordionItemTitleTags,
 } from '../types.ts';
+import {
+  HdsAccordionItemTitleTagValues,
+  HdsAccordionSizeValues,
+  HdsAccordionTypeValues,
+} from '../types.ts';
+import HdsAccordionItemButton from './button.gts';
 
 export const SIZES: HdsAccordionSizes[] = Object.values(HdsAccordionSizeValues);
 export const DEFAULT_SIZE = HdsAccordionSizeValues.Medium;
@@ -181,7 +181,7 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
           <HdsAccordionItemButton
             @isOpen={{t.isOpen}}
             @onClickToggle={{t.onClickToggle}}
-            @contentId={{this._contentId}}
+            @contentId={{t.contentId}}
             @ariaLabel={{@ariaLabel}}
             @ariaLabelledBy={{this.ariaLabelledBy}}
             @size={{this.size}}
@@ -208,7 +208,6 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
           @size="200"
           @weight="regular"
           @color="primary"
-          id={{this._contentId}}
         >
           {{yield (hash close=c.close) to="content"}}
         </HdsTextBody>

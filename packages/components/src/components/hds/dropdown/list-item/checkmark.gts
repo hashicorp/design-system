@@ -4,11 +4,11 @@
  */
 
 import Component from '@glimmer/component';
-import HdsInteractive from '../../interactive/index.gts';
-import HdsIcon from '../../icon/index.gts';
-import HdsTextBody from '../../text/body.gts';
 import hdsLinkToModels from '../../../../helpers/hds-link-to-models.ts';
 import hdsLinkToQuery from '../../../../helpers/hds-link-to-query.ts';
+import HdsIcon from '../../icon/index.gts';
+import HdsInteractive from '../../interactive/index.gts';
+import HdsTextBody from '../../text/body.gts';
 
 import type { HdsIconSignature } from '../../icon';
 import type { HdsInteractiveSignature } from '../../interactive/index.gts';
@@ -75,9 +75,7 @@ export default class HdsDropdownListItemCheckmark extends Component<HdsDropdownL
           @size="200"
           @weight="medium"
           class="hds-dropdown-list-item__interactive-text"
-        >
-          {{yield}}
-        </HdsTextBody>
+        >{{yield}}</HdsTextBody>
         {{#if @count}}
           <HdsTextBody
             class="hds-dropdown-list-item__count"

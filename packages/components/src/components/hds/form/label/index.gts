@@ -63,7 +63,7 @@ export default class HdsFormLabel extends Component<HdsFormLabelSignature> {
   <template>
     <label
       class={{this.classNames}}
-      for={{@controlId}}
+      for="{{@controlId}}"
       id={{this.id}}
       ...attributes
     >
@@ -72,6 +72,11 @@ export default class HdsFormLabel extends Component<HdsFormLabelSignature> {
         @isRequired={{@isRequired}}
         @isOptional={{@isOptional}}
       />
+      {{#if @hiddenText}}
+        <span class="sr-only">
+          {{@hiddenText}}
+        </span>
+      {{/if}}
     </label>
   </template>
 }

@@ -10,6 +10,7 @@ import HdsTextBody from '../../text/body.gts';
 import HdsButton from '../../button/index.gts';
 
 import type { TOC } from '@ember/component/template-only';
+import hdsT from '../../../../helpers/hds-t.ts';
 
 export interface HdsFormSuperSelectAfterOptionsSignature {
   Args: {
@@ -32,7 +33,10 @@ const HdsFormSuperSelectAfterOptions: TOC<HdsFormSuperSelectAfterOptionsSignatur
         @size="200"
         class="hds-form-super-select__no-options-selected hds-foreground-strong"
       >
-        No options selected
+        {{hdsT
+          "hds.components.form.super-select.after-options.no-options-selected"
+          default="No options selected"
+        }}
       </HdsTextBody>
     {{/if}}
     <div class="hds-form-super-select__after-options">
@@ -44,14 +48,20 @@ const HdsFormSuperSelectAfterOptions: TOC<HdsFormSuperSelectAfterOptionsSignatur
         {{#if (or @showAll @showSelected @clearSelected)}}
           {{#if @showOnlySelected}}
             <HdsButton
-              @text="Show all"
+              @text={{hdsT
+                "hds.components.form.super-select.after-options.show-all"
+                default="Show all"
+              }}
               @size="small"
               @color="secondary"
               {{on "click" @showAll}}
             />
           {{else}}
             <HdsButton
-              @text="Show selected"
+              @text={{hdsT
+                "hds.components.form.super-select.after-options.show-selected"
+                default="Show selected"
+              }}
               @size="small"
               @color="secondary"
               {{on "click" @showSelected}}
@@ -59,7 +69,10 @@ const HdsFormSuperSelectAfterOptions: TOC<HdsFormSuperSelectAfterOptionsSignatur
           {{/if}}
           {{#if (notEq @selectedCount "0")}}
             <HdsButton
-              @text="Clear selected"
+              @text={{hdsT
+                "hds.components.form.super-select.after-options.clear-selected"
+                default="Clear selected"
+              }}
               @size="small"
               @color="secondary"
               {{on "click" @clearSelected}}

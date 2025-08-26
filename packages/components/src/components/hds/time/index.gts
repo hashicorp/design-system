@@ -162,7 +162,6 @@ export default class HdsTime extends Component<HdsTimeSignature> {
         {{~#if this.hasTooltip~}}
           <HdsTooltipButton
             class="hds-time-wrapper"
-            {{! @glint-expect-error: FIXME: pnpm migration }}
             @text={{if
               display.options.tooltipFormat
               (hdsFormatDate this.date display.options.tooltipFormat)

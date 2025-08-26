@@ -85,6 +85,8 @@ export default class HdsFormTextInputBase extends Component<HdsFormTextInputBase
     <input
       class={{this.classNames}}
       {{style width=@width}}
+      id={{@id}}
+      aria-describedby={{@ariaDescribedBy}}
       ...attributes
       value={{@value}}
       type={{this.type}}
