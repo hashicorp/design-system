@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
-import { eq, lt, and, or, not, notEq } from 'ember-truth-helpers';
+import { lt } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
 import { pageTitle } from 'ember-page-title';
 import style from 'ember-style-modifier';
@@ -14,13 +13,10 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
-import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
-
-import { INTERACTION_STATES } from 'showcase/utils/component-states';
 
 import {
   HdsAccordion,
@@ -37,6 +33,7 @@ import { TYPES } from '@hashicorp/design-system-components/components/hds/accord
 
 import MockWithExternalControl from 'showcase/components/page-components/accordion/examples/mock-with-external-control';
 
+import MatrixAccordionItem from 'showcase/components/page-components/accordion/sections/matrix-accordion-item';
 import MatrixAccordionItemButton from 'showcase/components/page-components/accordion/sections/matrix-accordion-item-button';
 
 export interface PageComponentsAccordionSignature {
@@ -733,51 +730,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
 
       <ShwTextH4>States</ShwTextH4>
 
-      {{#each TYPES as |type|}}
-        {{#let (array false true) as |booleans|}}
-          <ShwTextBody>{{capitalize type}}</ShwTextBody>
-          <ShwGrid @columns={{4}} @gap="2rem" as |SG|>
-            {{#each INTERACTION_STATES as |state|}}
-              <SG.Item @label={{state}}>
-                <ShwFlex @direction="column" @gap="2rem" as |SF|>
-                  {{#each booleans as |containsInteractive|}}
-                    {{#each booleans as |isOpen|}}
-                      <SF.Item>
-                        <HdsAccordionItem
-                          @containsInteractive={{containsInteractive}}
-                          @isOpen={{isOpen}}
-                          @type={{type}}
-                          mock-state-value={{state}}
-                          mock-state-selector="{{if
-                            (and
-                              (or (eq state 'active') (eq state 'hover'))
-                              (not containsInteractive)
-                            )
-                            '.hds-disclosure-primitive__toggle'
-                            (if
-                              (notEq state 'hover')
-                              '.hds-accordion-item__button'
-                            )
-                          }}"
-                        >
-                          <:toggle>Item</:toggle>
-                          <:content>
-                            <ShwPlaceholder
-                              @text="generic content"
-                              @height="40"
-                            />
-                          </:content>
-                        </HdsAccordionItem>
-                      </SF.Item>
-                    {{/each}}
-                  {{/each}}
-                </ShwFlex>
-              </SG.Item>
-            {{/each}}
-          </ShwGrid>
-          <ShwDivider @level={{2}} />
-        {{/let}}
-      {{/each}}
+      <MatrixAccordionItem />
 
       <ShwTextH3>AccordionItemButton</ShwTextH3>
 
