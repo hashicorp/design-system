@@ -624,6 +624,7 @@
   <Shw::Text::H2>Reorderable columns</Shw::Text::H2>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{this.columnReorderColumns}}
     @hasReorderableColumns={{true}}
@@ -632,8 +633,8 @@
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
       <B.Tr @selectionKey="{{B.data.id}}" as |R|>
         {{#each R.orderedCells as |C|}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           {{#if (eq C.columnKey "artist")}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
           {{else}}
             <B.Td>
@@ -645,6 +646,7 @@
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
               {{else}}
                 <Hds::ButtonSet>
@@ -663,6 +665,7 @@
   <Shw::Text::H4 @tag="h3">Reorderable columns with sorting</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{this.columnReorderColumnsWithSorting}}
     @hasReorderableColumns={{true}}
@@ -671,8 +674,8 @@
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
       <B.Tr @selectionKey="{{B.data.id}}" as |R|>
         {{#each R.orderedCells as |C|}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           {{#if (eq C.columnKey "artist")}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
           {{else}}
             <B.Td>
@@ -684,6 +687,7 @@
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
               {{else}}
                 <Hds::ButtonSet>
@@ -804,6 +808,7 @@
   <Shw::Text::H4 @tag="h3">Resizable and reorderable columns</Shw::Text::H4>
 
   <Hds::AdvancedTable
+    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{this.model.music}}
     @columns={{this.columnResizeColumns}}
     @hasResizableColumns={{true}}
@@ -813,8 +818,8 @@
       {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
       <B.Tr @selectionKey="{{B.data.id}}" as |R|>
         {{#each R.orderedCells as |C|}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           {{#if (eq C.columnKey "artist")}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
           {{else}}
             <B.Td>
@@ -826,6 +831,7 @@
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
+                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
               {{else}}
                 <Hds::ButtonSet>
