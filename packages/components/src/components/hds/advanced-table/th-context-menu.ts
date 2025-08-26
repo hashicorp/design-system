@@ -69,10 +69,15 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   get _reorderOptions(): HdsAdvancedTableThContextMenuOption[] {
     const { column } = this.args;
 
+    const translatedMoveColumnLabel = this.hdsIntl.t(
+      'hds.advanced-table.th-context-menu.move-column',
+      { default: 'Move column' }
+    );
+
     let reorderOptions: HdsAdvancedTableThContextMenuOption[] = [
       {
         key: 'reorder-column',
-        label: 'Move column',
+        label: translatedMoveColumnLabel,
         icon: 'move-horizontal',
         action: () => this.moveColumn(),
       },
