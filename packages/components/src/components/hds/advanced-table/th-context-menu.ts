@@ -134,37 +134,34 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   get _stickyColumnOptions(): HdsAdvancedTableThContextMenuOption[] {
-    const { column, isStickyColumn } = this.args;
+    const { isStickyColumn } = this.args;
 
-    let stickyColumnOptions: HdsAdvancedTableThContextMenuOption[] = [];
+    const translatedPinLabel = this.hdsIntl.t(
+      'hds.advanced-table.th-context-menu.pin',
+      { default: 'Pin column' }
+    );
+    const translatedUnpinLabel = this.hdsIntl.t(
+      'hds.advanced-table.th-context-menu.unpin',
+      { default: 'Unpin column' }
+    );
 
-    if (column.isFirst) {
-      const translatedPinLabel = this.hdsIntl.t(
-        'hds.advanced-table.th-context-menu.pin',
-        { default: 'Pin column' }
-      );
-      const translatedUnpinLabel = this.hdsIntl.t(
-        'hds.advanced-table.th-context-menu.unpin',
-        { default: 'Unpin column' }
-      );
-
-      stickyColumnOptions = [
-        ...stickyColumnOptions,
-        {
-          key: 'pin-first-column',
-          label: isStickyColumn ? translatedUnpinLabel : translatedPinLabel,
-          icon: isStickyColumn ? 'pin-off' : 'pin',
-          action: this.pinFirstColumn.bind(this),
-        },
-      ];
-    }
-
-    return stickyColumnOptions;
+    return [
+      {
+        key: 'pin-first-column',
+        label: isStickyColumn ? translatedUnpinLabel : translatedPinLabel,
+        icon: isStickyColumn ? 'pin-off' : 'pin',
+        action: this.pinFirstColumn.bind(this),
+      },
+    ];
   }
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { hasReorderableColumns, hasResizableColumns, hasStickyFirstColumn } =
-      this.args;
+    const {
+      column,
+      hasReorderableColumns,
+      hasResizableColumns,
+      isStickyColumn,
+    } = this.args;
 
     let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
 
@@ -176,7 +173,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       allGroups = [...allGroups, this._reorderOptions];
     }
 
-    if (hasStickyFirstColumn) {
+    if (isStickyColumn !== undefined && column.isFirst) {
       allGroups = [...allGroups, this._stickyColumnOptions];
     }
 

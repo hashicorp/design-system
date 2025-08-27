@@ -834,24 +834,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         );
       });
 
-      test('the context menu for the sticky column does not render when reordering is enabled but no other context menu options are available', async function (assert) {
-        await render(
-          hbs`<Hds::AdvancedTable
-  id='data-test-advanced-table'
-  @model={{this.model}}
-  @columns={{this.columns}}
-  @hasReorderableColumns={{true}}
-  @hasStickyFirstColumn={{true}}
-/>`,
-        );
-
-        assert
-          .dom(
-            '.hds-advanced-table__th:first-of-type .hds-advanced-table__th-context-menu',
-          )
-          .doesNotExist('context menu does not render for the sticky column');
-      });
-
       test('clicking the "Move column to start" context menu option moves the column to the first non-sticky column position', async function (assert) {
         await render(
           hbs`<Hds::AdvancedTable
