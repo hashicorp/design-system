@@ -35,8 +35,8 @@ import MockWithExternalControl from 'showcase/components/page-components/accordi
 import MockWithPlaceholderContent from 'showcase/components/page-components/accordion/examples/mock-with-placeholder-content';
 import MockWithToggleVariants from 'showcase/components/page-components/accordion/examples/mock-with-toggle-variants';
 
-import MatrixAccordionItem from 'showcase/components/page-components/accordion/sections/matrix-accordion-item';
-import MatrixAccordionItemButton from 'showcase/components/page-components/accordion/sections/matrix-accordion-item-button';
+import SectionAccordionItemStates from 'showcase/components/page-components/accordion/sections/section-accordion-item-states';
+import SectionAccordionItemButtonStates from 'showcase/components/page-components/accordion/sections/section-accordion-item-button-states';
 
 export interface PageComponentsAccordionSignature {
   Element: HTMLDivElement;
@@ -571,12 +571,12 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
 
       <ShwTextH4>States</ShwTextH4>
 
-      <MatrixAccordionItem />
+      <SectionAccordionItemStates />
 
       <ShwTextH3>AccordionItemButton</ShwTextH3>
 
       <ShwTextH4>States</ShwTextH4>
-      <MatrixAccordionItemButton />
+      <SectionAccordionItemButtonStates />
     </section>
   </template>;
 

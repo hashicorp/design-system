@@ -18,11 +18,11 @@ import { INTERACTION_STATES } from 'showcase/utils/component-states';
 import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 import { HdsAccordionItem } from '@hashicorp/design-system-components/components';
 
-export interface MatrixItemButtonSignature {
+export interface SectionAccordionItemStatesSignature {
   Element: HTMLDivElement;
 }
 
-const MatrixItemButton: TemplateOnlyComponent<MatrixItemButtonSignature> =
+const SectionAccordionItemStates: TemplateOnlyComponent<SectionAccordionItemStatesSignature> =
   <template>
     {{#each TYPES as |type|}}
       {{#let (array false true) as |booleans|}}
@@ -70,4 +70,4 @@ const MatrixItemButton: TemplateOnlyComponent<MatrixItemButtonSignature> =
     {{/each}}
   </template>;
 
-export default MatrixItemButton;
+export default SectionAccordionItemStates;
