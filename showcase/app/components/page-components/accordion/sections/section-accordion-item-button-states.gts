@@ -14,11 +14,11 @@ import NOOP from 'showcase/utils/noop';
 import { SIZES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 import HdsAccordionItemButton from '@hashicorp/design-system-components/components/hds/accordion/item/button';
 
-export interface MatrixItemButtonSignature {
+export interface SectionAccordionItemButtonStatesSignature {
   Element: HTMLDivElement;
 }
 
-const MatrixItemButton: TemplateOnlyComponent<MatrixItemButtonSignature> =
+const SectionAccordionItemButtonStates: TemplateOnlyComponent<SectionAccordionItemButtonStatesSignature> =
   <template>
     {{#each SIZES as |size|}}
       {{#let (array false true) as |booleans|}}
@@ -82,4 +82,4 @@ const MatrixItemButton: TemplateOnlyComponent<MatrixItemButtonSignature> =
     {{/each}}
   </template>;
 
-export default MatrixItemButton;
+export default SectionAccordionItemButtonStates;
