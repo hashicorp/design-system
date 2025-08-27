@@ -4,19 +4,23 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { capitalize } from '@ember/string';
-import { lt } from 'ember-truth-helpers';
+import { lt, eq, and, or, not, notEq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
 import { pageTitle } from 'ember-page-title';
 import style from 'ember-style-modifier';
+import { array } from '@ember/helper';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
+import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
+import { INTERACTION_STATES } from 'showcase/utils/component-states';
+import NOOP from 'showcase/utils/noop';
 
 import {
   HdsAccordion,
@@ -28,15 +32,13 @@ import {
   HdsFormTextInputField,
   HdsTable,
 } from '@hashicorp/design-system-components/components';
+import HdsAccordionItemButton from '@hashicorp/design-system-components/components/hds/accordion/item/button';
 import { SIZES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
-import MockWithExternalControl from 'showcase/components/page-components/accordion/mocks/mock-with-external-control';
-import MockWithPlaceholderContent from 'showcase/components/page-components/accordion/mocks/mock-with-placeholder-content';
-import MockWithToggleVariants from 'showcase/components/page-components/accordion/mocks/mock-with-toggle-variants';
-
-import SectionAccordionItemStates from 'showcase/components/page-components/accordion/sections/section-accordion-item-states';
-import SectionAccordionItemButtonStates from 'showcase/components/page-components/accordion/sections/section-accordion-item-button-states';
+import AccordionWithExternalControl from 'showcase/components/page-components/accordion/with-external-control';
+import AccordionWithPlaceholderContent from 'showcase/components/page-components/accordion/with-placeholder-content';
+import AccordionWithToggleVariants from 'showcase/components/page-components/accordion/with-toggle-variants';
 
 export interface PageComponentsAccordionSignature {
   Element: HTMLDivElement;
@@ -57,11 +59,11 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
 
         <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
           <SG.Item @label="One item">
-            <MockWithPlaceholderContent @type={{type}} />
+            <AccordionWithPlaceholderContent @type={{type}} />
           </SG.Item>
 
           <SG.Item @label="Multiple items">
-            <MockWithToggleVariants @type={{type}} />
+            <AccordionWithToggleVariants @type={{type}} />
           </SG.Item>
         </ShwGrid>
 
@@ -80,7 +82,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
         <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
           {{#each TYPES as |type|}}
             <SG.Item @label={{type}}>
-              <MockWithToggleVariants @size={{size}} @type={{type}} />
+              <AccordionWithToggleVariants @size={{size}} @type={{type}} />
             </SG.Item>
           {{/each}}
         </ShwGrid>
@@ -226,7 +228,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
               <A.Item @isOpen={{true}}>
                 <:toggle>Item one</:toggle>
                 <:content>
-                  <MockWithPlaceholderContent
+                  <AccordionWithPlaceholderContent
                     @type={{type}}
                     @labelPrefix="Nested"
                   />
@@ -240,7 +242,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
               <A.Item @isOpen={{true}}>
                 <:toggle>Item one</:toggle>
                 <:content>
-                  <MockWithPlaceholderContent
+                  <AccordionWithPlaceholderContent
                     @type={{type}}
                     @numberOfItems={{2}}
                     @labelPrefix="Nested"
@@ -352,10 +354,10 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
 
       <ShwGrid {{style gap="2rem"}} @columns={{2}} as |SG|>
         <SG.Item @label="All items">
-          <MockWithExternalControl @variant="all" />
+          <AccordionWithExternalControl @variant="all" />
         </SG.Item>
         <SG.Item @label="Single item">
-          <MockWithExternalControl @variant="single" />
+          <AccordionWithExternalControl @variant="single" />
         </SG.Item>
       </ShwGrid>
 
@@ -366,7 +368,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
       <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
         {{#each TYPES as |type|}}
           <SG.Item @label="With a custom title tag">
-            <MockWithPlaceholderContent @type={{type}} @titleTag="h2" />
+            <AccordionWithPlaceholderContent @type={{type}} @titleTag="h2" />
           </SG.Item>
         {{/each}}
       </ShwGrid>
@@ -404,13 +406,13 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
       <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
         <SG.Item @label="In a Card w/ no padding">
           <HdsCardContainer @hasBorder={{true}}>
-            <MockWithToggleVariants @type="flush" />
+            <AccordionWithToggleVariants @type="flush" />
           </HdsCardContainer>
         </SG.Item>
 
         <SG.Item @label="in a Card w/ padding">
           <HdsCardContainer @hasBorder={{true}} {{style padding="16px"}}>
-            <MockWithToggleVariants @type="flush" />
+            <AccordionWithToggleVariants @type="flush" />
           </HdsCardContainer>
         </SG.Item>
 
@@ -418,7 +420,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
           <HdsFlyout open id="flyout-example-one-action" as |F|>
             <F.Header>Title</F.Header>
             <F.Body>
-              <MockWithToggleVariants @type="flush" />
+              <AccordionWithToggleVariants @type="flush" />
             </F.Body>
             <F.Footer>
               <HdsButton type="submit" @text="Primary" />
@@ -571,12 +573,115 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
 
       <ShwTextH4>States</ShwTextH4>
 
-      <SectionAccordionItemStates />
+      {{#each TYPES as |type|}}
+        {{#let (array false true) as |booleans|}}
+          <ShwTextBody>{{capitalize type}}</ShwTextBody>
+          <ShwGrid @columns={{4}} @gap="2rem" as |SG|>
+            {{#each INTERACTION_STATES as |state|}}
+              <SG.Item @label={{state}}>
+                <ShwFlex @direction="column" @gap="2rem" as |SF|>
+                  {{#each booleans as |containsInteractive|}}
+                    {{#each booleans as |isOpen|}}
+                      <SF.Item>
+                        <HdsAccordionItem
+                          @containsInteractive={{containsInteractive}}
+                          @isOpen={{isOpen}}
+                          @type={{type}}
+                          mock-state-value={{state}}
+                          mock-state-selector="{{if
+                            (and
+                              (or (eq state 'active') (eq state 'hover'))
+                              (not containsInteractive)
+                            )
+                            '.hds-disclosure-primitive__toggle'
+                            (if
+                              (notEq state 'hover')
+                              '.hds-accordion-item__button'
+                            )
+                          }}"
+                        >
+                          <:toggle>Item</:toggle>
+                          <:content>
+                            <ShwPlaceholder
+                              @text="generic content"
+                              @height="40"
+                            />
+                          </:content>
+                        </HdsAccordionItem>
+                      </SF.Item>
+                    {{/each}}
+                  {{/each}}
+                </ShwFlex>
+              </SG.Item>
+            {{/each}}
+          </ShwGrid>
+          <ShwDivider @level={{2}} />
+        {{/let}}
+      {{/each}}
 
       <ShwTextH3>AccordionItemButton</ShwTextH3>
 
       <ShwTextH4>States</ShwTextH4>
-      <SectionAccordionItemButtonStates />
+      {{#each SIZES as |size|}}
+        {{#let (array false true) as |booleans|}}
+          {{#each booleans as |bool|}}
+            <ShwFlex
+              @label="size={{size}}, parentContainsInteractive={{bool}}"
+              @gap="2rem"
+              {{style justifyContent="space-between"}}
+              as |SF|
+            >
+              {{#each INTERACTION_STATES as |state|}}
+                <SF.Item @label={{state}}>
+                  <div
+                    class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
+                  >
+                    <HdsAccordionItemButton
+                      @parentContainsInteractive={{bool}}
+                      @onClickToggle={{NOOP}}
+                      @size={{size}}
+                      mock-state-value={{state}}
+                      aria-label={{state}}
+                    />
+                  </div>
+                </SF.Item>
+              {{/each}}
+
+              <SF.Item @label="isOpen=true">
+                <div
+                  class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
+                >
+                  <HdsAccordionItemButton
+                    @parentContainsInteractive={{bool}}
+                    @isOpen={{true}}
+                    @onClickToggle={{NOOP}}
+                    @size={{size}}
+                    aria-label="open is true"
+                  />
+                </div>
+              </SF.Item>
+
+              <SF.Item
+                @label="focus & isOpen=true"
+                {{style width="calc(20% - 2rem)" position="relative"}}
+              >
+                <div
+                  class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
+                >
+                  <HdsAccordionItemButton
+                    @parentContainsInteractive={{bool}}
+                    @isOpen={{true}}
+                    @onClickToggle={{NOOP}}
+                    @size={{size}}
+                    mock-state-value="focus"
+                    aria-label="focused and is open"
+                  />
+                </div>
+              </SF.Item>
+            </ShwFlex>
+          {{/each}}
+        {{/let}}
+      {{/each}}
     </section>
   </template>;
 

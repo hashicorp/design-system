@@ -13,7 +13,7 @@ import { HdsAccordion } from '@hashicorp/design-system-components/components';
 
 import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
 
-export interface MockWithPlaceholderContentSignature {
+export interface WithPlaceholderContentSignature {
   Args: {
     type?: HdsAccordionSignature['Args']['type'];
     titleTag?: HdsAccordionSignature['Args']['titleTag'];
@@ -33,7 +33,7 @@ const mapNumberToString: Record<number, string> = {
   3: 'three',
 };
 
-const MockWithPlaceholderContent: TemplateOnlyComponent<MockWithPlaceholderContentSignature> =
+const WithPlaceholderContent: TemplateOnlyComponent<WithPlaceholderContentSignature> =
   <template>
     <HdsAccordion @type={{@type}} @titleTag={{@titleTag}} as |A|>
       {{#each (range (or @numberOfItems 1)) as |item|}}
@@ -56,4 +56,4 @@ const MockWithPlaceholderContent: TemplateOnlyComponent<MockWithPlaceholderConte
     </HdsAccordion>
   </template>;
 
-export default MockWithPlaceholderContent;
+export default WithPlaceholderContent;
