@@ -3,13 +3,13 @@
 ---
 
 <!-- START {components/button} -->
-`Button` - Fixed broken CSS included in disabled state styles
+`Button` - Removed CSS declaration for pseudo element in disabled state
 <!-- END -->
 
 <!-- START {components/dropdown} -->
-`Dropdown` - Fixed broken CSS included in disabled state styles
+`Dropdown` - Removed CSS declaration for pseudo element in disabled state
 <!-- END -->
 
 <!-- START {components/form/file-input} -->
-`FileInput` - Fixed broken CSS included in disabled state styles
+`FileInput` - Removed CSS declaration for pseudo element in disabled state that led to invalid CSS (ignored by browsers)
 <!-- END -->
