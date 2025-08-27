@@ -3,13 +3,13 @@
 ---
 
 <!-- START {components/button} -->
-`Button` - Fixed broken CSS included in hover state styles
+`Button` - Fixed broken CSS included in disabled state styles
 <!-- END -->
 
 <!-- START {components/dropdown} -->
-`Dropdown` - Fixed broken CSS included in hover state styles
+`Dropdown` - Fixed broken CSS included in disabled state styles
 <!-- END -->
 
 <!-- START {components/form/file-input} -->
-`FileInput` - Fixed broken CSS included in hover state styles
+`FileInput` - Fixed broken CSS included in disabled state styles
 <!-- END -->
