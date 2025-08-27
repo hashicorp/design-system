@@ -110,9 +110,35 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     return reorderOptions;
   }
 
+  get _stickyColumnOptions(): HdsAdvancedTableThContextMenuOption[] {
+    const { isStickyColumn } = this.args;
+
+    const translatedPinLabel = this.hdsIntl.t(
+      'hds.advanced-table.th-context-menu.pin',
+      { default: 'Pin column' }
+    );
+    const translatedUnpinLabel = this.hdsIntl.t(
+      'hds.advanced-table.th-context-menu.unpin',
+      { default: 'Unpin column' }
+    );
+
+    return [
+      {
+        key: 'pin-first-column',
+        label: isStickyColumn ? translatedUnpinLabel : translatedPinLabel,
+        icon: isStickyColumn ? 'pin-off' : 'pin',
+        action: this.pinFirstColumn.bind(this),
+      },
+    ];
+  }
+
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { hasReorderableColumns, hasResizableColumns, isStickyColumn } =
-      this.args;
+    const {
+      column,
+      hasReorderableColumns,
+      hasResizableColumns,
+      isStickyColumn,
+    } = this.args;
 
     let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
     if (hasResizableColumns) {
@@ -137,6 +163,10 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     if (hasReorderableColumns && isStickyColumn !== true) {
       allGroups = [...allGroups, this._reorderOptions];
+    }
+
+    if (isStickyColumn !== undefined && column.isFirst) {
+      allGroups = [...allGroups, this._stickyColumnOptions];
     }
 
     return allGroups.reduce<HdsAdvancedTableThContextMenuOption[]>(

@@ -161,9 +161,12 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     const { hasResizableColumns, hasReorderableColumns, isStickyColumn } =
       this.args;
 
-    const showReorderOptions = hasReorderableColumns && isStickyColumn !== true;
-
-    return (hasResizableColumns || showReorderOptions) ?? false;
+    return (
+      (hasResizableColumns ||
+        hasReorderableColumns ||
+        isStickyColumn !== undefined) ??
+      false
+    );
   }
 
   @action
