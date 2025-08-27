@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import { BORDER_WIDTH } from './index.ts';
+import { requestAnimationFrameWaiter } from './utils.ts';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 
@@ -100,7 +101,7 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
     this._isUpdateQueued = true;
 
-    requestAnimationFrame(() => {
+    requestAnimationFrameWaiter(() => {
       const { column } = this.args;
       const { table } = column;
 
