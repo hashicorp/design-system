@@ -8,7 +8,6 @@ import { setupRenderingTest } from 'showcase/tests/helpers';
 import {
   click,
   render,
-  rerender,
   fillIn,
   triggerEvent,
   waitFor,
@@ -240,7 +239,6 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
       Test Code`;
     this.set('value', newValue);
-    await rerender();
 
     await click('.hds-code-editor__copy-button');
     assert.true(clipboardStub.calledWith(newValue));
