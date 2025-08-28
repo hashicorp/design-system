@@ -122,20 +122,6 @@ Don’t center header labels or cell content within a table.
 
 !!!
 
-### Resizable columns
-
-The Advanced Table supports resizing individual columns to display the entire contents of a cell. When enabled, users can customize the width of each column.
-
-This is supported via an interactive "resize border" that functions either by clicking and dragging on the horizontal axis with a mouse or by moving the focus to the resize border with the keyboard and using the right and left arrow keys.
-
-The Figma component does not support this resizing feature. Instead, we publish a [Resize Border](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=80647-127234&t=UHpPyO7erZKLy4SD-1) component and [Templates](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=72039-5091&t=UHpPyO7erZKLy4SD-1) to use as a starting point for expressing this interaction. We also provide [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=UHpPyO7erZKLy4SD-1) that you can copy and paste into your design files.
-
-![The interactive resize border in its active state being dragged with a mouse](/assets/components/table/advanced-table/advanced-table-resize-interaction.png)
-
-When resizable columns are enabled, actions related to each function are rendered in a context menu in the table header. These functions are not customizable.
-
-![An example of the open context menu in the Advanced Table displaying an action to reset the width of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
-
 ### Reorderable columns
 
 If `hasReorderableColumns` is set to true on the Ember component, users can reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys. These properties are not available within the Figma component, but we've provided [examples](jory-update-link) that you can copy and paste into your design files.
@@ -145,11 +131,19 @@ When enabled, actions related to altering the column order are rendered in a con
 - Move column: moves focus to the reordering handle
 - Move column to start/end: moves the column to the first or last position in the table unless the column is already in this position.
 
-![An example of the open context menu in the Advanced Table displaying an action that alter the visual order of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
+![An example of the open context menu in the Advanced Table displaying an action that alter the visual order of the column](/assets/components/table/advanced-table/advanced-table-reorder-context-menu.png)
 
 ![An example of the focused drag target in the table header](/assets/components/table/advanced-table/advanced-table-focus-drag-target.png)
 
 ![An example of a column being dragged with the mouse to a new position in the Advanced Table](/assets/components/table/advanced-table/advanced-table-drag-column.png)
+
+### Resizable columns
+
+If `hasResizableColumns` is set to true on the Ember component, users can customize the width of each column in the Advanced Table. These properties are not available within the Figma component, but we've provided [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=UHpPyO7erZKLy4SD-1) that you can copy and paste into your design files.
+
+When enabled, actions related to each function are rendered in a context menu in the table header. These functions are not customizable.
+
+![An example of the open context menu in the Advanced Table displaying an action to reset the width of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
 
 ## Column and row span
 
