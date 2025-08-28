@@ -68,7 +68,7 @@ Don’t override the color of the icon within the list item or incorporate a bra
 
 Use `hasSubItems` to show or signify that a link has a nested level of navigation within the App Side Nav list. A common use case for this is when a link doesn't actually navigate to a dedicated page directly, but instead a category of pages.
 
-!["Settings" list item with a right arrow icon to show that it has sub-items, with an example of the list of sub-itmes within settings; Organization Settings including "General", "Teams", and "Runs".](/assets/components/app-side-nav/list-item-with-nested-items.png)
+!["Settings" list item with a right arrow icon to show that it has sub-items, with an example of the list of sub-items within settings; Organization Settings including "General", "Teams", and "Runs".](/assets/components/app-side-nav/list-item-with-nested-items.png)
 
 !!! Dont
 
