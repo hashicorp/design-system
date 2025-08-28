@@ -24,6 +24,20 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     assert.dom('#test-code-editor').hasClass('hds-code-editor');
   });
 
+  // cspNonce
+  test('it should render the injected style tag with the provided `@cspNonce` value', async function (assert) {
+    const cspNonce = 'csp-nonce-123';
+
+    this.set('cspNonce', cspNonce);
+
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @cspNonce={{this.cspNonce}} as |CE|><CE.Title>Test Title</CE.Title></Hds::CodeEditor>`,
+    );
+
+    // can't use assert.dom to access elements in head
+    assert.ok(document.querySelector(`style[nonce="${cspNonce}"]`));
+  });
+
   // title
   test('it should render the component with a title using the default tag', async function (assert) {
     await setupCodeEditor(
