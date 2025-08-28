@@ -66,16 +66,6 @@
     {{/if}}
 
     {{#if @column}}
-      {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
-        <Hds::AdvancedTable::ThReorderHandle
-          @column={{@column}}
-          @tableHeight={{@tableHeight}}
-          @onReorderDragStart={{this.handleDragStart}}
-          @onReorderDragEnd={{@onReorderDragEnd}}
-          {{this._registerReorderHandleElement}}
-        />
-      {{/if}}
-
       {{#if this.showContextMenu}}
         <Hds::AdvancedTable::ThContextMenu
           @column={{@column}}
@@ -87,6 +77,16 @@
           @resizeHandleElement={{this._resizeHandleElement}}
           @onColumnResize={{@onColumnResize}}
           @onPinFirstColumn={{@onPinFirstColumn}}
+        />
+      {{/if}}
+
+      {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
+        <Hds::AdvancedTable::ThReorderHandle
+          @column={{@column}}
+          @tableHeight={{@tableHeight}}
+          @onReorderDragStart={{this.handleDragStart}}
+          @onReorderDragEnd={{@onReorderDragEnd}}
+          {{this._registerReorderHandleElement}}
         />
       {{/if}}
 
