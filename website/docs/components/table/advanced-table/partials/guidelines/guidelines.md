@@ -124,13 +124,23 @@ Don’t center header labels or cell content within a table.
 
 ### Resizable columns
 
-If `hasResizableColumns` is set to true on the Ember component, users can customize the width of each column in the Advanced Table. These properties are not available within the Figma component, but we've provided [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=UHpPyO7erZKLy4SD-1) that you can copy and paste into your design files.
+The Advanced Table supports resizing individual columns to display the entire contents of a cell. When enabled, users can customize the width of each column.
 
-When enabled, actions related to each function are rendered in a context menu in the table header. These functions are not customizable.
+This is supported via an interactive "resize border" that functions either by clicking and dragging on the horizontal axis with a mouse or by moving the focus to the resize border with the keyboard and using the right and left arrow keys.
+
+The Figma component does not support this resizing feature. Instead, we publish a [Resize Border](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=80647-127234&t=UHpPyO7erZKLy4SD-1) component and [Templates](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=72039-5091&t=UHpPyO7erZKLy4SD-1) to use as a starting point for expressing this interaction. We also provide [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=UHpPyO7erZKLy4SD-1) that you can copy and paste into your design files.
+
+![The interactive resize border in its active state being dragged with a mouse](/assets/components/table/advanced-table/advanced-table-resize-interaction.png)
+
+When resizable columns are enabled, actions related to each function are rendered in a context menu in the table header. These functions are not customizable.
 
 ![An example of the open context menu in the Advanced Table displaying an action to reset the width of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
 
-Visit the [specifications](?tab=specifications#column-resizing) tab for more details on this functionality.
+#### Minimum and maximum width
+
+To prevent a column from being resized beyond a reasonable amount, the Advanced Table enforces a default minimum and maximum width of `150px` and `800px`, respectively. These can be overridden via the [component API](/components/table/advanced-table?tab=code#advancedtable), if necessary.
+
+![An example of a column being resized to the minimum default width](/assets/components/table/advanced-table/advanced-table-resize-min-width.png)
 
 ## Column and row span
 
@@ -243,6 +253,26 @@ Row placement determines the visual styling based on where the row is placed rel
 Use horizontal scrolling when the number of columns expands beyond the viewport or container.
 
 ![](/assets/components/table/advanced-table/horizontal-scrolling.png)
+
+## Sticky headers and columns
+
+The Advanced Table supports setting the header and the first column as sticky or “pinned.” This can help users navigate large data sets while persisting important identifying values, such as names and IDs.
+
+There are a few things to consider when implementing a sticky header or column:
+
+- Instances of the Advanced Table with nested rows, expandable rows, and `colSpan` or `rowSpan` do not support a sticky column because what classifies as the first column is variable depending on these properties.
+- Setting the first column as sticky in a table with multi-selection will couple the multi-select column and the first column of data together.
+
+If `hasStickyFirstColumn` is set to true or false in the Ember component, a control will be exposed in the context menu allowing users to "Pin" and "Unpin" the first column in the Advanced Table.
+
+![An Advanced Table with the context menu open and a single "Pin column" option](/assets/components/table/advanced-table/advanced-table-pin-column.png)
+
+![An Advanced Table with a pinned column with the context menu open and a single "Unpin column" option](/assets/components/table/advanced-table/advanced-table-unpin-column.png)
+
+!!! Info
+
+We currently only support the first column as sticky. If you have needs beyond this, please [contact](/about/support) the HDS team or [submit a request](https://go.hashi.co/hds-support).
+!!!
 
 ## Multi-Select
 
