@@ -221,6 +221,8 @@ If you find yourself in the situation of wanting/needing to customize or change 
 
 ### Accessibility
 
+Since this component is layout-only, there are no built-in accessibility features: you are responsible for making sure your custom App Side Nav implementation is conformant to the WCAG requirements.
+
 #### `aria` attributes
 
 The App Side Nav component already provides some of the required `aria` attributes. But other attributes are needed when declaring its content. Please refer to the [Accessibility](/components/app-side-nav?tab=accessibility) section for more details.
@@ -228,7 +230,3 @@ The App Side Nav component already provides some of the required `aria` attribut
 #### Animations
 
 Animations and transition on the component will not take place if the user has `prefers-reduced-motion` enabled in their browser or operating system.
-
-### Accessibility
-
-Since this component is layout-only, there are no built-in accessibility features: you are responsible for making sure your custom App Side Nav implementation is conformant to the WCAG requirements.
