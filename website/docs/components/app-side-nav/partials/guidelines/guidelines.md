@@ -26,7 +26,6 @@ The body consists of a group of sections with vertical lists of links, typically
 
 ![App Side Nav section without a title](/assets/components/app-side-nav/section-without-title.png)
 
-
 ### List items
 
 #### Without icon
@@ -67,9 +66,16 @@ Don’t override the color of the icon within the list item or incorporate a bra
 
 #### With nested items
 
-Use `hasSubItems` to show or signify that a link has a nested level of navigation.
+Use `hasSubItems` to show or signify that a link has a nested level of navigation within the App Side Nav list. A common use case for this is when a link doesn't actually direct to a dedicated page directly, but a category of pages.
 
-!["Settings" list item with a right arrow icon to show that it has sub-items](/assets/components/app-side-nav/list-item-with-nested-items.png)
+!["Settings" list item with a right arrow icon to show that it has sub-items, with an example of the list of sub-itmes within settings; Organization Settings including "General", "Teams", and "Runs".](/assets/components/app-side-nav/list-item-with-nested-items.png)
+
+!!! Dont
+
+Don't use `hasSubItems` to indicate that a list item directs to a page _containing_ links that direct to other parts of the application.
+
+![An example of a list item with the hasSubItems property with links directly within the page linking to other parts of the application](/assets/components/app-side-nav/list-item-nested-items-dont.png)
+!!!
 
 #### External links
 
