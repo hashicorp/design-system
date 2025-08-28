@@ -136,11 +136,20 @@ When resizable columns are enabled, actions related to each function are rendere
 
 ![An example of the open context menu in the Advanced Table displaying an action to reset the width of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
 
-#### Minimum and maximum width
+### Reorderable columns
 
-To prevent a column from being resized beyond a reasonable amount, the Advanced Table enforces a default minimum and maximum width of `150px` and `800px`, respectively. These can be overridden via the [component API](/components/table/advanced-table?tab=code#advancedtable), if necessary.
+If `hasReorderableColumns` is set to true on the Ember component, users can reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys. These properties are not available within the Figma component, but we've provided [examples](jory-update-link) that you can copy and paste into your design files.
 
-![An example of a column being resized to the minimum default width](/assets/components/table/advanced-table/advanced-table-resize-min-width.png)
+When enabled, actions related to altering the column order are rendered in a context menu in the table header. These are not customizable and include:
+
+- Move column: moves focus to the reordering handle
+- Move column to start/end: moves the column to the first or last position in the table unless the column is already in this position.
+
+![An example of the open context menu in the Advanced Table displaying an action that alter the visual order of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
+
+![An example of the focused drag target in the table header](/assets/components/table/advanced-table/advanced-table-focus-drag-target.png)
+
+![An example of a column being dragged with the mouse to a new position in the Advanced Table](/assets/components/table/advanced-table/advanced-table-drag-column.png)
 
 ## Column and row span
 
