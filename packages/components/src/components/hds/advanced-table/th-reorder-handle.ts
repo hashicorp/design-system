@@ -53,16 +53,13 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
   @action
   handleDragStart(event: DragEvent): void {
     const { column, tableHeight, onReorderDragStart } = this.args;
-
     const { key, thElement } = column;
 
-    if (
-      key === undefined ||
-      thElement === undefined ||
-      typeof onReorderDragStart !== 'function'
-    ) {
+    if (key === undefined || thElement === undefined) {
       return;
     }
+
+    column.isBeingDragged = true;
 
     const thElementWidth = thElement.offsetWidth;
 

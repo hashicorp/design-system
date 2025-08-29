@@ -172,21 +172,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action
   handleDragStart(column: HdsAdvancedTableColumn): void {
-    const { onReorderDragStart } = this.args;
-
-    if (
-      column === undefined ||
-      column.key === undefined ||
-      typeof onReorderDragStart !== 'function'
-    ) {
-      return;
-    }
-
-    // Set the local state that shows this column is being dragged
-    column.isBeingDragged = true;
-
-    // Call the main action from the parent table component
-    onReorderDragStart(column);
+    this.args.onReorderDragStart?.(column);
   }
 
   @action onFocusTrapDeactivate(): void {
