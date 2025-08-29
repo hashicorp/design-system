@@ -19,7 +19,6 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
-import { INTERACTION_STATES } from 'showcase/utils/component-states';
 import NOOP from 'showcase/utils/noop';
 
 import {
@@ -43,6 +42,8 @@ import AccordionWithToggleVariants from 'showcase/components/page-components/acc
 export interface PageComponentsAccordionSignature {
   Element: HTMLDivElement;
 }
+
+const INTERACTION_STATES = ['default', 'active', 'hover', 'focus'];
 
 const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSignature> =
   <template>
