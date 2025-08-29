@@ -35,9 +35,9 @@ import HdsAccordionItemButton from '@hashicorp/design-system-components/componen
 import { SIZES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
-import AccordionWithExternalControl from 'showcase/components/page-components/accordion/with-external-control';
-import AccordionWithPlaceholderContent from 'showcase/components/page-components/accordion/with-placeholder-content';
-import AccordionWithToggleVariants from 'showcase/components/page-components/accordion/with-toggle-variants';
+import CodeFragmentWithExternalControl from './accordion/code-fragments/with-external-control';
+import CodeFragmentWithPlaceholderContent from './accordion/code-fragments/with-placeholder-content';
+import CodeFragmentWithToggleVariants from './accordion/code-fragments/with-toggle-variants';
 
 export interface PageComponentsAccordionSignature {
   Element: HTMLDivElement;
@@ -60,11 +60,11 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
 
         <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
           <SG.Item @label="One item">
-            <AccordionWithPlaceholderContent @type={{type}} />
+            <CodeFragmentWithPlaceholderContent @type={{type}} />
           </SG.Item>
 
           <SG.Item @label="Multiple items">
-            <AccordionWithToggleVariants @type={{type}} />
+            <CodeFragmentWithToggleVariants @type={{type}} />
           </SG.Item>
         </ShwGrid>
 
@@ -83,7 +83,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
         <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
           {{#each TYPES as |type|}}
             <SG.Item @label={{type}}>
-              <AccordionWithToggleVariants @size={{size}} @type={{type}} />
+              <CodeFragmentWithToggleVariants @size={{size}} @type={{type}} />
             </SG.Item>
           {{/each}}
         </ShwGrid>
@@ -229,7 +229,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
               <A.Item @isOpen={{true}}>
                 <:toggle>Item one</:toggle>
                 <:content>
-                  <AccordionWithPlaceholderContent
+                  <CodeFragmentWithPlaceholderContent
                     @type={{type}}
                     @labelPrefix="Nested"
                   />
@@ -243,7 +243,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
               <A.Item @isOpen={{true}}>
                 <:toggle>Item one</:toggle>
                 <:content>
-                  <AccordionWithPlaceholderContent
+                  <CodeFragmentWithPlaceholderContent
                     @type={{type}}
                     @numberOfItems={{2}}
                     @labelPrefix="Nested"
@@ -355,10 +355,10 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
 
       <ShwGrid {{style gap="2rem"}} @columns={{2}} as |SG|>
         <SG.Item @label="All items">
-          <AccordionWithExternalControl @variant="all" />
+          <CodeFragmentWithExternalControl @variant="all" />
         </SG.Item>
         <SG.Item @label="Single item">
-          <AccordionWithExternalControl @variant="single" />
+          <CodeFragmentWithExternalControl @variant="single" />
         </SG.Item>
       </ShwGrid>
 
@@ -369,7 +369,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
       <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
         {{#each TYPES as |type|}}
           <SG.Item @label="With a custom title tag">
-            <AccordionWithPlaceholderContent @type={{type}} @titleTag="h2" />
+            <CodeFragmentWithPlaceholderContent @type={{type}} @titleTag="h2" />
           </SG.Item>
         {{/each}}
       </ShwGrid>
@@ -407,13 +407,13 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
       <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
         <SG.Item @label="In a Card w/ no padding">
           <HdsCardContainer @hasBorder={{true}}>
-            <AccordionWithToggleVariants @type="flush" />
+            <CodeFragmentWithToggleVariants @type="flush" />
           </HdsCardContainer>
         </SG.Item>
 
         <SG.Item @label="in a Card w/ padding">
           <HdsCardContainer @hasBorder={{true}} {{style padding="16px"}}>
-            <AccordionWithToggleVariants @type="flush" />
+            <CodeFragmentWithToggleVariants @type="flush" />
           </HdsCardContainer>
         </SG.Item>
 
@@ -421,7 +421,7 @@ const PageComponentsAccordion: TemplateOnlyComponent<PageComponentsAccordionSign
           <HdsFlyout open id="flyout-example-one-action" as |F|>
             <F.Header>Title</F.Header>
             <F.Body>
-              <AccordionWithToggleVariants @type="flush" />
+              <CodeFragmentWithToggleVariants @type="flush" />
             </F.Body>
             <F.Footer>
               <HdsButton type="submit" @text="Primary" />
