@@ -7,13 +7,12 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import type Owner from '@ember/owner';
-
 import HdsAdvancedTableTableModel from './models/table.ts';
 
+import type Owner from '@ember/owner';
+import type { WithBoundArgs } from '@glint/template';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
@@ -28,6 +27,7 @@ import type {
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
+  HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
@@ -44,6 +44,8 @@ export const VALIGNMENTS: HdsAdvancedTableVerticalAlignment[] = Object.values(
   HdsAdvancedTableVerticalAlignmentValues
 );
 export const DEFAULT_VALIGN = HdsAdvancedTableVerticalAlignmentValues.Top;
+
+export const BORDER_WIDTH = 1;
 
 const DEFAULT_SCROLL_DIMENSIONS = {
   bottom: '0px',
@@ -129,6 +131,7 @@ export interface HdsAdvancedTableSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     caption?: string;
     columns: HdsAdvancedTableColumn[];
+    columnOrder?: string[];
     density?: HdsAdvancedTableDensities;
     identityKey?: string;
     isSelectable?: boolean;
@@ -140,11 +143,13 @@ export interface HdsAdvancedTableSignature {
     sortedMessageText?: string;
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
+    hasReorderableColumns?: boolean;
     hasResizableColumns?: boolean;
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
     onSelectionChange?: (
       selection: HdsAdvancedTableOnSelectionChangeSignature
@@ -221,7 +226,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const {
       model,
       columns,
+      columnOrder,
       childrenKey,
+      hasReorderableColumns,
       hasResizableColumns,
       sortBy,
       sortOrder,
@@ -232,8 +239,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
       columns,
+      columnOrder,
       childrenKey,
       hasResizableColumns,
+      hasStickyFirstColumn,
       sortBy,
       sortOrder,
       onSort,
@@ -243,6 +252,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       const sortableColumns = columns.filter((column) => column.isSortable);
       const sortableColumnLabels = sortableColumns.map(
         (column) => column.label
+      );
+
+      assert(
+        'Cannot have reorderable columns if there are nested rows.',
+        !hasReorderableColumns
       );
 
       assert(
@@ -381,13 +395,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
     const { isSelectable } = this.args;
-    const { columns } = this._tableModel;
+    const { orderedColumns } = this._tableModel;
 
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    for (let i = 0; i < columns.length; i++) {
-      style += ` ${columns[i]!.appliedWidth}`;
+    for (let i = 0; i < orderedColumns.length; i++) {
+      style += ` ${orderedColumns[i]!.appliedWidth}`;
     }
 
     return style;
@@ -461,7 +475,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     element.addEventListener('scroll', this._scrollHandler);
 
     const updateMeasurements = () => {
-      this._tableHeight = element.clientHeight;
+      this._tableHeight = element.offsetHeight;
 
       const hasFirstColumnPxWidth =
         this._tableModel.columns[0]?.pxWidth !== undefined;
@@ -550,9 +564,15 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setupTableModelData(): void {
-    const { columns, model, sortBy, sortOrder } = this.args;
+    const { columns, columnOrder, model, sortBy, sortOrder } = this.args;
 
-    this._tableModel.setupData({ columns, model, sortBy, sortOrder });
+    this._tableModel.setupData({
+      columns,
+      columnOrder,
+      model,
+      sortBy,
+      sortOrder,
+    });
   }
 
   @action

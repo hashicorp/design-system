@@ -20,8 +20,9 @@ import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableExpandState,
 } from './types.ts';
-import type { HdsAdvancedTableSignature } from './index.ts';
+import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
+import type { HdsAdvancedTableSignature } from './index.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -35,7 +36,9 @@ export interface HdsAdvancedTableThSignature {
     colspan?: number;
     depth?: number;
     hasExpandAllButton?: boolean;
-    hasResizableColumns?: boolean;
+    hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
+    hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
+    hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
     isStickyColumn?: boolean;
@@ -51,6 +54,12 @@ export interface HdsAdvancedTableThSignature {
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onPinFirstColumn?: () => void;
+    onReorderDragEnd?: () => void;
+    onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
+    onReorderDrop?: (
+      column: HdsAdvancedTableColumn,
+      side: 'left' | 'right'
+    ) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
   Blocks: {
@@ -64,6 +73,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   private _element!: HTMLDivElement;
 
   @tracked private _shouldTrapFocus = false;
+  @tracked
+  private _reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
   @tracked
   private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
 
@@ -140,13 +151,28 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
+    if (this.args.column?.isBeingDragged) {
+      classes.push('hds-advanced-table__th--is-being-dragged');
+    }
+
     return classes.join(' ');
   }
 
   get showContextMenu(): boolean {
-    const { hasResizableColumns, isStickyColumn } = this.args;
+    const { hasReorderableColumns, hasResizableColumns, isStickyColumn } =
+      this.args;
 
-    return (hasResizableColumns || isStickyColumn !== undefined) ?? false;
+    return (
+      (hasResizableColumns ||
+        hasReorderableColumns ||
+        isStickyColumn !== undefined) ??
+      false
+    );
+  }
+
+  @action
+  handleDragStart(column: HdsAdvancedTableColumn): void {
+    this.args.onReorderDragStart?.(column);
   }
 
   @action onFocusTrapDeactivate(): void {
@@ -165,7 +191,17 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
+
+    if (this.args.column !== undefined) {
+      this.args.column.thElement = element;
+    }
   }
+
+  private _registerReorderHandleElement = modifier(
+    (element: HdsAdvancedTableThReorderHandleSignature['Element']) => {
+      this._reorderHandleElement = element;
+    }
+  );
 
   private _registerResizeHandleElement = modifier(
     (element: HdsAdvancedTableThResizeHandleSignature['Element']) => {
