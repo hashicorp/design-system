@@ -7,6 +7,10 @@ import Route from '@ember/routing/route';
 import { COLORS } from '@hashicorp/design-system-components/components/hds/tag/index';
 import { TOOLTIP_PLACEMENTS } from '@hashicorp/design-system-components/components/hds/tag/index';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsTagModel = ModelFrom<PageComponentsTagRoute>;
+
 export default class PageComponentsTagRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
