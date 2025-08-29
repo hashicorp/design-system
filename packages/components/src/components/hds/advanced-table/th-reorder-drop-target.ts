@@ -9,8 +9,10 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import { BORDER_WIDTH } from './index.ts';
 import { requestAnimationFrameWaiter } from './utils.ts';
+import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
+import type { HdsAdvancedTableColumnReorderSide } from './types.ts';
 
 export interface HdsAdvancedTableThReorderDropTargetSignature {
   Args: {
@@ -18,7 +20,7 @@ export interface HdsAdvancedTableThReorderDropTargetSignature {
     tableHeight?: number;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
-      side: 'left' | 'right'
+      side: HdsAdvancedTableColumnReorderSide
     ) => void;
   };
   Blocks: {
@@ -28,7 +30,7 @@ export interface HdsAdvancedTableThReorderDropTargetSignature {
 }
 
 export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAdvancedTableThReorderDropTargetSignature> {
-  @tracked private _dragSide: 'left' | 'right' | null = null;
+  @tracked private _dragSide: HdsAdvancedTableColumnReorderSide | null = null;
   @tracked private _isUpdateQueued: boolean = false;
 
   private _element!: HdsAdvancedTableThReorderDropTargetSignature['Element'];
@@ -40,12 +42,14 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
   );
 
   // determines whether the drag event is occurring on the left or right side of the element
-  private _getDragSide(event: DragEvent): 'left' | 'right' {
+  private _getDragSide(event: DragEvent): HdsAdvancedTableColumnReorderSide {
     const rect = this._element.getBoundingClientRect();
     const mouseX = event.clientX;
     const elementMiddleX = rect.left + rect.width / 2;
 
-    return mouseX < elementMiddleX ? 'left' : 'right';
+    return mouseX < elementMiddleX
+      ? HdsAdvancedTableColumnReorderSideValues.Left
+      : HdsAdvancedTableColumnReorderSideValues.Right;
   }
 
   get isDraggingOver(): boolean {
@@ -115,8 +119,10 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
           const dragSide = this._getDragSide(event);
 
           if (
-            (column === previous && dragSide === 'left') ||
-            (column === next && dragSide === 'right') ||
+            (column === previous &&
+              dragSide === HdsAdvancedTableColumnReorderSideValues.Left) ||
+            (column === next &&
+              dragSide === HdsAdvancedTableColumnReorderSideValues.Right) ||
             (column !== previous && column !== next)
           ) {
             this._dragSide = dragSide;

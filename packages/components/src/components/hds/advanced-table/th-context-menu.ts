@@ -4,7 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
@@ -57,7 +56,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
         key: 'reset-column-width',
         label: translatedResetWidthLabel,
         icon: 'rotate-ccw',
-        action: this.resetColumnWidth.bind(this),
+        action: this._resetColumnWidth.bind(this),
       },
     ];
 
@@ -72,7 +71,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
           key: 'resize-column',
           label: translatedResizeLabel,
           icon: 'resize-column',
-          action: this.resizeColumn.bind(this),
+          action: this._resizeColumn.bind(this),
         },
         ...resizeOptions,
       ];
@@ -94,7 +93,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
         key: 'reorder-column',
         label: translatedMoveColumnLabel,
         icon: 'move-horizontal',
-        action: () => this.moveColumn(),
+        action: () => this._moveColumn(),
       },
     ];
 
@@ -109,7 +108,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
           key: 'move-column-to-start',
           label: translatedMoveColumnToStartLabel,
           icon: 'start',
-          action: (close) => this.moveColumnToPosition('start', close),
+          action: (close) => this._moveColumnToPosition('start', close),
         },
       ];
     }
@@ -125,7 +124,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
           key: 'move-column-to-end',
           label: translatedMoveColumnToEndLabel,
           icon: 'end',
-          action: (close) => this.moveColumnToPosition('end', close),
+          action: (close) => this._moveColumnToPosition('end', close),
         },
       ];
     }
@@ -150,7 +149,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
         key: 'pin-first-column',
         label: isStickyColumn ? translatedUnpinLabel : translatedPinLabel,
         icon: isStickyColumn ? 'pin-off' : 'pin',
-        action: this.pinFirstColumn.bind(this),
+        action: this._pinFirstColumn.bind(this),
       },
     ];
   }
@@ -189,13 +188,11 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     );
   }
 
-  @action
-  private resizeColumn() {
+  private _resizeColumn() {
     this.args.resizeHandleElement?.focus();
   }
 
-  @action
-  private resetColumnWidth(dropdownCloseCallback: () => void): void {
+  private _resetColumnWidth(dropdownCloseCallback: () => void): void {
     const { column, onColumnResize } = this.args;
 
     column.restoreWidth();
@@ -207,8 +204,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     dropdownCloseCallback();
   }
 
-  @action
-  private moveColumn() {
+  private _moveColumn() {
     // eslint-disable-next-line ember/no-runloop
     scheduleOnce(
       'afterRender',
@@ -217,8 +213,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     );
   }
 
-  @action
-  private moveColumnToPosition(
+  private _moveColumnToPosition(
     position: 'start' | 'end',
     dropdownCloseCallback?: () => void
   ): void {
@@ -229,8 +224,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     dropdownCloseCallback?.();
   }
 
-  @action
-  private pinFirstColumn(dropdownCloseCallback: () => void): void {
+  private _pinFirstColumn(dropdownCloseCallback: () => void): void {
     const { onPinFirstColumn } = this.args;
 
     if (typeof onPinFirstColumn === 'function') {

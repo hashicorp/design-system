@@ -127,3 +127,11 @@ export interface HdsAdvancedTableCell {
   columnKey: string;
   content: unknown;
 }
+
+export enum HdsAdvancedTableColumnReorderSideValues {
+  Left = 'left',
+  Right = 'right',
+}
+
+export type HdsAdvancedTableColumnReorderSide =
+  `${HdsAdvancedTableColumnReorderSideValues}`;

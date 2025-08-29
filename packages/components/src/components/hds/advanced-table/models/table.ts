@@ -8,23 +8,19 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { isEmpty } from '@ember/utils';
 import HdsAdvancedTableColumn from './column.ts';
-import { HdsAdvancedTableThSortOrderValues } from '../types.ts';
+import {
+  HdsAdvancedTableColumnReorderSideValues,
+  HdsAdvancedTableThSortOrderValues,
+} from '../types.ts';
 
 import type { HdsAdvancedTableSignature } from '../index.ts';
 import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableCell,
   HdsAdvancedTableColumnReorderCallback,
+  HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableSortingFunction,
 } from '../types';
-
-enum HdsAdvancedTableColumnReorderSideValues {
-  Left = 'left',
-  Right = 'right',
-}
-
-type HdsAdvancedTableColumnReorderSide =
-  `${HdsAdvancedTableColumnReorderSideValues}`;
 
 type HdsAdvancedTableTableArgs = Pick<
   HdsAdvancedTableSignature['Args'],

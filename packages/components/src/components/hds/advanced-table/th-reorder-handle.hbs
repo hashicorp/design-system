@@ -1,9 +1,13 @@
-{{! template-lint-disable no-invalid-role require-context-role require-presentational-children }}
+{{! template-lint-disable no-unsupported-role-attributes require-presentational-children }}
 <div
   role="button"
   draggable="true"
   class="hds-advanced-table__th-reorder-handle"
   tabindex="0"
+  aria-description={{hds-t
+    "hds.components.advanced-table.th-reorder-handle.aria-description"
+    default="Use left and right arrow keys while focused on this button to move the column to a new position."
+  }}
   aria-label={{hds-t
     "hds.components.advanced-table.th-reorder-handle.aria-label"
     columnLabel=@column.label
