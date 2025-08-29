@@ -84,10 +84,6 @@ $hds-button-size-props: (
   border-color: var(--token-color-border-primary);
   box-shadow: none;
   cursor: not-allowed;
-
-  &::before {
-    border-color: transparent;
-  }
 }
 
 @mixin hds-button-state-focus() {
