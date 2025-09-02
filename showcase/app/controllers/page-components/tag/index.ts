@@ -6,7 +6,11 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
+import type { PageComponentsTagModel } from 'showcase/routes/page-components/tag';
+
 export default class PageComponentsTagController extends Controller {
+  declare model: PageComponentsTagModel;
+
   @action
   noop() {}
 }
