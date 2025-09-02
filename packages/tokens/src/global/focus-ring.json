@@ -2,28 +2,28 @@
     "focus-ring": {
         "action": {
             "internal-box-shadow": {
-                "value": "inset 0 0 0 1px {color.focus.action.internal.value}",
+                "value": "inset 0 0 0 1px {color.focus.action.internal}",
                 "private": true
             },
             "external-box-shadow": {
-                "value": "0 0 0 3px {color.focus.action.external.value}",
+                "value": "0 0 0 3px {color.focus.action.external}",
                 "private": true
             },
             "box-shadow": {
-                "value": "{focus-ring.action.internal-box-shadow.value}, {focus-ring.action.external-box-shadow.value}"
+                "value": "{focus-ring.action.internal-box-shadow}, {focus-ring.action.external-box-shadow}"
             }
         },
         "critical": {
             "internal-box-shadow": {
-                "value": "inset 0 0 0 1px {color.focus.critical.internal.value}",
+                "value": "inset 0 0 0 1px {color.focus.critical.internal}",
                 "private": true
             },
             "external-box-shadow": {
-                "value": "0 0 0 3px {color.focus.critical.external.value}",
+                "value": "0 0 0 3px {color.focus.critical.external}",
                 "private": true
             },
             "box-shadow": {
-                "value": "{focus-ring.critical.internal-box-shadow.value}, {focus-ring.critical.external-box-shadow.value}"
+                "value": "{focus-ring.critical.internal-box-shadow}, {focus-ring.critical.external-box-shadow}"
             }
         }
     }

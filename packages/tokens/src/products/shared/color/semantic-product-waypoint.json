@@ -2,34 +2,34 @@
     "color": {
         "waypoint": {
             "brand": {
-                "value": "{color.palette.waypoint-brand.value}",
+                "value": "{color.palette.waypoint-brand}",
                 "type": "color",
                 "group": "branding"
             },
             "foreground": {
-                "value": "{color.palette.waypoint-500.value}",
+                "value": "{color.palette.waypoint-500}",
                 "type": "color",
                 "group": "branding"
             },
             "surface": {
-                "value": "{color.palette.waypoint-50.value}",
+                "value": "{color.palette.waypoint-50}",
                 "type": "color",
                 "group": "branding"
             },
             "border": {
-                "value": "{color.palette.waypoint-100.value}",
+                "value": "{color.palette.waypoint-100}",
                 "type": "color",
                 "group": "branding"
             },
             "gradient": {
                 "primary": {
                     "start": {
-                        "value": "{color.palette.waypoint-100.value}",
+                        "value": "{color.palette.waypoint-100}",
                         "type": "color",
                         "group": "branding"
                     },
                     "stop": {
-                        "value": "{color.palette.waypoint-200.value}",
+                        "value": "{color.palette.waypoint-200}",
                         "type": "color",
                         "group": "branding"
                     }
@@ -42,7 +42,7 @@
                         "comment": "this is the 'waypoint-50' value at 25% opacity on white"
                     },
                     "stop": {
-                        "value": "{color.palette.waypoint-50.value}",
+                        "value": "{color.palette.waypoint-50}",
                         "type": "color",
                         "group": "branding"
                     }

@@ -23,7 +23,7 @@
                     "private": true
                 },
                 "color": {
-                    "value": "{elevation.color.strong.value}",
+                    "value": "{elevation.color.strong}",
                     "alpha": "0.25",
                     "type": "color",
                     "private": true
@@ -51,7 +51,7 @@
                     "private": true
                 },
                 "color": {
-                    "value": "{elevation.color.strong.value}",
+                    "value": "{elevation.color.strong}",
                     "alpha": "0.35",
                     "type": "color",
                     "private": true
@@ -64,22 +64,22 @@
                     "private": true
                 },
                 "color": {
-                    "value": "{elevation.color.strong.value}",
+                    "value": "{elevation.color.strong}",
                     "alpha": "0.25",
                     "type": "color",
                     "private": true
                 }
             },
             "box-shadow-01": {
-                "value": "{elevation.overlay.shadow-01.x.value} {elevation.overlay.shadow-01.y.value} {elevation.overlay.shadow-01.blur.value} {elevation.overlay.shadow-01.spread.value} {elevation.overlay.shadow-01.color.value}",
+                "value": "{elevation.overlay.shadow-01.x} {elevation.overlay.shadow-01.y} {elevation.overlay.shadow-01.blur} {elevation.overlay.shadow-01.spread} {elevation.overlay.shadow-01.color}",
                 "private": true
             },
             "box-shadow-02": {
-                "value": "{elevation.overlay.shadow-02.x.value} {elevation.overlay.shadow-02.y.value} {elevation.overlay.shadow-02.blur.value} {elevation.overlay.shadow-02.spread.value} {elevation.overlay.shadow-02.color.value}",
+                "value": "{elevation.overlay.shadow-02.x} {elevation.overlay.shadow-02.y} {elevation.overlay.shadow-02.blur} {elevation.overlay.shadow-02.spread} {elevation.overlay.shadow-02.color}",
                 "private": true
             },
             "box-shadow-border": {
-                "value": "0 0 0 {elevation.overlay.border.width.value} {elevation.overlay.border.color.value}",
+                "value": "0 0 0 {elevation.overlay.border.width} {elevation.overlay.border.color}",
                 "private": true
             }
         }

@@ -2,34 +2,34 @@
     "color": {
         "vagrant": {
             "brand": {
-                "value": "{color.palette.vagrant-brand.value}",
+                "value": "{color.palette.vagrant-brand}",
                 "type": "color",
                 "group": "branding"
             },
             "foreground": {
-                "value": "{color.palette.vagrant-500.value}",
+                "value": "{color.palette.vagrant-500}",
                 "type": "color",
                 "group": "branding"
             },
             "surface": {
-                "value": "{color.palette.vagrant-50.value}",
+                "value": "{color.palette.vagrant-50}",
                 "type": "color",
                 "group": "branding"
             },
             "border": {
-                "value": "{color.palette.vagrant-100.value}",
+                "value": "{color.palette.vagrant-100}",
                 "type": "color",
                 "group": "branding"
             },
             "gradient": {
                 "primary": {
                     "start": {
-                        "value": "{color.palette.vagrant-300.value}",
+                        "value": "{color.palette.vagrant-300}",
                         "type": "color",
                         "group": "branding"
                     },
                     "stop": {
-                        "value": "{color.palette.vagrant-400.value}",
+                        "value": "{color.palette.vagrant-400}",
                         "type": "color",
                         "group": "branding"
                     }
@@ -42,7 +42,7 @@
                         "comment": "this is the 'vagrant-50' value at 25% opacity on white"
                     },
                     "stop": {
-                        "value": "{color.palette.vagrant-50.value}",
+                        "value": "{color.palette.vagrant-50}",
                         "type": "color",
                         "group": "branding"
                     }

@@ -23,7 +23,7 @@
                     "private": true
                 },
                 "color": {
-                    "value": "{elevation.color.base.value}",
+                    "value": "{elevation.color.base}",
                     "alpha": "0.10",
                     "type": "color",
                     "private": true
@@ -51,7 +51,7 @@
                     "private": true
                 },
                 "color": {
-                    "value": "{elevation.color.base.value}",
+                    "value": "{elevation.color.base}",
                     "alpha": "0.20",
                     "type": "color",
                     "private": true
@@ -64,22 +64,22 @@
                     "private": true
                 },
                 "color": {
-                    "value": "{elevation.color.base.value}",
+                    "value": "{elevation.color.base}",
                     "alpha": "0.15",
                     "type": "color",
                     "private": true
                 }
             },
             "box-shadow-01": {
-                "value": "{elevation.mid.shadow-01.x.value} {elevation.mid.shadow-01.y.value} {elevation.mid.shadow-01.blur.value} {elevation.mid.shadow-01.spread.value} {elevation.mid.shadow-01.color.value}",
+                "value": "{elevation.mid.shadow-01.x} {elevation.mid.shadow-01.y} {elevation.mid.shadow-01.blur} {elevation.mid.shadow-01.spread} {elevation.mid.shadow-01.color}",
                 "private": true
             },
             "box-shadow-02": {
-                "value": "{elevation.mid.shadow-02.x.value} {elevation.mid.shadow-02.y.value} {elevation.mid.shadow-02.blur.value} {elevation.mid.shadow-02.spread.value} {elevation.mid.shadow-02.color.value}",
+                "value": "{elevation.mid.shadow-02.x} {elevation.mid.shadow-02.y} {elevation.mid.shadow-02.blur} {elevation.mid.shadow-02.spread} {elevation.mid.shadow-02.color}",
                 "private": true
             },
             "box-shadow-border": {
-                "value": "0 0 0 {elevation.mid.border.width.value} {elevation.mid.border.color.value}",
+                "value": "0 0 0 {elevation.mid.border.width} {elevation.mid.border.color}",
                 "private": true
             }
         }

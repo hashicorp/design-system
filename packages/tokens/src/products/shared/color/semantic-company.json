@@ -2,7 +2,7 @@
     "color": {
         "hashicorp": {
             "brand": {
-                "value": "{color.palette.hashicorp-brand.value}",
+                "value": "{color.palette.hashicorp-brand}",
                 "type": "color",
                 "group": "branding"
             }

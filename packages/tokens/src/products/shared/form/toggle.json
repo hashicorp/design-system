@@ -12,7 +12,7 @@
             "base": {
                 "surface-color": {
                     "default": {
-                        "value": "{color.surface.strong.value}",
+                        "value": "{color.surface.strong}",
                         "type": "color",
                         "group": "components",
                         "comment": "the toggle has a different base surface color, compared to the other controls"
@@ -58,7 +58,7 @@
                 }
             },
             "thumb-size": {
-                "value": "{form.toggle.height.value}",
+                "value": "{form.toggle.height}",
                 "type": "size"
             }
         }

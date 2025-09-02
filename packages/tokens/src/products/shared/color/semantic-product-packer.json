@@ -2,34 +2,34 @@
     "color": {
         "packer": {
             "brand": {
-                "value": "{color.palette.packer-brand.value}",
+                "value": "{color.palette.packer-brand}",
                 "type": "color",
                 "group": "branding"
             },
             "foreground": {
-                "value": "{color.palette.packer-500.value}",
+                "value": "{color.palette.packer-500}",
                 "type": "color",
                 "group": "branding"
             },
             "surface": {
-                "value": "{color.palette.packer-50.value}",
+                "value": "{color.palette.packer-50}",
                 "type": "color",
                 "group": "branding"
             },
             "border": {
-                "value": "{color.palette.packer-100.value}",
+                "value": "{color.palette.packer-100}",
                 "type": "color",
                 "group": "branding"
             },
             "gradient": {
                 "primary": {
                     "start": {
-                        "value": "{color.palette.packer-100.value}",
+                        "value": "{color.palette.packer-100}",
                         "type": "color",
                         "group": "branding"
                     },
                     "stop": {
-                        "value": "{color.palette.packer-200.value}",
+                        "value": "{color.palette.packer-200}",
                         "type": "color",
                         "group": "branding"
                     }
@@ -42,7 +42,7 @@
                         "comment": "this is the 'packer-50' value at 25% opacity on white"
                     },
                     "stop": {
-                        "value": "{color.palette.packer-50.value}",
+                        "value": "{color.palette.packer-50}",
                         "type": "color",
                         "group": "branding"
                     }
