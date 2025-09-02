@@ -68,12 +68,19 @@ While code snippets and terminal scripts are usually detailed, they are well sui
 
 #### Forms
 
-Don't use a form in a Flyout, whether the function is creating an object, or updating an existing one. This type of content is often complex and more appropriate on its own page, or in the case of a simple form, within a [Modal](/components/modal).
+Only use forms in a flyout when they directly support the page's primary function. For example, if the page's main purpose is to view a list of labels, editing them becomes a secondary action. In this case, it makes sense to put the edit function in a flyout.
 
-!!! Dont
+!!! Do
 
-![Form within a Flyout](/assets/components/flyout/form-in-flyout.png)
+In this context, editing is a simple task, and the form placed will require minimal effort from the user while also supporting their review of the contents of the table.
+
+![A table with a list of labels, their associated values and applied workspaces and projects. There is a search bar above the table. The user is clicking on one of the edit buttons in the table.](/assets/components/flyout/flyout-forms-assisting-tasks-01.png)
+
+![A flyout is opened which has a form within that edits a single label, its values and other related inputs.](/assets/components/flyout/flyout-forms-assisting-tasks-02.png)
+
 !!!
+
+If you feel the contents of the form are too long, or complex (require multiple layers of editing features), it should be placed on its own page.
 
 ## Size
 
