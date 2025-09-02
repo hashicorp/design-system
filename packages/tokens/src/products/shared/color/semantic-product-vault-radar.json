@@ -2,7 +2,7 @@
     "color": {
         "vault-radar": {
             "brand": {
-                "value": "{color.palette.vault-radar-brand.value}",
+                "value": "{color.palette.vault-radar-brand}",
                 "type": "color",
                 "group": "branding"
             },
@@ -13,29 +13,29 @@
                 "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work"
             },
             "foreground": {
-                "value": "{color.palette.vault-radar-500.value}",
+                "value": "{color.palette.vault-radar-500}",
                 "type": "color",
                 "group": "branding"
             },
             "surface": {
-                "value": "{color.palette.vault-radar-50.value}",
+                "value": "{color.palette.vault-radar-50}",
                 "type": "color",
                 "group": "branding"
             },
             "border": {
-                "value": "{color.palette.vault-radar-100.value}",
+                "value": "{color.palette.vault-radar-100}",
                 "type": "color",
                 "group": "branding"
             },
             "gradient": {
                 "primary": {
                     "start": {
-                        "value": "{color.palette.vault-radar-100.value}",
+                        "value": "{color.palette.vault-radar-100}",
                         "type": "color",
                         "group": "branding"
                     },
                     "stop": {
-                        "value": "{color.palette.vault-radar-200.value}",
+                        "value": "{color.palette.vault-radar-200}",
                         "type": "color",
                         "group": "branding"
                     }
@@ -48,7 +48,7 @@
                         "comment": "this is the 'vault-radar-50' value at 25% opacity on white"
                     },
                     "stop": {
-                        "value": "{color.palette.vault-radar-50.value}",
+                        "value": "{color.palette.vault-radar-50}",
                         "type": "color",
                         "group": "branding"
                     }

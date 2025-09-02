@@ -48,13 +48,13 @@
                 }
             },
             "display": {
-                "value": "{typography.font-stack.sans.display.macOS.value}, {typography.font-stack.sans.display.windows.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.display.emoji.value}"
+                "value": "{typography.font-stack.sans.display.macOS}, {typography.font-stack.sans.display.windows}, {typography.font-stack.sans.display.sans}, {typography.font-stack.sans.display.emoji}"
             },
             "text": {
-                "value": "{typography.font-stack.sans.text.macOS.value}, {typography.font-stack.sans.text.windows.value}, {typography.font-stack.sans.display.sans.value}, {typography.font-stack.sans.text.emoji.value}"
+                "value": "{typography.font-stack.sans.text.macOS}, {typography.font-stack.sans.text.windows}, {typography.font-stack.sans.display.sans}, {typography.font-stack.sans.text.emoji}"
             },
             "code": {
-                "value": "{typography.font-stack.monospace.code.macOS.value}, {typography.font-stack.monospace.code.windows.value}, monospace"
+                "value": "{typography.font-stack.monospace.code.macOS}, {typography.font-stack.monospace.code.windows}, monospace"
             }
         },
         "font-weight": {
@@ -73,7 +73,7 @@
         },
         "display-500": {
             "font-family": {
-                "value": "{typography.font-stack.display.value}"
+                "value": "{typography.font-stack.display}"
             },
             "font-size": {
                 "value": "30",
@@ -87,7 +87,7 @@
         },
         "display-400": {
             "font-family": {
-                "value": "{typography.font-stack.display.value}"
+                "value": "{typography.font-stack.display}"
             },
             "font-size": {
                 "value": "24",
@@ -101,7 +101,7 @@
         },
         "display-300": {
             "font-family": {
-                "value": "{typography.font-stack.text.value}"
+                "value": "{typography.font-stack.text}"
             },
             "font-size": {
                 "value": "18",
@@ -119,7 +119,7 @@
         },
         "display-200": {
             "font-family": {
-                "value": "{typography.font-stack.display.value}"
+                "value": "{typography.font-stack.display}"
             },
             "font-size": {
                 "value": "16",
@@ -137,7 +137,7 @@
         },
         "display-100": {
             "font-family": {
-                "value": "{typography.font-stack.text.value}"
+                "value": "{typography.font-stack.text}"
             },
             "font-size": {
                 "value": "13",
@@ -151,7 +151,7 @@
         },
         "body-300": {
             "font-family": {
-                "value": "{typography.font-stack.text.value}"
+                "value": "{typography.font-stack.text}"
             },
             "font-size": {
                 "value": "16",
@@ -165,7 +165,7 @@
         },
         "body-200": {
             "font-family": {
-                "value": "{typography.font-stack.text.value}"
+                "value": "{typography.font-stack.text}"
             },
             "font-size": {
                 "value": "14",
@@ -179,7 +179,7 @@
         },
         "body-100": {
             "font-family": {
-                "value": "{typography.font-stack.text.value}"
+                "value": "{typography.font-stack.text}"
             },
             "font-size": {
                 "value": "13",
@@ -193,7 +193,7 @@
         },
         "code-100": {
             "font-family": {
-                "value": "{typography.font-stack.code.value}"
+                "value": "{typography.font-stack.code}"
             },
             "font-size": {
                 "value": "13",
@@ -207,7 +207,7 @@
         },
         "code-200": {
             "font-family": {
-                "value": "{typography.font-stack.code.value}"
+                "value": "{typography.font-stack.code}"
             },
             "font-size": {
                 "value": "14",
@@ -221,7 +221,7 @@
         },
         "code-300": {
             "font-family": {
-                "value": "{typography.font-stack.code.value}"
+                "value": "{typography.font-stack.code}"
             },
             "font-size": {
                 "value": "16",

@@ -7,7 +7,7 @@
                     "type": "size"
                 },
                 "position-x": {
-                    "value": "{form.control.padding.value}",
+                    "value": "{form.control.padding}",
                     "type": "size"
                 },
                 "data-url-date": {

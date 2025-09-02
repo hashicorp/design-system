@@ -2,37 +2,37 @@
     "surface": {
         "inset": {
             "box-shadow": {
-                "value": "{elevation.inset.box-shadow-border.value}, {elevation.inset.box-shadow.value}"
+                "value": "{elevation.inset.box-shadow-border}, {elevation.inset.box-shadow}"
             }
         },
         "base": {
             "box-shadow": {
-                "value": "{elevation.base.box-shadow-border.value}"
+                "value": "{elevation.base.box-shadow-border}"
             }
         },
         "low": {
             "box-shadow": {
-                "value": "{elevation.low.box-shadow-border.value}, {elevation.low.box-shadow.value}"
+                "value": "{elevation.low.box-shadow-border}, {elevation.low.box-shadow}"
             }
         },
         "mid": {
             "box-shadow": {
-                "value": "{elevation.mid.box-shadow-border.value}, {elevation.mid.box-shadow.value}"
+                "value": "{elevation.mid.box-shadow-border}, {elevation.mid.box-shadow}"
             }
         },
         "high": {
             "box-shadow": {
-                "value": "{elevation.high.box-shadow-border.value}, {elevation.high.box-shadow.value}"
+                "value": "{elevation.high.box-shadow-border}, {elevation.high.box-shadow}"
             }
         },
         "higher": {
             "box-shadow": {
-                "value": "{elevation.higher.box-shadow-border.value}, {elevation.higher.box-shadow.value}"
+                "value": "{elevation.higher.box-shadow-border}, {elevation.higher.box-shadow}"
             }
         },
         "overlay": {
             "box-shadow": {
-                "value": "{elevation.overlay.box-shadow-border.value}, {elevation.overlay.box-shadow.value}"
+                "value": "{elevation.overlay.box-shadow-border}, {elevation.overlay.box-shadow}"
             }
         }
     }

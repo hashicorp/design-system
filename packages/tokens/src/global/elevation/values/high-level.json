@@ -23,7 +23,7 @@
                     "private": true
                 },
                 "color": {
-                    "value": "{elevation.color.base.value}",
+                    "value": "{elevation.color.base}",
                     "alpha": "0.15",
                     "type": "color",
                     "private": true
@@ -51,7 +51,7 @@
                     "private": true
                 },
                 "color": {
-                    "value": "{elevation.color.base.value}",
+                    "value": "{elevation.color.base}",
                     "alpha": "0.20",
                     "type": "color",
                     "private": true
@@ -64,22 +64,22 @@
                     "private": true
                 },
                 "color": {
-                    "value": "{elevation.color.base.value}",
+                    "value": "{elevation.color.base}",
                     "alpha": "0.25",
                     "type": "color",
                     "private": true
                 }
             },
             "box-shadow-01": {
-                "value": "{elevation.high.shadow-01.x.value} {elevation.high.shadow-01.y.value} {elevation.high.shadow-01.blur.value} {elevation.high.shadow-01.spread.value} {elevation.high.shadow-01.color.value}",
+                "value": "{elevation.high.shadow-01.x} {elevation.high.shadow-01.y} {elevation.high.shadow-01.blur} {elevation.high.shadow-01.spread} {elevation.high.shadow-01.color}",
                 "private": true
             },
             "box-shadow-02": {
-                "value": "{elevation.high.shadow-02.x.value} {elevation.high.shadow-02.y.value} {elevation.high.shadow-02.blur.value} {elevation.high.shadow-02.spread.value} {elevation.high.shadow-02.color.value}",
+                "value": "{elevation.high.shadow-02.x} {elevation.high.shadow-02.y} {elevation.high.shadow-02.blur} {elevation.high.shadow-02.spread} {elevation.high.shadow-02.color}",
                 "private": true
             },
             "box-shadow-border": {
-                "value": "0 0 0 {elevation.high.border.width.value} {elevation.high.border.color.value}",
+                "value": "0 0 0 {elevation.high.border.width} {elevation.high.border.color}",
                 "private": true
             }
         }

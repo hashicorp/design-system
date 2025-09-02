@@ -7,7 +7,7 @@
                     "type": "size"
                 },
                 "position-right-x": {
-                    "value": "{form.control.padding.value}",
+                    "value": "{form.control.padding}",
                     "type": "size"
                 },
                 "position-top-y": {

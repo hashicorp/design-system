@@ -2,34 +2,34 @@
     "color": {
         "boundary": {
             "brand": {
-                "value": "{color.palette.boundary-brand.value}",
+                "value": "{color.palette.boundary-brand}",
                 "type": "color",
                 "group": "branding"
             },
             "foreground": {
-                "value": "{color.palette.boundary-500.value}",
+                "value": "{color.palette.boundary-500}",
                 "type": "color",
                 "group": "branding"
             },
             "surface": {
-                "value": "{color.palette.boundary-50.value}",
+                "value": "{color.palette.boundary-50}",
                 "type": "color",
                 "group": "branding"
             },
             "border": {
-                "value": "{color.palette.boundary-100.value}",
+                "value": "{color.palette.boundary-100}",
                 "type": "color",
                 "group": "branding"
             },
             "gradient": {
                 "primary": {
                     "start": {
-                        "value": "{color.palette.boundary-300.value}",
+                        "value": "{color.palette.boundary-300}",
                         "type": "color",
                         "group": "branding"
                     },
                     "stop": {
-                        "value": "{color.palette.boundary-400.value}",
+                        "value": "{color.palette.boundary-400}",
                         "type": "color",
                         "group": "branding"
                     }
@@ -42,7 +42,7 @@
                         "comment": "this is the 'boundary-50' value at 25% opacity on white"
                     },
                     "stop": {
-                        "value": "{color.palette.boundary-50.value}",
+                        "value": "{color.palette.boundary-50}",
                         "type": "color",
                         "group": "branding"
                     }

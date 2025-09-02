@@ -3,7 +3,7 @@
         "focus": {
             "action": {
                 "internal": {
-                    "value": "{color.palette.blue-300.value}",
+                    "value": "{color.palette.blue-300}",
                     "type": "color",
                     "group": "semantic"
                 },
@@ -16,7 +16,7 @@
             },
             "critical": {
                 "internal": {
-                    "value": "{color.palette.red-300.value}",
+                    "value": "{color.palette.red-300}",
                     "type": "color",
                     "group": "semantic"
                 },

@@ -2,12 +2,12 @@
     "color": {
         "page": {
             "primary": {
-                "value": "{color.palette.neutral-0.value}",
+                "value": "{color.palette.neutral-0}",
                 "type": "color",
                 "group": "semantic"
             },
             "faint": {
-                "value": "{color.palette.neutral-50.value}",
+                "value": "{color.palette.neutral-50}",
                 "type": "color",
                 "group": "semantic"
             }
