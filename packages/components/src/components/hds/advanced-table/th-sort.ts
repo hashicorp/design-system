@@ -21,6 +21,7 @@ import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableThSortOrderLabels,
+  HdsAdvancedTableColumnReorderSide,
 } from './types.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
@@ -56,7 +57,7 @@ export interface HdsAdvancedTableThSortSignature {
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
-      side: 'left' | 'right'
+      side: HdsAdvancedTableColumnReorderSide
     ) => void;
   };
   Blocks: {

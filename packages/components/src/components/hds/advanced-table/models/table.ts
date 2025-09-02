@@ -405,12 +405,24 @@ export default class HdsAdvancedTableTableModel {
       this.setColumnOrder(updated);
 
       for (const row of this.rows) {
-        row.updateColumnOrder(updated);
+        row.columnOrder = updated;
       }
 
-      sourceColumn.isBeingDragged = false;
+      queueMicrotask(() => {
+        sourceColumn.thElement?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'center',
+        });
 
-      this.onColumnReorder?.(updated);
+        sourceColumn.isBeingDragged = false;
+
+        this.onColumnReorder?.({
+          column: sourceColumn,
+          newOrder: updated,
+          insertedAt: updated.indexOf(sourceColumn.key),
+        });
+      });
     }
   }
 

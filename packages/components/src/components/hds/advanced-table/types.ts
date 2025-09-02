@@ -119,9 +119,15 @@ export type HdsAdvancedTableColumnResizeCallback = (
   newWidth?: string
 ) => void;
 
-export type HdsAdvancedTableColumnReorderCallback = (
-  columnOrder: string[]
-) => void;
+export type HdsAdvancedTableColumnReorderCallback = ({
+  column,
+  newOrder,
+  insertedAt,
+}: {
+  column: HdsAdvancedTableColumn;
+  newOrder: string[];
+  insertedAt: number;
+}) => void;
 
 export interface HdsAdvancedTableCell {
   columnKey: string;

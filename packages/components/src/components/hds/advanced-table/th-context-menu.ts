@@ -168,7 +168,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       allGroups = [...allGroups, this._resizeOptions];
     }
 
-    if (hasReorderableColumns) {
+    if (hasReorderableColumns && isStickyColumn === undefined) {
       allGroups = [...allGroups, this._reorderOptions];
     }
 

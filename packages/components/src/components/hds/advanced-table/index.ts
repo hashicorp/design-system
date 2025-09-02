@@ -8,6 +8,7 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
+import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
 import HdsAdvancedTableTableModel from './models/table.ts';
 
@@ -34,6 +35,7 @@ import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
 import type HdsAdvancedTableTr from './tr.ts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -137,6 +139,7 @@ export interface HdsAdvancedTableSignature {
     isSelectable?: boolean;
     isStriped?: boolean;
     model: HdsAdvancedTableModel;
+    reorderedMessageText?: string;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
     selectableColumnKey?: string;
@@ -197,6 +200,8 @@ export interface HdsAdvancedTableSignature {
 }
 
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
+  @service hdsIntl!: HdsIntlService;
+
   @tracked
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
@@ -214,6 +219,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked isStickyColumnPinned = false;
   @tracked isStickyHeaderPinned = false;
   @tracked hasPinnedFirstColumn: boolean | undefined = undefined;
+  @tracked reorderedMessageText = '';
   @tracked showScrollIndicatorLeft = false;
   @tracked showScrollIndicatorRight = false;
   @tracked showScrollIndicatorTop = false;
@@ -245,6 +251,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       hasStickyFirstColumn,
       sortBy,
       sortOrder,
+      onColumnReorder: this._onColumnReorder.bind(this),
       onSort,
     });
 
@@ -528,6 +535,36 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _setUpThead = modifier((element: HTMLDivElement) => {
     this._theadElement = element;
   });
+
+  private _onColumnReorder: HdsAdvancedTableColumnReorderCallback = ({
+    column,
+    newOrder,
+    insertedAt,
+  }) => {
+    const { reorderedMessageText } = this.args;
+
+    if (reorderedMessageText !== undefined) {
+      this.reorderedMessageText = reorderedMessageText;
+    } else {
+      const newPosition = insertedAt + 1;
+      const translatedReorderedMessageText = this.hdsIntl.t(
+        'hds.advanced-table.reordered-message',
+        {
+          default: `Moved ${column.label} column to position ${newPosition}`,
+          columnLabel: column.label,
+          newPosition,
+        }
+      );
+
+      this.reorderedMessageText = translatedReorderedMessageText;
+    }
+
+    this.args.onColumnReorder?.({
+      column,
+      newOrder,
+      insertedAt,
+    });
+  };
 
   onSelectionChangeCallback(
     checkbox?: HdsFormCheckboxBaseSignature['Element'],

@@ -19,6 +19,7 @@ import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableScope,
   HdsAdvancedTableExpandState,
+  HdsAdvancedTableColumnReorderSide,
 } from './types.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
@@ -58,7 +59,7 @@ export interface HdsAdvancedTableThSignature {
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
-      side: 'left' | 'right'
+      side: HdsAdvancedTableColumnReorderSide
     ) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };

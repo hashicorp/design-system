@@ -85,11 +85,6 @@ export default class HdsAdvancedTableRow {
   }
 
   @action
-  updateColumnOrder(columnOrder: string[]) {
-    this.columnOrder = columnOrder;
-  }
-
-  @action
   openAll() {
     this.isOpen = true;
     this.children.forEach((child) => child.openAll());

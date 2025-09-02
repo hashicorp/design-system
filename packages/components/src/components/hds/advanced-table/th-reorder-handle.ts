@@ -94,20 +94,32 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
 
   @action
   handleKeydown(event: KeyboardEvent): void {
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
-      return;
+    switch (event.key) {
+      case 'ArrowLeft':
+      case 'ArrowRight': {
+        event.preventDefault();
+
+        const { column } = this.args;
+        const direction = event.key === 'ArrowLeft' ? -1 : 1;
+        column.table.stepColumn(column, direction);
+
+        // we need to wait for the next run loop to ensure that the element has been registered with the column after moving
+        // eslint-disable-next-line ember/no-runloop
+        scheduleOnce(
+          'afterRender',
+          this,
+          this.args.column.focusReorderHandle.bind(this)
+        );
+        break;
+      }
+
+      case ' ': {
+        event.preventDefault();
+        break;
+      }
+
+      default:
+        break;
     }
-
-    const { column } = this.args;
-
-    column.table.stepColumn(column, event.key === 'ArrowLeft' ? -1 : 1);
-
-    // we need to wait for the next run loop to ensure that the element has been registered with the column after moving
-    // eslint-disable-next-line ember/no-runloop
-    scheduleOnce(
-      'afterRender',
-      this,
-      this.args.column.focusReorderHandle.bind(this)
-    );
   }
 }
