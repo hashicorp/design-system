@@ -1,0 +1,66 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { on } from '@ember/modifier';
+import type { WithBoundArgs } from '@glint/template';
+
+import type { Filter } from './index';
+
+// HDS components
+import {
+  HdsDropdownListItemCheckbox,
+} from '@hashicorp/design-system-components/components';
+
+import type { HdsDropdownSignature } from '@hashicorp/design-system-components/components/hds/dropdown/index';
+
+export interface MockAppMainGenericFilterBarCheckboxSignature {
+  Args: HdsDropdownSignature['Args'] & {
+    checkbox?: WithBoundArgs<
+      typeof HdsDropdownListItemCheckbox,
+      never
+    >;
+    value?: string;
+    keyFilter: Filter[] | Filter | undefined;
+    onChange?: (event: Event) => void;
+  }
+  Blocks: {
+    default: [],
+  }
+  Element: HTMLDivElement;
+}
+
+export default class MockAppMainGenericFilterBarCheckbox extends Component<MockAppMainGenericFilterBarCheckboxSignature> {
+  @action
+  onChange(event: Event): void {
+    const { onChange } = this.args;
+    if (onChange && typeof onChange === 'function') {
+      onChange(event);
+    }
+  }
+
+  get isChecked(): boolean {
+    const { keyFilter, value } = this.args;
+    if (Array.isArray(keyFilter)) {
+      return keyFilter.some((filter) => filter.value === value);
+    } else if (keyFilter && value) {
+      return keyFilter.value === value;
+    }
+    return false;
+  }
+
+  <template>
+    {{#let @checkbox as |Checkbox|}}
+      <Checkbox
+        checked={{this.isChecked}}
+        @value={{@value}}
+        {{on "change" this.onChange}}
+      >
+        {{yield}}
+      </Checkbox>
+    {{/let}}
+  </template>
+}

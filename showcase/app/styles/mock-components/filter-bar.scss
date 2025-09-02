@@ -1,0 +1,25 @@
+// Mock Filter Bar
+.mock-app-main-generic-filter-bar {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 16px;
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .filter__super-select {
+      min-width: 200px;
+      max-width: 300px;
+    }
+  }
+
+  .filter-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+}
