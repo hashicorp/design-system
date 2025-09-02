@@ -609,6 +609,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       model,
       sortBy,
       sortOrder,
+      isStickyColumnPinned: this.isStickyColumnPinned,
     });
   }
 

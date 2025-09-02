@@ -122,7 +122,7 @@ export default class HdsAdvancedTableColumn {
   }
 
   get isFirstNonSticky(): boolean {
-    return this.table.hasStickyFirstColumn ? this.index === 1 : this.isFirst;
+    return this.table.isStickyColumnPinned ? this.index === 1 : this.isFirst;
   }
 
   get isLast(): boolean {

@@ -59,6 +59,7 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 export default class HdsAdvancedTableTableModel {
   @tracked columns: HdsAdvancedTableColumn[] = [];
   @tracked columnOrder: string[] = [];
+  @tracked isStickyColumnPinned: boolean = false;
   @tracked reorderDraggedColumn: HdsAdvancedTableColumn | null = null;
   @tracked reorderHoveredColumn: HdsAdvancedTableColumn | null = null;
   @tracked rows: HdsAdvancedTableRow[] = [];
@@ -241,12 +242,22 @@ export default class HdsAdvancedTableTableModel {
     args: Pick<
       HdsAdvancedTableTableArgs,
       'model' | 'columns' | 'columnOrder' | 'sortBy' | 'sortOrder'
-    >
+    > & {
+      isStickyColumnPinned: boolean;
+    }
   ) {
-    const { model, columns, columnOrder, sortBy, sortOrder } = args;
+    const {
+      model,
+      columns,
+      columnOrder,
+      sortBy,
+      sortOrder,
+      isStickyColumnPinned,
+    } = args;
 
     this.sortBy = sortBy;
     this.sortOrder = sortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
+    this.isStickyColumnPinned = isStickyColumnPinned;
 
     this.columns = columns.map(
       (column) =>
