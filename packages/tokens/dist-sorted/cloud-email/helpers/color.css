@@ -1,0 +1,47 @@
+
+
+ * Do not edit directly, this file was auto-generated.
+ */
+.hds-border-action { border: 1px solid #cce3fe; }
+.hds-border-critical { border: 1px solid #fbd4d4; }
+.hds-border-faint { border: 1px solid #656a761a; }
+.hds-border-highlight { border: 1px solid #ead2fe; }
+.hds-border-primary { border: 1px solid #656a7633; }
+.hds-border-strong { border: 1px solid #3b3d4566; }
+.hds-border-success { border: 1px solid #cceeda; }
+.hds-border-warning { border: 1px solid #fbeabf; }
+.hds-foreground-action { color: #1060ff; }
+.hds-foreground-action-active { color: #0046d1; }
+.hds-foreground-action-hover { color: #0c56e9; }
+.hds-foreground-critical { color: #e52228; }
+.hds-foreground-critical-high-contrast { color: #51130a; }
+.hds-foreground-critical-on-surface { color: #c00005; }
+.hds-foreground-disabled { color: #8c909c; }
+.hds-foreground-faint { color: #656a76; }
+.hds-foreground-high-contrast { color: #ffffff; }
+.hds-foreground-highlight { color: #a737ff; }
+.hds-foreground-highlight-high-contrast { color: #42215b; }
+.hds-foreground-highlight-on-surface { color: #911ced; }
+.hds-foreground-primary { color: #3b3d45; }
+.hds-foreground-strong { color: #0c0c0e; }
+.hds-foreground-success { color: #008a22; }
+.hds-foreground-success-high-contrast { color: #054220; }
+.hds-foreground-success-on-surface { color: #00781e; }
+.hds-foreground-warning { color: #bb5a00; }
+.hds-foreground-warning-high-contrast { color: #542800; }
+.hds-foreground-warning-on-surface { color: #9e4b00; }
+.hds-page-faint { background-color: #fafafa; }
+.hds-page-primary { background-color: #ffffff; }
+.hds-surface-action { background-color: #f2f8ff; }
+.hds-surface-critical { background-color: #fff5f5; }
+.hds-surface-faint { background-color: #fafafa; }
+.hds-surface-highlight { background-color: #f9f2ff; }
+.hds-surface-interactive { background-color: #ffffff; }
+.hds-surface-interactive-active { background-color: #dedfe3; }
+.hds-surface-interactive-disabled { background-color: #fafafa; }
+.hds-surface-interactive-hover { background-color: #f1f2f3; }
+.hds-surface-primary { background-color: #ffffff; }
+.hds-surface-strong { background-color: #f1f2f3; }
+.hds-surface-success { background-color: #f2fbf6; }
+.hds-surface-warning { background-color: #fff9e8; }
+/**
