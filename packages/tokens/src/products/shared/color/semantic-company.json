@@ -1,11 +1,11 @@
 {
-    "color": {
-        "hashicorp": {
-            "brand": {
-                "value": "{color.palette.hashicorp-brand}",
-                "type": "color",
-                "group": "branding"
-            }
-        }
+  "color": {
+    "hashicorp": {
+      "brand": {
+        "value": "{color.palette.hashicorp-brand}",
+        "type": "color",
+        "group": "branding"
+      }
     }
+  }
 }

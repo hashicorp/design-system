@@ -1,16 +1,16 @@
 {
-    "elevation": {
-        "color": {
-            "base": {
-                "value": "{color.palette.neutral-500}",
-                "type": "color",
-                "private": true
-            },
-            "strong": {
-                "value": "{color.palette.neutral-600}",
-                "type": "color",
-                "private": true
-            }
-        }
+  "elevation": {
+    "color": {
+      "base": {
+        "value": "{color.palette.neutral-500}",
+        "type": "color",
+        "private": true
+      },
+      "strong": {
+        "value": "{color.palette.neutral-600}",
+        "type": "color",
+        "private": true
+      }
     }
+  }
 }
