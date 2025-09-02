@@ -1,124 +1,123 @@
 {
-    "form": {
-        "control": {
-            "base": {
-                "foreground": {
-                    "value-color": {
-                        "value": "{color.foreground.strong}",
-                        "type": "color",
-                        "group": "components"
-                    },
-                    "placeholder-color": {
-                        "value": "{color.foreground.faint}",
-                        "type": "color",
-                        "group": "components"
-                    }
-                },
-                "surface-color": {
-                    "default": {
-                        "value": "{color.surface.interactive}",
-                        "type": "color",
-                        "group": "components"
-                    },
-                    "hover": {
-                        "value": "{color.surface.interactive-hover}",
-                        "type": "color",
-                        "group": "components"
-                    }
-                },
-                "border-color": {
-                    "default": {
-                        "value": "{color.palette.neutral-400}",
-                        "type": "color",
-                        "group": "components"
-                    },
-                    "hover": {
-                        "value": "{color.palette.neutral-500}",
-                        "type": "color",
-                        "group": "components"
-                    }
-                }
-            },
-            "checked": {
-                "foreground-color": {
-                    "value": "{color.foreground.high-contrast}",
-                    "type": "color",
-                    "group": "components"
-                },
-                "surface-color": {
-                    "default": {
-                        "value": "{color.palette.blue-200}",
-                        "type": "color",
-                        "group": "components"
-                    },
-                    "hover": {
-                        "value": "{color.palette.blue-300}",
-                        "type": "color",
-                        "group": "components"
-                    }
-                },
-                "border-color": {
-                    "default": {
-                        "value": "{color.palette.blue-300}",
-                        "type": "color",
-                        "group": "components"
-                    },
-                    "hover": {
-                        "value": "{color.palette.blue-400}",
-                        "type": "color",
-                        "group": "components"
-                    }
-                }
-            },
-            "invalid": {
-                "border-color": {
-                    "default": {
-                        "value": "{color.palette.red-300}",
-                        "type": "color",
-                        "group": "components"
-                    },
-                    "hover": {
-                        "value": "{color.palette.red-400}",
-                        "type": "color",
-                        "group": "components"
-                    }
-                }
-
-            },
-            "readonly": {
-                "foreground-color": {
-                    "value": "{color.foreground.primary}",
-                    "type": "color",
-                    "group": "components"
-                },
-                "surface-color": {
-                    "value": "{color.surface.strong}",
-                    "type": "color",
-                    "group": "components"
-                },
-                "border-color": {
-                    "value": "{color.border.faint}",
-                    "type": "color",
-                    "group": "components"
-                }
-            },
-            "disabled": {
-                "foreground-color": {
-                    "value": "{color.foreground.disabled}",
-                    "type": "color",
-                    "group": "components"
-                },
-                "surface-color": {
-                    "value": "{color.surface.interactive-disabled}",
-                    "type": "color",
-                    "group": "components"
-                },
-                "border-color": {
-                    "value": "{color.border.primary}",
-                    "type": "color",
-                    "group": "components"
-                }
-            }
+  "form": {
+    "control": {
+      "base": {
+        "foreground": {
+          "value-color": {
+            "value": "{color.foreground.strong}",
+            "type": "color",
+            "group": "components"
+          },
+          "placeholder-color": {
+            "value": "{color.foreground.faint}",
+            "type": "color",
+            "group": "components"
+          }
+        },
+        "surface-color": {
+          "default": {
+            "value": "{color.surface.interactive}",
+            "type": "color",
+            "group": "components"
+          },
+          "hover": {
+            "value": "{color.surface.interactive-hover}",
+            "type": "color",
+            "group": "components"
+          }
+        },
+        "border-color": {
+          "default": {
+            "value": "{color.palette.neutral-400}",
+            "type": "color",
+            "group": "components"
+          },
+          "hover": {
+            "value": "{color.palette.neutral-500}",
+            "type": "color",
+            "group": "components"
+          }
         }
+      },
+      "checked": {
+        "foreground-color": {
+          "value": "{color.foreground.high-contrast}",
+          "type": "color",
+          "group": "components"
+        },
+        "surface-color": {
+          "default": {
+            "value": "{color.palette.blue-200}",
+            "type": "color",
+            "group": "components"
+          },
+          "hover": {
+            "value": "{color.palette.blue-300}",
+            "type": "color",
+            "group": "components"
+          }
+        },
+        "border-color": {
+          "default": {
+            "value": "{color.palette.blue-300}",
+            "type": "color",
+            "group": "components"
+          },
+          "hover": {
+            "value": "{color.palette.blue-400}",
+            "type": "color",
+            "group": "components"
+          }
+        }
+      },
+      "invalid": {
+        "border-color": {
+          "default": {
+            "value": "{color.palette.red-300}",
+            "type": "color",
+            "group": "components"
+          },
+          "hover": {
+            "value": "{color.palette.red-400}",
+            "type": "color",
+            "group": "components"
+          }
+        }
+      },
+      "readonly": {
+        "foreground-color": {
+          "value": "{color.foreground.primary}",
+          "type": "color",
+          "group": "components"
+        },
+        "surface-color": {
+          "value": "{color.surface.strong}",
+          "type": "color",
+          "group": "components"
+        },
+        "border-color": {
+          "value": "{color.border.faint}",
+          "type": "color",
+          "group": "components"
+        }
+      },
+      "disabled": {
+        "foreground-color": {
+          "value": "{color.foreground.disabled}",
+          "type": "color",
+          "group": "components"
+        },
+        "surface-color": {
+          "value": "{color.surface.interactive-disabled}",
+          "type": "color",
+          "group": "components"
+        },
+        "border-color": {
+          "value": "{color.border.primary}",
+          "type": "color",
+          "group": "components"
+        }
+      }
     }
+  }
 }

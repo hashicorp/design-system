@@ -1,45 +1,45 @@
 {
-    "form": {
-        "label": {
-            "color": {
-                "value": "{color.foreground.strong}",
-                "type": "color",
-                "group": "components"
-            }
-        },
-        "legend": {
-            "color": {
-                "value": "{form.label.color}",
-                "type": "color",
-                "group": "components"
-            }
-        },
-        "helper-text": {
-            "color": {
-                "value": "{color.foreground.faint}",
-                "type": "color",
-                "group": "components"
-            }
-        },
-        "indicator": {
-            "optional": {
-                "color": {
-                    "value": "{color.foreground.faint}",
-                    "type": "color",
-                    "group": "components"
-                }
-            }
-        },
-        "error": {
-            "color": {
-                "value": "{color.palette.red-300}",
-                "type": "color",
-                "group": "components"
-            },
-            "icon-size": {
-                "value": "14",
-                "type": "size"
-            }
+  "form": {
+    "label": {
+      "color": {
+        "value": "{color.foreground.strong}",
+        "type": "color",
+        "group": "components"
+      }
+    },
+    "legend": {
+      "color": {
+        "value": "{form.label.color}",
+        "type": "color",
+        "group": "components"
+      }
+    },
+    "helper-text": {
+      "color": {
+        "value": "{color.foreground.faint}",
+        "type": "color",
+        "group": "components"
+      }
+    },
+    "indicator": {
+      "optional": {
+        "color": {
+          "value": "{color.foreground.faint}",
+          "type": "color",
+          "group": "components"
         }
+      }
+    },
+    "error": {
+      "color": {
+        "value": "{color.palette.red-300}",
+        "type": "color",
+        "group": "components"
+      },
+      "icon-size": {
+        "value": "14",
+        "type": "size"
+      }
     }
+  }
 }

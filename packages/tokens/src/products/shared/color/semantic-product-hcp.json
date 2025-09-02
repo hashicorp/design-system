@@ -1,11 +1,11 @@
 {
-    "color": {
-        "hcp": {
-            "brand": {
-                "value": "{color.palette.hcp-brand}",
-                "type": "color",
-                "group": "branding"
-            }
-        }
+  "color": {
+    "hcp": {
+      "brand": {
+        "value": "{color.palette.hcp-brand}",
+        "type": "color",
+        "group": "branding"
+      }
     }
+  }
 }
