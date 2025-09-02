@@ -5,6 +5,11 @@
 
 import StyleDictionary from 'style-dictionary';
 import type { Config, DesignToken, Transform } from 'style-dictionary/types';
+import {
+  logBrokenReferenceLevels,
+  logVerbosityLevels,
+  logWarningLevels,
+} from 'style-dictionary/enums';
 
 import tinycolor from 'tinycolor2';
 
@@ -187,7 +192,15 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
     const { source, transformGroup, platforms } = targets[target];
 
     // we need to explicitly initialize the `config` object this way to make TS happy
-    const config: Config = {};
+    const config: Config = {
+        log: {
+            warnings: logWarningLevels.warn, // 'warn' | 'error' | 'disabled'
+            verbosity: logVerbosityLevels.verbose, // 'default' | 'silent' | 'verbose'
+            errors: {
+                brokenReferences: logBrokenReferenceLevels.console, // 'throw' | 'console'
+            },
+        }
+    };
     config.source = source;
     config.platforms = {};
 
