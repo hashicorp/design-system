@@ -787,6 +787,41 @@
     </Hds::AdvancedTable>
   </div>
 
+  <Shw::Text::H4 @tag="h3">Reorderable columns with selectable rows</Shw::Text::H4>
+
+  <div>
+    <Hds::AdvancedTable
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onSelectionChangeLogArguments}}
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+      @model={{this.model.selectableData}}
+      @columns={{array
+        (hash key="lorem" label="Row #" isSortable=true)
+        (hash key="ipsum" label="Ipsum")
+        (hash key="dolor" label="Dolor")
+      }}
+      @hasReorderableColumns={{true}}
+    >
+      <:body as |B|>
+        <B.Tr
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          @selectionKey="{{B.data.id}}"
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          @isSelected={{B.data.isSelected}}
+          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+          @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+          as |R|
+        >
+          {{#each R.orderedCells as |C|}}
+            <B.Td>
+              {{C.content}}
+            </B.Td>
+          {{/each}}
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+  </div>
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H2>Resizable columns</Shw::Text::H2>
