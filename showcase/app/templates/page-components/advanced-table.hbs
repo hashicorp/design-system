@@ -746,7 +746,7 @@
 
   <Shw::Text::H4 @tag="h3">Reorderable columns with sticky first column</Shw::Text::H4>
 
-  <div class="shw-component-advanced-table-fixed-width-wrapper">
+  <div class="shw-component-advanced-table-fixed-width-wrapper--wide">
     <Hds::AdvancedTable
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model.music}}
@@ -814,6 +814,7 @@
         >
           {{#each R.orderedCells as |C|}}
             <B.Td>
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{C.content}}
             </B.Td>
           {{/each}}
