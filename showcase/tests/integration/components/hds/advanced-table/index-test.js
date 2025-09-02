@@ -773,6 +773,35 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     });
 
     module('with @hasStickyFirstColumn enabled', function () {
+      test('the sticky first column does not have context menu options for column reordering', async function (assert) {
+        await render(
+          hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+  @hasStickyFirstColumn={{true}}
+/>`,
+        );
+
+        const thElements = findAll('.hds-advanced-table__th');
+
+        const firstContextMenuToggle = thElements[0].querySelector(
+          '.hds-dropdown-toggle-icon',
+        );
+        await click(firstContextMenuToggle);
+
+        assert.equal(
+          findAll('.hds-dropdown__list .hds-dropdown-list-item').length,
+          1,
+          'the correct number of options are displayed',
+        );
+
+        assert
+          .dom('[data-test-context-option-key="pin-first-column"]')
+          .exists();
+      });
+
       test('when dragging a column, the sticky column does not have a drop target', async function (assert) {
         await render(
           hbs`<Hds::AdvancedTable
