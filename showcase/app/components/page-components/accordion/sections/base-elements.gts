@@ -26,7 +26,7 @@ import { TYPES } from '@hashicorp/design-system-components/components/hds/accord
 
 const INTERACTION_STATES = ['default', 'active', 'hover', 'focus'];
 
-const BaseElementsSection: TemplateOnlyComponent = <template>
+const SectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
 
   <ShwTextH3>AccordionItem</ShwTextH3>
@@ -264,4 +264,4 @@ const BaseElementsSection: TemplateOnlyComponent = <template>
   {{/each}}
 </template>;
 
-export default BaseElementsSection;
+export default SectionBaseElements;

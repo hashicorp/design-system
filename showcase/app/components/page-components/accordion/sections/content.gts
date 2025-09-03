@@ -26,7 +26,7 @@ import { TYPES } from '@hashicorp/design-system-components/components/hds/accord
 import CodeFragmentWithExternalControl from '../code-fragments/with-external-control';
 import CodeFragmentWithPlaceholderContent from '../code-fragments/with-placeholder-content';
 
-const ContentSection: TemplateOnlyComponent = <template>
+const SectionContent: TemplateOnlyComponent = <template>
   <ShwTextH2>Content</ShwTextH2>
 
   <ShwTextH3>Generic content</ShwTextH3>
@@ -331,4 +331,4 @@ const ContentSection: TemplateOnlyComponent = <template>
   <ShwDivider />
 </template>;
 
-export default ContentSection;
+export default SectionContent;

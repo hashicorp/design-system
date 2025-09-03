@@ -17,7 +17,7 @@ import { TYPES } from '@hashicorp/design-system-components/components/hds/accord
 import CodeFragmentWithPlaceholderContent from '../code-fragments/with-placeholder-content';
 import CodeFragmentWithToggleVariants from '../code-fragments/with-toggle-variants';
 
-const VariantsSection: TemplateOnlyComponent = <template>
+const SectionVariants: TemplateOnlyComponent = <template>
   <ShwTextH2>Type</ShwTextH2>
 
   {{#each TYPES as |type index|}}
@@ -61,4 +61,4 @@ const VariantsSection: TemplateOnlyComponent = <template>
   <ShwDivider />
 </template>;
 
-export default VariantsSection;
+export default SectionVariants;
