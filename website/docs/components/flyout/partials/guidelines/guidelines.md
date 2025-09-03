@@ -68,11 +68,11 @@ While code snippets and terminal scripts are usually detailed, they are well sui
 
 #### Forms
 
-Only use forms in a flyout when they directly support the page's primary function. For example, if the page's main purpose is to view a list of labels, editing them becomes a secondary action. In this case, it makes sense to put the edit function in a flyout.
+Only use forms in a Flyout when they directly support the page's primary function. For example, if the page's main purpose is to view a list of labels, editing them becomes a secondary action. In this case, it makes sense to put the edit function in a Flyout.
 
 !!! Do
 
-In this context, editing is a simple task, and the form placed will require minimal effort from the user while also supporting their review of the contents of the table.
+It's acceptable to place a form in a Flyout for simple editing experiences that require minimal user effort when the object being edited is on the page that triggers the Flyout.
 
 ![A table with a list of labels, their associated values and applied workspaces and projects. There is a search bar above the table. The user is clicking on one of the edit buttons in the table.](/assets/components/flyout/flyout-forms-assisting-tasks-01.png)
 
@@ -80,7 +80,7 @@ In this context, editing is a simple task, and the form placed will require mini
 
 !!!
 
-If you feel the contents of the form are too long, or complex (require multiple layers of editing features), it should be placed on its own page.
+Don't use a Flyout for forms that are long, complex, or require multiple layers of editing. Instead, place the form on a dedicated page.
 
 ## Size
 
