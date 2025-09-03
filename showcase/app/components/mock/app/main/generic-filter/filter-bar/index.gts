@@ -9,7 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
-import { eq, notEq, and } from 'ember-truth-helpers';
+import { eq, notEq } from 'ember-truth-helpers';
 
 // HDS components
 import {
@@ -141,19 +141,21 @@ export default class MockAppMainGenericFilterBar extends Component<MockAppMainGe
           )
         }}
       </div>
-      {{#if (and (notEq @type "super-select") this.hasActiveFilters)}}
+      {{#if this.hasActiveFilters}}
         <div class="filter-actions">
-          <HdsTextBody @size="100" @color="faint">Active Filters:</HdsTextBody>
-          {{#each-in this.filters as |key filter|}}
-            {{#if filter}}
-              {{#each filter as |f|}}
-                <HdsTag
-                  @text="{{key}}: {{f.text}}"
-                  @onDismiss={{fn this.onFilterDismiss key f.value}}
-                />
-              {{/each}}
-            {{/if}}
-          {{/each-in}}
+          {{#if (notEq @type "super-select")}}
+            <HdsTextBody @size="100" @color="faint">Active Filters:</HdsTextBody>
+            {{#each-in this.filters as |key filter|}}
+              {{#if filter}}
+                {{#each filter as |f|}}
+                  <HdsTag
+                    @text="{{key}}: {{f.text}}"
+                    @onDismiss={{fn this.onFilterDismiss key f.value}}
+                  />
+                {{/each}}
+              {{/if}}
+            {{/each-in}}
+          {{/if}}
           <HdsButton
             @text="Clear all filters"
             @color="tertiary"
