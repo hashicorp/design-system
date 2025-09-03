@@ -23,15 +23,15 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
 
       const selector = `.${PREFIX}-font`;
       if (fontStackTokens?.sans?.display) {
-        const valueFontStackDisplay = outputCssVars ? 'var(--token-typography-font-stack-display)' : fontStackTokens.display.value;
+        const valueFontStackDisplay = outputCssVars ? 'var(--token-typography-font-stack-display)' : fontStackTokens.display.$value;
         helpers.push(`${selector}-family-sans-display { font-family: ${valueFontStackDisplay}; }`);
       }
       if (fontStackTokens?.sans?.text) {
-        const valueFontStackText = outputCssVars ? 'var(--token-typography-font-stack-text)' : fontStackTokens.text.value;
+        const valueFontStackText = outputCssVars ? 'var(--token-typography-font-stack-text)' : fontStackTokens.text.$value;
         helpers.push(`${selector}-family-sans-text { font-family: ${valueFontStackText}; }`);
       }
       if (fontStackTokens?.monospace?.code) {
-        const valueFontStackCode = outputCssVars ? 'var(--token-typography-font-stack-code)' : fontStackTokens.code.value;
+        const valueFontStackCode = outputCssVars ? 'var(--token-typography-font-stack-code)' : fontStackTokens.code.$value;
         helpers.push(`${selector}-family-mono-code { font-family: ${valueFontStackCode}; }`);
       }
 
@@ -42,7 +42,7 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
       if (fontWeightTokens) {
         Object.keys(fontWeightTokens).forEach(weight => {
           const selector = `.${PREFIX}-font-weight-${weight}`;
-          helpers.push(`${selector} { font-weight: ${fontWeightTokens[weight].value}; }`);
+          helpers.push(`${selector} { font-weight: ${fontWeightTokens[weight].$value}; }`);
         });
       }
 
@@ -56,14 +56,14 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
         declarations.push(`font-size: var(--token-typography-${stylename}-font-size);`);
         declarations.push(`line-height: var(--token-typography-${stylename}-line-height);`);
       } else {
-        if (tokens[key] && tokens[key]['font-family'] && tokens[key]['font-family'].value) {
-          declarations.push(`font-family: ${tokens[key]['font-family'].value};`);
+        if (tokens[key] && tokens[key]['font-family'] && tokens[key]['font-family'].$value) {
+          declarations.push(`font-family: ${tokens[key]['font-family'].$value};`);
         }
-        if (tokens[key] && tokens[key]['font-size'] && tokens[key]['font-size'].value) {
-          declarations.push(`font-size: ${tokens[key]['font-size'].value};`);
+        if (tokens[key] && tokens[key]['font-size'] && tokens[key]['font-size'].$value) {
+          declarations.push(`font-size: ${tokens[key]['font-size'].$value};`);
         }
-        if (tokens[key] && tokens[key]['line-height'] && tokens[key]['line-height'].value) {
-          declarations.push(`line-height: ${tokens[key]['line-height'].value};`);
+        if (tokens[key] && tokens[key]['line-height'] && tokens[key]['line-height'].$value) {
+          declarations.push(`line-height: ${tokens[key]['line-height'].$value};`);
         }
       }
 
