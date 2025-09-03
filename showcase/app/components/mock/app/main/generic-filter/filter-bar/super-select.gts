@@ -5,6 +5,10 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
+
+import MockAppMainGenericFilterBarSuperSelectFooter from './super-select-footer';
 
 import type { HdsFormSuperSelectSingleFieldSignature } from '@hashicorp/design-system-components/components/hds/form/super-select/single/field';
 import type { HdsFormSuperSelectMultipleFieldSignature } from '@hashicorp/design-system-components/components/hds/form/super-select/multiple/field';
@@ -18,18 +22,26 @@ import {
 import type { Filters, Filter } from './index';
 
 export interface MockAppMainGenericFilterBarSuperSelectSignature {
-  Args: HdsFormSuperSelectMultipleFieldSignature['Args'] & HdsFormSuperSelectSingleFieldSignature['Args'] & {
-    key: string;
-    text: string;
-    filters: Filters;
-    options: Array<string>;
-    isMultiSelect?: boolean;
-    onChange: (key: string, keyFilter?: Filter[]) => void;
-  }
+  Args: HdsFormSuperSelectMultipleFieldSignature['Args'] &
+    HdsFormSuperSelectSingleFieldSignature['Args'] & {
+      key: string;
+      text: string;
+      filters: Filters;
+      options: Array<string>;
+      isMultiSelect?: boolean;
+      isLiveFilter?: boolean;
+      onChange: (key: string, keyFilter?: Filter[]) => void;
+    };
   Element: HTMLDivElement;
 }
 
 export default class MockAppMainGenericFilterBarSuperSelectFilter extends Component<MockAppMainGenericFilterBarSuperSelectSignature> {
+  @tracked internalFilters: Filter[] | Filter | undefined = [];
+
+  private _updateInternalFilters = modifier(() => {
+    this.internalFilters = this.keyFilter;
+  });
+
   get keyFilter(): Filter[] | Filter | undefined {
     const { filters, key } = this.args;
 
@@ -40,12 +52,14 @@ export default class MockAppMainGenericFilterBarSuperSelectFilter extends Compon
   }
 
   get selectedOptions(): string | string[] | null {
-    if (this.keyFilter) {
-      if (Array.isArray(this.keyFilter)) {
-        const values = this.keyFilter.map((filter) => filter.value as string);
+    if (this.internalFilters) {
+      if (Array.isArray(this.internalFilters)) {
+        const values = this.internalFilters.map(
+          (filter) => filter.value as string,
+        );
         return values;
       } else {
-        return this.keyFilter.value as string;
+        return this.internalFilters.value as string;
       }
     }
     return null;
@@ -65,26 +79,58 @@ export default class MockAppMainGenericFilterBarSuperSelectFilter extends Compon
         }));
       }
     } else if (selectedValues != null) {
-      filters = [{
-        text: selectedValues,
-        value: selectedValues,
-      }];
+      filters = [
+        {
+          text: selectedValues,
+          value: selectedValues,
+        },
+      ];
     }
+
+    this.internalFilters = filters;
+
+    if (this.args.isLiveFilter) {
+      const { onChange } = this.args;
+      if (onChange && typeof onChange === 'function') {
+        onChange(this.args.key, this.internalFilters);
+      }
+    }
+  }
+
+  @action
+  onApply(): void {
+    const { onChange } = this.args;
+    if (onChange && typeof onChange === 'function') {
+      onChange(this.args.key, this.internalFilters);
+    }
+  }
+
+  @action
+  onClear(): void {
+    this.internalFilters = [];
 
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
-      onChange(this.args.key, filters);
+      onChange(this.args.key, this.internalFilters);
     }
   }
 
   <template>
-    <div class="filter__super-select">
+    <div class="filter__super-select" {{this._updateInternalFilters}}>
       {{#if @isMultiSelect}}
         <HdsFormSuperSelectMultipleField
           @onChange={{this.onChange}}
           @selected={{this.selectedOptions}}
           @options={{@options}}
           @searchEnabled={{@searchEnabled}}
+          @afterOptionsComponent={{unless
+            @isLiveFilter
+            (component
+              MockAppMainGenericFilterBarSuperSelectFooter
+              onClick=this.onApply
+              onClear=this.onClear
+            )
+          }}
           as |F|
         >
           <F.Label>{{@text}}</F.Label>
@@ -98,6 +144,14 @@ export default class MockAppMainGenericFilterBarSuperSelectFilter extends Compon
           @onChange={{this.onChange}}
           @selected={{this.selectedOptions}}
           @options={{@options}}
+          @afterOptionsComponent={{unless
+            @isLiveFilter
+            (component
+              MockAppMainGenericFilterBarSuperSelectFooter
+              onClick=this.onApply
+              onClear=this.onClear
+            )
+          }}
           as |F|
         >
           <F.Label>{{@text}}</F.Label>

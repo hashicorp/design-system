@@ -6,12 +6,24 @@
 
   .filters {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    gap: 12px 0;
+    align-items: end;
 
     .filter__super-select {
-      min-width: 200px;
-      max-width: 300px;
+      width: 100%;
+
+      &__footer {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 12px;
+        background-color: var(--token-color-surface-strong);
+        border-top: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+      }
+    }
+
+    .hds-form-text-input {
+      width: auto;
     }
   }
 
@@ -22,4 +34,8 @@
     gap: 8px;
     align-items: center;
   }
+}
+
+.filters__toggle {
+  margin-bottom: 16px;
 }

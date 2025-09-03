@@ -4,8 +4,10 @@
  */
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { get } from '@ember/helper';
+import { on } from '@ember/modifier';
 
 // HDS components
 import {
@@ -13,6 +15,7 @@ import {
   HdsLinkInline,
   HdsBadge,
   HdsBadgeColorValues,
+  HdsFormToggleField,
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
@@ -474,12 +477,15 @@ const SAMPLE_MODEL = [
 ];
 
 const SAMPLE_MODEL_VALUES = {
-  'name': Array.from(new Set(SAMPLE_MODEL.map((item) => item['name']))),
-  'project-name': Array.from(new Set(SAMPLE_MODEL.map((item) => item['project-name']))),
-  'run-status': Array.from(new Set(SAMPLE_MODEL.map((item) => item['run-status']))),
-  'vcs-repo': Array.from(new Set(SAMPLE_MODEL.map((item) => item['vcs-repo']))),
-  'terraform-version': Array.from(new Set(SAMPLE_MODEL.map((item) => item['terraform-version']))),
-  'state-terraform-version': Array.from(new Set(SAMPLE_MODEL.map((item) => item['state-terraform-version']))),
+  'project-name': Array.from(
+    new Set(SAMPLE_MODEL.map((item) => item['project-name'])),
+  ),
+  'run-status': Array.from(
+    new Set(SAMPLE_MODEL.map((item) => item['run-status'])),
+  ),
+  'terraform-version': Array.from(
+    new Set(SAMPLE_MODEL.map((item) => item['terraform-version'])),
+  ),
 };
 
 const updateModelWithSelectAllState = (
@@ -509,6 +515,8 @@ const updateModelWithSelectableRowsStates = (
 
 export default class MockAppMainGenericSuperSelectFilter extends Component<MockAppMainGenericSuperSelectFilterSignature> {
   demoColumns = SAMPLE_COLUMNS;
+
+  @tracked isLiveFilter = true;
   @deepTracked demoModel: HdsAdvancedTableSignature['Args']['model'] = [
     ...SAMPLE_MODEL,
   ];
@@ -565,19 +573,53 @@ export default class MockAppMainGenericSuperSelectFilter extends Component<MockA
         }
       });
       return match;
-    }
+    };
 
     return this.demoModel.filter(filterItem);
   }
 
+  @action
+  onLiveFilterToggle(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.isLiveFilter = target.checked;
+  }
+
   <template>
-    <MockAppMainGenericFilterBar @filters={{this.filters}} @onFilter={{this.onFilter}} as |F|>
-      <F.SuperSelect @isMultiSelect={{true}} @searchEnabled={{true}} @key="name" @text="Name" @options={{get SAMPLE_MODEL_VALUES 'name'}} />
-      <F.SuperSelect @isMultiSelect={{true}} @searchEnabled={{true}} @key="project-name" @text="Project name" @options={{get SAMPLE_MODEL_VALUES 'project-name'}} />
-      <F.SuperSelect @isMultiSelect={{true}} @key="run-status" @text="Run status" @options={{get SAMPLE_MODEL_VALUES 'run-status'}} />
-      <F.SuperSelect @isMultiSelect={{true}} @key="vcs-repo" @text="VCS repo" @options={{get SAMPLE_MODEL_VALUES 'vcs-repo'}} />
-      <F.SuperSelect @key="terraform-version" @text="Terraform version" @options={{get SAMPLE_MODEL_VALUES 'terraform-version'}} />
-      <F.SuperSelect @key="state-terraform-version" @text="State Terraform version" @options={{get SAMPLE_MODEL_VALUES 'state-terraform-version'}} />
+    <div class="filters__toggle">
+      <HdsFormToggleField
+        name="demo-live-filtering"
+        {{on "click" this.onLiveFilterToggle}}
+        checked={{this.isLiveFilter}}
+        as |F|
+      >
+        <F.Label>Live filtering</F.Label>
+      </HdsFormToggleField>
+    </div>
+    <MockAppMainGenericFilterBar
+      @type="super-select"
+      @filters={{this.filters}}
+      @onFilter={{this.onFilter}}
+      @isLiveFilter={{this.isLiveFilter}}
+      as |F|
+    >
+      <F.SuperSelect
+        @isMultiSelect={{true}}
+        @searchEnabled={{true}}
+        @key="project-name"
+        @text="Project name"
+        @options={{get SAMPLE_MODEL_VALUES "project-name"}}
+      />
+      <F.SuperSelect
+        @isMultiSelect={{true}}
+        @key="run-status"
+        @text="Run status"
+        @options={{get SAMPLE_MODEL_VALUES "run-status"}}
+      />
+      <F.SuperSelect
+        @key="terraform-version"
+        @text="Terraform version"
+        @options={{get SAMPLE_MODEL_VALUES "terraform-version"}}
+      />
     </MockAppMainGenericFilterBar>
     <HdsAdvancedTable
       @columns={{this.demoColumns}}

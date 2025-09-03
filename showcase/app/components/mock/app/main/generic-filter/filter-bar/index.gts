@@ -9,12 +9,14 @@ import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { fn, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { eq, notEq, and } from 'ember-truth-helpers';
 
 // HDS components
 import {
   HdsButton,
   HdsTag,
   HdsTextBody,
+  HdsFormTextInputBase,
 } from '@hashicorp/design-system-components/components';
 
 import type { WithBoundArgs } from '@glint/template';
@@ -34,24 +36,26 @@ export interface Filters {
 export interface MockAppMainGenericFilterBarSignature {
   Args: {
     filters: Filters;
+    type?: 'super-select' | 'dropdown';
+    isLiveFilter?: boolean;
     onFilter?: (filters: Filters) => void;
   };
   Blocks: {
     default?: [
       {
-        SuperSelect?: WithBoundArgs<typeof MockAppMainGenericFilterBarSuperSelect,
-          | 'onChange'
-          | 'filters'
+        SuperSelect?: WithBoundArgs<
+          typeof MockAppMainGenericFilterBarSuperSelect,
+          'onChange' | 'filters' | 'isLiveFilter'
         >;
-        Dropdown?: WithBoundArgs<typeof MockAppMainGenericFilterBarDropdown,
-          | 'onChange'
-          | 'filters'
+        Dropdown?: WithBoundArgs<
+          typeof MockAppMainGenericFilterBarDropdown,
+          'onChange' | 'filters'
         >;
-        SegmentedGroup?: WithBoundArgs<typeof MockAppMainGenericFilterBarSegmentedGroup,
-          | 'onChange'
-          | 'filters'
+        SegmentedGroup?: WithBoundArgs<
+          typeof MockAppMainGenericFilterBarSegmentedGroup,
+          'onChange' | 'filters'
         >;
-      }
+      },
     ];
   };
   Element: HTMLDivElement;
@@ -83,8 +87,11 @@ export default class MockAppMainGenericFilterBar extends Component<MockAppMainGe
   }
 
   private _updateFilter(key: string, keyFilter?: Filter[]): void {
-    const newFilters = {...this.filters};
-    if (!keyFilter || (keyFilter && Array.isArray(keyFilter) && keyFilter.length === 0)) {
+    const newFilters = { ...this.filters };
+    if (
+      !keyFilter ||
+      (keyFilter && Array.isArray(keyFilter) && keyFilter.length === 0)
+    ) {
       delete newFilters[key];
     } else {
       newFilters[key] = keyFilter;
@@ -99,22 +106,32 @@ export default class MockAppMainGenericFilterBar extends Component<MockAppMainGe
       newFilter = oldFilter.filter((filter) => filter.value !== filterValue);
     }
     this.onFilter(key, newFilter);
-  }
+  };
 
   <template>
     <div class="mock-app-main-generic-filter-bar">
       <div class="filters">
+        {{#if (eq @type "super-select")}}
+          <HdsFormTextInputBase
+            class="filter__search"
+            @type="search"
+            name="filter-search"
+            placeholder="Search"
+          />
+        {{/if}}
         {{yield
           (hash
             SuperSelect=(component
               MockAppMainGenericFilterBarSuperSelect
               onChange=this.onFilter
               filters=this.filters
+              isLiveFilter=@isLiveFilter
             )
             SegmentedGroup=(component
               MockAppMainGenericFilterBarSegmentedGroup
               onChange=this.onFilter
               filters=this.filters
+              isLiveFilter=@isLiveFilter
             )
             Dropdown=(component
               MockAppMainGenericFilterBarDropdown
@@ -124,17 +141,26 @@ export default class MockAppMainGenericFilterBar extends Component<MockAppMainGe
           )
         }}
       </div>
-      {{#if this.hasActiveFilters}}
+      {{#if (and (notEq @type "super-select") this.hasActiveFilters)}}
         <div class="filter-actions">
           <HdsTextBody @size="100" @color="faint">Active Filters:</HdsTextBody>
           {{#each-in this.filters as |key filter|}}
             {{#if filter}}
               {{#each filter as |f|}}
-                <HdsTag @text="{{key}}: {{f.text}}" @onDismiss={{fn this.onFilterDismiss key f.value}} />
+                <HdsTag
+                  @text="{{key}}: {{f.text}}"
+                  @onDismiss={{fn this.onFilterDismiss key f.value}}
+                />
               {{/each}}
             {{/if}}
           {{/each-in}}
-          <HdsButton @text="Clear all filters" @color="tertiary" @icon="x" @size="small" {{on "click" this.clearFilters}} />
+          <HdsButton
+            @text="Clear all filters"
+            @color="tertiary"
+            @icon="x"
+            @size="small"
+            {{on "click" this.clearFilters}}
+          />
         </div>
       {{/if}}
     </div>

@@ -11,25 +11,20 @@ import type { WithBoundArgs } from '@glint/template';
 import type { Filter } from './index';
 
 // HDS components
-import {
-  HdsDropdownListItemRadio,
-} from '@hashicorp/design-system-components/components';
+import { HdsDropdownListItemRadio } from '@hashicorp/design-system-components/components';
 
 import type { HdsDropdownSignature } from '@hashicorp/design-system-components/components/hds/dropdown/index';
 
 export interface MockAppMainGenericFilterBarRadioSignature {
   Args: HdsDropdownSignature['Args'] & {
-    radio?: WithBoundArgs<
-      typeof HdsDropdownListItemRadio,
-      never
-    >;
+    radio?: WithBoundArgs<typeof HdsDropdownListItemRadio, never>;
     value?: string;
     keyFilter: Filter[] | Filter | undefined;
     onChange?: (event: Event) => void;
-  }
+  };
   Blocks: {
-    default: [],
-  }
+    default: [];
+  };
   Element: HTMLDivElement;
 }
 

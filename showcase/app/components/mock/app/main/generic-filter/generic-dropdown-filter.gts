@@ -4,8 +4,10 @@
  */
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { get } from '@ember/helper';
+import { on } from '@ember/modifier';
 
 // HDS components
 import {
@@ -13,6 +15,7 @@ import {
   HdsLinkInline,
   HdsBadge,
   HdsBadgeColorValues,
+  HdsFormToggleField,
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
@@ -474,12 +477,20 @@ const SAMPLE_MODEL = [
 ];
 
 const SAMPLE_MODEL_VALUES = {
-  'name': Array.from(new Set(SAMPLE_MODEL.map((item) => item['name']))),
-  'project-name': Array.from(new Set(SAMPLE_MODEL.map((item) => item['project-name']))),
-  'run-status': Array.from(new Set(SAMPLE_MODEL.map((item) => item['run-status']))),
+  name: Array.from(new Set(SAMPLE_MODEL.map((item) => item['name']))),
+  'project-name': Array.from(
+    new Set(SAMPLE_MODEL.map((item) => item['project-name'])),
+  ),
+  'run-status': Array.from(
+    new Set(SAMPLE_MODEL.map((item) => item['run-status'])),
+  ),
   'vcs-repo': Array.from(new Set(SAMPLE_MODEL.map((item) => item['vcs-repo']))),
-  'terraform-version': Array.from(new Set(SAMPLE_MODEL.map((item) => item['terraform-version']))),
-  'state-terraform-version': Array.from(new Set(SAMPLE_MODEL.map((item) => item['state-terraform-version']))),
+  'terraform-version': Array.from(
+    new Set(SAMPLE_MODEL.map((item) => item['terraform-version'])),
+  ),
+  'state-terraform-version': Array.from(
+    new Set(SAMPLE_MODEL.map((item) => item['state-terraform-version'])),
+  ),
 };
 
 const updateModelWithSelectAllState = (
@@ -509,6 +520,8 @@ const updateModelWithSelectableRowsStates = (
 
 export default class MockAppMainGenericDropdownFilter extends Component<MockAppMainGenericDropdownFilterSignature> {
   demoColumns = SAMPLE_COLUMNS;
+
+  @tracked isLiveFilter = true;
   @deepTracked demoModel: HdsAdvancedTableSignature['Args']['model'] = [
     ...SAMPLE_MODEL,
   ];
@@ -565,47 +578,50 @@ export default class MockAppMainGenericDropdownFilter extends Component<MockAppM
         }
       });
       return match;
-    }
+    };
 
     return this.demoModel.filter(filterItems);
   }
 
+  @action
+  onLiveFilterToggle(event: Event) {
+    const target = event.target as HTMLInputElement;
+    this.isLiveFilter = target.checked;
+  }
+
   <template>
-    <MockAppMainGenericFilterBar @filters={{this.filters}} @onFilter={{this.onFilter}} as |F|>
+    <div class="filters__toggle">
+      <HdsFormToggleField
+        name="demo-live-filtering"
+        {{on "click" this.onLiveFilterToggle}}
+        checked={{this.isLiveFilter}}
+        as |F|
+      >
+        <F.Label>Live filtering</F.Label>
+      </HdsFormToggleField>
+    </div>
+    <MockAppMainGenericFilterBar
+      @filters={{this.filters}}
+      @onFilter={{this.onFilter}}
+      @isLiveFilter={{this.isLiveFilter}}
+      as |F|
+    >
       <F.SegmentedGroup as |SG|>
-        <SG.Dropdown @key="name" as |D|>
-          <D.ToggleButton @text="Name" />
-          {{#each (get SAMPLE_MODEL_VALUES 'name') as |option|}}
-            <D.Checkbox @value={{option}}>{{option}}</D.Checkbox>
-          {{/each}}
-        </SG.Dropdown>
         <SG.Dropdown @key="project-name" as |D|>
           <D.ToggleButton @text="Project name" />
-          {{#each (get SAMPLE_MODEL_VALUES 'project-name') as |option|}}
+          {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
             <D.Checkbox @value={{option}}>{{option}}</D.Checkbox>
           {{/each}}
         </SG.Dropdown>
         <SG.Dropdown @key="run-status" as |D|>
           <D.ToggleButton @text="Run status" />
-          {{#each (get SAMPLE_MODEL_VALUES 'run-status') as |option|}}
-            <D.Checkbox @value={{option}}>{{option}}</D.Checkbox>
-          {{/each}}
-        </SG.Dropdown>
-        <SG.Dropdown @key="vcs-repo" as |D|>
-          <D.ToggleButton @text="VCS repo" />
-          {{#each (get SAMPLE_MODEL_VALUES 'vcs-repo') as |option|}}
+          {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
             <D.Checkbox @value={{option}}>{{option}}</D.Checkbox>
           {{/each}}
         </SG.Dropdown>
         <SG.Dropdown @key="terraform-version" as |D|>
           <D.ToggleButton @text="Terraform version" />
-          {{#each (get SAMPLE_MODEL_VALUES 'terraform-version') as |option|}}
-            <D.Radio @value={{option}}>{{option}}</D.Radio>
-          {{/each}}
-        </SG.Dropdown>
-        <SG.Dropdown @key="state-terraform-version" as |D|>
-          <D.ToggleButton @text="State Terraform version" />
-          {{#each (get SAMPLE_MODEL_VALUES 'state-terraform-version') as |option|}}
+          {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
             <D.Radio @value={{option}}>{{option}}</D.Radio>
           {{/each}}
         </SG.Dropdown>
