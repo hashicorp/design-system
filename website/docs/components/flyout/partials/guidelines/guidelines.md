@@ -2,13 +2,13 @@
 
 ### When to use
 
-- When displaying additional information, context, or details that extend or enhance an object or element on the main page.
+- When displaying additional information, context, or details that extend an object or element on the main page.
 - To present functions that are secondary to the main page or user flow.
 - To preview content without navigating or routing to a new page.
 
 ### When not to use
 
-- When requesting information or feedback from the user through a form. Instead, use a [Modal](/components/modal) or consider moving the content to its own page.
+- When requesting information or feedback from the user through a form. Instead, use a [Modal](/components/modal).
 - When displaying overly complex information, consider moving the content to its own page.
 
 ### Flyout vs Modal
