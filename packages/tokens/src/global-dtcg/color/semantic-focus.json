@@ -1,0 +1,32 @@
+{
+  "color": {
+    "focus": {
+      "action": {
+        "internal": {
+          "$type": "color",
+          "$value": "{color.palette.blue-300}",
+          "group": "semantic"
+        },
+        "external": {
+          "$type": "color",
+          "$value": "#5990ff",
+          "group": "semantic",
+          "comment": "this is a special color used only for the focus style, to pass color contrast for a11y purpose"
+        }
+      },
+      "critical": {
+        "internal": {
+          "$type": "color",
+          "$value": "{color.palette.red-300}",
+          "group": "semantic"
+        },
+        "external": {
+          "$type": "color",
+          "$value": "#dd7578",
+          "group": "semantic",
+          "comment": "this is a special color used only for the focus style, to pass color contrast for a11y purpose"
+        }
+      }
+    }
+  }
+}

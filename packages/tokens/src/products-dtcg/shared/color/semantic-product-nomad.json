@@ -1,0 +1,53 @@
+{
+  "color": {
+    "nomad": {
+      "brand": {
+        "$type": "color",
+        "$value": "{color.palette.nomad-brand}",
+        "group": "branding"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "{color.palette.nomad-500}",
+        "group": "branding"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.palette.nomad-50}",
+        "group": "branding"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.palette.nomad-100}",
+        "group": "branding"
+      },
+      "gradient": {
+        "primary": {
+          "start": {
+            "$type": "color",
+            "$value": "{color.palette.nomad-100}",
+            "group": "branding"
+          },
+          "stop": {
+            "$type": "color",
+            "$value": "{color.palette.nomad-200}",
+            "group": "branding"
+          }
+        },
+        "faint": {
+          "start": {
+            "$type": "color",
+            "$value": "#f3fff9",
+            "group": "branding",
+            "comment": "this is the 'nomad-50' value at 25% opacity on white"
+          },
+          "stop": {
+            "$type": "color",
+            "$value": "{color.palette.nomad-50}",
+            "group": "branding"
+          }
+        }
+      }
+    }
+  }
+}
