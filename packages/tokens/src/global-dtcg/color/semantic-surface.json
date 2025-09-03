@@ -1,0 +1,66 @@
+{
+  "color": {
+    "surface": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-0}",
+        "group": "semantic"
+      },
+      "faint": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-50}",
+        "group": "semantic"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-100}",
+        "group": "semantic"
+      },
+      "interactive": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-0}",
+        "group": "semantic"
+      },
+      "interactive-hover": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-100}",
+        "group": "semantic"
+      },
+      "interactive-active": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-200}",
+        "group": "semantic"
+      },
+      "interactive-disabled": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-50}",
+        "group": "semantic"
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{color.palette.blue-50}",
+        "group": "semantic"
+      },
+      "highlight": {
+        "$type": "color",
+        "$value": "{color.palette.purple-50}",
+        "group": "semantic"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.palette.green-50}",
+        "group": "semantic"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.palette.amber-50}",
+        "group": "semantic"
+      },
+      "critical": {
+        "$type": "color",
+        "$value": "{color.palette.red-50}",
+        "group": "semantic"
+      }
+    }
+  }
+}

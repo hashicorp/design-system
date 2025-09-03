@@ -1,0 +1,24 @@
+{
+  "form": {
+    "control": {
+      "padding": {
+        "$type": "dimension",
+        "$value": "7",
+        "unit": "px",
+        "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma."
+      },
+      "border": {
+        "radius": {
+          "$type": "dimension",
+          "$value": "5",
+          "unit": "px"
+        },
+        "width": {
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px"
+        }
+      }
+    }
+  }
+}

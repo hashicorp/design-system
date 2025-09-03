@@ -1,0 +1,96 @@
+{
+  "elevation": {
+    "overlay": {
+      "shadow-01": {
+        "x": {
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "px",
+          "private": true
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "2",
+          "unit": "px",
+          "private": true
+        },
+        "blur": {
+          "$type": "dimension",
+          "$value": "3",
+          "unit": "px",
+          "private": true
+        },
+        "spread": {
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "px",
+          "private": true
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{elevation.color.strong}",
+          "alpha": "0.25",
+          "private": true
+        }
+      },
+      "shadow-02": {
+        "x": {
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "px",
+          "private": true
+        },
+        "y": {
+          "$type": "dimension",
+          "$value": "12",
+          "unit": "px",
+          "private": true
+        },
+        "blur": {
+          "$type": "dimension",
+          "$value": "24",
+          "unit": "px",
+          "private": true
+        },
+        "spread": {
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "px",
+          "private": true
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{elevation.color.strong}",
+          "alpha": "0.35",
+          "private": true
+        }
+      },
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px",
+          "private": true
+        },
+        "color": {
+          "$type": "color",
+          "$value": "{elevation.color.strong}",
+          "alpha": "0.25",
+          "private": true
+        }
+      },
+      "box-shadow-01": {
+        "$value": "{elevation.overlay.shadow-01.x} {elevation.overlay.shadow-01.y} {elevation.overlay.shadow-01.blur} {elevation.overlay.shadow-01.spread} {elevation.overlay.shadow-01.color}",
+        "private": true
+      },
+      "box-shadow-02": {
+        "$value": "{elevation.overlay.shadow-02.x} {elevation.overlay.shadow-02.y} {elevation.overlay.shadow-02.blur} {elevation.overlay.shadow-02.spread} {elevation.overlay.shadow-02.color}",
+        "private": true
+      },
+      "box-shadow-border": {
+        "$value": "0 0 0 {elevation.overlay.border.width} {elevation.overlay.border.color}",
+        "private": true
+      }
+    }
+  }
+}

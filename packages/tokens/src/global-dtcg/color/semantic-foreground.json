@@ -1,0 +1,106 @@
+{
+  "color": {
+    "foreground": {
+      "strong": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-700}",
+        "group": "semantic"
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-600}",
+        "group": "semantic"
+      },
+      "faint": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-500}",
+        "group": "semantic"
+      },
+      "high-contrast": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-0}",
+        "group": "semantic"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-400}",
+        "group": "semantic"
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{color.palette.blue-200}",
+        "group": "semantic"
+      },
+      "action-hover": {
+        "$type": "color",
+        "$value": "{color.palette.blue-300}",
+        "group": "semantic"
+      },
+      "action-active": {
+        "$type": "color",
+        "$value": "{color.palette.blue-400}",
+        "group": "semantic"
+      },
+      "highlight": {
+        "$type": "color",
+        "$value": "{color.palette.purple-200}",
+        "group": "semantic"
+      },
+      "highlight-on-surface": {
+        "$type": "color",
+        "$value": "{color.palette.purple-300}",
+        "group": "semantic"
+      },
+      "highlight-high-contrast": {
+        "$type": "color",
+        "$value": "{color.palette.purple-500}",
+        "group": "semantic"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.palette.green-200}",
+        "group": "semantic"
+      },
+      "success-on-surface": {
+        "$type": "color",
+        "$value": "{color.palette.green-300}",
+        "group": "semantic"
+      },
+      "success-high-contrast": {
+        "$type": "color",
+        "$value": "{color.palette.green-500}",
+        "group": "semantic"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.palette.amber-200}",
+        "group": "semantic"
+      },
+      "warning-on-surface": {
+        "$type": "color",
+        "$value": "{color.palette.amber-300}",
+        "group": "semantic"
+      },
+      "warning-high-contrast": {
+        "$type": "color",
+        "$value": "{color.palette.amber-500}",
+        "group": "semantic"
+      },
+      "critical": {
+        "$type": "color",
+        "$value": "{color.palette.red-200}",
+        "group": "semantic"
+      },
+      "critical-on-surface": {
+        "$type": "color",
+        "$value": "{color.palette.red-300}",
+        "group": "semantic"
+      },
+      "critical-high-contrast": {
+        "$type": "color",
+        "$value": "{color.palette.red-500}",
+        "group": "semantic"
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "color": {
+    "consul": {
+      "brand": {
+        "$type": "color",
+        "$value": "{color.palette.consul-brand}",
+        "group": "branding"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "{color.palette.consul-500}",
+        "group": "branding"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.palette.consul-50}",
+        "group": "branding"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.palette.consul-100}",
+        "group": "branding"
+      },
+      "gradient": {
+        "primary": {
+          "start": {
+            "$type": "color",
+            "$value": "{color.palette.consul-300}",
+            "group": "branding"
+          },
+          "stop": {
+            "$type": "color",
+            "$value": "{color.palette.consul-400}",
+            "group": "branding"
+          }
+        },
+        "faint": {
+          "start": {
+            "$type": "color",
+            "$value": "#fff9fb",
+            "group": "branding",
+            "comment": "this is the 'consul-50' value at 25% opacity on white"
+          },
+          "stop": {
+            "$type": "color",
+            "$value": "{color.palette.consul-50}",
+            "group": "branding"
+          }
+        }
+      }
+    }
+  }
+}

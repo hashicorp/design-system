@@ -1,0 +1,18 @@
+{
+  "color": {
+    "foreground": {
+      "action-visited": {
+        "$type": "color",
+        "$value": "{color.palette.purple-200}",
+        "group": "semantic",
+        "comment": "This extra color is unique for the DevDot platform (the 'visited' state of a link is not differentiated in the products applications)."
+      },
+      "action-visited-hover": {
+        "$type": "color",
+        "$value": "{color.palette.purple-400}",
+        "group": "semantic",
+        "comment": "This extra color is unique for the DevDot platform (the 'visited+hover' state of a link is not differentiated in the products applications)."
+      }
+    }
+  }
+}

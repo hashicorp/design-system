@@ -1,0 +1,59 @@
+{
+  "color": {
+    "vault": {
+      "brand": {
+        "$type": "color",
+        "$value": "{color.palette.vault-brand}",
+        "group": "branding"
+      },
+      "brand-alt": {
+        "$type": "color",
+        "$value": "#000",
+        "group": "branding",
+        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "{color.palette.vault-500}",
+        "group": "branding"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.palette.vault-50}",
+        "group": "branding"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.palette.vault-100}",
+        "group": "branding"
+      },
+      "gradient": {
+        "primary": {
+          "start": {
+            "$type": "color",
+            "$value": "{color.palette.vault-100}",
+            "group": "branding"
+          },
+          "stop": {
+            "$type": "color",
+            "$value": "{color.palette.vault-200}",
+            "group": "branding"
+          }
+        },
+        "faint": {
+          "start": {
+            "$type": "color",
+            "$value": "#fffdf2",
+            "group": "branding",
+            "comment": "this is the 'vault-50' value at 25% opacity on white"
+          },
+          "stop": {
+            "$type": "color",
+            "$value": "{color.palette.vault-50}",
+            "group": "branding"
+          }
+        }
+      }
+    }
+  }
+}

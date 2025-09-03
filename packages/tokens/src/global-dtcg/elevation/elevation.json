@@ -1,0 +1,34 @@
+{
+  "elevation": {
+    "inset": {
+      "box-shadow": {
+        "$value": "{elevation.inset.box-shadow-01}"
+      }
+    },
+    "low": {
+      "box-shadow": {
+        "$value": "{elevation.low.box-shadow-01}, {elevation.low.box-shadow-02}"
+      }
+    },
+    "mid": {
+      "box-shadow": {
+        "$value": "{elevation.mid.box-shadow-01}, {elevation.mid.box-shadow-02}"
+      }
+    },
+    "high": {
+      "box-shadow": {
+        "$value": "{elevation.high.box-shadow-01}, {elevation.high.box-shadow-02}"
+      }
+    },
+    "higher": {
+      "box-shadow": {
+        "$value": "{elevation.higher.box-shadow-01}, {elevation.higher.box-shadow-02}"
+      }
+    },
+    "overlay": {
+      "box-shadow": {
+        "$value": "{elevation.overlay.box-shadow-01}, {elevation.overlay.box-shadow-02}"
+      }
+    }
+  }
+}
