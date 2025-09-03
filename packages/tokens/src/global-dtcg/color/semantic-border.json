@@ -1,0 +1,46 @@
+{
+  "color": {
+    "border": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.palette.alpha-200}",
+        "group": "semantic"
+      },
+      "faint": {
+        "$type": "color",
+        "$value": "{color.palette.alpha-100}",
+        "group": "semantic"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.palette.alpha-300}",
+        "group": "semantic"
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{color.palette.blue-100}",
+        "group": "semantic"
+      },
+      "highlight": {
+        "$type": "color",
+        "$value": "{color.palette.purple-100}",
+        "group": "semantic"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{color.palette.green-100}",
+        "group": "semantic"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.palette.amber-100}",
+        "group": "semantic"
+      },
+      "critical": {
+        "$type": "color",
+        "$value": "{color.palette.red-100}",
+        "group": "semantic"
+      }
+    }
+  }
+}

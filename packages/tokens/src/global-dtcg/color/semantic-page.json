@@ -1,0 +1,16 @@
+{
+  "color": {
+    "page": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-0}",
+        "group": "semantic"
+      },
+      "faint": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-50}",
+        "group": "semantic"
+      }
+    }
+  }
+}

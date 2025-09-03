@@ -1,0 +1,11 @@
+{
+  "color": {
+    "hcp": {
+      "brand": {
+        "$type": "color",
+        "$value": "{color.palette.hcp-brand}",
+        "group": "branding"
+      }
+    }
+  }
+}
