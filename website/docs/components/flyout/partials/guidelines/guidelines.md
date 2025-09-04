@@ -8,8 +8,8 @@
 
 ### When not to use
 
-- When requesting information or feedback from the user through a form. Instead, use a [Modal](/components/modal).
-- When displaying overly complex information, consider moving the content to its own page.
+- When requesting minimal information or feedback from the user through a form. Instead, use a [Modal](/components/modal).
+- When displaying or obtaining overly complex information, consider moving the content to its own page.
 
 ### Flyout vs Modal
 
