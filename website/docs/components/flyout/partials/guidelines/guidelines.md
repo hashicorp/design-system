@@ -17,7 +17,7 @@ While similar in functionality and interaction, the Flyout and [Modal](/componen
 
 #### Complexity
 
-A Flyout is useful for more complex read-only content, given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with quickly. Complexity of content is relative, use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
+A Flyout is useful for more complex read-only content, given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with quickly. Complexity of content is relative. Use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
 
 #### Status and messaging
 
