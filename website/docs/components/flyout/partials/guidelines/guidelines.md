@@ -166,7 +166,7 @@ For more guidance and details around organizing buttons and actions, refer to th
 
 A Flyout supports actions within the footer allowing for basic functions to be performed. This usage should be limited to performing secondary functions that are related to the main page to help the user maintain context in the primary flow. Some examples of this are:
 
-- Batch updating and creating relationships between one or more objects
+- Creating relationships between one or more objects
 - Linking to external resources using a link that appears as a button
 
 !!! Do
