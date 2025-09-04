@@ -2,6 +2,8 @@
 
 ## 4.23.0
 
+[4.23.0 documentation](https://hds-website-4-23-0.vercel.app/)
+
 ### Minor Changes
 
 <!-- START components/code-editor -->
