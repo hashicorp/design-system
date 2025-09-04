@@ -19,7 +19,7 @@ import {
 import CodeFragmentWithPlaceholderContent from '../code-fragments/with-placeholder-content';
 import CodeFragmentWithToggleVariants from '../code-fragments/with-toggle-variants';
 
-const SectionVariants: TemplateOnlyComponent = <template>
+const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwTextH2>Type</ShwTextH2>
 
   {{#each TYPES as |type index|}}
@@ -63,4 +63,4 @@ const SectionVariants: TemplateOnlyComponent = <template>
   <ShwDivider />
 </template>;
 
-export default SectionVariants;
+export default SubSectionVariants;

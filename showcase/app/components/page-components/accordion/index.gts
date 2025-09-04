@@ -7,22 +7,22 @@ import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 
-import SectionBaseElements from 'showcase/components/page-components/accordion/sections/base-elements';
-import SectionVariants from 'showcase/components/page-components/accordion/sections/variants';
-import SectionContent from 'showcase/components/page-components/accordion/sections/content';
-import SectionContext from 'showcase/components/page-components/accordion/sections/context';
+import SubSectionBaseElements from 'showcase/components/page-components/accordion/sub-sections/base-elements';
+import SubSectionVariants from 'showcase/components/page-components/accordion/sub-sections/variants';
+import SubSectionContent from 'showcase/components/page-components/accordion/sub-sections/content';
+import SubSectionContext from 'showcase/components/page-components/accordion/sub-sections/context';
 
-const IndexAccordion: TemplateOnlyComponent = <template>
+const AccordionIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Accordion Component"}}
 
   <ShwTextH1>Accordion</ShwTextH1>
 
   <section data-test-percy>
-    <SectionVariants />
-    <SectionContent />
-    <SectionContext />
-    <SectionBaseElements />
+    <SubSectionVariants />
+    <SubSectionContent />
+    <SubSectionContext />
+    <SubSectionBaseElements />
   </section>
 </template>;
 
-export default IndexAccordion;
+export default AccordionIndex;

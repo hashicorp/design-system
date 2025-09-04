@@ -28,7 +28,7 @@ import {
 
 const INTERACTION_STATES = ['default', 'active', 'hover', 'focus'];
 
-const SectionBaseElements: TemplateOnlyComponent = <template>
+const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
 
   <ShwTextH3>AccordionItem</ShwTextH3>
@@ -266,4 +266,4 @@ const SectionBaseElements: TemplateOnlyComponent = <template>
   {{/each}}
 </template>;
 
-export default SectionBaseElements;
+export default SubSectionBaseElements;

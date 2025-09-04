@@ -4,10 +4,10 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import IndexAccordion from 'showcase/components/page-components/accordion';
+import AccordionIndex from 'showcase/components/page-components/accordion';
 
 const PageComponentsAccordion: TemplateOnlyComponent = <template>
-  <IndexAccordion />
+  <AccordionIndex />
 </template>;
 
 export default PageComponentsAccordion;

@@ -18,7 +18,7 @@ import {
 
 import CodeFragmentWithToggleVariants from '../code-fragments/with-toggle-variants';
 
-const SectionContext: TemplateOnlyComponent = <template>
+const SubSectionContext: TemplateOnlyComponent = <template>
   <ShwTextH2>Context</ShwTextH2>
 
   <ShwTextH3>Flush Accordion used within containers</ShwTextH3>
@@ -52,4 +52,4 @@ const SectionContext: TemplateOnlyComponent = <template>
   <ShwDivider />
 </template>;
 
-export default SectionContext;
+export default SubSectionContext;
