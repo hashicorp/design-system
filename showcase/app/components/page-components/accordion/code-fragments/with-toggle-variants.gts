@@ -10,7 +10,7 @@ import { HdsAccordion } from '@hashicorp/design-system-components/components';
 
 import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
 
-export interface WithToggleVariantsSignature {
+export interface CodeFragmentWithToggleVariantsSignature {
   Args: {
     type?: HdsAccordionSignature['Args']['type'];
     size?: HdsAccordionSignature['Args']['size'];
@@ -18,7 +18,7 @@ export interface WithToggleVariantsSignature {
   Element: HTMLDivElement;
 }
 
-const WithToggleVariants: TemplateOnlyComponent<WithToggleVariantsSignature> =
+const CodeFragmentWithToggleVariants: TemplateOnlyComponent<CodeFragmentWithToggleVariantsSignature> =
   <template>
     <HdsAccordion @type={{@type}} @size={{@size}} as |A|>
       <A.Item>
@@ -44,4 +44,4 @@ const WithToggleVariants: TemplateOnlyComponent<WithToggleVariantsSignature> =
     </HdsAccordion>
   </template>;
 
-export default WithToggleVariants;
+export default CodeFragmentWithToggleVariants;

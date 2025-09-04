@@ -13,7 +13,7 @@ import { HdsAccordion } from '@hashicorp/design-system-components/components';
 
 import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
 
-export interface WithPlaceholderContentSignature {
+export interface CodeFragmentWithPlaceholderContentSignature {
   Args: {
     type?: HdsAccordionSignature['Args']['type'];
     titleTag?: HdsAccordionSignature['Args']['titleTag'];
@@ -33,7 +33,7 @@ const mapNumberToString: Record<number, string> = {
   3: 'three',
 };
 
-const WithPlaceholderContent: TemplateOnlyComponent<WithPlaceholderContentSignature> =
+const CodeFragmentWithPlaceholderContent: TemplateOnlyComponent<CodeFragmentWithPlaceholderContentSignature> =
   <template>
     <HdsAccordion @type={{@type}} @titleTag={{@titleTag}} as |A|>
       {{#each (range (or @numberOfItems 1)) as |item|}}
@@ -56,4 +56,4 @@ const WithPlaceholderContent: TemplateOnlyComponent<WithPlaceholderContentSignat
     </HdsAccordion>
   </template>;
 
-export default WithPlaceholderContent;
+export default CodeFragmentWithPlaceholderContent;

@@ -21,8 +21,10 @@ import NOOP from 'showcase/utils/noop';
 
 import { HdsAccordionItem } from '@hashicorp/design-system-components/components';
 import HdsAccordionItemButton from '@hashicorp/design-system-components/components/hds/accordion/item/button';
-import { SIZES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
-import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
+import {
+  SIZES,
+  TYPES,
+} from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
 const INTERACTION_STATES = ['default', 'active', 'hover', 'focus'];
 
