@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.13.0
+
+### Minor Changes
+
+`pin-off` icon added.
+
+<small class="doc-whats-new-changelog-metadata">[#3120](https://github.com/hashicorp/design-system/pull/3120)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.12.0
 
 ### Minor Changes
@@ -358,7 +368,6 @@ Added `figma` and `loom` icons
 ### Minor Changes
 
 - [#481](https://github.com/hashicorp/design-system/pull/481) [`c8221e26`](https://github.com/hashicorp/design-system/commit/c8221e26e85142024483be2ea85f6191f3ceb652) Thanks [@hashibot-hds](https://github.com/hashibot-hds)! - Add new Service icons to Flight
-
   - aws-cloudwatch
   - aws-cloudwatch-color
   - aws-s3
