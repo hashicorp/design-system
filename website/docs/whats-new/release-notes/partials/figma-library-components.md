@@ -16,10 +16,9 @@
 
 This changelog corresponds with the [4.23](/whats-new/release-notes#4230) release.
 
-`AdvancedTable` - Added support for toggling pinning the first column in context menu and fixed visual bug for focus state for the table cells.
+`AdvancedTable` - Added support for pinning the first column in context menu and fixed visual bug for focus state for the table cells.
 
-`AppHeader` - Added `size` property for breakpoint definition.
-
+`AppHeader` - Updated the `size` property to match breakpoint variables.
 
 ### August 7th, 2025
 
