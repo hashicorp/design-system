@@ -26,7 +26,7 @@ import {
   TYPES,
 } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
-const INTERACTION_STATES = ['default', 'active', 'hover', 'focus'];
+const STATES = ['default', 'active', 'hover', 'focus'];
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
@@ -165,7 +165,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     {{#let (array false true) as |booleans|}}
       <ShwTextBody>{{capitalize type}}</ShwTextBody>
       <ShwGrid @columns={{4}} @gap="2rem" as |SG|>
-        {{#each INTERACTION_STATES as |state|}}
+        {{#each STATES as |state|}}
           <SG.Item @label={{state}}>
             <ShwFlex @direction="column" @gap="2rem" as |SF|>
               {{#each booleans as |containsInteractive|}}
@@ -213,7 +213,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
           {{style justifyContent="space-between"}}
           as |SF|
         >
-          {{#each INTERACTION_STATES as |state|}}
+          {{#each STATES as |state|}}
             <SF.Item @label={{state}}>
               <div
                 class="shw-component-accordion-standalone-button hds-accordion-item--size-{{size}}"
