@@ -1,3 +1,8 @@
+## 4.23.0
+
+Updated all exported types to use template literals instead of enum values.
+
+
 ## 4.18.1
 
 Add `tag` argument to choose between using a `div` tag (the default) or an `li` tag

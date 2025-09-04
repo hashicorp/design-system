@@ -6,11 +6,9 @@
 
 ### Minor Changes
 
-<!-- START components/code-editor -->
 
 `CodeEditor` - Added a `cspNonce` argument which passes a value of the same name to the `hds-code-editor` modifier. `cspNonce` is used to add a nonce value to the style tag
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3132](https://github.com/hashicorp/design-system/pull/3132)</small>
 
@@ -22,50 +20,40 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/card -->
 
 `Card` - Updated all exported types to use template literals instead of enum values.
 
-<!-- END -->
 
-<!-- START components/icon-tile -->
 
 `IconTile` - Updated exported `HdsIconTileColors` type to use template literals instead of enum values.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3106](https://github.com/hashicorp/design-system/pull/3106)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Added features and fixed issues for column pinning including:
 
 - Added support for pinning first column in context menu
 - Translated template strings in context menu
 - Fixed style for scroll indicator when first column is sticky and has a px width
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3104](https://github.com/hashicorp/design-system/pull/3104)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Fixed bug with automatic column resizing and scroll-shadow placement.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3081](https://github.com/hashicorp/design-system/pull/3081)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/app-header -->
 
 `AppHeader` - return `close` callback to the `:logo` named block so the menu actions can be hidden programmatically when the component is in a mobile view.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3121](https://github.com/hashicorp/design-system/pull/3121)</small>
 
@@ -73,65 +61,49 @@
 
 ### Patch Changes
 
-<!-- START  components/table/advanced-table -->
 
 `AdvancedTable` - simplified `AdvancedTable::Tr` type signature so the `@selectionKey` argument is not incorrectly marked as required.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3108](https://github.com/hashicorp/design-system/pull/3108)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START utilities/popover-primitive -->
 
 `PopoverPrimitive` - Updated the type of the `hidePopover` callback to allow an optional event to be passed.
 
-<!-- END -->
 
-<!-- START components/rich-tooltip -->
 
-`RichToolip` - Updated the type of the `close` callback to allow an optional event to be passed.
+`RichTooltip` - Updated the type of the `close` callback to allow an optional event to be passed.
 
-<!-- END -->
 
-<!-- START components/dropdown -->
 
 `Dropdown` - Updated the type of the `close` callback to allow an optional event to be passed and to make it always returned.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3118](https://github.com/hashicorp/design-system/pull/3118)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/app-header -->
 
 `AppHeader` - Fixed classname so that non-active controls in the `AppHeader` will be styled as disabled when the `AppSideNav` is expanded and in overlay mode
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3116](https://github.com/hashicorp/design-system/pull/3116)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/button -->
 
 `Button` - Removed CSS declaration for pseudo element in disabled state
 
-<!-- END -->
 
-<!-- START components/dropdown -->
 
 `Dropdown` - Removed CSS declaration for pseudo element in disabled state
 
-<!-- END -->
 
-<!-- START components/form/file-input -->
 
 `FileInput` - Removed CSS declaration for pseudo element in disabled state that led to invalid CSS (ignored by browsers)
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3131](https://github.com/hashicorp/design-system/pull/3131)</small>
 

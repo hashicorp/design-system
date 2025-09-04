@@ -1,3 +1,8 @@
+## 4.23.0
+
+Updated the type of the `close` callback to allow an optional event to be passed.
+
+
 ## 4.18.1
 
 Increase spacing above the dotted text decoration underline to 2px from the default.

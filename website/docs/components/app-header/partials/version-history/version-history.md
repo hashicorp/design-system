@@ -1,3 +1,11 @@
+## 4.23.0
+
+return `close` callback to the `:logo` named block so the menu actions can be hidden programmatically when the component is in a mobile view.
+
+
+Fixed classname so that non-active controls in the `AppHeader` will be styled as disabled when the `AppSideNav` is expanded and in overlay mode
+
+
 ## 4.22.0
 
 Changed the default breakpoint from `lg` to `md`.
