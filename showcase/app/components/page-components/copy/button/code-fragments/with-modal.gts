@@ -15,7 +15,7 @@ import {
 
 import type { HdsButtonSignature } from '@hashicorp/design-system-components/components/hds/button/index';
 
-import CopyButtonGenericContent from 'showcase/components/page-components/copy/button/code-fragments/with-generic-content';
+import CodeFragmentWithGenericDialogContent from 'showcase/components/page-components/copy/button/code-fragments/with-generic-dialog-content';
 
 export interface CodeFragmentWithModalSignature {
   Element: HdsButtonSignature['Element'];
@@ -45,7 +45,7 @@ export default class CodeFragmentWithModal extends Component {
         </M.Header>
         <M.Body>
           <form name="test-copy-button-modal-form">
-            <CopyButtonGenericContent />
+            <CodeFragmentWithGenericDialogContent />
           </form>
         </M.Body>
         <M.Footer as |F|>

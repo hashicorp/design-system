@@ -24,7 +24,7 @@ import CopyButtonWithHdsInput, {
   INPUT_COMPONENTS,
 } from 'showcase/components/page-components/copy/button/code-fragments/with-hds-input';
 import CopyButtonWithModal from 'showcase/components/page-components/copy/button/code-fragments/with-modal';
-import CopyButtonWithGenericDialogContent from 'showcase/components/page-components/copy/button/code-fragments/with-generic-content';
+import CopyButtonWithGenericDialogContent from 'showcase/components/page-components/copy/button/code-fragments/with-generic-dialog-content';
 import CopyButtonWithVanillaInput, {
   INPUT_COMPONENTS as VANILLA_INPUT_COMPONENTS,
 } from 'showcase/components/page-components/copy/button/code-fragments/with-html-input';

@@ -6,8 +6,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import CopyButtonIndex from 'showcase/components/page-components/copy/button/index';
 
-const PageComponentsAccordion: TemplateOnlyComponent = <template>
+const PageComponentsCopyButton: TemplateOnlyComponent = <template>
   <CopyButtonIndex />
 </template>;
 
-export default PageComponentsAccordion;
+export default PageComponentsCopyButton;
