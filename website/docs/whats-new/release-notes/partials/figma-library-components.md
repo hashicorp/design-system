@@ -16,7 +16,7 @@
 
 This changelog corresponds with the [4.23](/whats-new/release-notes#4230) release.
 
-`AdvancedTable` - Added contextual menu and fixed visual bug for focus state for the table cells.
+`AdvancedTable` - Added contextual menu that allows column pinning and fixed visual bug for focus state for the table cells.
 
 `AppHeader` - Added `size` property for breakpoint definition.
 
