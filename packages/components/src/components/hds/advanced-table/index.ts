@@ -249,6 +249,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       childrenKey,
       hasResizableColumns,
       hasStickyFirstColumn,
+      isStickyColumnPinned: this.isStickyColumnPinned,
       sortBy,
       sortOrder,
       onColumnReorder: this._onColumnReorder.bind(this),
@@ -604,9 +605,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const { columns, columnOrder, model, sortBy, sortOrder } = this.args;
 
     this._tableModel.setupData({
+      model,
       columns,
       columnOrder,
-      model,
       sortBy,
       sortOrder,
       isStickyColumnPinned: this.isStickyColumnPinned,

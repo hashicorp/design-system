@@ -35,7 +35,9 @@ type HdsAdvancedTableTableArgs = Pick<
   | 'onSort'
   | 'onColumnReorder'
   | 'onColumnResize'
->;
+> & {
+  isStickyColumnPinned: boolean;
+};
 
 function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
   return rows.reduce((acc, row) => {
@@ -82,6 +84,7 @@ export default class HdsAdvancedTableTableModel {
       childrenKey,
       hasResizableColumns,
       hasStickyFirstColumn,
+      isStickyColumnPinned,
       sortBy,
       sortOrder,
       onColumnReorder,
@@ -93,7 +96,14 @@ export default class HdsAdvancedTableTableModel {
     this.hasStickyFirstColumn = hasStickyFirstColumn;
     this.onSort = onSort;
 
-    this.setupData({ model, columns, columnOrder, sortBy, sortOrder });
+    this.setupData({
+      model,
+      columns,
+      columnOrder,
+      sortBy,
+      sortOrder,
+      isStickyColumnPinned,
+    });
 
     this.setColumnOrder(columnOrder);
 
