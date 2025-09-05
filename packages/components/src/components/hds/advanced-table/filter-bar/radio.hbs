@@ -1,0 +1,5 @@
+{{#let @radio as |Radio|}}
+  <Radio checked={{this.isChecked}} @value={{@value}} {{on "change" this.onChange}}>
+    {{yield}}
+  </Radio>
+{{/let}}

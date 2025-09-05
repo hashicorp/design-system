@@ -3,6 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
+{{yield
+  (hash
+    FilterBar=(component "hds/advanced-table/filter-bar" filters=@filters onFilter=@onFilter isLiveFilter=@isLiveFilter)
+  )
+  to="actions"
+}}
 <div
   class="hds-advanced-table__container
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
