@@ -1,0 +1,5 @@
+{{#let @checkbox as |Checkbox|}}
+  <Checkbox checked={{this.isChecked}} @value={{@value}} {{on "change" this.onChange}}>
+    {{yield}}
+  </Checkbox>
+{{/let}}
