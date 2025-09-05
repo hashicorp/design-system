@@ -13,7 +13,9 @@ import type { HdsDropdownToggleButtonSignature } from '../../dropdown/toggle/but
 import type {
   HdsAdvancedTableCell,
   HdsAdvancedTableHorizontalAlignment,
+  HdsAdvancedTableFilterOption,
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
+  HdsAdvancedTableFilterType,
 } from '../types';
 
 export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
@@ -51,6 +53,8 @@ export default class HdsAdvancedTableColumn {
   @tracked
   thContextMenuToggleElement?: HdsDropdownToggleButtonSignature['Element'] =
     undefined;
+  @tracked filterOptions?: HdsAdvancedTableFilterOption[] = undefined;
+  @tracked filterType?: HdsAdvancedTableFilterType = undefined;
 
   // width properties
   @tracked transientWidth?: `${number}px` = undefined; // used for transient width changes
@@ -165,6 +169,8 @@ export default class HdsAdvancedTableColumn {
     this.tooltip = column.tooltip;
     this._setWidthValues(column);
     this.sortingFunction = column.sortingFunction;
+    this.filterOptions = column.filterOptions;
+    this.filterType = column.filterType;
   }
 
   // main collection function
