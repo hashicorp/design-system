@@ -15,7 +15,8 @@ const DEBOUNCE_MS = 250;
 const getAliases = (token, TOKENS_RAW) => {
   const path = token.path.join('.');
   return TOKENS_RAW.filter(
-    (item) => item.original.value === `{${path}.value}`
+    // note: also the original value is prefixed with `$`
+    (item) => item.original.$value === `{${path}.value}`
   ).map((alias) => `{${alias.path.join('.')}}`);
 };
 
