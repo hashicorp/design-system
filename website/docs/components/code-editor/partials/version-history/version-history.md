@@ -1,3 +1,8 @@
+## 4.23.0
+
+Added a `cspNonce` argument which passes a value of the same name to the `hds-code-editor` modifier. `cspNonce` is used to add a nonce value to the style tag
+
+
 ## 4.22.0
 
 Translated template strings

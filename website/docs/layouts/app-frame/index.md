@@ -16,8 +16,6 @@ navigation:
     - sidenav
     - footer
     - modal
-status:
-  updated: 4.22.1
 ---
 
 <section data-tab="Code">

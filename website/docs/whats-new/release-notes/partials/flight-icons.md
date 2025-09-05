@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.13.0
+
+**Minor changes**
+
+`pin-off` icon added.
+
+<small class="doc-whats-new-changelog-metadata">[#3120](https://github.com/hashicorp/design-system/pull/3120)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.12.0
 
 **Minor changes**
@@ -230,25 +240,6 @@ Added static SVG sprite sheet file
 <small class="doc-whats-new-changelog-metadata">[#1763](https://github.com/hashicorp/design-system/pull/1763) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 2.20.0
-
-**Minor changes**
-
-Added "static" version of the animated icons:
-
-- `loading-static`
-- `running-static`
-
-Added new set of icons for Google services:
-
-- `google-docs`
-- `google-forms`
-- `google-slides`
-- `google-sheets`
-- `google-drive`
-
-<small class="doc-whats-new-changelog-metadata">[#1657](https://github.com/hashicorp/design-system/pull/1657)</small>
 
 
 ---
