@@ -187,7 +187,18 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
   const { source, transformGroup, platforms } = targets[target];
 
   // we need to explicitly initialize the `config` object this way to make TS happy
-  const config: Config = {};
+  const config: Config = {
+    log: {
+      // options: warn | error | disabled
+      warnings: 'warn',
+      // options: default | silent | verbose
+      verbosity: 'verbose',
+      errors: {
+        // options: throw | console
+        brokenReferences: 'console',
+      },
+    }
+  };
   config.source = source;
   config.platforms = {};
 
