@@ -22,6 +22,8 @@ import type {
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableThSortOrderLabels,
   HdsAdvancedTableColumnReorderSide,
+  HdsAdvancedTableFilter,
+  HdsAdvancedTableFilters,
 } from './types.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
@@ -51,6 +53,8 @@ export interface HdsAdvancedTableThSortSignature {
     tableHeight?: number;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
+    filters?: HdsAdvancedTableFilters;
+    isLiveFilter?: boolean;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onPinFirstColumn?: () => void;
     onReorderDragEnd?: () => void;
@@ -58,6 +62,10 @@ export interface HdsAdvancedTableThSortSignature {
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
       side: HdsAdvancedTableColumnReorderSide
+    ) => void;
+    onFilter?: (
+      key: string,
+      keyFilter?: HdsAdvancedTableFilter[] | HdsAdvancedTableFilter
     ) => void;
   };
   Blocks: {
@@ -111,6 +119,22 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
       ALIGNMENTS.includes(align)
     );
     return align;
+  }
+
+  get numFilters(): number {
+    const { filters, column } = this.args;
+
+    if (!filters || !column) {
+      return 0;
+    }
+
+    const filterValue = filters[column.key];
+
+    if (Array.isArray(filterValue)) {
+      return filterValue.length;
+    }
+
+    return 0;
   }
 
   get classNames(): string {
