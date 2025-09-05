@@ -303,6 +303,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return childrenKey;
   }
 
+  // TODO this value needs to be moved into the column model
   get hasStickyFirstColumn(): boolean | undefined {
     // The user-controlled `hasPinnedFirstColumn` variable takes precedence over the model's `hasStickyFirstColumn` property.
     if (this.hasPinnedFirstColumn !== undefined) {
@@ -610,7 +611,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       columnOrder,
       sortBy,
       sortOrder,
-      isStickyColumnPinned: this.isStickyColumnPinned,
     });
   }
 

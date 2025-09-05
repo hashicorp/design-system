@@ -252,22 +252,12 @@ export default class HdsAdvancedTableTableModel {
     args: Pick<
       HdsAdvancedTableTableArgs,
       'model' | 'columns' | 'columnOrder' | 'sortBy' | 'sortOrder'
-    > & {
-      isStickyColumnPinned: boolean;
-    }
+    >
   ) {
-    const {
-      model,
-      columns,
-      columnOrder,
-      sortBy,
-      sortOrder,
-      isStickyColumnPinned,
-    } = args;
+    const { model, columns, columnOrder, sortBy, sortOrder } = args;
 
     this.sortBy = sortBy;
     this.sortOrder = sortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
-    this.isStickyColumnPinned = isStickyColumnPinned;
 
     this.columns = columns.map(
       (column) =>
