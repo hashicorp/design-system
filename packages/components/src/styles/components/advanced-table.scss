@@ -415,7 +415,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   }
 }
 
-.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon {
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon,
+.hds-advanced-table__th-filter-menu .hds-dropdown-toggle-icon {
   width: $hds-advanced-table-button-size;
   height: $hds-advanced-table-button-size;
   margin: -2px 0;
@@ -502,6 +503,25 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
 .hds-advanced-table__th-button--expand {
   align-self: flex-start;
+}
+
+.hds-advanced-table__th-filter-menu--active {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--token-color-foreground-action);
+    border-radius: 50%;
+    content: "";
+  }
+}
+
+.hds-advanced-table__clear-filters-button {
+  margin-bottom: 16px;
 }
 
 // ----------------------------------------------------------------
@@ -744,4 +764,66 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   border: 5px solid var(--token-color-focus-action-external);
   border-radius: var(--token-border-radius-medium);
   box-shadow: var(--token-elevation-mid-box-shadow);
+}
+
+// ----------------------------------------------------------------
+
+// FILTER BAR
+.hds-advanced-table__filter-bar {
+  display: grid;
+  gap: 8px;
+  padding: 8px;
+  background-color: var(--token-color-surface-faint);
+  border: 1px solid var(--token-color-border-primary);
+  border-bottom: none;
+  border-radius: $hds-advanced-table-border-radius $hds-advanced-table-border-radius 0 0;
+
+  .hds-advanced-table__filter-bar__filters {
+    display: flex;
+    gap: 12px 12px;
+    align-items: end;
+
+    .hds-form-text-input {
+      width: auto;
+    }
+  }
+
+  .hds-advanced-table__filter-bar__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  .hds-advanced-table__filter-bar__active-filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+.hds-advanced-table__filter-bar + .hds-advanced-table__container {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  .hds-advanced-table__thead .hds-advanced-table__tr:first-of-type .hds-advanced-table__th {
+    &:first-child {
+      border-top-left-radius: 0;
+    }
+
+    &:last-child {
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+.hds-advanced-table__filter-bar__dropdown {
+  display: block;
+
+  &--hidden {
+    display: none;
+  }
 }
