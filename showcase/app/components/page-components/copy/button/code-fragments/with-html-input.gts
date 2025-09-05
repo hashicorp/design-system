@@ -60,7 +60,7 @@ const inputComponentToValueMap: Record<inputComponent, string> = {
 
 const CodeFragmentWithHtmlInput: TemplateOnlyComponent<CodeFragmentWithHtmlInputSignature> =
   <template>
-    <div class="shw-component-copy-button-flex-container">
+    <div class="shw-component-copy-button-flex-container" ...attributes>
       <div>
         <label for="test-input-{{@inputComponent}}" class="sr-only">
           {{capitalize @inputComponent}}

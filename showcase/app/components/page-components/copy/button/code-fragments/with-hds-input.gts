@@ -32,7 +32,7 @@ export interface CodeFragmentWithHdsInputSignature {
 
 const CodeFragmentWithHdsInput: TemplateOnlyComponent<CodeFragmentWithHdsInputSignature> =
   <template>
-    <div class="shw-component-copy-button-flex-container">
+    <div class="shw-component-copy-button-flex-container" ...attributes>
       {{#if (eq @inputComponent "text")}}
         <HdsFormTextInputField
           @value="036140285924"

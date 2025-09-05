@@ -25,8 +25,8 @@ import CopyButtonWithHdsInput, {
 } from 'showcase/components/page-components/copy/button/code-fragments/with-hds-input';
 import CopyButtonWithModal from 'showcase/components/page-components/copy/button/code-fragments/with-modal';
 import CopyButtonWithGenericDialogContent from 'showcase/components/page-components/copy/button/code-fragments/with-generic-dialog-content';
-import CopyButtonWithVanillaInput, {
-  INPUT_COMPONENTS as VANILLA_INPUT_COMPONENTS,
+import CopyButtonWithHTMLInput, {
+  INPUT_COMPONENTS as HTML_INPUT_COMPONENTS,
 } from 'showcase/components/page-components/copy/button/code-fragments/with-html-input';
 
 const maskedInputVariantToLabelMap: Record<
@@ -163,18 +163,18 @@ export default class SubSectionDemos extends Component {
 
     <ShwGrid @columns={{3}} @gap="2rem" as |SG|>
       {{#each INPUT_COMPONENTS as |inputComponent|}}
-        <SG.Item @label={{capitalize inputComponent}}>
+        <SG.Item @label={{"{{capitalize inputComponent}} component"}}>
           <CopyButtonWithHdsInput @inputComponent={{inputComponent}} />
         </SG.Item>
         {{#unless (eq inputComponent "select")}}
-          <SG.Item @label="{{capitalize inputComponent}} (readonly)">
+          <SG.Item @label="{{capitalize inputComponent}} component (readonly)">
             <CopyButtonWithHdsInput
               @inputComponent={{inputComponent}}
               @isReadOnly={{true}}
             />
           </SG.Item>
         {{/unless}}
-        <SG.Item @label="{{capitalize inputComponent}} (disabled)">
+        <SG.Item @label="{{capitalize inputComponent}} component (disabled)">
           <CopyButtonWithHdsInput
             @inputComponent={{inputComponent}}
             @isDisabled={{true}}
@@ -264,9 +264,9 @@ export default class SubSectionDemos extends Component {
 
     <ShwTextH4>HTML input elements</ShwTextH4>
     <ShwFlex @gap="2rem" as |SF|>
-      {{#each VANILLA_INPUT_COMPONENTS as |inputComponent|}}
+      {{#each HTML_INPUT_COMPONENTS as |inputComponent|}}
         <SF.Item @label="{{capitalize inputComponent}} input">
-          <CopyButtonWithVanillaInput @inputComponent={{inputComponent}} />
+          <CopyButtonWithHTMLInput @inputComponent={{inputComponent}} />
         </SF.Item>
       {{/each}}
     </ShwFlex>

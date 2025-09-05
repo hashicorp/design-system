@@ -34,55 +34,59 @@ export interface CodeFragmentWithMaskedInputSignature {
 
 const CodeFragmentWithMaskedInput: TemplateOnlyComponent<CodeFragmentWithMaskedInputSignature> =
   <template>
-    {{#if (eq @variant "masked-input-base")}}
-      <div class="shw-component-copy-button-composition-masked-input-base">
-        <HdsFormMaskedInputBase
-          @value="Lorem ipsum dolor"
-          aria-label="With MaskedInput::Base"
-          @isMultiline={{@isMultiline}}
-        />
-        <HdsCopyButton
-          @isIconOnly={{true}}
-          @text="Copy"
-          @textToCopy="Lorem ipsum dolor"
-        />
-      </div>
-    {{else if (eq @variant "masked-input-base-form-field")}}
-      <HdsFormField @layout="vertical" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Control>
-          <div class="shw-component-copy-button-composition-masked-input-base">
-            <HdsFormMaskedInputBase
-              @value="Lorem ipsum dolor"
-              aria-label="With MaskedInput::Base"
-              @isMultiline={{@isMultiline}}
-            />
-            <HdsCopyButton
-              @isIconOnly={{true}}
-              @text="Copy"
-              @textToCopy="Lorem ipsum dolor"
-            />
-          </div>
-        </F.Control>
-      </HdsFormField>
-    {{else}}
-      <div class="shw-component-copy-button-composition-masked-input-field">
-        <HdsFormMaskedInputField
-          @value="Lorem ipsum dolor"
-          @isMultiline={{@isMultiline}}
-          as |F|
-        >
+    <div ...attributes>
+      {{#if (eq @variant "masked-input-base")}}
+        <div class="shw-component-copy-button-composition-masked-input-base">
+          <HdsFormMaskedInputBase
+            @value="Lorem ipsum dolor"
+            aria-label="With MaskedInput::Base"
+            @isMultiline={{@isMultiline}}
+          />
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy"
+            @textToCopy="Lorem ipsum dolor"
+          />
+        </div>
+      {{else if (eq @variant "masked-input-base-form-field")}}
+        <HdsFormField @layout="vertical" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-        </HdsFormMaskedInputField>
-        <HdsCopyButton
-          @isIconOnly={{true}}
-          @text="Copy"
-          @textToCopy="Lorem ipsum dolor"
-        />
-      </div>
-    {{/if}}
+          <F.Control>
+            <div
+              class="shw-component-copy-button-composition-masked-input-base"
+            >
+              <HdsFormMaskedInputBase
+                @value="Lorem ipsum dolor"
+                aria-label="With MaskedInput::Base"
+                @isMultiline={{@isMultiline}}
+              />
+              <HdsCopyButton
+                @isIconOnly={{true}}
+                @text="Copy"
+                @textToCopy="Lorem ipsum dolor"
+              />
+            </div>
+          </F.Control>
+        </HdsFormField>
+      {{else}}
+        <div class="shw-component-copy-button-composition-masked-input-field">
+          <HdsFormMaskedInputField
+            @value="Lorem ipsum dolor"
+            @isMultiline={{@isMultiline}}
+            as |F|
+          >
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+          </HdsFormMaskedInputField>
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy"
+            @textToCopy="Lorem ipsum dolor"
+          />
+        </div>
+      {{/if}}
+    </div>
   </template>;
 
 export default CodeFragmentWithMaskedInput;
