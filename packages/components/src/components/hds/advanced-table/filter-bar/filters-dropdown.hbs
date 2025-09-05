@@ -1,0 +1,20 @@
+{{! @glint-nocheck }}
+<Hds::Dropdown @listPosition="bottom-left" @height="180px" class={{this.classNames}} as |D|>
+  <D.ToggleButton @text="Filter" @color="secondary" @size="small" />
+  {{yield
+    (hash
+      Checkbox=(component
+        "hds/advanced-table/filter-bar/filters-checkbox"
+        checkbox=D.Checkbox
+        activeFilterableColumns=this.activeFilterableColumns
+        onChange=this.onChange
+      )
+    )
+  }}
+  <D.Footer @hasDivider={{true}}>
+    <Hds::ButtonSet>
+      <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" {{on "click" (fn this.onApply D.close)}} />
+      <Hds::Button @text="Clear" @color="secondary" @size="small" {{on "click" (fn this.onClear D.close)}} />
+    </Hds::ButtonSet>
+  </D.Footer>
+</Hds::Dropdown>
