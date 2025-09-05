@@ -2,43 +2,44 @@
   "form": {
     "label": {
       "color": {
-        "value": "{color.foreground.strong}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.foreground.strong}",
         "group": "components"
       }
     },
     "legend": {
       "color": {
-        "value": "{form.label.color}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{form.label.color}",
         "group": "components"
       }
     },
     "helper-text": {
       "color": {
-        "value": "{color.foreground.faint}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.foreground.faint}",
         "group": "components"
       }
     },
     "indicator": {
       "optional": {
         "color": {
-          "value": "{color.foreground.faint}",
-          "type": "color",
+          "$type": "color",
+          "$value": "{color.foreground.faint}",
           "group": "components"
         }
       }
     },
     "error": {
       "color": {
-        "value": "{color.palette.red-300}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.red-300}",
         "group": "components"
       },
       "icon-size": {
-        "value": "14",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "14",
+        "unit": "px"
       }
     }
   }

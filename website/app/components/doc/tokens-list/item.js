@@ -14,11 +14,13 @@ export default class DocTokensListComponent extends Component {
     let { token } = this.args;
     return {
       name: token.name,
-      type: token.type,
-      value: token.value,
+      // note: we prefix `type` and `value` with `$` because we're using the DTCG format
+      $type: token.$type,
+      $value: token.$value,
       aliases: token.aliases,
       category: token.attributes.category,
-      original_value: token.original.value,
+      // note: also the original value is prefixed with `$`
+      original_value: token.original.$value,
       deprecated: token.deprecated,
       comment: token?.documentation?.comment ?? token?.comment ?? undefined,
     };
@@ -26,7 +28,7 @@ export default class DocTokensListComponent extends Component {
 
   get isAlias() {
     return (
-      this.token.original_value !== this.token.value &&
+      this.token.original_value !== this.token.$value &&
       this.token.original_value.includes('{')
     );
   }

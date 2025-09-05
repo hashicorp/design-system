@@ -2,13 +2,13 @@
   "elevation": {
     "color": {
       "base": {
-        "value": "{color.palette.neutral-500}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-500}",
         "private": true
       },
       "strong": {
-        "value": "{color.palette.neutral-600}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-600}",
         "private": true
       }
     }

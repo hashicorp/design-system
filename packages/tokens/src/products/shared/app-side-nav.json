@@ -3,132 +3,149 @@
     "wrapper": {
       "border": {
         "width": {
-          "value": "1",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px"
         },
         "color": {
-          "value": "var(--token-color-palette-neutral-200)",
-          "type": "color",
+          "$type": "color",
+          "$value": "var(--token-color-palette-neutral-200)",
           "group": "components"
         }
       },
       "padding": {
         "horizontal": {
-          "value": "16",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "16",
+          "unit": "px"
         },
         "vertical": {
-          "value": "16",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "16",
+          "unit": "px"
         },
         "horizontal-minimized": {
-          "value": "8",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px"
         },
         "vertical-minimized": {
-          "value": "22",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "22",
+          "unit": "px"
         }
       }
     },
     "toggle-button": {
       "border": {
         "radius": {
-          "value": "5",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "5",
+          "unit": "px"
         }
       }
     },
     "header": {
       "home-link": {
         "padding": {
-          "value": "4",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "4",
+          "unit": "px"
         },
         "logo-size": {
-          "value": "48",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "48",
+          "unit": "px"
         },
         "logo-size-minimized": {
-          "value": "32",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "32",
+          "unit": "px"
         }
       },
       "actions": {
         "spacing": {
-          "value": "8",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px"
         }
       }
     },
     "body": {
       "list": {
         "margin-vertical": {
-          "value": "24",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "24",
+          "unit": "px"
         }
       },
       "list-item": {
         "height": {
-          "value": "36",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "36",
+          "unit": "px"
         },
         "padding": {
           "horizontal": {
-            "value": "8",
-            "type": "size"
+            "$type": "dimension",
+            "$value": "8",
+            "unit": "px"
           },
           "vertical": {
-            "value": "4",
-            "type": "size"
+            "$type": "dimension",
+            "$value": "4",
+            "unit": "px"
           }
         },
         "spacing-vertical": {
-          "value": "2",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "2",
+          "unit": "px"
         },
         "content-spacing-horizontal": {
-          "value": "8",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px"
         },
         "border-radius": {
-          "value": "5",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "5",
+          "unit": "px"
         }
       }
     },
     "color": {
       "foreground": {
         "primary": {
-          "value": "var(--token-color-foreground-primary)",
-          "type": "color",
+          "$type": "color",
+          "$value": "var(--token-color-foreground-primary)",
           "group": "components"
         },
         "strong": {
-          "value": "var(--token-color-foreground-primary)",
-          "type": "color",
+          "$type": "color",
+          "$value": "var(--token-color-foreground-primary)",
           "group": "components"
         },
         "faint": {
-          "value": "var(--token-color-foreground-faint)",
-          "type": "color",
+          "$type": "color",
+          "$value": "var(--token-color-foreground-faint)",
           "group": "components"
         }
       },
       "surface": {
         "primary": {
-          "value": "var(--token-color-surface-faint)",
-          "type": "color",
+          "$type": "color",
+          "$value": "var(--token-color-surface-faint)",
           "group": "components"
         },
         "interactive-hover": {
-          "value": "var(--token-color-surface-interactive-hover)",
-          "type": "color",
+          "$type": "color",
+          "$value": "var(--token-color-surface-interactive-hover)",
           "group": "semantic"
         },
         "interactive-active": {
-          "value": "var(--token-color-palette-neutral-300)",
-          "type": "color",
+          "$type": "color",
+          "$value": "var(--token-color-palette-neutral-300)",
           "group": "semantic"
         }
       }

@@ -2,54 +2,54 @@
   "color": {
     "terraform": {
       "brand": {
-        "value": "{color.palette.terraform-brand}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.terraform-brand}",
         "group": "branding"
       },
       "brand-on-dark": {
-        "value": "#a067da",
-        "type": "color",
+        "$type": "color",
+        "$value": "#a067da",
         "group": "branding",
         "comment": "this is an alternative brand color meant to be used on dark backgrounds"
       },
       "foreground": {
-        "value": "{color.palette.terraform-500}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.terraform-500}",
         "group": "branding"
       },
       "surface": {
-        "value": "{color.palette.terraform-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.terraform-50}",
         "group": "branding"
       },
       "border": {
-        "value": "{color.palette.terraform-100}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.terraform-100}",
         "group": "branding"
       },
       "gradient": {
         "primary": {
           "start": {
-            "value": "{color.palette.terraform-300}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.terraform-300}",
             "group": "branding"
           },
           "stop": {
-            "value": "{color.palette.terraform-400}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.terraform-400}",
             "group": "branding"
           }
         },
         "faint": {
           "start": {
-            "value": "#fcfaff",
-            "type": "color",
+            "$type": "color",
+            "$value": "#fcfaff",
             "group": "branding",
             "comment": "this is the 'terraform-50' value at 25% opacity on white"
           },
           "stop": {
-            "value": "{color.palette.terraform-50}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.terraform-50}",
             "group": "branding"
           }
         }
