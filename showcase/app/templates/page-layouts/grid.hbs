@@ -106,6 +106,45 @@
         </Hds::Layout::Grid>
       </Shw::Outliner>
     </SG.Item>
+
+    <SG.Item @label="50% width columns">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @gap="24" @columnWidth="50%">
+          <Shw::Placeholder @text="#1" @height="40" />
+          <Shw::Placeholder @text="#2" @height="40" />
+          <Shw::Placeholder @text="#3" @height="40" />
+          <Shw::Placeholder @text="#4" @height="40" />
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Responsive column width</Shw::Text::H3>
+
+  <Shw::Grid @columns={{1}} @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+    <SG.Item @label="sm view = 1 column, md view = 2 columns, & lg view = 3 columns">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @gap="24" @columnWidthSm="100%" @columnWidthMd="50%" @columnWidthLg="33.33%">
+          <Shw::Placeholder @text="#1" @height="40" />
+          <Shw::Placeholder @text="#2" @height="40" />
+          <Shw::Placeholder @text="#3" @height="40" />
+          <Shw::Placeholder @text="#4" @height="40" />
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="sm view = 1 column, all other views = 3 columns">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @gap="24" @columnWidthSm="100%" @columnWidth="33.33%">
+          <Shw::Placeholder @text="#1" @height="40" />
+          <Shw::Placeholder @text="#2" @height="40" />
+          <Shw::Placeholder @text="#3" @height="40" />
+          <Shw::Placeholder @text="#4" @height="40" />
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
   </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
