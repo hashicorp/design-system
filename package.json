@@ -26,8 +26,7 @@
   },
   "pnpm": {
     "overrides": {
-      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11",
-      "style-dictionary": "file:/Users/cristianorastelli/src/github/style-dictionary-didoo"
+      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11"
     },
     "patchedDependencies": {
       "broccoli-asset-rewrite": "patches/broccoli-asset-rewrite.patch"

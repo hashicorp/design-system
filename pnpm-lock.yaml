@@ -7,7 +7,6 @@ settings:
 
 overrides:
   ember-composable-helpers: npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11
-  style-dictionary: file:/Users/cristianorastelli/src/github/style-dictionary-didoo
 
 patchedDependencies:
   broccoli-asset-rewrite:
@@ -450,8 +449,8 @@ importers:
         specifier: ^3.4.2
         version: 3.6.2
       style-dictionary:
-        specifier: file:/Users/cristianorastelli/src/github/style-dictionary-didoo
-        version: file:../../github/style-dictionary-didoo
+        specifier: ^5.0.4
+        version: 5.0.4
       tinycolor2:
         specifier: ^1.6.0
         version: 1.6.0
@@ -10758,8 +10757,8 @@ packages:
   strip-test-selectors@0.1.0:
     resolution: {integrity: sha512-wkVYph30L7wYkMf5EypfTqhY4qZwmQ0hpFOTksaXne49YbUr2jenJl5w5yj9IWx3ojtoH9BGAQ7cShnYEzbs5g==}
 
-  style-dictionary@file:../../github/style-dictionary-didoo:
-    resolution: {directory: ../../github/style-dictionary-didoo, type: directory}
+  style-dictionary@5.0.4:
+    resolution: {integrity: sha512-+k82riDTHnCpOYzKz1Xa4W219dEOI8pc2a2jnWZuAFY11PHvRL1Ao55Lle3t/kQbiRU5QACdC3xeUNuByaKE3w==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -25311,7 +25310,7 @@ snapshots:
 
   strip-test-selectors@0.1.0: {}
 
-  style-dictionary@file:../../github/style-dictionary-didoo:
+  style-dictionary@5.0.4:
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.1
       '@bundled-es-modules/glob': 11.0.3
