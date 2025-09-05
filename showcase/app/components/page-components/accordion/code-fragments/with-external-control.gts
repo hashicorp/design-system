@@ -46,7 +46,11 @@ export default class CodeFragmentWithExternalControl extends Component<CodeFragm
     >
       {{this.buttonLabel}}
     </button>
-    <HdsAccordion @forceState={{if (eq @variant "all") this.state}} as |A|>
+    <HdsAccordion
+      @forceState={{if (eq @variant "all") this.state}}
+      ...attributes
+      as |A|
+    >
       <A.Item>
         <:toggle>Item one</:toggle>
         <:content>

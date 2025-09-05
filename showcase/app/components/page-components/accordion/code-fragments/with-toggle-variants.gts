@@ -20,7 +20,7 @@ export interface CodeFragmentWithToggleVariantsSignature {
 
 const CodeFragmentWithToggleVariants: TemplateOnlyComponent<CodeFragmentWithToggleVariantsSignature> =
   <template>
-    <HdsAccordion @type={{@type}} @size={{@size}} as |A|>
+    <HdsAccordion @type={{@type}} @size={{@size}} ...attributes as |A|>
       <A.Item>
         <:toggle>Item one</:toggle>
         <:content>
