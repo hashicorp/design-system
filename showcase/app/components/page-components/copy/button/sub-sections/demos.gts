@@ -163,7 +163,7 @@ export default class SubSectionDemos extends Component {
 
     <ShwGrid @columns={{3}} @gap="2rem" as |SG|>
       {{#each INPUT_COMPONENTS as |inputComponent|}}
-        <SG.Item @label={{"{{capitalize inputComponent}} component"}}>
+        <SG.Item @label="{{capitalize inputComponent}} component">
           <CopyButtonWithHdsInput @inputComponent={{inputComponent}} />
         </SG.Item>
         {{#unless (eq inputComponent "select")}}
