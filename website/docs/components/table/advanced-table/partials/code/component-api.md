@@ -78,8 +78,22 @@ The Advanced Table component itself is where most of the options will be applied
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
+  <C.Property @name="columnOrder" @type="array">
+    Array of column keys that determines the initial order of table columns. Keys in this array must match `key` values present in objects in the `columns` argument.
+  </C.Property>
+  <C.Property @name="hasReorderableColumns" @type="boolean" @default="false">
+    If set to `true`, allows users to reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys.
+  </C.Property>
   <C.Property @name="hasResizableColumns" @type="boolean" @default="false">
     If set to `true`, allows users to resize columns either by clicking and dragging on the column border with a mouse, or by moving focus to the resize border with a keyboard and using the right and left arrow keys.
+  </C.Property>
+  <C.Property @name="onColumnReorder" @type="function">
+    Use in conjunction with `hasReorderableColumns` to pass a callback function to know the updated column order after a reorder event.
+    <br /><br />
+    When called, this function receives one positional argument:
+    <ul>
+    <li>an array of reordered column keys (e.g., ['name', 'age', 'height']).</li>
+    </ul>
   </C.Property>
   <C.Property @name="onColumnResize" @type="function">
     Use in conjunction with `hasResizableColumns` to pass a callback function to know the updated width of a resized column.
