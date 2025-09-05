@@ -10,7 +10,9 @@ import { guidFor } from '@ember/object/internals';
 import type HdsAdvancedTableModel from './table.ts';
 import type {
   HdsAdvancedTableHorizontalAlignment,
+  HdsAdvancedTableFilterOption,
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
+  HdsAdvancedTableFilterType,
 } from '../types';
 
 export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
@@ -38,6 +40,8 @@ export default class HdsAdvancedTableColumn {
   @tracked key: string;
   @tracked tooltip?: string = undefined;
   @tracked thElement?: HTMLDivElement = undefined;
+  @tracked filterOptions?: HdsAdvancedTableFilterOption[] = undefined;
+  @tracked filterType?: HdsAdvancedTableFilterType = undefined;
 
   // width properties
   @tracked transientWidth?: `${number}px` = undefined; // used for transient width changes
@@ -146,6 +150,8 @@ export default class HdsAdvancedTableColumn {
     this.tooltip = column.tooltip;
     this._setWidthValues(column);
     this.sortingFunction = column.sortingFunction;
+    this.filterOptions = column.filterOptions;
+    this.filterType = column.filterType;
   }
 
   // main collection function
