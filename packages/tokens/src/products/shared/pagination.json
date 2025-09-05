@@ -3,44 +3,52 @@
     "nav": {
       "control": {
         "height": {
-          "value": "36",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "36",
+          "unit": "px"
         },
         "padding": {
           "horizontal": {
-            "value": "12",
-            "type": "size"
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
           }
         },
         "focus-inset": {
-          "value": "4",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "4",
+          "unit": "px"
         },
         "icon-spacing": {
-          "value": "6",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "6",
+          "unit": "px"
         }
       },
       "indicator": {
         "height": {
-          "value": "2",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "2",
+          "unit": "px"
         },
         "spacing": {
-          "value": "6",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "6",
+          "unit": "px"
         }
       }
     },
     "child": {
       "spacing": {
         "vertical": {
-          "value": "8",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px"
         },
         "horizontal": {
-          "value": "20",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "20",
+          "unit": "px"
         }
       }
     }

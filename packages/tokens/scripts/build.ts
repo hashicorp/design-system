@@ -213,26 +213,26 @@ StyleDictionary.registerAction({
 const targets: ConfigTargets = {
   'products': {
     'source': [
-      `src/global-dtcg/**/*.json`,
-      `src/products-dtcg/shared/**/*.json`
+      `src/global/**/*.json`,
+      `src/products/shared/**/*.json`
     ],
     'transformGroup': 'products/web',
     'platforms': ['web/css-variables', 'docs/json']
   },
   'devdot': {
     'source': [
-      `src/global-dtcg/**/*.json`,
-      `src/products-dtcg/shared/**/*.json`,
+      `src/global/**/*.json`,
+      `src/products/shared/**/*.json`,
       // just uncomment the line below to include overrides for "devdot" tokens
-      `src/devdot-dtcg/**/*.json`
+      `src/devdot/**/*.json`
     ],
     'transformGroup': 'products/web',
     'platforms': ['web/css-variables']
   },
   'marketing': {
     'source': [
-      `src/global-dtcg/**/*.json`,
-      `src/products-dtcg/shared/**/*.json`,
+      `src/global/**/*.json`,
+      `src/products/shared/**/*.json`,
     ],
     'transformGroup': 'marketing/web',
     'platforms': ['web/css-variables', 'json']
@@ -241,9 +241,9 @@ const targets: ConfigTargets = {
   'cloud-email': {
     // we need only foundational tokens (colors, typography, etc)
     'source': [
-      `src/global-dtcg/**/*.json`,
-      `src/products-dtcg/shared/color/**/*.json`,
-      `src/products-dtcg/shared/typography.json`,
+      `src/global/**/*.json`,
+      `src/products/shared/color/**/*.json`,
+      `src/products/shared/typography.json`,
     ],
     'transformGroup': 'products/email',
     'platforms': ['email/sass-variables']

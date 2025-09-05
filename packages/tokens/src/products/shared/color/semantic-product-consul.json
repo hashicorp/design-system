@@ -2,48 +2,48 @@
   "color": {
     "consul": {
       "brand": {
-        "value": "{color.palette.consul-brand}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.consul-brand}",
         "group": "branding"
       },
       "foreground": {
-        "value": "{color.palette.consul-500}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.consul-500}",
         "group": "branding"
       },
       "surface": {
-        "value": "{color.palette.consul-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.consul-50}",
         "group": "branding"
       },
       "border": {
-        "value": "{color.palette.consul-100}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.consul-100}",
         "group": "branding"
       },
       "gradient": {
         "primary": {
           "start": {
-            "value": "{color.palette.consul-300}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.consul-300}",
             "group": "branding"
           },
           "stop": {
-            "value": "{color.palette.consul-400}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.consul-400}",
             "group": "branding"
           }
         },
         "faint": {
           "start": {
-            "value": "#fff9fb",
-            "type": "color",
+            "$type": "color",
+            "$value": "#fff9fb",
             "group": "branding",
             "comment": "this is the 'consul-50' value at 25% opacity on white"
           },
           "stop": {
-            "value": "{color.palette.consul-50}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.consul-50}",
             "group": "branding"
           }
         }

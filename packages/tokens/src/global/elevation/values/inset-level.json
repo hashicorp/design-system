@@ -3,51 +3,56 @@
     "inset": {
       "shadow-01": {
         "x": {
-          "value": "0",
-          "type": "size",
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "px",
           "private": true
         },
         "y": {
-          "value": "1",
-          "type": "size",
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px",
           "private": true
         },
         "blur": {
-          "value": "2",
-          "type": "size",
+          "$type": "dimension",
+          "$value": "2",
+          "unit": "px",
           "private": true
         },
         "spread": {
-          "value": "1",
-          "type": "size",
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px",
           "private": true
         },
         "color": {
-          "value": "{elevation.color.base}",
+          "$type": "color",
+          "$value": "{elevation.color.base}",
           "alpha": "0.1",
-          "type": "color",
           "private": true
         }
       },
       "border": {
         "width": {
-          "value": "1",
-          "type": "size",
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px",
           "private": true
         },
         "color": {
-          "value": "{elevation.color.base}",
+          "$type": "color",
+          "$value": "{elevation.color.base}",
           "alpha": "0.30",
-          "type": "color",
           "private": true
         }
       },
       "box-shadow-01": {
-        "value": "inset {elevation.inset.shadow-01.x} {elevation.inset.shadow-01.y} {elevation.inset.shadow-01.blur} {elevation.inset.shadow-01.spread} {elevation.inset.shadow-01.color}",
+        "$value": "inset {elevation.inset.shadow-01.x} {elevation.inset.shadow-01.y} {elevation.inset.shadow-01.blur} {elevation.inset.shadow-01.spread} {elevation.inset.shadow-01.color}",
         "private": true
       },
       "box-shadow-border": {
-        "value": "inset 0 0 0 {elevation.inset.border.width} {elevation.inset.border.color}",
+        "$value": "inset 0 0 0 {elevation.inset.border.width} {elevation.inset.border.color}",
         "private": true
       }
     }
