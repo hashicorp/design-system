@@ -39,6 +39,8 @@ const maskedInputVariantToLabelMap: Record<
 };
 
 export default class SubSectionDemos extends Component {
+  bigIntValue = BigInt(12345678910);
+
   get targetNodeElement() {
     const element = document.querySelector('#test-target-node-element');
     if (!element) {
@@ -113,7 +115,7 @@ export default class SubSectionDemos extends Component {
       <SF.Item>
         <HdsCopyButton
           @text="Copy a Bigint number"
-          @textToCopy={{BigInt 12345678910}}
+          @textToCopy={{this.bigIntValue}}
         />
       </SF.Item>
     </ShwFlex>
