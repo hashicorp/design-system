@@ -11,39 +11,40 @@ export default class DocTokenPreviewComponent extends Component {
     let { token } = this.args;
     return {
       name: token.name,
-      type: token.type,
-      value: token.value,
+      // note: we prefix `type` and `value` with `$` because we're using the DTCG format
+      $type: token.$type,
+      $value: token.$value,
     };
   }
 
   get colorPreviewStyle() {
     const isColor =
-      this.token.value.startsWith('#') || this.token.value.startsWith('rgb');
+      this.token.$value.startsWith('#') || this.token.$value.startsWith('rgb');
     return isColor
-      ? htmlSafe(`background-color: ${this.token.value}`)
+      ? htmlSafe(`background-color: ${this.token.$value}`)
       : undefined;
   }
 
   get backgroundImagePreviewStyle() {
-    const isBackgroundImage = this.token.value.match(/url\("data:image\//);
+    const isBackgroundImage = this.token.$value.match(/url\("data:image\//);
     let backgroundColor;
-    if (this.token.value.match(/fill='%23f{3,6}'/i)) {
+    if (this.token.$value.match(/fill='%23f{3,6}'/i)) {
       backgroundColor = 'rgb(0 0 0 / 15%)';
     } else {
       backgroundColor = 'transparent';
     }
     return isBackgroundImage
       ? htmlSafe(
-          `background-image: ${this.token.value}; background-color: ${backgroundColor}`,
+          `background-image: ${this.token.$value}; background-color: ${backgroundColor}`,
         )
       : undefined;
   }
 
   get fontPreviewStyle() {
-    if (this.token.type === 'font-size') {
+    if (this.token.$type === 'font-size') {
       let size = '16px';
-      if (this.token.value.match(/rem$/)) {
-        size = `${Math.min(1, this.token.value.replace(/rem$/, ''))}rem`;
+      if (this.token.$value.match(/rem$/)) {
+        size = `${Math.min(1, this.token.$value.replace(/rem$/, ''))}rem`;
       }
       return htmlSafe(`font-size: ${size}`);
     } else if (
@@ -51,9 +52,9 @@ export default class DocTokenPreviewComponent extends Component {
       (this.token.name.includes('font-stack') ||
         this.token.name.includes('font-family'))
     ) {
-      return htmlSafe(`font-family: ${this.token.value}`);
+      return htmlSafe(`font-family: ${this.token.$value}`);
     } else if (this.token.name.startsWith('token-typography-font-weight')) {
-      return htmlSafe(`font-weight: ${this.token.value}`);
+      return htmlSafe(`font-weight: ${this.token.$value}`);
     } else {
       return undefined;
     }
@@ -61,16 +62,16 @@ export default class DocTokenPreviewComponent extends Component {
 
   get sizePreviewStyle() {
     const isSize =
-      this.token.type === 'size' && this.token.value.endsWith('px');
+      this.token.$type === 'dimension' && this.token.$value.endsWith('px');
     return isSize
-      ? htmlSafe(`--token-value-height: ${this.token.value}`)
+      ? htmlSafe(`--token-value-height: ${this.token.$value}`)
       : undefined;
   }
 
   get boxShadowPreviewStyle() {
     const isBoxShadow = this.token.name.endsWith('box-shadow');
     return isBoxShadow
-      ? htmlSafe(`--token-value-box-shadow: ${this.token.value}`)
+      ? htmlSafe(`--token-value-box-shadow: ${this.token.$value}`)
       : undefined;
   }
 }
