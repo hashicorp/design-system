@@ -3,19 +3,20 @@
     "base": {
       "border": {
         "width": {
-          "value": "1",
-          "type": "size",
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px",
           "private": true
         },
         "color": {
-          "value": "{elevation.color.base}",
+          "$type": "color",
+          "$value": "{elevation.color.base}",
           "alpha": "0.20",
-          "type": "color",
           "private": true
         }
       },
       "box-shadow-border": {
-        "value": "0 0 0 {elevation.base.border.width} {elevation.base.border.color}",
+        "$value": "0 0 0 {elevation.base.border.width} {elevation.base.border.color}",
         "private": true
       }
     }

@@ -2,63 +2,63 @@
   "color": {
     "surface": {
       "primary": {
-        "value": "{color.palette.neutral-0}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-0}",
         "group": "semantic"
       },
       "faint": {
-        "value": "{color.palette.neutral-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-50}",
         "group": "semantic"
       },
       "strong": {
-        "value": "{color.palette.neutral-100}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-100}",
         "group": "semantic"
       },
       "interactive": {
-        "value": "{color.palette.neutral-0}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-0}",
         "group": "semantic"
       },
       "interactive-hover": {
-        "value": "{color.palette.neutral-100}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-100}",
         "group": "semantic"
       },
       "interactive-active": {
-        "value": "{color.palette.neutral-200}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-200}",
         "group": "semantic"
       },
       "interactive-disabled": {
-        "value": "{color.palette.neutral-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-50}",
         "group": "semantic"
       },
       "action": {
-        "value": "{color.palette.blue-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.blue-50}",
         "group": "semantic"
       },
       "highlight": {
-        "value": "{color.palette.purple-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.purple-50}",
         "group": "semantic"
       },
       "success": {
-        "value": "{color.palette.green-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.green-50}",
         "group": "semantic"
       },
       "warning": {
-        "value": "{color.palette.amber-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.amber-50}",
         "group": "semantic"
       },
       "critical": {
-        "value": "{color.palette.red-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.red-50}",
         "group": "semantic"
       }
     }

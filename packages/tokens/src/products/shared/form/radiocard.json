@@ -2,33 +2,38 @@
   "form": {
     "radiocard-group": {
       "gap": {
-        "value": "16",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px"
       }
     },
     "radiocard": {
       "border": {
         "width": {
-          "value": "1",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px"
         },
         "radius": {
-          "value": "6",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "6",
+          "unit": "px"
         }
       },
       "content-padding": {
-        "value": "24",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px"
       },
       "control-padding": {
-        "value": "8",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px"
       },
       "transition": {
         "duration": {
-          "value": "0.2",
-          "type": "time",
+          "$type": "duration",
+          "$value": "0.2",
           "unit": "s"
         }
       }
