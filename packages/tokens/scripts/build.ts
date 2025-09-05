@@ -256,16 +256,16 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
 
   // we need to explicitly initialize the `config` object this way to make TS happy
   const config: Config = {
-    log: {
-      // options: warn | error | disabled
-      warnings: 'warn',
-      // options: default | silent | verbose
-      verbosity: 'verbose',
-      errors: {
-        // options: throw | console
-        brokenReferences: 'console',
-      },
-    }
+    // log: {
+    //   // options: warn | error | disabled
+    //   warnings: 'warn',
+    //   // options: default | silent | verbose
+    //   verbosity: 'verbose',
+    //   errors: {
+    //     // options: throw | console
+    //     brokenReferences: 'console',
+    //   },
+    // }
   };
   config.source = source;
   config.platforms = {};
