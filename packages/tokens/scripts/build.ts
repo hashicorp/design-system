@@ -4,7 +4,7 @@
  */
 
 import StyleDictionary from 'style-dictionary';
-import type { Config, DesignToken, Transform } from 'style-dictionary/types';
+import type { Config, DesignToken, Platform } from 'style-dictionary/types';
 
 import tinycolor from 'tinycolor2';
 
@@ -26,45 +26,104 @@ const distFolder = path.resolve(__dirname, '../dist');
 
 // CUSTOM TRANSFORMS
 
-const transformPxToRem: Transform['transform'] = (token, platform) => {
-  const val = parseFloat(token.value);
-  const baseFont = platform?.basePxFontSize || 16;
-  if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'rem'.\n`;
-  return `${(token.value / baseFont)}rem`;
-}
-
 StyleDictionary.registerTransform({
-  name: 'size/px',
-  type: 'value',
-  filter: function(token) {
-    return token.type === 'size';
+  // the CTI convention is not outdated, but we still need to use the top-level path as `category` for the token
+  name: 'attributes/category',
+  type: 'attribute',
+  filter: function (token: DesignToken) {
+    return token?.path[0];
   },
-  transform: function (token) {
-    const val = parseFloat(token.value);
-    if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px'.\n`;
-    return `${token.value}px`;
+  transform: (token: DesignToken) => {
+    return { category: token.path[0] };
   }
 });
 
 StyleDictionary.registerTransform({
-  name: 'font-size/rem',
+  name: 'font-family',
   type: 'value',
-  filter: function(token) {
-    return token?.attributes?.category === 'typography' && token.type === 'font-size';
+  transitive: true,
+  filter: function (token: DesignToken) {
+    // notice: we don't use `fontFamily` as `$type` because is handled internally in Style Dictionary
+    // and currently the typographic transforms (and general handling) is still a bit unstable (due also to the fact the DTCG specifications are also preliminary)
+    // (see https://www.designtokens.org/tr/drafts/format/#typography)
+    return token.$type === 'font-family';
   },
-  transform: transformPxToRem
+  transform: (token: DesignToken) => {
+    // inspired by the `processFamily()` method in Style Dictionary - see: https://github.com/style-dictionary/style-dictionary/blob/main/lib/common/transforms.js#L157
+    const val = token.$value;
+    if (typeof val === 'string') {
+      return val;
+    } else if (Array.isArray(val)) {
+      return val.join(', ');
+    } else {
+      console.error(`🚨 Invalid Font-Family Value: '${token.name}' should be an array or a string to be correctly processed by our pipeline.\n`);
+      return val;
+    }
+  }
 });
 
 StyleDictionary.registerTransform({
-  name: 'font-size/px',
+  name: 'font-size/to-rem',
   type: 'value',
-  filter: function(token) {
-    return token?.attributes?.category === 'typography' && token.type === 'font-size';
+  filter: function (token: DesignToken) {
+    // notice: we don't use `fontSize` as `$type` because is handled internally in Style Dictionary
+    // in a way that interferes with what we want to achieve (differentiate between font-sizes in rem and other sizes in px)
+    // (see `isFontSize()` and the `transforms.sizePx` transformation, for example)
+    return token.$type === 'font-size';
   },
-  transform: function (token) {
-    const val = parseFloat(token.value);
-    if (isNaN(val)) throw `Invalid Number: '${token.name}: ${token.value}' is not a valid number, cannot transform to 'px'.\n`;
-    return `${token.value}px`;
+  transform: (token: DesignToken, platform: Platform) => {
+    const val = parseFloat(token.$value);
+    const baseFont = platform?.basePxFontSize || 16;
+    const unit = token.unit;
+    if (isNaN(val)) {
+      console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot transform to 'rem'.\n`);
+    }
+    if (unit === 'px') {
+      return `${val / baseFont}rem`;
+    } else {
+      return `${val}rem`;
+    }
+  }
+});
+
+StyleDictionary.registerTransform({
+  name: 'font-size/to-px',
+  type: 'value',
+  filter: function (token: DesignToken) {
+    // notice: we don't use `fontSize` as `$type` because is handled internally in Style Dictionary
+    // in a way that interferes with what we want to achieve (differentiate between font-sizes in rem and other sizes in px)
+    // (see `isFontSize()` and the `transforms.sizePx` transformation, for example)
+    return token.$type === 'font-size';
+  },
+  transform: (token: DesignToken, platform: Platform) => {
+    const val = parseFloat(token.$value);
+    const unit = token.unit;
+    const baseFont = platform?.basePxFontSize || 16;
+    if (isNaN(val)) {
+      console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot transform to 'px'.\n`);
+    }
+    if (unit === 'rem') {
+      return `${val * baseFont}px`;
+    } else {
+      return `${val}px`;
+    }
+  }
+});
+
+StyleDictionary.registerTransform({
+  name: 'dimension/unit',
+  type: 'value',
+  filter: function (token: DesignToken) {
+    // we use this filter to differentiate from the `size/px` (`transforms.sizePx`) built-in tranformation
+    // because it includes also `$type=fontSize` but in our case we want to handle font sizes differently
+    return token.$type === 'dimension';
+  },
+  transform: function (token: DesignToken) {
+    const val = parseFloat(token.$value);
+    if (isNaN(val)) {
+      console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot use it as dimension/unit.\n`);
+    }
+    return `${token.$value}${token.unit}`;
   }
 });
 
@@ -74,45 +133,54 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'color/with-alpha',
   type: 'value',
-  transitive: true, // see: https://amzn.github.io/style-dictionary/#/transforms?id=transitive-transforms
+  transitive: true, // see: https://styledictionary.com/reference/hooks/transforms/#transitive-transforms
   filter: function(token: DesignToken) {
-    return token.type === 'color' && token.alpha;
+    return token.$type === 'color' && token.alpha;
   },
-  transform: function (token) {
-    const color = tinycolor(token.value);
-    if (!color.isValid) throw `Invalid Color: '${token.name}: ${token.value}' is not a valid color.\n`;
+  transform: function (token: DesignToken) {
+    const color = tinycolor(token.$value);
+    if (!color.isValid) {
+      console.error(`🚨 Invalid Color: '${token.name}: ${token.$value}' is not a valid color.\n`);
+    }
     const alpha = parseFloat(token.alpha);
-    if (!(alpha > 0 && alpha < 1)) throw `Invalid Alpha: '${token.name}: ${token.value}' is not a valid alpha value (should be in the format 0.x).\n`;
+    if (!(alpha > 0 && alpha < 1)) {
+      console.error(`🚨 Invalid Alpha: '${token.name}: ${token.$value}' is not a valid alpha value (should be in the format 0.x).\n`);
+    }
     // https://caniuse.com/mdn-css_types_color_alpha_hexadecimal_notation
     return color.setAlpha(alpha).toHex8String();
   }
 });
 
 StyleDictionary.registerTransform({
-  name: 'time/sec',
+  name: 'time/duration',
   type: 'value',
-  filter: function (token) {
-    return token.type === 'time' && token.value.match(/^[\d.]+$/);
+  filter: function (token: DesignToken) {
+    return token.$type === 'duration';
   },
-  transform: function (token) {
-    return `${token.value}s`;
+  transform: function (token: DesignToken) {
+    const val = parseFloat(token.$value);
+    const unit = token.unit;
+    if (isNaN(val)) {
+      console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot use it as time/duration.\n`);
+    }
+    return `${val}${unit}`;
   },
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web',
-  transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+  transforms: ['name/kebab', 'font-family', 'font-size/to-rem', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'attributes/category']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
-  transforms: ['attribute/cti', 'name/kebab', 'font-size/px', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+  transforms: ['name/kebab', 'font-family', 'font-size/to-px', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'attributes/category']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
-  transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+  transforms: ['name/kebab', 'font-family', 'font-size/to-rem', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'attributes/category']
 });
 
 StyleDictionary.registerFormat({
@@ -145,26 +213,26 @@ StyleDictionary.registerAction({
 const targets: ConfigTargets = {
   'products': {
     'source': [
-      `src/global/**/*.json`,
-      `src/products/shared/**/*.json`
+      `src/global-dtcg/**/*.json`,
+      `src/products-dtcg/shared/**/*.json`
     ],
     'transformGroup': 'products/web',
     'platforms': ['web/css-variables', 'docs/json']
   },
   'devdot': {
     'source': [
-      `src/global/**/*.json`,
-      `src/products/shared/**/*.json`,
+      `src/global-dtcg/**/*.json`,
+      `src/products-dtcg/shared/**/*.json`,
       // just uncomment the line below to include overrides for "devdot" tokens
-      `src/devdot/**/*.json`
+      `src/devdot-dtcg/**/*.json`
     ],
     'transformGroup': 'products/web',
     'platforms': ['web/css-variables']
   },
   'marketing': {
     'source': [
-      `src/global/**/*.json`,
-      `src/products/shared/**/*.json`,
+      `src/global-dtcg/**/*.json`,
+      `src/products-dtcg/shared/**/*.json`,
     ],
     'transformGroup': 'marketing/web',
     'platforms': ['web/css-variables', 'json']
@@ -173,9 +241,9 @@ const targets: ConfigTargets = {
   'cloud-email': {
     // we need only foundational tokens (colors, typography, etc)
     'source': [
-      `src/global/**/*.json`,
-      `src/products/shared/color/**/*.json`,
-      `src/products/shared/typography.json`,
+      `src/global-dtcg/**/*.json`,
+      `src/products-dtcg/shared/color/**/*.json`,
+      `src/products-dtcg/shared/typography.json`,
     ],
     'transformGroup': 'products/email',
     'platforms': ['email/sass-variables']
