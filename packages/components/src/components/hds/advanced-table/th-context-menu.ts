@@ -4,32 +4,33 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+import { scheduleOnce } from '@ember/runloop';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
-import { tracked } from '@glimmer/tracking';
+import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
-  label: string;
-  icon: HdsDropdownToggleIconSignature['Args']['icon'];
-  action: (
-    column: HdsAdvancedTableColumn,
-    dropdownCloseCallback: () => void
-  ) => void;
+  icon?: HdsDropdownToggleIconSignature['Args']['icon'];
+  label?: string;
+  action?: (dropdownCloseCallback: () => void) => void;
 }
 
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    isStickyColumn?: boolean;
     hasResizableColumns?: boolean;
+    hasReorderableColumns?: boolean;
+    hasStickyFirstColumn?: boolean;
+    isStickyColumn?: boolean;
+    reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onPinFirstColumn?: () => void;
@@ -42,77 +43,157 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
   @tracked private _element!: HdsDropdownSignature['Element'];
 
-  get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { column, isStickyColumn, hasResizableColumns } = this.args;
+  get _resizeOptions(): HdsAdvancedTableThContextMenuOption[] {
+    const { column } = this.args;
 
-    let options: HdsAdvancedTableThContextMenuOption[] = [];
+    const translatedResetWidthLabel = this.hdsIntl.t(
+      'hds.advanced-table.th-context-menu.reset-width',
+      { default: 'Reset column width' }
+    );
 
-    if (hasResizableColumns) {
-      if (!column.isLast) {
-        const translatedResizeLabel = this.hdsIntl.t(
-          'hds.advanced-table.th-context-menu.resize',
-          { default: 'Resize column' }
-        );
-        options = [
-          ...options,
-          {
-            key: 'resize-column',
-            label: translatedResizeLabel,
-            icon: 'resize-column',
-            action: this.resizeColumn.bind(this),
-          },
-        ];
-      }
+    let resizeOptions: HdsAdvancedTableThContextMenuOption[] = [
+      {
+        key: 'reset-column-width',
+        label: translatedResetWidthLabel,
+        icon: 'rotate-ccw',
+        action: this._resetColumnWidth.bind(this),
+      },
+    ];
 
-      const translatedResetWidthLabel = this.hdsIntl.t(
-        'hds.advanced-table.th-context-menu.reset-width',
-        { default: 'Reset column width' }
+    if (!column.isLast) {
+      const translatedResizeLabel = this.hdsIntl.t(
+        'hds.advanced-table.th-context-menu.resize',
+        { default: 'Resize column' }
       );
-      options = [
-        ...options,
+
+      resizeOptions = [
         {
-          key: 'reset-column-width',
-          label: translatedResetWidthLabel,
-          icon: 'rotate-ccw',
-          action: this.resetColumnWidth.bind(this),
+          key: 'resize-column',
+          label: translatedResizeLabel,
+          icon: 'resize-column',
+          action: this._resizeColumn.bind(this),
+        },
+        ...resizeOptions,
+      ];
+    }
+
+    return resizeOptions;
+  }
+
+  get _reorderOptions(): HdsAdvancedTableThContextMenuOption[] {
+    const { column } = this.args;
+
+    const translatedMoveColumnLabel = this.hdsIntl.t(
+      'hds.advanced-table.th-context-menu.move-column',
+      { default: 'Move column' }
+    );
+
+    let reorderOptions: HdsAdvancedTableThContextMenuOption[] = [
+      {
+        key: 'reorder-column',
+        label: translatedMoveColumnLabel,
+        icon: 'move-horizontal',
+        action: () => this._moveColumn(),
+      },
+    ];
+
+    if (!column.isFirstNonSticky) {
+      const translatedMoveColumnToStartLabel = this.hdsIntl.t(
+        'hds.advanced-table.th-context-menu.move-column-to-start',
+        { default: 'Move column to start' }
+      );
+      reorderOptions = [
+        ...reorderOptions,
+        {
+          key: 'move-column-to-start',
+          label: translatedMoveColumnToStartLabel,
+          icon: 'start',
+          action: (close) => this._moveColumnToPosition('start', close),
         },
       ];
+    }
+
+    if (!column.isLast) {
+      const translatedMoveColumnToEndLabel = this.hdsIntl.t(
+        'hds.advanced-table.th-context-menu.move-column-to-end',
+        { default: 'Move column to end' }
+      );
+      reorderOptions = [
+        ...reorderOptions,
+        {
+          key: 'move-column-to-end',
+          label: translatedMoveColumnToEndLabel,
+          icon: 'end',
+          action: (close) => this._moveColumnToPosition('end', close),
+        },
+      ];
+    }
+
+    return reorderOptions;
+  }
+
+  get _stickyColumnOptions(): HdsAdvancedTableThContextMenuOption[] {
+    const { isStickyColumn } = this.args;
+
+    const translatedPinLabel = this.hdsIntl.t(
+      'hds.advanced-table.th-context-menu.pin',
+      { default: 'Pin column' }
+    );
+    const translatedUnpinLabel = this.hdsIntl.t(
+      'hds.advanced-table.th-context-menu.unpin',
+      { default: 'Unpin column' }
+    );
+
+    return [
+      {
+        key: 'pin-first-column',
+        label: isStickyColumn ? translatedUnpinLabel : translatedPinLabel,
+        icon: isStickyColumn ? 'pin-off' : 'pin',
+        action: this._pinFirstColumn.bind(this),
+      },
+    ];
+  }
+
+  get _options(): HdsAdvancedTableThContextMenuOption[] {
+    const {
+      column,
+      hasReorderableColumns,
+      hasResizableColumns,
+      isStickyColumn,
+    } = this.args;
+
+    let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
+
+    if (hasResizableColumns) {
+      allGroups = [...allGroups, this._resizeOptions];
+    }
+
+    if (hasReorderableColumns && isStickyColumn === undefined) {
+      allGroups = [...allGroups, this._reorderOptions];
     }
 
     if (isStickyColumn !== undefined && column.isFirst) {
-      const translatedPinLabel = this.hdsIntl.t(
-        'hds.advanced-table.th-context-menu.pin',
-        { default: 'Pin column' }
-      );
-      const translatedUnpinLabel = this.hdsIntl.t(
-        'hds.advanced-table.th-context-menu.unpin',
-        { default: 'Unpin column' }
-      );
-      options = [
-        ...options,
-        {
-          key: 'pin-first-column',
-          label: isStickyColumn ? translatedUnpinLabel : translatedPinLabel,
-          icon: isStickyColumn ? 'pin-off' : 'pin',
-          action: this.pinFirstColumn.bind(this),
-        },
-      ];
+      allGroups = [...allGroups, this._stickyColumnOptions];
     }
 
-    return options;
+    return allGroups.reduce<HdsAdvancedTableThContextMenuOption[]>(
+      (options, group, index) => {
+        // Add a separator before each group except the first
+        if (index > 0) {
+          return [...options, { key: 'separator' }, ...group];
+        }
+        return [...options, ...group];
+      },
+      []
+    );
   }
 
-  @action
-  resizeColumn() {
+  private _resizeColumn() {
     this.args.resizeHandleElement?.focus();
   }
 
-  @action
-  resetColumnWidth(
-    column: HdsAdvancedTableColumn,
-    dropdownCloseCallback: () => void
-  ): void {
-    const { onColumnResize } = this.args;
+  private _resetColumnWidth(dropdownCloseCallback: () => void): void {
+    const { column, onColumnResize } = this.args;
 
     column.restoreWidth();
 
@@ -123,11 +204,27 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     dropdownCloseCallback();
   }
 
-  @action
-  pinFirstColumn(
-    column: HdsAdvancedTableColumn,
-    dropdownCloseCallback: () => void
+  private _moveColumn() {
+    // eslint-disable-next-line ember/no-runloop
+    scheduleOnce(
+      'afterRender',
+      this,
+      this.args.column.focusReorderHandle.bind(this)
+    );
+  }
+
+  private _moveColumnToPosition(
+    position: 'start' | 'end',
+    dropdownCloseCallback?: () => void
   ): void {
+    const { column } = this.args;
+
+    column.table.moveColumnToTerminalPosition(column, position);
+
+    dropdownCloseCallback?.();
+  }
+
+  private _pinFirstColumn(dropdownCloseCallback: () => void): void {
     const { onPinFirstColumn } = this.args;
 
     if (typeof onPinFirstColumn === 'function') {
