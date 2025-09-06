@@ -102,7 +102,6 @@ export default class HdsAdvancedTableTableModel {
       columnOrder,
       sortBy,
       sortOrder,
-      isStickyColumnPinned,
     });
 
     this.setColumnOrder(columnOrder);
