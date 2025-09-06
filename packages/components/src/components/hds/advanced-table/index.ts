@@ -737,13 +737,4 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     // we need to retrigger the scroll indicator updates if the pinned state is changed when the table is already scrolled
     this._updateScrollIndicators(this._scrollWrapperElement);
   };
-
-  private _isStickyColumn = (
-    column: HdsAdvancedTableColumnType
-  ): boolean | undefined => {
-    if (column.isFirst && this.hasStickyFirstColumn !== undefined) {
-      return this.hasStickyFirstColumn;
-    }
-    return undefined;
-  };
 }

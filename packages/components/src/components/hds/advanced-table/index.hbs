@@ -59,7 +59,7 @@
               @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
               @hasStickyFirstColumn={{@hasStickyFirstColumn}}
-              @isStickyColumn={{this._isStickyColumn column}}
+              @isStickyColumn={{column.isSticky}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
@@ -81,7 +81,7 @@
               @hasStickyFirstColumn={{@hasStickyFirstColumn}}
               @isExpanded={{this._tableModel.expandState}}
               @isExpandable={{column.isExpandable}}
-              @isStickyColumn={{this._isStickyColumn column}}
+              @isStickyColumn={{column.isSticky}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
               @tableHeight={{this._tableHeight}}

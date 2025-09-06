@@ -129,6 +129,14 @@ export default class HdsAdvancedTableColumn {
     return this.index !== -1 && this.index === this.table.columns.length - 1;
   }
 
+  get isSticky(): boolean | undefined {
+    if (this.isFirst && this.table.hasStickyFirstColumn !== undefined) {
+      return this.table.hasStickyFirstColumn;
+    }
+
+    return undefined;
+  }
+
   get siblings(): {
     previous?: HdsAdvancedTableColumn;
     next?: HdsAdvancedTableColumn;
