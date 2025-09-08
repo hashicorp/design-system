@@ -773,7 +773,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     });
 
     module('with @hasStickyFirstColumn enabled', function () {
-      test('the sticky first column does not have context menu options for column reordering', async function (assert) {
+      test('the sticky first column does not show the context menu if no other options with context menu items are enabled', async function (assert) {
         await render(
           hbs`<Hds::AdvancedTable
   id='data-test-advanced-table'
@@ -789,17 +789,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         const firstContextMenuToggle = thElements[0].querySelector(
           '.hds-dropdown-toggle-icon',
         );
-        await click(firstContextMenuToggle);
-
-        assert.equal(
-          findAll('.hds-dropdown__list .hds-dropdown-list-item').length,
-          1,
-          'the correct number of options are displayed',
-        );
 
         assert
-          .dom('[data-test-context-option-key="pin-first-column"]')
-          .exists();
+          .dom(firstContextMenuToggle)
+          .doesNotExist('the context menu is not rendered');
       });
 
       test('when dragging a column, the sticky column does not have a drop target', async function (assert) {
@@ -863,7 +856,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         );
       });
 
-      test('clicking the "Move column to start" context menu option moves the column to the first non-sticky column position', async function (assert) {
+      test('if `@hasStickyFirstColumn` is enabled, columns do not have a "Move to start" option', async function (assert) {
         await render(
           hbs`<Hds::AdvancedTable
   id='data-test-advanced-table'
@@ -876,18 +869,19 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
         const thElements = findAll('.hds-advanced-table__th');
 
-        const thirdContextMenuToggle = thElements[2].querySelector(
-          '.hds-dropdown-toggle-icon',
-        );
-        await click(thirdContextMenuToggle);
-        await click('[data-test-context-option-key="move-column-to-start"]');
+        thElements.forEach(async (element) => {
+          const contextMenuToggle = element.querySelector(
+            '.hds-dropdown-toggle-icon',
+          );
 
-        const columnOrder = await getColumnOrder(this.columns);
-        assert.deepEqual(
-          columnOrder,
-          [this.columns[0].key, this.columns[2].key, this.columns[1].key],
-          'The third column is moved to the first non-sticky position',
-        );
+          if (contextMenuToggle !== null) {
+            await click(contextMenuToggle);
+
+            assert
+              .dom('[data-test-context-option-key="move-column-to-start"]')
+              .doesNotExist('no "Move to start" option is rendered');
+          }
+        });
       });
 
       test('pressing "Left Arrow" when the reorder handle of the first non-sticky column is focused does not reposition the column before the sticky column', async function (assert) {
