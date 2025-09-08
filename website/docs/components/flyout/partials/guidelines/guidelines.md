@@ -2,14 +2,14 @@
 
 ### When to use
 
-- When displaying additional information, context, or details that extend or enhance an object or element on the main page.
+- When displaying additional information, context, or details that are supplemental to or extend an object or element on the main page.
 - To present functions that are secondary to the main page or user flow.
 - To preview content without navigating or routing to a new page.
 
 ### When not to use
 
-- When requesting information or feedback from the user through a form. Instead, use a [Modal](/components/modal) or consider moving the content to its own page.
-- When displaying overly complex information, consider moving the content to its own page.
+- When requesting minimal information or feedback from the user through a form. Instead, use a [Modal](/components/modal).
+- When displaying or collecting overly complex information, consider moving the content to its own page.
 
 ### Flyout vs Modal
 
@@ -17,8 +17,7 @@ While similar in functionality and interaction, the Flyout and [Modal](/componen
 
 #### Complexity
 
-A Flyout is useful for more complex content, given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with quickly.
-Complexity of content is relative, use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
+A Flyout is useful for more complex read-only content, given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with quickly. Complexity of content is relative. Use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
 
 #### Status and messaging
 
@@ -166,7 +165,7 @@ For more guidance and details around organizing buttons and actions, refer to th
 
 A Flyout supports actions within the footer allowing for basic functions to be performed. This usage should be limited to performing secondary functions that are related to the main page to help the user maintain context in the primary flow. Some examples of this are:
 
-- Batch updating and creating relationships between one or more objects
+- Creating relationships between one or more objects
 - Linking to external resources using a link that appears as a button
 
 !!! Do

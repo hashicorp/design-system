@@ -12,21 +12,130 @@
   </a>
 </p>
 
-## 4.22.1
+## 4.23.0
+
+[4.23.0 documentation](https://hds-website-4-23-0.vercel.app/)
+
+**Minor changes**
+
+
+`CodeEditor` - Added a `cspNonce` argument which passes a value of the same name to the `hds-code-editor` modifier. `cspNonce` is used to add a nonce value to the style tag
+
+
+<small class="doc-whats-new-changelog-metadata">[#3132](https://github.com/hashicorp/design-system/pull/3132)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Time` - removed deprecated `@task` decorator to avoid warnings
+
+<small class="doc-whats-new-changelog-metadata">[#3144](https://github.com/hashicorp/design-system/pull/3144) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Card` - Updated all exported types to use template literals instead of enum values.
+
+
+
+`IconTile` - Updated exported `HdsIconTileColors` type to use template literals instead of enum values.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3106](https://github.com/hashicorp/design-system/pull/3106)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable` - Added features and fixed issues for column pinning including:
+
+- Added support for pinning first column in context menu
+- Translated template strings in context menu
+- Fixed style for scroll indicator when first column is sticky and has a px width
+
+<small class="doc-whats-new-changelog-metadata">[#3104](https://github.com/hashicorp/design-system/pull/3104)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable` - Fixed bug with automatic column resizing and scroll-shadow placement.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3081](https://github.com/hashicorp/design-system/pull/3081)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AppHeader` - return `close` callback to the `:logo` named block so the menu actions can be hidden programmatically when the component is in a mobile view.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3121](https://github.com/hashicorp/design-system/pull/3121)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
 
 **Patch changes**
 
 
-`AdvancedTable` - Fixed styles for right and center aligned cells.
+`AdvancedTable` - simplified `AdvancedTable::Tr` type signature so the `@selectionKey` argument is not incorrectly marked as required.
 
+
+<small class="doc-whats-new-changelog-metadata">[#3108](https://github.com/hashicorp/design-system/pull/3108)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`PopoverPrimitive` - Updated the type of the `hidePopover` callback to allow an optional event to be passed.
+
+
+
+`RichTooltip` - Updated the type of the `close` callback to allow an optional event to be passed.
+
+
+
+`Dropdown` - Updated the type of the `close` callback to allow an optional event to be passed and to make it always returned.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3118](https://github.com/hashicorp/design-system/pull/3118)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AppHeader` - Fixed classname so that non-active controls in the `AppHeader` will be styled as disabled when the `AppSideNav` is expanded and in overlay mode
+
+
+<small class="doc-whats-new-changelog-metadata">[#3116](https://github.com/hashicorp/design-system/pull/3116)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Button` - Removed CSS declaration for pseudo element in disabled state
+
+
+
+`Dropdown` - Removed CSS declaration for pseudo element in disabled state
+
+
+
+`FileInput` - Removed CSS declaration for pseudo element in disabled state that led to invalid CSS (ignored by browsers)
+
+
+<small class="doc-whats-new-changelog-metadata">[#3131](https://github.com/hashicorp/design-system/pull/3131)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.13.0
+
+## 4.22.1
+
+**Patch changes**
+
+`AdvancedTable` - Fixed styles for right and center aligned cells.
 
 <small class="doc-whats-new-changelog-metadata">[#3093](https://github.com/hashicorp/design-system/pull/3093)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppFrame` - Changed media query styles for frame header and sidebar containers to use level 3 vs level 4 CSS syntax
-
 
 <small class="doc-whats-new-changelog-metadata">[#3110](https://github.com/hashicorp/design-system/pull/3110)</small>
 
@@ -1579,35 +1688,6 @@ Migrated all internal instances of `FlightIcon` to `Hds::Icon`
 **🔄 Updated dependencies:**
 
 - @hashicorp/design-system-tokens@2.2.1
-
-## 4.9.0
-
-[4.9.0 documentation](https://hds-website-4-9-0.vercel.app/)
-
-**Minor changes**
-
-`Icon` - Added component:
-
-`Hds::Icon` is meant to replace usage of the `FlightIcon` component from `ember-flight-icons`.
-
-- Displays `block` by default. (`FlightIcon` displays `inline-block` by default)
-- Exposes a set of predefined "foreground" colors via the `@color` argument
-
-<small class="doc-whats-new-changelog-metadata">[#2207](https://github.com/hashicorp/design-system/pull/2207)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeBlock`: Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2313](https://github.com/hashicorp/design-system/pull/2313)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`TooltipButton`: Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2317](https://github.com/hashicorp/design-system/pull/2317)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---

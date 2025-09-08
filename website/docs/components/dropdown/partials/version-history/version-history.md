@@ -1,3 +1,11 @@
+## 4.23.0
+
+Updated the type of the `close` callback to allow an optional event to be passed and to make it always returned.
+
+
+Removed CSS declaration for pseudo element in disabled state
+
+
 ## 4.19.0
 
 Updated Radio and Checkbox list items font weight to match other list items.

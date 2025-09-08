@@ -1,3 +1,17 @@
+## 4.23.0
+
+Added features and fixed issues for column pinning including:
+
+- Added support for pinning first column in context menu
+- Translated template strings in context menu
+- Fixed style for scroll indicator when first column is sticky and has a px width
+
+Fixed bug with automatic column resizing and scroll-shadow placement.
+
+
+simplified `AdvancedTable::Tr` type signature so the `@selectionKey` argument is not incorrectly marked as required.
+
+
 ## 4.22.1
 
 Fixed styles for right and center aligned cells.

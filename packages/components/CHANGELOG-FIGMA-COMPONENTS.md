@@ -1,5 +1,13 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+## September 4th, 2025
+
+This changelog corresponds with the [4.23](/whats-new/release-notes#4230) release.
+
+`AdvancedTable` - Added support for toggling pinning the first column in context menu and fixed visual bug for focus state for the table cells.
+
+`AppHeader` - Added `size` property for breakpoint definition.
+
 ## August 7th, 2025
 
 This changelog corresponds with the [4.22](/whats-new/release-notes#4220) release.

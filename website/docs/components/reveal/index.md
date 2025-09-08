@@ -22,8 +22,6 @@ navigation:
     - summary
     - details
     - accordion
-status:
-  updated: 4.22.0
 ---
 
 <section data-tab="Guidelines">

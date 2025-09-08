@@ -22,9 +22,6 @@ navigation:
     - side navigation
     - sidenav
     - sidebar
-status:
-  deprecated: 4.19.0
-  updated: 4.22.0
 ---
 
 <section data-tab="Guidelines">
