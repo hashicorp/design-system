@@ -92,9 +92,12 @@ export default class HdsAdvancedTableTableModel {
     this.hasStickyFirstColumn = hasStickyFirstColumn;
     this.onSort = onSort;
 
-    this.setupData({ model, columns, columnOrder, sortBy, sortOrder });
+    this.setupData({ model, columns, sortBy, sortOrder });
 
-    this.setColumnOrder(columnOrder);
+    // set initial column order
+    this.columnOrder = isEmpty(columnOrder)
+      ? this.columns.map((column) => column.key)
+      : columnOrder!; // ensured non-empty
 
     this.onColumnReorder = onColumnReorder;
   }
@@ -230,20 +233,14 @@ export default class HdsAdvancedTableTableModel {
     return this.columns.find((column) => column.key === key);
   }
 
-  setColumnOrder(columnOrder?: string[]): void {
-    this.columnOrder = isEmpty(columnOrder)
-      ? this.columns.map((column) => column.key)
-      : columnOrder!; // ensured non-empty
-  }
-
   @action
   setupData(
     args: Pick<
       HdsAdvancedTableTableArgs,
-      'model' | 'columns' | 'columnOrder' | 'sortBy' | 'sortOrder'
+      'model' | 'columns' | 'sortBy' | 'sortOrder'
     >
   ) {
-    const { model, columns, columnOrder, sortBy, sortOrder } = args;
+    const { model, columns, sortBy, sortOrder } = args;
 
     this.sortBy = sortBy;
     this.sortOrder = sortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
@@ -255,8 +252,6 @@ export default class HdsAdvancedTableTableModel {
           table: this,
         })
     );
-
-    this.setColumnOrder(columnOrder);
 
     this.rows = model.map((row) => {
       return new HdsAdvancedTableRow({
@@ -402,7 +397,7 @@ export default class HdsAdvancedTableTableModel {
 
       updated.splice(adjustedIndex, 0, sourceColumn.key); // Insert at new position
 
-      this.setColumnOrder(updated);
+      this.columnOrder = updated;
 
       for (const row of this.rows) {
         row.columnOrder = updated;

@@ -613,6 +613,15 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   @action
+  updateTableModelColumnOrder(): void {
+    if (this.args.columnOrder === undefined) {
+      return;
+    }
+
+    this._tableModel.columnOrder = this.args.columnOrder;
+  }
+
+  @action
   onSelectionAllChange(): void {
     this._selectableRows.forEach((row) => {
       row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
