@@ -392,11 +392,13 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     }
   }
 
-  &:focus .hds-advanced-table__th-reorder-handle__inner,
-  &.mock-focus .hds-advanced-table__th-reorder-handle__inner {
-    @include hds-focus-ring-with-pseudo-element-focus-always-visible($position: absolute);
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element-focus-always-visible($position: absolute, $top: 3px, $bottom: 3px);
 
-    background-color: var(--token-color-surface-interactive);
+    .hds-advanced-table__th-reorder-handle__inner {
+      background-color: var(--token-color-surface-interactive);
+    }
   }
 }
 
