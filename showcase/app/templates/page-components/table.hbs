@@ -805,8 +805,7 @@
         <B.Tr
           @selectionKey="{{B.data.id}}"
           @isSelected={{B.data.isSelected}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
         >
           <B.Td>{{B.data.id}}</B.Td>
           <B.Td>{{B.data.name}}</B.Td>
@@ -860,8 +859,7 @@
       <B.Tr
         @selectionKey="{{B.data.id}}"
         @isSelected={{B.data.isSelected}}
-        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+        @selectionAriaLabelSuffix="row #{{B.data.id}}"
       >
         <B.Td>{{B.data.id}}</B.Td>
         <B.Td>
@@ -1039,14 +1037,14 @@
         <B.Td><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Td>
         <B.Td>
           <div class="shw-component-table-cell-content-div">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+            {{#if B.data.icon}}
+              <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+            {{/if}}
             {{B.data.album}}
           </div>
         </B.Td>
         <B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
+          <Hds::Badge @text="{{B.data.year}}" @type="outlined" @color={{B.data.badge-color}} />
         </B.Td>
         <B.Td>
           <Hds::ButtonSet>

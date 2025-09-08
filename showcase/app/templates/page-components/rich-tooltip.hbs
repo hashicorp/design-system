@@ -879,8 +879,9 @@
             </B.Td>
             <B.Td>
               <div class="shw-component-rich-tooltip-demo-table-cell-content-flex">
-                {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
-                <Hds::Icon @name={{B.data.cluster-icon}} @isInline={{true}} />
+                {{#if B.data.cluster-icon}}
+                  <Hds::Icon @name={{B.data.cluster-icon}} @isInline={{true}} />
+                {{/if}}
                 <div>
                   <Hds::RichTooltip as |RT|>
                     <RT.Toggle @text={{B.data.cluster-partition}} />
@@ -897,9 +898,7 @@
                 <RT.Toggle>
                   <Hds::Badge
                     @text={{capitalize B.data.status.text}}
-                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                     @color={{B.data.status.color}}
-                    {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
                     @icon={{B.data.status.icon}}
                     @type="outlined"
                   />
@@ -914,8 +913,7 @@
             </B.Td>
             <B.Td>
               <Hds::RichTooltip as |RT|>
-                {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
-                <RT.Toggle @text={{B.data.tagsCount}} @icon="info" @iconPosition="leading" />
+                <RT.Toggle @text="{{B.data.tagsCount}}" @icon="info" @iconPosition="leading" />
                 <RT.Bubble>
                   <Hds::Text::Body @size="100" @tag="p" @weight="semibold">Tags:</Hds::Text::Body>
                   <div class="shw-component-rich-tooltip-demo-table-cell-content-tags">

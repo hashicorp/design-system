@@ -206,8 +206,7 @@
     </:header>
 
     <:row as |R|>
-      {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
-      <R.Field @isRequired={{true}} @isInvalid={{R.rowData.error}} as |F|>
+      <R.Field @isRequired={{true}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
         <F.TextInput @value={{R.rowData.key.text}} />
@@ -247,8 +246,7 @@
     </:header>
 
     <:row as |R|>
-      {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
-      <R.Field @isRequired={{true}} @isInvalid={{R.rowData.error}} as |F|>
+      <R.Field @isRequired={{true}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
         <F.TextInput @value={{R.rowData.key.text}} />
