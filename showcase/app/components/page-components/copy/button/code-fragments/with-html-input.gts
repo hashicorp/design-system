@@ -3,10 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
 import { capitalize } from '@ember/string';
 import { get } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 import { HdsCopyButton } from '@hashicorp/design-system-components/components';
 
@@ -58,11 +59,13 @@ const inputComponentToValueMap: Record<inputComponent, string> = {
   select: '',
 };
 
-const CodeFragmentWithHtmlInput: TemplateOnlyComponent<CodeFragmentWithHtmlInputSignature> =
+export default class CodeFragmentWithHtmlInput extends Component<CodeFragmentWithHtmlInputSignature> {
+  id = guidFor(this);
+
   <template>
     <div class="shw-component-copy-button-flex-container" ...attributes>
       <div>
-        <label for="test-input-{{@inputComponent}}" class="sr-only">
+        <label for="test-input-{{this.id}}" class="sr-only">
           {{capitalize @inputComponent}}
           input
         </label>
@@ -74,7 +77,7 @@ const CodeFragmentWithHtmlInput: TemplateOnlyComponent<CodeFragmentWithHtmlInput
             value={{get inputComponentToValueMap @inputComponent}}
           ></textarea>
         {{else if (eq @inputComponent "select")}}
-          <select id="test-input-{{@inputComponent}}">
+          <select id="test-input-{{this.id}}">
             <option>Lorem ipsum dolor</option>
             <option>Sit amet</option>
             <option>Consectetur adipiscing elit</option>
@@ -83,7 +86,7 @@ const CodeFragmentWithHtmlInput: TemplateOnlyComponent<CodeFragmentWithHtmlInput
           <input
             type={{@inputComponent}}
             value={{get inputComponentToValueMap @inputComponent}}
-            id="test-input-{{@inputComponent}}"
+            id="test-input-{{this.id}}"
             min={{if (eq @inputComponent "range") "0" undefined}}
             max={{if (eq @inputComponent "range") "10" undefined}}
           />
@@ -91,10 +94,9 @@ const CodeFragmentWithHtmlInput: TemplateOnlyComponent<CodeFragmentWithHtmlInput
       </div>
       <HdsCopyButton
         @text="Copy the {{@inputComponent}} input value"
-        @targetToCopy="#test-input-{{@inputComponent}}"
+        @targetToCopy="#test-input-{{this.id}}"
         @isIconOnly={{true}}
       />
     </div>
-  </template>;
-
-export default CodeFragmentWithHtmlInput;
+  </template>
+}

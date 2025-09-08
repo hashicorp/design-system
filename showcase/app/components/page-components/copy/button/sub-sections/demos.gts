@@ -16,16 +16,16 @@ import {
   HdsDropdown,
 } from '@hashicorp/design-system-components/components';
 
-import CopyButtonWithMaskedInput, {
+import CodeFragmentWithMaskedInput, {
   MASKED_INPUT_VARIANTS,
 } from 'showcase/components/page-components/copy/button/code-fragments/with-masked-input';
 import type { CodeFragmentWithMaskedInputSignature } from 'showcase/components/page-components/copy/button/code-fragments/with-masked-input';
-import CopyButtonWithHdsInput, {
+import CodeFragmentWithHdsInput, {
   INPUT_COMPONENTS,
 } from 'showcase/components/page-components/copy/button/code-fragments/with-hds-input';
-import CopyButtonWithModal from 'showcase/components/page-components/copy/button/code-fragments/with-modal';
-import CopyButtonWithGenericDialogContent from 'showcase/components/page-components/copy/button/code-fragments/with-generic-dialog-content';
-import CopyButtonWithHTMLInput, {
+import CodeFragmentWithModal from 'showcase/components/page-components/copy/button/code-fragments/with-modal';
+import CodeFragmentWithGenericDialogContent from 'showcase/components/page-components/copy/button/code-fragments/with-generic-dialog-content';
+import CodeFragmentWithHtmlInput, {
   INPUT_COMPONENTS as HTML_INPUT_COMPONENTS,
 } from 'showcase/components/page-components/copy/button/code-fragments/with-html-input';
 
@@ -85,7 +85,7 @@ export default class SubSectionDemos extends Component {
         {{#let (array false true) as |isMultilineOptions|}}
           {{#each isMultilineOptions as |isMultiline|}}
             <SF.Item @label={{get maskedInputVariantToLabelMap variant}}>
-              <CopyButtonWithMaskedInput
+              <CodeFragmentWithMaskedInput
                 @variant={{variant}}
                 @isMultiline={{isMultiline}}
               />
@@ -166,18 +166,18 @@ export default class SubSectionDemos extends Component {
     <ShwGrid @columns={{3}} @gap="2rem" as |SG|>
       {{#each INPUT_COMPONENTS as |inputComponent|}}
         <SG.Item @label="{{capitalize inputComponent}} component">
-          <CopyButtonWithHdsInput @inputComponent={{inputComponent}} />
+          <CodeFragmentWithHdsInput @inputComponent={{inputComponent}} />
         </SG.Item>
         {{#unless (eq inputComponent "select")}}
           <SG.Item @label="{{capitalize inputComponent}} component (readonly)">
-            <CopyButtonWithHdsInput
+            <CodeFragmentWithHdsInput
               @inputComponent={{inputComponent}}
               @isReadOnly={{true}}
             />
           </SG.Item>
         {{/unless}}
         <SG.Item @label="{{capitalize inputComponent}} component (disabled)">
-          <CopyButtonWithHdsInput
+          <CodeFragmentWithHdsInput
             @inputComponent={{inputComponent}}
             @isDisabled={{true}}
           />
@@ -190,12 +190,12 @@ export default class SubSectionDemos extends Component {
         <HdsDropdown @listPosition="bottom-left" as |dd|>
           <dd.ToggleButton @text="Open menu" />
           <dd.Generic>
-            <CopyButtonWithGenericDialogContent />
+            <CodeFragmentWithGenericDialogContent />
           </dd.Generic>
         </HdsDropdown>
       </SG.Item>
       <SG.Item @label="Within a Modal">
-        <CopyButtonWithModal />
+        <CodeFragmentWithModal />
       </SG.Item>
     </ShwGrid>
 
@@ -248,8 +248,8 @@ export default class SubSectionDemos extends Component {
         />
         <pre class="shw-component-copy-button-code-block"><code
             id="test-code-block"
-          >&lt;h1&gt;A page header example&lt;/h1&gt; &lt;p&gt;Some paragraph
-            text also&lt;/p&gt;</code></pre>
+          >&lt;h1&gt;A page header example&lt;/h1&gt;
+            <br />&lt;p&gt;Some paragraph text also&lt;/p&gt;</code></pre>
       </SG.Item>
       <SG.Item @label="Code block with 'contenteditable'">
         <HdsCopyButton
@@ -259,8 +259,8 @@ export default class SubSectionDemos extends Component {
         <pre class="shw-component-copy-button-code-block"><code
             id="test-code-block-editable"
             contenteditable="true"
-          >&lt;h1&gt;A page header example&lt;/h1&gt; &lt;p&gt;Some paragraph
-            text also&lt;/p&gt;</code></pre>
+          >&lt;h1&gt;A page header example&lt;/h1&gt;
+            <br />&lt;p&gt;Some paragraph text also&lt;/p&gt;</code></pre>
       </SG.Item>
     </ShwGrid>
 
@@ -268,7 +268,7 @@ export default class SubSectionDemos extends Component {
     <ShwFlex @gap="2rem" as |SF|>
       {{#each HTML_INPUT_COMPONENTS as |inputComponent|}}
         <SF.Item @label="{{capitalize inputComponent}} input">
-          <CopyButtonWithHTMLInput @inputComponent={{inputComponent}} />
+          <CodeFragmentWithHtmlInput @inputComponent={{inputComponent}} />
         </SF.Item>
       {{/each}}
     </ShwFlex>
