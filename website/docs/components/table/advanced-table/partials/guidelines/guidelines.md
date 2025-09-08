@@ -271,7 +271,7 @@ If `hasStickyFirstColumn` is set to true or false in the Ember component, a cont
 
 !!! Info
 
-We currently only support the first column as sticky. If you have needs beyond this, please [contact](/about/support) the HDS team or [submit a request](https://go.hashi.co/hds-support).
+We currently only support the first column as sticky. If you have needs beyond this, please [contact the Design Systems Team](/about/support) or [submit a request](https://go.hashi.co/hds-support).
 !!!
 
 ## Multi-Select
