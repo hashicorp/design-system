@@ -15,8 +15,10 @@ export function generateColorHelpers(tokens: TransformedToken[], outputCssVars: 
 
   tokens.forEach(token => {
 
+    // ignore tokens that are not color-related
     if (!(token.path[0] === 'color')) return;
 
+    // we know that color tokens have nested names, no need to test for its existence
     const group = token.path[1];
     const value = outputCssVars ? `var(--${token.name})` : token.$value;
 
