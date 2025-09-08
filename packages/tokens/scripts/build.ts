@@ -56,7 +56,7 @@ StyleDictionary.registerTransform({
     } else if (Array.isArray(val)) {
       return val.join(', ');
     } else {
-      console.error(`🚨 Invalid Font-Family Value: '${token.name}' should be an array or a string to be correctly processed by our pipeline.\n`);
+      console.error(`🚨 Invalid Font-Family Value: '${token.name}' should be an array or a string to be correctly processed by our pipeline. Transformation will be skipped and the original value will be used.\n`);
       return val;
     }
   }
