@@ -6,6 +6,6 @@ Labels are part of the radio’s selectable area, making them interactive elemen
 
 !!! Warning
 
-If you plan to add links to radios, contact the Design Systems Team for guidance.
+If you plan to add links to radios, [contact the Design Systems Team](/about/support) for guidance.
 
 !!!
