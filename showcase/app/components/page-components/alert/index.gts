@@ -16,9 +16,15 @@ import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwFlex from 'showcase/components/shw/flex';
 
-import { HdsAlert, HdsLinkInline } from '@hashicorp/design-system-components/components';
+import {
+  HdsAlert,
+  HdsLinkInline,
+} from '@hashicorp/design-system-components/components';
 import NOOP from 'showcase/utils/noop';
-import { TYPES, COLORS } from '@hashicorp/design-system-components/components/hds/alert/index'
+import {
+  TYPES,
+  COLORS,
+} from '@hashicorp/design-system-components/components/hds/alert/index';
 
 const AlertIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Alert Component"}}
@@ -27,8 +33,8 @@ const AlertIndex: TemplateOnlyComponent = <template>
 
   <section data-test-percy>
     <ShwTextBody>
-      👀 Note: the compact alert is borderless, but shown with a dotted border throughout the “Showcase”
-      for clarity.
+      👀 Note: the compact alert is borderless, but shown with a dotted border
+      throughout the “Showcase” for clarity.
     </ShwTextBody>
 
     <ShwTextH2>Type</ShwTextH2>
@@ -53,7 +59,11 @@ const AlertIndex: TemplateOnlyComponent = <template>
           <SG.Item @label="{{capitalize color}} / {{capitalize type}}">
             <HdsAlert @type={{type}} @color={{color}} as |A|>
               <A.Title>Lorem ipsum dolor</A.Title>
-              <A.Description>This is the <em>{{type}}</em> alert with <em>{{color}}</em> color.</A.Description>
+              <A.Description>This is the
+                <em>{{type}}</em>
+                alert with
+                <em>{{color}}</em>
+                color.</A.Description>
             </HdsAlert>
           </SG.Item>
         {{/each}}
@@ -112,9 +122,11 @@ const AlertIndex: TemplateOnlyComponent = <template>
           </SF.Item>
           <SF.Item>
             <HdsAlert @type="inline" @color="success" as |A|>
-              <A.Title>An alert with a very long title and a long description text that should go on multiple lines</A.Title>
-              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque erat elit, lacinia at
-                magna eget, porttitor lobortis nulla.</A.Description>
+              <A.Title>An alert with a very long title and a long description
+                text that should go on multiple lines</A.Title>
+              <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Pellentesque erat elit, lacinia at magna eget, porttitor
+                lobortis nulla.</A.Description>
             </HdsAlert>
           </SF.Item>
         </ShwFlex>
@@ -126,7 +138,8 @@ const AlertIndex: TemplateOnlyComponent = <template>
               <A.Title>An alert with a rich description (HTML)</A.Title>
               <A.Description>Using the
                 <code>A.Description</code>
-                contextual component it's possible to have content that contains HTML tags, like
+                contextual component it's possible to have content that contains
+                HTML tags, like
                 <strong>strong text</strong>
                 and
                 <em>emphasized text</em>
@@ -139,11 +152,13 @@ const AlertIndex: TemplateOnlyComponent = <template>
           </SF.Item>
           <SF.Item>
             <HdsAlert @type="inline" @color="success" as |A|>
-              <A.Title>Multiple lines of description using more than one 'description' contextual component</A.Title>
+              <A.Title>Multiple lines of description using more than one
+                'description' contextual component</A.Title>
               <A.Description>This is the first line of description, yielded to a
                 <code>A.Description</code>
                 contextual component.</A.Description>
-              <A.Description>And this is the second line of description, yielded to another
+              <A.Description>And this is the second line of description, yielded
+                to another
                 <code>A.Description</code>
                 contextual component.</A.Description>
             </HdsAlert>
@@ -151,7 +166,8 @@ const AlertIndex: TemplateOnlyComponent = <template>
           <SF.Item>
             <HdsAlert @type="inline" @color="success" as |A|>
               <A.Title>An alert with extra/custom content</A.Title>
-              <A.Description>In special cases, you can pass extra content to the alert using the
+              <A.Description>In special cases, you can pass extra content to the
+                alert using the
                 <code>A.Generic</code>
                 contextual component.</A.Description>
               <A.Generic>
@@ -168,7 +184,9 @@ const AlertIndex: TemplateOnlyComponent = <template>
     <ShwGrid @columns={{2}} as |SG|>
       <SG.Item>
         <HdsAlert @type="inline" @color="success" as |A|>
-          <A.Title>HTML link compared to <code>Hds::Link</code> in the description</A.Title>
+          <A.Title>HTML link compared to
+            <code>Hds::Link</code>
+            in the description</A.Title>
           <A.Description>
             Description with
             <a href="#">HTML link</a>
@@ -182,7 +200,9 @@ const AlertIndex: TemplateOnlyComponent = <template>
 
       <SG.Item>
         <HdsAlert @type="compact" @color="success" as |A|>
-          <A.Title>An alert with HTML link compared to <code>Hds::Link</code> in Description</A.Title>
+          <A.Title>An alert with HTML link compared to
+            <code>Hds::Link</code>
+            in Description</A.Title>
           <A.Description>
             Compact alert with
             <a href="#">HTML link</a>
@@ -201,19 +221,22 @@ const AlertIndex: TemplateOnlyComponent = <template>
       <SG.Item>
         <HdsAlert @type="inline" @color="neutral" as |A|>
           <A.Title @tag="h1">Lorem ipsum dolor</A.Title>
-          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit.</A.Description>
         </HdsAlert>
       </SG.Item>
       <SG.Item>
         <HdsAlert @type="page" @color="neutral" as |A|>
           <A.Title @tag="h2">Lorem ipsum dolor</A.Title>
-          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit.</A.Description>
         </HdsAlert>
       </SG.Item>
       <SG.Item>
         <HdsAlert @type="compact" @color="neutral" as |A|>
           <A.Title @tag="h3">Without the dismiss button (default)</A.Title>
-          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit.</A.Description>
         </HdsAlert>
       </SG.Item>
     </ShwGrid>
@@ -224,29 +247,44 @@ const AlertIndex: TemplateOnlyComponent = <template>
       <SG.Item>
         <HdsAlert @type="inline" @color="warning" as |A|>
           <A.Title>Action passed as yielded component</A.Title>
-          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit.</A.Description>
           <A.Button @text="Action" @color="secondary" />
         </HdsAlert>
       </SG.Item>
       <SG.Item>
         <HdsAlert @type="inline" @color="warning" as |A|>
           <A.Title>With multiple actions passed as yielded components</A.Title>
-          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit.</A.Description>
           <A.Button @text="Secondary" @color="secondary" />
           <A.Button @icon="plus" @text="Tertiary" @color="tertiary" />
-          <A.LinkStandalone @icon="plus" @text="Standalone" @href="#" @color="secondary" />
+          <A.LinkStandalone
+            @icon="plus"
+            @text="Standalone"
+            @href="#"
+            @color="secondary"
+          />
         </HdsAlert>
       </SG.Item>
       <SG.Item>
         <HdsAlert @type="inline" @color="warning" as |A|>
           <A.Title>With actions and custom content</A.Title>
-          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua.</A.Description>
+          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua.</A.Description>
           <A.Button @text="Action" @color="secondary" />
-          <A.LinkStandalone @icon="plus" @text="Action" @href="#" @color="secondary" />
+          <A.LinkStandalone
+            @icon="plus"
+            @text="Action"
+            @href="#"
+            @color="secondary"
+          />
           <A.Generic>
-            <div class="shw-component-alert-sample-custom-content-after-actions">This for example could be extra text,
-              specific for a special use case.</div>
+            <div
+              class="shw-component-alert-sample-custom-content-after-actions"
+            >This for example could be extra text, specific for a special use
+              case.</div>
           </A.Generic>
         </HdsAlert>
       </SG.Item>
@@ -258,7 +296,8 @@ const AlertIndex: TemplateOnlyComponent = <template>
       <SG.Item>
         <HdsAlert @type="inline" @color="neutral" as |A|>
           <A.Title>Without the dismiss button (default)</A.Title>
-          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit.</A.Description>
         </HdsAlert>
       </SG.Item>
       <SG.Item>
@@ -270,13 +309,21 @@ const AlertIndex: TemplateOnlyComponent = <template>
           as |A|
         >
           <A.Title>With the dismiss button</A.Title>
-          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit.</A.Description>
         </HdsAlert>
       </SG.Item>
       <SG.Item>
-        <HdsAlert @type="inline" @color="neutral" @icon={{false}} @onDismiss={{NOOP}} as |A|>
+        <HdsAlert
+          @type="inline"
+          @color="neutral"
+          @icon={{false}}
+          @onDismiss={{NOOP}}
+          as |A|
+        >
           <A.Title>With the dismiss button and no icon</A.Title>
-          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+          <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit.</A.Description>
         </HdsAlert>
       </SG.Item>
       <SG.Item>
@@ -286,6 +333,6 @@ const AlertIndex: TemplateOnlyComponent = <template>
       </SG.Item>
     </ShwGrid>
   </section>
-</template>
+</template>;
 
 export default AlertIndex;
