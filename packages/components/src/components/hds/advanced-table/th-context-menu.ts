@@ -81,7 +81,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   get _reorderOptions(): HdsAdvancedTableThContextMenuOption[] {
-    const { column } = this.args;
+    const { column, hasStickyFirstColumn } = this.args;
 
     const translatedMoveColumnLabel = this.hdsIntl.t(
       'hds.advanced-table.th-context-menu.move-column',
@@ -97,7 +97,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       },
     ];
 
-    if (!column.isFirstNonSticky) {
+    if (!column.isFirst && !hasStickyFirstColumn) {
       const translatedMoveColumnToStartLabel = this.hdsIntl.t(
         'hds.advanced-table.th-context-menu.move-column-to-start',
         { default: 'Move column to start' }
