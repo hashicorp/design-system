@@ -234,7 +234,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       columns,
       columnOrder,
       childrenKey,
-      hasReorderableColumns,
       hasResizableColumns,
       sortBy,
       sortOrder,
@@ -255,32 +254,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       onSort,
     });
 
-    if (this._tableModel.hasRowsWithChildren) {
-      const sortableColumns = columns.filter((column) => column.isSortable);
-      const sortableColumnLabels = sortableColumns.map(
-        (column) => column.label
-      );
-
-      assert(
-        'Cannot have reorderable columns if there are nested rows.',
-        !hasReorderableColumns
-      );
-
-      assert(
-        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
-        sortableColumns.length === 0
-      );
-
-      assert(
-        'Cannot have a sticky first column if there are nested rows.',
-        !hasStickyFirstColumn
-      );
-
-      assert(
-        `Cannot have resizable columns if there are nested rows.`,
-        !hasResizableColumns
-      );
-    }
+    this._runAssertions();
 
     if (hasStickyFirstColumn) {
       this.hasPinnedFirstColumn = true;
@@ -532,6 +506,42 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     };
   });
 
+  private _runAssertions() {
+    const {
+      columns,
+      hasReorderableColumns,
+      hasResizableColumns,
+      hasStickyFirstColumn,
+    } = this.args;
+
+    if (this._tableModel.hasRowsWithChildren) {
+      const sortableColumns = columns.filter((column) => column.isSortable);
+      const sortableColumnLabels = sortableColumns.map(
+        (column) => column.label
+      );
+
+      assert(
+        'Cannot have reorderable columns if there are nested rows.',
+        !hasReorderableColumns
+      );
+
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
+        sortableColumns.length === 0
+      );
+
+      assert(
+        'Cannot have a sticky first column if there are nested rows.',
+        !hasStickyFirstColumn
+      );
+
+      assert(
+        `Cannot have resizable columns if there are nested rows.`,
+        !hasResizableColumns
+      );
+    }
+  }
+
   private _setUpThead = modifier((element: HTMLDivElement) => {
     this._theadElement = element;
   });
@@ -601,11 +611,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setupTableModelData(): void {
-    const { columns, columnOrder, model, sortBy, sortOrder } = this.args;
+    const { columns, model, sortBy, sortOrder } = this.args;
 
     this._tableModel.setupData({
       columns,
-      columnOrder,
       model,
       sortBy,
       sortOrder,

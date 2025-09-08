@@ -44,19 +44,17 @@
       />
 
       {{#if @column}}
-        {{#if this.showContextMenu}}
-          <Hds::AdvancedTable::ThContextMenu
-            @column={{@column}}
-            @hasReorderableColumns={{@hasReorderableColumns}}
-            @hasResizableColumns={{@hasResizableColumns}}
-            @hasStickyFirstColumn={{@hasStickyFirstColumn}}
-            @isStickyColumn={{@isStickyColumn}}
-            @reorderHandleElement={{this._reorderHandleElement}}
-            @resizeHandleElement={{this._resizeHandleElement}}
-            @onColumnResize={{@onColumnResize}}
-            @onPinFirstColumn={{@onPinFirstColumn}}
-          />
-        {{/if}}
+        <Hds::AdvancedTable::ThContextMenu
+          @column={{@column}}
+          @hasReorderableColumns={{@hasReorderableColumns}}
+          @hasResizableColumns={{@hasResizableColumns}}
+          @hasStickyFirstColumn={{@hasStickyFirstColumn}}
+          @isStickyColumn={{@isStickyColumn}}
+          @reorderHandleElement={{this._reorderHandleElement}}
+          @resizeHandleElement={{this._resizeHandleElement}}
+          @onColumnResize={{@onColumnResize}}
+          @onPinFirstColumn={{@onPinFirstColumn}}
+        />
 
         {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
           <Hds::AdvancedTable::ThReorderHandle

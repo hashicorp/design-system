@@ -113,18 +113,6 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     return align;
   }
 
-  get showContextMenu(): boolean {
-    const { hasReorderableColumns, hasResizableColumns, isStickyColumn } =
-      this.args;
-
-    return (
-      (hasResizableColumns ||
-        hasReorderableColumns ||
-        isStickyColumn !== undefined) ??
-      false
-    );
-  }
-
   get classNames(): string {
     const classes = ['hds-advanced-table__th', 'hds-advanced-table__th--sort'];
 

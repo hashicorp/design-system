@@ -159,18 +159,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return classes.join(' ');
   }
 
-  get showContextMenu(): boolean {
-    const { hasReorderableColumns, hasResizableColumns, isStickyColumn } =
-      this.args;
-
-    return (
-      (hasResizableColumns ||
-        hasReorderableColumns ||
-        isStickyColumn !== undefined) ??
-      false
-    );
-  }
-
   @action
   handleDragStart(column: HdsAdvancedTableColumn): void {
     this.args.onReorderDragStart?.(column);
