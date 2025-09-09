@@ -1,1 +1,1 @@
-For general content recommendations, refer to our [Tabular guidelines](/content/tabular-guidelines) documentation.
+For general content recommendations, refer to our [Table content guidelines](/content/table-guidelines) documentation.
