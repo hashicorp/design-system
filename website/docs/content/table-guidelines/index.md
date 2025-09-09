@@ -14,23 +14,23 @@ This documentation provides best practices for writing tabular content, such as 
 
 While we are not prescriptive about what goes into table cells, there are some best practices to consider:
 
-- We recommended keeping data within a column to one data type. Sorting on multiple data types is technically difficult and makes content reading confusing for assistive technologies.
+- Keep data within columns to one data type. Sorting on multiple data types is technically difficult and makes content confusing for assistive technologies.
 - While changing the text style/color within a cell is possible, we recommend only using Helios font styles and colors.
 
 ## Icon usage
 
-Icons used within cells can help differentiate content, highlight additional metadata, increase the hierarchy of a value, or otherwise _enhance_ the text or value it is paired with. Use the outlined icon style by default and if contrast against other icons is important, use the filled style.
+Icons used within cells can help differentiate content, highlight metadata, increase text hierarchy, or enhance text. Use the outlined icon style in most cases. However, if contrast with other icons is important, you can use the filled style.
 
 !!! Dont
 
-Don’t use an icon as the sole communication method within a cell, even if the icon is explicit, e.g., a brand or service icon.
+Don’t use an icon as the sole content within a cell, even if the icon is explicit, e.g., a brand or service icon.
 
 ![Icon within a table without a label](/assets/content/table-guidelines/icon-without-label.png)
 !!!
 
 !!! Dont
 
-We don’t recommend using an icon to indicate the status of an object, row, or resource. Instead, consider using a [Badge](/components/badge).
+Don’t use an icon to indicate the status of an object, row, or resource. Instead, use a [Badge](/components/badge).
 
 ![Icons being used for status](/assets/content/table-guidelines/icon-status.png)
 !!!
@@ -62,13 +62,13 @@ Don’t use an [Icon Tile](/components/icon-tile) in place of an icon within a t
 
 ### Leading vs. trailing icons
 
-In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to scan.
+In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to visually scan.
 
 Don’t mix and match different icon positions in the same column.
 
 ## Links within cells
 
-By default, we recommend using `secondary` [Inline Links](/components/link/inline) within tables, to avoid overloading the UI with the actionable blue color. The `secondary` variant uses the `foreground-strong` color.
+We recommend using `secondary` [Inline Links](/components/link/inline) within tables, to avoid overloading the UI with the actionable blue color used by the `primary` color variant.
 
 To increase the prominence and further differentiate links from other text content, we recommend using a font-weight of `medium`. In code, you can use the CSS helper classes `hds-typography-body-200` and `hds-font-weight-medium`. In Figma, you can use the text style `Body/200/Link`.
 
@@ -76,7 +76,7 @@ To increase the prominence and further differentiate links from other text conte
 
 ### Multiple links
 
-If a table contains more than one column of links, consider using a `font-weight` of `medium` for the most important links, usually the title of the row or ID. For less important links, use a `font-weight` of `regular`.
+If a table contains more than one column of links, consider using a `font-weight` of `medium` for only the most important links, usually the title of the row or ID. For the other links, use a `font-weight` of `regular`.
 
 ![Multiple links within a table](/assets/content/table-guidelines/multiple-links.png)
 
