@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { capitalize } from '@ember/string';
-import { eq } from 'ember-truth-helpers';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
@@ -15,11 +14,11 @@ import {
   HdsFormMaskedInputBase,
   HdsFormField,
   HdsFormMaskedInputField,
+  HdsFormTextInputField,
+  HdsFormTextareaBase,
+  HdsFormSelectBase,
 } from '@hashicorp/design-system-components/components';
 
-import CodeFragmentWithHdsInput, {
-  INPUT_COMPONENTS as HDS_INPUT_COMPONENTS,
-} from 'showcase/components/page-components/copy/button/code-fragments/with-hds-input';
 import CodeFragmentWithModal from 'showcase/components/page-components/copy/button/code-fragments/with-modal';
 import CodeFragmentWithGenericDialogContent from 'showcase/components/page-components/copy/button/code-fragments/with-generic-dialog-content';
 import CodeFragmentWithHtmlInput, {
@@ -219,25 +218,155 @@ export default class SubSectionDemos extends Component {
     <ShwTextH4>HDS components</ShwTextH4>
 
     <ShwGrid @columns={{3}} @gap="2rem" as |SG|>
-      {{#each HDS_INPUT_COMPONENTS as |inputComponent|}}
-        <SG.Item @label="{{capitalize inputComponent}} component">
-          <CodeFragmentWithHdsInput @inputComponent={{inputComponent}} />
-        </SG.Item>
-        {{#unless (eq inputComponent "select")}}
-          <SG.Item @label="{{capitalize inputComponent}} component (readonly)">
-            <CodeFragmentWithHdsInput
-              @inputComponent={{inputComponent}}
-              @isReadOnly={{true}}
-            />
-          </SG.Item>
-        {{/unless}}
-        <SG.Item @label="{{capitalize inputComponent}} component (disabled)">
-          <CodeFragmentWithHdsInput
-            @inputComponent={{inputComponent}}
-            @isDisabled={{true}}
+      <SG.Item
+        @label="Input component"
+        class="shw-component-copy-button-input-component"
+      >
+        <HdsFormTextInputField
+          @value="036140285924"
+          name="test-input"
+          @id="test-input"
+          as |F|
+        >
+          <F.Label>Input Label</F.Label>
+        </HdsFormTextInputField>
+        <HdsCopyButton
+          @text="Copy the input value"
+          @targetToCopy="#test-input"
+        />
+      </SG.Item>
+      <SG.Item
+        @label="Input component (readonly)"
+        class="shw-component-copy-button-input-component"
+      >
+        <HdsFormTextInputField
+          readonly
+          @value="036140285924-readonly"
+          name="test-input-readonly"
+          @id="test-input-readonly"
+          as |F|
+        >
+          <F.Label>Input Label</F.Label>
+        </HdsFormTextInputField>
+        <HdsCopyButton
+          @text="Copy the input value"
+          @targetToCopy="#test-input-readonly"
+        />
+      </SG.Item>
+      <SG.Item
+        @label="Input component (disabled)"
+        class="shw-component-copy-button-input-component"
+      >
+        <HdsFormTextInputField
+          disabled
+          @value="036140285924-disabled"
+          name="test-input-disabled"
+          @id="test-input-disabled"
+          as |F|
+        >
+          <F.Label>Input Label</F.Label>
+        </HdsFormTextInputField>
+        <HdsCopyButton
+          @text="Copy the input value"
+          @targetToCopy="#test-input-disabled"
+        />
+      </SG.Item>
+      <SG.Item @label="Textarea component">
+        <div class="shw-component-copy-button-flex-container">
+          <HdsFormTextareaBase
+            @value="This is a normal
+multiline text
+that should be copied"
+            name="test-textarea"
+            aria-label="With Textarea::Base"
+            id="test-textarea"
           />
-        </SG.Item>
-      {{/each}}
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy the textarea value"
+            @targetToCopy="#test-textarea"
+          />
+        </div>
+      </SG.Item>
+      <SG.Item @label="Textarea component (readonly)">
+        <div class="shw-component-copy-button-flex-container">
+          <HdsFormTextareaBase
+            readonly
+            @value="This is a redonly
+multiline text
+that should be copied"
+            name="test-textarea-readonly"
+            aria-label="readonly"
+            id="test-textarea-readonly"
+          />
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy the textarea value"
+            @targetToCopy="#test-textarea-readonly"
+          />
+        </div>
+      </SG.Item>
+      <SG.Item @label="Textarea component (disabled)">
+        <div class="shw-component-copy-button-flex-container">
+          <HdsFormTextareaBase
+            disabled
+            @value="This is a disabled
+multiline text
+that should be copied"
+            name="test-textarea-disabled"
+            aria-label="Textarea disabled"
+            id="test-textarea-disabled"
+          />
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy the textarea value"
+            @targetToCopy="#test-textarea-disabled"
+          />
+        </div>
+      </SG.Item>
+      <SG.Item @label="Select component">
+        <div class="shw-component-copy-button-flex-container">
+          <HdsFormSelectBase
+            name="test-select"
+            id="test-select"
+            aria-label="Select"
+            as |C|
+          >
+            <C.Options>
+              <option>Lorem ipsum dolor</option>
+              <option selected>Sit amet</option>
+              <option>Consectetur adipiscing elit</option>
+            </C.Options>
+          </HdsFormSelectBase>
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy the textarea value"
+            @targetToCopy="#test-select"
+          />
+        </div>
+      </SG.Item>
+      <SG.Item @label="Select component (disabled)">
+        <div class="shw-component-copy-button-flex-container">
+          <HdsFormSelectBase
+            disabled
+            name="test-select-disabled"
+            aria-label="Select disabled"
+            id="test-select-disabled"
+            as |C|
+          >
+            <C.Options>
+              <option>Lorem ipsum dolor</option>
+              <option>Sit amet</option>
+              <option selected>Consectetur adipiscing elit</option>
+            </C.Options>
+          </HdsFormSelectBase>
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy the textarea value"
+            @targetToCopy="#test-select-disabled"
+          />
+        </div>
+      </SG.Item>
     </ShwGrid>
 
     <ShwGrid @columns={{3}} @gap="2rem" as |SG|>
