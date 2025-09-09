@@ -1,7 +1,7 @@
 ---
 title: Writing guidelines
-caption: Consistent language guidelines for components and patterns.
-description: Consistent language guidelines for components and patterns.
+caption: Consistent language guidelines for the general UI.
+description: Consistent language guidelines for the general UI.
 previewImage: assets/illustrations/content/writing-guidelines.jpg
 ---
 
