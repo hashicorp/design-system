@@ -13,10 +13,12 @@ import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsAdvancedTableColumnReorderSide } from './types.ts';
+import type { HdsAdvancedTableSignature } from './index.ts';
 
 export interface HdsAdvancedTableThReorderDropTargetSignature {
   Args: {
     column: HdsAdvancedTableColumn;
+    hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
     tableHeight?: number;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
@@ -63,7 +65,7 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
     const classes = ['hds-advanced-table__th-reorder-drop-target'];
 
-    if (column.isFirst) {
+    if (column.isFirst && !this.args.hasSelectableRows) {
       classes.push('hds-advanced-table__th-reorder-drop-target--is-first');
     } else if (column.isLast) {
       classes.push('hds-advanced-table__th-reorder-drop-target--is-last');

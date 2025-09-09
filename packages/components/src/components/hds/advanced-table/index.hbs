@@ -6,7 +6,7 @@
 <div
   class="hds-advanced-table__container
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
-  {{did-update this.setupTableModelData @columns @model @sortBy @sortOrder @columnOrder}}
+  {{did-update this.setupTableModelData @columns @model @sortBy @sortOrder}}
   {{did-update this.updateTableModelColumnOrder @columnOrder}}
   ...attributes
 >
@@ -59,6 +59,7 @@
               @tooltip={{column.tooltip}}
               @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
+              @hasSelectableRows={{this.isSelectable}}
               @hasStickyFirstColumn={{@hasStickyFirstColumn}}
               @isStickyColumn={{this._isStickyColumn column}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
@@ -79,6 +80,7 @@
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
               @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
+              @hasSelectableRows={{this.isSelectable}}
               @hasStickyFirstColumn={{@hasStickyFirstColumn}}
               @isExpanded={{this._tableModel.expandState}}
               @isExpandable={{column.isExpandable}}

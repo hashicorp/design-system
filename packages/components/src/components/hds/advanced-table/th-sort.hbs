@@ -82,6 +82,7 @@
     {{#if (and @column.table.hasColumnBeingDragged (not @isStickyColumn))}}
       <Hds::AdvancedTable::ThReorderDropTarget
         @column={{@column}}
+        @hasSelectableRows={{@hasSelectableRows}}
         @tableHeight={{@tableHeight}}
         @onReorderDrop={{@onReorderDrop}}
       />

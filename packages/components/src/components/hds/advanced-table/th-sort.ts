@@ -42,6 +42,7 @@ export interface HdsAdvancedTableThSortSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
+    hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
     hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     sortOrder?: HdsAdvancedTableThSortOrder;

@@ -39,6 +39,7 @@ export interface HdsAdvancedTableThSignature {
     hasExpandAllButton?: boolean;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
+    hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
     hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
