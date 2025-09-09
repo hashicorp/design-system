@@ -1,0 +1,1 @@
+For general content recommendations, refer to our [Tabular guidelines](/content/tabular-guidelines) documentation.

@@ -39,11 +39,7 @@ navigation:
 </section>
 
 <section data-tab="Content">
-  @include "partials/content/general.md"
-  @include "partials/content/icon-usage.md"
-  @include "partials/content/link-usage.md"
-  @include "partials/content/badge-usage.md"
-  @include "partials/content/null-values.md"
+  @include "partials/content/content.md"
 </section>
 
 <section data-tab="Accessibility">
