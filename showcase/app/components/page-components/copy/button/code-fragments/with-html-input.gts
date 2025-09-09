@@ -82,7 +82,7 @@ export default class CodeFragmentWithHtmlInput extends Component<CodeFragmentWit
       </div>
       <HdsCopyButton
         @text="Copy the {{@inputComponent}} input value"
-        @targetToCopy={{this.id}}
+        @targetToCopy="#{{this.id}}"
         @isIconOnly={{true}}
       />
     </div>
