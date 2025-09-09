@@ -1,8 +1,6 @@
 import Component from '@glimmer/component';
-import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
-import { get } from '@ember/object';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
@@ -14,29 +12,19 @@ import ShwTextH4 from 'showcase/components/shw/text/h4';
 import {
   HdsCopyButton,
   HdsDropdown,
+  HdsFormMaskedInputBase,
+  HdsFormField,
+  HdsFormMaskedInputField,
 } from '@hashicorp/design-system-components/components';
 
-import CodeFragmentWithMaskedInput, {
-  MASKED_INPUT_VARIANTS,
-} from 'showcase/components/page-components/copy/button/code-fragments/with-masked-input';
-import type { CodeFragmentWithMaskedInputSignature } from 'showcase/components/page-components/copy/button/code-fragments/with-masked-input';
 import CodeFragmentWithHdsInput, {
-  INPUT_COMPONENTS,
+  INPUT_COMPONENTS as HDS_INPUT_COMPONENTS,
 } from 'showcase/components/page-components/copy/button/code-fragments/with-hds-input';
 import CodeFragmentWithModal from 'showcase/components/page-components/copy/button/code-fragments/with-modal';
 import CodeFragmentWithGenericDialogContent from 'showcase/components/page-components/copy/button/code-fragments/with-generic-dialog-content';
 import CodeFragmentWithHtmlInput, {
   INPUT_COMPONENTS as HTML_INPUT_COMPONENTS,
 } from 'showcase/components/page-components/copy/button/code-fragments/with-html-input';
-
-const maskedInputVariantToLabelMap: Record<
-  CodeFragmentWithMaskedInputSignature['Args']['variant'],
-  string
-> = {
-  'masked-input-base': 'With MaskedInputBase',
-  'masked-input-base-form-field': 'With FormField + MaskedInputBase',
-  'masked-input-field': 'With MaskedInputField',
-};
 
 export default class SubSectionDemos extends Component {
   bigIntValue = BigInt(12345678910);
@@ -50,50 +38,117 @@ export default class SubSectionDemos extends Component {
     return element as HTMLElement;
   }
 
-  // DEBUG
-  // uncomment these if you need to debug the `onSuccess/onError` callback methods
-
-  // onSucces = () => ({
-  //   trigger,
-  //   text,
-  //   target,
-  // }: {
-  //   trigger: HTMLElement;
-  //   text: string;
-  //   target: string;
-  // }) {
-  //   console.log('onSuccess invoked in the controller', trigger, text, target);
-  // }
-
-  // onError = () => ({
-  //   trigger,
-  //   text,
-  //   target,
-  // }: {
-  //   trigger: HTMLElement;
-  //   text: string;
-  //   target: string;
-  // }) {
-  //   console.log('onError invoked in the controller', trigger, text, target);
-  // }
-
   <template>
     <ShwTextH2>Compositions</ShwTextH2>
 
-    {{#each MASKED_INPUT_VARIANTS as |variant|}}
-      <ShwFlex as |SF|>
-        {{#let (array false true) as |isMultilineOptions|}}
-          {{#each isMultilineOptions as |isMultiline|}}
-            <SF.Item @label={{get maskedInputVariantToLabelMap variant}}>
-              <CodeFragmentWithMaskedInput
-                @variant={{variant}}
-                @isMultiline={{isMultiline}}
+    <ShwFlex as |SF|>
+      <SF.Item @label="With MaskedInput::Base">
+        <div class="shw-component-copy-button-composition-masked-input-base">
+          <HdsFormMaskedInputBase
+            @value="Lorem ipsum dolor"
+            aria-label="With MaskedInput::Base"
+          />
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy"
+            @textToCopy="Lorem ipsum dolor"
+          />
+        </div>
+      </SF.Item>
+      <SF.Item @label="With MaskedInput::Base (multiline)">
+        <div class="shw-component-copy-button-composition-masked-input-base">
+          <HdsFormMaskedInputBase
+            @isMultiline={{true}}
+            @value="Lorem ipsum dolor"
+            aria-label="With MaskedInput::Base"
+          />
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy"
+            @textToCopy="Lorem ipsum dolor"
+          />
+        </div>
+      </SF.Item>
+    </ShwFlex>
+
+    <ShwFlex as |SF|>
+      <SF.Item @label="With Form::Field + MaskedInput::Base">
+        <HdsFormField @layout="vertical" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+          <F.Control>
+            <div
+              class="shw-component-copy-button-composition-masked-input-base"
+            >
+              <HdsFormMaskedInputBase
+                @value="Lorem ipsum dolor"
+                aria-label="With MaskedInput::Base"
               />
-            </SF.Item>
-          {{/each}}
-        {{/let}}
-      </ShwFlex>
-    {{/each}}
+              <HdsCopyButton
+                @isIconOnly={{true}}
+                @text="Copy"
+                @textToCopy="Lorem ipsum dolor"
+              />
+            </div>
+          </F.Control>
+        </HdsFormField>
+      </SF.Item>
+      <SF.Item @label="With Form::Field + MaskedInput::Base (multiline)">
+        <HdsFormField @layout="vertical" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+          <F.Control>
+            <div
+              class="shw-component-copy-button-composition-masked-input-base"
+            >
+              <HdsFormMaskedInputBase
+                @isMultiline={{true}}
+                @value="Lorem ipsum dolor"
+                aria-label="With MaskedInput::Base"
+              />
+              <HdsCopyButton
+                @isIconOnly={{true}}
+                @text="Copy"
+                @textToCopy="Lorem ipsum dolor"
+              />
+            </div>
+          </F.Control>
+        </HdsFormField>
+      </SF.Item>
+    </ShwFlex>
+
+    <ShwFlex as |SF|>
+      <SF.Item @label="With MaskedInput::Field">
+        <div class="shw-component-copy-button-composition-masked-input-field">
+          <HdsFormMaskedInputField @value="Lorem ipsum dolor" as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+          </HdsFormMaskedInputField>
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy"
+            @textToCopy="Lorem ipsum dolor"
+          />
+        </div>
+      </SF.Item>
+      <SF.Item @label="With MaskedInput::Field (multiline)">
+        <div class="shw-component-copy-button-composition-masked-input-field">
+          <HdsFormMaskedInputField
+            @value="Lorem ipsum dolor"
+            @isMultiline={{true}}
+            as |F|
+          >
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+          </HdsFormMaskedInputField>
+          <HdsCopyButton
+            @isIconOnly={{true}}
+            @text="Copy"
+            @textToCopy="Lorem ipsum dolor"
+          />
+        </div>
+      </SF.Item>
+    </ShwFlex>
 
     <ShwDivider />
 
@@ -164,7 +219,7 @@ export default class SubSectionDemos extends Component {
     <ShwTextH4>HDS components</ShwTextH4>
 
     <ShwGrid @columns={{3}} @gap="2rem" as |SG|>
-      {{#each INPUT_COMPONENTS as |inputComponent|}}
+      {{#each HDS_INPUT_COMPONENTS as |inputComponent|}}
         <SG.Item @label="{{capitalize inputComponent}} component">
           <CodeFragmentWithHdsInput @inputComponent={{inputComponent}} />
         </SG.Item>

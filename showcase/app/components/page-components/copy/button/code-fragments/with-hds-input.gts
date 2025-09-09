@@ -13,13 +13,9 @@ import {
   HdsFormSelectBase,
 } from '@hashicorp/design-system-components/components';
 
-type inputComponent = 'text' | 'textarea' | 'select';
+export const INPUT_COMPONENTS = ['text', 'textarea', 'select'];
 
-export const INPUT_COMPONENTS: inputComponent[] = [
-  'text',
-  'textarea',
-  'select',
-];
+type inputComponent = (typeof INPUT_COMPONENTS)[number];
 
 export interface CodeFragmentWithHdsInputSignature {
   Args: {

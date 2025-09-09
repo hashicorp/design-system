@@ -11,20 +11,7 @@ import { guidFor } from '@ember/object/internals';
 
 import { HdsCopyButton } from '@hashicorp/design-system-components/components';
 
-type inputComponent =
-  | 'text'
-  | 'password'
-  | 'number'
-  | 'url'
-  | 'email'
-  | 'date'
-  | 'time'
-  | 'range'
-  | 'color'
-  | 'textarea'
-  | 'select';
-
-export const INPUT_COMPONENTS: inputComponent[] = [
+export const INPUT_COMPONENTS = [
   'text',
   'password',
   'number',
@@ -37,6 +24,7 @@ export const INPUT_COMPONENTS: inputComponent[] = [
   'textarea',
   'select',
 ];
+type inputComponent = (typeof INPUT_COMPONENTS)[number];
 
 export interface CodeFragmentWithHtmlInputSignature {
   Args: {
@@ -65,19 +53,19 @@ export default class CodeFragmentWithHtmlInput extends Component<CodeFragmentWit
   <template>
     <div class="shw-component-copy-button-flex-container" ...attributes>
       <div>
-        <label for="test-input-{{this.id}}" class="sr-only">
+        <label for={{this.id}} class="sr-only">
           {{capitalize @inputComponent}}
           input
         </label>
 
         {{#if (eq @inputComponent "textarea")}}
           <textarea
-            id="test-input-{{@inputComponent}}"
+            id={{this.id}}
             rows="3"
             value={{get inputComponentToValueMap @inputComponent}}
           ></textarea>
         {{else if (eq @inputComponent "select")}}
-          <select id="test-input-{{this.id}}">
+          <select id={{this.id}}>
             <option>Lorem ipsum dolor</option>
             <option>Sit amet</option>
             <option>Consectetur adipiscing elit</option>
@@ -86,7 +74,7 @@ export default class CodeFragmentWithHtmlInput extends Component<CodeFragmentWit
           <input
             type={{@inputComponent}}
             value={{get inputComponentToValueMap @inputComponent}}
-            id="test-input-{{this.id}}"
+            id={{this.id}}
             min={{if (eq @inputComponent "range") "0" undefined}}
             max={{if (eq @inputComponent "range") "10" undefined}}
           />
@@ -94,7 +82,7 @@ export default class CodeFragmentWithHtmlInput extends Component<CodeFragmentWit
       </div>
       <HdsCopyButton
         @text="Copy the {{@inputComponent}} input value"
-        @targetToCopy="#test-input-{{this.id}}"
+        @targetToCopy={{this.id}}
         @isIconOnly={{true}}
       />
     </div>
