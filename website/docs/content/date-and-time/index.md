@@ -23,7 +23,7 @@ These formatting options are available in the [Time](/components/time) component
 
 Relative dates work well for periods from one minute up to one week. For added accuracy, a [Tooltip](/components/tooltip) can display the exact timestamp, including seconds and the local timezone, e.g., "Sep 5, 2018, 4:07:32 PM EST". This helps users who need precise information without manually converting from a relative date.
 
-![A relative date displayed as "5 days ago" with the full date shown in a tooltip in the friendly local format "Sep 5, 2018, 4:07:32 PM EST".](/assets/content/date-and-time/writing-guidelines-relative-dates-with-tooltip.png)
+![A relative date displayed as "5 days ago" with the full date shown in a tooltip in the friendly local format "Sep 5, 2018, 4:07:32 PM EST".](/assets/content/date-and-time/relative-dates-with-tooltip.png)
 
 - Omit "about" in phrases like "about 3 hours ago" since the approximation is implied.
 To improve readability, show only the most significant unit, e.g., "3 days ago" instead of "3 days, 4 hours ago."
