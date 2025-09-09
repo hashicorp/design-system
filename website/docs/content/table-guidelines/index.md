@@ -3,6 +3,9 @@ title: Table guidelines
 caption: Writing guidance for tabular data.
 description: Writing guidance for tabular data.
 previewImage: assets/illustrations/content/writing-guidelines.jpg
+related:
+  - components/table/table
+  - components/table/advanced-table
 ---
 
 This documentation provides best practices for writing tabular content, such as with the [Table](/components/table/table) and [Advanced Table](/components/table/advanced-table) components.
