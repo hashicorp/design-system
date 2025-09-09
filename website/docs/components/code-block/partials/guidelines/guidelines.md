@@ -87,7 +87,7 @@ Interacting with it again collapses the Code Block back to its set `maxHeight`.
 
 **Differences between Figma and code**
 
-In the Ember component, lines can be highlighted by passing a single line number, multiple line numbers, or a range of lines. For more examples, refer to the [How to use](/?tab=code#highlightlines) documentation.
+In the Ember component, lines can be highlighted by passing a single line number, multiple line numbers, or a range of lines. For more examples, refer to the [How to use](/components/code-block?tab=code#highlight-lines) documentation.
 
 In the Figma component, line highlighting (`highlightLines`) is a boolean property that displays a _representative_ example of what a highlighted line will look like visually and is not a property that can be controlled by the consumer. Instead, lines that are intended to be highlighted should be communicated in the engineering handoff or annotated in the design file.
 !!!
