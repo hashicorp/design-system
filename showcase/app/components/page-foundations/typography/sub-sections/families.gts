@@ -9,7 +9,7 @@ import ShwTextH2 from 'showcase/components/shw/text/h2';
 
 const FONT_FAMILIES = ['sans-display', 'sans-text', 'mono-code'];
 
-const TypographyIndex: TemplateOnlyComponent = <template>
+const SubSectionFamily: TemplateOnlyComponent = <template>
   <ShwTextH2>Families</ShwTextH2>
 
   <ShwFlex @direction="column" as |SF|>
@@ -21,4 +21,4 @@ const TypographyIndex: TemplateOnlyComponent = <template>
   </ShwFlex>
 </template>;
 
-export default TypographyIndex;
+export default SubSectionFamily;

@@ -23,7 +23,7 @@ const STYLES_COMBINATIONS = {
   'code-100': ['regular', 'bold'],
 };
 
-const TypographyIndex: TemplateOnlyComponent = <template>
+const SubSectionStyles: TemplateOnlyComponent = <template>
   <ShwTextH2>Styles</ShwTextH2>
   <ShwTextBody><em>Notice: we are showing only the combinations of
       <code>font-size</code>
@@ -45,4 +45,4 @@ const TypographyIndex: TemplateOnlyComponent = <template>
   </ShwFlex>
 </template>;
 
-export default TypographyIndex;
+export default SubSectionStyles;
