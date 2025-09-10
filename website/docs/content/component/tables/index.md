@@ -88,7 +88,7 @@ If a cell contains long-form or descriptive content, use the link style that is 
 
 ## Badge usage
 
-Use [Badges](/components/badge) to communicate status and high-priority metadata within tables.
+Use [Badges](/components/badge) to communicate status and high-priority metadata within tables. Ensure that Badge usage within tables is consistent across features and within an application holistically so that it is easier to understand and quicker to parse.
 
 ### Badge type
 
@@ -129,10 +129,6 @@ In the case of a [null or empty](#null-values) value, use the text-only variant 
 
 ![Null value represented by a badge within a table](/assets/content/component/tables/badge-table-null-value.png)
 !!!
-
-### Badge consistency
-
-Ensure that Badge usage within tables is consistent across features and within an application holistically. For example, if communicating that a record is "active", use the same combination of text, icon, and color in each instance. This consistency in communication and visual language can make complex information easier to understand and quicker to parse.
 
 ### Badge size
 
