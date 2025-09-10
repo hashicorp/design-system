@@ -3,16 +3,12 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import fs from 'fs-extra';
-
-import { baseFontSize, breakpoints, container01, container02, container03, container04, container05, iconSize01, iconSize02, miniUnit, sizes as carbonSizes, spacing01, spacing02, spacing03, spacing04, spacing05, spacing06, spacing07, spacing08, spacing09, spacing10, spacing11, spacing12, spacing13 } from '@carbon/layout';
+import { baseFontSize, breakpoints, container01, container02, container03, container04, container05, iconSize01, iconSize02, miniUnit, sizes, spacing01, spacing02, spacing03, spacing04, spacing05, spacing06, spacing07, spacing08, spacing09, spacing10, spacing11, spacing12, spacing13 } from '@carbon/layout';
 
 import { convertObjectToDtcgFormat } from './convertObjectToDtcgFormat.ts';
+import { saveCarbonDtcgTokensAsJsonFile } from './saveCarbonDtcgTokensAsJsonFile.ts';
 
-export async function extractLayout(destinationCarbonFolder: string): Promise<void> {
-
-  const destFolderPath = `${destinationCarbonFolder}/layout`;
-  const destFilePath = `${destFolderPath}/layout.json`;
+export async function extractLayout(): Promise<void> {
 
   // we artificially build a custom object to pass to the converter (much easier than writing custom logic for this)
 
@@ -41,6 +37,12 @@ export async function extractLayout(destinationCarbonFolder: string): Promise<vo
     }
   };
 
+  const carbonLayoutSizes = {
+    'size': {
+      ...sizes
+    }
+  };
+
   const carbonLayoutIconSizes = {
     'icon-size': {
       '01': iconSize01,
@@ -49,7 +51,7 @@ export async function extractLayout(destinationCarbonFolder: string): Promise<vo
   };
 
   // TODO investigate with the Carbon team what this set of tokens is used for
-  const carbonLayoutContainer = {
+  const carbonLayoutContainers = {
     'container': {
       '01': container01,
       '02': container02,
@@ -60,7 +62,7 @@ export async function extractLayout(destinationCarbonFolder: string): Promise<vo
   };
 
   const carbonLayoutBreakpoints = {
-    'breakpoints': {
+    'breakpoint': {
       'sm': breakpoints.sm.width,
       'md': breakpoints.md.width,
       'lg': breakpoints.lg.width,
@@ -69,30 +71,28 @@ export async function extractLayout(destinationCarbonFolder: string): Promise<vo
     }
   };
 
+  // base units
   const carbonLayoutBaseUnitsDtcg = convertObjectToDtcgFormat({ value: carbonLayoutBaseUnits, type: 'number', group: 'cds-layout' });
-  const carbonLayoutSpacingDtcg = convertObjectToDtcgFormat({ value: carbonLayoutSpacing, type: 'size', group: 'cds-layout' });
-  const carbonSizesDtcg = convertObjectToDtcgFormat({ value: carbonSizes, type: 'size', group: 'cds-layout' });
-  const carbonIconSizesDtcg = convertObjectToDtcgFormat({ value: carbonLayoutIconSizes, type: 'size', group: 'cds-layout' });
-  const carbonContainerDtcg = convertObjectToDtcgFormat({ value: carbonLayoutContainer, type: 'size', group: 'cds-layout' });
-  const carbonBreakpointsDtcg = convertObjectToDtcgFormat({ value: carbonLayoutBreakpoints, type: 'size', group: 'cds-layout' });
-  const destContent = {
-    carbon: {
-      layout: {
-        ...carbonLayoutBaseUnitsDtcg,
-        ...carbonLayoutSpacingDtcg,
-        ...carbonSizesDtcg,
-        ...carbonIconSizesDtcg,
-        ...carbonContainerDtcg,
-        ...carbonBreakpointsDtcg,
-      }
-    }
-  };
+  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutBaseUnitsDtcg, group: 'layout', file: 'base-units' });
 
-  try {
-    fs.ensureDirSync(destFolderPath);
-    fs.writeJsonSync(destFilePath, destContent, { spaces: 2 });
-    console.log(`Saved "${destFilePath}" file`);
-  } catch (err) {
-    console.error(err);
-  }
+  // spacing
+  const carbonLayoutSpacingDtcg = convertObjectToDtcgFormat({ value: carbonLayoutSpacing, type: 'size', group: 'cds-layout' });
+  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutSpacingDtcg, group: 'layout', file: 'spacing' });
+
+  // sizes
+  const carbonLayoutSizesDtcg = convertObjectToDtcgFormat({ value: carbonLayoutSizes, type: 'size', group: 'cds-layout' });
+  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutSizesDtcg, group: 'layout', file: 'sizes' });
+
+  // icon sizes
+  const carbonLayoutIconSizesDtcg = convertObjectToDtcgFormat({ value: carbonLayoutIconSizes, type: 'size', group: 'cds-layout' });
+  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutIconSizesDtcg, group: 'layout', file: 'icon-sizes' });
+
+  // container
+  const carbonLayoutContainersDtcg = convertObjectToDtcgFormat({ value: carbonLayoutContainers, type: 'size', group: 'cds-layout' });
+  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutContainersDtcg, group: 'layout', file: 'containers' });
+
+  // breakpoints
+  const carbonLayoutBreakpointsDtcg = convertObjectToDtcgFormat({ value: carbonLayoutBreakpoints, type: 'size', group: 'cds-layout' });
+  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutBreakpointsDtcg, group: 'layout', file: 'breakpoints' });
+
 }

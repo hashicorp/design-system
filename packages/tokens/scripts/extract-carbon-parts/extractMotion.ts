@@ -3,20 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import fs from 'fs-extra';
-
-import { durationFast01, durationFast02, durationModerate01, durationModerate02, durationSlow01, durationSlow02, easings as carbonEasings } from '@carbon/motion';
+import { durationFast01, durationFast02, durationModerate01, durationModerate02, durationSlow01, durationSlow02, easings } from '@carbon/motion';
 
 import { convertObjectToDtcgFormat } from './convertObjectToDtcgFormat.ts';
+import { saveCarbonDtcgTokensAsJsonFile } from './saveCarbonDtcgTokensAsJsonFile.ts';
 
-export async function extractMotion(destinationCarbonFolder: string): Promise<void> {
-
-  const destFolderPath = `${destinationCarbonFolder}/motion`;
-  const destFilePath = `${destFolderPath}/motion.json`;
+export async function extractMotion(): Promise<void> {
 
   // we artificially build a custom object to pass to the converter (much easier than writing custom logic for this)
-
-  const carbonMotion = {
+  const carbonMotionDurations = {
     'duration': {
       'slow': {
         '01': durationSlow01,
@@ -31,24 +26,19 @@ export async function extractMotion(destinationCarbonFolder: string): Promise<vo
         '02': durationFast02,
       }
     }
-  }
-
-  const carbonMotionDurationDtcg = convertObjectToDtcgFormat({ value: carbonMotion, type: 'duration', group: 'cds-motion' });
-  const carbonMotionEasingsDtcg = convertObjectToDtcgFormat({ value: carbonEasings, type: 'cubic-bezier', group: 'cds-motion' });
-  const destContent = {
-    carbon: {
-      motion: {
-        ...carbonMotionDurationDtcg,
-        ...carbonMotionEasingsDtcg
-      }
-    }
   };
 
-  try {
-    fs.ensureDirSync(destFolderPath);
-    fs.writeJsonSync(destFilePath, destContent, { spaces: 2 });
-    console.log(`Saved "${destFilePath}" file`);
-  } catch (err) {
-      console.error(err);
+  const carbonMotionEasings = {
+    'easing': {
+      ...easings,
+    }
   }
+
+  // durations
+  const carbonMotionDurationsDtcg = convertObjectToDtcgFormat({ value: carbonMotionDurations, type: 'duration', group: 'cds-motion' });
+  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonMotionDurationsDtcg, group: 'motion', file: 'durations' });
+
+  // easings
+  const carbonMotionEasingsDtcg = convertObjectToDtcgFormat({ value: carbonMotionEasings, type: 'cubic-bezier', group: 'cds-motion' });
+  await saveCarbonDtcgTokensAsJsonFile({ obj: carbonMotionEasingsDtcg, group: 'motion', file: 'easings' });
 }

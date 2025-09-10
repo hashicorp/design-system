@@ -1,0 +1,56 @@
+{
+  "carbon": {
+    "layout": {
+      "size": {
+        "XSmall": {
+          "$type": "size",
+          "$value": 24,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "1.5rem"
+        },
+        "Small": {
+          "$type": "size",
+          "$value": 32,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "2rem"
+        },
+        "Medium": {
+          "$type": "size",
+          "$value": 40,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "2.5rem"
+        },
+        "Large": {
+          "$type": "size",
+          "$value": 48,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "3rem"
+        },
+        "XLarge": {
+          "$type": "size",
+          "$value": 64,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "4rem"
+        },
+        "2XLarge": {
+          "$type": "size",
+          "$value": 80,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "5rem"
+        }
+      }
+    }
+  }
+}

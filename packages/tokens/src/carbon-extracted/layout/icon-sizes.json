@@ -1,0 +1,24 @@
+{
+  "carbon": {
+    "layout": {
+      "icon-size": {
+        "01": {
+          "$type": "size",
+          "$value": 16,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "1rem"
+        },
+        "02": {
+          "$type": "size",
+          "$value": 20,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "1.25rem"
+        }
+      }
+    }
+  }
+}

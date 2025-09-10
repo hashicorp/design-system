@@ -1,0 +1,48 @@
+{
+  "carbon": {
+    "layout": {
+      "container": {
+        "01": {
+          "$type": "size",
+          "$value": 24,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "1.5rem"
+        },
+        "02": {
+          "$type": "size",
+          "$value": 32,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "2rem"
+        },
+        "03": {
+          "$type": "size",
+          "$value": 40,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "2.5rem"
+        },
+        "04": {
+          "$type": "size",
+          "$value": 48,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "3rem"
+        },
+        "05": {
+          "$type": "size",
+          "$value": 64,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "4rem"
+        }
+      }
+    }
+  }
+}
