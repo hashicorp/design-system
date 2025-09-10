@@ -4,31 +4,22 @@ import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { action } from '@ember/object';
 
-import ShwTextH4 from 'showcase/components/shw/text/h4';
-
 import MockTableMultiSelectExamplesTopbar from './topbar';
+import MockTableWithSelectableData from '../with-selectable-data';
+import SELECTABLE_ITEMS from 'showcase/mocks/selectable-item-data';
 
 // HDS Components
-import {
-  HdsTable,
-  HdsPaginationNumbered,
-} from '@hashicorp/design-system-components/components';
+import { HdsPaginationNumbered } from '@hashicorp/design-system-components/components';
 
 import type { HdsTableOnSelectionChangeSignature } from '@hashicorp/design-system-components/components/hds/table/types';
-import type { PageComponentsTableModel } from 'showcase/routes/page-components/table';
 import type { SelectableItem } from 'showcase/mocks/selectable-item-data.ts';
 
-export interface MockTableMultiSelectExamplesPaginationSignature {
-  Args: {
-    model: PageComponentsTableModel;
-  };
+export interface CodeFragmentWithMultiSelectPaginationSignature {
   Element: HTMLElement;
 }
 
-export default class MockTableMultiSelectExamplesPagination extends Component<MockTableMultiSelectExamplesPaginationSignature> {
-  declare model: PageComponentsTableModel;
-
-  @deepTracked selectableData = [...this.args.model.selectableDataDemo2];
+export default class CodeFragmentWithMultiSelectPagination extends Component<CodeFragmentWithMultiSelectPaginationSignature> {
+  @deepTracked selectableData = SELECTABLE_ITEMS;
   @tracked isScopeExtended = false;
   @tracked isDebugging = false;
   @tracked currentPage = 1;
@@ -86,12 +77,14 @@ export default class MockTableMultiSelectExamplesPagination extends Component<Mo
         selectionCheckboxElement ? selectionCheckboxElement.checked : false,
       );
     } else {
+      const modelDataMap: Map<string, SelectableItem> = new Map(
+        this.selectableData.map((modelRow) => [String(modelRow.id), modelRow]),
+      );
+
       selectableRowsStates.forEach((row) => {
-        const recordToUpdate = this.selectableData.find(
-          (modelRow) => String(modelRow.id) === row.selectionKey,
-        );
-        if (recordToUpdate) {
-          recordToUpdate.isSelected = !recordToUpdate.isSelected;
+        const record = modelDataMap.get(row.selectionKey) as SelectableItem;
+        if (record) {
+          record.isSelected = row.isSelected ? true : false;
         }
       });
     }
@@ -108,8 +101,6 @@ export default class MockTableMultiSelectExamplesPagination extends Component<Mo
   }
 
   <template>
-    <ShwTextH4>With pagination</ShwTextH4>
-
     <MockTableMultiSelectExamplesTopbar
       @isScopeExtended={{this.isScopeExtended}}
       @isDebugging={{this.isDebugging}}
@@ -118,36 +109,16 @@ export default class MockTableMultiSelectExamplesPagination extends Component<Mo
     />
 
     <div class="shw-component-table-with-pagination-demo-wrapper">
-      <HdsTable
+      <MockTableWithSelectableData
         @isSelectable={{true}}
         @onSelectionChange={{this.onSelectionChange}}
-        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @model={{this.paginatedData}}
+        @dataModel={{this.paginatedData}}
         @columns={{array
           (hash key="lorem" label="Row #")
           (hash key="ipsum" label="Ipsum")
           (hash key="dolor" label="Dolor")
         }}
-      >
-        <:body as |B|>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Tr
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            @selectionKey="{{B.data.id}}"
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            @isSelected={{B.data.isSelected}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
-          >
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.lorem}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.ipsum}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.dolor}}</B.Td>
-          </B.Tr>
-        </:body>
-      </HdsTable>
+      />
       <HdsPaginationNumbered
         @totalItems={{this.totalItems}}
         @currentPageSize={{this.currentPageSize}}

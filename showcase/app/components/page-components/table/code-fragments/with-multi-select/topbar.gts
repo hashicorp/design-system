@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { on } from '@ember/modifier';
 import { guidFor } from '@ember/object/internals';
 
-export interface MockTableMultiSelectExamplesTopbarSignature {
+export interface CodeFragmentWithMultiSelectTopbarSignature {
   Args: {
     isScopeExtended: boolean;
     isDebugging: boolean;
@@ -16,7 +16,7 @@ export interface MockTableMultiSelectExamplesTopbarSignature {
   Element: HTMLElement;
 }
 
-export default class MockTableMultiSelectExamplesTopbar extends Component<MockTableMultiSelectExamplesTopbarSignature> {
+export default class CodeFragmentWithMultiSelectTopbar extends Component<CodeFragmentWithMultiSelectTopbarSignature> {
   private _scopeInputId = 'scope-input-' + guidFor(this);
   private _debugInputId = 'debug-input-' + guidFor(this);
 

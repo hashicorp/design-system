@@ -13,6 +13,7 @@ import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import NOOP from 'showcase/utils/noop';
 
 import {
   HdsBadge,
@@ -29,23 +30,13 @@ import {
   HdsTooltipButton,
 } from '@hashicorp/design-system-components/components';
 
-import type { PageComponentsTableModel } from 'showcase/routes/page-components/table';
-
-export interface PageComponentsTableBaseElementsSignature {
-  Args: {
-    model: PageComponentsTableModel;
-  };
+export interface SubSectionBaseElementsSignature {
   Element: HTMLElement;
 }
 
-export default class PageComponentsTableBaseElements extends Component<PageComponentsTableBaseElementsSignature> {
-  declare model: PageComponentsTableModel;
+const STATES = ['default', 'hover', 'active', 'focus'];
 
-  @action
-  noop() {
-    // no-op
-  }
-
+export default class SubSectionBaseElements extends Component<SubSectionBaseElementsSignature> {
   @action
   mockIndeterminateState(checkbox: HTMLInputElement) {
     checkbox.indeterminate = true;
@@ -61,7 +52,7 @@ export default class PageComponentsTableBaseElements extends Component<PageCompo
       @label="Interactive states + Sorting order"
       as |SF|
     >
-      {{#each @model.STATES as |state|}}
+      {{#each STATES as |state|}}
         <SF.Item @grow={{true}}>
           <HdsTable>
             <:head>
@@ -160,7 +151,7 @@ export default class PageComponentsTableBaseElements extends Component<PageCompo
         <HdsTable>
           <:head>
             <HdsTableTr>
-              {{#each @model.STATES as |state|}}
+              {{#each STATES as |state|}}
                 <HdsTableTh
                   @tooltip="Here is more information"
                   mock-state-value={{state}}
@@ -299,7 +290,7 @@ export default class PageComponentsTableBaseElements extends Component<PageCompo
                     <HdsTableThSelectable
                       @selectionScope="col"
                       @isSelected={{bool1}}
-                      @onClickSortBySelected={{if bool2 this.noop}}
+                      @onClickSortBySelected={{if bool2 NOOP}}
                     />
                     <H.Th>Lorem</H.Th>
                   </H.Tr>
@@ -321,7 +312,7 @@ export default class PageComponentsTableBaseElements extends Component<PageCompo
                     <HdsTableThSelectable
                       @selectionScope="col"
                       @isSelected={{bool1}}
-                      @onClickSortBySelected={{if bool2 this.noop}}
+                      @onClickSortBySelected={{if bool2 NOOP}}
                       mock-state-value="focus"
                       mock-state-selector="input"
                     />
@@ -353,7 +344,7 @@ export default class PageComponentsTableBaseElements extends Component<PageCompo
                   <HdsTableThSelectable
                     @selectionScope="col"
                     @isSelected={{true}}
-                    @onClickSortBySelected={{if bool this.noop}}
+                    @onClickSortBySelected={{if bool NOOP}}
                     @didInsert={{this.mockIndeterminateState}}
                   />
                   <H.Th>Lorem</H.Th>
@@ -378,7 +369,7 @@ export default class PageComponentsTableBaseElements extends Component<PageCompo
                     @selectionScope="col"
                     @isSelected={{true}}
                     @didInsert={{this.mockIndeterminateState}}
-                    @onClickSortBySelected={{if bool this.noop}}
+                    @onClickSortBySelected={{if bool NOOP}}
                     mock-state-value="focus"
                     mock-state-selector="input"
                   />
@@ -719,7 +710,7 @@ export default class PageComponentsTableBaseElements extends Component<PageCompo
     <ShwTextH3>ThButtonTooltip</ShwTextH3>
 
     <ShwGrid @label="Interactive states" @columns={{4}} as |SG|>
-      {{#each @model.STATES as |state|}}
+      {{#each STATES as |state|}}
         <SG.Item @label={{capitalize state}}>
           <HdsTableThButtonTooltip
             @tooltip="Here is more information"
@@ -734,7 +725,7 @@ export default class PageComponentsTableBaseElements extends Component<PageCompo
     <ShwTextH3>ThButtonSort</ShwTextH3>
 
     <ShwGrid @label="Interactive states + Sorting order" @columns={{4}} as |SG|>
-      {{#each @model.STATES as |state|}}
+      {{#each STATES as |state|}}
         <SG.Item @label={{capitalize state}}>
           <ShwFlex @direction="row" as |SF|>
             <SF.Item>

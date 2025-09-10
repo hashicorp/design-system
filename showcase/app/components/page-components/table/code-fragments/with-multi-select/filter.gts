@@ -6,8 +6,9 @@ import { deepTracked } from 'ember-deep-tracked';
 import { action } from '@ember/object';
 import { on } from '@ember/modifier';
 
-import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
+import MockTableWithSelectableData from '../with-selectable-data';
+import SELECTABLE_ITEMS from 'showcase/mocks/selectable-item-data';
 
 import MockTableMultiSelectExamplesTopbar from './topbar';
 
@@ -18,7 +19,6 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsTableOnSelectionChangeSignature } from '@hashicorp/design-system-components/components/hds/table/types';
-import type { PageComponentsTableModel } from 'showcase/routes/page-components/table';
 import type { SelectableItem } from 'showcase/mocks/selectable-item-data.ts';
 
 type MultiSelectNoModel = {
@@ -28,20 +28,15 @@ type MultiSelectNoModel = {
   row4: boolean;
 };
 
-export interface MockTableMultiSelectExamplesFilterSignature {
-  Args: {
-    model: PageComponentsTableModel;
-  };
+export interface CodeFragmentWithMultiSelectFilterSignature {
   Element: HTMLElement;
 }
 
-export default class MockTableMultiSelectExamplesFilter extends Component<MockTableMultiSelectExamplesFilterSignature> {
-  declare model: PageComponentsTableModel;
-
+export default class CodeFragmentWithMultiSelectFilter extends Component<CodeFragmentWithMultiSelectFilterSignature> {
   @tracked filterRows = 'all';
   @tracked isScopeExtended = false;
   @tracked isDebugging = false;
-  @deepTracked selectableData = [...this.args.model.selectableDataDemo1];
+  @deepTracked selectableData: SelectableItem[] = SELECTABLE_ITEMS;
   @deepTracked noModelState: MultiSelectNoModel = {
     row1: false,
     row2: true,
@@ -60,7 +55,7 @@ export default class MockTableMultiSelectExamplesFilter extends Component<MockTa
     });
   };
 
-  get filteredData() {
+  get filteredData(): SelectableItem[] {
     if (this.filterRows === 'all') {
       return this.selectableData;
     } else {
@@ -91,7 +86,7 @@ export default class MockTableMultiSelectExamplesFilter extends Component<MockTa
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
     console.group(
-      'MockTableMultiSelectExamplesFilter onSelectionChangeWithModel invoked with arguments:',
+      'CodeFragmentWithMultiSelectFilter onSelectionChangeWithModel invoked with arguments:',
     );
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
@@ -103,12 +98,14 @@ export default class MockTableMultiSelectExamplesFilter extends Component<MockTa
         selectionCheckboxElement ? selectionCheckboxElement.checked : false,
       );
     } else {
+      const modelDataMap: Map<string, SelectableItem> = new Map(
+        this.selectableData.map((modelRow) => [String(modelRow.id), modelRow]),
+      );
+
       selectableRowsStates.forEach((row) => {
-        const recordToUpdate = this.selectableData.find(
-          (modelRow) => String(modelRow.id) === row.selectionKey,
-        );
-        if (recordToUpdate) {
-          recordToUpdate.isSelected = !recordToUpdate.isSelected;
+        const record = modelDataMap.get(row.selectionKey) as SelectableItem;
+        if (record) {
+          record.isSelected = row.isSelected ? true : false;
         }
       });
     }
@@ -121,7 +118,7 @@ export default class MockTableMultiSelectExamplesFilter extends Component<MockTa
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
     console.group(
-      'MockTableMultiSelectExamplesFilter onSelectionChangeWithoutModel invoked with arguments:',
+      'CodeFragmentWithMultiSelectFilter onSelectionChangeWithoutModel invoked with arguments:',
     );
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
@@ -141,22 +138,24 @@ export default class MockTableMultiSelectExamplesFilter extends Component<MockTa
             selectAllState;
         });
       } else {
-        const mapSelectionKeyToRowKey = (
-          key: string | number,
-        ): keyof MultiSelectNoModel => {
-          return key as keyof MultiSelectNoModel;
-        };
+        const modelDataMap: Map<string, SelectableItem> = new Map(
+          this.selectableData.map((modelRow) => [
+            String(modelRow.id),
+            modelRow,
+          ]),
+        );
+
         selectableRowsStates.forEach((row) => {
-          const rowKey = mapSelectionKeyToRowKey(row.selectionKey);
-          this.noModelState[rowKey] = row.isSelected ? true : false;
+          const record = modelDataMap.get(row.selectionKey) as SelectableItem;
+          if (record) {
+            record.isSelected = row.isSelected ? true : false;
+          }
         });
       }
     }
   }
 
   <template>
-    <ShwTextH4>With inline filter</ShwTextH4>
-
     <MockTableMultiSelectExamplesTopbar
       @isScopeExtended={{this.isScopeExtended}}
       @isDebugging={{this.isDebugging}}
@@ -182,36 +181,16 @@ export default class MockTableMultiSelectExamplesFilter extends Component<MockTa
 
     <ShwFlex @direction="column" @gap="2rem" as |SF|>
       <SF.Item @label="With data model">
-        <HdsTable
+        <MockTableWithSelectableData
           @isSelectable={{true}}
           @onSelectionChange={{this.onSelectionChangeWithModel}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @model={{this.filteredData}}
+          @dataModel={{this.filteredData}}
           @columns={{array
             (hash key="lorem" label="Row #")
             (hash key="ipsum" label="Ipsum")
             (hash key="dolor" label="Dolor")
           }}
-        >
-          <:body as |B|>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Tr
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-              @selectionKey="{{B.data.id}}"
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-              @isSelected={{B.data.isSelected}}
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-              @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
-            >
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-              <B.Td>{{B.data.lorem}}</B.Td>
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-              <B.Td>{{B.data.ipsum}}</B.Td>
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-              <B.Td>{{B.data.dolor}}</B.Td>
-            </B.Tr>
-          </:body>
-        </HdsTable>
+        />
         {{#if this.isDebugging}}
           {{#each this.selectableData as |row|}}
             <pre>row{{row.id}} = {{if row.isSelected "✅"}}</pre>
