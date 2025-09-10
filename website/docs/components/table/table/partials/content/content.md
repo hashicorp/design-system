@@ -1,1 +1,1 @@
-For general content recommendations, refer to our [Table content guidelines](/content/component/tables) documentation.
+For general content recommendations, refer to our [Tables content guidelines](/content/component/tables) documentation.
