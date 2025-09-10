@@ -209,7 +209,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
           <SG.Item
             @label="{{capitalize variant}} / {{capitalize state}}"
             mock-state-value={{state}}
-            mock-state-selector="button"
+            mock-state-selector="input"
           >
             <ShwFlex @direction="column" as |SF|>
               <SF.Item>
@@ -238,7 +238,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
           <SG.Item
             @label="{{capitalize variant}} / {{capitalize state}}"
             mock-state-value={{state}}
-            mock-state-selector="button"
+            mock-state-selector="textarea"
           >
             <ShwFlex @direction="column" as |SF|>
               <SF.Item>
