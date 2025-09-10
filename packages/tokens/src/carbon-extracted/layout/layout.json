@@ -1,0 +1,278 @@
+{
+  "carbon": {
+    "layout": {
+      "base-unit": {
+        "baseFontSize": {
+          "$type": "number",
+          "$value": 16,
+          "group": "cds-layout",
+          "private": true,
+          "original": 16
+        },
+        "miniUnit": {
+          "$type": "number",
+          "$value": 8,
+          "group": "cds-layout",
+          "private": true,
+          "original": 8
+        }
+      },
+      "spacing": {
+        "10": {
+          "$type": "size",
+          "$value": 64,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "4rem"
+        },
+        "11": {
+          "$type": "size",
+          "$value": 80,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "5rem"
+        },
+        "12": {
+          "$type": "size",
+          "$value": 96,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "6rem"
+        },
+        "13": {
+          "$type": "size",
+          "$value": 160,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "10rem"
+        },
+        "01": {
+          "$type": "size",
+          "$value": 2,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "0.125rem"
+        },
+        "02": {
+          "$type": "size",
+          "$value": 4,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "0.25rem"
+        },
+        "03": {
+          "$type": "size",
+          "$value": 8,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "0.5rem"
+        },
+        "04": {
+          "$type": "size",
+          "$value": 12,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "0.75rem"
+        },
+        "05": {
+          "$type": "size",
+          "$value": 16,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "1rem"
+        },
+        "06": {
+          "$type": "size",
+          "$value": 24,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "1.5rem"
+        },
+        "07": {
+          "$type": "size",
+          "$value": 32,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "2rem"
+        },
+        "08": {
+          "$type": "size",
+          "$value": 40,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "2.5rem"
+        },
+        "09": {
+          "$type": "size",
+          "$value": 48,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "3rem"
+        }
+      },
+      "XSmall": {
+        "$type": "size",
+        "$value": 24,
+        "$unit": "px",
+        "group": "cds-layout",
+        "private": true,
+        "original": "1.5rem"
+      },
+      "Small": {
+        "$type": "size",
+        "$value": 32,
+        "$unit": "px",
+        "group": "cds-layout",
+        "private": true,
+        "original": "2rem"
+      },
+      "Medium": {
+        "$type": "size",
+        "$value": 40,
+        "$unit": "px",
+        "group": "cds-layout",
+        "private": true,
+        "original": "2.5rem"
+      },
+      "Large": {
+        "$type": "size",
+        "$value": 48,
+        "$unit": "px",
+        "group": "cds-layout",
+        "private": true,
+        "original": "3rem"
+      },
+      "XLarge": {
+        "$type": "size",
+        "$value": 64,
+        "$unit": "px",
+        "group": "cds-layout",
+        "private": true,
+        "original": "4rem"
+      },
+      "2XLarge": {
+        "$type": "size",
+        "$value": 80,
+        "$unit": "px",
+        "group": "cds-layout",
+        "private": true,
+        "original": "5rem"
+      },
+      "icon-size": {
+        "01": {
+          "$type": "size",
+          "$value": 16,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "1rem"
+        },
+        "02": {
+          "$type": "size",
+          "$value": 20,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "1.25rem"
+        }
+      },
+      "container": {
+        "01": {
+          "$type": "size",
+          "$value": 24,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "1.5rem"
+        },
+        "02": {
+          "$type": "size",
+          "$value": 32,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "2rem"
+        },
+        "03": {
+          "$type": "size",
+          "$value": 40,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "2.5rem"
+        },
+        "04": {
+          "$type": "size",
+          "$value": 48,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "3rem"
+        },
+        "05": {
+          "$type": "size",
+          "$value": 64,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "4rem"
+        }
+      },
+      "breakpoints": {
+        "sm": {
+          "$type": "size",
+          "$value": 320,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "20rem"
+        },
+        "md": {
+          "$type": "size",
+          "$value": 672,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "42rem"
+        },
+        "lg": {
+          "$type": "size",
+          "$value": 1056,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "66rem"
+        },
+        "xlg": {
+          "$type": "size",
+          "$value": 1312,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "82rem"
+        },
+        "max": {
+          "$type": "size",
+          "$value": 1584,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "99rem"
+        }
+      }
+    }
+  }
+}
