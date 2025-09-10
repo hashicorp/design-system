@@ -2,7 +2,7 @@
 title: Tables
 caption: Writing guidance for tabular data.
 description: Writing guidance for tabular data.
-previewImage: assets/illustrations/content/writing-guidelines.jpg
+previewImage: assets/illustrations/content/component/tables.jpg
 related:
   - components/table/table
   - components/table/advanced-table
