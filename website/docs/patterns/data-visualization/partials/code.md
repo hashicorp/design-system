@@ -4,7 +4,13 @@ We recommend using the Vanilla JavaScript version of IBM’s [Carbon Chart compo
 
 ### Using within an Ember component
 
-Vanilla JavaScript component files can be imported and utilized within your own Ember components.
+!!! info
+
+Refer to the full [Carbon Charts API docs](https://charts.carbondesignsystem.com/api/) for the full list of available options for each component type.
+
+!!!
+
+The Vanilla JavaScript component files can be imported and utilized within Ember to create a customized component for your use case.
 
 ```handlebars{data-execute=false}
 import { DonutChart } from '@carbon/charts';
@@ -12,7 +18,7 @@ import options from './options.js';
 import '@carbon/charts/styles.css';
 ```
 
-Various parts of the API can be exposed as needed.
+Expose various parts of the API as needed.
 
 ```handlebars{data-execute=false}
 Args: {
@@ -22,7 +28,9 @@ Args: {
 };
 ```
 
-You can combine preset options that you’ve set with dynamic options you’ve exposed.
+### Setting options
+
+The available component options, such as the [Donut Chart options](https://charts.carbondesignsystem.com/api/interfaces/donutchartoptions), can be set according to your needs. You can combine the preset options that you’ve chosen to include with any dynamic options you’ve exposed.
 
 #### Options.js file with pre-set options
 
