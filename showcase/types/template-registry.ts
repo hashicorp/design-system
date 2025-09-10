@@ -40,14 +40,6 @@ import MockComponentsFormKeyValueInputsWithDynamicInputs from '../app/components
 import MockFormSuperSelectGenericContent from '../app/components/mock/components/form/super-select/generic-content';
 import MockFormSuperSelectSelectedComponentSingle from '../app/components/mock/components/form/super-select/selected-component-single';
 import MockFormSuperSelectSelectedComponentMultiple from '../app/components/mock/components/form/super-select/selected-component-multiple';
-import MockTableCustomSorting from '../app/components/mock/components/table/custom-sorting';
-import MockTableMultiSelect from '../app/components/mock/components/table/multi-select';
-import MockTableMultiSelectSorting from '../app/components/mock/components/table/multi-select/sorting';
-import MockTableMultiSelectExamplesFilter from '../app/components/mock/components/table/multi-select/examples/filter';
-import MockTableMultiSelectExamplesPagination from '../app/components/mock/components/table/multi-select/examples/pagination';
-import MockTableMultiSelectExamplesDeletion from '../app/components/mock/components/table/multi-select/examples/deletion';
-import MockTableMultiSelectExamplesExternalAction from '../app/components/mock/components/table/multi-select/examples/external-action';
-import MockTableBaseElements from '../app/components/mock/components/table/base-elements';
 
 export default interface ShowcaseTemplateRegistry {
   // SHW COMPONENTS
@@ -124,20 +116,4 @@ export default interface ShowcaseTemplateRegistry {
   'mock/components/form/super-select/selected-component-single': typeof MockFormSuperSelectSelectedComponentSingle;
   'Mock::Form::SuperSelect::SelectedComponentMultiple': typeof MockFormSuperSelectSelectedComponentMultiple;
   'mock/components/form/super-select/selected-component-multiple': typeof MockFormSuperSelectSelectedComponentMultiple;
-  'Mock::Table::CustomSorting': typeof MockTableCustomSorting;
-  'mock/components/table/custom-sorting': typeof MockTableCustomSorting;
-  'Mock::Table::MultiSelect': typeof MockTableMultiSelect;
-  'mock/components/table/multi-select': typeof MockTableMultiSelect;
-  'Mock::Table::MultiSelect::Sorting': typeof MockTableMultiSelectSorting;
-  'mock/components/table/multi-select/sorting': typeof MockTableMultiSelectSorting;
-  'Mock::Table::MultiSelect::Examples::Filter': typeof MockTableMultiSelectExamplesFilter;
-  'mock/components/table/multi-select/examples/filter': typeof MockTableMultiSelectExamplesFilter;
-  'Mock::Table::MultiSelect::Examples::Pagination': typeof MockTableMultiSelectExamplesPagination;
-  'mock/components/table/multi-select/examples/pagination': typeof MockTableMultiSelectExamplesPagination;
-  'Mock::Table::MultiSelect::Examples::Deletion': typeof MockTableMultiSelectExamplesDeletion;
-  'mock/components/table/multi-select/examples/deletion': typeof MockTableMultiSelectExamplesDeletion;
-  'Mock::Table::MultiSelect::Examples::ExternalAction': typeof MockTableMultiSelectExamplesExternalAction;
-  'mock/components/table/multi-select/examples/external-action': typeof MockTableMultiSelectExamplesExternalAction;
-  'Mock::Table::BaseElements': typeof MockTableBaseElements;
-  'mock/components/table/base-elements': typeof MockTableBaseElements;
 }

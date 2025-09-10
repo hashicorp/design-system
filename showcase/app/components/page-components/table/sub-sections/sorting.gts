@@ -5,8 +5,14 @@ import { call } from '@nullvoxpopuli/ember-composable-helpers';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
+import ShwDivider from 'showcase/components/shw/divider';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
+import CLUSTERS from 'showcase/mocks/cluster-data';
+
+import CodeFragmentWithMusicData from 'showcase/components/page-components/table/code-fragments/with-music-data';
+import CodeFragmentWithClusterData from 'showcase/components/page-components/table/code-fragments/with-cluster-data';
 
 // HDS Components
 import {
@@ -16,34 +22,22 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsTableThSortOrder } from '@hashicorp/design-system-components/components/hds/table/types';
-import type { PageComponentsTableModel } from 'showcase/routes/page-components/table';
 
-export interface MockTableCustomSortingSignature {
-  Args: {
-    model: PageComponentsTableModel;
-  };
+const customSortingCriteriaArray = [
+  'failing',
+  'active',
+  'establishing',
+  'pending',
+];
+
+export interface SubSectionSortingSignature {
   Element: HTMLElement;
 }
 
-export default class MockTableCustomSorting extends Component<MockTableCustomSortingSignature> {
-  declare model: PageComponentsTableModel;
-
-  @tracked demoCustomSort_sortOrder = 'asc';
+export default class SubSectionSorting extends Component<SubSectionSortingSignature> {
+  @tracked demoCustomSort_sortOrder: HdsTableThSortOrder = 'asc';
   @tracked demoCustonSortYieldHead_sortBy: string | undefined = undefined;
-  @tracked demoCustonSortYieldHead_sortOrder = 'asc';
-
-  customSortingCriteriaArray = ['failing', 'active', 'establishing', 'pending'];
-
-  get clustersWithExtraData() {
-    return this.args.model.clusters.map((record) => {
-      return {
-        ...record,
-        'status-sort-order': this.customSortingCriteriaArray.indexOf(
-          record['status'],
-        ),
-      };
-    });
-  }
+  @tracked demoCustonSortYieldHead_sortOrder: HdsTableThSortOrder = 'asc';
 
   // CUSTOM SORTING DEMO
   // Sortable table with custom `sortingFunction` declared in the column hash
@@ -59,8 +53,8 @@ export default class MockTableCustomSorting extends Component<MockTableCustomSor
         typeof s1['status'] === 'string' &&
         typeof s2['status'] === 'string'
       ) {
-        const index1 = this.customSortingCriteriaArray.indexOf(s1['status']);
-        const index2 = this.customSortingCriteriaArray.indexOf(s2['status']);
+        const index1 = customSortingCriteriaArray.indexOf(s1['status']);
+        const index2 = customSortingCriteriaArray.indexOf(s2['status']);
         if (index1 < index2) {
           return this.demoCustomSort_sortOrder === 'asc' ? -1 : 1;
         } else if (index1 > index2) {
@@ -101,7 +95,7 @@ export default class MockTableCustomSorting extends Component<MockTableCustomSor
   }
 
   get demoCustomSortYieldHead_sortedData() {
-    const clonedModelClusters = Array.from(this.args.model.clusters);
+    const clonedModelClusters = Array.from(CLUSTERS);
     if (this.demoCustonSortYieldHead_sortBy === 'peer-name') {
       clonedModelClusters.sort((s1, s2) => {
         const name1 = s1['peer-name'].toLowerCase();
@@ -116,8 +110,8 @@ export default class MockTableCustomSorting extends Component<MockTableCustomSor
       });
     } else if (this.demoCustonSortYieldHead_sortBy === 'status') {
       clonedModelClusters.sort((s1, s2) => {
-        const index1 = this.customSortingCriteriaArray.indexOf(s1['status']);
-        const index2 = this.customSortingCriteriaArray.indexOf(s2['status']);
+        const index1 = customSortingCriteriaArray.indexOf(s1['status']);
+        const index2 = customSortingCriteriaArray.indexOf(s2['status']);
         if (index1 < index2) {
           return this.demoCustonSortYieldHead_sortOrder === 'asc' ? -1 : 1;
         } else if (index1 > index2) {
@@ -145,7 +139,7 @@ export default class MockTableCustomSorting extends Component<MockTableCustomSor
 
   demoCustomSortYieldBody_onSort = (sortBy?: string, sortOrder?: string) => {
     // here goes the logic for the custom sorting of the `model` array based on `sortBy/sortOrder`
-    const clonedModelClusters = Array.from(this.args.model.clusters);
+    const clonedModelClusters = Array.from(CLUSTERS);
     if (sortBy === 'peer-name') {
       clonedModelClusters.sort((s1, s2) => {
         const name1 = s1['peer-name'].toLowerCase();
@@ -160,8 +154,8 @@ export default class MockTableCustomSorting extends Component<MockTableCustomSor
       });
     } else if (sortBy === 'status') {
       clonedModelClusters.sort((s1, s2) => {
-        const index1 = this.customSortingCriteriaArray.indexOf(s1['status']);
-        const index2 = this.customSortingCriteriaArray.indexOf(s2['status']);
+        const index1 = customSortingCriteriaArray.indexOf(s1['status']);
+        const index2 = customSortingCriteriaArray.indexOf(s2['status']);
         if (index1 < index2) {
           return sortOrder === 'asc' ? -1 : 1;
         } else if (index1 > index2) {
@@ -175,13 +169,61 @@ export default class MockTableCustomSorting extends Component<MockTableCustomSor
   };
 
   <template>
+    <ShwTextH2>Sorting</ShwTextH2>
+
+    <ShwTextH3>Basic sorting</ShwTextH3>
+
+    <ShwTextH4>Sortable table (all columns sortable)</ShwTextH4>
+
+    <CodeFragmentWithMusicData
+      @columns={{array
+        (hash key="artist" label="Artist" isSortable=true)
+        (hash key="album" label="Album" isSortable=true)
+        (hash key="year" label="Release Year" isSortable=true)
+      }}
+    />
+
+    <ShwTextH4>Sortable table (only some columns sortable)</ShwTextH4>
+
+    <CodeFragmentWithMusicData
+      @columns={{array
+        (hash key="artist" label="Artist" isSortable=true)
+        (hash key="album" label="Album" isSortable=true)
+        (hash key="year" label="Release Year")
+      }}
+    />
+
+    <ShwTextH4>Sortable table, one column right-aligned</ShwTextH4>
+
+    <CodeFragmentWithMusicData
+      @columns={{array
+        (hash key="artist" label="Artist" isSortable=true)
+        (hash key="album" label="Album" isSortable=true)
+        (hash key="year" label="Release Year" isSortable=true align="right")
+      }}
+      @rightAlignYear={{true}}
+    />
+
+    <ShwTextH4>Sortable table, some columns sortable, artist column pre-sorted.</ShwTextH4>
+
+    <CodeFragmentWithMusicData
+      @columns={{array
+        (hash key="artist" label="Artist" isSortable=true)
+        (hash key="album" label="Album" isSortable=true)
+        (hash key="year" label="Release Year")
+      }}
+      @sortBy="artist"
+    />
+
+    <ShwDivider @level={{2}} />
+
     <ShwTextH3>Custom sorting</ShwTextH3>
 
     <ShwTextH4>Sortable table with custom sorting done via extra key added to
       the data model</ShwTextH4>
 
-    <HdsTable
-      @model={{this.clustersWithExtraData}}
+    <CodeFragmentWithClusterData
+      @extraData={{true}}
       @columns={{array
         (hash label="Peer name" isSortable=true key="peer-name")
         (hash label="Cluster partition")
@@ -192,84 +234,13 @@ export default class MockTableCustomSorting extends Component<MockTableCustomSor
       }}
       @sortBy="status-sort-order"
       @sortOrder="asc"
-    >
-      <:body as |B|>
-        <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.peer-name}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.cluster-partition}}</B.Td>
-          <B.Td>
-            {{#if (eq (get B.data "status") "failing")}}
-              <HdsBadge
-                @text="Failing"
-                @color="critical"
-                @icon="x"
-                @type="outlined"
-              />
-            {{else if (eq (get B.data "status") "active")}}
-              <HdsBadge
-                @text="Active"
-                @color="success"
-                @icon="check"
-                @type="outlined"
-              />
-            {{else if (eq (get B.data "status") "pending")}}
-              <HdsBadge
-                @text="Pending"
-                @color="neutral"
-                @icon="loading"
-                @type="outlined"
-              />
-            {{else if (eq (get B.data "status") "establishing")}}
-              <HdsBadge
-                @text="Establishing"
-                @color="highlight"
-                @icon="loading"
-                @type="outlined"
-              />
-            {{/if}}
-          </B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.services.imported}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.services.exported}}</B.Td>
-          <B.Td @align="right">
-            <HdsDropdown @isInline={{true}} as |dd|>
-              <dd.ToggleIcon
-                @icon="more-horizontal"
-                @text="Overflow Options"
-                @hasChevron={{false}}
-                @size="small"
-              />
-              <dd.Interactive
-                @route="page-components.table"
-              >Create</dd.Interactive>
-              <dd.Interactive
-                @route="page-components.table"
-              >Read</dd.Interactive>
-              <dd.Interactive
-                @route="page-components.table"
-              >Update</dd.Interactive>
-              <dd.Separator />
-              <dd.Interactive
-                @route="page-components.table"
-                @color="critical"
-                @icon="trash"
-              >Delete</dd.Interactive>
-            </HdsDropdown>
-          </B.Td>
-        </B.Tr>
-      </:body>
-    </HdsTable>
+    />
 
     <ShwTextH4>Sortable table with custom
       <code>sortingFunction</code>
       declared in the column hash</ShwTextH4>
 
-    <HdsTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{@model.clusters}}
+    <CodeFragmentWithClusterData
       @columns={{array
         (hash label="Peer name" isSortable=true key="peer-name")
         (hash label="Cluster partition")
@@ -284,78 +255,9 @@ export default class MockTableCustomSorting extends Component<MockTableCustomSor
         (hash label="Actions" align="right")
       }}
       @sortBy="status"
-      @sortOrder="asc"
+      @sortOrder={{this.demoCustomSort_sortOrder}}
       @onSort={{this.demoCustomSortOnSort}}
-    >
-      <:body as |B|>
-        <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.peer-name}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.cluster-partition}}</B.Td>
-          <B.Td>
-            {{#if (eq (get B.data "status") "failing")}}
-              <HdsBadge
-                @text="Failing"
-                @color="critical"
-                @icon="x"
-                @type="outlined"
-              />
-            {{else if (eq (get B.data "status") "active")}}
-              <HdsBadge
-                @text="Active"
-                @color="success"
-                @icon="check"
-                @type="outlined"
-              />
-            {{else if (eq (get B.data "status") "pending")}}
-              <HdsBadge
-                @text="Pending"
-                @color="neutral"
-                @icon="loading"
-                @type="outlined"
-              />
-            {{else if (eq (get B.data "status") "establishing")}}
-              <HdsBadge
-                @text="Establishing"
-                @color="highlight"
-                @icon="loading"
-                @type="outlined"
-              />
-            {{/if}}
-          </B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.services.imported}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.services.exported}}</B.Td>
-          <B.Td @align="right">
-            <HdsDropdown @isInline={{true}} as |dd|>
-              <dd.ToggleIcon
-                @icon="more-horizontal"
-                @text="Overflow Options"
-                @hasChevron={{false}}
-                @size="small"
-              />
-              <dd.Interactive
-                @route="page-components.table"
-              >Create</dd.Interactive>
-              <dd.Interactive
-                @route="page-components.table"
-              >Read</dd.Interactive>
-              <dd.Interactive
-                @route="page-components.table"
-              >Update</dd.Interactive>
-              <dd.Separator />
-              <dd.Interactive
-                @route="page-components.table"
-                @color="critical"
-                @icon="trash"
-              >Delete</dd.Interactive>
-            </HdsDropdown>
-          </B.Td>
-        </B.Tr>
-      </:body>
-    </HdsTable>
+    />
 
     <ShwTextH4>Sortable table with custom sorting using yielded
       <code>&lt;ThSort&gt;</code>
@@ -548,5 +450,7 @@ export default class MockTableCustomSorting extends Component<MockTableCustomSor
         {{/each}}
       </:body>
     </HdsTable>
+
+    <ShwDivider />
   </template>
 }

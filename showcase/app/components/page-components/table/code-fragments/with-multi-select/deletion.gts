@@ -5,35 +5,28 @@ import { deepTracked } from 'ember-deep-tracked';
 import { action } from '@ember/object';
 import { on } from '@ember/modifier';
 
-import ShwTextBody from 'showcase/components/shw/text/body';
-import ShwTextH4 from 'showcase/components/shw/text/h4';
+import USERS from 'showcase/mocks/user-data';
 
-import MockTableMultiSelectExamplesTopbar from './topbar';
+import CodeFragmentWithMultiSelectTopbar from './topbar';
+import CodeFragmentWithUsersData from '../with-users-data';
 
 // HDS Components
 import {
   HdsButton,
   HdsPaginationNumbered,
-  HdsTable,
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsTableOnSelectionChangeSignature } from '@hashicorp/design-system-components/components/hds/table/types';
-import type { PageComponentsTableModel } from 'showcase/routes/page-components/table';
 import type { User } from 'showcase/mocks/user-data.ts';
 
-export interface MockTableMultiSelectExamplesDeletionSignature {
-  Args: {
-    model: PageComponentsTableModel;
-  };
+export interface CodeFragmentWithMultiSelectDeletionSignature {
   Element: HTMLElement;
 }
 
-export default class MockTableMultiSelectExamplesPagination extends Component<MockTableMultiSelectExamplesDeletionSignature> {
-  declare model: PageComponentsTableModel;
-
+export default class CodeFragmentWithMultiSelectDeletion extends Component<CodeFragmentWithMultiSelectDeletionSignature> {
   @tracked isScopeExtended = false;
   @tracked isDebugging = false;
-  @deepTracked userData = [...this.args.model.userDataDemo3];
+  @deepTracked userData = [...USERS.slice(0, 16)];
   @tracked currentPage = 1;
   @tracked currentPageSize = 4;
 
@@ -87,7 +80,7 @@ export default class MockTableMultiSelectExamplesPagination extends Component<Mo
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
     console.group(
-      'MockTableMultiSelectExamplesPagination onSelectionChange invoked with arguments:',
+      'CodeFragmentWithMultiSelectDeletion onSelectionChange invoked with arguments:',
     );
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
@@ -117,12 +110,7 @@ export default class MockTableMultiSelectExamplesPagination extends Component<Mo
   }
 
   <template>
-    <ShwTextH4>Delete selected rows</ShwTextH4>
-
-    <ShwTextBody>This demo emulates, for example, when a user needs to delete
-      the selected users.</ShwTextBody>
-
-    <MockTableMultiSelectExamplesTopbar
+    <CodeFragmentWithMultiSelectTopbar
       @isScopeExtended={{this.isScopeExtended}}
       @isDebugging={{this.isDebugging}}
       @onChangeScope={{this.toggleScope}}
@@ -133,42 +121,21 @@ export default class MockTableMultiSelectExamplesPagination extends Component<Mo
         @icon="trash"
         {{on "click" this.deleteSelectedUsers}}
       />
-    </MockTableMultiSelectExamplesTopbar>
+    </CodeFragmentWithMultiSelectTopbar>
 
     <div class="shw-component-table-with-pagination-demo-wrapper">
-      <HdsTable
+      <CodeFragmentWithUsersData
         @isSelectable={{true}}
-        @onSelectionChange={{this.onSelectionChange}}
-        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @model={{this.paginatedData}}
+        @dataModel={{this.paginatedData}}
         @columns={{array
           (hash key="id" label="ID")
           (hash key="name" label="Name")
           (hash key="email" label="Email")
           (hash key="role" label="Role")
         }}
-      >
-        <:body as |B|>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Tr
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            @selectionKey="{{B.data.id}}"
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            @isSelected={{B.data.isSelected}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
-          >
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.id}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.name}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.email}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.role}}</B.Td>
-          </B.Tr>
-        </:body>
-      </HdsTable>
+        @dataSize="small"
+        @onSelectionChange={{this.onSelectionChange}}
+      />
       <HdsPaginationNumbered
         @totalItems={{this.totalItems}}
         @currentPageSize={{this.currentPageSize}}
