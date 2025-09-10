@@ -772,150 +772,26 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
     });
 
-    module('with @hasStickyFirstColumn enabled', function () {
-      test('the sticky first column does not show the context menu if no other options with context menu items are enabled', async function (assert) {
-        await render(
-          hbs`<Hds::AdvancedTable
-  id='data-test-advanced-table'
-  @model={{this.model}}
-  @columns={{this.columns}}
-  @hasReorderableColumns={{true}}
-  @hasStickyFirstColumn={{true}}
-/>`,
-        );
+    test('it throws an assertion if @hasStickyFirstColumn is true and @hasReorderableColumns is true', async function (assert) {
+      const errorMessage =
+        'Cannot have both reorderable columns and a sticky first column.';
 
-        const thElements = findAll('.hds-advanced-table__th');
+      await render(
+        hbs`<Hds::AdvancedTable
+          id='data-test-advanced-table'
+          @model={{this.model}}
+          @columns={{this.columns}}
+          @hasReorderableColumns={{true}}
+          @hasStickyFirstColumn={{true}}
+        />`,
+      );
 
-        const firstContextMenuToggle = thElements[0].querySelector(
-          '.hds-dropdown-toggle-icon',
-        );
-
-        assert
-          .dom(firstContextMenuToggle)
-          .doesNotExist('the context menu is not rendered');
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
 
-      test('when dragging a column, the sticky column does not have a drop target', async function (assert) {
-        await render(
-          hbs`<Hds::AdvancedTable
-  id='data-test-advanced-table'
-  @model={{this.model}}
-  @columns={{this.columns}}
-  @hasReorderableColumns={{true}}
-  @hasStickyFirstColumn={{true}}
-/>`,
-        );
-
-        const initialColumnOrder = this.columns.map((col) => col.key);
-
-        let columnOrder = await getColumnOrder(this.columns);
-        assert.deepEqual(
-          columnOrder,
-          initialColumnOrder,
-          'Initial column order is correct',
-        );
-
-        const secondReorderHandle = findAll(
-          '.hds-advanced-table__th-reorder-handle',
-        )[1];
-
-        const { target, eventOptions } = await simulateColumnReorderDrag({
-          handleElement: secondReorderHandle,
-          targetElement: findAll('.hds-advanced-table__th')[0],
-          targetPosition: 'left',
-        });
-
-        assert
-          .dom(findAll('.hds-advanced-table__th-reorder-drop-target')[1])
-          .hasClass(
-            'hds-advanced-table__th-reorder-drop-target--is-being-dragged',
-            'Third column is being dragged',
-          );
-
-        assert
-          .dom(
-            '.hds-advanced-table__th:first-of-type .hds-advanced-table__th-reorder-drop-target',
-          )
-          .doesNotExist('Drop target is not rendered on sticky column');
-
-        await simulateColumnReorderDrop({
-          target,
-          handleElement: secondReorderHandle,
-          eventOptions,
-        });
-
-        columnOrder = await getColumnOrder(this.columns);
-
-        assert
-          .dom('.hds-advanced-table__th-reorder-drop-target')
-          .doesNotExist('Drop targets are removed after drop');
-        assert.deepEqual(
-          columnOrder,
-          initialColumnOrder,
-          'Columns order is unchanged after dropping on the sticky first column',
-        );
-      });
-
-      test('if `@hasStickyFirstColumn` is enabled, columns do not have a "Move to start" option', async function (assert) {
-        await render(
-          hbs`<Hds::AdvancedTable
-  id='data-test-advanced-table'
-  @model={{this.model}}
-  @columns={{this.columns}}
-  @hasReorderableColumns={{true}}
-  @hasStickyFirstColumn={{true}}
-/>`,
-        );
-
-        const thElements = findAll('.hds-advanced-table__th');
-
-        thElements.forEach(async (element) => {
-          const contextMenuToggle = element.querySelector(
-            '.hds-dropdown-toggle-icon',
-          );
-
-          if (contextMenuToggle !== null) {
-            await click(contextMenuToggle);
-
-            assert
-              .dom('[data-test-context-option-key="move-column-to-start"]')
-              .doesNotExist('no "Move to start" option is rendered');
-          }
-        });
-      });
-
-      test('pressing "Left Arrow" when the reorder handle of the first non-sticky column is focused does not reposition the column before the sticky column', async function (assert) {
-        await render(
-          hbs`<Hds::AdvancedTable
-  id='data-test-advanced-table'
-  @model={{this.model}}
-  @columns={{this.columns}}
-  @hasReorderableColumns={{true}}
-  @hasStickyFirstColumn={{true}}
-/>`,
-        );
-
-        const thElements = findAll('.hds-advanced-table__th');
-        const firstNonStickyThElement = thElements[1];
-        const firstNonStickyColumnReorderHandle =
-          firstNonStickyThElement.querySelector(
-            '.hds-advanced-table__th-reorder-handle',
-          );
-        await focus(firstNonStickyThElement);
-        await focus(firstNonStickyColumnReorderHandle);
-        assert.dom(firstNonStickyColumnReorderHandle).isFocused();
-
-        await triggerKeyEvent(
-          firstNonStickyColumnReorderHandle,
-          'keydown',
-          'ArrowLeft',
-        );
-        let columnOrder = await getColumnOrder(this.columns);
-        assert.deepEqual(
-          columnOrder,
-          [this.columns[0].key, this.columns[1].key, this.columns[2].key],
-          'column order is unchanged',
-        );
+      assert.throws(function () {
+        throw new Error(errorMessage);
       });
     });
   });

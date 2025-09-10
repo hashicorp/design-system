@@ -744,49 +744,6 @@
     </:body>
   </Hds::AdvancedTable>
 
-  <Shw::Text::H4 @tag="h3">Reorderable columns with sticky first column</Shw::Text::H4>
-
-  <div class="shw-component-advanced-table-fixed-width-wrapper--wide">
-    <Hds::AdvancedTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{this.model.music}}
-      @columns={{this.columnReorderColumnsWithSorting}}
-      @hasReorderableColumns={{true}}
-      @hasStickyFirstColumn={{true}}
-    >
-      <:body as |B|>
-        <B.Tr as |R|>
-          {{#each R.orderedCells as |C|}}
-            {{#if (eq C.columnKey "artist")}}
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-              <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
-            {{else}}
-              <B.Td>
-                {{#if (eq C.columnKey "album")}}
-                  <div class="shw-component-advanced-table-cell-content-div">
-                    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                    <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
-                    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                    {{B.data.album}}
-                  </div>
-                {{else if (eq C.columnKey "year")}}
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-                  <Hds::Badge @text={{B.data.year}} @type="outlined" @color={{B.data.badge-color}} />
-                {{else}}
-                  <Hds::ButtonSet>
-                    <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
-                    <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
-                    <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
-                  </Hds::ButtonSet>
-                {{/if}}
-              </B.Td>
-            {{/if}}
-          {{/each}}
-        </B.Tr>
-      </:body>
-    </Hds::AdvancedTable>
-  </div>
-
   <Shw::Text::H4 @tag="h3">Reorderable columns with selectable rows</Shw::Text::H4>
 
   <div>

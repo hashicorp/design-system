@@ -540,6 +540,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         !hasResizableColumns
       );
     }
+
+    if (hasReorderableColumns) {
+      assert(
+        'Cannot have both reorderable columns and a sticky first column.',
+        !hasStickyFirstColumn
+      );
+    }
   }
 
   private _setUpThead = modifier((element: HTMLDivElement) => {
