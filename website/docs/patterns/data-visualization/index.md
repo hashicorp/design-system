@@ -7,8 +7,15 @@ navigation:
 keywords: ['charts', 'color', 'data', 'palette']
 ---
 
-<section data-tab="Color usage">
-  @include "partials/guidelines/specifications.md"
-  @include "partials/guidelines/accessibility.md"
-  @include "partials/guidelines/color-usage.md"
+<section data-tab="Guidelines">
+  @include "partials/guidelines/overview.md"
+  @include "partials/guidelines/guidelines.md"
+</section>
+
+<section data-tab="Code">
+  @include "partials/code.md"
+</section>
+
+<section data-tab="Accessibility">
+  @include "partials/accessibility.md"
 </section>
