@@ -404,11 +404,7 @@ export default class HdsAdvancedTableTableModel {
       }
 
       queueMicrotask(() => {
-        sourceColumn.thElement?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'center',
-        });
+        // TODO: Scroll into view, but horizontally
 
         sourceColumn.isBeingDragged = false;
 
