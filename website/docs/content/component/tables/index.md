@@ -25,39 +25,39 @@ Icons used within cells can help differentiate content, highlight metadata, incr
 
 Don’t use an icon as the sole content within a cell, even if the icon is explicit, e.g., a brand or service icon.
 
-![Icon within a table without a label](/assets/content/tables/icon-without-label.png)
+![Icon within a table without a label](/assets/content/component/tables/icon-without-label.png)
 !!!
 
 !!! Dont
 
 Don’t use an icon to indicate the status of an object, row, or resource. Instead, use a [Badge](/components/badge).
 
-![Icons being used for status](/assets/content/tables/icon-status.png)
+![Icons being used for status](/assets/content/component/tables/icon-status.png)
 !!!
 
 ### Service icons
 
 Use service icons within a cell to communicate the source or provider of a service.
 
-![Service icon within a table](/assets/content/tables/with-service-icon.png)
+![Service icon within a table](/assets/content/component/tables/with-service-icon.png)
 
 ### Grouping
 
 Use icons to communicate commonalities between values or that a value is part of a larger object or hierarchical structure.
 
-![Icons used for grouping in a table](/assets/content/tables/icon-grouping.png)
+![Icons used for grouping in a table](/assets/content/component/tables/icon-grouping.png)
 
 ### Product branding
 
 Use icons to communicate that a specific item is a HashiCorp product or resource.
 
-![Icon product branding](/assets/content/tables/icon-product-branding.png)
+![Icon product branding](/assets/content/component/tables/icon-product-branding.png)
 
 !!! Dont
 
 Don’t use an [Icon Tile](/components/icon-tile) in place of an icon within a table cell.
 
-![Icon Tile within a table cell](/assets/content/tables/icon-tile-product-branding.png)
+![Icon Tile within a table cell](/assets/content/component/tables/icon-tile-product-branding.png)
 !!!
 
 ### Leading vs. trailing icons
@@ -72,19 +72,19 @@ We recommend using `secondary` [Inline Links](/components/link/inline) within ta
 
 To increase the prominence and further differentiate links from other text content, we recommend using a font-weight of `medium`. In code, you can use the CSS helper classes `hds-typography-body-200` and `hds-font-weight-medium`. In Figma, you can use the text style `Body/200/Link`.
 
-![Link example](/assets/content/tables/link-example.png)
+![Link example](/assets/content/component/tables/link-example.png)
 
 ### Multiple links
 
 If a table contains more than one column of links, consider using a `font-weight` of `medium` for only the most important links, usually the title of the row or ID. For the other links, use a `font-weight` of `regular`.
 
-![Multiple links within a table](/assets/content/tables/multiple-links.png)
+![Multiple links within a table](/assets/content/component/tables/multiple-links.png)
 
 ### Links in long-form content
 
 If a cell contains long-form or descriptive content, use the link style that is most appropriate for the hierarchy and frequency of links within the content. For a minimal number of links, `primary` [Inline Links](/components/link/inline) may be appropriate, but if there are many links within the content `secondary` [Inline Links](/components/link/inline) may work better.
 
-![Links in long-form content](/assets/content/tables/longform-content-links.png)
+![Links in long-form content](/assets/content/component/tables/longform-content-links.png)
 
 ## Badge usage
 
@@ -94,7 +94,7 @@ Use [Badges](/components/badge) to communicate status and high-priority metadata
 
 We recommend using `outlined` [Badges](/components/badge) within tables. This variant provides sufficient differentiation between the component, the value in the cell, and the background of a table row without being too visually heavy.
 
-![Outlined Badges within a table](/assets/content/tables/outlined-badge-within-table.png)
+![Outlined Badges within a table](/assets/content/component/tables/outlined-badge-within-table.png)
 
 ### Badge color
 
@@ -127,7 +127,7 @@ Use logical icons when communicating status in a Badge. Some common examples whe
 
 In the case of a [null or empty](#null-values) value, use the text-only variant of the Badge.
 
-![Null value represented by a badge within a table](/assets/content/tables/badge-table-null-value.png)
+![Null value represented by a badge within a table](/assets/content/component/tables/badge-table-null-value.png)
 !!!
 
 ### Badge consistency
@@ -140,20 +140,20 @@ Use the `medium` Badge size by default as this creates more visual consistency b
 
 If the table row [density](#density) is set to `short`, use the `small` Badge size to account for the reduction in vertical spacing and padding.
 
-![Small badge in a short density table](/assets/content/tables/table-density-small-badge.png)
+![Small badge in a short density table](/assets/content/component/tables/table-density-small-badge.png)
 
 !!! Dont
 
 Don’t use the `large` Badge size in tables as this elevates the Badge too prominently in the hierarchy and can create inconsistency between Badges and text.
 
-![Large badge within a table](/assets/content/tables/large-badge-in-table.png)
+![Large badge within a table](/assets/content/component/tables/large-badge-in-table.png)
 !!!
 
 !!! Dont
 
 Don’t use different Badge sizes in the same table.
 
-![Different badge sizes in a table](/assets/content/tables/different-badge-sizes.png)
+![Different badge sizes in a table](/assets/content/component/tables/different-badge-sizes.png)
 !!!
 
 ## Null values
@@ -170,7 +170,7 @@ An empty cell can impact the user experience negatively by:
 
 !!! Dont
 
-![Null empty cells](/assets/content/tables/null-empty-cells.png)
+![Null empty cells](/assets/content/component/tables/null-empty-cells.png)
 !!!
 
 Instead, explicitly communicate null values to the user and represent them with a similar visual treatment as non-null values.
@@ -179,32 +179,32 @@ Instead, explicitly communicate null values to the user and represent them with 
 
 Visually represent null values in an inverse and comparative manner with non-null values.
 
-![Null value communicated with text](/assets/content/tables/null-value-comparative-value.png)
+![Null value communicated with text](/assets/content/component/tables/null-value-comparative-value.png)
 !!!
 
 #### Styling null values
 
 In cells that contain values represented by text, use the same text style as non-null values in the column (in most cases this is `Body / 200 / Regular`). Consider reducing the prominence of the null values by using `Foreground / Faint` color instead of `Primary` or `Strong`.
 
-![Null value in a text string](/assets/content/tables/null-value-text-example.png)
+![Null value in a text string](/assets/content/component/tables/null-value-text-example.png)
 
 #### Null values with badges
 
 In cells that contain a badge (e.g., status, health, etc), communicate null values by using a `neutral` color badge to maintain visual consistency with other non-null cells.
 
-![Null value communicated in a badge](/assets/content/tables/null-value-badge-example.png)
+![Null value communicated in a badge](/assets/content/component/tables/null-value-badge-example.png)
 
 #### Null value fallback
 
 As a fallback, consider using an `em dash (—)` in place of the null value. This may occur when the content type of a value isn’t able to be determined or if the value is null for an unknown reason.
 
-![Null value communicated with an em-dash](/assets/content/tables/null-value-fallback-em-dash.png)
+![Null value communicated with an em-dash](/assets/content/component/tables/null-value-fallback-em-dash.png)
 
 #### Communicating why a value is null
 
 Depending on the data set and the type of content it expresses, consider communicating to the user _why_ a value is null by using a [Tooltip](/components/tooltip). This can communicate broader product-specific functions and terminology, but can also highlight errors or issues that need to be corrected.
 
-![Null value cause communicated with a tooltip](/assets/content/tables/null-value-cause-tooltip.png)
+![Null value cause communicated with a tooltip](/assets/content/component/tables/null-value-cause-tooltip.png)
 
 ### Null or empty table state
 
@@ -216,4 +216,4 @@ Common examples of this include:
 - An error occurred when fetching the data for the table.
 - A data set has been filtered to the point of not returning any records (see our [Filter patterns](/patterns/filter-patterns#empty-state) guidance for more details).
 
-![Null data set within a table](/assets/content/tables/null-data-set-in-a-table.png)
+![Null data set within a table](/assets/content/component/tables/null-data-set-in-a-table.png)
