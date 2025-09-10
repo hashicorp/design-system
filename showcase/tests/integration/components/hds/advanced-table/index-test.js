@@ -776,6 +776,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       const errorMessage =
         'Cannot have both reorderable columns and a sticky first column.';
 
+      setupOnerror(function (error) {
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      });
+
       await render(
         hbs`<Hds::AdvancedTable
           id='data-test-advanced-table'
@@ -785,10 +789,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           @hasStickyFirstColumn={{true}}
         />`,
       );
-
-      setupOnerror(function (error) {
-        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-      });
 
       assert.throws(function () {
         throw new Error(errorMessage);
