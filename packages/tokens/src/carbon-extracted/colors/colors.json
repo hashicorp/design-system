@@ -6,7 +6,8 @@
           "$type": "color",
           "$value": "#000000",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#000000"
         }
       },
       "blue": {
@@ -14,61 +15,71 @@
           "$type": "color",
           "$value": "#edf5ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#edf5ff"
         },
         "20": {
           "$type": "color",
           "$value": "#d0e2ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#d0e2ff"
         },
         "30": {
           "$type": "color",
           "$value": "#a6c8ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#a6c8ff"
         },
         "40": {
           "$type": "color",
           "$value": "#78a9ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#78a9ff"
         },
         "50": {
           "$type": "color",
           "$value": "#4589ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#4589ff"
         },
         "60": {
           "$type": "color",
           "$value": "#0f62fe",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#0f62fe"
         },
         "70": {
           "$type": "color",
           "$value": "#0043ce",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#0043ce"
         },
         "80": {
           "$type": "color",
           "$value": "#002d9c",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#002d9c"
         },
         "90": {
           "$type": "color",
           "$value": "#001d6c",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#001d6c"
         },
         "100": {
           "$type": "color",
           "$value": "#001141",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#001141"
         }
       },
       "coolGray": {
@@ -76,61 +87,71 @@
           "$type": "color",
           "$value": "#f2f4f8",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#f2f4f8"
         },
         "20": {
           "$type": "color",
           "$value": "#dde1e6",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#dde1e6"
         },
         "30": {
           "$type": "color",
           "$value": "#c1c7cd",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#c1c7cd"
         },
         "40": {
           "$type": "color",
           "$value": "#a2a9b0",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#a2a9b0"
         },
         "50": {
           "$type": "color",
           "$value": "#878d96",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#878d96"
         },
         "60": {
           "$type": "color",
           "$value": "#697077",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#697077"
         },
         "70": {
           "$type": "color",
           "$value": "#4d5358",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#4d5358"
         },
         "80": {
           "$type": "color",
           "$value": "#343a3f",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#343a3f"
         },
         "90": {
           "$type": "color",
           "$value": "#21272a",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#21272a"
         },
         "100": {
           "$type": "color",
           "$value": "#121619",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#121619"
         }
       },
       "cyan": {
@@ -138,61 +159,71 @@
           "$type": "color",
           "$value": "#e5f6ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#e5f6ff"
         },
         "20": {
           "$type": "color",
           "$value": "#bae6ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#bae6ff"
         },
         "30": {
           "$type": "color",
           "$value": "#82cfff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#82cfff"
         },
         "40": {
           "$type": "color",
           "$value": "#33b1ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#33b1ff"
         },
         "50": {
           "$type": "color",
           "$value": "#1192e8",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#1192e8"
         },
         "60": {
           "$type": "color",
           "$value": "#0072c3",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#0072c3"
         },
         "70": {
           "$type": "color",
           "$value": "#00539a",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#00539a"
         },
         "80": {
           "$type": "color",
           "$value": "#003a6d",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#003a6d"
         },
         "90": {
           "$type": "color",
           "$value": "#012749",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#012749"
         },
         "100": {
           "$type": "color",
           "$value": "#061727",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#061727"
         }
       },
       "gray": {
@@ -200,61 +231,71 @@
           "$type": "color",
           "$value": "#f4f4f4",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#f4f4f4"
         },
         "20": {
           "$type": "color",
           "$value": "#e0e0e0",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#e0e0e0"
         },
         "30": {
           "$type": "color",
           "$value": "#c6c6c6",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#c6c6c6"
         },
         "40": {
           "$type": "color",
           "$value": "#a8a8a8",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#a8a8a8"
         },
         "50": {
           "$type": "color",
           "$value": "#8d8d8d",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#8d8d8d"
         },
         "60": {
           "$type": "color",
           "$value": "#6f6f6f",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#6f6f6f"
         },
         "70": {
           "$type": "color",
           "$value": "#525252",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#525252"
         },
         "80": {
           "$type": "color",
           "$value": "#393939",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#393939"
         },
         "90": {
           "$type": "color",
           "$value": "#262626",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#262626"
         },
         "100": {
           "$type": "color",
           "$value": "#161616",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#161616"
         }
       },
       "green": {
@@ -262,61 +303,71 @@
           "$type": "color",
           "$value": "#defbe6",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#defbe6"
         },
         "20": {
           "$type": "color",
           "$value": "#a7f0ba",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#a7f0ba"
         },
         "30": {
           "$type": "color",
           "$value": "#6fdc8c",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#6fdc8c"
         },
         "40": {
           "$type": "color",
           "$value": "#42be65",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#42be65"
         },
         "50": {
           "$type": "color",
           "$value": "#24a148",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#24a148"
         },
         "60": {
           "$type": "color",
           "$value": "#198038",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#198038"
         },
         "70": {
           "$type": "color",
           "$value": "#0e6027",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#0e6027"
         },
         "80": {
           "$type": "color",
           "$value": "#044317",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#044317"
         },
         "90": {
           "$type": "color",
           "$value": "#022d0d",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#022d0d"
         },
         "100": {
           "$type": "color",
           "$value": "#071908",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#071908"
         }
       },
       "magenta": {
@@ -324,61 +375,71 @@
           "$type": "color",
           "$value": "#fff0f7",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#fff0f7"
         },
         "20": {
           "$type": "color",
           "$value": "#ffd6e8",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ffd6e8"
         },
         "30": {
           "$type": "color",
           "$value": "#ffafd2",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ffafd2"
         },
         "40": {
           "$type": "color",
           "$value": "#ff7eb6",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ff7eb6"
         },
         "50": {
           "$type": "color",
           "$value": "#ee5396",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ee5396"
         },
         "60": {
           "$type": "color",
           "$value": "#d02670",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#d02670"
         },
         "70": {
           "$type": "color",
           "$value": "#9f1853",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#9f1853"
         },
         "80": {
           "$type": "color",
           "$value": "#740937",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#740937"
         },
         "90": {
           "$type": "color",
           "$value": "#510224",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#510224"
         },
         "100": {
           "$type": "color",
           "$value": "#2a0a18",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#2a0a18"
         }
       },
       "orange": {
@@ -386,61 +447,71 @@
           "$type": "color",
           "$value": "#fff2e8",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#fff2e8"
         },
         "20": {
           "$type": "color",
           "$value": "#ffd9be",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ffd9be"
         },
         "30": {
           "$type": "color",
           "$value": "#ffb784",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ffb784"
         },
         "40": {
           "$type": "color",
           "$value": "#ff832b",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ff832b"
         },
         "50": {
           "$type": "color",
           "$value": "#eb6200",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#eb6200"
         },
         "60": {
           "$type": "color",
           "$value": "#ba4e00",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ba4e00"
         },
         "70": {
           "$type": "color",
           "$value": "#8a3800",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#8a3800"
         },
         "80": {
           "$type": "color",
           "$value": "#5e2900",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#5e2900"
         },
         "90": {
           "$type": "color",
           "$value": "#3e1a00",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#3e1a00"
         },
         "100": {
           "$type": "color",
           "$value": "#231000",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#231000"
         }
       },
       "purple": {
@@ -448,61 +519,71 @@
           "$type": "color",
           "$value": "#f6f2ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#f6f2ff"
         },
         "20": {
           "$type": "color",
           "$value": "#e8daff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#e8daff"
         },
         "30": {
           "$type": "color",
           "$value": "#d4bbff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#d4bbff"
         },
         "40": {
           "$type": "color",
           "$value": "#be95ff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#be95ff"
         },
         "50": {
           "$type": "color",
           "$value": "#a56eff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#a56eff"
         },
         "60": {
           "$type": "color",
           "$value": "#8a3ffc",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#8a3ffc"
         },
         "70": {
           "$type": "color",
           "$value": "#6929c4",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#6929c4"
         },
         "80": {
           "$type": "color",
           "$value": "#491d8b",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#491d8b"
         },
         "90": {
           "$type": "color",
           "$value": "#31135e",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#31135e"
         },
         "100": {
           "$type": "color",
           "$value": "#1c0f30",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#1c0f30"
         }
       },
       "red": {
@@ -510,61 +591,71 @@
           "$type": "color",
           "$value": "#fff1f1",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#fff1f1"
         },
         "20": {
           "$type": "color",
           "$value": "#ffd7d9",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ffd7d9"
         },
         "30": {
           "$type": "color",
           "$value": "#ffb3b8",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ffb3b8"
         },
         "40": {
           "$type": "color",
           "$value": "#ff8389",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ff8389"
         },
         "50": {
           "$type": "color",
           "$value": "#fa4d56",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#fa4d56"
         },
         "60": {
           "$type": "color",
           "$value": "#da1e28",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#da1e28"
         },
         "70": {
           "$type": "color",
           "$value": "#a2191f",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#a2191f"
         },
         "80": {
           "$type": "color",
           "$value": "#750e13",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#750e13"
         },
         "90": {
           "$type": "color",
           "$value": "#520408",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#520408"
         },
         "100": {
           "$type": "color",
           "$value": "#2d0709",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#2d0709"
         }
       },
       "teal": {
@@ -572,61 +663,71 @@
           "$type": "color",
           "$value": "#d9fbfb",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#d9fbfb"
         },
         "20": {
           "$type": "color",
           "$value": "#9ef0f0",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#9ef0f0"
         },
         "30": {
           "$type": "color",
           "$value": "#3ddbd9",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#3ddbd9"
         },
         "40": {
           "$type": "color",
           "$value": "#08bdba",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#08bdba"
         },
         "50": {
           "$type": "color",
           "$value": "#009d9a",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#009d9a"
         },
         "60": {
           "$type": "color",
           "$value": "#007d79",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#007d79"
         },
         "70": {
           "$type": "color",
           "$value": "#005d5d",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#005d5d"
         },
         "80": {
           "$type": "color",
           "$value": "#004144",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#004144"
         },
         "90": {
           "$type": "color",
           "$value": "#022b30",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#022b30"
         },
         "100": {
           "$type": "color",
           "$value": "#081a1c",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#081a1c"
         }
       },
       "warmGray": {
@@ -634,61 +735,71 @@
           "$type": "color",
           "$value": "#f7f3f2",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#f7f3f2"
         },
         "20": {
           "$type": "color",
           "$value": "#e5e0df",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#e5e0df"
         },
         "30": {
           "$type": "color",
           "$value": "#cac5c4",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#cac5c4"
         },
         "40": {
           "$type": "color",
           "$value": "#ada8a8",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ada8a8"
         },
         "50": {
           "$type": "color",
           "$value": "#8f8b8b",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#8f8b8b"
         },
         "60": {
           "$type": "color",
           "$value": "#726e6e",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#726e6e"
         },
         "70": {
           "$type": "color",
           "$value": "#565151",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#565151"
         },
         "80": {
           "$type": "color",
           "$value": "#3c3838",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#3c3838"
         },
         "90": {
           "$type": "color",
           "$value": "#272525",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#272525"
         },
         "100": {
           "$type": "color",
           "$value": "#171414",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#171414"
         }
       },
       "white": {
@@ -696,7 +807,8 @@
           "$type": "color",
           "$value": "#ffffff",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#ffffff"
         }
       },
       "yellow": {
@@ -704,61 +816,71 @@
           "$type": "color",
           "$value": "#fcf4d6",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#fcf4d6"
         },
         "20": {
           "$type": "color",
           "$value": "#fddc69",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#fddc69"
         },
         "30": {
           "$type": "color",
           "$value": "#f1c21b",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#f1c21b"
         },
         "40": {
           "$type": "color",
           "$value": "#d2a106",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#d2a106"
         },
         "50": {
           "$type": "color",
           "$value": "#b28600",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#b28600"
         },
         "60": {
           "$type": "color",
           "$value": "#8e6a00",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#8e6a00"
         },
         "70": {
           "$type": "color",
           "$value": "#684e00",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#684e00"
         },
         "80": {
           "$type": "color",
           "$value": "#483700",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#483700"
         },
         "90": {
           "$type": "color",
           "$value": "#302400",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#302400"
         },
         "100": {
           "$type": "color",
           "$value": "#1c1500",
           "group": "cds-colors",
-          "private": true
+          "private": true,
+          "original": "#1c1500"
         }
       }
     }

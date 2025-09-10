@@ -11,6 +11,7 @@ import { dirname } from 'path';
 
 import { extractColors } from './extract-carbon-parts/extractColors.ts';
 import { extractMotion } from './extract-carbon-parts/extractMotion.ts';
+import { extractLayout } from './extract-carbon-parts/extractLayout.ts';
 
 // CARBON TOKENS
 
@@ -47,6 +48,7 @@ const destinationCarbonFolder = path.resolve(__dirname, '../src/carbon-extracted
         console.log(`\nProcessing Carbon "colors"...`);
         await extractColors(destinationCarbonFolder);
         await extractMotion(destinationCarbonFolder);
+        await extractLayout(destinationCarbonFolder);
 
         console.log('\n==============================================');
         console.log('\nCarbon tokens extraction completed!');
