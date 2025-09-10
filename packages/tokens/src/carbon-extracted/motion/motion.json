@@ -1,0 +1,98 @@
+{
+  "carbon": {
+    "motion": {
+      "duration": {
+        "slow": {
+          "01": {
+            "$type": "duration",
+            "$value": 400,
+            "$unit": "ms",
+            "group": "cds-motion",
+            "private": true
+          },
+          "02": {
+            "$type": "duration",
+            "$value": 700,
+            "$unit": "ms",
+            "group": "cds-motion",
+            "private": true
+          }
+        },
+        "moderate": {
+          "01": {
+            "$type": "duration",
+            "$value": 150,
+            "$unit": "ms",
+            "group": "cds-motion",
+            "private": true
+          },
+          "02": {
+            "$type": "duration",
+            "$value": 240,
+            "$unit": "ms",
+            "group": "cds-motion",
+            "private": true
+          }
+        },
+        "fast": {
+          "01": {
+            "$type": "duration",
+            "$value": 70,
+            "$unit": "ms",
+            "group": "cds-motion",
+            "private": true
+          },
+          "02": {
+            "$type": "duration",
+            "$value": 110,
+            "$unit": "ms",
+            "group": "cds-motion",
+            "private": true
+          }
+        }
+      },
+      "standard": {
+        "productive": {
+          "$type": "cubic-bezier",
+          "$value": "cubic-bezier(0.2, 0, 0.38, 0.9)",
+          "group": "cds-motion",
+          "private": true
+        },
+        "expressive": {
+          "$type": "cubic-bezier",
+          "$value": "cubic-bezier(0.4, 0.14, 0.3, 1)",
+          "group": "cds-motion",
+          "private": true
+        }
+      },
+      "entrance": {
+        "productive": {
+          "$type": "cubic-bezier",
+          "$value": "cubic-bezier(0, 0, 0.38, 0.9)",
+          "group": "cds-motion",
+          "private": true
+        },
+        "expressive": {
+          "$type": "cubic-bezier",
+          "$value": "cubic-bezier(0, 0, 0.3, 1)",
+          "group": "cds-motion",
+          "private": true
+        }
+      },
+      "exit": {
+        "productive": {
+          "$type": "cubic-bezier",
+          "$value": "cubic-bezier(0.2, 0, 1, 0.9)",
+          "group": "cds-motion",
+          "private": true
+        },
+        "expressive": {
+          "$type": "cubic-bezier",
+          "$value": "cubic-bezier(0.4, 0.14, 1, 1)",
+          "group": "cds-motion",
+          "private": true
+        }
+      }
+    }
+  }
+}
