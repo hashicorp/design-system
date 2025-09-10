@@ -14,11 +14,18 @@ export async function extractColors(destinationCarbonFolder: string): Promise<vo
   const destFolderPath = `${destinationCarbonFolder}/colors`;
   const destFilePath = `${destFolderPath}/colors.json`;
 
-  const carbonColorsDtcg = convertObjectToDtcgFormat({ value: carbonColors, group: 'cds-colors' });
+  const carbonColorsDtcg = convertObjectToDtcgFormat({ value: carbonColors, type: 'color', group: 'cds-colors' });
+  const destContent = {
+    carbon: {
+      color: {
+        ...carbonColorsDtcg,
+      }
+    }
+  };
 
   try {
-    fs.ensureDir(destFolderPath);
-    fs.writeJsonSync(destFilePath, carbonColorsDtcg, { spaces: 2 });
+    fs.ensureDirSync(destFolderPath);
+    fs.writeJsonSync(destFilePath, destContent, { spaces: 2 });
     console.log(`Saved "${destFilePath}" file`);
   } catch (err) {
       console.error(err);
