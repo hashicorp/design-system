@@ -7,10 +7,10 @@ import { action } from '@ember/object';
 import { on } from '@ember/modifier';
 
 import ShwFlex from 'showcase/components/shw/flex';
-import MockTableWithSelectableData from '../with-selectable-data';
+import CodeFragmentWithSelectableData from '../with-selectable-data';
 import SELECTABLE_ITEMS from 'showcase/mocks/selectable-item-data';
 
-import MockTableMultiSelectExamplesTopbar from './topbar';
+import CodeFragmentWithMultiSelectTopbar from './topbar';
 
 // HDS Components
 import {
@@ -156,7 +156,7 @@ export default class CodeFragmentWithMultiSelectFilter extends Component<CodeFra
   }
 
   <template>
-    <MockTableMultiSelectExamplesTopbar
+    <CodeFragmentWithMultiSelectTopbar
       @isScopeExtended={{this.isScopeExtended}}
       @isDebugging={{this.isDebugging}}
       @onChangeScope={{this.toggleScope}}
@@ -177,11 +177,11 @@ export default class CodeFragmentWithMultiSelectFilter extends Component<CodeFra
             rows</option>
         </C.Options>
       </HdsFormSelectBase>
-    </MockTableMultiSelectExamplesTopbar>
+    </CodeFragmentWithMultiSelectTopbar>
 
     <ShwFlex @direction="column" @gap="2rem" as |SF|>
       <SF.Item @label="With data model">
-        <MockTableWithSelectableData
+        <CodeFragmentWithSelectableData
           @isSelectable={{true}}
           @onSelectionChange={{this.onSelectionChangeWithModel}}
           @dataModel={{this.filteredData}}
