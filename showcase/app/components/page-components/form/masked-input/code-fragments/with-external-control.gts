@@ -3,62 +3,41 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
-import type { ComponentLike } from '@glint/template';
 
-import { HdsFormMaskedInputField } from '@hashicorp/design-system-components/components';
-import type { HdsFormCharacterCountSignature } from '@hashicorp/design-system-components/components/hds/form/character-count/index';
-import type { HdsFormErrorSignature } from '@hashicorp/design-system-components/components/hds/form/error/index';
-import type { HdsFormHelperTextSignature } from '@hashicorp/design-system-components/components/hds/form/helper-text/index';
-import type { HdsFormMaskedInputFieldSignature } from '@hashicorp/design-system-components/components/hds/form/masked-input/field';
+import {
+  HdsFormMaskedInputBase,
+  HdsFormCheckboxField,
+} from '@hashicorp/design-system-components/components';
 
 export interface CodeFragmentWithExternalControlSignature {
-  Args: {
-    handleValidation?: (event: Event) => void;
-    hasCopyButton?: HdsFormMaskedInputFieldSignature['Args']['hasCopyButton'];
-    isInvalid?: HdsFormMaskedInputFieldSignature['Args']['isInvalid'];
-    isMultiline?: HdsFormMaskedInputFieldSignature['Args']['isMultiline'];
-    value?: HdsFormMaskedInputFieldSignature['Args']['value'];
-  };
-  Blocks: {
-    default: [
-      {
-        CharacterCount?: ComponentLike<HdsFormCharacterCountSignature>;
-        Error?: ComponentLike<HdsFormErrorSignature>;
-        HelperText?: ComponentLike<HdsFormHelperTextSignature>;
-      },
-    ];
-  };
   Element: HTMLDivElement;
 }
 
 export default class CodeFragmentWithExternalControl extends Component<CodeFragmentWithExternalControlSignature> {
-  @tracked value = this.args.value ?? '';
+  @tracked isContentMasked = true;
 
-  updateValue = (event: Event) => {
-    const { value } = event.target as HTMLInputElement;
-    this.value = value;
-
-    this.args.handleValidation?.(event);
+  updateIsContentMasked = () => {
+    this.isContentMasked = !this.isContentMasked;
   };
 
   <template>
-    <HdsFormMaskedInputField
-      @value={{this.value}}
-      @hasCopyButton={{@hasCopyButton}}
-      @isInvalid={{@isInvalid}}
-      @isMultiline={{@isMultiline}}
-      {{on "input" this.updateValue}}
-      as |F|
-    >
-      <F.Label>This is the label text</F.Label>
-      {{yield
-        (hash
-          CharacterCount=F.CharacterCount Error=F.Error HelperText=F.HelperText
-        )
-      }}
-    </HdsFormMaskedInputField>
+    <div class="shw-component-form-masked-input-controls" ...attributes>
+      <HdsFormCheckboxField
+        name="toggle-visibility"
+        checked={{this.isContentMasked}}
+        {{on "change" this.updateIsContentMasked}}
+        as |F|
+      >
+        <F.Label>Content masking:
+          {{if this.isContentMasked "Enabled" "Disabled"}}</F.Label>
+      </HdsFormCheckboxField>
+    </div>
+    <HdsFormMaskedInputBase
+      @isContentMasked={{this.isContentMasked}}
+      @value="Lorem ipsum dolor"
+      aria-label="Externally controlled"
+    />
   </template>
 }

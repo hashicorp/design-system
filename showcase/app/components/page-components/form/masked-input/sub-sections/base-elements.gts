@@ -16,7 +16,7 @@ import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 import { HdsFormMaskedInputBase } from '@hashicorp/design-system-components/components';
 
-import CodeFragmentWithExternalVisibilityControl from 'showcase/components/page-components/form/masked-input/code-fragments/with-external-visibility-control';
+import CodeFragmentWithExternalControl from 'showcase/components/page-components/form/masked-input/code-fragments/with-external-control';
 
 const STATES = ['default', 'hover', 'focus'];
 
@@ -265,7 +265,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwFlex as |SF|>
     <SF.Item>
-      <CodeFragmentWithExternalVisibilityControl />
+      <CodeFragmentWithExternalControl />
     </SF.Item>
   </ShwFlex>
 
