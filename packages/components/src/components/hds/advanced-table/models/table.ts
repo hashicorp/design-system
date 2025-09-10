@@ -403,8 +403,12 @@ export default class HdsAdvancedTableTableModel {
         row.columnOrder = updated;
       }
 
-      queueMicrotask(() => {
-        // TODO: Scroll into view, but horizontally
+      requestAnimationFrame(() => {
+        sourceColumn.thElement?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center',
+        });
 
         sourceColumn.isBeingDragged = false;
 
