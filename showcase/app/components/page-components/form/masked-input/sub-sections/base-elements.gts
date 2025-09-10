@@ -186,7 +186,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                   @isMultiline={{true}}
                   @value="Lorem ipsum dolor"
                   @isInvalid={{if (eq variant "invalid") true}}
-                  aria-label="Mutliline {{variant}} - {{state}}"
+                  aria-label="Multiline {{variant}} - {{state}}"
                 />
               </SF.Item>
             </ShwFlex>
