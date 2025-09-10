@@ -2,8 +2,9 @@
 
 Translated template strings
 
-
 ## 4.21.1
+
+Fixed issue causing the focus ring of the first and last items within the Panel to be cut off
 
 Removed extra transparent border and background when rendered as a `<button>` element
 
