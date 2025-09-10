@@ -13,6 +13,7 @@ import CodeFragmentWithMultiSelectDeletion from 'showcase/components/page-compon
 import CodeFragmentWithMultiSelectExternalAction from 'showcase/components/page-components/table/code-fragments/with-multi-select/external-action';
 import CodeFragmentWithMultiSelectFilter from 'showcase/components/page-components/table/code-fragments/with-multi-select/filter';
 import CodeFragmentWithMultiSelectPagination from 'showcase/components/page-components/table/code-fragments/with-multi-select/pagination';
+import CodeFragmentWithMultiSelectSorting from 'showcase/components/page-components/table/code-fragments/with-multi-select/sorting';
 
 // HDS Components
 import { HdsTable } from '@hashicorp/design-system-components/components';
@@ -96,6 +97,10 @@ export default class SubSectionMultiSelect extends Component<SubSectionMultiSele
         </B.Tr>
       </:body>
     </HdsTable>
+
+    <ShwDivider @level={{2}} />
+
+    <CodeFragmentWithMultiSelectSorting />
 
     <ShwDivider @level={{2}} />
 

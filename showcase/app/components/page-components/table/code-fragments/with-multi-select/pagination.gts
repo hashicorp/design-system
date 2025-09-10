@@ -4,8 +4,8 @@ import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { action } from '@ember/object';
 
-import MockTableMultiSelectExamplesTopbar from './topbar';
-import MockTableWithSelectableData from '../with-selectable-data';
+import CodeFragmentsWithMultiSelectTopbar from './topbar';
+import CodeFragmentWithSelectableData from '../with-selectable-data';
 import SELECTABLE_ITEMS from 'showcase/mocks/selectable-item-data';
 
 // HDS Components
@@ -65,7 +65,7 @@ export default class CodeFragmentWithMultiSelectPagination extends Component<Cod
     selectableRowsStates,
   }: HdsTableOnSelectionChangeSignature) {
     console.group(
-      'MockTableMultiSelectExamplesPagination onSelectionChange invoked with arguments:',
+      'CodeFragmentWithMultiSelectPagination onSelectionChange invoked with arguments:',
     );
     console.log('Selection Key:', selectionKey);
     console.log('Checkbox Element:', selectionCheckboxElement);
@@ -101,7 +101,7 @@ export default class CodeFragmentWithMultiSelectPagination extends Component<Cod
   }
 
   <template>
-    <MockTableMultiSelectExamplesTopbar
+    <CodeFragmentsWithMultiSelectTopbar
       @isScopeExtended={{this.isScopeExtended}}
       @isDebugging={{this.isDebugging}}
       @onChangeScope={{this.toggleScope}}
@@ -109,7 +109,7 @@ export default class CodeFragmentWithMultiSelectPagination extends Component<Cod
     />
 
     <div class="shw-component-table-with-pagination-demo-wrapper">
-      <MockTableWithSelectableData
+      <CodeFragmentWithSelectableData
         @isSelectable={{true}}
         @onSelectionChange={{this.onSelectionChange}}
         @dataModel={{this.paginatedData}}

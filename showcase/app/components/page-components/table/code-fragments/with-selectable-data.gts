@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { array, hash } from '@ember/helper';
 
 import SELECTABLE_ITEMS from 'showcase/mocks/selectable-item-data';
 import type { SelectableItem } from 'showcase/mocks/selectable-item-data.ts';
@@ -30,14 +29,11 @@ export default class CodeFragmentWithSelectableData extends Component<CodeFragme
   <template>
     <HdsTable
       @isSelectable={{true}}
+      @selectableColumnKey={{@selectableColumnKey}}
       @onSelectionChange={{@onSelectionChange}}
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.dataModel}}
-      @columns={{array
-        (hash key="lorem" label="Row #")
-        (hash key="ipsum" label="Ipsum")
-        (hash key="dolor" label="Dolor")
-      }}
+      @columns={{@columns}}
     >
       <:body as |B|>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
