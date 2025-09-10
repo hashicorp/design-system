@@ -292,7 +292,7 @@ that should be copied"
         <div class="shw-component-copy-button-flex-container">
           <HdsFormTextareaBase
             readonly
-            @value="This is a redonly
+            @value="This is a readonly
 multiline text
 that should be copied"
             name="test-textarea-readonly"
