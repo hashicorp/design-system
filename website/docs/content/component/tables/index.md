@@ -8,13 +8,13 @@ related:
   - components/table/advanced-table
 ---
 
-This documentation provides best practices for writing tabular content, such as with the [Table](/components/table/table) and [Advanced Table](/components/table/advanced-table) components.
+This documentation provides best practices for writing tabular content in [Table](/components/table/table) and [Advanced Table](/components/table/advanced-table) components.
 
 ## General recommendations
 
 While we are not prescriptive about what goes into table cells, there are some best practices to consider:
 
-- Keep data within columns to one data type. Sorting on multiple data types is technically difficult and makes content confusing for assistive technologies.
+- Keep data within columns to one data type. Sorting on multiple data types adds technical complexity and makes content confusing for assistive technologies.
 - While changing the text style/color within a cell is possible, we recommend only using Helios font styles and colors.
 
 ## Icon usage
@@ -62,7 +62,7 @@ Don’t use an [Icon Tile](/components/icon-tile) in place of an icon within a t
 
 ### Leading vs. trailing icons
 
-In general, we recommend using **leading icons** because the text following the icon will remain aligned and thus be easier for the user to visually scan.
+We recommend using **leading icons** so the text following the icon remains aligned down the column for better scannability.
 
 Don’t mix and match different icon positions in the same column.
 
