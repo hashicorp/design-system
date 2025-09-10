@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
+import { modifier } from 'ember-modifier';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
@@ -14,6 +15,7 @@ import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts'
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
+import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
@@ -192,6 +194,12 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       []
     );
   }
+
+  private _registerDropdownToggleElement = modifier(
+    (element: HdsDropdownToggleButtonSignature['Element']) => {
+      this.args.column.thContextMenuToggleElement = element;
+    }
+  );
 
   private _resizeColumn() {
     this.args.resizeHandleElement?.focus();

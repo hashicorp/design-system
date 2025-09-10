@@ -403,6 +403,7 @@ export default class HdsAdvancedTableTableModel {
         row.columnOrder = updated;
       }
 
+      // we need to wait until the reposition has finished
       requestAnimationFrame(() => {
         sourceColumn.thElement?.scrollIntoView({
           behavior: 'smooth',

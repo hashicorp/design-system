@@ -9,6 +9,7 @@ import { guidFor } from '@ember/object/internals';
 
 import type { HdsAdvancedTableThReorderHandleSignature } from '../th-reorder-handle.ts';
 import type HdsAdvancedTableModel from './table.ts';
+import type { HdsDropdownToggleButtonSignature } from '../../dropdown/toggle/button.ts';
 import type {
   HdsAdvancedTableCell,
   HdsAdvancedTableHorizontalAlignment,
@@ -46,6 +47,9 @@ export default class HdsAdvancedTableColumn {
   @tracked thElement?: HTMLDivElement = undefined;
   @tracked
   reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'] =
+    undefined;
+  @tracked
+  thContextMenuToggleElement?: HdsDropdownToggleButtonSignature['Element'] =
     undefined;
 
   // width properties
