@@ -1,0 +1,48 @@
+{
+  "carbon": {
+    "layout": {
+      "breakpoint": {
+        "sm": {
+          "$type": "size",
+          "$value": 320,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "20rem"
+        },
+        "md": {
+          "$type": "size",
+          "$value": 672,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "42rem"
+        },
+        "lg": {
+          "$type": "size",
+          "$value": 1056,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "66rem"
+        },
+        "xlg": {
+          "$type": "size",
+          "$value": 1312,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "82rem"
+        },
+        "max": {
+          "$type": "size",
+          "$value": 1584,
+          "$unit": "px",
+          "group": "cds-layout",
+          "private": true,
+          "original": "99rem"
+        }
+      }
+    }
+  }
+}
