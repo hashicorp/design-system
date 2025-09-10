@@ -29,7 +29,7 @@ import { extractColors } from './extract-carbon-parts/extractColors.ts';
 
 const __filename = fileURLToPath(import.meta.url); // Get the file path of the current module
 const __dirname = dirname(__filename); // Get the directory name of the current module
-const destinationCarbonFolder = path.resolve(__dirname, '../src/carbon');
+const destinationCarbonFolder = path.resolve(__dirname, '../src/carbon-extracted');
 
 
 // PROCESS THE CARBON DEPENDENCIES TO EXTRACT THEIR TOKENS
