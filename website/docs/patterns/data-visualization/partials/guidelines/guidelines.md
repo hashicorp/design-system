@@ -3,11 +3,8 @@
 Consider whether a data visualization is actually appropriate for the type of data you wish to present. Often, using a table may be clearer or more appropriate.
 
 ## Carbon charts components
-<!-- 
-  TODO: This section links to examples in code. It should be rewritten to instead focus more on design aspects with appropriate illustrations & links added.
--->
 
-IBM’s Carbon Design System includes various [chart components](https://carbondesignsystem.com/data-visualization/chart-types/) that we recommend using as a basis for creating visualizations. These components are available in Figma and code. They use the Carbon library for font styles and color palettes to make it easier to implement consistent data vizualization styling across products.
+IBM’s Carbon Design System includes various [chart components](https://carbondesignsystem.com/data-visualization/chart-types/) that we recommend using as a basis for creating visualizations. These components are available in Figma and code. They use the Carbon library for font styles and color palettes to make it easier to implement consistent data visualization styling across products.
 
 ### Commonly used chart examples
 
@@ -16,11 +13,6 @@ IBM’s Carbon Design System includes various [chart components](https://carbond
 * [Donut chart](https://carbondesignsystem.com/data-visualization/simple-charts/#donut)
 
 ## Color palettes
-<!--
-  TODO: Include examples & links for Carbon Charts color palettes (update illustrations)
-
-  * Note: Bullet points explaining key differences for each palette type have been edited to somewhat condense them. They have been commented out however in case it's better to just delete them entirely.
--->
 
 When creating data visualizations, use the color palette created for the type of data being presented. Color choice can impact meaning. Carbon Charts offers preset [palettes](https://carbondesignsystem.com/data-visualization/color-palettes/) for each type of data representation to make it simple to select appropriate and accessibility-compliant values.
 
@@ -53,4 +45,3 @@ The gradient palette may be used to distinguish elements in visualizations witho
 Use for presenting two sequences of ordered values with a shared central value. Can be used for diverging bar charts, horizon charts, heat maps, etc.
 
 ![Color usage for diverging data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-diverging.png)
-
