@@ -20,6 +20,7 @@
   "scripts": {
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet --ext .js,.ts",
+    "extract-carbon-tokens": "tsx ./scripts/extract-carbon-tokens",
     "build": "tsx ./scripts/build"
   },
   "devDependencies": {
