@@ -6,16 +6,7 @@
 
 type Args = { key?: string, value: Record<string, any>; group?: string };
 
-// inspired by: https://github.com/didoo/style-dictionary/blob/main/types/DesignToken.ts
-interface CarbonDesignToken {
-  $value?: any;
-  $type?: string;
-  group?: string;
-  private?: boolean;
-}
-interface CarbonDesignTokens {
-  [key: string]: CarbonDesignToken | CarbonDesignToken | string | undefined;
-}
+import { CarbonDesignTokens, CarbonDesignToken } from './@types/CarbonDesignTokens.d.ts'
 
 export function convertObjectToDtcgFormat({ value, group }: Args): CarbonDesignTokens | CarbonDesignToken {
   return recursivelyProcessObject({ value, group });
