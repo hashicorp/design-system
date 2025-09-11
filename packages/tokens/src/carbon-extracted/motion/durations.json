@@ -6,7 +6,7 @@
           "01": {
             "$type": "duration",
             "$value": 400,
-            "$unit": "ms",
+            "unit": "ms",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "400ms"
@@ -14,7 +14,7 @@
           "02": {
             "$type": "duration",
             "$value": 700,
-            "$unit": "ms",
+            "unit": "ms",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "700ms"
@@ -24,7 +24,7 @@
           "01": {
             "$type": "duration",
             "$value": 150,
-            "$unit": "ms",
+            "unit": "ms",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "150ms"
@@ -32,7 +32,7 @@
           "02": {
             "$type": "duration",
             "$value": 240,
-            "$unit": "ms",
+            "unit": "ms",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "240ms"
@@ -42,7 +42,7 @@
           "01": {
             "$type": "duration",
             "$value": 70,
-            "$unit": "ms",
+            "unit": "ms",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "70ms"
@@ -50,7 +50,7 @@
           "02": {
             "$type": "duration",
             "$value": 110,
-            "$unit": "ms",
+            "unit": "ms",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "110ms"
