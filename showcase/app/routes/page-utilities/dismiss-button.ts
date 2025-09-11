@@ -10,10 +10,4 @@ import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 export type PageUtilitiesDismissButtonModel =
   ModelFrom<PageUtilitiesDismissButtonRoute>;
 
-export default class PageUtilitiesDismissButtonRoute extends Route {
-  model() {
-    // these are used only for presentation purpose in the showcase
-    const STATES = ['default', 'hover', 'active', 'focus'];
-    return { STATES };
-  }
-}
+export default class PageUtilitiesDismissButtonRoute extends Route {}
