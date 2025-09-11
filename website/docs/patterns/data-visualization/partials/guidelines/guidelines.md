@@ -1,6 +1,11 @@
 ## Deciding how best to represent data
 
-Consider whether a data visualization is actually appropriate for the type of data you wish to present. Often, using a table may be clearer or more appropriate.
+Consider whether a data visualization is actually appropriate for the type of data you wish to present. Oftentimes, just using a table may be clearer or more appropriate. Carbon Charts components, in a way, allow you to do both. Users can use the built-in toolbar to view a table view of the presented data in the data visualization.
+
+### Considerations for using a data visualization
+
+* **Information density**: If a table requires too many columns to fit within a screen.
+* **Frequency of outliers**: If most data points are clustered but there are a few outliers, this is less apparent using a table.
 
 ## Carbon charts components
 
