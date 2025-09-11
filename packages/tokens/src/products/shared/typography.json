@@ -113,19 +113,19 @@
     "font-weight": {
       "regular": {
         "$type": "font-weight",
-        "$value": "400"
+        "$value": 400
       },
       "medium": {
         "$type": "font-weight",
-        "$value": "500"
+        "$value": 500
       },
       "semibold": {
         "$type": "font-weight",
-        "$value": "600"
+        "$value": 600
       },
       "bold": {
         "$type": "font-weight",
-        "$value": "700"
+        "$value": 700
       }
     },
     "display-500": {
