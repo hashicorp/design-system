@@ -1,3 +1,9 @@
+!!! Info
+
+Refer to [Carbon’s Accessibility page](https://carbondesignsystem.com/guidelines/accessibility/overview/) for broader and more detailed guidelines.
+
+!!!
+
 ## Accessibility considerations
 
 ### Add labels to charts & chart elements
@@ -9,7 +15,7 @@ Include text-based labels on charts and chart elements and do not truncate text.
 
 ### Don’t rely on color only to convey information
 
-Be sure to always add appropriate text, such as labels or descriptions of the visual information in the chart. Patterns or symbols can be optionally combined with or used instead of color as another means of distinguishing chart elements. A thin separating line between adjacent colors helps to visually distinguish chart areas.
+Be sure to always add appropriate text, such as labels or descriptions of the visual information in the chart. Using patterns, in addition to or instead of color, can enhance accessibility although Carbon Charts components and palettes don’t include them at this time. A thin separating line between adjacent colors helps to visually distinguish chart areas.
 
 ![Data visualization donut chart](/assets/patterns/data-visualization/color-usage/data-visualization-ally-donut.png)
 <Doc::ImageCaption @text="Carbon Charts components include thin white separators to help distinguish colors" />

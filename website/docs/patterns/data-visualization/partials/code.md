@@ -6,7 +6,7 @@ We recommend using the Vanilla JavaScript version of IBM’s [Carbon Chart compo
 
 !!! info
 
-Refer to the full [Carbon Charts API docs](https://charts.carbondesignsystem.com/api/) for the full list of available options for each component type.
+Refer to the [Carbon Charts API docs](https://charts.carbondesignsystem.com/api/) for the full list of available options for each component type.
 
 !!!
 
