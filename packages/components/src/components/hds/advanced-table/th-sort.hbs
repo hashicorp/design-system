@@ -55,7 +55,7 @@
           @onPinFirstColumn={{@onPinFirstColumn}}
         />
 
-        {{#if (and @hasReorderableColumns (not @isStickyColumn) (not @column.table.hasColumnBeingDragged))}}
+        {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
           <Hds::AdvancedTable::ThReorderHandle
             @column={{@column}}
             @tableHeight={{@tableHeight}}
@@ -65,7 +65,7 @@
           />
         {{/if}}
 
-        {{#if (and @hasResizableColumns (not @column.isLast))}}
+        {{#if (and @hasResizableColumns (not @column.isLast) (not @column.table.hasColumnBeingDragged))}}
           <Hds::AdvancedTable::ThResizeHandle
             @column={{@column}}
             @tableHeight={{@tableHeight}}
