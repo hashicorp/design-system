@@ -11,7 +11,7 @@ Include text-based labels on charts and chart elements and do not truncate text.
 
 Be sure to always add appropriate text, such as labels or descriptions of the visual information in the chart. Patterns or symbols can be optionally combined with or used instead of color as another means of distinguishing chart elements. A thin separating line between adjacent colors helps to visually distinguish chart areas.
 
-TODO: ADD IMAGE OF CARBON COMPONENTS DONUT CHART HERE
+![Data visualization donut chart](/assets/patterns/data-visualization/color-usage/data-visualization-ally-donut.png)
 <Doc::ImageCaption @text="Carbon Charts components include thin white separators to help distinguish colors" />
 
 ### Ensure charts are readable when resized
