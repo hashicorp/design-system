@@ -8,7 +8,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "1rem"
+          "cds-original-value": "1rem"
         },
         "02": {
           "$type": "size",
@@ -16,7 +16,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "1.25rem"
+          "cds-original-value": "1.25rem"
         }
       }
     }

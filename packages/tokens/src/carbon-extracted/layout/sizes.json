@@ -8,7 +8,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "1.5rem"
+          "cds-original-value": "1.5rem"
         },
         "Small": {
           "$type": "size",
@@ -16,7 +16,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "2rem"
+          "cds-original-value": "2rem"
         },
         "Medium": {
           "$type": "size",
@@ -24,7 +24,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "2.5rem"
+          "cds-original-value": "2.5rem"
         },
         "Large": {
           "$type": "size",
@@ -32,7 +32,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "3rem"
+          "cds-original-value": "3rem"
         },
         "XLarge": {
           "$type": "size",
@@ -40,7 +40,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "4rem"
+          "cds-original-value": "4rem"
         },
         "2XLarge": {
           "$type": "size",
@@ -48,7 +48,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "5rem"
+          "cds-original-value": "5rem"
         }
       }
     }

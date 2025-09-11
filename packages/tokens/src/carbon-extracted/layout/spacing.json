@@ -8,7 +8,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "4rem"
+          "cds-original-value": "4rem"
         },
         "11": {
           "$type": "size",
@@ -16,7 +16,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "5rem"
+          "cds-original-value": "5rem"
         },
         "12": {
           "$type": "size",
@@ -24,7 +24,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "6rem"
+          "cds-original-value": "6rem"
         },
         "13": {
           "$type": "size",
@@ -32,7 +32,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "10rem"
+          "cds-original-value": "10rem"
         },
         "01": {
           "$type": "size",
@@ -40,7 +40,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "0.125rem"
+          "cds-original-value": "0.125rem"
         },
         "02": {
           "$type": "size",
@@ -48,7 +48,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "0.25rem"
+          "cds-original-value": "0.25rem"
         },
         "03": {
           "$type": "size",
@@ -56,7 +56,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "0.5rem"
+          "cds-original-value": "0.5rem"
         },
         "04": {
           "$type": "size",
@@ -64,7 +64,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "0.75rem"
+          "cds-original-value": "0.75rem"
         },
         "05": {
           "$type": "size",
@@ -72,7 +72,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "1rem"
+          "cds-original-value": "1rem"
         },
         "06": {
           "$type": "size",
@@ -80,7 +80,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "1.5rem"
+          "cds-original-value": "1.5rem"
         },
         "07": {
           "$type": "size",
@@ -88,7 +88,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "2rem"
+          "cds-original-value": "2rem"
         },
         "08": {
           "$type": "size",
@@ -96,7 +96,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "2.5rem"
+          "cds-original-value": "2.5rem"
         },
         "09": {
           "$type": "size",
@@ -104,7 +104,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "3rem"
+          "cds-original-value": "3rem"
         }
       }
     }
