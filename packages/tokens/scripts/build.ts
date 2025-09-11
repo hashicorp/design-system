@@ -229,7 +229,6 @@ StyleDictionary.registerAction({
 const targets: ConfigTargets = {
   'products': {
     'source': [
-      `src/carbon-extracted/**/*.json`,
       `src/global/**/*.json`,
       `src/products/shared/**/*.json`
     ],
@@ -238,7 +237,6 @@ const targets: ConfigTargets = {
   },
   'devdot': {
     'source': [
-      `src/carbon-extracted/**/*.json`,
       `src/global/**/*.json`,
       `src/products/shared/**/*.json`,
       // just uncomment the line below to include overrides for "devdot" tokens
@@ -249,7 +247,6 @@ const targets: ConfigTargets = {
   },
   'marketing': {
     'source': [
-      `src/carbon-extracted/**/*.json`,
       `src/global/**/*.json`,
       `src/products/shared/**/*.json`,
     ],
@@ -260,7 +257,6 @@ const targets: ConfigTargets = {
   'cloud-email': {
     // we need only foundational tokens (colors, typography, etc)
     'source': [
-      `src/carbon-extracted/**/*.json`,
       `src/global/**/*.json`,
       `src/products/shared/color/**/*.json`,
       `src/products/shared/typography.json`,

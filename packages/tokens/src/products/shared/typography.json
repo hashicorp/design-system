@@ -5,7 +5,10 @@
         "display": {
           "macOS": {
             "$type": "font-family",
-            "$value": "{carbon.typography.font-family.sans}",
+            "$value": [
+              "-apple-system",
+              "BlinkMacSystemFont"
+            ],
             "private": "true"
           },
           "windows": {
@@ -37,7 +40,10 @@
         "text": {
           "macOS": {
             "$type": "font-family",
-            "$value": "{carbon.typography.font-family.sans}",
+            "$value": [
+              "-apple-system",
+              "BlinkMacSystemFont"
+            ],
             "private": "true"
           },
           "windows": {
@@ -62,7 +68,10 @@
         "code": {
           "macOS": {
             "$type": "font-family",
-            "$value": "{carbon.typography.font-family.mono}",
+            "$value": [
+              "ui-monospace",
+              "Menlo"
+            ],
             "private": "true"
           },
           "windows": {
@@ -104,19 +113,19 @@
     "font-weight": {
       "regular": {
         "$type": "font-weight",
-        "$value": "{carbon.typography.font-weight.light}"
+        "$value": 400
       },
       "medium": {
         "$type": "font-weight",
-        "$value": "{carbon.typography.font-weight.regular}"
+        "$value": 500
       },
       "semibold": {
         "$type": "font-weight",
-        "$value": "{carbon.typography.font-weight.semibold}"
+        "$value": 600
       },
       "bold": {
         "$type": "font-weight",
-        "$value": "{carbon.typography.font-weight.semibold}"
+        "$value": 700
       }
     },
     "display-500": {
