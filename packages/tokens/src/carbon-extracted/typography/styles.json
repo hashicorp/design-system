@@ -5,7 +5,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -27,7 +27,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -37,7 +37,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -59,7 +59,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -69,7 +69,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -91,7 +91,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -101,7 +101,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -123,7 +123,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -133,7 +133,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -155,7 +155,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -165,7 +165,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -187,7 +187,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -197,7 +197,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -219,7 +219,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -229,7 +229,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -251,7 +251,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -261,7 +261,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.75,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -283,7 +283,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.32,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.32px"
@@ -293,7 +293,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -315,7 +315,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.32,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.32px"
@@ -332,7 +332,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.75,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -354,7 +354,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.32,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.32px"
@@ -371,7 +371,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -393,7 +393,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.32,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.32px"
@@ -403,7 +403,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -425,7 +425,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -435,7 +435,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -457,7 +457,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -467,7 +467,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -489,7 +489,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -499,7 +499,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -521,7 +521,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -531,7 +531,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -553,7 +553,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -563,7 +563,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -585,7 +585,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -595,7 +595,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.25,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -617,7 +617,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -627,7 +627,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.75,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.75rem"
@@ -649,7 +649,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -659,7 +659,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -681,7 +681,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -691,7 +691,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -713,7 +713,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -723,7 +723,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.5,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.5rem"
@@ -745,7 +745,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -755,7 +755,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -777,7 +777,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -787,7 +787,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -809,7 +809,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -819,7 +819,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -841,7 +841,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -851,7 +851,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -873,7 +873,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -883,7 +883,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.25,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -905,7 +905,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -915,7 +915,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.75,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.75rem"
@@ -937,7 +937,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -947,7 +947,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -969,7 +969,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -979,7 +979,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -1001,7 +1001,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1011,7 +1011,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.5,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.5rem"
@@ -1033,7 +1033,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1050,7 +1050,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.25,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -1072,7 +1072,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1089,7 +1089,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -1111,7 +1111,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1121,7 +1121,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1143,7 +1143,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -1153,7 +1153,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -1175,7 +1175,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1185,7 +1185,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.25,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -1207,7 +1207,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1217,7 +1217,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.75,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.75rem"
@@ -1239,7 +1239,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1249,7 +1249,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -1271,7 +1271,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1281,7 +1281,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -1303,7 +1303,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1313,7 +1313,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 3.375,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "3.375rem"
@@ -1335,7 +1335,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1345,7 +1345,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1367,7 +1367,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -1377,7 +1377,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -1399,7 +1399,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1409,7 +1409,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.75,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -1424,7 +1424,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.32,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.32px"
@@ -1434,7 +1434,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1449,7 +1449,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -1459,7 +1459,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.75,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -1481,7 +1481,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.32,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.32px"
@@ -1491,7 +1491,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1513,7 +1513,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -1523,7 +1523,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.75,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -1545,7 +1545,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.32,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.32px"
@@ -1555,7 +1555,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1577,7 +1577,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -1587,7 +1587,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 0.875,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1609,7 +1609,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0.16,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.16px"
@@ -1619,7 +1619,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -1641,7 +1641,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1651,7 +1651,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.25,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -1673,7 +1673,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1683,7 +1683,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.75,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.75rem"
@@ -1705,7 +1705,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1715,7 +1715,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -1737,7 +1737,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1747,7 +1747,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2.625,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -1769,7 +1769,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1779,7 +1779,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 3.375,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "3.375rem"
@@ -1801,7 +1801,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1818,7 +1818,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 1.25,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -1840,7 +1840,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0
@@ -1857,7 +1857,7 @@
         "font-size": {
           "$type": "font-size",
           "$value": 2,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -1879,7 +1879,7 @@
         "letter-spacing": {
           "$type": "letter-spacing",
           "$value": 0,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": 0

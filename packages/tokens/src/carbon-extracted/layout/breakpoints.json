@@ -5,7 +5,7 @@
         "sm": {
           "$type": "dimension",
           "$value": 320,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-layout",
           "private": true,
           "cds-original-value": "20rem"
@@ -13,7 +13,7 @@
         "md": {
           "$type": "dimension",
           "$value": 672,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-layout",
           "private": true,
           "cds-original-value": "42rem"
@@ -21,7 +21,7 @@
         "lg": {
           "$type": "dimension",
           "$value": 1056,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-layout",
           "private": true,
           "cds-original-value": "66rem"
@@ -29,7 +29,7 @@
         "xlg": {
           "$type": "dimension",
           "$value": 1312,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-layout",
           "private": true,
           "cds-original-value": "82rem"
@@ -37,7 +37,7 @@
         "max": {
           "$type": "dimension",
           "$value": 1584,
-          "$unit": "px",
+          "unit": "px",
           "group": "cds-layout",
           "private": true,
           "cds-original-value": "99rem"

@@ -53,7 +53,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             return {
               '$type': 'duration',
               '$value': convertedDurationValue.$value,
-              '$unit': convertedDurationValue.$unit,
+              'unit': convertedDurationValue.unit,
               'group': group || 'cds-generic-duration',
               'private': true,
               'cds-original-value': value
@@ -76,7 +76,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             return {
               '$type': 'font-size',
               '$value': convertedFontSizeValue.$value,
-              '$unit': convertedFontSizeValue.$unit,
+              'unit': convertedFontSizeValue.unit,
               'group': group || 'cds-generic-font-size',
               'private': true,
               'cds-original-value': value
@@ -107,7 +107,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             return {
               '$type': 'letter-spacing',
               '$value': convertedLetterSpacingValue.$value,
-              '$unit': convertedLetterSpacingValue.$unit,
+              'unit': convertedLetterSpacingValue.unit,
               'group': group || 'cds-generic-letter-spacing',
               'private': true,
               'cds-original-value': value
@@ -130,7 +130,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             return {
               '$type': 'dimension',
               '$value': convertedSizeValue.$value,
-              '$unit': convertedSizeValue.$unit,
+              'unit': convertedSizeValue.unit,
               'group': group || 'cds-generic-size',
               'private': true,
               'cds-original-value': value
@@ -159,8 +159,8 @@ function convertDurationValue(value: string) {
   const match = value.match(/^(\d+)(s|ms)$/);
   if (match) {
     const $value = Number(match[1]);
-    const $unit = match[2];
-    return { $value, $unit };
+    const unit = match[2];
+    return { $value, unit };
   } else {
     return undefined;
   }
@@ -171,21 +171,21 @@ function convertSizeValue(value: string | number, convertRemToPx: boolean = true
     const match = value.match(/^([\d\.]+)(px|rem)$/);
     if (match) {
       const $value = Number(match[1]);
-      const $unit = match[2];
+      const unit = match[2];
       let returnValue;
-      if (convertRemToPx && $unit === 'rem') {
+      if (convertRemToPx && unit === 'rem') {
         // we convert everything to px, because in HDS we use px (except for font sizes)
         returnValue = $value * baseFontSize;
       } else {
         returnValue = $value;
       }
-      return { $value: returnValue, $unit: 'px' };
+      return { $value: returnValue, unit: 'px' };
     } else {
       return undefined;
     }
   } else if (typeof value === 'number') {
     if (value === 0) {
-      return { $value: 0, $unit: 'px' };
+      return { $value: 0, unit: 'px' };
     } else {
       return undefined;
     }
