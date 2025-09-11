@@ -56,7 +56,8 @@
       },
       "transition": {
         "function": {
-          "$value": "cubic-bezier(0.5, 1, 0.89, 1)"
+          "$type": "cubicBezier",
+          "$value": [0.5, 1, 0.89, 1]
         },
         "duration": {
           "$type": "duration",
