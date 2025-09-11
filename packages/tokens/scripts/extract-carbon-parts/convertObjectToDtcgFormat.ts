@@ -33,7 +33,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
           return {
             '$type': 'color',
             '$value': value,
-            'group': group || 'cds-undefined-color',
+            'group': group || 'cds-generic-color',
             'private': true,
             'original': value
           };
@@ -43,7 +43,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             // see: https://www.designtokens.org/tr/drafts/format/#cubic-bezier
             '$type': 'cubic-bezier',
             '$value': value,
-            'group': group || 'cds-undefined-cubic-bezier',
+            'group': group || 'cds-generic-cubic-bezier',
             'private': true,
             'original': value
           };
@@ -54,19 +54,73 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
               '$type': 'duration',
               '$value': convertedDurationValue.$value,
               '$unit': convertedDurationValue.$unit,
-              'group': group || 'cds-undefined-duration',
+              'group': group || 'cds-generic-duration',
               'private': true,
               'original': value
             };
           } else {
-            const unknownDurationToken = returnUnknownToken(value, '🚨 convertDurationValue: value is not in the expected format:');
+            const unknownDurationToken = returnUnknownToken(value, `🚨 convertDurationValue: value for key "${key}" / group "${group}" is not in the expected format:`);
             return unknownDurationToken;
+          }
+        case 'font-family':
+          return {
+            '$type': 'font-family',
+            '$value': value,
+            'group': group || 'cds-generic-font-family',
+            'private': true,
+            'original': value
+          };
+        case 'font-size':
+          const convertedFontSizeValue = convertSizeValue(value, false);
+          if (convertedFontSizeValue !== undefined) {
+            return {
+              '$type': 'font-size',
+              '$value': convertedFontSizeValue.$value,
+              '$unit': convertedFontSizeValue.$unit,
+              'group': group || 'cds-generic-font-size',
+              'private': true,
+              'original': value
+            };
+          } else {
+            const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value for key "${key}" / group "${group}" is not in the expected format:`);
+            return unknownSizeToken;
+          }
+        case 'font-weight':
+          return {
+            '$type': 'font-weight',
+            '$value': value,
+            'group': group || 'cds-generic-font-weight',
+            'private': true,
+            'original': value
+          };
+        case 'line-height':
+          return {
+            '$type': 'number',
+            '$value': value,
+            'group': group || 'cds-generic-line-height',
+            'private': true,
+            'original': value
+          };
+        case 'letter-spacing':
+          const convertedLetterSpacingValue = convertSizeValue(value, false);
+          if (convertedLetterSpacingValue !== undefined) {
+            return {
+              '$type': 'letter-spacing',
+              '$value': convertedLetterSpacingValue.$value,
+              '$unit': convertedLetterSpacingValue.$unit,
+              'group': group || 'cds-generic-letter-spacing',
+              'private': true,
+              'original': value
+            };
+          } else {
+            const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value for key "${key}" / group "${group}" is not in the expected format:`);
+            return unknownSizeToken;
           }
         case 'number':
           return {
             '$type': 'number',
             '$value': value,
-            'group': group || 'cds-undefined-number',
+            'group': group || 'cds-generic-number',
             'private': true,
             'original': value
           };
@@ -77,12 +131,12 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
               '$type': 'size',
               '$value': convertedSizeValue.$value,
               '$unit': convertedSizeValue.$unit,
-              'group': group || 'cds-undefined-size',
+              'group': group || 'cds-generic-size',
               'private': true,
               'original': value
             };
           } else {
-            const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value is not in the expected format:`);
+            const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value for key "${key}" / group "${group}" is not in the expected format:`);
             return unknownSizeToken;
           }
         default:
@@ -95,7 +149,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
           };
         }
       } else {
-        const unknownToken = returnUnknownToken(value, `🚨 convertObjectToDtcgFormat > recursivelyProcessObject: found key "${key}" with value of type "${typeof value}", not sure how to process it, will be converted to JSON.string:`);
+        const unknownToken = returnUnknownToken(value, `🚨 convertObjectToDtcgFormat > recursivelyProcessObject: value for key "${key}" / group "${group}" has type "${typeof value}", not sure how to process it, will be converted to JSON.string:`);
         return unknownToken;
     }
   }
@@ -112,14 +166,14 @@ function convertDurationValue(value: string) {
   }
 }
 
-function convertSizeValue(value: string | number) {
+function convertSizeValue(value: string | number, convertRemToPx: boolean = true) {
   if (typeof value === 'string') {
     const match = value.match(/^([\d\.]+)(px|rem)$/);
     if (match) {
       const $value = Number(match[1]);
       const $unit = match[2];
       let returnValue;
-      if ($unit === 'rem') {
+      if (convertRemToPx && $unit === 'rem') {
         // we convert everything to px, because in HDS we use px (except for font sizes)
         returnValue = $value * baseFontSize;
       } else {

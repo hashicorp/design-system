@@ -1,0 +1,169 @@
+{
+  "carbon": {
+    "typography": {
+      "scale": {
+        "12": {
+          "$type": "number",
+          "$value": 12,
+          "group": "cds-typography",
+          "private": true,
+          "original": 12
+        },
+        "14": {
+          "$type": "number",
+          "$value": 14,
+          "group": "cds-typography",
+          "private": true,
+          "original": 14
+        },
+        "16": {
+          "$type": "number",
+          "$value": 16,
+          "group": "cds-typography",
+          "private": true,
+          "original": 16
+        },
+        "18": {
+          "$type": "number",
+          "$value": 18,
+          "group": "cds-typography",
+          "private": true,
+          "original": 18
+        },
+        "20": {
+          "$type": "number",
+          "$value": 20,
+          "group": "cds-typography",
+          "private": true,
+          "original": 20
+        },
+        "24": {
+          "$type": "number",
+          "$value": 24,
+          "group": "cds-typography",
+          "private": true,
+          "original": 24
+        },
+        "28": {
+          "$type": "number",
+          "$value": 28,
+          "group": "cds-typography",
+          "private": true,
+          "original": 28
+        },
+        "32": {
+          "$type": "number",
+          "$value": 32,
+          "group": "cds-typography",
+          "private": true,
+          "original": 32
+        },
+        "36": {
+          "$type": "number",
+          "$value": 36,
+          "group": "cds-typography",
+          "private": true,
+          "original": 36
+        },
+        "42": {
+          "$type": "number",
+          "$value": 42,
+          "group": "cds-typography",
+          "private": true,
+          "original": 42
+        },
+        "48": {
+          "$type": "number",
+          "$value": 48,
+          "group": "cds-typography",
+          "private": true,
+          "original": 48
+        },
+        "54": {
+          "$type": "number",
+          "$value": 54,
+          "group": "cds-typography",
+          "private": true,
+          "original": 54
+        },
+        "60": {
+          "$type": "number",
+          "$value": 60,
+          "group": "cds-typography",
+          "private": true,
+          "original": 60
+        },
+        "68": {
+          "$type": "number",
+          "$value": 68,
+          "group": "cds-typography",
+          "private": true,
+          "original": 68
+        },
+        "76": {
+          "$type": "number",
+          "$value": 76,
+          "group": "cds-typography",
+          "private": true,
+          "original": 76
+        },
+        "84": {
+          "$type": "number",
+          "$value": 84,
+          "group": "cds-typography",
+          "private": true,
+          "original": 84
+        },
+        "92": {
+          "$type": "number",
+          "$value": 92,
+          "group": "cds-typography",
+          "private": true,
+          "original": 92
+        },
+        "102": {
+          "$type": "number",
+          "$value": 102,
+          "group": "cds-typography",
+          "private": true,
+          "original": 102
+        },
+        "112": {
+          "$type": "number",
+          "$value": 112,
+          "group": "cds-typography",
+          "private": true,
+          "original": 112
+        },
+        "122": {
+          "$type": "number",
+          "$value": 122,
+          "group": "cds-typography",
+          "private": true,
+          "original": 122
+        },
+        "132": {
+          "$type": "number",
+          "$value": 132,
+          "group": "cds-typography",
+          "private": true,
+          "original": 132
+        },
+        "144": {
+          "$type": "number",
+          "$value": 144,
+          "group": "cds-typography",
+          "private": true,
+          "original": 144
+        },
+        "156": {
+          "$type": "number",
+          "$value": 156,
+          "group": "cds-typography",
+          "private": true,
+          "original": 156
+        }
+      }
+    }
+  }
+}

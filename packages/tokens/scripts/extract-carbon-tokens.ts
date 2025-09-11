@@ -12,6 +12,8 @@ import { dirname } from 'path';
 import { extractColors } from './extract-carbon-parts/extractColors.ts';
 import { extractMotion } from './extract-carbon-parts/extractMotion.ts';
 import { extractLayout } from './extract-carbon-parts/extractLayout.ts';
+import { extractTypography } from './extract-carbon-parts/extractTypography.ts';
+
 // SCRIPT CONFIG
 
 const __filename = fileURLToPath(import.meta.url); // Get the file path of the current module
@@ -30,10 +32,14 @@ export const destinationCarbonFolder = path.resolve(__dirname, '../src/carbon-ex
     console.log(`\nCleaning up dist/carbon folder`);
     fs.emptyDirSync(destinationCarbonFolder);
 
-    console.log(`\nProcessing Carbon "colors"...`);
+    console.log(`\nProcessing "@carbon/colors"...`);
     await extractColors();
+    console.log(`\nProcessing "@carbon/motion"...`);
     await extractMotion();
+    console.log(`\nProcessing "@carbon/layout"...`);
     await extractLayout();
+    console.log(`\nProcessing "@carbon/type"...`);
+    await extractTypography();
 
     console.log('\n==============================================');
     console.log('\nCarbon tokens extraction completed!');
