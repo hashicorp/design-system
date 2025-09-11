@@ -179,7 +179,9 @@
         "comment": "24px"
       },
       "letter-spacing": {
-        "$value": "-0.5px",
+        "$type": "letter-spacing",
+        "$value": -0.5,
+        "unit": "px",
         "comment": "this is `tracking`"
       }
     },
@@ -200,7 +202,9 @@
         "comment": "24px"
       },
       "letter-spacing": {
-        "$value": "-0.5px",
+        "$type": "letter-spacing",
+        "$value": -0.5,
+        "unit": "px",
         "comment": "this is `tracking`"
       }
     },
