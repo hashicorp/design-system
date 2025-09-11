@@ -169,18 +169,18 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web',
-  transforms: ['name/kebab', 'font-family', 'font-size/to-rem', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'attributes/category']
+  transforms: ['name/kebab', 'font-family', 'font-size/to-rem', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
-  transforms: ['name/kebab', 'font-family', 'font-size/to-px', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'attributes/category']
+  transforms: ['name/kebab', 'font-family', 'font-size/to-px', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
-  transforms: ['name/kebab', 'font-family', 'font-size/to-rem', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'attributes/category']
+  transforms: ['name/kebab', 'font-family', 'font-size/to-rem', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
 });
 
 StyleDictionary.registerFormat({
