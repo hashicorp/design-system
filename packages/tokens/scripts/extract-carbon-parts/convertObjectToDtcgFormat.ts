@@ -39,7 +39,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
           };
         case 'cubic-bezier':
           return {
-            // TODO convert to `cubicBezier` per DTCG specificagtions when we are sure that Style Dictionary process it correctly
+            // TODO convert to `cubicBezier` per DTCG specifications when we are sure that Style Dictionary process it correctly
             // see: https://www.designtokens.org/tr/drafts/format/#cubic-bezier
             '$type': 'cubic-bezier',
             '$value': value,
