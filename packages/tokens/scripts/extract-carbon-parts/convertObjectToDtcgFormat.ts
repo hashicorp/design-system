@@ -124,11 +124,11 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             'private': true,
             'cds-original-value': value
           };
-        case 'size':
+        case 'dimension':
           const convertedSizeValue = convertSizeValue(value);
           if (convertedSizeValue !== undefined) {
             return {
-              '$type': 'size',
+              '$type': 'dimension',
               '$value': convertedSizeValue.$value,
               '$unit': convertedSizeValue.$unit,
               'group': group || 'cds-generic-size',

@@ -3,7 +3,7 @@
     "layout": {
       "icon-size": {
         "01": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 16,
           "$unit": "px",
           "group": "cds-layout",
@@ -11,7 +11,7 @@
           "cds-original-value": "1rem"
         },
         "02": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 20,
           "$unit": "px",
           "group": "cds-layout",

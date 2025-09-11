@@ -3,7 +3,7 @@
     "layout": {
       "breakpoint": {
         "sm": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 320,
           "$unit": "px",
           "group": "cds-layout",
@@ -11,7 +11,7 @@
           "cds-original-value": "20rem"
         },
         "md": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 672,
           "$unit": "px",
           "group": "cds-layout",
@@ -19,7 +19,7 @@
           "cds-original-value": "42rem"
         },
         "lg": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 1056,
           "$unit": "px",
           "group": "cds-layout",
@@ -27,7 +27,7 @@
           "cds-original-value": "66rem"
         },
         "xlg": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 1312,
           "$unit": "px",
           "group": "cds-layout",
@@ -35,7 +35,7 @@
           "cds-original-value": "82rem"
         },
         "max": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 1584,
           "$unit": "px",
           "group": "cds-layout",

@@ -76,23 +76,23 @@ export async function extractLayout(): Promise<void> {
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutBaseUnitsDtcg, group: 'layout', file: 'base-units' });
 
   // spacing
-  const carbonLayoutSpacingDtcg = convertObjectToDtcgFormat({ value: carbonLayoutSpacing, type: 'size', group: 'cds-layout' });
+  const carbonLayoutSpacingDtcg = convertObjectToDtcgFormat({ value: carbonLayoutSpacing, type: 'dimension', group: 'cds-layout' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutSpacingDtcg, group: 'layout', file: 'spacing' });
 
   // sizes
-  const carbonLayoutSizesDtcg = convertObjectToDtcgFormat({ value: carbonLayoutSizes, type: 'size', group: 'cds-layout' });
+  const carbonLayoutSizesDtcg = convertObjectToDtcgFormat({ value: carbonLayoutSizes, type: 'dimension', group: 'cds-layout' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutSizesDtcg, group: 'layout', file: 'sizes' });
 
   // icon sizes
-  const carbonLayoutIconSizesDtcg = convertObjectToDtcgFormat({ value: carbonLayoutIconSizes, type: 'size', group: 'cds-layout' });
+  const carbonLayoutIconSizesDtcg = convertObjectToDtcgFormat({ value: carbonLayoutIconSizes, type: 'dimension', group: 'cds-layout' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutIconSizesDtcg, group: 'layout', file: 'icon-sizes' });
 
   // container
-  const carbonLayoutContainersDtcg = convertObjectToDtcgFormat({ value: carbonLayoutContainers, type: 'size', group: 'cds-layout' });
+  const carbonLayoutContainersDtcg = convertObjectToDtcgFormat({ value: carbonLayoutContainers, type: 'dimension', group: 'cds-layout' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutContainersDtcg, group: 'layout', file: 'containers' });
 
   // breakpoints
-  const carbonLayoutBreakpointsDtcg = convertObjectToDtcgFormat({ value: carbonLayoutBreakpoints, type: 'size', group: 'cds-layout' });
+  const carbonLayoutBreakpointsDtcg = convertObjectToDtcgFormat({ value: carbonLayoutBreakpoints, type: 'dimension', group: 'cds-layout' });
   await saveCarbonDtcgTokensAsJsonFile({ obj: carbonLayoutBreakpointsDtcg, group: 'layout', file: 'breakpoints' });
 
 }
