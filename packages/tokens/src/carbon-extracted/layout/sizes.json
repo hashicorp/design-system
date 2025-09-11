@@ -3,7 +3,7 @@
     "layout": {
       "size": {
         "XSmall": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 24,
           "$unit": "px",
           "group": "cds-layout",
@@ -11,7 +11,7 @@
           "cds-original-value": "1.5rem"
         },
         "Small": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 32,
           "$unit": "px",
           "group": "cds-layout",
@@ -19,7 +19,7 @@
           "cds-original-value": "2rem"
         },
         "Medium": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 40,
           "$unit": "px",
           "group": "cds-layout",
@@ -27,7 +27,7 @@
           "cds-original-value": "2.5rem"
         },
         "Large": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 48,
           "$unit": "px",
           "group": "cds-layout",
@@ -35,7 +35,7 @@
           "cds-original-value": "3rem"
         },
         "XLarge": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 64,
           "$unit": "px",
           "group": "cds-layout",
@@ -43,7 +43,7 @@
           "cds-original-value": "4rem"
         },
         "2XLarge": {
-          "$type": "size",
+          "$type": "dimension",
           "$value": 80,
           "$unit": "px",
           "group": "cds-layout",
