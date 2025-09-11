@@ -237,8 +237,6 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     requestAnimationFrame(() => {
       dropdownCloseCallback?.();
 
-      console.log(column.thContextMenuToggleElement);
-
       column.thContextMenuToggleElement?.focus();
     });
   }
