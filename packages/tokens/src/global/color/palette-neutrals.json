@@ -33,7 +33,7 @@
       },
       "neutral-100": {
         "$type": "color",
-        "$value": "#f1f2f3",
+        "$value": "{carbon.color.coolGray.10}",
         "group": "palette"
       },
       "neutral-50": {
@@ -42,8 +42,7 @@
         "group": "palette"
       },
       "neutral-0": {
-        "$type": "color",
-        "$value": "#ffffff",
+        "$value": "{carbon.color.white.0}",
         "group": "palette"
       },
       "alpha-300": {

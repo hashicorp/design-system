@@ -15,9 +15,7 @@
       },
       "padding": {
         "horizontal": {
-          "$type": "dimension",
-          "$value": "16",
-          "unit": "px"
+          "$value": "{carbon.layout.size.XSmall}"
         },
         "vertical": {
           "$type": "dimension",
