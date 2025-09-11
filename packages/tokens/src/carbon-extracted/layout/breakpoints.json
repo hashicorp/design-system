@@ -8,7 +8,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "20rem"
+          "cds-original-value": "20rem"
         },
         "md": {
           "$type": "size",
@@ -16,7 +16,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "42rem"
+          "cds-original-value": "42rem"
         },
         "lg": {
           "$type": "size",
@@ -24,7 +24,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "66rem"
+          "cds-original-value": "66rem"
         },
         "xlg": {
           "$type": "size",
@@ -32,7 +32,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "82rem"
+          "cds-original-value": "82rem"
         },
         "max": {
           "$type": "size",
@@ -40,7 +40,7 @@
           "$unit": "px",
           "group": "cds-layout",
           "private": true,
-          "original": "99rem"
+          "cds-original-value": "99rem"
         }
       }
     }

@@ -7,14 +7,14 @@
           "$value": 16,
           "group": "cds-layout",
           "private": true,
-          "original": 16
+          "cds-original-value": 16
         },
         "miniUnit": {
           "$type": "number",
           "$value": 8,
           "group": "cds-layout",
           "private": true,
-          "original": 8
+          "cds-original-value": 8
         }
       }
     }

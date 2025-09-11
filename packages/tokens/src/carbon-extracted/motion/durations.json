@@ -9,7 +9,7 @@
             "$unit": "ms",
             "group": "cds-motion",
             "private": true,
-            "original": "400ms"
+            "cds-original-value": "400ms"
           },
           "02": {
             "$type": "duration",
@@ -17,7 +17,7 @@
             "$unit": "ms",
             "group": "cds-motion",
             "private": true,
-            "original": "700ms"
+            "cds-original-value": "700ms"
           }
         },
         "moderate": {
@@ -27,7 +27,7 @@
             "$unit": "ms",
             "group": "cds-motion",
             "private": true,
-            "original": "150ms"
+            "cds-original-value": "150ms"
           },
           "02": {
             "$type": "duration",
@@ -35,7 +35,7 @@
             "$unit": "ms",
             "group": "cds-motion",
             "private": true,
-            "original": "240ms"
+            "cds-original-value": "240ms"
           }
         },
         "fast": {
@@ -45,7 +45,7 @@
             "$unit": "ms",
             "group": "cds-motion",
             "private": true,
-            "original": "70ms"
+            "cds-original-value": "70ms"
           },
           "02": {
             "$type": "duration",
@@ -53,7 +53,7 @@
             "$unit": "ms",
             "group": "cds-motion",
             "private": true,
-            "original": "110ms"
+            "cds-original-value": "110ms"
           }
         }
       }
