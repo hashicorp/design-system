@@ -26,7 +26,6 @@ const SubSectionDismiss: TemplateOnlyComponent = <template>
       <HdsAlert
         @type="inline"
         @color="neutral"
-        {{! TODO: understand if we can use a generic helper - see https://hashicorp.slack.com/archives/C11JCBJTW/p1648751235987409 }}
         @onDismiss={{NOOP}}
         as |A|
       >
