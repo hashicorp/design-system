@@ -10,9 +10,11 @@ import { HdsTable } from '@hashicorp/design-system-components/components';
 import type { HdsTableSignature } from '@hashicorp/design-system-components/components/hds/table/index';
 
 export interface CodeFragmentWithMusicDataSignature {
-  Args: HdsTableSignature['Args'] & {
+  Args: {
     showVinylCost?: boolean;
     rightAlignYear?: boolean;
+    columns: HdsTableSignature['Args']['columns'];
+    sortBy?: HdsTableSignature['Args']['sortBy'];
   };
   Element: HTMLDivElement;
 }

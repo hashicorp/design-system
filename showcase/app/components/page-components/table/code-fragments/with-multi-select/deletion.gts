@@ -119,7 +119,7 @@ export default class CodeFragmentWithMultiSelectDeletion extends Component<CodeF
     <div class="shw-component-table-with-pagination-demo-wrapper">
       <CodeFragmentWithUsersData
         @isSelectable={{true}}
-        @dataModel={{this.paginatedData}}
+        @model={{this.paginatedData}}
         @columns={{array
           (hash key="id" label="ID")
           (hash key="name" label="Name")

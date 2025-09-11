@@ -65,7 +65,7 @@ export default class CodeFragmentWithMultiSelectExternalAction extends Component
     <CodeFragmentWithUsersData
       @isSelectable={{true}}
       @onSelectionChange={{this.onSelectionChange}}
-      @dataModel={{this.userData}}
+      @model={{this.userData}}
       @columns={{array
         (hash key="id" label="ID")
         (hash key="name" label="Name")

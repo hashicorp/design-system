@@ -132,18 +132,14 @@ export default class CodeFragmentWithMultiSelectFilter extends Component<CodeFra
             selectAllState;
         });
       } else {
-        const modelDataMap: Map<string, SelectableItem> = new Map(
-          this.selectableData.map((modelRow) => [
-            String(modelRow.id),
-            modelRow,
-          ]),
-        );
-
+        const mapSelectionKeyToRowKey = (
+          key: string | number,
+        ): keyof MultiSelectNoModel => {
+          return key as keyof MultiSelectNoModel;
+        };
         selectableRowsStates.forEach((row) => {
-          const record = modelDataMap.get(row.selectionKey) as SelectableItem;
-          if (record) {
-            record.isSelected = row.isSelected ? true : false;
-          }
+          const rowKey = mapSelectionKeyToRowKey(row.selectionKey);
+          this.noModelState[rowKey] = row.isSelected ? true : false;
         });
       }
     }
@@ -178,7 +174,7 @@ export default class CodeFragmentWithMultiSelectFilter extends Component<CodeFra
         <CodeFragmentWithSelectableData
           @isSelectable={{true}}
           @onSelectionChange={{this.onSelectionChangeWithModel}}
-          @dataModel={{this.filteredData}}
+          @model={{this.filteredData}}
           @columns={{array
             (hash key="lorem" label="Row #")
             (hash key="ipsum" label="Ipsum")

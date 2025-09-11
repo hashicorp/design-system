@@ -23,7 +23,6 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
   <ShwTextH4>Width in <code>px</code> + Table-layout = 'auto'</ShwTextH4>
 
   <CodeFragmentWithUsersData
-    @dataSize="medium"
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="200px")
       (hash key="last_name" label="Last Name" isSortable=true width="200px")
@@ -41,7 +40,6 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
       columns having a width declared.</em></ShwTextBody>
 
   <CodeFragmentWithUsersData
-    @dataSize="medium"
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="200px")
       (hash key="last_name" label="Last Name" isSortable=true width="200px")
@@ -55,7 +53,6 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
   <ShwTextH4>Width in <code>%</code> + Table-layout = 'auto'</ShwTextH4>
 
   <CodeFragmentWithUsersData
-    @dataSize="medium"
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="20%")
       (hash key="last_name" label="Last Name" isSortable=true width="20%")
@@ -68,7 +65,6 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
   <ShwTextH4>Width in <code>%</code> + Table-layout = 'fixed'</ShwTextH4>
 
   <CodeFragmentWithUsersData
-    @dataSize="medium"
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true width="20%")
       (hash key="last_name" label="Last Name" isSortable=true width="20%")
