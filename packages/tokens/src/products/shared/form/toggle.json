@@ -60,7 +60,8 @@
           "unit": "s"
         },
         "timing-function": {
-          "$value": "cubic-bezier(0.68, -0.2, 0.265, 1.15)"
+          "$type": "cubicBezier",
+          "$value": [0.68, -0.2, 0.265, 1.15]
         }
       },
       "thumb-size": {
