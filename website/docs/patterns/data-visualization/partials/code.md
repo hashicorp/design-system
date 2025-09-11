@@ -10,7 +10,7 @@ Refer to the [Carbon Charts API docs](https://charts.carbondesignsystem.com/api/
 
 !!!
 
-The Vanilla JavaScript component files can be imported and utilized within Ember to create a customized component for your use case.
+The Vanilla JavaScript component files can be imported and used within Ember applications to create a customized component for your use case.
 
 ```handlebars{data-execute=false}
 import { DonutChart } from '@carbon/charts';
