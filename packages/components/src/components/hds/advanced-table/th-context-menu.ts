@@ -234,7 +234,13 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     column.table.moveColumnToTerminalPosition(column, position);
 
-    dropdownCloseCallback?.();
+    requestAnimationFrame(() => {
+      dropdownCloseCallback?.();
+
+      console.log(column.thContextMenuToggleElement);
+
+      column.thContextMenuToggleElement?.focus();
+    });
   }
 
   private _pinFirstColumn(dropdownCloseCallback: () => void): void {

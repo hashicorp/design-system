@@ -9,6 +9,7 @@
       @text="Additional actions for {{@column.label}}"
       @hasChevron={{false}}
       @size="small"
+      {{this._registerDropdownToggleElement}}
     />
 
     {{#each this._options as |option|}}
