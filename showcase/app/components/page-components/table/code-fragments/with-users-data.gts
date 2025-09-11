@@ -15,21 +15,26 @@ import { HdsTable } from '@hashicorp/design-system-components/components';
 import type { HdsTableSignature } from '@hashicorp/design-system-components/components/hds/table/index';
 
 export interface CodeFragmentWithUsersDataSignature {
-  Args: HdsTableSignature['Args'] & {
+  Args: {
     dataSize?: 'small' | 'medium' | 'large';
-    dataModel?: User[] | UserWithMoreColumns[];
+    model?: User[] | UserWithMoreColumns[];
+    columns: HdsTableSignature['Args']['columns'];
+    isFixedLayout?: HdsTableSignature['Args']['isFixedLayout'];
+    isSelectable?: HdsTableSignature['Args']['isSelectable'];
+    onSelectionChange?: HdsTableSignature['Args']['onSelectionChange'];
   };
   Element: HTMLDivElement;
 }
 
 export default class CodeFragmentWithUsersData extends Component<CodeFragmentWithUsersDataSignature> {
-  get dataModel(): User[] | UserWithMoreColumns[] {
-    if (this.args.dataModel) {
-      return this.args.dataModel;
-    } else if (
-      this.args.dataSize === 'large' ||
-      this.args.dataSize === 'medium'
-    ) {
+  get dataSize(): 'small' | 'medium' | 'large' {
+    return this.args.dataSize ?? 'medium';
+  }
+
+  get model(): User[] | UserWithMoreColumns[] {
+    if (this.args.model) {
+      return this.args.model;
+    } else if (this.dataSize === 'large' || this.dataSize === 'medium') {
       return USERS_WITH_MORE_COLUMNS;
     } else {
       return USERS;
@@ -39,7 +44,7 @@ export default class CodeFragmentWithUsersData extends Component<CodeFragmentWit
   <template>
     <HdsTable
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{this.dataModel}}
+      @model={{this.model}}
       @columns={{@columns}}
       @isFixedLayout={{@isFixedLayout}}
       @isSelectable={{@isSelectable}}
@@ -52,9 +57,9 @@ export default class CodeFragmentWithUsersData extends Component<CodeFragmentWit
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{if B.data.isSelected true false}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
         >
-          {{#if (eq @dataSize "large")}}
+          {{#if (eq this.dataSize "large")}}
             {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.first_name}}</B.Td>
             {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -71,7 +76,7 @@ export default class CodeFragmentWithUsersData extends Component<CodeFragmentWit
             <B.Td>{{B.data.education}}</B.Td>
             {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.occupation}}</B.Td>
-          {{else if (eq @dataSize "medium")}}
+          {{else if (eq this.dataSize "medium")}}
             {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.first_name}}</B.Td>
             {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}

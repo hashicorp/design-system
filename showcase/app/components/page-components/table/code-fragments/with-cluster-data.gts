@@ -16,8 +16,12 @@ import {
 import type { HdsTableSignature } from '@hashicorp/design-system-components/components/hds/table/index';
 
 export interface CodeFragmentWithClusterDataSignature {
-  Args: HdsTableSignature['Args'] & {
+  Args: {
     extraData?: boolean;
+    columns: HdsTableSignature['Args']['columns'];
+    sortBy?: HdsTableSignature['Args']['sortBy'];
+    sortOrder?: HdsTableSignature['Args']['sortOrder'];
+    onSort?: HdsTableSignature['Args']['onSort'];
   };
   Element: HTMLDivElement;
 }

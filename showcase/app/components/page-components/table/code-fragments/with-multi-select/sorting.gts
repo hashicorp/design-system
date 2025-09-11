@@ -124,7 +124,7 @@ export default class CodeFragmentWithMultiSelectSorting extends Component<CodeFr
     <CodeFragmentWithSelectableData
       @selectableColumnKey="isSelected"
       @onSelectionChange={{this.onSelectionChange}}
-      @dataModel={{this.selectableData}}
+      @model={{this.selectableData}}
       @columns={{array
         (hash key="lorem" label="Row #" isSortable=true)
         (hash key="ipsum" label="Ipsum")

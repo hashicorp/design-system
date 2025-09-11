@@ -106,7 +106,7 @@ export default class CodeFragmentWithMultiSelectPagination extends Component<Cod
       <CodeFragmentWithSelectableData
         @isSelectable={{true}}
         @onSelectionChange={{this.onSelectionChange}}
-        @dataModel={{this.paginatedData}}
+        @model={{this.paginatedData}}
         @columns={{array
           (hash key="lorem" label="Row #")
           (hash key="ipsum" label="Ipsum")

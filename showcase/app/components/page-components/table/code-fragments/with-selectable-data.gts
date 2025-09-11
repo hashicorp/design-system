@@ -11,16 +11,20 @@ import { HdsTable } from '@hashicorp/design-system-components/components';
 import type { HdsTableSignature } from '@hashicorp/design-system-components/components/hds/table/index';
 
 export interface CodeFragmentWithSelectableDataSignature {
-  Args: HdsTableSignature['Args'] & {
-    dataModel?: SelectableItem[];
+  Args: {
+    model?: SelectableItem[];
+    columns: HdsTableSignature['Args']['columns'];
+    isSelectable?: HdsTableSignature['Args']['isSelectable'];
+    selectableColumnKey?: HdsTableSignature['Args']['selectableColumnKey'];
+    onSelectionChange?: HdsTableSignature['Args']['onSelectionChange'];
   };
   Element: HTMLDivElement;
 }
 
 export default class CodeFragmentWithSelectableData extends Component<CodeFragmentWithSelectableDataSignature> {
-  get dataModel(): SelectableItem[] {
-    if (this.args.dataModel) {
-      return this.args.dataModel;
+  get model(): SelectableItem[] {
+    if (this.args.model) {
+      return this.args.model;
     } else {
       return SELECTABLE_ITEMS;
     }
@@ -28,12 +32,12 @@ export default class CodeFragmentWithSelectableData extends Component<CodeFragme
 
   <template>
     <HdsTable
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+      @model={{this.model}}
+      @columns={{@columns}}
       @isSelectable={{true}}
       @selectableColumnKey={{@selectableColumnKey}}
       @onSelectionChange={{@onSelectionChange}}
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{this.dataModel}}
-      @columns={{@columns}}
     >
       <:body as |B|>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
