@@ -8,6 +8,7 @@ import style from 'ember-style-modifier/modifiers/style';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
+import ShwDivider from 'showcase/components/shw/divider';
 
 const SubSectionBase: TemplateOnlyComponent = <template>
   <ShwTextH2>Base "focus ring" effect</ShwTextH2>
@@ -37,6 +38,8 @@ const SubSectionBase: TemplateOnlyComponent = <template>
       </div>
     </SF.Item>
   </ShwFlex>
+
+  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionBase;
