@@ -3,7 +3,6 @@ import { array, hash, fn, get } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 import { call } from '@nullvoxpopuli/ember-composable-helpers';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -67,16 +66,14 @@ export default class SubSectionSorting extends Component<SubSectionSortingSignat
     };
   }
 
-  @action
-  demoCustomSortOnSort(_sortBy: string, sortOrder: HdsTableThSortOrder) {
+  demoCustomSortOnSort = (_sortBy: string, sortOrder: HdsTableThSortOrder) => {
     this.demoCustomSort_sortOrder = sortOrder;
-  }
+  };
 
   // CUSTOM SORTING DEMO - YIELDED PROPS TO HEAD
   // Sortable table with custom sorting using yielded `<ThSort>`
 
-  @action
-  onClickThSort(column: string, setSortBy?: (column: string) => void) {
+  onClickThSort = (column: string, setSortBy?: (column: string) => void) => {
     // NOTICE: this code is a direct clone of the internal code of `Hds::Table` backing class
     // we need to keep an internal state of the sorting
     if (this.demoCustonSortYieldHead_sortBy === column) {
@@ -92,7 +89,7 @@ export default class SubSectionSorting extends Component<SubSectionSortingSignat
     if (setSortBy && typeof setSortBy === 'function') {
       setSortBy(column);
     }
-  }
+  };
 
   get demoCustomSortYieldHead_sortedData() {
     const clonedModelClusters = Array.from(CLUSTERS);
@@ -124,15 +121,14 @@ export default class SubSectionSorting extends Component<SubSectionSortingSignat
     return clonedModelClusters;
   }
 
-  @action
-  demoCustomSortYieldHead_extraOnSortCallback() {
+  demoCustomSortYieldHead_extraOnSortCallback = () => {
     console.group(
       'demoCustomSortYieldHead_extraOnSortCallback invoked with arguments:',
     );
     console.log('customSortBy:', this.demoCustonSortYieldHead_sortBy);
     console.log('customSortOrder:', this.demoCustonSortYieldHead_sortOrder);
     console.groupEnd();
-  }
+  };
 
   // CUSTOM SORTING DEMO - YIELDED PROPS TO HEAD + BODY
   // Sortable table with custom sorting using yielded `<ThSort>` + `sortBy/sortOrder/setSortBy` properties

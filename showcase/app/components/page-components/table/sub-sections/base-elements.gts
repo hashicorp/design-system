@@ -4,7 +4,6 @@
 import Component from '@glimmer/component';
 import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
-import { action } from '@ember/object';
 import style from 'ember-style-modifier';
 
 import ShwDivider from 'showcase/components/shw/divider';
@@ -37,10 +36,9 @@ export interface SubSectionBaseElementsSignature {
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 export default class SubSectionBaseElements extends Component<SubSectionBaseElementsSignature> {
-  @action
-  mockIndeterminateState(checkbox: HTMLInputElement) {
+  mockIndeterminateState = (checkbox: HTMLInputElement) => {
     checkbox.indeterminate = true;
-  }
+  };
 
   <template>
     <ShwTextH2>Base elements</ShwTextH2>

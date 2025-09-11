@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { on } from '@ember/modifier';
 import { guidFor } from '@ember/object/internals';
 
@@ -20,21 +19,19 @@ export default class CodeFragmentWithMultiSelectTopbar extends Component<CodeFra
   private _scopeInputId = 'scope-input-' + guidFor(this);
   private _debugInputId = 'debug-input-' + guidFor(this);
 
-  @action
-  onChangeScope(event: Event): void {
+  onChangeScope = (event: Event): void => {
     const { onChangeScope } = this.args;
     if (typeof onChangeScope === 'function') {
       onChangeScope(event);
     }
-  }
+  };
 
-  @action
-  onChangeDebugging(event: Event): void {
+  onChangeDebugging = (event: Event): void => {
     const { onChangeDebugging } = this.args;
     if (typeof onChangeDebugging === 'function') {
       onChangeDebugging(event);
     }
-  }
+  };
 
   <template>
     <div class="shw-component-table-demo-topbar">

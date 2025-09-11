@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { array, hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
-import { action } from '@ember/object';
 import { on } from '@ember/modifier';
 
 import USERS from 'showcase/mocks/user-data';
@@ -41,16 +40,6 @@ export default class CodeFragmentWithMultiSelectDeletion extends Component<CodeF
     });
   };
 
-  @action
-  toggleScope(event: Event) {
-    this.isScopeExtended = (event.target as HTMLInputElement).checked;
-  }
-
-  @action
-  toggleDebugging(event: Event) {
-    this.isDebugging = (event.target as HTMLInputElement).checked;
-  }
-
   get totalItems() {
     return this.userData.length;
   }
@@ -61,24 +50,29 @@ export default class CodeFragmentWithMultiSelectDeletion extends Component<CodeF
     return this.userData.slice(start, end);
   }
 
-  @action
-  onPageChange(page: number) {
-    this.currentPage = page;
-  }
+  toggleScope = (event: Event) => {
+    this.isScopeExtended = (event.target as HTMLInputElement).checked;
+  };
 
-  @action
-  onPageSizeChange(pageSize: number) {
+  toggleDebugging = (event: Event) => {
+    this.isDebugging = (event.target as HTMLInputElement).checked;
+  };
+
+  onPageChange = (page: number) => {
+    this.currentPage = page;
+  };
+
+  onPageSizeChange = (pageSize: number) => {
     // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
     this.currentPage = 1;
     this.currentPageSize = pageSize;
-  }
+  };
 
-  @action
-  onSelectionChange({
+  onSelectionChange = ({
     selectionKey,
     selectionCheckboxElement,
     selectableRowsStates,
-  }: HdsTableOnSelectionChangeSignature) {
+  }: HdsTableOnSelectionChangeSignature) => {
     console.group(
       'CodeFragmentWithMultiSelectDeletion onSelectionChange invoked with arguments:',
     );
@@ -101,13 +95,12 @@ export default class CodeFragmentWithMultiSelectDeletion extends Component<CodeF
         }
       });
     }
-  }
+  };
 
-  @action
-  deleteSelectedUsers() {
+  deleteSelectedUsers = () => {
     const newData = this.userData.filter((user) => !user.isSelected);
     this.userData = [...newData];
-  }
+  };
 
   <template>
     <CodeFragmentWithMultiSelectTopbar

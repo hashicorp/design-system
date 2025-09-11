@@ -3,7 +3,6 @@ import { array, hash, fn } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
-import { action } from '@ember/object';
 
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import SELECTABLE_ITEMS from 'showcase/mocks/selectable-item-data';
@@ -26,11 +25,33 @@ export default class CodeFragmentWithMultiSelectSorting extends Component<CodeFr
   @tracked customSortOrder = 'asc';
   @deepTracked selectableDataNoModel = structuredClone(SELECTABLE_ITEMS);
 
-  @action
-  onSelectionChange({
+  get sortedSelectableData() {
+    const clonedSelectableData = Array.from(this.selectableDataNoModel);
+    clonedSelectableData.sort((s1: SelectableItem, s2: SelectableItem) => {
+      if (this.customSortBy) {
+        const v1 = s1[this.customSortBy];
+        const v2 = s2[this.customSortBy];
+        if (v1 < v2) {
+          return this.customSortOrder === 'asc' ? -1 : 1;
+        }
+        if (v1 > v2) {
+          return this.customSortOrder === 'asc' ? 1 : -1;
+        }
+      }
+      return 0;
+    });
+    return clonedSelectableData;
+  }
+
+  customOnSort = (sortBy: string, sortOrder: string) => {
+    this.customSortBy = sortBy as keyof SelectableItem;
+    this.customSortOrder = sortOrder;
+  };
+
+  onSelectionChange = ({
     selectionKey,
     selectionCheckboxElement,
-  }: HdsTableOnSelectionChangeSignature) {
+  }: HdsTableOnSelectionChangeSignature) => {
     console.group(
       'CodeFragmentWithMultiSelectSorting onSelectionChange invoked with arguments:',
     );
@@ -52,37 +73,12 @@ export default class CodeFragmentWithMultiSelectSorting extends Component<CodeFr
         }
       }
     }
-  }
+  };
 
-  get sortedSelectableData() {
-    const clonedSelectableData = Array.from(this.selectableDataNoModel);
-    clonedSelectableData.sort((s1: SelectableItem, s2: SelectableItem) => {
-      if (this.customSortBy) {
-        const v1 = s1[this.customSortBy];
-        const v2 = s2[this.customSortBy];
-        if (v1 < v2) {
-          return this.customSortOrder === 'asc' ? -1 : 1;
-        }
-        if (v1 > v2) {
-          return this.customSortOrder === 'asc' ? 1 : -1;
-        }
-      }
-      return 0;
-    });
-    return clonedSelectableData;
-  }
-
-  @action
-  customOnSort(sortBy: string, sortOrder: string) {
-    this.customSortBy = sortBy as keyof SelectableItem;
-    this.customSortOrder = sortOrder;
-  }
-
-  @action
-  onSelectionChangeNoModel({
+  onSelectionChangeNoModel = ({
     selectionKey,
     selectionCheckboxElement,
-  }: HdsTableOnSelectionChangeSignature) {
+  }: HdsTableOnSelectionChangeSignature) => {
     console.group(
       'CodeFragmentWithMultiSelectSorting onSelectionChangeNoModel invoked with arguments:',
     );
@@ -104,15 +100,14 @@ export default class CodeFragmentWithMultiSelectSorting extends Component<CodeFr
         }
       }
     }
-  }
+  };
 
-  @action
-  onSelectionChangeLogArguments({
+  onSelectionChangeLogArguments = ({
     selectionKey,
     selectionCheckboxElement,
     selectableRowsStates,
     selectedRowsKeys,
-  }: HdsTableOnSelectionChangeSignature) {
+  }: HdsTableOnSelectionChangeSignature) => {
     console.group(
       'CodeFragmentWithMultiSelectSorting onSelectionChangeLogArguments invoked with arguments:',
     );
@@ -121,7 +116,7 @@ export default class CodeFragmentWithMultiSelectSorting extends Component<CodeFr
     console.log('Selectable Rows States:', selectableRowsStates);
     console.log('Selected Rows Keys:', selectedRowsKeys);
     console.groupEnd();
-  }
+  };
 
   <template>
     <ShwTextH4 @tag="h3">Sortable table with sorting by selected item</ShwTextH4>

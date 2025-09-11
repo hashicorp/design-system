@@ -24,9 +24,9 @@ export interface CodeFragmentWithClusterDataSignature {
 
 const CUSTOM_SORTING_CRITERIA = [
   'failing',
-  'pending',
-  'establishing',
   'active',
+  'establishing',
+  'pending',
 ];
 
 const CLUSTERS_WITH_EXTRA_DATA = CLUSTERS.map((record) => {
