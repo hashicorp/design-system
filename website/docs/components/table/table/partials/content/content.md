@@ -1,0 +1,1 @@
+For general content recommendations, refer to our [Tables content guidelines](/content/components/tables) documentation.

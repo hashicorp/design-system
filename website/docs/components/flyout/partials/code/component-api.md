@@ -36,7 +36,7 @@
 
 !!! Warning
 
-The previous `Flyout::Header`, `Flyout::Description`, `Flyout::Body`, and `Flyout::Footer` subcomponents are now deprecated. View details in the [version history](/components/flyout?tab=version-history) on how to migrate to the equivalent [DialogPrimitive](/utilities/dialog-primitive?tab=code#component-api) subcomponents.
+The previous `Flyout::Header`, `Flyout::Description`, `Flyout::Body`, and `Flyout::Footer` subcomponents are now deprecated. View details in the [version history](/components/flyout?tab=version%20history) on how to migrate to the equivalent [DialogPrimitive](/utilities/dialog-primitive?tab=code#component-api) subcomponents.
 
 !!!
 

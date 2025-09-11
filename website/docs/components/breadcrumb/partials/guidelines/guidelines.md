@@ -146,7 +146,7 @@ We offer various options for truncation due to depth or lack of space.
 
 ### Width-based
 
-Each text-based item can truncate using a pixel-based max-width. We recommend this option for items with long text strings. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
+Each text-based item can truncate using a pixel-based max-width. We recommend this option for items with long text strings. Please be aware there are [serious accessibility concerns](/components/breadcrumb?tab=accessibility) with using this feature.
 
 <Hds::Breadcrumb @itemsCanWrap={{false}} aria-label="breadcrumb width based">
   <Hds::Breadcrumb::Item @text="Level one" />

@@ -39,7 +39,7 @@
 
 !!! Warning
 
-The previous `Modal::Header`, `Modal::Body`, and `Modal::Footer` subcomponents are now deprecated. View details in the [version history](/components/modal?tab=version-history) on how to migrate to the equivalent [DialogPrimitive](/utilities/dialog-primitive?tab=code#component-api) subcomponents.
+The previous `Modal::Header`, `Modal::Body`, and `Modal::Footer` subcomponents are now deprecated. View details in the [version history](/components/modal?tab=version%20history) on how to migrate to the equivalent [DialogPrimitive](/utilities/dialog-primitive?tab=code#component-api) subcomponents.
 
 !!!
 

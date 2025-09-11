@@ -8,17 +8,17 @@ import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | content/writing-guidelines', function (hooks) {
+module('Acceptance | content/components/tables', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /content/writing-guidelines', async function (assert) {
-    await visit('/content/writing-guidelines');
+  test('visiting /content/components/tables', async function (assert) {
+    await visit('/content/components/tables');
 
-    assert.strictEqual(currentURL(), '/content/writing-guidelines');
+    assert.strictEqual(currentURL(), '/content/components/tables');
   });
 
-  test('content/writing-guidelines page passes automated a11y checks', async function (assert) {
-    await visit('/content/writing-guidelines');
+  test('content/components/tables page passes automated a11y checks', async function (assert) {
+    await visit('/content/components/tables');
 
     await a11yAudit();
 
