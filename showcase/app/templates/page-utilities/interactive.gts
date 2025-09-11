@@ -6,8 +6,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import InteractiveIndex from 'showcase/components/page-utilities/interactive';
 
-const PageComponentsInteractive: TemplateOnlyComponent = <template>
+const PageUtilitiesInteractive: TemplateOnlyComponent = <template>
   <InteractiveIndex />
 </template>;
 
-export default PageComponentsInteractive;
+export default PageUtilitiesInteractive;
