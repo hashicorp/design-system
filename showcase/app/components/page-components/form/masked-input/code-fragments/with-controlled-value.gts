@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { and } from 'ember-truth-helpers';
 import { hash } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
@@ -36,7 +35,7 @@ export interface CodeFragmentWithControlledValueSignature {
 
 export default class CodeFragmentWithControlledValue extends Component<CodeFragmentWithControlledValueSignature> {
   @tracked value = this.args.value ?? '';
-  @tracked isInvalid = false;
+  @tracked isInvalid = true;
 
   updateValue = (event: Event) => {
     const { value } = event.target as HTMLInputElement;
@@ -50,6 +49,7 @@ export default class CodeFragmentWithControlledValue extends Component<CodeFragm
   get hasValidation() {
     return this.args.hasValidation ?? false;
   }
+
   <template>
     <HdsFormMaskedInputField
       @value={{this.value}}
@@ -60,9 +60,11 @@ export default class CodeFragmentWithControlledValue extends Component<CodeFragm
       as |F|
     >
       <F.Label>This is the label text</F.Label>
-      {{#if (and this.hasValidation this.isInvalid)}}
+      {{#if this.hasValidation}}
         <F.CharacterCount @maxLength={{20}} />
-        <F.Error>Maximum numbers of characters exceeded</F.Error>
+        {{#if this.isInvalid}}
+          <F.Error>Maximum numbers of characters exceeded</F.Error>
+        {{/if}}
       {{else}}
         {{yield
           (hash

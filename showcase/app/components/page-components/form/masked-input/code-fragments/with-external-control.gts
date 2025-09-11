@@ -23,7 +23,7 @@ export default class CodeFragmentWithExternalControl extends Component<CodeFragm
   };
 
   <template>
-    <div class="shw-component-form-masked-input-controls" ...attributes>
+    <div class="shw-component-form-masked-input-controls">
       <HdsFormCheckboxField
         name="toggle-visibility"
         checked={{this.isContentMasked}}
