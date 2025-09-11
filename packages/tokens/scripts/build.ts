@@ -39,7 +39,7 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'font-family',
+  name: 'typography/font-family',
   type: 'value',
   transitive: true,
   filter: function (token: DesignToken) {
@@ -63,7 +63,7 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'font-size/to-rem',
+  name: 'typography/font-size/to-rem',
   type: 'value',
   filter: function (token: DesignToken) {
     // notice: we don't use `fontSize` as `$type` because is handled internally in Style Dictionary
@@ -87,7 +87,7 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'font-size/to-px',
+  name: 'typography/font-size/to-px',
   type: 'value',
   filter: function (token: DesignToken) {
     // notice: we don't use `fontSize` as `$type` because is handled internally in Style Dictionary
@@ -107,6 +107,22 @@ StyleDictionary.registerTransform({
     } else {
       return `${val}px`;
     }
+  }
+});
+
+StyleDictionary.registerTransform({
+  name: 'typography/letter-spacing',
+  type: 'value',
+  filter: function (token: DesignToken) {
+    // notice: we don't use `letterSpacing` as `$type` because is handled internally in Style Dictionary
+    return token.$type === 'letter-spacing';
+  },
+  transform: (token: DesignToken, platform: Platform) => {
+    const val = parseFloat(token.$value);
+    if (isNaN(val)) {
+      console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot use it as typography/letter-spacing.\n`);
+    }
+    return `${token.$value}${token.unit}`;
   }
 });
 
@@ -169,18 +185,18 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web',
-  transforms: ['name/kebab', 'font-family', 'font-size/to-rem', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
-  transforms: ['name/kebab', 'font-family', 'font-size/to-px', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
-  transforms: ['name/kebab', 'font-family', 'font-size/to-rem', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
 });
 
 StyleDictionary.registerFormat({
