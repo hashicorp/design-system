@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { array, hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
-import { action } from '@ember/object';
 
 import CodeFragmentsWithMultiSelectTopbar from './topbar';
 import CodeFragmentWithSelectableData from '../with-selectable-data';
@@ -46,24 +45,21 @@ export default class CodeFragmentWithMultiSelectPagination extends Component<Cod
     return this.selectableData.slice(start, end);
   }
 
-  @action
-  onPageChange(page: number) {
+  onPageChange = (page: number) => {
     this.currentPage = page;
-  }
+  };
 
-  @action
-  onPageSizeChange(pageSize: number) {
+  onPageSizeChange = (pageSize: number) => {
     // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
     this.currentPage = 1;
     this.currentPageSize = pageSize;
-  }
+  };
 
-  @action
-  onSelectionChange({
+  onSelectionChange = ({
     selectionKey,
     selectionCheckboxElement,
     selectableRowsStates,
-  }: HdsTableOnSelectionChangeSignature) {
+  }: HdsTableOnSelectionChangeSignature) => {
     console.group(
       'CodeFragmentWithMultiSelectPagination onSelectionChange invoked with arguments:',
     );
@@ -88,17 +84,15 @@ export default class CodeFragmentWithMultiSelectPagination extends Component<Cod
         }
       });
     }
-  }
+  };
 
-  @action
-  toggleScope(event: Event) {
+  toggleScope = (event: Event) => {
     this.isScopeExtended = (event.target as HTMLInputElement).checked;
-  }
+  };
 
-  @action
-  toggleDebugging(event: Event) {
+  toggleDebugging = (event: Event) => {
     this.isDebugging = (event.target as HTMLInputElement).checked;
-  }
+  };
 
   <template>
     <CodeFragmentsWithMultiSelectTopbar

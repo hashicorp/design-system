@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { array, hash } from '@ember/helper';
-import { action } from '@ember/object';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
@@ -25,13 +24,12 @@ export interface SubSectionMultiSelectSignature {
 }
 
 export default class SubSectionMultiSelect extends Component<SubSectionMultiSelectSignature> {
-  @action
-  onSelectionChangeLogArguments({
+  onSelectionChangeLogArguments = ({
     selectionKey,
     selectionCheckboxElement,
     selectableRowsStates,
     selectedRowsKeys,
-  }: HdsTableOnSelectionChangeSignature) {
+  }: HdsTableOnSelectionChangeSignature) => {
     console.group(
       'SubSectionMultiSelect onSelectionChangeLogArguments invoked with arguments:',
     );
@@ -40,7 +38,7 @@ export default class SubSectionMultiSelect extends Component<SubSectionMultiSele
     console.log('Selectable Rows States:', selectableRowsStates);
     console.log('Selected Rows Keys:', selectedRowsKeys);
     console.groupEnd();
-  }
+  };
 
   <template>
     <ShwTextH2>Multi-select</ShwTextH2>

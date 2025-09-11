@@ -3,7 +3,6 @@ import { array, hash, get } from '@ember/helper';
 import { eq, not } from 'ember-truth-helpers';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
-import { action } from '@ember/object';
 import { on } from '@ember/modifier';
 
 import ShwFlex from 'showcase/components/shw/flex';
@@ -64,27 +63,23 @@ export default class CodeFragmentWithMultiSelectFilter extends Component<CodeFra
     }
   }
 
-  @action
-  toggleScope(event: Event) {
+  toggleScope = (event: Event) => {
     this.isScopeExtended = (event.target as HTMLInputElement).checked;
-  }
+  };
 
-  @action
-  toggleDebugging(event: Event) {
+  toggleDebugging = (event: Event) => {
     this.isDebugging = (event.target as HTMLInputElement).checked;
-  }
+  };
 
-  @action
-  onChangeMultiSelectFilter(event: Event) {
+  onChangeMultiSelectFilter = (event: Event) => {
     this.filterRows = (event.target as HTMLInputElement).value;
-  }
+  };
 
-  @action
-  onSelectionChangeWithModel({
+  onSelectionChangeWithModel = ({
     selectionKey,
     selectionCheckboxElement,
     selectableRowsStates,
-  }: HdsTableOnSelectionChangeSignature) {
+  }: HdsTableOnSelectionChangeSignature) => {
     console.group(
       'CodeFragmentWithMultiSelectFilter onSelectionChangeWithModel invoked with arguments:',
     );
@@ -109,14 +104,13 @@ export default class CodeFragmentWithMultiSelectFilter extends Component<CodeFra
         }
       });
     }
-  }
+  };
 
-  @action
-  onSelectionChangeWithoutModel({
+  onSelectionChangeWithoutModel = ({
     selectionKey,
     selectionCheckboxElement,
     selectableRowsStates,
-  }: HdsTableOnSelectionChangeSignature) {
+  }: HdsTableOnSelectionChangeSignature) => {
     console.group(
       'CodeFragmentWithMultiSelectFilter onSelectionChangeWithoutModel invoked with arguments:',
     );
@@ -153,7 +147,7 @@ export default class CodeFragmentWithMultiSelectFilter extends Component<CodeFra
         });
       }
     }
-  }
+  };
 
   <template>
     <CodeFragmentWithMultiSelectTopbar

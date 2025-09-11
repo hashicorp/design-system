@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { array, hash } from '@ember/helper';
 import { deepTracked } from 'ember-deep-tracked';
-import { action } from '@ember/object';
 import { on } from '@ember/modifier';
 import { later } from '@ember/runloop';
 
@@ -23,8 +22,9 @@ export default class CodeFragmentWithMultiSelectExternalAction extends Component
     isAnimated: false,
   }));
 
-  @action
-  onSelectionChange({ selectedRowsKeys }: HdsTableOnSelectionChangeSignature) {
+  onSelectionChange = ({
+    selectedRowsKeys,
+  }: HdsTableOnSelectionChangeSignature) => {
     console.group(
       'CodeFragmentWithMultiSelectExternalAction onSelectionChange invoked with arguments:',
     );
@@ -33,10 +33,9 @@ export default class CodeFragmentWithMultiSelectExternalAction extends Component
     this.userData.forEach((user) => {
       user.isSelected = selectedRowsKeys.includes(String(user.id));
     });
-  }
+  };
 
-  @action
-  animateSelectedUsers() {
+  animateSelectedUsers = () => {
     this.userData.forEach((user) => {
       user.isAnimated = user.isSelected ? user.isSelected : false;
     });
@@ -44,14 +43,13 @@ export default class CodeFragmentWithMultiSelectExternalAction extends Component
     later(() => {
       this.resetUserAnimation();
     }, 5000);
-  }
+  };
 
-  @action
-  resetUserAnimation() {
+  resetUserAnimation = () => {
     this.userData.forEach((user) => {
       user.isAnimated = false;
     });
-  }
+  };
 
   <template>
     <div class="shw-component-table-demo-topbar">
