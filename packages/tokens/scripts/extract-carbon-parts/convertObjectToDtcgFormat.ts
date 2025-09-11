@@ -49,14 +49,19 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
           };
         case 'duration':
           const convertedDurationValue = convertDurationValue(value);
-          return {
-            '$type': 'duration',
-            '$value': convertedDurationValue.$value,
-            '$unit': convertedDurationValue.$unit,
-            'group': group || 'cds-undefined-duration',
-            'private': true,
-            'original': value
-          };
+          if (convertedDurationValue !== undefined) {
+            return {
+              '$type': 'duration',
+              '$value': convertedDurationValue.$value,
+              '$unit': convertedDurationValue.$unit,
+              'group': group || 'cds-undefined-duration',
+              'private': true,
+              'original': value
+            };
+          } else {
+            const unknownDurationToken = returnUnknownToken(value, '🚨 convertDurationValue: value is not in the expected format:');
+            return unknownDurationToken;
+          }
         case 'number':
           return {
             '$type': 'number',
@@ -67,14 +72,19 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
           };
         case 'size':
           const convertedSizeValue = convertSizeValue(value);
-          return {
-            '$type': 'size',
-            '$value': convertedSizeValue.$value,
-            '$unit': convertedSizeValue.$unit,
-            'group': group || 'cds-undefined-size',
-            'private': true,
-            'original': value
-          };
+          if (convertedSizeValue !== undefined) {
+            return {
+              '$type': 'size',
+              '$value': convertedSizeValue.$value,
+              '$unit': convertedSizeValue.$unit,
+              'group': group || 'cds-undefined-size',
+              'private': true,
+              'original': value
+            };
+          } else {
+            const unknownSizeToken = returnUnknownToken(value, `🚨 convertSizeValue: value is not in the expected format:`);
+            return unknownSizeToken;
+          }
         default:
           return {
             '$type': 'unknown',
@@ -85,15 +95,8 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
           };
         }
       } else {
-        const returnValue = JSON.stringify(value, null, 2);
-        console.error(`🚨 convertObjectToDtcgFormat > recursivelyProcessObject: found key "${key}" with value of type "${typeof value}", not sure how to process it, will be converted to JSON.string: ${returnValue}.\n`);
-        return {
-          '$type': 'unknown',
-          '$value': returnValue,
-          'group': group || 'cds-unknown-token',
-          'private': true,
-          'original': value
-        };
+        const unknownToken = returnUnknownToken(value, `🚨 convertObjectToDtcgFormat > recursivelyProcessObject: found key "${key}" with value of type "${typeof value}", not sure how to process it, will be converted to JSON.string:`);
+        return unknownToken;
     }
   }
 }
@@ -105,12 +108,11 @@ function convertDurationValue(value: string) {
     const $unit = match[2];
     return { $value, $unit };
   } else {
-    console.error(`🚨 convertDurationValue: value "${value}" is not in the expected format.\n`);
-    return { $value: '0', $unit: 's' };
+    return undefined;
   }
 }
 
-function convertSizeValue(value: string | 0) {
+function convertSizeValue(value: string | number) {
   if (typeof value === 'string') {
     const match = value.match(/^([\d\.]+)(px|rem)$/);
     if (match) {
@@ -125,15 +127,27 @@ function convertSizeValue(value: string | 0) {
       }
       return { $value: returnValue, $unit: 'px' };
     } else {
-      console.error(`🚨 convertSizeValue / string: value "${value}" is not in the expected format.\n`);
-      return { $value: '0', $unit: 'px' };
+      return undefined;
     }
   } else if (typeof value === 'number') {
     if (value === 0) {
       return { $value: 0, $unit: 'px' };
     } else {
-      console.error(`🚨 convertSizeValue / number: value "${value}" is a non-zero number (units unknown).\n`);
+      return undefined;
     }
+  } else {
+    return undefined;
   }
 }
 
+function returnUnknownToken(value: unknown, error: string) {
+  const returnValue = JSON.stringify(value, null, 2);
+  console.error(`${error} ${returnValue}.\n`);
+  return {
+    '$type': 'unknown',
+    '$value': returnValue,
+    'group': 'cds-unknown-token',
+    'private': true,
+    'original': value
+  };
+}
