@@ -60,7 +60,9 @@
           "$value": [0.5, 1, 0.89, 1]
         },
         "duration": {
-          "$value": "{carbon.motion.duration.slow.02}"
+          "$type": "duration",
+          "$value": "0.6",
+          "unit": "s"
         }
       }
     },

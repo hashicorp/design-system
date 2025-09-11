@@ -41,7 +41,7 @@ $token-color-palette-neutral-500: #656a76;
 $token-color-palette-neutral-400: #8c909c;
 $token-color-palette-neutral-300: #c2c5cb;
 $token-color-palette-neutral-200: #dedfe3;
-$token-color-palette-neutral-100: #f2f4f8;
+$token-color-palette-neutral-100: #f1f2f3;
 $token-color-palette-neutral-50: #fafafa;
 $token-color-palette-neutral-0: #ffffff;
 $token-color-palette-alpha-300: #3b3d4566;
@@ -83,9 +83,9 @@ $token-color-page-primary: #ffffff;
 $token-color-page-faint: #fafafa;
 $token-color-surface-primary: #ffffff;
 $token-color-surface-faint: #fafafa;
-$token-color-surface-strong: #f2f4f8;
+$token-color-surface-strong: #f1f2f3;
 $token-color-surface-interactive: #ffffff;
-$token-color-surface-interactive-hover: #f2f4f8;
+$token-color-surface-interactive-hover: #f1f2f3;
 $token-color-surface-interactive-active: #dedfe3;
 $token-color-surface-interactive-disabled: #fafafa;
 $token-color-surface-action: #f2f8ff;
@@ -194,45 +194,45 @@ $token-surface-higher-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a
 $token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
 $token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
 $token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
-$token-typography-font-stack-display: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-$token-typography-font-stack-text: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-$token-typography-font-stack-code: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace;
-$token-typography-font-weight-regular: 300;
-$token-typography-font-weight-medium: 400;
+$token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-font-stack-code: ui-monospace, Menlo, Consolas, monospace;
+$token-typography-font-weight-regular: 400;
+$token-typography-font-weight-medium: 500;
 $token-typography-font-weight-semibold: 600;
-$token-typography-font-weight-bold: 600;
-$token-typography-display-500-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-font-weight-bold: 700;
+$token-typography-display-500-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-500-font-size: 30px; // 30px/1.875rem
 $token-typography-display-500-line-height: 1.2666; // 38px
-$token-typography-display-400-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-display-400-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-400-font-size: 24px; // 24px/1.5rem
 $token-typography-display-400-line-height: 1.3333; // 32px
-$token-typography-display-300-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-display-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-300-font-size: 18px; // 18px/1.125rem
 $token-typography-display-300-line-height: 1.3333; // 24px
 $token-typography-display-300-letter-spacing: -0.5px; // this is `tracking`
-$token-typography-display-200-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-display-200-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-200-font-size: 16px; // 16px/1rem
 $token-typography-display-200-line-height: 1.5; // 24px
 $token-typography-display-200-letter-spacing: -0.5px; // this is `tracking`
-$token-typography-display-100-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-display-100-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-100-font-size: 13px; // 13px/0.8125rem
 $token-typography-display-100-line-height: 1.3846; // 18px
-$token-typography-body-300-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-body-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-body-300-font-size: 16px; // 16px/1rem
 $token-typography-body-300-line-height: 1.5; // 24px
-$token-typography-body-200-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-body-200-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-body-200-font-size: 14px; // 14px/0.875rem
 $token-typography-body-200-line-height: 1.4286; // 20px
-$token-typography-body-100-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+$token-typography-body-100-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-body-100-font-size: 13px; // 13px/0.8125rem
 $token-typography-body-100-line-height: 1.3846; // 18px
-$token-typography-code-100-font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace;
+$token-typography-code-100-font-family: ui-monospace, Menlo, Consolas, monospace;
 $token-typography-code-100-font-size: 13px; // 13px/0.8125rem
 $token-typography-code-100-line-height: 1.23; // 16px
-$token-typography-code-200-font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace;
+$token-typography-code-200-font-family: ui-monospace, Menlo, Consolas, monospace;
 $token-typography-code-200-font-size: 14px; // 14px/0.875rem
 $token-typography-code-200-line-height: 1.125; // 18px
-$token-typography-code-300-font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace;
+$token-typography-code-300-font-family: ui-monospace, Menlo, Consolas, monospace;
 $token-typography-code-300-font-size: 16px; // 16px/1rem
 $token-typography-code-300-line-height: 1.25; // 20px

@@ -34,9 +34,9 @@
 .hds-page-faint { background-color: #fafafa; }
 .hds-surface-primary { background-color: #ffffff; }
 .hds-surface-faint { background-color: #fafafa; }
-.hds-surface-strong { background-color: #f2f4f8; }
+.hds-surface-strong { background-color: #f1f2f3; }
 .hds-surface-interactive { background-color: #ffffff; }
-.hds-surface-interactive-hover { background-color: #f2f4f8; }
+.hds-surface-interactive-hover { background-color: #f1f2f3; }
 .hds-surface-interactive-active { background-color: #dedfe3; }
 .hds-surface-interactive-disabled { background-color: #fafafa; }
 .hds-surface-action { background-color: #f2f8ff; }
