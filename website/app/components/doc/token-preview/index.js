@@ -18,26 +18,37 @@ export default class DocTokenPreviewComponent extends Component {
   }
 
   get colorPreviewStyle() {
-    const isColor =
-      this.token.$value.startsWith('#') || this.token.$value.startsWith('rgb');
-    return isColor
-      ? htmlSafe(`background-color: ${this.token.$value}`)
-      : undefined;
+    if (
+      // token values may be numbers
+      typeof this.token.$value === 'string' &&
+      // check that is a known color format
+      (this.token.$value.startsWith('#') || this.token.$value.startsWith('rgb'))
+    ) {
+      return htmlSafe(`background-color: ${this.token.$value}`);
+    } else {
+      return undefined;
+    }
   }
 
   get backgroundImagePreviewStyle() {
-    const isBackgroundImage = this.token.$value.match(/url\("data:image\//);
-    let backgroundColor;
-    if (this.token.$value.match(/fill='%23f{3,6}'/i)) {
-      backgroundColor = 'rgb(0 0 0 / 15%)';
+    if (
+      // token values may be numbers
+      typeof this.token.$value === 'string' &&
+      // check that is a background image
+      this.token.$value.match(/url\("data:image\//)
+    ) {
+      let backgroundColor;
+      if (this.token.$value.match(/fill='%23f{3,6}'/i)) {
+        backgroundColor = 'rgb(0 0 0 / 15%)';
+      } else {
+        backgroundColor = 'transparent';
+      }
+      return htmlSafe(
+        `background-image: ${this.token.$value}; background-color: ${backgroundColor}`,
+      );
     } else {
-      backgroundColor = 'transparent';
+      return undefined;
     }
-    return isBackgroundImage
-      ? htmlSafe(
-          `background-image: ${this.token.$value}; background-color: ${backgroundColor}`,
-        )
-      : undefined;
   }
 
   get fontPreviewStyle() {
@@ -61,11 +72,17 @@ export default class DocTokenPreviewComponent extends Component {
   }
 
   get sizePreviewStyle() {
-    const isSize =
-      this.token.$type === 'dimension' && this.token.$value.endsWith('px');
-    return isSize
-      ? htmlSafe(`--token-value-height: ${this.token.$value}`)
-      : undefined;
+    if (
+      // token values may be numbers
+      typeof this.token.$value === 'string' &&
+      // check that is a size (dimension)
+      this.token.$type === 'dimension' &&
+      this.token.$value.endsWith('px')
+    ) {
+      return htmlSafe(`--token-value-height: ${this.token.$value}`);
+    } else {
+      return undefined;
+    }
   }
 
   get boxShadowPreviewStyle() {

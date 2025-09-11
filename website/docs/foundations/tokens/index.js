@@ -52,8 +52,9 @@ export default class Index extends Component {
         const filteredTokens = this.groupedTokens[category].filter(
           (t) =>
             t.name.indexOf(this.searchQuery) !== -1 ||
-            // note: we prefix `type` and `value` with `$` because we're using the DTCG format
-            t.$value.indexOf(this.searchQuery) !== -1
+            // note: we prefix `value` with `$` because we're using the DTCG format
+            // we also convert it to string, because in some cases it's a number
+            String(t.$value).indexOf(this.searchQuery) !== -1
         );
 
         if (filteredTokens.length > 0) {
