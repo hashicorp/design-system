@@ -18,7 +18,7 @@ export interface CodeFragmentWithGenericDialogContentSignature {
 
 const CodeFragmentWithGenericDialogContent: TemplateOnlyComponent<CodeFragmentWithGenericDialogContentSignature> =
   <template>
-    <div class="shw-component-copy-button-demo-container" ...attributes>
+    <div class="shw-component-copy-button-demo-container">
       <p class="shw-text-h4">With HDS components</p>
       <p class="shw-text-body">Input</p>
       <div class="shw-component-copy-button-demo-flex-container">

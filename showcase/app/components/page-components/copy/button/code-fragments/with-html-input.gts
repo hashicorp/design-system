@@ -51,7 +51,7 @@ export default class CodeFragmentWithHtmlInput extends Component<CodeFragmentWit
   id = guidFor(this);
 
   <template>
-    <div class="shw-component-copy-button-flex-container" ...attributes>
+    <div class="shw-component-copy-button-flex-container">
       <div>
         <label for={{this.id}} class="sr-only">
           {{capitalize @inputComponent}}

@@ -36,7 +36,6 @@ export default class CodeFragmentWithModal extends Component<CodeFragmentWithMod
     <HdsButton
       @color="secondary"
       @text="Open modal"
-      ...attributes
       {{on "click" this.openModal}}
     />
     {{#if this.isModalOpen}}

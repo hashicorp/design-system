@@ -35,7 +35,7 @@ const mapNumberToString: Record<number, string> = {
 
 const CodeFragmentWithPlaceholderContent: TemplateOnlyComponent<CodeFragmentWithPlaceholderContentSignature> =
   <template>
-    <HdsAccordion @type={{@type}} @titleTag={{@titleTag}} ...attributes as |A|>
+    <HdsAccordion @type={{@type}} @titleTag={{@titleTag}} as |A|>
       {{#each (range (or @numberOfItems 1)) as |item|}}
         <A.Item>
           <:toggle>
