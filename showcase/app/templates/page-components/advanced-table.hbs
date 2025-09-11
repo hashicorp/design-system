@@ -749,7 +749,6 @@
   <div>
     <Hds::AdvancedTable
       @isSelectable={{true}}
-      @onSelectionChange={{this.onSelectionChangeLogArguments}}
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model.infrastructureResources}}
       @columns={{array

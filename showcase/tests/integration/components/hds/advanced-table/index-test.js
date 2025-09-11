@@ -410,6 +410,28 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         .exists({ count: 3 }, 'All columns have a reorder handle');
     });
 
+    test('it does not render a reorder handle on the row selection column', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @isSelectable={{true}}
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const selectAllThSelector =
+        '[role="columnheader"].hds-advanced-table__th--is-selectable';
+      const reorderHandleSelector = '.hds-advanced-table__th-reorder-handle';
+
+      assert
+        .dom(`${selectAllThSelector} ${reorderHandleSelector}`)
+        .doesNotExist(
+          'No reorder handle is rendered on the row selection column',
+        );
+    });
+
     test('columns can be reordered by dragging and dropping', async function (assert) {
       await render(
         hbs`<Hds::AdvancedTable

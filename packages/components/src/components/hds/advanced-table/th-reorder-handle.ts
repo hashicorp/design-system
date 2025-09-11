@@ -44,12 +44,6 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
     this.args.column.reorderHandleElement = element;
   });
 
-  get classNames(): string {
-    const classes = ['hds-advanced-table__th-reorder-handle'];
-
-    return classes.join(' ');
-  }
-
   @action
   handleDragStart(event: DragEvent): void {
     const { column, tableHeight, onReorderDragStart } = this.args;

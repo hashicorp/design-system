@@ -48,7 +48,6 @@
           @column={{@column}}
           @hasReorderableColumns={{@hasReorderableColumns}}
           @hasResizableColumns={{@hasResizableColumns}}
-          @hasStickyFirstColumn={{@hasStickyFirstColumn}}
           @isStickyColumn={{@isStickyColumn}}
           @reorderHandleElement={{this._reorderHandleElement}}
           @resizeHandleElement={{this._resizeHandleElement}}
@@ -56,7 +55,7 @@
           @onPinFirstColumn={{@onPinFirstColumn}}
         />
 
-        {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
+        {{#if (and @hasReorderableColumns (not @isStickyColumn) (not @column.table.hasColumnBeingDragged))}}
           <Hds::AdvancedTable::ThReorderHandle
             @column={{@column}}
             @tableHeight={{@tableHeight}}

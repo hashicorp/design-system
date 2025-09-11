@@ -29,7 +29,6 @@ type HdsAdvancedTableTableArgs = Pick<
   | 'columnOrder'
   | 'childrenKey'
   | 'hasResizableColumns'
-  | 'hasStickyFirstColumn'
   | 'sortBy'
   | 'sortOrder'
   | 'onSort'
@@ -69,7 +68,6 @@ export default class HdsAdvancedTableTableModel {
 
   childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
   hasResizableColumns?: HdsAdvancedTableTableArgs['hasResizableColumns'];
-  hasStickyFirstColumn?: HdsAdvancedTableTableArgs['hasStickyFirstColumn'];
   onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
   onSort?: HdsAdvancedTableSignature['Args']['onSort'];
 
@@ -80,7 +78,6 @@ export default class HdsAdvancedTableTableModel {
       columnOrder,
       childrenKey,
       hasResizableColumns,
-      hasStickyFirstColumn,
       sortBy,
       sortOrder,
       onColumnReorder,
@@ -89,7 +86,6 @@ export default class HdsAdvancedTableTableModel {
 
     this.childrenKey = childrenKey;
     this.hasResizableColumns = hasResizableColumns;
-    this.hasStickyFirstColumn = hasStickyFirstColumn;
     this.onSort = onSort;
 
     this.setupData({ model, columns, sortBy, sortOrder });
@@ -312,10 +308,9 @@ export default class HdsAdvancedTableTableModel {
     const { table } = column;
     const oldIndex = table.orderedColumns.indexOf(column);
     const newIndex = oldIndex + step;
-    const startBoundary = table.hasStickyFirstColumn ? 1 : 0;
 
     // Check if the new position is within the array bounds.
-    if (newIndex < startBoundary || newIndex >= table.orderedColumns.length) {
+    if (newIndex < 0 || newIndex >= table.orderedColumns.length) {
       return;
     }
 
@@ -339,9 +334,7 @@ export default class HdsAdvancedTableTableModel {
     column: HdsAdvancedTableColumn,
     position: 'start' | 'end'
   ): void {
-    const firstNonStickyColumn = this.orderedColumns.find(
-      (column) => column.isFirstNonSticky
-    );
+    const firstColumn = this.orderedColumns.find((column) => column.isFirst);
 
     const {
       targetColumn,
@@ -352,7 +345,7 @@ export default class HdsAdvancedTableTableModel {
     } =
       position === 'start'
         ? {
-            targetColumn: firstNonStickyColumn,
+            targetColumn: firstColumn,
             side: HdsAdvancedTableColumnReorderSideValues.Left,
           }
         : {
