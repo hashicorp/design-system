@@ -1,0 +1,29 @@
+{
+  "carbon": {
+    "typography": {
+      "font-weight": {
+        "light": {
+          "$type": "font-weight",
+          "$value": 300,
+          "group": "cds-typography",
+          "private": true,
+          "original": 300
+        },
+        "regular": {
+          "$type": "font-weight",
+          "$value": 400,
+          "group": "cds-typography",
+          "private": true,
+          "original": 400
+        },
+        "semibold": {
+          "$type": "font-weight",
+          "$value": 600,
+          "group": "cds-typography",
+          "private": true,
+          "original": 600
+        }
+      }
+    }
+  }
+}
