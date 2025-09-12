@@ -10,6 +10,8 @@ import type { CarbonDesignTokens, CarbonDesignToken } from './@types/CarbonDesig
 
 import { baseFontSize } from '@carbon/layout';
 
+export const dimensionRegex: RegExp = /^([+-]?\d+(?:\.\d+)?)(?:(px|rem|em|%|vw|vh|vmin|vmax)|)$/;
+
 export function convertObjectToDtcgFormat({ value, type, group }: Args): CarbonDesignTokens | CarbonDesignToken {
   return recursivelyProcessObject({ value, type, group });
 }
@@ -168,7 +170,7 @@ function convertDurationValue(value: string) {
 
 function convertSizeValue(value: string | number, convertRemToPx: boolean = true) {
   if (typeof value === 'string') {
-    const match = value.match(/^([\d\.]+)(px|rem)$/);
+    const match = value.match(dimensionRegex);
     if (match) {
       const $value = Number(match[1]);
       const unit = match[2];
