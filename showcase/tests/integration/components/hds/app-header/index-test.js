@@ -211,6 +211,8 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
         .getAttribute('aria-controls'),
       this.element.querySelector('.hds-app-header__actions').getAttribute('id'),
     );
+    // Toggle the menu back to close to avoid interfering with other tests
+    await click('.hds-app-header__menu-button');
   });
 
   // A11Y Refocus

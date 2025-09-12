@@ -56,4 +56,18 @@ function wait(timeout = 500) {
   });
 }
 
-export { setupApplicationTest, setupRenderingTest, setupTest, wait };
+// Helper to clean up body overflow style to prevent test interference
+function cleanupBodyOverflow() {
+  document.body?.style.removeProperty('overflow');
+  if (document.body?.getAttribute('style') === '') {
+    document.body.removeAttribute('style');
+  }
+}
+
+export {
+  setupApplicationTest,
+  setupRenderingTest,
+  setupTest,
+  wait,
+  cleanupBodyOverflow,
+};

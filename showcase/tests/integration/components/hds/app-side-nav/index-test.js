@@ -4,7 +4,10 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
+import {
+  setupRenderingTest,
+  cleanupBodyOverflow,
+} from 'showcase/tests/helpers';
 import {
   render,
   click,
@@ -44,6 +47,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
 
   hooks.afterEach(function () {
     resetOnerror();
+    cleanupBodyOverflow();
     window.matchMedia = this.__matchMedia;
   });
 
