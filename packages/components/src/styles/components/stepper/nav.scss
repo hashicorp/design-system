@@ -14,7 +14,7 @@
 
 $progress-bar-animation-duration: 0.25s;
 
-.hds-stepper-nav {
+.hds-stepper-nav__progress-bar {
   position: relative;
   isolation: isolate;
 
@@ -137,7 +137,7 @@ $progress-bar-animation-duration: 0.25s;
 // NAV INTERACTIVE
 
 .hds-stepper-nav--interactive {
-  &::after {
+  .hds-stepper-nav__progress-bar::after {
     background-color: var(--token-color-palette-blue-200);
   }
 

@@ -9,6 +9,7 @@ import MockAppHeaderAppHeader from './header/app-header';
 import MockAppSidebarAppSideNav from './sidebar/app-side-nav';
 import MockAppSidebarOldSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
+import MockAppMainGenericStepper from './main/generic-stepper';
 import MockAppMainGenericTextContent from './main/generic-text-content';
 import MockAppMainGenericAdvancedTable from './main/generic-advanced-table';
 import MockAppFooterAppFooter from './footer/app-footer';
@@ -23,6 +24,7 @@ import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
 import type { MockAppSidebarAppSideNavSignature } from './sidebar/app-side-nav';
 import type { MockAppSidebarOldSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
+import type { MockAppMainGenericStepperSignature } from './main/generic-stepper';
 import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
 import type { MockAppMainGenericAdvancedTableSignature } from './main/generic-advanced-table';
 import type { MockAppFooterAppFooterSignature } from './footer/app-footer';
@@ -52,6 +54,7 @@ export interface MockAppSignature {
         PageHeader?: ComponentLike<MockAppMainPageHeaderSignature>;
         GenericTextContent?: ComponentLike<MockAppMainGenericTextContentSignature>;
         GenericAdvancedTable?: ComponentLike<MockAppMainGenericAdvancedTableSignature>;
+        GenericStepper?: ComponentLike<MockAppMainGenericStepperSignature>;
       },
     ];
     footer?: [
@@ -98,6 +101,7 @@ export default class MockApp extends Component<MockAppSignature> {
               PageHeader=MockAppMainPageHeader
               GenericTextContent=MockAppMainGenericTextContent
               GenericAdvancedTable=MockAppMainGenericAdvancedTable
+              GenericStepper=MockAppMainGenericStepper
             )
             to="main"
           }}

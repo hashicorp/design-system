@@ -3,6 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class={{this.classNames}} ...attributes {{style this.inlineStyles}} {{this._setUpStepperNav}}>
+  <div class="hds-stepper-nav__progress-bar"></div>
   <ol class="hds-stepper-nav__list" aria-label={{@ariaLabel}} role={{if this.isInteractive "tablist"}}>
     {{#if @steps}}
       {{#each @steps as |step|}}
