@@ -9,7 +9,7 @@ Consider whether a data visualization is actually appropriate for the type of da
 
 ## Carbon charts components
 
-IBM’s Carbon Design System includes various [chart components](https://carbondesignsystem.com/data-visualization/chart-types/) that we recommend using as a basis for creating visualizations. These components are available in Figma and code. They use the Carbon library for font styles and color palettes to make it easier to implement consistent data visualization styling across products.
+IBM’s Carbon Design System includes various [chart components](https://carbondesignsystem.com/data-visualization/chart-types/) that we recommend using for creating data visualizations. These components are available in Figma and code. They use the Carbon library for font styles and color palettes to make it easier to implement consistent data visualization styling across products.
 
 ### Commonly used chart examples
 
