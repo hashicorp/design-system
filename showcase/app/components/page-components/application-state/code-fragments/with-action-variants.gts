@@ -2,9 +2,10 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-import Component from '@glimmer/component';
 
 import { HdsApplicationState } from '@hashicorp/design-system-components/components';
+
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import type { HdsApplicationStateAligns } from '@hashicorp/design-system-components/components/hds/application-state/types';
 
 export interface CodeFragmentWithActionVariantsSignature {
@@ -21,7 +22,7 @@ export interface CodeFragmentWithActionVariantsSignature {
   Element: HTMLDivElement;
 }
 
-export default class CodeFragmentWithActionVariants extends Component<CodeFragmentWithActionVariantsSignature> {
+const CodeFragmentWithActionVariants: TemplateOnlyComponent<CodeFragmentWithActionVariantsSignature> =
   <template>
     <HdsApplicationState @align={{@align}} as |A|>
       <A.Header
@@ -57,5 +58,6 @@ export default class CodeFragmentWithActionVariants extends Component<CodeFragme
         {{/if}}
       </A.Footer>
     </HdsApplicationState>
-  </template>
-}
+  </template>;
+
+export default CodeFragmentWithActionVariants;
