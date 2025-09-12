@@ -117,7 +117,7 @@ StyleDictionary.registerTransform({
     // notice: we don't use `letterSpacing` as `$type` because is handled internally in Style Dictionary
     return token.$type === 'letter-spacing';
   },
-  transform: (token: DesignToken, platform: Platform) => {
+  transform: (token: DesignToken) => {
     const val = parseFloat(token.$value);
     if (isNaN(val)) {
       console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot use it as typography/letter-spacing.\n`);
