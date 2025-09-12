@@ -14,7 +14,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { cloneDeep } from 'lodash-es';
 
-import type { ConfigTargets } from './@types/Config.d.ts';
+import type { ConfigTargets } from './build-parts/@types/Config.d.ts';
 
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
 

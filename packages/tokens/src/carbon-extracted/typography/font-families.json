@@ -1,0 +1,43 @@
+{
+  "carbon": {
+    "typography": {
+      "font-family": {
+        "mono": {
+          "$type": "font-family",
+          "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace"
+        },
+        "sans": {
+          "$type": "font-family",
+          "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+        },
+        "sansCondensed": {
+          "$type": "font-family",
+          "$value": "'IBM Plex Sans Condensed', 'Helvetica Neue', Arial, sans-serif",
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": "'IBM Plex Sans Condensed', 'Helvetica Neue', Arial, sans-serif"
+        },
+        "sansHebrew": {
+          "$type": "font-family",
+          "$value": "'IBM Plex Sans Hebrew', 'Helvetica Hebrew', 'Arial Hebrew', sans-serif",
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": "'IBM Plex Sans Hebrew', 'Helvetica Hebrew', 'Arial Hebrew', sans-serif"
+        },
+        "serif": {
+          "$type": "font-family",
+          "$value": "'IBM Plex Serif', 'Georgia', Times, serif",
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": "'IBM Plex Serif', 'Georgia', Times, serif"
+        }
+      }
+    }
+  }
+}

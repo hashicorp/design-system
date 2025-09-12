@@ -20,9 +20,16 @@
   "scripts": {
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet --ext .js,.ts",
+    "extract-carbon-tokens": "tsx ./scripts/extract-carbon-tokens",
     "build": "tsx ./scripts/build"
   },
   "devDependencies": {
+    "@carbon/colors": "^11.39.0",
+    "@carbon/grid": "^11.42.0",
+    "@carbon/layout": "^11.40.0",
+    "@carbon/motion": "^11.34.0",
+    "@carbon/themes": "^11.59.0",
+    "@carbon/type": "^11.46.0",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.10.2",

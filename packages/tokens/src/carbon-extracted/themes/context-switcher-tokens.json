@@ -1,0 +1,98 @@
+{
+  "carbon": {
+    "themes": {
+      "contentSwitcherTokens": {
+        "contentSwitcherBackground": {
+          "white": {
+            "$type": "color",
+            "$value": "#e0e0e0",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#e0e0e0"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#e0e0e0",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#e0e0e0"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "rgba(0, 0, 0, 0)",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "rgba(0, 0, 0, 0)"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "rgba(0, 0, 0, 0)",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "rgba(0, 0, 0, 0)"
+          }
+        },
+        "contentSwitcherBackgroundHover": {
+          "white": {
+            "$type": "color",
+            "$value": "#d1d1d1",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#d1d1d1"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#d1d1d1",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#d1d1d1"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "rgba(141, 141, 141, 0.12)",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "rgba(141, 141, 141, 0.12)"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "rgba(141, 141, 141, 0.12)",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "rgba(141, 141, 141, 0.12)"
+          }
+        },
+        "contentSwitcherSelected": {
+          "white": {
+            "$type": "color",
+            "$value": "#ffffff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#ffffff"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#ffffff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#ffffff"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "rgba(141, 141, 141, 0.24)",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "rgba(141, 141, 141, 0.24)"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "rgba(141, 141, 141, 0.24)",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "rgba(141, 141, 141, 0.24)"
+          }
+        }
+      }
+    }
+  }
+}
