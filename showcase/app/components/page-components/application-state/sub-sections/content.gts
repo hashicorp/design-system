@@ -11,6 +11,7 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import { HdsApplicationState } from '@hashicorp/design-system-components/components';
+import CodeFragmentWithError from '../code-fragments/with-error';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
@@ -92,72 +93,31 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
 
     <ShwFlex @direction="column" @gap="2rem" as |SF|>
       <SF.Item @label="With icon in header">
-        <HdsApplicationState as |A|>
-          <A.Header @title="An error has occurred" @icon="help" />
-          <A.Body
-            @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
-          />
-          <A.Footer as |F|>
-            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-          </A.Footer>
-        </HdsApplicationState>
+        <CodeFragmentWithError
+          @bodyText="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+          @icon="help"
+        />
       </SF.Item>
       <SF.Item @label="With error code in header">
-        <HdsApplicationState as |A|>
-          <A.Header @title="An error has occurred" @errorCode="404" />
-          <A.Body
-            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-          />
-          <A.Footer as |F|>
-            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-          </A.Footer>
-        </HdsApplicationState>
+        <CodeFragmentWithError @hasErrorCode={{true}} />
       </SF.Item>
       <SF.Item @label="With icon and error code">
-        <HdsApplicationState as |A|>
-          <A.Header
-            @title="An error has occurred"
-            @icon="alert-circle"
-            @errorCode="404"
-          />
-          <A.Body
-            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-          />
-          <A.Footer as |F|>
-            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-          </A.Footer>
-        </HdsApplicationState>
+        <CodeFragmentWithError @hasErrorCode={{true}} @icon="alert-circle" />
       </SF.Item>
       <SF.Item @label="With a multiline title">
-        <HdsApplicationState as |A|>
-          <A.Header
-            @title="An error has occurred and maybe it has such a long title that will wrap on multiple lines"
-            @icon="alert-circle"
-            @errorCode="404"
-          />
-          <A.Body
-            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-          />
-          <A.Footer as |F|>
-            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-          </A.Footer>
-        </HdsApplicationState>
+        <CodeFragmentWithError
+          @hasErrorCode={{true}}
+          @icon="alert-circle"
+          @titleText="An error has occurred and maybe it has such a long title that will wrap on multiple lines"
+        />
       </SF.Item>
       <SF.Item @label="With custom title tag">
-        <HdsApplicationState as |A|>
-          <A.Header
-            @title="h1 element instead of the default div"
-            @titleTag="h1"
-            @icon="alert-circle"
-            @errorCode="404"
-          />
-          <A.Body
-            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-          />
-          <A.Footer as |F|>
-            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-          </A.Footer>
-        </HdsApplicationState>
+        <CodeFragmentWithError
+          @hasErrorCode={{true}}
+          @icon="alert-circle"
+          @titleTag="h1"
+          @titleText="h1 element instead of the default div"
+        />
       </SF.Item>
     </ShwFlex>
 
