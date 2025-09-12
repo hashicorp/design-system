@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
+import { eq } from 'ember-truth-helpers';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
@@ -24,35 +25,19 @@ export interface CodeFragmentWithButtonTriggerSignature {
 }
 
 export default class CodeFragmentWithButtonTrigger extends Component<CodeFragmentWithButtonTriggerSignature> {
-  get enableClickEvents() {
-    return this.args.enableClickEvents ?? true;
-  }
-
-  get isOpen() {
-    return this.args.isOpen ?? true;
-  }
-
-  get placement() {
-    return this.args.placement ?? 'bottom';
-  }
-
-  get arrowSelector() {
-    return this.args.arrowId
-      ? `#${this.args.arrowId}`
-      : `#arrow-placement-${this.placement}`;
-  }
-
-  get arrowId() {
-    return this.args.arrowId ?? `arrow-placement-${this.placement}`;
-  }
-
   get anchoredPositionOptions() {
-    const { hasArrow, enableCollisionDetection, strategy } = this.args;
+    const {
+      hasArrow,
+      enableCollisionDetection,
+      strategy,
+      placement = 'bottom',
+      arrowId,
+    } = this.args;
 
     const options: HdsAnchoredPositionOptions = {
       enableCollisionDetection: enableCollisionDetection ?? false,
-      placement: this.placement,
-      arrowSelector: hasArrow ? this.arrowSelector : undefined,
+      placement,
+      arrowSelector: hasArrow ? `#${arrowId}` : undefined,
       offsetOptions: hasArrow ? 16 : undefined,
       strategy,
     };
@@ -62,15 +47,18 @@ export default class CodeFragmentWithButtonTrigger extends Component<CodeFragmen
 
   <template>
     <HdsPopoverPrimitive
-      @isOpen={{this.isOpen}}
-      @enableClickEvents={{this.enableClickEvents}}
+      @isOpen={{if (eq @isOpen undefined) true @isOpen}}
+      @enableClickEvents={{if
+        (eq @enableClickEvents undefined)
+        true
+        @enableClickEvents
+      }}
       @enableSoftEvents={{@enableSoftEvents}}
       as |PP|
     >
       <div
         class="shw-utilities-popover-primitive-fake-container"
         {{PP.setupPrimitiveContainer}}
-        s
       >
         <button
           type="button"
@@ -85,7 +73,7 @@ export default class CodeFragmentWithButtonTrigger extends Component<CodeFragmen
         >
           {{#if @hasArrow}}
             <div
-              id={{this.arrowId}}
+              id={{@arrowId}}
               class="shw-utilities-popover-primitive-fake-arrow"
             />
           {{/if}}
