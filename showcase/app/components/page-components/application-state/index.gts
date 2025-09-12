@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { pageTitle } from 'ember-page-title';
 
@@ -30,15 +29,6 @@ export default class ApplicationStateIndex extends Component {
 
     <ShwTextH1>ApplicationState</ShwTextH1>
 
-    <button
-      type="button"
-      class="shw-component-application-state-button-highlight"
-      {{on "click" this.toggleHighlight}}
-    >
-      {{if this.showHighlight "Hide" "Show"}}
-      layout highlight
-    </button>
-
     <section
       data-test-percy
       class="{{if
@@ -46,11 +36,26 @@ export default class ApplicationStateIndex extends Component {
           'shw-component-application-state-layout-highlight'
         }}"
     >
-      <SubSectionContent />
-      <SubSectionAlignment />
-      <SubSectionWithMedia />
-      <SubSectionResponsiveness />
-      <SubSectionContainer />
+      <SubSectionContent
+        @showHighlight={{this.showHighlight}}
+        @toggleHighlight={{this.toggleHighlight}}
+      />
+      <SubSectionAlignment
+        @showHighlight={{this.showHighlight}}
+        @toggleHighlight={{this.toggleHighlight}}
+      />
+      <SubSectionWithMedia
+        @showHighlight={{this.showHighlight}}
+        @toggleHighlight={{this.toggleHighlight}}
+      />
+      <SubSectionResponsiveness
+        @showHighlight={{this.showHighlight}}
+        @toggleHighlight={{this.toggleHighlight}}
+      />
+      <SubSectionContainer
+        @showHighlight={{this.showHighlight}}
+        @toggleHighlight={{this.toggleHighlight}}
+      />
     </section>
   </template>
 }
