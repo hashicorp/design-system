@@ -9,7 +9,7 @@ We recommend using the Vanilla JavaScript version of IBM’s [Carbon Chart compo
 3. Create an options.js file if you wish to customize the component’s available options.
 4. Import the component styles so the component will have the correct visual appearance.
 
-```handlebars{data-execute=false}
+```javascript
 import { DonutChart } from '@carbon/charts';
 import options from './options.js';
 import '@carbon/charts/styles.css';
@@ -27,7 +27,7 @@ The component options, such as the [Donut Chart options](https://charts.carbonde
 
 #### Options.js file with pre-set options
 
-```handlebars{data-execute=false}
+```javascript
 export default {
   title: '', // Set title using @title on the component
   resizable: true,
@@ -53,7 +53,7 @@ export default {
 
 #### Ember component code exposing some options
 
-```handlebars{data-execute=false}
+```javascript
 chart: DonutChart | null = null;
 
 @action
