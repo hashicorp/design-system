@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 2.3.1
+
+### Patch Changes
+
+`cloud-ui/email` - Fixed CSS helpers for "elevation" styles
+
+<small class="doc-whats-new-changelog-metadata">[#3158](https://github.com/hashicorp/design-system/pull/3158)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.3.0
 
 ### Minor Changes
@@ -224,7 +234,6 @@ This release signifies the first major release of the HashiCorp Design System. M
 ### Minor Changes
 
 - [#136](https://github.com/hashicorp/design-system/pull/136) [`c17f142c`](https://github.com/hashicorp/design-system/commit/c17f142c0c938b471b696820d1fa440f62f7315b) Thanks [@didoo](https://github.com/didoo)! - Updated the font-stack design tokens in “typography”
-
   - removed `SF Pro Display/Text` in `Display/Text` (we can rely on `-apple-system + BlinkMacSystemFont`)
   - replaced `Segoe UI Display/Text` with `Segoe UI` in `Display/Text`
   - added `Helvetica, Arial` to the `sans` block in `Display/Text`

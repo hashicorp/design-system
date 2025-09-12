@@ -1,3 +1,8 @@
+## 4.23.1
+
+Fixed bug with stacking context styles causing step content's z-index to not work as expected
+
+
 ## 4.20.1
 
 Updated signature to use `WithBoundArgs` instead of `ComponentLike` for contextual components to resolve linting issues
