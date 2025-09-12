@@ -28,8 +28,6 @@ Be sure to always add appropriate text, such as labels or descriptions of the vi
 
 Always test that chart information is legible, even on smaller viewports, e.g., mobile devices. Per WCAG Success Criteria, users must also be able to zoom in on their browser ([up to 400%](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)) and also [resize text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html) associated with charts.
 
-
-
 ### Use interactive elements appropriately
 
-Interactive elements should be focusable using a keyboard, with a clear focus indicator that is not clipped or cut off. They should have unique and clear names to clearly differentiate them from one another and make their purpose clear. The visible text can be enhanced with additional information using the `aria-description` or `aria-describedby` attributes.
+Interactive elements should have unique and clear labels to clearly differentiate them from one another and make their purpose clear.

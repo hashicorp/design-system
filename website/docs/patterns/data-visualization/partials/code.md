@@ -1,6 +1,6 @@
 ## How to use Carbon Charts components
 
-We recommend using the Vanilla JavaScript version of IBM’s [Carbon Chart components](https://carbondesignsystem.com/data-visualization/chart-types/).
+We recommend using the Vanilla JavaScript version of IBM’s [Carbon Chart components](https://charts.carbondesignsystem.com).
 
 ### Using within an Ember component
 
