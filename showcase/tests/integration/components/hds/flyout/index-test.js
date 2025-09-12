@@ -20,6 +20,11 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   hooks.afterEach(() => {
     resetOnerror();
+    // Clean up body overflow style to prevent test interference
+    document.body?.style.removeProperty('overflow');
+    if (document.body?.getAttribute('style') === '') {
+      document.body.removeAttribute('style');
+    }
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
