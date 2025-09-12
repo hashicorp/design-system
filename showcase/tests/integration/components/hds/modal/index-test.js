@@ -4,7 +4,10 @@
  */
 
 import { module, test, skip } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
+import {
+  setupRenderingTest,
+  cleanupBodyOverflow,
+} from 'showcase/tests/helpers';
 import {
   click,
   render,
@@ -21,11 +24,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
   hooks.afterEach(() => {
     resetOnerror();
-    // Clean up body overflow style to prevent test interference
-    document.body?.style.removeProperty('overflow');
-    if (document.body?.getAttribute('style') === '') {
-      document.body.removeAttribute('style');
-    }
+    cleanupBodyOverflow();
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
