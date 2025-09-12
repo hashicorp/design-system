@@ -13,9 +13,18 @@ IBM’s Carbon Design System includes various [chart components](https://carbond
 
 ### Commonly used chart examples
 
-* [Vertical bar chart](https://charts.carbondesignsystem.com/bar#vertical)
-* [Proportional Meter]( https://carbondesignsystem.com/data-visualization/simple-charts/#meter-(proportional) )
-* [Donut chart](https://carbondesignsystem.com/data-visualization/simple-charts/#donut)
+* [Vertical bar charts](https://charts.carbondesignsystem.com/bar#vertical) are the most common representation of categorical data. They allow a user to quickly compare the amounts of a value based on the heights of the bars in the chart. Examples in our products may include displaying cost per month or resource use per quarter.
+
+![Vertical bar chart data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-example-vertical-bar.png)
+
+* [Proportional Meters]( https://carbondesignsystem.com/data-visualization/simple-charts/#meter-(proportional)) are used to show the breakdown of categories within a bar that equal 100% of the bar. This is may be used in our products to show the health of a group of resources or the amount of resources used toward a specific cap.
+
+![Porportional meter chart data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-example-proportional-meter.png)
+
+* [Donut charts](https://carbondesignsystem.com/data-visualization/simple-charts/#donut) are circular graphs that display data as a portion of a whole divided into slices. This type of chart may be used in a similar way as proportional meter charts but offers a different presentation of the information.
+
+![Donut chart data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-example-donut.png)
+
 
 ## Color palettes
 
