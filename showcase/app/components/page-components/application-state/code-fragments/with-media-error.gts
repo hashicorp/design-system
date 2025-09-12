@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { HdsApplicationState } from '@hashicorp/design-system-components/components';
 
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import type { HdsApplicationStateSignature } from '@hashicorp/design-system-components/components/hds/application-state/index';
 
 interface CodeFragmentWithMediaErrorSignature {
@@ -15,7 +15,7 @@ interface CodeFragmentWithMediaErrorSignature {
   Element: HdsApplicationStateSignature['Element'];
 }
 
-export default class CodeFragmentWithMediaError extends Component<CodeFragmentWithMediaErrorSignature> {
+const CodeFragmentWithMediaError: TemplateOnlyComponent<CodeFragmentWithMediaErrorSignature> =
   <template>
     <HdsApplicationState @align={{@align}} as |A|>
       <A.Media>
@@ -44,5 +44,6 @@ export default class CodeFragmentWithMediaError extends Component<CodeFragmentWi
         />
       </A.Footer>
     </HdsApplicationState>
-  </template>
-}
+  </template>;
+
+export default CodeFragmentWithMediaError;
