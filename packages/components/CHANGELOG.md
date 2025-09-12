@@ -1,14 +1,30 @@
 # @hashicorp/design-system-components
 
+## 4.23.1
+
+### Patch Changes
+
+<!-- START components/stepper/nav -->
+
+`Stepper::Nav` - Fixed bug with stacking context styles causing step content's z-index to not work as expected
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3176](https://github.com/hashicorp/design-system/pull/3176)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@2.3.1
+
 ## 4.23.0
 
 [4.23.0 documentation](https://hds-website-4-23-0.vercel.app/)
 
 ### Minor Changes
 
-
 `CodeEditor` - Added a `cspNonce` argument which passes a value of the same name to the `hds-code-editor` modifier. `cspNonce` is used to add a nonce value to the style tag
-
 
 <small class="doc-whats-new-changelog-metadata">[#3132](https://github.com/hashicorp/design-system/pull/3132)</small>
 
@@ -20,18 +36,13 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Card` - Updated all exported types to use template literals instead of enum values.
 
-
-
 `IconTile` - Updated exported `HdsIconTileColors` type to use template literals instead of enum values.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3106](https://github.com/hashicorp/design-system/pull/3106)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
 
 `AdvancedTable` - Added features and fixed issues for column pinning including:
 
@@ -43,17 +54,13 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Fixed bug with automatic column resizing and scroll-shadow placement.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3081](https://github.com/hashicorp/design-system/pull/3081)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppHeader` - return `close` callback to the `:logo` named block so the menu actions can be hidden programmatically when the component is in a mobile view.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3121](https://github.com/hashicorp/design-system/pull/3121)</small>
 
@@ -61,49 +68,33 @@
 
 ### Patch Changes
 
-
 `AdvancedTable` - simplified `AdvancedTable::Tr` type signature so the `@selectionKey` argument is not incorrectly marked as required.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3108](https://github.com/hashicorp/design-system/pull/3108)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `PopoverPrimitive` - Updated the type of the `hidePopover` callback to allow an optional event to be passed.
-
-
 
 `RichTooltip` - Updated the type of the `close` callback to allow an optional event to be passed.
 
-
-
 `Dropdown` - Updated the type of the `close` callback to allow an optional event to be passed and to make it always returned.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3118](https://github.com/hashicorp/design-system/pull/3118)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppHeader` - Fixed classname so that non-active controls in the `AppHeader` will be styled as disabled when the `AppSideNav` is expanded and in overlay mode
-
 
 <small class="doc-whats-new-changelog-metadata">[#3116](https://github.com/hashicorp/design-system/pull/3116)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Button` - Removed CSS declaration for pseudo element in disabled state
-
-
 
 `Dropdown` - Removed CSS declaration for pseudo element in disabled state
 
-
-
 `FileInput` - Removed CSS declaration for pseudo element in disabled state that led to invalid CSS (ignored by browsers)
-
 
 <small class="doc-whats-new-changelog-metadata">[#3131](https://github.com/hashicorp/design-system/pull/3131)</small>
 
