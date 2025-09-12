@@ -42,20 +42,20 @@ Carbon’s data visualization palettes include categorical palettes with one to 
 
 Use categorical palettes for presenting data that has no intrinsic order, such as in a pie or donut chart. They are also good for multi-line charts, area charts, stacked or grouped bar charts, etc.
 
-![Color usage for categorical data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-categorical.png)
+![](/assets/patterns/data-visualization/color-usage/data-visualization-categorical.png)
 
 ### Sequential palettes
 
 Use sequential palettes for quantitative or ordered values in a continuum. This palette is useful for heat maps and grouped horizontal bar charts that compare sequential groups, such as age ranges, etc.
 
-![Color usage for sequential data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-sequential.png)
+![](/assets/patterns/data-visualization/color-usage/data-visualization-sequential.png)
 
 A gradient palette is a type of sequential palette that can be used to distinguish elements without inherent axes or directions, such as in maps or geographic representations.
 
-![Color usage using a graduated color sequence](/assets/patterns/data-visualization/color-usage/data-visualization-graduated-sequence.png)
+![](/assets/patterns/data-visualization/color-usage/data-visualization-graduated-sequence.png)
 
 ### Diverging palettes
 
 Use diverging palettes when presenting two sequences of ordered values that share a central value. This type of palette can be used for diverging bar charts, horizon charts, heat maps, etc.
 
-![Color usage for diverging data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-diverging.png)
+![](/assets/patterns/data-visualization/color-usage/data-visualization-diverging.png)
