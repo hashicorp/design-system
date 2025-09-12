@@ -1,0 +1,67 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import style from 'ember-style-modifier/modifiers/style';
+
+import ShwFlex from 'showcase/components/shw/flex';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
+
+import {
+  HdsCardContainer,
+  HdsApplicationState,
+  HdsTable,
+} from '@hashicorp/design-system-components/components';
+import { HdsCardLevelValues } from '@hashicorp/design-system-components/components/hds/card/types';
+
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
+const SubSectionContainer: TemplateOnlyComponent = <template>
+  <ShwTextH2>In a container</ShwTextH2>
+
+  <ShwFlex @direction="column" @gap="4rem" as |SF|>
+    <SF.Item @label="In a card">
+      {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5154 }}
+      <HdsCardContainer
+        @level={{HdsCardLevelValues.Mid}}
+        @hasBorder={{true}}
+        {{style padding="40px"}}
+      >
+        <HdsApplicationState @align="center" as |A|>
+          <A.Header @title="No stacks" />
+          <A.Body @text="No stacks to show in this project." />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Create stack" />
+          </A.Footer>
+        </HdsApplicationState>
+      </HdsCardContainer>
+    </SF.Item>
+    <SF.Item @label="In a table">
+      <HdsTable @caption="a custom table with no model defined">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="3" {{style padding="40px"}}>
+              <HdsApplicationState @align="center" as |A|>
+                <A.Header @title="No stacks" />
+                <A.Body @text="No stacks to show in this project." />
+                <A.Footer as |F|>
+                  <F.Button @color="primary" @text="Create stack" />
+                </A.Footer>
+              </HdsApplicationState>
+            </B.Td>
+          </B.Tr>
+        </:body>
+      </HdsTable>
+    </SF.Item>
+  </ShwFlex>
+</template>;
+
+export default SubSectionContainer;
