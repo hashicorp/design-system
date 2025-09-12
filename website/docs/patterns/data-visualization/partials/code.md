@@ -2,15 +2,12 @@
 
 We recommend using the Vanilla JavaScript version of IBM’s [Carbon Chart components](https://charts.carbondesignsystem.com).
 
-### Using within an Ember component
+### Getting started
 
-!!! info
-
-Refer to the [Carbon Charts API docs](https://charts.carbondesignsystem.com/api/) for the full list of available options for each component type.
-
-!!!
-
-The Vanilla JavaScript component files can be imported and used within Ember applications to create a customized component for your use case.
+1. Install the Vanilla JavaScript Carbon Charts library as a [dependency](https://charts.carbondesignsystem.com/installation).
+2. Import the component you wish to use, for example the `DonutChart`
+3. Create an options.js file if you wish to customize the component’s available options.
+4. Import the component styles so the component will have the correct visual appearance.
 
 ```handlebars{data-execute=false}
 import { DonutChart } from '@carbon/charts';
@@ -18,19 +15,15 @@ import options from './options.js';
 import '@carbon/charts/styles.css';
 ```
 
-Expose various parts of the API as needed.
+### Customizing options
 
-```handlebars{data-execute=false}
-Args: {
-  title?: string;
-  data: Array<{ group: string; value: number }>;
-  colorMap?: { [key: string]: string }; // Optional custom colors
-};
-```
+!!! info
 
-### Setting options
+Refer to the [Carbon Charts API docs](https://charts.carbondesignsystem.com/api/) for the full list of available options for each component type.
 
-The available component options, such as the [Donut Chart options](https://charts.carbondesignsystem.com/api/interfaces/donutchartoptions), can be set according to your needs. You can combine the preset options that you’ve chosen to include with any dynamic options you’ve exposed.
+!!!
+
+The component options, such as the [Donut Chart options](https://charts.carbondesignsystem.com/api/interfaces/donutchartoptions), can be set according to your needs. You can combine the preset options that you’ve included with dynamic options you’ve exposed.
 
 #### Options.js file with pre-set options
 
