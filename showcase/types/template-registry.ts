@@ -30,7 +30,6 @@ import MockAppMainGenericFormPartialsAccountSignup from '../app/components/mock/
 import MockAppMainGenericFormPartialsAddUser from '../app/components/mock/app/main/generic-form/partials/add-user';
 import MockAppMainGenericFormPartialsAddPolicy from '../app/components/mock/app/main/generic-form/partials/add-policy';
 import MockAppMainGenericFormPartialsActions from '../app/components/mock/app/main/generic-form/partials/actions';
-import MockAppMainGenericStepper from '../app/components/mock/app/main/generic-stepper';
 import MockAppMainGenericTextContent from '../app/components/mock/app/main/generic-text-content';
 import MockAppFooterAppFooter from '../app/components/mock/app/footer/app-footer';
 import MockDemoBreakpointsRuler from '../app/components/mock/demo/breakpoints-ruler';
@@ -97,8 +96,6 @@ export default interface ShowcaseTemplateRegistry {
   'mock/app/main/generic-form/partials/add-policy': typeof MockAppMainGenericFormPartialsAddPolicy;
   'Mock::App::Main::GenericForm::Partials::Actions': typeof MockAppMainGenericFormPartialsActions;
   'mock/app/main/generic-form/partials/actions': typeof MockAppMainGenericFormPartialsActions;
-  'Mock::App::Main::GenericStepper': typeof MockAppMainGenericStepper;
-  'mock/app/main/generic-stepper': typeof MockAppMainGenericStepper;
   'Mock::App::Main::GenericTextContent': typeof MockAppMainGenericTextContent;
   'mock/app/main/generic-text-content': typeof MockAppMainGenericTextContent;
   'Mock::App::Footer::AppFooter': typeof MockAppFooterAppFooter;
