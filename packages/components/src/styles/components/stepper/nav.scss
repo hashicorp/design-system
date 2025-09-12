@@ -292,7 +292,7 @@ $progress-bar-animation-duration: 0.25s;
 // MOBILE
 
 @include hds-breakpoint-below("sm") {
-  .hds-stepper-nav {
+  .hds-stepper-nav__progress-bar {
     &::before,
     &::after {
       content: none;
