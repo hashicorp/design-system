@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
 import { HdsApplicationState } from '@hashicorp/design-system-components/components';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import type { HdsApplicationStateSignature } from '@hashicorp/design-system-components/components/hds/application-state/index';
 
 interface CodeFragmentWithMediaEmptyStateSignature {
@@ -17,7 +17,7 @@ interface CodeFragmentWithMediaEmptyStateSignature {
   Element: HdsApplicationStateSignature['Element'];
 }
 
-export default class CodeFragmentWithMediaEmptyState extends Component<CodeFragmentWithMediaEmptyStateSignature> {
+const CodeFragmentWithMediaEmptyState: TemplateOnlyComponent<CodeFragmentWithMediaEmptyStateSignature> =
   <template>
     <HdsApplicationState @align={{@align}} as |A|>
       <A.Media>
@@ -31,5 +31,6 @@ export default class CodeFragmentWithMediaEmptyState extends Component<CodeFragm
         <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
       </A.Footer>
     </HdsApplicationState>
-  </template>
-}
+  </template>;
+
+export default CodeFragmentWithMediaEmptyState;
