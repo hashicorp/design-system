@@ -6,12 +6,11 @@
 import { Config } from 'style-dictionary';
 
 export type ConfigTarget = {
-    source: Config['source'],
-    transformGroup: Config['transformGroup'],
-    platforms: string[],
+  source: Config['source'],
+  transformGroup: Config['transformGroup'],
+  platforms: string[],
 };
 
 export type ConfigTargets = {
-    [key: string]: ConfigTarget
+  [key: string]: ConfigTarget
 };
-
