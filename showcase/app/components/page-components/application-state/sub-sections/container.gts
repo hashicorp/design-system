@@ -9,12 +9,12 @@ import style from 'ember-style-modifier/modifiers/style';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 
+import { HdsCardLevelValues } from '@hashicorp/design-system-components/components/hds/card/types';
 import {
   HdsCardContainer,
-  HdsApplicationState,
   HdsTable,
 } from '@hashicorp/design-system-components/components';
-import { HdsCardLevelValues } from '@hashicorp/design-system-components/components/hds/card/types';
+import CodeFragmentWithContainer from '../code-fragments/with-container';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
@@ -40,19 +40,12 @@ const SubSectionContainer: TemplateOnlyComponent<SubSectionContainerSignature> =
 
     <ShwFlex @direction="column" @gap="4rem" as |SF|>
       <SF.Item @label="In a card">
-        {{! TODO: will be fixed by https://hashicorp.atlassian.net/browse/HDS-5154 }}
         <HdsCardContainer
           @level={{HdsCardLevelValues.Mid}}
           @hasBorder={{true}}
           {{style padding="40px"}}
         >
-          <HdsApplicationState @align="center" as |A|>
-            <A.Header @title="No stacks" />
-            <A.Body @text="No stacks to show in this project." />
-            <A.Footer as |F|>
-              <F.Button @color="primary" @text="Create stack" />
-            </A.Footer>
-          </HdsApplicationState>
+          <CodeFragmentWithContainer />
         </HdsCardContainer>
       </SF.Item>
       <SF.Item @label="In a table">
@@ -67,13 +60,7 @@ const SubSectionContainer: TemplateOnlyComponent<SubSectionContainerSignature> =
           <:body as |B|>
             <B.Tr>
               <B.Td colspan="3" {{style padding="40px"}}>
-                <HdsApplicationState @align="center" as |A|>
-                  <A.Header @title="No stacks" />
-                  <A.Body @text="No stacks to show in this project." />
-                  <A.Footer as |F|>
-                    <F.Button @color="primary" @text="Create stack" />
-                  </A.Footer>
-                </HdsApplicationState>
+                <CodeFragmentWithContainer />
               </B.Td>
             </B.Tr>
           </:body>
