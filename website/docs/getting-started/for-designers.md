@@ -172,10 +172,13 @@ HashiCorp product teams can use the Helios libraries published under the [HDS De
 - [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): core styles including typography, color, and elevation that are consumed by Helios components for reuse in your projects
 - [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): patterns composed of HDS components published as detachable templates.
 - [Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1): core icon set for reuse in your projects
- - [Carbon Charts](https://www.figma.com/design/k34tT4poC2p1RBQxVwZhW5/-Alpha--Carbon-Charts-Library-Kit-%E2%80%93-Carbon-Design-System--Copy-?node-id=3984-105570&t=YIZdjDNDhgDMtXBd-1)
 - [A11Y Helper Annotation Kit](https://www.figma.com/design/EEfM1jjqLfUv59eYLopn5x/HDS-A11Y-Helper-UI-Kit?m=auto&t=JLqmUYB9fZbdWaa2-6): an annotation toolkit designed to enhance collaboration between designers and engineers, ensuring the work meets accessibility (a11y) standards.
 - [Wireframe UI Kit](https://www.figma.com/design/w0ukydeAsbv6sJirLxZMBo/HDS-Wireframes?m=auto&t=JLqmUYB9fZbdWaa2-6): low-fidelity versions of HDS components designed to help quickly sketch ideas and build flows.
 - [Utility UI Kit](https://www.figma.com/design/vqhh0wWZ8PwnRkvh1jk7jB/Utilities-UI-Kit?m=auto&t=JLqmUYB9fZbdWaa2-6): common UI helpers like documentation styles and annotations, and external utilities like browser scroll bars and cursors.
+
+### Other Figma libraries
+
+ - [Carbon Charts](https://www.figma.com/design/k34tT4poC2p1RBQxVwZhW5/-Alpha--Carbon-Charts-Library-Kit-%E2%80%93-Carbon-Design-System--Copy-?node-id=3984-105570&t=YIZdjDNDhgDMtXBd-1): a library including various data visualization components created by the Carbon Design Systems team.
 
 ### Recommended plugins
 

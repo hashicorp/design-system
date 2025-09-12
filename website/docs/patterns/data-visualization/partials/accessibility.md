@@ -26,7 +26,7 @@ Be sure to always add appropriate text, such as labels or descriptions of the vi
 
 ### Ensure charts are readable when resized
 
-Always test that chart information is legible, even on smaller viewports (e.g. mobile devices). Per WCAG Success Criteria, users must also be able to zoom in on their browser ([up to 400%](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)) and also [resize text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html) associated with charts.
+Always test that chart information is legible, even on smaller viewports, e.g., mobile devices. Per WCAG Success Criteria, users must also be able to zoom in on their browser ([up to 400%](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html)) and also [resize text](https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html) associated with charts.
 
 
 
