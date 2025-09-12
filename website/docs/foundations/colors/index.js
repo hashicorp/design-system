@@ -27,7 +27,8 @@ export default class Colors extends Component {
             colors['palette'][tone].push({
               colorName: token.path[2],
               cssVariable: `--${token.name}`,
-              value: token.value,
+              // note: we prefix `value` with `$` because we're using the DTCG format
+              value: token.$value,
             });
           } else if (token.group === 'semantic') {
             const context = token.path[1];
@@ -37,7 +38,8 @@ export default class Colors extends Component {
             const tokenObj = {
               colorName: `${token.path[1]}-${token.path[2]}`,
               cssVariable: `--${token.name}`,
-              value: token.value,
+              // note: we prefix `value` with `$` because we're using the DTCG format
+              value: token.$value,
             };
             if (['foreground', 'page', 'surface', 'border'].includes(context)) {
               const name = token.path[2];
@@ -52,7 +54,8 @@ export default class Colors extends Component {
             colors['branding'][brand].push({
               colorName: `${token.path[1]}-${token.path[2]}`,
               cssVariable: `--${token.name}`,
-              value: token.value,
+              // note: we prefix `value` with `$` because we're using the DTCG format
+              value: token.$value,
             });
           } else {
             console.log(

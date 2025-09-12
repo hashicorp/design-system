@@ -2,103 +2,103 @@
   "color": {
     "foreground": {
       "strong": {
-        "value": "{color.palette.neutral-700}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-700}",
         "group": "semantic"
       },
       "primary": {
-        "value": "{color.palette.neutral-600}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-600}",
         "group": "semantic"
       },
       "faint": {
-        "value": "{color.palette.neutral-500}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-500}",
         "group": "semantic"
       },
       "high-contrast": {
-        "value": "{color.palette.neutral-0}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-0}",
         "group": "semantic"
       },
       "disabled": {
-        "value": "{color.palette.neutral-400}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.neutral-400}",
         "group": "semantic"
       },
       "action": {
-        "value": "{color.palette.blue-200}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.blue-200}",
         "group": "semantic"
       },
       "action-hover": {
-        "value": "{color.palette.blue-300}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.blue-300}",
         "group": "semantic"
       },
       "action-active": {
-        "value": "{color.palette.blue-400}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.blue-400}",
         "group": "semantic"
       },
       "highlight": {
-        "value": "{color.palette.purple-200}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.purple-200}",
         "group": "semantic"
       },
       "highlight-on-surface": {
-        "value": "{color.palette.purple-300}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.purple-300}",
         "group": "semantic"
       },
       "highlight-high-contrast": {
-        "value": "{color.palette.purple-500}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.purple-500}",
         "group": "semantic"
       },
       "success": {
-        "value": "{color.palette.green-200}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.green-200}",
         "group": "semantic"
       },
       "success-on-surface": {
-        "value": "{color.palette.green-300}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.green-300}",
         "group": "semantic"
       },
       "success-high-contrast": {
-        "value": "{color.palette.green-500}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.green-500}",
         "group": "semantic"
       },
       "warning": {
-        "value": "{color.palette.amber-200}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.amber-200}",
         "group": "semantic"
       },
       "warning-on-surface": {
-        "value": "{color.palette.amber-300}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.amber-300}",
         "group": "semantic"
       },
       "warning-high-contrast": {
-        "value": "{color.palette.amber-500}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.amber-500}",
         "group": "semantic"
       },
       "critical": {
-        "value": "{color.palette.red-200}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.red-200}",
         "group": "semantic"
       },
       "critical-on-surface": {
-        "value": "{color.palette.red-300}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.red-300}",
         "group": "semantic"
       },
       "critical-high-contrast": {
-        "value": "{color.palette.red-500}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.red-500}",
         "group": "semantic"
       }
     }

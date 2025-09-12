@@ -2,8 +2,8 @@
   "color": {
     "hcp": {
       "brand": {
-        "value": "{color.palette.hcp-brand}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.hcp-brand}",
         "group": "branding"
       }
     }

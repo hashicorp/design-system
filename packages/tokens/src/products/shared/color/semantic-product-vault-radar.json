@@ -2,54 +2,54 @@
   "color": {
     "vault-radar": {
       "brand": {
-        "value": "{color.palette.vault-radar-brand}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.vault-radar-brand}",
         "group": "branding"
       },
       "brand-alt": {
-        "value": "#000",
-        "type": "color",
+        "$type": "color",
+        "$value": "#000",
         "group": "branding",
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work"
       },
       "foreground": {
-        "value": "{color.palette.vault-radar-500}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.vault-radar-500}",
         "group": "branding"
       },
       "surface": {
-        "value": "{color.palette.vault-radar-50}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.vault-radar-50}",
         "group": "branding"
       },
       "border": {
-        "value": "{color.palette.vault-radar-100}",
-        "type": "color",
+        "$type": "color",
+        "$value": "{color.palette.vault-radar-100}",
         "group": "branding"
       },
       "gradient": {
         "primary": {
           "start": {
-            "value": "{color.palette.vault-radar-100}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.vault-radar-100}",
             "group": "branding"
           },
           "stop": {
-            "value": "{color.palette.vault-radar-200}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.vault-radar-200}",
             "group": "branding"
           }
         },
         "faint": {
           "start": {
-            "value": "#fffdf2",
-            "type": "color",
+            "$type": "color",
+            "$value": "#fffdf2",
             "group": "branding",
             "comment": "this is the 'vault-radar-50' value at 25% opacity on white"
           },
           "stop": {
-            "value": "{color.palette.vault-radar-50}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.vault-radar-50}",
             "group": "branding"
           }
         }

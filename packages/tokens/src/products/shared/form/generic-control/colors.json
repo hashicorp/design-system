@@ -4,68 +4,68 @@
       "base": {
         "foreground": {
           "value-color": {
-            "value": "{color.foreground.strong}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.foreground.strong}",
             "group": "components"
           },
           "placeholder-color": {
-            "value": "{color.foreground.faint}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.foreground.faint}",
             "group": "components"
           }
         },
         "surface-color": {
           "default": {
-            "value": "{color.surface.interactive}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.surface.interactive}",
             "group": "components"
           },
           "hover": {
-            "value": "{color.surface.interactive-hover}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.surface.interactive-hover}",
             "group": "components"
           }
         },
         "border-color": {
           "default": {
-            "value": "{color.palette.neutral-400}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.neutral-400}",
             "group": "components"
           },
           "hover": {
-            "value": "{color.palette.neutral-500}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.neutral-500}",
             "group": "components"
           }
         }
       },
       "checked": {
         "foreground-color": {
-          "value": "{color.foreground.high-contrast}",
-          "type": "color",
+          "$type": "color",
+          "$value": "{color.foreground.high-contrast}",
           "group": "components"
         },
         "surface-color": {
           "default": {
-            "value": "{color.palette.blue-200}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.blue-200}",
             "group": "components"
           },
           "hover": {
-            "value": "{color.palette.blue-300}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.blue-300}",
             "group": "components"
           }
         },
         "border-color": {
           "default": {
-            "value": "{color.palette.blue-300}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.blue-300}",
             "group": "components"
           },
           "hover": {
-            "value": "{color.palette.blue-400}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.blue-400}",
             "group": "components"
           }
         }
@@ -73,48 +73,48 @@
       "invalid": {
         "border-color": {
           "default": {
-            "value": "{color.palette.red-300}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.red-300}",
             "group": "components"
           },
           "hover": {
-            "value": "{color.palette.red-400}",
-            "type": "color",
+            "$type": "color",
+            "$value": "{color.palette.red-400}",
             "group": "components"
           }
         }
       },
       "readonly": {
         "foreground-color": {
-          "value": "{color.foreground.primary}",
-          "type": "color",
+          "$type": "color",
+          "$value": "{color.foreground.primary}",
           "group": "components"
         },
         "surface-color": {
-          "value": "{color.surface.strong}",
-          "type": "color",
+          "$type": "color",
+          "$value": "{color.surface.strong}",
           "group": "components"
         },
         "border-color": {
-          "value": "{color.border.faint}",
-          "type": "color",
+          "$type": "color",
+          "$value": "{color.border.faint}",
           "group": "components"
         }
       },
       "disabled": {
         "foreground-color": {
-          "value": "{color.foreground.disabled}",
-          "type": "color",
+          "$type": "color",
+          "$value": "{color.foreground.disabled}",
           "group": "components"
         },
         "surface-color": {
-          "value": "{color.surface.interactive-disabled}",
-          "type": "color",
+          "$type": "color",
+          "$value": "{color.surface.interactive-disabled}",
           "group": "components"
         },
         "border-color": {
-          "value": "{color.border.primary}",
-          "type": "color",
+          "$type": "color",
+          "$value": "{color.border.primary}",
           "group": "components"
         }
       }

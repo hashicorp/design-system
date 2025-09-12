@@ -298,8 +298,9 @@ async function indexWebsiteContent() {
       level: 9,
       // EXTRA
       'token-name': token.name,
-      'token-value': token.value,
-      'token-type': token.type, // notice: it may be `undefined`
+      // note: we prefix `type` and `value` with `$` because we're using the DTCG format
+      'token-type': token.$type, // notice: it may be `undefined`
+      'token-value': token.$value,
       'token-group': token.group, // notice: it may be `undefined`
     });
   });

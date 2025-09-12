@@ -15,23 +15,24 @@ export function generateColorHelpers(tokens: TransformedToken[], outputCssVars: 
 
   tokens.forEach(token => {
 
-    if (!(token.attributes?.category === 'color')) return;
+    // ignore tokens that are not color-related
+    if (!(token.path[0] === 'color')) return;
 
-    const group = typeof token.attributes.type === 'string' ? token.attributes.type : '';
-    const value = outputCssVars ? `var(--${token.name})` : token.value;
+    // we know that color tokens have nested names, no need to test for its existence
+    const group = token.path[1];
+    const value = outputCssVars ? `var(--${token.name})` : token.$value;
 
     if (['foreground', 'page', 'surface', 'border'].includes(group)) {
-      const context = token.path[1];
       const name = token.path[2];
-      if (context === 'foreground') {
-        helpers.push(`.${PREFIX}-${context}-${name} { color: ${value}; }`)
+      if (group === 'foreground') {
+        helpers.push(`.${PREFIX}-${group}-${name} { color: ${value}; }`)
       }
-      if (context === 'page' || context === 'surface') {
-        helpers.push(`.${PREFIX}-${context}-${name} { background-color: ${value}; }`)
+      if (group === 'page' || group === 'surface') {
+        helpers.push(`.${PREFIX}-${group}-${name} { background-color: ${value}; }`)
       }
-      if (context === 'border') {
+      if (group === 'border') {
         // notice: we assume a 1px border (if a user needs a different border width, and want to use the helper, they have to apply an override)
-        helpers.push(`.${PREFIX}-${context}-${name} { border: 1px solid ${value}; }`)
+        helpers.push(`.${PREFIX}-${group}-${name} { border: 1px solid ${value}; }`)
       }
     } else if (['hashicorp', 'hcp', 'boundary','consul','nomad','packer','terraform','vagrant','vault','vault-secrets','vault-radar','waypoint'].includes(group)) {
       // TODO!
