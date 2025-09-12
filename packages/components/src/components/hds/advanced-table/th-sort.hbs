@@ -44,21 +44,30 @@
       />
 
       {{#if @column}}
-        {{#if this.showContextMenu}}
-          <Hds::AdvancedTable::ThContextMenu
+        <Hds::AdvancedTable::ThContextMenu
+          @column={{@column}}
+          @hasReorderableColumns={{@hasReorderableColumns}}
+          @hasResizableColumns={{@hasResizableColumns}}
+          @isStickyColumn={{@isStickyColumn}}
+          @reorderHandleElement={{this._reorderHandleElement}}
+          @resizeHandleElement={{this._resizeHandleElement}}
+          @onColumnResize={{@onColumnResize}}
+          @onPinFirstColumn={{@onPinFirstColumn}}
+        />
+
+        {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
+          <Hds::AdvancedTable::ThReorderHandle
             @column={{@column}}
-            @isStickyColumn={{@isStickyColumn}}
-            @hasResizableColumns={{@hasResizableColumns}}
-            @resizeHandleElement={{this._resizeHandleElement}}
-            @onColumnResize={{@onColumnResize}}
-            @onPinFirstColumn={{@onPinFirstColumn}}
+            @tableHeight={{@tableHeight}}
+            @onReorderDragStart={{this.handleDragStart}}
+            @onReorderDragEnd={{@onReorderDragEnd}}
+            {{this._registerReorderHandleElement}}
           />
         {{/if}}
 
-        {{#if (and @hasResizableColumns (not @column.isLast))}}
+        {{#if (and @hasResizableColumns (not @column.isLast) (not @column.table.hasColumnBeingDragged))}}
           <Hds::AdvancedTable::ThResizeHandle
             @column={{@column}}
-            @hasResizableColumns={{@hasResizableColumns}}
             @tableHeight={{@tableHeight}}
             @onColumnResize={{@onColumnResize}}
             {{this._registerResizeHandleElement}}
@@ -67,4 +76,15 @@
       {{/if}}
     </Hds::Layout::Flex>
   </Hds::Layout::Flex>
+
+  {{#if @column}}
+    {{#if (and @column.table.hasColumnBeingDragged (not @isStickyColumn))}}
+      <Hds::AdvancedTable::ThReorderDropTarget
+        @column={{@column}}
+        @hasSelectableRows={{@hasSelectableRows}}
+        @tableHeight={{@tableHeight}}
+        @onReorderDrop={{@onReorderDrop}}
+      />
+    {{/if}}
+  {{/if}}
 </div>

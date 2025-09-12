@@ -7,11 +7,12 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import { requestAnimationFrameWaiter } from './utils.ts';
+import { BORDER_WIDTH } from './index.ts';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
-const TABLE_BORDER_WIDTH = 1;
 const KEYBOARD_RESIZE_STEP = 10;
 
 function calculateEffectiveDelta(
@@ -58,7 +59,6 @@ function calculateEffectiveDelta(
 export interface HdsAdvancedTableThResizeHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    hasResizableColumns: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     tableHeight?: number;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
@@ -74,7 +74,10 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startColumnPxWidth: number;
     startNextColumnPxWidth?: number;
   } | null = null;
+  // track the width change as it is changing, applied when resizing stops
   @tracked private _transientDelta: number = 0;
+  @tracked private _isUpdateQueued: boolean = false;
+  @tracked private _lastPointerEvent: PointerEvent | null = null;
 
   private _handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private _boundResize: (event: PointerEvent) => void;
@@ -103,7 +106,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       return;
     }
 
-    return `${tableHeight - TABLE_BORDER_WIDTH * 2}px`;
+    return `${tableHeight - BORDER_WIDTH * 2}px`;
   }
 
   get classNames(): string {
@@ -262,25 +265,41 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   private _resize(event: PointerEvent): void {
-    if (this.resizing === null) {
+    this._lastPointerEvent = event;
+
+    if (this._isUpdateQueued) {
       return;
     }
 
-    event.preventDefault();
+    this._isUpdateQueued = true;
 
-    const { column } = this.args;
-    const { next: nextColumn } = column.siblings;
-    const { startX, startColumnPxWidth, startNextColumnPxWidth } =
-      this.resizing;
-    const deltaX = event.clientX - startX;
+    requestAnimationFrameWaiter(() => {
+      if (this.resizing === null || this._lastPointerEvent === null) {
+        this._isUpdateQueued = false;
 
-    this._applyResizeDelta(
-      deltaX,
-      column,
-      startColumnPxWidth, // Width at the start of the drag
-      nextColumn,
-      startNextColumnPxWidth // Width of next col at the start of the drag
-    );
+        return;
+      }
+
+      const event = this._lastPointerEvent;
+
+      event.preventDefault();
+
+      const { column } = this.args;
+      const { next: nextColumn } = column.siblings;
+      const { startX, startColumnPxWidth, startNextColumnPxWidth } =
+        this.resizing;
+      const deltaX = event.clientX - startX;
+
+      this._applyResizeDelta(
+        deltaX,
+        column,
+        startColumnPxWidth, // Width at the start of the drag
+        nextColumn,
+        startNextColumnPxWidth // Width of next col at the start of the drag
+      );
+
+      this._isUpdateQueued = false;
+    });
   }
 
   private _stopResize(): void {

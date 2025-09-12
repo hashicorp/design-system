@@ -113,3 +113,31 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
 }
 
 export type HdsAdvancedTableModel = Array<Record<string, unknown>>;
+
+export type HdsAdvancedTableColumnResizeCallback = (
+  columnKey: string,
+  newWidth?: string
+) => void;
+
+export type HdsAdvancedTableColumnReorderCallback = ({
+  column,
+  newOrder,
+  insertedAt,
+}: {
+  column: HdsAdvancedTableColumn;
+  newOrder: string[];
+  insertedAt: number;
+}) => void;
+
+export interface HdsAdvancedTableCell {
+  columnKey: string;
+  content: unknown;
+}
+
+export enum HdsAdvancedTableColumnReorderSideValues {
+  Left = 'left',
+  Right = 'right',
+}
+
+export type HdsAdvancedTableColumnReorderSide =
+  `${HdsAdvancedTableColumnReorderSideValues}`;
