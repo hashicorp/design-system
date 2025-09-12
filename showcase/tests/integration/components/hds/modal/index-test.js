@@ -218,7 +218,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
     // when the modal is closed the `overflow:hidden` style should be removed
     await click('.hds-modal__overlay');
-    assert.dom('#test-flyout').isNotVisible();
+    assert.dom('#test-modal').isNotVisible();
     assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
   });
 
