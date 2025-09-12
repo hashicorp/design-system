@@ -4,7 +4,7 @@ description: 'Used to display complex, structured tabular data with advanced fea
 caption: 'Used to display complex, structured tabular data with advanced features.'
 links:
   figma: >-
-    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-35163&t=w8xQlWxzH7bwXLe2-1
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=77513-16596&t=emmCBTTPFMW4gPx7-4
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/advanced-table
 related:
