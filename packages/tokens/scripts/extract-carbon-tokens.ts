@@ -13,6 +13,7 @@ import { extractColors } from './extract-carbon-parts/extractColors.ts';
 import { extractMotion } from './extract-carbon-parts/extractMotion.ts';
 import { extractLayout } from './extract-carbon-parts/extractLayout.ts';
 import { extractTypography } from './extract-carbon-parts/extractTypography.ts';
+import { extractThemes } from './extract-carbon-parts/extractThemes.ts';
 
 // SCRIPT CONFIG
 
@@ -40,6 +41,8 @@ export const destinationCarbonFolder = path.resolve(__dirname, '../src/carbon-ex
     await extractLayout();
     console.log(`\nProcessing "@carbon/type"...`);
     await extractTypography();
+    console.log(`\nProcessing "@carbon/themes"...`);
+    await extractThemes();
 
     console.log('\n==============================================');
     console.log('\nCarbon tokens extraction completed!');
