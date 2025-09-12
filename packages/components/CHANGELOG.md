@@ -4,11 +4,9 @@
 
 ### Patch Changes
 
-<!-- START components/stepper/nav -->
 
 `Stepper::Nav` - Fixed bug with stacking context styles causing step content's z-index to not work as expected
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3176](https://github.com/hashicorp/design-system/pull/3176)</small>
 
