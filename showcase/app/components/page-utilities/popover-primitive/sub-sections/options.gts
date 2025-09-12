@@ -71,6 +71,7 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
           <CodeFragmentWithPlaceholderTrigger
             @placement={{placement}}
             @hasArrow={{true}}
+            @arrowId={{concat "arrow-placement-" placement}}
           />
         </div>
       </SG.Item>

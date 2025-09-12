@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
+import { eq } from 'ember-truth-helpers';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
@@ -21,41 +22,29 @@ export interface CodeFragmentWithPlaceholderTriggerSignature {
 }
 
 export default class CodeFragmentWithPlaceholderTrigger extends Component<CodeFragmentWithPlaceholderTriggerSignature> {
-  get placement() {
-    return this.args.placement ?? 'bottom';
-  }
-
-  get arrowSelector() {
-    return this.args.arrowId
-      ? `#${this.args.arrowId}`
-      : `#arrow-placement-${this.placement}`;
-  }
-
-  get arrowId() {
-    return this.args.arrowId ?? `arrow-placement-${this.placement}`;
-  }
-
   get anchoredPositionOptions() {
-    const { hasArrow, offset, arrowPadding } = this.args;
+    const {
+      hasArrow,
+      offset,
+      arrowPadding,
+      placement = 'bottom',
+      arrowId,
+    } = this.args;
 
     const options: HdsAnchoredPositionOptions = {
       enableCollisionDetection: false,
-      placement: this.placement,
+      placement,
       arrowPadding,
-      arrowSelector: hasArrow ? this.arrowSelector : undefined,
+      arrowSelector: hasArrow ? `#${arrowId}` : undefined,
       offsetOptions: hasArrow ? 16 : undefined,
     };
 
+    // override default offsetOptions if provided
     if (offset) {
-      // override default offsetOptions if provided
       options['offsetOptions'] = offset;
     }
 
     return options;
-  }
-
-  get popoverText() {
-    return this.args.placement ?? 'content';
   }
 
   <template>
@@ -78,11 +67,15 @@ export default class CodeFragmentWithPlaceholderTrigger extends Component<CodeFr
         >
           {{#if @hasArrow}}
             <div
-              id={{this.arrowId}}
+              id={{@arrowId}}
               class="shw-utilities-popover-primitive-fake-arrow"
             />
           {{/if}}
-          <ShwPlaceholder @text={{this.popoverText}} @width="90" @height="40" />
+          <ShwPlaceholder
+            @text={{if (eq @placement undefined) "content" @placement}}
+            @width="90"
+            @height="40"
+          />
         </div>
       </div>
     </HdsPopoverPrimitive>
