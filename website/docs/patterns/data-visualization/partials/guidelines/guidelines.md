@@ -19,7 +19,7 @@ IBM’s Carbon Design System includes various [chart components](https://carbond
 
 - [Proportional meters]( https://carbondesignsystem.com/data-visualization/simple-charts/#meter-(proportional)) are used to show the breakdown of categories within a bar that equal 100% of the bar. This is may be used in our products to show the health of a group of resources or the amount of resources used toward a specific cap.
 
-![Porportional meter chart data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-example-proportional-meter.png)
+![Proportional meter chart data visualization](/assets/patterns/data-visualization/color-usage/data-visualization-example-proportional-meter.png)
 
 - [Donut charts](https://carbondesignsystem.com/data-visualization/simple-charts/#donut) are circular graphs that display data as a portion of a whole divided into slices. This type of chart may be used in a similar way as proportional meter charts but offers a different presentation of the information.
 
