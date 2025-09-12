@@ -488,6 +488,71 @@
       </Hds::Stepper::Nav>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Overlay components within step content</Shw::Text::H3>
+  <Shw::Text::Body>
+    When the flyout and modal are open their overlays should appear above the example block.
+  </Shw::Text::Body>
+
+  <Shw::Grid @columns={{2}} {{style marginTop="32px"}} as |SG|>
+    <SG.Item>
+      <Hds::Stepper::Nav @titleTag="h3" @currentStep={{1}} @ariaLabel="Label" as |S|>
+        <S.Step>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Step>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Step>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+        <S.Panel>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Open modal" @color="secondary" {{on "click" this.activateModal}} />
+            <Hds::Button @text="Open flyout" @color="secondary" {{on "click" this.activateFlyout}} />
+          </Hds::ButtonSet>
+
+          {{#if this.modalActive}}
+            <Hds::Modal id="demo-modal" @onClose={{this.deactivateModal}} as |M|>
+              <M.Header>
+                Modal title
+              </M.Header>
+              <M.Body>
+                <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+              </M.Body>
+              <M.Footer as |F|>
+                <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+              </M.Footer>
+            </Hds::Modal>
+          {{/if}}
+
+          {{#if this.flyoutActive}}
+            <Hds::Flyout id="demo-flyout" @onClose={{this.deactivateFlyout}} as |M|>
+              <M.Header @tagline="Main page context" @icon="info">
+                Additional information
+              </M.Header>
+              <M.Body>
+                <p class="hds-typography-body-300 hds-foreground-primary">
+                  Aliquam ac enim iaculis, faucibus enim id, dapibus quam. Nunc nibh mi, vehicula sed enim eget, lacinia
+                  venenatis tortor. Quisque vitae accumsan est, eu vehicula arcu.
+                </p>
+              </M.Body>
+            </Hds::Flyout>
+          {{/if}}
+        </S.Panel>
+        <S.Panel />
+      </Hds::Stepper::Nav>
+    </SG.Item>
+    <SG.Item>
+      <Shw::Placeholder @text="Element with z-index: 1" class="shw-component-stepper-nav-mock-z-index" />
+    </SG.Item>
+  </Shw::Grid>
 </section>
 
 <Shw::Divider />

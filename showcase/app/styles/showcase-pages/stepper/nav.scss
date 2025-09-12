@@ -14,4 +14,9 @@ body.page-components-stepper-nav {
   .shw-component-stepper-nav-step-mock-incomplete .hds-stepper-nav__progress-bar::after {
     content: none;
   }
+
+  .shw-component-stepper-nav-mock-z-index {
+    position: relative;
+    z-index: 1;
+  }
 }
