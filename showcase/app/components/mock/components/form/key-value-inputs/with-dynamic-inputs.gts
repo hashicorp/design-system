@@ -301,27 +301,22 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
                 >
                   <option
                     value=""
-                    {{! @glint-expect-error }}
                     selected={{if (eq R.rowData.key "") true}}
                   ></option>
                   <option
                     value="textinput"
-                    {{! @glint-expect-error }}
                     selected={{if (eq R.rowData.key "textinput") true}}
                   >Single line</option>
                   <option
                     value="textarea"
-                    {{! @glint-expect-error }}
                     selected={{if (eq R.rowData.key "textarea") true}}
                   >Multiline</option>
                   <option
                     value="maskedinput"
-                    {{! @glint-expect-error }}
                     selected={{if (eq R.rowData.key "maskedinput") true}}
                   >Masked text</option>
                   <option
                     value="select"
-                    {{! @glint-expect-error }}
                     selected={{if (eq R.rowData.key "select") true}}
                   >Select from list</option>
                 </F.Select>
@@ -329,7 +324,6 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
 
               <R.Field as |F|>
                 <F.Label>Value</F.Label>
-                {{! @glint-expect-error }}
                 {{#if (eq R.rowData.key "textarea")}}
                   <F.Textarea
                     name="value-{{R.rowIndex}}"
@@ -337,7 +331,6 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
                     @value={{R.rowData.value}}
                     {{on "input" this.onInputUpdateModel}}
                   />
-                  {{! @glint-expect-error }}
                 {{else if (eq R.rowData.key "maskedinput")}}
                   <F.MaskedInput
                     name="value-{{R.rowIndex}}"
@@ -345,12 +338,10 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
                     @value={{R.rowData.value}}
                     {{on "input" this.onInputUpdateModel}}
                   />
-                  {{! @glint-expect-error }}
                 {{else if (eq R.rowData.key "select")}}
                   <F.SuperSelectMultiple
                     name="value-{{R.rowIndex}}"
                     @options={{SUPERSELECT_OPTIONS}}
-                    {{! @glint-expect-error }}
                     @selected={{R.rowData.value}}
                     @onChange={{this.onPowerSelectChangeUpdateModel}}
                     @ariaLabel="Label"

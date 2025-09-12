@@ -292,7 +292,6 @@
 
   <div class="shw-component-pagination-table-demo" id="demo1-numbered-with-events">
     <Hds::Table
-      {{! @glint-expect-error - the Table doesn't have a generic type for the model argument / rowData (https://hashicorp.atlassian.net/browse/HDS-5090)  }}
       @model={{this.paginatedData_demo1}}
       @columns={{array
         (hash key="id" label="ID")
@@ -304,13 +303,9 @@
     >
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.id}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.name}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.email}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
@@ -335,7 +330,6 @@
 
   <div class="shw-component-pagination-table-demo" id="demo2-numbered-with-routing">
     <Hds::Table
-      {{! @glint-expect-error - the Table doesn't have a generic type for the model argument / rowData (https://hashicorp.atlassian.net/browse/HDS-5090)  }}
       @model={{this.paginatedData_demo2}}
       @columns={{array
         (hash key="id" label="ID" isSortable=true)
@@ -350,13 +344,9 @@
     >
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.id}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.name}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.email}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
@@ -384,7 +374,6 @@
 
   <div class="shw-component-pagination-table-demo" id="demo3-compact-with-events">
     <Hds::Table
-      {{! @glint-expect-error - the Table doesn't have a generic type for the model argument / rowData (https://hashicorp.atlassian.net/browse/HDS-5090)  }}
       @model={{this.paginatedData_demo3}}
       @columns={{array
         (hash key="id" label="ID")
@@ -395,13 +384,9 @@
     >
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.id}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.name}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.email}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
@@ -426,7 +411,6 @@
 
   <div class="shw-component-pagination-table-demo" id="demo4-compact-with-routing">
     <Hds::Table
-      {{! @glint-expect-error - the Table doesn't have a generic type for the model argument / rowData (https://hashicorp.atlassian.net/browse/HDS-5090)  }}
       @model={{this.paginatedData_demo4}}
       @columns={{array
         (hash key="id" label="ID")
@@ -437,13 +421,9 @@
     >
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.id}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.name}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.email}}</B.Td>
-          {{! @glint-expect-error }}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>

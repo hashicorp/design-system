@@ -114,12 +114,10 @@
           <R.Field as |F|>
             <F.Label>Key</F.Label>
             <F.HelperText>The key you enter should be a good key.</F.HelperText>
-            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
             <F.TextInput @value={{R.rowData.key}} />
           </R.Field>
           <R.Field as |F|>
             <F.Label>Value</F.Label>
-            {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
             <F.TextInput @value={{R.rowData.value}} />
           </R.Field>
           <R.Generic><Shw::Placeholder @height="36px" @width="200px" @text="generic" /></R.Generic>
@@ -151,13 +149,11 @@
       <R.Field as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
       <R.Field as |F|>
         <F.Label>Value</F.Label>
-        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         <F.TextInput @value={{R.rowData.value.text}} />
       </R.Field>
       <R.DeleteRowButton />
@@ -181,7 +177,6 @@
       <R.Field as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
       <R.DeleteRowButton />
@@ -211,11 +206,9 @@
     </:header>
 
     <:row as |R|>
-      {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
-      <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
+      <R.Field @isRequired={{true}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
@@ -225,7 +218,6 @@
 
       <R.Field @isOptional={{true}} as |F|>
         <F.Label>Value</F.Label>
-        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         <F.Textarea @value={{R.rowData.value.text}} />
       </R.Field>
       <R.DeleteRowButton />
@@ -254,11 +246,9 @@
     </:header>
 
     <:row as |R|>
-      {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
-      <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
+      <R.Field @isRequired={{true}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
         <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
