@@ -23,12 +23,7 @@ const SubSectionDismiss: TemplateOnlyComponent = <template>
     </SG.Item>
 
     <SG.Item>
-      <HdsAlert
-        @type="inline"
-        @color="neutral"
-        @onDismiss={{NOOP}}
-        as |A|
-      >
+      <HdsAlert @type="inline" @color="neutral" @onDismiss={{NOOP}} as |A|>
         <A.Title>With the dismiss button</A.Title>
         <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
       </HdsAlert>
