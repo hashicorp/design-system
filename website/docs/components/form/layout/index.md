@@ -6,7 +6,7 @@ description: >-
 caption: Components used to create consistent structure and spacing for form elements.
 links:
   figma: >-
-    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/branch/azcdumnXvCyGfSVfEVZhGH/HDS-Components-v2.0?node-id=83107-2070&p=f&t=CeumEO6vBV6h0IuD-0
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=83107-2070
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form
 related:
