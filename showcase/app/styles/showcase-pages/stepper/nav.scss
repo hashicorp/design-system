@@ -11,7 +11,7 @@ body.page-components-stepper-nav {
   }
 
   // Hides the progress bar from being shown as progress bar is from parent Stepper::Nav
-  .shw-component-stepper-nav-step-mock-incomplete::after {
+  .shw-component-stepper-nav-step-mock-incomplete .hds-stepper-nav__progress-bar::after {
     content: none;
   }
 }
