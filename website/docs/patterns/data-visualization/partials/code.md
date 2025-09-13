@@ -28,6 +28,8 @@ Refer to the [Carbon Charts installation & setup page](https://charts.carbondesi
     - linking to font definitions within your HTML document
     - importing the component styles
 
+### Importing files
+
 In HTML:
 ```html{data-execute=false}
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css" />
@@ -100,4 +102,56 @@ setupChart(element: HTMLDivElement): void {
     options: chartOptions,
   });
 }
+```
+
+### Ember component example
+
+A simple example using the [Carbon Charts Donut](https://charts.carbondesignsystem.com/donut) component.
+
+#### JavaScript
+
+```javascript
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+
+import { DonutChart } from '@carbon/charts';
+import data from './data';
+import options from './options';
+import '@carbon/charts/styles.css';
+
+export default class MockCarbonDonut extends Component {
+  chart = null;
+
+  @action
+  setupChart(element) {
+    // Merge the dynamic options into the default options
+    const chartOptions = {
+      ...options,
+      title: this.args.title || options.title,
+    };
+
+    // Create the DonutChart instance
+    this.chart = new DonutChart(element, {
+      data,
+      options: chartOptions,
+    });
+  }
+}
+```
+
+#### Template
+
+Font definition links are included here in the component code for example purposes. Normally, they should only be included once within the HTML page template.
+
+```handlebars{data-execute=false}
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css" />
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans-condensed.css" />
+
+<div class="mock-carbon-donut" {{did-insert this.setupChart}} ...attributes></div>
+```
+
+#### Using the component within a page
+
+```handlebars
+<Mock::CarbonDonut @title="Cluster types" />
 ```
