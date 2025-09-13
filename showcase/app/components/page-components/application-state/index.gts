@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
@@ -19,10 +18,9 @@ import SubSectionWithMedia from 'showcase/components/page-components/application
 export default class ApplicationStateIndex extends Component {
   @tracked showHighlight = false;
 
-  @action
-  toggleHighlight() {
+  toggleHighlight = () => {
     this.showHighlight = !this.showHighlight;
-  }
+  };
 
   <template>
     {{pageTitle "ApplicationState Component"}}
