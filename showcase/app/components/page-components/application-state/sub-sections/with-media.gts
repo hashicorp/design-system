@@ -95,6 +95,15 @@ const SubSectionWithMedia: TemplateOnlyComponent<SubSectionWithMediaSignature> =
 
     <ShwTextH4 @tag="h3">With wide media (banner-like)</ShwTextH4>
 
+    <button
+      type="button"
+      class="shw-component-application-state-button-highlight"
+      {{on "click" @toggleHighlight}}
+    >
+      {{if @showHighlight "Hide" "Show"}}
+      layout highlight
+    </button>
+
     <ShwFlex @direction="column" @gap="4rem" as |SF|>
       {{#each ALIGNS as |align|}}
         <SF.Item @label="{{align}} aligned">
