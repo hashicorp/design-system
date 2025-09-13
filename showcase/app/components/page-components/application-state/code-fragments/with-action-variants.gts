@@ -38,6 +38,10 @@ const CodeFragmentWithActionVariants: TemplateOnlyComponent<CodeFragmentWithActi
           <F.Button @color="primary" @text="Primary action" />
         {{/if}}
 
+        {{#if @hasSecondaryAction}}
+          <F.Button @color="secondary" @text="Secondary action" />
+        {{/if}}
+
         {{#if @hasDropdown}}
           <F.Dropdown @listPosition="bottom-right" as |dd|>
             <dd.ToggleButton @text="Choose an option" />
