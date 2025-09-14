@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 2.3.1
+
+**Patch changes**
+
+`cloud-ui/email` - Fixed CSS helpers for "elevation" styles
+
+<small class="doc-whats-new-changelog-metadata">[#3158](https://github.com/hashicorp/design-system/pull/3158)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.3.0
 
 **Minor changes**
@@ -200,12 +210,6 @@ Added design tokens for indeterminate `Checkbox`
 **Patch changes**
 
 - [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
-
-## 1.1.0
-
-**Minor changes**
-
-- [#584](https://github.com/hashicorp/design-system/pull/584) [`258c06d9`](https://github.com/hashicorp/design-system/commit/258c06d952d41696bb8c5b4bab19eb46e4612cdc) Thanks [@didoo](https://github.com/didoo)! - added specific design tokens for the `RadioCard` component
 
 
 ---

@@ -118,7 +118,7 @@ importers:
         specifier: ^1.6.12
         version: 1.7.3
       '@hashicorp/design-system-tokens':
-        specifier: workspace:^2.3.0
+        specifier: workspace:^2.3.1
         version: link:../tokens
       '@hashicorp/flight-icons':
         specifier: workspace:^3.13.0

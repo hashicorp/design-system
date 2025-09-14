@@ -24,6 +24,8 @@ export default class PageComponentsStepperNavController extends Controller {
   @tracked currentStep_demo3 = 1;
   @tracked currentStep_demo4 = 1;
   @tracked currentStep_demo5 = 0;
+  @tracked modalActive = false;
+  @tracked flyoutActive = false;
 
   demoStep1 = {
     title: 'Step 1',
@@ -153,5 +155,25 @@ export default class PageComponentsStepperNavController extends Controller {
       this.demoStepNew,
       this.demoStepLast,
     ];
+  }
+
+  @action
+  activateModal() {
+    this.modalActive = true;
+  }
+
+  @action
+  deactivateModal() {
+    this.modalActive = false;
+  }
+
+  @action
+  activateFlyout() {
+    this.flyoutActive = true;
+  }
+
+  @action
+  deactivateFlyout() {
+    this.flyoutActive = false;
   }
 }
