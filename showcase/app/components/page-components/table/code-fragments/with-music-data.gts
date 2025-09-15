@@ -21,23 +21,14 @@ export interface CodeFragmentWithMusicDataSignature {
 
 const CodeFragmentWithMusicData: TemplateOnlyComponent<CodeFragmentWithMusicDataSignature> =
   <template>
-    <HdsTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{MUSIC}}
-      @columns={{@columns}}
-      @sortBy={{@sortBy}}
-    >
+    <HdsTable @model={{MUSIC}} @columns={{@columns}} @sortBy={{@sortBy}}>
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.artist}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.album}}</B.Td>
           {{#if @showVinylCost}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
           {{/if}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td @align={{if @rightAlignYear "right"}}>{{B.data.year}}</B.Td>
         </B.Tr>
       </:body>

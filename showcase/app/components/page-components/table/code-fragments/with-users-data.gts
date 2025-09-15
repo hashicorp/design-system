@@ -31,64 +31,37 @@ export default class CodeFragmentWithUsersData extends Component<CodeFragmentWit
     return this.args.dataSize ?? 'medium';
   }
 
-  get model(): User[] | UserWithMoreColumns[] {
-    if (this.args.model) {
-      return this.args.model;
-    } else if (this.dataSize === 'large' || this.dataSize === 'medium') {
-      return USERS_WITH_MORE_COLUMNS;
+  get usersModel(): User[] {
+    if (this.args.model != undefined) {
+      return this.args.model as User[];
     } else {
       return USERS;
     }
   }
 
+  get usersWithMoreColumnsModel(): UserWithMoreColumns[] {
+    if (this.args.model != undefined) {
+      return this.args.model as UserWithMoreColumns[];
+    } else {
+      return USERS_WITH_MORE_COLUMNS;
+    }
+  }
+
   <template>
-    <HdsTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{this.model}}
-      @columns={{@columns}}
-      @isFixedLayout={{@isFixedLayout}}
-      @isSelectable={{@isSelectable}}
-      @onSelectionChange={{@onSelectionChange}}
-    >
-      <:body as |B|>
-        <B.Tr
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionKey="{{B.data.id}}"
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @isSelected={{if B.data.isSelected true false}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          @selectionAriaLabelSuffix="row #{{B.data.id}}"
-        >
-          {{#if (eq this.dataSize "large")}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.first_name}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.last_name}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td @align="right">{{B.data.age}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.email}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.phone}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.bio}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.education}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.occupation}}</B.Td>
-          {{else if (eq this.dataSize "medium")}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.first_name}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.last_name}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td @align="right">{{B.data.age}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.email}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.bio}}</B.Td>
-          {{else}}
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+    {{#if (eq this.dataSize "small")}}
+      <HdsTable
+        @model={{this.usersModel}}
+        @columns={{@columns}}
+        @isFixedLayout={{@isFixedLayout}}
+        @isSelectable={{@isSelectable}}
+        @onSelectionChange={{@onSelectionChange}}
+      >
+        <:body as |B|>
+          <B.Tr
+            @selectionKey="{{B.data.id}}"
+            @isSelected={{if B.data.isSelected true false}}
+            @selectionAriaLabelSuffix="row #{{B.data.id}}"
+          >
             <B.Td>{{B.data.id}}</B.Td>
             <B.Td>
               <span
@@ -96,16 +69,40 @@ export default class CodeFragmentWithUsersData extends Component<CodeFragmentWit
                   (get B.data "isAnimated")
                   "shw-component-table-animate-user"
                 }}
-                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               >{{B.data.name}}</span>
             </B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.email}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.role}}</B.Td>
-          {{/if}}
-        </B.Tr>
-      </:body>
-    </HdsTable>
+          </B.Tr>
+        </:body>
+      </HdsTable>
+    {{else}}
+      <HdsTable
+        @model={{this.usersWithMoreColumnsModel}}
+        @columns={{@columns}}
+        @isFixedLayout={{@isFixedLayout}}
+      >
+        <:body as |B|>
+          <B.Tr>
+            {{#if (eq this.dataSize "large")}}
+              <B.Td>{{B.data.first_name}}</B.Td>
+              <B.Td>{{B.data.last_name}}</B.Td>
+              <B.Td @align="right">{{B.data.age}}</B.Td>
+              <B.Td>{{B.data.email}}</B.Td>
+              <B.Td>{{B.data.phone}}</B.Td>
+              <B.Td>{{B.data.bio}}</B.Td>
+              <B.Td>{{B.data.education}}</B.Td>
+              <B.Td>{{B.data.occupation}}</B.Td>
+            {{else}}
+              <B.Td>{{B.data.first_name}}</B.Td>
+              <B.Td>{{B.data.last_name}}</B.Td>
+              <B.Td @align="right">{{B.data.age}}</B.Td>
+              <B.Td>{{B.data.email}}</B.Td>
+              <B.Td>{{B.data.bio}}</B.Td>
+            {{/if}}
+          </B.Tr>
+        </:body>
+      </HdsTable>
+    {{/if}}
   </template>
 }

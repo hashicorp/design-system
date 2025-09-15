@@ -32,7 +32,6 @@ export default class CodeFragmentWithSelectableData extends Component<CodeFragme
 
   <template>
     <HdsTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model}}
       @columns={{@columns}}
       @isSelectable={{true}}
@@ -40,20 +39,13 @@ export default class CodeFragmentWithSelectableData extends Component<CodeFragme
       @onSelectionChange={{@onSelectionChange}}
     >
       <:body as |B|>
-        {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Tr
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @selectionKey="{{B.data.id}}"
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @isSelected={{B.data.isSelected}}
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
         >
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.lorem}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.ipsum}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.dolor}}</B.Td>
         </B.Tr>
       </:body>

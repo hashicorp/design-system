@@ -43,7 +43,6 @@ const CLUSTERS_WITH_EXTRA_DATA = CLUSTERS.map((record) => {
 const CodeFragmentWithClusterData: TemplateOnlyComponent<CodeFragmentWithClusterDataSignature> =
   <template>
     <HdsTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{if @extraData CLUSTERS_WITH_EXTRA_DATA CLUSTERS}}
       @columns={{@columns}}
       @sortBy={{@sortBy}}
@@ -52,9 +51,7 @@ const CodeFragmentWithClusterData: TemplateOnlyComponent<CodeFragmentWithCluster
     >
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.peer-name}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.cluster-partition}}</B.Td>
           <B.Td>
             {{#if (eq (get B.data "status") "failing")}}
@@ -87,9 +84,7 @@ const CodeFragmentWithClusterData: TemplateOnlyComponent<CodeFragmentWithCluster
               />
             {{/if}}
           </B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.services.imported}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.services.exported}}</B.Td>
           <B.Td @align="right">
             <HdsDropdown @isInline={{true}} as |dd|>
