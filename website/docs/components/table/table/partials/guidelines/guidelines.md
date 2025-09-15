@@ -8,19 +8,19 @@
 ### When not to use
 
 - As a layout mechanism. Instead, use [Flex](/layouts/flex) or [Grid](/layouts/grid) layout helpers.
-- When data requires scrollable format, more levels of hierarchy, or when keyboard navigation is needed to achieve usability. Instead, use the [Advanced Table] (components/table/advanced-table)
+- When data requires scrollable format, more levels of hierarchy, or when keyboard navigation is needed to achieve usability. Instead, use the [Advanced Table](components/table/advanced-table)
 
 ## Columns
 
 ### Sorting
 
-While multiple columns may offer sorting options, users can only apply sorting to one column at a time. Sorting is not relevant for all content. Thoughtfully consider when to apply sorting.
+While multiple columns may offer sorting options, users can only apply sorting to one column at a time. Sorting is not relevant for all content and should be thoughtfully applied.
 
 ![Header column sorting](/assets/components/table/table-sorting.png)
 
 ### Tooltips
 
-Labels within the Table column header should be concise and straightforward. When additional context is necessary, a [Tooltip](/components/tooltip) may be used in conjunction with the label but should be used sparingly and as a last resort.
+Labels should be concise and straightforward. When additional context is necessary, a [Tooltip](/components/tooltip) may be used in conjunction with the label but should be used sparingly and as a last resort.
 
 Some common examples where it may be useful to provide additional context in a tooltip include:
 
@@ -38,7 +38,7 @@ We recommend against using a tooltip in all or most column labels in a table as 
 
 ### Width
 
-Columns use as much room as they need to use to fit their content unless a specific column width has been declared.
+Columns will fit the longest content in the column unless a specific column width has been declared.
 
 ### Placement
 
@@ -49,13 +49,13 @@ Columns use as much room as they need to use to fit their content unless a speci
 The column placement property is only relevant in Figma and doesn’t exist as a property in code.
 !!!
 
-Column placement applies visual styling based on where the column is located relative to other columns in the Table.
+Column placement determines the visual styling based on where the column is within the table structure.
 
 ![Table column placement example](/assets/components/table/table-col-placement.png)
 
 ### Alignment
 
-The alignment of text and content within a Table impacts the readability and scannability speed for the content. The proper alignment method depends on the content within the cell, and relative position within the table.
+The alignment of text and content impacts readability and scannability for content. The proper alignment method depends on the content within the cell and relative position of the cell.
 
 !!! Do
 
@@ -73,7 +73,7 @@ Avoid misaligned header labels and content.
 
 #### Left alignment
 
-Align content to the left of the cell by default. This lends itself to the default left-to-right reading order of most content types.
+Align content to the left in the cell by default. This lends itself to the default left-to-right reading order of most content types.
 
 Use left alignment for:
 
@@ -108,7 +108,7 @@ Don’t right align content that is variable in length. This can make the conten
 
 #### Other alignment methods
 
-We don’t recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
+We don’t recommend center or justified alignment of content within a cell or table. These alignments are difficult to read, especially if content is variable in length.
 
 !!! Dont
 
@@ -131,7 +131,7 @@ Striping always starts with the second row, distinguishing it from the header.
 
 **Accessibility alert**
 
-Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
+Ensure that content within striped rows maintains adequate color contrast with the striped background.
 !!!
 
 While striping is not required, we recommend it for the added usability benefits.
@@ -152,7 +152,7 @@ While striping is not required, we recommend it for the added usability benefits
 The row placement property is only relevant in Figma and doesn’t exist as a property in code.
 !!!
 
-Row placement determines the visual styling based on where the row is placed relative to other rows within the Table. Only cells with a column placement that is either `start` or `end` utilize the row placement property; column position `middle` does not utilize this property.
+Row placement determines the visual styling based on where the row is located. Only cells with a column placement that is `start` or `end` utilize the row placement property; column position `middle` does not utilize this property.
 
 ![Table row placement example](/assets/components/table/table-row-placement.png)
 
@@ -160,23 +160,22 @@ Row placement determines the visual styling based on where the row is placed rel
 
 - Labels in headers should be concise and straightforward.
 - The label should clearly indicate what type of content is contained within the cell (e.g. Created date, Email, Project name).
-- Labels should use sentence-case capitalization, not all-caps.
+- Labels should always use sentence-case capitalization.
 
 ## Cells
 
-In order for the user to be able to sort and read the table easily, each cell in a table should contain one piece of data. Having more than one piece of information inside a cell makes it harder for users to navigate the relationships between headers and content. 
+In order for the user to sort and read the table easily, each cell in a table should contain one piece of data. Having more than one piece of information inside a cell makes it harder for users to navigate the relationships between headers and content. 
 
 ### Density
 
 - Use `medium` density by default for balanced readability and display.
-- If content is largely string/text-based, `short` allows for more content to be displayed within the page.
-- While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
+- Choose `short` density for text-heavy tables to fit more rows on a page but can make tables harder to read and scan, so use it thoughtfully.
 - If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
 
 ![Table cell density](/assets/components/table/table-density.png)
 
 ## Horizontal scrolling
-Use horizontal scrolling when columns in a Table need to expand beyond the standard Table container. We recommend only implementing horizontal scrolling when data becomes difficult to read in a single view. Use the [Advanced Table](components/table/advanced-table), when keyboard navigation and sticky columns ease the reading experience for large data-sets.
+Use horizontal scrolling when columns need to expand beyond the standard container. We recommend only implementing horizontal scrolling when data becomes difficult to read in a single view. Use the [Advanced Table](components/table/advanced-table), when keyboard navigation and sticky columns ease the reading experience for large data-sets.
 
 For more information on the types of approaches used to implement horizontal scrolling, refer to the [code tab](/components/table/table?tab=code#scrollable-table)
 
@@ -186,7 +185,7 @@ Multi-select allows users to select multiple rows to perform bulk actions, such 
 
 A multi-select consists of: 
 
-1. A select all in a table is used in the table's header row to allow the selection or deselection of all child rows in the table simultaneously.
+1. A select all in the table's header row to allow the selection or deselection of all child rows simultaneously.
 
 ![Example of multi-select in a table header](/assets/components/table/multi-select-header.png)
 
@@ -203,8 +202,8 @@ For more details around using a multi-select Table, recommended patterns, and in
 This example covers basic multi-select table interactions. We're working to include more complex patterns for handling actions when multiple rows are selected and how this impacts filtering and pagination within a data set. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
 !!!
 
-- When individual rows are selected, the parent checkbox in the Table header displays an indeterminate state. 
-- When no or some rows (but not all) are selected in the Table, clicking the parent checkbox in the header will change to checked and all rows on that page will be selected.
+- When individual rows are selected, the parent checkbox in the header displays an indeterminate state. 
+- When no or some rows (but not all) are selected, clicking the parent checkbox in the header will change to checked and all rows on that page will be selected.
 - An additional action outside of the Table is needed in order to select all rows across a paginated Table.
 
 <video width="100%" controls loop>

@@ -18,13 +18,13 @@
 
 ### Sorting
 
-While multiple columns may offer sorting options, users can only apply sorting to one column at a time. Sorting is not relevant for all content. Thoughtfully consider when to apply sorting.
+While multiple columns may offer sorting options, users can only apply sorting to one column at a time. Sorting is not relevant for all content and should be applied thoughtfully.
 
 ![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
 
 ### Tooltips
 
-Labels within the Advanced Table column should be concise and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
+Labels should be concise and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
 
 Some examples where it may be useful to include additional context in a tooltip include:
 
@@ -46,13 +46,13 @@ Column width is determined by manually resizing the header column and cells with
 The column placement property is only relevant within Figma and doesn’t exist as a property in code.
 !!!
 
-Column placement determines the visual styling based on where the column is placed relative to other columns in the Advanced Table.
+Column placement determines the visual styling based on where the column is within the table structure.
 
 ![For header columns, start placement adds a border radius to the top left corner and a border on the left and right, middle placement has squared corners and a border on the right, end placement has a border radius on the top right corner and a border on the right. For cells, start placement has a border on the left and right, middle and end placement have a border on the right.](/assets/components/table/advanced-table/table-col-placement.png)
 
 ### Alignment
 
-The alignment of text and content within an Advanced Table impacts the readability and scannability speed for the content. The proper alignment method depends on the content within the cell, and relative position within the advanced table.
+The alignment of text and content impacts the readability and scannability of content. The proper alignment method depends on the content within the cell and relative position of the cell.
 
 !!! Do
 
@@ -72,7 +72,7 @@ Avoid misaligned header labels and content.
 
 #### Left alignment
 
-Align content to the left of the cell by default. This lends itself to the default left-to-right reading order of most content types.
+Align content to the left in the cell by default. This lends itself to the default left-to-right reading order of most content types.
 
 Use left alignment for:
 
@@ -107,7 +107,7 @@ Don’t right align content with varied lengths. This can make the content more 
 
 #### Other alignment methods
 
-We don’t recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
+We don’t recommend center or justified alignment of content within a cell or table. These alignments are difficult to read, especially if content is variable in length.
 
 !!! Dont
 
@@ -131,7 +131,7 @@ When resizable columns are enabled, actions related to each function are rendere
 
 #### Minimum and maximum width
 
-To prevent a column from being resized beyond a reasonable amount, the Advanced Table enforces a default minimum and maximum width of `150px` and `800px`, respectively. These can be overridden via the [component API](/components/table/advanced-table?tab=code#advancedtable), if necessary.
+To prevent a column from being resized beyond a reasonable amount, the Advanced Table enforces a default minimum and maximum width of `150px` and `800px`, respectively. These can be overridden via the [component API](/components/table/advanced-table?tab=code#advancedtable) if necessary.
 
 ![An example of a column being resized to the minimum default width](/assets/components/table/advanced-table/advanced-table-resize-min-width.png)
 
@@ -149,7 +149,7 @@ To prevent a column from being resized beyond a reasonable amount, the Advanced 
 
 - Labels in headers should be concise and straightforward.
 - The label should clearly indicate what type of content is contained within the cell (string, number, status, etc).
-- Labels should use sentence-case capitalization, not all-caps.
+- Labels should always use sentence-case capitalization.
 
 ### Expandable rows
 
@@ -210,7 +210,7 @@ The Advanced Table supports any combination of expanded or collapsed rows on loa
 
 **Accessibility alert**
 
-Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
+Ensure that content within striped rows maintains adequate color contrast with the striped background.
 !!!
 
 Striping enhances readability by alternating row colors, making it easier to scan tabular data.
@@ -229,7 +229,7 @@ Striping enhances readability by alternating row colors, making it easier to sca
 The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
 !!!
 
-Row placement determines the visual styling based on where the row is placed relative to other rows within the Advanced Table. Only cells with a column placement that is either start or end use the row placement property; column position middle does not use this property.
+Row placement determines the visual styling based on where the row is placed. Only cells with a column placement that is either `start` or `end` use the row placement property; column position `middle` does not use this property.
 
 ![The cell with column placement end and row placement end has a border radius set on the bottom right corner.](/assets/components/table/advanced-table/table-row-placement.png)
 
@@ -238,8 +238,7 @@ Row placement determines the visual styling based on where the row is placed rel
 ### Density
 
 - Use `medium` density by default for balanced readability and display.
-- Choose `short` density for text-heavy tables to fit more rows on a page.
-- Dense content can make tables harder to read and scan, so use it thoughtfully.
+- Choose `short` density for text-heavy tables to fit more rows on a page but can make tables harder to read and scan, so use it thoughtfully.
 
 ## Horizontal scrolling
 
@@ -280,7 +279,7 @@ Multi-select allows users to select multiple rows to perform bulk actions, such 
 
 A multi-select pattern consists of:
 
-1. A select all in a table is used in the table's header row to allow the selection or deselection of all child rows in the table simultaneously.
+1. A select all is used in the table's header row to allow the selection or deselection of all child rows simultaneously.
 
 ![Example of multi-select in a table header](/assets/components/table/advanced-table/table-multi-select-header.png)
 
