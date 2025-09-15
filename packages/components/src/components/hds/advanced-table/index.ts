@@ -7,13 +7,13 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
+import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
-import type Owner from '@ember/owner';
-
 import HdsAdvancedTableTableModel from './models/table.ts';
 
+import type Owner from '@ember/owner';
+import type { WithBoundArgs } from '@glint/template';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
@@ -28,12 +28,14 @@ import type {
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
+  HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
 import type HdsAdvancedTableTr from './tr.ts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -45,19 +47,19 @@ export const VALIGNMENTS: HdsAdvancedTableVerticalAlignment[] = Object.values(
 );
 export const DEFAULT_VALIGN = HdsAdvancedTableVerticalAlignmentValues.Top;
 
+export const BORDER_WIDTH = 1;
+
 const DEFAULT_SCROLL_DIMENSIONS = {
   bottom: '0px',
   height: '0px',
   left: '0px',
   right: '0px',
-  top: '0px',
   width: '0px',
 };
 
 const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
-  hasStickyHeader: boolean,
   hasStickyFirstColumn: boolean,
   hasFirstColumnPxWidth: boolean,
   isStickyColumnPinned: boolean
@@ -97,7 +99,6 @@ const getScrollIndicatorDimensions = (
     height: `${scrollWrapper.offsetHeight - horizontalScrollBarHeight}px`,
     left: `${leftOffset}px`,
     right: `${verticalScrollBarWidth}px`,
-    top: hasStickyHeader ? `${theadElement.offsetHeight}px` : '0px',
     width: `${scrollWrapper.offsetWidth - verticalScrollBarWidth}px`,
   };
 };
@@ -129,22 +130,26 @@ export interface HdsAdvancedTableSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     caption?: string;
     columns: HdsAdvancedTableColumn[];
+    columnOrder?: string[];
     density?: HdsAdvancedTableDensities;
     identityKey?: string;
     isSelectable?: boolean;
     isStriped?: boolean;
     model: HdsAdvancedTableModel;
+    reorderedMessageText?: string;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
     selectableColumnKey?: string;
     sortedMessageText?: string;
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
+    hasReorderableColumns?: boolean;
     hasResizableColumns?: boolean;
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
     onSelectionChange?: (
       selection: HdsAdvancedTableOnSelectionChangeSignature
@@ -192,6 +197,8 @@ export interface HdsAdvancedTableSignature {
 }
 
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
+  @service hdsIntl!: HdsIntlService;
+
   @tracked
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
@@ -209,6 +216,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked isStickyColumnPinned = false;
   @tracked isStickyHeaderPinned = false;
   @tracked hasPinnedFirstColumn: boolean | undefined = undefined;
+  @tracked reorderedMessageText = '';
   @tracked showScrollIndicatorLeft = false;
   @tracked showScrollIndicatorRight = false;
   @tracked showScrollIndicatorTop = false;
@@ -221,6 +229,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const {
       model,
       columns,
+      columnOrder,
       childrenKey,
       hasResizableColumns,
       sortBy,
@@ -232,34 +241,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
       columns,
+      columnOrder,
       childrenKey,
       hasResizableColumns,
       sortBy,
       sortOrder,
+      onColumnReorder: this._onColumnReorder.bind(this),
       onSort,
     });
 
-    if (this._tableModel.hasRowsWithChildren) {
-      const sortableColumns = columns.filter((column) => column.isSortable);
-      const sortableColumnLabels = sortableColumns.map(
-        (column) => column.label
-      );
-
-      assert(
-        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
-        sortableColumns.length === 0
-      );
-
-      assert(
-        'Cannot have a sticky first column if there are nested rows.',
-        !hasStickyFirstColumn
-      );
-
-      assert(
-        `Cannot have resizable columns if there are nested rows.`,
-        !hasResizableColumns
-      );
-    }
+    this._runAssertions();
 
     if (hasStickyFirstColumn) {
       this.hasPinnedFirstColumn = true;
@@ -381,13 +372,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
     const { isSelectable } = this.args;
-    const { columns } = this._tableModel;
+    const { orderedColumns } = this._tableModel;
 
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    for (let i = 0; i < columns.length; i++) {
-      style += ` ${columns[i]!.appliedWidth}`;
+    for (let i = 0; i < orderedColumns.length; i++) {
+      style += ` ${orderedColumns[i]!.appliedWidth}`;
     }
 
     return style;
@@ -461,7 +452,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     element.addEventListener('scroll', this._scrollHandler);
 
     const updateMeasurements = () => {
-      this._tableHeight = element.clientHeight;
+      this._tableHeight = element.offsetHeight;
 
       const hasFirstColumnPxWidth =
         this._tableModel.columns[0]?.pxWidth !== undefined;
@@ -469,7 +460,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,
-        this.hasStickyHeader,
         this.hasStickyFirstColumn ? true : false,
         hasFirstColumnPxWidth,
         this.isStickyColumnPinned
@@ -511,9 +501,82 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     };
   });
 
+  private _runAssertions() {
+    const {
+      columns,
+      hasReorderableColumns,
+      hasResizableColumns,
+      hasStickyFirstColumn,
+    } = this.args;
+
+    if (this._tableModel.hasRowsWithChildren) {
+      const sortableColumns = columns.filter((column) => column.isSortable);
+      const sortableColumnLabels = sortableColumns.map(
+        (column) => column.label
+      );
+
+      assert(
+        'Cannot have reorderable columns if there are nested rows.',
+        !hasReorderableColumns
+      );
+
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
+        sortableColumns.length === 0
+      );
+
+      assert(
+        'Cannot have a sticky first column if there are nested rows.',
+        hasStickyFirstColumn === undefined
+      );
+
+      assert(
+        `Cannot have resizable columns if there are nested rows.`,
+        !hasResizableColumns
+      );
+    }
+
+    if (hasReorderableColumns) {
+      assert(
+        'Cannot have both reorderable columns and a sticky first column.',
+        hasStickyFirstColumn === undefined
+      );
+    }
+  }
+
   private _setUpThead = modifier((element: HTMLDivElement) => {
     this._theadElement = element;
   });
+
+  private _onColumnReorder: HdsAdvancedTableColumnReorderCallback = ({
+    column,
+    newOrder,
+    insertedAt,
+  }) => {
+    const { reorderedMessageText } = this.args;
+
+    if (reorderedMessageText !== undefined) {
+      this.reorderedMessageText = reorderedMessageText;
+    } else {
+      const newPosition = insertedAt + 1;
+      const translatedReorderedMessageText = this.hdsIntl.t(
+        'hds.advanced-table.reordered-message',
+        {
+          default: `Moved ${column.label} column to position ${newPosition}`,
+          columnLabel: column.label,
+          newPosition,
+        }
+      );
+
+      this.reorderedMessageText = translatedReorderedMessageText;
+    }
+
+    this.args.onColumnReorder?.({
+      column,
+      newOrder,
+      insertedAt,
+    });
+  };
 
   onSelectionChangeCallback(
     checkbox?: HdsFormCheckboxBaseSignature['Element'],
@@ -552,7 +615,21 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   setupTableModelData(): void {
     const { columns, model, sortBy, sortOrder } = this.args;
 
-    this._tableModel.setupData({ columns, model, sortBy, sortOrder });
+    this._tableModel.setupData({
+      columns,
+      model,
+      sortBy,
+      sortOrder,
+    });
+  }
+
+  @action
+  updateTableModelColumnOrder(): void {
+    if (this.args.columnOrder === undefined) {
+      return;
+    }
+
+    this._tableModel.columnOrder = this.args.columnOrder;
   }
 
   @action

@@ -2,16 +2,19 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
+
 <div
   class="hds-advanced-table__container
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
   {{did-update this.setupTableModelData @columns @model @sortBy @sortOrder}}
+  {{did-update this.updateTableModelColumnOrder @columnOrder}}
   ...attributes
 >
   {{! Caption }}
   <div id={{this._captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
     {{@caption}}
     {{this.sortedMessageText}}
+    {{this.reorderedMessageText}}
   </div>
 
   {{! Grid }}
@@ -28,7 +31,12 @@
     {{this._setUpScrollWrapper}}
   >
     {{! Header }}
-    <div class={{this.theadClassNames}} role="rowgroup" {{this._setUpThead}}>
+    <div
+      class={{this.theadClassNames}}
+      role="rowgroup"
+      {{this._setUpThead}}
+      {{on "dragleave" (fn (mut this._tableModel.reorderHoveredColumn) null)}}
+    >
       <Hds::AdvancedTable::Tr
         @selectionScope="col"
         @onClickSortBySelected={{if @selectableColumnKey (fn this._tableModel.setSortBy @selectableColumnKey)}}
@@ -41,7 +49,7 @@
         @hasStickyColumn={{this.hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
-        {{#each this._tableModel.columns as |column|}}
+        {{#each this._tableModel.orderedColumns as |column|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
               @column={{column}}
@@ -49,12 +57,17 @@
               @onClickSort={{if column.key (fn this._tableModel.setSortBy column.key)}}
               @align={{column.align}}
               @tooltip={{column.tooltip}}
+              @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
+              @hasSelectableRows={{this.isSelectable}}
               @isStickyColumn={{this._isStickyColumn column}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
               @onColumnResize={{@onColumnResize}}
               @onPinFirstColumn={{this._onPinFirstColumn}}
+              @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
+              @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
+              @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
               {{this._registerThElement column}}
             >
               {{column.label}}
@@ -64,7 +77,9 @@
               @align={{column.align}}
               @column={{column}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+              @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
+              @hasSelectableRows={{this.isSelectable}}
               @isExpanded={{this._tableModel.expandState}}
               @isExpandable={{column.isExpandable}}
               @isStickyColumn={{this._isStickyColumn column}}
@@ -75,6 +90,9 @@
               @onClickToggle={{this._tableModel.toggleAll}}
               @onColumnResize={{@onColumnResize}}
               @onPinFirstColumn={{this._onPinFirstColumn}}
+              @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
+              @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
+              @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
               {{this._registerThElement column}}
             >
               {{column.label}}
@@ -82,6 +100,10 @@
           {{/if}}
         {{/each}}
       </Hds::AdvancedTable::Tr>
+
+      {{#if this.showScrollIndicatorTop}}
+        <div class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top" />
+      {{/if}}
     </div>
 
     {{! Body }}
@@ -107,6 +129,7 @@
                   isParentRow=T.isExpandable
                   depth=T.depth
                   displayRow=T.shouldDisplayChildRows
+                  data=T.data
                 )
                 Th=(component
                   "hds/advanced-table/th"
@@ -140,6 +163,7 @@
                 selectionAriaLabelSuffix=@selectionAriaLabelSuffix
                 hasStickyColumn=this.hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
+                data=record
               )
               Th=(component
                 "hds/advanced-table/th"
@@ -169,13 +193,6 @@
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
       {{style height=this.scrollIndicatorDimensions.height right=this.scrollIndicatorDimensions.right}}
-    />
-  {{/if}}
-
-  {{#if this.showScrollIndicatorTop}}
-    <div
-      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top"
-      {{style top=this.scrollIndicatorDimensions.top width=this.scrollIndicatorDimensions.width}}
     />
   {{/if}}
 

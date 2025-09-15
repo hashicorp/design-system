@@ -7,8 +7,11 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
+import type { HdsAdvancedTableThReorderHandleSignature } from '../th-reorder-handle.ts';
 import type HdsAdvancedTableModel from './table.ts';
+import type { HdsDropdownToggleButtonSignature } from '../../dropdown/toggle/button.ts';
 import type {
+  HdsAdvancedTableCell,
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
 } from '../types';
@@ -32,12 +35,22 @@ function pxToNumber(pxString: string): number {
 export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
+  @tracked isBeingDragged: boolean = false;
   @tracked isExpandable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key: string;
   @tracked tooltip?: string = undefined;
+  @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
+
+  // elements
   @tracked thElement?: HTMLDivElement = undefined;
+  @tracked
+  reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'] =
+    undefined;
+  @tracked
+  thContextMenuToggleElement?: HdsDropdownToggleButtonSignature['Element'] =
+    undefined;
 
   // width properties
   @tracked transientWidth?: `${number}px` = undefined; // used for transient width changes
@@ -47,9 +60,15 @@ export default class HdsAdvancedTableColumn {
   @tracked originalWidth: string = this.width; // used to restore the width when resetting
   @tracked widthDebts: Record<string, number> = {}; // used to track width changes imposed by other columns
 
-  @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
-
   table: HdsAdvancedTableModel;
+
+  get cells(): HdsAdvancedTableCell[] {
+    return this.table.flattenedVisibleRows.map((row) => {
+      const cell = row.cells.find((cell) => cell.columnKey === this.key);
+
+      return cell!;
+    });
+  }
 
   get appliedWidth(): string {
     return this.transientWidth ?? this.width;
@@ -93,13 +112,13 @@ export default class HdsAdvancedTableColumn {
   }
 
   get index(): number {
-    const { columns } = this.table;
+    const { orderedColumns } = this.table;
 
-    if (columns.length === 0) {
+    if (orderedColumns.length === 0) {
       return -1;
     }
 
-    return columns.findIndex((column) => column.key === this.key);
+    return orderedColumns.findIndex((column) => column.key === this.key);
   }
 
   get isFirst(): boolean {
@@ -115,15 +134,15 @@ export default class HdsAdvancedTableColumn {
     next?: HdsAdvancedTableColumn;
   } {
     const { index, table } = this;
-    const { columns } = table;
+    const { orderedColumns } = table;
 
     if (index === -1) {
       return {};
     }
 
     return {
-      previous: this.isFirst ? undefined : columns[index - 1],
-      next: this.isLast ? undefined : columns[index + 1],
+      previous: this.isFirst ? undefined : orderedColumns[index - 1],
+      next: this.isLast ? undefined : orderedColumns[index + 1],
     };
   }
 
@@ -260,6 +279,22 @@ export default class HdsAdvancedTableColumn {
     this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
   }
 
+  @action focusReorderHandle(): void {
+    if (this.thElement === undefined) {
+      return;
+    }
+
+    // focus the th element first (parent) to ensure the handle is visible
+    this.thElement.focus({ preventScroll: true });
+
+    if (this.reorderHandleElement === undefined) {
+      return;
+    }
+
+    // then focus the reorder handle element
+    this.reorderHandleElement.focus();
+  }
+
   // Sets the column width in pixels, ensuring it respects the min and max width constraints.
   setPxTransientWidth(newPxWidth: number): void {
     const pxMinWidth = this.pxMinWidth ?? 1;
@@ -279,6 +314,6 @@ export default class HdsAdvancedTableColumn {
   restoreWidth(): void {
     this.settleWidthDebts();
 
-    this.width = this.originalWidth ?? this.width;
+    this.width = this.originalWidth;
   }
 }

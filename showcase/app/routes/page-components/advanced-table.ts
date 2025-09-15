@@ -15,6 +15,7 @@ import policies from 'showcase/mocks/policy-data';
 import selectableItems from 'showcase/mocks/selectable-item-data';
 import spanningCells from 'showcase/mocks/spanning-cell-data';
 import users from 'showcase/mocks/user-data';
+import infrastructureResources from 'showcase/mocks/infrastructure-data';
 
 export type PageComponentsAdvancedTableModel =
   ModelFrom<PageComponentsAdvancedTableRoute>;
@@ -28,6 +29,7 @@ export default class PageComponentsAdvancedTableRoute extends Route {
       userDataShort: structuredClone(users.slice(0, 5)),
       clusters,
       spanningManualData: spanningCells,
+      infrastructureResources,
       selectableData: selectableItems,
       selectableDataDemo1: structuredClone(selectableItems),
       selectableDataDemo2: structuredClone(selectableItems),

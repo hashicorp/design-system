@@ -260,22 +260,24 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('index getter returns correct column position', function (assert) {
+    const mockColumns = [
+      new HdsAdvancedTableColumn({
+        column: { label: 'First', key: 'first' },
+        table: null,
+      }),
+      new HdsAdvancedTableColumn({
+        column: { label: 'Second', key: 'second' },
+        table: null,
+      }),
+      new HdsAdvancedTableColumn({
+        column: { label: 'Third', key: 'third' },
+        table: null,
+      }),
+    ];
     // Create mock table with multiple columns
     const mockTable = {
-      columns: [
-        new HdsAdvancedTableColumn({
-          column: { label: 'First', key: 'first' },
-          table: null,
-        }),
-        new HdsAdvancedTableColumn({
-          column: { label: 'Second', key: 'second' },
-          table: null,
-        }),
-        new HdsAdvancedTableColumn({
-          column: { label: 'Third', key: 'third' },
-          table: null,
-        }),
-      ],
+      columns: mockColumns,
+      orderedColumns: mockColumns,
     };
 
     // Set table reference for each column
@@ -299,7 +301,7 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('index getter returns -1 when table has no columns', function (assert) {
-    const mockTable = { columns: [] };
+    const mockTable = { columns: [], orderedColumns: [] };
     const column = new HdsAdvancedTableColumn({
       column: { label: 'Test', key: 'test' },
       table: mockTable,
@@ -309,13 +311,15 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('index getter returns -1 when column key does not exist in table', function (assert) {
+    const columns = [
+      new HdsAdvancedTableColumn({
+        column: { label: 'Other', key: 'other' },
+        table: null,
+      }),
+    ];
     const mockTable = {
-      columns: [
-        new HdsAdvancedTableColumn({
-          column: { label: 'Other', key: 'other' },
-          table: null,
-        }),
-      ],
+      columns,
+      orderedColumns: columns,
     };
     mockTable.columns[0].table = mockTable;
 
@@ -332,17 +336,19 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('isFirst getter identifies first column correctly', function (assert) {
+    const columns = [
+      new HdsAdvancedTableColumn({
+        column: { label: 'First', key: 'first' },
+        table: null,
+      }),
+      new HdsAdvancedTableColumn({
+        column: { label: 'Second', key: 'second' },
+        table: null,
+      }),
+    ];
     const mockTable = {
-      columns: [
-        new HdsAdvancedTableColumn({
-          column: { label: 'First', key: 'first' },
-          table: null,
-        }),
-        new HdsAdvancedTableColumn({
-          column: { label: 'Second', key: 'second' },
-          table: null,
-        }),
-      ],
+      columns,
+      orderedColumns: columns,
     };
 
     mockTable.columns.forEach((col) => (col.table = mockTable));
@@ -358,7 +364,7 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('isFirst getter returns false when index is -1', function (assert) {
-    const mockTable = { columns: [] };
+    const mockTable = { columns: [], orderedColumns: [] };
     const column = new HdsAdvancedTableColumn({
       column: { label: 'Test', key: 'test' },
       table: mockTable,
@@ -368,21 +374,23 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('isLast getter identifies last column correctly', function (assert) {
+    const columns = [
+      new HdsAdvancedTableColumn({
+        column: { label: 'First', key: 'first' },
+        table: null,
+      }),
+      new HdsAdvancedTableColumn({
+        column: { label: 'Second', key: 'second' },
+        table: null,
+      }),
+      new HdsAdvancedTableColumn({
+        column: { label: 'Third', key: 'third' },
+        table: null,
+      }),
+    ];
     const mockTable = {
-      columns: [
-        new HdsAdvancedTableColumn({
-          column: { label: 'First', key: 'first' },
-          table: null,
-        }),
-        new HdsAdvancedTableColumn({
-          column: { label: 'Second', key: 'second' },
-          table: null,
-        }),
-        new HdsAdvancedTableColumn({
-          column: { label: 'Third', key: 'third' },
-          table: null,
-        }),
-      ],
+      columns,
+      orderedColumns: columns,
     };
 
     mockTable.columns.forEach((col) => (col.table = mockTable));
@@ -402,7 +410,7 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('isLast getter returns false when index is -1', function (assert) {
-    const mockTable = { columns: [] };
+    const mockTable = { columns: [], orderedColumns: [] };
     const column = new HdsAdvancedTableColumn({
       column: { label: 'Test', key: 'test' },
       table: mockTable,
@@ -412,21 +420,23 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('siblings getter returns correct previous and next columns', function (assert) {
+    const columns = [
+      new HdsAdvancedTableColumn({
+        column: { label: 'First', key: 'first' },
+        table: null,
+      }),
+      new HdsAdvancedTableColumn({
+        column: { label: 'Second', key: 'second' },
+        table: null,
+      }),
+      new HdsAdvancedTableColumn({
+        column: { label: 'Third', key: 'third' },
+        table: null,
+      }),
+    ];
     const mockTable = {
-      columns: [
-        new HdsAdvancedTableColumn({
-          column: { label: 'First', key: 'first' },
-          table: null,
-        }),
-        new HdsAdvancedTableColumn({
-          column: { label: 'Second', key: 'second' },
-          table: null,
-        }),
-        new HdsAdvancedTableColumn({
-          column: { label: 'Third', key: 'third' },
-          table: null,
-        }),
-      ],
+      columns,
+      orderedColumns: columns,
     };
 
     mockTable.columns.forEach((col) => (col.table = mockTable));
@@ -472,7 +482,7 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('siblings getter returns empty object when index is -1', function (assert) {
-    const mockTable = { columns: [] };
+    const mockTable = { columns: [], orderedColumns: [] };
     const column = new HdsAdvancedTableColumn({
       column: { label: 'Test', key: 'test' },
       table: mockTable,
@@ -483,13 +493,15 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
   });
 
   test('siblings getter works with single column', function (assert) {
+    const columns = [
+      new HdsAdvancedTableColumn({
+        column: { label: 'Only', key: 'only' },
+        table: null,
+      }),
+    ];
     const mockTable = {
-      columns: [
-        new HdsAdvancedTableColumn({
-          column: { label: 'Only', key: 'only' },
-          table: null,
-        }),
-      ],
+      columns,
+      orderedColumns: columns,
     };
 
     mockTable.columns[0].table = mockTable;

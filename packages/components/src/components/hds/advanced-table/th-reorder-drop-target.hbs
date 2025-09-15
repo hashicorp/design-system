@@ -1,0 +1,9 @@
+<div
+  class={{this.classNames}}
+  aria-hidden="true"
+  {{style height=this.height}}
+  {{this._registerElement}}
+  {{on "dragover" this.handleDragOver}}
+  {{on "drop" this.handleDrop}}
+  ...attributes
+/>

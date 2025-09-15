@@ -41,6 +41,10 @@ body.page-components-advanced-table {
     width: 400px;
   }
 
+  .shw-component-advanced-table-fixed-width-wrapper--wide {
+    width: 600px;
+  }
+
   .shw-component-advanced-table-with-pagination-demo-wrapper {
     .hds-table + .hds-pagination {
       margin-top: 16px;
@@ -82,5 +86,11 @@ body.page-components-advanced-table {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .shw-component-advanced-table-reorder-handle-container
+    .hds-advanced-table__th-reorder-handle {
+    visibility: visible;
+    opacity: 1;
   }
 }
