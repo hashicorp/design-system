@@ -4,7 +4,7 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { eq } from 'ember-truth-helpers';
-import { hash, array, concat, get } from '@ember/helper';
+import { concat, get } from '@ember/helper';
 import style from 'ember-style-modifier';
 
 import ShwAutoscrollable from 'showcase/components/shw/autoscrollable';
@@ -31,6 +31,26 @@ const DETECTIONS: HdsAnchoredPositionOptions['enableCollisionDetection'][] = [
 const STRATEGIES: HdsAnchoredPositionOptions['strategy'][] = [
   'absolute',
   'fixed',
+];
+
+const HAS_ARROW_OPTIONS = [false, true];
+
+const OFFSET_OPTIONS = [
+  { label: 'not set', offset: 0 },
+  { label: '16', offset: 16 },
+  {
+    label: '{ mainAxis: 40, crossAxis: 0 }',
+    offset: { mainAxis: 40, crossAxis: 0 },
+  },
+  {
+    label: '{ mainAxis: 16, crossAxis: 100 }',
+    offset: { mainAxis: 16, crossAxis: 100 },
+  },
+];
+
+const ARROW_PADDING_OPTIONS = [
+  { label: 'not set' },
+  { label: '32', arrowPadding: 32 },
 ];
 
 const SubSectionOptions: TemplateOnlyComponent = <template>
@@ -84,67 +104,39 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
 
   <ShwTextH4>offsetOptions</ShwTextH4>
 
-  {{#let (array false true) as |booleans|}}
-    {{#each booleans as |popoverHasArrow|}}
-      <ShwGrid
-        @columns={{4}}
-        @gap="2rem"
-        {{style margin-bottom="8rem"}}
-        as |SF|
-      >
-        {{#let
-          (array
-            (hash label="not set" offset=0)
-            (hash label="16" offset=16)
-            (hash
-              label="{ mainAxis: 40, crossAxis: 0 }"
-              offset=(hash mainAxis=40 crossAxis=0)
-            )
-            (hash
-              label="{ mainAxis: 16, crossAxis: 100 }"
-              offset=(hash mainAxis=16 crossAxis=100)
-            )
-          )
-          as |offsetOptionsVariants|
-        }}
-          {{#each offsetOptionsVariants as |offsetOptionsVariant count|}}
-            <SF.Item
-              @label={{if
-                (eq popoverHasArrow false)
-                (get offsetOptionsVariant "label")
-              }}
-            >
-              <CodeFragmentWithPlaceholderTrigger
-                @hasArrow={{popoverHasArrow}}
-                @offset={{get offsetOptionsVariant "offset"}}
-                @arrowId={{if popoverHasArrow (concat "arrow-offset-" count)}}
-              />
-            </SF.Item>
-          {{/each}}
-        {{/let}}
-      </ShwGrid>
+  {{#each HAS_ARROW_OPTIONS as |popoverHasArrow|}}
+    <ShwGrid @columns={{4}} @gap="2rem" {{style margin-bottom="8rem"}} as |SF|>
+      {{#each OFFSET_OPTIONS as |offsetOptionsVariant count|}}
+        <SF.Item
+          @label={{if
+            (eq popoverHasArrow false)
+            (get offsetOptionsVariant "label")
+          }}
+        >
+          <CodeFragmentWithPlaceholderTrigger
+            @hasArrow={{popoverHasArrow}}
+            @offset={{get offsetOptionsVariant "offset"}}
+            @arrowId={{if popoverHasArrow (concat "arrow-offset-" count)}}
+          />
+        </SF.Item>
+      {{/each}}
+    </ShwGrid>
 
-    {{/each}}
-  {{/let}}
+  {{/each}}
 
   <ShwTextH4>arrowPadding</ShwTextH4>
 
   <ShwGrid @columns={{4}} @gap="2rem" {{style margin-bottom="8rem"}} as |SF|>
-    {{#let
-      (array (hash label="not set") (hash label="32" arrowPadding=32))
-      as |arrowPaddingVariants|
-    }}
-      {{#each arrowPaddingVariants as |arrowPaddingVariant count|}}
-        <SF.Item @label={{get arrowPaddingVariant "label"}}>
-          <CodeFragmentWithPlaceholderTrigger
-            @placement="bottom-start"
-            @hasArrow={{true}}
-            @arrowId={{concat "arrow-padding-" count}}
-            @arrowPadding={{get arrowPaddingVariant "arrowPadding"}}
-          />
-        </SF.Item>
-      {{/each}}
-    {{/let}}
+    {{#each ARROW_PADDING_OPTIONS as |arrowPaddingVariant count|}}
+      <SF.Item @label={{get arrowPaddingVariant "label"}}>
+        <CodeFragmentWithPlaceholderTrigger
+          @placement="bottom-start"
+          @hasArrow={{true}}
+          @arrowId={{concat "arrow-padding-" count}}
+          @arrowPadding={{get arrowPaddingVariant "arrowPadding"}}
+        />
+      </SF.Item>
+    {{/each}}
   </ShwGrid>
 
   <ShwDivider @level={{2}} />
