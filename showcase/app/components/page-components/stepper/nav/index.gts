@@ -13,7 +13,7 @@ import SubSectionInteractivity from 'showcase/components/page-components/stepper
 import SubSectionResponsiveness from 'showcase/components/page-components/stepper/nav/sub-sections/responsiveness';
 
 const StepperNavIndex: TemplateOnlyComponent = <template>
-  {{pageTitle "Accordion Component"}}
+  {{pageTitle "StepperNav Component"}}
 
   <ShwTextH1>StepperNav</ShwTextH1>
 
