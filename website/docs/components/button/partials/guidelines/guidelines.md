@@ -133,7 +133,6 @@ Avoid disabling a button in its loading state. This makes them inaccessible for 
 
 !!!
 
-
 ## Links as Buttons
 
 The Button component accepts an `@href` or `@route` argument, which results in a link with the visual appearance of a button. While in general, we advise against this approach because it can cause confusion for keyboard-only users, there are a few instances where this may be appropriate for improved visual hierarchy, such as:
