@@ -119,7 +119,7 @@ Buttons can implement a loading state to communicate to the user that their subm
 
 !!! Do
 
-Ensure that the Button's loading state is the same width throughout varied states to minimize layout shifts.
+Ensure that the button's loading state is the same width throughout varied states to minimize layout shifts.
 
 ![Two button sets on top of each other. The first set showing a primary and secondary button in their default states. The second row showing the primary button in a loading state and the secondary button in a default state.](/assets/components/button/button-loading-state-do.png)
 
