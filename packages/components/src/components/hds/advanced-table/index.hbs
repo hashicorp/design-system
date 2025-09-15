@@ -100,6 +100,10 @@
           {{/if}}
         {{/each}}
       </Hds::AdvancedTable::Tr>
+
+      {{#if this.showScrollIndicatorTop}}
+        <div class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top" />
+      {{/if}}
     </div>
 
     {{! Body }}
@@ -189,13 +193,6 @@
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
       {{style height=this.scrollIndicatorDimensions.height right=this.scrollIndicatorDimensions.right}}
-    />
-  {{/if}}
-
-  {{#if this.showScrollIndicatorTop}}
-    <div
-      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top"
-      {{style top=this.scrollIndicatorDimensions.top width=this.scrollIndicatorDimensions.width}}
     />
   {{/if}}
 

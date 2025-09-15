@@ -54,14 +54,12 @@ const DEFAULT_SCROLL_DIMENSIONS = {
   height: '0px',
   left: '0px',
   right: '0px',
-  top: '0px',
   width: '0px',
 };
 
 const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
-  hasStickyHeader: boolean,
   hasStickyFirstColumn: boolean,
   hasFirstColumnPxWidth: boolean,
   isStickyColumnPinned: boolean
@@ -101,7 +99,6 @@ const getScrollIndicatorDimensions = (
     height: `${scrollWrapper.offsetHeight - horizontalScrollBarHeight}px`,
     left: `${leftOffset}px`,
     right: `${verticalScrollBarWidth}px`,
-    top: hasStickyHeader ? `${theadElement.offsetHeight}px` : '0px',
     width: `${scrollWrapper.offsetWidth - verticalScrollBarWidth}px`,
   };
 };
@@ -463,7 +460,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,
-        this.hasStickyHeader,
         this.hasStickyFirstColumn ? true : false,
         hasFirstColumnPxWidth,
         this.isStickyColumnPinned

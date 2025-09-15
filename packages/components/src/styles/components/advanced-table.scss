@@ -289,6 +289,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     }
   }
 
+  .hds-advanced-table__scroll-indicator-top {
+    top: 0;
+    width: 100%;
+    height: 8px;
+    // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
+    background: linear-gradient(to top, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+  }
+
   // Resizable columns
   &.hds-advanced-table__thead--has-resizable-columns {
     .hds-advanced-table__th .hds-advanced-table__th-content-text {
@@ -308,6 +316,11 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     background-color: var(--token-color-surface-strong);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
     border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
+
+    .hds-advanced-table__scroll-indicator-top {
+      top: unset;
+      bottom: -11px;
+    }
   }
 
   &.hds-advanced-table__thead--is-pinned {
@@ -715,12 +728,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 .hds-advanced-table__scroll-indicator-right {
   // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
   background: linear-gradient(to right, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
-}
-
-.hds-advanced-table__scroll-indicator-top {
-  height: 8px;
-  // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
-  background: linear-gradient(to top, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
 }
 
 .hds-advanced-table__scroll-indicator-bottom {
