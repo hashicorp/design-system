@@ -136,7 +136,7 @@ For a given component, the following items should be shown on its showcase page:
 For each HDS component, follow the following structure for showcase component files.
 - `components/page-components/<component-name>/index.gts` - Index file for the component's showcase page.
 - `components/page-components/<component-name>/code-fragments/<code-fragment-name>.gts` - Reusable examples of the main HDS component. Used multiple tiomes within the component's page.
-- `components/page-components/<component-name>/nav/sub-sections/<sub-section-name>.gts` - Sub-sections of the main component's showcase page. They should contains examples of the main HDS component's attributes, properties, interactive states, and other use cases. Each major section of the showcase should be broken into its own sub-section component. What constitutes a section can be flexible, but generally its each `ShwTextH2` plus the content below it.
+- `components/page-components/<component-name>/sub-sections/<sub-section-name>.gts` - Sub-sections of the main component's showcase page. They should contains examples of the main HDS component's attributes, properties, interactive states, and other use cases. Each major section of the showcase should be broken into its own sub-section component. What constitutes a section can be flexible, but generally its each `ShwTextH2` plus the content below it.
 
 #### Best practices
 - Use arrow functions instead of `@action` for event handlers.
