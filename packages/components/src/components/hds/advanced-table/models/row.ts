@@ -43,7 +43,9 @@ export default class HdsAdvancedTableRow {
       const cell = this.cells.find((cell) => cell.columnKey === key);
 
       if (cell === undefined) {
-        throw new Error(`Cell in the column with key ${key} not found for the row.`);
+        throw new Error(
+          `Cell in the column with key ${key} not found for the row.`
+        );
       }
 
       return cell;
