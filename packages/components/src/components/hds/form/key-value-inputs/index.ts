@@ -37,9 +37,9 @@ const KEY_VALUE_INPUTS_FIRST_ROW_SELECTOR =
 const KEY_VALUE_INPUTS_DELETE_ROW_CONTAINER_SELECTOR =
   '.hds-form-key-value-inputs__delete-row-button-container';
 
-export interface HdsFormKeyValueInputsSignature {
+export interface HdsFormKeyValueInputsSignature<T = unknown> {
   Args: {
-    data: Array<unknown>;
+    data: Array<T>;
     extraAriaDescribedBy?: string;
     isOptional?: boolean;
     isRequired?: boolean;
@@ -72,7 +72,7 @@ export interface HdsFormKeyValueInputsSignature {
           typeof HdsFormKeyValueInputsDeleteRowButtonComponent,
           'onInsert' | 'onRemove' | 'returnFocusTo' | 'rowData' | 'rowIndex'
         >;
-        rowData?: unknown;
+        rowData?: T;
         rowIndex?: number;
       },
     ];
@@ -92,7 +92,9 @@ export interface HdsFormKeyValueInputsSignature {
 
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
-export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInputsSignature> {
+export default class HdsFormKeyValueInputs<T = unknown> extends Component<
+  HdsFormKeyValueInputsSignature<T>
+> {
   private _element!: HTMLFieldSetElement;
   @tracked _gridTemplateColumns = '';
 

@@ -44,7 +44,7 @@ export const VALIGNMENTS: HdsTableVerticalAlignment[] = Object.values(
 );
 export const DEFAULT_VALIGN = HdsTableVerticalAlignmentValues.Top;
 
-export interface HdsTableSignature {
+export interface HdsTableSignature<T = HdsTableModel> {
   Args: {
     align?: HdsTableHorizontalAlignment;
     caption?: string;
@@ -54,7 +54,7 @@ export interface HdsTableSignature {
     isFixedLayout?: boolean;
     isSelectable?: boolean;
     isStriped?: boolean;
-    model?: HdsTableModel;
+    model?: T[];
     onSelectionChange?: (selection: HdsTableOnSelectionChangeSignature) => void;
     onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;
@@ -80,7 +80,7 @@ export interface HdsTableSignature {
         Td?: ComponentLike<HdsTableTdSignature>;
         Tr?: ComponentLike<HdsTableTrSignature>;
         Th?: ComponentLike<HdsTableThSignature>;
-        data?: Record<string, unknown>;
+        data?: T;
         rowIndex?: number;
         sortBy?: string;
         sortOrder?: HdsTableThSortOrder;
@@ -90,7 +90,9 @@ export interface HdsTableSignature {
   Element: HTMLTableElement;
 }
 
-export default class HdsTable extends Component<HdsTableSignature> {
+export default class HdsTable<T = HdsTableModel> extends Component<
+  HdsTableSignature<T>
+> {
   @service hdsIntl!: HdsIntlService;
 
   @tracked sortBy;
@@ -101,7 +103,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
   private _selectableRows: HdsTableSelectableRow[] = [];
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
 
-  constructor(owner: Owner, args: HdsTableSignature['Args']) {
+  constructor(owner: Owner, args: HdsTableSignature<T>['Args']) {
     super(owner, args);
     this.sortBy = this.args.sortBy ?? undefined;
     this.sortOrder = this.args.sortOrder ?? HdsTableThSortOrderValues.Asc;

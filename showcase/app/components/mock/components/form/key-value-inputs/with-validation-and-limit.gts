@@ -324,20 +324,16 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
             <:row as |R|>
               <R.Field
                 @isRequired={{true}}
-                {{! @glint-expect-error }}
                 @isInvalid={{if R.rowData.validationMessage true}}
                 as |F|
               >
                 <F.Label>Tag name</F.Label>
                 <F.TextInput
                   name="tag-name-{{R.rowIndex}}"
-                  {{! @glint-expect-error }}
                   @value={{R.rowData.tag-name}}
                   {{on "input" this.onInputUpdateModel}}
                 />
-                {{! @glint-expect-error }}
                 {{#if R.rowData.validationMessage}}
-                  {{! @glint-expect-error }}
                   <F.Error>{{R.rowData.validationMessage}}</F.Error>
                 {{/if}}
               </R.Field>
@@ -345,7 +341,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
                 <F.Label>Tag description</F.Label>
                 <F.TextInput
                   name="tag-description-{{R.rowIndex}}"
-                  {{! @glint-expect-error }}
                   @value={{R.rowData.tag-description}}
                   {{on "input" this.onInputUpdateModel}}
                 />

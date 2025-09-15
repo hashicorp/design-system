@@ -10,6 +10,8 @@ import {
   PLACEMENTS,
   ENABLE_COLLISION_DETECTION_OPTIONS,
 } from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
+import type { HdsBadgeColors } from '@hashicorp/design-system-components/components/hds/badge/types';
+import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
@@ -18,12 +20,25 @@ export type PageComponentsRichTooltipModel =
 
 type TextAlignOptions = 'left' | 'center' | 'right';
 
+interface DEMO_TABLE_DATA_ITEM {
+  id: number;
+  'peer-name': string;
+  'cluster-partition': string;
+  'cluster-icon': HdsIconSignature['Args']['name'];
+  status: {
+    text: string;
+    color: HdsBadgeColors;
+    icon: HdsIconSignature['Args']['name'];
+  };
+  tagsCount: number;
+}
+
 export default class PageComponentsRichTooltipRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'active', 'focus'];
 
-    const DEMO_TABLE_DATA = [
+    const DEMO_TABLE_DATA: DEMO_TABLE_DATA_ITEM[] = [
       {
         id: 1,
         'peer-name': 'cluster-2-partition-2',
