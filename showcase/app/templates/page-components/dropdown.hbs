@@ -8,52 +8,6 @@
 <Shw::Text::H1>Dropdown</Shw::Text::H1>
 
 <section data-test-percy>
-
-  <Shw::Text::H2>Popover disassociated on toggle re-render</Shw::Text::H2>
-
-  <Shw::Grid @columns={{2}} as |SG|>
-    <SG.Item @label="with ToggleButton">
-      <Shw::Outliner {{style padding="6em 12em"}}>
-        <Hds::Button
-          @size="small"
-          @text="Force re-render"
-          @color="critical"
-          {{style margin="0 0 1em"}}
-          {{on "click" (fn (mut this.rerenderOne) true)}}
-        />
-        <Hds::Dropdown as |D|>
-          {{#if this.rerenderOne}}
-            <D.ToggleButton @color="secondary" @text="Replacement" />
-          {{else}}
-            <D.ToggleButton @color="primary" @text="Original" />
-          {{/if}}
-          <D.Interactive @href="#">Create</D.Interactive>
-          <D.Interactive @href="#">Edit</D.Interactive>
-        </Hds::Dropdown>
-      </Shw::Outliner>
-    </SG.Item>
-    <SG.Item @label="with ToggleIcon">
-      <Shw::Outliner {{style padding="6em 12em"}}>
-        <Hds::Button
-          @size="small"
-          @text="Force re-render"
-          @color="critical"
-          {{style margin="0 0 1em"}}
-          {{on "click" (fn (mut this.rerenderTwo) true)}}
-        />
-        <Hds::Dropdown as |D|>
-          {{#if this.rerenderTwo}}
-            <D.ToggleIcon @icon="frown" @text="Replacement" />
-          {{else}}
-            <D.ToggleIcon @icon="smile" @text="Original" />
-          {{/if}}
-          <D.Interactive @href="#">Create</D.Interactive>
-          <D.Interactive @href="#">Edit</D.Interactive>
-        </Hds::Dropdown>
-      </Shw::Outliner>
-    </SG.Item>
-  </Shw::Grid>
-
   <Shw::Text::H2>Position</Shw::Text::H2>
 
   <Shw::Grid @columns={{2}} as |SG|>
