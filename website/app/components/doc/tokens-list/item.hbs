@@ -22,11 +22,11 @@
     {{else}}
       <Doc::MetaRow @label="CSS var" @valueToCopy="--{{this.token.name}}" @copyable={{true}} />
       {{! we don't want developers to use directly HEX values, so we don't add a "copy" button on purpose }}
-      <Doc::MetaRow @label="Value" @valueToShow={{this.token.value}} @isClipped={{not this.isExpanded}} />
+      <Doc::MetaRow @label="Value" @valueToShow={{this.token.$value}} @isClipped={{not this.isExpanded}} />
     {{/if}}
     {{#if this.isExpanded}}
-      {{#if this.token.type}}
-        <Doc::MetaRow @label="Type" @valueToShow={{this.token.type}} />
+      {{#if this.token.$type}}
+        <Doc::MetaRow @label="Type" @valueToShow={{this.token.$type}} />
       {{/if}}
       {{#if this.isAlias}}
         <Doc::MetaRow @label="Alias of" @valueToShow={{this.token.original_value}} />

@@ -15,7 +15,8 @@ const DEBOUNCE_MS = 250;
 const getAliases = (token, TOKENS_RAW) => {
   const path = token.path.join('.');
   return TOKENS_RAW.filter(
-    (item) => item.original.value === `{${path}.value}`
+    // note: also the original value is prefixed with `$`
+    (item) => item.original.$value === `{${path}.value}`
   ).map((alias) => `{${alias.path.join('.')}}`);
 };
 
@@ -51,7 +52,9 @@ export default class Index extends Component {
         const filteredTokens = this.groupedTokens[category].filter(
           (t) =>
             t.name.indexOf(this.searchQuery) !== -1 ||
-            t.value.indexOf(this.searchQuery) !== -1
+            // note: we prefix `value` with `$` because we're using the DTCG format
+            // we also convert it to string, because in some cases it's a number
+            String(t.$value).indexOf(this.searchQuery) !== -1
         );
 
         if (filteredTokens.length > 0) {

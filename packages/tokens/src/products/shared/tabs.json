@@ -3,63 +3,74 @@
     "tab": {
       "height": {
         "medium": {
-          "value": "36",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "36",
+          "unit": "px"
         },
         "large": {
-          "value": "48",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "48",
+          "unit": "px"
         }
       },
       "padding": {
         "horizontal": {
           "medium": {
-            "value": "12",
-            "type": "size"
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
           },
           "large": {
-            "value": "20",
-            "type": "size"
+            "$type": "dimension",
+            "$value": "20",
+            "unit": "px"
           }
         },
         "vertical": {
-          "value": "0",
-          "type": "size"
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "px"
         }
       },
       "border-radius": {
-        "value": "5",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "5",
+        "unit": "px"
       },
       "focus-inset": {
-        "value": "6",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "6",
+        "unit": "px"
       },
       "gutter": {
-        "value": "6",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "6",
+        "unit": "px"
       }
     },
     "indicator": {
       "height": {
-        "value": "3",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "3",
+        "unit": "px"
       },
       "transition": {
         "function": {
-          "value": "cubic-bezier(0.5, 1, 0.89, 1)"
+          "$type": "cubicBezier",
+          "$value": [0.5, 1, 0.89, 1]
         },
         "duration": {
-          "value": "0.6",
-          "type": "time",
+          "$type": "duration",
+          "$value": "0.6",
           "unit": "s"
         }
       }
     },
     "divider": {
       "height": {
-        "value": "1",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "1",
+        "unit": "px"
       }
     }
   }

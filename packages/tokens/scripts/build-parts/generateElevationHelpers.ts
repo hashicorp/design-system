@@ -24,7 +24,7 @@ export function generateElevationHelpers(tokensElevation: TransformedTokens, tok
 
     if (levelValues && levelValues.hasOwnProperty('box-shadow')) {
       const selector = `.${PREFIX}-elevation-${levelName}`;
-      const value = outputCssVars ? `var(--token-elevation-${levelName}-box-shadow)` : levelValues['box-shadow'].value;
+      const value = outputCssVars ? `var(--token-elevation-${levelName}-box-shadow)` : levelValues['box-shadow'].$value;
       helpersElevation.push(`${selector} { box-shadow: ${value}; }`);
     }
   });
@@ -36,7 +36,7 @@ export function generateElevationHelpers(tokensElevation: TransformedTokens, tok
 
     if (levelValues && levelValues.hasOwnProperty('box-shadow')) {
       const selector = `.${PREFIX}-surface-${levelName}`;
-      const value = outputCssVars ? `var(--token-surface-${levelName}-box-shadow)` : levelValues['box-shadow'].value;
+      const value = outputCssVars ? `var(--token-surface-${levelName}-box-shadow)` : levelValues['box-shadow'].$value;
       helpersSurface.push(`${selector} { box-shadow: ${value}; }`);
     }
   });
