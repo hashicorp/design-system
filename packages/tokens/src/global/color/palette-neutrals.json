@@ -44,7 +44,14 @@
       "neutral-0": {
         "$type": "color",
         "$value": "#ffffff",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "hds": "#ffffff",
+          "cds-0": "#ffffff",
+          "cds-10": "#cccccc",
+          "cds-90": "#333333",
+          "cds-100": "#000000"
+        }
       },
       "alpha-300": {
         "$type": "color",
