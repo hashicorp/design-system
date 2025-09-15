@@ -137,7 +137,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
 
       // We need to create a popoverId in order to connect the popover and the toggle with aria-controls
       // and an id is needed to implement `onclick` event listeners
-      if (this._popoverElement.id === '') {
+      if (!this._popoverElement.id) {
         this._popoverElement.id = guidFor(this);
       }
 
