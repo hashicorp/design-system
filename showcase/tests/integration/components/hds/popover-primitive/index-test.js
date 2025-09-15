@@ -21,7 +21,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive @enableClickEvents={{true}} as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} />
+            <button {{PP.setupPrimitiveToggle}} type="button" />
             <main {{PP.setupPrimitivePopover}} />
           </div>
         </Hds::PopoverPrimitive>
@@ -38,7 +38,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive @enableClickEvents={{true}} as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" type="button" />
             <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-content" />
           </div>
         </Hds::PopoverPrimitive>
@@ -57,7 +57,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive @enableSoftEvents={{true}} as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" type="button" />
             <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-content" />
           </div>
         </Hds::PopoverPrimitive>
@@ -82,7 +82,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive @enableClickEvents={{true}} as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" type="button" />
             <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-content" />
           </div>
         </Hds::PopoverPrimitive>
@@ -102,6 +102,72 @@ module(
       await click('#test-popover-primitive-toggle');
       // should go back to hidden
       assert.dom('#test-popover-primitive-content').isNotVisible();
+    });
+    test('it should continue to work when the toggle element is dynamically swapped', async function (assert) {
+      this.set('isSwapped', false);
+
+      await render(hbs`
+        <Hds::PopoverPrimitive @enableClickEvents={{true}} as |PP|>
+          <div {{PP.setupPrimitiveContainer}}>
+            {{#if this.isSwapped}}
+              <button data-test-id="replacement-toggle" type="button" {{PP.setupPrimitiveToggle}}>
+                Replacement
+              </button>
+            {{else}}
+              <button data-test-id="original-toggle" type="button" {{PP.setupPrimitiveToggle}}>
+                Original
+              </button>
+            {{/if}}
+            <div data-test-id="popover-content" {{PP.setupPrimitivePopover}}>
+              Content
+            </div>
+          </div>
+        </Hds::PopoverPrimitive>
+      `);
+
+      // verify the initial toggle works as expected
+      assert
+        .dom('[data-test-id="original-toggle"]')
+        .exists('The original toggle is rendered');
+      assert
+        .dom('[data-test-id="popover-content"]')
+        .isNotVisible('The popover is initially hidden');
+
+      await click('[data-test-id="original-toggle"]');
+      assert
+        .dom('[data-test-id="popover-content"]')
+        .isVisible('The popover becomes visible after the first click');
+
+      await click('[data-test-id="original-toggle"]');
+      assert
+        .dom('[data-test-id="popover-content"]')
+        .isNotVisible('The popover is hidden again');
+
+      // swap the toggle element
+      this.set('isSwapped', true);
+      assert
+        .dom('[data-test-id="original-toggle"]')
+        .doesNotExist('The original toggle is removed');
+      assert
+        .dom('[data-test-id="replacement-toggle"]')
+        .exists('The replacement toggle is rendered');
+
+      // verify the *new* toggle now controls the popover
+      assert
+        .dom('[data-test-id="popover-content"]')
+        .isNotVisible('The popover remains hidden after the swap');
+
+      await click('[data-test-id="replacement-toggle"]');
+      assert
+        .dom('[data-test-id="popover-content"]')
+        .isVisible(
+          'The popover becomes visible when the new toggle is clicked',
+        );
+
+      await click('[data-test-id="replacement-toggle"]');
+      assert
+        .dom('[data-test-id="popover-content"]')
+        .isNotVisible('The popover is hidden again by the new toggle');
     });
     skip('it should toggle the popover visibility on click', async function (assert) {
       await render(hbs`
@@ -141,7 +207,7 @@ module(
           as |PP|
         >
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}}  id="test-popover-primitive-toggle" />
             <div {{PP.setupPrimitivePopover}} />
           </div>
         </Hds::PopoverPrimitive>
@@ -165,7 +231,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" type="button" />
             <div {{PP.setupPrimitivePopover}} />
           </div>
         </Hds::PopoverPrimitive>
@@ -178,7 +244,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive @enableClickEvents={{true}} as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" type="button" />
             <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-popover" />
           </div>
         </Hds::PopoverPrimitive>
@@ -191,7 +257,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" type="button" />
             <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-content" />
           </div>
         </Hds::PopoverPrimitive>
@@ -204,7 +270,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive @enableClickEvents={{true}} @isOpen={{true}} as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" type="button" />
             <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-content" />
           </div>
         </Hds::PopoverPrimitive>
@@ -226,7 +292,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive @enableClickEvents={{true}} @isOpen={{true}} as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" type="button" />
             <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-content" />
           </div>
         </Hds::PopoverPrimitive>
@@ -244,7 +310,7 @@ module(
       await render(hbs`
         <Hds::PopoverPrimitive @enableClickEvents={{true}} @isOpen={{true}} as |PP|>
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" type="button" />
             <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-content" />
           </div>
         </Hds::PopoverPrimitive>
