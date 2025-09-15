@@ -3,14 +3,14 @@
 ### When to use
 
 - For large data sets with many properties that benefit from being viewed in a scrollable container.
-- When an expandable table is needed for hierarchical data.
-- When users would benefit from more efficient keyboard navigation, such as when there are many rows or columns.
+- When expandable rows are needed for hierarchical data.
+- When users would benefit from more efficient keyboard navigation, e.g., when there are many rows or columns.
 - When users would benefit from customizing the view of the data set (column width, order, etc).
 
 ### When not to use
 
 - If your dataset requires only basic interactions, such as simple sorting or pagination, and does not require features like nested rows, advanced keyboard navigation, or sticky headers, the standard [Table](/components/table/table) is a more suitable choice.
-- When visual representations like charts or graphs better convey the data.
+- When [data visualizations](/patterns/data-visualization) better convey the data.
 - As a layout mechanism for structuring content that isn’t tabular data.
 - To replicate spreadsheet-like functionality with extensive in-cell editing or calculations.
 
@@ -18,8 +18,7 @@
 
 ### Sorting
 
-- Sorting is not relevant for all content, so thoughtfully consider when to apply sorting.
-- An Advanced Table allows end-users to sort by one column at a time. While multiple columns may offer sorting options, users can only apply sorting to one column at any given moment.
+An Advanced Table allows end-users to sort by one column at a time. While multiple columns may offer sorting options, users can only apply sorting to one column at any given moment. Sorting is not relevant for all content. Thoughtfully consider when to apply sorting.
 
 ![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
 
@@ -53,11 +52,11 @@ Column placement determines the visual styling based on where the column is plac
 
 ### Alignment
 
-The alignment of text and content within an Advanced Table impacts the readability and speed at which users can effectively parse the information. The proper alignment method depends on the content within the cell, and relative position within the advanced table.
+The alignment of text and content within an Advanced Table impacts the readability and scannability speed for the content. The proper alignment method depends on the content within the cell, and relative position within the advanced table.
 
 !!! Do
 
-Use consistent alignment between the header label and the cell content.
+Use consistent alignment between the header label and the cell content in each column.
 
 ![An Advanced Table with two columns, the first column is left aligned and the second is right aligned.](/assets/components/table/advanced-table/table-alignment-do.png)
 
@@ -73,7 +72,7 @@ Avoid misaligned header labels and content.
 
 #### Left alignment
 
-Align content to the left of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
+Align content to the left of the cell by default. This lends itself to the default left-to-right reading order of most content types.
 
 Use left alignment for:
 
@@ -90,21 +89,17 @@ Right alignment can be used when expressing numerical values with decimals as th
 
 Common examples of right alignment include:
 
-- Financial information and currency amounts.
-- Fractional and floating point values represented with decimals.
+- Financial information, currency amounts, or other numbers with decimal values.
+- In a column that highlights a "more options" function.
+- As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
 
 ![](/assets/components/table/advanced-table/end-alignment-example.png)
-
-Right alignment can also be used in the last column of an advanced table to:
-
-- Highlight a "more options" function.
-- As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
 
 ![](/assets/components/table/advanced-table/end-alignment-example-02.png)
 
 !!! Dont
 
-Don’t right align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
+Don’t right align content with varied lengths. This can make the content more difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
 
 ![Column with badges that have different length labels end aligned. The badge labels are "Successful", "Needs confirmation", and "Error".](/assets/components/table/advanced-table/end-alignment-variable-length.png)
 
@@ -124,9 +119,7 @@ Don’t center header labels or cell content within a table.
 
 ### Resizable columns
 
-The Advanced Table supports resizing individual columns to display the entire contents of a cell. When enabled, users can customize the width of each column.
-
-This is supported via an interactive "resize border" that functions either by clicking and dragging on the horizontal axis with a mouse or by moving the focus to the resize border with the keyboard and using the right and left arrow keys.
+The Advanced Table supports resizing individual columns via an interactive "resize border" that functions either by clicking and dragging on the horizontal axis with a mouse or by moving the focus to the resize border with the keyboard and using the right and left arrow keys.
 
 The Figma component does not support this resizing feature. Instead, we publish a [Resize Border](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=80647-127234&t=UHpPyO7erZKLy4SD-1) component and [Templates](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=72039-5091&t=UHpPyO7erZKLy4SD-1) to use as a starting point for expressing this interaction. We also provide [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=UHpPyO7erZKLy4SD-1) that you can copy and paste into your design files.
 
@@ -244,7 +237,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ### Density
 
-- Use medium density by default for balanced readability and display.
+- Use `medium` density by default for balanced readability and display.
 - Choose short density for text-heavy tables to fit more rows on a page.
 - Dense content can make tables harder to read and scan, so use it thoughtfully.
 
@@ -256,7 +249,7 @@ Use horizontal scrolling when the number of columns expands beyond the viewport 
 
 ## Sticky headers and columns
 
-The Advanced Table supports setting the header and the first column as sticky or “pinned.” This can help users navigate large data sets while persisting important identifying values, such as names and IDs.
+The Advanced Table supports setting the header and the first column as sticky or “pinned.” This can help users navigate large data sets while persisting identifying values, such as names and IDs.
 
 There are a few things to consider when implementing a sticky header or column:
 
@@ -283,14 +276,16 @@ We currently only support the first column as sticky. If you have needs beyond t
 Multi-select and sorting are not supported for nested rows at this time.
 !!!
 
-Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)
+Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. 
 
 A multi-select pattern consists of:
 
 1. A select all in the table's header row. This acts as the parent checkbox, allowing the simultaneous selection or deselection of all child rows in a single table.
 
-![](/assets/components/table/advanced-table/table-multi-select-header.png)
+![Example of multi-select in a table header](/assets/components/table/advanced-table/table-multi-select-header.png)
 
 2. Row level select allowing for the selection of an individual row.
 
-![](/assets/components/table/advanced-table/table-multi-select-cells.png)
+![Example of multi-select within table cells](/assets/components/table/advanced-table/table-multi-select-cells.png)
+
+For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)

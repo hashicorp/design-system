@@ -21,7 +21,7 @@
 
 ### Tooltips
 
-Labels within the Table column header should be clear, concise, and straightforward. When additional context is necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label. Use tooltips sparingly and as a last resort.
+Labels within the Table column header should be clear, concise, and straightforward. When additional context is necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
 
 Some common examples where it may be useful to provide additional context in a tooltip include:
 
@@ -56,56 +56,54 @@ The column placement property applies visual styling based on where the column i
 
 ### Alignment
 
-The alignment of text and content within a Table impacts readability and the speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, purpose of the table, and relative position within the table.
+The alignment of text and content within a Table impacts the readability and scannability speed for the content. The proper alignment method depends on the content within the cell, and relative position within the advanced table.
 
 !!! Do
 
-Use consistent alignment between the header label and the cell content.
+Use consistent alignment between the header label and the cell content within a column.
 
 ![Table column placement example](/assets/components/table/table-alignment-do.png)
 !!!
 
 !!! Dont
 
+Avoid misaligned header labels and content.
+
 ![Table column placement example](/assets/components/table/table-alignment-dont.png)
 !!!
 
-#### Start alignment
+#### Left alignment
 
-Align content to the start of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
+Align content to the left of the cell by default. This lends itself to the default left-to-right reading order of most content types.
 
-Use start alignment for:
+Use left alignment for:
 
 - String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
 - Numerical values that contain periods or other delimiter characters (IP addresses).
 - Nested components that display a string or text value, e.g., a [Badge](/components/badge).
 
-![Start alignment of content within a table](/assets/components/table/start-alignment-example.png)
+![Left alignment of content within a table](/assets/components/table/start-alignment-example.png)
 
-#### End alignment
+#### Right alignment
 
-End alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
+Right alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
 
-Common examples of end alignment include:
+Common examples of right alignment include:
 
-- Financial information and currency amounts.
-- Fractional and floating point values represented with decimals.
-
-![End alignment of content within a table](/assets/components/table/end-alignment-example.png)
-
-End alignment can also be used in the last column of a table to:
-
-- Highlight a "more options" function pertaining to the content within a row.
+- Financial information, currency amounts, or other numbers with decimal values.
+- In a column that highlights a "more options" function.
 - As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
 
-![End alignment example within a table with a date and more options](/assets/components/table/end-alignment-example-02.png)
+![Right alignment of content within a table](/assets/components/table/end-alignment-example.png)
+
+![Right alignment example within a table with a date and more options](/assets/components/table/end-alignment-example-02.png)
 
 !!! Dont
 
-Don’t end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
+Don’t right align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
 
-![End alignment with content that is variable in length](/assets/components/table/end-alignment-variable-length.png)
+![Right alignment with content that is variable in length](/assets/components/table/end-alignment-variable-length.png)
 
 !!!
 
@@ -124,9 +122,7 @@ Don’t center header labels or cell content within a table.
 
 ### Striping
 
-While striping is not required, we recommend it for the added usability benefits.
-
-When using striping in a Table, start with the second row to allow the Table Header to be further differentiated from the the row directly beneath it.
+Striping always starts with the second row, distinguishing it from the header.
 
 ![Table striping examples](/assets/components/table/table-striping.png)
 
@@ -136,7 +132,7 @@ When using striping in a Table, start with the second row to allow the Table Hea
 
 **Accessibility alert**
 
-Striped rows use a subtle background color to differentiate from non-striped rows. Confirm that nested components within striped rows continue to meet contrast accessibility criteria.
+Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
 !!!
 
 While striping is not required, we recommend it for the added usability benefits.
@@ -144,8 +140,6 @@ While striping is not required, we recommend it for the added usability benefits
 - Striping makes data within the Table easier to read by increasing differentiation between rows.
 - Striping increases scannability, especially for large datasets that result in many rows.
 - Striping increases legibility when the type of data is similar between columns; e.g., columns that catalog mostly text or numerical data benefit from more differentiation between rows.
-
-When using striping in a Table, the first tinted row will be the second row of the table. This allows the Table Header to be further differentiated from the row directly beneath it.
 
 ![Table striping examples](/assets/components/table/table-striping.png)
 
@@ -165,20 +159,20 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Headers
 
-- Headers should be clear, concise, and straightforward.
-- The text should be descriptive of the type of content contained within the cell, e.g. Created date, Email, Project name.
-- Headers should use sentence-case capitalization, not all-caps.
+- Labels in headers should be clear, concise, and straightforward.
+- The label should clearly indicate what type of content is contained within the cell (e.g. Created date, Email, Project name).
+- Labels should use sentence-case capitalization, not all-caps.
 
 ## Cells
 
-Cells are the core organizational container within a Table. In order for the user to be able to sort and read the table easily, each cell in a table should contain one piece of data. Having more than one piece of information inside a cell also makes it harder for users to navigate the relationships between headers and content. 
+In order for the user to be able to sort and read the table easily, each cell in a table should contain one piece of data. Having more than one piece of information inside a cell makes it harder for users to navigate the relationships between headers and content. 
 
 ### Density
 
-- We recommend using `medium` cell density by default.
-- If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
+- Use `medium` density by default for balanced readability and display.
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
+- If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
 
 ![Table cell density](/assets/components/table/table-density.png)
 
@@ -189,7 +183,7 @@ For more information on the types of approaches used to implement horizontal scr
 
 ## Multi-select
 
-A multi-select table includes checkboxes enabling users to select multiple rows in a table to perform bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
+Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. 
 
 A multi-select consists of: 
 

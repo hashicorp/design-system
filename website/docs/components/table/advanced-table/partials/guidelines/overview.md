@@ -1,1 +1,1 @@
-The Advanced Table is for complex datasets with features like sticky headers, keyboard navigation, and expandable rows. Don't mix Table and Advanced Table components; they aren't interchangeable.
+The Advanced Table is for complex datasets and features sticky headers, keyboard navigation, and expandable rows. Don't mix Table and Advanced Table components; they aren't interchangeable.
