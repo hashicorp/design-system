@@ -17,8 +17,9 @@ import {
 import type { HdsStepperNavSignature } from '@hashicorp/design-system-components/components/hds/stepper/nav/index';
 
 export interface CodeFragmentWithContextualComponentsSignature {
-  Args: Omit<HdsStepperNavSignature['Args'], 'ariaLabel'> & {
+  Args: {
     currentStep?: number;
+    isInteractive?: HdsStepperNavSignature['Args']['isInteractive'];
     isStandalone?: boolean;
   };
   Element: HTMLDivElement;
