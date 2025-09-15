@@ -18,20 +18,20 @@
 
 ### Sorting
 
-An Advanced Table allows end-users to sort by one column at a time. While multiple columns may offer sorting options, users can only apply sorting to one column at any given moment. Sorting is not relevant for all content. Thoughtfully consider when to apply sorting.
+While multiple columns may offer sorting options, users can only apply sorting to one column at a time. Sorting is not relevant for all content. Thoughtfully consider when to apply sorting.
 
 ![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
 
 ### Tooltips
 
-Labels within the Advanced Table column should be clear, concise, and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
-
-![](/assets/components/table/advanced-table/table-tooltip-example.png)
+Labels within the Advanced Table column should be concise and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
 
 Some examples where it may be useful to include additional context in a tooltip include:
 
 - When the label contains a product or HashiCorp-specific term.
 - When the label refers to a setting that can be changed elsewhere in the application.
+
+![Tooltips in a Header Column](/assets/components/table/advanced-table/table-tooltip-example.png)
 
 ### Width
 
@@ -56,7 +56,7 @@ The alignment of text and content within an Advanced Table impacts the readabili
 
 !!! Do
 
-Use consistent alignment between the header label and the cell content in each column.
+Use consistent alignment between the header label and the cell content in a column.
 
 ![An Advanced Table with two columns, the first column is left aligned and the second is right aligned.](/assets/components/table/advanced-table/table-alignment-do.png)
 
@@ -76,7 +76,7 @@ Align content to the left of the cell by default. This lends itself to the defau
 
 Use left alignment for:
 
-- String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
+- String and text content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
 - Numerical values that contain periods or other delimiter characters (IP addresses).
 - Nested components that display a string or text value, e.g., a [Badge](/components/badge).
@@ -107,7 +107,7 @@ Don’t right align content with varied lengths. This can make the content more 
 
 #### Other alignment methods
 
-We don’t recommend center or justified alignment of content within Advanced Table cells. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
+We don’t recommend center or justified alignment of content within a cell or table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
 
 !!! Dont
 
@@ -147,7 +147,7 @@ To prevent a column from being resized beyond a reasonable amount, the Advanced 
 
 ### Headers
 
-- Labels in headers should be clear, concise, and straightforward.
+- Labels in headers should be concise and straightforward.
 - The label should clearly indicate what type of content is contained within the cell (string, number, status, etc).
 - Labels should use sentence-case capitalization, not all-caps.
 
@@ -238,7 +238,7 @@ Row placement determines the visual styling based on where the row is placed rel
 ### Density
 
 - Use `medium` density by default for balanced readability and display.
-- Choose short density for text-heavy tables to fit more rows on a page.
+- Choose `short` density for text-heavy tables to fit more rows on a page.
 - Dense content can make tables harder to read and scan, so use it thoughtfully.
 
 ## Horizontal scrolling
@@ -280,7 +280,7 @@ Multi-select allows users to select multiple rows to perform bulk actions, such 
 
 A multi-select pattern consists of:
 
-1. A select all in the table's header row. This acts as the parent checkbox, allowing the simultaneous selection or deselection of all child rows in a single table.
+1. A select all in a table is used in the table's header row to allow the selection or deselection of all child rows in the table simultaneously.
 
 ![Example of multi-select in a table header](/assets/components/table/advanced-table/table-multi-select-header.png)
 

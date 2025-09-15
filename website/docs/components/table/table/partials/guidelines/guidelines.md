@@ -8,20 +8,19 @@
 ### When not to use
 
 - As a layout mechanism. Instead, use [Flex](/layouts/flex) or [Grid](/layouts/grid) layout helpers.
-- When data would best be displayed in a scrollable format, with more levels of hierarchy, or when keyboard navigation is needed to achieve usability. Instead, use the [Advanced Table] (components/table/advanced-table)
+- When data requires scrollable format, more levels of hierarchy, or when keyboard navigation is needed to achieve usability. Instead, use the [Advanced Table] (components/table/advanced-table)
 
 ## Columns
 
 ### Sorting
 
-- Sorting is not relevant for all content. Consider when to apply sorting thoughtfully.
-- A Table may only be sorted by a single value at a time.
+While multiple columns may offer sorting options, users can only apply sorting to one column at a time. Sorting is not relevant for all content. Thoughtfully consider when to apply sorting.
 
 ![Header column sorting](/assets/components/table/table-sorting.png)
 
 ### Tooltips
 
-Labels within the Table column header should be clear, concise, and straightforward. When additional context is necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
+Labels within the Table column header should be concise and straightforward. When additional context is necessary, a [Tooltip](/components/tooltip) may be used in conjunction with the label but should be used sparingly and as a last resort.
 
 Some common examples where it may be useful to provide additional context in a tooltip include:
 
@@ -50,17 +49,17 @@ Columns use as much room as they need to use to fit their content unless a speci
 The column placement property is only relevant in Figma and doesn’t exist as a property in code.
 !!!
 
-The column placement property applies visual styling based on where the column is located relative to other columns in the Table.
+Column placement applies visual styling based on where the column is located relative to other columns in the Table.
 
 ![Table column placement example](/assets/components/table/table-col-placement.png)
 
 ### Alignment
 
-The alignment of text and content within a Table impacts the readability and scannability speed for the content. The proper alignment method depends on the content within the cell, and relative position within the advanced table.
+The alignment of text and content within a Table impacts the readability and scannability speed for the content. The proper alignment method depends on the content within the cell, and relative position within the table.
 
 !!! Do
 
-Use consistent alignment between the header label and the cell content within a column.
+Use consistent alignment between the header label and the cell content in a column.
 
 ![Table column placement example](/assets/components/table/table-alignment-do.png)
 !!!
@@ -78,7 +77,7 @@ Align content to the left of the cell by default. This lends itself to the defau
 
 Use left alignment for:
 
-- String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
+- String and text content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
 - Numerical values that contain periods or other delimiter characters (IP addresses).
 - Nested components that display a string or text value, e.g., a [Badge](/components/badge).
@@ -159,7 +158,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Headers
 
-- Labels in headers should be clear, concise, and straightforward.
+- Labels in headers should be concise and straightforward.
 - The label should clearly indicate what type of content is contained within the cell (e.g. Created date, Email, Project name).
 - Labels should use sentence-case capitalization, not all-caps.
 
@@ -187,11 +186,11 @@ Multi-select allows users to select multiple rows to perform bulk actions, such 
 
 A multi-select consists of: 
 
-1. A select all in a table is used in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows in a single table simultaneously.
+1. A select all in a table is used in the table's header row to allow the selection or deselection of all child rows in the table simultaneously.
 
 ![Example of multi-select in a table header](/assets/components/table/multi-select-header.png)
 
-2. Row level select is used in each table row allowing for the selection of an individual row.
+2. Row level select allowing for the selection of an individual row.
 
 ![Example of multi-select within table cells](/assets/components/table/multi-select-cells.png)
 
@@ -204,9 +203,8 @@ For more details around using a multi-select Table, recommended patterns, and in
 This example covers basic multi-select table interactions. We're working to include more complex patterns for handling actions when multiple rows are selected and how this impacts filtering and pagination within a data set. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
 !!!
 
-- When individual rows are selected, the parent checkbox in the Table header changes to display an indeterminate state. 
-- When no or some rows (but not all) are selected in a single Table, clicking the parent checkbox in the Table header will change to display as checked and all rows on that page will be selected.
-- When all rows are selected in a single Table, the parent checkbox in the header appears as checked. Clicking the parent checkbox will deselect all rows on that page.
+- When individual rows are selected, the parent checkbox in the Table header displays an indeterminate state. 
+- When no or some rows (but not all) are selected in the Table, clicking the parent checkbox in the header will change to checked and all rows on that page will be selected.
 - An additional action outside of the Table is needed in order to select all rows across a paginated Table.
 
 <video width="100%" controls loop>
