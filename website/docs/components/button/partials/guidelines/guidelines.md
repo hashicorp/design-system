@@ -63,7 +63,6 @@ For example:
 
 ## Icon position
 
-
 Buttons are provided with flexible icon use; allowing for leading, trailing, or icon only buttons. Use icons intentionally and only when they provide the user with extra value. Do not create buttons with both leading and trailing icons. Tertiary buttons are required to have either a leading or trailing icon layout to be accessible.
 
 <Hds::ButtonSet>
@@ -113,6 +112,27 @@ Use `arrow-right` when using the Button for internal links. In most cases, consi
 Use `external-link` when using the Button for external links. In most cases, consider using a [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
 
 <Hds::Button @color="secondary" @text="Authenticate with GitHub" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
+
+## Loading state
+
+Buttons can implement a loading state to communicate to the user that their submission to a form is processing. This is useful when the submission duration will take a notable amount of time.
+
+!!! Do
+
+Ensure that the Button's loading state is the same width throughout varied states to minimize layout shifts.
+
+![Two button sets ontop of each other. The first set showing a primary and secondary button in their default states. The second row showing the primary button in a loading state and the secondary button in a default state.](/assets/components/button/button-loading-state-do.png)
+
+!!!
+
+!!! Dont
+
+Avoid disabling a button in its loading state. This makes them inaccessible for people who rely on keyboards and assisstive technology. Instead, keep the button enabled.
+
+![A button set, one primary button that is disabled, and a secondary button that is in its default state.](/assets/components/button/button-loading-state-dont.png)
+
+!!!
+
 
 ## Links as Buttons
 
