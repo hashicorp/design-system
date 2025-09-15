@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { typeOf } from '@ember/utils';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { action } from '@ember/object';
 import type { DisplayType } from '../../../services/hds-time-types.ts';
 
