@@ -152,7 +152,7 @@ Similar to the basic Advanced Table, you can insert your own content into the `:
 
 !!! Info
 
-Resizable columns are not supported in instances of the Advanced Table that have nested rows.
+Reorderable columns are not supported in instances of the Advanced Table that have nested rows.
 !!!
 
 Set the `@hasReorderableColumns` argument to `true` in order to make columns reorderable either by clicking and dragging on the column reorder handle, or by moving focus to the handle and using the right and left arrow keys.
