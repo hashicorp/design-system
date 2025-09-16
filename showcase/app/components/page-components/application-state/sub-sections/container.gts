@@ -21,22 +21,12 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 export interface SubSectionContainerSignature {
   Args: {
     showHighlight: boolean;
-    toggleHighlight: () => void;
   };
 }
 
 const SubSectionContainer: TemplateOnlyComponent<SubSectionContainerSignature> =
   <template>
     <ShwTextH2>In a container</ShwTextH2>
-
-    <button
-      type="button"
-      class="shw-component-application-state-button-highlight"
-      {{on "click" @toggleHighlight}}
-    >
-      {{if @showHighlight "Hide" "Show"}}
-      layout highlight
-    </button>
 
     <ShwFlex @direction="column" @gap="4rem" as |SF|>
       <SF.Item @label="In a card">
