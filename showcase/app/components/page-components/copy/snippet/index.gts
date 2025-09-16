@@ -9,7 +9,9 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 
 import SubSectionStates from 'showcase/components/page-components/copy/snippet/sub-sections/states';
 import SubSectionContainers from 'showcase/components/page-components/copy/snippet/sub-sections/containers';
-import SubSectionVariants from 'showcase/components/page-components/copy/snippet/sub-sections/variants';
+import SubSectionContent from 'showcase/components/page-components/copy/snippet/sub-sections/content';
+import SubSectionFullWidth from 'showcase/components/page-components/copy/snippet/sub-sections/full-width';
+import SubSectionColor from 'showcase/components/page-components/copy/snippet/sub-sections/color';
 
 const CopySnippetIndex: TemplateOnlyComponent = <template>
   {{pageTitle "CopySnippet Component"}}
@@ -17,7 +19,9 @@ const CopySnippetIndex: TemplateOnlyComponent = <template>
   <ShwTextH1>CopySnippet</ShwTextH1>
 
   <section data-test-percy>
-    <SubSectionVariants />
+    <SubSectionContent />
+    <SubSectionFullWidth />
+    <SubSectionColor />
     <SubSectionStates />
     <SubSectionContainers />
   </section>
