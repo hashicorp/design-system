@@ -6,8 +6,13 @@
 import { HdsApplicationState } from '@hashicorp/design-system-components/components';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import type { HdsApplicationStateSignature } from '@hashicorp/design-system-components/components/hds/application-state/index';
 
-const CodeFragmentWithContainer: TemplateOnlyComponent = <template>
+interface CodeFragmentWithContainerSignature {
+  Element: HdsApplicationStateSignature['Element'];
+}
+
+const CodeFragmentWithContainer: TemplateOnlyComponent<CodeFragmentWithContainerSignature> = <template>
   <HdsApplicationState @align="center" as |A|>
     <A.Header @title="No stacks" />
     <A.Body @text="No stacks to show in this project." />

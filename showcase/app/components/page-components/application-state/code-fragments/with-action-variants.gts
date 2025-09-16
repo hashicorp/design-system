@@ -7,6 +7,7 @@ import { HdsApplicationState } from '@hashicorp/design-system-components/compone
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import type { HdsApplicationStateAligns } from '@hashicorp/design-system-components/components/hds/application-state/types';
+import type { HdsApplicationStateSignature } from '@hashicorp/design-system-components/components/hds/application-state/index';
 
 export interface CodeFragmentWithActionVariantsSignature {
   Args: {
@@ -16,10 +17,7 @@ export interface CodeFragmentWithActionVariantsSignature {
     hasSecondaryAction?: boolean;
     hasStandaloneLink?: boolean;
   };
-  Blocks: {
-    default: [];
-  };
-  Element: HTMLDivElement;
+  Element: HdsApplicationStateSignature['Element'];
 }
 
 const CodeFragmentWithActionVariants: TemplateOnlyComponent<CodeFragmentWithActionVariantsSignature> =
