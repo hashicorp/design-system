@@ -235,6 +235,8 @@ The `rowPlacement` property determines the border radius of a cell. It is only a
 
 ## Cells
 
+For the user to scan, sort, and filter the table easily, each cell should contain a single piece of data. Having more than one piece of data in a cell makes it harder for users to navigate the relationships between headers and cells.
+
 ### Density
 
 - By default, use the `medium` density for balance and readability.
@@ -261,16 +263,11 @@ If `hasStickyFirstColumn` is set to true or false in the Ember component, a cont
 
 ![An Advanced Table with a pinned column with the context menu open and a single "Unpin column" option](/assets/components/table/advanced-table/advanced-table-unpin-column.png)
 
-!!! Info
-
-We currently only support the first column as sticky. If you have needs beyond this, please [contact the Design Systems Team](/about/support) or [submit a request](https://go.hashi.co/hds-support).
-!!!
-
 ## Multi-Select
 
-!!! Info
+!!! Warning
 
-**Nested rows limitations**
+**Unsupported feature**
 
 Multi-select and sorting are not supported for nested rows at this time.
 !!!

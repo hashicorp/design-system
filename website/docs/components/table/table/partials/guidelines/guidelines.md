@@ -134,11 +134,7 @@ Striping always starts with the second row, distinguishing it from the header.
 Ensure that content within striped rows maintains adequate color contrast with the striped background.
 !!!
 
-While striping is not required, we recommend it for the added usability benefits.
-
-- Striping makes data within the Table easier to read by increasing differentiation between rows.
-- Striping increases scannability, especially for large datasets that result in many rows.
-- Striping increases legibility when the type of data is similar between columns; e.g., columns that catalog mostly text or numerical data benefit from more differentiation between rows.
+While striping is not required, we recommend it because it enhances readability by alternating row colors, making it easier to scan the data.
 
 ![Table striping examples](/assets/components/table/table-striping.png)
 
@@ -197,13 +193,9 @@ For more details around using a multi-select Table, recommended patterns, and in
 
 ### Intended interaction
 
-!!! Callout
-
-This example covers basic multi-select table interactions. We're working to include more complex patterns for handling actions when multiple rows are selected and how this impacts filtering and pagination within a data set. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
-!!!
-
 - When individual rows are selected, the "Select all" checkbox in the header displays an indeterminate state. 
 - When no or some rows (but not all) are selected, clicking "Select all" in the header will check the checkbox, and all rows on that page will be selected.
+- When all rows are selected, clicking "Select all" in the header will uncheck the checkbox, and all rows on that page will be deselected.
 - An additional action outside of the Table is needed in order to select all rows across a paginated Table.
 
 <video width="100%" controls loop>
