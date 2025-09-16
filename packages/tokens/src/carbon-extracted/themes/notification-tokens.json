@@ -1,0 +1,294 @@
+{
+  "carbon": {
+    "themes": {
+      "notificationTokens": {
+        "notificationActionHover": {
+          "white": {
+            "$type": "color",
+            "$value": "#ffffff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#ffffff"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#ffffff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#ffffff"
+          }
+        },
+        "notificationActionTertiaryInverse": {
+          "white": {
+            "$type": "color",
+            "$value": "#ffffff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#ffffff"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#ffffff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#ffffff"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "#0f62fe",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#0f62fe"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "#0f62fe",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#0f62fe"
+          }
+        },
+        "notificationActionTertiaryInverseActive": {
+          "white": {
+            "$type": "color",
+            "$value": "#c6c6c6",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#c6c6c6"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#c6c6c6",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#c6c6c6"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "#002d9c",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#002d9c"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "#002d9c",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#002d9c"
+          }
+        },
+        "notificationActionTertiaryInverseHover": {
+          "white": {
+            "$type": "color",
+            "$value": "#f4f4f4",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#f4f4f4"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#f4f4f4",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#f4f4f4"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "#0050e6",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#0050e6"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "#0050e6",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#0050e6"
+          }
+        },
+        "notificationActionTertiaryInverseText": {
+          "white": {
+            "$type": "color",
+            "$value": "#161616",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#161616"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#161616",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#161616"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "#ffffff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#ffffff"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "#ffffff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#ffffff"
+          }
+        },
+        "notificationActionTertiaryInverseTextOnColorDisabled": {
+          "white": {
+            "$type": "color",
+            "$value": "rgba(255, 255, 255, 0.25)",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "rgba(255, 255, 255, 0.25)"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "rgba(255, 255, 255, 0.25)",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "rgba(255, 255, 255, 0.25)"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "#8d8d8d",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#8d8d8d"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "#8d8d8d",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#8d8d8d"
+          }
+        },
+        "notificationBackgroundError": {
+          "white": {
+            "$type": "color",
+            "$value": "#fff1f1",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#fff1f1"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#fff1f1",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#fff1f1"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "#393939",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#393939"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "#262626",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#262626"
+          }
+        },
+        "notificationBackgroundInfo": {
+          "white": {
+            "$type": "color",
+            "$value": "#edf5ff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#edf5ff"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#edf5ff",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#edf5ff"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "#393939",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#393939"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "#262626",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#262626"
+          }
+        },
+        "notificationBackgroundSuccess": {
+          "white": {
+            "$type": "color",
+            "$value": "#defbe6",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#defbe6"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#defbe6",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#defbe6"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "#393939",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#393939"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "#262626",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#262626"
+          }
+        },
+        "notificationBackgroundWarning": {
+          "white": {
+            "$type": "color",
+            "$value": "#fcf4d6",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#fcf4d6"
+          },
+          "g10": {
+            "$type": "color",
+            "$value": "#fcf4d6",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#fcf4d6"
+          },
+          "g90": {
+            "$type": "color",
+            "$value": "#393939",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#393939"
+          },
+          "g100": {
+            "$type": "color",
+            "$value": "#262626",
+            "group": "cds-themes",
+            "private": true,
+            "cds-original-value": "#262626"
+          }
+        }
+      }
+    }
+  }
+}
