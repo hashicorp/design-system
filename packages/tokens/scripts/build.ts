@@ -15,13 +15,41 @@ import { dirname } from 'path';
 import { cloneDeep } from 'lodash-es';
 
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
-import { targets, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
+import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
 
 // SCRIPT CONFIG
 
 const __filename = fileURLToPath(import.meta.url); // Get the file path of the current module
 const __dirname = dirname(__filename); // Get the directory name of the current module
 const distFolder = path.resolve(__dirname, '../dist');
+
+// CUSTOM PREPROCESSORS
+
+for (const mode of modes) {
+  StyleDictionary.registerPreprocessor({
+    name: `replace-value-for-mode-${mode}`,
+    preprocessor: (dictionary, _options) => {
+      // recursively traverse token objects and replace the `$value` with the corresponding colocated `$modes` theme value
+      function replaceModes(slice: DesignToken) {
+        if (slice.$modes) {
+          if (slice.$modes[mode]) {
+            slice.$value = slice.$modes[mode];
+          } else {
+            console.error(`❌ ERROR - Found themed token without '${mode}' value:`, JSON.stringify(slice, null, 2));
+          }
+        } else {
+            Object.values(slice).forEach((value) => {
+              if (typeof value === 'object') {
+                replaceModes(value);
+              }
+            });
+        }
+        return slice;
+      }
+      return replaceModes(dictionary);
+    },
+  });
+}
 
 // CUSTOM TRANSFORMS
 
@@ -223,6 +251,7 @@ StyleDictionary.registerAction({
   undo: () => {}
 });
 
+
 // PROCESS THE DESIGN TOKENS
 
 console.log('Build started...');
@@ -231,6 +260,8 @@ console.log('\n==============================================');
 // empty the dist folder
 console.log(`\nCleaning up dist folder`);
 fs.emptyDirSync(distFolder);
+
+// STANDARD TOKENS
 
 for (const target of targets) {
   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
@@ -241,6 +272,16 @@ for (const target of targets) {
   console.log('\nEnd processing');
 }
 
+// THEMED TOKENS
+
+for (const mode of modes) {
+
+  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target: 'product', mode }));
+  console.log(`\n---\n\nProcessing mode "${mode}"...`);
+  await StyleDictionaryInstance.hasInitialized;
+  await StyleDictionaryInstance.buildAllPlatforms()
+  console.log('\nEnd processing');
+}
 
 console.log('\n==============================================');
 console.log('\nBuild completed!');
