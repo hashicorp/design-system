@@ -96,8 +96,6 @@ export default class SubSectionMultiSelect extends Component<SubSectionMultiSele
       </:body>
     </HdsTable>
 
-    <ShwDivider @level={{2}} />
-
     <CodeFragmentWithMultiSelectSorting />
 
     <ShwDivider @level={{2}} />
