@@ -1,19 +1,22 @@
 {
   "app-header": {
     "height": {
-      "value": "60",
-      "type": "size"
+      "$type": "dimension",
+      "$value": "60",
+      "unit": "px"
     },
     "home-link": {
       "size": {
-        "value": "36",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "36",
+        "unit": "px"
       }
     },
     "logo": {
       "size": {
-        "value": "28",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "28",
+        "unit": "px"
       }
     }
   }

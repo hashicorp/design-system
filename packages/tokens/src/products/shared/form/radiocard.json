@@ -1,37 +1,42 @@
 {
-    "form": {
-        "radiocard-group": {
-            "gap": {
-                "value": "16",
-                "type": "size"
-            }
+  "form": {
+    "radiocard-group": {
+      "gap": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px"
+      }
+    },
+    "radiocard": {
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px"
         },
-        "radiocard": {
-            "border": {
-                "width": {
-                    "value": "1",
-                    "type": "size"
-                },
-                "radius": {
-                    "value": "6",
-                    "type": "size"
-                }
-            },
-            "content-padding": {
-                "value": "24",
-                "type": "size"
-            },
-            "control-padding": {
-                "value": "8",
-                "type": "size"
-            },
-            "transition": {
-                "duration": {
-                    "value": "0.2",
-                    "type": "time",
-                    "unit": "s"
-                }
-            }
+        "radius": {
+          "$type": "dimension",
+          "$value": "6",
+          "unit": "px"
         }
+      },
+      "content-padding": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px"
+      },
+      "control-padding": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px"
+      },
+      "transition": {
+        "duration": {
+          "$type": "duration",
+          "$value": "0.2",
+          "unit": "s"
+        }
+      }
     }
+  }
 }

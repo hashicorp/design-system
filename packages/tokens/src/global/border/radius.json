@@ -2,20 +2,24 @@
   "border": {
     "radius": {
       "x-small": {
-        "value": "3",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "3",
+        "unit": "px"
       },
       "small": {
-        "value": "5",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "5",
+        "unit": "px"
       },
       "medium": {
-        "value": "6",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "6",
+        "unit": "px"
       },
       "large": {
-        "value": "8",
-        "type": "size"
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px"
       }
     }
   }
