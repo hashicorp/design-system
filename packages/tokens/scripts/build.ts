@@ -23,12 +23,18 @@ const __filename = fileURLToPath(import.meta.url); // Get the file path of the c
 const __dirname = dirname(__filename); // Get the directory name of the current module
 const distFolder = path.resolve(__dirname, '../dist');
 
+
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+
 // CUSTOM PREPROCESSORS
 
 for (const mode of modes) {
   StyleDictionary.registerPreprocessor({
     name: `replace-value-for-mode-${mode}`,
     preprocessor: (dictionary, _options) => {
+      // console.log("\n\n\n **** _options ****\n\n", JSON.stringify(_options, null, 2));
       // recursively traverse token objects and replace the `$value` with the corresponding colocated `$modes` theme value
       function replaceModes(slice: DesignToken) {
         if (slice.$modes) {
@@ -46,7 +52,10 @@ for (const mode of modes) {
         }
         return slice;
       }
-      return replaceModes(dictionary);
+      const xxx = replaceModes(dictionary);
+      // console.log("\n\n\n **** replaceModes(dictionary) ****\n\n", JSON.stringify(_options, null, 2));
+      // return replaceModes(dictionary);
+      return xxx;
     },
   });
 }
@@ -252,6 +261,10 @@ StyleDictionary.registerAction({
 });
 
 
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+
 // PROCESS THE DESIGN TOKENS
 
 console.log('Build started...');
@@ -261,8 +274,7 @@ console.log('\n==============================================');
 console.log(`\nCleaning up dist folder`);
 fs.emptyDirSync(distFolder);
 
-// STANDARD TOKENS
-
+// generate standard tokens
 for (const target of targets) {
   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
 
@@ -272,11 +284,10 @@ for (const target of targets) {
   console.log('\nEnd processing');
 }
 
-// THEMED TOKENS
-
+// generate themed tokens
 for (const mode of modes) {
 
-  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target: 'product', mode }));
+  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target: 'products', mode }));
   console.log(`\n---\n\nProcessing mode "${mode}"...`);
   await StyleDictionaryInstance.hasInitialized;
   await StyleDictionaryInstance.buildAllPlatforms()
