@@ -68,11 +68,9 @@ const SubSectionColor: TemplateOnlyComponent = <template>
         + parent with
         <code>green !important</code>
       </SGI.Label>
-      {{! template-lint-disable no-inline-styles }}
-      <div style="color:green !important">
+      <div {{style color="green !important"}}>
         <HdsIcon @name="lock-fill" @color="orange" @size="24" />
       </div>
-      {{! template-lint-enable no-inline-styles }}
     </SF.Item>
   </ShwFlex>
 
