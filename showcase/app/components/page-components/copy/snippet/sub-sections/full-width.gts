@@ -8,7 +8,6 @@ import style from 'ember-style-modifier';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwOutliner from 'showcase/components/shw/outliner';
-import ShwDivider from 'showcase/components/shw/divider';
 
 import { HdsCopySnippet } from '@hashicorp/design-system-components/components';
 
