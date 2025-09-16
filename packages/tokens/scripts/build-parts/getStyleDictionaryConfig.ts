@@ -35,20 +35,27 @@ const excludePrivateTokens = (token: DesignToken) => {
 //   };
 // }
 
-export function getStyleDictionaryConfig({ target, mode }: { target: Target, mode: Mode }): Config {
+export function getStyleDictionaryConfig({ target, mode }: { target: Target, mode?: Mode }): Config {
+
+  // -----------------------
+  // PRODUCTS
+  // -----------------------
 
   if (target === 'products') {
 
     if (mode) {
-      // themed tokens
+
+      // ⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃
+      // THEMED TOKENS
+      // ⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃
+
       return {
         ...baseConfig,
         source: [
-          `src/global/**/*.json`,
-          `src/products/shared/**/*.json`
+          `src/modes-testing/**/*.json`,
         ],
         platforms: {
-          [`web/css-variables-mode-${mode}`]: {
+          [`web/themed-css-variables--mode-${mode}`]: {
             buildPath: 'dist/products/css/',
             transformGroup: 'products/web',
             prefix: 'token',
@@ -73,12 +80,17 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             // this has been registered in the `build` file
             preprocessors: [`replace-value-for-mode-${mode}`],
             // TODO! do we need this? how do we manage CSS helpers for themed tokens?
-            actions: ['generate-css-helpers'],
+            // actions: ['generate-css-helpers'],
           }
         }
       };
+
     } else {
-      // standard tokens
+
+      // ⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃
+      // STANDARD TOKENS
+      // ⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃⁃
+
       return {
         ...baseConfig,
         source: [
@@ -118,6 +130,10 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
     }
   }
 
+  // -----------------------
+  // DEVDOT
+  // -----------------------
+
   if (target === 'devdot') {
     return {
       ...baseConfig,
@@ -145,6 +161,10 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       }
     };
   }
+
+  // -----------------------
+  // MARKETING
+  // -----------------------
 
   if (target === 'marketing') {
     return {
@@ -184,6 +204,10 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       }
     };
   }
+
+  // -----------------------
+  // CLOUD-EMAIL
+  // -----------------------
 
   if (target === 'cloud-email') {
     // these tokens will be consumed by the email templating system in https://github.com/hashicorp/cloud-email
