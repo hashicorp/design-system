@@ -16,7 +16,7 @@ const getAliases = (token, TOKENS_RAW) => {
   const path = token.path.join('.');
   return TOKENS_RAW.filter(
     // note: also the original value is prefixed with `$`
-    (item) => item.original.$value === `{${path}.value}`
+    (item) => item.original.$value === `{${path}.value}`,
   ).map((alias) => `{${alias.path.join('.')}}`);
 };
 
@@ -52,13 +52,9 @@ export default class Index extends Component {
         const filteredTokens = this.groupedTokens[category].filter(
           (t) =>
             t.name.indexOf(this.searchQuery) !== -1 ||
-<<<<<<< HEAD
             // note: we prefix `value` with `$` because we're using the DTCG format
             // we also convert it to string, because in some cases it's a number
-            String(t.$value).indexOf(this.searchQuery) !== -1
-=======
-            t.value.indexOf(this.searchQuery) !== -1,
->>>>>>> e233399e2 (replace instances of  with)
+            String(t.$value).indexOf(this.searchQuery) !== -1,
         );
 
         if (filteredTokens.length > 0) {
