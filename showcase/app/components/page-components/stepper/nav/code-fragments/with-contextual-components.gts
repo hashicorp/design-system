@@ -5,6 +5,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
+import type Owner from '@ember/owner';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
@@ -26,7 +27,15 @@ export interface CodeFragmentWithContextualComponentsSignature {
 }
 
 export default class CodeFragmentWithContextualComponents extends Component<CodeFragmentWithContextualComponentsSignature> {
-  @tracked currentStep = this.args.currentStep ?? 0;
+  @tracked currentStep;
+
+  constructor(
+    owner: Owner,
+    args: CodeFragmentWithContextualComponentsSignature['Args'],
+  ) {
+    super(owner, args);
+    this.currentStep = this.args.currentStep ?? 0;
+  }
 
   updateCurrentStep = (_event: MouseEvent, stepNumber: number) => {
     this.currentStep = stepNumber;

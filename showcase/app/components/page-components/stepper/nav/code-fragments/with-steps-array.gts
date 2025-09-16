@@ -7,6 +7,7 @@ import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
 import { array, hash } from '@ember/helper';
+import type Owner from '@ember/owner';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
@@ -24,11 +25,16 @@ export interface CodeFragmentWithStepsArraySignature {
     isInteractive?: HdsStepperNavSignature['Args']['isInteractive'];
     isStandalone?: boolean;
   };
-  Element: HdsStepperNavSignature['Element'];;
+  Element: HdsStepperNavSignature['Element'];
 }
 
 export default class CodeFragmentWithStepsArrayComponents extends Component<CodeFragmentWithStepsArraySignature> {
-  @tracked currentStep = this.args.currentStep ?? 0;
+  @tracked currentStep;
+
+  constructor(owner: Owner, args: CodeFragmentWithStepsArraySignature['Args']) {
+    super(owner, args);
+    this.currentStep = this.args.currentStep ?? 0;
+  }
 
   updateCurrentStep = (_event: MouseEvent, stepNumber: number) => {
     this.currentStep = stepNumber;
