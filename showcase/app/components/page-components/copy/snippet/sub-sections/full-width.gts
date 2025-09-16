@@ -32,8 +32,6 @@ const SubSectionFullWidth: TemplateOnlyComponent = <template>
       </ShwOutliner>
     </SF.Item>
   </ShwFlex>
-
-  <ShwDivider />
 </template>;
 
 export default SubSectionFullWidth;
