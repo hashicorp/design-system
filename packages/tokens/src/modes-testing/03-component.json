@@ -1,0 +1,38 @@
+{
+  "componentA": {
+    "color": {
+      "$type": "color",
+      "$value": "{color.palette.neutral-300}",
+      "group": "components"
+    },
+    "size": {
+      "$type": "dimension",
+      "$value": "123",
+      "unit": "px",
+      "group": "components"
+    }
+  },
+  "componentB": {
+    "color": {
+      "$type": "color",
+      "$value": "{color.palette.neutral-200}",
+      "group": "components"
+    },
+    "size": {
+      "$value": "{componentA.size}",
+      "group": "components"
+    }
+  },
+  "componentC": {
+    "color": {
+      "$value": "{color.foreground.high-contrast}",
+      "group": "components"
+    }
+  },
+  "componentD": {
+    "color": {
+      "$value": "{color.foreground.semantic-outlier}",
+      "group": "components"
+    }
+  }
+}
