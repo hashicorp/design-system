@@ -213,7 +213,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       this._toggleElement.removeAttribute('popovertarget');
     }
 
-    this._updatePositioning();
+    this._applyAnchoredPositionModifier();
   }
 
   @action
