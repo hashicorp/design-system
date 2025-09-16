@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { on } from '@ember/modifier';
 import style from 'ember-style-modifier/modifiers/style';
 
 import ShwFlex from 'showcase/components/shw/flex';
