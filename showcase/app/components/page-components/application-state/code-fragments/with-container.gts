@@ -12,14 +12,15 @@ interface CodeFragmentWithContainerSignature {
   Element: HdsApplicationStateSignature['Element'];
 }
 
-const CodeFragmentWithContainer: TemplateOnlyComponent<CodeFragmentWithContainerSignature> = <template>
-  <HdsApplicationState @align="center" as |A|>
-    <A.Header @title="No stacks" />
-    <A.Body @text="No stacks to show in this project." />
-    <A.Footer as |F|>
-      <F.Button @color="primary" @text="Create stack" />
-    </A.Footer>
-  </HdsApplicationState>
-</template>;
+const CodeFragmentWithContainer: TemplateOnlyComponent<CodeFragmentWithContainerSignature> =
+  <template>
+    <HdsApplicationState @align="center" as |A|>
+      <A.Header @title="No stacks" />
+      <A.Body @text="No stacks to show in this project." />
+      <A.Footer as |F|>
+        <F.Button @color="primary" @text="Create stack" />
+      </A.Footer>
+    </HdsApplicationState>
+  </template>;
 
 export default CodeFragmentWithContainer;
