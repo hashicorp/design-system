@@ -1,0 +1,40 @@
+{
+  "color": {
+    "palette": {
+      "neutral-300": {
+        "$type": "color",
+        "$value": "#000000",
+        "group": "palette",
+        "$modes": {
+          "hds": "#000000",
+          "cds-0": "#c00000",
+          "cds-10": "#c33333",
+          "cds-90": "#cccccc",
+          "cds-100": "#cfffff"
+        }
+      },
+      "neutral-200": {
+        "$type": "color",
+        "$value": "#dedfe3",
+        "group": "palette"
+      },
+      "neutral-100": {
+        "$type": "color",
+        "$value": "#f1f2f3",
+        "group": "palette"
+      },
+      "neutral-0": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "group": "palette",
+        "$modes": {
+          "hds": "#ffffff",
+          "cds-0": "#cfffff",
+          "cds-10": "#cccccc",
+          "cds-90": "#c33333",
+          "cds-100": "#c00000"
+        }
+      }
+    }
+  }
+}
