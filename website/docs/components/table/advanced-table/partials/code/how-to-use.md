@@ -148,6 +148,19 @@ Similar to the basic Advanced Table, you can insert your own content into the `:
 </Hds::AdvancedTable>
 ```
 
+### Reorderable columns
+
+!!! Info
+
+Resizable columns are not supported in instances of the Advanced Table that have nested rows.
+!!!
+
+Set the `@hasReorderableColumns` argument to `true` in order to make columns reorderable either by clicking and dragging on the column reorder handle, or by moving focus to the handle and using the right and left arrow keys.
+
+Columns will render in the order they appear in the `@columns` array. However, this order can be overridden by providing an array of column keys to the `@columnOrder` argument.
+
+Optionally, the `@columnReorder` attribute accepts a callback function that receives the updated column key order.
+
 ### Resizable Columns
 
 !!! Info
@@ -270,13 +283,6 @@ How resizing for the cell content works is determined by the implementation. For
 ```
 
 ### Sortable Advanced Table
-
-!!! Insight
-
-**Code tip**
-
-This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers)
-!!!
 
 !!! Callout
 

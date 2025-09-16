@@ -124,6 +124,21 @@ Don’t center header labels or cell content within a table.
 
 !!!
 
+### Reorderable columns
+
+If `hasReorderableColumns` is set to true on the Ember component, users can reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys. These properties are not available within the Figma component, but we've provided [examples](jory-update-link) that you can copy and paste into your design files.
+
+When enabled, actions related to altering the column order are rendered in a context menu in the table header. These are not customizable and include:
+
+- Move column: moves focus to the reordering handle
+- Move column to start/end: moves the column to the first or last position in the table unless the column is already in this position.
+
+![An example of the open context menu in the Advanced Table displaying an action that alter the visual order of the column](/assets/components/table/advanced-table/advanced-table-reorder-context-menu.png)
+
+![An example of the focused drag target in the table header](/assets/components/table/advanced-table/advanced-table-focus-drag-target.png)
+
+![An example of a column being dragged with the mouse to a new position in the Advanced Table](/assets/components/table/advanced-table/advanced-table-drag-column.png)
+
 ### Resizable columns
 
 Columns can be resized by dragging the "resize border" with a mouse or by moving focus to it and using the left and right arrow keys.
@@ -236,7 +251,7 @@ Striping enhances readability by alternating row colors, making it easier to sca
 The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
 !!!
 
-The `rowPlacement` property determines the border radius of a cell. It is only available on cells where the `colPlacement` property is set to `start` or `end`. 
+The `rowPlacement` property determines the border radius of a cell. It is only available on cells where the `colPlacement` property is set to `start` or `end`.
 
 ![The cell with column placement end and row placement end has a border radius set on the bottom right corner.](/assets/components/table/advanced-table/table-row-placement.png)
 
@@ -280,7 +295,7 @@ If `hasStickyFirstColumn` is set to true or false in the Ember component, a cont
 Multi-select is not supported for nested rows at this time.
 !!!
 
-Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. Selection states are maintained across pagination and filtering. 
+Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. Selection states are maintained across pagination and filtering.
 
 A multi-select pattern consists of:
 
