@@ -115,11 +115,11 @@ Use `external-link` when using the Button for external links. In most cases, con
 
 ## Loading state
 
-Buttons can implement a loading state to communicate to the user that their submission to a form is processing. This is useful when the submission duration will take a notable amount of time.
+Using a loading state in a button can help reinforce that an action is in progress. This is useful when the action's completion will take a notable amount of time.
 
 !!! Do
 
-Ensure that the button's loading state is the same width throughout varied states to minimize layout shifts.
+Ensure that the button's loading state maintains the same width across all states to avoid layout shifts.
 
 ![Two button sets on top of each other. The first set showing a primary and secondary button in their default states. The second row showing the primary button in a loading state and the secondary button in a default state.](/assets/components/button/button-loading-state-do.png)
 
