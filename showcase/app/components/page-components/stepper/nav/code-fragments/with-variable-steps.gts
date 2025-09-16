@@ -14,6 +14,8 @@ import {
   HdsStepperNav,
 } from '@hashicorp/design-system-components/components';
 
+import type { HdsStepperNavSignature } from '@hashicorp/design-system-components/components/hds/stepper/nav/index';
+
 const STEP_1 = {
   title: 'Step 1',
 };
@@ -34,7 +36,7 @@ export interface CodeFragmentWithStepsArraySignature {
   Args: {
     currentStep?: number;
   };
-  Element: HTMLDivElement;
+  Element: HdsStepperNavSignature['Element'];
 }
 
 export default class CodeFragmentWithStepsArrayComponents extends Component<CodeFragmentWithStepsArraySignature> {

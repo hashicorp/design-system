@@ -24,7 +24,7 @@ export interface CodeFragmentWithStepsArraySignature {
     isInteractive?: HdsStepperNavSignature['Args']['isInteractive'];
     isStandalone?: boolean;
   };
-  Element: HTMLDivElement;
+  Element: HdsStepperNavSignature['Element'];;
 }
 
 export default class CodeFragmentWithStepsArrayComponents extends Component<CodeFragmentWithStepsArraySignature> {

@@ -22,7 +22,7 @@ export interface CodeFragmentWithContextualComponentsSignature {
     isInteractive?: HdsStepperNavSignature['Args']['isInteractive'];
     isStandalone?: boolean;
   };
-  Element: HTMLDivElement;
+  Element: HdsStepperNavSignature['Element'];
 }
 
 export default class CodeFragmentWithContextualComponents extends Component<CodeFragmentWithContextualComponentsSignature> {

@@ -14,8 +14,10 @@ import {
   HdsStepperNav,
 } from '@hashicorp/design-system-components/components';
 
+import type { HdsStepperNavSignature } from '@hashicorp/design-system-components/components/hds/stepper/nav/index';
+
 export interface CodeFragmentWithOverlayContentSignature {
-  Element: HTMLDivElement;
+  Element: HdsStepperNavSignature['Element'];
 }
 
 export default class CodeFragmentWithOverlayContent extends Component<CodeFragmentWithOverlayContentSignature> {
