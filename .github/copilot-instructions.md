@@ -117,25 +117,78 @@ applyTo: "showcase/app/**"
 description: "Instructions for how components should be displayed in the showcase application"
 ---
 
-### File structure
-- Define a folder for every component under `showcase/app`.
-
-#### Required files
-- `comtrollers/page-components/<component-name>.js` - Controller for the component's showcase page.
-- `routes/page-components/<component-name>.js` - Route for the component's showcase page
-- `templates/page-components/<component-name>.hbs` - Handlebars template for the component's showcase page.
+### Required files
+- `components/page-components/<component-name>/index.gts` - Main component for component's showcase page which contains references to sub-section components.
+- `routes/page-components/<component-name>.ts` - Route for the component's showcase page.
+- `templates/page-components/<component-name>.gts` - Page template which contains a component's index component.
 
 Compare a component's showcase against its corresponding component in the `packages/components/src/components/hds` folder.
 
-### Showcase template
-For a given component, make the showcase template file include:
+### Showcase components
+The purpose of a Showcase page for an HDS component is to showcase possible combinations and edge cases of the component, for different formats and combinations of its content.
+
+For a given component, the following items should be shown on its showcase page:
 - Instances of all available arguments, and all available values for the component.
   - Example: An `@isActive` boolean argument should be demonstrated with both `true` and `false` values.
   - Example: A `@color` argument should be demonstrated with all available color values.
 - Instances of all available blocks for the component.
 
-### Component routes
-- Include all pages under the `showcase/app/templates/page-components` folder in the `showcase/app/router.ts` file.
+For each HDS component, follow the following structure for showcase component files.
+- `components/page-components/<component-name>/index.gts` - Index file for the component's showcase page.
+- `components/page-components/<component-name>/code-fragments/<code-fragment-name>.gts` - Reusable examples of the main HDS component. Used multiple tiomes within the component's page.
+- `components/page-components/<component-name>/sub-sections/<sub-section-name>.gts` - Sub-sections of the main component's showcase page. They should contains examples of the main HDS component's attributes, properties, interactive states, and other use cases. Each major section of the showcase should be broken into its own sub-section component. What constitutes a section can be flexible, but generally its each `ShwTextH2` plus the content below it.
+
+#### Best practices
+- Use arrow functions instead of `@action` for event handlers.
+- For interactive components, document all interactive states for hover, focus, active, disabled, etc.
+
+Examples:
+```javascript
+// Good: Arrow function
+onClickToggleSingle = () => {
+
+};
+
+// Bad: Action decorator
+@action
+onClickToggleSingle {
+
+};
+```
+
+### Routes
+Each component should have a route file under the `routes/page-components/<component-name>.ts` path. This file should define the route for the component's showcase page.
+
+Example file:
+```ts
+import Route from '@ember/routing/route';
+
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsAccordionModel =
+  ModelFrom<PageComponentsAccordionRoute>;
+
+export default class PageComponentsAccordionRoute extends Route {}
+```
+
+### Templates
+Each component should have a template file under the `templates/page-components/<component-name>.gts` path. This template should contain the component's index component.
+
+Example file:
+```gts
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
+import AccordionIndex from 'showcase/components/page-components/accordion';
+
+const PageComponentsAccordion: TemplateOnlyComponent = <template>
+  <AccordionIndex />
+</template>;
+
+export default PageComponentsAccordion;
+```
+
+### App router
+- Include all pages under the `showcase/app/templates/page-components` folder in the `router.ts` file.
 - Define a route with the format `this.route('component-name');` for each component.
 
 ## Testing
