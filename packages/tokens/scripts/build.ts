@@ -4,6 +4,7 @@
  */
 
 import StyleDictionary from 'style-dictionary';
+import { getReferences, usesReferences } from "style-dictionary/utils";
 import type { DesignToken, PlatformConfig } from 'style-dictionary/types';
 
 import tinycolor from 'tinycolor2';
@@ -61,6 +62,25 @@ for (const mode of modes) {
 }
 
 // CUSTOM TRANSFORMS
+
+StyleDictionary.registerTransform({
+  name: 'attributes/themeable',
+  type: 'attribute',
+  transform: (token: DesignToken) => {
+    let isThemeable = false;
+
+    if ('$modes' in token) {
+      isThemeable = true;
+    }
+
+    if (usesReferences(token.original.value)) {
+      // TODO understand here what I should pass for `StyleDictionary.tokenMap` (even if it apparently works)
+      const refs = getReferences(token.original.value, StyleDictionary.tokenMap);
+      isThemeable = refs.some((ref) => '$modes' in ref);
+    }
+    return isThemeable ? { themeable: true } : {};
+  },
+});
 
 StyleDictionary.registerTransform({
   // the CTI convention is not outdated, but we still need to use the top-level path as `category` for the token
@@ -221,18 +241,18 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web',
-  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['attributes/category', 'attributes/themeable', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
-  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['attributes/category', 'attributes/themeable', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
-  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['attributes/category', 'attributes/themeable', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerFormat({
