@@ -6,8 +6,10 @@
 import type { Config, DesignToken } from 'style-dictionary/types';
 
 export const targets = ['products', 'devdot', 'marketing', 'cloud-email'];
+export const modes = ['hds', 'cds-0', 'cds-10', 'cds-90', 'cds-100'];
 
 export type Target = typeof targets[number];
+export type Mode = typeof modes[number];
 
 // uncomment this to enable debugging
 const baseConfig: Config = {
@@ -24,45 +26,96 @@ const excludePrivateTokens = (token: DesignToken) => {
   return !token.private;
 }
 
-export function getStyleDictionaryConfig({ target }: { target: Target}): Config {
+// const getFilterForMode = (mode: Mode) => {
+//   // this function returns a function to filter based on
+//   return function (token: DesignToken) {
+//     // TODO!
+//     console.log('xxx filter for mode', mode);
+//     return !token.private;
+//   };
+// }
+
+export function getStyleDictionaryConfig({ target, mode }: { target: Target, mode: Mode }): Config {
 
   if (target === 'products') {
-    return {
-      ...baseConfig,
-      source: [
-        `src/global/**/*.json`,
-        `src/products/shared/**/*.json`
-      ],
-      platforms: {
-        'web/css-variables': {
-          buildPath: 'dist/products/css/',
-          transformGroup: 'products/web',
-          prefix: 'token',
-          basePxFontSize: 16,
-          files: [
-            {
-              destination: 'tokens.css',
-              format: 'css/variables',
-              filter: excludePrivateTokens,
-            }
-          ],
-          actions: ['generate-css-helpers'],
-        },
-        'docs/json': {
-          buildPath: 'dist/docs/products/',
-          transformGroup: 'products/web',
-          prefix: 'token',
-          basePxFontSize: 16,
-          files: [
-            {
-              destination: 'tokens.json',
-              format: 'docs/json',
-              filter: excludePrivateTokens,
-            }
-          ]
+
+    if (mode) {
+      // themed tokens
+      return {
+        ...baseConfig,
+        source: [
+          `src/global/**/*.json`,
+          `src/products/shared/**/*.json`
+        ],
+        platforms: {
+          [`web/css-variables-mode-${mode}`]: {
+            buildPath: 'dist/products/css/',
+            transformGroup: 'products/web',
+            prefix: 'token',
+            basePxFontSize: 16,
+            files: [
+              {
+                destination: `themed-tokens/with-root-selector/${mode}-tokens.css`,
+                format: 'css/variables',
+                // TODO!
+                // filter: getFilterForMode(mode),
+                filter: excludePrivateTokens,
+                options: {
+                  outputReferences: true,
+                  // outputReferences: (token, { dictionary, usesDtcg }) => {
+                  //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
+                  //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
+                  //   // return true or false
+                  // },
+                },
+              }
+            ],
+            // this has been registered in the `build` file
+            preprocessors: [`replace-value-for-mode-${mode}`],
+            // TODO! do we need this? how do we manage CSS helpers for themed tokens?
+            actions: ['generate-css-helpers'],
+          }
         }
-      }
-    };
+      };
+    } else {
+      // standard tokens
+      return {
+        ...baseConfig,
+        source: [
+          `src/global/**/*.json`,
+          `src/products/shared/**/*.json`
+        ],
+        platforms: {
+          'web/css-variables': {
+            buildPath: 'dist/products/css/',
+            transformGroup: 'products/web',
+            prefix: 'token',
+            basePxFontSize: 16,
+            files: [
+              {
+                destination: 'tokens.css',
+                format: 'css/variables',
+                filter: excludePrivateTokens,
+              }
+            ],
+            actions: ['generate-css-helpers'],
+          },
+          'docs/json': {
+            buildPath: 'dist/docs/products/',
+            transformGroup: 'products/web',
+            prefix: 'token',
+            basePxFontSize: 16,
+            files: [
+              {
+                destination: 'tokens.json',
+                format: 'docs/json',
+                filter: excludePrivateTokens,
+              }
+            ]
+          }
+        }
+      };
+    }
   }
 
   if (target === 'devdot') {
