@@ -1,0 +1,41 @@
+/* These are the light-theme tokens */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --token-color-palette-blue-500: #1c345f;
+    --token-color-palette-blue-400: #0046d1;
+    --token-color-palette-blue-300: #0c56e9;
+    --token-color-palette-blue-200: #1060ff;
+    --token-color-palette-blue-100: #cce3fe;
+    --token-color-palette-blue-50: #f2f8ff;
+    }
+}
+
+/* --------------------------------------- */
+
+/* These are the dark-theme tokens */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --token-color-palette-blue-500: #f2f8ff;
+    --token-color-palette-blue-400: #cce3fe;
+    --token-color-palette-blue-300: #1060ff;
+    --token-color-palette-blue-200: #0c56e9;
+    --token-color-palette-blue-100: #0046d1;
+    --token-color-palette-blue-50: #1c345f;
+  }
+}
+
+/* --------------------------------------- */
+
+/* These are the common tokens */
+
+:root {
+  --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-font-stack-code: ui-monospace, Menlo, Consolas, monospace;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 500;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 700;
+}
