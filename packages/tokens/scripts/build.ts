@@ -78,7 +78,7 @@ StyleDictionary.registerTransform({
       const refs = getReferences(token.original.value, StyleDictionary.tokenMap);
       isThemeable = refs.some((ref) => '$modes' in ref);
     }
-    return isThemeable ? { themeable: true } : {};
+    return isThemeable ? { themeable: true } : { };
   },
 });
 
@@ -241,18 +241,18 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web',
-  transforms: ['attributes/category', 'attributes/themeable', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+  transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
-  transforms: ['attributes/category', 'attributes/themeable', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+  transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
-  transforms: ['attributes/category', 'attributes/themeable', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+  transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerFormat({
