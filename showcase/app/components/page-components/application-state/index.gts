@@ -50,10 +50,7 @@ export default class ApplicationStateIndex extends Component {
         @showHighlight={{this.showHighlight}}
         @toggleHighlight={{this.toggleHighlight}}
       />
-      <SubSectionContainer
-        @showHighlight={{this.showHighlight}}
-        @toggleHighlight={{this.toggleHighlight}}
-      />
+      <SubSectionContainer @showHighlight={{this.showHighlight}} />
     </section>
   </template>
 }
