@@ -11,7 +11,7 @@ import ShwOutliner from 'showcase/components/shw/outliner';
 
 import { HdsCopySnippet } from '@hashicorp/design-system-components/components';
 
-const SubSectionVariants: TemplateOnlyComponent = <template>
+const SubSectionContent: TemplateOnlyComponent = <template>
   <ShwTextH2>Content</ShwTextH2>
 
   <ShwFlex as |SF|>
@@ -49,4 +49,4 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
   </ShwFlex>
 </template>;
 
-export default SubSectionVariants;
+export default SubSectionContent;

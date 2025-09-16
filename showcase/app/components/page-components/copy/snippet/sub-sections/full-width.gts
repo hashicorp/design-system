@@ -12,7 +12,7 @@ import ShwDivider from 'showcase/components/shw/divider';
 
 import { HdsCopySnippet } from '@hashicorp/design-system-components/components';
 
-const SubSectionVariants: TemplateOnlyComponent = <template>
+const SubSectionFullWidth: TemplateOnlyComponent = <template>
   <ShwTextH2>Full width</ShwTextH2>
   <ShwFlex as |SF|>
     <SF.Item @label="With short text">
@@ -36,4 +36,4 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwDivider />
 </template>;
 
-export default SubSectionVariants;
+export default SubSectionFullWidth;

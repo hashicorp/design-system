@@ -13,7 +13,7 @@ import { HdsCopySnippet } from '@hashicorp/design-system-components/components';
 
 import { COLORS } from '@hashicorp/design-system-components/components/hds/copy/snippet/index';
 
-const SubSectionVariants: TemplateOnlyComponent = <template>
+const SubSectionColor: TemplateOnlyComponent = <template>
   <ShwTextH2>Color</ShwTextH2>
 
   <ShwFlex as |SF|>
@@ -30,4 +30,4 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwDivider />
 </template>;
 
-export default SubSectionVariants;
+export default SubSectionColor;
