@@ -127,7 +127,7 @@ Ensure that the button's loading state maintains the same width across all state
 
 !!! Dont
 
-Avoid disabling a button in its loading state. This makes them inaccessible for people who rely on keyboards and assistive technology. Instead, keep the button enabled.
+Avoid disabling a button in its loading state. This makes them inaccessible for people who rely on keyboards and assistive technology. Instead, keep the button enabled. Read more about this in our [show, hide and disable](/patterns/disabled-patterns) documentation.
 
 ![A button set, one primary button that is disabled, and a secondary button that is in its default state.](/assets/components/button/button-loading-state-dont.png)
 
