@@ -177,7 +177,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   // This modifiers uses the Floating UI library to provide:
   // - positioning of the "popover" in relation to the "toggle"
   // - collision detection (optional)
-  private _updatePositioning(): void {
+  private _applyAnchoredPositionModifier(): void {
     if (
       this._toggleElement !== undefined &&
       this._popoverElement !== undefined &&

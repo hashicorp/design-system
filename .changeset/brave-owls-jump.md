@@ -2,6 +2,6 @@
 "@hashicorp/design-system-components": minor
 ---
 
-<!-- START components/popover-primitive -->
-`PopoverPrimitive` - Added support for dynamic toggle elements.
+<!-- START utilities/popover-primitive -->
+`PopoverPrimitive` - Added support for dynamic swap/injection of the toggle element.
 <!-- END -->
