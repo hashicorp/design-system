@@ -62,18 +62,35 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             basePxFontSize: 16,
             files: [
               {
-                destination: `themed-tokens/with-root-selector/${mode}-tokens.css`,
+                destination: `themed-tokens/with-root-selector/${mode}/common-tokens.css`,
                 format: 'css/variables',
-                // TODO!
-                // filter: getFilterForMode(mode),
-                filter: excludePrivateTokens,
                 options: {
-                  outputReferences: true,
+                  // TODO understand if is better to output references or not (probably not)
+                  // outputReferences: true,
                   // outputReferences: (token, { dictionary, usesDtcg }) => {
                   //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
                   //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
                   //   // return true or false
                   // },
+                },
+                filter: (token: DesignToken) => {
+                  return !token.private && !(token.attributes && token.attributes.themeable);
+                },
+              },
+              {
+                destination: `themed-tokens/with-root-selector/${mode}/themed-tokens.css`,
+                format: 'css/variables',
+                options: {
+                  // TODO understand if is better to output references or not (probably not)
+                  // outputReferences: true,
+                  // outputReferences: (token, { dictionary, usesDtcg }) => {
+                  //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
+                  //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
+                  //   // return true or false
+                  // },
+                },
+                filter: (token: DesignToken) => {
+                  return !token.private && (token.attributes && token.attributes.themeable);
                 },
               }
             ],
