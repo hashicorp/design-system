@@ -13,7 +13,6 @@ We recommend using the Vanilla JavaScript version of IBM’s [Carbon Chart compo
 - [Carbon Charts Introduction](https://charts.carbondesignsystem.com/introduction)
 - [Carbon Charts installation](https://charts.carbondesignsystem.com/installation)
 - [Carbon Charts API](https://charts.carbondesignsystem.com/api/)
-- [Carbon’s accessibility page](https://carbondesignsystem.com/guidelines/accessibility/overview/)
 
 ### Getting started
 
@@ -31,31 +30,66 @@ Refer to the [Carbon Charts installation & setup page](https://charts.carbondesi
 ### Importing files
 
 In HTML:
+
 ```html{data-execute=false}
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css" />
 <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans-condensed.css" />
 ```
 
 Within JavaScript:
+
 ```javascript
 import { DonutChart } from '@carbon/charts';
-import options from './options.js';
 import '@carbon/charts/styles.css';
 ```
 
-### Customizing options
+### Ember component example
 
-!!! info
+A simple example using the [Carbon Charts Donut](https://charts.carbondesignsystem.com/donut) component.
 
-Refer to the [Carbon Charts API docs](https://charts.carbondesignsystem.com/api/) for the full list of available options for each component type.
+#### JavaScript
 
-!!!
+```javascript
+// app/components/demo-carbon-donut/index.js
 
-The component options, such as the [Donut Chart options](https://charts.carbondesignsystem.com/api/interfaces/donutchartoptions), can be set according to your needs. You can combine the preset options that you’ve included with dynamic options you’ve exposed.
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+
+import { DonutChart } from '@carbon/charts';
+import data from './data';
+import options from './options';
+import '@carbon/charts/styles.css';
+
+export default class DemoCarbonDonut extends Component {
+  chart = null;
+
+  @action
+  setupChart(element) {
+    // Merge the dynamic options into the default options
+    const chartOptions = {
+      ...options,
+      title: this.args.title || options.title,
+      color: {
+        scale: this.args.colorMap,
+      },
+    };
+
+    // Create the DonutChart instance
+    this.chart = new DonutChart(element, {
+      data,
+      options: chartOptions,
+    });
+  }
+}
+```
 
 #### Options.js file with example pre-set options
 
+The component options, such as the [Donut Chart options](https://charts.carbondesignsystem.com/api/interfaces/donutchartoptions), can be set according to your needs. You can combine the preset options that you’ve included with dynamic options you’ve exposed.
+
 ```javascript
+// app/components/demo-carbon-donut/options.js
+
 export default {
   title: '', // Set title using @title on the component
   resizable: true,
@@ -78,80 +112,47 @@ export default {
 };
 ```
 
-#### Ember component code exposing some options
+!!! info
 
-```javascript
-chart: DonutChart | null = null;
+Refer to the [Carbon Charts API docs](https://charts.carbondesignsystem.com/api/) for the full list of available options for each component type.
 
-@action
-setupChart(element: HTMLDivElement): void {
-  const chartData = this.args.data;
+!!!
 
-  // Merge the dynamic options into the default options
-  const chartOptions = {
-    ...options,
-    title: this.args.title || options.title,
-    color: {
-      scale: this.args.colorMap,
-    },
-  };
-
-  // Create the DonutChart instance
-  this.chart = new DonutChart(element, {
-    data: chartData,
-    options: chartOptions,
-  });
-}
-```
-
-### Ember component example
-
-A simple example using the [Carbon Charts Donut](https://charts.carbondesignsystem.com/donut) component.
-
-#### JavaScript
-
-```javascript
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-
-import { DonutChart } from '@carbon/charts';
-import data from './data';
-import options from './options';
-import '@carbon/charts/styles.css';
-
-export default class MockCarbonDonut extends Component {
-  chart = null;
-
-  @action
-  setupChart(element) {
-    // Merge the dynamic options into the default options
-    const chartOptions = {
-      ...options,
-      title: this.args.title || options.title,
-    };
-
-    // Create the DonutChart instance
-    this.chart = new DonutChart(element, {
-      data,
-      options: chartOptions,
-    });
-  }
-}
-```
 
 #### Template
 
-Font definition links are included here in the component code for example purposes. Normally, they should only be included once within the HTML page template.
+Attach the `setupChart` action to a generic container element.
 
 ```handlebars{data-execute=false}
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css" />
-<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans-condensed.css" />
+<!-- app/components/demo-carbon-donut/index.hbs -->
 
-<div class="mock-carbon-donut" {{did-insert this.setupChart}} ...attributes></div>
+<div {{did-insert this.setupChart}} ...attributes></div>
 ```
 
-#### Using the component within a page
+#### Application
 
-```handlebars
-<Mock::CarbonDonut @title="Cluster types" />
+Font definition links should only be included once within the HTML application page.
+
+```handlebars{data-execute=false}
+<!-- app/index.html -->
+
+<html lang="en">
+  <head>
+    ...
+    <!-- include the Plex fonts in the main application -->
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css" />
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans-condensed.css" />
+    ...
+  </head>
+  <body>
+    ...
+  </body>
+</html>
 ```
+
+
+#### Rendered chart
+
+This will render a chart similar to this one:
+
+![Example of a rendered Carbon Donut Chart](/assets/patterns/data-visualization/code-demo-donut-chart.png)
