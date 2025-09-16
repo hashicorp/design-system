@@ -1,0 +1,17 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --token-color-palette-neutral-200: #dedfe3;
+  --token-color-palette-neutral-100: #f1f2f3;
+  --token-component-a-size: 123px;
+  --token-color-foreground-strong: var(--token-color-palette-neutral-300);
+  --token-color-foreground-primary: var(--token-color-palette-neutral-200);
+  --token-color-foreground-high-contrast: var(--token-color-palette-neutral-0);
+  --token-component-a-color: var(--token-color-palette-neutral-300);
+  --token-component-b-color: var(--token-color-palette-neutral-200);
+  --token-component-b-size: var(--token-component-a-size);
+  --token-component-c-color: var(--token-color-foreground-high-contrast);
+  --token-component-d-color: var(--token-color-foreground-semantic-outlier);
+}
