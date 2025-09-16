@@ -102,7 +102,7 @@ function convertThemeValueToDtcg(value: string | number, key: string) {
       type = 'font-weight';
       break;
     case 'lineHeight':
-      type = 'lineHeight';
+      type = 'line-height';
       break;
     case 'letterSpacing':
       type = 'letter-spacing';
