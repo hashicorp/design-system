@@ -209,7 +209,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -241,7 +241,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -273,7 +273,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -305,7 +305,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -449,7 +449,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -481,7 +481,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -639,7 +639,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -678,7 +678,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -750,7 +750,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -782,7 +782,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -792,7 +792,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -802,7 +802,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -819,7 +819,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -838,7 +838,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -870,7 +870,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -880,7 +880,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -890,7 +890,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -907,7 +907,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -926,7 +926,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -958,7 +958,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -975,7 +975,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -1000,7 +1000,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -1017,7 +1017,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 5.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.25rem"
@@ -1044,7 +1044,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -1076,7 +1076,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.25rem"
@@ -1093,7 +1093,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 5.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.75rem"
@@ -1118,7 +1118,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 7.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "7.625rem"
@@ -1143,7 +1143,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 9.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "9.75rem"
@@ -1170,7 +1170,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -1202,7 +1202,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -1234,7 +1234,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -1266,7 +1266,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -1283,7 +1283,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.5,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -1302,7 +1302,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -1334,7 +1334,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -1358,7 +1358,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -1377,7 +1377,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -1409,7 +1409,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -1441,7 +1441,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -1466,7 +1466,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -1491,7 +1491,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -1511,7 +1511,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -1543,7 +1543,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -1575,7 +1575,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -1607,7 +1607,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -1639,7 +1639,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -1666,7 +1666,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.5,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.5rem"
@@ -1698,7 +1698,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -1715,7 +1715,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -1782,7 +1782,7 @@
         "fluidSpacing02": {
           "$type": "dimension",
           "$value": 2,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "2vw"
@@ -1790,7 +1790,7 @@
         "fluidSpacing03": {
           "$type": "dimension",
           "$value": 5,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "5vw"
@@ -1798,7 +1798,7 @@
         "fluidSpacing04": {
           "$type": "dimension",
           "$value": 10,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "10vw"
@@ -1828,7 +1828,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -1860,7 +1860,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -1892,7 +1892,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -1917,7 +1917,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -2021,7 +2021,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -2053,7 +2053,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -2407,7 +2407,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -2439,7 +2439,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -2471,7 +2471,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -2503,7 +2503,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -2535,7 +2535,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -2567,7 +2567,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -2599,7 +2599,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 3.375,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "3.375rem"
@@ -2638,7 +2638,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -2670,7 +2670,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -2695,7 +2695,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.5,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -2727,7 +2727,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -2759,7 +2759,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -2800,7 +2800,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -2832,7 +2832,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -2849,7 +2849,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -2866,7 +2866,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -2883,7 +2883,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -3420,7 +3420,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -3452,7 +3452,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -3484,7 +3484,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -3516,7 +3516,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -3660,7 +3660,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -3692,7 +3692,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -3850,7 +3850,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -3889,7 +3889,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -3961,7 +3961,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -3993,7 +3993,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -4003,7 +4003,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -4013,7 +4013,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4030,7 +4030,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -4049,7 +4049,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -4081,7 +4081,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -4091,7 +4091,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -4101,7 +4101,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4118,7 +4118,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -4137,7 +4137,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -4169,7 +4169,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -4186,7 +4186,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4211,7 +4211,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -4228,7 +4228,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 5.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.25rem"
@@ -4255,7 +4255,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -4287,7 +4287,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.25rem"
@@ -4304,7 +4304,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 5.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.75rem"
@@ -4329,7 +4329,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 7.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "7.625rem"
@@ -4354,7 +4354,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 9.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "9.75rem"
@@ -4381,7 +4381,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -4413,7 +4413,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -4445,7 +4445,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -4477,7 +4477,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -4494,7 +4494,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.5,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -4513,7 +4513,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -4545,7 +4545,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -4569,7 +4569,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -4588,7 +4588,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -4620,7 +4620,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -4652,7 +4652,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -4677,7 +4677,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -4702,7 +4702,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4722,7 +4722,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -4754,7 +4754,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -4786,7 +4786,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -4818,7 +4818,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -4850,7 +4850,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4877,7 +4877,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.5,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.5rem"
@@ -4909,7 +4909,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -4926,7 +4926,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -4993,7 +4993,7 @@
         "fluidSpacing02": {
           "$type": "dimension",
           "$value": 2,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "2vw"
@@ -5001,7 +5001,7 @@
         "fluidSpacing03": {
           "$type": "dimension",
           "$value": 5,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "5vw"
@@ -5009,7 +5009,7 @@
         "fluidSpacing04": {
           "$type": "dimension",
           "$value": 10,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "10vw"
@@ -5039,7 +5039,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -5071,7 +5071,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -5103,7 +5103,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -5128,7 +5128,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -5232,7 +5232,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -5264,7 +5264,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -5618,7 +5618,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -5650,7 +5650,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -5682,7 +5682,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -5714,7 +5714,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -5746,7 +5746,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -5778,7 +5778,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -5810,7 +5810,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 3.375,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "3.375rem"
@@ -5849,7 +5849,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -5881,7 +5881,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -5906,7 +5906,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.5,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -5938,7 +5938,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -5970,7 +5970,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -6011,7 +6011,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -6043,7 +6043,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -6060,7 +6060,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -6077,7 +6077,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -6094,7 +6094,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -6631,7 +6631,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -6663,7 +6663,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -6695,7 +6695,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -6727,7 +6727,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -6871,7 +6871,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -6903,7 +6903,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -7061,7 +7061,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -7100,7 +7100,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -7172,7 +7172,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -7204,7 +7204,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -7214,7 +7214,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -7224,7 +7224,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -7241,7 +7241,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -7260,7 +7260,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -7292,7 +7292,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -7302,7 +7302,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -7312,7 +7312,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -7329,7 +7329,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -7348,7 +7348,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -7380,7 +7380,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -7397,7 +7397,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -7422,7 +7422,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -7439,7 +7439,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 5.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.25rem"
@@ -7466,7 +7466,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -7498,7 +7498,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.25rem"
@@ -7515,7 +7515,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 5.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.75rem"
@@ -7540,7 +7540,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 7.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "7.625rem"
@@ -7565,7 +7565,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 9.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "9.75rem"
@@ -7592,7 +7592,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -7624,7 +7624,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -7656,7 +7656,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -7688,7 +7688,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -7705,7 +7705,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.5,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -7724,7 +7724,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -7756,7 +7756,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -7780,7 +7780,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -7799,7 +7799,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -7831,7 +7831,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -7863,7 +7863,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -7888,7 +7888,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -7913,7 +7913,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -7933,7 +7933,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -7965,7 +7965,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -7997,7 +7997,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -8029,7 +8029,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -8061,7 +8061,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -8088,7 +8088,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.5,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.5rem"
@@ -8120,7 +8120,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -8137,7 +8137,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -8204,7 +8204,7 @@
         "fluidSpacing02": {
           "$type": "dimension",
           "$value": 2,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "2vw"
@@ -8212,7 +8212,7 @@
         "fluidSpacing03": {
           "$type": "dimension",
           "$value": 5,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "5vw"
@@ -8220,7 +8220,7 @@
         "fluidSpacing04": {
           "$type": "dimension",
           "$value": 10,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "10vw"
@@ -8250,7 +8250,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -8282,7 +8282,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -8314,7 +8314,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -8339,7 +8339,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -8443,7 +8443,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -8475,7 +8475,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -8829,7 +8829,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -8861,7 +8861,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -8893,7 +8893,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -8925,7 +8925,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -8957,7 +8957,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -8989,7 +8989,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -9021,7 +9021,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 3.375,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "3.375rem"
@@ -9060,7 +9060,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -9092,7 +9092,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -9117,7 +9117,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.5,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -9149,7 +9149,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -9181,7 +9181,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -9222,7 +9222,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -9254,7 +9254,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -9271,7 +9271,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -9288,7 +9288,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -9305,7 +9305,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -9842,7 +9842,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -9874,7 +9874,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -9906,7 +9906,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -9938,7 +9938,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -10082,7 +10082,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -10114,7 +10114,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -10272,7 +10272,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -10311,7 +10311,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -10383,7 +10383,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -10415,7 +10415,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -10425,7 +10425,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -10435,7 +10435,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -10452,7 +10452,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -10471,7 +10471,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -10503,7 +10503,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -10513,7 +10513,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -10523,7 +10523,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -10540,7 +10540,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -10559,7 +10559,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -10591,7 +10591,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.375,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -10608,7 +10608,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -10633,7 +10633,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -10650,7 +10650,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 5.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.25rem"
@@ -10677,7 +10677,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -10709,7 +10709,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 4.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.25rem"
@@ -10726,7 +10726,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 5.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.75rem"
@@ -10751,7 +10751,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 7.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "7.625rem"
@@ -10776,7 +10776,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 9.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "9.75rem"
@@ -10803,7 +10803,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -10835,7 +10835,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -10867,7 +10867,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -10899,7 +10899,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -10916,7 +10916,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.5,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -10935,7 +10935,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -10967,7 +10967,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -10991,7 +10991,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -11010,7 +11010,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -11042,7 +11042,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -11074,7 +11074,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -11099,7 +11099,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -11124,7 +11124,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -11144,7 +11144,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -11176,7 +11176,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -11208,7 +11208,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -11240,7 +11240,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -11272,7 +11272,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -11299,7 +11299,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.5,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.5rem"
@@ -11331,7 +11331,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -11348,7 +11348,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -11415,7 +11415,7 @@
         "fluidSpacing02": {
           "$type": "dimension",
           "$value": 2,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "2vw"
@@ -11423,7 +11423,7 @@
         "fluidSpacing03": {
           "$type": "dimension",
           "$value": 5,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "5vw"
@@ -11431,7 +11431,7 @@
         "fluidSpacing04": {
           "$type": "dimension",
           "$value": 10,
-          "unit": "px",
+          "unit": "vw",
           "group": "cds-themes",
           "private": true,
           "cds-original-value": "10vw"
@@ -11461,7 +11461,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -11493,7 +11493,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -11525,7 +11525,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -11550,7 +11550,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -11654,7 +11654,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -11686,7 +11686,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -12040,7 +12040,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 0.875,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -12072,7 +12072,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -12104,7 +12104,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -12136,7 +12136,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.75,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -12168,7 +12168,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -12200,7 +12200,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2.625,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -12232,7 +12232,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 3.375,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "3.375rem"
@@ -12271,7 +12271,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 1.25,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -12303,7 +12303,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -12328,7 +12328,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.5,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -12360,7 +12360,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 1.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -12392,7 +12392,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -12433,7 +12433,7 @@
           "fontSize": {
             "$type": "font-size",
             "$value": 2,
-            "unit": "px",
+            "unit": "rem",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -12465,7 +12465,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.25,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -12482,7 +12482,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 2.625,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -12499,7 +12499,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -12516,7 +12516,7 @@
               "fontSize": {
                 "$type": "font-size",
                 "$value": 3.75,
-                "unit": "px",
+                "unit": "rem",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"

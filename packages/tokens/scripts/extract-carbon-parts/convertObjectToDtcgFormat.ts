@@ -175,13 +175,16 @@ function convertSizeValue(value: string | number, convertRemToPx: boolean = true
       const $value = Number(match[1]);
       const unit = match[2];
       let returnValue;
+      let returnUnit;
       if (convertRemToPx && unit === 'rem') {
         // we convert everything to px, because in HDS we use px (except for font sizes)
         returnValue = $value * baseFontSize;
+        returnUnit = 'px';
       } else {
         returnValue = $value;
+        returnUnit = unit;
       }
-      return { $value: returnValue, unit: 'px' };
+      return { $value: returnValue, unit: returnUnit };
     } else {
       return undefined;
     }
