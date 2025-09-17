@@ -6,12 +6,11 @@
 import { HdsApplicationState } from '@hashicorp/design-system-components/components';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import type { HdsApplicationStateAligns } from '@hashicorp/design-system-components/components/hds/application-state/types';
 import type { HdsApplicationStateSignature } from '@hashicorp/design-system-components/components/hds/application-state/index';
 
 export interface CodeFragmentWithActionVariantsSignature {
   Args: {
-    align: HdsApplicationStateAligns;
+    align: HdsApplicationStateSignature['Args']['align'];
     hasDropdown?: boolean;
     hasPrimaryAction?: boolean;
     hasSecondaryAction?: boolean;
