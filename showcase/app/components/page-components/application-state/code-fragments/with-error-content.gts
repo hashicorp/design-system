@@ -4,7 +4,15 @@
  */
 
 import Component from '@glimmer/component';
-import { HdsApplicationState } from '@hashicorp/design-system-components/components';
+import { eq } from 'ember-truth-helpers';
+
+import {
+  HdsApplicationState,
+  HdsIcon,
+  HdsIconTile,
+} from '@hashicorp/design-system-components/components';
+
+import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import type { HdsApplicationStateSignature } from '@hashicorp/design-system-components/components/hds/application-state/index';
 import type { HdsApplicationStateHeaderSignature } from '@hashicorp/design-system-components/components/hds/application-state/header';
@@ -18,13 +26,23 @@ enum CodeFragmentWithErrorContentActionsValues {
 type CodeFragmentWithErrorContentActions =
   `${CodeFragmentWithErrorContentActionsValues}`;
 
+enum CodeFragmentWithErrorContentMediaValues {
+  Icon = 'icon',
+  IconTile = 'icon-tile',
+  Image = 'image',
+  Generic = 'generic',
+}
+
+type CodeFragmentWithErrorContentMedia =
+  `${CodeFragmentWithErrorContentMediaValues}`;
+
 interface CodeFragmentWithErrorContentSignature {
   Args: {
     actions?: Array<CodeFragmentWithErrorContentActions>;
     align?: HdsApplicationStateSignature['Args']['align'];
     bodyText?: string;
     hasErrorCode?: boolean;
-    hasMedia?: boolean;
+    media?: CodeFragmentWithErrorContentMedia;
     icon?: HdsApplicationStateHeaderSignature['Args']['icon'];
     titleTag?: HdsApplicationStateHeaderSignature['Args']['titleTag'];
     titleText?: string;
@@ -50,13 +68,25 @@ export default class CodeFragmentWithErrorContent extends Component<CodeFragment
 
   <template>
     <HdsApplicationState @align={{@align}} as |A|>
-      {{#if @hasMedia}}
+      {{#if @media}}
         <A.Media>
-          <img
-            src="/assets/images/cat-banner.png"
-            alt="3 cats wearing old-fashioned formal wear"
-            class="shw-component-application-state-banner"
-          />
+          {{#if (eq @media CodeFragmentWithErrorContentMediaValues.Icon)}}
+            <HdsIcon @name="channel" @size="24" />
+          {{else if
+            (eq @media CodeFragmentWithErrorContentMediaValues.IconTile)
+          }}
+            <HdsIconTile @logo="terraform" @size="large" />
+          {{else if (eq @media CodeFragmentWithErrorContentMediaValues.Image)}}
+            <img
+              src="/assets/images/cat-banner.png"
+              alt="3 cats wearing old-fashioned formal wear"
+              class="shw-component-application-state-banner"
+            />
+          {{else if
+            (eq @media CodeFragmentWithErrorContentMediaValues.Generic)
+          }}
+            <ShwPlaceholder @text="media" @width="80" @height="80" />
+          {{/if}}
         </A.Media>
       {{/if}}
       <A.Header

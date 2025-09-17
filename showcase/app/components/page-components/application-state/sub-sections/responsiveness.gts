@@ -63,8 +63,8 @@ const SubSectionResponsiveness: TemplateOnlyComponent<SubSectionResponsivenessSi
                   @align={{align}}
                   @actions={{array "primary" "secondary" "standaloneLink"}}
                   @hasErrorCode={{true}}
-                  @hasMedia={{true}}
                   @icon="alert-circle"
+                  @media="image"
                 />
               </ShwOutliner>
             </SF.Item>

@@ -13,7 +13,6 @@ import ShwFlex from 'showcase/components/shw/flex';
 import { ALIGNS } from '@hashicorp/design-system-components/components/hds/application-state/index';
 
 import { HdsApplicationState } from '@hashicorp/design-system-components/components';
-import CodeFragmentWithMediaVariants from '../code-fragments/with-media-variants';
 import CodeFragmentWithErrorContent from '../code-fragments/with-error-content';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
@@ -77,17 +76,17 @@ const SubSectionWithMedia: TemplateOnlyComponent<SubSectionWithMediaSignature> =
       {{/each}}
       {{#each ALIGNS as |align|}}
         <SF.Item @label="With icon / {{align}} aligned">
-          <CodeFragmentWithMediaVariants @align={{align}} @media="icon" />
+          <CodeFragmentWithErrorContent @align={{align}} @media="icon" />
         </SF.Item>
       {{/each}}
       {{#each ALIGNS as |align|}}
         <SF.Item @label="With IconTile / {{align}} aligned">
-          <CodeFragmentWithMediaVariants @align={{align}} @media="icon-tile" />
+          <CodeFragmentWithErrorContent @align={{align}} @media="icon-tile" />
         </SF.Item>
       {{/each}}
       {{#each ALIGNS as |align|}}
         <SF.Item @label="With generic content / {{align}} aligned">
-          <CodeFragmentWithMediaVariants @align={{align}} />
+          <CodeFragmentWithErrorContent @align={{align}} @media="generic" />
         </SF.Item>
       {{/each}}
     </ShwFlex>
