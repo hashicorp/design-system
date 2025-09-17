@@ -1,6 +1,10 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import { HdsBreadcrumb, HdsBreadcrumbItem, HdsBreadcrumbTruncation } from '@hashicorp/design-system-components/components';
+import {
+  HdsBreadcrumb,
+  HdsBreadcrumbItem,
+  HdsBreadcrumbTruncation,
+} from '@hashicorp/design-system-components/components';
 
 export interface CodeFragmentWithGenericContentSignature {
   Args: {
@@ -17,9 +21,14 @@ const CodeFragmentWithGenericContent: TemplateOnlyComponent<CodeFragmentWithGene
       {{#if @hasTruncation}}
         <HdsBreadcrumbTruncation>
           <HdsBreadcrumbItem @text="Sub-level one" />
-          <HdsBreadcrumbItem @text="Sub-level two with a very long string that we may want to trim somehow" />
+          <HdsBreadcrumbItem
+            @text="Sub-level two with a very long string that we may want to trim somehow"
+          />
           <HdsBreadcrumbItem @text="Sub-level with icon" @icon="org" />
-          <HdsBreadcrumbItem @text="Another sub-level with icon" @icon="folder" />
+          <HdsBreadcrumbItem
+            @text="Another sub-level with icon"
+            @icon="folder"
+          />
         </HdsBreadcrumbTruncation>
       {{else}}
         <HdsBreadcrumbItem @text="Level three" />

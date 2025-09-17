@@ -28,7 +28,6 @@ const SubSectionVariants: TemplateOnlyComponent = <template>
   </ShwFlex>
 
   <ShwDivider @level={{2}} />
-
 </template>;
 
 export default SubSectionVariants;
