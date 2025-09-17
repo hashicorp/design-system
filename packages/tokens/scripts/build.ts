@@ -35,13 +35,14 @@ for (const mode of modes) {
   StyleDictionary.registerPreprocessor({
     name: `replace-value-for-mode-${mode}`,
     preprocessor: (dictionary, _options) => {
-      // console.log("\n\n\n **** _options ****\n\n", JSON.stringify(_options, null, 2));
       // recursively traverse token objects and replace the `$value` with the corresponding colocated `$modes` theme value
+      // note: the `slice` is always an object (a token or a parent group)
       function replaceModes(slice: DesignToken) {
         if (slice.$modes) {
           if (slice.$modes[mode]) {
             slice.$value = slice.$modes[mode];
           } else {
+            // TODO! decide if we want to throw here (and test if it works, by removing a value from one of the test files)
             console.error(`❌ ERROR - Found themed token without '${mode}' value:`, JSON.stringify(slice, null, 2));
           }
         } else {
@@ -53,10 +54,7 @@ for (const mode of modes) {
         }
         return slice;
       }
-      const xxx = replaceModes(dictionary);
-      // console.log("\n\n\n **** replaceModes(dictionary) ****\n\n", JSON.stringify(_options, null, 2));
-      // return replaceModes(dictionary);
-      return xxx;
+      return replaceModes(dictionary);
     },
   });
 }
@@ -73,11 +71,12 @@ StyleDictionary.registerTransform({
       isThemeable = true;
     }
 
-    if (usesReferences(token.original.value)) {
-      // TODO understand here what I should pass for `StyleDictionary.tokenMap` (even if it apparently works)
-      const refs = getReferences(token.original.value, StyleDictionary.tokenMap);
-      isThemeable = refs.some((ref) => '$modes' in ref);
-    }
+    // TODO understand if we really need this to split themeable vs non-themeable tokens
+    // if (usesReferences(token.original.$value)) {
+    //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
+    //   isThemeable = refs.some((ref) => '$modes' in ref);
+    // }
+
     return isThemeable ? { themeable: true } : { };
   },
 });
@@ -241,18 +240,23 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web',
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'products/web/themed',
   transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
-  transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
-  transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerFormat({
@@ -297,7 +301,6 @@ fs.emptyDirSync(distFolder);
 // generate standard tokens
 for (const target of targets) {
   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
-
   console.log(`\n---\n\nProcessing target "${target}"...`);
   await StyleDictionaryInstance.hasInitialized;
   await StyleDictionaryInstance.buildAllPlatforms()
@@ -306,13 +309,9 @@ for (const target of targets) {
 
 // generate themed tokens
 for (const mode of modes) {
-
   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target: 'products', mode }));
   console.log(`\n---\n\nProcessing mode "${mode}"...`);
   await StyleDictionaryInstance.hasInitialized;
   await StyleDictionaryInstance.buildAllPlatforms()
   console.log('\nEnd processing');
 }
-
-console.log('\n==============================================');
-console.log('\nBuild completed!');
