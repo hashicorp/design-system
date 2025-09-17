@@ -18,6 +18,13 @@
 
 ### Sorting
 
+!!! Warning
+
+**Unsupported feature**
+
+Sorting is not supported for nested rows at this time.
+!!!
+
 While multiple columns may offer sorting, only one column can be sorted at a time. Sorting is not relevant for all content and should be applied thoughtfully.
 
 ![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
@@ -269,7 +276,7 @@ If `hasStickyFirstColumn` is set to true or false in the Ember component, a cont
 
 **Unsupported feature**
 
-Multi-select and sorting are not supported for nested rows at this time.
+Multi-select is not supported for nested rows at this time.
 !!!
 
 Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. Selection states are maintained across pagination and filtering. 

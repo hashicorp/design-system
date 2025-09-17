@@ -8,7 +8,7 @@
 ### When not to use
 
 - As a layout mechanism. Instead, use [Flex](/layouts/flex) or [Grid](/layouts/grid) layout helpers.
-- When data requires scrolling, more levels of hierarchy, or when keyboard navigation is needed to achieve usability. Instead, use the [Advanced Table](components/table/advanced-table).
+- When data requires scrolling, more levels of hierarchy, or when keyboard navigation is needed to achieve usability. Instead, use the [Advanced Table](/components/table/advanced-table).
 
 ## Columns
 
@@ -171,7 +171,7 @@ For the user to scan, sort, and filter the table easily, each cell should contai
 ![Table cell density](/assets/components/table/table-density.png)
 
 ## Horizontal scrolling
-Use horizontal scrolling when the number of columns exceeds the viewport or container. Use the [Advanced Table](components/table/advanced-table) when keyboard navigation and sticky columns ease the reading experience for large datasets.
+Use horizontal scrolling when the number of columns exceeds the viewport or container. Use the [Advanced Table](/components/table/advanced-table) when keyboard navigation and sticky columns ease the reading experience for large datasets.
 
 For more information on the types of approaches used to implement horizontal scrolling, refer to the [code tab](/components/table/table?tab=code#scrollable-table)
 
