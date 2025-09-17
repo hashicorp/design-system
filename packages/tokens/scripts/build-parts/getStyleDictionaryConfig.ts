@@ -57,7 +57,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
         platforms: {
           [`web/themed-css-variables--mode-${mode}`]: {
             buildPath: 'dist/products/css/',
-            transformGroup: 'products/web',
+            transformGroup: 'products/web/themed',
             prefix: 'token',
             basePxFontSize: 16,
             files: [
@@ -66,12 +66,14 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 format: 'css/variables',
                 options: {
                   // TODO understand if is better to output references or not (probably not)
-                  // outputReferences: true,
+                  outputReferences: true,
                   // outputReferences: (token, { dictionary, usesDtcg }) => {
                   //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
                   //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
                   //   // return true or false
                   // },
+                  // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
+                  // outputReferences: (token, options) => outputReferencesFilter(token, options) && outputReferencesTransformed(token, options),
                 },
                 filter: (token: DesignToken) => {
                   return !token.private && !(token.attributes && token.attributes.themeable);
@@ -82,12 +84,14 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 format: 'css/variables',
                 options: {
                   // TODO understand if is better to output references or not (probably not)
-                  // outputReferences: true,
+                  outputReferences: true,
                   // outputReferences: (token, { dictionary, usesDtcg }) => {
                   //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
                   //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
                   //   // return true or false
                   // },
+                  // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
+                  // outputReferences: (token, options) => outputReferencesFilter(token, options) && outputReferencesTransformed(token, options),
                 },
                 filter: (token: DesignToken) => {
                   return !token.private && (token.attributes && token.attributes.themeable);
