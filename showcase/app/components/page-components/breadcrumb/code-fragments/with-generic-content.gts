@@ -15,7 +15,12 @@ export interface CodeFragmentWithGenericContentSignature {
 
 const CodeFragmentWithGenericContent: TemplateOnlyComponent<CodeFragmentWithGenericContentSignature> =
   <template>
-    <HdsBreadcrumb aria-label="breadcrumb with icons example">
+    <HdsBreadcrumb
+      aria-label="breadcrumb {{if @hasIcons 'with icons'}} {{if
+        @hasTruncation
+        'with truncation'
+      }} example"
+    >
       <HdsBreadcrumbItem @text="Level one" @icon={{if @hasIcons "org"}} />
       <HdsBreadcrumbItem @text="Level two" @icon={{if @hasIcons "folder"}} />
       {{#if @hasTruncation}}

@@ -1,4 +1,5 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { eq } from 'ember-truth-helpers';
 
 import {
   HdsBreadcrumb,
@@ -16,7 +17,10 @@ const CodeFragmentWithLongString: TemplateOnlyComponent<CodeFragmentWithLongStri
   <template>
     <HdsBreadcrumb
       @itemsCanWrap={{@itemsCanWrap}}
-      aria-label="breadcrumb with long strings and no text wrapping example"
+      aria-label="breadcrumb with long strings {{if
+        (eq @itemsCanWrap false)
+        'and no text wrapping'
+      }} example"
     >
       <HdsBreadcrumbItem
         @text="Level one with a very long string"
