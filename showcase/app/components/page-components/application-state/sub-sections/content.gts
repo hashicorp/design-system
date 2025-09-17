@@ -11,7 +11,7 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import { HdsApplicationState } from '@hashicorp/design-system-components/components';
-import CodeFragmentWithError from '../code-fragments/with-error';
+import CodeFragmentWithErrorContent from '../code-fragments/with-error-content';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
@@ -93,26 +93,29 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
 
     <ShwFlex @direction="column" @gap="2rem" as |SF|>
       <SF.Item @label="With icon in header">
-        <CodeFragmentWithError
+        <CodeFragmentWithErrorContent
           @bodyText="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
           @icon="help"
         />
       </SF.Item>
       <SF.Item @label="With error code in header">
-        <CodeFragmentWithError @hasErrorCode={{true}} />
+        <CodeFragmentWithErrorContent @hasErrorCode={{true}} />
       </SF.Item>
       <SF.Item @label="With icon and error code">
-        <CodeFragmentWithError @hasErrorCode={{true}} @icon="alert-circle" />
+        <CodeFragmentWithErrorContent
+          @hasErrorCode={{true}}
+          @icon="alert-circle"
+        />
       </SF.Item>
       <SF.Item @label="With a multiline title">
-        <CodeFragmentWithError
+        <CodeFragmentWithErrorContent
           @hasErrorCode={{true}}
           @icon="alert-circle"
           @titleText="An error has occurred and maybe it has such a long title that will wrap on multiple lines"
         />
       </SF.Item>
       <SF.Item @label="With custom title tag">
-        <CodeFragmentWithError
+        <CodeFragmentWithErrorContent
           @hasErrorCode={{true}}
           @icon="alert-circle"
           @titleTag="h1"
