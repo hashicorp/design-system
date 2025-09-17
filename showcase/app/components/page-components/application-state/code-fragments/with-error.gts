@@ -36,6 +36,7 @@ export default class CodeFragmentWithError extends Component<CodeFragmentWithErr
     <HdsApplicationState as |A|>
       <A.Header
         @title={{this.titleText}}
+        @titleTag={{@titleTag}}
         @icon={{@icon}}
         @errorCode={{if @hasErrorCode "404"}}
       />
