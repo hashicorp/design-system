@@ -13,7 +13,7 @@ import ShwFlex from 'showcase/components/shw/flex';
 import ShwOutliner from 'showcase/components/shw/outliner';
 import { ALIGNS } from '@hashicorp/design-system-components/components/hds/application-state/index';
 
-import CodeFragmentWithMediaError from '../code-fragments/with-media-error';
+import CodeFragmentWithErrorContent from '../code-fragments/with-error-content';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
@@ -59,7 +59,13 @@ const SubSectionResponsiveness: TemplateOnlyComponent<SubSectionResponsivenessSi
           {{#each ALIGNS as |align|}}
             <SF.Item @label="{{width.label}} / {{align}} aligned">
               <ShwOutliner {{style width=width.value}}>
-                <CodeFragmentWithMediaError @align={{align}} />
+                <CodeFragmentWithErrorContent
+                  @align={{align}}
+                  @actions={{array "primary" "secondary" "standaloneLink"}}
+                  @hasErrorCode={{true}}
+                  @hasMedia={{true}}
+                  @icon="alert-circle"
+                />
               </ShwOutliner>
             </SF.Item>
           {{/each}}

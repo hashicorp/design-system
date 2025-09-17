@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { array } from '@ember/helper';
 import { on } from '@ember/modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -13,7 +14,7 @@ import { ALIGNS } from '@hashicorp/design-system-components/components/hds/appli
 
 import { HdsApplicationState } from '@hashicorp/design-system-components/components';
 import CodeFragmentWithMediaVariants from '../code-fragments/with-media-variants';
-import CodeFragmentWithMediaError from '../code-fragments/with-media-error';
+import CodeFragmentWithErrorContent from '../code-fragments/with-error-content';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
@@ -107,7 +108,10 @@ const SubSectionWithMedia: TemplateOnlyComponent<SubSectionWithMediaSignature> =
     <ShwFlex @direction="column" @gap="4rem" as |SF|>
       {{#each ALIGNS as |align|}}
         <SF.Item @label="{{align}} aligned">
-          <CodeFragmentWithMediaError @align={{align}} />
+          <CodeFragmentWithErrorContent
+            @actions={{array "standaloneLink"}}
+            @align={{align}}
+          />
         </SF.Item>
       {{/each}}
     </ShwFlex>
