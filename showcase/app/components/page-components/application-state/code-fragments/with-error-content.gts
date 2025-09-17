@@ -9,10 +9,22 @@ import { HdsApplicationState } from '@hashicorp/design-system-components/compone
 import type { HdsApplicationStateSignature } from '@hashicorp/design-system-components/components/hds/application-state/index';
 import type { HdsApplicationStateHeaderSignature } from '@hashicorp/design-system-components/components/hds/application-state/header';
 
+enum CodeFragmentWithErrorContentActionsValues {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  StandaloneLink = 'standaloneLink',
+}
+
+type CodeFragmentWithErrorContentActions =
+  `${CodeFragmentWithErrorContentActionsValues}`;
+
 interface CodeFragmentWithErrorContentSignature {
   Args: {
+    actions?: Array<CodeFragmentWithErrorContentActions>;
+    align?: HdsApplicationStateSignature['Args']['align'];
     bodyText?: string;
     hasErrorCode?: boolean;
+    hasMedia?: boolean;
     icon?: HdsApplicationStateHeaderSignature['Args']['icon'];
     titleTag?: HdsApplicationStateHeaderSignature['Args']['titleTag'];
     titleText?: string;
@@ -32,8 +44,21 @@ export default class CodeFragmentWithErrorContent extends Component<CodeFragment
     );
   }
 
+  includesAction = (action: CodeFragmentWithErrorContentActions) => {
+    return this.args.actions?.includes(action);
+  };
+
   <template>
-    <HdsApplicationState as |A|>
+    <HdsApplicationState @align={{@align}} as |A|>
+      {{#if @hasMedia}}
+        <A.Media>
+          <img
+            src="/assets/images/cat-banner.png"
+            alt="3 cats wearing old-fashioned formal wear"
+            class="shw-component-application-state-banner"
+          />
+        </A.Media>
+      {{/if}}
       <A.Header
         @title={{this.titleText}}
         @titleTag={{@titleTag}}
@@ -42,7 +67,15 @@ export default class CodeFragmentWithErrorContent extends Component<CodeFragment
       />
       <A.Body @text={{this.bodyText}} />
       <A.Footer as |F|>
-        <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+        {{#if (this.includesAction "primary")}}
+          <F.Button @color="primary" @text="Primary action" />
+        {{/if}}
+        {{#if (this.includesAction "secondary")}}
+          <F.Button @color="secondary" @text="Secondary action" />
+        {{/if}}
+        {{#if (this.includesAction "standaloneLink")}}
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+        {{/if}}
       </A.Footer>
     </HdsApplicationState>
   </template>
