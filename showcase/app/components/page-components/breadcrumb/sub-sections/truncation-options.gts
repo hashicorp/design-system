@@ -3,6 +3,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
 
+import CodeFragmentWithLongStrings from '../code-fragments/with-long-strings';
+
 import { HdsBreadcrumb, HdsBreadcrumbItem, HdsBreadcrumbTruncation } from '@hashicorp/design-system-components/components';
 
 const SubSectionTruncationOptions: TemplateOnlyComponent = <template>
@@ -11,27 +13,13 @@ const SubSectionTruncationOptions: TemplateOnlyComponent = <template>
 
   <ShwFlex @label="With long strings / items can wrap (default)" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-with-max-width">
-      <HdsBreadcrumb aria-label="breadcrumb with long strings example">
-        <HdsBreadcrumbItem @text="Level one with a very long string" @icon="org" />
-        <HdsBreadcrumbItem @text="Level two with a very long string" @icon="folder" />
-        <HdsBreadcrumbItem @text="Level three with a very long string" />
-        <HdsBreadcrumbItem @text="Level four with a very long string" />
-        <HdsBreadcrumbItem @text="Level five with a very long string" />
-        <HdsBreadcrumbItem @text="Current with a very long string" @current={{true}} />
-      </HdsBreadcrumb>
+      <CodeFragmentWithLongStrings />
     </SF.Item>
   </ShwFlex>
 
   <ShwFlex @label="With long strings / items can't wrap (text is elliptized)" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-with-max-width">
-      <HdsBreadcrumb @itemsCanWrap={{false}} aria-label="breadcrumb with long strings and no text wrapping example">
-        <HdsBreadcrumbItem @text="Level one with a very long string" @icon="org" />
-        <HdsBreadcrumbItem @text="Level two with a very long string" @icon="folder" />
-        <HdsBreadcrumbItem @text="Level three with a very long string" />
-        <HdsBreadcrumbItem @text="Level four with a very long string" />
-        <HdsBreadcrumbItem @text="Level five with a very long string" />
-        <HdsBreadcrumbItem @text="Current with a very long string" @current={{true}} />
-      </HdsBreadcrumb>
+      <CodeFragmentWithLongStrings @itemsCanWrap={{false}} />
     </SF.Item>
   </ShwFlex>
 
@@ -68,4 +56,3 @@ const SubSectionTruncationOptions: TemplateOnlyComponent = <template>
 </template>;
 
 export default SubSectionTruncationOptions;
-
