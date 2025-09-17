@@ -14,7 +14,7 @@ import {
   HdsCardContainer,
   HdsTable,
 } from '@hashicorp/design-system-components/components';
-import CodeFragmentWithContainer from '../code-fragments/with-container';
+import CodeFragmentWithGenericContent from '../code-fragments/with-generic-content';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
@@ -45,7 +45,7 @@ const SubSectionContainer: TemplateOnlyComponent<SubSectionContainerSignature> =
           @hasBorder={{true}}
           {{style padding="40px"}}
         >
-          <CodeFragmentWithContainer />
+          <CodeFragmentWithGenericContent />
         </HdsCardContainer>
       </SF.Item>
       <SF.Item @label="In a table">
@@ -60,7 +60,7 @@ const SubSectionContainer: TemplateOnlyComponent<SubSectionContainerSignature> =
           <:body as |B|>
             <B.Tr>
               <B.Td colspan="3" {{style padding="40px"}}>
-                <CodeFragmentWithContainer />
+                <CodeFragmentWithGenericContent />
               </B.Td>
             </B.Tr>
           </:body>
