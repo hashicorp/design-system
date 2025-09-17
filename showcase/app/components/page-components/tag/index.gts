@@ -6,8 +6,6 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
-import ShwTextH2 from 'showcase/components/shw/text/h2';
-import ShwFrame from 'showcase/components/shw/frame';
 
 import SubSectionContent from 'showcase/components/page-components/tag/sub-sections/content';
 import SubSectionStates from 'showcase/components/page-components/tag/sub-sections/states';
@@ -15,6 +13,7 @@ import SubSectionLinkColors from 'showcase/components/page-components/tag/sub-se
 import SubSectionContainers from 'showcase/components/page-components/tag/sub-sections/containers';
 import SubSectionTooltipPlacements from 'showcase/components/page-components/tag/sub-sections/tooltip-placements';
 import SubSectionInheritance from 'showcase/components/page-components/tag/sub-sections/inheritance';
+import SubSectionDemos from 'showcase/components/page-components/tag/sub-sections/demos';
 
 const TagIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Tag Component"}}
@@ -32,16 +31,7 @@ const TagIndex: TemplateOnlyComponent = <template>
 
   {{! For some reason, Ember tests don't play well with iframes (URL not found) so we can't take snapshots of these examples in Percy }}
   <section>
-
-    <ShwTextH2>Demos</ShwTextH2>
-
-    <ShwFrame
-      @id="demo-tag-performance"
-      @src="/components/tag/frameless/demo-observer-performance"
-      @height="300"
-      @label="Performance test for ResizeObserver"
-    />
-
+    <SubSectionDemos />
   </section>
 </template>;
 
