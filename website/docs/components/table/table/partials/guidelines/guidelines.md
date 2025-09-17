@@ -16,7 +16,7 @@
 
 While multiple columns may offer sorting, only one column can be sorted at a time. Sorting is not relevant for all content and should be applied thoughtfully.
 
-![Header column sorting](/assets/components/table/table-sorting.png)
+![](/assets/components/table/table-sorting.png)
 
 ### Tooltips
 
@@ -51,7 +51,7 @@ The column placement property is only relevant in Figma and doesn’t exist as a
 
 Column placement determines the visual styling based on where the column is within the table structure.
 
-![Table column placement example](/assets/components/table/table-col-placement.png)
+![](/assets/components/table/table-col-placement.png)
 
 ### Alignment
 
@@ -61,14 +61,14 @@ The content's alignment can impact readability and scannability. The proper alig
 
 Use consistent alignment between the header label and the cell content in a column.
 
-![Table column placement example](/assets/components/table/table-alignment-do.png)
+![A table where the cells in the header have the same alignment as the cells in the column.](/assets/components/table/table-alignment-do.png)
 !!!
 
 !!! Dont
 
 Avoid misaligned header labels and content.
 
-![Table column placement example](/assets/components/table/table-alignment-dont.png)
+![A table where the cells in the header don't match the alignment of the cells in the rest of the column.](/assets/components/table/table-alignment-dont.png)
 !!!
 
 #### Left alignment
@@ -82,7 +82,7 @@ Use left alignment for:
 - Numerical values that contain periods or other delimiter characters (IP addresses).
 - Nested components that display a string, e.g., a [Badge](/components/badge).
 
-![Left alignment of content within a table](/assets/components/table/start-alignment-example.png)
+![](/assets/components/table/start-alignment-example.png)
 
 #### Right alignment
 
@@ -94,9 +94,9 @@ Common examples of right alignment include:
 - In a column with a "more options" function.
 - As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
 
-![Right alignment of content within a table](/assets/components/table/end-alignment-example.png)
+![](/assets/components/table/end-alignment-example.png)
 
-![Right alignment example within a table with a date and more options](/assets/components/table/end-alignment-example-02.png)
+![](/assets/components/table/end-alignment-example-02.png)
 
 !!! Dont
 
@@ -150,7 +150,7 @@ The row placement property is only relevant in Figma and doesn’t exist as a pr
 
 The `rowPlacement` property determines the border radius of a cell. It is only available on cells where the `colPlacement` property is set to `start` or `end`. 
 
-![Table row placement example](/assets/components/table/table-row-placement.png)
+![](/assets/components/table/table-row-placement.png)
 
 ## Headers
 
@@ -168,7 +168,7 @@ For the user to scan, sort, and filter the table easily, each cell should contai
 - To fit more rows on a page, use the `short` density. Use this only for text-heavy tables, as it can make them harder to scan.
 - For a smaller dataset, e.g., basic user data, consider using the `tall` density to provide the content with more breathing room.
 
-![Table cell density](/assets/components/table/table-density.png)
+![](/assets/components/table/table-density.png)
 
 ## Horizontal scrolling
 Use horizontal scrolling when the number of columns exceeds the viewport or container. Use the [Advanced Table](/components/table/advanced-table) when keyboard navigation and sticky columns ease the reading experience for large datasets.
