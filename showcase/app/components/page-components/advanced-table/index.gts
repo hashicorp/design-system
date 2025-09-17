@@ -9,7 +9,6 @@ import { formatDate } from 'ember-intl';
 import { pageTitle } from 'ember-page-title';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
-import { later } from '@ember/runloop';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwGrid from 'showcase/components/shw/grid';
@@ -25,8 +24,6 @@ import USERS from 'showcase/mocks/user-data';
 import INFRASTRUCTURE_RESOURCES from 'showcase/mocks/infrastructure-data';
 
 // import type { PageComponentsAdvancedTableModel } from 'showcase/routes/page-components/advanced-table';
-import type { SelectableItem } from 'showcase/mocks/selectable-item-data';
-import type { User } from 'showcase/mocks/user-data';
 
 import SubSectionBaseElements from 'showcase/components/page-components/advanced-table/sub-sections/base-elements';
 import SubSectionBasic from 'showcase/components/page-components/advanced-table/sub-sections/basic';
@@ -84,60 +81,11 @@ const musicColumns = [
   },
 ];
 
-const updateModelWithSelectAllState = (
-  modelData: SelectableItem[] | User[],
-  selectAllState: boolean,
-) => {
-  modelData.forEach((modelRow) => {
-    if (modelRow instanceof Object) {
-      modelRow.isSelected = selectAllState;
-    }
-  });
-};
-
-function updateModelWithSelectableRowsStates<
-  T extends { id: number; isSelected?: boolean },
->(
-  modelData: T[],
-  selectableRowsStates: HdsAdvancedTableOnSelectionChangeSignature['selectableRowsStates'],
-): void {
-  // Create a map from id to row for quick lookup
-  const modelDataMap: Map<string, T> = new Map(
-    modelData.map((modelRow) => [String(modelRow.id), modelRow]),
-  );
-
-  selectableRowsStates.forEach((row) => {
-    const record = modelDataMap.get(row.selectionKey);
-    if (record) {
-      record.isSelected = row.isSelected;
-    }
-  });
-}
-
 const USER_DATA_SHORT = structuredClone(USERS.slice(0, 5));
 
 export default class AdvancedTableIndex extends Component {
   @tracked customSortOrder = 'asc';
   @deepTracked multiSelectSelectableData = [...SELECTABLE_ITEMS];
-  @tracked multiSelectFilterRows__demo1 = 'all';
-  @tracked multiSelectToggleScope__demo1 = false;
-  @tracked multiSelectToggleDebug__demo1 = false;
-  @deepTracked multiSelectModelData__demo1 = structuredClone(SELECTABLE_ITEMS);
-  @deepTracked multiSelectModelData__demo2 = structuredClone(SELECTABLE_ITEMS);
-  @tracked multiSelectToggleScope__demo2 = false;
-  @tracked multiSelectToggleDebug__demo2 = false;
-  @tracked multiSelectPaginatedCurrentPage_demo2 = 1;
-  @tracked multiSelectPaginatedCurrentPageSize_demo2 = 2;
-  @tracked multiSelectToggleScope__demo3 = false;
-  @tracked multiSelectToggleDebug__demo3 = false;
-  @deepTracked multiSelectModelData__demo3 = structuredClone(
-    USERS.slice(0, 16),
-  );
-  @tracked multiSelectUsersCurrentPage_demo3 = 1;
-  @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
-  @deepTracked multiSelectUserData__demo4 = structuredClone(
-    USERS.slice(0, 4).map((user) => ({ ...user, isAnimated: false })),
-  );
 
   get clustersWithExtraData() {
     return CLUSTERS.map((record) => {
@@ -213,240 +161,6 @@ export default class AdvancedTableIndex extends Component {
         recordToUpdate.isSelected = !recordToUpdate.isSelected;
       }
     }
-  };
-
-  // MULTI-SELECT DEMO #1
-  // Multi-select table with external filter for odd/even rows
-
-  get multiSelectFilteredData__demo1() {
-    if (this.multiSelectFilterRows__demo1 === 'all') {
-      return this.multiSelectModelData__demo1;
-    } else {
-      const remainder = this.multiSelectFilterRows__demo1 === 'even' ? 0 : 1;
-      return this.multiSelectModelData__demo1.filter(
-        (item) => item.id % 2 === remainder,
-      );
-    }
-  }
-
-  toggleMultiSelectToggleScope__demo1 = (event: Event) => {
-    this.multiSelectToggleScope__demo1 = (
-      event.target as HTMLInputElement
-    ).checked;
-  };
-
-  toggleMultiSelectToggleDebug__demo1 = (event: Event) => {
-    this.multiSelectToggleDebug__demo1 = (
-      event.target as HTMLInputElement
-    ).checked;
-  };
-
-  onChangeMultiSelectFilter__demo1 = (event: Event) => {
-    this.multiSelectFilterRows__demo1 = (
-      event.target as HTMLInputElement
-    ).value;
-  };
-
-  onSelectionChangeWithModel__demo1 = ({
-    selectionKey,
-    selectionCheckboxElement,
-    selectableRowsStates,
-  }: HdsAdvancedTableOnSelectionChangeSignature) => {
-    console.group('onSelectionChangeWithModel__demo1');
-    console.log('Selection Key:', selectionKey);
-    console.log('Checkbox Element:', selectionCheckboxElement);
-    console.log('Selectable Rows States:', selectableRowsStates);
-    console.groupEnd();
-    if (
-      selectionKey === 'all' &&
-      this.multiSelectToggleScope__demo1 &&
-      selectionCheckboxElement
-    ) {
-      updateModelWithSelectAllState(
-        this.multiSelectModelData__demo1,
-        selectionCheckboxElement.checked,
-      );
-    } else {
-      updateModelWithSelectableRowsStates(
-        this.multiSelectModelData__demo1,
-        selectableRowsStates,
-      );
-    }
-  };
-
-  // MULTI-SELECT DEMO #2
-  // Multi-select table with pagination
-  toggleMultiSelectPaginatedToggleScope__demo2 = (event: Event) => {
-    this.multiSelectToggleScope__demo2 = (
-      event.target as HTMLInputElement
-    ).checked;
-  };
-
-  toggleMultiSelectPaginatedToggleDebug__demo2 = (event: Event) => {
-    this.multiSelectToggleDebug__demo2 = (
-      event.target as HTMLInputElement
-    ).checked;
-  };
-
-  get multiSelectPaginatedTotalItems_demo2() {
-    return this.multiSelectModelData__demo2.length;
-  }
-
-  get multiSelectPaginatedData_demo2() {
-    const start =
-      (this.multiSelectPaginatedCurrentPage_demo2 - 1) *
-      this.multiSelectPaginatedCurrentPageSize_demo2;
-    const end =
-      this.multiSelectPaginatedCurrentPage_demo2 *
-      this.multiSelectPaginatedCurrentPageSize_demo2;
-    return this.multiSelectModelData__demo2.slice(start, end);
-  }
-
-  onMultiSelectPaginatedPageChange_demo2 = (page: number) => {
-    this.multiSelectPaginatedCurrentPage_demo2 = page;
-  };
-
-  onMultiSelectPaginatedPageSizeChange_demo2 = (pageSize: number) => {
-    // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
-    this.multiSelectPaginatedCurrentPage_demo2 = 1;
-    this.multiSelectPaginatedCurrentPageSize_demo2 = pageSize;
-  };
-
-  onMultiSelectPaginatedSelectionChange__demo2 = ({
-    selectionKey,
-    selectionCheckboxElement,
-    selectableRowsStates,
-  }: HdsAdvancedTableOnSelectionChangeSignature) => {
-    console.group('onMultiSelectPaginatedSelectionChange__demo2');
-    console.log('Selection Key:', selectionKey);
-    console.log('Checkbox Element:', selectionCheckboxElement);
-    console.log('Selectable Rows States:', selectableRowsStates);
-    console.groupEnd();
-    if (selectionKey === 'all' && this.multiSelectToggleScope__demo2) {
-      updateModelWithSelectAllState(
-        this.multiSelectModelData__demo2,
-        selectionCheckboxElement ? selectionCheckboxElement.checked : false,
-      );
-    } else {
-      updateModelWithSelectableRowsStates(
-        this.multiSelectModelData__demo2,
-        selectableRowsStates,
-      );
-    }
-  };
-
-  // MULTI-SELECT DEMO #3
-  // Delete selected rows
-
-  toggleMultiSelectPaginatedToggleScope__demo3 = (event: Event) => {
-    this.multiSelectToggleScope__demo3 = (
-      event.target as HTMLInputElement
-    ).checked;
-  };
-
-  toggleMultiSelectPaginatedToggleDebug__demo3 = (event: Event) => {
-    this.multiSelectToggleDebug__demo3 = (
-      event.target as HTMLInputElement
-    ).checked;
-  };
-
-  get multiSelectUsersTotalItems_demo3() {
-    return this.multiSelectModelData__demo3.length;
-  }
-
-  get multiSelectUsersData_demo3() {
-    const start =
-      (this.multiSelectUsersCurrentPage_demo3 - 1) *
-      this.multiSelectUsersCurrentPageSize_demo3;
-    const end =
-      this.multiSelectUsersCurrentPage_demo3 *
-      this.multiSelectUsersCurrentPageSize_demo3;
-    return this.multiSelectModelData__demo3.slice(start, end);
-  }
-
-  onMultiSelectUsersPageChange_demo3 = (page: number) => {
-    this.multiSelectUsersCurrentPage_demo3 = page;
-  };
-
-  onMultiSelectUsersPageSizeChange_demo3 = (pageSize: number) => {
-    // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
-    this.multiSelectUsersCurrentPage_demo3 = 1;
-    this.multiSelectUsersCurrentPageSize_demo3 = pageSize;
-  };
-
-  onMultiSelectUsersSelectionChange__demo3 = ({
-    selectionKey,
-    selectionCheckboxElement,
-    selectableRowsStates,
-  }: HdsAdvancedTableOnSelectionChangeSignature) => {
-    console.group('onMultiSelectUsersSelectionChange__demo3');
-    console.log('Selection Key:', selectionKey);
-    console.log('Checkbox Element:', selectionCheckboxElement);
-    console.log('Selectable Rows States:', selectableRowsStates);
-    console.groupEnd();
-    if (selectionKey === 'all' && this.multiSelectToggleScope__demo3) {
-      updateModelWithSelectAllState(
-        this.multiSelectModelData__demo3,
-        selectionCheckboxElement ? selectionCheckboxElement.checked : false,
-      );
-    } else {
-      selectableRowsStates.forEach((row) => {
-        const recordToUpdate = this.multiSelectModelData__demo3.find(
-          (modelRow) => String(modelRow.id) === row.selectionKey,
-        );
-        if (recordToUpdate) {
-          recordToUpdate.isSelected = row.isSelected;
-        }
-      });
-    }
-  };
-
-  multiSelectDeleteSelectedUsers_demo3 = () => {
-    const newData = this.multiSelectModelData__demo3.filter(
-      (user) => !user.isSelected,
-    );
-    this.multiSelectModelData__demo3 = [...newData];
-  };
-
-  // MULTI-SELECT DEMO #4
-  // Execute action on selected rows
-
-  onMultiSelectSelectionChange__demo4 = ({
-    selectedRowsKeys,
-  }: HdsAdvancedTableOnSelectionChangeSignature) => {
-    console.group('onMultiSelectSelectionChange__demo4');
-    console.log('Selected Rows Keys:', selectedRowsKeys);
-    console.groupEnd();
-    this.multiSelectUserData__demo4 = this.multiSelectUserData__demo4.map(
-      (user) => {
-        user.isSelected = selectedRowsKeys.includes(String(user.id));
-        return user;
-      },
-    );
-  };
-
-  multiSelectAnimateSelectedUsers_demo4 = () => {
-    this.multiSelectUserData__demo4 = this.multiSelectUserData__demo4.map(
-      (user) => {
-        user.isAnimated = user.isSelected ? user.isSelected : false;
-
-        return user;
-      },
-    );
-
-    // eslint-disable-next-line ember/no-runloop
-    later(() => {
-      this.multiSelectResetUserAnimation_demo4();
-    }, 5000);
-  };
-
-  multiSelectResetUserAnimation_demo4 = () => {
-    this.multiSelectUserData__demo4 = this.multiSelectUserData__demo4.map(
-      (user) => {
-        user.isAnimated = false;
-        return user;
-      },
-    );
   };
 
   // COLUMN RESIZING DEMO
@@ -573,7 +287,6 @@ export default class AdvancedTableIndex extends Component {
 
       <HdsAdvancedTable
         @isSelectable={{true}}
-        @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @model={{USERS}}
         @columns={{array
@@ -611,7 +324,6 @@ export default class AdvancedTableIndex extends Component {
       <div class="shw-component-advanced-table-fixed-width-wrapper">
         <HdsAdvancedTable
           @isSelectable={{true}}
-          @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @model={{USERS}}
           @maxHeight="400px"
@@ -684,7 +396,6 @@ export default class AdvancedTableIndex extends Component {
       <div class="shw-component-advanced-table-fixed-width-wrapper">
         <HdsAdvancedTable
           @isSelectable={{true}}
-          @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
           {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           @model={{USERS}}
           @columns={{array
