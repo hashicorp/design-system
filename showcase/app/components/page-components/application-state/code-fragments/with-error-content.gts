@@ -9,7 +9,7 @@ import { HdsApplicationState } from '@hashicorp/design-system-components/compone
 import type { HdsApplicationStateSignature } from '@hashicorp/design-system-components/components/hds/application-state/index';
 import type { HdsApplicationStateHeaderSignature } from '@hashicorp/design-system-components/components/hds/application-state/header';
 
-interface CodeFragmentWithErrorSignature {
+interface CodeFragmentWithErrorContentSignature {
   Args: {
     bodyText?: string;
     hasErrorCode?: boolean;
@@ -20,7 +20,7 @@ interface CodeFragmentWithErrorSignature {
   Element: HdsApplicationStateSignature['Element'];
 }
 
-export default class CodeFragmentWithError extends Component<CodeFragmentWithErrorSignature> {
+export default class CodeFragmentWithErrorContent extends Component<CodeFragmentWithErrorContentSignature> {
   get titleText() {
     return this.args.titleText ?? 'An error has occurred';
   }
