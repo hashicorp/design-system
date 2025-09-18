@@ -70,21 +70,17 @@ export default class CodeFragmentWithErrorContent extends Component<CodeFragment
     <HdsApplicationState @align={{@align}} as |A|>
       {{#if @media}}
         <A.Media>
-          {{#if (eq @media CodeFragmentWithErrorContentMediaValues.Icon)}}
+          {{#if (eq @media "icon")}}
             <HdsIcon @name="channel" @size="24" />
-          {{else if
-            (eq @media CodeFragmentWithErrorContentMediaValues.IconTile)
-          }}
+          {{else if (eq @media "icon-tile")}}
             <HdsIconTile @logo="terraform" @size="large" />
-          {{else if (eq @media CodeFragmentWithErrorContentMediaValues.Image)}}
+          {{else if (eq @media "image")}}
             <img
               src="/assets/images/cat-banner.png"
               alt="3 cats wearing old-fashioned formal wear"
               class="shw-component-application-state-banner"
             />
-          {{else if
-            (eq @media CodeFragmentWithErrorContentMediaValues.Generic)
-          }}
+          {{else if (eq @media "generic")}}
             <ShwPlaceholder @text="media" @width="80" @height="80" />
           {{/if}}
         </A.Media>
