@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { array } from '@ember/helper';
 import { on } from '@ember/modifier';
 
 import ShwFlex from 'showcase/components/shw/flex';
@@ -94,21 +95,27 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
     <ShwFlex @direction="column" @gap="2rem" as |SF|>
       <SF.Item @label="With icon in header">
         <CodeFragmentWithErrorContent
+          @actions={{array "standaloneLink"}}
           @bodyText="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
           @icon="help"
         />
       </SF.Item>
       <SF.Item @label="With error code in header">
-        <CodeFragmentWithErrorContent @hasErrorCode={{true}} />
+        <CodeFragmentWithErrorContent
+          @actions={{array "standaloneLink"}}
+          @hasErrorCode={{true}}
+        />
       </SF.Item>
       <SF.Item @label="With icon and error code">
         <CodeFragmentWithErrorContent
+          @actions={{array "standaloneLink"}}
           @hasErrorCode={{true}}
           @icon="alert-circle"
         />
       </SF.Item>
       <SF.Item @label="With a multiline title">
         <CodeFragmentWithErrorContent
+          @actions={{array "standaloneLink"}}
           @hasErrorCode={{true}}
           @icon="alert-circle"
           @titleText="An error has occurred and maybe it has such a long title that will wrap on multiple lines"
@@ -116,6 +123,7 @@ const SubSectionContent: TemplateOnlyComponent<SubSectionContentSignature> =
       </SF.Item>
       <SF.Item @label="With custom title tag">
         <CodeFragmentWithErrorContent
+          @actions={{array "standaloneLink"}}
           @hasErrorCode={{true}}
           @icon="alert-circle"
           @titleTag="h1"
