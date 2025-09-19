@@ -25,10 +25,10 @@ import type {
 export const DEFAULT_CONTROL_POSITION =
   HdsFormRadioCardControlPositionValues.Bottom;
 export const DEFAULT_ALIGNMENT = HdsFormRadioCardAlignmentValues.Left;
-export const CONTROL_POSITIONS: string[] = Object.values(
+export const CONTROL_POSITIONS: HdsFormRadioCardControlPositions[] = Object.values(
   HdsFormRadioCardControlPositionValues
 );
-export const ALIGNMENTS: string[] = Object.values(
+export const ALIGNMENTS: HdsFormRadioCardAlignments[] = Object.values(
   HdsFormRadioCardAlignmentValues
 );
 
