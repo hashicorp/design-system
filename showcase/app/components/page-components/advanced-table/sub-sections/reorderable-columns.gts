@@ -3,23 +3,23 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { eq, or } from 'ember-truth-helpers';
 import { array, hash, get } from '@ember/helper';
+import { eq, or } from 'ember-truth-helpers';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 import CodeFragmentWithMultiSelect from 'showcase/components/page-components/advanced-table/code-fragments/with-multi-select';
 
 import {
   HdsAdvancedTable,
-  HdsLinkInline,
-  HdsButtonSet,
-  HdsButton,
   HdsBadge,
+  HdsButton,
+  HdsButtonSet,
   HdsIcon,
   HdsLayoutFlex,
+  HdsLinkInline,
 } from '@hashicorp/design-system-components/components';
 
 const BASE_COLUMNS = [

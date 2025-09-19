@@ -4,10 +4,9 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
+import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
-import ShwDivider from 'showcase/components/shw/divider';
-
 import POLICIES from 'showcase/mocks/policy-data';
 
 import CodeFragmentWithNestedRows from 'showcase/components/page-components/advanced-table/code-fragments/with-nested-rows';

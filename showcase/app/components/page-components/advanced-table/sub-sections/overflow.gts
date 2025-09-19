@@ -5,8 +5,8 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array, hash } from '@ember/helper';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import MUSIC from 'showcase/mocks/folk-music-data';
 import USERS from 'showcase/mocks/user-data';
@@ -14,12 +14,12 @@ import USERS from 'showcase/mocks/user-data';
 import {
   HdsAdvancedTable,
   HdsBadge,
-  HdsButtonSet,
   HdsButton,
+  HdsButtonSet,
   HdsLinkInline,
 } from '@hashicorp/design-system-components/components';
 
-const SubSectionNestedRows: TemplateOnlyComponent = <template>
+const SubSectionOverflow: TemplateOnlyComponent = <template>
   <ShwTextH2>Horizontal scrolling indicators</ShwTextH2>
   <div class="shw-component-advanced-table-fixed-width-wrapper">
     <HdsAdvancedTable
@@ -249,4 +249,4 @@ const SubSectionNestedRows: TemplateOnlyComponent = <template>
   <ShwDivider />
 </template>;
 
-export default SubSectionNestedRows;
+export default SubSectionOverflow;

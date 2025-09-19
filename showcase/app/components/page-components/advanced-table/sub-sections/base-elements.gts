@@ -6,38 +6,37 @@ import Component from '@glimmer/component';
 import style from 'ember-style-modifier/modifiers/style';
 import { array, get } from '@ember/helper';
 import { capitalize } from '@ember/string';
-
 import type Owner from '@ember/owner';
 
+import ShwDivider from 'showcase/components/shw/divider';
+import ShwFlex from 'showcase/components/shw/flex';
+import ShwGrid from 'showcase/components/shw/grid';
+import ShwPlaceholder from 'showcase/components/shw/placeholder';
+import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
-import ShwTextBody from 'showcase/components/shw/text/body';
-import ShwDivider from 'showcase/components/shw/divider';
-import ShwGrid from 'showcase/components/shw/grid';
-import ShwFlex from 'showcase/components/shw/flex';
-import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import NOOP from 'showcase/utils/noop';
 
 import {
-  HdsButton,
+  HdsAdvancedTableTd,
+  HdsAdvancedTableTh,
+  HdsAdvancedTableThButtonTooltip,
+  HdsAdvancedTableThSort,
+  HdsAdvancedTableTr,
   HdsBadge,
+  HdsButton,
   HdsDropdown,
+  HdsDropdownToggleIcon,
   HdsIcon,
   HdsLayoutFlex,
-  HdsAdvancedTableTh,
-  HdsAdvancedTableTd,
-  HdsAdvancedTableTr,
-  HdsAdvancedTableThSort,
   HdsTooltipButton,
-  HdsDropdownToggleIcon,
-  HdsAdvancedTableThButtonTooltip,
 } from '@hashicorp/design-system-components/components';
-import HdsAdvancedTableThReorderHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-reorder-handle';
-import HdsAdvancedTableThSelectable from '@hashicorp/design-system-components/components/hds/advanced-table/th-selectable';
-import HdsAdvancedTableThResizeHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-resize-handle';
+import HdsAdvancedTableModel from '@hashicorp/design-system-components/components/hds/advanced-table/models/table';
 import HdsAdvancedTableThButtonExpand from '@hashicorp/design-system-components/components/hds/advanced-table/th-button-expand';
 import HdsAdvancedTableThButtonSort from '@hashicorp/design-system-components/components/hds/advanced-table/th-button-sort';
-import HdsAdvancedTableModel from '@hashicorp/design-system-components/components/hds/advanced-table/models/table';
+import HdsAdvancedTableThReorderHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-reorder-handle';
+import HdsAdvancedTableThResizeHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-resize-handle';
+import HdsAdvancedTableThSelectable from '@hashicorp/design-system-components/components/hds/advanced-table/th-selectable';
 
 const STATES = ['default', 'hover', 'active', 'focus'];
 
@@ -98,48 +97,25 @@ export default class SubSectionsBaseElements extends Component<SubSectionsBaseEl
           role="grid"
         >
           <div class="hds-advanced-table__tbody" role="rowgroup">
-            <HdsAdvancedTableTr @depth={{0}}>
-              <HdsAdvancedTableTh @depth={{0}} @isExpandable={{true}}>
-                Depth 0
-              </HdsAdvancedTableTh>
-              <HdsAdvancedTableTd>
-                Lorem
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Ipsum
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Dolor
-              </HdsAdvancedTableTd>
-            </HdsAdvancedTableTr>
-            <HdsAdvancedTableTr @depth={{1}}>
-              <HdsAdvancedTableTh @depth={{1}} @isExpandable={{true}}>
-                Depth 1
-              </HdsAdvancedTableTh>
-              <HdsAdvancedTableTd>
-                Lorem
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Ipsum
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Dolor
-              </HdsAdvancedTableTd>
-            </HdsAdvancedTableTr>
-            <HdsAdvancedTableTr @depth={{2}}>
-              <HdsAdvancedTableTh @depth={{2}} @isExpandable={{true}}>
-                Depth 2
-              </HdsAdvancedTableTh>
-              <HdsAdvancedTableTd>
-                Lorem
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Ipsum
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Dolor
-              </HdsAdvancedTableTd>
-            </HdsAdvancedTableTr>
+            {{#let (array 0 1 2) as |depths|}}
+              {{#each depths as |depth|}}
+                <HdsAdvancedTableTr @depth={{depth}}>
+                  <HdsAdvancedTableTh @depth={{depth}} @isExpandable={{true}}>
+                    Depth
+                    {{depth}}
+                  </HdsAdvancedTableTh>
+                  <HdsAdvancedTableTd>
+                    Lorem
+                  </HdsAdvancedTableTd>
+                  <HdsAdvancedTableTd>
+                    Ipsum
+                  </HdsAdvancedTableTd>
+                  <HdsAdvancedTableTd>
+                    Dolor
+                  </HdsAdvancedTableTd>
+                </HdsAdvancedTableTr>
+              {{/each}}
+            {{/let}}
           </div>
         </div>
       </SF.Item>
@@ -153,48 +129,26 @@ export default class SubSectionsBaseElements extends Component<SubSectionsBaseEl
           {{style gridTemplateColumns="repeat(4, 1fr)"}}
         >
           <div class="hds-advanced-table__tbody" role="rowgroup">
-            <HdsAdvancedTableTr @depth={{0}}>
-              <HdsAdvancedTableTh @depth={{0}} @isExpandable={{true}}>
-                Depth 0 - This is a very long text that should go on two lines
-              </HdsAdvancedTableTh>
-              <HdsAdvancedTableTd>
-                Lorem
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Ipsum
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Dolor
-              </HdsAdvancedTableTd>
-            </HdsAdvancedTableTr>
-            <HdsAdvancedTableTr @depth={{1}}>
-              <HdsAdvancedTableTh @depth={{1}} @isExpandable={{true}}>
-                Depth 1 - This is a very long text that should go on two lines
-              </HdsAdvancedTableTh>
-              <HdsAdvancedTableTd>
-                Lorem
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Ipsum
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Dolor
-              </HdsAdvancedTableTd>
-            </HdsAdvancedTableTr>
-            <HdsAdvancedTableTr @depth={{2}}>
-              <HdsAdvancedTableTh @depth={{2}} @isExpandable={{true}}>
-                Depth 2 - This is a very long text that should go on two lines
-              </HdsAdvancedTableTh>
-              <HdsAdvancedTableTd>
-                Lorem
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Ipsum
-              </HdsAdvancedTableTd>
-              <HdsAdvancedTableTd>
-                Dolor
-              </HdsAdvancedTableTd>
-            </HdsAdvancedTableTr>
+            {{#let (array 0 1 2) as |depths|}}
+              {{#each depths as |depth|}}
+                <HdsAdvancedTableTr @depth={{depth}}>
+                  <HdsAdvancedTableTh @depth={{depth}} @isExpandable={{true}}>
+                    Depth
+                    {{depth}}
+                    - This is a very long text that should go on two lines
+                  </HdsAdvancedTableTh>
+                  <HdsAdvancedTableTd>
+                    Lorem
+                  </HdsAdvancedTableTd>
+                  <HdsAdvancedTableTd>
+                    Ipsum
+                  </HdsAdvancedTableTd>
+                  <HdsAdvancedTableTd>
+                    Dolor
+                  </HdsAdvancedTableTd>
+                </HdsAdvancedTableTr>
+              {{/each}}
+            {{/let}}
           </div>
         </div>
       </SF.Item>

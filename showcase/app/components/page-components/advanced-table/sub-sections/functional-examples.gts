@@ -4,15 +4,15 @@
  */
 import Component from '@glimmer/component';
 import { fn } from '@ember/helper';
-import { on } from '@ember/modifier';
 import { later } from '@ember/runloop';
+import { on } from '@ember/modifier';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
-import type { User } from 'showcase/mocks/user-data';
 import USERS from 'showcase/mocks/user-data';
+import type { User } from 'showcase/mocks/user-data';
 
 import {
   HdsButton,

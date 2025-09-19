@@ -4,22 +4,21 @@
  */
 
 import Component from '@glimmer/component';
-import { on } from '@ember/modifier';
 import { array, hash } from '@ember/helper';
-import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
-import { guidFor } from '@ember/object/internals';
 import { eq } from 'ember-truth-helpers';
+import { guidFor } from '@ember/object/internals';
+import { on } from '@ember/modifier';
+import { tracked } from '@glimmer/tracking';
+
+import USERS from 'showcase/mocks/user-data';
+import type { User } from 'showcase/mocks/user-data';
 
 import {
   HdsAdvancedTable,
   HdsPaginationNumbered,
 } from '@hashicorp/design-system-components/components';
-
 import type { HdsAdvancedTableOnSelectionChangeSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
-
-import USERS from 'showcase/mocks/user-data';
-import type { User } from 'showcase/mocks/user-data';
 
 const updateModelWithSelectAllState = (
   modelData: User[],

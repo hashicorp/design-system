@@ -5,9 +5,9 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array, hash, get } from '@ember/helper';
 
+import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
-import ShwDivider from 'showcase/components/shw/divider';
 
 import MUSIC from 'showcase/mocks/folk-music-data';
 import SPANNING_CELLS from 'showcase/mocks/spanning-cell-data';
