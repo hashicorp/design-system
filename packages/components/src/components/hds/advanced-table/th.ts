@@ -44,7 +44,6 @@ export interface HdsAdvancedTableThSignature {
     isExpandable?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
-    isVisuallyHidden?: boolean;
     newLabel?: string;
     parentId?: string;
     rowspan?: number;
