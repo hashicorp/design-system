@@ -21,6 +21,12 @@ import type HdsAdvancedTableThSortComponent from './components/hds/advanced-tabl
 import type HdsAdvancedTableThSelectableComponent from './components/hds/advanced-table/th-selectable';
 import type HdsAdvancedTableTrComponent from './components/hds/advanced-table/tr';
 import type HdsAdvancedTableExpandableTrGroupComponent from './components/hds/advanced-table/expandable-tr-group.ts';
+import type HdsAdvancedTableFilterBarComponent from './components/hds/advanced-table/filter-bar';
+import type HdsAdvancedTableFilterBarDropdownComponent from './components/hds/advanced-table/filter-bar/dropdown';
+import type HdsAdvancedTableFilterBarCheckboxComponent from './components/hds/advanced-table/filter-bar/checkbox';
+import type HdsAdvancedTableFilterBarRadioComponent from './components/hds/advanced-table/filter-bar/radio';
+import type HdsAdvancedTableFilterBarFiltersDropdownComponent from './components/hds/advanced-table/filter-bar/filters-dropdown';
+import type HdsAdvancedTableFilterBarFiltersCheckboxComponent from './components/hds/advanced-table/filter-bar/filters-checkbox';
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
@@ -294,6 +300,18 @@ export default interface HdsComponentsRegistry {
   'hds/advanced-table/th-selectable': typeof HdsAdvancedTableThSelectableComponent;
   'Hds::AdvancedTable::ExpandableTrGroup': typeof HdsAdvancedTableExpandableTrGroupComponent;
   'hds/advanced-table/expandable-tr-group': typeof HdsAdvancedTableExpandableTrGroupComponent;
+  'Hds::AdvancedTable::FilterBar': typeof HdsAdvancedTableFilterBarComponent;
+  'hds/advanced-table/filter-bar': typeof HdsAdvancedTableFilterBarComponent;
+  'Hds::AdvancedTable::FilterBar::Dropdown': typeof HdsAdvancedTableFilterBarDropdownComponent;
+  'hds/advanced-table/filter-bar/dropdown': typeof HdsAdvancedTableFilterBarDropdownComponent;
+  'Hds::AdvancedTable::FilterBar::Checkbox': typeof HdsAdvancedTableFilterBarCheckboxComponent;
+  'hds/advanced-table/filter-bar/checkbox': typeof HdsAdvancedTableFilterBarCheckboxComponent;
+  'Hds::AdvancedTable::FilterBar::Radio': typeof HdsAdvancedTableFilterBarRadioComponent;
+  'hds/advanced-table/filter-bar/radio': typeof HdsAdvancedTableFilterBarRadioComponent;
+  'Hds::AdvancedTable::FilterBar::FiltersDropdown': typeof HdsAdvancedTableFilterBarFiltersDropdownComponent;
+  'hds/advanced-table/filter-bar/filters-dropdown': typeof HdsAdvancedTableFilterBarFiltersDropdownComponent;
+  'Hds::AdvancedTable::FilterBar::FiltersCheckbox': typeof HdsAdvancedTableFilterBarFiltersCheckboxComponent;
+  'hds/advanced-table/filter-bar/filters-checkbox': typeof HdsAdvancedTableFilterBarFiltersCheckboxComponent;
 
   // Alert
   'Hds::Alert': typeof HdsAlertComponent;
