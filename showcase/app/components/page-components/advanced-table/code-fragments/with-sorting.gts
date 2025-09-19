@@ -5,6 +5,8 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
+import MUSIC from 'showcase/mocks/folk-music-data';
+
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
 

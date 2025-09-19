@@ -16,6 +16,7 @@ import {
   HdsBadge,
   HdsButton,
   HdsButtonSet,
+  HdsIcon,
   HdsLinkInline,
 } from '@hashicorp/design-system-components/components';
 

@@ -9,6 +9,7 @@ import { eq } from 'ember-truth-helpers';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
+import MUSIC from 'showcase/mocks/folk-music-data';
 
 import {
   HdsAdvancedTable,
