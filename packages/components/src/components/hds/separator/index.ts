@@ -10,7 +10,7 @@ import { HdsSeparatorSpacingValues } from './types.ts';
 import type { HdsSeparatorSpacing } from './types.ts';
 
 export const DEFAULT_SPACING = HdsSeparatorSpacingValues.TwentyFour;
-export const SPACING: string[] = Object.values(HdsSeparatorSpacingValues);
+export const SPACING: HdsSeparatorSpacing[] = Object.values(HdsSeparatorSpacingValues);
 
 export interface HdsSeparatorSignature {
   Args: {
