@@ -110,6 +110,7 @@ const SubSectionWithMedia: TemplateOnlyComponent<SubSectionWithMediaSignature> =
           <CodeFragmentWithErrorContent
             @actions={{array "standaloneLink"}}
             @align={{align}}
+            @media="image"
           />
         </SF.Item>
       {{/each}}
