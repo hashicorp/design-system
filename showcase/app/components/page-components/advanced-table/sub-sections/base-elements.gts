@@ -41,6 +41,7 @@ import HdsAdvancedTableThSelectable from '@hashicorp/design-system-components/co
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 export interface SubSectionsBaseElementsSignature {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   Args: {};
   Element: HTMLDivElement;
 }
