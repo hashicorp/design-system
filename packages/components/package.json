@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/design-system-components",
-  "version": "4.23.1",
+  "version": "4.24.0",
   "description": "Helios Design System Components",
   "keywords": [
     "hashicorp",
@@ -51,7 +51,7 @@
     "@embroider/macros": "^1.18.1",
     "@embroider/util": "^1.13.4",
     "@floating-ui/dom": "^1.6.12",
-    "@hashicorp/design-system-tokens": "workspace:^2.3.1",
+    "@hashicorp/design-system-tokens": "workspace:^3.0.0",
     "@hashicorp/flight-icons": "workspace:^3.13.0",
     "@lezer/highlight": "^1.2.1",
     "@nullvoxpopuli/ember-composable-helpers": "^5.2.11",

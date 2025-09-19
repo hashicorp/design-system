@@ -1,12 +1,60 @@
 # @hashicorp/design-system-components
 
+## 4.24.0
+
+### Minor Changes
+
+<!-- START utilities/popover-primitive -->
+
+`PopoverPrimitive` - Added support for dynamic swap/injection of the toggle element.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3189](https://github.com/hashicorp/design-system/pull/3189)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Added support for column reordering.
+
+- Added `@hasReorderableColumns` argument. When set to `true`, enables column reordering.
+- Added optional `@columnOrder` argument for setting the initial order of columns by their keys.
+- Added optional `@onColumnReorder` argument which accepts a callback function that is called when reordering is completed.
+- Added optional `@reorderedMessageText` which overrides the default message text that is rendered in the table caption when a column is reordered.
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#2997](https://github.com/hashicorp/design-system/pull/2997)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+<!-- START components/table/table -->
+
+`Table` - Update the model and returned `B.data` to use generic types, so the type of the data is retained.
+
+<!-- END -->
+
+<!-- START components/form/key-value-inputs -->
+
+`KeyValueInputs` - Update the data and returned `R.rowData` to use generic types, so the type of the data is retained.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3150](https://github.com/hashicorp/design-system/pull/3150) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@3.0.0
+
 ## 4.23.1
 
 ### Patch Changes
 
-
 `Stepper::Nav` - Fixed bug with stacking context styles causing step content's z-index to not work as expected
-
 
 <small class="doc-whats-new-changelog-metadata">[#3176](https://github.com/hashicorp/design-system/pull/3176)</small>
 
