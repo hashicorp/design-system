@@ -1,36 +1,31 @@
-{{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
-}}
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-{{page-title "Breakpoints"}}
+import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwFrame from 'showcase/components/shw/frame';
+import ShwDivider from 'showcase/components/shw/divider';
 
-<Shw::Text::H1>Breakpoints</Shw::Text::H1>
+const SubSectionDemo: TemplateOnlyComponent = <template>
+  <ShwTextH2>Demo</ShwTextH2>
 
-{{! For some reason, Ember tests don't play well with iframes (URL not found) so we can't take snapshots of these examples in Percy }}
-<section>
-
-  <Shw::Text::H3>Demo</Shw::Text::H3>
-
-  <Shw::Frame
+  <ShwFrame
     @id="demo-viewport-breakpoints-visualization"
     @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-visualization"
     @height="780"
     @label="Breakpoints visualization"
   />
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Frame
+  <ShwFrame
     @id="demo-viewport-breakpoints-visualization-with-ui-shell"
     @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-visualization-with-ui-shell"
     @height="780"
     @label="Breakpoints visualization (with UI shell)"
   />
 
-  <Shw::Divider />
+  <ShwDivider />
 
-  <Shw::Frame
+  <ShwFrame
     @id="demo-viewport-breakpoints-page-padding-sm"
     @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-page-padding"
     @width="400"
@@ -38,7 +33,7 @@
     @label="Page padding / 'sm' breakpoint"
   />
 
-  <Shw::Frame
+  <ShwFrame
     @id="demo-viewport-breakpoints-page-padding-md"
     @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-page-padding"
     @width="800"
@@ -46,12 +41,13 @@
     @label="Page padding / 'md' breakpoint"
   />
 
-  <Shw::Frame
+  <ShwFrame
     @id="demo-viewport-breakpoints-page-padding-lg"
     @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-page-padding"
     @width="1200"
     @height="120"
     @label="Page padding / 'lg' breakpoint"
   />
+</template>;
 
-</section>
+export default SubSectionDemo;
