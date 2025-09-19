@@ -198,7 +198,7 @@ const SubSectionGap: TemplateOnlyComponent = <template>
       </HdsLayoutFlex>
     </SF.Item>
   </ShwFlex>
-  
+
   <ShwDivider @level={{2}} />
 </template>;
 
