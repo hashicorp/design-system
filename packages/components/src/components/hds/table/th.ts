@@ -10,7 +10,7 @@ import { assert } from '@ember/debug';
 import type { HdsTableHorizontalAlignment, HdsTableScope } from './types.ts';
 import { HdsTableHorizontalAlignmentValues } from './types.ts';
 
-export const ALIGNMENTS: string[] = Object.values(
+export const ALIGNMENTS: HdsTableHorizontalAlignment[] = Object.values(
   HdsTableHorizontalAlignmentValues
 );
 export const DEFAULT_ALIGN = HdsTableHorizontalAlignmentValues.Left;
