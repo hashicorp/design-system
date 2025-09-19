@@ -16,7 +16,7 @@ import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index
 import type Owner from '@ember/owner';
 
 export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
-export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
+export const SIZES: HdsDropdownToggleIconSizes[] = Object.values(HdsDropdownToggleIconSizeValues);
 
 export interface HdsDropdownToggleIconSignature {
   Args: {
