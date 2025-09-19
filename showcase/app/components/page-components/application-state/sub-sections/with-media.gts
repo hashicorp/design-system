@@ -94,7 +94,11 @@ const SubSectionWithMedia: TemplateOnlyComponent<SubSectionWithMediaSignature> =
       {{/each}}
       {{#each ALIGNS as |align|}}
         <SF.Item @label="With generic content / {{align}} aligned">
-          <CodeFragmentWithErrorContent @align={{align}} @media="generic" />
+          <CodeFragmentWithErrorContent
+            @align={{align}}
+            @media="generic"
+            @actions={{array "standaloneLink"}}
+          />
         </SF.Item>
       {{/each}}
     </ShwFlex>
