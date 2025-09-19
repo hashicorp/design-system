@@ -21,7 +21,9 @@ import type {
 } from '../types.ts';
 
 export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
-export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
+export const STATUSES: HdsStepperStatuses[] = Object.values(
+  HdsStepperStatusesValues
+);
 export const MAPPING_STATUS_TO_SR_ONLY_TEXT = HdsStepperStatusToSrOnlyText;
 
 export interface HdsStepperListStepSignature {

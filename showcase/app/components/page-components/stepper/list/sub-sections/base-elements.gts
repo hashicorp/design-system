@@ -14,7 +14,7 @@ import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 import { HdsStepperList } from '@hashicorp/design-system-components/components';
 
-import { STATUSES } from '@hashicorp/design-system-components/components/hds/stepper/step/indicator';
+import { STATUSES } from '@hashicorp/design-system-components/components/hds/stepper/list/step';
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
