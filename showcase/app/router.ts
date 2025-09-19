@@ -93,7 +93,6 @@ Router.map(function () {
     this.route('rich-tooltip');
     this.route('segmented-group');
     this.route('separator');
-    this.route('side-nav');
     this.route('stepper', function () {
       this.route('indicator');
       this.route('list');
