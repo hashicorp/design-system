@@ -65,7 +65,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 destination: `themed-tokens/with-root-selector/${mode}/common-tokens.css`,
                 format: 'css/variables',
                 options: {
-                  // TODO understand if is better to output references or not (probably not)
+                  // TODO understand if is better to output references or not for the "common" definitions (probably yes)
                   outputReferences: true,
                   // outputReferences: (token, { dictionary, usesDtcg }) => {
                   //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
@@ -83,7 +83,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 destination: `themed-tokens/with-root-selector/${mode}/themed-tokens.css`,
                 format: 'css/variables',
                 options: {
-                  // TODO understand if is better to output references or not (probably not)
+                  // TODO understand if is better to output references or not for the "themed" definitions (almost certainly yes)
                   outputReferences: true,
                   // outputReferences: (token, { dictionary, usesDtcg }) => {
                   //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
@@ -100,8 +100,6 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             ],
             // this has been registered in the `build` file
             preprocessors: [`replace-value-for-mode-${mode}`],
-            // TODO! do we need this? how do we manage CSS helpers for themed tokens?
-            // actions: ['generate-css-helpers'],
           }
         }
       };
@@ -131,7 +129,9 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 filter: excludePrivateTokens,
               }
             ],
-            actions: ['generate-css-helpers'],
+            // TODO! do we need this? how do we manage CSS helpers for themed tokens?
+            // actions: ['generate-css-helpers'],
+            actions: ['generate-css-helpers', 'generate-extra-theming-files'],
           },
           'docs/json': {
             buildPath: 'dist/docs/products/',
