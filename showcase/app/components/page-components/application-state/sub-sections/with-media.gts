@@ -122,6 +122,7 @@ const SubSectionWithMedia: TemplateOnlyComponent<SubSectionWithMediaSignature> =
           <CodeFragmentWithErrorContent
             @actions={{array "primary" "secondary" "standaloneLink"}}
             @align={{align}}
+            @icon="alert-circle"
             @media="image"
             @hasErrorCode={{true}}
           />
