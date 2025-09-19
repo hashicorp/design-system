@@ -76,12 +76,12 @@ const SubSectionWithMedia: TemplateOnlyComponent<SubSectionWithMediaSignature> =
       {{/each}}
       {{#each ALIGNS as |align|}}
         <SF.Item @label="With icon / {{align}} aligned">
-          <CodeFragmentWithErrorContent @align={{align}} @media="icon" />
+          <CodeFragmentWithErrorContent @align={{align}} @media="icon" @actions={{array "standaloneLink"}} />
         </SF.Item>
       {{/each}}
       {{#each ALIGNS as |align|}}
         <SF.Item @label="With IconTile / {{align}} aligned">
-          <CodeFragmentWithErrorContent @align={{align}} @media="icon-tile" />
+          <CodeFragmentWithErrorContent @align={{align}} @media="icon-tile" @actions={{array "standaloneLink"}} />
         </SF.Item>
       {{/each}}
       {{#each ALIGNS as |align|}}
@@ -108,7 +108,7 @@ const SubSectionWithMedia: TemplateOnlyComponent<SubSectionWithMediaSignature> =
       {{#each ALIGNS as |align|}}
         <SF.Item @label="{{align}} aligned">
           <CodeFragmentWithErrorContent
-            @actions={{array "standaloneLink"}}
+            @actions={{array "primary" "secondary" "standaloneLink"}}
             @align={{align}}
             @media="image"
           />
