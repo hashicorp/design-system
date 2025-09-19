@@ -20,6 +20,8 @@ import {
 } from '@hashicorp/design-system-components/components';
 import type { HdsAdvancedTableThSortOrder } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
 
+import CodeFragmentWithSorting from 'showcase/components/page-components/advanced-table/code-fragments/with-sorting';
+
 // we use an array to declare the custom sorting order for the clusters' status
 const customSortingCriteriaArray = [
   'failing',
@@ -81,96 +83,46 @@ export default class SubSectionSorting extends Component {
 
     <ShwTextH4>Sortable table (all columns sortable)</ShwTextH4>
 
-    <HdsAdvancedTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{MUSIC}}
+    <CodeFragmentWithSorting
       @columns={{array
         (hash key="artist" label="Artist" isSortable=true)
         (hash key="album" label="Album" isSortable=true)
         (hash key="year" label="Release Year" isSortable=true)
       }}
-    >
-      <:body as |B|>
-        <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.artist}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.album}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.year}}</B.Td>
-        </B.Tr>
-      </:body>
-    </HdsAdvancedTable>
+    />
 
     <ShwTextH4>Sortable table (only some columns sortable)</ShwTextH4>
 
-    <HdsAdvancedTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{MUSIC}}
+    <CodeFragmentWithSorting
       @columns={{array
         (hash key="artist" label="Artist" isSortable=true)
         (hash key="album" label="Album" isSortable=true)
         (hash key="year" label="Release Year")
       }}
-    >
-      <:body as |B|>
-        <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.artist}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.album}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.year}}</B.Td>
-        </B.Tr>
-      </:body>
-    </HdsAdvancedTable>
+    />
 
     <ShwTextH4>Sortable table, one column right-aligned</ShwTextH4>
 
-    <HdsAdvancedTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{MUSIC}}
+    <CodeFragmentWithSorting
+      @hasRightAlignedLastColumn={{true}}
       @columns={{array
         (hash key="artist" label="Artist" isSortable=true)
         (hash key="album" label="Album" isSortable=true)
         (hash key="year" label="Release Year" isSortable=true align="right")
       }}
-    >
-      <:body as |B|>
-        <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.artist}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.album}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td @align="right">{{B.data.year}}</B.Td>
-        </B.Tr>
-      </:body>
-    </HdsAdvancedTable>
+    />
 
     <ShwTextH4>Sortable table, some columns sortable, artist column pre-sorted.</ShwTextH4>
 
-    <HdsAdvancedTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-      @model={{MUSIC}}
+    <CodeFragmentWithSorting
+      @sortBy="artist"
+      @hasRightAlignedLastColumn={{true}}
       @columns={{array
         (hash key="artist" label="Artist" isSortable=true)
         (hash key="album" label="Album" isSortable=true)
-        (hash key="year" label="Release Year" align="right")
+        (hash key="year" label="Release Year" isSortable=true align="right")
       }}
-      @sortBy="artist"
-    >
-      <:body as |B|>
-        <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.artist}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.album}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td @align="right">{{B.data.year}}</B.Td>
-        </B.Tr>
-      </:body>
-    </HdsAdvancedTable>
+    />
 
     <ShwDivider @level={{2}} />
 
