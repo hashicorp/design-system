@@ -4,9 +4,9 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
-import ShwFrame from 'showcase/components/shw/frame';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwFrame from 'showcase/components/shw/frame';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
 
 const SubSectionDemos: TemplateOnlyComponent = <template>
   <ShwTextH2>Demo</ShwTextH2>

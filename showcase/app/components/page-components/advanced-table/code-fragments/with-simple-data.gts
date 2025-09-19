@@ -6,11 +6,10 @@
 import Component from '@glimmer/component';
 import { eq, not } from 'ember-truth-helpers';
 
-import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
-
-import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
-
 import USERS from 'showcase/mocks/user-data';
+
+import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
+import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
 
 export interface CodeFragmentWithSimpleDataSignature {
   Args: {

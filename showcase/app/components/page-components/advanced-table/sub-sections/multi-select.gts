@@ -5,13 +5,13 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array, hash } from '@ember/helper';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 import CodeFragmentWithMultiSelect from 'showcase/components/page-components/advanced-table/code-fragments/with-multi-select';
 
-const SubSectionNestedRows: TemplateOnlyComponent = <template>
+const SubSectionMultiSelect: TemplateOnlyComponent = <template>
   <ShwTextH2>Multi-select</ShwTextH2>
 
   <CodeFragmentWithMultiSelect
@@ -35,4 +35,4 @@ const SubSectionNestedRows: TemplateOnlyComponent = <template>
   <ShwDivider @level={{2}} />
 </template>;
 
-export default SubSectionNestedRows;
+export default SubSectionMultiSelect;

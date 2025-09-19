@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { array, hash, get } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
+import { tracked } from '@glimmer/tracking';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwDivider from 'showcase/components/shw/divider';
-import ShwTextH4 from 'showcase/components/shw/text/h4';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import CLUSTERS from 'showcase/mocks/cluster-data';
 
 import {
@@ -28,7 +28,7 @@ const customSortingCriteriaArray = [
   'pending',
 ];
 
-export default class SubSectionWithSorting extends Component {
+export default class SubSectionSorting extends Component {
   @tracked customSortOrder = 'asc';
 
   get clustersWithExtraData() {

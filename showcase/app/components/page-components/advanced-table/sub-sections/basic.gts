@@ -4,19 +4,19 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
+import ShwDivider from 'showcase/components/shw/divider';
+import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
-import ShwTextBody from 'showcase/components/shw/text/body';
-import ShwDivider from 'showcase/components/shw/divider';
 import MUSIC from 'showcase/mocks/folk-music-data';
 
 import {
   HdsAdvancedTable,
-  HdsButtonSet,
-  HdsButton,
   HdsBadge,
-  HdsLinkInline,
+  HdsButton,
+  HdsButtonSet,
   HdsIcon,
+  HdsLinkInline,
 } from '@hashicorp/design-system-components/components';
 
 const BASIC_MUSIC_COLUMNS = [

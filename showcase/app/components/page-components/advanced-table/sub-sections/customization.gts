@@ -3,14 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { capitalize } from '@ember/string';
 import { array, hash } from '@ember/helper';
+import { capitalize } from '@ember/string';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwDivider from 'showcase/components/shw/divider';
-import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import MUSIC from 'showcase/mocks/folk-music-data';
 
 import {

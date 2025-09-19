@@ -5,10 +5,9 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array, hash } from '@ember/helper';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwGrid from 'showcase/components/shw/grid';
-
+import ShwTextH2 from 'showcase/components/shw/text/h2';
 import USERS from 'showcase/mocks/user-data';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';

@@ -4,20 +4,20 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { array, hash } from '@ember/helper';
 import { on } from '@ember/modifier';
+import { tracked } from '@glimmer/tracking';
+
+import MUSIC from 'showcase/mocks/folk-music-data';
 
 import {
   HdsAdvancedTable,
-  HdsLinkInline,
-  HdsButtonSet,
-  HdsButton,
-  HdsIcon,
   HdsBadge,
+  HdsButton,
+  HdsButtonSet,
+  HdsIcon,
+  HdsLinkInline,
 } from '@hashicorp/design-system-components/components';
-
-import MUSIC from 'showcase/mocks/folk-music-data';
 
 export interface CodeFragmentWithDynamicCellContentSignature {
   Element: HTMLDivElement;
