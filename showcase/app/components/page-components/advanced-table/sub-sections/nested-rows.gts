@@ -24,6 +24,7 @@ const SubSectionNestedRows: TemplateOnlyComponent = <template>
   <ShwTextH2>Nested rows</ShwTextH2>
 
   <ShwTextH3>With default expanded rows</ShwTextH3>
+  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
   <CodeFragmentWithNestedRows @model={{POLICIES}} />
 
   <ShwTextH3>With nested rows and custom children key</ShwTextH3>
