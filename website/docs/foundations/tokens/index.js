@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { restartableTask, timeout } from 'ember-concurrency';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 
@@ -16,7 +16,7 @@ const getAliases = (token, TOKENS_RAW) => {
   const path = token.path.join('.');
   return TOKENS_RAW.filter(
     // note: also the original value is prefixed with `$`
-    (item) => item.original.$value === `{${path}.value}`
+    (item) => item.original.$value === `{${path}.value}`,
   ).map((alias) => `{${alias.path.join('.')}}`);
 };
 
@@ -54,7 +54,7 @@ export default class Index extends Component {
             t.name.indexOf(this.searchQuery) !== -1 ||
             // note: we prefix `value` with `$` because we're using the DTCG format
             // we also convert it to string, because in some cases it's a number
-            String(t.$value).indexOf(this.searchQuery) !== -1
+            String(t.$value).indexOf(this.searchQuery) !== -1,
         );
 
         if (filteredTokens.length > 0) {

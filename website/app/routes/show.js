@@ -7,7 +7,7 @@ import {
   isNotFoundResponse,
 } from 'ember-fetch/errors';
 import config from 'ember-get-config';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { action } from '@ember/object';
 import { reject } from 'rsvp';
 
