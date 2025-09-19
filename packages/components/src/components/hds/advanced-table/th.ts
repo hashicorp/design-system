@@ -25,7 +25,7 @@ import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-hand
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
-export const ALIGNMENTS: string[] = Object.values(
+export const ALIGNMENTS: HdsAdvancedTableHorizontalAlignment[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
 );
 export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;

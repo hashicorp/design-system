@@ -13,7 +13,7 @@ import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
-export const ALIGNMENTS: string[] = Object.values(
+export const ALIGNMENTS: HdsAdvancedTableHorizontalAlignment[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
 );
 export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;

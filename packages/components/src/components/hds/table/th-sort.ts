@@ -19,7 +19,7 @@ import type {
 } from './types.ts';
 import type { HdsTableThButtonSortSignature } from './th-button-sort';
 
-export const ALIGNMENTS: string[] = Object.values(
+export const ALIGNMENTS: HdsTableHorizontalAlignment[] = Object.values(
   HdsTableHorizontalAlignmentValues
 );
 export const DEFAULT_ALIGN = HdsTableHorizontalAlignmentValues.Left;

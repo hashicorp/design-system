@@ -24,7 +24,7 @@ import type { HdsFormSeparatorSignature } from './separator/index.ts';
 import type { HdsFormFooterSignature } from './footer/index.ts';
 
 export const DEFAULT_TAG = HdsFormTagValues.Form;
-export const AVAILABLE_TAGS: string[] = Object.values(HdsFormTagValues);
+export const AVAILABLE_TAGS: HdsFormTags[] = Object.values(HdsFormTagValues);
 
 export interface HdsFormSignature {
   Args: {
