@@ -5,6 +5,7 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array, hash } from '@ember/helper';
 import { capitalize } from '@ember/string';
+import { eq, not } from 'ember-truth-helpers';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
@@ -34,7 +35,7 @@ const SubSectionCustomization: TemplateOnlyComponent = <template>
             {{#each booleans as |bool|}}
               <SG.Item>
                 <CodeFragmentWithSimpleData
-                  @density={{density}}
+                  @density={{if (not (eq density "default")) density}}
                   @isSelectable={{bool}}
                 />
               </SG.Item>

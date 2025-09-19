@@ -4,7 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-import { eq, not } from 'ember-truth-helpers';
 
 import USERS from 'showcase/mocks/user-data';
 
@@ -46,7 +45,7 @@ export default class CodeFragmentWithSimpleData extends Component<CodeFragmentWi
   <template>
     <HdsAdvancedTable
       @isSelectable={{@isSelectable}}
-      @density={{if (not (eq @density "default")) @density}}
+      @density={{@density}}
       @isStriped={{@isStriped}}
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model}}
