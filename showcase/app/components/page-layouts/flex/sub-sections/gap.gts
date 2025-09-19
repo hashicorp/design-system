@@ -7,6 +7,7 @@ import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
+import ShwDivider from 'showcase/components/shw/divider';
 
 import {
   HdsLayoutFlex,
