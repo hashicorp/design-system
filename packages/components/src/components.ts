@@ -274,21 +274,6 @@ export { default as HdsSegmentedGroup } from './components/hds/segmented-group/i
 export { default as HdsSeparator } from './components/hds/separator/index.ts';
 export * from './components/hds/separator/types.ts';
 
-// SideNav
-export { default as HdsSideNav } from './components/hds/side-nav/index.ts';
-export { default as HdsSideNavBase } from './components/hds/side-nav/base.ts';
-export { default as HdsSideNavHeader } from './components/hds/side-nav/header/index.ts';
-export { default as HdsSideNavHeaderHomeLink } from './components/hds/side-nav/header/home-link.ts';
-export { default as HdsSideNavHeaderIconButton } from './components/hds/side-nav/header/icon-button.ts';
-export { default as HdsSideNavList } from './components/hds/side-nav/list/index.ts';
-export { default as HdsSideNavListBackLink } from './components/hds/side-nav/list/back-link.ts';
-export { default as HdsSideNavListItem } from './components/hds/side-nav/list/item.ts';
-export { default as HdsSideNavListLink } from './components/hds/side-nav/list/link.ts';
-export { default as HdsSideNavListTitle } from './components/hds/side-nav/list/title.ts';
-export { default as HdsSideNavPortal } from './components/hds/side-nav/portal/index.ts';
-export { default as HdsSideNavPortalTarget } from './components/hds/side-nav/portal/target.ts';
-export { default as HdsSideNavToggleButton } from './components/hds/side-nav/toggle-button.ts';
-
 // Stepper
 export { default as HdsStepperList } from './components/hds/stepper/list/index.ts';
 export { default as HdsStepperListStep } from './components/hds/stepper/list/step.ts';
