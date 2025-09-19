@@ -7,11 +7,12 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array, hash } from '@ember/helper';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
+import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
 
 export interface CodeFragmentWithNestedRowsSignature {
   Args: {
-    model?: unknown[];
-    childrenKey?: string;
+    model?: HdsAdvancedTableSignature['Args']['model'];
+    childrenKey?: HdsAdvancedTableSignature['Args']['childrenKey'];
   };
   Element: HTMLDivElement;
 }

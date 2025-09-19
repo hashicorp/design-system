@@ -12,9 +12,9 @@ import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-compone
 
 export interface CodeFragmentWithSimpleDataSignature {
   Args: {
-    isSelectable?: boolean;
+    isSelectable?: HdsAdvancedTableSignature['Args']['isSelectable'];
     density?: HdsAdvancedTableSignature['Args']['density'];
-    isStriped?: boolean;
+    isStriped?: HdsAdvancedTableSignature['Args']['isStriped'];
     hasTooltips?: boolean;
   };
   Element: HTMLDivElement;

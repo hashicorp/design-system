@@ -30,6 +30,7 @@ const SubSectionMultiSelect: TemplateOnlyComponent = <template>
       (hash key="dolor" label="Dolor")
     }}
     @hasSortBySelected={{true}}
+    @selectableColumnKey="isSelected"
   />
 
   <ShwDivider @level={{2}} />

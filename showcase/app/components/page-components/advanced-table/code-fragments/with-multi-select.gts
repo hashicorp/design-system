@@ -16,7 +16,8 @@ export interface CodeFragmentWithMultiSelectSignature {
   Args: {
     columns: HdsAdvancedTableSignature['Args']['columns'];
     hasSortBySelected?: boolean;
-    hasReorderableColumns?: boolean;
+    hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
+    selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
   };
   Element: HTMLDivElement;
 }
@@ -65,6 +66,7 @@ export default class CodeFragmentWithMultiSelect extends Component<CodeFragmentW
       @model={{this.data}}
       @columns={{@columns}}
       @hasReorderableColumns={{@hasReorderableColumns}}
+      @selectableColumnKey={{@selectableColumnKey}}
     >
       <:body as |B|>
         <B.Tr

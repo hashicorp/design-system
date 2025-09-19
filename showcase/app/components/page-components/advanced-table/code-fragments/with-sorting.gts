@@ -25,6 +25,7 @@ const CodeFragmentWithSorting: TemplateOnlyComponent<CodeFragmentWithSortingSign
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{MUSIC}}
       @columns={{@columns}}
+      @sortBy={{@sortBy}}
     >
       <:body as |B|>
         <B.Tr>
