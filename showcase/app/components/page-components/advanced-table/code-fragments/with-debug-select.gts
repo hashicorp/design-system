@@ -216,7 +216,7 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
           @currentPage={{this.currentPage}}
           @onPageChange={{this.onPageChange}}
           @onPageSizeChange={{this.onPageSizeChange}}
-          @ariaLabel="Pagination for multi-select table with delete action"
+          @ariaLabel="Pagination for multi-select {{this.uuid}}"
         />
       {{/if}}
       {{#if this.showDebug}}
