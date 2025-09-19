@@ -123,6 +123,7 @@ const SubSectionWithMedia: TemplateOnlyComponent<SubSectionWithMediaSignature> =
             @actions={{array "primary" "secondary" "standaloneLink"}}
             @align={{align}}
             @media="image"
+            @hasErrorCode={{true}}
           />
         </SF.Item>
       {{/each}}
