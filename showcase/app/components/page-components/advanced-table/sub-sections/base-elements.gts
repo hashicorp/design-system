@@ -41,14 +41,15 @@ import HdsAdvancedTableThSelectable from '@hashicorp/design-system-components/co
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 export interface SubSectionsBaseElementsSignature {
+  Args: {};
   Element: HTMLDivElement;
 }
 
 export default class SubSectionsBaseElements extends Component<SubSectionsBaseElementsSignature> {
   sampleTableModel!: HdsAdvancedTableModel;
 
-  constructor(owner: Owner) {
-    super(owner, {});
+  constructor(owner: Owner, args: SubSectionsBaseElementsSignature['Args']) {
+    super(owner, args);
 
     this.sampleTableModel = new HdsAdvancedTableModel({
       model: [
