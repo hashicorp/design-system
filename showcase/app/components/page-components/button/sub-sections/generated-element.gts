@@ -15,7 +15,7 @@ const SubSectionGeneratedElement: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>Default ⇒ <code>&lt;button&gt;</code></SFI.Label>
-      <ShwFlex as |SF2|>
+      <ShwFlex @direction="column" as |SF2|>
         <SF2.Item>
           <HdsButton @icon="plus" @text="Lorem ipsum" @color="primary" />
         </SF2.Item>
