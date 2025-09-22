@@ -20,6 +20,7 @@ export const ALIGNS: HdsApplicationStateAligns[] = Object.values(
 export interface HdsApplicationStateSignature {
   Args: {
     align?: HdsApplicationStateAligns;
+    isAutoCentered?: boolean;
   };
   Blocks: {
     default: [
@@ -35,6 +36,10 @@ export interface HdsApplicationStateSignature {
 }
 
 export default class HdsApplicationState extends Component<HdsApplicationStateSignature> {
+  get isAutoCentered(): boolean {
+    return this.args.isAutoCentered ?? true;
+  }
+
   get align(): HdsApplicationStateAligns {
     const validAlignValues: HdsApplicationStateAligns[] = Object.values(
       HdsApplicationStateAlignValues
@@ -55,6 +60,10 @@ export default class HdsApplicationState extends Component<HdsApplicationStateSi
 
     // add a class based on the @align argument
     classes.push(`hds-application-state--align-${this.align}`);
+
+    if (this.isAutoCentered) {
+      classes.push('hds-application-state--is-auto-centered');
+    }
 
     return classes.join(' ');
   }

@@ -25,6 +25,10 @@ $hds-application-state-content-max-width: 480px;
       width: auto;
     }
   }
+
+  &.hds-application-state--is-auto-centered {
+    margin: 0 auto;
+  }
 }
 
 .hds-application-state__media {
