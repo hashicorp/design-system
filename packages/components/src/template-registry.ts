@@ -808,15 +808,6 @@ export default interface HdsComponentsRegistry {
   'Hds::Modal': typeof HdsModalComponent;
   'hds/modal': typeof HdsModalComponent;
 
-  'Hds::ModalBody': typeof HdsModalBodyComponent;
-  'hds/modal/body': typeof HdsModalBodyComponent;
-
-  'Hds::ModalFooter': typeof HdsModalFooterComponent;
-  'hds/modal/footer': typeof HdsModalFooterComponent;
-
-  'Hds::ModalHeader': typeof HdsModalHeaderComponent;
-  'hds/modal/header': typeof HdsModalHeaderComponent;
-
   // PageHeader
   'Hds::PageHeader': typeof HdsPageHeaderComponent;
   'hds/page-header': typeof HdsPageHeaderComponent;
