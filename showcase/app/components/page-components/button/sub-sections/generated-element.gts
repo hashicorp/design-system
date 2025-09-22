@@ -13,16 +13,27 @@ const SubSectionGeneratedElement: TemplateOnlyComponent = <template>
   <ShwTextH2>Generated element</ShwTextH2>
 
   <ShwFlex as |SF|>
-    <SF.Item class="shw-component-button-generated" as |SFI|>
+    <SF.Item as |SFI|>
       <SFI.Label>Default ⇒ <code>&lt;button&gt;</code></SFI.Label>
-      <HdsButton @icon="plus" @text="Lorem ipsum" @color="primary" />
-      <HdsButton @icon="plus" @text="Lorem ipsum" @color="primary" disabled />
+      <ShwFlex as |SF2|>
+        <SF2.Item>
+          <HdsButton @icon="plus" @text="Lorem ipsum" @color="primary" />
+        </SF2.Item>
+        <SF2.Item>
+          <HdsButton
+            @icon="plus"
+            @text="Lorem ipsum"
+            @color="primary"
+            disabled
+          />
+        </SF2.Item>
+      </ShwFlex>
     </SF.Item>
-    <SF.Item class="shw-component-button-generated" as |SFI|>
+    <SF.Item as |SFI|>
       <SFI.Label>With <code>@href</code> ⇒ <code>&lt;a&gt;</code></SFI.Label>
       <HdsButton @icon="plus" @text="Lorem ipsum" @color="primary" @href="#" />
     </SF.Item>
-    <SF.Item class="shw-component-button-generated" as |SFI|>
+    <SF.Item as |SFI|>
       <SFI.Label>With<code>@route</code>
         ⇒
         <code>&lt;LinkTo&gt;</code>
