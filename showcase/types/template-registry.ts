@@ -23,8 +23,6 @@ import ShwTextH4 from '../app/components/shw/text/h4';
 
 import MockApp from '../app/components/mock/app/index';
 import MockAppHeaderAppHeader from '../app/components/mock/app/header/app-header';
-import MockSidebarSideNav from '../app/components/mock/app/sidebar/side-nav';
-import MockAppSidebarSideNav from '../app/components/mock/app/sidebar/app-side-nav';
 import MockAppMainPageHeader from '../app/components/mock/app/main/page-header';
 import MockAppMainGenericFormPartialsAccountSignup from '../app/components/mock/app/main/generic-form/partials/account-signup';
 import MockAppMainGenericFormPartialsAddUser from '../app/components/mock/app/main/generic-form/partials/add-user';
@@ -82,10 +80,6 @@ export default interface ShowcaseTemplateRegistry {
   'mock/app': typeof MockApp;
   'Mock::App::Header::AppHeader': typeof MockAppHeaderAppHeader;
   'mock/app/header/app-header': typeof MockAppHeaderAppHeader;
-  'Mock::App::Sidebar::AppSideNav': typeof MockAppSidebarSideNav;
-  'mock/app/sidebar/app-side-nav': typeof MockAppSidebarSideNav;
-  'Mock::App::Sidebar::SideNav': typeof MockSidebarSideNav;
-  'mock/app/sidebar/side-nav': typeof MockSidebarSideNav;
   'Mock::App::Main::PageHeader': typeof MockAppMainPageHeader;
   'mock/app/main/page-header': typeof MockAppMainPageHeader;
   'Mock::App::Main::GenericForm::Partials::AccountSignup': typeof MockAppMainGenericFormPartialsAccountSignup;
