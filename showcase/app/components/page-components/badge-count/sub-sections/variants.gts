@@ -18,7 +18,7 @@ import {
   TYPES,
 } from '@hashicorp/design-system-components/components/hds/badge-count/index';
 
-const BadgeCountIndex: TemplateOnlyComponent = <template>
+const SubSectionVariants: TemplateOnlyComponent = <template>
   <ShwTextH2>Size</ShwTextH2>
 
   <ShwFlex as |SF|>
@@ -64,4 +64,4 @@ const BadgeCountIndex: TemplateOnlyComponent = <template>
   {{/each}}
 </template>;
 
-export default BadgeCountIndex;
+export default SubSectionVariants;

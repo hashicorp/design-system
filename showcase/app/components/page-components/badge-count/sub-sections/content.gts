@@ -10,7 +10,7 @@ import ShwTextH2 from 'showcase/components/shw/text/h2';
 
 import { HdsBadgeCount } from '@hashicorp/design-system-components/components';
 
-const BadgeCountIndex: TemplateOnlyComponent = <template>
+const SubSectionContent: TemplateOnlyComponent = <template>
   <ShwTextH2>Content</ShwTextH2>
 
   <ShwFlex as |SF|>
@@ -31,4 +31,4 @@ const BadgeCountIndex: TemplateOnlyComponent = <template>
   </ShwFlex>
 </template>;
 
-export default BadgeCountIndex;
+export default SubSectionContent;
