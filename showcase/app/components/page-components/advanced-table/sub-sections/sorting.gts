@@ -120,7 +120,7 @@ export default class SubSectionSorting extends Component {
       @columns={{array
         (hash key="artist" label="Artist" isSortable=true)
         (hash key="album" label="Album" isSortable=true)
-        (hash key="year" label="Release Year" isSortable=true align="right")
+        (hash key="year" label="Release Year" align="right")
       }}
     />
 

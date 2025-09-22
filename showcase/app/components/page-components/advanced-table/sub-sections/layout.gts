@@ -26,9 +26,9 @@ const SubSectionLayout: TemplateOnlyComponent = <template>
     @model={{MUSIC}}
     @caption="table with multi-line content"
     @columns={{array
-      (hash key="artist" label="Artist" width="120px")
-      (hash key="album" label="Album" width="1fr")
-      (hash key="quote" label="Quote" width="2fr")
+      (hash key="artist" label="Artist (120px)" width="120px")
+      (hash key="album" label="Album (1fr)" width="1fr")
+      (hash key="quote" label="Quote (2fr)" width="2fr")
     }}
   >
     <:body as |B|>

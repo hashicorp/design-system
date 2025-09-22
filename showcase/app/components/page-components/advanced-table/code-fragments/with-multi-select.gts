@@ -46,7 +46,7 @@ export default class CodeFragmentWithMultiSelect extends Component<CodeFragmentW
   };
 
   onSelectionChange = (args: HdsAdvancedTableOnSelectionChangeSignature) => {
-    console.group('onSelectionChangeLogArguments');
+    console.group('onSelectionChange');
     console.log('Selection Key:', args.selectionKey);
     console.log('Checkbox Element:', args.selectionCheckboxElement);
     console.log('Selectable Rows Keys:', args.selectedRowsKeys);

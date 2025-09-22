@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { array, hash } from '@ember/helper';
 import { deepTracked } from 'ember-deep-tracked';
-import { eq } from 'ember-truth-helpers';
+import { eq, notEq } from 'ember-truth-helpers';
 import { guidFor } from '@ember/object/internals';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
@@ -54,6 +54,7 @@ function updateModelWithSelectableRowsStates<
 export interface CodeFragmentWithDebugSelectSignature {
   Args: {
     hasPagination?: boolean;
+    shouldHideSelectionDebugControls?: boolean;
   };
   Blocks: {
     topbarAction?: [
@@ -95,7 +96,9 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
 
   // there are demos where we want to be able to update the full model, not just the visible rows
   setModel = (newModel: User[]) => {
+    console.log('in setModel, newModel:', newModel);
     this.model = [...newModel];
+    console.log('after set', this.model);
   };
 
   // in other demos we want to be able to update just the visible rows without affecting the full model
@@ -144,25 +147,27 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
 
   <template>
     <div class="shw-component-advanced-table-demo-topbar">
-      <div class="shw-component-advanced-table-demo-topbar__toggle">
-        <input
-          id="{{this.uuid}}-scope-toggle"
-          type="checkbox"
-          checked={{if (eq this.scope "all-rows") true false}}
-          {{on "change" this.toggleScope}}
-        />
-        <label for="{{this.uuid}}-scope-toggle">Extend "Select All" scope to
-          non-displayed rows</label>
-      </div>
-      <div class="shw-component-advanced-table-demo-topbar__toggle">
-        <input
-          id="{{this.uuid}}-debug-toggle"
-          type="checkbox"
-          checked={{this.showDebug}}
-          {{on "change" this.toggleShowDebug}}
-        />
-        <label for="{{this.uuid}}-debug-toggle">Show all rows' state</label>
-      </div>
+      {{#if (notEq @shouldHideSelectionDebugControls true)}}
+        <div class="shw-component-advanced-table-demo-topbar__toggle">
+          <input
+            id="{{this.uuid}}-scope-toggle"
+            type="checkbox"
+            checked={{if (eq this.scope "all-rows") true false}}
+            {{on "change" this.toggleScope}}
+          />
+          <label for="{{this.uuid}}-scope-toggle">Extend "Select All" scope to
+            non-displayed rows</label>
+        </div>
+        <div class="shw-component-advanced-table-demo-topbar__toggle">
+          <input
+            id="{{this.uuid}}-debug-toggle"
+            type="checkbox"
+            checked={{this.showDebug}}
+            {{on "change" this.toggleShowDebug}}
+          />
+          <label for="{{this.uuid}}-debug-toggle">Show all rows' state</label>
+        </div>
+      {{/if}}
       <div class="shw-component-advanced-table-demo-topbar__action">
         {{yield
           (hash
@@ -175,7 +180,12 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
       </div>
     </div>
 
-    <div class="shw-component-advanced-table-with-pagination-demo-wrapper">
+    <div
+      class={{if
+        @hasPagination
+        "shw-component-advanced-table-with-pagination-demo-wrapper"
+      }}
+    >
       <HdsAdvancedTable
         @isSelectable={{true}}
         @onSelectionChange={{this.onSelectionChange}}
@@ -199,8 +209,20 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
           >
             {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.id}}</B.Td>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-            <B.Td>{{B.data.name}}</B.Td>
+            <B.Td>
+              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+              {{#let B.data.isAnimated as |isAnimated|}}
+                <span
+                  class={{if
+                    isAnimated
+                    "shw-component-advanced-table-animate-user"
+                  }}
+                >
+                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+                  {{B.data.name}}
+                </span>
+              {{/let}}
+            </B.Td>
             {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <B.Td>{{B.data.email}}</B.Td>
             {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}

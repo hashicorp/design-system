@@ -122,7 +122,7 @@ export default class SubSectionFunctionalExamples extends Component {
       the selected files.</ShwTextBody>
 
     {{! ANIMATE ROWS EXAMPLE }}
-    <CodeFragmentWithDebugSelect>
+    <CodeFragmentWithDebugSelect @shouldHideSelectionDebugControls={{true}}>
       <:topbarAction as |T|>
         <HdsButton
           @text="Animate users"

@@ -24,7 +24,7 @@ export default class CodeFragmentWithSimpleData extends Component<CodeFragmentWi
   model = USERS.slice(0, 4);
 
   columns = [
-    { key: 'id', label: 'ID', width: 'auto' },
+    { key: 'id', label: 'ID' },
     { key: 'name', label: 'Name' },
     { key: 'email', label: 'Email' },
     { key: 'role', label: 'Role' },
