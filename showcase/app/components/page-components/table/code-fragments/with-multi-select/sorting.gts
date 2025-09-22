@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Component from '@glimmer/component';
 import { array, hash, fn } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';

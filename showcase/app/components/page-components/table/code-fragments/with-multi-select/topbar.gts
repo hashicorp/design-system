@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { guidFor } from '@ember/object/internals';
