@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import style from 'ember-style-modifier';
 import { array, hash } from '@ember/helper';
