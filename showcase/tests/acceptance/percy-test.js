@@ -177,9 +177,6 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/separator');
     await percySnapshot('Separator');
 
-    await visit('/components/side-nav');
-    await percySnapshot('SideNav');
-
     await visit('/components/stepper/indicator');
     await percySnapshot('Stepper Indicator');
 

@@ -12,7 +12,6 @@ related:
   - components/link/standalone
   - components/link/inline
   - components/pagination
-  - components/side-nav
   - components/tag
 previewImage: assets/illustrations/utilities/interactive.jpg
 navigation:
@@ -26,4 +25,3 @@ navigation:
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
 </section>
-

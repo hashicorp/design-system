@@ -11,7 +11,6 @@ links:
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/app-footer
 related:
   - layouts/app-frame
-  - components/side-nav
 previewImage: assets/illustrations/components/app-footer.jpg
 navigation:
   keywords:
