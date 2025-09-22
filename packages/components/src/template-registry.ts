@@ -97,10 +97,6 @@ import type HdsDropdownListItemTitleComponent from './components/hds/dropdown/li
 import type HdsDropdownToggleButtonComponent from './components/hds/dropdown/toggle/button';
 import type HdsDropdownToggleChevronComponent from './components/hds/dropdown/toggle/chevron';
 import type HdsDropdownToggleIconComponent from './components/hds/dropdown/toggle/icon';
-import type HdsFlyoutBodyComponent from './components/hds/flyout/body';
-import type HdsFlyoutDescriptionComponent from './components/hds/flyout/description';
-import type HdsFlyoutFooterComponent from './components/hds/flyout/footer';
-import type HdsFlyoutHeaderComponent from './components/hds/flyout/header';
 import type HdsFlyoutComponent from './components/hds/flyout';
 
 import type HdsFormComponent from './components/hds/form';
@@ -567,18 +563,6 @@ export default interface HdsComponentsRegistry {
   // Flyout
   'Hds::Flyout': typeof HdsFlyoutComponent;
   'hds/flyout': typeof HdsFlyoutComponent;
-
-  'Hds::Flyout::Body': typeof HdsFlyoutBodyComponent;
-  'hds/flyout/body': typeof HdsFlyoutBodyComponent;
-
-  'Hds::Flyout::Description': typeof HdsFlyoutDescriptionComponent;
-  'hds/flyout/description': typeof HdsFlyoutDescriptionComponent;
-
-  'Hds::Flyout::Footer': typeof HdsFlyoutFooterComponent;
-  'hds/flyout/footer': typeof HdsFlyoutFooterComponent;
-
-  'Hds::Flyout::Header': typeof HdsFlyoutHeaderComponent;
-  'hds/flyout/header': typeof HdsFlyoutHeaderComponent;
 
   // FORM
   'Hds::Form': typeof HdsFormComponent;
