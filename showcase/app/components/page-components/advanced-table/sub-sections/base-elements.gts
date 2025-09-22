@@ -40,16 +40,10 @@ import HdsAdvancedTableThSelectable from '@hashicorp/design-system-components/co
 
 const STATES = ['default', 'hover', 'active', 'focus'];
 
-export interface SubSectionsBaseElementsSignature {
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-  Args: {};
-  Element: HTMLDivElement;
-}
-
-export default class SubSectionsBaseElements extends Component<SubSectionsBaseElementsSignature> {
+export default class SubSectionsBaseElements extends Component {
   sampleTableModel!: HdsAdvancedTableModel;
 
-  constructor(owner: Owner, args: SubSectionsBaseElementsSignature['Args']) {
+  constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
 
     this.sampleTableModel = new HdsAdvancedTableModel({
