@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { restartableTask, timeout } from 'ember-concurrency';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { NAMES } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import catalog from '@hashicorp/flight-icons/catalog.json';
@@ -73,12 +73,12 @@ export default class Index extends Component {
         filteredIcons = this.allIcons.filter(
           (i) =>
             i.size === this.selectedIconSize &&
-            i.searchable.indexOf(this.searchQuery.toLowerCase()) !== -1
+            i.searchable.indexOf(this.searchQuery.toLowerCase()) !== -1,
         );
       }
     } else {
       filteredIcons = this.allIcons.filter(
-        (i) => i.size === this.selectedIconSize
+        (i) => i.size === this.selectedIconSize,
       );
     }
 
@@ -130,7 +130,7 @@ export default class Index extends Component {
     });
 
     this.eventTracking.trackEvent(
-      `Icon Library - Group by Selector - ${selectedGroupType}`
+      `Icon Library - Group by Selector - ${selectedGroupType}`,
     );
   }
 
@@ -147,7 +147,7 @@ export default class Index extends Component {
     });
 
     this.eventTracking.trackEvent(
-      `Icon Library - Size Selector - ${selectedIconSize}`
+      `Icon Library - Size Selector - ${selectedIconSize}`,
     );
   }
 
