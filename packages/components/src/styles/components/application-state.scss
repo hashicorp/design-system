@@ -26,6 +26,7 @@ $hds-application-state-content-max-width: 480px;
     }
   }
 
+  // we want that by default the component is centered in the parent container
   &.hds-application-state--is-auto-centered {
     margin: 0 auto;
   }
