@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 import MockAppHeaderAppHeader from './header/app-header';
 import MockAppSidebarAppSideNav from './sidebar/app-side-nav';
-import MockAppSidebarOldSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
 import MockAppMainGenericTextContent from './main/generic-text-content';
 import MockAppMainGenericAdvancedTable from './main/generic-advanced-table';
