@@ -52,6 +52,7 @@ The Breadcrumb component is composed of three different parts, each with their o
   <C.Property @name="ariaLabel" @type="string" @default="show more">
     Set on the truncation toggle button. Accepts a string.
   </C.Property>
+  <!-- TODO: Fix this link -->
   <C.Property @name="yield">
     Elements passed as children are yielded to the content of the [MenuPrimitive](/utilities/menu-primitive) component (used to show/hide the yielded Breadcrumb Items via a "toggle" button).
   </C.Property>
