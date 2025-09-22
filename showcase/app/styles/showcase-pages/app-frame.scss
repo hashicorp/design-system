@@ -9,9 +9,7 @@
   $tx: 0;
   $ty: ($stack - 1) * 5px;
   $tz: ($stack * 20px);
-  transform:
-    rotateY(30deg)
-    translate3d($tx, $ty, $tz) !important;
+  transform: rotateY(30deg) translate3d($tx, $ty, $tz) !important;
 }
 
 body.page-layouts-app-frame {
@@ -31,13 +29,13 @@ body.page-layouts-app-frame {
       &.hds-side-nav--is-minimized,
       &.hds-app-side-nav--is-minimized {
         .hds-side-nav__wrapper,
-        .hds-app-side-nav__wrapper  {
+        .hds-app-side-nav__wrapper {
           overflow: hidden;
         }
 
         .hds-side-nav__wrapper-body,
         .hds-app-side-nav__wrapper-body {
-          width: var(--hds-app-sidenav-width-expanded);
+          width: var(--hds-app-side-nav-width-expanded);
           opacity: 0;
         }
 
@@ -150,10 +148,11 @@ body.page-layouts-app-frame {
   .shw-layout-app-frame-full-width-elem {
     width: 100%;
 
-    .hds-dropdown-toggle-button {width: 100%;}
+    .hds-dropdown-toggle-button {
+      width: 100%;
+    }
   }
 }
-
 
 // Frameles demo pages
 .layouts-app-frame-frameless {
