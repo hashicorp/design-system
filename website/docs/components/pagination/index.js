@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 const getCursorParts = (cursor, records) => {
   const token = atob(cursor);
@@ -14,7 +14,7 @@ const getCursorParts = (cursor, records) => {
   const direction = tokenParts[0];
   const cursorID = parseInt(tokenParts[1]);
   const cursorIndex = records.findIndex(
-    (element) => element.id === parseInt(cursorID)
+    (element) => element.id === parseInt(cursorID),
   );
   return { direction, cursorID, cursorIndex };
 };
@@ -63,13 +63,13 @@ export default class Index extends Component {
 
   get demoCurrentPage() {
     return parseInt(
-      this.router?.currentRoute?.queryParams?.demoCurrentPage ?? 1
+      this.router?.currentRoute?.queryParams?.demoCurrentPage ?? 1,
     );
   }
 
   get demoCurrentPageSize() {
     return parseInt(
-      this.router?.currentRoute?.queryParams?.demoCurrentPageSize ?? 5
+      this.router?.currentRoute?.queryParams?.demoCurrentPageSize ?? 5,
     );
   }
 
@@ -372,7 +372,7 @@ export default class Index extends Component {
     let { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
       this.demoCurrentCursor,
       this.demoCurrentPageSize,
-      this.model.records
+      this.model.records,
     );
     return {
       newPrevCursor,
@@ -413,7 +413,7 @@ export default class Index extends Component {
   get demoPaginatedDataCompact() {
     const { direction, cursorIndex } = getCursorParts(
       this.demoCurrentCursor,
-      this.model.records
+      this.model.records,
     );
 
     let start;
@@ -440,7 +440,7 @@ export default class Index extends Component {
     console.log(
       pageSize !== undefined
         ? `Page changed to "${page}" with page size equal to "${pageSize}"!`
-        : `Page changed to "${page}"!`
+        : `Page changed to "${page}"!`,
     );
   }
 
