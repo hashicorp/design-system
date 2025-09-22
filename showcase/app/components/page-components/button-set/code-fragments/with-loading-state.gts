@@ -11,13 +11,9 @@ import {
   HdsButton,
 } from '@hashicorp/design-system-components/components';
 
-export interface CodeFragmentWithLoadingStateSignature {
-  Element: HTMLDivElement;
-}
-
-export default class CodeFragmentWithLoadingState extends Component<CodeFragmentWithLoadingStateSignature> {
+export default class CodeFragmentWithLoadingState extends Component {
   @tracked isLoading = false;
-  @tracked timer: ReturnType<typeof setTimeout> | undefined;
+  timer: ReturnType<typeof setTimeout> | undefined;
 
   toggleIsLoading = () => {
     this.isLoading = !this.isLoading;
