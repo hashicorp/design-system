@@ -63,6 +63,26 @@ module(
         .hasClass('hds-application-state--align-center');
     });
 
+    test('it should have the correct class when isAutoCentered is true', async function (assert) {
+      this.set('isAutoCentered', true);
+
+      await render(hbs`
+      <Hds::ApplicationState id="test-application-state" @isAutoCentered={{this.isAutoCentered}}>
+        template block text
+      </Hds::ApplicationState>
+    `);
+
+      assert
+        .dom('#test-application-state')
+        .hasClass('hds-application-state--is-auto-centered');
+
+      this.set('isAutoCentered', false);
+
+      assert
+        .dom('#test-application-state')
+        .doesNotHaveClass('hds-application-state--is-auto-centered');
+    });
+
     // CONTEXTUAL COMPONENTS
 
     test('it renders the contextual components', async function (assert) {
