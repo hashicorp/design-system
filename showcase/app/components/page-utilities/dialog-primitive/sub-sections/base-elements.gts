@@ -21,10 +21,7 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
-  <section
-    class="shw-utility-dialog-primitive-base-elements-section"
-    data-test-percy
-  >
+  <div class="shw-utility-dialog-primitive-base-elements-section">
     <ShwTextH2>DialogPrimitiveHeader</ShwTextH2>
 
     <ShwFlex @direction="column" as |SF|>
@@ -185,7 +182,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         </div>
       </SF.Item>
     </ShwFlex>
-  </section>
+  </div>
 </template>;
 
 export default SubSectionBaseElements;

@@ -15,8 +15,10 @@ const DialogPrimitiveIndex: TemplateOnlyComponent = <template>
 
   <ShwTextH1>DialogPrimitive</ShwTextH1>
 
-  <SubSectionWrapper />
-  <SubSectionBaseElements />
+  <section data-test-percy>
+    <SubSectionWrapper />
+    <SubSectionBaseElements />
+  </section>
 </template>;
 
 export default DialogPrimitiveIndex;
