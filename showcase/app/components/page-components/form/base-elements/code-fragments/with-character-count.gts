@@ -47,18 +47,25 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
       value={{this.value}}
       {{on "input" this.updateValue}}
     />
-    <HdsFormCharacterCount
-      @minLength={{@minLength}}
-      @maxLength={{@maxLength}}
-      @controlId={{this.uuid}}
-      @value={{this.value}}
-      as |CC|
-    >
-      {{#if @customContent}}
+    {{#if @customContent}}
+      <HdsFormCharacterCount
+        @minLength={{@minLength}}
+        @maxLength={{@maxLength}}
+        @controlId={{this.uuid}}
+        @value={{this.value}}
+        as |CC|
+      >
         maxLength={{CC.maxLength}}; minLength={{CC.minLength}}; remaining={{CC.remaining}};
         shortfall={{CC.shortfall}}; currentLength={{CC.currentLength}};
-      {{/if}}
-    </HdsFormCharacterCount>
+      </HdsFormCharacterCount>
+    {{else}}
+      <HdsFormCharacterCount
+        @minLength={{@minLength}}
+        @maxLength={{@maxLength}}
+        @controlId={{this.uuid}}
+        @value={{this.value}}
+      />
+    {{/if}}
     {{! template-lint-enable require-input-label }}
   </template>
 }
