@@ -35,7 +35,9 @@ body.page-utilities-disclosure-primitive {
   }
 
   .shw-utility-disclosure-primitive-button-wrapper {
-    padding: 20px;
-    outline: 1px dotted #ccc;
+    .hds-disclosure-primitive__toggle {
+      padding: 20px;
+      outline: 1px dotted #ccc;
+    }
   }
 }

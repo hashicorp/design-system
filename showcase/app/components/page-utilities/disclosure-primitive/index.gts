@@ -1,0 +1,24 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { pageTitle } from 'ember-page-title';
+
+import ShwTextH1 from 'showcase/components/shw/text/h1';
+
+import SubSectionContent from 'showcase/components/page-utilities/disclosure-primitive/sub-sections/content';
+import SubSectionExternalControl from 'showcase/components/page-utilities/disclosure-primitive/sub-sections/external-control';
+
+const DisclosurePrimitveIndex: TemplateOnlyComponent = <template>
+  {{pageTitle "DisclosurePrimitve Component"}}
+
+  <ShwTextH1>DisclosurePrimitve</ShwTextH1>
+
+  <section data-test-percy>
+    <SubSectionContent />
+    <SubSectionExternalControl />
+  </section>
+</template>;
+
+export default DisclosurePrimitveIndex;
