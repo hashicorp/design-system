@@ -7,18 +7,12 @@ import ShwCarbonizationComparisonGridItem from './item';
 export interface ShwCarbonizationComparisonGridSignature {
   Args: {
     label?: string;
+    hideThemeLabels?: boolean;
   };
   Blocks: {
     label: [];
     themed: [];
     reference: [];
-    default: [
-      {
-        Label: typeof ShwLabel;
-        Item: typeof ShwCarbonizationComparisonGridItem;
-        // Item: WithBoundArgs<typeof ShwCarbonizationComparisonGridItem, 'area'>;
-      },
-    ];
   };
   Element: HTMLDivElement;
 }
@@ -47,7 +41,7 @@ const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComp
           <ShwCarbonizationComparisonGridItem
             @scope="show"
             @theme={{theme}}
-            @label={{theme}}
+            @label={{(unless @hideThemeLabels theme)}}
           >
             {{yield to="themed"}}
           </ShwCarbonizationComparisonGridItem>
