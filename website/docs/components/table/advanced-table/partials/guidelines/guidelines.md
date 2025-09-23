@@ -248,6 +248,7 @@ For the user to scan, sort, and filter the table easily, each cell should contai
 
 - By default, use the `medium` density for balance and readability.
 - To fit more rows on a page, use the `short` density. Use this only for text-heavy tables, as it can make them harder to scan.
+- For a smaller dataset, e.g., basic user data, consider using the `tall` density to provide the content with more breathing room.
 
 ## Horizontal scrolling
 
