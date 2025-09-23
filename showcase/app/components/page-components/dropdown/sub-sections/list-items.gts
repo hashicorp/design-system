@@ -31,7 +31,7 @@ import {
 import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
 
 // these are used only for presentation purpose in the showcase
-const ITEM_STATES = ['default', 'hover', 'active', 'focus'];
+const STATES = ['default', 'hover', 'active', 'focus'];
 
 const SubSectionListItems: TemplateOnlyComponent = <template>
   <ShwTextH2>List Items</ShwTextH2>
@@ -279,7 +279,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           <SF.Item>
             <div class="hds-dropdown__content">
               <ul class="hds-dropdown__list">
-                {{#each ITEM_STATES as |state|}}
+                {{#each STATES as |state|}}
                   <HdsDropdownListItemInteractive
                     @color={{color}}
                     mock-state-value={{state}}
@@ -308,7 +308,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           <SF.Item>
             <div class="hds-dropdown__content">
               <ul class="hds-dropdown__list">
-                {{#each ITEM_STATES as |state|}}
+                {{#each STATES as |state|}}
                   <HdsDropdownListItemInteractive
                     @icon={{if (eq color "critical") "trash" "settings"}}
                     @color={{color}}
@@ -341,7 +341,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           <SF.Item>
             <div class="hds-dropdown__content">
               <ul class="hds-dropdown__list">
-                {{#each ITEM_STATES as |state|}}
+                {{#each STATES as |state|}}
                   <HdsDropdownListItemInteractive
                     @icon={{if (eq color "critical") "trash" "settings"}}
                     @color={{color}}
@@ -460,7 +460,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
       {{! Notice: we want to emulate the case of a fixed width list }}
       <div class="hds-dropdown__content" {{style width="250px"}}>
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCopyItem
               @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
               mock-state-value={{state}}
@@ -474,7 +474,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
       {{! Notice: we want to emulate the case of a fixed width list }}
       <div class="hds-dropdown__content" {{style width="250px"}}>
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCopyItem
               @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
               @copyItemTitle="Lorem ipsumy dolor"
@@ -489,7 +489,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
       {{! Notice: we want to emulate the case of a fixed width list }}
       <div class="hds-dropdown__content" {{style width="250px"}}>
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCopyItem
               @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
               @copyItemTitle="Lorem ipsumy dolor"
@@ -511,7 +511,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Default">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Default">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark mock-state-value={{state}}>
               {{state}}
             </HdsDropdownListItemCheckmark>
@@ -525,7 +525,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Selected">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Selected">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark
               mock-state-value={{state}}
               @selected={{true}}
@@ -546,7 +546,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Icon">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Icon">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark
               @icon="hexagon"
               mock-state-value={{state}}
@@ -571,7 +571,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           role="listbox"
           aria-label="Icon, selected"
         >
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark
               @icon="hexagon"
               mock-state-value={{state}}
@@ -594,7 +594,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Count">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Count">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark
               mock-state-value={{state}}
               @count="12"
@@ -612,7 +612,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           role="listbox"
           aria-label="Count, selected"
         >
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark
               mock-state-value={{state}}
               @selected={{true}}
@@ -631,7 +631,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           role="listbox"
           aria-label="Custom content"
         >
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark
               mock-state-value={{state}}
               @count="12"
@@ -653,7 +653,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           role="listbox"
           aria-label="Custom content, selected"
         >
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark
               mock-state-value={{state}}
               @selected={{true}}
@@ -676,7 +676,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           role="listbox"
           aria-label="Badge in content"
         >
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark mock-state-value={{state}}>
               {{state}}
               <HdsBadge @icon="org" @text="Private" @size="small" />
@@ -692,7 +692,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           role="listbox"
           aria-label="Badge in content, selected"
         >
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark
               mock-state-value={{state}}
               @selected={{true}}
@@ -716,7 +716,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
           role="listbox"
           aria-label="Large content"
         >
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckmark
               mock-state-value={{state}}
               @icon="hexagon"
@@ -753,7 +753,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Default">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox mock-state-value={{state}}>
               {{state}}
             </HdsDropdownListItemCheckbox>
@@ -767,7 +767,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox mock-state-value={{state}} checked>
               {{state}}
             </HdsDropdownListItemCheckbox>
@@ -785,7 +785,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Icon">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox
               mock-state-value={{state}}
               @icon="hexagon"
@@ -806,7 +806,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Icon, checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox
               mock-state-value={{state}}
               @icon="hexagon"
@@ -829,7 +829,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Count">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox
               mock-state-value={{state}}
               @count="12"
@@ -841,7 +841,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Count, checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox
               mock-state-value={{state}}
               checked
@@ -854,7 +854,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Custom content">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox mock-state-value={{state}} @count="12">
               <ShwPlaceholder
                 @text="custom content"
@@ -869,7 +869,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Custom content, checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox
               mock-state-value={{state}}
               checked
@@ -888,7 +888,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Badge in label">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox mock-state-value={{state}}>
               {{state}}
               <HdsBadge @icon="org" @text="Private" @size="small" />
@@ -900,7 +900,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Badge in label, checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox mock-state-value={{state}} checked>
               {{state}}
               <HdsBadge
@@ -917,7 +917,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Large content">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemCheckbox
               mock-state-value={{state}}
               @count="12"
@@ -963,7 +963,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Default">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio mock-state-value={{state}}>
               {{state}}
             </HdsDropdownListItemRadio>
@@ -977,7 +977,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio mock-state-value={{state}} checked>
               {{state}}
             </HdsDropdownListItemRadio>
@@ -995,7 +995,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Icon">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio
               mock-state-value={{state}}
               @icon="hexagon"
@@ -1016,7 +1016,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Icon, checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio
               mock-state-value={{state}}
               checked
@@ -1039,7 +1039,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Count">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio
               mock-state-value={{state}}
               @count="12"
@@ -1051,7 +1051,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Count, checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio
               mock-state-value={{state}}
               checked
@@ -1064,7 +1064,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Custom content">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio mock-state-value={{state}} @count="12">
               <ShwPlaceholder
                 @text="custom content"
@@ -1079,7 +1079,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Custom content, checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio
               mock-state-value={{state}}
               checked
@@ -1098,7 +1098,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Badge in label">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio mock-state-value={{state}}>
               {{state}}
               <HdsBadge @icon="org" @text="Private" @size="small" />
@@ -1110,7 +1110,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Badge in label, checked">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio mock-state-value={{state}} checked>
               {{state}}
               <HdsBadge
@@ -1127,7 +1127,7 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
     <SF.Item @label="Large content">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          {{#each ITEM_STATES as |state|}}
+          {{#each STATES as |state|}}
             <HdsDropdownListItemRadio
               mock-state-value={{state}}
               @count="12"
