@@ -9,7 +9,6 @@ import ShwFlex from 'showcase/components/shw/flex';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import CodeFragmentWithGenericContent from 'showcase/components/page-utilities/disclosure-primitive/code-fragments/with-generic-content';
-import CodeFragmentWithExternalControl from 'showcase/components/page-utilities/disclosure-primitive/code-fragments/with-external-control';
 
 const SubSectionContent: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
@@ -110,13 +109,6 @@ const SubSectionContent: TemplateOnlyComponent = <template>
           </li>
         </ul>
       </CodeFragmentWithGenericContent>
-    </SF.Item>
-  </ShwFlex>
-
-  <ShwFlex as |SF|>
-    <SF.Label>Controlled externally</SF.Label>
-    <SF.Item @grow={{true}}>
-      <CodeFragmentWithExternalControl />
     </SF.Item>
   </ShwFlex>
 </template>;
