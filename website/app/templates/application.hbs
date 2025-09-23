@@ -13,8 +13,10 @@
   @onToggleBurgerMenu={{this.onToggleBurgerMenu}}
   @routeChangeValidator={{this.transitionValidator}}
 />
-{{! uncomment this to turn the survey banner back on, but ensure survey link has been updated as well }}
+{{! 
+uncomment this to turn the survey banner back on, but ensure survey link has been updated as well
 <Doc::Page::Banner />
+}}
 <Doc::Page::Sidebar
   {{! `this.model.toc` comes from `routes/application.js` }}
   @toc={{this.model.toc}}
