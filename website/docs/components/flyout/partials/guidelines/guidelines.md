@@ -35,10 +35,10 @@ While each of these components is triggered by a user action, where they exist i
 - A Flyout extends or "branches" off from the main flow to add detail and highlight secondary features and functions (Fig 1.1).
 - Rather than blocking the user from continuing in the main flow, a Flyout enhances and adds detail to the flow to aid in the completion of a function.
 
-![Modal Hierarchy in the user flow](/assets/components/flyout/flyout-vs-modal-01.png)
+![User flow for modal: the user's action triggers the modal, then the user confirms or cancels and continues in the flow.](/assets/components/flyout/flyout-vs-modal-01.png)
 <Doc::ImageCaption @text="Fig. 1.0: Hierarchy representation of a Modal blocking the user progression through a flow."/>
 
-![Flyout hierarchy in the user flow](/assets/components/flyout/flyout-vs-modal-02.png)
+![User flow for flyout: the user's action triggers the flyout to provide additional information for a task. Then the user continues in the flow.](/assets/components/flyout/flyout-vs-modal-02.png)
 <Doc::ImageCaption @text="Fig. 1.1: Hierarchy representation of the Flyout relative to the user flow."/>
 
 ### Usage examples
@@ -160,7 +160,7 @@ A Flyout supports actions within the footer allowing for basic functions to be p
 
 A Flyout can be used for actions like batch selection that are secondary to the main page.
 
-![Simple actions within a Flyout](/assets/components/flyout/flyout-simple-actions.png)
+![Flyout with links to get support or submit feedback.](/assets/components/flyout/flyout-simple-actions.png)
 !!!
 
 !!! Do
@@ -174,7 +174,7 @@ Use a Flyout for simple declarative content like text and links that enhance the
 
 Avoid using a Flyout for editing or creating objects. These are generally considered primary functions and should be handled on their own page or within a Modal in simple scenarios.
 
-![Complex actions within a Flyout](/assets/components/flyout/flyout-complex-actions.png)
+![Flyout with a form to create a new user and assign them to groups, which includes a table with checkboxes for each group.](/assets/components/flyout/flyout-complex-actions.png)
 !!!
 
 ## Dismissal
