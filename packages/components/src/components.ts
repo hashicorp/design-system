@@ -279,7 +279,6 @@ export { default as HdsSideNav } from './components/hds/side-nav/index.ts';
 export { default as HdsSideNavBase } from './components/hds/side-nav/base.ts';
 export { default as HdsSideNavHeader } from './components/hds/side-nav/header/index.ts';
 export { default as HdsSideNavHeaderHomeLink } from './components/hds/side-nav/header/home-link.ts';
-export { default as HdsSideNavHeaderIconButton } from './components/hds/side-nav/header/icon-button.ts';
 export { default as HdsSideNavList } from './components/hds/side-nav/list/index.ts';
 export { default as HdsSideNavListBackLink } from './components/hds/side-nav/list/back-link.ts';
 export { default as HdsSideNavListItem } from './components/hds/side-nav/list/item.ts';
