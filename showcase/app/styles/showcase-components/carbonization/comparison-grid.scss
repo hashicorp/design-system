@@ -1,0 +1,43 @@
+.shw-carbonization-comparison-grid {
+  & + & {
+    margin-top: 1rem;
+  }
+
+  display: grid;
+  grid-template-areas:
+    "label label label label label"
+    "hds cds-g0 cds-g10 cds-g90 cds-g100"
+    "--- wc-g0 wc-g10 wc-g90 wc-g100";
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 0; // we use vertical margin to separate the web-components row from the one above
+  column-gap: 1rem;
+
+  // fallback for when `@label` can't be used (eg. it contains tags)
+  > .shw-label {
+    grid-area: label;
+  }
+}
+
+// .shw-carbonization-comparison-grid__item {}
+
+@each $area in 'hds', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100', 'wc-g0', 'wc-g10', 'wc-g90', 'wc-g100' {
+  .shw-carbonization-comparison-grid__item--#{$area} {
+    grid-area: #{$area};
+  }
+}
+
+@each $area in 'wc-g0', 'wc-g10', 'wc-g90', 'wc-g100' {
+  .shw-carbonization-comparison-grid__item--#{$area} {
+    margin-top: 1rem;
+  }
+}
+
+// DEBUG
+
+// .shw-carbonization-comparison-grid {
+//   outline: 1px solid blue;
+// }
+// .shw-carbonization-comparison-grid__item {
+//   outline: 1px dotted magenta;
+// }
