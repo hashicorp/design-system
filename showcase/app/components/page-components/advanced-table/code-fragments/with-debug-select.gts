@@ -76,9 +76,9 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
   @tracked currentPageSize = 4;
   @tracked currentPage = 1;
 
-  @deepTracked model = [
-    ...(this.args.hasPagination ? USERS.slice(0, 16) : USERS.slice(0, 4)),
-  ];
+  @deepTracked model = this.args.hasPagination
+    ? structuredClone(USERS.slice(0, 16))
+    : structuredClone(USERS.slice(0, 4));
 
   // for paginated examples, need a getter to return the visible rows only
   get paginatedModel() {
@@ -96,9 +96,7 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
 
   // there are demos where we want to be able to update the full model, not just the visible rows
   setModel = (newModel: User[]) => {
-    console.log('in setModel, newModel:', newModel);
     this.model = [...newModel];
-    console.log('after set', this.model);
   };
 
   // in other demos we want to be able to update just the visible rows without affecting the full model
