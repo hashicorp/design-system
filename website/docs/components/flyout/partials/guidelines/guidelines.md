@@ -36,7 +36,6 @@ While each of these components is triggered by a user action, where they exist i
 - Rather than blocking the user from continuing in the main flow, a Flyout enhances and adds detail to the flow to aid in the completion of a function.
 
 ![Modal Hierarchy in the user flow](/assets/components/flyout/flyout-vs-modal-01.png)
-**Fig. 1.1:** Hierarchy representation of the Flyout relative to the user flow.
 <Doc::ImageCaption @text="Fig. 1.0: Hierarchy representation of a Modal blocking the user progression through a flow."/>
 
 ![Flyout hierarchy in the user flow](/assets/components/flyout/flyout-vs-modal-02.png)
