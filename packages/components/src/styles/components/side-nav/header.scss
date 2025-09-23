@@ -94,29 +94,3 @@
     }
   }
 }
-
-// generic "icon-button"
-
-// TODO: Replace this component with Hds::Button
-.hds-side-nav__icon-button {
-  @include hds-interactive-dark-theme();
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px; // same height as the dropdown "toggle"
-  height: 36px;
-  padding: 5px; // we take in account the transparent border
-
-  // disabled state:
-  &:disabled,
-  &[disabled],
-  &.mock-disabled,
-  &:disabled:focus,
-  &[disabled]:focus,
-  &.mock-disabled:focus,
-  &:disabled:hover,
-  &[disabled]:hover,
-  &.mock-disabled:hover {
-    @include hds-interactive-dark-theme-state-disabled();
-  }
-}
