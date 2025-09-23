@@ -24,6 +24,9 @@ import {
   HdsLinkStandalone,
 } from '@hashicorp/design-system-components/components';
 
+const ORGANIZATIONS = ['Organization A', 'Organization B', 'Organization C'];
+const GENERIC_ITEMS = ['1', '2', '3'];
+
 const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
   <ShwTextH2>Header and footer</ShwTextH2>
 
@@ -43,27 +46,15 @@ const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
               />
             </HdsDropdownHeader>
             <ul class="hds-dropdown__list">
-              <HdsDropdownListItemGeneric>
-                <ShwPlaceholder
-                  @text="generic item content"
-                  @height="36"
-                  @background="#e1f5fe"
-                />
-              </HdsDropdownListItemGeneric>
-              <HdsDropdownListItemGeneric>
-                <ShwPlaceholder
-                  @text="generic item content"
-                  @height="36"
-                  @background="#e1f5fe"
-                />
-              </HdsDropdownListItemGeneric>
-              <HdsDropdownListItemGeneric>
-                <ShwPlaceholder
-                  @text="generic item content"
-                  @height="36"
-                  @background="#e1f5fe"
-                />
-              </HdsDropdownListItemGeneric>
+              {{#each GENERIC_ITEMS}}
+                <HdsDropdownListItemGeneric>
+                  <ShwPlaceholder
+                    @text="generic item content"
+                    @height="36"
+                    @background="#e1f5fe"
+                  />
+                </HdsDropdownListItemGeneric>
+              {{/each}}
             </ul>
           </div>
         </SF.Item>
@@ -116,27 +107,15 @@ const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
         <SF.Item @label="Generic footer  {{if hasDivider 'with divider'}}">
           <div class="hds-dropdown__content">
             <ul class="hds-dropdown__list">
-              <HdsDropdownListItemGeneric>
-                <ShwPlaceholder
-                  @text="generic item content"
-                  @height="36"
-                  @background="#e1f5fe"
-                />
-              </HdsDropdownListItemGeneric>
-              <HdsDropdownListItemGeneric>
-                <ShwPlaceholder
-                  @text="generic item content"
-                  @height="36"
-                  @background="#e1f5fe"
-                />
-              </HdsDropdownListItemGeneric>
-              <HdsDropdownListItemGeneric>
-                <ShwPlaceholder
-                  @text="generic item content"
-                  @height="36"
-                  @background="#e1f5fe"
-                />
-              </HdsDropdownListItemGeneric>
+              {{#each GENERIC_ITEMS}}
+                <HdsDropdownListItemGeneric>
+                  <ShwPlaceholder
+                    @text="generic item content"
+                    @height="36"
+                    @background="#e1f5fe"
+                  />
+                </HdsDropdownListItemGeneric>
+              {{/each}}
             </ul>
             <HdsDropdownFooter @hasDivider={{hasDivider}}>
               <ShwPlaceholder
@@ -153,12 +132,11 @@ const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
     <SF.Item @label="Button">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            A</HdsDropdownListItemInteractive>
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            B</HdsDropdownListItemInteractive>
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            C</HdsDropdownListItemInteractive>
+          {{#each ORGANIZATIONS as |org|}}
+            <HdsDropdownListItemInteractive @route="page-components">
+              {{org}}
+            </HdsDropdownListItemInteractive>
+          {{/each}}
         </ul>
         <HdsDropdownFooter @hasDivider={{true}}>
           <HdsButton
@@ -172,12 +150,11 @@ const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
     <SF.Item @label="Link">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            A</HdsDropdownListItemInteractive>
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            B</HdsDropdownListItemInteractive>
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            C</HdsDropdownListItemInteractive>
+          {{#each ORGANIZATIONS as |org|}}
+            <HdsDropdownListItemInteractive @route="page-components">
+              {{org}}
+            </HdsDropdownListItemInteractive>
+          {{/each}}
         </ul>
         <HdsDropdownFooter @hasDivider={{true}}>
           <HdsLinkStandalone
@@ -207,27 +184,15 @@ const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
           />
         </HdsDropdownHeader>
         <ul class="hds-dropdown__list">
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
+          {{#each GENERIC_ITEMS}}
+            <HdsDropdownListItemGeneric>
+              <ShwPlaceholder
+                @text="generic item content"
+                @height="36"
+                @background="#e1f5fe"
+              />
+            </HdsDropdownListItemGeneric>
+          {{/each}}
         </ul>
         <HdsDropdownFooter @hasDivider={{true}}>
           <ShwPlaceholder
@@ -298,12 +263,11 @@ const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
           <HdsFormTextInputBase @type="search" placeholder="Narrow results" />
         </HdsDropdownHeader>
         <ul class="hds-dropdown__list">
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            A</HdsDropdownListItemInteractive>
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            B</HdsDropdownListItemInteractive>
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            C</HdsDropdownListItemInteractive>
+          {{#each ORGANIZATIONS as |org|}}
+            <HdsDropdownListItemInteractive @route="page-components">
+              {{org}}
+            </HdsDropdownListItemInteractive>
+          {{/each}}
         </ul>
         <HdsDropdownFooter @hasDivider={{true}}>
           <HdsButtonSet>
@@ -324,12 +288,11 @@ const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
           <HdsFormTextInputBase @type="search" placeholder="Narrow results" />
         </HdsDropdownHeader>
         <ul class="hds-dropdown__list">
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            A</HdsDropdownListItemInteractive>
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            B</HdsDropdownListItemInteractive>
-          <HdsDropdownListItemInteractive @route="page-components">Organization
-            C</HdsDropdownListItemInteractive>
+          {{#each ORGANIZATIONS as |org|}}
+            <HdsDropdownListItemInteractive @route="page-components">
+              {{org}}
+            </HdsDropdownListItemInteractive>
+          {{/each}}
         </ul>
         <HdsDropdownFooter @hasDivider={{true}}>
           <HdsLinkStandalone @icon="plus" @text="Add organization" @href="#" />
