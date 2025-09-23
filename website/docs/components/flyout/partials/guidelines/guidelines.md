@@ -106,7 +106,7 @@ The purpose and function of the Flyout should not rely solely on an icon, instea
 Even though adding a title icon and tagline can help the user better understand the content, both elements add visual weight which might not be suitable or necessary for all Flyouts.
 !!!
 
-A tagline helps the user maintain the context of the main page the Flyout was triggered from. Since a Flyout disables and obscures the main page content, adding a tagline can help the user understand the relationship between the Flyout and the main page.
+A tagline helps the user maintain the context of the main page where the Flyout was triggered. Since a Flyout disables and obscures the main page content, adding a tagline can help the user understand the relationship between the Flyout and the main page.
 
 The tagline should directly reference the page, feature title, or object to reinforce the purpose of the Flyout.
 
@@ -195,9 +195,9 @@ Multiple dismissal options are available that can be customized in production wi
 
 **Figma tip**
 
-In Figma, the Flyout should be paired with the [Overlay](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-32335&t=gWdKy44MzTP4cTRo-1) component which obscures and helps to visually communicate the `inert` nature of the main page. Using the Flyout without the overlay is **not supported**.
+In Figma, the Flyout should be paired with the [Overlay](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-32335&t=gWdKy44MzTP4cTRo-1) component which obscures the main page and helps to visually communicate the `inert` nature of the content. Using the Flyout without the overlay is **not supported**.
 
-A [[Template] Flyout](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67212-27152&t=gWdKy44MzTP4cTRo-1) component couples these two components so they can be added to your design files together.
+A [[Template] Flyout](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67212-27152&t=gWdKy44MzTP4cTRo-1) component couples these two components so they can be added to your design together.
 !!!
 
 A Flyout should slide out from the right side of the viewport on top of the main page and occupy 100% of the viewport height.
