@@ -11,6 +11,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import SubSectionContainers from 'showcase/components/page-components/badge/sub-sections/containers';
 import SubSectionContent from 'showcase/components/page-components/badge/sub-sections/content';
 import SubSectionVariants from 'showcase/components/page-components/badge/sub-sections/variants';
+import SubSectionCarbonization from 'showcase/components/page-components/badge/sub-sections/carbonization';
 
 const BadgeIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Badge Component"}}
@@ -21,6 +22,7 @@ const BadgeIndex: TemplateOnlyComponent = <template>
     <SubSectionContent />
     <SubSectionVariants />
     <SubSectionContainers />
+    <SubSectionCarbonization />
   </section>
 </template>;
 
