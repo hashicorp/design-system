@@ -5,6 +5,7 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import style from 'ember-style-modifier';
+import { array } from '@ember/helper';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
@@ -29,76 +30,45 @@ const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
   <ShwTextH3>Header</ShwTextH3>
 
   <ShwFlex as |SF|>
-    <SF.Item @label="Generic header">
-      <div class="hds-dropdown__content">
-        <HdsDropdownHeader>
-          <ShwPlaceholder
-            @text="generic header content"
-            @width="200"
-            @height="36"
-            @background="#e1f5fe"
-          />
-        </HdsDropdownHeader>
-        <ul class="hds-dropdown__list">
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-        </ul>
-      </div>
-    </SF.Item>
-    <SF.Item @label="Generic header with divider">
-      <div class="hds-dropdown__content">
-        <HdsDropdownHeader @hasDivider={{true}}>
-          <ShwPlaceholder
-            @text="generic header content"
-            @width="200"
-            @height="36"
-            @background="#e1f5fe"
-          />
-        </HdsDropdownHeader>
-        <ul class="hds-dropdown__list">
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-        </ul>
-      </div>
-    </SF.Item>
+    {{#let (array false true) as |hasDividerOptions|}}
+      {{#each hasDividerOptions as |hasDivider|}}
+        <SF.Item @label="Generic header {{if hasDivider 'with divider'}}">
+          <div class="hds-dropdown__content">
+            <HdsDropdownHeader @hasDivider={{hasDivider}}>
+              <ShwPlaceholder
+                @text="generic header content"
+                @width="200"
+                @height="36"
+                @background="#e1f5fe"
+              />
+            </HdsDropdownHeader>
+            <ul class="hds-dropdown__list">
+              <HdsDropdownListItemGeneric>
+                <ShwPlaceholder
+                  @text="generic item content"
+                  @height="36"
+                  @background="#e1f5fe"
+                />
+              </HdsDropdownListItemGeneric>
+              <HdsDropdownListItemGeneric>
+                <ShwPlaceholder
+                  @text="generic item content"
+                  @height="36"
+                  @background="#e1f5fe"
+                />
+              </HdsDropdownListItemGeneric>
+              <HdsDropdownListItemGeneric>
+                <ShwPlaceholder
+                  @text="generic item content"
+                  @height="36"
+                  @background="#e1f5fe"
+                />
+              </HdsDropdownListItemGeneric>
+            </ul>
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
     <SF.Item @label="Input type search">
       <div class="hds-dropdown__content">
         <HdsDropdownHeader @hasDivider={{true}}>
@@ -141,76 +111,45 @@ const SubSectionHeaderAndFooter: TemplateOnlyComponent = <template>
   <ShwTextH3>Footer</ShwTextH3>
 
   <ShwFlex as |SF|>
-    <SF.Item @label="Generic footer">
-      <div class="hds-dropdown__content">
-        <ul class="hds-dropdown__list">
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-        </ul>
-        <HdsDropdownFooter>
-          <ShwPlaceholder
-            @text="generic footer content"
-            @width="200"
-            @height="36"
-            @background="#e1f5fe"
-          />
-        </HdsDropdownFooter>
-      </div>
-    </SF.Item>
-    <SF.Item @label="Generic footer with divider">
-      <div class="hds-dropdown__content">
-        <ul class="hds-dropdown__list">
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-          <HdsDropdownListItemGeneric>
-            <ShwPlaceholder
-              @text="generic item content"
-              @height="36"
-              @background="#e1f5fe"
-            />
-          </HdsDropdownListItemGeneric>
-        </ul>
-        <HdsDropdownFooter @hasDivider={{true}}>
-          <ShwPlaceholder
-            @text="generic footer content"
-            @width="200"
-            @height="36"
-            @background="#e1f5fe"
-          />
-        </HdsDropdownFooter>
-      </div>
-    </SF.Item>
+    {{#let (array false true) as |hasDividerOptions|}}
+      {{#each hasDividerOptions as |hasDivider|}}
+        <SF.Item @label="Generic footer  {{if hasDivider 'with divider'}}">
+          <div class="hds-dropdown__content">
+            <ul class="hds-dropdown__list">
+              <HdsDropdownListItemGeneric>
+                <ShwPlaceholder
+                  @text="generic item content"
+                  @height="36"
+                  @background="#e1f5fe"
+                />
+              </HdsDropdownListItemGeneric>
+              <HdsDropdownListItemGeneric>
+                <ShwPlaceholder
+                  @text="generic item content"
+                  @height="36"
+                  @background="#e1f5fe"
+                />
+              </HdsDropdownListItemGeneric>
+              <HdsDropdownListItemGeneric>
+                <ShwPlaceholder
+                  @text="generic item content"
+                  @height="36"
+                  @background="#e1f5fe"
+                />
+              </HdsDropdownListItemGeneric>
+            </ul>
+            <HdsDropdownFooter @hasDivider={{hasDivider}}>
+              <ShwPlaceholder
+                @text="generic footer content"
+                @width="200"
+                @height="36"
+                @background="#e1f5fe"
+              />
+            </HdsDropdownFooter>
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
     <SF.Item @label="Button">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
