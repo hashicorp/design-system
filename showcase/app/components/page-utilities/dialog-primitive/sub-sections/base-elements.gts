@@ -21,7 +21,7 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
-  <div class="shw-utility-dialog-primitive-base-elements-section">
+  <div class="shw-utility-dialog-primitive-base-elements-sub-section">
     <ShwTextH2>DialogPrimitiveHeader</ShwTextH2>
 
     <ShwFlex @direction="column" as |SF|>
