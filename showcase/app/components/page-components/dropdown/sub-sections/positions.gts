@@ -10,11 +10,14 @@ import style from 'ember-style-modifier';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwOutliner from 'showcase/components/shw/outliner';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
 
 import { HdsDropdown } from '@hashicorp/design-system-components/components';
 import { POSITIONS } from '@hashicorp/design-system-components/components/hds/dropdown/index';
 
 const SubSectionPositions: TemplateOnlyComponent = <template>
+  <ShwTextH2>Positions</ShwTextH2>
+
   <ShwGrid @columns={{2}} as |SG|>
     {{#each POSITIONS as |position|}}
       <SG.Item @label={{capitalize position}}>
