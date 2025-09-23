@@ -1,10 +1,5 @@
-/**
- * Copyright (c) HashiCorp, Inc.
- * SPDX-License-Identifier: MPL-2.0
- */
-
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { hash } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
 
 import ShwLabel from 'showcase/components/shw/label';
 import ShwCarbonizationComparisonGridItem from './item';
@@ -14,6 +9,9 @@ export interface ShwCarbonizationComparisonGridSignature {
     label?: string;
   };
   Blocks: {
+    label: [];
+    themed: [];
+    reference: [];
     default: [
       {
         Label: typeof ShwLabel;
@@ -25,13 +23,48 @@ export interface ShwCarbonizationComparisonGridSignature {
   Element: HTMLDivElement;
 }
 
+export const THEMES = [
+  'hds',
+  'cds-g0',
+  'cds-g10',
+  'cds-g90',
+  'cds-g100',
+] as const;
+
+export type Theme = (typeof THEMES)[number];
+
 const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComparisonGridSignature> =
   <template>
     {{#if @label}}
       <ShwLabel>{{@label}}</ShwLabel>
     {{/if}}
+    {{#if (has-block "label")}}
+      <ShwLabel>{{yield to="label"}}</ShwLabel>
+    {{/if}}
     <div class="shw-carbonization-comparison-grid" ...attributes>
-      {{yield (hash Label=ShwLabel Item=ShwCarbonizationComparisonGridItem)}}
+      {{#if (has-block "themed")}}
+        {{#each THEMES as |theme|}}
+          <ShwCarbonizationComparisonGridItem
+            @scope="show"
+            @theme={{theme}}
+            @label={{theme}}
+          >
+            {{yield to="themed"}}
+          </ShwCarbonizationComparisonGridItem>
+        {{/each}}
+      {{/if}}
+      {{#if (has-block "reference")}}
+        {{#each THEMES as |theme|}}
+          {{#unless (eq theme "hds")}}
+            <ShwCarbonizationComparisonGridItem
+              @scope="reference"
+              @theme={{theme}}
+            >
+              {{yield to="reference"}}
+            </ShwCarbonizationComparisonGridItem>
+          {{/unless}}
+        {{/each}}
+      {{/if}}
     </div>
   </template>;
 
