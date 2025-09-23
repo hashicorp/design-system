@@ -29,7 +29,7 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
   get areaName(): string {
     if (this.args.scope === 'reference') {
       // `hds` is not included in the loop for the references
-      return this.args.theme.replace('cds', 'wc');
+      return this.args.theme.replace('cds', 'cwc');
     } else {
       return this.args.theme;
     }
