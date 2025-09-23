@@ -16,7 +16,7 @@ import { HdsDropdown } from '@hashicorp/design-system-components/components';
 import { POSITIONS } from '@hashicorp/design-system-components/components/hds/dropdown/index';
 
 const SubSectionPositions: TemplateOnlyComponent = <template>
-  <ShwTextH2>Positions</ShwTextH2>
+  <ShwTextH2>Position</ShwTextH2>
 
   <ShwGrid @columns={{2}} as |SG|>
     {{#each POSITIONS as |position|}}
