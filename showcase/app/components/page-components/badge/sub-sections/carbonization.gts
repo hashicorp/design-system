@@ -15,31 +15,14 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
 
   <ShwTextH2>Carbonization</ShwTextH2>
 
-  <ShwCarbonizationComparisonGrid @label="grid label as argument" as |CG|>
-    <CG.Item @area="hds" class="test #1" @label="at-label #1">
-      CG.Item Content #1
-    </CG.Item>
-    <CG.Item @area="cds-g90" class="test #2">
-      CG.Item Content #2
-    </CG.Item>
-    <CG.Item @area="wc-g10" class="test #3" as |CGI|>
-      <CGI.Label>cgi-label #3</CGI.Label>
-      CG.Item Content #3
-    </CG.Item>
-  </ShwCarbonizationComparisonGrid>
-
-  <ShwCarbonizationComparisonGrid as |CG|>
-    <CG.Label>Yielded label</CG.Label>
-    <CG.Item @area="hds" class="test #1" @label="at-label #1">
-      CG.Item Content #1
-    </CG.Item>
-    <CG.Item @area="cds-g90" class="test #2">
-      CG.Item Content #2
-    </CG.Item>
-    <CG.Item @area="wc-g10" class="test #3" as |CGI|>
-      <CGI.Label>cgi-label #3</CGI.Label>
-      CG.Item Content #3
-    </CG.Item>
+  <ShwCarbonizationComparisonGrid>
+    <:label>Yielded label</:label>
+    <:themed>
+      Themed content
+    </:themed>
+    <:reference>
+      Reference content
+    </:reference>
   </ShwCarbonizationComparisonGrid>
 </template>;
 
