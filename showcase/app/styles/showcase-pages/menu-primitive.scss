@@ -35,7 +35,9 @@ body.page-utilities-menu-primitive {
   }
 
   .shw-utility-menu-primitive-button-wrapper {
-    padding: 20px;
-    outline: 1px dotted #ccc;
+    .hds-menu-primitive__toggle {
+      padding: 20px;
+      outline: 1px dotted #ccc;
+    }
   }
 }
