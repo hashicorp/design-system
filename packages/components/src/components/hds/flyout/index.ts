@@ -150,7 +150,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     });
 
     return () => {
-            // if the <dialog> is removed from the dom while open we emulate the close event
+      // if the <dialog> is removed from the dom while open we emulate the close event
       if (this._element && this._isOpen) {
         this._element.dispatchEvent(new Event('close'));
 
@@ -163,8 +163,8 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
       }
 
       document.removeEventListener('click', this._clickHandler, true);
-    }
-    });
+    };
+  });
 
   @action
   willDestroyNode(): void {
