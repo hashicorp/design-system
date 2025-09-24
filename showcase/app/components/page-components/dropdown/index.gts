@@ -14,7 +14,7 @@ import SubSectionWidth from 'showcase/components/page-components/dropdown/sub-se
 import SubSectionDisplay from 'showcase/components/page-components/dropdown/sub-sections/display';
 import SubSectionCollisionDetection from 'showcase/components/page-components/dropdown/sub-sections/collision-detection';
 import SubSectionToggles from 'showcase/components/page-components/dropdown/sub-sections/toggles';
-import SubSectionListItems from 'showcase/components/page-components/dropdown/sub-sections/list-items';
+import SubSectionListItems from 'showcase/components/page-components/dropdown/sub-sections/list-items/index';
 import SubSectionDemo from 'showcase/components/page-components/dropdown/sub-sections/demo';
 import SubSectionHeaderAndFooter from 'showcase/components/page-components/dropdown/sub-sections/header-and-footer';
 
