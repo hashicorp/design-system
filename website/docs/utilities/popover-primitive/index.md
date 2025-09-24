@@ -11,7 +11,6 @@ links:
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/popover-primitive
 related:
   - utilities/disclosure-primitive
-  - utilities/menu-primitive
 previewImage: assets/illustrations/utilities/popover-primitive.jpg
 navigation:
   keywords:
