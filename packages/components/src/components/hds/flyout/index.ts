@@ -11,8 +11,6 @@ import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
 import type { WithBoundArgs } from '@glint/template';
 import { modifier } from 'ember-modifier';
-import { registerDestructor } from '@ember/destroyable';
-import type Owner from '@ember/owner';
 
 import type { HdsFlyoutSizes } from './types.ts';
 
@@ -68,26 +66,6 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
   private _clickHandler!: (event: MouseEvent) => void;
-
-  constructor(owner: Owner, args: HdsFlyoutSignature['Args']) {
-    super(owner, args);
-
-    registerDestructor(this, (): void => {
-      // if the <dialog> is removed from the dom while open we emulate the close event
-      if (this._element && this._isOpen) {
-        this._element.dispatchEvent(new Event('close'));
-
-        this._element.removeEventListener(
-          'close',
-          // eslint-disable-next-line @typescript-eslint/unbound-method
-          this.registerOnCloseCallback,
-          true
-        );
-      }
-
-      document.removeEventListener('click', this._clickHandler, true);
-    });
-  }
 
   /**
    * Sets the size of the flyout
@@ -170,7 +148,23 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
       capture: true,
       passive: false,
     });
-  });
+
+    return () => {
+            // if the <dialog> is removed from the dom while open we emulate the close event
+      if (this._element && this._isOpen) {
+        this._element.dispatchEvent(new Event('close'));
+
+        this._element.removeEventListener(
+          'close',
+          // eslint-disable-next-line @typescript-eslint/unbound-method
+          this.registerOnCloseCallback,
+          true
+        );
+      }
+
+      document.removeEventListener('click', this._clickHandler, true);
+    }
+    });
 
   @action
   willDestroyNode(): void {
