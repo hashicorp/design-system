@@ -39,14 +39,16 @@ export const POSITIONS: HdsDropdownPositions[] = Object.values(
 );
 
 export interface HdsDropdownSignature {
-  Args: Pick<HdsPopoverPrimitiveSignature['Args'], 'isOpen' | 'onClose'> & {
+  Args: {
     height?: string;
     isInline?: boolean;
+    isOpen?: HdsPopoverPrimitiveSignature['Args']['isOpen'];
     listPosition?: HdsDropdownPositions;
     width?: string;
     enableCollisionDetection?: HdsAnchoredPositionOptions['enableCollisionDetection'];
     preserveContentInDom?: boolean;
     matchToggleWidth?: boolean;
+    onClose?: HdsPopoverPrimitiveSignature['Args']['onClose'];
   };
   Blocks: {
     default: [
