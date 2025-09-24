@@ -69,7 +69,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   });
   test('toggle-icon renders no chevron when hasChevron is set to false', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`,
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`,
     );
     assert.dom('.hds-icon.hds-icon-chevron-down').doesNotExist();
   });
@@ -150,6 +150,20 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     });
     await render(
       hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="foo" />`,
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if an incorrect value for @icon is provided while @hasChevron is false', async function (assert) {
+    const errorMessage =
+      '@hasChevron for "Hds::Dropdown::Toggle::Icon" must be true unless the icon is one of the following: more-horizontal, more-vertical; received: apple';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="apple" @text="user menu" @hasChevron={{false}}/>`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
