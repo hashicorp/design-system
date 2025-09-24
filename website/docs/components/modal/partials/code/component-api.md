@@ -34,3 +34,35 @@
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
+
+### Contextual components
+
+#### [M].Header
+
+The `DialogPrimitive::Header` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Header`](/utilities/dialog-primitive?tab=code#dialogprimitiveheader) component.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [M].Body
+
+The `DialogPrimitive::Body` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Body`](/utilities/dialog-primitive?tab=code#dialogprimitivebody) component.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [M].Footer
+
+The `DialogPrimitive::Footer` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Footer`](/utilities/dialog-primitive?tab=code#dialogprimitivefooter) component.
+  </C.Property>
+</Doc::ComponentApi>
