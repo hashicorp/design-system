@@ -1,159 +1,26 @@
-{{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
-}}
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import style from 'ember-style-modifier';
 
-{{page-title "Form::Checkbox Component"}}
+import ShwDivider from 'showcase/components/shw/divider';
+import ShwFlex from 'showcase/components/shw/flex';
+import ShwGrid from 'showcase/components/shw/grid';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH3 from 'showcase/components/shw/text/h3';
 
-<Shw::Text::H1>Form::Checkbox</Shw::Text::H1>
+import { HdsFormCheckboxGroup } from '@hashicorp/design-system-components/components';
 
-<section data-test-percy>
+const SubSectionFieldGroup: TemplateOnlyComponent = <template>
+  <ShwTextH2>"Group" of controls</ShwTextH2>
 
-  <Shw::Text::H2>"Base" control</Shw::Text::H2>
+  <ShwTextH3>Vertical layout</ShwTextH3>
 
-  <Shw::Text::H3>Interaction status</Shw::Text::H3>
-
-  <Shw::Flex @gap="2rem" as |SF|>
-    <SF.Item @label="Unchecked">
-      <Hds::Form::Checkbox::Base aria-label="Unchecked checkbox" />
-    </SF.Item>
-    <SF.Item @label="Checked">
-      <Hds::Form::Checkbox::Base checked="checked" aria-label="Checked checkbox" />
-    </SF.Item>
-    <SF.Item @label="Indeterminate">
-      <Hds::Form::Checkbox::Base indeterminate={{true}} aria-label="Indeterminate checkbox" />
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H3>States (Base / Disabled)</Shw::Text::H3>
-
-  <Shw::Flex @gap="2rem" as |SF|>
-    {{#each @model.STATES as |state|}}
-      <SF.Item @label={{capitalize state}}>
-        <Shw::Grid @columns={{3}} mock-state-value={{state}} mock-state-selector="input" as |SG|>
-          <SG.Item>
-            <Hds::Form::Checkbox::Base aria-label="Checkbox" />
-          </SG.Item>
-          <SG.Item>
-            <Hds::Form::Checkbox::Base checked="checked" aria-label="Checked checkbox" />
-          </SG.Item>
-          <SG.Item>
-            <Hds::Form::Checkbox::Base indeterminate={{true}} aria-label="Indeterminate checkbox" />
-          </SG.Item>
-          {{#unless (eq state "focus")}}
-            <SG.Item>
-              <Hds::Form::Checkbox::Base disabled="disabled" aria-label="Disabled checkbox" />
-            </SG.Item>
-            <SG.Item>
-              <Hds::Form::Checkbox::Base
-                checked="checked"
-                disabled="disabled"
-                aria-label="Checked, disabled checkbox"
-              />
-            </SG.Item>
-            <SG.Item>
-              <Hds::Form::Checkbox::Base
-                indeterminate={{true}}
-                disabled="disabled"
-                aria-label="Indeterminate, disabled checkbox"
-              />
-            </SG.Item>
-          {{/unless}}
-        </Shw::Grid>
-      </SF.Item>
-    {{/each}}
-  </Shw::Flex>
-
-  <Shw::Text::H3>Custom layout</Shw::Text::H3>
-
-  <Shw::Flex as |SF|>
-    <SF.Item>
-      <div class="shw-component-form-checkbox-base-custom-layout">
-        <label for="my-custom-checkbox-example">Custom label</label>
-        <Hds::Form::Checkbox::Base id="my-custom-checkbox-example" />
-        <span>Some extra content</span>
-      </div>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>"Field" control</Shw::Text::H2>
-
-  <Shw::Text::H3>Content</Shw::Text::H3>
-
-  <Shw::Grid @columns={{3}} as |SG|>
-    <SG.Item @label="Only label">
-      <Hds::Form::Checkbox::Field as |F|>
-        <F.Label>This is the label text</F.Label>
-      </Hds::Form::Checkbox::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text">
-      <Hds::Form::Checkbox::Field checked="checked" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-      </Hds::Form::Checkbox::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text with link">
-      <Hds::Form::Checkbox::Field checked="checked" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text
-          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
-      </Hds::Form::Checkbox::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Error">
-      <Hds::Form::Checkbox::Field as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.Error>This is the error</F.Error>
-      </Hds::Form::Checkbox::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text + Error">
-      <Hds::Form::Checkbox::Field checked="checked" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Error>This is the error</F.Error>
-      </Hds::Form::Checkbox::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text + Errors">
-      <Hds::Form::Checkbox::Field checked="checked" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Error as |E|>
-          <E.Message>First error message</E.Message>
-          <E.Message>Second error message</E.Message>
-        </F.Error>
-      </Hds::Form::Checkbox::Field>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H3>States</Shw::Text::H3>
-
-  <Shw::Grid @columns={{3}} as |SG|>
-    <SG.Item @label="Disabled">
-      <Hds::Form::Checkbox::Field disabled as |F|>
-        <F.Label>This is the label text</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-      </Hds::Form::Checkbox::Field>
-    </SG.Item>
-    <SG.Item @label="Disabled / Checked">
-      <Hds::Form::Checkbox::Field disabled checked="checked" as |F|>
-        <F.Label>This is the label text</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-      </Hds::Form::Checkbox::Field>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>"Group" of controls</Shw::Text::H2>
-
-  <Shw::Text::H3>Vertical layout</Shw::Text::H3>
-
-  <Shw::Grid @columns={{3}} as |SG|>
+  <ShwGrid @columns={{3}} as |SG|>
     <SG.Item @label="With legend">
-      <Hds::Form::Checkbox::Group @name="control-vertical-01" as |G|>
+      <HdsFormCheckboxGroup @name="control-vertical-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -164,10 +31,10 @@
         <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SG.Item>
     <SG.Item @label="With legend / With helper text">
-      <Hds::Form::Checkbox::Group @name="control-vertical-02" as |G|>
+      <HdsFormCheckboxGroup @name="control-vertical-02" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -181,10 +48,10 @@
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SG.Item>
     <SG.Item @label="Without legend">
-      <Hds::Form::Checkbox::Group @name="control-vertical-03" as |G|>
+      <HdsFormCheckboxGroup @name="control-vertical-03" as |G|>
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.CheckboxField>
@@ -194,10 +61,10 @@
         <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SG.Item>
     <SG.Item @label="Without legend / With helper text">
-      <Hds::Form::Checkbox::Group @name="control-vertical-04" as |G|>
+      <HdsFormCheckboxGroup @name="control-vertical-04" as |G|>
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
@@ -210,10 +77,10 @@
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SG.Item>
     <SG.Item @label="With helper text at group level">
-      <Hds::Form::Checkbox::Group @name="control-vertical-05" as |G|>
+      <HdsFormCheckboxGroup @name="control-vertical-05" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
         <G.CheckboxField as |F|>
@@ -225,10 +92,10 @@
         <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SG.Item>
     <SG.Item @label="With error at group level">
-      <Hds::Form::Checkbox::Group @name="control-vertical-06" as |G|>
+      <HdsFormCheckboxGroup @name="control-vertical-06" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -240,17 +107,21 @@
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
         <G.Error>Error for the entire group</G.Error>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SG.Item>
-  </Shw::Grid>
+  </ShwGrid>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Horizontal layout</Shw::Text::H3>
+  <ShwTextH3>Horizontal layout</ShwTextH3>
 
-  <Shw::Flex @direction="column" as |SF|>
+  <ShwFlex @direction="column" as |SF|>
     <SF.Item @label="With legend">
-      <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-01" as |G|>
+      <HdsFormCheckboxGroup
+        @layout="horizontal"
+        @name="control-horizontal-01"
+        as |G|
+      >
         <G.Legend>Legend of the group</G.Legend>
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -261,10 +132,14 @@
         <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SF.Item>
     <SF.Item @label="Without legend">
-      <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-02" as |G|>
+      <HdsFormCheckboxGroup
+        @layout="horizontal"
+        @name="control-horizontal-02"
+        as |G|
+      >
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.CheckboxField>
@@ -274,10 +149,14 @@
         <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SF.Item>
     <SF.Item @label="With helper text at group level">
-      <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-03" as |G|>
+      <HdsFormCheckboxGroup
+        @layout="horizontal"
+        @name="control-horizontal-03"
+        as |G|
+      >
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
         <G.CheckboxField as |F|>
@@ -289,10 +168,14 @@
         <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SF.Item>
     <SF.Item @label="With error at group level">
-      <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-04" as |G|>
+      <HdsFormCheckboxGroup
+        @layout="horizontal"
+        @name="control-horizontal-04"
+        as |G|
+      >
         <G.Legend>Legend of the group</G.Legend>
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -304,10 +187,14 @@
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
         <G.Error>Error for the entire group</G.Error>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SF.Item>
     <SF.Item @label="With controls on multiple lines" {{style width="450px"}}>
-      <Hds::Form::Checkbox::Group @layout="horizontal" @name="control-horizontal-05" as |G|>
+      <HdsFormCheckboxGroup
+        @layout="horizontal"
+        @name="control-horizontal-05"
+        as |G|
+      >
         <G.Legend>Lorem ipsum dolor</G.Legend>
         <G.CheckboxField as |F|>
           <F.Label>Sit amet</F.Label>
@@ -327,17 +214,21 @@
         <G.CheckboxField checked="checked" as |F|>
           <F.Label>At magna</F.Label>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SF.Item>
-  </Shw::Flex>
+  </ShwFlex>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Required and optional</Shw::Text::H3>
+  <ShwTextH3>Required and optional</ShwTextH3>
 
-  <Shw::Flex as |SF|>
+  <ShwFlex as |SF|>
     <SF.Item @label="With legend + Required">
-      <Hds::Form::Checkbox::Group @isRequired={{true}} @name="control-required" as |G|>
+      <HdsFormCheckboxGroup
+        @isRequired={{true}}
+        @name="control-required"
+        as |G|
+      >
         <G.Legend>Legend of the group</G.Legend>
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -348,10 +239,14 @@
         <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SF.Item>
     <SF.Item @label="With legend + Optional">
-      <Hds::Form::Checkbox::Group @isOptional={{true}} @name="control-optional" as |G|>
+      <HdsFormCheckboxGroup
+        @isOptional={{true}}
+        @name="control-optional"
+        as |G|
+      >
         <G.Legend>Legend of the group</G.Legend>
         <G.CheckboxField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -362,17 +257,17 @@
         <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SF.Item>
-  </Shw::Flex>
+  </ShwFlex>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>States</Shw::Text::H3>
+  <ShwTextH3>States</ShwTextH3>
 
-  <Shw::Flex as |SF|>
+  <ShwFlex as |SF|>
     <SF.Item @label="Disabled">
-      <Hds::Form::Checkbox::Group @name="control-disabled" as |G|>
+      <HdsFormCheckboxGroup @name="control-disabled" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
         <G.CheckboxField disabled={{true}} as |F|>
@@ -387,8 +282,9 @@
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.CheckboxField>
-      </Hds::Form::Checkbox::Group>
+      </HdsFormCheckboxGroup>
     </SF.Item>
-  </Shw::Flex>
+  </ShwFlex>
+</template>;
 
-</section>
+export default SubSectionFieldGroup;
