@@ -1,0 +1,12 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// this file comes from packages/tokens/dist/products/css/tokens.css
+@use "tokens";
+@use "../mixins/screen-reader-only" as *;
+
+.sr-only {
+  @include screen-reader-only();
+}
