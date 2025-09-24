@@ -472,10 +472,9 @@
             @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
           />
           <Hds::Dropdown::ListItem::Separator />
-          <Hds::Dropdown::ListItem::Interactive
-            @route="index"
-            @text="A longer item that could span multiple lines if the characters surpass a certain length"
-          />
+          <Hds::Dropdown::ListItem::Interactive @route="index">
+            A longer item that could span multiple lines if the characters surpass a certain length
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
@@ -490,10 +489,9 @@
             @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
           />
           <Hds::Dropdown::ListItem::Separator />
-          <Hds::Dropdown::ListItem::Interactive
-            @route="index"
-            @text="A longer item that could span multiple lines if the characters surpass a certain length"
-          />
+          <Hds::Dropdown::ListItem::Interactive @route="index">
+            A longer item that could span multiple lines if the characters surpass a certain length
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
       {{! template-lint-enable no-inline-styles }}
