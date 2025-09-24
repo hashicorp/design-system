@@ -31,3 +31,45 @@
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
+
+### Contextual components
+
+#### [F].Header
+
+The `DialogPrimitive::Header` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Header`](/utilities/dialog-primitive?tab=code#dialogprimitiveheader) component.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [F].Description
+
+The `DialogPrimitive::Description` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Description`](/utilities/dialog-primitive?tab=code#dialogprimitivedescription) component.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [F].Body
+
+The `DialogPrimitive::Body` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Body`](/utilities/dialog-primitive?tab=code#dialogprimitivebody) component.
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [F].Footer
+
+The `DialogPrimitive::Footer` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Footer`](/utilities/dialog-primitive?tab=code#dialogprimitivefooter) component.
+  </C.Property>
+</Doc::ComponentApi>
