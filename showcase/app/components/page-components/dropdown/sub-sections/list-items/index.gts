@@ -5,7 +5,6 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 
 import SubSectionListItemsCheckbox from 'showcase/components/page-components/dropdown/sub-sections/list-items/checkbox';
@@ -26,8 +25,6 @@ const SubSectionListItems: TemplateOnlyComponent = <template>
   <SubSectionListItemsCheckmark />
   <SubSectionListItemsCheckbox />
   <SubSectionListItemsRadio />
-
-  <ShwDivider />
 </template>;
 
 export default SubSectionListItems;
