@@ -5,7 +5,6 @@ caption: An internal utility component that provides show/hide functionality.
 related:
   - components/accordion
   - components/reveal
-  - utilities/menu-primitive
 previewImage: assets/illustrations/utilities/disclosure-primitive.jpg
 navigation:
   keywords:
