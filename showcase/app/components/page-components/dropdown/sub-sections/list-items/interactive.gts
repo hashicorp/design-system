@@ -9,12 +9,10 @@ import { eq } from 'ember-truth-helpers';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
-import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 import {
-  HdsDropdownListItemGeneric,
   HdsDropdownListItemInteractive,
   HdsDropdownListItemSeparator,
 } from '@hashicorp/design-system-components/components';
