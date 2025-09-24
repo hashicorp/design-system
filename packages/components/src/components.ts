@@ -390,8 +390,5 @@ export { default as HdsDismissButton } from './components/hds/dismiss-button/ind
 // Interactive
 export { default as HdsInteractive } from './components/hds/interactive/index.ts';
 
-// MenuPrimitive
-export { default as HdsMenuPrimitive } from './components/hds/menu-primitive/index.ts';
-
 // PopoverPrimitive
 export { default as HdsPopoverPrimitive } from './components/hds/popover-primitive/index.ts';
