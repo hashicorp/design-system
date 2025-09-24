@@ -139,8 +139,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0(@babel/core@7.28.0)
       ember-a11y-refocus:
-        specifier: ^4.1.4
-        version: 4.1.4
+        specifier: ^5.0.0
+        version: 5.1.0(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
       ember-cli-sass:
         specifier: ^11.0.1
         version: 11.0.1
@@ -845,8 +845,8 @@ importers:
         specifier: ^16.4.7
         version: 16.6.1
       ember-a11y-refocus:
-        specifier: ^4.1.4
-        version: 4.1.4
+        specifier: ^5.0.0
+        version: 5.1.0(@babel/core@7.28.0)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
       ember-a11y-testing:
         specifier: ^7.1.2
         version: 7.1.2(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.1)(webpack@5.101.0)
@@ -2658,6 +2658,10 @@ packages:
   '@glimmer/component@1.1.2':
     resolution: {integrity: sha512-XyAsEEa4kWOPy+gIdMjJ8XlzA3qrGH55ZDv6nA16ibalCR17k74BI0CztxuRds+Rm6CtbUVgheCVlcCULuqD7A==}
     engines: {node: 6.* || 8.* || >= 10.*}
+
+  '@glimmer/component@2.0.0':
+    resolution: {integrity: sha512-eATSzBOUm0MZ9+YfJx7Y5p3gbwnaeMzLSSsCDn1ihDtUOIm5YYEV0ee0G7tXt/uKxowt8tXYn/EMbI9OlRF0CA==}
+    engines: {node: '>= 18'}
 
   '@glimmer/destroyable@0.94.8':
     resolution: {integrity: sha512-IWNz34Q5IYnh20M/3xVv9jIdCATQyaO+8sdUSyUqiz1bAblW5vTXUNXn3uFzGF+CnP6ZSgPxHN/c1sNMAh+lAA==}
@@ -5995,9 +5999,10 @@ packages:
   electron-to-chromium@1.5.80:
     resolution: {integrity: sha512-LTrKpW0AqIuHwmlVNV+cjFYTnXtM9K37OGhpe0ZI10ScPSxqVSryZHIY3WnCS5NSYbBODRTZyhRMS2h5FAEqAw==}
 
-  ember-a11y-refocus@4.1.4:
-    resolution: {integrity: sha512-51tGk30bskObL1LsGZRxzqIxgZhIE8ZvvDYcT1OWphxZlq00+Arz57aMLS4Vz4qhSE40BfeN2qFYP/gXtp9qDA==}
-    engines: {node: 16.* || >= 18.*}
+  ember-a11y-refocus@5.1.0:
+    resolution: {integrity: sha512-Z6wl3bAMvDuFxQQnppbsT4RY5tUAlKRQo1PVqsFYRYE8gyRWDlLqR2Stspp4rdkXaaFn2JpNA3zzbIy1aTG5GA==}
+    peerDependencies:
+      ember-source: '>= 4.12.0'
 
   ember-a11y-testing@7.1.2:
     resolution: {integrity: sha512-V30dZgfj3itq+4/H78livBN1X4wvYeCJnsPTnQFqZfgrQyEfCYLL6d96W0T4UoahQao+PFzJcR2P/CpMU9j5nw==}
@@ -13946,6 +13951,13 @@ snapshots:
       - '@babel/core'
       - supports-color
 
+  '@glimmer/component@2.0.0':
+    dependencies:
+      '@embroider/addon-shim': 1.10.0
+      '@glimmer/env': 0.1.7
+    transitivePeerDependencies:
+      - supports-color
+
   '@glimmer/destroyable@0.94.8':
     dependencies:
       '@glimmer/global-context': 0.93.4
@@ -14200,7 +14212,7 @@ snapshots:
       clipboard-polyfill: 4.1.1
       codemirror-lang-hcl: 0.0.0-beta.2
       decorator-transforms: 2.3.0(@babel/core@7.28.0)
-      ember-a11y-refocus: 4.1.4
+      ember-a11y-refocus: 5.1.0(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
       ember-cli-sass: 11.0.1
       ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
@@ -14258,7 +14270,7 @@ snapshots:
       clipboard-polyfill: 4.1.1
       codemirror-lang-hcl: 0.0.0-beta.2
       decorator-transforms: 2.3.0(@babel/core@7.28.0)
-      ember-a11y-refocus: 4.1.4
+      ember-a11y-refocus: 5.1.0(@babel/core@7.28.0)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
       ember-cli-sass: 11.0.1
       ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
@@ -18384,11 +18396,26 @@ snapshots:
 
   electron-to-chromium@1.5.80: {}
 
-  ember-a11y-refocus@4.1.4:
+  ember-a11y-refocus@5.1.0(@babel/core@7.28.0)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5)):
     dependencies:
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.3.0
+      '@embroider/addon-shim': 1.10.0
+      '@glimmer/component': 2.0.0
+      '@glimmer/tracking': 1.1.2
+      decorator-transforms: 2.3.0(@babel/core@7.28.0)
+      ember-source: 6.4.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5)
     transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+
+  ember-a11y-refocus@5.1.0(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5)):
+    dependencies:
+      '@embroider/addon-shim': 1.10.0
+      '@glimmer/component': 2.0.0
+      '@glimmer/tracking': 1.1.2
+      decorator-transforms: 2.3.0(@babel/core@7.28.0)
+      ember-source: 6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5)
+    transitivePeerDependencies:
+      - '@babel/core'
       - supports-color
 
   ember-a11y-testing@7.1.2(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.5.2))(@glint/template@1.5.2)(qunit@2.24.1)(webpack@5.101.0):
