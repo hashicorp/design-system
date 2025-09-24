@@ -11,7 +11,6 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
-import USERS from 'showcase/mocks/user-data';
 import type { User } from 'showcase/mocks/user-data';
 
 import {
@@ -26,22 +25,34 @@ export default class SubSectionFunctionalExamples extends Component {
   // INLINE FILTER EXAMPLE
   onChangeInlineFilter = (
     setModel: (newModel: User[]) => void,
+    model: User[],
     event: Event,
   ) => {
     const value = (event.target as HTMLSelectElement).value;
 
     if (value === 'all') {
-      setModel(USERS.slice(0, 4));
+      const newModel = model.map((user) => ({
+        ...user,
+        isHidden: false,
+      }));
+
+      setModel(newModel);
     } else {
       const remainder = value === 'even' ? 0 : 1;
-      setModel(USERS.slice(0, 4).filter((item) => item.id % 2 === remainder));
+
+      const newModel = model.map((user) => ({
+        ...user,
+        isHidden: user.id % 2 !== remainder,
+      }));
+
+      setModel(newModel);
     }
   };
 
   // DELETE ROWS EXAMPLE
   deleteUsers = (setModel: (newModel: User[]) => void, model: User[]) => {
-    const newData = model.filter((user) => !user.isSelected);
-    setModel([...newData]);
+    const newModel = model.filter((user) => !user.isSelected);
+    setModel(newModel);
   };
 
   // ANIMATE ROWS EXAMPLE
@@ -51,7 +62,7 @@ export default class SubSectionFunctionalExamples extends Component {
       isAnimated: user.isSelected,
     }));
 
-    setModel([...newModel]);
+    setModel(newModel);
 
     // eslint-disable-next-line ember/no-runloop
     later(() => {
@@ -85,7 +96,7 @@ export default class SubSectionFunctionalExamples extends Component {
         <label for="inline-filter-example">Filter:</label>
         <HdsFormSelectBase
           id="inline-filter-example"
-          {{on "change" (fn this.onChangeInlineFilter T.setVisibleModel)}}
+          {{on "change" (fn this.onChangeInlineFilter T.setModel T.model)}}
           as |C|
         >
           <C.Options>
@@ -127,7 +138,7 @@ export default class SubSectionFunctionalExamples extends Component {
         <HdsButton
           @text="Animate users"
           @icon="play"
-          {{on "click" (fn this.animateUsers T.setVisibleModel T.model)}}
+          {{on "click" (fn this.animateUsers T.setModel T.model)}}
         />
       </:topbarAction>
     </CodeFragmentWithDebugSelect>

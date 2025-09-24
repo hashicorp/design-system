@@ -10,6 +10,7 @@ export interface User {
   role: 'Owner' | 'Admin' | 'Contributor';
   isSelected?: boolean;
   isAnimated?: boolean;
+  isHidden?: boolean;
 }
 
 const users: User[] = [

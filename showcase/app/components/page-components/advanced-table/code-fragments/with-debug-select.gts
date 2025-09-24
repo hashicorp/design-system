@@ -61,7 +61,6 @@ export interface CodeFragmentWithDebugSelectSignature {
       {
         model: User[];
         setModel: (newModel: User[]) => void;
-        setVisibleModel: (newModel: User[]) => void;
       },
     ];
   };
@@ -82,26 +81,20 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
 
   // for paginated examples, need a getter to return the visible rows only
   get paginatedModel() {
+    const visibleRows = this.model.filter((user) => !user.isHidden);
+
     if (!this.args.hasPagination) {
-      return this.model;
+      return visibleRows;
     }
 
     const start = (this.currentPage - 1) * this.currentPageSize;
     const end = this.currentPage * this.currentPageSize;
-    return this.model.slice(start, end);
+    return visibleRows.slice(start, end);
   }
-
-  // for not paginated examples, need a diff tracked property to hold the visible rows only that is not readonly
-  @deepTracked visibleModel = this.model;
 
   // there are demos where we want to be able to update the full model, not just the visible rows
   setModel = (newModel: User[]) => {
     this.model = [...newModel];
-  };
-
-  // in other demos we want to be able to update just the visible rows without affecting the full model
-  setVisibleModel = (newModel: User[]) => {
-    this.visibleModel = [...newModel];
   };
 
   toggleScope = () => {
@@ -168,11 +161,7 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
       {{/if}}
       <div class="shw-component-advanced-table-demo-topbar__action">
         {{yield
-          (hash
-            model=this.model
-            setModel=this.setModel
-            setVisibleModel=this.setVisibleModel
-          )
+          (hash model=this.model setModel=this.setModel)
           to="topbarAction"
         }}
       </div>
@@ -188,7 +177,7 @@ export default class CodeFragmentWithDebugSelect extends Component<CodeFragmentW
         @isSelectable={{true}}
         @onSelectionChange={{this.onSelectionChange}}
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @model={{if @hasPagination this.paginatedModel this.visibleModel}}
+        @model={{this.paginatedModel}}
         @columns={{array
           (hash key="id" label="ID")
           (hash key="name" label="Name")
