@@ -167,18 +167,6 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   });
 
   @action
-  willDestroyNode(): void {
-    if (this._element) {
-      this._element.removeEventListener(
-        'close',
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        this.registerOnCloseCallback,
-        true
-      );
-    }
-  }
-
-  @action
   open(): void {
     // Make flyout dialog visible using the native `showModal` method
     this._element.showModal();
