@@ -13,6 +13,7 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('page-foundations', { path: 'foundations' }, function () {
+    this.route('color');
     this.route('typography');
     this.route('elevation');
     this.route('focus-ring');
