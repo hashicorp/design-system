@@ -9,6 +9,7 @@ import copy from 'rollup-plugin-copy';
 import scss from 'rollup-plugin-scss';
 import process from 'process';
 import path from 'node:path';
+import * as sass from 'sass';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -60,6 +61,31 @@ const plugins = [
   scss({
     fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
   }),
+
+  // Custom plugin to compile the themed SCSS with different include paths
+  {
+    name: 'compile-themed-scss',
+    generateBundle() {
+      // Compile the themed SCSS file
+      try {
+        const result = sass.compile('src/styles/@hashicorp/design-system-components-with-css-selectors.scss', {
+          // equivalent to includePaths in rollup-plugin-scss
+          loadPaths: [
+            'node_modules/@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-css-selectors',
+          ],
+        });
+        
+        // Emit the compiled CSS
+        this.emitFile({
+          type: 'asset',
+          fileName: 'styles/@hashicorp/design-system-components-with-css-selectors.css',
+          source: result.css,
+        });
+      } catch (error) {
+        this.error(`Failed to compile themed SCSS: ${error.message}`);
+      }
+    },
+  },
 
   // Ensure that standalone .hbs files are properly integrated as Javascript.
   addon.hbs(),
