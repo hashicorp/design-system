@@ -30,10 +30,14 @@ export type Theme = (typeof THEMES)[number];
 const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComparisonGridSignature> =
   <template>
     {{#if @label}}
-      <ShwLabel>{{@label}}</ShwLabel>
+      <ShwLabel
+        class="shw-carbonization-comparison-grid__top-label"
+      >{{@label}}</ShwLabel>
     {{/if}}
     {{#if (has-block "label")}}
-      <ShwLabel>{{yield to="label"}}</ShwLabel>
+      <ShwLabel class="shw-carbonization-comparison-grid__top-label">{{yield
+          to="label"
+        }}</ShwLabel>
     {{/if}}
     <div class="shw-carbonization-comparison-grid" ...attributes>
       {{#if (has-block "themed")}}
