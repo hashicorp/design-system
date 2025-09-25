@@ -65,7 +65,7 @@
   @include screen-reader-only();
 }
 
-// NOTE: this is currently required because we cannot import the CSS from ember-a11y-refocus directly without requiring consumers to add the dependency as well. 
+// NOTE: this is currently required because we cannot import the CSS from ember-a11y-refocus directly without requiring consumers to add the dependency as well.
 
 // The styles are taken directly from the ember-a11y-refocus package here:
 #ember-a11y-refocus-nav-message {
@@ -87,6 +87,7 @@
   color: #fff;
   font-size: 0.75rem;
   text-decoration: none;
+  // stylelint-disable-next-line color-function-notation
   background-color: rgb(0 0 0 / 75%);
   transform: translateY(-100%);
   transition: transform 0.3s ease-in-out;
