@@ -180,6 +180,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
       // check if the click is outside the modal and the modal is open
       if (!this._element.contains(event.target as Node) && this._isOpen) {
         if (!this.isDismissDisabled) {
+          //  here we use `void` because `onDismiss` is an async function, but in reality we don't need to handle the result or wait for its completion
           void this.onDismiss();
         }
       }

@@ -140,6 +140,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     this._clickHandler = (event: MouseEvent) => {
       // check if the click is outside the flyout and the flyout is open
       if (!this._element.contains(event.target as Node) && this._isOpen) {
+        //  here we use `void` because `onDismiss` is an async function, but in reality we don't need to handle the result or wait for its completion
         void this.onDismiss();
       }
     };
