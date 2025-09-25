@@ -6,8 +6,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import FileInputIndex from 'showcase/components/page-components/form/file-input';
 
-const PageComponentsFileInput: TemplateOnlyComponent = <template>
+const PageComponentsFormFileInput: TemplateOnlyComponent = <template>
   <FileInputIndex />
 </template>;
 
-export default PageComponentsFileInput;
+export default PageComponentsFormFileInput;
