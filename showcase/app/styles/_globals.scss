@@ -5,6 +5,8 @@
 
 @use "./typography" as *;
 
+@use '@carbon/type' as carbon-type;
+
 *,
 *::before,
 *::after {
@@ -172,6 +174,10 @@ body {
         margin-top: 10px;
       }
     }
+  }
+
+  .shw-landing-lists__vertical-divider {
+    border-left: 2px solid #ccc;
   }
 }
 
