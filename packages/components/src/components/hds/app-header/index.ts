@@ -9,7 +9,7 @@ import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
 import type Owner from '@ember/owner';
-import type {NavigationNarratorSignature} from 'ember-a11y-refocus/components/navigation-narrator';
+import type { NavigationNarratorSignature } from 'ember-a11y-refocus/components/navigation-narrator';
 
 import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
 
