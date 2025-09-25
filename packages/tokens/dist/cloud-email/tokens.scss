@@ -204,9 +204,11 @@ $token-typography-font-weight-bold: 700;
 $token-typography-display-500-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-500-font-size: 30px; // 30px/1.875rem
 $token-typography-display-500-line-height: 1.2666; // 38px
+$token-typography-display-500-letter-spacing: -0.5px; // this is `tracking`
 $token-typography-display-400-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-400-font-size: 24px; // 24px/1.5rem
 $token-typography-display-400-line-height: 1.3333; // 32px
+$token-typography-display-400-letter-spacing: 0px; // this is `tracking`
 $token-typography-display-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-300-font-size: 18px; // 18px/1.125rem
 $token-typography-display-300-line-height: 1.3333; // 24px
@@ -218,6 +220,7 @@ $token-typography-display-200-letter-spacing: -0.5px; // this is `tracking`
 $token-typography-display-100-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-100-font-size: 13px; // 13px/0.8125rem
 $token-typography-display-100-line-height: 1.3846; // 18px
+$token-typography-display-100-letter-spacing: 0px; // this is `tracking`
 $token-typography-body-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-body-300-font-size: 16px; // 16px/1rem
 $token-typography-body-300-line-height: 1.5; // 24px
@@ -227,12 +230,12 @@ $token-typography-body-200-line-height: 1.4286; // 20px
 $token-typography-body-100-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-body-100-font-size: 13px; // 13px/0.8125rem
 $token-typography-body-100-line-height: 1.3846; // 18px
-$token-typography-code-100-font-family: ui-monospace, Menlo, Consolas, monospace;
-$token-typography-code-100-font-size: 13px; // 13px/0.8125rem
-$token-typography-code-100-line-height: 1.23; // 16px
-$token-typography-code-200-font-family: ui-monospace, Menlo, Consolas, monospace;
-$token-typography-code-200-font-size: 14px; // 14px/0.875rem
-$token-typography-code-200-line-height: 1.125; // 18px
 $token-typography-code-300-font-family: ui-monospace, Menlo, Consolas, monospace;
 $token-typography-code-300-font-size: 16px; // 16px/1rem
 $token-typography-code-300-line-height: 1.25; // 20px
+$token-typography-code-200-font-family: ui-monospace, Menlo, Consolas, monospace;
+$token-typography-code-200-font-size: 14px; // 14px/0.875rem
+$token-typography-code-200-line-height: 1.125; // 18px
+$token-typography-code-100-font-family: ui-monospace, Menlo, Consolas, monospace;
+$token-typography-code-100-font-size: 13px; // 13px/0.8125rem
+$token-typography-code-100-line-height: 1.23; // 16px
