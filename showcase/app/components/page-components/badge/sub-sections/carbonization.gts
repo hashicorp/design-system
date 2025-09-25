@@ -25,37 +25,37 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
   <ShwTextH2>Content</ShwTextH2>
 
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <HdsBadge @text="Only text" />
-    </:themed>
+    </:theming>
     <:reference>
       <cds-tag>Lorem ipsum</cds-tag>
     </:reference>
   </ShwCarbonizationComparisonGrid>
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <HdsBadge @icon="activity" @text="Text + icon" />
-    </:themed>
+    </:theming>
     <:reference>
       <cds-tag>Lorem ipsum <HdsIcon @name="activity" slot="icon" /></cds-tag>
     </:reference>
   </ShwCarbonizationComparisonGrid>
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <HdsBadge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
-    </:themed>
+    </:theming>
     <:reference>
       {{! <cds-tag><cds-icon shape="check"></cds-icon></cds-tag> }}
       <cds-tag><HdsIcon @name="activity" slot="icon" /></cds-tag>
     </:reference>
   </ShwCarbonizationComparisonGrid>
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <HdsBadge
         @icon="activity"
         @text="This is a very long text that should go on two lines"
       />
-    </:themed>
+    </:theming>
     <:reference>
       <cds-tag><HdsIcon @name="activity" slot="icon" />
         This is a very long text that should go on multiple lines</cds-tag>
@@ -65,7 +65,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
   <ShwTextH2>Size</ShwTextH2>
 
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <ShwFlex @direction="column" as |SF|>
         {{#each SIZES as |size|}}
           <SF.Item>
@@ -79,13 +79,13 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
           </SF.Item>
         {{/each}}
       </ShwFlex>
-    </:themed>
+    </:theming>
   </ShwCarbonizationComparisonGrid>
 
   <ShwTextH2>Type</ShwTextH2>
 
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <ShwFlex @direction="column" as |SF|>
         {{#each TYPES as |type|}}
           <SF.Item>
@@ -99,7 +99,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
           </SF.Item>
         {{/each}}
       </ShwFlex>
-    </:themed>
+    </:theming>
   </ShwCarbonizationComparisonGrid>
 
   <ShwTextH2>Color</ShwTextH2>
@@ -108,7 +108,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
     <ShwCarbonizationComparisonGrid
       @hideThemeLabels={{(if (notEq index 0) true)}}
     >
-      <:themed>
+      <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
             <SF.Item class="shw-component-badge-sample-color--{{color}}">
@@ -128,7 +128,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
             </SF.Item>
           {{/each}}
         </ShwFlex>
-      </:themed>
+      </:theming>
     </ShwCarbonizationComparisonGrid>
   {{/each}}
 </template>;
