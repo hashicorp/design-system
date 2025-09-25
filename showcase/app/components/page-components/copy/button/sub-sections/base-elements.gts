@@ -16,7 +16,10 @@ import ShwGrid from 'showcase/components/shw/grid';
 import ShwOutliner from 'showcase/components/shw/outliner';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 
-import { HdsCopyButton } from '@hashicorp/design-system-components/components';
+import {
+  HdsCopyButton,
+  HdsIcon,
+} from '@hashicorp/design-system-components/components';
 import {
   SIZES,
   SUCCESS_ICON,
@@ -36,10 +39,14 @@ export default class SubSectionBaseElements extends Component {
 
       if (icon) {
         if (status === 'success') {
-          // eg. href="#flight-clipboard-checked-16"
-          icon.setAttribute('href', `#flight-${SUCCESS_ICON}-16`);
+          // Note: Timeout is needed to allow the copy button component to load the default icon before it's replaced with the status icon
+          window.setTimeout(() => {
+            icon.setAttribute('href', `#hds-icon-flight-${SUCCESS_ICON}-16`);
+          }, 200);
         } else if (status === 'error') {
-          icon.setAttribute('href', `#flight-${ERROR_ICON}-16`);
+          window.setTimeout(() => {
+            icon.setAttribute('href', `#hds-icon-flight-${ERROR_ICON}-16`);
+          }, 200);
         }
       }
     });
@@ -92,6 +99,9 @@ export default class SubSectionBaseElements extends Component {
     <ShwTextH2>States</ShwTextH2>
 
     <div {{this.replaceCopyStatus}}>
+      {{! Note: HdsIcons are needed to preload the SVGs for the copy button statuses }}
+      <HdsIcon @name="clipboard-checked" {{style display="none"}} />
+      <HdsIcon @name="clipboard-x" {{style display="none"}} />
       <ShwGrid @columns={{6}} as |SG|>
         {{#each SIZES as |size|}}
           {{#each STATES as |state|}}
