@@ -3,9 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-@use "@hashicorp/design-system-components";
-@use "@hashicorp/design-system-power-select-overrides";
-
 // global declarations
 
 @use "./showcase-theming" as theming;
@@ -24,9 +21,9 @@
 @use "./showcase-components/label";
 @use "./showcase-components/outliner";
 @use "./showcase-components/placeholder";
+@use "./showcase-components/theme-switcher";
 @use "./mock-components/app";
 @use "./mock-components/demo/breakpoints";
-
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENT PAGES IMPORTS
@@ -82,6 +79,21 @@
 @use "./showcase-pages/tabs" as showcase-tabs;
 @use "./showcase-pages/tag" as showcase-tag;
 @use "./showcase-pages/text" as showcase-text;
+@use "./showcase-pages/theming" as showcase-theming;
 @use "./showcase-pages/tooltip" as showcase-tooltip;
 @use "./showcase-pages/typography" as showcase-typography;
 // END COMPONENT PAGES IMPORTS
+
+// -------------------------------------------------------------------------------------
+
+// carbonization
+
+@use "./showcase-components/carbonization/comparison-grid";
+@use "./showcase-components/carbonization/style-preview-typography";
+@use "./showcase-components/carbonization/token-preview-color";
+@use "./showcase-pages/carbonization/focus-ring" as carbonization-focus-ring;
+@use "./showcase-pages/carbonization/form/radio-card" as carbonization-form-radio-card;
+@use "./showcase-pages/carbonization/modal" as carbonization-modal;
+@use "./showcase-pages/carbonization/segmented-group" as carbonization-segmented-group;
+@use "./showcase-pages/carbonization/typography" as carbonization-typography;
+

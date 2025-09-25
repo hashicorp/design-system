@@ -1,0 +1,23 @@
+.shw-carbonization-token-preview-color-wrapper {
+  position: relative;
+}
+
+// this is a `ShwLabel` element
+.shw-carbonization-token-preview-color-value {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  margin: 0;
+  padding: 2px 3px;
+  color: var(--content-foreground-color);
+  font-size: 0.7rem;
+  background-color: var(--content-background-color);
+  border-radius: 3px;
+}
+
+.shw-carbonization-token-preview-color {
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 25%);
+}
