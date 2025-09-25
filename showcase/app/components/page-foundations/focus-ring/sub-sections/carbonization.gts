@@ -12,7 +12,7 @@ import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonizatio
 
 const SubSectionCarbonization: TemplateOnlyComponent = <template>
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <ShwFlex @direction="column" as |SF|>
         <SF.Item>
           <div
@@ -54,7 +54,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
           </div>
         </SF.Item>
       </ShwFlex>
-    </:themed>
+    </:theming>
   </ShwCarbonizationComparisonGrid>
 </template>;
 

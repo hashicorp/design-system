@@ -24,7 +24,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
   <ShwTextH2>Content</ShwTextH2>
 
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <ShwFlex @direction="column" as |SF|>
         <SF.Item>
           <HdsButton @text="Lorem ipsum" />
@@ -52,13 +52,13 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
           <CodeFragmentWithLoadingState />
         </SF.Item>
       </ShwFlex>
-    </:themed>
+    </:theming>
   </ShwCarbonizationComparisonGrid>
 
   <ShwTextH2>Sizes</ShwTextH2>
 
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <ShwFlex @direction="column" as |SF|>
         {{#each SIZES as |size|}}
           <SF.Item>
@@ -71,13 +71,13 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
           </SF.Item>
         {{/each}}
       </ShwFlex>
-    </:themed>
+    </:theming>
   </ShwCarbonizationComparisonGrid>
 
   <ShwTextH2>Colors</ShwTextH2>
 
   <ShwCarbonizationComparisonGrid>
-    <:themed>
+    <:theming>
       <ShwFlex @direction="column" as |SF|>
         {{#each COLORS as |color|}}
           <SF.Item>
@@ -85,7 +85,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
           </SF.Item>
         {{/each}}
       </ShwFlex>
-    </:themed>
+    </:theming>
   </ShwCarbonizationComparisonGrid>
 
   <ShwTextH2>States</ShwTextH2>
@@ -95,7 +95,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
     {{#each STATES as |state|}}
       <ShwTextBody>{{state}}</ShwTextBody>
       <ShwCarbonizationComparisonGrid>
-        <:themed>
+        <:theming>
           <ShwFlex @direction="column" @gap="0.75rem" as |SF|>
             {{#each SIZES as |size|}}
               <SF.Item>
@@ -119,7 +119,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
               </SF.Item>
             {{/each}}
           </ShwFlex>
-        </:themed>
+        </:theming>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
   {{/each}}
