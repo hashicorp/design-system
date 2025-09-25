@@ -58,7 +58,7 @@
     "clipboard-polyfill": "^4.1.1",
     "codemirror-lang-hcl": "^0.0.0-beta.2",
     "decorator-transforms": "^2.3.0",
-    "ember-a11y-refocus": "^5.0.0",
+    "ember-a11y-refocus": "^5.1.0",
     "ember-cli-sass": "^11.0.1",
     "ember-concurrency": "^4.0.4",
     "ember-element-helper": "^0.8.6",
