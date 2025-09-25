@@ -4,10 +4,9 @@
 }}
 <div
   class={{this.classNames}}
-  role={{this._role}}
-  aria-live={{if this._role "polite"}}
+  role={{this.role}}
+  aria-live={{if this.role "polite"}}
   aria-labelledby={{this._ariaLabelledBy}}
-  {{did-insert this.didInsert}}
   ...attributes
 >
   {{#if this.icon}}
@@ -16,10 +15,10 @@
     </div>
   {{/if}}
 
-  <div class="hds-alert__content">
+  <div class="hds-alert__content" {{this._registerActions}}>
     <div class="hds-alert__text {{if (eq @type 'compact') 'hds-typography-body-100' 'hds-typography-body-200'}}">
-      {{yield (hash Title=(component "hds/alert/title"))}}
-      {{yield (hash Description=(component "hds/alert/description"))}}
+      {{yield (hash Title=(component "hds/alert/title" onInsert=this._registerTitle))}}
+      {{yield (hash Description=(component "hds/alert/description" onInsert=this._registerDescription))}}
     </div>
 
     <div class="hds-alert__actions">

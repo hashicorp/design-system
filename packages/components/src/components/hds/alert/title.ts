@@ -4,11 +4,15 @@
  */
 
 import Component from '@glimmer/component';
+import { modifier } from 'ember-modifier';
 import { HdsAlertTitleTagValues } from './types.ts';
+
 import type { HdsAlertTitleTags } from './types';
+
 export interface HdsAlertTitleSignature {
   Args: {
     tag?: HdsAlertTitleTags;
+    onInsert: (element: HdsAlertTitleSignature['Element']) => void;
   };
   Blocks: {
     default: [];
@@ -20,4 +24,10 @@ export default class HdsAlertTitle extends Component<HdsAlertTitleSignature> {
   get componentTag(): HdsAlertTitleTags {
     return this.args.tag ?? HdsAlertTitleTagValues.Div;
   }
+
+  private _registerElement = modifier(
+    (element: HdsAlertTitleSignature['Element']) => {
+      this.args.onInsert(element);
+    }
+  );
 }
