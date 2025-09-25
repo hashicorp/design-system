@@ -10,8 +10,7 @@ import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import { HdsAppFrame } from '@hashicorp/design-system-components/components';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export default class SubSectionXyz extends Component<{}> {
+export default class SubSectionSubSection3dVisualization extends Component {
   @tracked show3DVisualization: boolean = false;
 
   toggle3DVisualization = () => {

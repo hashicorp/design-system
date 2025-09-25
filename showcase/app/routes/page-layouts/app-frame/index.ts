@@ -5,8 +5,8 @@
 
 import Route from '@ember/routing/route';
 
-// import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
-// export type PageLayoutsAppFrameModel = ModelFrom<PageLayoutsAppFrameRoute>;
+export type PageLayoutsAppFrameModel = ModelFrom<PageLayoutsAppFrameRoute>;
 
 export default class PageLayoutsAppFrameRoute extends Route {}
