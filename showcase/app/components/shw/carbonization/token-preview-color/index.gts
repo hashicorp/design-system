@@ -34,12 +34,12 @@ export default class ShwCarbonizationTokenPreviewColor extends Component<ShwCarb
       @label={{this.shortName}}
       @hideThemeLabels={{true}}
     >
-      <:themed>
+      <:theming>
         <div
           class="shw-carbonization-token-preview-color"
           style={{this.style}}
         />
-      </:themed>
+      </:theming>
     </ShwCarbonizationComparisonGrid>
   </template>
 }
