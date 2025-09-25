@@ -151,16 +151,16 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
 
     return () => {
       // if the <dialog> is removed from the dom while open we emulate the close event
-      if (this._element && this._isOpen) {
-        this._element.dispatchEvent(new Event('close'));
-
-        this._element.removeEventListener(
-          'close',
-          // eslint-disable-next-line @typescript-eslint/unbound-method
-          this.registerOnCloseCallback,
-          true
-        );
+      if (this._isOpen) {
+        this._element?.dispatchEvent(new Event('close'));
       }
+
+      this._element?.removeEventListener(
+        'close',
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        this.registerOnCloseCallback,
+        true
+      );
 
       document.removeEventListener('click', this._clickHandler, true);
     };
