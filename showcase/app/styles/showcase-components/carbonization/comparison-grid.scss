@@ -10,7 +10,7 @@
   grid-template-rows: auto, auto;
   grid-template-columns: repeat(5, 1fr);
   row-gap: 0; // we use vertical margin to separate the web-components row from the one above
-  column-gap: 1rem;
+  column-gap: 8px;
 }
 
 .shw-carbonization-comparison-grid__top-label {
@@ -28,6 +28,39 @@
     grid-area: #{$area};
   }
 }
+
+// THEMING BACKGROUNDS
+
+.shw-carbonization-comparison-grid__item-content {
+  padding: 8px;
+  background-color: var(--background-color);
+}
+
+.shw-carbonization-comparison-grid__item--area-hds {
+  --background-color: var(--token-color-surface-primary);
+}
+
+// TODO replace the hex values (copied from the `--cds-background` themed variable) with CSS design tokens from our theming
+.shw-carbonization-comparison-grid__item--area-cds-g0 {
+  --background-color: #ffffff;
+}
+.shw-carbonization-comparison-grid__item--area-cds-g10 {
+  --background-color: #f4f4f4;
+}
+.shw-carbonization-comparison-grid__item--area-cds-g90 {
+  --background-color: #262626;
+}
+.shw-carbonization-comparison-grid__item--area-cds-g100 {
+  --background-color: #161616;
+}
+
+.shw-carbonization-comparison-grid__item--area-cwc-g0,
+.shw-carbonization-comparison-grid__item--area-cwc-g10,
+.shw-carbonization-comparison-grid__item--area-cwc-g90,
+.shw-carbonization-comparison-grid__item--area-cwc-g100 {
+  --background-color: var(--cds-background);
+}
+
 
 // DEBUG
 
