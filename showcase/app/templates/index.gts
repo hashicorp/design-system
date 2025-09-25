@@ -392,6 +392,46 @@ const Index: TemplateOnlyComponent = <template>
       </ol>
     </div>
   </div>
+
+  <div class="shw-landing-lists__vertical-divider" />
+
+  <div>
+    <ShwTextH2>Carbonization</ShwTextH2>
+    <ol class="shw-text-body">
+      <li>
+        <LinkTo @route="page-foundations.color.carbonization">
+          Color
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="page-foundations.typography.carbonization">
+          Typography
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="page-foundations.focus-ring.carbonization">
+          Focus-ring
+        </LinkTo>
+      </li>
+    </ol>
+    <ol class="shw-text-body">
+      <li>
+        <LinkTo @route="page-components.badge.carbonization">
+          Badge
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="page-components.badge-count.carbonization">
+          BadgeCount
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="page-components.button.carbonization">
+          Button
+        </LinkTo>
+      </li>
+    </ol>
+  </div>
 </template>;
 
 export default Index;
