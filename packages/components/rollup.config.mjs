@@ -61,6 +61,11 @@ const plugins = [
     fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
   }),
 
+  scss({
+    fileName: 'styles/@hashicorp/design-system-ember-a11y-refocus.css',
+    includePaths: ['node_modules/ember-a11y-refocus/addon/src/styles'],
+  }),
+
   // Ensure that standalone .hbs files are properly integrated as Javascript.
   addon.hbs(),
 
