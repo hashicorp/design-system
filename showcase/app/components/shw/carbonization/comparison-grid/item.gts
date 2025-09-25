@@ -13,7 +13,7 @@ export interface ShwCarbonizationComparisonGridItemSignature {
   Args: {
     label?: string;
     theme: Theme;
-    scope: 'show' | 'reference';
+    scope: 'theming' | 'reference';
   };
   Blocks: {
     default: [
@@ -43,7 +43,7 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
       `shw-carbonization-comparison-grid__item--scope-${this.args.scope}`,
     );
 
-    if (this.args.scope === 'show') {
+    if (this.args.scope === 'theming') {
       // here we use the custom HDS theming selector
       classes.push(`hds-theme-${this.args.theme}`);
     }

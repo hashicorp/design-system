@@ -11,7 +11,7 @@ export interface ShwCarbonizationComparisonGridSignature {
   };
   Blocks: {
     label: [];
-    themed: [];
+    theming: [];
     reference: [];
   };
   Element: HTMLDivElement;
@@ -40,14 +40,14 @@ const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComp
         }}</ShwLabel>
     {{/if}}
     <div class="shw-carbonization-comparison-grid" ...attributes>
-      {{#if (has-block "themed")}}
+      {{#if (has-block "theming")}}
         {{#each THEMES as |theme|}}
           <ShwCarbonizationComparisonGridItem
-            @scope="show"
+            @scope="theming"
             @theme={{theme}}
             @label={{(unless @hideThemeLabels theme)}}
           >
-            {{yield to="themed"}}
+            {{yield to="theming"}}
           </ShwCarbonizationComparisonGridItem>
         {{/each}}
       {{/if}}
