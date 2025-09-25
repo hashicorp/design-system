@@ -20,7 +20,6 @@
 >
   <:root>
     {{#if this.hasA11yRefocus}}
-      {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
       <NavigationNarrator
         @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
         @skipTo={{this.a11yRefocusSkipTo}}

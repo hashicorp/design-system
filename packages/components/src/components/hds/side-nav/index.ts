@@ -11,6 +11,7 @@ import { registerDestructor } from '@ember/destroyable';
 
 import type { HdsSideNavBaseSignature } from './base';
 import type Owner from '@ember/owner';
+import type {NavigationNarratorSignature} from 'ember-a11y-refocus/components/navigation-narrator';
 
 export interface HdsSideNavSignature {
   Args: {
@@ -21,7 +22,7 @@ export interface HdsSideNavSignature {
     a11yRefocusSkipTo?: string;
     a11yRefocusSkipText?: string;
     a11yRefocusNavigationText?: string;
-    a11yRefocusRouteChangeValidator?: string;
+    a11yRefocusRouteChangeValidator?: NavigationNarratorSignature['Args']['routeChangeValidator'];
     a11yRefocusExcludeAllQueryParams?: boolean;
     /**
      * @deprecated The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button
