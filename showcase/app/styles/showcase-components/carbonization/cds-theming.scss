@@ -27,3 +27,20 @@
 [data-carbon-theme='g100'] {
   @include cds-themes.theme($g100);
 }
+
+// TODO TEMP understand how we can set the font-family for the web components without defining it at `<body>` level
+
+[data-carbon-theme='g0'],
+[data-carbon-theme='g10'],
+[data-carbon-theme='g90'],
+[data-carbon-theme='g100'] {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  code {
+    font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace
+  }
+
+  button, select, input, textarea {
+    font-family: inherit
+  }
+}
