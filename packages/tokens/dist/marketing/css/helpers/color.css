@@ -35,6 +35,7 @@
 .hds-surface-primary { background-color: var(--token-color-surface-primary); }
 .hds-surface-faint { background-color: var(--token-color-surface-faint); }
 .hds-surface-strong { background-color: var(--token-color-surface-strong); }
+.hds-surface-high-contrast { background-color: var(--token-color-surface-high-contrast); }
 .hds-surface-interactive { background-color: var(--token-color-surface-interactive); }
 .hds-surface-interactive-hover { background-color: var(--token-color-surface-interactive-hover); }
 .hds-surface-interactive-active { background-color: var(--token-color-surface-interactive-active); }
