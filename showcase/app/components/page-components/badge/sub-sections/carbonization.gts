@@ -4,7 +4,6 @@
  */
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import style from 'ember-style-modifier';
 import { notEq } from 'ember-truth-helpers';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -12,7 +11,10 @@ import ShwFlex from 'showcase/components/shw/flex';
 // import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
-import { HdsBadge } from '@hashicorp/design-system-components/components';
+import {
+  HdsBadge,
+  HdsIcon,
+} from '@hashicorp/design-system-components/components';
 import {
   COLORS,
   SIZES,
@@ -24,24 +26,40 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
 
   <ShwCarbonizationComparisonGrid>
     <:themed>
-      <ShwFlex @direction="column" as |SF|>
-        <SF.Item>
-          <HdsBadge @text="Only text" />
-        </SF.Item>
-        <SF.Item>
-          <HdsBadge @icon="activity" @text="Text + icon" />
-        </SF.Item>
-        <SF.Item>
-          <HdsBadge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
-        </SF.Item>
-        <SF.Item {{style width="200px"}}>
-          <HdsBadge
-            @icon="activity"
-            @text="This is a very long text that should go on two lines"
-          />
-        </SF.Item>
-      </ShwFlex>
+      <HdsBadge @text="Only text" />
     </:themed>
+    <:reference>
+      <cds-tag>Lorem ipsum</cds-tag>
+    </:reference>
+  </ShwCarbonizationComparisonGrid>
+  <ShwCarbonizationComparisonGrid>
+    <:themed>
+      <HdsBadge @icon="activity" @text="Text + icon" />
+    </:themed>
+    <:reference>
+      <cds-tag>Lorem ipsum <HdsIcon @name="activity" slot="icon" /></cds-tag>
+    </:reference>
+  </ShwCarbonizationComparisonGrid>
+  <ShwCarbonizationComparisonGrid>
+    <:themed>
+      <HdsBadge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
+    </:themed>
+    <:reference>
+      {{! <cds-tag><cds-icon shape="check"></cds-icon></cds-tag> }}
+      <cds-tag><HdsIcon @name="activity" slot="icon" /></cds-tag>
+    </:reference>
+  </ShwCarbonizationComparisonGrid>
+  <ShwCarbonizationComparisonGrid>
+    <:themed>
+      <HdsBadge
+        @icon="activity"
+        @text="This is a very long text that should go on two lines"
+      />
+    </:themed>
+    <:reference>
+      <cds-tag><HdsIcon @name="activity" slot="icon" />
+        This is a very long text that should go on multiple lines</cds-tag>
+    </:reference>
   </ShwCarbonizationComparisonGrid>
 
   <ShwTextH2>Size</ShwTextH2>
