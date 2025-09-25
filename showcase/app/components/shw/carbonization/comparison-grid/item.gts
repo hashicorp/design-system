@@ -51,13 +51,11 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
     return classes.join(' ');
   }
 
-  get themeSelector(): string {
+  get carbonTheme(): string | undefined {
     if (this.args.scope === 'reference') {
-      // TODO! once the theming CSS is ready, update this to use the right CSS selector
-      return `data-hds-theme="${this.args.theme}"`;
-      // TODO! add here a way for the Carbon web components to be locally themed
+      return this.args.theme.replace(/^cds-/, '');
     } else {
-      return `data-cds-theme="${this.args.theme}"`;
+      return undefined;
     }
   }
 
@@ -65,15 +63,17 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
     <div
       class={{this.classNames}}
       ...attributes
-      {{! TODO! once the theming CSS is ready, update this to use the right CSS selector }}
+      {{! here we use the custom HDS theming selector/value combination }}
       data-hds-theme={{if (eq @scope "show") @theme}}
-      {{! TODO! add here a way for the Carbon web components to be locally themed }}
-      data-cds-theme={{if (eq @scope "reference") @theme}}
+      {{! here we use the "standard" Carbon theming selector/value combination }}
+      data-carbon-theme={{if (eq @scope "reference") this.carbonTheme}}
     >
       {{#if @label}}
         <ShwLabel>{{@label}}</ShwLabel>
       {{/if}}
-      {{yield (hash Label=ShwLabel)}}
+      <div class="shw-carbonization-comparison-grid__item-content">
+        {{yield (hash Label=ShwLabel)}}
+      </div>
     </div>
   </template>
 }
