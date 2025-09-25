@@ -59,6 +59,10 @@
 // END COMPONENT CSS FILES IMPORTS
 
 @use "../mixins/screen-reader-only" as *;
+
+// this file is needed to style NavigationNarrator in the SideNav and AppHeader components
+@import 'ember-a11y-refocus/styles.css';
+
 // stylelint-disable-next-line selector-class-pattern
 .sr-only {
   @include screen-reader-only();
