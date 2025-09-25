@@ -5,6 +5,7 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { notEq } from 'ember-truth-helpers';
+import { array } from '@ember/helper';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
@@ -80,6 +81,24 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
         {{/each}}
       </ShwFlex>
     </:theming>
+    <:reference>
+      <ShwFlex @direction="column" as |SF|>
+        {{#let (array "sm" "md" "lg") as |SIZES|}}
+          {{#each SIZES as |size|}}
+            <SF.Item>
+              <cds-tag size={{size}}><HdsIcon
+                  @name="activity"
+                  slot="icon"
+                /></cds-tag>
+              <cds-tag size={{size}}><HdsIcon
+                  @name="activity"
+                  slot="icon"
+                />Lorem ipsum</cds-tag>
+            </SF.Item>
+          {{/each}}
+        {{/let}}
+      </ShwFlex>
+    </:reference>
   </ShwCarbonizationComparisonGrid>
 
   <ShwTextH2>Type</ShwTextH2>
@@ -100,37 +119,215 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
         {{/each}}
       </ShwFlex>
     </:theming>
+    <:reference>
+      <ShwFlex @direction="column" as |SF|>
+        {{#let (array "gray" "high-contrast" "outline") as |TYPES|}}
+          {{#each TYPES as |type|}}
+            <SF.Item>
+              <cds-tag type={{type}}><HdsIcon
+                  @name="activity"
+                  slot="icon"
+                /></cds-tag>
+              <cds-tag type={{type}}><HdsIcon @name="activity" slot="icon" />
+                Lorem ipsum</cds-tag>
+            </SF.Item>
+          {{/each}}
+        {{/let}}
+      </ShwFlex>
+    </:reference>
   </ShwCarbonizationComparisonGrid>
 
   <ShwTextH2>Color</ShwTextH2>
 
-  {{#each COLORS as |color index|}}
-    <ShwCarbonizationComparisonGrid
-      @hideThemeLabels={{(if (notEq index 0) true)}}
-    >
-      <:theming>
-        <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
-          {{#each TYPES as |type|}}
-            <SF.Item class="shw-component-badge-sample-color--{{color}}">
-              <HdsBadge
-                @icon="activity"
-                @text="Lorem Ipsum"
-                @type={{type}}
-                @color={{color}}
-                @isIconOnly={{true}}
-              />
-              <HdsBadge
-                @icon="activity"
-                @text="Lorem ipsum"
-                @type={{type}}
-                @color={{color}}
-              />
-            </SF.Item>
-          {{/each}}
-        </ShwFlex>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
-  {{/each}}
+  <ShwCarbonizationComparisonGrid @label="neutral">
+    <:theming>
+      <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
+        {{#each TYPES as |type|}}
+          <SF.Item class="shw-component-badge-sample-color--neutral">
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem Ipsum"
+              @type={{type}}
+              @color="neutral"
+              @isIconOnly={{true}}
+            />
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem ipsum"
+              @type={{type}}
+              @color="neutral"
+            />
+          </SF.Item>
+        {{/each}}
+      </ShwFlex>
+    </:theming>
+    <:reference>
+      <ShwFlex @direction="column" as |SF|>
+        <SF.Item>
+          <cds-tag type="gray"><HdsIcon
+              @name="activity"
+              slot="icon"
+            /></cds-tag>
+          <cds-tag type="gray"><HdsIcon @name="activity" slot="icon" />
+            Lorem ipsum</cds-tag>
+        </SF.Item>
+        <SF.Item>
+          <cds-tag type="outline"><HdsIcon
+              @name="activity"
+              slot="icon"
+            /></cds-tag>
+          <cds-tag type="outline"><HdsIcon @name="activity" slot="icon" />
+            Lorem ipsum</cds-tag>
+        </SF.Item>
+      </ShwFlex>
+    </:reference>
+  </ShwCarbonizationComparisonGrid>
+
+  <ShwCarbonizationComparisonGrid @label="neutral-dark-mode">
+    <:theming>
+      <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
+        {{#each TYPES as |type|}}
+          <SF.Item class="shw-component-badge-sample-color--neutral-dark-mode">
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem Ipsum"
+              @type={{type}}
+              @color="neutral-dark-mode"
+              @isIconOnly={{true}}
+            />
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem ipsum"
+              @type={{type}}
+              @color="neutral-dark-mode"
+            />
+          </SF.Item>
+        {{/each}}
+      </ShwFlex>
+    </:theming>
+    <:reference>
+      <cds-tag type="high-contrast"><HdsIcon
+          @name="activity"
+          slot="icon"
+        /></cds-tag>
+      <cds-tag type="high-contrast"><HdsIcon @name="activity" slot="icon" />
+        Lorem ipsum</cds-tag>
+    </:reference>
+  </ShwCarbonizationComparisonGrid>
+
+  <ShwCarbonizationComparisonGrid @label="highlight">
+    <:theming>
+      <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
+        {{#each TYPES as |type|}}
+          <SF.Item class="shw-component-badge-sample-color--highlight">
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem Ipsum"
+              @type={{type}}
+              @color="highlight"
+              @isIconOnly={{true}}
+            />
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem ipsum"
+              @type={{type}}
+              @color="highlight"
+            />
+          </SF.Item>
+        {{/each}}
+      </ShwFlex>
+    </:theming>
+    <:reference>
+      <cds-tag type="purple"><HdsIcon @name="activity" slot="icon" /></cds-tag>
+      <cds-tag type="purple"><HdsIcon @name="activity" slot="icon" />
+        Lorem ipsum</cds-tag>
+    </:reference>
+  </ShwCarbonizationComparisonGrid>
+
+  <ShwCarbonizationComparisonGrid @label="success">
+    <:theming>
+      <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
+        {{#each TYPES as |type|}}
+          <SF.Item class="shw-component-badge-sample-color--success">
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem Ipsum"
+              @type={{type}}
+              @color="success"
+              @isIconOnly={{true}}
+            />
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem ipsum"
+              @type={{type}}
+              @color="success"
+            />
+          </SF.Item>
+        {{/each}}
+      </ShwFlex>
+    </:theming>
+    <:reference>
+      <cds-tag type="green"><HdsIcon @name="activity" slot="icon" /></cds-tag>
+      <cds-tag type="green"><HdsIcon @name="activity" slot="icon" />
+        Lorem ipsum</cds-tag>
+    </:reference>
+  </ShwCarbonizationComparisonGrid>
+
+  <ShwCarbonizationComparisonGrid @label="warning">
+    <:theming>
+      <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
+        {{#each TYPES as |type|}}
+          <SF.Item class="shw-component-badge-sample-color--warning">
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem Ipsum"
+              @type={{type}}
+              @color="warning"
+              @isIconOnly={{true}}
+            />
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem ipsum"
+              @type={{type}}
+              @color="warning"
+            />
+          </SF.Item>
+        {{/each}}
+      </ShwFlex>
+    </:theming>
+    <:reference>
+      <code>???</code>
+    </:reference>
+  </ShwCarbonizationComparisonGrid>
+
+  <ShwCarbonizationComparisonGrid @hideThemeLabels={{true}} @label="critical">
+    <:theming>
+      <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
+        {{#each TYPES as |type|}}
+          <SF.Item class="shw-component-badge-sample-color--critical">
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem Ipsum"
+              @type={{type}}
+              @color="critical"
+              @isIconOnly={{true}}
+            />
+            <HdsBadge
+              @icon="activity"
+              @text="Lorem ipsum"
+              @type={{type}}
+              @color="critical"
+            />
+          </SF.Item>
+        {{/each}}
+      </ShwFlex>
+    </:theming>
+    <:reference>
+      <cds-tag type="red"><HdsIcon @name="activity" slot="icon" /></cds-tag>
+      <cds-tag type="red"><HdsIcon @name="activity" slot="icon" />
+        Lorem ipsum</cds-tag>
+    </:reference>
+  </ShwCarbonizationComparisonGrid>
 </template>;
 
 export default SubSectionCarbonization;
