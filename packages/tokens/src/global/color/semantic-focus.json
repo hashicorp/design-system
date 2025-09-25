@@ -5,26 +5,54 @@
         "internal": {
           "$type": "color",
           "$value": "{color.palette.blue-300}",
-          "group": "semantic"
+          "group": "semantic",
+          "$modes": {
+            "default": "{color.palette.blue-300}",
+            "cds-g0": "{carbon.themes.white.focusInset}",
+            "cds-g10": "{carbon.themes.g10.focusInset}",
+            "cds-g90": "{carbon.themes.g90.focusInset}",
+            "cds-g100": "{carbon.themes.g100.focusInset}"
+          }
         },
         "external": {
           "$type": "color",
           "$value": "#5990ff",
           "group": "semantic",
-          "comment": "this is a special color used only for the focus style, to pass color contrast for a11y purpose"
+          "comment": "this is a special color used only for the focus style, to pass color contrast for a11y purpose",
+          "$modes": {
+            "default": "#5990ff",
+            "cds-g0": "{carbon.themes.white.focus}",
+            "cds-g10": "{carbon.themes.g10.focus}",
+            "cds-g90": "{carbon.themes.g90.focus}",
+            "cds-g100": "{carbon.themes.g100.focus}"
+          }
         }
       },
       "critical": {
         "internal": {
           "$type": "color",
           "$value": "{color.palette.red-300}",
-          "group": "semantic"
+          "group": "semantic",
+          "$modes": {
+            "default": "{color.palette.red-300}",
+            "cds-g0": "{carbon.themes.white.focusInset}",
+            "cds-g10": "{carbon.themes.g10.focusInset}",
+            "cds-g90": "{carbon.themes.g90.focusInset}",
+            "cds-g100": "{carbon.themes.g100.focusInset}"
+          }
         },
         "external": {
           "$type": "color",
           "$value": "#dd7578",
           "group": "semantic",
-          "comment": "this is a special color used only for the focus style, to pass color contrast for a11y purpose"
+          "comment": "this is a special color used only for the focus style, to pass color contrast for a11y purpose",
+          "$modes": {
+            "default": "#dd7578",
+            "cds-g0": "{carbon.themes.white.focus}",
+            "cds-g10": "{carbon.themes.g10.focus}",
+            "cds-g90": "{carbon.themes.g90.focus}",
+            "cds-g100": "{carbon.themes.g100.focus}"
+          }
         }
       }
     }
