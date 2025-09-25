@@ -38,11 +38,6 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
   get classNames(): string {
     const classes = ['shw-carbonization-comparison-grid__item'];
 
-    // add a class based on the `@scope` argument
-    classes.push(
-      `shw-carbonization-comparison-grid__item--scope-${this.args.scope}`,
-    );
-
     if (this.args.scope === 'theming') {
       // here we use the custom HDS theming selector
       classes.push(`hds-theme-${this.args.theme}`);
@@ -79,7 +74,9 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
   <template>
     <div class={{this.classNames}} ...attributes>
       {{#if @label}}
-        <ShwLabel>{{@label}}</ShwLabel>
+        <ShwLabel
+          class="shw-carbonization-comparison-grid__item-label"
+        >{{@label}}</ShwLabel>
       {{/if}}
       <div class="shw-carbonization-comparison-grid__item-content">
         {{yield (hash Label=ShwLabel)}}

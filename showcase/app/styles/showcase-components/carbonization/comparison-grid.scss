@@ -7,9 +7,9 @@
   grid-template-areas:
     "hds cds-g0 cds-g10 cds-g90 cds-g100"
     "--- cwc-g0 cwc-g10 cwc-g90 cwc-g100";
-  grid-template-rows: auto, auto;
+  grid-template-rows: auto auto;
   grid-template-columns: repeat(5, 1fr);
-  row-gap: 0; // we use vertical margin to separate the web-components row from the one above
+  row-gap: 12px;
   column-gap: 8px;
 }
 
@@ -17,11 +17,7 @@
   margin-top: 2rem;
 }
 
-// .shw-carbonization-comparison-grid__item {}
-
-.shw-carbonization-comparison-grid__item--scope-reference {
-  margin-top: 1rem;
-}
+// ITEM
 
 @each $area in 'hds', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100', 'cwc-g0', 'cwc-g10', 'cwc-g90', 'cwc-g100' {
   .shw-carbonization-comparison-grid__item--area-#{$area} {
@@ -29,26 +25,31 @@
   }
 }
 
+.shw-carbonization-comparison__item-label {
+  // override the margin since we're using `row-gap` above
+  margin-bottom: 0;
+}
+
 // THEMING BACKGROUNDS
 
 .shw-carbonization-comparison-grid__item-content {
   padding: 8px;
-  background-color: var(--background-color);
+  background-color: var(--content-background-color);
 }
 
 .shw-carbonization-comparison-grid__item--area-hds {
-  --background-color: var(--token-color-surface-primary);
+  --content-background-color: var(--token-color-surface-primary);
 }
 
 // TODO replace the hex values (copied from the `--cds-background` themed variable) with CSS design tokens from our theming
 .shw-carbonization-comparison-grid__item--area-cds-g0 {
-  --background-color: #ffffff;
+  --content-background-color: #ffffff;
 }
 .shw-carbonization-comparison-grid__item--area-cds-g10 {
-  --background-color: #f4f4f4;
+  --content-background-color: #f4f4f4;
 }
 .shw-carbonization-comparison-grid__item--area-cds-g90 {
-  --background-color: #262626;
+  --content-background-color: #262626;
 }
 .shw-carbonization-comparison-grid__item--area-cds-g100 {
   --background-color: #161616;
@@ -58,7 +59,7 @@
 .shw-carbonization-comparison-grid__item--area-cwc-g10,
 .shw-carbonization-comparison-grid__item--area-cwc-g90,
 .shw-carbonization-comparison-grid__item--area-cwc-g100 {
-  --background-color: var(--cds-background);
+  --content-background-color: var(--cds-background);
 }
 
 
