@@ -7,15 +7,13 @@ import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 
-import SubSectionCarbonization from 'showcase/components/page-foundations/color/sub-sections/carbonization';
-
 const ColorIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Color"}}
 
-  <ShwTextH1>Color - Carbonization</ShwTextH1>
+  <ShwTextH1>Color</ShwTextH1>
 
   <section>
-    <SubSectionCarbonization />
+    <pre>This page is not used</pre>
   </section>
 </template>;
 
