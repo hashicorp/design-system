@@ -43,6 +43,31 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
       `shw-carbonization-comparison-grid__item--scope-${this.args.scope}`,
     );
 
+    if (this.args.scope === 'show') {
+      // here we use the custom HDS theming selector
+      classes.push(`hds-theme-${this.args.theme}`);
+    }
+
+    if (this.args.scope === 'reference') {
+      // here we use the web-components specific selector (see: https://github.com/carbon-design-system/carbon/blob/main/packages/web-components/docs/carbon-cdn-style-helpers.mdx#carbon-theme-zoning-classes)
+      let selector;
+      switch (this.args.theme) {
+        case 'cds-g100':
+          selector = 'cds-theme-zone-g100';
+          break;
+        case 'cds-g90':
+          selector = 'cds-theme-zone-g90';
+          break;
+        case 'cds-g10':
+          selector = 'cds-theme-zone-g10';
+          break;
+        default:
+          selector = 'cds-theme-zone-white';
+          break;
+      }
+      classes.push(selector);
+    }
+
     // add a class based on `this.area`
     classes.push(
       `shw-carbonization-comparison-grid__item--area-${this.areaName}`,
@@ -51,23 +76,8 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
     return classes.join(' ');
   }
 
-  get carbonTheme(): string | undefined {
-    if (this.args.scope === 'reference') {
-      return this.args.theme.replace(/^cds-/, '');
-    } else {
-      return undefined;
-    }
-  }
-
   <template>
-    <div
-      class={{this.classNames}}
-      ...attributes
-      {{! here we use the custom HDS theming selector/value combination }}
-      data-hds-theme={{if (eq @scope "show") @theme}}
-      {{! here we use the "standard" Carbon theming selector/value combination }}
-      data-carbon-theme={{if (eq @scope "reference") this.carbonTheme}}
-    >
+    <div class={{this.classNames}} ...attributes>
       {{#if @label}}
         <ShwLabel>{{@label}}</ShwLabel>
       {{/if}}

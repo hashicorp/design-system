@@ -5,35 +5,42 @@
 // @use '@carbon/themes' as cds-themes with (
 //   $font-path: '~@ibm/plex'
 // );
-@use '@carbon/themes' as cds-themes;
-@use '@carbon/themes/scss/themes' as *;
+// @use '@carbon/themes' as cds-themes;
+// @use '@carbon/themes/scss/themes' as *;
 
-:root {
-  @include cds-themes.theme($white);
-}
+// :root {
+//   @include cds-themes.theme($white);
+// }
 
-[data-carbon-theme='g0'] {
-  @include cds-themes.theme($white);
-}
+// [data-carbon-theme='g0'] {
+//   @include cds-themes.theme($white);
+// }
 
-[data-carbon-theme='g10'] {
-  @include cds-themes.theme($g10);
-}
+// [data-carbon-theme='g10'] {
+//   @include cds-themes.theme($g10);
+// }
 
-[data-carbon-theme='g90'] {
-  @include cds-themes.theme($g90);
-}
+// [data-carbon-theme='g90'] {
+//   @include cds-themes.theme($g90);
+// }
 
-[data-carbon-theme='g100'] {
-  @include cds-themes.theme($g100);
-}
+// [data-carbon-theme='g100'] {
+//   @include cds-themes.theme($g100);
+// }
 
 // TODO TEMP understand how we can set the font-family for the web components without defining it at `<body>` level
 
-[data-carbon-theme='g0'],
-[data-carbon-theme='g10'],
-[data-carbon-theme='g90'],
-[data-carbon-theme='g100'] {
+// these are commented for now
+// [data-carbon-theme='g0'],
+// [data-carbon-theme='g10'],
+// [data-carbon-theme='g90'],
+// [data-carbon-theme='g100']
+
+// see: https://github.com/carbon-design-system/carbon/blob/main/packages/web-components/docs/carbon-cdn-style-helpers.mdx#carbon-theme-zoning-classes
+.cds-theme-zone-white,
+.cds-theme-zone-g10,
+.cds-theme-zone-g90,
+.cds-theme-zone-g100 {
   font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
 
   code {
