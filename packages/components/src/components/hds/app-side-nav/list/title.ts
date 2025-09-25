@@ -4,7 +4,7 @@
  */
 
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 import Component from '@glimmer/component';
 
 export interface HdsAppSideNavListTitleSignature {
@@ -21,12 +21,11 @@ export default class HdsAppSideNavListTitle extends Component<HdsAppSideNavListT
   /*  Generate a unique ID for each Title */
   private _titleId = 'title-' + guidFor(this);
 
-  @action
-  didInsertTitle(element: HTMLElement): void {
+  private _registerElementId = modifier((element: HTMLElement) => {
     const { didInsertTitle } = this.args;
 
     if (typeof didInsertTitle === 'function') {
       didInsertTitle(element.id);
     }
-  }
+  });
 }

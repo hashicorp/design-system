@@ -9,8 +9,10 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
-import type { WithBoundArgs } from '@glint/template';
+import { modifier } from 'ember-modifier';
 
+import type { WithBoundArgs } from '@glint/template';
+import type Owner from '@ember/owner';
 import type { HdsFlyoutSizes } from './types.ts';
 
 import { HdsFlyoutSizesValues } from './types.ts';
@@ -62,17 +64,8 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   // TODO: make this property private; currently blocked by our consumers relying on it despite not being part of the public API: https://github.com/hashicorp/cloud-ui/blob/main/engines/waypoint/addon/components/preview-pane.ts#L15
   // private _element!: HTMLDialogElement;
   _element!: HTMLDialogElement;
-  private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
 
-  /**
-   * Sets the size of the flyout
-   * Accepted values: medium, large
-   *
-   * @param size
-   * @type {string}
-   * @default 'medium'
-   */
   get size(): HdsFlyoutSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -93,11 +86,6 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     return getElementId(this);
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-flyout'];
 
@@ -105,6 +93,13 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     classes.push(`hds-flyout--size-${this.size}`);
 
     return classes.join(' ');
+  }
+
+  constructor(owner: Owner, args: HdsFlyoutSignature['Args']) {
+    super(owner, args);
+
+    this._bodyInitialOverflowValue =
+      document.body.style.getPropertyValue('overflow');
   }
 
   @action registerOnCloseCallback(event: Event) {
@@ -115,17 +110,9 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     this._isOpen = false;
   }
 
-  @action
-  didInsert(element: HTMLDialogElement): void {
+  private _initElement = modifier((element: HdsFlyoutSignature['Element']) => {
     // Store references of `<dialog>` and `<body>` elements
     this._element = element;
-    this._body = document.body;
-
-    if (this._body) {
-      // Store the initial `overflow` value of `<body>` so we can reset to it
-      this._bodyInitialOverflowValue =
-        this._body.style.getPropertyValue('overflow');
-    }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
     // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -135,19 +122,16 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     if (!this._element.open) {
       this.open();
     }
-  }
 
-  @action
-  willDestroyNode(): void {
-    if (this._element) {
+    return () => {
       this._element.removeEventListener(
         'close',
         // eslint-disable-next-line @typescript-eslint/unbound-method
         this.registerOnCloseCallback,
         true
       );
-    }
-  }
+    };
+  });
 
   @action
   open(): void {
@@ -156,7 +140,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     this._isOpen = true;
 
     // Prevent page from scrolling when the dialog is open
-    if (this._body) this._body.style.setProperty('overflow', 'hidden');
+    document.body.style.setProperty('overflow', 'hidden');
 
     // Call "onOpen" callback function
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
@@ -183,18 +167,17 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     this._element.close();
 
     // Reset page `overflow` property
-    if (this._body) {
-      this._body.style.removeProperty('overflow');
-      if (this._bodyInitialOverflowValue === '') {
-        if (this._body.style.length === 0) {
-          this._body.removeAttribute('style');
-        }
-      } else {
-        this._body.style.setProperty(
-          'overflow',
-          this._bodyInitialOverflowValue
-        );
+    document.body.style.removeProperty('overflow');
+
+    if (this._bodyInitialOverflowValue === '') {
+      if (document.body.style.length === 0) {
+        document.body.removeAttribute('style');
       }
+    } else {
+      document.body.style.setProperty(
+        'overflow',
+        this._bodyInitialOverflowValue
+      );
     }
 
     // Return focus to a specific element (if provided)
