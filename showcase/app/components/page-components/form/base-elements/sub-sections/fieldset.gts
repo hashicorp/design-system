@@ -33,7 +33,6 @@ const SubSectionFieldset: TemplateOnlyComponent<SubSectionFieldsetSignature> =
     <button
       id="dummy-toggle-highlight-2"
       type="button"
-      class="shw-component-application-state-button-highlight"
       {{on "click" @toggleHighlight}}
     >
       {{if @showHighlight "Hide" "Show"}}
