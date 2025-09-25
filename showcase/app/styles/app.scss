@@ -22,11 +22,14 @@
 @use "./showcase-components/outliner";
 @use "./showcase-components/placeholder";
 @use "./showcase-components/theme-switcher";
-@use "./showcase-components/carbonization/comparison-grid";
-@use "./showcase-components/carbonization/token-preview-color";
 @use "./mock-components/app";
 @use "./mock-components/demo/breakpoints";
 
+// carbonization
+
+@use "./showcase-components/carbonization/cds-theming";
+@use "./showcase-components/carbonization/comparison-grid";
+@use "./showcase-components/carbonization/token-preview-color";
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENT PAGES IMPORTS
