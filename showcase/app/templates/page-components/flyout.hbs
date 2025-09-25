@@ -332,14 +332,12 @@
           method.</p>
         <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-top="12px"}}>This is equivalent to a
           manual dismiss (<code>Esc</code>
-          key, click outsite, click dismiss button) because they're all calling the same function, which invokes the
+          key, click outside, click dismiss button) because they're all calling the same function, which invokes the
           native
           <code>close()</code>
           method of the
           <code>Dialog</code>
-          HTML element, who then will cause the
-          <code>willDestroyNode</code>
-          action to execute.</p>
+          HTML element.</p>
       </F.Body>
       <F.Footer as |F|>
         <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
@@ -363,9 +361,9 @@
           flyout from the DOM.</p>
         <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-top="12px"}}>This is not equivalent to
           a manual dismiss (<code>Esc</code>
-          key, click outsite, click dismiss button) because it will trigger directly the
-          <code>willDestroyNode</code>
-          action.</p>
+          key, click outside, click dismiss button) because it will trigger directly the
+          <code>_registerDialog</code>
+          modifier's cleanup function.</p>
       </F.Body>
       <F.Footer>
         <Hds::Button
@@ -394,9 +392,9 @@
           the associated action will remove the flyout from the DOM.</p>
         <p class="hds-typography-body-200 hds-foreground-primary" {{style margin="12px 0 32px"}}>This is not equivalent
           to a manual dismiss (<code>Esc</code>
-          key, click outsite, click dismiss button) because it will trigger directly the
-          <code>willDestroyNode</code>
-          action.</p>
+          key, click outside, click dismiss button) because it will directly trigger the
+          <code>_registerDialog</code>
+          modifier's cleanup function.</p>
         <form id="deactivate-flyout-on-submit__form" {{on "submit" this.deactivateFlyoutOnSubmit}}>
           <Hds::Form::TextInput::Field name="deactivate-flyout-on-submit__input" as |F|>
             <F.Label>Fill in this input</F.Label>
