@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { modifier } from 'ember-modifier';
 
 export interface HdsBreadcrumbSignature {
   Args: {
@@ -17,47 +18,15 @@ export interface HdsBreadcrumbSignature {
   Element: HTMLElement;
 }
 
-const NOOP = () => {};
-
 export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
-  /**
-   * @param onDidInsert
-   * @type {function}
-   * @default () => {}
-   */
-  get didInsert(): () => void {
-    const { didInsert } = this.args;
-
-    if (typeof didInsert === 'function') {
-      return didInsert;
-    } else {
-      return NOOP;
-    }
-  }
-
-  /**
-   * @param itemsCanWrap
-   * @type {boolean}
-   * @default true
-   */
   get itemsCanWrap(): boolean {
     return this.args.itemsCanWrap ?? true;
   }
 
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'breadcrumbs'
-   */
   get ariaLabel(): string {
     return this.args.ariaLabel ?? 'breadcrumbs';
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method Breadcrumb#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-breadcrumb'];
 
@@ -68,4 +37,12 @@ export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
 
     return classes.join(' ');
   }
+
+  private _callDidInsert = modifier(() => {
+    const { didInsert } = this.args;
+
+    if (typeof didInsert === 'function') {
+      didInsert();
+    }
+  });
 }
