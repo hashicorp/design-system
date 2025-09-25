@@ -16,7 +16,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
     <ShwCarbonizationComparisonGrid
       @hideThemeLabels={{(if (notEq style "display-500") true)}}
     >
-      <:themed>
+      <:theming>
         <ShwFlex @direction="column" as |SF|>
           {{#each weights as |weight|}}
             <SF.Item>
@@ -26,7 +26,7 @@ const SubSectionCarbonization: TemplateOnlyComponent = <template>
             </SF.Item>
           {{/each}}
         </ShwFlex>
-      </:themed>
+      </:theming>
     </ShwCarbonizationComparisonGrid>
   {{/each-in}}
 </template>;
