@@ -8,6 +8,7 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 
 import { HdsAlertColorValues, HdsAlertTypeValues } from './types.ts';
 
@@ -25,6 +26,12 @@ export const TYPES: HdsAlertTypes[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR: HdsAlertColors = HdsAlertColorValues.Neutral;
 export const COLORS: HdsAlertColors[] = Object.values(HdsAlertColorValues);
 
+const SEMANTIC_COLORS: HdsAlertColors[] = [
+  HdsAlertColorValues.Warning,
+  HdsAlertColorValues.Critical,
+  HdsAlertColorValues.Success,
+];
+
 export const MAPPING_COLORS_TO_ICONS = {
   [HdsAlertColorValues.Neutral]: 'info',
   [HdsAlertColorValues.Highlight]: 'info',
@@ -32,10 +39,6 @@ export const MAPPING_COLORS_TO_ICONS = {
   [HdsAlertColorValues.Warning]: 'alert-triangle',
   [HdsAlertColorValues.Critical]: 'alert-diamond',
 } as const;
-
-const CONTENT_ELEMENT_SELECTOR = '.hds-alert__content';
-const TITLE_ELEMENT_SELECTOR = '.hds-alert__title';
-const DESCRIPTION_ELEMENT_SELECTOR = '.hds-alert__description';
 
 export interface HdsAlertSignature {
   Args: {
@@ -65,6 +68,10 @@ export interface HdsAlertSignature {
 export default class HdsAlert extends Component<HdsAlertSignature> {
   @tracked private _role?: string;
   @tracked private _ariaLabelledBy?: string;
+  @tracked private _actions: NodeListOf<Element> | null = null;
+  @tracked private _titleElement?: HdsAlertTitleSignature['Element'];
+  @tracked
+  private _descriptionElement?: HdsAlertDescriptionSignature['Element'];
 
   constructor(owner: Owner, args: HdsAlertSignature['Args']) {
     super(owner, args);
@@ -89,6 +96,11 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     );
 
     return color;
+  }
+
+  // an Alert which actually alerts users (has role="alert" & aria-live="polite") as opposed to an informational or promo "alert"
+  get isSemantic(): boolean {
+    return SEMANTIC_COLORS.includes(this.color);
   }
 
   // The name of the icon to be used.
@@ -150,33 +162,46 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     return classes.join(' ');
   }
 
+  get role(): 'alertdialog' | 'alert' | undefined {
+    if (this.isSemantic && this._actions && this._actions.length > 0) {
+      return 'alertdialog';
+    } else if (this.isSemantic) {
+      return 'alert';
+    } else {
+      return undefined;
+    }
+  }
+
+  get labelElement(): HdsAlertTitleSignature['Element'] | undefined {
+    return this._titleElement ?? this._descriptionElement;
+  }
+
+  private _registerActions = modifier((element: HTMLDivElement) => {
+    this._actions = element.querySelectorAll('button, a');
+  });
+
+  private _setLabelElementId() {
+    if (this.labelElement === undefined) {
+      return;
+    }
+
+    const labelId =
+      this.labelElement.getAttribute('id') ?? guidFor(this.labelElement);
+
+    this.labelElement.setAttribute('id', labelId);
+
+    this._ariaLabelledBy = labelId;
+  }
+
   @action
-  didInsert(element: HTMLDivElement): void {
-    const actions = element.querySelectorAll(
-      `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
-    );
+  _registerTitle(element: HdsAlertTitleSignature['Element']): void {
+    this._titleElement = element;
+    this._setLabelElementId();
+  }
 
-    // an Alert which actually alerts users (has role="alert" & aria-live="polite") as opposed to an informational or promo "alert"
-    const isSemanticAlert: boolean =
-      this.color === 'warning' ||
-      this.color === 'critical' ||
-      this.color === 'success';
-
-    if (isSemanticAlert && actions.length) {
-      this._role = 'alertdialog';
-    } else if (isSemanticAlert) {
-      this._role = 'alert';
-    }
-
-    // `alertdialog` must have an accessible name so we use either the
-    // title or the description as label for the alert
-    const label =
-      element.querySelector(TITLE_ELEMENT_SELECTOR) ||
-      element.querySelector(DESCRIPTION_ELEMENT_SELECTOR);
-    if (label) {
-      const labelId = label.getAttribute('id') || guidFor(element);
-      label.setAttribute('id', labelId);
-      this._ariaLabelledBy = labelId;
-    }
+  @action
+  _registerDescription(element: HdsAlertDescriptionSignature['Element']): void {
+    this._descriptionElement = element;
+    this._setLabelElementId();
   }
 }
