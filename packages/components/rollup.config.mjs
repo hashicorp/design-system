@@ -53,36 +53,65 @@ const plugins = [
 
   scss({
     fileName: 'styles/@hashicorp/design-system-components.css',
-    includePaths: [
-      'node_modules/@hashicorp/design-system-tokens/dist/products/css',
-    ],
+    includePaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
   }),
 
   scss({
     fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
   }),
 
-  // Custom plugin to compile the themed SCSS with different include paths
+  // Custom plugins to compile the "themed" SCSS files
   {
-    name: 'compile-themed-scss',
+    name: 'compile-scss-themed-with-css-selectors',
     generateBundle() {
       // Compile the themed SCSS file
       try {
-        const result = sass.compile('src/styles/@hashicorp/design-system-components-with-css-selectors.scss', {
-          // equivalent to includePaths in rollup-plugin-scss
-          loadPaths: [
-            'node_modules/@hashicorp/design-system-tokens/dist/products/css/themed-tokens/with-css-selectors',
-          ],
-        });
-        
+        const result = sass.compile(
+          'src/styles/@hashicorp/design-system-components-theming-with-css-selectors.scss',
+          {
+            // equivalent to includePaths in rollup-plugin-scss
+            loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
+          }
+        );
+
         // Emit the compiled CSS
         this.emitFile({
           type: 'asset',
-          fileName: 'styles/@hashicorp/design-system-components-with-css-selectors.css',
+          fileName:
+            'styles/@hashicorp/design-system-components-theming-with-css-selectors.css',
           source: result.css,
         });
       } catch (error) {
-        this.error(`Failed to compile themed SCSS: ${error.message}`);
+        this.error(
+          `Failed to compile themed ("with CSS selectors") SCSS: ${error.message}`
+        );
+      }
+    },
+  },
+  {
+    name: 'compile-scss-themed-with-prefers-color-scheme',
+    generateBundle() {
+      // Compile the themed SCSS file
+      try {
+        const result = sass.compile(
+          'src/styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.scss',
+          {
+            // equivalent to includePaths in rollup-plugin-scss
+            loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
+          }
+        );
+
+        // Emit the compiled CSS
+        this.emitFile({
+          type: 'asset',
+          fileName:
+            'styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.css',
+          source: result.css,
+        });
+      } catch (error) {
+        this.error(
+          `Failed to compile themed ("with CSS selectors") SCSS: ${error.message}`
+        );
       }
     },
   },
