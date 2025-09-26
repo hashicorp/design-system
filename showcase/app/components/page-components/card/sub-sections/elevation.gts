@@ -11,7 +11,7 @@ import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import { HdsCardContainer } from '@hashicorp/design-system-components/components';
-import { LEVELS as CONTAINER_LEVELS } from '@hashicorp/design-system-components/components/hds/card/container';
+import { LEVELS } from '@hashicorp/design-system-components/components/hds/card/container';
 
 const SubSectionElevation: TemplateOnlyComponent = <template>
   <ShwTextH2>Elevation</ShwTextH2>
@@ -23,7 +23,7 @@ const SubSectionElevation: TemplateOnlyComponent = <template>
       {{style width="fit-content"}}
       as |SG|
     >
-      {{#each CONTAINER_LEVELS as |level|}}
+      {{#each LEVELS as |level|}}
         <SG.Item>
           <HdsCardContainer @level={{level}}>
             <ShwPlaceholder
@@ -42,7 +42,7 @@ const SubSectionElevation: TemplateOnlyComponent = <template>
       {{style width="fit-content"}}
       as |SG|
     >
-      {{#each CONTAINER_LEVELS as |level|}}
+      {{#each LEVELS as |level|}}
         <SG.Item>
           <HdsCardContainer @levelHover={{level}} mock-state-value="hover">
             <ShwPlaceholder
@@ -61,7 +61,7 @@ const SubSectionElevation: TemplateOnlyComponent = <template>
       {{style width="fit-content"}}
       as |SG|
     >
-      {{#each CONTAINER_LEVELS as |level|}}
+      {{#each LEVELS as |level|}}
         <SG.Item>
           <HdsCardContainer @levelActive={{level}} mock-state-value="active">
             <ShwPlaceholder

@@ -11,14 +11,14 @@ import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import { HdsCardContainer } from '@hashicorp/design-system-components/components';
-import { BACKGROUNDS as CONTAINER_BACKGROUNDS } from '@hashicorp/design-system-components/components/hds/card/container';
+import { BACKGROUNDS } from '@hashicorp/design-system-components/components/hds/card/container';
 
 const SubSectionBackground: TemplateOnlyComponent = <template>
   <ShwTextH2>Background</ShwTextH2>
 
   <div class="shw-component-card-wrapper">
     <ShwGrid @columns={{2}} {{style width="fit-content"}} as |SG|>
-      {{#each CONTAINER_BACKGROUNDS as |background|}}
+      {{#each BACKGROUNDS as |background|}}
         <SG.Item>
           <HdsCardContainer
             @level="mid"
