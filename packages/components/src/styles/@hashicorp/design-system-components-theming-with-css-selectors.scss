@@ -4,7 +4,7 @@
  */
 
 // these files come from `packages/tokens/dist/`
-@use "products/css/tokens";
+@use "products/css/themed-tokens/with-css-selectors/tokens.css";
 // TODO understand if these are common/shared or we should have different ones for the themed tokens
 @use "products/css/helpers/color";
 @use "products/css/helpers/elevation";
