@@ -23,10 +23,6 @@ export interface HdsSideNavSignature {
     a11yRefocusNavigationText?: string;
     a11yRefocusRouteChangeValidator?: string;
     a11yRefocusExcludeAllQueryParams?: boolean;
-    /**
-     * @deprecated The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button
-     */
-    ariaLabel?: string | undefined;
 
     onToggleMinimizedStatus?: (arg: boolean) => void;
 
@@ -84,7 +80,7 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
       false,
       {
         id: 'hds.components.sidenav',
-        until: '5.0.0',
+        until: '6.0.0',
         url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#4140',
         for: '@hashicorp/design-system-components',
         since: {
@@ -93,23 +89,6 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
         },
       }
     );
-
-    if (args.ariaLabel !== undefined) {
-      deprecate(
-        'The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button',
-        false,
-        {
-          id: 'hds.sidenav',
-          until: '5.0.0',
-          url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#4140',
-          for: '@hashicorp/design-system-components',
-          since: {
-            available: '4.14.0',
-            enabled: '5.0.0',
-          },
-        }
-      );
-    }
   }
 
   addEventListeners(): void {
@@ -155,13 +134,6 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
 
   get showToggleButton(): boolean {
     return (this.isResponsive && !this.isDesktop) || this.isCollapsible;
-  }
-
-  /**
-   * @deprecated The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button
-   */
-  get ariaLabel(): string | undefined {
-    return this.args.ariaLabel;
   }
 
   get classNames(): string {
