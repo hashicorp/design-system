@@ -6,8 +6,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import CheckboxIndex from 'showcase/components/page-components/form/checkbox';
 
-const PageComponentsCheckbox: TemplateOnlyComponent = <template>
+const PageComponentsFormCheckbox: TemplateOnlyComponent = <template>
   <CheckboxIndex />
 </template>;
 
-export default PageComponentsCheckbox;
+export default PageComponentsFormCheckbox;
