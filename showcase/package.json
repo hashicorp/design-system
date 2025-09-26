@@ -65,6 +65,7 @@
     "@types/rsvp": "^4.0.9",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^9.1.2",
+    "ember-a11y-refocus": "^5.1.0",
     "ember-a11y-testing": "^7.1.2",
     "ember-auto-import": "^2.10.0",
     "ember-basic-dropdown": "^8.6.1",

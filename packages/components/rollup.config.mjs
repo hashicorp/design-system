@@ -54,6 +54,7 @@ const plugins = [
     fileName: 'styles/@hashicorp/design-system-components.css',
     includePaths: [
       'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+      'node_modules/ember-a11y-refocus/dist/styles',
     ],
   }),
 
