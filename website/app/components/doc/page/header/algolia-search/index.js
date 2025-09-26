@@ -5,8 +5,8 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { service } from '@ember/service';
+import { modifier } from 'ember-modifier';
 
 import { autocomplete } from '@algolia/autocomplete-js';
 
@@ -22,8 +22,7 @@ export default class DocAlgoliaSearchComponent extends Component {
 
   @service router;
 
-  @action
-  didInsertSearchContainer(element) {
+  _setupSearchContainer = modifier((element) => {
     // define the function to execute to transition to a search result `itemUrl` value
     const emberRouterTransitionTo = (itemUrl) => {
       // TODO leaving it here for some time until we test more thoroughly that simply using the URL works in every condition
@@ -273,5 +272,5 @@ export default class DocAlgoliaSearchComponent extends Component {
       },
       true,
     );
-  }
+  });
 }

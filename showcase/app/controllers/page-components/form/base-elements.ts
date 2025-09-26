@@ -41,4 +41,9 @@ export default class PageComponentsFormBaseElementsController extends Controller
     const { value } = event.target as HTMLInputElement;
     this.values[propName] = value;
   }
+
+  @action
+  _callOnInsert(element: HTMLElement, name: string) {
+    console.log(`HelperText element inserted (${name}):`, element);
+  }
 }

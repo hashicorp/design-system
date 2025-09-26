@@ -9,7 +9,7 @@
   @tag={{this.tag}}
   @size="200"
   @weight="semibold"
-  {{hds-lifecycle onInsert=@onInsert passElement=true}}
+  {{hds-lifecycle didInsert=@onInsert}}
   ...attributes
 >
   {{yield}}

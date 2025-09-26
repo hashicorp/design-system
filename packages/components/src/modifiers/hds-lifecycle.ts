@@ -1,5 +1,4 @@
 import { modifier } from 'ember-modifier';
-import { assert } from '@ember/debug';
 
 type HdsLifecycleCallback = ((element: HTMLElement) => void) | (() => void);
 
@@ -7,32 +6,29 @@ export interface HdsLifecycleModifierSignature {
   Element: HTMLElement;
   Args: {
     Named: {
-      onInsert: HdsLifecycleCallback;
-      onDestroy?: HdsLifecycleCallback;
+      didInsert?: HdsLifecycleCallback;
+      willDestroy?: HdsLifecycleCallback;
       passElement?: boolean;
     };
   };
 }
 
 const hdsLifecycleModifier = modifier<HdsLifecycleModifierSignature>(
-  (element, _positional, { onInsert, onDestroy, passElement = false }) => {
-    assert(
-      'The `onInsert` argument for "hds-element-lifecycle" must be a function.',
-      typeof onInsert === 'function'
-    );
-
-    if (passElement) {
-      (onInsert as (element: HTMLElement) => void)(element);
-    } else {
-      (onInsert as () => void)();
+  (element, _positional, { didInsert, willDestroy, passElement = true }) => {
+    if (typeof didInsert === 'function') {
+      if (passElement) {
+        (didInsert as (element: HTMLElement) => void)(element);
+      } else {
+        (didInsert as () => void)();
+      }
     }
 
     return () => {
-      if (typeof onDestroy === 'function') {
+      if (typeof willDestroy === 'function') {
         if (passElement) {
-          (onDestroy as (element: HTMLElement) => void)(element);
+          (willDestroy as (element: HTMLElement) => void)(element);
         } else {
-          (onDestroy as () => void)();
+          (willDestroy as () => void)();
         }
       }
     };

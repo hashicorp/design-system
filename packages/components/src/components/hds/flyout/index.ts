@@ -111,7 +111,6 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   }
 
   private _initElement = modifier((element: HdsFlyoutSignature['Element']) => {
-    // Store references of `<dialog>` and `<body>` elements
     this._element = element;
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched

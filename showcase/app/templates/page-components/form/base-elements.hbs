@@ -92,7 +92,8 @@
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With simple text">
-      <Hds::Form::HelperText>This is the helper text, usually used jointly with the label.</Hds::Form::HelperText>
+      <Hds::Form::HelperText @onInsert={{this._callOnInsert}}>This is the helper text, usually used jointly with the
+        label.</Hds::Form::HelperText>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With <code>&lt;Link::Inline&gt;</code></SFI.Label>

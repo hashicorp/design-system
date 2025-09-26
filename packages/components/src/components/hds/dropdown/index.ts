@@ -4,8 +4,8 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 
 import {
   // map Dropdown's `listPosition` values to PopoverPrimitive's `placement` values
@@ -154,9 +154,9 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     return classes.join(' ');
   }
 
-  @action
-  didInsertList(element: HTMLUListElement): void {
+  private _setupCheckmarkList = modifier((element: HTMLUListElement) => {
     const checkmarkItems = element.querySelectorAll(`[role="option"]`);
+
     if (checkmarkItems.length) {
       const toggleButtonId = element
         .closest('.hds-dropdown')
@@ -169,5 +169,5 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
         element.setAttribute('aria-labelledby', toggleButtonId);
       }
     }
-  }
+  });
 }
