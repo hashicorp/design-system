@@ -159,6 +159,8 @@ const SubSectionFieldset: TemplateOnlyComponent<SubSectionFieldsetSignature> =
         </ShwGrid>
       {{/each}}
     </div>
+
+    <ShwDivider />
   </template>;
 
 export default SubSectionFieldset;
