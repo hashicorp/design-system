@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-disclosure-primitive" {{did-update this.onStateChange @isOpen}} ...attributes>
+<div class="hds-disclosure-primitive" {{this._toggleControlled @isOpen}} ...attributes>
   <div class="hds-disclosure-primitive__toggle">
     {{yield (hash onClickToggle=this.onClickToggle isOpen=this.isOpen contentId=this._contentId) to="toggle"}}
   </div>

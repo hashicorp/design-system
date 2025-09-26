@@ -7,6 +7,8 @@ import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
+import { next } from '@ember/runloop';
 import { macroCondition, isTesting } from '@embroider/macros';
 
 import type { HdsSideNavPortalSignature } from './index';
@@ -41,14 +43,16 @@ export default class HdsSideNavPortalTarget extends Component<HdsSideNavPortalTa
     );
   }
 
+  private _animateSubnav = modifier(
+    (element: HTMLElement, [count]: [number]) => {
+      // eslint-disable-next-line ember/no-runloop
+      next(() => this.animateSubnav(element, [count]));
+    }
+  );
+
   @action
   panelsChanged(portalCount: number): void {
     this.numSubnavs = portalCount;
-  }
-
-  @action
-  didUpdateSubnav(element: HTMLElement, [count]: [number]): void {
-    this.animateSubnav(element, [count]);
   }
 
   @action

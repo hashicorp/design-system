@@ -196,6 +196,25 @@ export interface HdsAdvancedTableSignature {
   Element: HTMLDivElement;
 }
 
+interface HdsAdvancedTableSyncTableDataModifierSignature {
+  Element: HdsAdvancedTableSignature['Element'];
+  Args: {
+    Named: Pick<
+      HdsAdvancedTableSignature['Args'],
+      'columns' | 'model' | 'sortBy' | 'sortOrder'
+    >;
+  };
+}
+
+interface HdsAdvancedTableSyncColumnOrderModifierSignature {
+  Element: HdsAdvancedTableSignature['Element'];
+  Args: {
+    Named: {
+      columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
+    };
+  };
+}
+
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
   @service hdsIntl!: HdsIntlService;
 
@@ -426,6 +445,29 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
+  private _syncTableData =
+    modifier<HdsAdvancedTableSyncTableDataModifierSignature>(
+      (_element, _positional, { columns, model, sortBy, sortOrder }) => {
+        this._tableModel.setupData({
+          columns,
+          model,
+          sortBy,
+          sortOrder,
+        });
+      }
+    );
+
+  private _syncColumnOrder =
+    modifier<HdsAdvancedTableSyncColumnOrderModifierSignature>(
+      (_element, _positional, { columnOrder }) => {
+        if (columnOrder === undefined) {
+          return;
+        }
+
+        this._tableModel.columnOrder = columnOrder;
+      }
+    );
+
   private _registerGridElement = modifier((element: HTMLDivElement) => {
     this._tableModel.gridElement = element;
   });
@@ -611,27 +653,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         []
       ),
     });
-  }
-
-  @action
-  setupTableModelData(): void {
-    const { columns, model, sortBy, sortOrder } = this.args;
-
-    this._tableModel.setupData({
-      columns,
-      model,
-      sortBy,
-      sortOrder,
-    });
-  }
-
-  @action
-  updateTableModelColumnOrder(): void {
-    if (this.args.columnOrder === undefined) {
-      return;
-    }
-
-    this._tableModel.columnOrder = this.args.columnOrder;
   }
 
   @action

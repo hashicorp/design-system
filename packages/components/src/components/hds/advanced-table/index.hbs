@@ -6,8 +6,8 @@
 <div
   class="hds-advanced-table__container
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
-  {{did-update this.setupTableModelData @columns @model @sortBy @sortOrder}}
-  {{did-update this.updateTableModelColumnOrder @columnOrder}}
+  {{this._syncTableData columns=@columns model=@model sortBy=@sortBy sortOrder=@sortOrder}}
+  {{this._syncColumnOrder columnOrder=@columnOrder}}
   ...attributes
 >
   {{! Caption }}

@@ -9,6 +9,6 @@
     @onChange={{this.panelsChanged}}
     @name={{if @targetName @targetName "hds-side-nav-portal-target"}}
     class="hds-side-nav__content-panels hds-side-nav-hide-when-minimized"
-    {{did-update this.didUpdateSubnav this.numSubnavs}}
+    {{this._animateSubnav this.numSubnavs}}
   />
 </div>

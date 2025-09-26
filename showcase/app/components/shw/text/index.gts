@@ -6,8 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
-// eslint-disable-next-line ember/no-at-ember-render-modifiers
-import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+import { modifier } from 'ember-modifier';
 
 import { TextTagValues, TextAlignValues, TextWeightValues } from './types';
 
@@ -147,7 +146,7 @@ export default class ShwText extends Component<ShwTextSignature> {
     return classes.join(' ');
   }
 
-  addHeadingLink = (element: HTMLHeadingElement) => {
+  addHeadingLink = modifier((element: HTMLHeadingElement) => {
     const innerText = element.innerText;
     const sanitizedId = innerText
       .trim()
@@ -173,7 +172,7 @@ export default class ShwText extends Component<ShwTextSignature> {
     anchor.className = 'shw-page-heading-link';
     anchor.setAttribute('aria-labelledby', uniqueId);
     element.prepend(anchor);
-  };
+  });
 
   <template>
     {{#if (eq this.tag "h1")}}
@@ -181,31 +180,31 @@ export default class ShwText extends Component<ShwTextSignature> {
     {{else if (eq this.tag "h2")}}
       <h2
         class={{this.classNames}}
-        {{didInsert this.addHeadingLink}}
+        {{this.addHeadingLink}}
         ...attributes
       >{{yield}}</h2>
     {{else if (eq this.tag "h3")}}
       <h3
         class={{this.classNames}}
-        {{didInsert this.addHeadingLink}}
+        {{this.addHeadingLink}}
         ...attributes
       >{{yield}}</h3>
     {{else if (eq this.tag "h4")}}
       <h4
         class={{this.classNames}}
-        {{didInsert this.addHeadingLink}}
+        {{this.addHeadingLink}}
         ...attributes
       >{{yield}}</h4>
     {{else if (eq this.tag "h5")}}
       <h5
         class={{this.classNames}}
-        {{didInsert this.addHeadingLink}}
+        {{this.addHeadingLink}}
         ...attributes
       >{{yield}}</h5>
     {{else if (eq this.tag "h6")}}
       <h6
         class={{this.classNames}}
-        {{didInsert this.addHeadingLink}}
+        {{this.addHeadingLink}}
         ...attributes
       >{{yield}}</h6>
     {{else if (eq this.tag "p")}}
