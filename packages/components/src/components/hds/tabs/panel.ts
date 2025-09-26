@@ -5,7 +5,9 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
+import { schedule } from '@ember/runloop';
+
 import type { HdsTabsTabSignature } from './tab';
 import type { HdsTabsPanelIds, HdsTabsTabIds } from './types';
 
@@ -28,11 +30,7 @@ export interface HdsTabsPanelSignature {
 }
 
 export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
-  /**
-   * Generate a unique ID for the Panel
-   * @return {string}
-   * @param _panelId
-   */
+  // Generate a unique ID for the Panel
   private _panelId = 'panel-' + guidFor(this);
 
   private _elementId?: string;
@@ -43,40 +41,36 @@ export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
       : undefined;
   }
 
-  /**
-   * Check the condition if the panel is visible (because the coupled/associated tab is selected) or not
-   * @returns {boolean}
-   */
+  // Check the condition if the panel is visible (because the coupled/associated tab is selected) or not
   get isVisible(): boolean {
     return this.nodeIndex === this.args.selectedTabIndex;
   }
 
-  /**
-   * Get the ID of the tab coupled/associated with the panel (it's used by the `aria-labelledby` attribute)
-   * @returns string}
-   */
+  // Get the ID of the tab coupled/associated with the panel (it's used by the `aria-labelledby` attribute)
   get coupledTabId(): string | undefined {
     return this.nodeIndex !== undefined
       ? this.args.tabIds?.[this.nodeIndex]
       : undefined;
   }
 
-  @action
-  didInsertNode(element: HTMLElement): void {
-    const { didInsertNode } = this.args;
+  private _registerElement = modifier((element: HTMLElement) => {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', (): void => {
+      const { didInsertNode } = this.args;
 
-    if (typeof didInsertNode === 'function') {
-      this._elementId = element.id;
-      didInsertNode(element, this._elementId);
-    }
-  }
+      if (typeof didInsertNode === 'function') {
+        this._elementId = element.id;
 
-  @action
-  willDestroyNode(element: HTMLElement): void {
-    const { willDestroyNode } = this.args;
+        didInsertNode(element, this._elementId);
+      }
+    });
 
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
-  }
+    return () => {
+      const { willDestroyNode } = this.args;
+
+      if (typeof willDestroyNode === 'function') {
+        willDestroyNode(element);
+      }
+    };
+  });
 }

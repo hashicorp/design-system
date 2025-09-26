@@ -21,7 +21,7 @@
     >
       {{#if (or PP.isOpen @preserveContentInDom)}}
         {{yield (hash Header=(component "hds/dropdown/header") close=PP.hidePopover)}}
-        <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
+        <ul class="hds-dropdown__list" {{this._setupCheckmarkList}}>
           {{yield
             (hash
               close=PP.hidePopover

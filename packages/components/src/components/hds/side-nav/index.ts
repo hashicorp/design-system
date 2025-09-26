@@ -8,6 +8,7 @@ import { deprecate } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
+import { modifier } from 'ember-modifier';
 
 import type { HdsSideNavBaseSignature } from './base';
 import type Owner from '@ember/owner';
@@ -170,6 +171,14 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
     });
   }
 
+  private _registerContainersToHide = modifier(
+    (element: HdsSideNavSignature['Element']): void => {
+      this.containersToHide = element.querySelectorAll(
+        '.hds-side-nav-hide-when-minimized'
+      );
+    }
+  );
+
   @action
   escapePress(event: KeyboardEvent): void {
     if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
@@ -189,13 +198,6 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
     if (typeof onToggleMinimizedStatus === 'function') {
       onToggleMinimizedStatus(this.isMinimized);
     }
-  }
-
-  @action
-  didInsert(element: HTMLElement): void {
-    this.containersToHide = element.querySelectorAll(
-      '.hds-side-nav-hide-when-minimized'
-    );
   }
 
   @action

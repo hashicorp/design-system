@@ -4,10 +4,10 @@
  */
 
 import Component from '@glimmer/component';
+
 import type { HdsTextBodySignature } from '../../text/body';
 
 const ID_PREFIX = 'character-count-';
-const NOOP = (): void => {};
 
 export interface HdsFormCharacterCountSignature {
   Args: {
@@ -52,12 +52,6 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
     }`;
   }
 
-  /**
-   * @param maxLength
-   * @type {number}
-   * @default null
-   * @description The maximum number of characters allowed.
-   */
   get maxLength(): number | undefined {
     const { maxLength } = this.args;
     if (maxLength) {
@@ -65,12 +59,6 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
     }
   }
 
-  /**
-   * @param minLength
-   * @type {number}
-   * @default null
-   * @description The minimum number of characters allowed.
-   */
   get minLength(): number | undefined {
     const { minLength } = this.args;
     if (minLength) {
@@ -78,32 +66,14 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
     }
   }
 
-  /**
-   * @param remaining
-   * @type {number}
-   * @default null
-   * @description The remaining number of characters.
-   */
   get remaining(): number | undefined {
     return this.maxLength ? this.maxLength - this.currentLength : undefined;
   }
 
-  /**
-   * @param shortfall
-   * @type {number}
-   * @default null
-   * @description The number of characters the content is falling short of.
-   */
   get shortfall(): number | undefined {
     return this.minLength ? this.minLength - this.currentLength : undefined;
   }
 
-  /**
-   * @param message
-   * @type {string}
-   * @default null
-   * @description The character count message presented to users
-   */
   get message(): string {
     let messageText = '';
     if (this.minLength && this.currentLength === 0) {
@@ -126,11 +96,6 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
     return messageText;
   }
 
-  /**
-   * Determines the unique ID to assign to the element
-   * @method id
-   * @return {(string|null)} The "id" attribute to apply to the element or null, if no controlId is provided
-   */
   get id(): string | null {
     const { controlId } = this.args;
     if (controlId) {
@@ -139,26 +104,6 @@ export default class HdsFormCharacterCount extends Component<HdsFormCharacterCou
     return null;
   }
 
-  /**
-   * @param onInsert
-   * @type {function}
-   * @default () => {}
-   */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  get onInsert(): (element: HTMLElement, ...args: any[]) => void {
-    const { onInsert } = this.args;
-    // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
-    if (typeof onInsert === 'function') {
-      return onInsert;
-    } else {
-      return NOOP;
-    }
-  }
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-character-count'];
 

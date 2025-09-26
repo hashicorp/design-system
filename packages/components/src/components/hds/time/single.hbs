@@ -7,8 +7,7 @@
   class="hds-time hds-time--single"
   datetime={{@isoUtcString}}
   ...attributes
-  {{did-insert @register}}
-  {{will-destroy @unregister}}
+  {{hds-lifecycle didInsert=@register willDestroy=@unregister passElement=false}}
 >
   {{~#if @display.options.showFriendly~}}
     {{~#if @display.options.displayFormat~}}
