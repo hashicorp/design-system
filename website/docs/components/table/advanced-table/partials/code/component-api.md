@@ -84,6 +84,9 @@ The Advanced Table component itself is where most of the options will be applied
   <C.Property @name="hasReorderableColumns" @type="boolean" @default="false">
     If set to `true`, allows users to reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys.
   </C.Property>
+  <C.Property @name="reorderedMessageText" @type="string">
+    Customizable text added to `caption` element when a column reorder is performed.
+  </C.Property>
   <C.Property @name="hasResizableColumns" @type="boolean" @default="false">
     If set to `true`, allows users to resize columns either by clicking and dragging on the column border with a mouse, or by moving focus to the resize border with a keyboard and using the right and left arrow keys.
   </C.Property>
