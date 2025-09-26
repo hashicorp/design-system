@@ -11,9 +11,9 @@ import SubSectionBaseElement from 'showcase/components/page-components/form/text
 import SubSectionFieldElement from 'showcase/components/page-components/form/text-input/sub-sections/field-element';
 
 const FormTextInputIndex: TemplateOnlyComponent = <template>
-  {{pageTitle "Form::TextInput Component"}}
+  {{pageTitle "TextInput Component"}}
 
-  <ShwTextH1>Form::TextInput</ShwTextH1>
+  <ShwTextH1>TextInput</ShwTextH1>
 
   <section data-test-percy>
     <SubSectionBaseElement />
