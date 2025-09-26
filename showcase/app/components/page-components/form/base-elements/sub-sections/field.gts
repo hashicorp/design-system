@@ -45,7 +45,6 @@ const SubSectionField: TemplateOnlyComponent<SubSectionFieldSignature> =
           'shw-component-form-base-elements-layout-highlight'
         }}"
     >
-
       <ShwTextH3>Layout</ShwTextH3>
 
       <ShwGrid @columns={{3}} as |SG|>
