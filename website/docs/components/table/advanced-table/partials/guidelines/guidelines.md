@@ -126,7 +126,7 @@ Don’t center header labels or cell content within a table.
 
 ### Reorderable columns
 
-If `hasReorderableColumns` is set to true on the Ember component, users can reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys. These properties are not available within the Figma component, but we've provided [examples](jory-update-link) that you can copy and paste into your design files.
+If `hasReorderableColumns` is set to true on the Ember component, users can reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys. These properties are not available within the Figma component, but we've provided [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=KXQulxNCTwGhmCX5-1) that you can copy and paste into your design files.
 
 When enabled, actions related to altering the column order are rendered in a context menu in the table header. These are not customizable and include:
 
