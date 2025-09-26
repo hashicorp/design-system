@@ -137,7 +137,6 @@ Router.map(function () {
     this.route('disclosure-primitive');
     this.route('dismiss-button');
     this.route('interactive');
-    this.route('menu-primitive');
     this.route('popover-primitive');
   });
   this.route('page-overrides', { path: 'overrides' }, function () {

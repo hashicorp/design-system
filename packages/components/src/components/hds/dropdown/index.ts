@@ -15,7 +15,7 @@ import {
 } from './types.ts';
 
 import type { ComponentLike } from '@glint/template';
-import type { MenuPrimitiveSignature } from '../menu-primitive';
+import type { HdsPopoverPrimitiveSignature } from '../popover-primitive/index.ts';
 import type { HdsDropdownFooterSignature } from './footer';
 import type { HdsDropdownHeaderSignature } from './header';
 import type { HdsDropdownListItemCheckboxSignature } from './list-item/checkbox';
@@ -39,15 +39,16 @@ export const POSITIONS: HdsDropdownPositions[] = Object.values(
 );
 
 export interface HdsDropdownSignature {
-  Args: MenuPrimitiveSignature['Args'] & {
+  Args: {
     height?: string;
     isInline?: boolean;
-    isOpen?: boolean;
+    isOpen?: HdsPopoverPrimitiveSignature['Args']['isOpen'];
     listPosition?: HdsDropdownPositions;
     width?: string;
     enableCollisionDetection?: HdsAnchoredPositionOptions['enableCollisionDetection'];
     preserveContentInDom?: boolean;
     matchToggleWidth?: boolean;
+    onClose?: HdsPopoverPrimitiveSignature['Args']['onClose'];
   };
   Blocks: {
     default: [
@@ -69,7 +70,7 @@ export interface HdsDropdownSignature {
       },
     ];
   };
-  Element: MenuPrimitiveSignature['Element'];
+  Element: HTMLDivElement;
 }
 
 export default class HdsDropdown extends Component<HdsDropdownSignature> {

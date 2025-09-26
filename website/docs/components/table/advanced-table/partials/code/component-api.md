@@ -205,9 +205,6 @@ If the `Th` component is passed as the first cell of a body row, `role="rowheade
   <C.Property @name="tooltip" @type="string">
     Text string which will appear in the [`Tooltip`](/components/tooltip). May contain basic HTML tags for formatting text such as `strong` and `em` tags. Not intended for multi-paragraph text or other more complex content. May not contain interactive content such as links or buttons. The `placement` and `offset` are automatically set and can’t be overwritten.
   </C.Property>
-  <C.Property @name="isVisuallyHidden" @type="boolean" @default="false">
-    If set to `true`, it visually hides the column’s text content (it will still be available to screen readers for accessibility).
-  </C.Property>
   <C.Property @name="colspan" @type="string">
     The number of columns the cell spans. Used to apply the correct grid styles and the aria-rowspan attribute for accessibility.
   </C.Property>
