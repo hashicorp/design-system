@@ -16,10 +16,9 @@ import ShwDivider from 'showcase/components/shw/divider';
 
 import { HdsFormTextareaBase } from '@hashicorp/design-system-components/components';
 
-// these are used only for presentation purpose in the showcase
 const STATES = ['default', 'hover', 'focus'];
 
-const SubSectionBaseElements: TemplateOnlyComponent = <template>
+const SubSectionBaseElement: TemplateOnlyComponent = <template>
   <ShwTextH2>"Base" control</ShwTextH2>
 
   <ShwTextH3>Interaction status</ShwTextH3>
@@ -150,4 +149,4 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwDivider />
 </template>;
 
-export default SubSectionBaseElements;
+export default SubSectionBaseElement;

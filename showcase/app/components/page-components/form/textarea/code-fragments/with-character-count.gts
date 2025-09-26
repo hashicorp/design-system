@@ -11,9 +11,10 @@ export interface CodeFragmentWithCharacterCountSignature {
     maxLength: number;
     value: string;
     hasValidation?: boolean;
+    hasHelperText?: boolean;
   };
   Blocks: {
-    default: [
+    characterCount: [
       {
         currentLength?: number;
         maxLength?: number;
@@ -32,14 +33,19 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
   ) {
     super(owner, args);
     this.value = args.value ?? '';
+    this.validateValue();
   }
 
   updateValue = (event: Event) => {
     const { value } = event.target as HTMLTextAreaElement;
     this.value = value;
 
+    this.validateValue();
+  };
+
+  validateValue = () => {
     if (this.args.hasValidation) {
-      this.isInvalid = value.length > this.args.maxLength;
+      this.isInvalid = this.value.length > this.args.maxLength;
     }
   };
 
@@ -50,9 +56,19 @@ export default class CodeFragmentWithCharacterCount extends Component<CodeFragme
       as |F|
     >
       <F.Label>This is the label text</F.Label>
-      <F.CharacterCount @maxLength={{@maxLength}} as |CC|>
-        {{yield (hash currentLength=CC.currentLength maxLength=CC.maxLength)}}
-      </F.CharacterCount>
+      {{#if @hasHelperText}}
+        <F.HelperText>This is the helper text</F.HelperText>
+      {{/if}}
+      {{#if (has-block "characterCount")}}
+        <F.CharacterCount @maxLength={{@maxLength}} as |CC|>
+          {{yield
+            (hash currentLength=CC.currentLength maxLength=CC.maxLength)
+            to="characterCount"
+          }}
+        </F.CharacterCount>
+      {{else}}
+        <F.CharacterCount @maxLength={{@maxLength}} />
+      {{/if}}
       {{#if this.isInvalid}}
         <F.Error>Maximum numbers of characters exceeded</F.Error>
       {{/if}}

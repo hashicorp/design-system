@@ -99,14 +99,16 @@ const SubSectionFieldElement: TemplateOnlyComponent = <template>
     <SG.Item @label="Label + Helper text + Character count (custom)">
       <CodeFragmentWithCharacterCount
         @maxLength={{100}}
+        @hasHelperText={{true}}
         @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
-        as |CF|
       >
-        Entered
-        {{CF.currentLength}}
-        out of
-        {{CF.maxLength}}
-        characters
+        <:characterCount as |CC|>
+          Entered
+          {{CC.currentLength}}
+          out of
+          {{CC.maxLength}}
+          characters
+        </:characterCount>
       </CodeFragmentWithCharacterCount>
     </SG.Item>
     <SG.Item @label="Label + Character count + Error">
