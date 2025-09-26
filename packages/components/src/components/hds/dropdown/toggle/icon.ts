@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 import { HdsDropdownToggleIconSizeValues } from './types.ts';
 
 import type { HdsIconSignature } from '../../icon';
@@ -45,21 +46,17 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     }
   }
 
-  @action
-  onDidUpdateImageSrc(): void {
-    this._hasImage = true;
-  }
+  private _updateImagePresence = modifier(
+    (_element, [_imageSrc]: [string | undefined]) => {
+      this._hasImage = !!_imageSrc;
+    }
+  );
 
   @action
   onImageLoadError(): void {
     this._hasImage = false;
   }
 
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the `aria-label` applied to the toggle
-   */
   get text(): string {
     const { text } = this.args;
 
@@ -71,12 +68,6 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     return text;
   }
 
-  /**
-   * @param size
-   * @type {string}
-   * @default medium
-   * @description The size of the button; acceptable values are `small` and `medium`
-   */
   get size(): HdsDropdownToggleIconSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -90,12 +81,6 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     return size;
   }
 
-  /**
-   * @param iconSize
-   * @type {string}
-   * @default 24
-   * @description ensures that the correct icon size is used
-   */
   get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.size === 'medium' && !this.hasChevron) {
       // in this special case we use a larger SVG
@@ -106,22 +91,11 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     }
   }
 
-  /**
-   * Indicates if a dropdown chevron icon should be displayed; should be displayed unless the "more-horizontal" icon is used.
-   *
-   * @param hasChevron
-   * @type {boolean}
-   * @default true
-   */
+  // Indicates if a dropdown chevron icon should be displayed; should be displayed unless the "more-horizontal" icon is used.
   get hasChevron(): boolean {
     return this.args.hasChevron ?? true;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method ToggleIcon#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-dropdown-toggle-icon'];
 

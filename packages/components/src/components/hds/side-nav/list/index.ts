@@ -6,6 +6,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
+import { schedule } from '@ember/runloop';
+
 import type { ComponentLike } from '@glint/template';
 import type { HdsYieldSignature } from '../../yield';
 import type { HdsSideNavListItemSignature } from './item';
@@ -29,6 +32,10 @@ export interface HdsSideNavListSignature {
   Element: HTMLElement;
 }
 
+export interface HdsSideNavListRegisterTitleIdModifierSignature {
+  Element: HdsSideNavListSignature['Element'];
+}
+
 export default class HdsSideNavList extends Component<HdsSideNavListSignature> {
   @tracked _titleIds: string[] = [];
 
@@ -40,4 +47,13 @@ export default class HdsSideNavList extends Component<HdsSideNavListSignature> {
   didInsertTitle(titleId: string): void {
     this._titleIds = [...this._titleIds, titleId];
   }
+
+  private _registerTitleId =
+    modifier<HdsSideNavListRegisterTitleIdModifierSignature>((element) => {
+      // eslint-disable-next-line ember/no-runloop
+      schedule(
+        'afterRender',
+        () => (this._titleIds = [...this._titleIds, element.id])
+      );
+    });
 }
