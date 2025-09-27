@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { modifier } from 'ember-modifier';
 
 import type { HdsTextBodySignature } from '../text/body';
 
@@ -21,4 +22,14 @@ export interface HdsCodeEditorDescriptionSignature {
 
 export default class HdsCodeEditorDescription extends Component<HdsCodeEditorDescriptionSignature> {
   private _id = `${this.args.editorId}-description`;
+
+  private _callOnInsert = modifier(
+    (element: HdsCodeEditorDescriptionElement) => {
+      const { onInsert } = this.args;
+
+      if (typeof onInsert === 'function') {
+        onInsert(element);
+      }
+    }
+  );
 }

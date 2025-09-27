@@ -8,7 +8,7 @@
   class="hds-code-editor__description"
   @tag="p"
   @size="100"
-  {{did-insert @onInsert}}
+  {{this._callOnInsert}}
   ...attributes
 >
   {{yield}}

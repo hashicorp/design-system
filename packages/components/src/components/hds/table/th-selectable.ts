@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 import {
   HdsTableThSortOrderValues,
   HdsTableThSortOrderLabelValues,
@@ -74,22 +75,23 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     }
   }
 
-  @action
-  didInsert(checkbox: HdsFormCheckboxBaseSignature['Element']): void {
-    const { didInsert } = this.args;
-    if (typeof didInsert === 'function') {
-      didInsert(checkbox, this.args.selectionKey);
-    }
-  }
+  private _registerCheckbox = modifier(
+    (element: HdsFormCheckboxBaseSignature['Element']) => {
+      const { didInsert } = this.args;
 
-  @action
-  willDestroyNode(): void {
-    super.willDestroy();
-    const { willDestroy } = this.args;
-    if (typeof willDestroy === 'function') {
-      willDestroy(this.args.selectionKey);
+      if (typeof didInsert === 'function') {
+        didInsert(element, this.args.selectionKey);
+      }
+
+      return () => {
+        const { willDestroy } = this.args;
+
+        if (typeof willDestroy === 'function') {
+          willDestroy(this.args.selectionKey);
+        }
+      };
     }
-  }
+  );
 
   @action
   onSelectionChange(event: Event): void {

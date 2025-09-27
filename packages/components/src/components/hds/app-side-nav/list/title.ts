@@ -4,12 +4,14 @@
  */
 
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
 import Component from '@glimmer/component';
+
+import type { ModifierLike } from '@glint/template';
+import type { HdsAppSideNavListRegisterTitleIdModifierSignature } from './index.ts';
 
 export interface HdsAppSideNavListTitleSignature {
   Args: {
-    didInsertTitle?: (titleId: string) => void;
+    registerTitleId?: ModifierLike<HdsAppSideNavListRegisterTitleIdModifierSignature>;
   };
   Blocks: {
     default: [];
@@ -20,13 +22,4 @@ export interface HdsAppSideNavListTitleSignature {
 export default class HdsAppSideNavListTitle extends Component<HdsAppSideNavListTitleSignature> {
   /*  Generate a unique ID for each Title */
   private _titleId = 'title-' + guidFor(this);
-
-  @action
-  didInsertTitle(element: HTMLElement): void {
-    const { didInsertTitle } = this.args;
-
-    if (typeof didInsertTitle === 'function') {
-      didInsertTitle(element.id);
-    }
-  }
 }
