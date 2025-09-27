@@ -17,6 +17,8 @@ import type HdsButtonComponent from '../button';
 import type HdsLinkStandaloneComponent from '../link/standalone';
 import type { HdsYieldSignature } from '../yield';
 import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
+import type HdsAlertTitleComponent from './title.ts';
+import type HdsAlertDescriptionComponent from './description.ts';
 import type { HdsAlertTitleSignature } from './title.ts';
 import type { HdsAlertDescriptionSignature } from './description.ts';
 import type { HdsIconSignature } from '../icon';
@@ -51,8 +53,11 @@ export interface HdsAlertSignature {
   Blocks: {
     default: [
       {
-        Title?: ComponentLike<HdsAlertTitleSignature>;
-        Description?: ComponentLike<HdsAlertDescriptionSignature>;
+        Title?: WithBoundArgs<typeof HdsAlertTitleComponent, 'onInsert'>;
+        Description?: WithBoundArgs<
+          typeof HdsAlertDescriptionComponent,
+          'onInsert'
+        >;
         Generic?: ComponentLike<HdsYieldSignature>;
         LinkStandalone?: WithBoundArgs<
           typeof HdsLinkStandaloneComponent,
