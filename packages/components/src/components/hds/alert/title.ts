@@ -27,7 +27,11 @@ export default class HdsAlertTitle extends Component<HdsAlertTitleSignature> {
 
   private _registerElement = modifier(
     (element: HdsAlertTitleSignature['Element']) => {
-      this.args.onInsert(element);
+      const { onInsert } = this.args;
+
+      if (typeof onInsert === 'function') {
+        onInsert(element);
+      }
     }
   );
 }
