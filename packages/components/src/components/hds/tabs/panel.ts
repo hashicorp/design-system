@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
 import type { HdsTabsTabSignature } from './tab';
@@ -64,7 +63,7 @@ export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
       : undefined;
   }
 
-  private _handleInsert = modifier((element: HTMLElement) => {
+  private _handleLifecycle = modifier((element: HTMLElement) => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', () => {
       const { didInsertNode } = this.args;
@@ -75,14 +74,13 @@ export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
         didInsertNode(element, this._elementId);
       }
     });
+
+    return () => {
+      const { willDestroyNode } = this.args;
+
+      if (typeof willDestroyNode === 'function') {
+        willDestroyNode(element);
+      }
+    };
   });
-
-  @action
-  willDestroyNode(element: HTMLElement): void {
-    const { willDestroyNode } = this.args;
-
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
-  }
 }

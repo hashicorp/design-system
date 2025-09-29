@@ -85,14 +85,22 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
     };
   });
 
-  @action
-  didUpdateNode(): void {
-    const { didUpdateNode } = this.args;
+  private _handleUpdates = modifier(
+    (
+      _element,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      [_count, isSelected]: [
+        HdsTabsTabSignature['Args']['count'],
+        HdsTabsTabSignature['Args']['isSelected'],
+      ]
+    ): void => {
+      const { didUpdateNode } = this.args;
 
-    if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
-      didUpdateNode(this.nodeIndex, this.args.isSelected);
+      if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
+        didUpdateNode(this.nodeIndex, isSelected);
+      }
     }
-  }
+  );
 
   @action
   onClick(event: MouseEvent): false | undefined {
