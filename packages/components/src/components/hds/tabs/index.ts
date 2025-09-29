@@ -139,13 +139,19 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     }
   );
 
-  @action
-  didUpdateParentVisibility(): void {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
-      this.setTabIndicator();
-    });
-  }
+  private _updateParentVisibility = modifier(
+    (
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      _element,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      [_isParentVisible]: [HdsTabsSignature['Args']['isParentVisible']]
+    ): void => {
+      // eslint-disable-next-line ember/no-runloop
+      schedule('afterRender', (): void => {
+        this.setTabIndicator();
+      });
+    }
+  );
 
   @action
   didInsertTab(element: HTMLButtonElement, isSelected?: boolean): void {
