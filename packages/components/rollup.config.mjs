@@ -69,18 +69,30 @@ const plugins = [
         const result = sass.compile(
           'src/styles/@hashicorp/design-system-components-theming-with-css-selectors.scss',
           {
+            sourceMap: true,
             // equivalent to includePaths in rollup-plugin-scss
             loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
           }
         );
 
+        const cssFileName =
+          'styles/@hashicorp/design-system-components-theming-with-css-selectors.css';
+
         // Emit the compiled CSS
         this.emitFile({
           type: 'asset',
-          fileName:
-            'styles/@hashicorp/design-system-components-theming-with-css-selectors.css',
+          fileName: cssFileName,
           source: result.css,
         });
+
+        // Emit the source map
+        if (result.sourceMap) {
+          this.emitFile({
+            type: 'asset',
+            fileName: `${cssFileName}.map`,
+            source: JSON.stringify(result.sourceMap),
+          });
+        }
       } catch (error) {
         this.error(
           `Failed to compile themed ("with CSS selectors") SCSS: ${error.message}`
@@ -96,18 +108,30 @@ const plugins = [
         const result = sass.compile(
           'src/styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.scss',
           {
+            sourceMap: true,
             // equivalent to includePaths in rollup-plugin-scss
             loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
           }
         );
 
+        const cssFileName =
+          'styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.css';
+
         // Emit the compiled CSS
         this.emitFile({
           type: 'asset',
-          fileName:
-            'styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.css',
+          fileName: cssFileName,
           source: result.css,
         });
+
+        // Emit the source map
+        if (result.sourceMap) {
+          this.emitFile({
+            type: 'asset',
+            fileName: `${cssFileName}.map`,
+            source: JSON.stringify(result.sourceMap),
+          });
+        }
       } catch (error) {
         this.error(
           `Failed to compile themed ("with CSS selectors") SCSS: ${error.message}`
