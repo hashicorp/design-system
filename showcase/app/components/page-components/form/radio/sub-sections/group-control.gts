@@ -1,146 +1,27 @@
-{{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
-}}
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { array } from '@ember/helper';
+import style from 'ember-style-modifier';
 
-{{page-title "Form::Radio Component"}}
+import ShwDivider from 'showcase/components/shw/divider';
+import ShwFlex from 'showcase/components/shw/flex';
+import ShwGrid from 'showcase/components/shw/grid';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH3 from 'showcase/components/shw/text/h3';
 
-<Shw::Text::H1>Form::Radio</Shw::Text::H1>
+import { HdsFormRadioGroup } from '@hashicorp/design-system-components/components';
 
-<section data-test-percy>
+const SubSectionGroupControl: TemplateOnlyComponent = <template>
+  <ShwTextH2>"Group" of controls</ShwTextH2>
 
-  <Shw::Text::H2>"Base" control</Shw::Text::H2>
+  <ShwTextH3>Vertical layout</ShwTextH3>
 
-  <Shw::Text::H3>Interaction status</Shw::Text::H3>
-
-  <Shw::Flex @gap="2rem" as |SF|>
-    <SF.Item @label="Unchecked">
-      <Hds::Form::Radio::Base aria-label="Unchecked radio" />
-    </SF.Item>
-    <SF.Item @label="Checked">
-      <Hds::Form::Radio::Base checked="checked" aria-label="Checked radio" />
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H3>States (Base / Disabled)</Shw::Text::H3>
-
-  <Shw::Flex @gap="2rem" as |SF|>
-    {{#each @model.STATES as |state|}}
-      <SF.Item @label={{capitalize state}}>
-        <Shw::Grid @columns={{2}} mock-state-value={{state}} mock-state-selector="input" as |SG|>
-          <SG.Item>
-            <Hds::Form::Radio::Base aria-label="Radio" />
-          </SG.Item>
-          <SG.Item>
-            <Hds::Form::Radio::Base checked="checked" aria-label="Checked radio" />
-          </SG.Item>
-          {{#unless (eq state "focus")}}
-            <SG.Item>
-              <Hds::Form::Radio::Base disabled="disabled" aria-label="Disabled radio" />
-            </SG.Item>
-            <SG.Item>
-              <Hds::Form::Radio::Base checked="checked" disabled="disabled" aria-label="Checked, disabled radio" />
-            </SG.Item>
-          {{/unless}}
-        </Shw::Grid>
-      </SF.Item>
-    {{/each}}
-  </Shw::Flex>
-
-  <Shw::Text::H3>Custom layout</Shw::Text::H3>
-
-  <Shw::Flex as |SF|>
-    <SF.Item>
-      <div class="shw-component-form-radio-base-custom-layout">
-        <label>
-          <strong>Some content</strong>
-          <span>Some other content content</span>
-          <div class="shw-component-form-radio-base-custom-layout__control-wrapper">
-            <Hds::Form::Radio::Base id="my-custom-radio-example" />
-          </div>
-        </label>
-      </div>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>"Field" control</Shw::Text::H2>
-
-  <Shw::Text::H3>Content</Shw::Text::H3>
-
-  <Shw::Grid @columns={{3}} as |SG|>
-    <SG.Item @label="Only label">
-      <Hds::Form::Radio::Field as |F|>
-        <F.Label>This is the label text</F.Label>
-      </Hds::Form::Radio::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text">
-      <Hds::Form::Radio::Field checked="checked" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-      </Hds::Form::Radio::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text with link">
-      <Hds::Form::Radio::Field checked="checked" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text
-          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
-      </Hds::Form::Radio::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Error">
-      <Hds::Form::Radio::Field as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.Error>This is the error</F.Error>
-      </Hds::Form::Radio::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text + Error">
-      <Hds::Form::Radio::Field checked="checked" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Error>This is the error</F.Error>
-      </Hds::Form::Radio::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text + Errors">
-      <Hds::Form::Radio::Field checked="checked" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Error as |E|>
-          <E.Message>First error message</E.Message>
-          <E.Message>Second error message</E.Message>
-        </F.Error>
-      </Hds::Form::Radio::Field>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H3>States</Shw::Text::H3>
-
-  <Shw::Grid @columns={{3}} as |SG|>
-    <SG.Item @label="Disabled">
-      <Hds::Form::Radio::Field disabled as |F|>
-        <F.Label>This is the label text</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-      </Hds::Form::Radio::Field>
-    </SG.Item>
-    <SG.Item @label="Disabled / Checked">
-      <Hds::Form::Radio::Field disabled checked="checked" as |F|>
-        <F.Label>This is the label text</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-      </Hds::Form::Radio::Field>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>"Group" of controls</Shw::Text::H2>
-
-  <Shw::Text::H3>Vertical layout</Shw::Text::H3>
-
-  <Shw::Grid @columns={{3}} as |SG|>
+  <ShwGrid @columns={{3}} as |SG|>
     <SG.Item @label="With legend">
-      <Hds::Form::Radio::Group @name="control-vertical-01" as |G|>
+      <HdsFormRadioGroup @name="control-vertical-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.RadioField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -151,10 +32,10 @@
         <G.RadioField as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SG.Item>
     <SG.Item @label="With legend / With helper text">
-      <Hds::Form::Radio::Group @name="control-vertical-03" as |G|>
+      <HdsFormRadioGroup @name="control-vertical-03" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.RadioField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -168,10 +49,10 @@
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SG.Item>
     <SG.Item @label="Without legend">
-      <Hds::Form::Radio::Group @name="control-vertical-02" as |G|>
+      <HdsFormRadioGroup @name="control-vertical-02" as |G|>
         <G.RadioField as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.RadioField>
@@ -181,10 +62,10 @@
         <G.RadioField as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SG.Item>
     <SG.Item @label="Without legend / With helper text">
-      <Hds::Form::Radio::Group @name="control-vertical-04" as |G|>
+      <HdsFormRadioGroup @name="control-vertical-04" as |G|>
         <G.RadioField as |F|>
           <F.Label>Label of control #1</F.Label>
           <F.HelperText>Helper text for control #1</F.HelperText>
@@ -197,10 +78,10 @@
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SG.Item>
     <SG.Item @label="With helper text at group level">
-      <Hds::Form::Radio::Group @name="control-vertical-05" as |G|>
+      <HdsFormRadioGroup @name="control-vertical-05" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
         <G.RadioField as |F|>
@@ -212,10 +93,10 @@
         <G.RadioField as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SG.Item>
     <SG.Item @label="With error at group level">
-      <Hds::Form::Radio::Group @name="control-vertical-06" as |G|>
+      <HdsFormRadioGroup @name="control-vertical-06" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.RadioField name="control-vertical-06" as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -227,17 +108,21 @@
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
         <G.Error>Error for the entire group</G.Error>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SG.Item>
-  </Shw::Grid>
+  </ShwGrid>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Horizontal layout</Shw::Text::H3>
+  <ShwTextH3>Horizontal layout</ShwTextH3>
 
-  <Shw::Flex @direction="column" as |SF|>
+  <ShwFlex @direction="column" as |SF|>
     <SF.Item @label="With legend">
-      <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-01" as |G|>
+      <HdsFormRadioGroup
+        @layout="horizontal"
+        @name="control-horizontal-01"
+        as |G|
+      >
         <G.Legend>Legend of the group</G.Legend>
         <G.RadioField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -248,10 +133,14 @@
         <G.RadioField as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SF.Item>
     <SF.Item @label="Without legend">
-      <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-02" as |G|>
+      <HdsFormRadioGroup
+        @layout="horizontal"
+        @name="control-horizontal-02"
+        as |G|
+      >
         <G.RadioField as |F|>
           <F.Label>Label of control #1</F.Label>
         </G.RadioField>
@@ -261,10 +150,14 @@
         <G.RadioField as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SF.Item>
     <SF.Item @label="With helper text at group level">
-      <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-03" as |G|>
+      <HdsFormRadioGroup
+        @layout="horizontal"
+        @name="control-horizontal-03"
+        as |G|
+      >
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
         <G.RadioField as |F|>
@@ -276,10 +169,14 @@
         <G.RadioField as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SF.Item>
     <SF.Item @label="With error at group level">
-      <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-04" as |G|>
+      <HdsFormRadioGroup
+        @layout="horizontal"
+        @name="control-horizontal-04"
+        as |G|
+      >
         <G.Legend>Legend of the group</G.Legend>
         <G.RadioField name="control-horizontal-04" as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -291,10 +188,14 @@
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
         <G.Error>Error for the entire group</G.Error>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SF.Item>
     <SF.Item @label="With controls on multiple lines" {{style width="450px"}}>
-      <Hds::Form::Radio::Group @layout="horizontal" @name="control-horizontal-05" as |G|>
+      <HdsFormRadioGroup
+        @layout="horizontal"
+        @name="control-horizontal-05"
+        as |G|
+      >
         <G.Legend>Lorem ipsum dolor</G.Legend>
         <G.RadioField as |F|>
           <F.Label>Sit amet</F.Label>
@@ -314,17 +215,17 @@
         <G.RadioField as |F|>
           <F.Label>At magna</F.Label>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SF.Item>
-  </Shw::Flex>
+  </ShwFlex>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Required and optional</Shw::Text::H3>
+  <ShwTextH3>Required and optional</ShwTextH3>
 
-  <Shw::Flex as |SF|>
+  <ShwFlex as |SF|>
     <SF.Item @label="With legend + Required">
-      <Hds::Form::Radio::Group @isRequired={{true}} @name="control-required" as |G|>
+      <HdsFormRadioGroup @isRequired={{true}} @name="control-required" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.RadioField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -335,10 +236,10 @@
         <G.RadioField as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SF.Item>
     <SF.Item @label="With legend + Optional">
-      <Hds::Form::Radio::Group @isOptional={{true}} @name="control-optional" as |G|>
+      <HdsFormRadioGroup @isOptional={{true}} @name="control-optional" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.RadioField as |F|>
           <F.Label>Label of control #1</F.Label>
@@ -349,17 +250,17 @@
         <G.RadioField as |F|>
           <F.Label>Label of control #3</F.Label>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SF.Item>
-  </Shw::Flex>
+  </ShwFlex>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>States</Shw::Text::H3>
+  <ShwTextH3>States</ShwTextH3>
 
-  <Shw::Flex as |SF|>
+  <ShwFlex as |SF|>
     <SF.Item @label="Disabled">
-      <Hds::Form::Radio::Group @name="control-disabled" as |G|>
+      <HdsFormRadioGroup @name="control-disabled" as |G|>
         <G.Legend>Legend of the group</G.Legend>
         <G.HelperText>Helper text for the entire group</G.HelperText>
         <G.RadioField disabled={{true}} as |F|>
@@ -374,18 +275,18 @@
           <F.Label>Label of control #3</F.Label>
           <F.HelperText>Helper text for control #3</F.HelperText>
         </G.RadioField>
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SF.Item>
-  </Shw::Flex>
+  </ShwFlex>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Special cases</Shw::Text::H3>
+  <ShwTextH3>Special cases</ShwTextH3>
 
-  <Shw::Flex as |SF|>
+  <ShwFlex as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>With <code>true/false</code> as boolean values</SFI.Label>
-      <Hds::Form::Radio::Group @name="control-booleans" as |G|>
+      <HdsFormRadioGroup @name="control-booleans" as |G|>
         {{#let (array true false) as |bools|}}
           {{#each bools as |bool|}}
             {{! @glint-expect-error - this is a special case for consumers who pass a boolean value to the radio field }}
@@ -394,8 +295,9 @@
             </G.RadioField>
           {{/each}}
         {{/let}}
-      </Hds::Form::Radio::Group>
+      </HdsFormRadioGroup>
     </SF.Item>
-  </Shw::Flex>
+  </ShwFlex>
+</template>;
 
-</section>
+export default SubSectionGroupControl;

@@ -10,12 +10,4 @@ import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 export type PageComponentsFormRadioModel =
   ModelFrom<PageComponentsFormRadioRoute>;
 
-export default class PageComponentsFormRadioRoute extends Route {
-  model() {
-    // these are used only for presentation purpose in the showcase
-    const STATES = ['default', 'hover', 'focus'];
-    return {
-      STATES,
-    };
-  }
-}
+export default class PageComponentsFormRadioRoute extends Route {}
