@@ -37,17 +37,6 @@ export interface HdsTabsSignature {
   Element: HTMLDivElement;
 }
 
-interface HandleUpdatesModifierSignature {
-  Element: HdsTabsSignature['Element'];
-  Args: {
-    Named: {
-      isParentVisible?: boolean;
-      selectedTabId?: string;
-      selectedTabIndex?: number;
-    };
-  };
-}
-
 export default class HdsTabs extends Component<HdsTabsSignature> {
   @tracked private _tabNodes: HTMLButtonElement[] = [];
   @tracked private _tabIds: HdsTabsTabIds = [];
@@ -116,48 +105,54 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     return classes.join(' ');
   }
 
-  private _setup = modifier(() => {
+  private _handleInsert = modifier(() => {
+    assert(
+      'The number of Tabs must be equal to the number of Panels',
+      this._tabNodes.length === this._panelNodes.length
+    );
+
+    if (this._selectedTabId) {
+      this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
+    }
+
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
-      assert(
-        'The number of Tabs must be equal to the number of Panels',
-        this._tabNodes.length === this._panelNodes.length
-      );
-
-      if (this._selectedTabId) {
-        this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
-      }
-
       this.setTabIndicator();
     });
   });
 
-  private _handleUpdates = modifier<HandleUpdatesModifierSignature>(
-    (
-      element: HdsTabsSignature['Element'],
-      _positional,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      { selectedTabId, ...rest }
-    ) => {
-      if (selectedTabId !== undefined) {
-        // eslint-disable-next-line ember/no-runloop
-        next(
-          () => (this.selectedTabIndex = this._tabIds.indexOf(selectedTabId))
-        );
-      }
+  @action
+  didUpdateSelectedTabIndex(): void {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', (): void => {
+      this.setTabIndicator();
+    });
+  }
 
-      // eslint-disable-next-line ember/no-runloop
-      schedule('afterRender', (): void => {
-        this.setTabIndicator();
-      });
+  @action
+  didUpdateSelectedTabId(): void {
+    // if the selected tab is set dynamically (eg. in a `each` loop)
+    // the `Tab` nodes will be re-inserted/rendered, which means the `this.selectedTabId` variable changes
+    // but the parent `Tabs` component has already been rendered/inserted but doesn't re-render
+    // so the value of the `selectedTabIndex` is not updated, unless we trigger a recalculation
+    // using the `did-update` modifier that checks for changes in the `this.selectedTabId` variable
+    if (this._selectedTabId) {
+      this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
     }
-  );
+  }
+
+  @action
+  didUpdateParentVisibility(): void {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', (): void => {
+      this.setTabIndicator();
+    });
+  }
 
   @action
   didInsertTab(element: HTMLButtonElement, isSelected?: boolean): void {
     this._tabNodes = [...this._tabNodes, element];
     this._tabIds = [...this._tabIds, element.id];
-
     if (isSelected) {
       this._selectedTabId = element.id;
     }

@@ -6,21 +6,8 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
-import { modifier } from 'ember-modifier';
-import { next, schedule } from '@ember/runloop';
-
 import type { IconName } from '@hashicorp/flight-icons/svg';
 import type { HdsTabsTabIds, HdsTabsPanelIds } from './types';
-
-interface SyncValuesModifierSignature {
-  Element: HTMLButtonElement;
-  Args: {
-    Named: {
-      isSelected?: boolean;
-      count?: HdsTabsTabSignature['Args']['count'];
-    };
-  };
-}
 
 export interface HdsTabsTabSignature {
   Args: {
@@ -43,13 +30,22 @@ export interface HdsTabsTabSignature {
 }
 
 export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
+  /**
+   * Generate a unique ID for the Tab
+   * @return {string}
+   * @param _tabId
+   */
   private _tabId = 'tab-' + guidFor(this);
 
   get nodeIndex(): number | undefined {
     return this.args.tabIds?.indexOf(this._tabId);
   }
 
-  // Determine if the tab is the selected tab
+  /**
+   * Determine if the tab is the selected tab
+   * @return {boolean}
+   * @default false (1st tab is selected by default)
+   */
   get isSelected(): boolean {
     return (
       this.nodeIndex !== undefined &&
@@ -57,48 +53,44 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
     );
   }
 
-  // Get the ID of the panel coupled/associated with the tab (it's used by the `aria-controls` attribute)
+  /**
+   * Get the ID of the panel coupled/associated with the tab (it's used by the `aria-controls` attribute)
+   * @returns string}
+   */
   get coupledPanelId(): string | undefined {
     return this.nodeIndex !== undefined
       ? this.args.panelIds?.[this.nodeIndex]
       : undefined;
   }
 
-  _registerTab = modifier((element: HTMLButtonElement) => {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
-      const { didInsertNode } = this.args;
+  @action
+  didInsertNode(element: HTMLButtonElement, positional: [boolean?]): void {
+    const { didInsertNode } = this.args;
 
-      if (typeof didInsertNode === 'function') {
-        didInsertNode(element, this.args.isSelected);
-      }
-    });
+    const isSelected = positional[0];
 
-    return () => {
-      const { willDestroyNode } = this.args;
-
-      if (typeof willDestroyNode === 'function') {
-        willDestroyNode(element);
-      }
-    };
-  });
-
-  _syncValues = modifier<SyncValuesModifierSignature>(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    (_element, _positional, { isSelected, ...rest }) => {
-      // eslint-disable-next-line ember/no-runloop
-      next((): void => {
-        const { didUpdateNode } = this.args;
-
-        if (
-          typeof didUpdateNode === 'function' &&
-          this.nodeIndex !== undefined
-        ) {
-          didUpdateNode(this.nodeIndex, isSelected);
-        }
-      });
+    if (typeof didInsertNode === 'function') {
+      didInsertNode(element, isSelected);
     }
-  );
+  }
+
+  @action
+  didUpdateNode(): void {
+    const { didUpdateNode } = this.args;
+
+    if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
+      didUpdateNode(this.nodeIndex, this.args.isSelected);
+    }
+  }
+
+  @action
+  willDestroyNode(element: HTMLButtonElement): void {
+    const { willDestroyNode } = this.args;
+
+    if (typeof willDestroyNode === 'function') {
+      willDestroyNode(element);
+    }
+  }
 
   @action
   onClick(event: MouseEvent): false | undefined {
@@ -120,6 +112,11 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
     }
   }
 
+  /**
+   * Get the class names to apply to the component.
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
   get classNames(): string {
     const classes = ['hds-tabs__tab'];
 

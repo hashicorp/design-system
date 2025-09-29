@@ -9,7 +9,8 @@
   id={{this._panelId}}
   hidden={{not this.isVisible}}
   aria-labelledby={{this.coupledTabId}}
-  {{this._registerElement}}
+  {{did-insert this.didInsertNode}}
+  {{will-destroy this.willDestroyNode}}
 >
   {{yield (hash isVisible=this.isVisible)}}
 </section>

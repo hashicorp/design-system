@@ -5,12 +5,10 @@
 {{! template-lint-disable no-invalid-role }}
 <div
   class={{this.classNames}}
-  {{this._setup}}
-  {{this._handleUpdates
-    isParentVisible=@isParentVisible
-    selectedTabId=this._selectedTabId
-    selectedTabIndex=this.selectedTabIndex
-  }}
+  {{this._handleInsert}}
+  {{did-update this.didUpdateSelectedTabIndex this.selectedTabIndex}}
+  {{did-update this.didUpdateSelectedTabId this._selectedTabId}}
+  {{did-update this.didUpdateParentVisibility @isParentVisible}}
   ...attributes
 >
   <div class="hds-tabs__tablist-wrapper">
