@@ -12,13 +12,25 @@
 </p>
 
 
+### October 1st, 2025
+
+This changelog corresponds with the [4.24](/whats-new/release-notes#4240) release.
+
+`AdvancedTable` - Added support for reordering columns.
+
+`Stepper Nav` - Fixed a bug that was preventing the progress line from scaling property.
+
+`Form / Layout` - Updated the order of actions to correspond with [button organization](/patterns/button-organization) guidelines.
+
+`SuperSelect / Multiple` - Added `Separator` and `GroupTitle` list items to the component.
+
 ### September 4th, 2025
 
 This changelog corresponds with the [4.23](/whats-new/release-notes#4230) release.
 
-`AdvancedTable` - Added support for pinning the first column in context menu and fixed visual bug for focus state for the table cells.
+`AdvancedTable` - Added support for toggling pinning the first column in context menu and fixed visual bug for focus state for the table cells.
 
-`AppHeader` - Updated the `size` property to match breakpoint variables.
+`AppHeader` - Added `size` property for breakpoint definition.
 
 ### August 7th, 2025
 
@@ -123,34 +135,6 @@ _This change alters the layer structure of the component and results in a breaki
 `CodeEditor` - Added new component.
 
 `Table` - Added column borders.
-
-### December 20th, 2024
-
-`IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
-
-`SideNav` - No longer deprecated due to adjustments in prioritization.
-
-#### Figma v2.0 Components
-
-- Deprecated HDS Components UI Kit v1.0. It will no longer receive updates or support.
-- Released HDS components UI Kit v2.0.
-
-In many cases, replacing v1.0 library components with the components in the Figma v2.0 Library will result in breaking changes. For a comprehensive list of how these changes will impact your designs, refer to the [changelog document](https://docs.google.com/document/d/1q9IGtrsVOf3KrSBGb8AdF3OhPUm3fYAwPdhSml7onMM/edit?tab=t.0#heading=h.15f60fqiivvr).
-
-##### General changes
-
-- Improved consistency in component naming conventions
-- Enhanced property panel customization options
-- Reduced variant complexity through boolean properties
-- Added local tokens for custom styling (hidden from publishing)
-- Standardized nested component structure
-
-##### Component organization updates
-
-- Standardized naming conventions, nested structures, and boolean property usage to reduce complexity.
-- Updated organization with "Form /" prefixes and DialogPrimitive as the base for modal components.
-- Introduced [Template] components for common combinations.
-- Improved nested component accessibility for easier customization.
 
 
 ---

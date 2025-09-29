@@ -1,5 +1,17 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+## October 1st, 2025
+
+This changelog corresponds with the [4.24](/whats-new/release-notes#4240) release.
+
+`AdvancedTable` - Added support for reordering columns.
+
+`Stepper Nav` - Fixed a bug that was preventing the progress line from scaling property.
+
+`Form / Layout` - Updated the order of actions to correspond with [button organization](/patterns/button-organization) guidelines.
+
+`SuperSelect::Multiple` - Added `Separator` and `GroupTitle` list items to the component.
+
 ## September 4th, 2025
 
 This changelog corresponds with the [4.23](/whats-new/release-notes#4230) release.
