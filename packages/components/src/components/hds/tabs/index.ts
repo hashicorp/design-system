@@ -106,17 +106,17 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   }
 
   private _handleInsert = modifier(() => {
-    assert(
-      'The number of Tabs must be equal to the number of Panels',
-      this._tabNodes.length === this._panelNodes.length
-    );
-
-    if (this._selectedTabId) {
-      this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
-    }
-
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
+      assert(
+        'The number of Tabs must be equal to the number of Panels',
+        this._tabNodes.length === this._panelNodes.length
+      );
+
+      if (this._selectedTabId) {
+        this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
+      }
+
       this.setTabIndicator();
     });
   });
