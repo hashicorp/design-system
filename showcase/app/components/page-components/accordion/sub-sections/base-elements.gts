@@ -161,6 +161,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextH4>States</ShwTextH4>
 
+  {{! This one is broken }}
   {{#each TYPES as |type|}}
     {{#let (array false true) as |booleans|}}
       <ShwTextBody>{{capitalize type}}</ShwTextBody>
