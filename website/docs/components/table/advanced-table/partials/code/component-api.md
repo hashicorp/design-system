@@ -95,7 +95,7 @@ The Advanced Table component itself is where most of the options will be applied
     <br /><br />
     When called, this function receives one positional argument:
     <ul>
-    <li>an array of reordered column keys (e.g., ['name', 'age', 'height']).</li>
+    <li>an array of reordered column keys (e.g., `['name', 'age', 'height']`).</li>
     </ul>
   </C.Property>
   <C.Property @name="onColumnResize" @type="function">
