@@ -10,6 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
+import { schedule } from '@ember/runloop';
 import HdsAdvancedTableTableModel from './models/table.ts';
 
 import type Owner from '@ember/owner';
@@ -445,28 +446,49 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _syncTableData =
-    modifier<HdsAdvancedTableSyncTableDataModifierSignature>(
+  private _syncTableData = (() => {
+    let isFirstRun = true;
+
+    return modifier<HdsAdvancedTableSyncTableDataModifierSignature>(
       (_element, _positional, { columns, model, sortBy, sortOrder }) => {
-        this._tableModel.setupData({
-          columns,
-          model,
-          sortBy,
-          sortOrder,
+        // eslint-disable-next-line ember/no-runloop
+        schedule('afterRender', (): void => {
+          if (isFirstRun) {
+            isFirstRun = false;
+            return;
+          }
+          this._tableModel.setupData({
+            columns,
+            model,
+            sortBy,
+            sortOrder,
+          });
         });
       }
     );
+  })();
 
-  private _syncColumnOrder =
-    modifier<HdsAdvancedTableSyncColumnOrderModifierSignature>(
+  private _syncColumnOrder = (() => {
+    let isFirstRun = true;
+
+    return modifier<HdsAdvancedTableSyncColumnOrderModifierSignature>(
       (_element, _positional, { columnOrder }) => {
-        if (columnOrder === undefined) {
-          return;
-        }
+        // eslint-disable-next-line ember/no-runloop
+        schedule('afterRender', (): void => {
+          if (isFirstRun) {
+            isFirstRun = false;
+            return;
+          }
 
-        this._tableModel.columnOrder = columnOrder;
+          if (columnOrder === undefined) {
+            return;
+          }
+
+          this._tableModel.columnOrder = columnOrder;
+        });
       }
     );
+  })();
 
   private _registerGridElement = modifier((element: HTMLDivElement) => {
     this._tableModel.gridElement = element;
