@@ -10,7 +10,7 @@ import ShwFlex from 'showcase/components/shw/flex';
 
 import { HdsLinkInline } from '@hashicorp/design-system-components/components';
 
-const LinkInlineIndex: TemplateOnlyComponent = <template>
+const SubSectionGeneratedElement: TemplateOnlyComponent = <template>
   <ShwTextH2>Generated element</ShwTextH2>
 
   <ShwFlex as |SF|>
@@ -39,4 +39,4 @@ const LinkInlineIndex: TemplateOnlyComponent = <template>
   <ShwDivider />
 </template>;
 
-export default LinkInlineIndex;
+export default SubSectionGeneratedElement;

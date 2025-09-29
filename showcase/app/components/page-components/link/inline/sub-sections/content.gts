@@ -17,8 +17,6 @@ import {
   HdsTextCode,
 } from '@hashicorp/design-system-components/components';
 
-import SubSectionGeneratedElement from 'showcase/components/page-components/link/inline/sub-sections/generated-element';
-
 const TEXT_SIZE_CLASSES = [
   'hds-typography-body-100',
   'hds-typography-body-200',
@@ -26,8 +24,6 @@ const TEXT_SIZE_CLASSES = [
 ];
 
 const SubSectionContent: TemplateOnlyComponent = <template>
-  <SubSectionGeneratedElement />
-
   <ShwTextH2>Content</ShwTextH2>
 
   <ShwGrid
