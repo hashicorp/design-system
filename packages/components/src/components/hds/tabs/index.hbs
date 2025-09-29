@@ -6,8 +6,8 @@
 <div
   class={{this.classNames}}
   {{this._handleInsert}}
-  {{did-update this.didUpdateSelectedTabIndex this.selectedTabIndex}}
-  {{did-update this.didUpdateSelectedTabId this._selectedTabId}}
+  {{this._updateSelectedTabIndex this.selectedTabIndex}}
+  {{this._updateSelectedTabId this._selectedTabId}}
   {{did-update this.didUpdateParentVisibility @isParentVisible}}
   ...attributes
 >
