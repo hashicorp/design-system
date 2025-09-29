@@ -148,7 +148,7 @@ Similar to the basic Advanced Table, you can insert your own content into the `:
 </Hds::AdvancedTable>
 ```
 
-### Reorderable columns
+### Reordering columns
 
 !!! Info
 
@@ -161,7 +161,7 @@ Columns will render in the order they appear in the `@columns` array. However, t
 
 Optionally, the `@columnReorder` attribute accepts a callback function that receives the updated column key order.
 
-### Resizable Columns
+### Resizing Columns
 
 !!! Info
 

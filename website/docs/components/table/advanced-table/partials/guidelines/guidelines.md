@@ -124,22 +124,27 @@ Don’t center header labels or cell content within a table.
 
 !!!
 
-### Reorderable columns
+### Reordering columns
 
-If `hasReorderableColumns` is set to true on the Ember component, users can reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys. These properties are not available within the Figma component, but we've provided [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=KXQulxNCTwGhmCX5-1) that you can copy and paste into your design files.
+If `hasReorderableColumns` is enabled on the Ember component, users can reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys.
 
-When enabled, actions related to altering the column order are rendered in a context menu in the table header. These are not customizable and include:
+!!! Info
+
+While these properties aren't available in the Figma component, [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=KXQulxNCTwGhmCX5-1) are available to copy and paste into design files.
+!!!
+
+![](/assets/components/table/advanced-table/advanced-table-focus-drag-target.png)
+
+![](/assets/components/table/advanced-table/advanced-table-drag-column.png)
+
+Actions related to moving columns are displayed in a context menu in the table header. These are not customizable and include:
 
 - Move column: moves focus to the reordering handle
 - Move column to start/end: moves the column to the first or last position in the table unless the column is already in this position.
 
 ![The open context menu in the Advanced Table displaying "Move column", "Move column to start", and "Move column to end" actions.](/assets/components/table/advanced-table/advanced-table-reorder-context-menu.png)
 
-![](/assets/components/table/advanced-table/advanced-table-focus-drag-target.png)
-
-![](/assets/components/table/advanced-table/advanced-table-drag-column.png)
-
-### Resizable columns
+### Resizing columns
 
 Columns can be resized by dragging the "resize border" with a mouse or by moving focus to it and using the left and right arrow keys.
 
