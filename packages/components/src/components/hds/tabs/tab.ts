@@ -66,7 +66,7 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
       : undefined;
   }
 
-  private _handleInsert = modifier((element: HTMLButtonElement) => {
+  private _handleLifecycle = modifier((element: HTMLButtonElement) => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', () => {
       const { isSelected, didInsertNode } = this.args;
@@ -75,6 +75,14 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
         didInsertNode(element, isSelected);
       }
     });
+
+    return () => {
+      const { willDestroyNode } = this.args;
+
+      if (typeof willDestroyNode === 'function') {
+        willDestroyNode(element);
+      }
+    };
   });
 
   @action
@@ -83,15 +91,6 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
 
     if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
       didUpdateNode(this.nodeIndex, this.args.isSelected);
-    }
-  }
-
-  @action
-  willDestroyNode(element: HTMLButtonElement): void {
-    const { willDestroyNode } = this.args;
-
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
     }
   }
 
