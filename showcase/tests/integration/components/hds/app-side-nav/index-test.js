@@ -314,13 +314,49 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert.dom('body', document).doesNotHaveStyle('overflow');
   });
 
+  test('when expanded in mobile and the component is removed from the DOM, scrolling is enabled', async function (assert) {
+    this.mockMedia();
+
+    let calls = [];
+    this.setProperties({
+      onDesktopViewportChange: (...args) => calls.push(args),
+    });
+
+    this.set('isAppSideNavRendered', true);
+
+    await render(hbs`{{#if this.isAppSideNavRendered}}
+  <Hds::AppSideNav
+    @isCollapsible={{true}}
+    @onDesktopViewportChange={{this.onDesktopViewportChange}}
+  />
+{{/if}}`);
+
+    await this.changeBrowserSize(false);
+
+    assert.deepEqual(
+      calls[1],
+      [false],
+      'resizing to mobile triggers a false event',
+    );
+
+    await click('.hds-app-side-nav__toggle-button');
+
+    assert.dom('body', document).hasStyle({
+      overflow: 'hidden',
+    });
+
+    this.set('isAppSideNavRendered', false);
+
+    assert.dom('body', document).doesNotHaveStyle('overflow');
+  });
+
   test('when collapsed, the content in the AppSideNav is not focusable', async function (assert) {
     await render(hbs`<Hds::AppSideNav
     id='test-app-side-nav'
   @isCollapsible={{true}}
 >
-  <button id='button-inside'>Click</button>
-</Hds::AppSideNav><button id='button-outside'>Click</button>`);
+  <button id='button-inside' type="button">Click</button>
+</Hds::AppSideNav><button id='button-outside' type="button">Click</button>`);
 
     await click('.hds-app-side-nav__toggle-button');
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
