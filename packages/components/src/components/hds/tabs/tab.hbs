@@ -12,7 +12,7 @@
     aria-controls={{this.coupledPanelId}}
     aria-selected={{if this.isSelected "true" "false"}}
     tabindex={{unless this.isSelected "-1"}}
-    {{did-insert this.didInsertNode @isSelected}}
+    {{this._handleInsert}}
     {{did-update this.didUpdateNode @count @isSelected}}
     {{will-destroy this.willDestroyNode}}
     {{on "click" this.onClick}}

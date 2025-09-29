@@ -6,6 +6,9 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
+import { schedule } from '@ember/runloop';
+
 import type { IconName } from '@hashicorp/flight-icons/svg';
 import type { HdsTabsTabIds, HdsTabsPanelIds } from './types';
 
@@ -63,16 +66,16 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
       : undefined;
   }
 
-  @action
-  didInsertNode(element: HTMLButtonElement, positional: [boolean?]): void {
-    const { didInsertNode } = this.args;
+  private _handleInsert = modifier((element: HTMLButtonElement) => {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', () => {
+      const { isSelected, didInsertNode } = this.args;
 
-    const isSelected = positional[0];
-
-    if (typeof didInsertNode === 'function') {
-      didInsertNode(element, isSelected);
-    }
-  }
+      if (typeof didInsertNode === 'function') {
+        didInsertNode(element, isSelected);
+      }
+    });
+  });
 
   @action
   didUpdateNode(): void {
