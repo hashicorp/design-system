@@ -295,9 +295,6 @@ importers:
       rollup-plugin-copy:
         specifier: ^3.5.0
         version: 3.5.0
-      rollup-plugin-scss:
-        specifier: ^4.0.1
-        version: 4.0.1
       stylelint:
         specifier: ^16.17.0
         version: 16.23.0(typescript@5.9.2)
@@ -10246,9 +10243,6 @@ packages:
   rollup-plugin-copy@3.5.0:
     resolution: {integrity: sha512-wI8D5dvYovRMx/YYKtUNt3Yxaw4ORC9xo6Gt9t22kveWz1enG9QrhVlagzwrxSC455xD1dHMKhIJkbsQ7d48BA==}
     engines: {node: '>=8.3'}
-
-  rollup-plugin-scss@4.0.1:
-    resolution: {integrity: sha512-3W3+3OzR+shkDl3hJ1XTAuGkP4AfiLgIjie2GtcoZ9pHfRiNqeDbtCu1EUnkjZ98EPIM6nnMIXkKlc7Sx5bRvA==}
 
   rollup-pluginutils@2.8.2:
     resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
@@ -24711,10 +24705,6 @@ snapshots:
       fs-extra: 8.1.0
       globby: 10.0.1
       is-plain-object: 3.0.1
-
-  rollup-plugin-scss@4.0.1:
-    dependencies:
-      rollup-pluginutils: 2.8.2
 
   rollup-pluginutils@2.8.2:
     dependencies:
