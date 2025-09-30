@@ -47,10 +47,10 @@
         "group": "palette",
         "$modes": {
           "hds": "#ffffff",
-          "cds-0": "#ffffff",
-          "cds-10": "#cccccc",
-          "cds-90": "#333333",
-          "cds-100": "#000000"
+          "cds-0": "{carbon.color.white.0}",
+          "cds-10": "{carbon.color.white.0}",
+          "cds-90": "{carbon.color.white.0}",
+          "cds-100": "{carbon.color.white.0}"
         }
       },
       "alpha-300": {
