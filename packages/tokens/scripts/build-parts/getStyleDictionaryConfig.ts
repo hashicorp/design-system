@@ -52,6 +52,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       return {
         ...baseConfig,
         source: [
+          `src/carbon-extracted/**/*.json`,
           `src/global/**/*.json`,
           `src/products/shared/**/*.json`
         ],
@@ -114,6 +115,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       return {
         ...baseConfig,
         source: [
+          `src/carbon-extracted/**/*.json`,
           `src/global/**/*.json`,
           `src/products/shared/**/*.json`
         ],
@@ -160,6 +162,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
     return {
       ...baseConfig,
       'source': [
+        `src/carbon-extracted/**/*.json`,
         `src/global/**/*.json`,
         `src/products/shared/**/*.json`,
         // just uncomment the line below to include overrides for 'devdot' tokens
@@ -192,6 +195,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
     return {
       ...baseConfig,
       'source': [
+        `src/carbon-extracted/**/*.json`,
         `src/global/**/*.json`,
         `src/products/shared/**/*.json`,
       ],
