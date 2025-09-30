@@ -52,7 +52,8 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       return {
         ...baseConfig,
         source: [
-          `src/modes-testing/**/*.json`,
+          `src/global/**/*.json`,
+          `src/products/shared/**/*.json`
         ],
         platforms: {
           [`web/themed-css-variables--mode-${mode}`]: {
