@@ -72,6 +72,13 @@ StyleDictionary.registerTransform({
       isThemeable = true;
     }
 
+    // TODO! understand how we can make this themeable using `usesReferences`/`getReferences`
+    // if (token.key === "{typography.display-500.font-family}") {
+    //   console.log('usesReferences', usesReferences(token.original.$value));
+    //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
+    //   console.log('refs', refs);
+    // }
+
     // TODO understand if we really need this to split themeable vs non-themeable tokens
     // if (usesReferences(token.original.$value)) {
     //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
