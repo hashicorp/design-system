@@ -4,9 +4,9 @@
 
 :root {
   --token-color-palette-neutral-0: #ffffff;
-  --token-color-foreground-primary: #ffffff;
+  --token-color-foreground-primary: #161616;
   --token-typography-font-weight-regular: 400;
-  --token-typography-font-weight-medium: 500;
+  --token-typography-font-weight-medium: 400;
   --token-typography-font-weight-semibold: 600;
-  --token-typography-font-weight-bold: 700;
+  --token-typography-font-weight-bold: 600;
 }
