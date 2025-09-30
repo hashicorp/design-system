@@ -399,6 +399,7 @@
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
       "./services/hds-intl.js": "./dist/_app_/services/hds-intl.js",
+      "./services/hds-theming.js": "./dist/_app_/services/hds-theming.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"
     }
   },
