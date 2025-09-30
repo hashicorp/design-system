@@ -9,7 +9,14 @@
       "primary": {
         "$type": "color",
         "$value": "{color.palette.neutral-600}",
-        "group": "semantic"
+        "group": "semantic",
+        "$modes": {
+          "hds": "#ffffff",
+          "cds-0": "{carbon.themes.white.textPrimary}",
+          "cds-10": "{carbon.themes.g10.textPrimary}",
+          "cds-90": "{carbon.themes.g90.textPrimary}",
+          "cds-100": "{carbon.themes.g100.textPrimary}"
+        }
       },
       "faint": {
         "$type": "color",
