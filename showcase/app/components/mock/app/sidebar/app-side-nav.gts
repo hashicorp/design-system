@@ -25,6 +25,9 @@ export interface MockAppSidebarAppSideNavSignature {
     isCollapsible?: HdsAppSideNavSignature['Args']['isCollapsible'];
     showDevToggle?: boolean;
   };
+  Blocks: {
+    extraAfter?: [];
+  };
   Element: HdsAppSideNavSignature['Element'];
 }
 
@@ -146,6 +149,12 @@ export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAp
             </div>
           </SNL.ExtraAfter>
         {{/if}}
+        {{#if (has-block "extraAfter")}}
+          <SNL.ExtraAfter>
+            {{yield to="extraAfter"}}
+          </SNL.ExtraAfter>
+        {{/if}}
+
       </HdsAppSideNavList>
     </HdsAppSideNav>
   </template>
