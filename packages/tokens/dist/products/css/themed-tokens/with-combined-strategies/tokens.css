@@ -11,6 +11,28 @@
   --token-typography-font-weight-bold: 700;
 }
 
+@media (prefers-color-scheme: light) {
+  :root:not([class*="hds-theme-"]):not([data-hds-theme]) {
+    --token-color-palette-neutral-0: #ffffff;
+    --token-color-foreground-primary: #161616;
+    --token-typography-font-weight-regular: 400;
+    --token-typography-font-weight-medium: 400;
+    --token-typography-font-weight-semibold: 600;
+    --token-typography-font-weight-bold: 600;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([class*="hds-theme-"]):not([data-hds-theme]) {
+    --token-color-palette-neutral-0: #ffffff;
+    --token-color-foreground-primary: #f4f4f4;
+    --token-typography-font-weight-regular: 400;
+    --token-typography-font-weight-medium: 400;
+    --token-typography-font-weight-semibold: 600;
+    --token-typography-font-weight-bold: 600;
+  }
+}
+
 .hds-theme-cds-g0,
 [data-hds-theme="cds-g0"] {
   --token-color-palette-neutral-0: #ffffff;
