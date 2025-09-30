@@ -11,18 +11,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6b6b6b; // if background is #EEE then this has the appropriate color contrast (4.59:1)
+  color: var(--shw-placeholder-text-color);
   font-weight: bold;
   font-size: 10px;
   font-family: monaco, Consolas, "Lucida Console", monospace;
   line-height: 1.2;
   text-align: center;
-  text-shadow: 0 0 5px #fff;
-  background-color: #eee;
+  text-shadow: 0 0 5px var(--shw-color-white);
+  background-color: var(--shw-placeholder-background-color);
 
   a,
   a > & {
-    color: #333;
+    color: var(--shw-placeholder-link-color);
     text-decoration: underline;
   }
 }
