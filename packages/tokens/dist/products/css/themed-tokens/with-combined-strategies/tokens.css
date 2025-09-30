@@ -3,7 +3,7 @@
  */
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([class*="hds-theme-"]):not([data-hds-theme]) {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #161616;
     --token-typography-font-weight-regular: 400;
@@ -14,7 +14,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
+  :root:not([class*="hds-theme-"]):not([data-hds-theme]) {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #f4f4f4;
     --token-typography-font-weight-regular: 400;
@@ -22,6 +22,65 @@
     --token-typography-font-weight-semibold: 600;
     --token-typography-font-weight-bold: 600;
   }
+}
+
+.hds-theme-default,
+[data-hds-theme="default"] {
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-foreground-primary: #ffffff;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 500;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 700;
+}
+
+.hds-theme-cds-0,
+[data-hds-theme="cds-0"] {
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-foreground-primary: #161616;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 400;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 600;
+}
+
+.hds-theme-cds-10,
+[data-hds-theme="cds-10"] {
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-foreground-primary: #161616;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 400;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 600;
+}
+
+.hds-theme-cds-90,
+[data-hds-theme="cds-90"] {
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-foreground-primary: #f4f4f4;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 400;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 600;
+}
+
+.hds-theme-cds-100,
+[data-hds-theme="cds-100"] {
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-foreground-primary: #f4f4f4;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 400;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 600;
+}
+
+:root {
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-foreground-primary: #ffffff;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 500;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 700;
 }
 
 :root {
