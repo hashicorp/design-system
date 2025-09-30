@@ -27,9 +27,7 @@ const SubSectionListItemNotInteractive: TemplateOnlyComponent = <template>
           <HdsDropdownListItemTitle @text="A simple title" />
           <HdsDropdownListItemDescription @text="A description." />
           <HdsDropdownListItemSeparator />
-          <HdsDropdownListItemInteractive
-            @route="index"
-          >Item</HdsDropdownListItemInteractive>
+          <HdsDropdownListItemInteractive @route="index">Item</HdsDropdownListItemInteractive>
         </ul>
       </div>
     </SF.Item>
@@ -43,10 +41,9 @@ const SubSectionListItemNotInteractive: TemplateOnlyComponent = <template>
             @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
           />
           <HdsDropdownListItemSeparator />
-          <HdsDropdownListItemInteractive
-            @route="index"
-            @text="A longer item that could span multiple lines if the characters surpass a certain length"
-          />
+          <HdsDropdownListItemInteractive @route="index">
+            A longer item that could span multiple lines if the characters surpass a certain length
+          </HdsDropdownListItemInteractive>
         </ul>
       </div>
     </SF.Item>
@@ -60,10 +57,9 @@ const SubSectionListItemNotInteractive: TemplateOnlyComponent = <template>
             @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
           />
           <HdsDropdownListItemSeparator />
-          <HdsDropdownListItemInteractive
-            @route="index"
-            @text="A longer item that could span multiple lines if the characters surpass a certain length"
-          />
+          <HdsDropdownListItemInteractive @route="index">
+            A longer item that could span multiple lines if the characters surpass a certain length
+          </HdsDropdownListItemInteractive>
         </ul>
       </div>
     </SF.Item>
