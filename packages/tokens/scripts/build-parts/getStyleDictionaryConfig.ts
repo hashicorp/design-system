@@ -68,7 +68,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 format: 'css/variables',
                 options: {
                   // TODO understand if is better to output references or not for the "common" definitions (probably yes)
-                  outputReferences: true,
+                  outputReferences: false,
                   // outputReferences: (token, { dictionary, usesDtcg }) => {
                   //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
                   //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
@@ -86,7 +86,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 format: 'css/variables',
                 options: {
                   // TODO understand if is better to output references or not for the "themed" definitions (almost certainly yes)
-                  outputReferences: true,
+                  outputReferences: false,
                   // outputReferences: (token, { dictionary, usesDtcg }) => {
                   //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
                   //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
@@ -241,6 +241,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       ...baseConfig,
       // we need only foundational tokens (colors, typography, etc)
       'source': [
+        `src/carbon-extracted/**/*.json`,
         `src/global/**/*.json`,
         `src/products/shared/color/**/*.json`,
         `src/products/shared/typography.json`,
