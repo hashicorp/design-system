@@ -145,6 +145,40 @@ Focus will be moved to the resize border. Use the right and left arrow keys to i
 
 ![Keyboard focus on the resize border for the column.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-resize-border.png)
 
+### Reordering columns
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+While in Action Mode, Tab to the context menu.
+
+![Keyboard focus on the context menu within the column header.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-resize.png)
+
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
+
+Press Enter to open the context menu.
+
+![The open context menu with the move column option.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-resize-context-menu.png)
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+With the context menu open, press Tab to select the `Move column` option.
+
+![Keyboard focus on the move column option in the context menu.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-resize-column.png)
+
+<Doc::BadgeGroup>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-left" @title="Left arrow" />
+  </Doc::Badge>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-right" @title="Right` arrow" />
+  </Doc::Badge>
+</Doc::BadgeGroup>
+
+Focus will be moved to the reorder handle. Use the right and left arrow keys to move the column to the next or previous position.
+
+![Keyboard focus on the reorder handle for the column.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-resize-border.png)
+
+
 ### Row selection
 
 You should clearly communicate to the user how many rows are selected and how many rows there are total outside of the Advanced Table. For additional considerations, read the [Multi-select usability and accessibility considerations](/components/table/advanced-table?tab=code#usability-and-accessibility-considerations).
