@@ -14,6 +14,7 @@ import { modifier } from 'ember-modifier';
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
 import ShwLogoDesignSystem from 'showcase/components/shw/logo/design-system';
+import ShwThemeSwitcher from 'showcase/components/shw/theme-switcher';
 
 export default class Application extends Component {
   @service declare readonly router: RouterService;
@@ -68,6 +69,9 @@ export default class Application extends Component {
           <ShwLogoDesignSystem />
         </LinkTo>
         <div class="shw-page-header__title">Components showcase</div>
+        <div class="shw-page-header__theme-toggle">
+          <ShwThemeSwitcher />
+        </div>
       </header>
 
       <aside class="shw-page-aside">
