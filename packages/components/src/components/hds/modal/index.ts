@@ -62,6 +62,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
   private _element!: HTMLDialogElement;
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
+  private _clickOutsideToDismissHandler!: (event: MouseEvent) => void;
 
   get isDismissDisabled(): boolean {
     return this.args.isDismissDisabled ?? false;
@@ -175,6 +176,22 @@ export default class HdsModal extends Component<HdsModalSignature> {
       this.open();
     }
 
+    // Note: because the Modal has the `@isDismissedDisabled` argument, we need to add our own click outside to dismiss logic. This is because `ember-focus-trap` treats the `focusTrapOptions` as static, so we can't update it dynamically if `@isDismissDisabled` changes.
+    this._clickOutsideToDismissHandler = (event: MouseEvent) => {
+      // check if the click is outside the modal and the modal is open
+      if (!this._element.contains(event.target as Node) && this._isOpen) {
+        if (!this.isDismissDisabled) {
+          //  here we use `void` because `onDismiss` is an async function, but in reality we don't need to handle the result or wait for its completion
+          void this.onDismiss();
+        }
+      }
+    };
+
+    document.addEventListener('click', this._clickOutsideToDismissHandler, {
+      capture: true,
+      passive: false,
+    });
+
     return () => {
       // if the <dialog> is removed from the dom while open we emulate the close event
       if (this._isOpen) {
@@ -185,6 +202,12 @@ export default class HdsModal extends Component<HdsModalSignature> {
         'close',
         // eslint-disable-next-line @typescript-eslint/unbound-method
         this.registerOnCloseCallback,
+        true
+      );
+
+      document.removeEventListener(
+        'click',
+        this._clickOutsideToDismissHandler,
         true
       );
     };

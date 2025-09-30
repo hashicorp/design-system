@@ -8,7 +8,7 @@
   aria-labelledby={{this.id}}
   {{this._registerDialog}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
-  {{focus-trap isActive=this._isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
+  {{focus-trap isActive=this._isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss)}}
 >
   <:header>
     {{yield
