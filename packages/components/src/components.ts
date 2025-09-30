@@ -326,6 +326,9 @@ export { default as HdsTextCode } from './components/hds/text/code.ts';
 export { default as HdsTextDisplay } from './components/hds/text/display.ts';
 export * from './components/hds/text/types.ts';
 
+// Theme Switcher
+export { default as HdsThemeSwitcher } from './components/hds/theme-switcher/index.ts';
+
 // Time
 export { default as HdsTime } from './components/hds/time/index.ts';
 export { default as HdsTimeSingle } from './components/hds/time/single.ts';
