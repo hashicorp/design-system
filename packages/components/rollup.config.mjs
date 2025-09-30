@@ -16,6 +16,45 @@ const addon = new Addon({
   destDir: 'dist',
 });
 
+// Custom SCSS compilation plugins for Rollup
+function addScssCompilationPlugins(options) {
+  return options.map(({ inputFile, outputFile }) => ({
+    name: `rollup custom plugin to generate ${outputFile}`,
+    generateBundle() {
+      try {
+        const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
+        const outputFileFullPath = `styles/@hashicorp/${outputFile}`;
+
+        const result = sass.compile(inputFileFullPath, {
+          sourceMap: true,
+          // equivalent to includePaths in rollup-plugin-scss
+          loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
+        });
+
+        // Emit the compiled CSS
+        this.emitFile({
+          type: 'asset',
+          fileName: outputFileFullPath,
+          source: result.css,
+        });
+
+        // Emit the source map
+        if (result.sourceMap) {
+          this.emitFile({
+            type: 'asset',
+            fileName: `${outputFileFullPath}.map`,
+            source: JSON.stringify(result.sourceMap),
+          });
+        }
+      } catch (error) {
+        this.error(
+          `Failed to compile SCSS file "${inputFile}": ${error.message}`
+        );
+      }
+    },
+  }));
+}
+
 const plugins = [
   // These are the modules that users should be able to import from your
   // addon. Anything not listed here may get optimized away.
@@ -60,122 +99,23 @@ const plugins = [
     fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
   }),
 
-  // Custom plugins to compile the "themed" SCSS files
-  {
-    name: 'compile-scss-themed-with-css-selectors',
-    generateBundle() {
-      // Compile the themed SCSS file
-      try {
-        const result = sass.compile(
-          'src/styles/@hashicorp/design-system-components-theming-with-css-selectors.scss',
-          {
-            sourceMap: true,
-            // equivalent to includePaths in rollup-plugin-scss
-            loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
-          }
-        );
-
-        const cssFileName =
-          'styles/@hashicorp/design-system-components-theming-with-css-selectors.css';
-
-        // Emit the compiled CSS
-        this.emitFile({
-          type: 'asset',
-          fileName: cssFileName,
-          source: result.css,
-        });
-
-        // Emit the source map
-        if (result.sourceMap) {
-          this.emitFile({
-            type: 'asset',
-            fileName: `${cssFileName}.map`,
-            source: JSON.stringify(result.sourceMap),
-          });
-        }
-      } catch (error) {
-        this.error(
-          `Failed to compile themed ("with CSS selectors") SCSS: ${error.message}`
-        );
-      }
+  // Custom SCSS compilation plugin function
+  ...addScssCompilationPlugins([
+    {
+      inputFile: 'design-system-components.scss',
+      outputFile: 'design-system-components-ALT.css',
     },
-  },
-  {
-    name: 'compile-scss-alt',
-    generateBundle() {
-      // Compile the themed SCSS file
-      try {
-        const result = sass.compile(
-          'src/styles/@hashicorp/design-system-components.scss',
-          {
-            sourceMap: true,
-            // equivalent to includePaths in rollup-plugin-scss
-            loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
-          }
-        );
-
-        const cssFileName =
-          'styles/@hashicorp/design-system-components-ALT.css';
-
-        // Emit the compiled CSS
-        this.emitFile({
-          type: 'asset',
-          fileName: cssFileName,
-          source: result.css,
-        });
-
-        // Emit the source map
-        if (result.sourceMap) {
-          this.emitFile({
-            type: 'asset',
-            fileName: `${cssFileName}.map`,
-            source: JSON.stringify(result.sourceMap),
-          });
-        }
-      } catch (error) {
-        this.error(`Failed to compile ALT SCSS: ${error.message}`);
-      }
+    {
+      inputFile: 'design-system-components-theming-with-css-selectors.scss',
+      outputFile: 'design-system-components-theming-with-css-selectors.css',
     },
-  },
-  {
-    name: 'compile-scss-themed-with-prefers-color-scheme',
-    generateBundle() {
-      // Compile the themed SCSS file
-      try {
-        const result = sass.compile(
-          'src/styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.scss',
-          {
-            sourceMap: true,
-            // equivalent to includePaths in rollup-plugin-scss
-            loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
-          }
-        );
-
-        const cssFileName =
-          'styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.css';
-
-        // Emit the compiled CSS
-        this.emitFile({
-          type: 'asset',
-          fileName: cssFileName,
-          source: result.css,
-        });
-
-        // Emit the source map
-        if (result.sourceMap) {
-          this.emitFile({
-            type: 'asset',
-            fileName: `${cssFileName}.map`,
-            source: JSON.stringify(result.sourceMap),
-          });
-        }
-      } catch (error) {
-        this.error(
-          `Failed to compile themed ("with CSS selectors") SCSS: ${error.message}`
-        );
-      }
+    {
+      inputFile:
+        'design-system-components-theming-with-prefers-color-scheme.scss',
+      outputFile:
+        'design-system-components-theming-with-prefers-color-scheme.css',
     },
-  },
+  ]),
 
   // Ensure that standalone .hbs files are properly integrated as Javascript.
   addon.hbs(),
