@@ -6,7 +6,6 @@
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy';
-import scss from 'rollup-plugin-scss';
 import process from 'process';
 import path from 'node:path';
 import * as sass from 'sass';
@@ -27,7 +26,6 @@ function addScssCompilationPlugins(options) {
 
         const result = sass.compile(inputFileFullPath, {
           sourceMap: true,
-          // equivalent to includePaths in rollup-plugin-scss
           loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
         });
 
@@ -58,12 +56,7 @@ function addScssCompilationPlugins(options) {
 const plugins = [
   // These are the modules that users should be able to import from your
   // addon. Anything not listed here may get optimized away.
-  addon.publicEntrypoints([
-    '**/*.{js,ts}',
-    'index.js',
-    'template-registry.js',
-    'styles/@hashicorp/design-system-components.scss',
-  ]),
+  addon.publicEntrypoints(['**/*.{js,ts}', 'index.js', 'template-registry.js']),
 
   // These are the modules that should get reexported into the traditional
   // "app" tree. Things in here should also be in publicEntrypoints above, but
@@ -90,20 +83,12 @@ const plugins = [
   // package names.
   addon.dependencies(),
 
-  scss({
-    fileName: 'styles/@hashicorp/design-system-components.css',
-    includePaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
-  }),
-
-  scss({
-    fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
-  }),
-
-  // Custom SCSS compilation plugin function
+  // We use a custom plugin for the Sass/SCSS compilation
+  // so we can have multiple input and multiple outputs
   ...addScssCompilationPlugins([
     {
       inputFile: 'design-system-components.scss',
-      outputFile: 'design-system-components-ALT.css',
+      outputFile: 'design-system-components.css',
     },
     {
       inputFile: 'design-system-components-theming-with-css-selectors.scss',
@@ -114,6 +99,10 @@ const plugins = [
         'design-system-components-theming-with-prefers-color-scheme.scss',
       outputFile:
         'design-system-components-theming-with-prefers-color-scheme.css',
+    },
+    {
+      inputFile: 'design-system-power-select-overrides.scss',
+      outputFile: 'design-system-power-select-overrides.css',
     },
   ]),
 
