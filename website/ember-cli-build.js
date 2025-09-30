@@ -16,7 +16,7 @@ module.exports = function (defaults) {
     sassOptions: {
       precision: 4,
       includePaths: [
-        'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        'node_modules/@hashicorp/design-system-tokens/dist',
         'node_modules/@hashicorp/design-system-components/dist/styles',
         'node_modules/ember-power-select/vendor',
         'node_modules/ember-a11y-refocus/dist/styles',
