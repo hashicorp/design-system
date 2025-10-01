@@ -82,7 +82,7 @@ This changelog corresponds with the [4.19](/whats-new/release-notes#4190) releas
 
 `CodeBlock`, `CodeEditor`, `SideNav` - Updated styling for the focus ring.
 
-`SuperSelect::Multiple` - Multiple design improvements including:
+`SuperSelect / Multiple` - Multiple design improvements including:
 
 - Displaying a selected number in the trigger when not empty.
 - Correcting truncation of tags to maintain the trigger height.

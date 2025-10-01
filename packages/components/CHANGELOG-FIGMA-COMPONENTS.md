@@ -10,7 +10,7 @@ This changelog corresponds with the [4.24](/whats-new/release-notes#4240) releas
 
 `Form / Layout` - Updated the order of actions to correspond with [button organization](/patterns/button-organization) guidelines.
 
-`SuperSelect::Multiple` - Added `Separator` and `GroupTitle` list items to the component.
+`SuperSelect / Multiple` - Added `Separator` and `GroupTitle` list items to the component.
 
 ## September 4th, 2025
 
@@ -70,7 +70,7 @@ This changelog corresponds with the [4.19](/whats-new/release-notes#4190) releas
 
 `CodeBlock`, `CodeEditor`, `SideNav` - Updated styling for the focus ring.
 
-`SuperSelect::Multiple` - Multiple design improvements including:
+`SuperSelect / Multiple` - Multiple design improvements including:
 
 - Displaying a selected number in the trigger when not empty.
 - Correcting truncation of tags to maintain the trigger height.
