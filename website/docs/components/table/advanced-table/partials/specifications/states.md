@@ -16,4 +16,4 @@ To indicate interactivity, the border on a resizable column has visual interacti
 
 The drag handle is displayed either when hovering on a table header with a mouse, or when focus is moved to it from the context menu.
 
-![Drag handle states](/assets/components/table/advanced-table/advanced-table-drag-handle-states.png)
+![Drag handle states](/assets/components/table/advanced-table/advanced-table-drag-handle-button-states.png)
