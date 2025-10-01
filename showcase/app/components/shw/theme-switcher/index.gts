@@ -10,7 +10,7 @@ import { service } from '@ember/service';
 import { eq } from 'ember-truth-helpers';
 // import { tracked } from '@glimmer/tracking';
 
-import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming.ts';
+import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 
 interface ShwThemeSwitcherSignature {
   Element: HTMLDivElement;
