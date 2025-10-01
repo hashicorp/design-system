@@ -18,7 +18,7 @@ This changelog corresponds with the [4.24](/whats-new/release-notes#4240) releas
 
 `AdvancedTable` - Added support for reordering columns.
 
-`Stepper Nav` - Fixed a bug that was preventing the progress line from scaling property.
+`StepperNav` - Fixed a bug that was preventing the progress line from scaling property.
 
 `Form / Layout` - Updated the order of actions to correspond with [button organization](/patterns/button-organization) guidelines.
 
