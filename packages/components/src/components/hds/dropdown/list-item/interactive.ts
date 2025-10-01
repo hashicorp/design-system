@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { assert, deprecate } from '@ember/debug';
+import { assert } from '@ember/debug';
 
 import { HdsDropdownListItemInteractiveColorValues } from './types.ts';
 
@@ -13,7 +13,6 @@ import type { HdsInteractiveSignature } from '../../interactive';
 import type { HdsDropdownListItemInteractiveColors } from './types.ts';
 import type { ComponentLike } from '@glint/template';
 import type { HdsBadgeSignature } from '../../badge/index.ts';
-import type Owner from '@ember/owner';
 
 export const DEFAULT_COLOR = HdsDropdownListItemInteractiveColorValues.Action;
 export const COLORS: HdsDropdownListItemInteractiveColors[] = Object.values(
@@ -25,10 +24,6 @@ export interface HdsDropdownListItemInteractiveSignature {
     color?: HdsDropdownListItemInteractiveColors;
     icon?: HdsIconSignature['Args']['name'];
     isLoading?: boolean;
-    /**
-     * @deprecated The `@text` argument for "Hds::Dropdown::ListItem::Interactive" has been deprecated. Please put text in the yielded block. See: https://helios.hashicorp.design/components/dropdown?tab=version%20history#4100
-     */
-    text?: string;
     trailingIcon?: HdsIconSignature['Args']['name'];
   };
   Blocks: {
@@ -42,41 +37,6 @@ export interface HdsDropdownListItemInteractiveSignature {
 }
 
 export default class HdsDropdownListItemInteractive extends Component<HdsDropdownListItemInteractiveSignature> {
-  constructor(
-    owner: Owner,
-    args: HdsDropdownListItemInteractiveSignature['Args']
-  ) {
-    super(owner, args);
-
-    if (args.text !== undefined) {
-      deprecate(
-        'The `@text` argument for "Hds::Dropdown::ListItem::Interactive" has been deprecated. Please put text in the yielded block.',
-        false,
-        {
-          id: 'hds.dropdown.list-item.interactive',
-          until: '5.0.0',
-          url: 'https://helios.hashicorp.design/components/dropdown?tab=version%20history#4100',
-          for: '@hashicorp/design-system-components',
-          since: {
-            available: '4.10.0',
-            enabled: '5.0.0',
-          },
-        }
-      );
-    }
-  }
-
-  get text(): string {
-    const { text } = this.args;
-
-    assert(
-      '@text for "Hds::Dropdown::ListItem::Interactive" must have a valid value',
-      text !== undefined
-    );
-
-    return text;
-  }
-
   get color(): HdsDropdownListItemInteractiveColors {
     const { color = DEFAULT_COLOR } = this.args;
 
