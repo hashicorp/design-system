@@ -69,7 +69,6 @@ function getColumnByLabel(columns, label) {
 }
 
 async function getColumnOrder(columns) {
-  console.log({ columns })
   const thElements = await findAll('.hds-advanced-table__th');
 
   return thElements.map((th) => {
