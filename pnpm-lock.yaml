@@ -142,9 +142,6 @@ importers:
       ember-a11y-refocus:
         specifier: ^5.1.0
         version: 5.1.0(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
-      ember-cli-sass:
-        specifier: ^11.0.1
-        version: 11.0.1
       ember-concurrency:
         specifier: ^4.0.4
         version: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
@@ -14149,7 +14146,6 @@ snapshots:
       codemirror-lang-hcl: 0.0.0-beta.2
       decorator-transforms: 2.3.0(@babel/core@7.28.0)
       ember-a11y-refocus: 5.1.0(@babel/core@7.28.0)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
-      ember-cli-sass: 11.0.1
       ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
       ember-focus-trap: 1.1.1(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -14206,7 +14202,6 @@ snapshots:
       codemirror-lang-hcl: 0.0.0-beta.2
       decorator-transforms: 2.3.0(@babel/core@7.28.0)
       ember-a11y-refocus: 5.1.0(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
-      ember-cli-sass: 11.0.1
       ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
       ember-focus-trap: 1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
