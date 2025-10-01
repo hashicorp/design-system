@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { fn } from '@ember/helper';
+import { array, fn } from '@ember/helper';
 import { later } from '@ember/runloop';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
@@ -21,7 +21,9 @@ import {
 
 import CodeFragmentWithDynamicCellContent from 'showcase/components/page-components/advanced-table/code-fragments/with-dynamic-cell-content';
 import CodeFragmentWithDebugSelect from 'showcase/components/page-components/advanced-table/code-fragments/with-debug-select';
-import CodeFragmentWithSimpleData, { DEFAULT_COLUMNS } from 'showcase/components/page-components/advanced-table/code-fragments/with-simple-data';
+import CodeFragmentWithSimpleData, {
+  DEFAULT_COLUMNS,
+} from 'showcase/components/page-components/advanced-table/code-fragments/with-simple-data';
 
 export default class SubSectionFunctionalExamples extends Component {
   // INLINE FILTER EXAMPLE
@@ -75,7 +77,9 @@ export default class SubSectionFunctionalExamples extends Component {
   // TOGGLE COLUMN EXAMPLE
   toggleColumnsAvailableColumns = DEFAULT_COLUMNS.map((col) => col.key);
 
-  @tracked toggleColumnsVisibleColumns = DEFAULT_COLUMNS.filter(col => col.key !== 'name').map((col) => col.key);
+  @tracked toggleColumnsVisibleColumns = DEFAULT_COLUMNS.filter(
+    (col) => col.key !== 'name',
+  ).map((col) => col.key);
 
   get toggleColumnsColumns() {
     return DEFAULT_COLUMNS.filter((column) =>
@@ -83,17 +87,62 @@ export default class SubSectionFunctionalExamples extends Component {
     );
   }
 
-  columnIsVisible = (columnKey: string) => {
+  toggleColumnsColumnIsVisible = (columnKey: string) => {
     return this.toggleColumnsVisibleColumns.includes(columnKey);
   };
 
-  toggleColumnVisibility = (columnKey: string) => {
+  toggleColumnsToggleColumnVisibility = (columnKey: string) => {
     if (this.toggleColumnsVisibleColumns.includes(columnKey)) {
-      this.toggleColumnsVisibleColumns = this.toggleColumnsVisibleColumns.filter(key => key !== columnKey);
+      this.toggleColumnsVisibleColumns =
+        this.toggleColumnsVisibleColumns.filter((key) => key !== columnKey);
     } else {
-      this.toggleColumnsVisibleColumns = [...this.toggleColumnsVisibleColumns, columnKey];
+      this.toggleColumnsVisibleColumns = [
+        ...this.toggleColumnsVisibleColumns,
+        columnKey,
+      ];
     }
+  };
+
+  // TOGGLE REORDERABLE COLUMN EXAMPLE
+
+  @tracked toggleReorderableColumnsVisibleColumns = DEFAULT_COLUMNS.filter(
+    (col) => col.key !== 'name',
+  ).map((col) => col.key);
+
+  @tracked toggleReorderableColumnsColumnOrder =
+    this.toggleColumnsAvailableColumns;
+
+  get toggleReorderableColumnsColumns() {
+    return DEFAULT_COLUMNS.filter((column) =>
+      this.toggleReorderableColumnsVisibleColumns.includes(column.key),
+    );
   }
+
+  toggleReorderableColumnsColumnIsVisible = (columnKey: string) => {
+    return this.toggleReorderableColumnsVisibleColumns.includes(columnKey);
+  };
+
+  toggleReorderableColumnsToggleColumnVisibility = (columnKey: string) => {
+    if (this.toggleReorderableColumnsVisibleColumns.includes(columnKey)) {
+      this.toggleReorderableColumnsVisibleColumns =
+        this.toggleReorderableColumnsVisibleColumns.filter(
+          (key) => key !== columnKey,
+        );
+    } else {
+      this.toggleReorderableColumnsVisibleColumns = [
+        ...this.toggleReorderableColumnsVisibleColumns,
+        columnKey,
+      ];
+    }
+  };
+
+  toggleReorderableColumnsOnColumnReorder = ({
+    newOrder,
+  }: {
+    newOrder: string[];
+  }) => {
+    this.toggleReorderableColumnsColumnOrder = newOrder;
+  };
 
   resetUserAnimation = (
     setModel: (newModel: User[]) => void,
@@ -176,13 +225,46 @@ export default class SubSectionFunctionalExamples extends Component {
     <div class="shw-component-advanced-table-demo-topbar">
       {{#each this.toggleColumnsAvailableColumns as |column|}}
         <HdsButton
-          @text="{{if (this.columnIsVisible column) 'Hide' 'Show'}} {{column}}"
-          {{on "click" (fn this.toggleColumnVisibility column)}}
+          @text="{{if
+            (this.toggleColumnsColumnIsVisible column)
+            'Hide'
+            'Show'
+          }} {{column}}"
+          {{on "click" (fn this.toggleColumnsToggleColumnVisibility column)}}
         />
       {{/each}}
     </div>
 
     <CodeFragmentWithSimpleData @columns={{this.toggleColumnsColumns}} />
+
+    <ShwTextH3>Toggle reorderable columns</ShwTextH3>
+
+    <ShwTextBody>This demo emulates adding and removing columns when reordering
+      is enabled.</ShwTextBody>
+
+    {{! TOGGLE REORDERABLE COLUMN EXAMPLE }}
+    <div class="shw-component-advanced-table-demo-topbar">
+      {{#each this.toggleColumnsAvailableColumns as |column|}}
+        <HdsButton
+          @text="{{if
+            (this.toggleReorderableColumnsColumnIsVisible column)
+            'Hide'
+            'Show'
+          }} {{column}}"
+          {{on
+            "click"
+            (fn this.toggleReorderableColumnsToggleColumnVisibility column)
+          }}
+        />
+      {{/each}}
+    </div>
+
+    <CodeFragmentWithSimpleData
+      @columns={{this.toggleReorderableColumnsColumns}}
+      @hasReorderableColumns={{true}}
+      @columnOrder={{this.toggleReorderableColumnsColumnOrder}}
+      @onColumnReorder={{this.toggleReorderableColumnsOnColumnReorder}}
+    />
 
     <ShwDivider />
   </template>
