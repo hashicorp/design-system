@@ -141,9 +141,6 @@ importers:
       ember-a11y-refocus:
         specifier: ^4.1.4
         version: 4.1.4
-      ember-cli-sass:
-        specifier: ^11.0.1
-        version: 11.0.1
       ember-concurrency:
         specifier: ^4.0.4
         version: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
@@ -177,9 +174,6 @@ importers:
       prismjs:
         specifier: ^1.30.0
         version: 1.30.0
-      sass:
-        specifier: ^1.83.0
-        version: 1.89.2
       tabbable:
         specifier: ^6.2.0
         version: 6.2.0
@@ -298,6 +292,9 @@ importers:
       rollup-plugin-scss:
         specifier: ^4.0.1
         version: 4.0.1
+      sass:
+        specifier: ^1.89.2
+        version: 1.89.2
       stylelint:
         specifier: ^16.17.0
         version: 16.23.0(typescript@5.9.2)
@@ -14205,7 +14202,6 @@ snapshots:
       codemirror-lang-hcl: 0.0.0-beta.2
       decorator-transforms: 2.3.0(@babel/core@7.28.0)
       ember-a11y-refocus: 4.1.4
-      ember-cli-sass: 11.0.1
       ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
       ember-focus-trap: 1.1.1(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
@@ -14217,7 +14213,6 @@ snapshots:
       ember-truth-helpers: 4.0.3(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
       luxon: 3.7.1
       prismjs: 1.30.0
-      sass: 1.89.2
       tabbable: 6.2.0
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.28.0)
@@ -14263,7 +14258,6 @@ snapshots:
       codemirror-lang-hcl: 0.0.0-beta.2
       decorator-transforms: 2.3.0(@babel/core@7.28.0)
       ember-a11y-refocus: 4.1.4
-      ember-cli-sass: 11.0.1
       ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
       ember-focus-trap: 1.1.1(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
@@ -14275,7 +14269,6 @@ snapshots:
       ember-truth-helpers: 4.0.3(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.28.0))(rsvp@4.8.5))
       luxon: 3.7.1
       prismjs: 1.30.0
-      sass: 1.89.2
       tabbable: 6.2.0
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.28.0)
