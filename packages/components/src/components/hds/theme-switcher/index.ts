@@ -9,20 +9,31 @@ import { action } from '@ember/object';
 
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
+import type { HdsIconSignature } from '../icon/index.ts';
 import type HdsThemingService from '../../../services/hds-theming.ts';
 import { type HdsThemes } from '../../../services/hds-theming.ts';
 
-export const OPTIONS = {
-  none: { theme: undefined, icon: 'minus', label: 'None' },
+type ThemeOptionKey = 'system' | 'light' | 'dark'; // | 'none';
+
+interface ThemeOption {
+  theme: HdsThemes;
+  icon: HdsIconSignature['Args']['name'];
+  label: string;
+}
+
+export const OPTIONS: Record<ThemeOptionKey, ThemeOption> = {
   system: { theme: 'system', icon: 'monitor', label: 'System' },
   light: { theme: 'light', icon: 'sun', label: 'Light' },
   dark: { theme: 'dark', icon: 'moon', label: 'Dark' },
-} as const;
+  // none: { theme: undefined, icon: 'minus', label: 'None' },
+};
 
 export interface HdsThemeSwitcherSignature {
   Args: {
     toggleSize?: HdsDropdownToggleButtonSignature['Args']['size'];
     toggleIsFullWidth?: boolean;
+    hasSystemOption?: boolean;
+    // hasNoThemeOption?: boolean;
   };
   Element: HdsDropdownSignature['Element'];
 }
@@ -30,7 +41,21 @@ export interface HdsThemeSwitcherSignature {
 export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
 
-  _options = OPTIONS;
+  get _options() {
+    const options: Partial<typeof OPTIONS> = { ...OPTIONS };
+    const hasSystemOption = this.args.hasSystemOption ?? true;
+    // const hasNoThemeOption = this.args.hasNoThemeOption ?? false;
+
+    if (!hasSystemOption) {
+      delete options.system;
+    }
+
+    // if (!hasNoThemeOption) {
+    //   delete options.none;
+    // }
+
+    return options;
+  }
 
   get toggleSize() {
     return this.args.toggleSize ?? 'small';
@@ -52,6 +77,7 @@ export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignatur
   }
 
   get currentTheme() {
+    // we get the theme from the global service
     return this.hdsTheming.currentTheme;
   }
 
