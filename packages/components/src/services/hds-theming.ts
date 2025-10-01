@@ -3,20 +3,52 @@ import { tracked } from '@glimmer/tracking';
 
 import type Owner from '@ember/owner';
 
-export const LOCALSTORAGE_KEY = 'hds-current-theme';
+export const HDS_THEMING_DATA_SELECTOR = 'data-hds-theme';
+export const HDS_THEMING_CLASS_SELECTOR = 'hds-theme';
+export const HDS_THEMING_LOCALSTORAGE_KEY = 'hds-current-theming-preferences';
 
 export enum HdsThemeValues {
+  // system settings
   System = 'system',
+  // user settings for dark/light
   Light = 'light',
   Dark = 'dark',
 }
 
+export enum HdsModeValues {
+  Hds = 'hds', // TODO understand if it should be `default`
+  CdsG0 = 'cds-g0',
+  CdsG10 = 'cds-g10',
+  CdsG90 = 'cds-g90',
+  CdsG100 = 'cds-g100',
+}
+
 export type HdsThemes = `${HdsThemeValues}` | undefined;
+export type HdsModes = `${HdsModeValues}` | undefined;
 
 export const THEMES: string[] = Object.values(HdsThemeValues);
+export const MODES: string[] = Object.values(HdsModeValues);
+
+type ThemeSelector = 'data' | 'class';
+
+export type HdsThemingServiceOptions = {
+  themeMap: {
+    [HdsThemeValues.Light]: HdsModes;
+    [HdsThemeValues.Dark]: HdsModes;
+  };
+  themeSelector: ThemeSelector;
+};
 
 export default class HdsThemingService extends Service {
   @tracked currentTheme: HdsThemes = undefined;
+  @tracked currentMode: HdsModes = undefined;
+  @tracked currentThemingServiceOptions: HdsThemingServiceOptions = {
+    themeMap: {
+      [HdsThemeValues.Light]: HdsModeValues.Hds, // TODO understand if we want to use `CdsG0` here instead
+      [HdsThemeValues.Dark]: HdsModeValues.CdsG100,
+    },
+    themeSelector: 'data',
+  };
 
   constructor(owner: Owner) {
     super(owner);
@@ -24,13 +56,11 @@ export default class HdsThemingService extends Service {
   }
 
   initializeTheme() {
-    const _initialTheme = localStorage.getItem(LOCALSTORAGE_KEY);
-    if (
-      _initialTheme === 'system' ||
-      _initialTheme === 'light' ||
-      _initialTheme === 'dark'
-    ) {
-      this.setTheme(_initialTheme);
+    const storedTheme = localStorage.getItem(
+      HDS_THEMING_LOCALSTORAGE_KEY
+    ) as HdsThemes;
+    if (storedTheme) {
+      this.setTheme(storedTheme);
     }
   }
 
@@ -39,25 +69,43 @@ export default class HdsThemingService extends Service {
   }
 
   setTheme(theme: HdsThemes) {
-    // console.log('setting HDS theme', theme);
-
-    if (theme === undefined) {
-      localStorage.removeItem(LOCALSTORAGE_KEY);
-    } else {
-      localStorage.setItem(LOCALSTORAGE_KEY, theme);
-    }
-
     // IMPORTANT: for this to work, it needs to be the HTML tag (it's the `:root` in CSS)
     const rootElement = document.querySelector('html');
 
-    if (rootElement) {
-      if (theme === undefined) {
-        rootElement.removeAttribute('data-hds-theme');
-        this.currentTheme = undefined;
-      } else {
-        rootElement.setAttribute('data-hds-theme', theme);
-        this.currentTheme = theme;
-      }
+    if (!rootElement) {
+      return;
     }
+
+    if (
+      theme === undefined ||
+      theme === HdsThemeValues.System ||
+      !THEMES.includes(theme)
+    ) {
+      this.currentTheme = undefined;
+      this.currentMode = undefined;
+      if (this.currentThemingServiceOptions.themeSelector === 'data') {
+        rootElement.removeAttribute(HDS_THEMING_DATA_SELECTOR);
+      } else if (this.currentThemingServiceOptions.themeSelector === 'class') {
+        rootElement.classList.remove(HDS_THEMING_CLASS_SELECTOR);
+      }
+      localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_KEY);
+    } else {
+      this.currentTheme = theme;
+      // TODO theme may be `system` in which case what happens to
+      this.currentMode = this.currentThemingServiceOptions.themeMap[theme];
+      if (this.currentThemingServiceOptions.themeSelector === 'data') {
+        rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, this.currentMode);
+      } else if (this.currentThemingServiceOptions.themeSelector === 'class') {
+        rootElement.classList.add(
+          `${HDS_THEMING_CLASS_SELECTOR}-${this.currentMode}`
+        );
+      }
+      localStorage.setItem(HDS_THEMING_LOCALSTORAGE_KEY, theme);
+    }
+  }
+
+  // this is used for the HDS Showcase and for consumers that want to customize how they apply theming
+  setThemingServiceOptions(customOptions: HdsThemingServiceOptions) {
+    this.currentThemingServiceOptions = customOptions;
   }
 }
