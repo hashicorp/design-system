@@ -14,20 +14,6 @@ module.exports = async function () {
     packageManager: 'pnpm',
     scenarios: [
       {
-        name: 'ember-lts-3.28',
-        allowedToFail: true,
-        npm: {
-          devDependencies: {
-            '@ember/test-helpers': '^2.0.0',
-            'ember-a11y-testing': '^5.2.1',
-            'ember-cli': '~3.28.0',
-            'ember-qunit': '^6.0.0',
-            'ember-resolver': '^8.1.0',
-            'ember-source': '~3.28.11',
-          },
-        },
-      },
-      {
         name: 'ember-lts-4.12',
         npm: {
           devDependencies: {
@@ -56,24 +42,6 @@ module.exports = async function () {
         npm: {
           devDependencies: {
             'ember-source': await getChannelURL('canary'),
-          },
-        },
-      },
-      {
-        name: 'ember-classic',
-        env: {
-          EMBER_OPTIONAL_FEATURES: JSON.stringify({
-            'application-template-wrapper': true,
-            'default-async-observers': false,
-            'template-only-glimmer-components': false,
-          }),
-        },
-        npm: {
-          devDependencies: {
-            'ember-source': '~3.28.0',
-          },
-          ember: {
-            edition: 'classic',
           },
         },
       },
