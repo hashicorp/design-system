@@ -49,9 +49,6 @@ This is the full-fledged component (responsive and animated).
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
-  <C.Property @name="ariaLabel" @type="string" @deprecated={{true}}>
-    Accepts a string; the fallback is set to `Open menu` if the menu is closed, and `Close menu` if the menu is open.<br /><br />Note: The purpose of this argument has been replaced by an `aria-labelledby` attribute referencing the "hds-side-nav-header" `h2` combined with the use of `aria-expanded` on the Toggle button tab.
-  </C.Property>
   <C.Property @name="onToggleMinimizedStatus" @type="function">
     Callback function invoked when the `SideNav` is collapsed or expanded. The function receives a boolean argument stating if the `SideNav` is minimized or not.
   </C.Property>
@@ -126,46 +123,6 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @required={{true}}>
     The value of the aria-label. If no text value is defined an error will be thrown.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
-### SideNav::Header::IconButton
-
-!!! Warning
-
-**Deprecation notice**
-
-The `SideNav::Header::IconButton` subcomponent is now deprecated. Use the `Hds::Button` component with the `isIconOnly` variant instead.
-
-* [Example usage of an Icon-only Button](/components/side-nav?tab=code#actions) within the Side Nav `:actions` block.
-* [Icon-only Button documentation](/components/button?tab=code#icon-only-button)
-!!!
-
-The `SideNav::Header::IconButton` component.
-
-It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="icon" @type="string" @required={{true}}>
-    Used to show an icon. Any [icon](/icons/library) name is accepted.
-  </C.Property>
-  <C.Property @name="href">
-    URL parameter that’s passed down to the `<a>` element.
-  </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean">
-    Controls whether or not the `<a>` link is external. When left `undefined` or explicitly set to `true` it adds the `target="_blank"` and `rel="noopener noreferrer"` attributes to the `<a>` tag (for security reasons).
-  </C.Property>
-  <C.Property @name="route/models/model/query/current-when/replace">
-    Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
-  </C.Property>
-  <C.Property @name="isRouteExternal" @type="boolean" @default="false">
-    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
-  </C.Property>
-  <C.Property @name="ariaLabel" @type="string" @required={{true}}>
-    The value of the `aria-label`. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
