@@ -7,14 +7,6 @@ export const HDS_THEMING_DATA_SELECTOR = 'data-hds-theme';
 export const HDS_THEMING_CLASS_SELECTOR = 'hds-theme';
 export const HDS_THEMING_LOCALSTORAGE_KEY = 'hds-current-theming-preferences';
 
-export enum HdsModeValues {
-  Hds = 'hds', // TODO understand if it should be `default`
-  CdsG0 = 'cds-g0',
-  CdsG10 = 'cds-g10',
-  CdsG90 = 'cds-g90',
-  CdsG100 = 'cds-g100',
-}
-
 export enum HdsThemeValues {
   // system settings
   System = 'system',
@@ -23,11 +15,19 @@ export enum HdsThemeValues {
   Dark = 'dark',
 }
 
-export type HdsModes = `${HdsModeValues}` | undefined;
-export type HdsThemes = `${HdsThemeValues}` | undefined;
+export enum HdsModeValues {
+  Hds = 'hds', // TODO understand if it should be `default`
+  CdsG0 = 'cds-g0',
+  CdsG10 = 'cds-g10',
+  CdsG90 = 'cds-g90',
+  CdsG100 = 'cds-g100',
+}
 
-export const MODES: string[] = Object.values(HdsModeValues);
+export type HdsThemes = `${HdsThemeValues}` | undefined;
+export type HdsModes = `${HdsModeValues}` | undefined;
+
 export const THEMES: string[] = Object.values(HdsThemeValues);
+export const MODES: string[] = Object.values(HdsModeValues);
 
 type ThemeSelector = 'data' | 'class';
 
