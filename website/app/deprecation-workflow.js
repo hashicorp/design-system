@@ -38,6 +38,5 @@ setupDeprecationWorkflow({
     { handler: 'throw', matchId: 'hds.components.modal.body' },
     { handler: 'throw', matchId: 'hds.components.modal.footer' },
     { handler: 'throw', matchId: 'hds.components.modal.header' },
-    { handler: 'throw', matchId: 'hds.components.sidenav.header.iconbutton' },
   ],
 });
