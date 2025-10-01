@@ -513,7 +513,7 @@
         </Hds::SideNav::Header>
       </div>
     </SF.Item>
-    <SF.Item @label="Logo (HomeLink) + Actions (IconButton + Dropdown)">
+    <SF.Item @label="Logo (HomeLink) + Actions (Button + Dropdown)">
       <div class="shw-component-sim-side-nav-header">
         <Hds::SideNav::Header>
           <:logo>
@@ -594,26 +594,6 @@
               @href="#"
               mock-state-value={{state}}
             />
-          </div>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
-  </Shw::Flex>
-</section>
-
-<Shw::Divider @level={{2}} />
-
-<section data-test-percy>
-  {{! TODO: Once IconButton is fully deprecated, remove from examples }}
-  <Shw::Text::H3>SideNav::Header::IconButton (deprecated)</Shw::Text::H3>
-
-  <Shw::Text::H4>States</Shw::Text::H4>
-  <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
-      {{#each states as |state|}}
-        <SF.Item @label={{state}}>
-          <div class="shw-component-sim-side-nav-elem-wrapper">
-            <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" mock-state-value={{state}} />
           </div>
         </SF.Item>
       {{/each}}
