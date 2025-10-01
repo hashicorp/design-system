@@ -23,7 +23,7 @@ module(
 
     test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive>interactive</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
       assert
@@ -35,19 +35,19 @@ module(
 
     test('it should render the "list-item" with a button by default"', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive>interactive</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert.dom('.hds-dropdown-list-item > button').exists();
     });
     test('it should render the "list-item" with a link if it has a @route parameter"', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" @route="index" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive @route="index">interactive</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert.dom('.hds-dropdown-list-item > a').exists();
     });
     test('it should render the "list-item" with a link if it has a @href argument"', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" @href="#" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive @href="#">interactive</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert.dom('.hds-dropdown-list-item > a').exists();
     });
@@ -56,7 +56,7 @@ module(
 
     test('it should render the "action" color as the default if no color is declared"', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive>interactive</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert
         .dom('.hds-dropdown-list-item')
@@ -64,7 +64,7 @@ module(
     });
     test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @color="critical" @text="interactive" @icon="trash" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive @color="critical" @icon="trash">interactive</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert
         .dom('.hds-dropdown-list-item')
@@ -75,19 +75,19 @@ module(
 
     test('if an `@icon` is declared a leading icon should be rendered', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @icon="clipboard-copy" @text="interactive" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive @icon="clipboard-copy">interactive</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert.dom('.hds-icon.hds-icon-clipboard-copy').exists();
     });
     test('if an `@trailingIcon` is declared a trailing icon should be rendered', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @trailingIcon="external-link" @text="interactive" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive @trailingIcon="external-link">interactive</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert.dom('.hds-icon.hds-icon-external-link').exists();
     });
     test('if both an `@icon` and an `@trailingIcon` are declared both the leading and trailing icons should be rendered', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @icon="clipboard-copy" @trailingIcon="external-link" @text="interactive" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive @icon="clipboard-copy" @trailingIcon="external-link">interactive</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert.dom('.hds-icon.hds-icon-clipboard-copy').exists();
       assert.dom('.hds-icon.hds-icon-external-link').exists();
@@ -95,12 +95,6 @@ module(
 
     // CONTENT
 
-    test('it should render the text passed as @text prop', async function (assert) {
-      await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive text" />`,
-      );
-      assert.dom('.hds-dropdown-list-item').hasText('interactive text');
-    });
     test('it should render the yielded content', async function (assert) {
       await render(hbs`
         <Hds::Dropdown::ListItem::Interactive>
@@ -109,29 +103,9 @@ module(
       `);
       assert.dom('.hds-dropdown-list-item').hasText('interactive');
     });
-    test('it should render the text passed as @text prop if content is yielded', async function (assert) {
-      await render(hbs`
-        <Hds::Dropdown::ListItem::Interactive @text="erroneous">
-          interactive
-        </Hds::Dropdown::ListItem::Interactive>
-      `);
-      assert.dom('.hds-dropdown-list-item').doesNotContainText('erroneous');
-    });
 
     // ASSERTIONS
 
-    test('it should throw an assertion if @text is missing/has no value and the component does not yield content', async function (assert) {
-      const errorMessage =
-        '@text for "Hds::Dropdown::ListItem::Interactive" must have a valid value';
-      assert.expect(2);
-      setupOnerror(function (error) {
-        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-      });
-      await render(hbs`<Hds::Dropdown::ListItem::Interactive />`);
-      assert.throws(function () {
-        throw new Error(errorMessage);
-      });
-    });
     test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
       const errorMessage =
         '@color for "Hds::Dropdown::ListItem::Interactive" must be one of the following: action, critical; received: foo';
@@ -140,7 +114,7 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @color="foo" @text="interactive text" />`,
+        hbs`<Hds::Dropdown::ListItem::Interactive @color="foo">interactive text</Hds::Dropdown::ListItem::Interactive>`,
       );
       assert.throws(function () {
         throw new Error(errorMessage);
