@@ -31,6 +31,19 @@ const SubSectionThemeSwitcher: TemplateOnlyComponent = <template>
   </ShwFlex>
 
   <ShwDivider />
+
+  <ShwTextH4 @tag="h3">Options</ShwTextH4>
+
+  <ShwFlex @gap="2rem" as |SF|>
+    <SF.Item @label="System/Light/Dark (default)">
+      <HdsThemeSwitcher />
+    </SF.Item>
+    <SF.Item @label="Only Light/Dark">
+      <HdsThemeSwitcher @hasSystemOption={{false}} />
+    </SF.Item>
+  </ShwFlex>
+
+  <ShwDivider />
 </template>;
 
 export default SubSectionThemeSwitcher;
