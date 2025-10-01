@@ -331,7 +331,6 @@
       "./components/hds/separator.js": "./dist/_app_/components/hds/separator.js",
       "./components/hds/side-nav/base.js": "./dist/_app_/components/hds/side-nav/base.js",
       "./components/hds/side-nav/header/home-link.js": "./dist/_app_/components/hds/side-nav/header/home-link.js",
-      "./components/hds/side-nav/header/icon-button.js": "./dist/_app_/components/hds/side-nav/header/icon-button.js",
       "./components/hds/side-nav/header.js": "./dist/_app_/components/hds/side-nav/header.js",
       "./components/hds/side-nav.js": "./dist/_app_/components/hds/side-nav.js",
       "./components/hds/side-nav/list/back-link.js": "./dist/_app_/components/hds/side-nav/list/back-link.js",
