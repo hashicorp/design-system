@@ -5,17 +5,22 @@
 
 // Overrides necessary to simulate minimized behavior
 .showcase-app.frameless {
+  .hds-side-nav,
   .hds-app-side-nav {
+    &.hds-side-nav--is-minimized,
     &.hds-app-side-nav--is-minimized {
+      .hds-side-nav__wrapper,
       .hds-app-side-nav__wrapper {
         overflow: hidden;
       }
 
+      .hds-side-nav__wrapper-body,
       .hds-app-side-nav__wrapper-body {
         width: var(--hds-app-sidenav-width-expanded);
         opacity: 0;
       }
 
+      .hds-side-nav__wrapper-footer,
       .hds-app-side-nav__wrapper-footer {
         opacity: 0;
       }
