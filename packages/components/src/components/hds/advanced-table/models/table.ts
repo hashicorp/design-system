@@ -377,8 +377,11 @@ export default class HdsAdvancedTableTableModel {
     targetColumn: HdsAdvancedTableColumn,
     side: HdsAdvancedTableColumnReorderSide
   ): void {
-    const oldIndex = this.orderedColumns.indexOf(sourceColumn);
-    const newIndex = this.orderedColumns.indexOf(targetColumn);
+    const sourceKey = sourceColumn.key;
+    const targetKey = targetColumn.key;
+
+    const oldIndex = this.columnOrder.indexOf(sourceKey);
+    const newIndex = this.columnOrder.indexOf(targetKey);
 
     if (oldIndex !== -1 && newIndex !== -1) {
       const updated = [...this.columnOrder];

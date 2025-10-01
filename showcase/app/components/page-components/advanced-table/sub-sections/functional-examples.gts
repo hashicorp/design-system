@@ -244,7 +244,7 @@ export default class SubSectionFunctionalExamples extends Component {
 
     {{! TOGGLE REORDERABLE COLUMN EXAMPLE }}
     <div class="shw-component-advanced-table-demo-topbar">
-      {{#each this.toggleColumnsAvailableColumns as |column|}}
+      {{#each this.toggleReorderableColumnsColumnOrder as |column|}}
         <HdsButton
           @text="{{if
             (this.toggleReorderableColumnsColumnIsVisible column)
