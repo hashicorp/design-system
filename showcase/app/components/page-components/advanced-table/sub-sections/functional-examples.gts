@@ -75,7 +75,7 @@ export default class SubSectionFunctionalExamples extends Component {
   // TOGGLE COLUMN EXAMPLE
   toggleColumnsAvailableColumns = DEFAULT_COLUMNS.map((col) => col.key);
 
-  @tracked toggleColumnsVisibleColumns = DEFAULT_COLUMNS.map((col) => col.key);
+  @tracked toggleColumnsVisibleColumns = DEFAULT_COLUMNS.filter(col => col.key !== 'name').map((col) => col.key);
 
   get toggleColumnsColumns() {
     return DEFAULT_COLUMNS.filter((column) =>
