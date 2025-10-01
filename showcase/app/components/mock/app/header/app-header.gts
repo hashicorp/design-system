@@ -96,7 +96,9 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
           <dd.ToggleIcon @icon="user" @text="user menu" />
           <dd.Title @text="Signed In" />
           <dd.Description @text="email@domain.com" />
-          <dd.Interactive @href="#" @text="Account Settings" />
+          <dd.Interactive @href="#">
+            Account Settings
+          </dd.Interactive>
         </HdsDropdown>
       </:utilityActions>
     </HdsAppHeader>
