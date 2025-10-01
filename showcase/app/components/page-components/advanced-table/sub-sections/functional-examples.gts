@@ -6,6 +6,7 @@ import Component from '@glimmer/component';
 import { fn } from '@ember/helper';
 import { later } from '@ember/runloop';
 import { on } from '@ember/modifier';
+import { tracked } from '@glimmer/tracking';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextBody from 'showcase/components/shw/text/body';
@@ -20,6 +21,7 @@ import {
 
 import CodeFragmentWithDynamicCellContent from 'showcase/components/page-components/advanced-table/code-fragments/with-dynamic-cell-content';
 import CodeFragmentWithDebugSelect from 'showcase/components/page-components/advanced-table/code-fragments/with-debug-select';
+import CodeFragmentWithSimpleData, { DEFAULT_COLUMNS } from 'showcase/components/page-components/advanced-table/code-fragments/with-simple-data';
 
 export default class SubSectionFunctionalExamples extends Component {
   // INLINE FILTER EXAMPLE
@@ -69,6 +71,29 @@ export default class SubSectionFunctionalExamples extends Component {
       this.resetUserAnimation(setModel, model);
     }, 5000);
   };
+
+  // TOGGLE COLUMN EXAMPLE
+  toggleColumnsAvailableColumns = DEFAULT_COLUMNS.map((col) => col.key);
+
+  @tracked toggleColumnsVisibleColumns = DEFAULT_COLUMNS.map((col) => col.key);
+
+  get toggleColumnsColumns() {
+    return DEFAULT_COLUMNS.filter((column) =>
+      this.toggleColumnsVisibleColumns.includes(column.key),
+    );
+  }
+
+  columnIsVisible = (columnKey: string) => {
+    return this.toggleColumnsVisibleColumns.includes(columnKey);
+  };
+
+  toggleColumnVisibility = (columnKey: string) => {
+    if (this.toggleColumnsVisibleColumns.includes(columnKey)) {
+      this.toggleColumnsVisibleColumns = this.toggleColumnsVisibleColumns.filter(key => key !== columnKey);
+    } else {
+      this.toggleColumnsVisibleColumns = [...this.toggleColumnsVisibleColumns, columnKey];
+    }
+  }
 
   resetUserAnimation = (
     setModel: (newModel: User[]) => void,
@@ -142,6 +167,22 @@ export default class SubSectionFunctionalExamples extends Component {
         />
       </:topbarAction>
     </CodeFragmentWithDebugSelect>
+
+    <ShwTextH3>Toggle columns</ShwTextH3>
+
+    <ShwTextBody>This demo emulates adding and removing columns.</ShwTextBody>
+
+    {{! TOGGLE COLUMN EXAMPLE }}
+    <div class="shw-component-advanced-table-demo-topbar">
+      {{#each this.toggleColumnsAvailableColumns as |column|}}
+        <HdsButton
+          @text="{{if (this.columnIsVisible column) 'Hide' 'Show'}} {{column}}"
+          {{on "click" (fn this.toggleColumnVisibility column)}}
+        />
+      {{/each}}
+    </div>
+
+    <CodeFragmentWithSimpleData @columns={{this.toggleColumnsColumns}} />
 
     <ShwDivider />
   </template>

@@ -117,15 +117,15 @@ export default class HdsAdvancedTableTableModel {
   }
 
   get orderedColumns(): HdsAdvancedTableColumn[] {
-    return this.columnOrder.map((key) => {
+    return this.columnOrder.reduce<HdsAdvancedTableColumn[]>((acc, key) => {
       const column = this.columns.find((column) => column.key === key);
 
-      if (!column) {
-        throw new Error(`Column with key ${key} not found`);
+      if (column !== undefined) {
+        acc.push(column);
       }
 
-      return column;
-    });
+      return acc;
+    }, []);
   }
 
   get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {

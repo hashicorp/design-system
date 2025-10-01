@@ -41,6 +41,15 @@ function getTableGridValues(tableElement) {
   return gridValues;
 }
 
+function getBodyContent() {
+  return Array.from(
+    document.querySelectorAll('.hds-advanced-table__tbody .hds-advanced-table__tr'),
+  ).map((row) => {
+    const cells = row.querySelectorAll('.hds-advanced-table__td');
+    return Array.from(cells).map((cell) => cell.textContent.trim());
+  });
+}
+
 async function performContextMenuAction(th, key) {
   const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
 
@@ -60,6 +69,7 @@ function getColumnByLabel(columns, label) {
 }
 
 async function getColumnOrder(columns) {
+  console.log({ columns })
   const thElements = await findAll('.hds-advanced-table__th');
 
   return thElements.map((th) => {
@@ -1146,16 +1156,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   test('it should update the table when the model changes', async function (assert) {
     const bodySelector = '.hds-advanced-table__tbody';
     const rowSelector = '.hds-advanced-table__tr';
-    const cellSelector = '.hds-advanced-table__td';
-
-    const getBodyContent = () => {
-      return Array.from(
-        document.querySelectorAll(`${bodySelector} ${rowSelector}`),
-      ).map((row) => {
-        const cells = row.querySelectorAll(cellSelector);
-        return Array.from(cells).map((cell) => cell.textContent.trim());
-      });
-    };
 
     setTableData(this);
     await render(hbsAdvancedTable);
@@ -2567,5 +2567,54 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       table.offsetWidth === container.offsetWidth,
       'Table width grows to fit container width',
     );
+  });
+
+  test('it should render correct columns when columns are added or removed dynamically', async function (assert) {
+    setTableData(this);
+
+    const columns = [
+      { key: 'name', label: 'Name' },
+      { key: 'age', label: 'Age' },
+      { key: 'country', label: 'Country' },
+    ];
+    const bodyContent = [
+      ['Bob', '20', 'USA'],
+      ['Alice', '25', 'UK'],
+      ['Charlie', '30', 'Canada'],
+    ]
+    
+    this.set('columns', columns);
+    
+    await render(hbs`<Hds::AdvancedTable
+  id='data-advanced-test-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+>
+  <:body as |B|>
+    <B.Tr id={{B.rowIndex}}>
+      {{#each this.columns as |column|}}
+        <B.Td>{{get B.data column.key}}</B.Td>
+      {{/each}}
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`);
+    
+    let columnOrder = await getColumnOrder(this.columns);
+    assert.deepEqual(columnOrder, ['name', 'age', 'country'], 'Initial columns are correct');
+    assert.deepEqual(getBodyContent(), bodyContent);
+
+    this.set('columns', this.columns.filter(col => col.key !== 'age'));
+    columnOrder = await getColumnOrder(this.columns);
+    assert.deepEqual(columnOrder, ['name', 'country'], 'Columns are correct after removing age');
+    assert.deepEqual(getBodyContent(), [
+      ['Bob', 'USA'],
+      ['Alice', 'UK'],
+      ['Charlie', 'Canada'],
+    ]);
+
+    this.set('columns', columns);
+    columnOrder = await getColumnOrder(this.columns);
+    assert.deepEqual(columnOrder, ['name', 'age', 'country'], 'Columns are correct after adding age back');
+    assert.deepEqual(getBodyContent(), bodyContent);
   });
 });
