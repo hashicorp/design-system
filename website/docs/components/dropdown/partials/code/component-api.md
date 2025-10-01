@@ -209,9 +209,6 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   <C.Property @name="<[I].Badge>" @type="yielded component">
     The `Badge` component, yielded as contextual component inside `interactive` blocks of the `Dropdown`. It exposes the same API as the [`Badge` component](/components/badge).
   </C.Property>
-  <C.Property @name="text" @required={{true}} @deprecated={{true}} @type="string">
-    Text to be used in the item. If no text value is defined and no content is yielded, an error will be thrown.
-  </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "action" "critical" }} @default="action">
     Color applied to the text and (optional) icons.
   </C.Property>
