@@ -120,12 +120,12 @@ export type HdsAdvancedTableColumnResizeCallback = (
 ) => void;
 
 export type HdsAdvancedTableColumnReorderCallback = ({
-  newOrder,
   column,
+  newOrder,
   insertedAt,
 }: {
-  newOrder: string[];
   column: HdsAdvancedTableColumn;
+  newOrder: string[];
   insertedAt: number;
 }) => void;
 
