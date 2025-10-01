@@ -56,7 +56,7 @@ When the Modal has been closed, the browser automatically returns the focus to t
 
 If a Modal dialog presents a form, the initial focus should be set on the first input, as the first focusable element in the form. This can be achieved by setting the `autofocus` property on the first form input.
 
-The `<form>` element should be placed in the `Hds::Modal::Body` subcomponent. We also recommend to associate it to the submit button using the `form` attribute, as shown below.
+The `<form>` element should be placed in the yielded `Body` subcomponent. We also recommend associating it with the submit button using the `form` attribute, as shown below.
 
 When the Modal dialog contains information that might be lost on close, use a confirmation message before discarding it.
 
