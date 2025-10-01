@@ -8,7 +8,7 @@ export const HDS_THEMING_CLASS_SELECTOR = 'hds-theme';
 export const HDS_THEMING_LOCALSTORAGE_KEY = 'hds-current-theming-preferences';
 
 export enum HdsThemeValues {
-  // system settings
+  // system settings (prefers-color-scheme)
   System = 'system',
   // user settings for dark/light
   Light = 'light',
@@ -33,8 +33,8 @@ type ThemeSelector = 'data' | 'class';
 
 export type HdsThemingServiceOptions = {
   themeMap: {
-    [HdsThemeValues.Light]: HdsModes;
-    [HdsThemeValues.Dark]: HdsModes;
+    [HdsThemeValues.Light]: HdsModeValues.CdsG0 | HdsModeValues.CdsG10;
+    [HdsThemeValues.Dark]: HdsModeValues.CdsG90 | HdsModeValues.CdsG100;
   };
   themeSelector: ThemeSelector;
 };
@@ -44,7 +44,7 @@ export default class HdsThemingService extends Service {
   @tracked currentMode: HdsModes = undefined;
   @tracked currentThemingServiceOptions: HdsThemingServiceOptions = {
     themeMap: {
-      [HdsThemeValues.Light]: HdsModeValues.Hds, // TODO understand if we want to use `CdsG0` here instead
+      [HdsThemeValues.Light]: HdsModeValues.CdsG0,
       [HdsThemeValues.Dark]: HdsModeValues.CdsG100,
     },
     themeSelector: 'data',
@@ -52,10 +52,12 @@ export default class HdsThemingService extends Service {
 
   constructor(owner: Owner) {
     super(owner);
+    console.log('HdsThemingService constructor');
     this.initializeTheme();
   }
 
   initializeTheme() {
+    console.log('HdsThemingService > initializeTheme');
     const storedTheme = localStorage.getItem(
       HDS_THEMING_LOCALSTORAGE_KEY
     ) as HdsThemes;
@@ -76,11 +78,7 @@ export default class HdsThemingService extends Service {
       return;
     }
 
-    if (
-      theme === undefined ||
-      theme === HdsThemeValues.System ||
-      !THEMES.includes(theme)
-    ) {
+    if (theme === undefined || !THEMES.includes(theme)) {
       this.currentTheme = undefined;
       this.currentMode = undefined;
       if (this.currentThemingServiceOptions.themeSelector === 'data') {
@@ -91,8 +89,11 @@ export default class HdsThemingService extends Service {
       localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_KEY);
     } else {
       this.currentTheme = theme;
-      // TODO theme may be `system` in which case what happens to
-      this.currentMode = this.currentThemingServiceOptions.themeMap[theme];
+      if (theme === HdsThemeValues.System) {
+        this.currentMode = undefined;
+      } else {
+        this.currentMode = this.currentThemingServiceOptions.themeMap[theme];
+      }
       if (this.currentThemingServiceOptions.themeSelector === 'data') {
         rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, this.currentMode);
       } else if (this.currentThemingServiceOptions.themeSelector === 'class') {
