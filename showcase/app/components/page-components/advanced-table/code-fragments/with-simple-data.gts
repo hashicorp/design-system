@@ -4,15 +4,25 @@
  */
 
 import Component from '@glimmer/component';
+import { get } from '@ember/helper';
 
 import USERS from 'showcase/mocks/user-data';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
+
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
+
+export const DEFAULT_COLUMNS = [
+  { key: 'id', label: 'ID' },
+  { key: 'name', label: 'Name' },
+  { key: 'email', label: 'Email' },
+  { key: 'role', label: 'Role' },
+];
 
 export interface CodeFragmentWithSimpleDataSignature {
   Args: {
     isSelectable?: HdsAdvancedTableSignature['Args']['isSelectable'];
+    columns?: HdsAdvancedTableSignature['Args']['columns'];
     density?: HdsAdvancedTableSignature['Args']['density'];
     isStriped?: HdsAdvancedTableSignature['Args']['isStriped'];
     hasTooltips?: boolean;
@@ -21,14 +31,11 @@ export interface CodeFragmentWithSimpleDataSignature {
 }
 
 export default class CodeFragmentWithSimpleData extends Component<CodeFragmentWithSimpleDataSignature> {
-  model = USERS.slice(0, 4);
+  get columns(): HdsAdvancedTableSignature['Args']['columns'] {
+    return this.args.columns ?? DEFAULT_COLUMNS;
+  }
 
-  columns = [
-    { key: 'id', label: 'ID' },
-    { key: 'name', label: 'Name' },
-    { key: 'email', label: 'Email' },
-    { key: 'role', label: 'Role' },
-  ];
+  model = USERS.slice(0, 4);
 
   columnsWithTooltips = [
     {
@@ -54,14 +61,10 @@ export default class CodeFragmentWithSimpleData extends Component<CodeFragmentWi
       <:body as |B|>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         <B.Tr @selectionKey="{{B.data.id}}">
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.id}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.name}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.email}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-          <B.Td>{{B.data.role}}</B.Td>
+          {{#each this.columns as |column|}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+            <B.Td>{{get B.data column.key}}</B.Td>
+          {{/each}}
         </B.Tr>
       </:body>
     </HdsAdvancedTable>

@@ -41,6 +41,17 @@ function getTableGridValues(tableElement) {
   return gridValues;
 }
 
+function getBodyContent() {
+  return Array.from(
+    document.querySelectorAll(
+      '.hds-advanced-table__tbody .hds-advanced-table__tr',
+    ),
+  ).map((row) => {
+    const cells = row.querySelectorAll('.hds-advanced-table__td');
+    return Array.from(cells).map((cell) => cell.textContent.trim());
+  });
+}
+
 async function performContextMenuAction(th, key) {
   const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
 
@@ -816,6 +827,146 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         throw new Error(errorMessage);
       });
     });
+
+    test('column reordering works when there columns are added and removed dynamically', async function (assert) {
+      const artistColumn = { key: 'artist', label: 'Artist' };
+      const albumColumn = { key: 'album', label: 'Album' };
+      const yearColumn = { key: 'year', label: 'Year' };
+      const genreColumn = { key: 'genre', label: 'Genre' };
+
+      const availableColumns = [
+        artistColumn,
+        albumColumn,
+        yearColumn,
+        genreColumn,
+      ];
+
+      // when dealing with dynamic columns, you must handle the order of all potential columns rather than just the ones currently rendered
+      // inital column order is 'artist', 'album', 'year', 'genre'
+      const initialColumnOrder = availableColumns.map((col) => col.key);
+
+      // initially set the columns in the reverse order to ensure the table respects the column order and ommit the genre column
+      const initialColumns = availableColumns
+        .filter((col) => col.key !== 'genre')
+        .reverse();
+
+      this.setProperties({
+        columns: initialColumns,
+        columnOrder: initialColumnOrder,
+        model: this.model.map((item) => ({ ...item, genre: 'music' })),
+      });
+
+      await render(
+        hbs`<Hds::AdvancedTable
+      id='data-test-advanced-table'
+      @hasReorderableColumns={{true}}
+      @model={{this.model}}
+      @columns={{this.columns}}
+      @columnOrder={{this.columnOrder}}
+    >
+      <:body as |B|>
+        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+          {{#each this.columns as |col|}}
+            <B.Td>{{get B.data col.key}}</B.Td>
+          {{/each}}
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>`,
+      );
+
+      // make sure the initial column order is correct based on the columnOrder
+      let columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        ['artist', 'album', 'year'],
+        'The initial column order is set correctly',
+      );
+
+      // add the genre column and ensure it is in the correct order based on columnOrder
+      this.set('columns', [genreColumn, ...this.columns]);
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        ['artist', 'album', 'year', 'genre'],
+        'The column is added in the correct order based on columnOrder',
+      );
+
+      // will drop the column to the right side of the third column (year)
+      const expectedDropTargetIndex = 2;
+      const expectedDropTargetDropSide = 'right';
+
+      // get the first reorder handle
+      const firstReorderHandle = findAll(
+        '.hds-advanced-table__th-reorder-handle',
+      )[0];
+
+      // drag to the right side of the third column (year)
+      const { target, eventOptions } = await simulateColumnReorderDrag({
+        handleElement: firstReorderHandle,
+        targetIndex: expectedDropTargetIndex,
+        targetPosition: expectedDropTargetDropSide,
+      });
+
+      // drop the column
+      await simulateColumnReorderDrop({
+        target,
+        handleElement: firstReorderHandle,
+        eventOptions,
+      });
+
+      // column order updates correctly after the drag and drop
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        ['album', 'year', 'artist', 'genre'],
+        'The initial column order is set correctly',
+      );
+
+      // remove the year column and ensure the column order is still correct
+      this.set(
+        'columns',
+        this.columns.filter((col) => col.key !== 'year'),
+      );
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        ['album', 'artist', 'genre'], // album, year (hidden), artist, genre
+        'The column order is correct after a column is removed',
+      );
+
+      // move the album column to the end
+      const albumReorderHandle = findAll(
+        '.hds-advanced-table__th-reorder-handle',
+      )[0];
+      const lastIndex = this.columns.length - 1;
+
+      const dragResult = await simulateColumnReorderDrag({
+        handleElement: albumReorderHandle,
+        targetIndex: lastIndex,
+        targetPosition: 'right',
+      });
+
+      await simulateColumnReorderDrop({
+        ...dragResult,
+        handleElement: albumReorderHandle,
+      });
+
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        ['artist', 'genre', 'album'], // year (hidden), artist, genre, album
+        'The column order is correct after another column is moved',
+      );
+
+      // add the year column back and ensure it is in the correct position based on columnOrder
+      this.set('columns', [...this.columns, yearColumn]);
+      columnOrder = await getColumnOrder(this.columns);
+      assert.deepEqual(
+        columnOrder,
+        ['year', 'artist', 'genre', 'album'], // year, artist, genre, album
+        'The column is added back in the correct order based on columnOrder',
+      );
+    });
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
@@ -1146,16 +1297,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   test('it should update the table when the model changes', async function (assert) {
     const bodySelector = '.hds-advanced-table__tbody';
     const rowSelector = '.hds-advanced-table__tr';
-    const cellSelector = '.hds-advanced-table__td';
-
-    const getBodyContent = () => {
-      return Array.from(
-        document.querySelectorAll(`${bodySelector} ${rowSelector}`),
-      ).map((row) => {
-        const cells = row.querySelectorAll(cellSelector);
-        return Array.from(cells).map((cell) => cell.textContent.trim());
-      });
-    };
 
     setTableData(this);
     await render(hbsAdvancedTable);
@@ -2567,5 +2708,69 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       table.offsetWidth === container.offsetWidth,
       'Table width grows to fit container width',
     );
+  });
+
+  test('it should render correct columns when columns are added or removed dynamically', async function (assert) {
+    setTableData(this);
+
+    const columns = [
+      { key: 'name', label: 'Name' },
+      { key: 'age', label: 'Age' },
+      { key: 'country', label: 'Country' },
+    ];
+    const bodyContent = [
+      ['Bob', '20', 'USA'],
+      ['Alice', '25', 'UK'],
+      ['Charlie', '30', 'Canada'],
+    ];
+
+    this.set('columns', columns);
+
+    await render(hbs`<Hds::AdvancedTable
+  id='data-advanced-test-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+>
+  <:body as |B|>
+    <B.Tr id={{B.rowIndex}}>
+      {{#each this.columns as |column|}}
+        <B.Td>{{get B.data column.key}}</B.Td>
+      {{/each}}
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`);
+
+    let columnOrder = await getColumnOrder(this.columns);
+    assert.deepEqual(
+      columnOrder,
+      ['name', 'age', 'country'],
+      'Initial columns are correct',
+    );
+    assert.deepEqual(getBodyContent(), bodyContent);
+
+    this.set(
+      'columns',
+      this.columns.filter((col) => col.key !== 'age'),
+    );
+    columnOrder = await getColumnOrder(this.columns);
+    assert.deepEqual(
+      columnOrder,
+      ['name', 'country'],
+      'Columns are correct after removing age',
+    );
+    assert.deepEqual(getBodyContent(), [
+      ['Bob', 'USA'],
+      ['Alice', 'UK'],
+      ['Charlie', 'Canada'],
+    ]);
+
+    this.set('columns', columns);
+    columnOrder = await getColumnOrder(this.columns);
+    assert.deepEqual(
+      columnOrder,
+      ['name', 'age', 'country'],
+      'Columns are correct after adding age back',
+    );
+    assert.deepEqual(getBodyContent(), bodyContent);
   });
 });

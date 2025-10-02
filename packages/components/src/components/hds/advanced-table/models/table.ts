@@ -28,6 +28,7 @@ type HdsAdvancedTableTableArgs = Pick<
   | 'columns'
   | 'columnOrder'
   | 'childrenKey'
+  | 'hasReorderableColumns'
   | 'hasResizableColumns'
   | 'sortBy'
   | 'sortOrder'
@@ -67,6 +68,7 @@ export default class HdsAdvancedTableTableModel {
   @tracked gridElement?: HTMLDivElement = undefined;
 
   childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
+  hasReorderableColumns?: HdsAdvancedTableTableArgs['hasReorderableColumns'];
   hasResizableColumns?: HdsAdvancedTableTableArgs['hasResizableColumns'];
   onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
   onSort?: HdsAdvancedTableSignature['Args']['onSort'];
@@ -77,6 +79,7 @@ export default class HdsAdvancedTableTableModel {
       columns,
       columnOrder,
       childrenKey,
+      hasReorderableColumns,
       hasResizableColumns,
       sortBy,
       sortOrder,
@@ -85,17 +88,20 @@ export default class HdsAdvancedTableTableModel {
     } = args;
 
     this.childrenKey = childrenKey;
+    this.hasReorderableColumns = hasReorderableColumns;
     this.hasResizableColumns = hasResizableColumns;
     this.onSort = onSort;
 
     this.setupData({ model, columns, sortBy, sortOrder });
 
     // set initial column order
-    this.columnOrder = isEmpty(columnOrder)
-      ? this.columns.map((column) => column.key)
-      : columnOrder!; // ensured non-empty
+    if (this.hasReorderableColumns) {
+      this.columnOrder = isEmpty(columnOrder)
+        ? this.columns.map((column) => column.key)
+        : columnOrder!; // ensured non-empty
 
-    this.onColumnReorder = onColumnReorder;
+      this.onColumnReorder = onColumnReorder;
+    }
   }
 
   get hasColumnBeingDragged(): boolean {
@@ -117,15 +123,19 @@ export default class HdsAdvancedTableTableModel {
   }
 
   get orderedColumns(): HdsAdvancedTableColumn[] {
-    return this.columnOrder.map((key) => {
-      const column = this.columns.find((column) => column.key === key);
+    if (this.hasReorderableColumns) {
+      return this.columnOrder.reduce<HdsAdvancedTableColumn[]>((acc, key) => {
+        const column = this.columns.find((column) => column.key === key);
 
-      if (!column) {
-        throw new Error(`Column with key ${key} not found`);
-      }
+        if (column !== undefined) {
+          acc.push(column);
+        }
 
-      return column;
-    });
+        return acc;
+      }, []);
+    } else {
+      return this.columns;
+    }
   }
 
   get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
@@ -254,6 +264,7 @@ export default class HdsAdvancedTableTableModel {
         ...row,
         childrenKey: this.childrenKey,
         columns,
+        table: this,
       });
     });
   }
@@ -367,8 +378,11 @@ export default class HdsAdvancedTableTableModel {
     targetColumn: HdsAdvancedTableColumn,
     side: HdsAdvancedTableColumnReorderSide
   ): void {
-    const oldIndex = this.orderedColumns.indexOf(sourceColumn);
-    const newIndex = this.orderedColumns.indexOf(targetColumn);
+    const sourceKey = sourceColumn.key;
+    const targetKey = targetColumn.key;
+
+    const oldIndex = this.columnOrder.indexOf(sourceKey);
+    const newIndex = this.columnOrder.indexOf(targetKey);
 
     if (oldIndex !== -1 && newIndex !== -1) {
       const updated = [...this.columnOrder];
@@ -391,10 +405,6 @@ export default class HdsAdvancedTableTableModel {
       updated.splice(adjustedIndex, 0, sourceColumn.key); // Insert at new position
 
       this.columnOrder = updated;
-
-      for (const row of this.rows) {
-        row.columnOrder = updated;
-      }
 
       // we need to wait until the reposition has finished
       requestAnimationFrame(() => {
