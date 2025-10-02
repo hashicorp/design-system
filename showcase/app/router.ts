@@ -13,14 +13,26 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('page-foundations', { path: 'foundations' }, function () {
-    this.route('typography');
+    this.route('color', function () {
+      this.route('carbonization');
+    });
+    this.route('typography', function () {
+      this.route('carbonization');
+    });
     this.route('elevation');
-    this.route('focus-ring');
+    this.route('focus-ring', function () {
+      this.route('carbonization');
+    });
     this.route('breakpoints', function () {
       this.route('frameless', function () {
         this.route('demo-viewport-breakpoints-visualization');
         this.route('demo-viewport-breakpoints-visualization-with-ui-shell');
         this.route('demo-viewport-breakpoints-page-padding');
+      });
+    });
+    this.route('theming', function () {
+      this.route('frameless', function () {
+        this.route('demo-application-with-theme-switcher');
       });
     });
   });
@@ -40,10 +52,16 @@ Router.map(function () {
       });
     });
     this.route('application-state');
-    this.route('badge');
-    this.route('badge-count');
+    this.route('badge', function () {
+      this.route('carbonization');
+    });
+    this.route('badge-count', function () {
+      this.route('carbonization');
+    });
     this.route('breadcrumb');
-    this.route('button');
+    this.route('button', function () {
+      this.route('carbonization');
+    });
     this.route('button-set');
     this.route('card');
     this.route('code-block');
