@@ -8,7 +8,10 @@ import { get } from '@ember/helper';
 
 import USERS from 'showcase/mocks/user-data';
 
-import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
+import {
+  HdsAdvancedTable,
+  HdsAdvancedTableExpandableTrGroup,
+} from '@hashicorp/design-system-components/components';
 
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
 
@@ -21,14 +24,11 @@ export const DEFAULT_COLUMNS = [
 
 export interface CodeFragmentWithSimpleDataSignature {
   Args: {
-    hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
-    columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
     isSelectable?: HdsAdvancedTableSignature['Args']['isSelectable'];
     columns?: HdsAdvancedTableSignature['Args']['columns'];
     density?: HdsAdvancedTableSignature['Args']['density'];
     isStriped?: HdsAdvancedTableSignature['Args']['isStriped'];
     hasTooltips?: boolean;
-    onColumnReorder?: HdsAdvancedTableSignature['Args']['onColumnReorder'];
   };
   Element: HTMLDivElement;
 }
@@ -53,16 +53,13 @@ export default class CodeFragmentWithSimpleData extends Component<CodeFragmentWi
   ];
 
   <template>
-    <HdsAdvancedTable
-      @hasReorderableColumns={{@hasReorderableColumns}}
-      @columnOrder={{@columnOrder}}
+    <HdsAdvancedTableExpandableTrGroup
       @isSelectable={{@isSelectable}}
       @density={{@density}}
       @isStriped={{@isStriped}}
       {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{this.model}}
       @columns={{if @hasTooltips this.columnsWithTooltips this.columns}}
-      @onColumnReorder={{@onColumnReorder}}
     >
       <:body as |B|>
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
