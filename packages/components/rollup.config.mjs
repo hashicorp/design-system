@@ -101,6 +101,12 @@ const plugins = [
         'design-system-components-theming-with-prefers-color-scheme.css',
     },
     {
+      inputFile:
+        'design-system-components-theming-with-combined-strategies.scss',
+      outputFile:
+        'design-system-components-theming-with-combined-strategies.css',
+    },
+    {
       inputFile: 'design-system-power-select-overrides.scss',
       outputFile: 'design-system-power-select-overrides.css',
     },
