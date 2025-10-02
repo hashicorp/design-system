@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { fn } from '@ember/helper';
+import { hash, fn } from '@ember/helper';
 import { later } from '@ember/runloop';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
@@ -12,11 +12,13 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import USERS from 'showcase/mocks/user-data';
 import type { User } from 'showcase/mocks/user-data';
 
 import {
   HdsButton,
   HdsFormSelectBase,
+  HdsAdvancedTable,
 } from '@hashicorp/design-system-components/components';
 
 import CodeFragmentWithDynamicCellContent from 'showcase/components/page-components/advanced-table/code-fragments/with-dynamic-cell-content';
@@ -104,6 +106,8 @@ export default class SubSectionFunctionalExamples extends Component {
   };
 
   // TOGGLE REORDERABLE COLUMN EXAMPLE
+
+  toggleReorderableColumnsModel = USERS.slice(0, 4);
 
   @tracked toggleReorderableColumnsVisibleColumns = DEFAULT_COLUMNS.filter(
     (col) => col.key !== 'name',
@@ -259,12 +263,23 @@ export default class SubSectionFunctionalExamples extends Component {
       {{/each}}
     </div>
 
-    <CodeFragmentWithSimpleData
-      @columns={{this.toggleReorderableColumnsColumns}}
+    <HdsAdvancedTable
       @hasReorderableColumns={{true}}
       @columnOrder={{this.toggleReorderableColumnsColumnOrder}}
+      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+      @model={{this.toggleReorderableColumnsModel}}
+      @columns={{this.toggleReorderableColumnsColumns}}
       @onColumnReorder={{this.toggleReorderableColumnsOnColumnReorder}}
-    />
+    >
+      <:body as |B|>
+        <B.Tr as |R|>
+          {{#each R.orderedCells as |C|}}
+            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
+            <B.Td>{{C.content}}</B.Td>
+          {{/each}}
+        </B.Tr>
+      </:body>
+    </HdsAdvancedTable>
 
     <ShwDivider />
   </template>

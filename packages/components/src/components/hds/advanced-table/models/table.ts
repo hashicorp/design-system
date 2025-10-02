@@ -264,6 +264,7 @@ export default class HdsAdvancedTableTableModel {
         ...row,
         childrenKey: this.childrenKey,
         columns,
+        table: this,
       });
     });
   }
@@ -404,10 +405,6 @@ export default class HdsAdvancedTableTableModel {
       updated.splice(adjustedIndex, 0, sourceColumn.key); // Insert at new position
 
       this.columnOrder = updated;
-
-      for (const row of this.rows) {
-        row.columnOrder = updated;
-      }
 
       // we need to wait until the reposition has finished
       requestAnimationFrame(() => {

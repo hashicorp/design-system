@@ -8,13 +8,14 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
 import type { HdsAdvancedTableColumn, HdsAdvancedTableCell } from '../types';
+import type HdsAdvancedTableTableModel from './table';
 
 interface HdsAdvancedTableRowArgs {
   [key: string]: unknown;
   columns: HdsAdvancedTableColumn[];
+  table: HdsAdvancedTableTableModel;
   id?: string;
   childrenKey?: string;
-  columnOrder?: string[];
 }
 
 export default class HdsAdvancedTableRow {
@@ -25,10 +26,10 @@ export default class HdsAdvancedTableRow {
 
   @tracked isOpen: boolean = false;
   @tracked cells: HdsAdvancedTableCell[] = [];
-  @tracked columnOrder: string[] = [];
 
   children: HdsAdvancedTableRow[] = [];
   childrenKey: string;
+  table: HdsAdvancedTableTableModel;
 
   get hasChildren(): boolean {
     return this.children.length > 0;
@@ -39,21 +40,27 @@ export default class HdsAdvancedTableRow {
   }
 
   get orderedCells(): HdsAdvancedTableCell[] {
-    return this.columnOrder.map((key) => {
-      const cell = this.cells.find((cell) => cell.columnKey === key);
+    const { columnOrder, hasReorderableColumns } = this.table;
 
-      if (cell === undefined) {
-        throw new Error(
-          `Cell in the column with key ${key} not found for the row.`
-        );
-      }
+    if (hasReorderableColumns) {
+      return columnOrder.reduce<HdsAdvancedTableCell[]>((acc, key) => {
+        const cell = this.cells.find((cell) => cell.columnKey === key);
 
-      return cell;
-    });
+        if (cell !== undefined) {
+          acc.push(cell);
+        }
+
+        return acc;
+      }, []);
+    } else {
+      return this.cells;
+    }
   }
 
   constructor(args: HdsAdvancedTableRowArgs) {
-    const { columns } = args;
+    const { columns, table } = args;
+
+    this.table = table;
 
     this.cells = columns.map((column) => {
       const cell = args[column.key ?? ''];
@@ -63,9 +70,6 @@ export default class HdsAdvancedTableRow {
         content: cell,
       };
     });
-
-    this.columnOrder =
-      args.columnOrder ?? this.cells.map((cell) => cell.columnKey);
 
     // set row data
     Object.assign(this, args);
