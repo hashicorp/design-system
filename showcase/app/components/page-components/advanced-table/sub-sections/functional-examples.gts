@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { array, fn } from '@ember/helper';
+import { fn } from '@ember/helper';
 import { later } from '@ember/runloop';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';

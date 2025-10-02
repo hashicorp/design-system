@@ -43,7 +43,9 @@ function getTableGridValues(tableElement) {
 
 function getBodyContent() {
   return Array.from(
-    document.querySelectorAll('.hds-advanced-table__tbody .hds-advanced-table__tr'),
+    document.querySelectorAll(
+      '.hds-advanced-table__tbody .hds-advanced-table__tr',
+    ),
   ).map((row) => {
     const cells = row.querySelectorAll('.hds-advanced-table__td');
     return Array.from(cells).map((cell) => cell.textContent.trim());
@@ -2580,10 +2582,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       ['Bob', '20', 'USA'],
       ['Alice', '25', 'UK'],
       ['Charlie', '30', 'Canada'],
-    ]
-    
+    ];
+
     this.set('columns', columns);
-    
+
     await render(hbs`<Hds::AdvancedTable
   id='data-advanced-test-table'
   @model={{this.model}}
@@ -2597,14 +2599,25 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     </B.Tr>
   </:body>
 </Hds::AdvancedTable>`);
-    
+
     let columnOrder = await getColumnOrder(this.columns);
-    assert.deepEqual(columnOrder, ['name', 'age', 'country'], 'Initial columns are correct');
+    assert.deepEqual(
+      columnOrder,
+      ['name', 'age', 'country'],
+      'Initial columns are correct',
+    );
     assert.deepEqual(getBodyContent(), bodyContent);
 
-    this.set('columns', this.columns.filter(col => col.key !== 'age'));
+    this.set(
+      'columns',
+      this.columns.filter((col) => col.key !== 'age'),
+    );
     columnOrder = await getColumnOrder(this.columns);
-    assert.deepEqual(columnOrder, ['name', 'country'], 'Columns are correct after removing age');
+    assert.deepEqual(
+      columnOrder,
+      ['name', 'country'],
+      'Columns are correct after removing age',
+    );
     assert.deepEqual(getBodyContent(), [
       ['Bob', 'USA'],
       ['Alice', 'UK'],
@@ -2613,7 +2626,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     this.set('columns', columns);
     columnOrder = await getColumnOrder(this.columns);
-    assert.deepEqual(columnOrder, ['name', 'age', 'country'], 'Columns are correct after adding age back');
+    assert.deepEqual(
+      columnOrder,
+      ['name', 'age', 'country'],
+      'Columns are correct after adding age back',
+    );
     assert.deepEqual(getBodyContent(), bodyContent);
   });
 });
