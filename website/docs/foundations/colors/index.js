@@ -36,7 +36,7 @@ export default class Colors extends Component {
               colors['semantic'][context] = [];
             }
             const tokenObj = {
-              colorName: `${token.path[1]}-${token.path[2]}`,
+              colorName: token.path.slice(1).join('-'),
               cssVariable: `--${token.name}`,
               // note: we prefix `value` with `$` because we're using the DTCG format
               value: token.$value,
@@ -52,7 +52,7 @@ export default class Colors extends Component {
               colors['branding'][brand] = [];
             }
             colors['branding'][brand].push({
-              colorName: `${token.path[1]}-${token.path[2]}`,
+              colorName: token.path.slice(1).join('-'),
               cssVariable: `--${token.name}`,
               // note: we prefix `value` with `$` because we're using the DTCG format
               value: token.$value,
