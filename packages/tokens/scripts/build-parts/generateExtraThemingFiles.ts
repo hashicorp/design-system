@@ -9,11 +9,6 @@ import prettier from 'prettier';
 import type { Dictionary, PlatformConfig }  from 'style-dictionary';
 import { fileHeader } from 'style-dictionary/utils';
 
-const prettierConfig = {
-    parser: 'css',
-    tabWidth: 2,
-} as const;
-
 export async function generateExtraThemingFiles(_dictionary: Dictionary, config: PlatformConfig ): Promise<void> {
 
   const commonSource = await getSourceFromFileWithRootSelector(config, 'hds', 'common-tokens.css');
@@ -25,23 +20,27 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
 
   const header = await fileHeader({});
 
-  const methods = ['prefers-color-scheme', 'css-selectors'];
+  const methods = ['prefers-color-scheme', 'css-selectors', 'combined-strategies', 'scss-mixins'];
 
   for (const method of methods) {
 
     let outputContent = `${header}\n\n`;
 
-    // CSS files for `prefers-color-scheme` (note: we use `cds-0` for `light` and `
+    // CSS file for `prefers-color-scheme` (note: we use `cds-0` for `light` and `cds-100` for `dark`
     if (method === 'prefers-color-scheme') {
+      outputContent = `${header}\n\n`;
       outputContent += `@media (prefers-color-scheme: dark) { ${cds0ThemedSource} }\n\n`;
       outputContent += `@media (prefers-color-scheme: light) { ${cds100ThemedSource} }\n\n`;
       // this is the fallback to `light` mode
       // commented for now: consumers can always import the `themed-tokens/with-root-selector/cds-0/themed-tokens.css` as extra file if they want to
       // outputContent += '\n\n';
       // outputContent += `${cds0ThemedSource}\n\n`;
+      //
+      // this is the common part
+      outputContent += `${commonSource}\n\n`;
     }
 
-    // CSS files for `.class/[data]` selectors
+    // CSS file for `.class/[data]` selectors
     if (method === 'css-selectors') {
       outputContent = `${header}\n\n`;
       outputContent += `${hdsThemedSource.replace(/^:root/, '.hds-theme-default, [data-hds-theme="default"]')}\n\n`;
@@ -49,14 +48,47 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
       outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-10, [data-hds-theme="cds-10"]')}\n\n`;
       outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-90, [data-hds-theme="cds-90"]')}\n\n`;
       outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-cds-100, [data-hds-theme="cds-100"]')}\n\n`;
+      //
       // this is the fallback to the default `hds` mode
-      outputContent += '\n\n';
       outputContent += `${hdsThemedSource}\n\n`;
+      //
+      // this is the common part
+      outputContent += `${commonSource}\n\n`;
     }
 
-    outputContent += `${commonSource}\n\n`;
+    // CSS file for combined `prefers-color-scheme` and CSS selectors in the same file
+    if (method === 'combined-strategies') {
+      outputContent = `${header}\n\n`;
+      // we will revisit the `[class*=hds-theme-]` selector if we find that is too generic and there are cases where this is picking up other classes
+      outputContent += `@media (prefers-color-scheme: dark) { ${cds0ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
+      outputContent += `@media (prefers-color-scheme: light) { ${cds100ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
+      outputContent += `${hdsThemedSource.replace(/^:root/, '.hds-theme-default, [data-hds-theme="default"]')}\n\n`;
+      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-cds-0, [data-hds-theme="cds-0"]')}\n\n`;
+      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-10, [data-hds-theme="cds-10"]')}\n\n`;
+      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-90, [data-hds-theme="cds-90"]')}\n\n`;
+      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-cds-100, [data-hds-theme="cds-100"]')}\n\n`;
+      //
+      // this is the fallback to the default `hds` mode
+      outputContent += `${hdsThemedSource}\n\n`;
+      //
+      // this is the common part
+      outputContent += `${commonSource}\n\n`;
+    }
 
-    const outputTokensCss = await prettier.format(outputContent, prettierConfig);
+    // SCSS file for mixins
+    if (method === 'scss-mixins') {
+      outputContent = `${header}\n\n`;
+      outputContent += `@mixin hds-theme-default() { ${hdsThemedSource} }\n\n`;
+      outputContent += `@mixin hds-theme-cds0() { ${cds0ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-theme-cds10() { ${cds10ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-theme-cds90() { ${cds90ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-theme-cds100() { ${cds100ThemedSource} }\n\n`;
+      //
+      // this is the mixin that needs to be used to include the common tokens, shared across themes
+      outputContent += `@mixin hds-theme-common() { ${commonSource} }\n\n`;
+    }
+
+    const outputTokensCss = await prettier.format(outputContent, { parser: 'css', tabWidth: 2, });
 
     const outputFolder = `${config.buildPath}themed-tokens/with-${method}/`;
     await fs.ensureDir(outputFolder);
