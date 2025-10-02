@@ -8,10 +8,7 @@ import { get } from '@ember/helper';
 
 import USERS from 'showcase/mocks/user-data';
 
-import {
-  HdsAdvancedTable,
-  HdsAdvancedTableExpandableTrGroup,
-} from '@hashicorp/design-system-components/components';
+import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
 
@@ -53,7 +50,7 @@ export default class CodeFragmentWithSimpleData extends Component<CodeFragmentWi
   ];
 
   <template>
-    <HdsAdvancedTableExpandableTrGroup
+    <HdsAdvancedTable
       @isSelectable={{@isSelectable}}
       @density={{@density}}
       @isStriped={{@isStriped}}
