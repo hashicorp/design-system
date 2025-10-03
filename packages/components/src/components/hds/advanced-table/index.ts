@@ -10,6 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
+import { schedule } from '@ember/runloop';
 import HdsAdvancedTableTableModel from './models/table.ts';
 
 import type Owner from '@ember/owner';
@@ -194,6 +195,25 @@ export interface HdsAdvancedTableSignature {
     ];
   };
   Element: HTMLDivElement;
+}
+
+interface HdsAdvancedTableSyncTableDataModifierSignature {
+  Element: HdsAdvancedTableSignature['Element'];
+  Args: {
+    Named: Pick<
+      HdsAdvancedTableSignature['Args'],
+      'columns' | 'model' | 'sortBy' | 'sortOrder'
+    >;
+  };
+}
+
+interface HdsAdvancedTableSyncColumnOrderModifierSignature {
+  Element: HdsAdvancedTableSignature['Element'];
+  Args: {
+    Named: {
+      columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
+    };
+  };
 }
 
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
@@ -426,6 +446,50 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
+  private _syncTableData = (() => {
+    let isFirstRun = true;
+
+    return modifier<HdsAdvancedTableSyncTableDataModifierSignature>(
+      (_element, _positional, { columns, model, sortBy, sortOrder }) => {
+        // eslint-disable-next-line ember/no-runloop
+        schedule('afterRender', (): void => {
+          if (isFirstRun) {
+            isFirstRun = false;
+            return;
+          }
+          this._tableModel.setupData({
+            columns,
+            model,
+            sortBy,
+            sortOrder,
+          });
+        });
+      }
+    );
+  })();
+
+  private _syncColumnOrder = (() => {
+    let isFirstRun = true;
+
+    return modifier<HdsAdvancedTableSyncColumnOrderModifierSignature>(
+      (_element, _positional, { columnOrder }) => {
+        // eslint-disable-next-line ember/no-runloop
+        schedule('afterRender', (): void => {
+          if (isFirstRun) {
+            isFirstRun = false;
+            return;
+          }
+
+          if (columnOrder === undefined) {
+            return;
+          }
+
+          this._tableModel.columnOrder = columnOrder;
+        });
+      }
+    );
+  })();
+
   private _registerGridElement = modifier((element: HTMLDivElement) => {
     this._tableModel.gridElement = element;
   });
@@ -611,27 +675,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         []
       ),
     });
-  }
-
-  @action
-  setupTableModelData(): void {
-    const { columns, model, sortBy, sortOrder } = this.args;
-
-    this._tableModel.setupData({
-      columns,
-      model,
-      sortBy,
-      sortOrder,
-    });
-  }
-
-  @action
-  updateTableModelColumnOrder(): void {
-    if (this.args.columnOrder === undefined) {
-      return;
-    }
-
-    this._tableModel.columnOrder = this.args.columnOrder;
   }
 
   @action

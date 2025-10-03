@@ -8,7 +8,7 @@
   ...attributes
   aria-expanded={{if @isOpen "true" "false"}}
   {{@setupPrimitiveToggle}}
-  {{did-update this.onDidUpdateImageSrc @imageSrc}}
+  {{this._updateImagePresence @imageSrc}}
   type="button"
 >
   <div class="hds-dropdown-toggle-icon__wrapper">

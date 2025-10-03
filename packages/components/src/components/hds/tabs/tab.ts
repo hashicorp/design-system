@@ -6,6 +6,9 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
+import { schedule } from '@ember/runloop';
+
 import type { IconName } from '@hashicorp/flight-icons/svg';
 import type { HdsTabsTabIds, HdsTabsPanelIds } from './types';
 
@@ -63,34 +66,41 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
       : undefined;
   }
 
-  @action
-  didInsertNode(element: HTMLButtonElement, positional: [boolean?]): void {
-    const { didInsertNode } = this.args;
+  private _handleLifecycle = modifier((element: HTMLButtonElement) => {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', () => {
+      const { isSelected, didInsertNode } = this.args;
 
-    const isSelected = positional[0];
+      if (typeof didInsertNode === 'function') {
+        didInsertNode(element, isSelected);
+      }
+    });
 
-    if (typeof didInsertNode === 'function') {
-      didInsertNode(element, isSelected);
+    return () => {
+      const { willDestroyNode } = this.args;
+
+      if (typeof willDestroyNode === 'function') {
+        willDestroyNode(element);
+      }
+    };
+  });
+
+  private _handleUpdates = modifier(
+    (
+      _element,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      [_count, isSelected]: [
+        HdsTabsTabSignature['Args']['count'],
+        HdsTabsTabSignature['Args']['isSelected'],
+      ]
+    ): void => {
+      const { didUpdateNode } = this.args;
+
+      if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
+        didUpdateNode(this.nodeIndex, isSelected);
+      }
     }
-  }
-
-  @action
-  didUpdateNode(): void {
-    const { didUpdateNode } = this.args;
-
-    if (typeof didUpdateNode === 'function' && this.nodeIndex !== undefined) {
-      didUpdateNode(this.nodeIndex, this.args.isSelected);
-    }
-  }
-
-  @action
-  willDestroyNode(element: HTMLButtonElement): void {
-    const { willDestroyNode } = this.args;
-
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
-  }
+  );
 
   @action
   onClick(event: MouseEvent): false | undefined {

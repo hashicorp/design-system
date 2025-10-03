@@ -9,16 +9,12 @@ import type { HdsFormErrorMessageSignature } from './message';
 
 export const ID_PREFIX = 'error-';
 
-const NOOP = (): void => {};
-
 export interface HdsFormErrorSignature {
   Args: {
     contextualClass?: string;
     controlId?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onInsert?: (element: HTMLElement, ...args: any[]) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onRemove?: (element: HTMLElement, ...args: any[]) => void;
+    onInsert?: (element: HTMLElement, ...args: unknown[]) => void;
+    onRemove?: (element: HTMLElement, ...args: unknown[]) => void;
   };
   Blocks: {
     default: [
@@ -31,57 +27,16 @@ export interface HdsFormErrorSignature {
 }
 
 export default class HdsFormError extends Component<HdsFormErrorSignature> {
-  /**
-   * Determines the unique ID to assign to the element
-   * @method id
-   * @return {(string|null)} The "id" attribute to apply to the element or null, if no controlId is provided
-   */
   get id(): string | null {
     const { controlId } = this.args;
+
     if (controlId) {
       return `${ID_PREFIX}${controlId}`;
     }
+
     return null;
   }
 
-  /**
-   * @param onInsert
-   * @type {function}
-   * @default () => {}
-   */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  get onInsert(): (element: HTMLElement, ...args: any[]) => void {
-    const { onInsert } = this.args;
-
-    // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
-    if (typeof onInsert === 'function') {
-      return onInsert;
-    } else {
-      return NOOP;
-    }
-  }
-
-  /**
-   * @param onRemove
-   * @type {function}
-   * @default () => {}
-   */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  get onRemove(): (element: HTMLElement, ...args: any[]) => void {
-    const { onRemove } = this.args;
-
-    // notice: this is a guard used to prevent triggering an error when the component is used as standalone element
-    if (typeof onRemove === 'function') {
-      return onRemove;
-    } else {
-      return NOOP;
-    }
-  }
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-error'];
 

@@ -9,6 +9,8 @@ import { action } from '@ember/object';
 import { assert, warn } from '@ember/debug';
 import { next, schedule } from '@ember/runloop';
 import { HdsTabsSizeValues } from './types.ts';
+import { modifier } from 'ember-modifier';
+
 import type { ComponentLike } from '@glint/template';
 import type { HdsTabsTabSignature } from './tab';
 import type { HdsTabsPanelSignature } from './panel';
@@ -89,11 +91,6 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     }
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-tabs'];
 
@@ -103,50 +100,58 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     return classes.join(' ');
   }
 
-  @action
-  didInsert(): void {
-    assert(
-      'The number of Tabs must be equal to the number of Panels',
-      this._tabNodes.length === this._panelNodes.length
-    );
+  private _handleInsert = modifier(() => {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', (): void => {
+      assert(
+        'The number of Tabs must be equal to the number of Panels',
+        this._tabNodes.length === this._panelNodes.length
+      );
 
-    if (this._selectedTabId) {
-      this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
+      if (this._selectedTabId) {
+        this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
+      }
+
+      this.setTabIndicator();
+    });
+  });
+
+  private _updateSelectedTabIndex = modifier(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    (_element, [_selectedTabIndex]): void => {
+      // eslint-disable-next-line ember/no-runloop
+      schedule('afterRender', (): void => {
+        this.setTabIndicator();
+      });
     }
+  );
 
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
-      this.setTabIndicator();
-    });
-  }
-
-  @action
-  didUpdateSelectedTabIndex(): void {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
-      this.setTabIndicator();
-    });
-  }
-
-  @action
-  didUpdateSelectedTabId(): void {
-    // if the selected tab is set dynamically (eg. in a `each` loop)
-    // the `Tab` nodes will be re-inserted/rendered, which means the `this.selectedTabId` variable changes
-    // but the parent `Tabs` component has already been rendered/inserted but doesn't re-render
-    // so the value of the `selectedTabIndex` is not updated, unless we trigger a recalculation
-    // using the `did-update` modifier that checks for changes in the `this.selectedTabId` variable
-    if (this._selectedTabId) {
-      this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
+  private _updateSelectedTabId = modifier(
+    (_element, [_selectedTabId]: [string | undefined]): void => {
+      // if the selected tab is set dynamically (eg. in a `each` loop)
+      // the `Tab` nodes will be re-inserted/rendered, which means the `this.selectedTabId` variable changes
+      // but the parent `Tabs` component has already been rendered/inserted but doesn't re-render
+      // so the value of the `selectedTabIndex` is not updated, unless we trigger a recalculation
+      // using the `did-update` modifier that checks for changes in the `this.selectedTabId` variable
+      if (_selectedTabId !== undefined) {
+        this.selectedTabIndex = this._tabIds.indexOf(_selectedTabId);
+      }
     }
-  }
+  );
 
-  @action
-  didUpdateParentVisibility(): void {
-    // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
-      this.setTabIndicator();
-    });
-  }
+  private _updateParentVisibility = modifier(
+    (
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      _element,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      [_isParentVisible]: [HdsTabsSignature['Args']['isParentVisible']]
+    ): void => {
+      // eslint-disable-next-line ember/no-runloop
+      schedule('afterRender', (): void => {
+        this.setTabIndicator();
+      });
+    }
+  );
 
   @action
   didInsertTab(element: HTMLButtonElement, isSelected?: boolean): void {

@@ -5,9 +5,11 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
+
 import type { HdsTabsTabSignature } from './tab';
 import type { HdsTabsPanelIds, HdsTabsTabIds } from './types';
+import { schedule } from '@ember/runloop';
 
 export interface HdsTabsPanelSignature {
   Args: {
@@ -61,22 +63,24 @@ export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
       : undefined;
   }
 
-  @action
-  didInsertNode(element: HTMLElement): void {
-    const { didInsertNode } = this.args;
+  private _handleLifecycle = modifier((element: HTMLElement) => {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', () => {
+      const { didInsertNode } = this.args;
 
-    if (typeof didInsertNode === 'function') {
-      this._elementId = element.id;
-      didInsertNode(element, this._elementId);
-    }
-  }
+      if (typeof didInsertNode === 'function') {
+        this._elementId = element.id;
 
-  @action
-  willDestroyNode(element: HTMLElement): void {
-    const { willDestroyNode } = this.args;
+        didInsertNode(element, this._elementId);
+      }
+    });
 
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
-  }
+    return () => {
+      const { willDestroyNode } = this.args;
+
+      if (typeof willDestroyNode === 'function') {
+        willDestroyNode(element);
+      }
+    };
+  });
 }

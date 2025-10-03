@@ -9,8 +9,10 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
+import { modifier } from 'ember-modifier';
 
 import type { WithBoundArgs } from '@glint/template';
+import type Owner from '@ember/owner';
 import type { HdsModalSizes, HdsModalColors } from './types.ts';
 
 import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.ts';
@@ -59,7 +61,6 @@ export interface HdsModalSignature {
 export default class HdsModal extends Component<HdsModalSignature> {
   @tracked private _isOpen = false;
   private _element!: HTMLDialogElement;
-  private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
 
   get isDismissDisabled(): boolean {
@@ -108,6 +109,35 @@ export default class HdsModal extends Component<HdsModalSignature> {
     return classes.join(' ');
   }
 
+  constructor(owner: Owner, args: HdsModalSignature['Args']) {
+    super(owner, args);
+
+    this._bodyInitialOverflowValue =
+      document.body.style.getPropertyValue('overflow');
+  }
+
+  private _initElement = modifier((element: HdsModalSignature['Element']) => {
+    this._element = element;
+
+    // Register "onClose" callback function to be called when a native 'close' event is dispatched
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    this._element.addEventListener('close', this.registerOnCloseCallback, true);
+
+    // If the modal dialog is not already open
+    if (!this._element.open) {
+      this.open();
+    }
+
+    return () => {
+      this._element.removeEventListener(
+        'close',
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        this.registerOnCloseCallback,
+        true
+      );
+    };
+  });
+
   @action registerOnCloseCallback(event: Event): void {
     if (
       !this.isDismissDisabled &&
@@ -132,47 +162,13 @@ export default class HdsModal extends Component<HdsModalSignature> {
   }
 
   @action
-  didInsert(element: HTMLDialogElement): void {
-    // Store references of `<dialog>` and `<body>` elements
-    this._element = element;
-    this._body = document.body;
-
-    if (this._body) {
-      // Store the initial `overflow` value of `<body>` so we can reset to it
-      this._bodyInitialOverflowValue =
-        this._body.style.getPropertyValue('overflow');
-    }
-
-    // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    this._element.addEventListener('close', this.registerOnCloseCallback, true);
-
-    // If the modal dialog is not already open
-    if (!this._element.open) {
-      this.open();
-    }
-  }
-
-  @action
-  willDestroyNode(): void {
-    if (this._element) {
-      this._element.removeEventListener(
-        'close',
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        this.registerOnCloseCallback,
-        true
-      );
-    }
-  }
-
-  @action
   open(): void {
     // Make modal dialog visible using the native `showModal` method
     this._element.showModal();
     this._isOpen = true;
 
     // Prevent page from scrolling when the dialog is open
-    if (this._body) this._body.style.setProperty('overflow', 'hidden');
+    document.body.style.setProperty('overflow', 'hidden');
 
     // Call "onOpen" callback function
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
@@ -199,18 +195,17 @@ export default class HdsModal extends Component<HdsModalSignature> {
     this._element.close();
 
     // Reset page `overflow` property
-    if (this._body) {
-      this._body.style.removeProperty('overflow');
-      if (this._bodyInitialOverflowValue === '') {
-        if (this._body.style.length === 0) {
-          this._body.removeAttribute('style');
-        }
-      } else {
-        this._body.style.setProperty(
-          'overflow',
-          this._bodyInitialOverflowValue
-        );
+    document.body.style.removeProperty('overflow');
+
+    if (this._bodyInitialOverflowValue === '') {
+      if (document.body.style.length === 0) {
+        document.body.removeAttribute('style');
       }
+    } else {
+      document.body.style.setProperty(
+        'overflow',
+        this._bodyInitialOverflowValue
+      );
     }
 
     // Return focus to a specific element (if provided)

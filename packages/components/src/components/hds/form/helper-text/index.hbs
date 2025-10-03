@@ -8,7 +8,7 @@
   @size="100"
   @weight="regular"
   id={{this.id}}
-  {{did-insert this.onInsert}}
+  {{hds-lifecycle didInsert=@onInsert}}
   ...attributes
 >
   {{yield}}

@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
+import { modifier } from 'ember-modifier';
 
 export interface HdsDisclosurePrimitiveSignature {
   Args: {
@@ -55,6 +56,23 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
     this._isOpen = value || false;
   }
 
+  private _toggleControlled = (() => {
+    let isFirstRun = true;
+
+    return modifier((_element, [isOpen]: [boolean | undefined]) => {
+      if (isFirstRun) {
+        isFirstRun = false;
+        return;
+      }
+
+      if (isOpen !== undefined) {
+        this.isOpen = isOpen;
+      }
+
+      this._isControlled = true;
+    });
+  })();
+
   @action
   onClickToggle(): void {
     this.isOpen = !this.isOpen;
@@ -66,14 +84,6 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
     ) {
       this.args.onClickToggle(this.isOpen);
     }
-  }
-
-  @action
-  onStateChange(): void {
-    if (this.args.isOpen !== undefined) {
-      this.isOpen = this.args.isOpen;
-    }
-    this._isControlled = true;
   }
 
   @action
