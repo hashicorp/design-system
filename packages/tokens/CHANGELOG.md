@@ -1,5 +1,18 @@
 # @hashicorp/design-system-tokens
 
+## 3.0.0
+
+### Major Changes
+
+Upgraded Style Dictionary to version 5
+
+- Updated format of the `src` JSON tokens files to use the community standard DTCG format
+- Updated the tokens pipeline scripts to use the new format
+
+<small class="doc-whats-new-changelog-metadata">[#3138](https://github.com/hashicorp/design-system/pull/3138)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.3.1
 
 ### Patch Changes

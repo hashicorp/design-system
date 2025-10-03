@@ -12,13 +12,61 @@
   </a>
 </p>
 
+## 4.24.0
+
+**Minor changes**
+
+<!-- START utilities/popover-primitive -->
+
+`PopoverPrimitive` - Added support for dynamic swap/injection of the toggle element.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3189](https://github.com/hashicorp/design-system/pull/3189)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Added support for column reordering.
+
+- Added `@hasReorderableColumns` argument. When set to `true`, enables column reordering.
+- Added optional `@columnOrder` argument for setting the initial order of columns by their keys.
+- Added optional `@onColumnReorder` argument which accepts a callback function that is called when reordering is completed.
+- Added optional `@reorderedMessageText` which overrides the default message text that is rendered in the table caption when a column is reordered.
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#2997](https://github.com/hashicorp/design-system/pull/2997)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+<!-- START components/table/table -->
+
+`Table` - Update the model and returned `B.data` to use generic types, so the type of the data is retained.
+
+<!-- END -->
+
+<!-- START components/form/key-value-inputs -->
+
+`KeyValueInputs` - Update the data and returned `R.rowData` to use generic types, so the type of the data is retained.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3150](https://github.com/hashicorp/design-system/pull/3150) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@3.0.0
+
 ## 4.23.1
 
 **Patch changes**
 
-
 `Stepper::Nav` - Fixed bug with stacking context styles causing step content's z-index to not work as expected
-
 
 <small class="doc-whats-new-changelog-metadata">[#3176](https://github.com/hashicorp/design-system/pull/3176)</small>
 
@@ -1422,77 +1470,6 @@ Fixed issue with icon sprite not initiated
 <small class="doc-whats-new-changelog-metadata">[#2433](https://github.com/hashicorp/design-system/pull/2433) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 4.11.0
-
-[4.11.0 documentation](https://hds-website-4-11-0.vercel.app/)
-
-**Minor changes**
-
-`Hds::Table`
-
-- Added `@selectableColumnKey` argument which enables sorting by row selection state and specifies the corresponding selection state key.
-
-`Hds::Table::Tr`
-
-- Added `@selectableColumnKey` argument which enables sorting by row selection state and specifies the corresponding selection state key.
-- Added `@sortBySelectedOrder` argument which determines the state of the sort button in the selected item column.
-- Added `@onClickSortBySelected` argument which is the callback for the sort button in the selected item column.
-
-`Hds::Table::ThSelectable`
-
-- Added `@onClickSortBySelected` argument which is the callback for the sort button in the selected item column.
-- Added `@sortBySelectedOrder` argument which determines the state of the sort button in the selected item column.
-
-<small class="doc-whats-new-changelog-metadata">[#2387](https://github.com/hashicorp/design-system/pull/2387)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`SideNav`: remove usage of `Ember.testing` because it is deprecated.
-
-<small class="doc-whats-new-changelog-metadata">[#2403](https://github.com/hashicorp/design-system/pull/2403)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CopyButton` - Updated icon colors to match interactive states of the component.
-
-`CopySnippet` - Prevent the color from adhering to interactive states when
-status is `success` or `error`.
-
-`Stepper` - Updated to use semantic token over palette token in
-`Stepper::Indicator::Step`.
-
-<small class="doc-whats-new-changelog-metadata">[#2419](https://github.com/hashicorp/design-system/pull/2419)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown`, `RadioCard`, `SuperSelect`, `Stepper`, `Table` - Fixed optional arguments in signatures
-
-<small class="doc-whats-new-changelog-metadata">[#2421](https://github.com/hashicorp/design-system/pull/2421)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown::Toggle::Chevron` - fix subcomponent signature
-
-`hds-clipboard` modifier - extend error when copy action fails
-
-<small class="doc-whats-new-changelog-metadata">[#2418](https://github.com/hashicorp/design-system/pull/2418)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::Pagination::Compact` & `Hds::Pagination::Numbered`
-
-- Added assertion and more strict typing to ensure that a routing argument (`@model`, `@models`, or `@route`) are present when using `@onPageChange` to control routing.
-
-<small class="doc-whats-new-changelog-metadata">[#2400](https://github.com/hashicorp/design-system/pull/2400)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@3.6.0
 
 
 ---

@@ -118,7 +118,7 @@ importers:
         specifier: ^1.6.12
         version: 1.7.3
       '@hashicorp/design-system-tokens':
-        specifier: workspace:^2.3.1
+        specifier: workspace:^3.0.0
         version: link:../tokens
       '@hashicorp/flight-icons':
         specifier: workspace:^3.13.0
@@ -2842,7 +2842,6 @@ packages:
 
   '@hashicorp/design-system-tokens@file:packages/tokens':
     resolution: {directory: packages/tokens, type: directory}
-    engines: {node: '>= 22'}
 
   '@hashicorp/flight-icons@file:packages/flight-icons':
     resolution: {directory: packages/flight-icons, type: directory}
