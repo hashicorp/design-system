@@ -26,10 +26,10 @@ export enum HdsModeValues {
 export type HdsThemes = `${HdsThemeValues}` | undefined;
 export type HdsModes = `${HdsModeValues}` | undefined;
 
-export const THEMES: string[] = Object.values(HdsThemeValues);
-export const MODES: string[] = Object.values(HdsModeValues);
+export const THEMES: HdsThemes[] = Object.values(HdsThemeValues);
+export const MODES: HdsModes[] = Object.values(HdsModeValues);
 
-type ThemeSelector = 'data' | 'class';
+export type ThemeSelector = 'data' | 'class';
 
 export type HdsThemingServiceOptions = {
   themeMap: {
