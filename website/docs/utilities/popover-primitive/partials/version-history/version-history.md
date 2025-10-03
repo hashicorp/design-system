@@ -1,3 +1,8 @@
+## 4.24.0
+
+Added support for dynamic swap/injection of the toggle element.
+
+
 ## 4.23.0
 
 Updated the type of the `hidePopover` callback to allow an optional event to be passed.

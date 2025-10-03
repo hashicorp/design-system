@@ -21,8 +21,6 @@ navigation:
     - navbar
     - menubar
     - topbar
-status:
-  updated: 4.23.0
 ---
 
 <section data-tab="Guidelines">
