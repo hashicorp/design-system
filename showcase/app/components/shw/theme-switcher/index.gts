@@ -8,10 +8,10 @@ import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
 import { service } from '@ember/service';
 import { eq, or } from 'ember-truth-helpers';
+import { hash, fn } from '@ember/helper';
 
-import ShwTextH2 from '../text/h2';
 import ShwTextBody from '../text/body';
-import ShwDivider from '../divider';
+import ShwThemeSwitcherControlSelect from './control/select';
 
 import config from 'showcase/config/environment';
 import { HdsIcon } from '@hashicorp/design-system-components/components';
@@ -22,66 +22,84 @@ import {
 import { MODES } from '@hashicorp/design-system-components/services/hds-theming';
 import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import type {
+  // HdsThemes,
   HdsModes,
   ThemeSelector,
   HdsThemingServiceOptions,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
-interface ShwThemeSwitcherSignature {
-  Element: HTMLDivElement;
-}
-
 const stylesheetOptions = {
-  standard: 'Standard (HDS / No theming)',
-  'prefers-color-scheme': 'Prefers-color-scheme (HDS || Carbon / System)',
-  'css-selectors': 'CSS Selectors (HDS || Carbon - Light/Dark)',
-  'combined-strategies':
-    'Combined strategies (HDS || Carbon - System/Light/Dark)',
+  standard: { main: 'Standard', detail: 'HDS / No theming' },
+  'prefers-color-scheme': {
+    main: 'Prefers-color-scheme',
+    detail: 'HDS || Carbon / System',
+  },
+  'css-selectors': {
+    main: 'CSS Selectors',
+    detail: 'HDS || Carbon - Light/Dark',
+  },
+  'combined-strategies': {
+    main: 'Combined strategies',
+    detail: 'HDS || Carbon - System/Light/Dark',
+  },
 };
 
-const themingOptions = {
-  system: 'System (prefers-color-scheme)',
-  light: 'Light (data-attribute)',
-  dark: 'Dark (data-attribute)',
-};
+// const getCssSelectorFullText = (
+//   cssSelector: ThemeSelector,
+//   theme: HdsThemes,
+// ) => {
+//   switch (cssSelector) {
+//     case 'data':
+//       return `[data-hds-theme=${theme}]`;
+//     case 'class':
+//       return `.hds-theme-${theme}]`;
+//   }
+// };
 
-export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignature> {
+export default class ShwThemeSwitcher extends Component {
   @service declare readonly hdsTheming: HdsThemingService;
 
   @tracked currentStylesheet = 'standard';
   @tracked currentLightTheme: HdsModes = HdsModeValues.CdsG0;
   @tracked currentDarkTheme: HdsModes = HdsModeValues.CdsG100;
-  @tracked currentThemeSelector: ThemeSelector = 'data';
+  @tracked currentCssSelector: ThemeSelector = 'data';
   @tracked selectedStylesheetOption = this.currentStylesheet;
   @tracked selectedLightThemeOption: HdsModes = this.currentLightTheme;
   @tracked selectedDarkThemeOption: HdsModes = this.currentDarkTheme;
-  @tracked selectedThemeSelector: ThemeSelector = this.currentThemeSelector;
+  @tracked selectedCssSelector: ThemeSelector = this.currentCssSelector;
+
+  get showAdvancedOptions(): boolean {
+    return (
+      this.selectedStylesheetOption === 'css-selectors' ||
+      this.selectedStylesheetOption === 'combined-strategies'
+    );
+  }
 
   onChangeStylesheetOption = (event: Event) => {
     const select = event.target as HTMLSelectElement;
     this.selectedStylesheetOption = select.value;
   };
 
-  onChangeLightOption = (event: Event) => {
+  onChangeAdvancedOption = (optionName: string, event: Event) => {
     const select = event.target as HTMLSelectElement;
-    this.selectedLightThemeOption = select.value as HdsModes;
-  };
-
-  onChangeDarkOption = (event: Event) => {
-    const select = event.target as HTMLSelectElement;
-    this.selectedDarkThemeOption = select.value as HdsModes;
-  };
-
-  onChangeThemeSelectorOption = (event: Event) => {
-    const select = event.target as HTMLSelectElement;
-    this.selectedThemeSelector = select.value as ThemeSelector;
+    switch (optionName) {
+      case 'light-theme':
+        this.selectedLightThemeOption = select.value as HdsModes;
+        break;
+      case 'dark-theme':
+        this.selectedDarkThemeOption = select.value as HdsModes;
+        break;
+      case 'css-selector':
+        this.selectedCssSelector = select.value as ThemeSelector;
+        break;
+    }
   };
 
   applyThemingPreferences = () => {
     this.currentStylesheet = this.selectedStylesheetOption;
     this.currentLightTheme = this.selectedLightThemeOption;
     this.currentDarkTheme = this.selectedDarkThemeOption;
-    this.currentThemeSelector = this.selectedThemeSelector;
+    this.currentCssSelector = this.selectedCssSelector;
 
     let newStylesheet;
     switch (this.selectedStylesheetOption) {
@@ -119,7 +137,7 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
         [HdsThemeValues.Light]: this.currentLightTheme,
         [HdsThemeValues.Dark]: this.currentDarkTheme,
       },
-      themeSelector: this.currentThemeSelector,
+      themeSelector: this.currentCssSelector,
     };
 
     this.hdsThemingsetThemingServiceOptions(customOptions);
@@ -144,109 +162,8 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
   };
 
   <template>
-    <div class="shw-theme-switcher" ...attributes>
-      <button type="button" popovertarget="shw-theming-options-popover">Open
-        Popover
-        <HdsIcon
-          @name="settings"
-          class="shw-theme-switcher__settings"
-        /></button>
-
-      <div id="shw-theming-options-popover" popover>
-        <ShwTextH2>My Popover</ShwTextH2>
-        <ShwTextBody>This is a popover created with the Popover API.</ShwTextBody>
-
-        <fieldset class="shw-theme-switcher__options">
-          <legend>Stylesheet Options</legend>
-          {{#each-in stylesheetOptions as |key text|}}
-            <label
-              class="shw-theme-switcher__option"
-              for="popover-stylesheet-option-{{key}}"
-            >
-              <input
-                type="radio"
-                name="stylesheet-option"
-                id="popover-stylesheet-option-{{key}}"
-                value={{key}}
-                checked={{eq this.currentStylesheet key}}
-                {{on "change" this.onChangeStylesheetOption}}
-              />
-              {{text}}</label>
-          {{/each-in}}
-        </fieldset>
-
-        {{#if
-          (or
-            (eq this.selectedStylesheetOption "css-selectors")
-            (eq this.selectedStylesheetOption "combined-strategies")
-          )
-        }}
-          <ShwDivider @level={{2}} />
-
-          <label
-            for="shw-theme-switcher-control-light"
-            class="???"
-          >Light:</label>
-          <select
-            id="shw-theme-switcher-control"
-            class="???"
-            {{on "change" this.onChangeLightOption}}
-          >
-            {{#each MODES as |mode|}}
-              <option
-                value={{mode}}
-                selected={{eq this.currentLightTheme mode}}
-              >{{mode}}</option>
-            {{/each}}
-          </select>
-
-          <label for="shw-theme-switcher-control-dark" class="???">Dark:</label>
-          <select
-            id="shw-theme-switcher-control"
-            class="???"
-            {{on "change" this.onChangeDarkOption}}
-          >
-            {{#each MODES as |mode|}}
-              <option
-                value={{mode}}
-                selected={{eq this.currentDarkTheme mode}}
-              >{{mode}}</option>
-            {{/each}}
-          </select>
-
-          <label
-            for="shw-theme-switcher-control-theme-selector"
-            class="???"
-          >Dark:</label>
-          <select
-            id="shw-theme-switcher-control"
-            class="???"
-            {{on "change" this.onChangeThemeSelectorOption}}
-          >
-            <option
-              value="data"
-              selected={{eq this.currentThemeSelector "data"}}
-            >[data-hds-theme] attribute"</option>
-            <option
-              value="class"
-              selected={{eq this.currentThemeSelector "class"}}
-            >.hds-theme class"</option>
-          </select>
-
-        {{/if}}
-
-        <button type="button" {{on "click" this.applyThemingPreferences}}>
-          Apply
-        </button>
-        <button
-          type="button"
-          popovertarget="shw-theming-options-popover"
-          popovertargetaction="hide"
-        >
-          Close
-        </button>
-      </div>
-
+    <div class="shw-theme-switcher">
+      <ShwTextBody @tag="span">Theming options:</ShwTextBody>
       {{#if
         (or
           (eq this.selectedStylesheetOption "css-selectors")
@@ -255,7 +172,7 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
       }}
         <label
           for="shw-theme-switcher-control"
-          class="shw-theme-switcher__label"
+          class="shw-theme-switcher__control-label"
         >Theme:</label>
         <select
           id="shw-theme-switcher-control"
@@ -271,13 +188,95 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
           <option
             value={{HdsThemeValues.Light}}
             selected={{eq this.hdsTheming.currentTheme HdsThemeValues.Light}}
-          >Light ({{this.currentThemeSelector}})</option>
+          >Light ({{this.currentCssSelector}})</option>
           <option
             value={{HdsThemeValues.Dark}}
             selected={{eq this.hdsTheming.currentTheme HdsThemeValues.Dark}}
-          >Dark ({{this.currentThemeSelector}})</option>
+          >Dark ({{this.currentCssSelector}})</option>
         </select>
       {{/if}}
+      <button
+        class="shw-theme-switcher__options-button"
+        type="button"
+        popovertarget="shw-theming-options-popover"
+      >
+        <HdsIcon
+          @name="settings"
+          class="shw-theme-switcher__settings"
+        /></button>
+
+      <div id="shw-theming-options-popover" popover>
+        <p class="shw-theme-switcher-popover__title">Stylesheet</p>
+        <p class="shw-theme-switcher-popover__description">Choose which
+          stylesheed should be injected in the pages:</p>
+        <div class="shw-theme-switcher-popover__control-list">
+          {{#each-in stylesheetOptions as |key text|}}
+            <div class="shw-theme-switcher-popover__control-item">
+              <input
+                type="radio"
+                class="shw-theme-switcher-popover__control-radio"
+                id="shw-theme-switcher-popover__control-radio-{{key}}"
+                name="shw-theme-switcher-popover__control-radio"
+                value={{key}}
+                checked={{eq this.currentStylesheet key}}
+                {{on "change" this.onChangeStylesheetOption}}
+              />
+              <label
+                class="shw-theme-switcher__control-label"
+                for="shw-theme-switcher-popover__control-radio-{{key}}"
+              >{{text.main}} <span>– {{text.detail}}</span></label>
+            </div>
+          {{/each-in}}
+        </div>
+
+        {{#if this.showAdvancedOptions}}
+          <div class="shw-theme-switcher-popover__advanced-options">
+            <p class="shw-theme-switcher-popover__title">Advanced options</p>
+            <p class="shw-theme-switcher-popover__description">You can change
+              what modes are used for the light/dark themes, and what CSS
+              selector is used for to apply the mode to the page:</p>
+
+            <div class="shw-theme-switcher-popover__control-list">
+              <ShwThemeSwitcherControlSelect
+                @label="Light"
+                @values={{MODES}}
+                @selectedValue={{this.currentLightTheme}}
+                @onChange={{(fn this.onChangeAdvancedOption "light-theme")}}
+              />
+              <ShwThemeSwitcherControlSelect
+                @label="Dark"
+                @values={{MODES}}
+                @selectedValue={{this.currentDarkTheme}}
+                @onChange={{(fn this.onChangeAdvancedOption "dark-theme")}}
+              />
+              <ShwThemeSwitcherControlSelect
+                @label="CSS selector"
+                @values={{(hash data="data attribute" class="CSS class")}}
+                @selectedValue={{this.currentCssSelector}}
+                @onChange={{(fn this.onChangeAdvancedOption "css-selector")}}
+              />
+            </div>
+          </div>
+        {{/if}}
+
+        <div class="shw-theme-switcher-popover__actions">
+          <button
+            type="button"
+            class="shw-theme-switcher-popover__button shw-theme-switcher-popover__button--primary"
+            {{on "click" this.applyThemingPreferences}}
+          >
+            Apply
+          </button>
+          <button
+            type="button"
+            class="shw-theme-switcher-popover__button shw-theme-switcher-popover__button--secondary"
+            popovertarget="shw-theming-options-popover"
+            popovertargetaction="hide"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
 
     </div>
   </template>
