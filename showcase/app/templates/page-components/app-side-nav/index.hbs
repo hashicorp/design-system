@@ -699,4 +699,22 @@
     @label="Full AppFrame with AppHeader & AppSideNav (small viewport)"
   />
 
+  <Shw::Divider />
+
+  <Shw::Frame
+    @id="demo-full-app-frame-with-remove-from-dom"
+    @src="/components/app-side-nav/frameless/demo-remove-from-dom"
+    @height="780"
+    @width="800"
+    @label="Remove AppSideNav from DOM when collapse"
+  />
+  <Shw::Text::Body>
+    This demo verifies that when the `AppSideNav` component is removed from the DOM while page overflow styles are
+    overridden, the page's scroll functionality is properly restored.
+  </Shw::Text::Body>
+
+  <Shw::Text::Body>
+    To check this, expand and then collapse the AppSideNav. Then try to scroll the page.
+  </Shw::Text::Body>
+
 </section>
