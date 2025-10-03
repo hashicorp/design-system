@@ -33,12 +33,16 @@ export default class SubSectionGroupControl extends Component {
 
     <ShwFlex @direction="column" as |SF|>
       <SF.Item @label="With standard content">
-        <CodeFragmentWithGroupContent @name="radio-card-default" />
+        <CodeFragmentWithGroupContent
+          @name="radio-card-default"
+          @onChange={{this.onChange}}
+        />
       </SF.Item>
       <SF.Item @label="With custom content">
         <CodeFragmentWithGroupContent
           @name="radio-card-custom"
           @hasGeneric={{true}}
+          @onChange={{this.onChange}}
         />
       </SF.Item>
       <SF.Item @label="With different content height">
@@ -80,12 +84,14 @@ export default class SubSectionGroupControl extends Component {
         <CodeFragmentWithGroupContent
           @name="radio-card-position-bottom"
           @controlPosition="bottom"
+          @onChange={{this.onChange}}
         />
       </SF.Item>
       <SF.Item @label="Left">
         <CodeFragmentWithGroupContent
           @name="radio-card-position-left"
           @controlPosition="left"
+          @onChange={{this.onChange}}
         />
       </SF.Item>
     </ShwFlex>
@@ -99,12 +105,14 @@ export default class SubSectionGroupControl extends Component {
         <CodeFragmentWithGroupContent
           @name="radio-card-align-left"
           @alignment="left"
+          @onChange={{this.onChange}}
         />
       </SF.Item>
       <SF.Item @label="Center">
         <CodeFragmentWithGroupContent
           @name="radio-card-align-center"
           @alignment="center"
+          @onChange={{this.onChange}}
         />
       </SF.Item>
     </ShwFlex>
@@ -115,12 +123,16 @@ export default class SubSectionGroupControl extends Component {
 
     <ShwFlex @direction="column" as |SF|>
       <SF.Item @label="Flexible width (default)">
-        <CodeFragmentWithGroupContent @name="radio-card-width-flexible" />
+        <CodeFragmentWithGroupContent
+          @name="radio-card-width-flexible"
+          @onChange={{this.onChange}}
+        />
       </SF.Item>
       <SF.Item @label="Fixed width">
         <CodeFragmentWithGroupContent
           @name="radio-card-width-fixed"
           @maxWidth="244px"
+          @onChange={{this.onChange}}
         />
       </SF.Item>
     </ShwFlex>
@@ -131,24 +143,30 @@ export default class SubSectionGroupControl extends Component {
 
     <ShwFlex @direction="column" as |SF|>
       <SF.Item @label="With legend">
-        <CodeFragmentWithGroupContent @name="radio-card-legend" />
+        <CodeFragmentWithGroupContent
+          @name="radio-card-legend"
+          @onChange={{this.onChange}}
+        />
       </SF.Item>
       <SF.Item @label="With legend and helper text">
         <CodeFragmentWithGroupContent
           @name="radio-card-helper-text"
           @hasHelperText={{true}}
+          @onChange={{this.onChange}}
         />
       </SF.Item>
       <SF.Item @label="With legend and error">
         <CodeFragmentWithGroupContent
           @name="radio-card-error-message"
           @hasError={{true}}
+          @onChange={{this.onChange}}
         />
       </SF.Item>
       <SF.Item @label="With legend and required">
         <CodeFragmentWithGroupContent
           @name="radio-card-required"
           @isRequired={{true}}
+          @onChange={{this.onChange}}
         />
       </SF.Item>
     </ShwFlex>
@@ -163,6 +181,7 @@ export default class SubSectionGroupControl extends Component {
           @name="radio-card-layout-horizontal"
           @controlPosition="left"
           @layout="horizontal"
+          @onChange={{this.onChange}}
         />
       </SF.Item>
       <SF.Item @label="Vertical">
@@ -170,6 +189,7 @@ export default class SubSectionGroupControl extends Component {
           @name="radio-card-layout-vertical"
           @controlPosition="left"
           @layout="vertical"
+          @onChange={{this.onChange}}
         />
       </SF.Item>
       <SF.Item @label="Vertical, fixed width">
@@ -178,6 +198,7 @@ export default class SubSectionGroupControl extends Component {
           @controlPosition="left"
           @layout="vertical"
           @maxWidth="330px"
+          @onChange={{this.onChange}}
         />
       </SF.Item>
     </ShwFlex>

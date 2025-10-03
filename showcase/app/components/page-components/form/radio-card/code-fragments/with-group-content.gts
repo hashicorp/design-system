@@ -2,7 +2,7 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-import Component from '@glimmer/component';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { on } from '@ember/modifier';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
@@ -46,22 +46,12 @@ export interface CodeFragmentWithGroupContentSignature {
     isRequired?: HdsFormRadioCardGroupSignature['Args']['isRequired'];
     layout?: HdsFormRadioCardGroupSignature['Args']['layout'];
     maxWidth?: string;
+    onChange: (event: Event) => void;
   };
   Element: HdsFormRadioCardGroupSignature['Element'];
 }
 
-export default class CodeFragmentWithGroupContent extends Component<CodeFragmentWithGroupContentSignature> {
-  onChange = (event: Event) => {
-    const control = event.target as HTMLInputElement;
-    const group = control.closest('.hds-form-group__control-fields-wrapper');
-    group?.querySelectorAll('.hds-form-radio-card').forEach((radioCard) => {
-      radioCard.classList.remove('hds-form-radio-card--checked');
-    });
-    control
-      ?.closest('.hds-form-radio-card')
-      ?.classList.add('hds-form-radio-card--checked');
-  };
-
+const CodeFragmentWithGroupContent: TemplateOnlyComponent<CodeFragmentWithGroupContentSignature> =
   <template>
     <HdsFormRadioCardGroup
       @name={{@name}}
@@ -80,7 +70,7 @@ export default class CodeFragmentWithGroupContent extends Component<CodeFragment
           @checked={{item.checked}}
           @value={{item.value}}
           @maxWidth={{@maxWidth}}
-          {{on "change" this.onChange}}
+          {{on "change" @onChange}}
           as |R|
         >
           <R.Icon @name="hexagon" />
@@ -99,5 +89,6 @@ export default class CodeFragmentWithGroupContent extends Component<CodeFragment
         <G.Error>Group error message</G.Error>
       {{/if}}
     </HdsFormRadioCardGroup>
-  </template>
-}
+  </template>;
+
+export default CodeFragmentWithGroupContent;
