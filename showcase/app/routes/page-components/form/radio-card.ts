@@ -10,33 +10,4 @@ import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 export type PageComponentsFormRadioCardModel =
   ModelFrom<PageComponentsFormRadioCardRoute>;
 
-export default class PageComponentsFormRadioCardRoute extends Route {
-  model() {
-    const STATES = ['default', 'hover', 'focus', 'disabled'];
-    const RADIOCARDS = [
-      {
-        value: '1',
-        label: 'Radio card label 1',
-        badge: 'Badge',
-        checked: true,
-        description: 'Radio card description 1',
-        generic: 'Radio card custom content 1',
-      },
-      {
-        value: '2',
-        label: 'Radio card label 2',
-        badge: 'Badge',
-        description: 'Radio card description 2',
-        generic: 'Radio card custom content 2',
-      },
-      {
-        value: '3',
-        label: 'Radio card label 3',
-        badge: 'Badge',
-        description: 'Radio card description 3',
-        generic: 'Radio card custom content 3',
-      },
-    ];
-    return { STATES, RADIOCARDS };
-  }
-}
+export default class PageComponentsFormRadioCardRoute extends Route {}
