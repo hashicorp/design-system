@@ -12,6 +12,21 @@
   </a>
 </p>
 
+## 3.0.0
+
+**Major changes**
+
+Upgraded Style Dictionary to version 5
+
+- Updated format of the `src` JSON tokens files to use the community standard DTCG format
+- Updated the tokens pipeline scripts to use the new format
+
+_Note: this is only a breaking change for consumers who use the `src` files to generate their own design tokens. For consumers using the design tokens in their compiled format, directly or via the @hashicorp/design-system-components package, this change will have no impact at all._
+
+<small class="doc-whats-new-changelog-metadata">[#3138](https://github.com/hashicorp/design-system/pull/3138)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.3.1
 
 **Patch changes**
@@ -198,18 +213,6 @@ Updated design system name to "Helios"
 Added design tokens for indeterminate `Checkbox`
 
 <small class="doc-whats-new-changelog-metadata">[#740](https://github.com/hashicorp/design-system/pull/740)</small>
-
-## 1.2.0
-
-**Minor changes**
-
-- [#629](https://github.com/hashicorp/design-system/pull/629) [`a079992f`](https://github.com/hashicorp/design-system/commit/a079992fbbed11812fcf4cdd4409a00fa2d246f1) Thanks [@didoo](https://github.com/didoo)! - added component-level design tokens for `Tabs` component
-
-* [#646](https://github.com/hashicorp/design-system/pull/646) [`ecbe26df`](https://github.com/hashicorp/design-system/commit/ecbe26df6bdbaf7b4f00c70d016eead0da9168f0) Thanks [@jorytindall](https://github.com/jorytindall)! - Updated the box-shadow values for overlay tokens.
-
-**Patch changes**
-
-- [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
 
 
 ---

@@ -28,8 +28,6 @@ navigation:
     - syntax
     - highlight
     - block
-status:
-  updated: 4.23.0
 ---
 
 <section data-tab="Guidelines">

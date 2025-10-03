@@ -1,3 +1,8 @@
+## 4.24.0
+
+Update the model and returned `B.data` to use generic types, so the type of the data is retained.
+
+
 ## 4.22.0
 
 Updated `@isSelected` argument type from `false` to `boolean`

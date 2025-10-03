@@ -24,7 +24,7 @@ navigation:
     - detection
     - bubble
 status:
-  updated: 4.23.0
+  updated: 4.24.0
 ---
 
 <section data-tab="Code">

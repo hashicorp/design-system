@@ -1,12 +1,54 @@
 # @hashicorp/design-system-components
 
-## 4.23.1
+## 4.24.0
+
+[4.24.0 documentation](https://hds-website-4-24-0.vercel.app/)
+
+### Minor Changes
+
+
+`PopoverPrimitive` - Added support for dynamic swap/injection of the toggle element.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3189](https://github.com/hashicorp/design-system/pull/3189)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable` - Added support for column reordering.
+
+- Added `@hasReorderableColumns` argument. When set to `true`, enables column reordering.
+- Added optional `@columnOrder` argument for setting the initial order of columns by their keys.
+- Added optional `@onColumnReorder` argument which accepts a callback function that is called when reordering is completed.
+- Added optional `@reorderedMessageText` which overrides the default message text that is rendered in the table caption when a column is reordered.
+
+<small class="doc-whats-new-changelog-metadata">[#2997](https://github.com/hashicorp/design-system/pull/2997)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
 
 ### Patch Changes
 
 
-`Stepper::Nav` - Fixed bug with stacking context styles causing step content's z-index to not work as expected
+`Table` - Update the model and returned `B.data` to use generic types, so the type of the data is retained.
 
+
+
+`KeyValueInputs` - Update the data and returned `R.rowData` to use generic types, so the type of the data is retained.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3150](https://github.com/hashicorp/design-system/pull/3150) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@3.0.0
+
+## 4.23.1
+
+### Patch Changes
+
+`Stepper::Nav` - Fixed bug with stacking context styles causing step content's z-index to not work as expected
 
 <small class="doc-whats-new-changelog-metadata">[#3176](https://github.com/hashicorp/design-system/pull/3176)</small>
 
