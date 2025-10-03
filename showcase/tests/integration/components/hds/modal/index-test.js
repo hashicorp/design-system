@@ -151,8 +151,8 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await triggerKeyEvent('.hds-modal', 'keydown', 'Escape');
     assert.dom('#test-modal').isNotVisible();
   });
-  // TODO! while we decide what to do about the original bug
-  skip('it should close the modal when clicking outside', async function (assert) {
+
+  test('it should close the modal when clicking outside', async function (assert) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
     );
@@ -160,6 +160,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await click('.hds-modal__overlay');
     assert.dom('#test-modal').isNotVisible();
   });
+
   test('it should not close the modal when `@isDismissDisabled` is `true`', async function (assert) {
     this.set('isDismissDisabled', true);
     await render(
