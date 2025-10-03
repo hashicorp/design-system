@@ -15,39 +15,67 @@ export enum HdsThemeValues {
   Dark = 'dark',
 }
 
-export enum HdsModeValues {
+enum HdsModesBaseValues {
   Hds = 'hds', // TODO understand if it should be `default`
+}
+
+export enum HdsModesLightValues {
   CdsG0 = 'cds-g0',
   CdsG10 = 'cds-g10',
+}
+
+export enum HdsModesDarkValues {
   CdsG90 = 'cds-g90',
   CdsG100 = 'cds-g100',
 }
 
+export type HdsModeValues =
+  | HdsModesBaseValues
+  | HdsModesLightValues
+  | HdsModesDarkValues;
+
+export enum HdsCssSelectorsValues {
+  Data = 'data',
+  Class = 'class',
+}
+
 export type HdsThemes = `${HdsThemeValues}` | undefined;
 export type HdsModes = `${HdsModeValues}` | undefined;
+export type HdsModesLight = `${HdsModesLightValues}`;
+export type HdsModesDark = `${HdsModesDarkValues}`;
+export type HdsCssSelectors = `${HdsCssSelectorsValues}`;
 
 export const THEMES: HdsThemes[] = Object.values(HdsThemeValues);
-export const MODES: HdsModes[] = Object.values(HdsModeValues);
+export const MODES_LIGHT: HdsModesLight[] = Object.values(HdsModesLightValues);
+export const MODES_DARK: HdsModesDark[] = Object.values(HdsModesDarkValues);
+export const MODES: HdsModes[] = [
+  ...Object.values(HdsModesBaseValues),
+  ...MODES_LIGHT,
+  ...MODES_DARK,
+];
 
-export type ThemeSelector = 'data' | 'class';
+export const CSS_SELECTORS: HdsCssSelectors[] = Object.values(
+  HdsCssSelectorsValues
+);
 
 export type HdsThemingServiceOptions = {
   themeMap: {
-    [HdsThemeValues.Light]: HdsModeValues.CdsG0 | HdsModeValues.CdsG10;
-    [HdsThemeValues.Dark]: HdsModeValues.CdsG90 | HdsModeValues.CdsG100;
+    [HdsThemeValues.Light]: HdsModesLight;
+    [HdsThemeValues.Dark]: HdsModesDark;
   };
-  themeSelector: ThemeSelector;
+  cssSelector: HdsCssSelectors;
 };
 
 export default class HdsThemingService extends Service {
+  @tracked isInitialized: boolean = false;
   @tracked currentTheme: HdsThemes = undefined;
   @tracked currentMode: HdsModes = undefined;
   @tracked currentThemingServiceOptions: HdsThemingServiceOptions = {
     themeMap: {
-      [HdsThemeValues.Light]: HdsModeValues.CdsG0,
-      [HdsThemeValues.Dark]: HdsModeValues.CdsG100,
+      [HdsThemeValues.Light]: HdsModesLightValues.CdsG0,
+      [HdsThemeValues.Dark]: HdsModesDarkValues.CdsG100,
     },
-    themeSelector: 'data',
+    cssSelector: 'data',
   };
 
   constructor(owner: Owner) {
@@ -57,6 +85,9 @@ export default class HdsThemingService extends Service {
   }
 
   initializeTheme() {
+    if (this.isInitialized) {
+      return;
+    }
     console.log('HdsThemingService > initializeTheme');
     const storedTheme = localStorage.getItem(
       HDS_THEMING_LOCALSTORAGE_KEY
@@ -64,6 +95,7 @@ export default class HdsThemingService extends Service {
     if (storedTheme) {
       this.setTheme(storedTheme);
     }
+    this.isInitialized = true;
   }
 
   getTheme(): HdsThemes {
@@ -81,9 +113,9 @@ export default class HdsThemingService extends Service {
     if (theme === undefined || !THEMES.includes(theme)) {
       this.currentTheme = undefined;
       this.currentMode = undefined;
-      if (this.currentThemingServiceOptions.themeSelector === 'data') {
+      if (this.currentThemingServiceOptions.cssSelector === 'data') {
         rootElement.removeAttribute(HDS_THEMING_DATA_SELECTOR);
-      } else if (this.currentThemingServiceOptions.themeSelector === 'class') {
+      } else if (this.currentThemingServiceOptions.cssSelector === 'class') {
         rootElement.classList.remove(HDS_THEMING_CLASS_SELECTOR);
       }
       localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_KEY);
@@ -94,9 +126,12 @@ export default class HdsThemingService extends Service {
       } else {
         this.currentMode = this.currentThemingServiceOptions.themeMap[theme];
       }
-      if (this.currentThemingServiceOptions.themeSelector === 'data') {
-        rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, this.currentMode);
-      } else if (this.currentThemingServiceOptions.themeSelector === 'class') {
+      if (this.currentThemingServiceOptions.cssSelector === 'data') {
+        // TODO! improve this part
+        if (this.currentMode !== undefined) {
+          rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, this.currentMode);
+        }
+      } else if (this.currentThemingServiceOptions.cssSelector === 'class') {
         rootElement.classList.add(
           `${HDS_THEMING_CLASS_SELECTOR}-${this.currentMode}`
         );
