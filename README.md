@@ -1,3 +1,5 @@
+<!-- TEMPORARY ADDITION SO BRANCH DIVERGES FROM MAIN -->
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/hashicorp/design-system/assets/788096/5d6969b7-f8b4-4ad3-9ece-b16b4527522e" width="300">
   <source media="(prefers-color-scheme: light)" srcset="https://github.com/hashicorp/design-system/assets/788096/8e278094-427f-40cc-912f-9ccd3a0ff879" width="300">
