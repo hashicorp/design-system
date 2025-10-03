@@ -5,15 +5,9 @@
 
 import Route from '@ember/routing/route';
 
-import users from 'showcase/mocks/user-data';
-
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
 export type PageComponentsPaginationModel =
   ModelFrom<PageComponentsPaginationRoute>;
 
-export default class PageComponentsPaginationRoute extends Route {
-  model() {
-    return { records: users };
-  }
-}
+export default class PageComponentsPaginationRoute extends Route {}
