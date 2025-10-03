@@ -19,7 +19,7 @@
 
 | Element                          | Usage                                                                       |
 | -------------------------------- | --------------------------------------------------------------------------- |
-| Context menu and resize controls | Optional, conditionally renders when `@hasResizableColumns` is set to true. |
+| Context menu and actions | Optional, conditionally renders when a column has context menu actions available for interactions such as resizing, reordering, or pinning.  |
 
 ### Advanced Table cells
 

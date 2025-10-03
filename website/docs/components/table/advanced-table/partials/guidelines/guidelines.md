@@ -124,9 +124,34 @@ Don’t center header labels or cell content within a table.
 
 !!!
 
-### Resizable columns
+### Reordering columns
+
+If `hasReorderableColumns` is enabled on the Ember component, users can reorder columns either by clicking and dragging on the column reorder handle with a mouse, or by moving focus to the handle with a keyboard and using the right and left arrow keys.
+
+!!! Info
+
+While these properties aren't available in the Figma component, [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=KXQulxNCTwGhmCX5-1) are available to copy and paste into design files.
+!!!
+
+![](/assets/components/table/advanced-table/advanced-table-focus-drag-target.png)
+
+![](/assets/components/table/advanced-table/advanced-table-drag-column.png)
+
+Actions related to moving columns are displayed in a context menu in the table header. These are not customizable and include:
+
+- Move column: moves focus to the reordering handle
+- Move column to start/end: moves the column to the first or last position in the table unless the column is already in this position.
+
+![The open context menu in the Advanced Table displaying "Move column", "Move column to start", and "Move column to end" actions.](/assets/components/table/advanced-table/advanced-table-reorder-context-menu.png)
+
+### Resizing columns
 
 Columns can be resized by dragging the "resize border" with a mouse or by moving focus to it and using the left and right arrow keys.
+
+!!! Info
+
+While these properties aren't available in the Figma component, [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=UHpPyO7erZKLy4SD-1) are available to copy and paste into design files and the [Resize Border](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=80647-127234&t=UHpPyO7erZKLy4SD-1) is available to use as a starting point for expressing this interaction.
+!!!
 
 The Figma component does not support this resizing feature. Instead, we publish a [Resize Border](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=80647-127234&t=UHpPyO7erZKLy4SD-1) component and [Templates](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=72039-5091&t=UHpPyO7erZKLy4SD-1) to use as a starting point for expressing this interaction. We also provide [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=UHpPyO7erZKLy4SD-1) that you can copy and paste into your design files.
 
@@ -236,7 +261,7 @@ Striping enhances readability by alternating row colors, making it easier to sca
 The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
 !!!
 
-The `rowPlacement` property determines the border radius of a cell. It is only available on cells where the `colPlacement` property is set to `start` or `end`. 
+The `rowPlacement` property determines the border radius of a cell. It is only available on cells where the `colPlacement` property is set to `start` or `end`.
 
 ![The cell with column placement end and row placement end has a border radius set on the bottom right corner.](/assets/components/table/advanced-table/table-row-placement.png)
 
@@ -280,7 +305,7 @@ If `hasStickyFirstColumn` is set to true or false in the Ember component, a cont
 Multi-select is not supported for nested rows at this time.
 !!!
 
-Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. Selection states are maintained across pagination and filtering. 
+Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. Selection states are maintained across pagination and filtering.
 
 A multi-select pattern consists of:
 
