@@ -2,7 +2,6 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
@@ -10,7 +9,8 @@ import { deepTracked } from 'ember-deep-tracked';
 import { eq, or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier/modifiers/style';
 
-// HDS components
+import CodeFragmentWithDemoInstructions from 'showcase/components/page-components/form/key-value-inputs/code-fragments/with-demo-instructions';
+
 import {
   HdsForm,
   HdsFormTextInputField,
@@ -21,18 +21,7 @@ import {
   HdsReveal,
 } from '@hashicorp/design-system-components/components';
 
-// SHW components
-import ShwTextH4 from '../../../../shw/text/h4';
-import ShwLabel from '../../../../shw/label';
-
 import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
-
-export interface MockComponentsFormKeyValueInputsWithDynamicInputsSignature {
-  Args: {
-    collapseInstructions?: boolean;
-  };
-  Element: HTMLDivElement;
-}
 
 interface KvpItem {
   id: number;
@@ -61,38 +50,14 @@ const EMPTY_MODEL: FormModel = {
   'kvp-list': [structuredClone(EMPTY_KVP_ITEM)],
 };
 
-const Instructions = <template>
-  <ShwTextH4 @tag="h3">Instructions</ShwTextH4>
-  <ShwLabel {{style margin-bottom="32px"}}>
-    You can use this example to test a few different things:
-    <ul {{style line-height="1.5"}}>
-      <li>Try to submit the form when all the fields are empty → Validation
-        error should appear on the "Name" field</li>
-      <li>Fill in the "Name" and "Description" fields and submit → The form
-        should be submitted (emulated with an alert)</li>
-      <li>Fill in the first "Key Value Pair" row and submit → The form should be
-        submitted (you can see the submitted data in the alert)</li>
-      <li>Add a second "Key Value Pair" and and use a different type of key and
-        submit → The form should be submitted</li>
-      <li>Add a third "Key Value Pair" and and submit → The form should be
-        submitted</li>
-      <li>Delete the remaining rows → The "delete button" should disappear when
-        there is only one remaining row</li>
-      <li>Try to addd/delete rows → See how the "delete button"
-        appears/disappears</li>
-      <li>Click the "Reset" button → The entire content of the form should
-        return to its initial state</li>
-      <li>Now toggle the "Always show delete button on first row" → The "delete
-        button" on the first row will always be visible</li>
-      <li>You can now repeat the previous steps about adding/deleting rows → See
-        how the "delete button" works for the different rows, including when the
-        last row has content and the "Key Value Pair" fields are filled in that
-        row</li>
-    </ul>
-  </ShwLabel>
-</template>;
+export interface CodeFragmentWithDynamicInputsSignature {
+  Args: {
+    collapseInstructions?: boolean;
+  };
+  Element: HTMLDivElement;
+}
 
-export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends Component<MockComponentsFormKeyValueInputsWithDynamicInputsSignature> {
+export default class CodeFragmentWithDynamicInputs extends Component<CodeFragmentWithDynamicInputsSignature> {
   collapseInstructions = this.args.collapseInstructions ?? false;
   @tracked alwaysShowDeleteButtonOnFirstRow = false;
 
@@ -234,8 +199,6 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
       !this.alwaysShowDeleteButtonOnFirstRow;
   };
 
-  // =====================================================
-
   <template>
     {{#if this.collapseInstructions}}
       <HdsReveal
@@ -243,10 +206,10 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
         @textWhenOpen="Hide instructions"
         {{style margin="24px 0"}}
       >
-        <Instructions />
+        <CodeFragmentWithDemoInstructions />
       </HdsReveal>
     {{else}}
-      <Instructions />
+      <CodeFragmentWithDemoInstructions />
     {{/if}}
     <div ...attributes>
       <HdsForm

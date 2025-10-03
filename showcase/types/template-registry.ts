@@ -35,8 +35,6 @@ import MockAppFooterAppFooter from '../app/components/mock/app/footer/app-footer
 import MockDemoBreakpointsRuler from '../app/components/mock/demo/breakpoints-ruler';
 import MockDemoBreakpointsVisualization from '../app/components/mock/demo/breakpoints-visualization';
 
-import MockComponentsFormKeyValueInputsWithValidationAndLimit from '../app/components/mock/components/form/key-value-inputs/with-validation-and-limit';
-import MockComponentsFormKeyValueInputsWithDynamicInputs from '../app/components/mock/components/form/key-value-inputs/with-dynamic-inputs';
 import MockFormSuperSelectGenericContent from '../app/components/mock/components/form/super-select/generic-content';
 import MockFormSuperSelectSelectedComponentSingle from '../app/components/mock/components/form/super-select/selected-component-single';
 import MockFormSuperSelectSelectedComponentMultiple from '../app/components/mock/components/form/super-select/selected-component-multiple';
@@ -106,10 +104,6 @@ export default interface ShowcaseTemplateRegistry {
   'mock/demo/breakpoints-ruler': typeof MockDemoBreakpointsRuler;
 
   // MOCK COMPONENTS
-  'Mock::Components::Form::KeyValueInputs::WithValidationAndLimit': typeof MockComponentsFormKeyValueInputsWithValidationAndLimit;
-  'mock/components/form/key-value-inputs/with-validation-and-limit': typeof MockComponentsFormKeyValueInputsWithValidationAndLimit;
-  'Mock::Components::Form::KeyValueInputs::WithDynamicInputs': typeof MockComponentsFormKeyValueInputsWithDynamicInputs;
-  'mock/components/form/key-value-inputs/with-dynamic-inputs': typeof MockComponentsFormKeyValueInputsWithDynamicInputs;
   'Mock::Form::SuperSelect::GenericContent': typeof MockFormSuperSelectGenericContent;
   'mock/components/form/super-select/generic-content': typeof MockFormSuperSelectGenericContent;
   'Mock::Form::SuperSelect::SelectedComponentSingle': typeof MockFormSuperSelectSelectedComponentSingle;
