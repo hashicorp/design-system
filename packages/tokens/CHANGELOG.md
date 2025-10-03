@@ -9,6 +9,8 @@ Upgraded Style Dictionary to version 5
 - Updated format of the `src` JSON tokens files to use the community standard DTCG format
 - Updated the tokens pipeline scripts to use the new format
 
+_Note: this is only a breaking change for consumers who use the `src` files to generate their own design tokens. For consumers using the design tokens in their compiled format, directly or via the @hashicorp/design-system-components package, this change will have no impact at all._
+
 <small class="doc-whats-new-changelog-metadata">[#3138](https://github.com/hashicorp/design-system/pull/3138)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
