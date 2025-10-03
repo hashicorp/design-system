@@ -20,6 +20,7 @@ import ShwTextH1 from '../app/components/shw/text/h1';
 import ShwTextH2 from '../app/components/shw/text/h2';
 import ShwTextH3 from '../app/components/shw/text/h3';
 import ShwTextH4 from '../app/components/shw/text/h4';
+import ShwThemeSwitcher from '../app/components/shw/theme-switcher';
 
 import MockApp from '../app/components/mock/app/index';
 import MockAppHeaderAppHeader from '../app/components/mock/app/header/app-header';
@@ -74,6 +75,8 @@ export default interface ShowcaseTemplateRegistry {
   'shw/text/h4': typeof ShwTextH4;
   'Shw::Text::Body': typeof ShwTextBody;
   'shw/text/body': typeof ShwTextBody;
+  'Shw::ThemeSwitcher': typeof ShwThemeSwitcher;
+  'shw/theme-switcher': typeof ShwThemeSwitcher;
   // MOCK APP
   'Mock::App': typeof MockApp;
   'mock/app': typeof MockApp;
