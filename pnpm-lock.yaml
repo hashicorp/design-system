@@ -674,9 +674,6 @@ importers:
       ember-try:
         specifier: ^4.0.0
         version: 4.0.0
-      ember-unique-id-helper-polyfill:
-        specifier: ^1.2.2
-        version: 1.2.2
       eslint:
         specifier: ^9.27.0
         version: 9.32.0
@@ -6419,10 +6416,6 @@ packages:
   ember-try@4.0.0:
     resolution: {integrity: sha512-gWG1k8+hio1rndJXxzIYhayL7ITof3ebkZ7HwFzFDaz3NARb8MjcVloKj1PFCheu8ZbY8iP8QTRPqb+J+N+Izg==}
     engines: {node: '>= 18'}
-
-  ember-unique-id-helper-polyfill@1.2.2:
-    resolution: {integrity: sha512-gjcwTBkCDUA0iYFS7aArfJub+eos/itxEsC399JUbdKNIBJLesB/1OHnmxLLwExZHp7gyHuiDFOPcknafhFm3g==}
-    engines: {node: 12.* || 14.* || >= 16}
 
   emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -19822,14 +19815,6 @@ snapshots:
       walk-sync: 2.2.0
     transitivePeerDependencies:
       - encoding
-      - supports-color
-
-  ember-unique-id-helper-polyfill@1.2.2:
-    dependencies:
-      broccoli-funnel: 3.0.8
-      ember-cli-babel: 7.26.11
-      ember-cli-version-checker: 5.1.2
-    transitivePeerDependencies:
       - supports-color
 
   emittery@0.13.1: {}
