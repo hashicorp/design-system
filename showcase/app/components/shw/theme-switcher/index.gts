@@ -12,6 +12,7 @@ import { guidFor } from '@ember/object/internals';
 
 import ShwTextBody from '../text/body';
 import ShwThemeSwitcherPopover from './popover';
+import ShwThemeSwitcherControlSelect from './control/select';
 import type { OnApplyArgs } from './popover';
 
 import config from 'showcase/config/environment';
@@ -31,25 +32,16 @@ import type {
   HdsThemingServiceOptions,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
-// const getCssSelectorFullText = (
-//   cssSelector: HdsCssSelectors,
-//   theme: HdsThemes,
-// ) => {
-//   switch (cssSelector) {
-//     case 'data':
-//       return `[data-hds-theme=${theme}]`;
-//     case 'class':
-//       return `.hds-theme-${theme}]`;
-//   }
-// };
-
 export default class ShwThemeSwitcher extends Component {
   @service declare readonly hdsTheming: HdsThemingService;
 
   @tracked currentStylesheet = 'standard';
-  @tracked currentLightTheme: HdsModesLight = HdsModesLightValues.CdsG0;
-  @tracked currentDarkTheme: HdsModesDark = HdsModesDarkValues.CdsG100;
-  @tracked currentCssSelector: HdsCssSelectors = HdsCssSelectorsValues.Data;
+  @tracked currentLightTheme: HdsModesLight | undefined =
+    HdsModesLightValues.CdsG0;
+  @tracked currentDarkTheme: HdsModesDark | undefined =
+    HdsModesDarkValues.CdsG100;
+  @tracked currentCssSelector: HdsCssSelectors | undefined =
+    HdsCssSelectorsValues.Data;
   @tracked currentTheme: HdsThemes;
 
   popoverId = `shw-theming-options-popover-${guidFor(this)}`;
@@ -61,6 +53,28 @@ export default class ShwThemeSwitcher extends Component {
     );
   }
 
+  get themeSelectorOptions() {
+    const themeSelectorOptions: Record<HdsThemeValues, string> = {};
+    let xxx;
+    switch (this.currentCssSelector) {
+      case 'data':
+        xxx = `[data-hds-theme=${this.currentTheme}]`;
+        break;
+      case 'class':
+        xxx = `.hds-theme-${this.currentTheme}]`;
+        break;
+    }
+
+    if (this.currentStylesheet === 'combined-strategies') {
+      themeSelectorOptions[HdsThemeValues.System] =
+        'System (prefers-color-scheme)';
+    }
+    themeSelectorOptions[HdsThemeValues.Light] = `Light ${xxx}`;
+    themeSelectorOptions[HdsThemeValues.Dark] = `Dark ${xxx}`;
+
+    return themeSelectorOptions;
+  }
+
   onApplyThemingPreferences = (args: OnApplyArgs) => {
     const {
       currentStylesheet,
@@ -68,6 +82,12 @@ export default class ShwThemeSwitcher extends Component {
       currentDarkTheme,
       currentCssSelector,
     } = args;
+
+    // update the
+    this.currentStylesheet = currentStylesheet;
+    this.currentLightTheme = currentLightTheme;
+    this.currentDarkTheme = currentDarkTheme;
+    this.currentCssSelector = currentCssSelector;
 
     let newStylesheet;
     switch (currentStylesheet) {
@@ -125,31 +145,15 @@ export default class ShwThemeSwitcher extends Component {
   <template>
     <div class="shw-theme-switcher">
       <ShwTextBody @tag="span">Theming options:</ShwTextBody>
+      <pre>{{this.showThemeSelector}}</pre>
+      <pre>{{this.currentStylesheet}}</pre>
       {{#if this.showThemeSelector}}
-        <label
-          for="shw-theme-switcher-control"
-          class="shw-theme-switcher__control-label"
-        >Theme:</label>
-        <select
-          id="shw-theme-switcher-control"
-          class="shw-theme-switcher__control"
-          {{on "change" this.onChangePageTheme}}
-        >
-          {{#if (eq this.currentStylesheet "combined-strategies")}}
-            <option
-              value={{HdsThemeValues.System}}
-              selected={{eq this.hdsTheming.currentTheme HdsThemeValues.System}}
-            >System (prefers-color-scheme)</option>
-          {{/if}}
-          <option
-            value={{HdsThemeValues.Light}}
-            selected={{eq this.hdsTheming.currentTheme HdsThemeValues.Light}}
-          >Light ({{this.currentCssSelector}})</option>
-          <option
-            value={{HdsThemeValues.Dark}}
-            selected={{eq this.hdsTheming.currentTheme HdsThemeValues.Dark}}
-          >Dark ({{this.currentCssSelector}})</option>
-        </select>
+        <ShwThemeSwitcherControlSelect
+          @label="Theme:"
+          @values={{this.themeSelectorOptions}}
+          @selectedValue={{this.currentTheme}}
+          @onChange={{this.onChangePageTheme}}
+        />
       {{/if}}
 
       <button

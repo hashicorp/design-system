@@ -109,7 +109,12 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
   };
 
   <template>
-    <div id={{@popoverId}} popover ...attributes>
+    <div
+      id={{@popoverId}}
+      class="shw-theme-switcher-popover"
+      popover
+      ...attributes
+    >
       <p class="shw-theme-switcher-popover__title">Stylesheet</p>
       <p class="shw-theme-switcher-popover__description">Choose which stylesheed
         should be injected in the pages:</p>
