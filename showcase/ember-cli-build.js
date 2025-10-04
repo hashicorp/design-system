@@ -9,6 +9,14 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    '@embroider/macros': {
+      setConfig: {
+        '@hashicorp/design-system-components': {
+          flightIconsSpriteLazyEmbed: true,
+        },
+      },
+    },
+
     'ember-cli-babel': {
       enableTypeScriptTransform: true,
     },
