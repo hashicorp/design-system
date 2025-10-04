@@ -151,9 +151,6 @@ importers:
       ember-focus-trap:
         specifier: ^1.1.1
         version: 1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
-      ember-get-config:
-        specifier: ^2.1.1
-        version: 2.1.1(@glint/template@1.5.2)
       ember-modifier:
         specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.28.0)
@@ -2832,6 +2829,7 @@ packages:
     engines: {node: '>= 18'}
     peerDependencies:
       '@ember/string': ^3.1.1 || ^4.0.0
+      ember-basic-dropdown: ^7.3.0 || ^8.6.1
       ember-engines: '>= 0.11.0'
       ember-intl: ^7.3.0
     peerDependenciesMeta:
@@ -9840,7 +9838,6 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     deprecated: |-
       You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   qs@6.13.0:
@@ -14158,10 +14155,10 @@ snapshots:
       codemirror-lang-hcl: 0.0.0-beta.2
       decorator-transforms: 2.3.0(@babel/core@7.28.0)
       ember-a11y-refocus: 5.1.0(@babel/core@7.28.0)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-basic-dropdown: 8.6.2(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
       ember-focus-trap: 1.1.1(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
-      ember-get-config: 2.1.1(@glint/template@1.5.2)
       ember-modifier: 4.2.2(@babel/core@7.28.0)
       ember-power-select: 8.7.3(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-basic-dropdown@8.6.2(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-concurrency@4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2))(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-stargate: 1.0.2(@babel/core@7.28.0)(@glimmer/component@2.0.0)(@glint/template@1.5.2)
@@ -14180,7 +14177,6 @@ snapshots:
       - '@glimmer/component'
       - '@glint/environment-ember-loose'
       - '@glint/template'
-      - ember-basic-dropdown
       - ember-source
       - supports-color
 
@@ -14213,10 +14209,10 @@ snapshots:
       codemirror-lang-hcl: 0.0.0-beta.2
       decorator-transforms: 2.3.0(@babel/core@7.28.0)
       ember-a11y-refocus: 5.1.0(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
+      ember-basic-dropdown: 8.6.2(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-concurrency: 4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
       ember-focus-trap: 1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
-      ember-get-config: 2.1.1(@glint/template@1.5.2)
       ember-modifier: 4.2.2(@babel/core@7.28.0)
       ember-power-select: 8.7.3(@babel/core@7.28.0)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-basic-dropdown@8.6.2(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-concurrency@4.0.4(@babel/core@7.28.0)(@glint/template@1.5.2))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-stargate: 1.0.2(@babel/core@7.28.0)(@glimmer/component@2.0.0)(@glint/template@1.5.2)
@@ -14235,7 +14231,6 @@ snapshots:
       - '@glimmer/component'
       - '@glint/environment-ember-loose'
       - '@glint/template'
-      - ember-basic-dropdown
       - ember-source
       - supports-color
 
