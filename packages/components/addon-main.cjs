@@ -4,19 +4,14 @@
  */
 
 const { addonV1Shim } = require('@embroider/addon-shim');
-const flightIconSprite = require('@hashicorp/flight-icons/svg-sprite/svg-sprite-module');
 
 module.exports = {
   ...addonV1Shim(__dirname),
-  contentFor(type, config) {
-    if (
-      !config.flightIconsSpriteLazyEmbed &&
-      !config.__flightIconsSpriteLoaded &&
-      type === 'body-footer'
-    ) {
-      config.__flightIconsSpriteLoaded = true;
-
-      return flightIconSprite;
-    }
+  options: {
+    '@embroider/macros': {
+      setOwnConfig: {
+        flightIconsSpriteLazyEmbed: true,
+      },
+    },
   },
 };
