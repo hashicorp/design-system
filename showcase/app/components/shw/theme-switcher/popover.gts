@@ -6,8 +6,9 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
-import { eq } from 'ember-truth-helpers';
+import { eq, and } from 'ember-truth-helpers';
 import { hash, fn } from '@ember/helper';
+import type Owner from '@ember/owner';
 
 import ShwThemeSwitcherControlSelect from './control/select';
 
@@ -22,18 +23,18 @@ import type {
 } from '@hashicorp/design-system-components/services/hds-theming';
 
 const stylesheetOptions = {
-  standard: { main: 'Standard', detail: 'HDS / No theming' },
+  standard: { main: 'No theming', detail: 'HDS / Standard' },
   'prefers-color-scheme': {
     main: 'Prefers-color-scheme',
-    detail: 'HDS || Carbon / System',
+    detail: 'Carbon (g0/g100) – System',
   },
   'css-selectors': {
     main: 'CSS Selectors',
-    detail: 'HDS || Carbon - Light/Dark',
+    detail: 'HDS || Carbon (g0/g100) – Light/Dark',
   },
   'combined-strategies': {
-    main: 'Combined strategies',
-    detail: 'HDS || Carbon - System/Light/Dark',
+    main: 'Advanced options',
+    detail: 'HDS || Carbon (custom) – System/Light/Dark',
   },
 };
 
@@ -57,18 +58,17 @@ export interface ShwThemeSwitcherPopoverSignature {
 }
 
 export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherPopoverSignature> {
-  @tracked selectedStylesheetOption = this.args.currentStylesheet;
-  @tracked selectedLightThemeOption: HdsModesLight =
-    this.args.currentLightTheme;
-  @tracked selectedDarkThemeOption: HdsModesDark = this.args.currentDarkTheme;
-  @tracked selectedCssSelectorOption: HdsCssSelectors =
-    this.args.currentCssSelector;
+  @tracked selectedStylesheetOption;
+  @tracked selectedLightThemeOption;
+  @tracked selectedDarkThemeOption;
+  @tracked selectedCssSelectorOption;
 
-  get showAdvancedOptions(): boolean {
-    return (
-      this.selectedStylesheetOption === 'css-selectors' ||
-      this.selectedStylesheetOption === 'combined-strategies'
-    );
+  constructor(owner: Owner, args: ShwThemeSwitcherPopoverSignature['Args']) {
+    super(owner, args);
+    this.selectedStylesheetOption = this.args.currentStylesheet;
+    this.selectedLightThemeOption = this.args.currentLightTheme;
+    this.selectedDarkThemeOption = this.args.currentDarkTheme;
+    this.selectedCssSelectorOption = this.args.currentCssSelector;
   }
 
   onChangeStylesheetOption = (event: Event) => {
@@ -93,12 +93,15 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
 
   onApplyThemingPreferences = () => {
     if (typeof this.args.onApply === 'function') {
-      this.args.onApply({
+      const opts: OnApplyArgs = {
         currentStylesheet: this.selectedStylesheetOption,
-        currentLightTheme: this.selectedLightThemeOption,
-        currentDarkTheme: this.selectedDarkThemeOption,
-        currentCssSelector: this.selectedCssSelectorOption,
-      });
+      };
+      if (this.selectedStylesheetOption === 'combined-strategies') {
+        opts.currentLightTheme = this.selectedLightThemeOption;
+        opts.currentDarkTheme = this.selectedDarkThemeOption;
+        opts.currentCssSelector = this.selectedCssSelectorOption;
+      }
+      this.args.onApply(opts);
     }
 
     // programmatically close the popover
@@ -115,15 +118,15 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
       popover
       ...attributes
     >
-      <p class="shw-theme-switcher-popover__title">Stylesheet</p>
-      <p class="shw-theme-switcher-popover__description">Choose which stylesheed
-        should be injected in the pages:</p>
+      <p class="shw-theme-switcher-popover__title">Theming options</p>
+      <p class="shw-theme-switcher-popover__description">Choose how theming
+        should be applied to the page:</p>
       <div class="shw-theme-switcher-popover__control-list">
         {{#each-in stylesheetOptions as |key text|}}
-          <div class="shw-theme-switcher-popover__control-item">
+          <div class="shw-theme-switcher-popover__control-item-grid">
             <input
               type="radio"
-              class="shw-theme-switcher-popover__control-radio"
+              class="shw-theme-switcher__control-radio"
               id="shw-theme-switcher-popover__control-radio-{{key}}"
               name="shw-theme-switcher-popover__control-radio"
               value={{key}}
@@ -133,40 +136,43 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
             <label
               class="shw-theme-switcher__control-label"
               for="shw-theme-switcher-popover__control-radio-{{key}}"
-            >{{text.main}} <span>– {{text.detail}}</span></label>
+            >{{text.main}}
+              <span class="shw-theme-switcher__control-label-detail">=
+                {{text.detail}}</span></label>
+            {{#if
+              (and
+                (eq key "combined-strategies")
+                (eq this.selectedStylesheetOption "combined-strategies")
+              )
+            }}
+              <div class="shw-theme-switcher-popover__advanced-options">
+                <div class="shw-theme-switcher-popover__control-list">
+                  <ShwThemeSwitcherControlSelect
+                    @label="Light"
+                    @values={{MODES_LIGHT}}
+                    @selectedValue={{this.selectedLightThemeOption}}
+                    @onChange={{(fn this.onChangeAdvancedOption "light-theme")}}
+                  />
+                  <ShwThemeSwitcherControlSelect
+                    @label="Dark"
+                    @values={{MODES_DARK}}
+                    @selectedValue={{this.selectedDarkThemeOption}}
+                    @onChange={{(fn this.onChangeAdvancedOption "dark-theme")}}
+                  />
+                  <ShwThemeSwitcherControlSelect
+                    @label="CSS selector"
+                    @values={{(hash data="data attribute" class="CSS class")}}
+                    @selectedValue={{this.selectedCssSelectorOption}}
+                    @onChange={{(fn
+                      this.onChangeAdvancedOption "css-selector"
+                    )}}
+                  />
+                </div>
+              </div>
+            {{/if}}
           </div>
         {{/each-in}}
       </div>
-
-      {{#if this.showAdvancedOptions}}
-        <div class="shw-theme-switcher-popover__advanced-options">
-          <p class="shw-theme-switcher-popover__title">Advanced options</p>
-          <p class="shw-theme-switcher-popover__description">You can change what
-            modes are used for the light/dark themes, and what CSS selector is
-            used for to apply the mode to the page:</p>
-
-          <div class="shw-theme-switcher-popover__control-list">
-            <ShwThemeSwitcherControlSelect
-              @label="Light"
-              @values={{MODES_LIGHT}}
-              @selectedValue={{this.selectedLightThemeOption}}
-              @onChange={{(fn this.onChangeAdvancedOption "light-theme")}}
-            />
-            <ShwThemeSwitcherControlSelect
-              @label="Dark"
-              @values={{MODES_DARK}}
-              @selectedValue={{this.selectedDarkThemeOption}}
-              @onChange={{(fn this.onChangeAdvancedOption "dark-theme")}}
-            />
-            <ShwThemeSwitcherControlSelect
-              @label="CSS selector"
-              @values={{(hash data="data attribute" class="CSS class")}}
-              @selectedValue={{this.selectedCssSelectorOption}}
-              @onChange={{(fn this.onChangeAdvancedOption "css-selector")}}
-            />
-          </div>
-        </div>
-      {{/if}}
 
       <div class="shw-theme-switcher-popover__actions">
         <button
