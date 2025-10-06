@@ -5,12 +5,9 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { on } from '@ember/modifier';
 import { service } from '@ember/service';
-import { eq } from 'ember-truth-helpers';
 import { guidFor } from '@ember/object/internals';
 
-import ShwTextBody from '../text/body';
 import ShwThemeSwitcherPopover from './popover';
 import ShwThemeSwitcherControlSelect from './control/select';
 import type { OnApplyArgs } from './popover';
@@ -22,6 +19,7 @@ import {
   HdsModesLightValues,
   HdsModesDarkValues,
   HdsCssSelectorsValues,
+  DEFAULT_THEMING_OPTIONS,
 } from '@hashicorp/design-system-components/services/hds-theming';
 import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import type {
@@ -29,7 +27,7 @@ import type {
   HdsModesLight,
   HdsModesDark,
   HdsCssSelectors,
-  HdsThemingServiceOptions,
+  // HdsThemingServiceOptions,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
 export default class ShwThemeSwitcher extends Component {
@@ -46,31 +44,34 @@ export default class ShwThemeSwitcher extends Component {
 
   popoverId = `shw-theming-options-popover-${guidFor(this)}`;
 
-  get showThemeSelector(): boolean {
-    return (
-      this.currentStylesheet === 'css-selectors' ||
-      this.currentStylesheet === 'combined-strategies'
-    );
-  }
-
   get themeSelectorOptions() {
-    const themeSelectorOptions: Record<HdsThemeValues, string> = {};
-    let xxx;
-    switch (this.currentCssSelector) {
-      case 'data':
-        xxx = `[data-hds-theme=${this.currentTheme}]`;
+    let themeSelectorOptions;
+    switch (this.currentStylesheet) {
+      case 'prefers-color-scheme':
+        themeSelectorOptions = {
+          system: 'Carbon / System',
+        };
         break;
-      case 'class':
-        xxx = `.hds-theme-${this.currentTheme}]`;
+      case 'css-selectors':
+        themeSelectorOptions = {
+          [HdsThemeValues.Light as string]: 'Carbon / Light',
+          [HdsThemeValues.Dark as string]: 'Carbon / Dark',
+        };
+        break;
+      case 'combined-strategies':
+        themeSelectorOptions = {
+          standard: 'HDS / Standard (No theming)',
+          [HdsThemeValues.System]: 'Carbon / System',
+          [HdsThemeValues.Light]: 'Carbon / Light',
+          [HdsThemeValues.Dark]: 'Carbon / Dark',
+        };
+        break;
+      default:
+        themeSelectorOptions = {
+          none: 'HDS / Standard (No theming)',
+        };
         break;
     }
-
-    if (this.currentStylesheet === 'combined-strategies') {
-      themeSelectorOptions[HdsThemeValues.System] =
-        'System (prefers-color-scheme)';
-    }
-    themeSelectorOptions[HdsThemeValues.Light] = `Light ${xxx}`;
-    themeSelectorOptions[HdsThemeValues.Dark] = `Dark ${xxx}`;
 
     return themeSelectorOptions;
   }
@@ -83,27 +84,39 @@ export default class ShwThemeSwitcher extends Component {
       currentCssSelector,
     } = args;
 
-    // update the
+    console.log(
+      'onApplyThemingPreferences invoked',
+      `currentStylesheet=${currentStylesheet}`,
+      `currentLightTheme=${currentLightTheme}`,
+      `currentDarkTheme=${currentDarkTheme}`,
+      `currentCssSelector=${currentCssSelector}`,
+    );
+
+    // update the theming preferences
     this.currentStylesheet = currentStylesheet;
     this.currentLightTheme = currentLightTheme;
     this.currentDarkTheme = currentDarkTheme;
     this.currentCssSelector = currentCssSelector;
 
     let newStylesheet;
-    switch (currentStylesheet) {
+    switch (this.currentStylesheet) {
       case 'prefers-color-scheme':
+        // themed CSS where theming is applied via `@media(prefers-color-scheme)`
         newStylesheet =
           'assets/styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.css';
         break;
       case 'css-selectors':
+        // themed CSS where theming is applied via CSS selectors
         newStylesheet =
           'assets/styles/@hashicorp/design-system-components-theming-with-css-selectors.css';
         break;
       case 'combined-strategies':
+        // this is used for local testing purposes
         newStylesheet =
           'assets/styles/@hashicorp/design-system-components-theming-with-combined-strategies.css';
         break;
       default:
+        // this is the standard CSS for HDS components, without any theming
         newStylesheet = 'assets/styles/@hashicorp/design-system-components.css';
         break;
     }
@@ -119,16 +132,39 @@ export default class ShwThemeSwitcher extends Component {
       );
     }
 
-    // we set the theme in the global service
-    const customOptions: HdsThemingServiceOptions = {
-      themeMap: {
-        [HdsThemeValues.Light]: currentLightTheme,
-        [HdsThemeValues.Dark]: currentDarkTheme,
-      },
-      cssSelector: currentCssSelector,
-    };
+    // we set the theming options in the global service (before setting the theme)
+    if (this.currentStylesheet === 'combined-strategies') {
+      // we use the "advanced options" settings
+      this.hdsTheming.setThemingServiceOptions({
+        themeMap: {
+          [HdsThemeValues.Light]: this.currentLightTheme,
+          [HdsThemeValues.Dark]: this.currentDarkTheme,
+        },
+        cssSelector: this.currentCssSelector,
+      });
+    } else {
+      // we reset the service to the default options
+      this.hdsTheming.setThemingServiceOptions(DEFAULT_THEMING_OPTIONS);
+    }
 
-    this.hdsTheming.setThemingServiceOptions(customOptions);
+    // update the current theme
+    switch (this.currentStylesheet) {
+      case 'prefers-color-scheme':
+        this.currentTheme = HdsThemeValues.System;
+        break;
+      case 'css-selectors':
+      case 'combined-strategies': // advanced
+        // default to light if current theme is not already dark or light
+        this.currentTheme =
+          this.currentTheme === HdsThemeValues.Dark
+            ? HdsThemeValues.Dark
+            : HdsThemeValues.Light;
+        break;
+        break;
+      default:
+        this.currentTheme = undefined;
+        break;
+    }
 
     // we set the theme in the global service
     this.hdsTheming.setTheme(this.currentTheme);
@@ -136,30 +172,39 @@ export default class ShwThemeSwitcher extends Component {
 
   onChangePageTheme = (event: Event) => {
     const select = event.target as HTMLSelectElement;
-    const selectValue = select.value as HdsThemes;
+    const selectValue = select.value;
+
+    const newPageTheme =
+      selectValue === 'none'
+        ? // `none` or `system`
+          undefined
+        : // `light` or `dark`
+          (selectValue as HdsThemes);
+
+    console.log(
+      'onChangePageTheme invoked',
+      `selectValue=${selectValue}`,
+      `newPageTheme=${newPageTheme}`,
+    );
 
     // we set the theme in the global service
-    this.hdsTheming.setTheme(selectValue);
+    this.hdsTheming.setTheme(newPageTheme);
   };
 
   <template>
     <div class="shw-theme-switcher">
-      <ShwTextBody @tag="span">Theming options:</ShwTextBody>
-      <pre>{{this.showThemeSelector}}</pre>
-      <pre>{{this.currentStylesheet}}</pre>
-      {{#if this.showThemeSelector}}
-        <ShwThemeSwitcherControlSelect
-          @label="Theme:"
-          @values={{this.themeSelectorOptions}}
-          @selectedValue={{this.currentTheme}}
-          @onChange={{this.onChangePageTheme}}
-        />
-      {{/if}}
+      <ShwThemeSwitcherControlSelect
+        @label="Theming:"
+        @values={{this.themeSelectorOptions}}
+        @selectedValue={{this.currentTheme}}
+        @onChange={{this.onChangePageTheme}}
+      />
 
       <button
         type="button"
         class="shw-theme-switcher__options-button"
         popovertarget={{this.popoverId}}
+        aria-label="Options for theming"
       >
         <HdsIcon @name="settings" /></button>
 
