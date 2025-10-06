@@ -6,9 +6,12 @@ import { eq } from 'ember-truth-helpers';
 interface ShwThemeSwitcherControlSelectSignature {
   Args: {
     label: string;
-    values: string[] | Record<string, string>;
+    values?: string[] | Record<string, string>;
     selectedValue?: string;
     onChange?: (event: Event) => void;
+  };
+  Blocks: {
+    default: [];
   };
 }
 
@@ -48,12 +51,16 @@ export default class ShwThemeSwitcherControlSelect extends Component<ShwThemeSwi
         class="shw-theme-switcher__control-select"
         {{on "change" this.onChange}}
       >
-        {{#each-in this.options as |key text|}}
-          <option
-            value={{key}}
-            selected={{eq key @selectedValue}}
-          >{{text}}</option>
-        {{/each-in}}
+        {{#if this.options}}
+          {{#each-in this.options as |key text|}}
+            <option
+              value={{key}}
+              selected={{eq key @selectedValue}}
+            >{{text}}</option>
+          {{/each-in}}
+        {{else}}
+          {{yield}}
+        {{/if}}
       </select>
     </div>
   </template>
