@@ -6,6 +6,9 @@
   <C.Property @name="align" @type="enum" @values={{array "left" "center" }} @default="left">
     Sets the alignment of the Application State content.
   </C.Property>
+  <C.Property @name="isAutoCentered" @default="true" @type="boolean">
+    Horizontally centers the component within its container.
+  </C.Property>
   <C.Property @name="<[A].Media>" @type="yielded component">
     `ApplicationState::Media` yielded as contextual component (see below).
   </C.Property>
