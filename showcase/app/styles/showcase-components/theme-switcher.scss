@@ -13,7 +13,29 @@
   color: var(--shw-color-black);
 }
 
-// TEXT
+
+// POPOVER
+
+.shw-theme-switcher-popover {
+  position: absolute;
+  top: 50px;
+  right: 24px;
+  left: auto;
+  width: 350px;
+  max-width: calc(100vw - 48px);
+  margin: initial;
+  margin-left: 24px;
+  padding: 16px;
+  background-color: var(--shw-color-white);
+  border: 1px solid var(--shw-color-gray-400);
+  border-radius: 4px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 15%);
+
+  &::backdrop {
+    background-color: var(--shw-color-white);
+    opacity: 0.8;
+  }
+}
 
 .shw-theme-switcher-popover__title {
   @include shw-font-family("gilmer");
@@ -35,132 +57,10 @@
   line-height: 1.3;
 }
 
-
-// CONTROLS
-
-.shw-theme-switcher-popover__control-list {
+.shw-theme-switcher-popover__advanced-options {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-}
-
-.shw-theme-switcher-popover__control-item {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
-}
-
-.shw-theme-switcher-popover__control-item-grid {
-  display: grid;
-  grid-template-areas:
-    "control label"
-    "--- extra";
-    grid-template-columns: auto 1fr;
-    column-gap: 8px;
-
-  .shw-theme-switcher__control-label {
-    grid-area: label;
-  }
-
-  .shw-theme-switcher__control-radio,
-  .shw-theme-switcher__control-select, {
-    grid-area: control;
-  }
-
-  .shw-theme-switcher-popover__advanced-options {
-    grid-area: extra;
-  }
-}
-
-.shw-theme-switcher__control-label {
-  @include shw-font-family('gilmer');
-
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 20px;
-}
-
-.shw-theme-switcher__control-label-detail {
-  color: #666;
-  font-size: 0.8rem;
-}
-
-.shw-theme-switcher__control-radio {
-  display: block;
-  flex: none;
-  width: 18px;
-  height: 18px;
-  margin: 0;
-  background-color: var(--shw-color-white);
-  border-color: var(--shw-color-gray-400);
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 50%;
-  // place-content: center;
-  cursor: pointer;
-  appearance: none;
-
-  &:where(:checked) {
-    border-color: var(--shw-color-action-active-foreground);
-    border-width: 4px;
-  }
-
-  &:where(:focus-visible) {
-    outline: 2px dashed var(--shw-color-action-active-foreground);
-  }
-}
-
-.shw-theme-switcher__control-select {
-  @include shw-font-family('gilmer');
-
-  height: 24px;
-  padding: 2px 24px 2px 8px;
-  color: var(--shw-color-gray-100);
-  font-size: 0.8rem;
-  background-color: var(--shw-color-gray-600);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.34572 7H20.6543C21.8517 7 22.4504 8.4463 21.6028 9.29391L12.9519 17.9515C12.4272 18.4763 11.5728 18.4763 11.0481 17.9515L2.39722 9.29391C1.54961 8.4463 2.14832 7 3.34572 7Z' fill='%23808080'/%3E%3C/svg%3E"); // notice: the 'caret' color is hardcoded here!
-  background-repeat: no-repeat;
-  background-position: right 6px top 4px;
-  background-size: 12px 12px;
-  border: 1px solid var(--shw-color-gray-400);
-  border-radius: 3px;
-  appearance: none;
-
-  &:hover {
-    background-color: var(--shw-color-gray-500);
-  }
-
-  &:where(:focus-visible) {
-    outline: 2px dashed var(--shw-color-action-active-foreground);
-  }
-}
-
-
-// POPOVER
-
-.shw-theme-switcher-popover {
-  position: absolute;
-  top: 50px;
-  right: 24px;
-  left: auto;
-  width: 500px;
-  max-width: calc(100vw - 48px);
-  margin: initial;
-  margin-left: 24px;
-  padding: 16px;
-  background-color: var(--shw-color-white);
-  border: 1px solid var(--shw-color-gray-400);
-  border-radius: 4px;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 15%);
-
-  &::backdrop {
-    background-color: var(--shw-color-white);
-    opacity: 0.8;
-  }
-}
-
-.shw-theme-switcher-popover__advanced-options {
+  gap: 12px;
   margin-top: 16px;
 }
 
@@ -197,6 +97,50 @@
   background-color: transparent;
   border-color: var(--shw-color-gray-300);
 }
+
+
+// CONTROLS
+
+.shw-theme-switcher-popover__control-item {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.shw-theme-switcher__control-label {
+  @include shw-font-family('gilmer');
+
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 20px;
+}
+
+.shw-theme-switcher__control-select {
+  @include shw-font-family('gilmer');
+
+  height: 24px;
+  padding: 2px 24px 2px 8px;
+  color: var(--shw-color-gray-100);
+  font-size: 0.8rem;
+  background-color: var(--shw-color-gray-600);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.34572 7H20.6543C21.8517 7 22.4504 8.4463 21.6028 9.29391L12.9519 17.9515C12.4272 18.4763 11.5728 18.4763 11.0481 17.9515L2.39722 9.29391C1.54961 8.4463 2.14832 7 3.34572 7Z' fill='%23808080'/%3E%3C/svg%3E"); // notice: the 'caret' color is hardcoded here!
+  background-repeat: no-repeat;
+  background-position: right 6px top 4px;
+  background-size: 12px 12px;
+  border: 1px solid var(--shw-color-gray-400);
+  border-radius: 3px;
+  appearance: none;
+
+  &:hover {
+    background-color: var(--shw-color-gray-500);
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px dashed var(--shw-color-action-active-foreground);
+  }
+}
+
 
 // OPTIONS BUTTON
 
