@@ -9,7 +9,6 @@
 // - the file needs to live at the same level as the config file and `***.md` changeset files, otherwise it triggers an error "[Error: ENOENT: no such file or directory, open '/PATH/TO/hashicorp/design-system/.changeset/SUBFOLDER/changes.md']"
 // - the file needs to be in "cjs" (`require()`) format, otherwise it doesn't work (at least, we weren't able to get it working) - [we have used the `node_modules/@changesets/changelog-github/dist/changelog-github.cjs.prod.js` compiled file in the NPM package as reference of what is the expected code syntax]
 //
-// COMMENT TO FORCE BUILD
 
 const dotenv = require("dotenv");
 const getGithubInfo = require("@changesets/get-github-info");

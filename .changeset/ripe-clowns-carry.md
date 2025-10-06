@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": major
 ---
 
-moved ember basic dropdown to a dep
+Added `ember-basic-dropdown` as a dependency
