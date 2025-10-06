@@ -424,9 +424,6 @@ export default interface HdsComponentsRegistry {
   'hds/button-set': typeof HdsButtonSetComponent;
 
   // Card
-  // NOTE: `Hds::Card` and `hds/card` will be removed in 5.0.0, use 'Hds::Card::Container' instead
-  'Hds::Card': typeof HdsCardContainerComponent;
-  'hds/card': typeof HdsCardContainerComponent;
   'Hds::Card::Container': typeof HdsCardContainerComponent;
   'hds/card/container': typeof HdsCardContainerComponent;
 
