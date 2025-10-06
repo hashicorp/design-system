@@ -3,10 +3,6 @@ import { tracked } from '@glimmer/tracking';
 
 import type Owner from '@ember/owner';
 
-export const HDS_THEMING_DATA_SELECTOR = 'data-hds-theme';
-export const HDS_THEMING_CLASS_SELECTOR = 'hds-theme';
-export const HDS_THEMING_LOCALSTORAGE_KEY = 'hds-current-theming-preferences';
-
 export enum HdsThemeValues {
   // system settings (prefers-color-scheme)
   System = 'system',
@@ -58,25 +54,35 @@ export const CSS_SELECTORS: HdsCssSelectors[] = Object.values(
   HdsCssSelectorsValues
 );
 
+export const HDS_THEMING_DATA_SELECTOR = 'data-hds-theme';
+export const HDS_THEMING_CLASS_SELECTOR_PREFIX = 'hds-theme';
+export const HDS_THEMING_CLASS_SELECTORS_LIST = [
+  ...MODES_LIGHT,
+  ...MODES_DARK,
+].map((mode) => `${HDS_THEMING_CLASS_SELECTOR_PREFIX}-${mode}`);
+export const HDS_THEMING_LOCALSTORAGE_KEY = 'hds-current-theming-preferences';
+
 export type HdsThemingServiceOptions = {
   themeMap: {
-    [HdsThemeValues.Light]: HdsModesLight;
-    [HdsThemeValues.Dark]: HdsModesDark;
+    [HdsThemeValues.Light]: HdsModesLight | undefined;
+    [HdsThemeValues.Dark]: HdsModesDark | undefined;
   };
-  cssSelector: HdsCssSelectors;
+  cssSelector: HdsCssSelectors | undefined;
 };
 
+export const DEFAULT_THEMING_OPTIONS: HdsThemingServiceOptions = {
+  themeMap: {
+    [HdsThemeValues.Light]: HdsModesLightValues.CdsG0,
+    [HdsThemeValues.Dark]: HdsModesDarkValues.CdsG100,
+  },
+  cssSelector: 'data',
+};
 export default class HdsThemingService extends Service {
   @tracked isInitialized: boolean = false;
   @tracked currentTheme: HdsThemes = undefined;
   @tracked currentMode: HdsModes = undefined;
-  @tracked currentThemingServiceOptions: HdsThemingServiceOptions = {
-    themeMap: {
-      [HdsThemeValues.Light]: HdsModesLightValues.CdsG0,
-      [HdsThemeValues.Dark]: HdsModesDarkValues.CdsG100,
-    },
-    cssSelector: 'data',
-  };
+  @tracked currentThemingServiceOptions: HdsThemingServiceOptions =
+    DEFAULT_THEMING_OPTIONS;
 
   constructor(owner: Owner) {
     super(owner);
@@ -103,6 +109,8 @@ export default class HdsThemingService extends Service {
   }
 
   setTheme(theme: HdsThemes) {
+    console.log('setTheme invoked', `theme=${theme}`);
+
     // IMPORTANT: for this to work, it needs to be the HTML tag (it's the `:root` in CSS)
     const rootElement = document.querySelector('html');
 
@@ -110,33 +118,38 @@ export default class HdsThemingService extends Service {
       return;
     }
 
-    if (theme === undefined || !THEMES.includes(theme)) {
+    // set `currentTheme` and `currentMode`
+    if (
+      theme === undefined || // standard (no theming)
+      theme === HdsThemeValues.System || // system (prefers-color-scheme)
+      !THEMES.includes(theme) // handle possible errors
+    ) {
       this.currentTheme = undefined;
       this.currentMode = undefined;
-      if (this.currentThemingServiceOptions.cssSelector === 'data') {
-        rootElement.removeAttribute(HDS_THEMING_DATA_SELECTOR);
-      } else if (this.currentThemingServiceOptions.cssSelector === 'class') {
-        rootElement.classList.remove(HDS_THEMING_CLASS_SELECTOR);
-      }
-      localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_KEY);
     } else {
       this.currentTheme = theme;
-      if (theme === HdsThemeValues.System) {
-        this.currentMode = undefined;
-      } else {
-        this.currentMode = this.currentThemingServiceOptions.themeMap[theme];
-      }
+      this.currentMode =
+        this.currentThemingServiceOptions.themeMap[this.currentTheme];
+    }
+
+    // remove or update the CSS selectors applied to the root element (depending on the `theme` argument)
+    rootElement.removeAttribute(HDS_THEMING_DATA_SELECTOR);
+    rootElement.classList.remove(...HDS_THEMING_CLASS_SELECTORS_LIST);
+    if (this.currentMode !== undefined) {
       if (this.currentThemingServiceOptions.cssSelector === 'data') {
-        // TODO! improve this part
-        if (this.currentMode !== undefined) {
-          rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, this.currentMode);
-        }
+        rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, this.currentMode);
       } else if (this.currentThemingServiceOptions.cssSelector === 'class') {
         rootElement.classList.add(
-          `${HDS_THEMING_CLASS_SELECTOR}-${this.currentMode}`
+          `${HDS_THEMING_CLASS_SELECTOR_PREFIX}-${this.currentMode}`
         );
       }
-      localStorage.setItem(HDS_THEMING_LOCALSTORAGE_KEY, theme);
+    }
+
+    // store the current theme in local storage (unless undefined)
+    if (this.currentTheme) {
+      localStorage.setItem(HDS_THEMING_LOCALSTORAGE_KEY, this.currentTheme);
+    } else {
+      localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_KEY);
     }
   }
 
