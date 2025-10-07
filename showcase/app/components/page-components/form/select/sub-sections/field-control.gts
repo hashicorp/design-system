@@ -21,7 +21,7 @@ import {
 const TYPES = ['single', 'multiple'];
 const DISPLAYS = ['block', 'flex', 'grid'];
 
-const SubSectionBaseControl: TemplateOnlyComponent = <template>
+const SubSectionFieldControl: TemplateOnlyComponent = <template>
   <ShwTextH2>"Field" control</ShwTextH2>
 
   <ShwTextH3>Content</ShwTextH3>
@@ -209,4 +209,4 @@ const SubSectionBaseControl: TemplateOnlyComponent = <template>
   </ShwGrid>
 </template>;
 
-export default SubSectionBaseControl;
+export default SubSectionFieldControl;
