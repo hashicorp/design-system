@@ -1,6 +1,8 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { helper } from '@ember/component/helper';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
+import { array } from '@ember/helper';
 import style from 'ember-style-modifier';
 import { eq } from 'ember-truth-helpers';
 
@@ -12,7 +14,10 @@ import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
-import { HdsButton } from '@hashicorp/design-system-components/components';
+import {
+  HdsButton,
+  HdsIcon,
+} from '@hashicorp/design-system-components/components';
 import {
   COLORS,
   SIZES,
@@ -21,7 +26,16 @@ import {
 // these are used only for presentation purpose in the showcase
 const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
 
-import CodeFragmentWithLoadingState from 'showcase/components/page-components/button/code-fragments/with-loading-state';
+const MAPPING_HDS_COLOR_TO_CDS_KIND = {
+  primary: 'primary',
+  secondary: 'secondary',
+  tertiary: 'tertiary',
+  critical: 'danger',
+} as const;
+
+const mapHdsColorToCdsKind = helper(function ([color]) {
+  return MAPPING_HDS_COLOR_TO_CDS_KIND[color];
+});
 
 const ButtonCarbonization: TemplateOnlyComponent = <template>
   {{pageTitle "Button - Carbonization"}}
@@ -62,10 +76,46 @@ const ButtonCarbonization: TemplateOnlyComponent = <template>
             />
           </SF.Item>
           <SF.Item {{style width="150px"}}>
-            <CodeFragmentWithLoadingState />
+            <HdsButton @text="Loading" @icon="loading" @isFullWidth={{true}} />
           </SF.Item>
         </ShwFlex>
       </:theming>
+      <:reference>
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item>
+            <cds-button size="md" kind="primary">Lorem ipsum</cds-button>
+          </SF.Item>
+          <SF.Item>
+            <cds-button size="md" kind="primary"><HdsIcon
+                @name="plus"
+                slot="icon"
+              />Lorem ipsum</cds-button>
+          </SF.Item>
+          <SF.Item>
+            {{! same as 'cds-icon-button' - see: https://ibm-studios.slack.com/archives/C08Q3RGAGR5/p1759864437238719?thread_ts=1759863653.216359&cid=C08Q3RGAGR5 }}
+            <cds-button
+              size="md"
+              kind="primary"
+              tooltip-text="cds-button description (via attribute)"
+              tooltip-position="top"
+            >
+              <HdsIcon @name="plus" slot="icon" />
+            </cds-button>
+          </SF.Item>
+          <SF.Item>
+            <cds-button size="md" kind="primary"><HdsIcon
+                @name="plus"
+                slot="icon"
+              />This is a very long text that should go on multiple lines</cds-button>
+          </SF.Item>
+          <SF.Item {{style width="150px"}}>
+            <cds-button size="md" kind="primary"><HdsIcon
+                @name="loading"
+                slot="icon"
+              />Loading</cds-button>
+          </SF.Item>
+        </ShwFlex>
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
@@ -87,23 +137,39 @@ const ButtonCarbonization: TemplateOnlyComponent = <template>
           {{/each}}
         </ShwFlex>
       </:theming>
+      <:reference>
+        <ShwFlex @direction="column" as |SF|>
+          {{#let (array "sm" "md" "lg") as |SIZES|}}
+            {{#each SIZES as |size|}}
+              <SF.Item>
+                <cds-button size={{size}}><HdsIcon
+                    @name="plus"
+                    slot="icon"
+                  />Lorem ipsum</cds-button>
+              </SF.Item>
+            {{/each}}
+          {{/let}}
+        </ShwFlex>
+      </:reference>
     </ShwCarbonizationComparisonGrid>
 
     <ShwDivider @level={{2}} />
 
     <ShwTextH2>Colors</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid>
-      <:theming>
-        <ShwFlex @direction="column" as |SF|>
-          {{#each COLORS as |color|}}
-            <SF.Item>
-              <HdsButton @icon="plus" @text="Lorem ipsum" @color={{color}} />
-            </SF.Item>
-          {{/each}}
-        </ShwFlex>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
+    {{#each COLORS as |color|}}
+      <ShwCarbonizationComparisonGrid @label={{color}}>
+        <:theming>
+          <HdsButton @icon="plus" @text="Lorem ipsum" @color={{color}} />
+        </:theming>
+        <:reference>
+          <cds-button size="md" kind={{mapHdsColorToCdsKind color}}><HdsIcon
+              @name="plus"
+              slot="icon"
+            />Lorem ipsum</cds-button>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+    {{/each}}
 
     <ShwDivider @level={{2}} />
 
@@ -139,6 +205,38 @@ const ButtonCarbonization: TemplateOnlyComponent = <template>
               {{/each}}
             </ShwFlex>
           </:theming>
+          <:reference>
+            {{#if (eq state "default")}}
+              <ShwFlex @direction="column" @gap="0.75rem" as |SF|>
+                {{#let (array "sm" "md" "lg") as |SIZES|}}
+                  {{#each SIZES as |size|}}
+                    <SF.Item>
+                      <cds-button
+                        size={{size}}
+                        kind={{mapHdsColorToCdsKind color}}
+                      ><HdsIcon @name="plus" slot="icon" />Lorem ipsum</cds-button>
+                    </SF.Item>
+                  {{/each}}
+                {{/let}}
+              </ShwFlex>
+            {{else if (eq state "disabled")}}
+              <ShwFlex @direction="column" @gap="0.75rem" as |SF|>
+                {{#let (array "sm" "md" "lg") as |SIZES|}}
+                  {{#each SIZES as |size|}}
+                    <SF.Item>
+                      <cds-button
+                        size={{size}}
+                        kind={{mapHdsColorToCdsKind color}}
+                        disabled
+                      ><HdsIcon @name="plus" slot="icon" />Lorem ipsum</cds-button>
+                    </SF.Item>
+                  {{/each}}
+                {{/let}}
+              </ShwFlex>
+            {{else}}
+              <pre>TODO: add static image here</pre>
+            {{/if}}
+          </:reference>
         </ShwCarbonizationComparisonGrid>
       {{/each}}
     {{/each}}
