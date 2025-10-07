@@ -10,6 +10,9 @@
 @use "helpers/focus-ring";
 @use "helpers/typography";
 
+// Vendor styles
+@use "./design-system-ember-a11y-refocus";
+
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENTS CSS FILES IMPORTS
 @use "../components/accordion";
@@ -58,6 +61,7 @@
 // END COMPONENT CSS FILES IMPORTS
 
 @use "../mixins/screen-reader-only" as *;
+
 // stylelint-disable-next-line selector-class-pattern
 .sr-only {
   @include screen-reader-only();
