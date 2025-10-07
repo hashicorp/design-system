@@ -11,7 +11,7 @@ import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import { HdsReveal } from '@hashicorp/design-system-components/components';
 
-const RevealIndex: TemplateOnlyComponent = <template>
+const SubSectionOptions: TemplateOnlyComponent = <template>
   <ShwTextH2>Options</ShwTextH2>
 
   <ShwTextH3>textWhenOpen</ShwTextH3>
@@ -58,4 +58,4 @@ const RevealIndex: TemplateOnlyComponent = <template>
   </ShwFlex>
 </template>;
 
-export default RevealIndex;
+export default SubSectionOptions;

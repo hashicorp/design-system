@@ -101,7 +101,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
         </HdsAlert>
         <p>
           <img
-            src="https://portal.cloud.hashicorp.com/engines-dist/consul/images/aws-subnet-instruction-7c866fcfb753c4794ff07afe5523818c.png"
+            src="/assets/images/avatar.png"
             alt="example"
             class="shw-max-width-100"
           />
