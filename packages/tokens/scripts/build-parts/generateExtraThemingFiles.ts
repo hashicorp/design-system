@@ -29,12 +29,10 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
     // CSS file for `prefers-color-scheme` (note: we use `cds-g0` for `light` and `cds-g100` for `dark`
     if (method === 'prefers-color-scheme') {
       outputContent = `${header}\n\n`;
-      outputContent += `@media (prefers-color-scheme: dark) { ${cds0ThemedSource} }\n\n`;
-      outputContent += `@media (prefers-color-scheme: light) { ${cds100ThemedSource} }\n\n`;
-      // this is the fallback to `light` mode
-      // commented for now: consumers can always import the `themed-tokens/with-root-selector/cds-g0/themed-tokens.css` as extra file if they want to
-      // outputContent += '\n\n';
-      // outputContent += `${cds0ThemedSource}\n\n`;
+      //
+      // these are the themed `carbonized` tokens
+      outputContent += `@media (prefers-color-scheme: light) { ${cds0ThemedSource} }\n\n`;
+      outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource} }\n\n`;
       //
       // this is the common part
       outputContent += `${commonSource}\n\n`;
@@ -43,14 +41,15 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
     // CSS file for `.class/[data]` selectors
     if (method === 'css-selectors') {
       outputContent = `${header}\n\n`;
-      outputContent += `${hdsThemedSource.replace(/^:root/, '.hds-theme-default, [data-hds-theme="default"]')}\n\n`;
+      //
+      // this is the fallback to the default `hds` mode
+      outputContent += `${hdsThemedSource}\n\n`;
+      //
+      // these are the themed `carbonized` tokens
       outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-cds-g0, [data-hds-theme="cds-g0"]')}\n\n`;
       outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-g10, [data-hds-theme="cds-g10"]')}\n\n`;
       outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-g90, [data-hds-theme="cds-g90"]')}\n\n`;
       outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-cds-g100, [data-hds-theme="cds-g100"]')}\n\n`;
-      //
-      // this is the fallback to the default `hds` mode
-      outputContent += `${hdsThemedSource}\n\n`;
       //
       // this is the common part
       outputContent += `${commonSource}\n\n`;
@@ -59,17 +58,18 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
     // CSS file for combined `prefers-color-scheme` and CSS selectors in the same file
     if (method === 'combined-strategies') {
       outputContent = `${header}\n\n`;
-      // we will revisit the `[class*=hds-theme-]` selector if we find that is too generic and there are cases where this is picking up other classes
-      outputContent += `@media (prefers-color-scheme: dark) { ${cds0ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
-      outputContent += `@media (prefers-color-scheme: light) { ${cds100ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
-      outputContent += `${hdsThemedSource.replace(/^:root/, '.hds-theme-default, [data-hds-theme="default"]')}\n\n`;
+      //
+      // this is the fallback to the default `hds` mode
+      outputContent += `${hdsThemedSource}\n\n`;
+      //
+      // these are the themed `carbonized` tokens
+      // note: we will revisit the `[class*=hds-theme-]` selector if we find that is too generic and there are cases where this is picking up other classes
+      outputContent += `@media (prefers-color-scheme: light) { ${cds0ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
+      outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
       outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-cds-g0, [data-hds-theme="cds-g0"]')}\n\n`;
       outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-g10, [data-hds-theme="cds-g10"]')}\n\n`;
       outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-g90, [data-hds-theme="cds-g90"]')}\n\n`;
       outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-cds-g100, [data-hds-theme="cds-g100"]')}\n\n`;
-      //
-      // this is the fallback to the default `hds` mode
-      outputContent += `${hdsThemedSource}\n\n`;
       //
       // this is the common part
       outputContent += `${commonSource}\n\n`;
