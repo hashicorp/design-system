@@ -22,12 +22,11 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root[data-hds-theme="auto"] {
+  :root[data-shw-theme="system"] {
     @include shw-theme-color-variables-dark();
   }
 }
 
-.hds-theme-dark,
-[data-hds-theme="dark"] {
+[data-shw-theme="dark"] {
   @include shw-theme-color-variables-dark();
 }

@@ -96,6 +96,16 @@ export default class ShwThemeSwitcher extends Component {
 
     // we set the theme in the global service
     this.hdsTheming.setTheme(this.currentTheme);
+
+    // we set the theme for the showcase itself
+    const rootElement = document.querySelector('html');
+    if (rootElement) {
+      if (this.currentTheme) {
+        rootElement.setAttribute('data-shw-theme', this.currentTheme);
+      } else {
+        rootElement.removeAttribute('data-shw-theme');
+      }
+    }
   };
 
   onApplyAdvancedThemingPreferences = (args: OnApplyArgs) => {
