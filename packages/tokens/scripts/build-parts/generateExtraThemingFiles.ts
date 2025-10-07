@@ -13,10 +13,10 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
 
   const commonSource = await getSourceFromFileWithRootSelector(config, 'hds', 'common-tokens.css');
   const hdsThemedSource = await getSourceFromFileWithRootSelector(config, 'hds', 'themed-tokens.css');
-  const cds0ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-0', 'themed-tokens.css');
-  const cds10ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-10', 'themed-tokens.css');
-  const cds90ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-90', 'themed-tokens.css');
-  const cds100ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-100', 'themed-tokens.css');
+  const cds0ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-g0', 'themed-tokens.css');
+  const cds10ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-g10', 'themed-tokens.css');
+  const cds90ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-g90', 'themed-tokens.css');
+  const cds100ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-g100', 'themed-tokens.css');
 
   const header = await fileHeader({});
 
@@ -26,13 +26,13 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
 
     let outputContent = `${header}\n\n`;
 
-    // CSS file for `prefers-color-scheme` (note: we use `cds-0` for `light` and `cds-100` for `dark`
+    // CSS file for `prefers-color-scheme` (note: we use `cds-g0` for `light` and `cds-g100` for `dark`
     if (method === 'prefers-color-scheme') {
       outputContent = `${header}\n\n`;
       outputContent += `@media (prefers-color-scheme: dark) { ${cds0ThemedSource} }\n\n`;
       outputContent += `@media (prefers-color-scheme: light) { ${cds100ThemedSource} }\n\n`;
       // this is the fallback to `light` mode
-      // commented for now: consumers can always import the `themed-tokens/with-root-selector/cds-0/themed-tokens.css` as extra file if they want to
+      // commented for now: consumers can always import the `themed-tokens/with-root-selector/cds-g0/themed-tokens.css` as extra file if they want to
       // outputContent += '\n\n';
       // outputContent += `${cds0ThemedSource}\n\n`;
       //
@@ -44,10 +44,10 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
     if (method === 'css-selectors') {
       outputContent = `${header}\n\n`;
       outputContent += `${hdsThemedSource.replace(/^:root/, '.hds-theme-default, [data-hds-theme="default"]')}\n\n`;
-      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-cds-0, [data-hds-theme="cds-0"]')}\n\n`;
-      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-10, [data-hds-theme="cds-10"]')}\n\n`;
-      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-90, [data-hds-theme="cds-90"]')}\n\n`;
-      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-cds-100, [data-hds-theme="cds-100"]')}\n\n`;
+      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-cds-g0, [data-hds-theme="cds-g0"]')}\n\n`;
+      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-g10, [data-hds-theme="cds-g10"]')}\n\n`;
+      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-g90, [data-hds-theme="cds-g90"]')}\n\n`;
+      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-cds-g100, [data-hds-theme="cds-g100"]')}\n\n`;
       //
       // this is the fallback to the default `hds` mode
       outputContent += `${hdsThemedSource}\n\n`;
@@ -63,10 +63,10 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
       outputContent += `@media (prefers-color-scheme: dark) { ${cds0ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
       outputContent += `@media (prefers-color-scheme: light) { ${cds100ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
       outputContent += `${hdsThemedSource.replace(/^:root/, '.hds-theme-default, [data-hds-theme="default"]')}\n\n`;
-      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-cds-0, [data-hds-theme="cds-0"]')}\n\n`;
-      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-10, [data-hds-theme="cds-10"]')}\n\n`;
-      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-90, [data-hds-theme="cds-90"]')}\n\n`;
-      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-cds-100, [data-hds-theme="cds-100"]')}\n\n`;
+      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-cds-g0, [data-hds-theme="cds-g0"]')}\n\n`;
+      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-g10, [data-hds-theme="cds-g10"]')}\n\n`;
+      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-g90, [data-hds-theme="cds-g90"]')}\n\n`;
+      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-cds-g100, [data-hds-theme="cds-g100"]')}\n\n`;
       //
       // this is the fallback to the default `hds` mode
       outputContent += `${hdsThemedSource}\n\n`;
