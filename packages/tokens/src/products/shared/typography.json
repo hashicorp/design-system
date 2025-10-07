@@ -14,10 +14,10 @@
                 "-apple-system",
                 "BlinkMacSystemFont"
               ],
-              "cds-0": "{carbon.typography.font-family.sans}",
-              "cds-10": "{carbon.typography.font-family.sans}",
-              "cds-90": "{carbon.typography.font-family.sans}",
-              "cds-100": "{carbon.typography.font-family.sans}"
+              "cds-g0": "{carbon.typography.font-family.sans}",
+              "cds-g10": "{carbon.typography.font-family.sans}",
+              "cds-g90": "{carbon.typography.font-family.sans}",
+              "cds-g100": "{carbon.typography.font-family.sans}"
             },
             "private": "true"
           },
@@ -59,10 +59,10 @@
                 "-apple-system",
                 "BlinkMacSystemFont"
               ],
-              "cds-0": "{carbon.typography.font-family.sans}",
-              "cds-10": "{carbon.typography.font-family.sans}",
-              "cds-90": "{carbon.typography.font-family.sans}",
-              "cds-100": "{carbon.typography.font-family.sans}"
+              "cds-g0": "{carbon.typography.font-family.sans}",
+              "cds-g10": "{carbon.typography.font-family.sans}",
+              "cds-g90": "{carbon.typography.font-family.sans}",
+              "cds-g100": "{carbon.typography.font-family.sans}"
             },
             "private": "true"
           },
@@ -97,10 +97,10 @@
                 "ui-monospace",
                 "Menlo"
               ],
-              "cds-0": "{carbon.typography.font-family.mono}",
-              "cds-10": "{carbon.typography.font-family.mono}",
-              "cds-90": "{carbon.typography.font-family.mono}",
-              "cds-100": "{carbon.typography.font-family.mono}"
+              "cds-g0": "{carbon.typography.font-family.mono}",
+              "cds-g10": "{carbon.typography.font-family.mono}",
+              "cds-g90": "{carbon.typography.font-family.mono}",
+              "cds-g100": "{carbon.typography.font-family.mono}"
             },
             "private": "true"
           },
@@ -146,10 +146,10 @@
         "$value": "400",
         "$modes": {
           "hds": "400",
-          "cds-0": "{carbon.typography.font-weight.regular}",
-          "cds-10": "{carbon.typography.font-weight.regular}",
-          "cds-90": "{carbon.typography.font-weight.regular}",
-          "cds-100": "{carbon.typography.font-weight.regular}"
+          "cds-g0": "{carbon.typography.font-weight.regular}",
+          "cds-g10": "{carbon.typography.font-weight.regular}",
+          "cds-g90": "{carbon.typography.font-weight.regular}",
+          "cds-g100": "{carbon.typography.font-weight.regular}"
         }
       },
       "medium": {
@@ -157,10 +157,10 @@
         "$value": "500",
         "$modes": {
           "hds": "500",
-          "cds-0": "{carbon.typography.font-weight.regular}",
-          "cds-10": "{carbon.typography.font-weight.regular}",
-          "cds-90": "{carbon.typography.font-weight.regular}",
-          "cds-100": "{carbon.typography.font-weight.regular}"
+          "cds-g0": "{carbon.typography.font-weight.regular}",
+          "cds-g10": "{carbon.typography.font-weight.regular}",
+          "cds-g90": "{carbon.typography.font-weight.regular}",
+          "cds-g100": "{carbon.typography.font-weight.regular}"
         }
       },
       "semibold": {
@@ -168,10 +168,10 @@
         "$value": "600",
         "$modes": {
           "hds": "600",
-          "cds-0": "{carbon.typography.font-weight.semibold}",
-          "cds-10": "{carbon.typography.font-weight.semibold}",
-          "cds-90": "{carbon.typography.font-weight.semibold}",
-          "cds-100": "{carbon.typography.font-weight.semibold}"
+          "cds-g0": "{carbon.typography.font-weight.semibold}",
+          "cds-g10": "{carbon.typography.font-weight.semibold}",
+          "cds-g90": "{carbon.typography.font-weight.semibold}",
+          "cds-g100": "{carbon.typography.font-weight.semibold}"
         }
       },
       "bold": {
@@ -179,10 +179,10 @@
         "$value": "700",
         "$modes": {
           "hds": "700",
-          "cds-0": "{carbon.typography.font-weight.semibold}",
-          "cds-10": "{carbon.typography.font-weight.semibold}",
-          "cds-90": "{carbon.typography.font-weight.semibold}",
-          "cds-100": "{carbon.typography.font-weight.semibold}"
+          "cds-g0": "{carbon.typography.font-weight.semibold}",
+          "cds-g10": "{carbon.typography.font-weight.semibold}",
+          "cds-g90": "{carbon.typography.font-weight.semibold}",
+          "cds-g100": "{carbon.typography.font-weight.semibold}"
         }
       }
     },
