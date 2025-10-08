@@ -10,6 +10,7 @@ import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
 import type { WithBoundArgs } from '@glint/template';
+import { modifier } from 'ember-modifier';
 
 import type { HdsFlyoutSizes } from './types.ts';
 
@@ -65,14 +66,6 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
 
-  /**
-   * Sets the size of the flyout
-   * Accepted values: medium, large
-   *
-   * @param size
-   * @type {string}
-   * @default 'medium'
-   */
   get size(): HdsFlyoutSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -86,18 +79,10 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     return size;
   }
 
-  /**
-   * Calculates the unique ID to assign to the title
-   */
   get id(): string {
     return getElementId(this);
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-flyout'];
 
@@ -113,74 +98,6 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     }
 
     this._isOpen = false;
-  }
-
-  @action
-  didInsert(element: HTMLDialogElement): void {
-    // Store references of `<dialog>` and `<body>` elements
-    this._element = element;
-    this._body = document.body;
-
-    if (this._body) {
-      // Store the initial `overflow` value of `<body>` so we can reset to it
-      this._bodyInitialOverflowValue =
-        this._body.style.getPropertyValue('overflow');
-    }
-
-    // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    this._element.addEventListener('close', this.registerOnCloseCallback, true);
-
-    // If the flyout dialog is not already open
-    if (!this._element.open) {
-      this.open();
-    }
-  }
-
-  @action
-  willDestroyNode(): void {
-    if (this._element) {
-      this._element.removeEventListener(
-        'close',
-        // eslint-disable-next-line @typescript-eslint/unbound-method
-        this.registerOnCloseCallback,
-        true
-      );
-    }
-  }
-
-  @action
-  open(): void {
-    // Make flyout dialog visible using the native `showModal` method
-    this._element.showModal();
-    this._isOpen = true;
-
-    // Prevent page from scrolling when the dialog is open
-    if (this._body) this._body.style.setProperty('overflow', 'hidden');
-
-    // Call "onOpen" callback function
-    if (this.args.onOpen && typeof this.args.onOpen === 'function') {
-      this.args.onOpen();
-    }
-  }
-
-  @action
-  // eslint-disable-next-line @typescript-eslint/require-await
-  async onDismiss(): Promise<void> {
-    // allow ember test helpers to be aware of when the `close` event fires
-    // when using `click` or other helpers from '@ember/test-helpers'
-    // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
-    if (this._element.open) {
-      const token = waiter.beginAsync();
-      const listener = () => {
-        waiter.endAsync(token);
-        this._element.removeEventListener('close', listener);
-      };
-      this._element.addEventListener('close', listener);
-    }
-
-    // Make flyout dialog invisible using the native `close` method
-    this._element.close();
 
     // Reset page `overflow` property
     if (this._body) {
@@ -204,5 +121,73 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
         initiator.focus();
       }
     }
+  }
+
+  private _registerDialog = modifier((element: HTMLDialogElement) => {
+    // Store references of `<dialog>` and `<body>` elements
+    this._element = element;
+    this._body = document.body;
+
+    if (this._body) {
+      // Store the initial `overflow` value of `<body>` so we can reset to it
+      this._bodyInitialOverflowValue =
+        this._body.style.getPropertyValue('overflow');
+    }
+
+    // Register "onClose" callback function to be called when a native 'close' event is dispatched
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    this._element.addEventListener('close', this.registerOnCloseCallback, true);
+
+    // If the flyout dialog is not already open
+    if (!this._element.open) {
+      this.open();
+    }
+
+    return () => {
+      // if the <dialog> is removed from the dom while open we emulate the close event
+      if (this._isOpen) {
+        this._element?.dispatchEvent(new Event('close'));
+      }
+
+      this._element?.removeEventListener(
+        'close',
+        // eslint-disable-next-line @typescript-eslint/unbound-method
+        this.registerOnCloseCallback,
+        true
+      );
+    };
+  });
+
+  @action
+  open(): void {
+    // Make flyout dialog visible using the native `showModal` method
+    this._element.showModal();
+    this._isOpen = true;
+
+    // Prevent page from scrolling when the dialog is open
+    if (this._body) this._body.style.setProperty('overflow', 'hidden');
+
+    // Call "onOpen" callback function
+    if (this.args.onOpen && typeof this.args.onOpen === 'function') {
+      this.args.onOpen();
+    }
+  }
+
+  @action
+  // eslint-disable-next-line @typescript-eslint/require-await
+  async onDismiss(): Promise<void> {
+    // allow ember test helpers to be aware of when the `close` event fires
+    // when using `click` or other helpers from '@ember/test-helpers'
+    if (this._element.open) {
+      const token = waiter.beginAsync();
+      const listener = () => {
+        waiter.endAsync(token);
+        this._element.removeEventListener('close', listener);
+      };
+      this._element.addEventListener('close', listener);
+    }
+
+    // Make flyout dialog invisible using the native `close` method
+    this._element.close();
   }
 }
