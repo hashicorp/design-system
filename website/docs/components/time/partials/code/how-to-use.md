@@ -1,6 +1,6 @@
 !!! Info
 
-The Time component exists only in code. Mimic this in Figma with a text object formatted as a string. For writing guidelines related to this component, read our content [Date and Time](/content/components/date-and-time) section.
+The Time component exists only in code. Mimic this in Figma with a text object formatted as a string. For writing guidelines related to this component, read our content [Date and time](/content/components/date-and-time) section.
 
 !!!
 
