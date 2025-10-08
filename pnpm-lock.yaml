@@ -386,8 +386,8 @@ importers:
         specifier: ^8.57.1
         version: 8.57.1
       figma-api:
-        specifier: ^2.0.2-beta
-        version: 2.0.2-beta
+        specifier: ^2.1.0-beta
+        version: 2.1.0-beta
       fs-extra:
         specifier: ^11.2.0
         version: 11.3.0
@@ -2616,6 +2616,9 @@ packages:
   '@figma/rest-api-spec@0.22.0':
     resolution: {integrity: sha512-8XEdN41ahdUXMTR+E3CMmtXqlJYzuHun4VYUCElrkGsd6g1BFEYTiNCwIHy34Ooct2O8/zwpysnkw52EzVKdtQ==}
 
+  '@figma/rest-api-spec@0.27.0':
+    resolution: {integrity: sha512-jRGYwBLdybit9X7puOmztx8XUt1dq9a7jtBO2KEK4OrxP8GKGX5yY2+efV/XNRHnqTbzFue0qdZklSBs/EaGNw==}
+
   '@figma/rest-api-spec@0.31.0':
     resolution: {integrity: sha512-Mk9hAZjA71etfnydoj6J3f6VL1nYWII50547o0ybz3YqMT61Q/GWsPmZNulPtR6+EYngiZ+Jq2LvJuB5MSaYPA==}
 
@@ -4263,8 +4266,8 @@ packages:
     resolution: {integrity: sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==}
     engines: {node: '>=4'}
 
-  axios@0.30.0:
-    resolution: {integrity: sha512-Z4F3LjCgfjZz8BMYalWdMgAQUnEtKDmpwNHjh/C8pQZWde32TF64cqnSeyL3xD/aTIASRU30RHTNzRiV/NpGMg==}
+  axios@1.12.2:
+    resolution: {integrity: sha512-vMJzPewAlRyOgxV2dU0Cuz2O8zzzx9VYtbJOaBgXFeLc4IV/Eg50n4LowmehOOR61S8ZMpc2K5Sa7g6A4jfkUw==}
 
   b4a@1.6.7:
     resolution: {integrity: sha512-OnAYlL5b7LEkALw87fUVafQw5rVR9RjwGd4KUwNQ6DrrNmaVaUCgLipfVlzrPQ4tWOR9P0IXGNOx50jYCCdSJg==}
@@ -6981,8 +6984,8 @@ packages:
       picomatch:
         optional: true
 
-  figma-api@2.0.2-beta:
-    resolution: {integrity: sha512-XWDYVee5d6s2xrB0oN0Tn9Q8+fLWMwuXw+Yyvryz2nym5XXXT/VvO7Nu8H0JdbgS4EAif568l7FVn2ufypo27w==}
+  figma-api@2.1.0-beta:
+    resolution: {integrity: sha512-DLDUOhdab70A3+KRfIB3udXYuVd+4uY/3Q+VMBwkHFRdSg7pRxGqfpPb05eGFkoDQs2pY0S5292lp4ZF/3dxtA==}
 
   figures@2.0.0:
     resolution: {integrity: sha512-Oa2M9atig69ZkfwiApY8F2Yy+tzMbazyvqv21R0NsSC8floSOC09BbT1ITWAdoMGQvJ/aZnR1KMwdx9tvHnTNA==}
@@ -13869,6 +13872,8 @@ snapshots:
 
   '@figma/rest-api-spec@0.22.0': {}
 
+  '@figma/rest-api-spec@0.27.0': {}
+
   '@figma/rest-api-spec@0.31.0': {}
 
   '@floating-ui/core@1.7.3':
@@ -16075,7 +16080,7 @@ snapshots:
 
   axe-core@4.10.3: {}
 
-  axios@0.30.0:
+  axios@1.12.2:
     dependencies:
       follow-redirects: 1.15.9
       form-data: 4.0.4
@@ -20738,10 +20743,10 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.3
 
-  figma-api@2.0.2-beta:
+  figma-api@2.1.0-beta:
     dependencies:
-      '@types/node': 22.17.0
-      axios: 0.30.0
+      '@figma/rest-api-spec': 0.27.0
+      axios: 1.12.2
     transitivePeerDependencies:
       - debug
 

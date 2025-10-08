@@ -44,7 +44,7 @@
     "del": "^8.0.0",
     "dotenv": "^16.4.7",
     "eslint": "^8.57.1",
-    "figma-api": "^2.0.2-beta",
+    "figma-api": "^2.1.0-beta",
     "fs-extra": "^11.2.0",
     "lodash": "^4.17.21",
     "mini-svg-data-uri": "^1.4.4",
