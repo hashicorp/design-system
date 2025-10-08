@@ -24,6 +24,7 @@ export interface MockAppSidebarAppSideNavSignature {
     isResponsive?: HdsAppSideNavSignature['Args']['isResponsive'];
     isCollapsible?: HdsAppSideNavSignature['Args']['isCollapsible'];
     showDevToggle?: boolean;
+    onToggleMinimizedStatus?: HdsAppSideNavSignature['Args']['onToggleMinimizedStatus'];
   };
   Element: HdsAppSideNavSignature['Element'];
 }
@@ -47,6 +48,7 @@ export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAp
     <HdsAppSideNav
       @isResponsive={{this.isResponsive}}
       @isCollapsible={{this.isCollapsible}}
+      @onToggleMinimizedStatus={{@onToggleMinimizedStatus}}
     >
       <HdsAppSideNavList
         class="hds-side-nav-hide-when-minimized"

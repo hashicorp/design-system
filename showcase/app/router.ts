@@ -37,6 +37,7 @@ Router.map(function () {
     this.route('app-side-nav', function () {
       this.route('frameless', function () {
         this.route('demo-responsiveness');
+        this.route('demo-remove-from-dom');
       });
     });
     this.route('application-state');
