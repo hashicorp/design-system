@@ -6,14 +6,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
-import ShwTextH2 from 'showcase/components/shw/text/h2';
-import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
-
-import {
-  HdsTime,
-  HdsTextBody,
-} from '@hashicorp/design-system-components/components';
 
 import SubSectionDisplay from 'showcase/components/page-components/time/sub-sections/display';
 import SubSectionTooltip from 'showcase/components/page-components/time/sub-sections/tooltip';
