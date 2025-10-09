@@ -1,6 +1,6 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import { concat } from '@ember/helper';
+import { array, concat } from '@ember/helper';
 import style from 'ember-style-modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -32,24 +32,14 @@ const SubSectionAlign: TemplateOnlyComponent = <template>
       <SG.Item @label={{(concat "align=" align)}}>
         <ShwOutliner {{style width="120px" height="120px"}}>
           <HdsLayoutGrid @align={{align}} {{style width="100%" height="100%"}}>
-            <ShwPlaceholder
-              @text="#A"
-              @width="auto"
-              @height="auto"
-              {{style min-width="24px" min-height="24px"}}
-            />
-            <ShwPlaceholder
-              @text="#B"
-              @width="auto"
-              @height="auto"
-              {{style min-width="24px" min-height="24px"}}
-            />
-            <ShwPlaceholder
-              @text="#C"
-              @width="auto"
-              @height="auto"
-              {{style min-width="24px" min-height="24px"}}
-            />
+            {{#each (array "A" "B" "C") as |item|}}
+              <ShwPlaceholder
+                @text={{concat "#" item}}
+                @width="auto"
+                @height="auto"
+                {{style min-width="24px" min-height="24px"}}
+              />
+            {{/each}}
           </HdsLayoutGrid>
         </ShwOutliner>
       </SG.Item>

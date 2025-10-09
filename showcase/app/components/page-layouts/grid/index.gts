@@ -20,16 +20,21 @@ const GridIndex: TemplateOnlyComponent = <template>
   {{pageTitle "LayoutGrid Component"}}
 
   <ShwTextH1>LayoutGrid</ShwTextH1>
+
   <section data-test-percy>
     <SubSectionWidthManagement />
     <SubSectionAlign />
     <SubSectionGap />
   </section>
+
   <ShwDivider />
+
   <section data-test-percy>
     <SubSectionBaseElements />
   </section>
+
   <ShwDivider />
+
   <section data-test-percy>
     <SubSectionExamples />
   </section>

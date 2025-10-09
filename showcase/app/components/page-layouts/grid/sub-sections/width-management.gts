@@ -9,6 +9,8 @@ import ShwOutliner from 'showcase/components/shw/outliner';
 
 import { HdsLayoutGrid } from '@hashicorp/design-system-components/components';
 
+import CodeFragmentWithPlaceholderItems from '../code-fragments/with-placeholder-items';
+
 const SubSectionWidthManagement: TemplateOnlyComponent = <template>
   <ShwTextH2>Column width management </ShwTextH2>
 
@@ -21,64 +23,33 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     as |SG|
   >
     <SG.Item @label="No min width columns (min-width defaults to 0px)">
-      <ShwOutliner>
-        <HdsLayoutGrid @gap="24">
-          <ShwPlaceholder @text="#1" @height="40" />
-          <ShwPlaceholder @text="#2" @height="40" />
-          <ShwPlaceholder @text="#3" @height="40" />
-          <ShwPlaceholder @text="#4" @height="40" />
-        </HdsLayoutGrid>
-      </ShwOutliner>
+      <CodeFragmentWithPlaceholderItems />
     </SG.Item>
 
     <SG.Item @label="250px min width columns">
-      <ShwOutliner>
-        <HdsLayoutGrid @gap="24" @columnMinWidth="250px">
-          <ShwPlaceholder @text="#1" @height="40" />
-          <ShwPlaceholder @text="#2" @height="40" />
-          <ShwPlaceholder @text="#3" @height="40" />
-          <ShwPlaceholder @text="#4" @height="40" />
-        </HdsLayoutGrid>
-      </ShwOutliner>
+      <CodeFragmentWithPlaceholderItems @columnMinWidth="250px" />
     </SG.Item>
 
     <SG.Item @label="30em min width columns">
-      <ShwOutliner>
-        <HdsLayoutGrid @gap="24" @columnMinWidth="30em">
-          <ShwPlaceholder @text="#1" @height="40" />
-          <ShwPlaceholder @text="#2" @height="40" />
-          <ShwPlaceholder @text="#3" @height="40" />
-          <ShwPlaceholder @text="#4" @height="40" />
-        </HdsLayoutGrid>
-      </ShwOutliner>
+      <CodeFragmentWithPlaceholderItems @columnMinWidth="30em" />
     </SG.Item>
 
     <SG.Item @label="33.33% min width columns w/ 4 items">
-      <ShwOutliner>
-        <HdsLayoutGrid @gap="24" @columnMinWidth="33.33%">
-          <ShwPlaceholder @text="#1" @height="40" />
-          <ShwPlaceholder @text="#2" @height="40" />
-          <ShwPlaceholder @text="#3" @height="40" />
-          <ShwPlaceholder @text="#4" @height="40" />
-        </HdsLayoutGrid>
-      </ShwOutliner>
+      <CodeFragmentWithPlaceholderItems @columnMinWidth="33.33%" />
     </SG.Item>
 
     <SG.Item @label="33.33% min width columns w/ 2 items">
-      <ShwOutliner>
-        <HdsLayoutGrid @gap="24" @columnMinWidth="33.33%">
-          <ShwPlaceholder @text="#1" @height="40" />
-          <ShwPlaceholder @text="#2" @height="40" />
-        </HdsLayoutGrid>
-      </ShwOutliner>
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{2}}
+        @columnMinWidth="33.33%"
+      />
     </SG.Item>
 
     <SG.Item @label="33.33% min width columns w/ 1 item">
-      <ShwOutliner>
-        <HdsLayoutGrid @gap="24" @columnMinWidth="33.33%">
-          <ShwPlaceholder @text="#1" @height="40" />
-        </HdsLayoutGrid>
-      </ShwOutliner>
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{1}}
+        @columnMinWidth="33.33%"
+      />
     </SG.Item>
   </ShwGrid>
 
@@ -93,35 +64,23 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     as |SG|
   >
     <SG.Item @label="33.33% width columns">
-      <ShwOutliner>
-        <HdsLayoutGrid @gap="24" @columnWidth="33.33%">
-          <ShwPlaceholder @text="#1" @height="40" />
-          <ShwPlaceholder @text="#2" @height="40" />
-          <ShwPlaceholder @text="#3" @height="40" />
-          <ShwPlaceholder @text="#4" @height="40" />
-        </HdsLayoutGrid>
-      </ShwOutliner>
+      <CodeFragmentWithPlaceholderItems @columnWidth="33.33%" />
     </SG.Item>
 
     <SG.Item @label="33.33% width columns w/ 2 items">
-      <ShwOutliner>
-        <HdsLayoutGrid @gap="24" @columnWidth="33.33%">
-          <ShwPlaceholder @text="#1" @height="40" />
-          <ShwPlaceholder @text="#2" @height="40" />
-        </HdsLayoutGrid>
-      </ShwOutliner>
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{2}}
+        @columnWidth="33.33%"
+      />
     </SG.Item>
 
     <SG.Item @label="33.33% width columns w/ 1 item">
-      <ShwOutliner>
-        <HdsLayoutGrid @gap="24" @columnWidth="33.33%">
-          <ShwPlaceholder @text="#1" @height="40" />
-        </HdsLayoutGrid>
-      </ShwOutliner>
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{1}}
+        @columnWidth="33.33%"
+      />
     </SG.Item>
   </ShwGrid>
-
-  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionWidthManagement;
