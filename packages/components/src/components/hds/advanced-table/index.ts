@@ -29,12 +29,15 @@ import type {
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
+  HdsAdvancedTableFilter,
+  HdsAdvancedTableFilters,
 } from './types.ts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
 import type HdsAdvancedTableTr from './tr.ts';
+import type HdsAdvancedTableFilterBar from './filter-bar/index.ts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
@@ -149,14 +152,25 @@ export interface HdsAdvancedTableSignature {
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    filters?: HdsAdvancedTableFilters;
+    isLiveFilter?: boolean;
     onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
     onSelectionChange?: (
       selection: HdsAdvancedTableOnSelectionChangeSignature
     ) => void;
     onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
+    onFilter?: (filters: HdsAdvancedTableFilters) => void;
   };
   Blocks: {
+    actions?: [
+      {
+        FilterBar?: WithBoundArgs<
+          typeof HdsAdvancedTableFilterBar,
+          'filters' | 'isLiveFilter' | 'onFilter'
+        >;
+      },
+    ];
     body?: [
       {
         Td?: WithBoundArgs<typeof HdsAdvancedTableTd, 'align'>;
@@ -222,6 +236,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorTop = false;
   @tracked showScrollIndicatorBottom = false;
   @tracked stickyColumnOffset = '0px';
+  @tracked filters: HdsAdvancedTableFilters = {};
+  @tracked hasActiveFilters: boolean = false;
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
@@ -257,6 +273,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     if (hasStickyFirstColumn) {
       this.hasPinnedFirstColumn = true;
     }
+
+    if (this.args.filters) {
+      this.filters = { ...this.args.filters };
+    }
+
+    this.hasActiveFilters = Object.keys(this.filters).length > 0;
   }
 
   get identityKey(): string | undefined {
@@ -700,6 +722,27 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
+  @action
+  onFilter(key: string, keyFilter?: HdsAdvancedTableFilter[]): void {
+    this._updateFilter(key, keyFilter);
+
+    const { onFilter } = this.args;
+    if (onFilter && typeof onFilter === 'function') {
+      onFilter(this.filters);
+    }
+  }
+
+  @action
+  clearFilters(): void {
+    this.filters = {};
+    this.hasActiveFilters = false;
+
+    const { onFilter } = this.args;
+    if (onFilter && typeof onFilter === 'function') {
+      onFilter(this.filters);
+    }
+  }
+
   private _updateScrollIndicators(element: HTMLElement): void {
     // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
     const SCROLL_BUFFER = 6;
@@ -766,4 +809,21 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
     return undefined;
   };
+
+  private _updateFilter(
+    key: string,
+    keyFilter?: HdsAdvancedTableFilter[]
+  ): void {
+    const newFilters = { ...this.filters };
+    if (
+      !keyFilter ||
+      (keyFilter && Array.isArray(keyFilter) && keyFilter.length === 0)
+    ) {
+      delete newFilters[key];
+    } else {
+      newFilters[key] = keyFilter;
+    }
+    this.filters = newFilters;
+    this.hasActiveFilters = Object.keys(this.filters).length > 0;
+  }
 }
