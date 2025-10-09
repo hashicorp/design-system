@@ -128,7 +128,7 @@ export default class CodeFragmentWithCompactAndRouting extends Component<CodeFra
   };
 
   <template>
-    <div class="shw-component-pagination-table-demo">
+    <div class="shw-component-pagination-table-demo" id="compact-with-routing">
       <CodeFragmentWithUserTable @model={{this.paginatedData}} />
       <HdsPaginationCompact
         @queryFunction={{this.demoQueryFunction}}

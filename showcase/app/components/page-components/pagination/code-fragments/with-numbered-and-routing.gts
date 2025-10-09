@@ -78,7 +78,7 @@ export default class CodeFragmentWithNumberedAndRouting extends Component<CodeFr
   };
 
   <template>
-    <div class="shw-component-pagination-table-demo">
+    <div class="shw-component-pagination-table-demo" id="numbered-with-routing">
       <CodeFragmentWithUserTable
         @model={{this.paginatedData}}
         @density={{if (eq @pageSize 30) "short" "medium"}}
