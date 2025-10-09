@@ -7,8 +7,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import CodeBlockIndex from 'showcase/components/page-components/code-block/index';
 
-const PageComponentsCard: TemplateOnlyComponent = <template>
+const PageComponentsCodeBlock: TemplateOnlyComponent = <template>
   <CodeBlockIndex />
 </template>;
 
-export default CodeBlockIndex;
+export default PageComponentsCodeBlock;

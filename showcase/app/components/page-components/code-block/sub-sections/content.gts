@@ -15,8 +15,6 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 
 import { HdsCodeBlock } from '@hashicorp/design-system-components/components';
 
-const STATES = ['default', 'hover', 'active', 'focus'];
-
 export default class SubSectionContent extends Component {
   @tracked input: string | undefined = '';
 
@@ -24,21 +22,21 @@ export default class SubSectionContent extends Component {
 
   get codeValue() {
     let value = `codeLang = 'ruby';`;
-    
+
     if (this.input !== '') {
       value += `\n\n${this.input} = "the input is: ${this.input}"`;
     }
-    
+
     return value;
   }
-  
+
   updateCodeValue = () => {
     this.input = ['rand1', 'rand2', 'rand3', ''][Math.floor(Math.random() * 4)];
-  }
+  };
 
   updateInput = (event: Event) => {
     this.input = (event.target as HTMLInputElement).value;
-  }
+  };
 
   <template>
     <ShwTextH2>Content</ShwTextH2>
@@ -157,7 +155,8 @@ export default class SubSectionContent extends Component {
           @language="ruby"
           as |CB|
         >
-          <CB.Title>Title that may wrap on multiple lines if the parent container is limiting its width</CB.Title>
+          <CB.Title>Title that may wrap on multiple lines if the parent
+            container is limiting its width</CB.Title>
           <CB.Description>
             Description that could contain
             <a href="#">a link</a>
@@ -194,7 +193,12 @@ export default class SubSectionContent extends Component {
 
     <ShwTextBody>
       <label for="input">Change input value:</label>
-      <input id="input" type="text" value={{this.input}} {{on "input" this.updateInput}} />
+      <input
+        id="input"
+        type="text"
+        value={{this.input}}
+        {{on "input" this.updateInput}}
+      />
     </ShwTextBody>
 
     <HdsCodeBlock

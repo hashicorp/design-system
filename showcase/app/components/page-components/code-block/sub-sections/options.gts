@@ -12,8 +12,6 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 
 import { HdsCodeBlock } from '@hashicorp/design-system-components/components';
 
-const STATES = ['default', 'hover', 'active', 'focus'];
-
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Options</ShwTextH2>
 
@@ -65,7 +63,10 @@ end'
         @value="codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
       />
     </SG.Item>
-    <SG.Item @label="hasLineWrapping=true with long string" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="hasLineWrapping=true with long string"
+      @forceMinWidth={{true}}
+    >
       <HdsCodeBlock
         @hasLineWrapping={{true}}
         @ariaLabel="hasLineWrapping=true with long string"
@@ -179,7 +180,10 @@ end"
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item @label="maxHeight='130px', hasLineWrapping=true, highlight line 2" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="maxHeight='130px', hasLineWrapping=true, highlight line 2"
+      @forceMinWidth={{true}}
+    >
       {{! template-lint-disable no-whitespace-for-layout }}
       <HdsCodeBlock
         @language="ruby"
@@ -210,7 +214,10 @@ end"
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item @label="maxHeight='130px, hasLineNumbers=false" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="maxHeight='130px, hasLineNumbers=false"
+      @forceMinWidth={{true}}
+    >
       {{! template-lint-disable no-whitespace-for-layout }}
       <HdsCodeBlock
         @language="ruby"
@@ -239,7 +246,10 @@ end"
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item @label="maxHeight='130px' with short content that does not overflow" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="maxHeight='130px' with short content that does not overflow"
+      @forceMinWidth={{true}}
+    >
       <HdsCodeBlock
         @language="shell-session"
         @maxHeight="130px"
@@ -262,7 +272,10 @@ end"
         @value="$ brew tap hashicorp/tap"
       />
     </SG.Item>
-    <SG.Item @label="hasCopyButton=true, maxHeight='130px', title and description" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="hasCopyButton=true, maxHeight='130px', title and description"
+      @forceMinWidth={{true}}
+    >
       {{! template-lint-disable no-whitespace-for-layout }}
       <HdsCodeBlock
         id="clipboardTarget2"
@@ -310,7 +323,10 @@ end"
   <ShwTextH3>Highlight lines</ShwTextH3>
 
   <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="Highlight lines 2 & 4, hasLineNumbers=false" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="Highlight lines 2 & 4, hasLineNumbers=false"
+      @forceMinWidth={{true}}
+    >
       <HdsCodeBlock
         @language="go"
         @hasLineNumbers={{false}}
@@ -352,7 +368,10 @@ end"
       />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
-    <SG.Item @label="Highlight lines 14-17, lineNumberStart 2" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="Highlight lines 14-17, lineNumberStart 2"
+      @forceMinWidth={{true}}
+    >
       {{! template-lint-disable no-whitespace-for-layout }}
       <HdsCodeBlock
         @language="ruby"
@@ -504,7 +523,11 @@ web_1            | [13/Jun/2019 02:54:33] "GET /api/v1/rides/ HTTP/1.1" 500 9049
     </SG.Item>
 
     <SG.Item @label="Shell" @forceMinWidth={{true}}>
-      <HdsCodeBlock @language="shell-session" @ariaLabel="Shell" @value="$ brew tap hashicorp/tap" />
+      <HdsCodeBlock
+        @language="shell-session"
+        @ariaLabel="Shell"
+        @value="$ brew tap hashicorp/tap"
+      />
     </SG.Item>
 
     <SG.Item @label="YAML" @forceMinWidth={{true}}>
