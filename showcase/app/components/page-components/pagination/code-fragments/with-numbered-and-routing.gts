@@ -3,17 +3,16 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { array, hash } from '@ember/helper';
+import { array } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 import { inject as service } from '@ember/service';
 import type RouterService from '@ember/routing/router-service';
 
 import USERS from 'showcase/mocks/user-data';
 
-import {
-  HdsPaginationNumbered,
-  HdsTable,
-} from '@hashicorp/design-system-components/components';
+import CodeFragmentWithUserTable from 'showcase/components/page-components/pagination/code-fragments/with-user-table';
+
+import { HdsPaginationNumbered } from '@hashicorp/design-system-components/components';
 import type { HdsTableThSortOrder } from '@hashicorp/design-system-components/components/hds/table/types';
 
 interface CodeFragmentWithNumberedAndRoutingSignature {
@@ -80,29 +79,13 @@ export default class CodeFragmentWithNumberedAndRouting extends Component<CodeFr
 
   <template>
     <div class="shw-component-pagination-table-demo">
-      <HdsTable
+      <CodeFragmentWithUserTable
         @model={{this.paginatedData}}
-        @columns={{array
-          (hash key="id" label="ID" isSortable=true)
-          (hash key="name" label="Name" isSortable=true)
-          (hash key="email" label="Email")
-          (hash key="role" label="Role")
-        }}
         @density={{if (eq @pageSize 30) "short" "medium"}}
         @sortBy={{@sortBy}}
         @sortOrder={{@sortOrder}}
         @onSort={{this.onTableSort}}
-      >
-        <:body as |B|>
-          <B.Tr>
-            <B.Td>{{B.data.id}}</B.Td>
-            <B.Td>{{B.data.name}}</B.Td>
-            <B.Td>{{B.data.email}}</B.Td>
-            <B.Td>{{B.data.role}}</B.Td>
-          </B.Tr>
-        </:body>
-      </HdsTable>
-
+      />
       <HdsPaginationNumbered
         @totalItems={{USERS.length}}
         @currentPageSize={{@pageSize}}

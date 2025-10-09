@@ -3,16 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { array, hash } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 
 import USERS from 'showcase/mocks/user-data';
 import type { User } from 'showcase/mocks/user-data';
 
-import {
-  HdsPaginationCompact,
-  HdsTable,
-} from '@hashicorp/design-system-components/components';
+import CodeFragmentWithUserTable from 'showcase/components/page-components/pagination/code-fragments/with-user-table';
+
+import { HdsPaginationCompact } from '@hashicorp/design-system-components/components';
 import type { HdsPaginationDirections } from '@hashicorp/design-system-components/components/hds/pagination/types';
 
 const getCursorParts = (cursor: string | null, records: User[]) => {
@@ -121,24 +119,7 @@ export default class CodeFragmentWithCompactAndEvents extends Component {
 
   <template>
     <div class="shw-component-pagination-table-demo">
-      <HdsTable
-        @model={{this.paginatedData}}
-        @columns={{array
-          (hash key="id" label="ID")
-          (hash key="name" label="Name")
-          (hash key="email" label="Email")
-          (hash key="role" label="Role")
-        }}
-      >
-        <:body as |B|>
-          <B.Tr>
-            <B.Td>{{B.data.id}}</B.Td>
-            <B.Td>{{B.data.name}}</B.Td>
-            <B.Td>{{B.data.email}}</B.Td>
-            <B.Td>{{B.data.role}}</B.Td>
-          </B.Tr>
-        </:body>
-      </HdsTable>
+      <CodeFragmentWithUserTable @model={{this.paginatedData}} />
       <HdsPaginationCompact
         @isDisabledPrev={{this.isPrevButtonDisabled}}
         @isDisabledNext={{this.isNextButtonDisabled}}
