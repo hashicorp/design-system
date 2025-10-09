@@ -3,11 +3,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwGrid from 'showcase/components/shw/grid';
-import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwDivider from 'showcase/components/shw/divider';
-import ShwOutliner from 'showcase/components/shw/outliner';
-
-import { HdsLayoutGrid } from '@hashicorp/design-system-components/components';
 
 import CodeFragmentWithPlaceholderItems from '../code-fragments/with-placeholder-items';
 
