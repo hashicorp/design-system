@@ -9,7 +9,10 @@ import {
   render,
   waitFor,
   setupOnerror,
+  fillIn,
+  triggerEvent,
   focus,
+  click,
   blur,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -48,6 +51,22 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert.dom('#code-editor-wrapper .cm-editor').includesText(val);
   });
 
+  test('it should update the editor value when the value changes', async function (assert) {
+    const initialValue = 'Initial Value';
+    const updatedValue = 'Updated Value';
+
+    this.set('val', initialValue);
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value=this.val}} />`,
+    );
+
+    assert.dom('#code-editor-wrapper .cm-editor').includesText(initialValue);
+
+    this.set('val', updatedValue);
+
+    assert.dom('#code-editor-wrapper .cm-editor').includesText(updatedValue);
+  });
+
   // onBlur
   test('it should call the onBlur action when the code editor loses focus', async function (assert) {
     const blurSpy = sinon.spy();
@@ -65,7 +84,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   });
 
   // onInput
-  test('it should call the onInput action when the code editor value changes', async function (assert) {
+  test('it should call the onInput action when the code editor value changes from user input', async function (assert) {
     const inputSpy = sinon.spy();
 
     this.setProperties({
@@ -78,7 +97,28 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     await setupCodeEditor(
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onInput=this.handleInput onSetup=this.handleSetup}} />`,
     );
+    // simulate user input
+    await click('.cm-content');
+    await fillIn('.cm-content', 'Test string');
+    await triggerEvent('.cm-content', 'input');
 
+    assert.ok(inputSpy.calledOnceWith('Test string', this.editorView));
+  });
+
+  // programmatic onInput
+  test('it should not call the onInput action when the code editor value changes programmatically', async function (assert) {
+    const inputSpy = sinon.spy();
+
+    this.setProperties({
+      handleInput: inputSpy,
+      handleSetup: (editorView) => {
+        this.set('editorView', editorView);
+      },
+    });
+
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onInput=this.handleInput onSetup=this.handleSetup}} />`,
+    );
     this.editorView.dispatch({
       changes: {
         from: this.editorView.state.selection.main.from,
@@ -86,7 +126,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       },
     });
 
-    assert.ok(inputSpy.calledOnceWith('Test string', this.editorView));
+    assert.ok(inputSpy.notCalled);
   });
 
   // onLint
