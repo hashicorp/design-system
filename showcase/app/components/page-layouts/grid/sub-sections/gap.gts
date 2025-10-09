@@ -17,8 +17,8 @@ import { GAPS } from '@hashicorp/design-system-components/components/hds/layout/
 import type { HdsLayoutGridGaps } from '@hashicorp/design-system-components/components/hds/layout/grid/types';
 
 const DEMO_GAP_ARRAYS:
-      | HdsLayoutGridGaps
-      | [HdsLayoutGridGaps, HdsLayoutGridGaps][] = [
+  | HdsLayoutGridGaps
+  | [HdsLayoutGridGaps, HdsLayoutGridGaps][] = [
   ['4', '48'],
   ['8', '32'],
   ['12', '24'],
@@ -30,7 +30,12 @@ const SubSectionGap: TemplateOnlyComponent = <template>
 
   <ShwTextH4 @tag="h3">Single value</ShwTextH4>
 
-  <ShwGrid @columns={{4}} @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+  <ShwGrid
+    @columns={{4}}
+    @gap="2rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
     {{#each GAPS as |gap|}}
       <SG.Item @label="gap={{if (eq gap '0') '0 (default)' gap}}">
         <ShwOutliner>
@@ -47,7 +52,12 @@ const SubSectionGap: TemplateOnlyComponent = <template>
 
   <ShwTextH4 @tag="h3">Double value (row/column)</ShwTextH4>
 
-  <ShwGrid @columns={{2}} @gap="2rem 4rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+  <ShwGrid
+    @columns={{2}}
+    @gap="2rem 4rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
     {{! we use only a subset of possible combinations, just for testing purposes }}
     {{#each DEMO_GAP_ARRAYS as |gapsArray|}}
       <SG.Item @label="gap=[{{gapsArray}}]">
@@ -72,8 +82,15 @@ const SubSectionGap: TemplateOnlyComponent = <template>
 
   <ShwTextH4 @tag="h3">Nested layouts</ShwTextH4>
 
-  <ShwFlex @gap="2rem" @direction="column" class="shw-layout-grid-example-nested-layouts" as |SF|>
-    <SF.Item @label="Parent Grid w/ @gap=16, nested Grid wo/ @gap (defaults to 0)">
+  <ShwFlex
+    @gap="2rem"
+    @direction="column"
+    class="shw-layout-grid-example-nested-layouts"
+    as |SF|
+  >
+    <SF.Item
+      @label="Parent Grid w/ @gap=16, nested Grid wo/ @gap (defaults to 0)"
+    >
       <HdsLayoutGrid @gap="16" @align="center" as |LG|>
         <ShwPlaceholder @text="item #1" @height="48" />
         <ShwPlaceholder @text="item #2" @height="48" />

@@ -7,16 +7,19 @@ import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwOutliner from 'showcase/components/shw/outliner';
 
-import {
-  HdsLayoutGrid,
-} from '@hashicorp/design-system-components/components';
+import { HdsLayoutGrid } from '@hashicorp/design-system-components/components';
 
 const SubSectionWidthManagement: TemplateOnlyComponent = <template>
   <ShwTextH2>Column width management </ShwTextH2>
 
   <ShwTextH3>Column min width</ShwTextH3>
 
-  <ShwGrid @columns={{1}} @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+  <ShwGrid
+    @columns={{1}}
+    @gap="1.5rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
     <SG.Item @label="No min width columns (min-width defaults to 0px)">
       <ShwOutliner>
         <HdsLayoutGrid @gap="24">
@@ -83,7 +86,12 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
 
   <ShwTextH3>Column width</ShwTextH3>
 
-  <ShwGrid @columns={{1}} @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+  <ShwGrid
+    @columns={{1}}
+    @gap="1.5rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
     <SG.Item @label="33.33% width columns">
       <ShwOutliner>
         <HdsLayoutGrid @gap="24" @columnWidth="33.33%">
