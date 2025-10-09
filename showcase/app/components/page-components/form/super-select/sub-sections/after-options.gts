@@ -10,6 +10,7 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwOutliner from 'showcase/components/shw/outliner';
+import NOOP from 'showcase/utils/noop'
 
 import {
   HdsFormSuperSelectAfterOptions,
@@ -17,8 +18,6 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 export default class SubSectionAfterOptions extends Component {
-  noop() {}
-
   <template>
     <ShwTextH3>FormSuperSelectAfterOptions</ShwTextH3>
 
@@ -28,9 +27,9 @@ export default class SubSectionAfterOptions extends Component {
       <SF.Item @label="No text arguments">
         <ShwOutliner>
           <HdsFormSuperSelectAfterOptions
-            @clearSelected={{this.noop}}
-            @showSelected={{this.noop}}
-            @showAll={{this.noop}}
+            @clearSelected={{NOOP}}
+            @showSelected={{NOOP}}
+            @showAll={{NOOP}}
           />
         </ShwOutliner>
       </SF.Item>
@@ -41,9 +40,9 @@ export default class SubSectionAfterOptions extends Component {
         <ShwOutliner>
           <HdsFormSuperSelectAfterOptions
             @showNoSelectedMessage={{true}}
-            @clearSelected={{this.noop}}
-            @showSelected={{this.noop}}
-            @showAll={{this.noop}}
+            @clearSelected={{NOOP}}
+            @showSelected={{NOOP}}
+            @showAll={{NOOP}}
           />
         </ShwOutliner>
       </SF.Item>
@@ -54,9 +53,9 @@ export default class SubSectionAfterOptions extends Component {
         <ShwOutliner>
           <HdsFormSuperSelectAfterOptions
             @content="Lorem ipsum dolor"
-            @clearSelected={{this.noop}}
-            @showAll={{this.noop}}
-            @showSelected={{this.noop}}
+            @clearSelected={{NOOP}}
+            @showAll={{NOOP}}
+            @showSelected={{NOOP}}
           />
         </ShwOutliner>
       </SF.Item>
@@ -67,9 +66,9 @@ export default class SubSectionAfterOptions extends Component {
         <ShwOutliner>
           <HdsFormSuperSelectAfterOptions
             @content="This is the a very very very very very very long text that should wrap on multiple lines"
-            @clearSelected={{this.noop}}
-            @showAll={{this.noop}}
-            @showSelected={{this.noop}}
+            @clearSelected={{NOOP}}
+            @showAll={{NOOP}}
+            @showSelected={{NOOP}}
           />
         </ShwOutliner>
       </SF.Item>
@@ -79,12 +78,12 @@ export default class SubSectionAfterOptions extends Component {
       >
         <ShwOutliner>
           <HdsFormSuperSelectAfterOptions
-            @showAll={{this.noop}}
+            @showAll={{NOOP}}
             @showOnlySelected={{true}}
             @selectedCount="0"
             @resultCountMessage="This is the resultCountMessage"
-            @clearSelected={{this.noop}}
-            @showSelected={{this.noop}}
+            @clearSelected={{NOOP}}
+            @showSelected={{NOOP}}
           />
         </ShwOutliner>
       </SF.Item>
@@ -94,12 +93,12 @@ export default class SubSectionAfterOptions extends Component {
       >
         <ShwOutliner>
           <HdsFormSuperSelectAfterOptions
-            @showAll={{this.noop}}
+            @showAll={{NOOP}}
             @showOnlySelected={{true}}
             @selectedCount="123"
-            @clearSelected={{this.noop}}
+            @clearSelected={{NOOP}}
             @resultCountMessage="This is the resultCountMessage"
-            @showSelected={{this.noop}}
+            @showSelected={{NOOP}}
           />
         </ShwOutliner>
       </SF.Item>
@@ -109,11 +108,11 @@ export default class SubSectionAfterOptions extends Component {
       >
         <ShwOutliner>
           <HdsFormSuperSelectAfterOptions
-            @showSelected={{this.noop}}
+            @showSelected={{NOOP}}
             @selectedCount="0"
             @resultCountMessage="This is the resultCountMessage"
-            @clearSelected={{this.noop}}
-            @showAll={{this.noop}}
+            @clearSelected={{NOOP}}
+            @showAll={{NOOP}}
           />
         </ShwOutliner>
       </SF.Item>
@@ -123,11 +122,11 @@ export default class SubSectionAfterOptions extends Component {
       >
         <ShwOutliner>
           <HdsFormSuperSelectAfterOptions
-            @showSelected={{this.noop}}
+            @showSelected={{NOOP}}
             @selectedCount="123"
-            @clearSelected={{this.noop}}
+            @clearSelected={{NOOP}}
             @resultCountMessage="This is the resultCountMessage"
-            @showAll={{this.noop}}
+            @showAll={{NOOP}}
           />
         </ShwOutliner>
       </SF.Item>
@@ -138,9 +137,9 @@ export default class SubSectionAfterOptions extends Component {
         <ShwOutliner>
           <HdsFormSuperSelectAfterOptions
             @showNoSelectedMessage={{true}}
-            @showAll={{this.noop}}
-            @showSelected={{this.noop}}
-            @clearSelected={{this.noop}}
+            @showAll={{NOOP}}
+            @showSelected={{NOOP}}
+            @clearSelected={{NOOP}}
             @selectedCount="123"
             @resultCountMessage="This is the a very very very long text that should wrap on multiple lines"
           />
@@ -181,9 +180,9 @@ export default class SubSectionAfterOptions extends Component {
                 </HdsFormSuperSelectOptionGroup>
               </ul>
               <HdsFormSuperSelectAfterOptions
-                @showAll={{this.noop}}
-                @showSelected={{this.noop}}
-                @clearSelected={{this.noop}}
+                @showAll={{NOOP}}
+                @showSelected={{NOOP}}
+                @clearSelected={{NOOP}}
                 @selectedCount="123"
                 @resultCountMessage="1 selected of 2 total"
               />
