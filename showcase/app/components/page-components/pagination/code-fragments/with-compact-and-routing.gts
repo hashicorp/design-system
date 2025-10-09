@@ -8,7 +8,6 @@ import { inject as service } from '@ember/service';
 import type RouterService from '@ember/routing/router-service';
 
 import USERS from 'showcase/mocks/user-data';
-import type { User } from 'showcase/mocks/user-data';
 
 import CodeFragmentWithUserTable from 'showcase/components/page-components/pagination/code-fragments/with-user-table';
 import {
@@ -112,9 +111,10 @@ export default class CodeFragmentWithCompactAndRouting extends Component<CodeFra
   }
 
   onPageChange = (page: HdsPaginationDirections) => {
-    console.log('genericHandlePageChange invoked with arguments:');
+    console.group('onPageChange invoked with arguments:');
     console.log('page', page);
     console.log('pageSize', this.args.pageSize);
+    console.groupEnd();
   };
 
   onPageSizeChange = (pageSize: number) => {

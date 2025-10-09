@@ -6,7 +6,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 import USERS from 'showcase/mocks/user-data';
-import type { User } from 'showcase/mocks/user-data';
 
 import CodeFragmentWithUserTable from 'showcase/components/page-components/pagination/code-fragments/with-user-table';
 import {
@@ -63,6 +62,11 @@ export default class CodeFragmentWithCompactAndEvents extends Component {
   }
 
   onPageChange = (page: HdsPaginationDirections) => {
+    console.group('onPageChange invoked with arguments:');
+    console.log('page', page);
+    console.log('pageSize', this.pageSize);
+    console.groupEnd();
+
     // get the next/prev cursors
     const { newPrevCursor, newNextCursor } = this.newCursors;
     // update the "current" cursor
