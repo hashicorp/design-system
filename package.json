@@ -31,8 +31,7 @@
       "js-yaml@3": "3.14.2",
       "js-yaml@4": "4.1.1",
       "mdast-util-to-hast": "13.2.1",
-      "systeminformation": "5.27.14",
-      "style-dictionary": "file:/Users/cristianorastelli/src/github/style-dictionary-didoo"
+      "systeminformation": "5.27.14"
     },
     "patchedDependencies": {
       "broccoli-asset-rewrite": "patches/broccoli-asset-rewrite.patch"
