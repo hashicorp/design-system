@@ -4,9 +4,8 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import style from 'ember-style-modifier';
-import { array } from '@ember/helper';
 import { capitalize } from '@ember/string';
-import { eq } from 'ember-truth-helpers';
+import { eq, notEq } from 'ember-truth-helpers';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
@@ -25,8 +24,10 @@ import {
   HdsDropdownToggleIcon,
 } from '@hashicorp/design-system-components/components';
 import { COLORS as TOGGLE_BUTTON_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/button';
+import type { HdsButtonColors } from '@hashicorp/design-system-components/components/hds/button/types';
 
 const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
+const BUTTON_COLORS: HdsButtonColors[] = ['primary', 'secondary'];
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
@@ -83,8 +84,8 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH4>States</ShwTextH4>
 
   <ShwFlex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
-      {{#each states as |state|}}
+    {{#each STATES as |state|}}
+      {{#if (notEq state "disabled")}}
         <SF.Item @label={{state}}>
           <div class="hds-app-header">
             <HdsAppHeaderHomeLink
@@ -95,13 +96,13 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
             />
           </div>
         </SF.Item>
-      {{/each}}
-    {{/let}}
+      {{/if}}
+    {{/each}}
   </ShwFlex>
 
   <ShwFlex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
-      {{#each states as |state|}}
+    {{#each STATES as |state|}}
+      {{#if (notEq state "disabled")}}
         <SF.Item>
           <div class="hds-app-header">
             <HdsAppHeaderHomeLink
@@ -113,13 +114,13 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
             />
           </div>
         </SF.Item>
-      {{/each}}
-    {{/let}}
+      {{/if}}
+    {{/each}}
   </ShwFlex>
 
   <ShwFlex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
-      {{#each states as |state|}}
+    {{#each STATES as |state|}}
+      {{#if (notEq state "disabled")}}
         <SF.Item @label={{state}}>
           <div class="hds-app-header">
             <HdsAppHeaderHomeLink
@@ -131,8 +132,8 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
             />
           </div>
         </SF.Item>
-      {{/each}}
-    {{/let}}
+      {{/if}}
+    {{/each}}
   </ShwFlex>
 
   <ShwDivider @level={{2}} />
@@ -141,30 +142,24 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextH4>States</ShwTextH4>
 
-  {{#let (array "Primary" "Secondary") as |colors|}}
-    {{#each colors as |color|}}
-      <ShwTextBody>{{color}}</ShwTextBody>
-      <ShwFlex as |SF|>
-        {{#let
-          (array "default" "hover" "active" "focus" "disabled")
-          as |states|
-        }}
-          {{#each states as |state|}}
-            <SF.Item @label={{state}}>
-              <div class="hds-app-header">
-                <HdsButton
-                  @icon="search"
-                  @isIconOnly={{true}}
-                  @text="Search"
-                  mock-state-value={{state}}
-                />
-              </div>
-            </SF.Item>
-          {{/each}}
-        {{/let}}
-      </ShwFlex>
-    {{/each}}
-  {{/let}}
+  {{#each BUTTON_COLORS as |color|}}
+    <ShwTextBody>{{capitalize color}}</ShwTextBody>
+    <ShwFlex as |SF|>
+      {{#each STATES as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="hds-app-header">
+            <HdsButton
+              @color={{color}}
+              @icon="search"
+              @isIconOnly={{true}}
+              @text="Search"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/each}}
+    </ShwFlex>
+  {{/each}}
 
   <ShwDivider @level={{2}} />
 
