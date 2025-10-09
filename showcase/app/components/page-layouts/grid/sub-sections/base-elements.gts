@@ -22,13 +22,21 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
           <ShwPlaceholder @text="item #1" @height="40" @background="#e4c5f3" />
 
           <HdsLayoutGridItem>
-            <ShwPlaceholder @text="item #2 within GridItem" @height="40" @background="#e5ffd2" />
+            <ShwPlaceholder
+              @text="item #2 within GridItem"
+              @height="40"
+              @background="#e5ffd2"
+            />
           </HdsLayoutGridItem>
 
           <ShwPlaceholder @text="item #3" @height="40" @background="#d2f4ff" />
 
           <HLG.Item>
-            <ShwPlaceholder @text="item #4 within HLG.Item" @height="40" @background="#fff8d2" />
+            <ShwPlaceholder
+              @text="item #4 within HLG.Item"
+              @height="40"
+              @background="#fff8d2"
+            />
           </HLG.Item>
         </HdsLayoutGrid>
       </ShwOutliner>
@@ -175,4 +183,3 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 </template>;
 
 export default SubSectionBaseElements;
-
