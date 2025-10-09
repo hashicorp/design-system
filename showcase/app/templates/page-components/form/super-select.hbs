@@ -7,6 +7,41 @@
 
 <BasicDropdownWormhole />
 
+<button type="button" {{on "click" (fn this.activateModal "basicModalActive")}}>Open basic modal</button>
+
+{{#if this.basicModalActive}}
+  <Hds::Modal
+    id="basic-modal"
+    @onClose={{fn this.deactivateModal "basicModalActive"}}
+    as |M|
+  >
+    <M.Header>
+      Invite a user
+    </M.Header>
+    <M.Body>
+      <p class="hds-typography-body-300 hds-foreground-primary">
+        Invite a teammate to collaborate within the <strong>Blah</strong> organization.
+      </p>
+      <br>
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @verticalPosition="below"
+        @onKeydown={{this.handleKeydown}}
+        as |F|
+      >
+        <F.Label>Add to teams</F.Label>
+        {{! @glint-expect-error - https://hashicorp.atlassian.net/browse/HDS-5090 }}
+        {{F.options}}
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </M.Body>
+    <M.Footer as |F|>
+      <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+    </M.Footer>
+  </Hds::Modal>
+{{/if}}
+
 <Shw::Text::H1>Form::SuperSelect</Shw::Text::H1>
 
 <section data-test-percy>
