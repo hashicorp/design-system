@@ -11,6 +11,8 @@ import MockAppSidebarOldSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
 import MockAppMainGenericTextContent from './main/generic-text-content';
 import MockAppMainGenericAdvancedTable from './main/generic-advanced-table';
+import MockAppMainGenericDropdownFilter from './main/generic-filter/generic-dropdown-filter';
+import MockAppMainGenericSuperSelectFilter from './main/generic-filter/generic-super-select-filter';
 import MockAppFooterAppFooter from './footer/app-footer';
 
 // HDS components
@@ -25,6 +27,8 @@ import type { MockAppSidebarOldSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
 import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
 import type { MockAppMainGenericAdvancedTableSignature } from './main/generic-advanced-table';
+import type { MockAppMainGenericDropdownFilterSignature } from './main/generic-filter/generic-dropdown-filter';
+import type { MockAppMainGenericSuperSelectFilterSignature } from './main/generic-super-select-filter';
 import type { MockAppFooterAppFooterSignature } from './footer/app-footer';
 
 export interface MockAppSignature {
@@ -52,6 +56,8 @@ export interface MockAppSignature {
         PageHeader?: ComponentLike<MockAppMainPageHeaderSignature>;
         GenericTextContent?: ComponentLike<MockAppMainGenericTextContentSignature>;
         GenericAdvancedTable?: ComponentLike<MockAppMainGenericAdvancedTableSignature>;
+        GenericDropdownFilter?: ComponentLike<MockAppMainGenericDropdownFilterSignature>;
+        GenericSuperSelectFilter?: ComponentLike<MockAppMainGenericSuperSelectFilterSignature>;
       },
     ];
     footer?: [
@@ -98,6 +104,8 @@ export default class MockApp extends Component<MockAppSignature> {
               PageHeader=MockAppMainPageHeader
               GenericTextContent=MockAppMainGenericTextContent
               GenericAdvancedTable=MockAppMainGenericAdvancedTable
+              GenericDropdownFilter=MockAppMainGenericDropdownFilter
+              GenericSuperSelectFilter=MockAppMainGenericSuperSelectFilter
             )
             to="main"
           }}
