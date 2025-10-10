@@ -23,7 +23,10 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwGrid @columns={{6}} as |SG|>
     {{#each STATES as |state|}}
-      <SG.Item @label={{capitalize state}} class="shw-component-code-block-copy-button">
+      <SG.Item
+        @label={{capitalize state}}
+        class="shw-component-code-block-copy-button"
+      >
         <HdsCodeBlockCopyButton
           mock-state-value={{state}}
           @targetToCopy="#test-target"
@@ -33,7 +36,10 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     {{/each}}
     {{#let (array "success" "error") as |statuses|}}
       {{#each statuses as |status|}}
-        <SG.Item @label={{capitalize status}} class="shw-component-code-block-copy-button">
+        <SG.Item
+          @label={{capitalize status}}
+          class="shw-component-code-block-copy-button"
+        >
           <HdsCodeBlockCopyButton
             mock-copy-status={{status}}
             @targetToCopy="#test-target"
