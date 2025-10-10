@@ -27,6 +27,10 @@ export interface MockAppSidebarOldSideNavSignature {
     showHeader?: boolean;
     showFooter?: boolean;
   };
+  Blocks: {
+    extraBodyAfter: [];
+    extraFooterBefore: [];
+  };
   Element: HdsSideNavSignature['Element'];
 }
 

@@ -144,9 +144,6 @@ export default class MockAppMainFormComplex extends Component<MockAppMainFormCom
 
   <template>
     <div ...attributes>
-      {{#if this._something}}
-        <pre>TODO</pre>
-      {{/if}}
       <form
         {{style
           display="flex"
@@ -208,11 +205,7 @@ export default class MockAppMainFormComplex extends Component<MockAppMainFormCom
         {{/if}}
 
         {{#if this._showFileInput}}
-          <HdsFormFileInputField
-            @value="Lorem ipsum dolor"
-            @isInvalid={{true}}
-            as |F|
-          >
+          <HdsFormFileInputField as |F|>
             <F.Label>File input</F.Label>
             <F.HelperText>This is the helper text</F.HelperText>
           </HdsFormFileInputField>
@@ -304,9 +297,12 @@ export default class MockAppMainFormComplex extends Component<MockAppMainFormCom
             <F.Options>
               {{#let F.options as |option|}}
                 <div class="shw-component-form-super-select-option-rich-header">
+                  {{! @glint-ignore }}
                   <strong>{{option.size}}</strong>
-                  <strong>{{option.price}}/hr</strong>
+                  {{! @glint-ignore }}
+                  <strong>{{option.price}}</strong>
                 </div>
+                {{! @glint-ignore }}
                 <div>{{option.description}}</div>
               {{/let}}
             </F.Options>
@@ -320,6 +316,7 @@ export default class MockAppMainFormComplex extends Component<MockAppMainFormCom
             as |F|
           >
             <F.Label>SuperSelect #2</F.Label>
+            {{! @glint-ignore }}
             {{F.options}}
           </HdsFormSuperSelectMultipleField>
           <HdsSeparator @spacing="0" />
