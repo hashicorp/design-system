@@ -5,7 +5,7 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { capitalize } from '@ember/string';
-import style from 'ember-style-modifier/modifiers/style';
+import style from 'ember-style-modifier';
 
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
