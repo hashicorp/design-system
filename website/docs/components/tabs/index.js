@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 export default class Index extends Component {
   @service router;
@@ -19,7 +19,7 @@ export default class Index extends Component {
 
   get demoSelectedTab() {
     return parseInt(
-      this.router?.currentRoute?.queryParams?.demoSelectedTab ?? 0
+      this.router?.currentRoute?.queryParams?.demoSelectedTab ?? 0,
     );
   }
 

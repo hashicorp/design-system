@@ -4,7 +4,7 @@ import { set, action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { A } from '@ember/array';
 import { schedule } from '@ember/runloop';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 import { showdownConfig } from '../shared/showdown-config';
 

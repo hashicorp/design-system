@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { next, later, cancel } from '@ember/runloop';
 import { defaultValidator } from 'ember-a11y-refocus';
 
