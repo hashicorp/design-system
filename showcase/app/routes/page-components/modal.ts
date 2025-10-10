@@ -10,7 +10,7 @@ import {
   SIZES,
 } from '@hashicorp/design-system-components/components/hds/modal/index';
 
-import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+import type { ModelFrom } from 'showcase/utils/model-from-route';
 
 export type PageComponentsModalModel = ModelFrom<PageComponentsModalRoute>;
 
