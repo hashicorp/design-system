@@ -10,11 +10,11 @@ import { pageTitle } from 'ember-page-title';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwDivider from 'showcase/components/shw/divider';
 
-import SubSectionWidthManagement from 'showcase/components/page-layouts/grid/sub-sections/width-management';
-import SubSectionAlign from 'showcase/components/page-layouts/grid/sub-sections/align';
-import SubSectionGap from 'showcase/components/page-layouts/grid/sub-sections/gap';
-import SubSectionBaseElements from 'showcase/components/page-layouts/grid/sub-sections/base-elements';
-import SubSectionExamples from 'showcase/components/page-layouts/grid/sub-sections/examples';
+import SubSectionWidthManagement from './sub-sections/width-management';
+import SubSectionAlign from './sub-sections/align';
+import SubSectionGap from './sub-sections/gap';
+import SubSectionBaseElements from './sub-sections/base-elements';
+import SubSectionExamples from './sub-sections/examples';
 
 const GridIndex: TemplateOnlyComponent = <template>
   {{pageTitle "LayoutGrid Component"}}
