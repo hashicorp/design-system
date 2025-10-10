@@ -33,7 +33,10 @@ const MAPPING_HDS_COLOR_TO_CDS_KIND = {
   critical: 'danger',
 } as const;
 
-const mapHdsColorToCdsKind = helper(function ([color]) {
+// tried to use `HdsButtonColors` from the HdsButton types but doesn't make TS happy
+type HdsButtonColors = [keyof typeof MAPPING_HDS_COLOR_TO_CDS_KIND];
+
+const mapHdsColorToCdsKind = helper(function ([color]: HdsButtonColors) {
   return MAPPING_HDS_COLOR_TO_CDS_KIND[color];
 });
 
