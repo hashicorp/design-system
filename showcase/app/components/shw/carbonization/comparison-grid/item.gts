@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
-import { eq } from 'ember-truth-helpers';
 
 import ShwLabel from '../../label';
 
