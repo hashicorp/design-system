@@ -77,6 +77,8 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
       />
     </SG.Item>
   </ShwGrid>
+
+  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionWidthManagement;
