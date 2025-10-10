@@ -35,10 +35,6 @@ import MockAppFooterAppFooter from '../app/components/mock/app/footer/app-footer
 import MockDemoBreakpointsRuler from '../app/components/mock/demo/breakpoints-ruler';
 import MockDemoBreakpointsVisualization from '../app/components/mock/demo/breakpoints-visualization';
 
-import MockFormSuperSelectGenericContent from '../app/components/mock/components/form/super-select/generic-content';
-import MockFormSuperSelectSelectedComponentSingle from '../app/components/mock/components/form/super-select/selected-component-single';
-import MockFormSuperSelectSelectedComponentMultiple from '../app/components/mock/components/form/super-select/selected-component-multiple';
-
 export default interface ShowcaseTemplateRegistry {
   // SHW COMPONENTS
   'Shw::Autoscrollable': typeof ShwAutoscrollable;
@@ -102,12 +98,4 @@ export default interface ShowcaseTemplateRegistry {
   'mock/demo/breakpoints-visualizaton': typeof MockDemoBreakpointsVisualization;
   'Mock::Demo::BreakpointsRuler': typeof MockDemoBreakpointsRuler;
   'mock/demo/breakpoints-ruler': typeof MockDemoBreakpointsRuler;
-
-  // MOCK COMPONENTS
-  'Mock::Form::SuperSelect::GenericContent': typeof MockFormSuperSelectGenericContent;
-  'mock/components/form/super-select/generic-content': typeof MockFormSuperSelectGenericContent;
-  'Mock::Form::SuperSelect::SelectedComponentSingle': typeof MockFormSuperSelectSelectedComponentSingle;
-  'mock/components/form/super-select/selected-component-single': typeof MockFormSuperSelectSelectedComponentSingle;
-  'Mock::Form::SuperSelect::SelectedComponentMultiple': typeof MockFormSuperSelectSelectedComponentMultiple;
-  'mock/components/form/super-select/selected-component-multiple': typeof MockFormSuperSelectSelectedComponentMultiple;
 }
