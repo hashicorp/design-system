@@ -29,6 +29,9 @@ export interface MockAppSidebarAppSideNavSignature {
   Blocks: {
     extraAfter?: [];
   };
+  Blocks: {
+    extraAfter?: [];
+  };
   Element: HdsAppSideNavSignature['Element'];
 }
 
