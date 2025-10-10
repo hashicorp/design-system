@@ -43,14 +43,17 @@
 
 // TODO replace the hex values (copied from the `--cds-background` themed variable) with CSS design tokens from our theming
 .shw-carbonization-comparison-grid__item--area-cds-g0 {
-  --content-background-color: #ffffff;
+  --content-background-color: #fff;
 }
+
 .shw-carbonization-comparison-grid__item--area-cds-g10 {
   --content-background-color: #f4f4f4;
 }
+
 .shw-carbonization-comparison-grid__item--area-cds-g90 {
   --content-background-color: #262626;
 }
+
 .shw-carbonization-comparison-grid__item--area-cds-g100 {
   --content-background-color: #161616;
 }
