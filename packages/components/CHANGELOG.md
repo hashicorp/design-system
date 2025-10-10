@@ -1,19 +1,36 @@
 # @hashicorp/design-system-components
 
+## 4.24.1
+
+### Patch Changes
+
+<!-- START components/modal -->
+
+`Modal` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Modal is closed.
+
+<!-- END -->
+
+<!-- START components/flyout -->
+
+`Flyout` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Flyout is closed.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3215](https://github.com/hashicorp/design-system/pull/3215)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.24.0
 
 [4.24.0 documentation](https://hds-website-4-24-0.vercel.app/)
 
 ### Minor Changes
 
-
 `PopoverPrimitive` - Added support for dynamic swap/injection of the toggle element.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3189](https://github.com/hashicorp/design-system/pull/3189)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
 
 `AdvancedTable` - Added support for column reordering.
 
@@ -28,13 +45,9 @@
 
 ### Patch Changes
 
-
 `Table` - Update the model and returned `B.data` to use generic types, so the type of the data is retained.
 
-
-
 `KeyValueInputs` - Update the data and returned `R.rowData` to use generic types, so the type of the data is retained.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3150](https://github.com/hashicorp/design-system/pull/3150) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 
