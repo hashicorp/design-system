@@ -121,7 +121,7 @@
   },
   "peerDependencies": {
     "@ember/string": "^3.1.1 || ^4.0.0",
-    "ember-basic-dropdown": "^7.3.0 || ^8.0.0",
+    "ember-basic-dropdown": "^7.3.0 || ^8.6.1",
     "ember-engines": ">= 0.11.0",
     "ember-intl": "^7.3.0"
   },
