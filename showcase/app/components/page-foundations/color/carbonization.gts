@@ -18,6 +18,7 @@ export default class ColorCarbonization extends Component {
 
     <section>
       {{#each this.allColorTokens as |token|}}
+        {{! @glint-ignore - we know all the tokens of type 'color' have values as 'strings' }}
         <ShwCarbonizationTokenPreviewColor @token={{token}} />
       {{/each}}
     </section>
