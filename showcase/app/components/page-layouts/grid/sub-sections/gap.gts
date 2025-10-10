@@ -18,7 +18,7 @@ import { GAPS } from '@hashicorp/design-system-components/components/hds/layout/
 
 import type { HdsLayoutGridGaps } from '@hashicorp/design-system-components/components/hds/layout/grid/types';
 
-import CodeFragmentWithChildGapVariants from '../code-fragments/with-child-gap-variants';
+import CodeFragmentWithGapVariants from '../code-fragments/with-gap-variants';
 
 const DEMO_GAP_ARRAYS:
   | HdsLayoutGridGaps
@@ -45,7 +45,7 @@ const SubSectionGap: TemplateOnlyComponent = <template>
         <ShwOutliner>
           <HdsLayoutGrid @gap={{gap}} @columnMinWidth="50%">
             {{#each (array "1" "2" "3" "4") as |item|}}
-              <ShwPlaceholder @text="item #{{item}}" @height="24" />
+              <ShwPlaceholder @text=" #{{item}}" @height="24" />
             {{/each}}
           </HdsLayoutGrid>
         </ShwOutliner>
@@ -93,13 +93,13 @@ const SubSectionGap: TemplateOnlyComponent = <template>
     <SF.Item
       @label="Parent Grid w/ @gap=16, nested Grid wo/ @gap (defaults to 0)"
     >
-      <CodeFragmentWithChildGapVariants />
+      <CodeFragmentWithGapVariants />
     </SF.Item>
     <SF.Item @label="Parent Grid w/ @gap=16, nested Grid w/ @gap=0 (explicit)">
-      <CodeFragmentWithChildGapVariants @childGap="0" />
+      <CodeFragmentWithGapVariants @childGap="0" />
     </SF.Item>
     <SF.Item @label="Parent Grid w/ @gap=48, nested Grid w/ @gap=16">
-      <CodeFragmentWithChildGapVariants @childGap="16" />
+      <CodeFragmentWithGapVariants @gap="48" @childGap="16" />
     </SF.Item>
     <SF.Item @label="Parent Grid w/ @gap=48, nested Flex w/ @gap=16">
       <HdsLayoutGrid @gap="48" @align="center" as |LG|>
