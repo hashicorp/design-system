@@ -42,16 +42,15 @@ export default class CodeFragmentWithCompactAndRouting extends Component<CodeFra
     const { direction, cursorIndex } = getCursorParts(token, USERS);
 
     let start;
-    let end;
 
     if (direction === 'prev') {
-      end = cursorIndex;
       // we want to avoid having a negative `start` index for the `array.slide` method (it happens if the cursorIndex is smaller than the selected page size)
       start = Math.max(0, cursorIndex - pageSize);
     } else {
       start = cursorIndex;
-      end = cursorIndex + pageSize;
     }
+
+    const end = start + pageSize;
 
     return USERS.slice(start, end);
   }

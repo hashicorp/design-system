@@ -69,8 +69,7 @@ export default class CodeFragmentWithNumberedAndRouting extends Component<CodeFr
   onTableSort = (sortBy: string, sortOrder: HdsTableThSortOrder) => {
     this.router.transitionTo(this.demoRouteName, {
       queryParams: {
-        // should we reset the selected page?
-        // currentPageDemoNumbered: 1,
+        currentPageDemoNumbered: 1,
         sortByDemoNumbered: sortBy,
         sortOrderDemoNumbered: sortOrder,
       },

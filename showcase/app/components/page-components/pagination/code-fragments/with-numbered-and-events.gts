@@ -45,8 +45,7 @@ export default class CodeFragmentWithNumberedAndEvents extends Component {
   onTableSort = (sortBy: string, sortOrder: HdsTableThSortOrder) => {
     this.currentSortBy = sortBy;
     this.currentSortOrder = sortOrder;
-    // should we reset the selected page?
-    // this.currentPage = 1;
+    this.currentPage = 1;
   };
 
   <template>

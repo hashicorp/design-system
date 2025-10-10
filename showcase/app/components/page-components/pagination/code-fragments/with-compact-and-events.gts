@@ -27,15 +27,15 @@ export default class CodeFragmentWithCompactAndEvents extends Component {
     );
 
     let start;
-    let end;
+
     const pageSize = this.pageSize;
     if (direction === 'prev') {
-      end = cursorIndex;
       start = cursorIndex - pageSize;
     } else {
       start = cursorIndex;
-      end = cursorIndex + pageSize;
     }
+
+    const end = start + pageSize;
     return USERS.slice(start, end);
   }
 
@@ -64,7 +64,6 @@ export default class CodeFragmentWithCompactAndEvents extends Component {
   onPageChange = (page: HdsPaginationDirections) => {
     console.group('onPageChange invoked with arguments:');
     console.log('page', page);
-    console.log('pageSize', this.pageSize);
     console.groupEnd();
 
     // get the next/prev cursors
