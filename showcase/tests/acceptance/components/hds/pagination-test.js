@@ -184,8 +184,7 @@ module('Acceptance | Component | hds/pagination', function (hooks) {
     );
     assert
       .dom('#compact-with-routing .hds-table .hds-table__tbody .hds-table__tr')
-      // notice: even if the "page size" is 10, we see only 5 records because we are counting "10 records before record #6" and so only 5 records exist
-      .exists({ count: 5 });
+      .exists({ count: 10 });
     assert
       .dom(
         '#compact-with-routing .hds-table .hds-table__tbody .hds-table__tr .hds-table__td',
