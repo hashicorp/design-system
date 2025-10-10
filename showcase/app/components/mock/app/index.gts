@@ -51,9 +51,8 @@ export interface MockAppSignature {
     ];
     sidebar?: [
       {
-        SideNav?:
-          | ComponentLike<MockAppSidebarAppSideNavSignature>
-          | ComponentLike<MockAppSidebarOldSideNavSignature>;
+        AppSideNav?: ComponentLike<MockAppSidebarAppSideNavSignature>;
+        SideNav?: ComponentLike<MockAppSidebarOldSideNavSignature>;
       },
     ];
     main?: [
@@ -94,7 +93,13 @@ export default class MockApp extends Component<MockAppSignature> {
       </Frame.Header>
       <Frame.Sidebar>
         {{#if (has-block "sidebar")}}
-          {{yield (hash SideNav=MockAppSidebarAppSideNav) to="sidebar"}}
+          {{yield
+            (hash
+              AppSideNav=MockAppSidebarAppSideNav
+              SideNav=MockAppSidebarOldSideNav
+            )
+            to="sidebar"
+          }}
         {{else}}
           {{#if @hasOldSidebar}}
             <MockAppSidebarOldSideNav />
