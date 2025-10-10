@@ -9,7 +9,7 @@ import {
   TOOLTIP_PLACEMENTS,
 } from '@hashicorp/design-system-components/components/hds/tag/index';
 
-import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+import type { ModelFrom } from 'showcase/utils/model-from-route';
 
 export type PageComponentsTagModel = ModelFrom<PageComponentsTagRoute>;
 

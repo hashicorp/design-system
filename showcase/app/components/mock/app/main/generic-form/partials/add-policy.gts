@@ -29,7 +29,7 @@ import {
 // types
 import type { HdsFormHeaderSignature } from '@hashicorp/design-system-components/components/hds/form/header/index';
 import type { HdsFormSectionSignature } from '@hashicorp/design-system-components/components/hds/form/section/index';
-import style from 'ember-style-modifier/modifiers/style';
+import style from 'ember-style-modifier';
 
 export interface MockAppMainGenericFormPartialsAddPolicySignature {
   Args: {

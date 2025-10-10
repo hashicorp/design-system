@@ -4,7 +4,7 @@
  */
 
 import { on } from '@ember/modifier';
-import style from 'ember-style-modifier/modifiers/style';
+import style from 'ember-style-modifier';
 
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwTextH2 from 'showcase/components/shw/text/h2';

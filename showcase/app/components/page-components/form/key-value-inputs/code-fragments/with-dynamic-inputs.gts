@@ -7,7 +7,7 @@ import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { eq, or } from 'ember-truth-helpers';
-import style from 'ember-style-modifier/modifiers/style';
+import style from 'ember-style-modifier';
 
 import CodeFragmentWithDemoInstructions from 'showcase/components/page-components/form/key-value-inputs/code-fragments/with-demo-instructions';
 

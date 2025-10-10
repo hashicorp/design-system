@@ -13,7 +13,7 @@ import {
 import type { HdsBadgeColors } from '@hashicorp/design-system-components/components/hds/badge/types';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
-import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+import type { ModelFrom } from 'showcase/utils/model-from-route';
 
 export type PageComponentsRichTooltipModel =
   ModelFrom<PageComponentsRichTooltipRoute>;
