@@ -2,7 +2,7 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-import Component from '@glimmer/component';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextBody from 'showcase/components/shw/text/body';
@@ -26,7 +26,7 @@ interface SubSectionDemosSignature {
   };
 }
 
-export default class SubSectionDemos extends Component<SubSectionDemosSignature> {
+const SubSectionDemos: TemplateOnlyComponent<SubSectionDemosSignature> =
   <template>
     <ShwTextH2 @tag="h2">Examples of tabs implementation</ShwTextH2>
 
@@ -162,5 +162,6 @@ export default class SubSectionDemos extends Component<SubSectionDemosSignature>
     <CodeFragmentWithDynamicTabSelection />
 
     <CodeFragmentWithDynamicTabSelectionLoop />
-  </template>
-}
+  </template>;
+
+export default SubSectionDemos;
