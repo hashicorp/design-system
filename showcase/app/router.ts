@@ -90,7 +90,9 @@ Router.map(function () {
       this.route('radio');
       this.route('select');
       this.route('super-select');
-      this.route('text-input');
+      this.route('text-input', function () {
+        this.route('carbonization');
+      });
       this.route('textarea');
       this.route('toggle');
       this.route('radio-card');
