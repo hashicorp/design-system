@@ -14,9 +14,17 @@
     {{content-for "head"}}
     {{content-for "test-head"}}
 
-    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <!-- these styles are pre-compiled in the `components` package -->
+    <!-- IMPORTANT: these entries always need to be kept in sync with the `showcase/app/index.html` file -->
+    <link rel="stylesheet" href="{{rootURL}}assets/styles/@hashicorp/design-system-components.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/styles/@hashicorp/design-system-power-select-overrides.css">
+
+    <!-- these styles are compiled with the Showcase -->
+     <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link rel="stylesheet" href="{{rootURL}}assets/showcase.css">
-    <link rel="stylesheet" href="{{rootURL}}assets/test-support.css">
+
+    <!-- this file is not really used -->
+     <link rel="stylesheet" href="{{rootURL}}assets/test-support.css">
 
     {{content-for "head-footer"}}
     {{content-for "test-head-footer"}}
