@@ -7,7 +7,8 @@ import { pageTitle } from 'ember-page-title';
 import { LinkTo } from '@ember/routing';
 import { inject as service } from '@ember/service';
 import type RouterService from '@ember/routing/router-service';
-import { modifier } from 'ember-modifier';
+import type Owner from '@ember/owner';
+import { scheduleOnce } from '@ember/runloop';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
@@ -16,11 +17,15 @@ import ShwLogoDesignSystem from 'showcase/components/shw/logo/design-system';
 export default class Application extends Component {
   @service declare readonly router: RouterService;
 
+  constructor(owner: Owner, args: Record<string, never>) {
+    super(owner, args);
+    this.router.on('routeDidChange', this.routeDidChange.bind(this));
+  }
+
   get isFrameless() {
     return this.router?.currentURL?.includes('frameless') ?? false;
   }
-
-  addMockStateClasses = modifier(() => {
+  addMockStateClasses = () => {
     document.querySelectorAll('[mock-state-value]').forEach((element) => {
       let targets;
       const mockStateSelector = element.getAttribute('mock-state-selector');
@@ -35,7 +40,12 @@ export default class Application extends Component {
         target.classList.add(...classes);
       });
     });
-  });
+  };
+
+  routeDidChange = () => {
+    // eslint-disable-next-line ember/no-runloop
+    scheduleOnce('afterRender', this, this.addMockStateClasses.bind(this));
+  };
 
   <template>
     {{pageTitle "HDS Showcase"}}
@@ -61,7 +71,7 @@ export default class Application extends Component {
         </LinkTo>
       </aside>
 
-      <main id="main" class="shw-page-main" {{this.addMockStateClasses}}>
+      <main id="main" class="shw-page-main">
         {{outlet}}
       </main>
     {{/if}}
