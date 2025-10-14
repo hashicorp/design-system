@@ -9,6 +9,7 @@ import { inject as service } from '@ember/service';
 import type RouterService from '@ember/routing/router-service';
 import type Owner from '@ember/owner';
 import { scheduleOnce } from '@ember/runloop';
+import { modifier } from 'ember-modifier';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
@@ -25,6 +26,7 @@ export default class Application extends Component {
   get isFrameless() {
     return this.router?.currentURL?.includes('frameless') ?? false;
   }
+
   addMockStateClasses = () => {
     document.querySelectorAll('[mock-state-value]').forEach((element) => {
       let targets;
@@ -46,6 +48,10 @@ export default class Application extends Component {
     // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, this.addMockStateClasses.bind(this));
   };
+
+  handleInitialStateClasses = modifier(() => {
+    this.addMockStateClasses();
+  });
 
   <template>
     {{pageTitle "HDS Showcase"}}
@@ -71,7 +77,7 @@ export default class Application extends Component {
         </LinkTo>
       </aside>
 
-      <main id="main" class="shw-page-main">
+      <main id="main" class="shw-page-main" {{this.handleInitialStateClasses}}>
         {{outlet}}
       </main>
     {{/if}}
