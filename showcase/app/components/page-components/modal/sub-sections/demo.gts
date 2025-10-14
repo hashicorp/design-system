@@ -11,6 +11,7 @@ import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
+import NOOP from 'showcase/utils/noop';
 
 import {
   HdsModal,
@@ -103,10 +104,6 @@ export default class SubSectionDemo extends Component {
 
   resetIsDismissDisabled = () => {
     this.isDismissDisabled = false;
-  };
-
-  noop = () => {
-    // no-op for demo purposes
   };
 
   <template>
@@ -353,7 +350,7 @@ export default class SubSectionDemo extends Component {
           <HdsFormSuperSelectSingleBase
             @options={{this.superSelectOptions1}}
             @selected={{this.superSelectSelectedOption1}}
-            @onChange={{this.noop}}
+            @onChange={{NOOP}}
             as |option|
           >
             {{option}}
@@ -395,7 +392,7 @@ export default class SubSectionDemo extends Component {
           <HdsFormSuperSelectSingleBase
             @options={{this.superSelectOptions2}}
             @selected={{this.superSelectSelectedOption2}}
-            @onChange={{this.noop}}
+            @onChange={{NOOP}}
             as |option|
           >
             {{option}}
@@ -438,7 +435,7 @@ export default class SubSectionDemo extends Component {
           <HdsFormSuperSelectSingleBase
             @options={{this.superSelectOptions3}}
             @selected={{this.superSelectSelectedOption3}}
-            @onChange={{this.noop}}
+            @onChange={{NOOP}}
             as |option|
           >
             {{option}}
