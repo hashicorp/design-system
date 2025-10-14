@@ -42,7 +42,7 @@ import CodeFragmentWithDemoAppListContent from 'showcase/components/page-compone
 const STATES = ['default', 'hover', 'active', 'focus', 'disabled'];
 const BUTTON_COLORS: HdsButtonColors[] = ['primary', 'secondary'];
 
-const SideNavIndex: TemplateOnlyComponent = <template>
+const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>SideNavBase</ShwTextH2>
 
   <ShwFlex as |SF|>
@@ -954,4 +954,4 @@ const SideNavIndex: TemplateOnlyComponent = <template>
   </div>
 </template>;
 
-export default SideNavIndex;
+export default SubSectionBaseElements;
