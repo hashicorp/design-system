@@ -5,16 +5,15 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { deepTracked } from 'ember-deep-tracked';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import NOOP from 'showcase/utils/noop';
+import CodeFragmentWithTrigger from '../code-fragments/with-trigger';
 
 import {
-  HdsModal,
   HdsButton,
   HdsButtonSet,
   HdsFormSelectField,
@@ -25,68 +24,28 @@ import {
   HdsFormTextInputField,
 } from '@hashicorp/design-system-components/components';
 
-interface ModalState {
-  basicModalActive: boolean;
-  longModalActive: boolean;
-  formModalActive: boolean;
-  tabsModalActive: boolean;
-  dropdownModalActive: boolean;
-  superselectModalActive1: boolean;
-  superselectModalActive2: boolean;
-  superselectModalActive3: boolean;
-  dismissDisabledModalActive: boolean;
-  dropdownInitiatedModalActive: boolean;
-  dropdownInitiatedWithReturnedFocusModalActive: boolean;
-  deactivateModalOnCloseActive: boolean;
-  deactivateModalOnDestroyActive: boolean;
-  deactivateModalOnSubmitActive: boolean;
-}
-
 export default class SubSectionDemo extends Component {
-  @deepTracked modals: ModalState = {
-    basicModalActive: false,
-    longModalActive: false,
-    formModalActive: false,
-    tabsModalActive: false,
-    dropdownModalActive: false,
-    superselectModalActive1: false,
-    superselectModalActive2: false,
-    superselectModalActive3: false,
-    dismissDisabledModalActive: false,
-    dropdownInitiatedModalActive: false,
-    dropdownInitiatedWithReturnedFocusModalActive: false,
-    deactivateModalOnCloseActive: false,
-    deactivateModalOnDestroyActive: false,
-    deactivateModalOnSubmitActive: false,
-  };
-
   @tracked isDismissDisabled: boolean | undefined = undefined;
   @tracked deactivateModalOnSubmitValidationError = false;
 
-  superSelectOptions1 = ['Option 1', 'Option 2', 'Option 3'];
-  superSelectSelectedOption1 = this.superSelectOptions1[0];
-  superSelectOptions2 = ['Option 1', 'Option 2', 'Option 3'];
-  superSelectSelectedOption2 = this.superSelectOptions2[0];
-  superSelectOptions3 = ['Option 1', 'Option 2', 'Option 3'];
-  superSelectSelectedOption3 = this.superSelectOptions3[0];
+  superSelectOptions = ['Option 1', 'Option 2', 'Option 3'];
+  superSelectSelectedOption = this.superSelectOptions[0];
 
-  activateModal = (modal: keyof ModalState) => {
-    this.modals[modal] = true;
-
-    if (modal === 'dismissDisabledModalActive') {
-      this.isDismissDisabled = true;
-    }
+  // Methods for non-dismissable modal functionality
+  enableDismissDisabled = () => {
+    this.isDismissDisabled = true;
   };
 
-  deactivateModal = (modal: keyof ModalState) => {
-    this.modals[modal] = false;
-
-    if (modal === 'dismissDisabledModalActive') {
-      this.isDismissDisabled = undefined;
-    }
+  disableDismissDisabled = () => {
+    this.isDismissDisabled = undefined;
   };
 
-  deactivateModalOnSubmit = (event: Event) => {
+  resetIsDismissDisabled = () => {
+    this.isDismissDisabled = false;
+  };
+
+  // Methods for form validation modal functionality
+  deactivateModalOnSubmit = (closeModal: () => void, event: Event) => {
     event.preventDefault(); // Prevent page reload
 
     if (event.target instanceof HTMLFormElement) {
@@ -97,54 +56,40 @@ export default class SubSectionDemo extends Component {
         this.deactivateModalOnSubmitValidationError = true;
       } else {
         this.deactivateModalOnSubmitValidationError = false;
-        this.modals.deactivateModalOnSubmitActive = false;
+        // Close the modal when validation passes
+        closeModal();
       }
     }
-  };
-
-  resetIsDismissDisabled = () => {
-    this.isDismissDisabled = false;
   };
 
   <template>
     <ShwTextH2>Demo</ShwTextH2>
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "basicModalActive")}}
-    >Open basic modal</button>
-
-    {{#if this.modals.basicModalActive}}
-      <HdsModal
-        id="basic-modal"
-        @onClose={{fn this.deactivateModal "basicModalActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Open basic modal"
+      @modalId="basic-modal"
+    >
+      <:modal as |M|>
         <M.Header>
           Modal title
         </M.Header>
         <M.Body>
-          <p class="hds-typography-body-300 hds-foreground-primary">Modal
-            content</p>
+          <p class="hds-typography-body-300 hds-foreground-primary">
+            Modal content
+          </p>
         </M.Body>
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "longModalActive")}}
-    >Open long content modal</button>
-
-    {{#if this.modals.longModalActive}}
-      <HdsModal
-        id="long-modal"
-        @size="small"
-        @onClose={{fn this.deactivateModal "longModalActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Open long content modal"
+      @modalId="long-modal"
+      @size="small"
+    >
+      <:modal as |M|>
         <M.Header>
           Modal title
         </M.Header>
@@ -187,29 +132,26 @@ export default class SubSectionDemo extends Component {
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
     <br />
     <br />
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "formModalActive")}}
-    >Open form modal</button>
-
-    {{! template-lint-disable no-autofocus-attribute }}
-    {{#if this.modals.formModalActive}}
-      <HdsModal
-        id="form-modal"
-        @onClose={{fn this.deactivateModal "formModalActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Open form modal"
+      @modalId="form-modal"
+    >
+      <:modal as |M|>
         <M.Header>
           Why do you want to leave the beta?
         </M.Header>
         <M.Body>
-          <form name="leaving-beta-form">
+          {{! template-lint-disable no-autofocus-attribute }}
+          <form
+            name="leaving-beta-form"
+            aria-label="Leaving Beta Feedback Form"
+          >
             <HdsFormSelectField autofocus @width="100%" as |F|>
               <F.Label>Select the primary reason</F.Label>
               <F.Options>
@@ -220,13 +162,14 @@ export default class SubSectionDemo extends Component {
               <F.Label>Your feedback</F.Label>
             </HdsFormTextareaField>
           </form>
+          {{! template-lint-enable no-autofocus-attribute }}
         </M.Body>
         <M.Footer as |F|>
           <HdsButtonSet>
             <HdsButton
               type="submit"
               @text="Leave Beta"
-              {{on "click" (fn this.deactivateModal "formModalActive")}}
+              {{on "click" M.close}}
             />
             <HdsButton
               type="button"
@@ -236,20 +179,14 @@ export default class SubSectionDemo extends Component {
             />
           </HdsButtonSet>
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "tabsModalActive")}}
-    >Open tabs modal</button>
-
-    {{#if this.modals.tabsModalActive}}
-      <HdsModal
-        id="tabs-modal"
-        @onClose={{fn this.deactivateModal "tabsModalActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Open tabs modal"
+      @modalId="tabs-modal"
+    >
+      <:modal as |M|>
         <M.Header>
           Modal title
         </M.Header>
@@ -275,23 +212,17 @@ export default class SubSectionDemo extends Component {
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
     <br />
     <br />
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "dropdownModalActive")}}
-    >Open dropdown modal</button>
-
-    {{#if this.modals.dropdownModalActive}}
-      <HdsModal
-        id="dropdown-modal"
-        @onClose={{fn this.deactivateModal "dropdownModalActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Open dropdown modal"
+      @modalId="dropdown-modal"
+    >
+      <:modal as |M|>
         <M.Header>
           Modal title
         </M.Header>
@@ -309,28 +240,23 @@ export default class SubSectionDemo extends Component {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur.</p>
           <HdsDropdown @listPosition="bottom-left" as |dd|>
-            <dd.ToggleButton @text="Menu" />
-            <dd.Interactive @href="#">Create</dd.Interactive>
-            <dd.Interactive @href="#">Edit</dd.Interactive>
+            <dd.ToggleButton @text="Generic dropdown" />
+            <dd.Interactive @href="#">Lorem</dd.Interactive>
+            <dd.Interactive @href="#">Ipsum</dd.Interactive>
+            <dd.Interactive @href="#">Dolor</dd.Interactive>
           </HdsDropdown>
         </M.Body>
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "superselectModalActive1")}}
-    >Open super-select modal (base)</button>
-
-    {{#if this.modals.superselectModalActive1}}
-      <HdsModal
-        id="superselect-modal1"
-        @onClose={{fn this.deactivateModal "superselectModalActive1"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Open super-select modal (base)"
+      @modalId="superselect-modal-base"
+    >
+      <:modal as |M|>
         <M.Header>
           Modal title
         </M.Header>
@@ -348,9 +274,11 @@ export default class SubSectionDemo extends Component {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur.</p>
           <HdsFormSuperSelectSingleBase
-            @options={{this.superSelectOptions1}}
-            @selected={{this.superSelectSelectedOption1}}
+            @options={{this.superSelectOptions}}
+            @selected={{this.superSelectSelectedOption}}
+            @verticalPosition="below"
             @onChange={{NOOP}}
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -359,20 +287,14 @@ export default class SubSectionDemo extends Component {
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "superselectModalActive2")}}
-    >Open super-select modal (with search) [bug]</button>
-
-    {{#if this.modals.superselectModalActive2}}
-      <HdsModal
-        id="superselect-modal2"
-        @onClose={{fn this.deactivateModal "superselectModalActive2"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Open super-select modal (with search) [bug]"
+      @modalId="superselect-modal-with-search-bug"
+    >
+      <:modal as |M|>
         <M.Header>
           Modal title
         </M.Header>
@@ -390,8 +312,12 @@ export default class SubSectionDemo extends Component {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur.</p>
           <HdsFormSuperSelectSingleBase
-            @options={{this.superSelectOptions2}}
-            @selected={{this.superSelectSelectedOption2}}
+            @options={{this.superSelectOptions}}
+            @selected={{this.superSelectSelectedOption}}
+            @searchEnabled={{true}}
+            @initiallyOpened={{true}}
+            @verticalPosition="below"
+            @ariaLabel="Label"
             @onChange={{NOOP}}
             as |option|
           >
@@ -401,21 +327,15 @@ export default class SubSectionDemo extends Component {
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "superselectModalActive3")}}
-    >Open super-select modal (with search) [fix]</button>
-
-    {{#if this.modals.superselectModalActive3}}
-      <HdsModal
-        id="superselect-modal3"
-        class="shw-component-modal-with-super-select-fix-overflow"
-        @onClose={{fn this.deactivateModal "superselectModalActive3"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Open super-select modal (with search) [fix]"
+      @modalId="superselect-modal-with-search-fix"
+      @class="shw-component-modal-with-super-select-fix-overflow"
+    >
+      <:modal as |M|>
         <M.Header>
           Modal title
         </M.Header>
@@ -433,9 +353,13 @@ export default class SubSectionDemo extends Component {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur.</p>
           <HdsFormSuperSelectSingleBase
-            @options={{this.superSelectOptions3}}
-            @selected={{this.superSelectSelectedOption3}}
+            @options={{this.superSelectOptions}}
+            @selected={{this.superSelectSelectedOption}}
             @onChange={{NOOP}}
+            @searchEnabled={{true}}
+            @initiallyOpened={{true}}
+            @verticalPosition="below"
+            @ariaLabel="Label"
             as |option|
           >
             {{option}}
@@ -444,97 +368,83 @@ export default class SubSectionDemo extends Component {
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
     <br />
     <br />
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "dismissDisabledModalActive")}}
-    >Open non-dismissable modal</button>
-
-    {{#if this.modals.dismissDisabledModalActive}}
-      <HdsModal
-        id="dismiss-disabled-modal"
-        @isDismissDisabled={{this.isDismissDisabled}}
-        @onClose={{fn this.deactivateModal "dismissDisabledModalActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Open non-dismissable modal"
+      @modalId="dismiss-disabled-modal"
+      @isDismissDisabled={{this.isDismissDisabled}}
+      @onOpen={{this.enableDismissDisabled}}
+      @onClose={{this.disableDismissDisabled}}
+    >
+      <:modal as |M|>
         <M.Header>
           Try to close this modal
         </M.Header>
         <M.Body>
-          <p class="hds-typography-body-300 hds-foreground-primary">You should
-            not be able to close this modal by pressing the escape key. You can
-            click the "X" in the top right corner of this modal to proceed.</p>
-          <p class="hds-typography-body-300 hds-foreground-primary">The backdrop
-            (overlay) is also disabled by default when
-            <code>@isDismissDisabled</code>
-            is
-            <code>true</code>.</p>
-          <p class="hds-typography-body-300 hds-foreground-primary">You also
-            cannot use the "onClose" callback, but only the "close" method
-            provided by the yielded object.</p>
-          <br />
-          <p class="hds-typography-body-300 hds-foreground-primary">If you want
-            to proceed to the next demo, click the button below to get the "X"
-            icon back, so you can close the modal. Then press the following
-            button to restore the dismissal functionality.</p>
-          <br />
-          <p class="hds-typography-body-300 hds-foreground-primary">Notice: this
-            approach is used mainly for showcase purposes, normally you should
-            not toggle the "isDismissDisabled" property using buttons inside the
-            modal; it should be something external to the modal that triggers
-            the toggle of the property. For example, adding/removing
-            <code>disabled</code>
-            property to/from a form (on validation), or by using the
-            action/callback methods provided by external services or helper
-            functions.</p>
+          <p
+            class="hds-typography-body-200 hds-foreground-primary"
+            {{style margin-bottom="12px"}}
+          >When this modal is opened, the
+            <code>isDismissDisabled</code>
+            argument is set to
+            <code>true</code>, so it can't be dismissed (not by clicking the
+            cancel button or the close button, nor clicking on the overlay area
+            or via
+            <code>esc</code>
+            key).</p>
+          <p
+            class="hds-typography-body-200 hds-foreground-primary"
+            {{style margin="12px 0"}}
+          >Click this button to reset the variable to
+            <code>false</code>
+            and go back to its normal state, where you should be able to close
+            it.</p>
+          <button
+            type="button"
+            {{style padding=".25rem"}}
+            {{on "click" this.resetIsDismissDisabled}}
+          >Reset
+            <code>isDismissDisabled</code></button>
+          <pre>this.isDismissDisabled = {{this.isDismissDisabled}}</pre>
         </M.Body>
         <M.Footer as |F|>
           <HdsButtonSet>
+            <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
             <HdsButton
               type="button"
-              @text="Restore dismiss capability"
-              {{on "click" this.resetIsDismissDisabled}}
-            />
-            <HdsButton
-              type="button"
-              @text="Close"
+              @text="Cancel"
               @color="secondary"
               {{on "click" F.close}}
             />
           </HdsButtonSet>
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
     <br />
     <br />
 
-    <HdsDropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
-      <D.ToggleButton
-        @color="secondary"
-        @size="small"
-        @text="Open modal via dropdown"
-      />
-      <D.Interactive
-        {{on "click" (fn this.activateModal "dropdownInitiatedModalActive")}}
-      >
-        Open modal
-      </D.Interactive>
-    </HdsDropdown>
-
-    {{#if this.modals.dropdownInitiatedModalActive}}
-      <HdsModal
-        id="dropdown-initiated-modal"
-        @onClose={{fn this.deactivateModal "dropdownInitiatedModalActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger @modalId="dropdown-initiated-modal">
+      <:trigger as |T|>
+        <HdsDropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
+          <D.ToggleButton
+            @color="secondary"
+            @size="small"
+            @text="Open modal via dropdown"
+          />
+          <D.Interactive {{on "click" T.openModal}}>
+            Open modal
+          </D.Interactive>
+        </HdsDropdown>
+      </:trigger>
+      <:modal as |M|>
         <M.Header>
-          Modal opened from dropdown
+          Modal title
         </M.Header>
         <M.Body>
           <p class="hds-typography-body-300 hds-foreground-primary">Modal
@@ -543,40 +453,29 @@ export default class SubSectionDemo extends Component {
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
-    <HdsDropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
-      <D.ToggleButton
-        id="dropdown-initiated-modal-with-returned-focus-toggle"
-        @color="secondary"
-        @size="small"
-        @text="Open modal via dropdown (with returned focus)"
-      />
-      <D.Interactive
-        {{on
-          "click"
-          (fn
-            this.activateModal "dropdownInitiatedWithReturnedFocusModalActive"
-          )
-        }}
-      >
-        Open modal
-      </D.Interactive>
-    </HdsDropdown>
-
-    {{#if this.modals.dropdownInitiatedWithReturnedFocusModalActive}}
-      <HdsModal
-        id="dropdown-initiated-modal-with-returned-focus"
-        @onClose={{fn
-          this.deactivateModal
-          "dropdownInitiatedWithReturnedFocusModalActive"
-        }}
-        @returnFocusTo="dropdown-initiated-modal-with-returned-focus-toggle"
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @modalId="dropdown-initiated-modal-with-returned-focus"
+      @returnFocusTo="dropdown-initiated-modal-with-returned-focus-toggle"
+    >
+      <:trigger as |T|>
+        <HdsDropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
+          <D.ToggleButton
+            id="dropdown-initiated-modal-with-returned-focus-toggle"
+            @color="secondary"
+            @size="small"
+            @text="Open modal via dropdown (with returned focus)"
+          />
+          <D.Interactive {{on "click" T.openModal}}>
+            Open modal
+          </D.Interactive>
+        </HdsDropdown>
+      </:trigger>
+      <:modal as |M|>
         <M.Header>
-          Modal with returned focus
+          Modal title
         </M.Header>
         <M.Body>
           <p class="hds-typography-body-300 hds-foreground-primary">Modal
@@ -585,112 +484,94 @@ export default class SubSectionDemo extends Component {
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
     <br />
     <br />
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "deactivateModalOnCloseActive")}}
-    >Deactivated with onClose</button>
-
-    {{#if this.modals.deactivateModalOnCloseActive}}
-      <HdsModal
-        id="deactivate-modal-on-close"
-        @onClose={{fn this.deactivateModal "deactivateModalOnCloseActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Deactivated with `onClose`"
+      @modalId="deactivate-modal-on-close"
+    >
+      <:modal as |M|>
         <M.Header>
-          Deactivated with
-          <code>onClose</code>
+          Modal title
         </M.Header>
         <M.Body>
-          <p class="hds-typography-body-300 hds-foreground-primary">This modal
-            is closed/deactivated using the
-            <code>onClose</code>
-            callback. This means it will be closed when:</p>
-          <ul class="hds-typography-body-300 hds-foreground-primary">
-            <li>the user clicks on the "X" icon (header)</li>
-            <li>the user clicks on the overlay/backdrop</li>
-            <li>the user presses the "Escape" key</li>
-          </ul>
-          <p class="hds-typography-body-300 hds-foreground-primary">But it will
-            <strong>not</strong>
-            be closed when the user clicks the "Close" button below.</p>
+          <p class="hds-typography-body-300 hds-foreground-primary">Clicking the
+            "confirm" button executes the
+            <code>F.close</code>
+            method.</p>
+          <p
+            class="hds-typography-body-200 hds-foreground-primary"
+            {{style margin-top="12px"}}
+          >This is equivalent to a manual dismiss (<code>Esc</code>
+            key, click outside, click dismiss button) because they're all
+            calling the same function, which invokes the native
+            <code>close()</code>
+            method of the
+            <code>Dialog</code>
+            HTML element.</p>
         </M.Body>
         <M.Footer as |F|>
-          <HdsButton type="button" @text="Close" {{on "click" F.close}} />
+          <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "deactivateModalOnDestroyActive")}}
-    >Deactivated on destroy</button>
-
-    {{#if this.modals.deactivateModalOnDestroyActive}}
-      <HdsModal
-        id="deactivate-modal-on-destruction"
-        @onClose={{fn this.deactivateModal "deactivateModalOnDestroyActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Deactivated on destroy"
+      @modalId="deactivate-modal-on-destruction"
+    >
+      <:modal as |M|>
+        {{! template-lint-disable no-duplicate-landmark-elements }}
         <M.Header>
-          Deactivated on destroy
+          Modal title
         </M.Header>
         <M.Body>
-          <p class="hds-typography-body-300 hds-foreground-primary">This modal
-            is closed/deactivated using both the
-            <code>onClose</code>
-            callback
-            <strong>and</strong>
-            the
-            <code>close</code>
-            method. This means it will be closed both when the user interacts
-            with the modal to close it (using the default methods) and when they
-            click the "Close" button below.</p>
+          <p class="hds-typography-body-300 hds-foreground-primary">Clicking the
+            "confirm" button will directly remove the modal from the DOM.</p>
+          <p
+            class="hds-typography-body-200 hds-foreground-primary"
+            {{style margin-top="12px"}}
+          >This is not equivalent to a manual dismiss (<code>Esc</code>
+            key, click outside, click dismiss button) because it will directly
+            trigger the
+            <code>_registerDialog</code>
+            modifier's cleanup function.</p>
         </M.Body>
         <M.Footer>
-          <HdsButtonSet>
-            <HdsButton
-              type="button"
-              @text="Close"
-              {{on
-                "click"
-                (fn this.deactivateModal "deactivateModalOnDestroyActive")
-              }}
-            />
-          </HdsButtonSet>
+          <HdsButton type="button" @text="Confirm" {{on "click" M.close}} />
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
 
-    <button
-      type="button"
-      {{on "click" (fn this.activateModal "deactivateModalOnSubmitActive")}}
-    >Deactivated on form submit</button>
-
-    {{#if this.modals.deactivateModalOnSubmitActive}}
-      <HdsModal
-        id="deactivate-modal-on-submit"
-        @onClose={{fn this.deactivateModal "deactivateModalOnSubmitActive"}}
-        as |M|
-      >
+    <CodeFragmentWithTrigger
+      @triggerText="Deactivated on form submit"
+      @modalId="deactivate-modal-on-submit"
+    >
+      <:modal as |M|>
         <M.Header>
-          Deactivated on form submit
+          Modal title
         </M.Header>
         <M.Body>
-          <p class="hds-typography-body-300 hds-foreground-primary">This modal
-            is closed/deactivated when the form is submitted. The modal will be
-            closed/deactivated only if the form validation passes, otherwise it
-            will remain open and show an error. This is just an example of how
-            you can control the modal opening/closing using the modifier's
-            cleanup function.</p>
+          <p class="hds-typography-body-300 hds-foreground-primary">Clicking the
+            "confirm" button will submit the form and the associated action will
+            remove the modal from the DOM.</p>
+          <p
+            class="hds-typography-body-200 hds-foreground-primary"
+            {{style margin="12px 0 32px"}}
+          >This is not equivalent to a manual dismiss (<code>Esc</code>
+            key, click outside, click dismiss button) because it will directly
+            trigger the
+            <code>_registerDialog</code>
+            modifier's cleanup function.</p>
+          {{! template-lint-disable no-duplicate-landmark-elements }}
           <form
             id="deactivate-modal-on-submit__form"
-            {{on "submit" this.deactivateModalOnSubmit}}
+            aria-label="Deactivate Modal On Submit Form"
+            {{on "submit" (fn this.deactivateModalOnSubmit M.close)}}
           >
             <HdsFormTextInputField
               name="deactivate-modal-on-submit__input"
@@ -704,6 +585,7 @@ export default class SubSectionDemo extends Component {
               {{/if}}
             </HdsFormTextInputField>
           </form>
+          {{! template-lint-enable no-duplicate-landmark-elements }}
         </M.Body>
         <M.Footer as |F|>
           <HdsButtonSet>
@@ -720,8 +602,8 @@ export default class SubSectionDemo extends Component {
             />
           </HdsButtonSet>
         </M.Footer>
-      </HdsModal>
-    {{/if}}
+      </:modal>
+    </CodeFragmentWithTrigger>
     {{! template-lint-enable no-autofocus-attribute }}
   </template>
 }
