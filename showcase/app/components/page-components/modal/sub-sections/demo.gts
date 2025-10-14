@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { deepTracked } from 'ember-deep-tracked';
 import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
@@ -70,26 +69,23 @@ export default class SubSectionDemo extends Component {
   superSelectOptions3 = ['Option 1', 'Option 2', 'Option 3'];
   superSelectSelectedOption3 = this.superSelectOptions3[0];
 
-  @action
-  activateModal(modal: keyof ModalState) {
+  activateModal = (modal: keyof ModalState) => {
     this.modals[modal] = true;
 
     if (modal === 'dismissDisabledModalActive') {
       this.isDismissDisabled = true;
     }
-  }
+  };
 
-  @action
-  deactivateModal(modal: keyof ModalState) {
+  deactivateModal = (modal: keyof ModalState) => {
     this.modals[modal] = false;
 
     if (modal === 'dismissDisabledModalActive') {
       this.isDismissDisabled = undefined;
     }
-  }
+  };
 
-  @action
-  deactivateModalOnSubmit(event: Event) {
+  deactivateModalOnSubmit = (event: Event) => {
     event.preventDefault(); // Prevent page reload
 
     if (event.target instanceof HTMLFormElement) {
@@ -103,17 +99,15 @@ export default class SubSectionDemo extends Component {
         this.modals.deactivateModalOnSubmitActive = false;
       }
     }
-  }
+  };
 
-  @action
-  resetIsDismissDisabled() {
+  resetIsDismissDisabled = () => {
     this.isDismissDisabled = false;
-  }
+  };
 
-  @action
-  noop() {
+  noop = () => {
     // no-op for demo purposes
-  }
+  };
 
   <template>
     <ShwTextH2>Demo</ShwTextH2>
