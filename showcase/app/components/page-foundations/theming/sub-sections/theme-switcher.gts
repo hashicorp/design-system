@@ -30,7 +30,7 @@ const SubSectionThemeSwitcher: TemplateOnlyComponent = <template>
     </SF.Item>
   </ShwFlex>
 
-  <ShwDivider />
+  <ShwDivider @level={{2}} />
 
   <ShwTextH4 @tag="h3">Options</ShwTextH4>
 
@@ -42,8 +42,6 @@ const SubSectionThemeSwitcher: TemplateOnlyComponent = <template>
       <HdsThemeSwitcher @hasSystemOption={{false}} />
     </SF.Item>
   </ShwFlex>
-
-  <ShwDivider />
 </template>;
 
 export default SubSectionThemeSwitcher;
