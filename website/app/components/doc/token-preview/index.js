@@ -24,7 +24,7 @@ export default class DocTokenPreviewComponent extends Component {
       // check that is a known color format
       (this.token.$value.startsWith('#') || this.token.$value.startsWith('rgb'))
     ) {
-      return htmlSafe(`background-color: ${this.token.$value}`);
+      return htmlSafe(`background-color: var(--${this.token.name})`);
     } else {
       return undefined;
     }
@@ -44,7 +44,7 @@ export default class DocTokenPreviewComponent extends Component {
         backgroundColor = 'transparent';
       }
       return htmlSafe(
-        `background-image: ${this.token.$value}; background-color: ${backgroundColor}`,
+        `background-image: var(--${this.token.name}); background-color: ${backgroundColor}`,
       );
     } else {
       return undefined;
@@ -53,19 +53,15 @@ export default class DocTokenPreviewComponent extends Component {
 
   get fontPreviewStyle() {
     if (this.token.$type === 'font-size') {
-      let size = '16px';
-      if (this.token.$value.match(/rem$/)) {
-        size = `${Math.min(1, this.token.$value.replace(/rem$/, ''))}rem`;
-      }
-      return htmlSafe(`font-size: ${size}`);
+      return htmlSafe(`font-size: var(--${this.token.name})`);
     } else if (
       this.token.name.startsWith('token-typography') &&
       (this.token.name.includes('font-stack') ||
         this.token.name.includes('font-family'))
     ) {
-      return htmlSafe(`font-family: ${this.token.$value}`);
+      return htmlSafe(`font-family: var(--${this.token.name})`);
     } else if (this.token.name.startsWith('token-typography-font-weight')) {
-      return htmlSafe(`font-weight: ${this.token.$value}`);
+      return htmlSafe(`font-weight: var(--${this.token.name})`);
     } else {
       return undefined;
     }
@@ -79,7 +75,7 @@ export default class DocTokenPreviewComponent extends Component {
       this.token.$type === 'dimension' &&
       this.token.$value.endsWith('px')
     ) {
-      return htmlSafe(`--token-value-height: ${this.token.$value}`);
+      return htmlSafe(`--token-value-height: var(--${this.token.name})`);
     } else {
       return undefined;
     }
@@ -88,7 +84,7 @@ export default class DocTokenPreviewComponent extends Component {
   get boxShadowPreviewStyle() {
     const isBoxShadow = this.token.name.endsWith('box-shadow');
     return isBoxShadow
-      ? htmlSafe(`--token-value-box-shadow: ${this.token.$value}`)
+      ? htmlSafe(`--token-value-box-shadow: var(--${this.token.name})`)
       : undefined;
   }
 }
