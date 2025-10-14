@@ -13,7 +13,7 @@ import {
 import { HdsCardLevelValues } from '@hashicorp/design-system-components/components/hds/card/types';
 
 import type { HdsLayoutGridGaps } from '@hashicorp/design-system-components/components/hds/layout/grid/types';
-import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+import type { ModelFrom } from 'showcase/utils/model-from-route';
 
 export type PageLayoutsGridModel = ModelFrom<PageLayoutsGridRoute>;
 
