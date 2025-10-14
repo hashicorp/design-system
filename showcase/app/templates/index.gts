@@ -440,6 +440,11 @@ const Index: TemplateOnlyComponent = <template>
           Form::TextInput
         </LinkTo>
       </li>
+      <li>
+        <LinkTo @route="page-components.segmented-group.carbonization">
+          SegmentedGroup
+        </LinkTo>
+      </li>
     </ol>
   </div>
 </template>;

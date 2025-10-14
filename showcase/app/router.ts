@@ -117,7 +117,9 @@ Router.map(function () {
     });
     this.route('reveal');
     this.route('rich-tooltip');
-    this.route('segmented-group');
+    this.route('segmented-group', function () {
+      this.route('carbonization');
+    });
     this.route('separator');
     this.route('side-nav');
     this.route('stepper', function () {
