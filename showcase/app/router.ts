@@ -26,6 +26,7 @@ Router.map(function () {
     this.route('theming', function () {
       this.route('frameless', function () {
         this.route('demo-application-with-theme-switcher');
+        this.route('page-with-contextual-themes');
       });
     });
   });
