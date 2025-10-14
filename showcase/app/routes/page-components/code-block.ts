@@ -9,7 +9,7 @@ import {
   ERROR_ICON,
 } from '@hashicorp/design-system-components/components/hds/copy/button/index';
 
-import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+import type { ModelFrom } from 'showcase/utils/model-from-route';
 
 export type PageComponentsCodeBlockModel =
   ModelFrom<PageComponentsCodeBlockRoute>;
