@@ -19,35 +19,37 @@ function processChildren(children, asPrefix, b) {
 
       if (textAttr) {
         const childOutputAttributes = child.attributes.filter((a) => a.name !== '@text');
+        const attrValue = textAttr.value;
 
-        const isHandlebarsAttr = textAttr.value.type === 'MustacheStatement';
+        let newChildren = [];
 
-        let children = [];
-
-        // Handle different types of MustacheStatement values
-        if (isHandlebarsAttr) {
-          if (textAttr.value.path.type === 'NumberLiteral') {
-            children = [b.mustache(b.number(textAttr.value.path.value))];
-          } else if (textAttr.value.path.type === 'StringLiteral') {
-            children = [b.mustache(b.string(textAttr.value.path.value))];
+        // START: MODIFIED SECTION
+        // Handle different types of attribute values
+        if (attrValue.type === 'ConcatStatement') {
+          // This is the fix: for mixed strings like @text="Edit {{this.name}}",
+          // the 'parts' array contains the nodes we need for the children.
+          newChildren = attrValue.parts;
+        } else if (attrValue.type === 'MustacheStatement') {
+          if (attrValue.path.type === 'NumberLiteral') {
+            newChildren = [b.mustache(b.number(attrValue.path.value))];
+          } else if (attrValue.path.type === 'StringLiteral') {
+            newChildren = [b.mustache(b.string(attrValue.path.value))];
           } else {
-            children = [
-              b.mustache(
-                textAttr.value.path.original,
-                [...textAttr.value.params],
-                textAttr.value.hash
-              ),
+            newChildren = [
+              b.mustache(attrValue.path.original, [...attrValue.params], attrValue.hash),
             ];
           }
         } else {
-          children = [b.text(textAttr.value.chars)];
+          // This handles TextNode for plain strings like @text="Edit"
+          newChildren = [b.text(attrValue.chars)];
         }
+        // END: MODIFIED SECTION
 
         // Create a new element with the updated children and attributes
         updatedChild = b.element(
           { name: child.tag, selfClosing: false },
           {
-            children,
+            children: newChildren,
             attrs: childOutputAttributes,
             modifiers: child.modifiers,
             blockParams: child.blockParams,
