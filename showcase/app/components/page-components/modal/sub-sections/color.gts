@@ -20,7 +20,7 @@ import {
 import { COLORS } from '@hashicorp/design-system-components/components/hds/modal/index';
 import { NAMES as ICON_NAMES } from '@hashicorp/design-system-components/components/hds/icon/index';
 
-// Static color to icon mapping, same as in controller
+// Static color to icon mapping
 const colorToIconMap: Record<
   (typeof COLORS)[number],
   (typeof ICON_NAMES)[number] | undefined
