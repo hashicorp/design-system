@@ -25,8 +25,6 @@ function processChildren(children, asPrefix, b) {
 
         // Handle different types of attribute values
         if (attrValue.type === 'ConcatStatement') {
-          // This is the fix: for mixed strings like @text="Edit {{this.name}}",
-          // the 'parts' array contains the nodes we need for the children.
           newChildren = attrValue.parts;
         } else if (attrValue.type === 'MustacheStatement') {
           if (attrValue.path.type === 'NumberLiteral') {
