@@ -10,7 +10,7 @@ const SubSectionDemo: TemplateOnlyComponent = <template>
     @id="demo-application-with-theme-switcher"
     @src="/foundations/theming/frameless/demo-application-with-theme-switcher"
     @label="Demo application with theme switcher"
-    @height="900"
+    @height="1000"
   />
 </template>;
 
