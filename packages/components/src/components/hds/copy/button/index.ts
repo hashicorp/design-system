@@ -29,6 +29,7 @@ export interface HdsCopyButtonSignature {
     targetToCopy?: HdsClipboardModifierSignature['Args']['Named']['target'];
     onSuccess?: HdsClipboardModifierSignature['Args']['Named']['onSuccess'];
     onError?: HdsClipboardModifierSignature['Args']['Named']['onError'];
+    ariaMessageText?: string;
   };
   Element: HdsButtonSignature['Element'];
 }
@@ -85,6 +86,14 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
     classes.push(`hds-copy-button--status-${this._status}`);
 
     return classes.join(' ');
+  }
+
+  get ariaMessageText(): string {
+    if (this._status === 'success') {
+      return this.args.ariaMessageText ?? 'Copied to clipboard';
+    } else {
+      return '';
+    }
   }
 
   @action
