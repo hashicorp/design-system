@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import style from 'ember-style-modifier/modifiers/style';
+import style from 'ember-style-modifier';
 import { array, get } from '@ember/helper';
 import { capitalize } from '@ember/string';
 import type Owner from '@ember/owner';
