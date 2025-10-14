@@ -4,7 +4,7 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { eq } from 'ember-truth-helpers';
-import style from 'ember-style-modifier/modifiers/style';
+import style from 'ember-style-modifier';
 
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwLabel from 'showcase/components/shw/label';

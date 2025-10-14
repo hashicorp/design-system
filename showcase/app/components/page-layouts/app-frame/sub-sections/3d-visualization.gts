@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
-import style from 'ember-style-modifier/modifiers/style';
+import style from 'ember-style-modifier';
 import { tracked } from '@glimmer/tracking';
 
 import ShwTextH3 from 'showcase/components/shw/text/h3';

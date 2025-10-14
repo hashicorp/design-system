@@ -5,7 +5,7 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
-import style from 'ember-style-modifier/modifiers/style';
+import style from 'ember-style-modifier';
 
 import ShwTextBody from 'showcase/components/shw/text/body';
 

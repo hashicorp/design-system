@@ -163,7 +163,7 @@ Example file:
 ```ts
 import Route from '@ember/routing/route';
 
-import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+import type { ModelFrom } from 'showcase/utils/model-from-route';
 
 export type PageComponentsAccordionModel =
   ModelFrom<PageComponentsAccordionRoute>;
