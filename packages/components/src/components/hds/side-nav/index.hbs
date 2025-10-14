@@ -20,7 +20,6 @@
 >
   <:root>
     {{#if this.hasA11yRefocus}}
-      {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
       <NavigationNarrator
         @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
         @skipTo={{this.a11yRefocusSkipTo}}
@@ -34,8 +33,7 @@
       <div class="hds-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
       {{! template-lint-enable no-invalid-interactive}}
       <Hds::SideNav::ToggleButton
-        aria-label={{this.ariaLabel}}
-        aria-labelledby={{unless this.ariaLabel "hds-side-nav-header"}}
+        aria-labelledby="hds-side-nav-header"
         aria-expanded={{if this.isMinimized "false" "true"}}
         @icon={{if this.isMinimized "chevrons-right" "chevrons-left"}}
         {{on "click" this.toggleMinimizedStatus}}
