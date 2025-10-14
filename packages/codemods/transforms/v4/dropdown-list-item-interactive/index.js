@@ -23,7 +23,6 @@ function processChildren(children, asPrefix, b) {
 
         let newChildren = [];
 
-        // START: MODIFIED SECTION
         // Handle different types of attribute values
         if (attrValue.type === 'ConcatStatement') {
           // This is the fix: for mixed strings like @text="Edit {{this.name}}",
@@ -43,7 +42,6 @@ function processChildren(children, asPrefix, b) {
           // This handles TextNode for plain strings like @text="Edit"
           newChildren = [b.text(attrValue.chars)];
         }
-        // END: MODIFIED SECTION
 
         // Create a new element with the updated children and attributes
         updatedChild = b.element(
