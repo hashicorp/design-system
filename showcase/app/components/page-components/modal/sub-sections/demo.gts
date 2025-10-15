@@ -65,10 +65,7 @@ export default class SubSectionDemo extends Component {
   <template>
     <ShwTextH2>Demo</ShwTextH2>
 
-    <CodeFragmentWithTrigger
-      @triggerText="Open basic modal"
-      @modalId="basic-modal"
-    >
+    <CodeFragmentWithTrigger @triggerText="Open basic modal" id="basic-modal">
       <:modal as |M|>
         <M.Header>
           Modal title
@@ -86,7 +83,7 @@ export default class SubSectionDemo extends Component {
 
     <CodeFragmentWithTrigger
       @triggerText="Open long content modal"
-      @modalId="long-modal"
+      id="long-modal"
       @size="small"
     >
       <:modal as |M|>
@@ -138,10 +135,7 @@ export default class SubSectionDemo extends Component {
     <br />
     <br />
 
-    <CodeFragmentWithTrigger
-      @triggerText="Open form modal"
-      @modalId="form-modal"
-    >
+    <CodeFragmentWithTrigger @triggerText="Open form modal" id="form-modal">
       <:modal as |M|>
         <M.Header>
           Why do you want to leave the beta?
@@ -182,10 +176,7 @@ export default class SubSectionDemo extends Component {
       </:modal>
     </CodeFragmentWithTrigger>
 
-    <CodeFragmentWithTrigger
-      @triggerText="Open tabs modal"
-      @modalId="tabs-modal"
-    >
+    <CodeFragmentWithTrigger @triggerText="Open tabs modal" id="tabs-modal">
       <:modal as |M|>
         <M.Header>
           Modal title
@@ -220,7 +211,7 @@ export default class SubSectionDemo extends Component {
 
     <CodeFragmentWithTrigger
       @triggerText="Open dropdown modal"
-      @modalId="dropdown-modal"
+      id="dropdown-modal"
     >
       <:modal as |M|>
         <M.Header>
@@ -254,7 +245,7 @@ export default class SubSectionDemo extends Component {
 
     <CodeFragmentWithTrigger
       @triggerText="Open super-select modal (base)"
-      @modalId="superselect-modal-base"
+      id="superselect-modal-base"
     >
       <:modal as |M|>
         <M.Header>
@@ -292,7 +283,7 @@ export default class SubSectionDemo extends Component {
 
     <CodeFragmentWithTrigger
       @triggerText="Open super-select modal (with search) [bug]"
-      @modalId="superselect-modal-with-search-bug"
+      id="superselect-modal-with-search-bug"
     >
       <:modal as |M|>
         <M.Header>
@@ -332,8 +323,8 @@ export default class SubSectionDemo extends Component {
 
     <CodeFragmentWithTrigger
       @triggerText="Open super-select modal (with search) [fix]"
-      @modalId="superselect-modal-with-search-fix"
-      @class="shw-component-modal-with-super-select-fix-overflow"
+      id="superselect-modal-with-search-fix"
+      class="shw-component-modal-with-super-select-fix-overflow"
     >
       <:modal as |M|>
         <M.Header>
@@ -376,7 +367,7 @@ export default class SubSectionDemo extends Component {
 
     <CodeFragmentWithTrigger
       @triggerText="Open non-dismissable modal"
-      @modalId="dismiss-disabled-modal"
+      id="dismiss-disabled-modal"
       @isDismissDisabled={{this.isDismissDisabled}}
       @onOpen={{this.enableDismissDisabled}}
       @onClose={{this.disableDismissDisabled}}
@@ -429,7 +420,7 @@ export default class SubSectionDemo extends Component {
     <br />
     <br />
 
-    <CodeFragmentWithTrigger @modalId="dropdown-initiated-modal">
+    <CodeFragmentWithTrigger id="dropdown-initiated-modal">
       <:trigger as |T|>
         <HdsDropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
           <D.ToggleButton
@@ -457,7 +448,7 @@ export default class SubSectionDemo extends Component {
     </CodeFragmentWithTrigger>
 
     <CodeFragmentWithTrigger
-      @modalId="dropdown-initiated-modal-with-returned-focus"
+      id="dropdown-initiated-modal-with-returned-focus"
       @returnFocusTo="dropdown-initiated-modal-with-returned-focus-toggle"
     >
       <:trigger as |T|>
@@ -492,7 +483,7 @@ export default class SubSectionDemo extends Component {
 
     <CodeFragmentWithTrigger
       @triggerText="Deactivated with `onClose`"
-      @modalId="deactivate-modal-on-close"
+      id="deactivate-modal-on-close"
     >
       <:modal as |M|>
         <M.Header>
@@ -522,7 +513,7 @@ export default class SubSectionDemo extends Component {
 
     <CodeFragmentWithTrigger
       @triggerText="Deactivated on destroy"
-      @modalId="deactivate-modal-on-destruction"
+      id="deactivate-modal-on-destruction"
     >
       <:modal as |M|>
         {{! template-lint-disable no-duplicate-landmark-elements }}
@@ -549,7 +540,7 @@ export default class SubSectionDemo extends Component {
 
     <CodeFragmentWithTrigger
       @triggerText="Deactivated on form submit"
-      @modalId="deactivate-modal-on-submit"
+      id="deactivate-modal-on-submit"
     >
       <:modal as |M|>
         <M.Header>

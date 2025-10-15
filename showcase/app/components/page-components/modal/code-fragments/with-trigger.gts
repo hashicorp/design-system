@@ -16,12 +16,10 @@ import type { HdsModalSignature } from '@hashicorp/design-system-components/comp
 export interface CodeFragmentWithTriggerSignature {
   Args: {
     triggerText?: string;
-    modalId: string;
     size?: HdsModalSignature['Args']['size'];
     color?: HdsModalSignature['Args']['color'];
     isDismissDisabled?: HdsModalSignature['Args']['isDismissDisabled'];
     returnFocusTo?: HdsModalSignature['Args']['returnFocusTo'];
-    class?: string;
     onOpen?: HdsModalSignature['Args']['onOpen'];
     onClose?: HdsModalSignature['Args']['onClose'];
   };
@@ -34,6 +32,7 @@ export interface CodeFragmentWithTriggerSignature {
       },
     ];
   };
+  Element: HdsModalSignature['Element'];
 }
 
 export default class CodeFragmentWithTrigger extends Component<CodeFragmentWithTriggerSignature> {
@@ -62,13 +61,12 @@ export default class CodeFragmentWithTrigger extends Component<CodeFragmentWithT
 
     {{#if this.isModalOpen}}
       <HdsModal
-        id={{@modalId}}
-        class={{@class}}
         @size={{@size}}
         @color={{@color}}
         @isDismissDisabled={{@isDismissDisabled}}
         @returnFocusTo={{@returnFocusTo}}
         @onClose={{this.closeModal}}
+        ...attributes
         as |M|
       >
         {{yield
