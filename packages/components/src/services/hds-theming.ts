@@ -68,7 +68,13 @@ export type HdsThemingServiceOptions = {
     [HdsThemeValues.Dark]: HdsModesDark | undefined;
   };
   cssSelector: HdsCssSelectors | undefined;
+  onSetTheme?: () => void;
 };
+
+export type OnSetThemeCallback = (options: {
+  currentTheme: HdsThemes;
+  currentMode: HdsModes;
+}) => void;
 
 export const DEFAULT_THEMING_OPTIONS: HdsThemingServiceOptions = {
   themeMap: {
@@ -83,6 +89,7 @@ export default class HdsThemingService extends Service {
   @tracked currentMode: HdsModes = undefined;
   @tracked currentThemingServiceOptions: HdsThemingServiceOptions =
     DEFAULT_THEMING_OPTIONS;
+  @tracked globalOnSetTheme: OnSetThemeCallback | undefined;
 
   constructor(owner: Owner) {
     super(owner);
@@ -108,7 +115,7 @@ export default class HdsThemingService extends Service {
     return this.currentTheme;
   }
 
-  setTheme(theme: HdsThemes) {
+  setTheme(theme: HdsThemes, onSetTheme?: OnSetThemeCallback) {
     console.log('setTheme invoked', `theme=${theme}`);
 
     // IMPORTANT: for this to work, it needs to be the HTML tag (it's the `:root` in CSS)
@@ -150,6 +157,22 @@ export default class HdsThemingService extends Service {
       localStorage.setItem(HDS_THEMING_LOCALSTORAGE_KEY, this.currentTheme);
     } else {
       localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_KEY);
+    }
+
+    // this is a general callback that can be defined globally (by extending the service)
+    if (this.globalOnSetTheme) {
+      this.globalOnSetTheme({
+        currentTheme: this.currentTheme,
+        currentMode: this.currentMode,
+      });
+    }
+
+    // this is a "local" callback that can be defined "locally" (eg. in a theme switcher)
+    if (onSetTheme) {
+      onSetTheme({
+        currentTheme: this.currentTheme,
+        currentMode: this.currentMode,
+      });
     }
   }
 
