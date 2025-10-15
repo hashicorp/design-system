@@ -68,7 +68,7 @@ const updatePageStylesheet = (currentStylesheet: string) => {
 };
 
 export default class ShwThemeSwitcher extends Component {
-  @service declare readonly hdsTheming: HdsThemingService;
+  @service declare readonly shwTheming: HdsThemingService;
 
   @tracked currentStylesheet = 'standard';
   @tracked currentTheme: HdsThemes = undefined;
@@ -95,7 +95,12 @@ export default class ShwThemeSwitcher extends Component {
     updatePageStylesheet(this.currentStylesheet);
 
     // we set the theme in the global service
-    this.hdsTheming.setTheme(this.currentTheme);
+    this.shwTheming.setTheme(
+      this.currentTheme,
+      ({ currentTheme, currentMode }) => {
+        console.log('LOCAL INVOCATION', currentTheme, currentMode);
+      },
+    );
 
     // we set the theme for the showcase itself
     const rootElement = document.querySelector('html');
@@ -124,7 +129,7 @@ export default class ShwThemeSwitcher extends Component {
     this.currentCssSelector = currentCssSelector;
 
     // update the theming options in the global service
-    this.hdsTheming.setThemingServiceOptions({
+    this.shwTheming.setThemingServiceOptions({
       themeMap: {
         [HdsThemeValues.Light]: this.currentLightTheme,
         [HdsThemeValues.Dark]: this.currentDarkTheme,
