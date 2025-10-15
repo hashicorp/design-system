@@ -30,6 +30,7 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
     "start": "rollup --config --watch --environment development",
+    "prepublishOnly": "pnpm build && test -f 'dist/styles/@hashicorp/design-system-components.css' && test -f 'dist/styles/@hashicorp/design-system-components-theming-with-css-selectors.css' && test -f 'dist/styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.css' && test -f 'dist/styles/@hashicorp/design-system-components.css' && test -f 'dist/styles/@hashicorp/design-system-power-select-overrides.css' || (echo \"\n\\033[31m⚠️  Error: the pre-compiled CSS file was not found\\033[0m\\n\" && exit 1)"
   },
   "dependencies": {
     "@codemirror/commands": "^6.8.0",
