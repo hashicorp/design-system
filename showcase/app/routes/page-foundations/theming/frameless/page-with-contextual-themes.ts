@@ -4,35 +4,23 @@
  */
 
 import Route from '@ember/routing/route';
+import { service } from '@ember/service';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
-
-import config from 'showcase/config/environment';
+import type ShwThemingService from 'showcase/services/shw-theming';
 
 export type PageFoundationsThemingFramelessPageWithContextualThemesModel =
   ModelFrom<PageFoundationsThemingFramelessPageWithContextualThemesRoute>;
 
-const CSS_FILE_WITH = `${config.rootURL}assets/styles/@hashicorp/design-system-components-theming-with-css-selectors.css`;
-
 export default class PageFoundationsThemingFramelessPageWithContextualThemesRoute extends Route {
+  @service declare readonly shwTheming: ShwThemingService;
+
   activate() {
-    // re-assign the stylesheet `href` attribute
-    const hdsComponentsStylesheet = document.getElementById(
-      'hds-components-stylesheet',
-    );
-    console.log(
-      'activated route',
-      config.rootURL,
-      hdsComponentsStylesheet,
-      hdsComponentsStylesheet?.getAttribute('href'),
-      CSS_FILE_WITH,
-    );
-    if (hdsComponentsStylesheet) {
-      hdsComponentsStylesheet.setAttribute(
-        'href',
-        `${config.rootURL}assets/styles/@hashicorp/design-system-components-theming-with-css-selectors.css`,
-      );
-    }
+    console.log('activated route');
+    this.shwTheming.setCurrentStylesheet('css-selectors');
+    this.shwTheming.setTheme('system', ({ currentTheme, currentMode }) => {
+      console.log('PAGE CONTEXTUAL THEMES', currentTheme, currentMode);
+    });
   }
 
   deactivate() {
