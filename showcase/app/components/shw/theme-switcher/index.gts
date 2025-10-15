@@ -11,9 +11,10 @@ import { guidFor } from '@ember/object/internals';
 import ShwThemeSwitcherPopover from './popover';
 import ShwThemeSwitcherSelector from './selector';
 import type { OnApplyArgs } from './popover';
-import type { OnSelectThemeArgs } from './selector';
+import type { OnSelectPageThemeArgs } from './selector';
+import type ShwThemingService from '../../../services/shw-theming';
 
-import config from 'showcase/config/environment';
+// import config from 'showcase/config/environment';
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 import {
   HdsThemeValues,
@@ -22,7 +23,7 @@ import {
   HdsCssSelectorsValues,
   // DEFAULT_THEMING_OPTIONS,
 } from '@hashicorp/design-system-components/services/hds-theming';
-import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
+
 import type {
   HdsThemes,
   HdsModesLight,
@@ -31,44 +32,44 @@ import type {
   // HdsThemingServiceOptions,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
-const updatePageStylesheet = (currentStylesheet: string) => {
-  let newStylesheet;
-  switch (currentStylesheet) {
-    case 'prefers-color-scheme':
-      // themed CSS where theming is applied via `@media(prefers-color-scheme)`
-      newStylesheet =
-        'assets/styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.css';
-      break;
-    case 'css-selectors':
-      // themed CSS where theming is applied via CSS selectors
-      newStylesheet =
-        'assets/styles/@hashicorp/design-system-components-theming-with-css-selectors.css';
-      break;
-    case 'combined-strategies':
-      // this is used for local testing purposes
-      newStylesheet =
-        'assets/styles/@hashicorp/design-system-components-theming-with-combined-strategies.css';
-      break;
-    default:
-      // this is the standard CSS for HDS components, without any theming
-      newStylesheet = 'assets/styles/@hashicorp/design-system-components.css';
-      break;
-  }
+// const updatePageStylesheet = (currentStylesheet: string) => {
+//   let newStylesheet;
+//   switch (currentStylesheet) {
+//     case 'prefers-color-scheme':
+//       // themed CSS where theming is applied via `@media(prefers-color-scheme)`
+//       newStylesheet =
+//         'assets/styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.css';
+//       break;
+//     case 'css-selectors':
+//       // themed CSS where theming is applied via CSS selectors
+//       newStylesheet =
+//         'assets/styles/@hashicorp/design-system-components-theming-with-css-selectors.css';
+//       break;
+//     case 'combined-strategies':
+//       // this is used for local testing purposes
+//       newStylesheet =
+//         'assets/styles/@hashicorp/design-system-components-theming-with-combined-strategies.css';
+//       break;
+//     default:
+//       // this is the standard CSS for HDS components, without any theming
+//       newStylesheet = 'assets/styles/@hashicorp/design-system-components.css';
+//       break;
+//   }
 
-  // re-assign the stylesheet `href` attribute
-  const hdsComponentsStylesheet = document.getElementById(
-    'hds-components-stylesheet',
-  );
-  if (hdsComponentsStylesheet) {
-    hdsComponentsStylesheet.setAttribute(
-      'href',
-      `${config.rootURL}${newStylesheet}`,
-    );
-  }
-};
+//   // re-assign the stylesheet `href` attribute
+//   const hdsComponentsStylesheet = document.getElementById(
+//     'hds-components-stylesheet',
+//   );
+//   if (hdsComponentsStylesheet) {
+//     hdsComponentsStylesheet.setAttribute(
+//       'href',
+//       `${config.rootURL}${newStylesheet}`,
+//     );
+//   }
+// };
 
 export default class ShwThemeSwitcher extends Component {
-  @service declare readonly shwTheming: HdsThemingService;
+  @service declare readonly shwTheming: ShwThemingService;
 
   @tracked currentStylesheet = 'standard';
   @tracked currentTheme: HdsThemes = undefined;
@@ -78,7 +79,7 @@ export default class ShwThemeSwitcher extends Component {
 
   popoverId = `shw-theming-options-popover-${guidFor(this)}`;
 
-  onSelectPageTheme = (args: OnSelectThemeArgs) => {
+  onSelectPageTheme = (args: OnSelectPageThemeArgs) => {
     const { currentStylesheet, currentTheme } = args;
 
     console.log(
@@ -92,7 +93,8 @@ export default class ShwThemeSwitcher extends Component {
     this.currentTheme = currentTheme;
 
     // update the page's stylesheet
-    updatePageStylesheet(this.currentStylesheet);
+    // updatePageStylesheet(this.currentStylesheet);
+    this.shwTheming.setCurrentStylesheet(this.currentStylesheet);
 
     // we set the theme in the global service
     this.shwTheming.setTheme(
@@ -145,7 +147,7 @@ export default class ShwThemeSwitcher extends Component {
         @currentTheme={{this.currentTheme}}
         @currentLightTheme={{this.currentLightTheme}}
         @currentDarkTheme={{this.currentDarkTheme}}
-        @onSelectTheme={{this.onSelectPageTheme}}
+        @onSelectPageTheme={{this.onSelectPageTheme}}
       />
       <button
         type="button"
