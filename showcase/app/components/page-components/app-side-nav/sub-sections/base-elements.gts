@@ -15,7 +15,6 @@ import ShwGrid from 'showcase/components/shw/grid';
 import ShwFlex from 'showcase/components/shw/flex';
 
 import {
-  HdsAppSideNavList,
   HdsAppSideNavListTitle,
   HdsAppSideNavListItem,
   HdsAppSideNavListLink,
@@ -24,6 +23,8 @@ import {
   HdsAppSideNavListBackLink,
   HdsAppSideNavToggleButton,
 } from '@hashicorp/design-system-components/components';
+
+import CodeFragmentWithDemoAppListContent from 'showcase/components/page-components/app-side-nav/code-fragments/with-demo-app-list-content';
 
 const STATES = ['default', 'hover', 'active', 'focus'];
 
@@ -35,83 +36,13 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
     <SF.Item @label="Title with multiple items">
       <div class="shw-component-sim-app-side-nav-body">
-        <HdsAppSideNavList aria-label="Multiple items" as |SNL|>
-          <SNL.Title>Services</SNL.Title>
-
-          <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
-          <SNL.Link @text="Consul" @icon="consul" @href="#" />
-          <SNL.Link @text="Packer" @icon="packer" @href="#" />
-          <SNL.Link @text="Vault" @icon="vault" @href="#" />
-          <SNL.Link
-            @text="Vault Secrets"
-            @icon="vault-secrets-square"
-            @badge="Alpha"
-            @href="#"
-          />
-          <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
-          <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-          <SNL.Link
-            @text="Waypoint"
-            @icon="waypoint"
-            @badge="Alpha"
-            @hasSubItems={{true}}
-            @href="#"
-          />
-
-          <SNL.Title>Default Org</SNL.Title>
-
-          <SNL.Link
-            @text="HashiCorp Virtual Networks"
-            @icon="network"
-            @href="#"
-          />
-          <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" />
-          <SNL.Link @text="Billing" @icon="credit-card" @href="#" />
-          <SNL.Link @text="Settings" @icon="settings" @href="#" />
-        </HdsAppSideNavList>
+        <CodeFragmentWithDemoAppListContent />
       </div>
     </SF.Item>
 
     <SF.Item @label="Multiple groups">
       <div class="shw-component-sim-app-side-nav-body">
-        <HdsAppSideNavList aria-label="Dashboard (multiple groups)" as |SNL|>
-          <SNL.Link @text="Dashboard" @icon="dashboard" @href="#" />
-        </HdsAppSideNavList>
-        <HdsAppSideNavList aria-label="Services (multiple groups)" as |SNL|>
-          <SNL.Title>Services</SNL.Title>
-
-          <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
-          <SNL.Link @text="Consul" @icon="consul" @href="#" />
-          <SNL.Link @text="Packer" @icon="packer" @href="#" />
-          <SNL.Link @text="Vault" @icon="vault" @href="#" />
-          <SNL.Link
-            @text="Vault Secrets"
-            @icon="vault-secrets-square"
-            @badge="Alpha"
-            @href="#"
-          />
-          <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
-          <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-          <SNL.Link
-            @text="Waypoint"
-            @icon="waypoint"
-            @badge="Alpha"
-            @hasSubItems={{true}}
-            @href="#"
-          />
-        </HdsAppSideNavList>
-        <HdsAppSideNavList aria-label="Organization (multiple groups)" as |SNL|>
-          <SNL.Title>Default Org</SNL.Title>
-
-          <SNL.Link
-            @text="HashiCorp Virtual Networks"
-            @icon="network"
-            @href="#"
-          />
-          <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" />
-          <SNL.Link @text="Billing" @icon="credit-card" @href="#" />
-          <SNL.Link @text="Settings" @icon="settings" @href="#" />
-        </HdsAppSideNavList>
+        <CodeFragmentWithDemoAppListContent @hasDashboardLink={{true}} />
       </div>
     </SF.Item>
   </ShwFlex>

@@ -17,6 +17,8 @@ import {
   HdsAppSideNavList,
 } from '@hashicorp/design-system-components/components';
 
+import CodeFragmentWithDemoAppListContent from 'showcase/components/page-components/app-side-nav/code-fragments/with-demo-app-list-content';
+
 const SubSectionExamples: TemplateOnlyComponent = <template>
   <ShwTextH2>Examples of sidebar navigation</ShwTextH2>
 
@@ -102,72 +104,7 @@ const SubSectionExamples: TemplateOnlyComponent = <template>
             {{style height="auto"}}
           >
             <HdsAppSideNav @isResponsive={{false}}>
-              <HdsAppSideNavList aria-label="Dashboard" as |SNL|>
-                <SNL.Link
-                  @icon="dashboard"
-                  @text="Dashboard"
-                  @isActive={{true}}
-                />
-              </HdsAppSideNavList>
-
-              <HdsAppSideNavList aria-label="Services" as |SNL|>
-                <SNL.Title>Services</SNL.Title>
-                <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
-                <SNL.Link @text="Consul" @icon="consul" @href="#" />
-                <SNL.Link @text="Packer" @icon="packer" @href="#" />
-                <SNL.Link @text="Vault" @icon="vault" @href="#" />
-                <SNL.Link
-                  @text="Vault Secrets"
-                  @icon="vault-secrets-square"
-                  @href="#"
-                />
-                <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
-                <SNL.Link
-                  @text="Vagrant"
-                  @icon="vagrant"
-                  @badge="Alpha"
-                  @href="#"
-                />
-                <SNL.Link
-                  @text="Waypoint"
-                  @icon="waypoint"
-                  @badge="Alpha"
-                  @hasSubItems={{true}}
-                />
-              </HdsAppSideNavList>
-
-              <HdsAppSideNavList aria-label="Organization" as |SNL|>
-                <SNL.Title>Default Org</SNL.Title>
-                <SNL.Link
-                  @text="HashiCorp Virtual Networks"
-                  @icon="network"
-                  @href="#"
-                />
-                <SNL.Link
-                  @text="Access control (IAM)"
-                  @icon="users"
-                  @href="#"
-                  @hasSubItems={{true}}
-                />
-                <SNL.Link
-                  @text="Billing"
-                  @icon="credit-card"
-                  @href="#"
-                  @hasSubItems={{true}}
-                />
-                <SNL.Link
-                  @text="Settings"
-                  @icon="settings"
-                  @href="#"
-                  @hasSubItems={{true}}
-                />
-                <SNL.Link
-                  @href="#"
-                  @isHrefExternal={{true}}
-                  @icon="guide"
-                  @text="Documentation"
-                />
-              </HdsAppSideNavList>
+              <CodeFragmentWithDemoAppListContent @hasDashboardLink={{true}} />
             </HdsAppSideNav>
           </div>
         </SF.Item>
