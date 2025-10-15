@@ -22,12 +22,12 @@ export interface ShwThemeSwitcherSelectorSignature {
     currentTheme: HdsThemes;
     currentLightTheme: HdsModesLight;
     currentDarkTheme: HdsModesDark;
-    onSelectTheme?: (args: OnSelectThemeArgs) => void;
+    onSelectPageTheme?: (args: OnSelectPageThemeArgs) => void;
   };
   Element: HTMLDivElement;
 }
 
-export interface OnSelectThemeArgs {
+export interface OnSelectPageThemeArgs {
   currentStylesheet: string;
   currentTheme: HdsThemes;
 }
@@ -76,7 +76,7 @@ export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcher
     };
   }
 
-  onSelectTheme = (event: Event) => {
+  onSelectPageTheme = (event: Event) => {
     const select = event.target as HTMLSelectElement;
     const selectValue = select.value;
 
@@ -88,8 +88,8 @@ export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcher
     this.selectedStylesheet = selectedStylesheet;
     this.selectedTheme = selectedTheme;
 
-    if (typeof this.args.onSelectTheme === 'function') {
-      this.args.onSelectTheme({
+    if (typeof this.args.onSelectPageTheme === 'function') {
+      this.args.onSelectPageTheme({
         currentStylesheet: this.selectedStylesheet,
         currentTheme: this.selectedTheme,
       });
@@ -99,7 +99,7 @@ export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcher
   <template>
     <ShwThemeSwitcherControlSelect
       @label="Theming:"
-      @onChange={{this.onSelectTheme}}
+      @onChange={{this.onSelectPageTheme}}
     >
       {{#each-in this.themingOptions as |groupLabel options|}}
         <optgroup label={{groupLabel}}>
