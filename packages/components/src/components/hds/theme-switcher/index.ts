@@ -11,7 +11,7 @@ import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
 import type { HdsIconSignature } from '../icon/index.ts';
 import type HdsThemingService from '../../../services/hds-theming.ts';
-import { type HdsThemes } from '../../../services/hds-theming.ts';
+import type { HdsThemes } from '../../../services/hds-theming.ts';
 
 type ThemeOptionKey = 'system' | 'light' | 'dark'; // | 'none';
 
@@ -33,6 +33,7 @@ export interface HdsThemeSwitcherSignature {
     toggleSize?: HdsDropdownToggleButtonSignature['Args']['size'];
     toggleIsFullWidth?: boolean;
     hasSystemOption?: boolean;
+    onSetTheme?: () => void;
     // hasNoThemeOption?: boolean;
   };
   Element: HdsDropdownSignature['Element'];
@@ -83,7 +84,7 @@ export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignatur
 
   @action
   setTheme(theme: HdsThemes): void {
-    // we set the theme in the global service
-    this.hdsTheming.setTheme(theme);
+    // we set the theme in the global service (and provide an optional user-defined callback)
+    this.hdsTheming.setTheme(theme, this.args.onSetTheme);
   }
 }
