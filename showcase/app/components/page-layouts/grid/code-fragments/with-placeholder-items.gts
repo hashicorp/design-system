@@ -15,7 +15,7 @@ interface CodeFragmentWithChildGapVariantsSignature {
   };
 }
 
-export default class CodeFragmentWithChildGapVariants extends Component<CodeFragmentWithChildGapVariantsSignature> {
+export default class CodeFragmentWithPlaceholderItems extends Component<CodeFragmentWithPlaceholderItemsSignature> {
   get columnCount() {
     return this.args.columnCount ?? 4;
   }
