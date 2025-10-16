@@ -7,13 +7,14 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-import type { WithBoundArgs } from '@glint/template';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
 
 import type {
   HdsAdvancedTableFilter,
   HdsAdvancedTableFilters,
 } from '../types.ts';
+import HdsDropdown from '../../dropdown/index.ts';
 import HdsAdvancedTableFilterBarDropdown from './dropdown.ts';
 import HdsAdvancedTableFilterBarFiltersDropdown from './filters-dropdown.ts';
 
@@ -22,11 +23,15 @@ export interface HdsAdvancedTableFilterBarSignature {
     filters: HdsAdvancedTableFilters;
     activeFilterableColumns?: string[];
     isLiveFilter?: boolean;
+    hasSearch?: boolean;
+    showFilters?: boolean;
     onFilter?: (filters: HdsAdvancedTableFilters) => void;
+    onSearch?: (event: Event) => void;
   };
   Blocks: {
     default?: [
       {
+        ActionsDropdown?: ComponentLike<typeof HdsDropdown>;
         FiltersDropdown?: WithBoundArgs<
           typeof HdsAdvancedTableFilterBarFiltersDropdown,
           'onChange'
@@ -44,11 +49,12 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
   @tracked filters: HdsAdvancedTableFilters = {};
   @tracked hasActiveFilters: boolean = Object.keys(this.filters).length > 0;
   @tracked activeFilterableColumns: string[] = [];
+  @tracked showFilters: boolean = true;
 
   constructor(owner: Owner, args: HdsAdvancedTableFilterBarSignature['Args']) {
     super(owner, args);
 
-    const { filters, activeFilterableColumns } = args;
+    const { filters, activeFilterableColumns, showFilters } = args;
 
     if (filters) {
       this.filters = { ...filters };
@@ -56,6 +62,10 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
 
     if (activeFilterableColumns) {
       this.activeFilterableColumns = [...activeFilterableColumns];
+    }
+
+    if (showFilters != null) {
+      this.showFilters = showFilters;
     }
   }
 
@@ -84,6 +94,21 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
     if (onFilter && typeof onFilter === 'function') {
       onFilter(this.filters);
     }
+  }
+
+  @action
+  onSearch(event: Event): void {
+    console.log('Search event:', event);
+
+    const { onSearch } = this.args;
+    if (onSearch && typeof onSearch === 'function') {
+      onSearch(event);
+    }
+  }
+
+  @action
+  toggleFilters(): void {
+    this.showFilters = !this.showFilters;
   }
 
   private _updateFilter(

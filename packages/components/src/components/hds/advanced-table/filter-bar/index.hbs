@@ -1,37 +1,62 @@
 <div class="hds-advanced-table__filter-bar">
-  <div class="hds-advanced-table__filter-bar__filters">
-    {{yield
-      (hash
-        FiltersDropdown=(component "hds/advanced-table/filter-bar/filters-dropdown" onChange=this.onFiltersChange)
-        Dropdown=(component
-          "hds/advanced-table/filter-bar/dropdown"
-          onChange=this.onFilter
-          filters=this.filters
-          isLiveFilter=@isLiveFilter
-          activeFilterableColumns=this.activeFilterableColumns
-        )
-      )
-    }}
-  </div>
-  {{#if this.hasActiveFilters}}
-    <div class="hds-advanced-table__filter-bar__actions">
-      <div class="hds-advanced-table__filter-bar__active-filters">
-        {{#each-in this.filters as |key filter|}}
-          {{#if filter}}
-            {{#each filter as |f|}}
-              <Hds::Tag @text="{{key}}: {{f.text}}" @onDismiss={{fn this.onFilterDismiss key f.value}} />
-            {{/each}}
-          {{/if}}
-        {{/each-in}}
-      </div>
+  <div class="hds-advanced-table__filter-bar__actions">
+    {{#if @hasSearch}}
+      <Hds::Form::TextInput::Base
+        @type="search"
+        @width="185px"
+        class="hds-advanced-table__filter-bar__search"
+        placeholder="Search across"
+        aria-label="Search table"
+        name="search"
+        {{on "change" this.onSearch}}
+      />
+    {{/if}}
+    <div class="hds-advanced-table__filter-bar__actions__right">
+      {{yield (hash ActionsDropdown=(component "hds/dropdown"))}}
       <Hds::Button
-        class="hds-advanced-table__filter-bar__clear-button"
-        @text="Clear all filters"
-        @color="tertiary"
-        @icon="x"
+        @text={{if this.showFilters "Hide filters" "Show filters"}}
+        @color="secondary"
         @size="small"
-        {{on "click" this.clearFilters}}
+        @icon={{if this.showFilters "unfold-close" "unfold-open"}}
+        {{on "click" this.toggleFilters}}
       />
     </div>
+  </div>
+  {{#if this.showFilters}}
+    <div class="hds-advanced-table__filter-bar__filters">
+      {{yield
+        (hash
+          FiltersDropdown=(component "hds/advanced-table/filter-bar/filters-dropdown" onChange=this.onFiltersChange)
+          Dropdown=(component
+            "hds/advanced-table/filter-bar/dropdown"
+            onChange=this.onFilter
+            filters=this.filters
+            isLiveFilter=@isLiveFilter
+            activeFilterableColumns=this.activeFilterableColumns
+          )
+        )
+      }}
+    </div>
+    {{#if this.hasActiveFilters}}
+      <div class="hds-advanced-table__filter-bar__actions">
+        <div class="hds-advanced-table__filter-bar__active-filters">
+          {{#each-in this.filters as |key filter|}}
+            {{#if filter}}
+              {{#each filter as |f|}}
+                <Hds::Tag @text="{{key}}: {{f.text}}" @onDismiss={{fn this.onFilterDismiss key f.value}} />
+              {{/each}}
+            {{/if}}
+          {{/each-in}}
+        </div>
+        <Hds::Button
+          class="hds-advanced-table__filter-bar__clear-button"
+          @text="Clear all filters"
+          @color="tertiary"
+          @icon="x"
+          @size="small"
+          {{on "click" this.clearFilters}}
+        />
+      </div>
+    {{/if}}
   {{/if}}
 </div>
