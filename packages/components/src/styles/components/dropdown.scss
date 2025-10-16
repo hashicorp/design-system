@@ -602,3 +602,11 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     vertical-align: bottom;
   }
 }
+
+// SEARCH
+
+.hds-dropdown__search {
+  flex: none;
+  padding: 8px;
+  border-bottom: 1px solid var(--token-color-border-primary);
+}
