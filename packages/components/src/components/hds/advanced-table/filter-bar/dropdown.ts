@@ -29,6 +29,7 @@ export interface HdsAdvancedTableFilterBarDropdownSignature {
     isMultiSelect?: boolean;
     isLiveFilter?: boolean;
     activeFilterableColumns?: string[];
+    searchEnabled?: boolean;
     onChange: (key: string, keyFilter?: HdsAdvancedTableFilter[]) => void;
   };
   Blocks: {
