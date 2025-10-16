@@ -27,6 +27,15 @@
     >
       {{#if (or PP.isOpen @preserveContentInDom)}}
         {{yield (hash Header=(component "hds/dropdown/header") close=PP.hidePopover)}}
+        {{#if @searchEnabled}}
+          <div class="hds-dropdown__search">
+            <Hds::Form::TextInput::Base
+              @type="search"
+              placeholder={{if @searchPlaceholder @searchPlaceholder "Search"}}
+              {{on "input" this.onSearch}}
+            />
+          </div>
+        {{/if}}
         <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
           {{yield
             (hash
