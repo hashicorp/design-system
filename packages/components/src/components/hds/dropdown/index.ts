@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 
 import {
   // map Dropdown's `listPosition` values to PopoverPrimitive's `placement` values
@@ -75,6 +76,15 @@ export interface HdsDropdownSignature {
 }
 
 export default class HdsDropdown extends Component<HdsDropdownSignature> {
+
+  private _element!: HTMLDivElement;
+
+  private _setUpDropdown = modifier((element: HTMLDivElement) => {
+    this._element = element;
+
+    return () => {};
+  });
+
   /**
    * @param listPosition
    * @type {string}
@@ -172,5 +182,21 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
         element.setAttribute('aria-labelledby', toggleButtonId);
       }
     }
+  }
+
+  onSearch = (event: Event) => {
+    const listItems = this._element.querySelectorAll('.hds-dropdown-list-item') as NodeListOf<HTMLLIElement>;
+    const input = event.target as HTMLInputElement;
+    listItems.forEach((item) => {
+      if (item.textContent) {
+        const text = item.textContent.toLowerCase();
+        const searchText = input.value.toLowerCase();
+        if (text.includes(searchText)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      }
+    });
   }
 }

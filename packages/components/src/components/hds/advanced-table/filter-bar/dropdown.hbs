@@ -1,7 +1,9 @@
 {{! @glint-nocheck }}
 <Hds::Dropdown
   @listPosition="bottom-left"
-  @height="180px"
+  @height="240px"
+  @searchEnabled={{@searchEnabled}}
+  @searchPlaceholder="Search {{@key}}"
   class={{this.classNames}}
   {{this._updateInternalFilters}}
   as |D|
