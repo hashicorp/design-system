@@ -1,0 +1,13 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Dropdown as |dd|>
+  {{#if this.showError}}
+    <dd.Interactive @href="#" @icon="alert-triangle-fill" data-test-button="error-state">Error State</dd.Interactive>
+  {{else if this.showWarning}}
+    <dd.Interactive @href="#" @icon="info-fill" data-test-button="warning-state">Warning State</dd.Interactive>
+  {{else}}
+    <dd.Interactive @href="#" data-test-button="default-state">Default State</dd.Interactive>
+  {{/if}}
+</Hds::Dropdown>
