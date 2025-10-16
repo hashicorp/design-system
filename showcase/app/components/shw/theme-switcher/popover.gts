@@ -7,10 +7,12 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
 import { hash, fn } from '@ember/helper';
+import { service } from '@ember/service';
 import type Owner from '@ember/owner';
 
 import ShwThemeSwitcherControlSelect from './control/select';
 
+import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import {
   MODES_LIGHT,
   MODES_DARK,
@@ -21,33 +23,25 @@ import type {
   HdsCssSelectors,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
-export interface OnApplyArgs {
-  currentLightTheme: HdsModesLight;
-  currentDarkTheme: HdsModesDark;
-  currentCssSelector: HdsCssSelectors;
-}
-
-export interface ShwThemeSwitcherPopoverSignature {
+interface ShwThemeSwitcherPopoverSignature {
   Args: {
     popoverId: string;
-    currentLightTheme: HdsModesLight;
-    currentDarkTheme: HdsModesDark;
-    currentCssSelector: HdsCssSelectors;
-    onApply: (args: OnApplyArgs) => void;
   };
   Element: HTMLDivElement;
 }
 
 export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherPopoverSignature> {
+  @service declare readonly hdsTheming: HdsThemingService;
+
   @tracked selectedLightTheme;
   @tracked selectedDarkTheme;
   @tracked selectedCssSelector;
 
   constructor(owner: Owner, args: ShwThemeSwitcherPopoverSignature['Args']) {
     super(owner, args);
-    this.selectedLightTheme = this.args.currentLightTheme;
-    this.selectedDarkTheme = this.args.currentDarkTheme;
-    this.selectedCssSelector = this.args.currentCssSelector;
+    this.selectedLightTheme = this.hdsTheming.currentLightTheme;
+    this.selectedDarkTheme = this.hdsTheming.currentDarkTheme;
+    this.selectedCssSelector = this.hdsTheming.currentCssSelector;
   }
 
   onChangeAdvancedOption = (optionName: string, event: Event) => {
@@ -66,13 +60,11 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
   };
 
   onApplyThemingPreferences = () => {
-    if (typeof this.args.onApply === 'function') {
-      this.args.onApply({
-        currentLightTheme: this.selectedLightTheme,
-        currentDarkTheme: this.selectedDarkTheme,
-        currentCssSelector: this.selectedCssSelector,
-      });
-    }
+    this.hdsTheming.setThemingServiceOptions({
+      lightTheme: this.selectedLightTheme,
+      darkTheme: this.selectedDarkTheme,
+      cssSelector: this.selectedCssSelector,
+    });
 
     // programmatically close the popover
     const popoverElement = document.getElementById(this.args.popoverId);
