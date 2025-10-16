@@ -128,7 +128,6 @@ export default class SubSectionDemo extends Component {
           {{on "click" this.activateModal}}
         />
 
-        {{! template-lint-disable no-autofocus-attribute }}
         {{#if this.isModalActive}}
           <HdsModal
             id="test-copy-button-modal"
