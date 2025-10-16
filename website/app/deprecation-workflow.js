@@ -27,6 +27,7 @@ setupDeprecationWorkflow({
     /* { handler: 'silence', matchId: 'template-action' }, */
     { handler: 'silence', matchId: 'remove-owner-inject' },
     { handler: 'silence', matchId: 'ember-modifier.function-based-options' },
+    { handler: 'silence', matchId: 'importing-inject-from-ember-service' },
     { handler: 'throw', matchId: 'deprecate-auto-location' },
     { handler: 'silence', matchId: 'ember-string.add-package' },
     { handler: 'throw', matchId: 'hds.dropdown.list-item.interactive' },
