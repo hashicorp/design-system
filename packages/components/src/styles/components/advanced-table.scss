@@ -782,6 +782,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     display: flex;
     gap: 12px 12px;
     align-items: end;
+    padding-top: 8px;
+    border-top: 1px solid var(--token-color-border-primary);
 
     .hds-form-text-input {
       width: auto;
@@ -826,4 +828,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   &--hidden {
     display: none;
   }
+}
+
+.hds-advanced-table__filter-bar__actions__right {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.hds-advanced-table__filter-bar__search {
+  --token-form-control-padding: 4px;
 }
