@@ -109,7 +109,7 @@
       <Hds::CodeEditor @hasFullScreenButton={{true}} @hasCopyButton={{true}} as |CE|>
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
-        <CE.Generic class="my-code-editor-custom-content">
+        <CE.Generic class="hds-code-editor-custom-content">
           <Hds::Button @text="Custom action" @size="small" />
           <Hds::Button @text="Search" @icon="search" @isIconOnly={{true}} @size="small" />
         </CE.Generic>
@@ -152,11 +152,11 @@
   </Shw::Flex>
 
   <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="toggle line wrapping">
+    <SF.Item @label="Toggle line wrapping">
       <Hds::Form::Checkbox::Field
         name="enable-line-wrapping"
         checked={{this.hasLineWrapping}}
-        class="hds-code-editor-line-wrapper-controls"
+        class="hds-code-editor-controls"
         {{on "change" this.toggleLineWrapping}}
         as |F|
       >
@@ -168,6 +168,24 @@
           value=this.demoCode
           hasLineWrapping=this.hasLineWrapping
           onInput=this.setDemoCode
+        }}
+      />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Update value externally">
+      <Hds::Button
+        @text="Change value"
+        class="hds-code-editor-controls"
+        {{on "click" (fn this.setExternalUpdateDemo "New value")}}
+      />
+
+      <div
+        {{hds-code-editor
+          ariaLabel="Standalone modifier usage"
+          value=this.externalUpdateDemo
+          onInput=this.setExternalUpdateDemo
         }}
       />
     </SF.Item>
