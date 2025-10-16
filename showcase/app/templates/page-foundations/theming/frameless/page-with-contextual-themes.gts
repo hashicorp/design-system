@@ -1,14 +1,15 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-
 import { pageTitle } from 'ember-page-title';
+import style from 'ember-style-modifier';
 
-import ShwFlex from 'showcase/components/shw/flex';
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwFlex from 'showcase/components/shw/flex';
+import ShwGrid from 'showcase/components/shw/grid';
 
 import { HdsThemeSwitcher } from '@hashicorp/design-system-components/components';
 
@@ -45,9 +46,11 @@ const PageFoundationsThemingFramelessPageWithContextualThemes: TemplateOnlyCompo
         <HdsThemeSwitcher @toggleSize="medium" @toggleIsFullWidth={{true}} />
       </div>
 
-      <ShwDivider @level={{2}} />
+      <ShwDivider />
 
       <ShwTextH2>Page-level theming</ShwTextH2>
+
+      <ShwTextBody>These examples should update when changing theme above</ShwTextBody>
 
       <ShwFlex as |SF|>
         <SF.Item as |SFI|>
@@ -59,48 +62,63 @@ const PageFoundationsThemingFramelessPageWithContextualThemes: TemplateOnlyCompo
         </SF.Item>
       </ShwFlex>
 
-      <ShwDivider @level={{2}} />
+      <ShwDivider />
 
-      <ShwTextH2>Local theming</ShwTextH2>
+      <ShwTextH2>Local theming via CSS selectors</ShwTextH2>
 
-      <ShwTextH4 @tag="h3">CSS Selectors</ShwTextH4>
+      <ShwTextBody>These examples should remain the same even when changing
+        theme above</ShwTextBody>
 
-      <ShwFlex @gap="4rem" as |SF|>
-        <SF.Item as |SFI|>
-          <SFI.Label><code>.hds-theme-light</code> class</SFI.Label>
+      <ShwTextH4 @tag="h3">Parent container</ShwTextH4>
+
+      <ShwGrid
+        @gap="4rem"
+        @columns={{2}}
+        {{style width="fit-content" grid-template-columns="repeat(2, auto)"}}
+        as |SG|
+      >
+        <SG.Item as |SGI|>
+          <SGI.Label><code>.hds-theme-light</code> class</SGI.Label>
           <div class="hds-theme-light">
             <ThemingBasicContainer @text="TEXT" />
           </div>
-        </SF.Item>
-        <SF.Item as |SFI|>
-          <SFI.Label><code>.hds-theme-dark</code> class</SFI.Label>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>.hds-theme-dark</code> class</SGI.Label>
           <div class="hds-theme-dark">
             <ThemingBasicContainer @text="TEXT" />
           </div>
-        </SF.Item>
-        <SF.Item as |SFI|>
-          <SFI.Label><code>[data-hds-theme=&quot;light&quot;]</code>
-            class</SFI.Label>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>[data-hds-theme=light]</code>
+            class</SGI.Label>
           <div data-hds-theme="light">
             <ThemingBasicContainer @text="TEXT" />
           </div>
-        </SF.Item>
-        <SF.Item as |SFI|>
-          <SFI.Label><code>[data-hds-theme=&quot;dark&quot;]</code>
-            class</SFI.Label>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>[data-hds-theme=dark]</code>
+            class</SGI.Label>
           <div data-hds-theme="dark">
             <ThemingBasicContainer @text="TEXT" />
           </div>
-        </SF.Item>
-      </ShwFlex>
+        </SG.Item>
+      </ShwGrid>
+
+      <ShwDivider @level={{2}} />
 
       <ShwTextH4 @tag="h3">Nested</ShwTextH4>
 
-      <ShwFlex @gap="4rem" as |SF|>
-        <SF.Item as |SFI|>
-          <SFI.Label><code>.hds-theme-light</code>
+      <ShwGrid
+        @gap="4rem"
+        @columns={{3}}
+        {{style width="fit-content" grid-template-columns="repeat(3, auto)"}}
+        as |SG|
+      >
+        <SG.Item as |SGI|>
+          <SGI.Label><code>.hds-theme-light</code>
             &gt;
-            <code>.hds-theme-dark</code></SFI.Label>
+            <code>.hds-theme-dark</code></SGI.Label>
           <div class="hds-theme-light">
             <ThemingBasicContainer>
               <div class="hds-theme-dark">
@@ -108,11 +126,11 @@ const PageFoundationsThemingFramelessPageWithContextualThemes: TemplateOnlyCompo
               </div>
             </ThemingBasicContainer>
           </div>
-        </SF.Item>
-        <SF.Item as |SFI|>
-          <SFI.Label><code>.hds-theme-dark</code>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>.hds-theme-dark</code>
             &gt;
-            <code>.hds-theme-light</code></SFI.Label>
+            <code>.hds-theme-light</code></SGI.Label>
           <div class="hds-theme-dark">
             <ThemingBasicContainer>
               <div class="hds-theme-light">
@@ -120,13 +138,13 @@ const PageFoundationsThemingFramelessPageWithContextualThemes: TemplateOnlyCompo
               </div>
             </ThemingBasicContainer>
           </div>
-        </SF.Item>
-        <SF.Item as |SFI|>
-          <SFI.Label><code>.hds-theme-dark</code>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>.hds-theme-dark</code>
             &gt;
             <code>.hds-theme-light</code>
             &gt;
-            <code>.hds-theme-dark</code></SFI.Label>
+            <code>.hds-theme-dark</code></SGI.Label>
           <div class="hds-theme-dark">
             <ThemingBasicContainer>
               <div class="hds-theme-light">
@@ -138,8 +156,50 @@ const PageFoundationsThemingFramelessPageWithContextualThemes: TemplateOnlyCompo
               </div>
             </ThemingBasicContainer>
           </div>
-        </SF.Item>
-      </ShwFlex>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>[data-hds-theme=light]</code>
+            &gt;
+            <code>[data-hds-theme=dark]</code></SGI.Label>
+          <div data-hds-theme="light">
+            <ThemingBasicContainer>
+              <div data-hds-theme="dark">
+                <ThemingBasicContainer @text="TEXT" />
+              </div>
+            </ThemingBasicContainer>
+          </div>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>[data-hds-theme=dark]</code>
+            &gt;
+            <code>[data-hds-theme=light]</code></SGI.Label>
+          <div data-hds-theme="dark">
+            <ThemingBasicContainer>
+              <div data-hds-theme="light">
+                <ThemingBasicContainer @text="TEXT" />
+              </div>
+            </ThemingBasicContainer>
+          </div>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>[data-hds-theme=dark]</code>
+            &gt;
+            <code>[data-hds-theme=light]</code>
+            &gt;
+            <code>[data-hds-theme=dark]</code></SGI.Label>
+          <div data-hds-theme="dark">
+            <ThemingBasicContainer>
+              <div data-hds-theme="light">
+                <ThemingBasicContainer>
+                  <div data-hds-theme="dark">
+                    <ThemingBasicContainer @text="TEXT" />
+                  </div>
+                </ThemingBasicContainer>
+              </div>
+            </ThemingBasicContainer>
+          </div>
+        </SG.Item>
+      </ShwGrid>
 
     </div>
   </template>;

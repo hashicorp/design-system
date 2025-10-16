@@ -11,7 +11,10 @@ import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
 import type { HdsIconSignature } from '../icon/index.ts';
 import type HdsThemingService from '../../../services/hds-theming.ts';
-import type { HdsThemes } from '../../../services/hds-theming.ts';
+import type {
+  HdsThemes,
+  OnSetThemeCallback,
+} from '../../../services/hds-theming.ts';
 
 type ThemeOptionKey = 'system' | 'light' | 'dark'; // | 'none';
 
@@ -33,8 +36,7 @@ export interface HdsThemeSwitcherSignature {
     toggleSize?: HdsDropdownToggleButtonSignature['Args']['size'];
     toggleIsFullWidth?: boolean;
     hasSystemOption?: boolean;
-    onSetTheme?: () => void;
-    // hasNoThemeOption?: boolean;
+    onSetTheme?: OnSetThemeCallback;
   };
   Element: HdsDropdownSignature['Element'];
 }
@@ -42,39 +44,37 @@ export interface HdsThemeSwitcherSignature {
 export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
 
-  get _options() {
-    const options: Partial<typeof OPTIONS> = { ...OPTIONS };
-    const hasSystemOption = this.args.hasSystemOption ?? true;
-    // const hasNoThemeOption = this.args.hasNoThemeOption ?? false;
-
-    if (!hasSystemOption) {
-      delete options.system;
-    }
-
-    // if (!hasNoThemeOption) {
-    //   delete options.none;
-    // }
-
-    return options;
-  }
-
   get toggleSize() {
     return this.args.toggleSize ?? 'small';
   }
 
   get toggleContent() {
-    switch (this.currentTheme) {
-      case 'system':
-      case 'light':
-      case 'dark':
-        return {
-          label: OPTIONS[this.currentTheme].label,
-          icon: OPTIONS[this.currentTheme].icon,
-        };
-      case undefined:
-      default:
-        return { label: 'Theme', icon: undefined };
+    if (
+      (this.currentTheme === 'system' && this.hasSystemOption) ||
+      this.currentTheme === 'light' ||
+      this.currentTheme === 'dark'
+    ) {
+      return {
+        label: OPTIONS[this.currentTheme].label,
+        icon: OPTIONS[this.currentTheme].icon,
+      };
+    } else {
+      return { label: 'Theme', icon: undefined };
     }
+  }
+
+  get hasSystemOption() {
+    return this.args.hasSystemOption ?? true;
+  }
+
+  get _options() {
+    const options: Partial<typeof OPTIONS> = { ...OPTIONS };
+
+    if (!this.hasSystemOption) {
+      delete options.system;
+    }
+
+    return options;
   }
 
   get currentTheme() {
