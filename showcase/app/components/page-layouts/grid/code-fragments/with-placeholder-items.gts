@@ -7,7 +7,7 @@ import { HdsLayoutGrid } from '@hashicorp/design-system-components/components';
 
 import type { HdsLayoutGridSignature } from '@hashicorp/design-system-components/components/hds/layout/grid/index';
 
-interface CodeFragmentWithChildGapVariantsSignature {
+interface CodeFragmentWithPlaceholderItemsSignature {
   Args: {
     columnCount?: number;
     columnMinWidth?: HdsLayoutGridSignature['Args']['columnMinWidth'];
