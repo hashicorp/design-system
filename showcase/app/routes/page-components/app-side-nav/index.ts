@@ -7,6 +7,7 @@ import Route from '@ember/routing/route';
 
 import type { ModelFrom } from 'showcase/utils/model-from-route';
 
-export type PageComponentsAppSideNavModel = ModelFrom<PageComponentsAppSideNavRoute>;
+export type PageComponentsAppSideNavModel =
+  ModelFrom<PageComponentsAppSideNavRoute>;
 
 export default class PageComponentsAppSideNavRoute extends Route {}
