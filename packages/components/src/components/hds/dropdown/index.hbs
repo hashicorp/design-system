@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <Hds::PopoverPrimitive @isOpen={{@isOpen}} @onClose={{@onClose}} @enableClickEvents={{true}} as |PP|>
-  <div class={{this.classNames}} ...attributes {{PP.setupPrimitiveContainer}}>
+  <div class={{this.classNames}} ...attributes {{PP.setupPrimitiveContainer}} {{this._setUpDropdown}}>
     {{yield
       (hash
         ToggleButton=(component
@@ -21,6 +21,15 @@
     >
       {{#if (or PP.isOpen @preserveContentInDom)}}
         {{yield (hash Header=(component "hds/dropdown/header") close=PP.hidePopover)}}
+        {{#if @searchEnabled}}
+          <div class="hds-dropdown__search">
+            <Hds::Form::TextInput::Base
+              @type="search"
+              placeholder={{if @searchPlaceholder @searchPlaceholder "Search"}}
+              {{on "input" this.onSearch}}
+            />
+          </div>
+        {{/if}}
         <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
           {{yield
             (hash
