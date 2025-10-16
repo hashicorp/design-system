@@ -3,16 +3,16 @@
 The Dropdown component is composed of different child components each with their own APIs:
 
 - The Dropdown component
-  - Optional header and footer
+    - Optional header and footer
 - Toggle components to open/close the Dropdown
-  - ToggleButton
-  - ToggleIcon
+    - ToggleButton
+    - ToggleIcon
 - ListItem components, to build the Dropdown’s list items
-  - Description
-  - Generic
-  - Interactive
-  - Separator
-  - Title
+    - Description
+    - Generic
+    - Interactive
+    - Separator
+    - Title
 
 ### Dropdown
 
