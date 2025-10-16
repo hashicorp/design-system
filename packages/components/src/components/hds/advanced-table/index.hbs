@@ -5,7 +5,9 @@
 
 {{yield
   (hash
-    FilterBar=(component "hds/advanced-table/filter-bar" filters=@filters onFilter=@onFilter isLiveFilter=@isLiveFilter)
+    FilterBar=(component
+      "hds/advanced-table/filter-bar" filters=@filters onFilter=@onFilter isLiveFilter=@isLiveFilter onSearch=@onSearch
+    )
   )
   to="actions"
 }}

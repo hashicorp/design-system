@@ -386,7 +386,6 @@ const SAMPLE_MODEL = [
   },
 ];
 
-
 const SAMPLE_MODEL_VALUES = {
   'project-name': Array.from(
     new Set(SAMPLE_MODEL.map((item) => item['project-name'])),
@@ -549,13 +548,18 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     }
   }
 
-  valuesFromFilter = (filters: HdsAdvancedTableSignature['Args']['filters'], name: string) => {
+  valuesFromFilter = (
+    filters: HdsAdvancedTableSignature['Args']['filters'],
+    name: string,
+  ) => {
     const filter = filters[name];
     if (!filter) return;
 
     if (Array.isArray(filter)) {
       if (filter.length === 1) return filter[0]?.value;
-      return filter.map((f: HdsAdvancedTableSignature['Args']['filters'][]) => f.value);
+      return filter.map(
+        (f: HdsAdvancedTableSignature['Args']['filters'][]) => f.value,
+      );
     }
     return filter.value;
   };
@@ -565,8 +569,18 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     this.filters = filters;
   }
 
+  @action
+  onSearch(event: Event) {
+    const value = event.target.value;
+    if (value.length > 0) {
+      window.alert(`✅ Search executed with value: ${value}`);
+    }
+  }
+
   get demoModelFilteredData() {
-    const filterItem = (item: HdsAdvancedTableSignature['Args']['filters']): boolean => {
+    const filterItem = (
+      item: HdsAdvancedTableSignature['Args']['filters'],
+    ): boolean => {
       if (Object.keys(this.filters).length === 0) return true;
       let match = true;
       Object.keys(this.filters).forEach((key) => {
@@ -613,9 +627,17 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
       @filters={{this.filters}}
       @isLiveFilter={{this.isLiveFilter}}
       @onFilter={{this.onFilter}}
+      @onSearch={{this.onSearch}}
     >
       <:actions as |A|>
-        <A.FilterBar as |F|>
+        <A.FilterBar @hasSearch={{true}} as |F|>
+          <F.ActionsDropdown as |D|>
+            <D.ToggleButton @text="Actions" @color="secondary" @size="small" />
+            <D.Checkbox>access</D.Checkbox>
+            <D.Checkbox>homework</D.Checkbox>
+            <D.Checkbox>discovery</D.Checkbox>
+            <D.Checkbox>memories</D.Checkbox>
+          </F.ActionsDropdown>
           <F.FiltersDropdown as |D|>
             <D.Checkbox @value="project-name">Project name</D.Checkbox>
             <D.Checkbox @value="run-status">Run status</D.Checkbox>
