@@ -16,16 +16,16 @@ import { HdsIcon } from '@hashicorp/design-system-components/components';
 import ShwLogoDesignSystem from 'showcase/components/shw/logo/design-system';
 import ShwThemeSwitcher from 'showcase/components/shw/theme-switcher';
 
-import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
+import type ShwThemingService from 'showcase/services/shw-theming';
 
 export default class Application extends Component {
   @service declare readonly router: RouterService;
-  @service declare readonly hdsTheming: HdsThemingService;
+  @service declare readonly shwTheming: ShwThemingService;
 
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
     this.router.on('routeDidChange', this.routeDidChange.bind(this));
-    this.hdsTheming.initializeTheme();
+    this.shwTheming.initializeTheme();
   }
 
   get isFrameless() {
