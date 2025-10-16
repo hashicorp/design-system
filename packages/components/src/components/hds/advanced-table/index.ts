@@ -161,6 +161,7 @@ export interface HdsAdvancedTableSignature {
     ) => void;
     onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
     onFilter?: (filters: HdsAdvancedTableFilters) => void;
+    onSearch?: (event: Event) => void;
   };
   Blocks: {
     actions?: [
