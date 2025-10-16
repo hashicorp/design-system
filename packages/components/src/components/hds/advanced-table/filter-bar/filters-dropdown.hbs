@@ -1,6 +1,6 @@
 {{! @glint-nocheck }}
 <Hds::Dropdown @listPosition="bottom-left" @height="180px" class={{this.classNames}} as |D|>
-  <D.ToggleButton @text="Filter" @color="secondary" @size="small" />
+  <D.ToggleButton @text="Add filter" @color="secondary" @size="small" />
   {{yield
     (hash
       Checkbox=(component
