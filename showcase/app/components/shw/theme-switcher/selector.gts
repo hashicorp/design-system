@@ -4,54 +4,31 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { eq } from 'ember-truth-helpers';
-import type Owner from '@ember/owner';
+import { service } from '@ember/service';
 
 import ShwThemeSwitcherControlSelect from './control/select';
+import ShwThemingService from 'showcase/services/shw-theming';
+import type { ShwStylesheets } from 'showcase/services/shw-theming';
 
-import type {
-  HdsModesLight,
-  HdsModesDark,
-  HdsThemes,
-} from '@hashicorp/design-system-components/services/hds-theming';
+import type { HdsThemes } from '@hashicorp/design-system-components/services/hds-theming';
 
-export interface ShwThemeSwitcherSelectorSignature {
-  Args: {
-    currentStylesheet: string;
-    currentTheme: HdsThemes;
-    currentLightTheme: HdsModesLight;
-    currentDarkTheme: HdsModesDark;
-    onSelectPageTheme?: (args: OnSelectPageThemeArgs) => void;
-  };
-  Element: HTMLDivElement;
-}
+import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 
-export interface OnSelectPageThemeArgs {
-  currentStylesheet: string;
-  currentTheme: HdsThemes;
-}
-
-export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcherSelectorSignature> {
-  @tracked selectedStylesheet;
-  @tracked selectedTheme;
-
-  constructor(owner: Owner, args: ShwThemeSwitcherSelectorSignature['Args']) {
-    super(owner, args);
-    this.selectedStylesheet = this.args.currentStylesheet;
-    this.selectedTheme = this.args.currentTheme;
-  }
+export default class ShwThemeSwitcherSelector extends Component {
+  @service declare readonly hdsTheming: HdsThemingService;
+  @service declare readonly shwTheming: ShwThemingService;
 
   get gLight() {
-    return this.args.currentLightTheme.replace('cds-', '');
+    return this.hdsTheming.currentLightTheme.replace('cds-', '');
   }
 
   get gDark() {
-    return this.args.currentDarkTheme.replace('cds-', '');
+    return this.hdsTheming.currentDarkTheme.replace('cds-', '');
   }
 
   get selectedOption() {
-    return `${this.selectedStylesheet}|${this.selectedTheme}`;
+    return `${this.shwTheming.currentStylesheet}|${this.hdsTheming.currentTheme}`;
   }
 
   get themingOptions(): Record<string, Record<string, string>> {
@@ -81,19 +58,29 @@ export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcher
     const selectValue = select.value;
 
     const [selectedStylesheet, selectedTheme] = selectValue.split('|') as [
-      string,
+      ShwStylesheets,
       HdsThemes,
     ];
 
-    this.selectedStylesheet = selectedStylesheet;
-    this.selectedTheme = selectedTheme;
+    console.log(
+      '🚦 onSelectPageTheme invoked',
+      `selectedStylesheet=${selectedStylesheet}`,
+      `selectedTheme=${selectedTheme}`,
+    );
 
-    if (typeof this.args.onSelectPageTheme === 'function') {
-      this.args.onSelectPageTheme({
-        currentStylesheet: this.selectedStylesheet,
-        currentTheme: this.selectedTheme,
-      });
-    }
+    // we set the `shw` and `hds` themes via the `shwTheming` service
+    this.shwTheming.setShwHdsThemes(
+      selectedStylesheet,
+      selectedTheme,
+      // TODO! update this
+      // ({ currentTheme, currentMode }) => {
+      //   console.log(
+      //     '➡️ LOCAL INVOCATION via setShwHdsThemes callback',
+      //     currentTheme,
+      //     currentMode,
+      //   );
+      // },
+    );
   };
 
   <template>
