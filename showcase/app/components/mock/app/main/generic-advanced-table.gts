@@ -387,6 +387,9 @@ const SAMPLE_MODEL = [
 ];
 
 const SAMPLE_MODEL_VALUES = {
+  name: Array.from(new Set(SAMPLE_MODEL.map((item) => item['name']))).map(
+    (value) => ({ value, label: value }),
+  ),
   'project-name': Array.from(
     new Set(SAMPLE_MODEL.map((item) => item['project-name'])),
   ).map((value) => ({ value, label: value })),
@@ -410,6 +413,7 @@ const SAMPLE_COLUMNS = [
     label: 'Name',
     key: 'name',
     width: 'max-content',
+    filterType: 'checkbox',
   },
   {
     label: 'Project name',
@@ -639,11 +643,18 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             <D.Checkbox>memories</D.Checkbox>
           </F.ActionsDropdown>
           <F.FiltersDropdown as |D|>
+            <D.Checkbox @value="name">Name</D.Checkbox>
             <D.Checkbox @value="project-name">Project name</D.Checkbox>
             <D.Checkbox @value="run-status">Run status</D.Checkbox>
             <D.Checkbox @value="terraform-version">Terraform version</D.Checkbox>
           </F.FiltersDropdown>
-          <F.Dropdown @key="project-name" as |D|>
+          <F.Dropdown @key="name" @searchEnabled={{true}} as |D|>
+            <D.ToggleButton @text="Name" />
+            {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
+              <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+            {{/each}}
+          </F.Dropdown>
+          <F.Dropdown @key="project-name" @searchEnabled={{true}} as |D|>
             <D.ToggleButton @text="Project name" />
             {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
               <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
