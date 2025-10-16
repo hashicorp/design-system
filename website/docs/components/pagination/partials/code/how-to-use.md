@@ -120,7 +120,7 @@ If you want the Pagination to change the URL of the page directly (eg. updating 
 />
 ```
 
-where the `@queryFunction` function will be something like this:
+where the `@queryFunction` function will be something like this (this is just an example, you will have to adapt the code to how your routing and query parameters are handled, see a reference [in Cloud UI](https://github.com/hashicorp/cloud-ui/blob/f49947bab0422165804049a018a7198f2e8c97e3/engines/role-assignments/addon/components/page/list.gts#L254-L259) or [in Atlas](https://github.com/hashicorp/atlas/blob/d6f0feee5a603d16fb331e1d697d12191a9bc1a3/frontend/atlas/app/controllers/v2/organization/workspaces-beta.js#L62C3-L69C4)):
 
 ```javascript
 get demoQueryFunctionNumbered() {
@@ -251,7 +251,7 @@ If you want the Pagination to change the URL of the page directly (eg. updating 
 />
 ```
 
-where the `@queryFunction` function will be something like this:
+where the `@queryFunction` function will be something like this (this is just an example, you will have to adapt the code to how your routing and query parameters are handled, see a reference [in Cloud UI](https://github.com/hashicorp/cloud-ui/blob/f49947bab0422165804049a018a7198f2e8c97e3/hcp/app/components/page/projects/list.gjs#L149-L165) or [in Atlas](https://github.com/hashicorp/atlas/blob/75086ea986e1e15488486996a8d949c4bc68633c/frontend/atlas/app/controllers/v2/organization/settings/policies/index.js#L9-L13)):
 
 ```javascript
 get demoQueryFunctionCompact() {
