@@ -1,13 +1,20 @@
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import type {
-  OnSetThemeCallback,
   HdsThemes,
-  HdsModes,
+  OnSetThemeCallback,
+  OnSetThemeCallbackOptions,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
 import config from 'showcase/config/environment';
+
+export type ShwStylesheets =
+  | 'standard'
+  | 'prefers-color-scheme'
+  | 'css-selectors'
+  | 'combined-strategies';
 
 const updatePageStylesheet = (currentStylesheet: string) => {
   let newStylesheet;
@@ -46,27 +53,58 @@ const updatePageStylesheet = (currentStylesheet: string) => {
 };
 
 export default class ShwThemingService extends HdsThemingService {
-  @tracked currentStylesheet: string = 'standard';
+  @service declare readonly hdsTheming: HdsThemingService;
+
+  @tracked _currentStylesheet: ShwStylesheets = 'standard';
 
   globalOnSetTheme: OnSetThemeCallback = ({
     currentTheme,
     currentMode,
-  }: {
-    currentTheme: HdsThemes;
-    currentMode: HdsModes;
-  }) => {
-    console.log('EXTENDED SERVICE', currentTheme, currentMode);
-    // update the page's stylesheet
-    updatePageStylesheet(this.currentStylesheet);
+  }: OnSetThemeCallbackOptions) => {
+    console.log(
+      '➡️ ShwTheming Service -- globalOnSetTheme invoked',
+      currentTheme,
+      currentMode,
+    );
   };
 
-  setCurrentStylesheet(
-    currentStylesheet:
-      | 'standard'
-      | 'prefers-color-scheme'
-      | 'css-selectors'
-      | 'combined-strategies',
-  ): void {
-    this.currentStylesheet = currentStylesheet;
+  setShwHdsThemes(
+    stylesheet: ShwStylesheets,
+    theme: HdsThemes,
+    onSetTheme?: OnSetThemeCallback,
+  ) {
+    console.log(
+      '➡️ ShwTheming Service -- setShwHdsThemes() invoked',
+      stylesheet,
+      theme,
+    );
+
+    if (stylesheet !== this.currentStylesheet) {
+      this.currentStylesheet = stylesheet;
+      updatePageStylesheet(this.currentStylesheet);
+    }
+
+    // we set the theme for the showcase itself
+    const rootElement = document.querySelector('html');
+    if (rootElement) {
+      if (this.hdsTheming.currentTheme) {
+        rootElement.setAttribute(
+          'data-shw-theme',
+          this.hdsTheming.currentTheme,
+        );
+      } else {
+        rootElement.removeAttribute('data-shw-theme');
+      }
+    }
+
+    this.hdsTheming.setTheme(theme, onSetTheme);
+  }
+
+  set currentStylesheet(currentStylesheet: ShwStylesheets) {
+    this._currentStylesheet = currentStylesheet;
+  }
+
+  get currentStylesheet(): ShwStylesheets {
+    return this._currentStylesheet;
   }
 }

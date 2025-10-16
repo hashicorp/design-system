@@ -7,7 +7,7 @@ import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
-import type ShwThemingService from 'showcase/services/shw-theming';
+import ShwThemingService from 'showcase/services/shw-theming';
 
 export type PageFoundationsThemingFramelessPageWithContextualThemesModel =
   ModelFrom<PageFoundationsThemingFramelessPageWithContextualThemesRoute>;
@@ -16,15 +16,22 @@ export default class PageFoundationsThemingFramelessPageWithContextualThemesRout
   @service declare readonly shwTheming: ShwThemingService;
 
   activate() {
-    console.log('activated route');
-    this.shwTheming.setCurrentStylesheet('css-selectors');
-    this.shwTheming.setTheme('system', ({ currentTheme, currentMode }) => {
-      console.log('PAGE CONTEXTUAL THEMES', currentTheme, currentMode);
-    });
+    console.log('➡️ activated route');
+    this.shwTheming.setShwHdsThemes(
+      'combined-strategies',
+      'dark',
+      ({ currentTheme, currentMode }) => {
+        console.log(
+          '➡️ PAGE CONTEXTUAL THEMES route activate()',
+          currentTheme,
+          currentMode,
+        );
+      },
+    );
   }
 
   deactivate() {
     // The code you want to execute when the route is left goes here
-    console.log('deactivated route');
+    console.log('➡️ deactivated route');
   }
 }

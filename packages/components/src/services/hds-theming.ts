@@ -63,32 +63,32 @@ export const HDS_THEMING_CLASS_SELECTORS_LIST = [
 export const HDS_THEMING_LOCALSTORAGE_KEY = 'hds-current-theming-preferences';
 
 export type HdsThemingServiceOptions = {
-  themeMap: {
-    [HdsThemeValues.Light]: HdsModesLight | undefined;
-    [HdsThemeValues.Dark]: HdsModesDark | undefined;
-  };
-  cssSelector: HdsCssSelectors | undefined;
-  onSetTheme?: () => void;
+  // TODO! should we consider `undefined` here, for when the consumers are s
+  lightTheme: HdsModesLight; //  | undefined
+  darkTheme: HdsModesDark; //  | undefined
+  cssSelector: HdsCssSelectors; //  | undefined
 };
 
-export type OnSetThemeCallback = (options: {
+export type OnSetThemeCallbackOptions = {
   currentTheme: HdsThemes;
   currentMode: HdsModes;
-}) => void;
-
-export const DEFAULT_THEMING_OPTIONS: HdsThemingServiceOptions = {
-  themeMap: {
-    [HdsThemeValues.Light]: HdsModesLightValues.CdsG0,
-    [HdsThemeValues.Dark]: HdsModesDarkValues.CdsG100,
-  },
-  cssSelector: 'data',
 };
+
+export type OnSetThemeCallback = (options: OnSetThemeCallbackOptions) => void;
+
+export const DEFAULT_THEMING_OPTION_LIGHT_THEME = HdsModesLightValues.CdsG0;
+export const DEFAULT_THEMING_OPTION_DARK_THEME = HdsModesDarkValues.CdsG100;
+export const DEFAULT_THEMING_OPTION_CSS_SELECTOR = 'data';
+
 export default class HdsThemingService extends Service {
   @tracked isInitialized: boolean = false;
-  @tracked currentTheme: HdsThemes = undefined;
-  @tracked currentMode: HdsModes = undefined;
-  @tracked currentThemingServiceOptions: HdsThemingServiceOptions =
-    DEFAULT_THEMING_OPTIONS;
+  @tracked _currentTheme: HdsThemes = undefined;
+  @tracked _currentMode: HdsModes = undefined;
+  @tracked _currentLightTheme: HdsModesLight =
+    DEFAULT_THEMING_OPTION_LIGHT_THEME;
+  @tracked _currentDarkTheme: HdsModesDark = DEFAULT_THEMING_OPTION_DARK_THEME;
+  @tracked _currentCssSelector: HdsCssSelectors =
+    DEFAULT_THEMING_OPTION_CSS_SELECTOR;
   @tracked globalOnSetTheme: OnSetThemeCallback | undefined;
 
   constructor(owner: Owner) {
@@ -111,12 +111,10 @@ export default class HdsThemingService extends Service {
     this.isInitialized = true;
   }
 
-  getTheme(): HdsThemes {
-    return this.currentTheme;
-  }
-
   setTheme(theme: HdsThemes, onSetTheme?: OnSetThemeCallback) {
-    console.log('setTheme invoked', `theme=${theme}`);
+    console.group('🌞 setTheme');
+
+    console.log('🌞 setTheme invoked', `theme=${theme}`);
 
     // IMPORTANT: for this to work, it needs to be the HTML tag (it's the `:root` in CSS)
     const rootElement = document.querySelector('html');
@@ -128,56 +126,100 @@ export default class HdsThemingService extends Service {
     // set `currentTheme` and `currentMode`
     if (
       theme === undefined || // standard (no theming)
-      theme === HdsThemeValues.System || // system (prefers-color-scheme)
       !THEMES.includes(theme) // handle possible errors
     ) {
-      this.currentTheme = undefined;
-      this.currentMode = undefined;
+      this._currentTheme = undefined;
+      this._currentMode = undefined;
+    } else if (
+      theme === HdsThemeValues.System // system (prefers-color-scheme)
+    ) {
+      this._currentTheme = HdsThemeValues.System;
+      this._currentMode = undefined;
     } else {
-      this.currentTheme = theme;
-      this.currentMode =
-        this.currentThemingServiceOptions.themeMap[this.currentTheme];
+      this._currentTheme = theme;
+      if (this._currentTheme === HdsThemeValues.Light) {
+        this._currentMode = this._currentLightTheme;
+      }
+      if (this._currentTheme === HdsThemeValues.Dark) {
+        this._currentMode = this._currentDarkTheme;
+      }
     }
 
     // remove or update the CSS selectors applied to the root element (depending on the `theme` argument)
     rootElement.removeAttribute(HDS_THEMING_DATA_SELECTOR);
     rootElement.classList.remove(...HDS_THEMING_CLASS_SELECTORS_LIST);
-    if (this.currentMode !== undefined) {
-      if (this.currentThemingServiceOptions.cssSelector === 'data') {
-        rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, this.currentMode);
-      } else if (this.currentThemingServiceOptions.cssSelector === 'class') {
+    if (this._currentMode !== undefined) {
+      if (this._currentCssSelector === 'data') {
+        rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, this._currentMode);
+      } else if (this._currentCssSelector === 'class') {
         rootElement.classList.add(
-          `${HDS_THEMING_CLASS_SELECTOR_PREFIX}-${this.currentMode}`
+          `${HDS_THEMING_CLASS_SELECTOR_PREFIX}-${this._currentMode}`
         );
       }
     }
 
     // store the current theme in local storage (unless undefined)
-    if (this.currentTheme) {
-      localStorage.setItem(HDS_THEMING_LOCALSTORAGE_KEY, this.currentTheme);
+    if (this._currentTheme) {
+      localStorage.setItem(HDS_THEMING_LOCALSTORAGE_KEY, this._currentTheme);
     } else {
       localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_KEY);
     }
 
     // this is a general callback that can be defined globally (by extending the service)
     if (this.globalOnSetTheme) {
+      console.log('🌞 globalOnSetTheme callback provided');
       this.globalOnSetTheme({
-        currentTheme: this.currentTheme,
-        currentMode: this.currentMode,
+        currentTheme: this._currentTheme,
+        currentMode: this._currentMode,
       });
     }
 
     // this is a "local" callback that can be defined "locally" (eg. in a theme switcher)
     if (onSetTheme) {
+      console.log('🌞 onSetTheme callback provided');
       onSetTheme({
-        currentTheme: this.currentTheme,
-        currentMode: this.currentMode,
+        currentTheme: this._currentTheme,
+        currentMode: this._currentMode,
       });
     }
+    console.groupEnd();
   }
 
   // this is used for the HDS Showcase and for consumers that want to customize how they apply theming
-  setThemingServiceOptions(customOptions: HdsThemingServiceOptions) {
-    this.currentThemingServiceOptions = customOptions;
+  setThemingServiceOptions(options: HdsThemingServiceOptions) {
+    const { lightTheme, darkTheme, cssSelector } = options;
+
+    console.log(
+      '🌞 setThemingServiceOptions invoked',
+      `lightTheme=${lightTheme}`,
+      `darkTheme=${darkTheme}`,
+      `cssSelector=${cssSelector}`
+    );
+
+    this._currentLightTheme = lightTheme;
+    this._currentDarkTheme = darkTheme;
+    this._currentCssSelector = cssSelector;
+  }
+
+  // getters used for reactivity in the components/services using this service
+
+  get currentTheme(): HdsThemes {
+    return this._currentTheme;
+  }
+
+  get currentMode(): HdsModes {
+    return this._currentMode;
+  }
+
+  get currentLightTheme(): HdsModesLight {
+    return this._currentLightTheme ?? DEFAULT_THEMING_OPTION_LIGHT_THEME;
+  }
+
+  get currentDarkTheme(): HdsModesDark {
+    return this._currentDarkTheme ?? DEFAULT_THEMING_OPTION_DARK_THEME;
+  }
+
+  get currentCssSelector(): HdsCssSelectors {
+    return this._currentCssSelector ?? DEFAULT_THEMING_OPTION_CSS_SELECTOR;
   }
 }
