@@ -41,7 +41,7 @@ export default class ShwThemeSwitcherControlSelect extends Component<ShwThemeSwi
   };
 
   <template>
-    <div class="shw-theme-switcher-popover__control-item">
+    <div class="shw-theme-switcher-popover__control-wrapper">
       <label
         class="shw-theme-switcher__control-label"
         for={{this.selectId}}
