@@ -9,6 +9,7 @@ import { guidFor } from '@ember/object/internals';
 
 import ShwThemeSwitcherPopover from './popover';
 import ShwThemeSwitcherSelector from './selector';
+import ShwThemeSwitcherDebuggingPanel from './debugging-panel';
 import ShwThemingService from 'showcase/services/shw-theming';
 
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
@@ -23,8 +24,6 @@ export default class ShwThemeSwitcher extends Component {
 
   <template>
     <div class="shw-theme-switcher">
-      <pre>this.currentTheme = {{this.hdsTheming.currentTheme}}</pre>
-      <pre>this.currentStylesheet = {{this.shwTheming.currentStylesheet}}</pre>
       <ShwThemeSwitcherSelector />
       <button
         type="button"
@@ -34,6 +33,7 @@ export default class ShwThemeSwitcher extends Component {
       >
         <HdsIcon @name="settings" /></button>
       <ShwThemeSwitcherPopover @popoverId={{this.popoverId}} />
+      <ShwThemeSwitcherDebuggingPanel />
     </div>
   </template>
 }
