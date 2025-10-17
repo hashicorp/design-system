@@ -21,12 +21,20 @@
   --shw-placeholder-link-color: #ccc;
 }
 
+// TODO add comment explaining why we decided to rely on `hds-` selectors instead of `shw-` selectors
+
 @media (prefers-color-scheme: dark) {
-  :root[data-shw-theme="system"] {
+  // TODO! this is not correct, if we start to use `hds-theme-system` or `data-hds-theme=system`
+  :root:not([class*="hds-theme-"],[data-hds-theme]) {
     @include shw-theme-color-variables-dark();
   }
 }
 
-[data-shw-theme="dark"] {
+.hds-theme-dark,
+.hds-theme-cds-g90,
+.hds-theme-cds-g100,
+[data-hds-theme='dark'],
+[data-hds-theme='cds-g90'],
+[data-hds-theme='cds-g100'] {
   @include shw-theme-color-variables-dark();
 }
