@@ -11,6 +11,7 @@ import { service } from '@ember/service';
 import type Owner from '@ember/owner';
 
 import ShwThemeSwitcherControlSelect from './control/select';
+import ShwThemeSwitcherControlToggle from './control/toggle';
 
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import {
@@ -23,9 +24,14 @@ import type {
   HdsCssSelectors,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
+import type { OnApply, OnApplyOptions } from './index';
+
 interface ShwThemeSwitcherPopoverSignature {
   Args: {
     popoverId: string;
+    hasFixedControls: boolean;
+    hasDebuggingPanel: boolean;
+    onApply: OnApply;
   };
   Element: HTMLDivElement;
 }
@@ -36,12 +42,16 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
   @tracked selectedLightTheme;
   @tracked selectedDarkTheme;
   @tracked selectedCssSelector;
+  @tracked hasFixedControls: boolean;
+  @tracked hasDebuggingPanel: boolean;
 
   constructor(owner: Owner, args: ShwThemeSwitcherPopoverSignature['Args']) {
     super(owner, args);
     this.selectedLightTheme = this.hdsTheming.currentLightTheme;
     this.selectedDarkTheme = this.hdsTheming.currentDarkTheme;
     this.selectedCssSelector = this.hdsTheming.currentCssSelector;
+    this.hasFixedControls = this.args.hasFixedControls;
+    this.hasDebuggingPanel = this.args.hasDebuggingPanel;
   }
 
   onChangeAdvancedOption = (optionName: string, event: Event) => {
@@ -59,12 +69,32 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
     }
   };
 
+  onTogglePreference = (preferenceName: string, event: Event) => {
+    const input = event.target as HTMLInputElement;
+    switch (preferenceName) {
+      case 'fixed-controls':
+        this.hasFixedControls = input.checked;
+        break;
+      case 'debugging-panel':
+        this.hasDebuggingPanel = input.checked;
+        break;
+    }
+  };
+
   onApplyThemingPreferences = () => {
     this.hdsTheming.setThemingServiceOptions({
       lightTheme: this.selectedLightTheme,
       darkTheme: this.selectedDarkTheme,
       cssSelector: this.selectedCssSelector,
     });
+
+    if (typeof this.args.onApply === 'function') {
+      const options = {
+        hasFixedControls: this.hasFixedControls,
+        hasDebuggingPanel: this.hasDebuggingPanel,
+      } as OnApplyOptions;
+      this.args.onApply(options);
+    }
 
     // programmatically close the popover
     const popoverElement = document.getElementById(this.args.popoverId);
@@ -84,7 +114,8 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
       <p class="shw-theme-switcher-popover__description">You can change what
         modes are used for the light/dark themes, and what CSS selector is used
         to apply the mode to the page:</p>
-      <div class="shw-theme-switcher-popover__advanced-options">
+
+      <div class="shw-theme-switcher-popover__options-list">
         <ShwThemeSwitcherControlSelect
           @label="Light"
           @values={{MODES_LIGHT}}
@@ -104,6 +135,26 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
           @onChange={{(fn this.onChangeAdvancedOption "css-selector")}}
         />
       </div>
+
+      <hr class="shw-theme-switcher-popover__separator" />
+
+      <p class="shw-theme-switcher-popover__description">You can fix the theming
+        controls on the page, and show an extra debugging panel:</p>
+
+      <div class="shw-theme-switcher-popover__options-list">
+        <ShwThemeSwitcherControlToggle
+          @label="Fixed controls"
+          @checked={{@hasFixedControls}}
+          @onToggle={{(fn this.onTogglePreference "fixed-controls")}}
+        />
+        <ShwThemeSwitcherControlToggle
+          @label="Debugging panel"
+          @checked={{@hasDebuggingPanel}}
+          @onToggle={{(fn this.onTogglePreference "debugging-panel")}}
+        />
+      </div>
+
+      <hr class="shw-theme-switcher-popover__separator" />
 
       <div class="shw-theme-switcher-popover__actions">
         <button
