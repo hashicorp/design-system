@@ -10,14 +10,18 @@ import { tracked } from '@glimmer/tracking';
 import type RouterService from '@ember/routing/router-service';
 import type Owner from '@ember/owner';
 
+import ShwThemingService from 'showcase/services/shw-theming';
+
 export default class ApplicationController extends Controller {
   @service declare readonly router: RouterService;
+  @service declare readonly shwTheming: ShwThemingService;
 
   @tracked isFrameless = false;
 
   constructor(owner: Owner) {
     super(owner);
     this.router.on('routeDidChange', this.routeDidChange.bind(this));
+    this.shwTheming.initializeTheme();
   }
 
   routeDidChange() {

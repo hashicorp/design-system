@@ -20,6 +20,7 @@ import ShwTextH1 from '../app/components/shw/text/h1';
 import ShwTextH2 from '../app/components/shw/text/h2';
 import ShwTextH3 from '../app/components/shw/text/h3';
 import ShwTextH4 from '../app/components/shw/text/h4';
+import ShwThemeSwitcher from '../app/components/shw/theme-switcher';
 
 import MockApp from '../app/components/mock/app/index';
 import MockAppHeaderAppHeader from '../app/components/mock/app/header/app-header';
@@ -31,6 +32,9 @@ import MockAppMainGenericFormPartialsAddUser from '../app/components/mock/app/ma
 import MockAppMainGenericFormPartialsAddPolicy from '../app/components/mock/app/main/generic-form/partials/add-policy';
 import MockAppMainGenericFormPartialsActions from '../app/components/mock/app/main/generic-form/partials/actions';
 import MockAppMainGenericTextContent from '../app/components/mock/app/main/generic-text-content';
+import MockAppMainFormComplex from '../app/components/mock/app/main/form-complex';
+import MockAppMainTableComplex from '../app/components/mock/app/main/table-complex';
+import MockAppMainPagination from '../app/components/mock/app/main/pagination';
 import MockAppFooterAppFooter from '../app/components/mock/app/footer/app-footer';
 import MockDemoBreakpointsRuler from '../app/components/mock/demo/breakpoints-ruler';
 import MockDemoBreakpointsVisualization from '../app/components/mock/demo/breakpoints-visualization';
@@ -71,6 +75,8 @@ export default interface ShowcaseTemplateRegistry {
   'shw/text/h4': typeof ShwTextH4;
   'Shw::Text::Body': typeof ShwTextBody;
   'shw/text/body': typeof ShwTextBody;
+  'Shw::ThemeSwitcher': typeof ShwThemeSwitcher;
+  'shw/theme-switcher': typeof ShwThemeSwitcher;
   // MOCK APP
   'Mock::App': typeof MockApp;
   'mock/app': typeof MockApp;
@@ -92,6 +98,12 @@ export default interface ShowcaseTemplateRegistry {
   'mock/app/main/generic-form/partials/actions': typeof MockAppMainGenericFormPartialsActions;
   'Mock::App::Main::GenericTextContent': typeof MockAppMainGenericTextContent;
   'mock/app/main/generic-text-content': typeof MockAppMainGenericTextContent;
+  'Mock::App::Main::FormComplex': typeof MockAppMainFormComplex;
+  'mock/app/main/form-complex': typeof MockAppMainFormComplex;
+  'Mock::App::Main::TableComplex': typeof MockAppMainTableComplex;
+  'mock/app/main/table-complex': typeof MockAppMainTableComplex;
+  'Mock::App::Main::Pagination': typeof MockAppMainPagination;
+  'mock/app/main/pagination': typeof MockAppMainPagination;
   'Mock::App::Footer::AppFooter': typeof MockAppFooterAppFooter;
   'mock/app/footer/app-footer': typeof MockAppFooterAppFooter;
   'Mock::Demo::BreakpointsVisualization': typeof MockDemoBreakpointsVisualization;
