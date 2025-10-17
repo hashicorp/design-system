@@ -56,6 +56,24 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     assert.true(this.success);
   });
 
+  // @ariaMessageText ARGUMENT
+  test('it should set a custom success message in the aria-live region if passed', async function (assert) {
+    await render(
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @ariaMessageText="Custom success message" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`,
+    );
+    assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
+    // Test the copy success message is not rendered before the button is clicked:
+    assert
+      .dom('#test-copy-button + .sr-only')
+      .doesNotContainText('Custom success message');
+
+    await click('button#test-copy-button');
+    // Test the copy success message is rendered after the button is clicked:
+    assert
+      .dom('#test-copy-button + .sr-only')
+      .hasText('Custom success message');
+  });
+
   // VARIANTS
 
   test('it should render the correct default component variation: secondary color, medium size, idle status', async function (assert) {
@@ -108,9 +126,16 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
       hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
+    // Test the copy success message is not rendered before the button is clicked:
+    assert
+      .dom('#test-copy-button + .sr-only')
+      .doesNotContainText('Copied to clipboard');
+
     await click('button#test-copy-button');
     assert.true(this.success);
+    // Test the copy success message is rendered after the button is clicked:
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
+    assert.dom('#test-copy-button + .sr-only').hasText('Copied to clipboard');
   });
 
   test('it should update the status back to idle after success', async function (assert) {

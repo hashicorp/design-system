@@ -212,6 +212,51 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     sinon.restore();
   });
 
+  // copySuccessMessageText
+  test('it should set the default success message in the aria-live region when the copy button is clicked', async function (assert) {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
+    const copySpy = sinon.spy();
+    this.set('onCopy', copySpy);
+
+    await render(hbs`
+      <Hds::CodeBlock @value="test" @hasCopyButton={{true}} />
+    `);
+
+    assert
+      .dom('.hds-code-block__copy-button + .sr-only')
+      .doesNotContainText('Copied to clipboard');
+
+    await click('.hds-code-block__copy-button');
+
+    assert
+      .dom('.hds-code-block__copy-button + .sr-only')
+      .hasText('Copied to clipboard');
+
+    sinon.restore();
+  });
+
+  test('it should set a custom success message in the aria-live region when the copy button is clicked', async function (assert) {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
+    const copySpy = sinon.spy();
+    this.set('onCopy', copySpy);
+
+    await render(hbs`
+      <Hds::CodeBlock @value="test" @hasCopyButton={{true}} @copySuccessMessageText="Custom success message" />
+    `);
+
+    assert
+      .dom('.hds-code-block__copy-button + .sr-only')
+      .doesNotContainText('Custom success message');
+
+    await click('.hds-code-block__copy-button');
+
+    assert
+      .dom('.hds-code-block__copy-button + .sr-only')
+      .hasText('Custom success message');
+
+    sinon.restore();
+  });
+
   // hasLineNumbers
   test('it displays line numbers by default', async function (assert) {
     await render(hbs`
