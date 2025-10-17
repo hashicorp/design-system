@@ -25,12 +25,20 @@
   @include shw-theme-color-variables-light();
 }
 
+// TODO add comment explaining why we decided to rely on `hds-` selectors instead of `shw-` selectors
+
 @media (prefers-color-scheme: light) {
-  :root[data-shw-theme="system"] {
+  // TODO! this is not correct, if we start to use `hds-theme-system` or `data-hds-theme=system`
+  :root:not([class*="hds-theme-"],[data-hds-theme]) {
     @include shw-theme-color-variables-light();
   }
 }
 
-[data-shw="light"] {
+.hds-theme-light,
+.hds-theme-cds-g0,
+.hds-theme-cds-g10,
+[data-hds-theme='light'],
+[data-hds-theme='cds-g0'],
+[data-hds-theme='cds-g10'] {
   @include shw-theme-color-variables-light();
 }
