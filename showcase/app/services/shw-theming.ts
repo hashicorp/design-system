@@ -1,9 +1,9 @@
+import type Owner from '@ember/owner';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import type {
-  HdsThemes,
   OnSetThemeCallback,
   OnSetThemeCallbackOptions,
 } from '@hashicorp/design-system-components/services/hds-theming';
@@ -52,10 +52,26 @@ const updatePageStylesheet = (currentStylesheet: string) => {
   }
 };
 
+export const SHW_THEMING_LOCALSTORAGE_KEY = 'shw-theming-current-stylesheet';
 export default class ShwThemingService extends HdsThemingService {
   @service declare readonly hdsTheming: HdsThemingService;
 
   @tracked _currentStylesheet: ShwStylesheets = 'standard';
+
+  constructor(owner: Owner) {
+    super(owner);
+
+    console.group('➡️ ShwTheming Service -- constructor()');
+
+    const storedStylesheet = localStorage.getItem(
+      SHW_THEMING_LOCALSTORAGE_KEY,
+    ) as ShwStylesheets;
+    console.log('➡️ localstorage storedStylesheet=', storedStylesheet);
+    if (storedStylesheet) {
+      this.setStylesheet(storedStylesheet);
+    }
+    console.groupEnd();
+  }
 
   globalOnSetTheme: OnSetThemeCallback = ({
     currentTheme,
@@ -68,40 +84,16 @@ export default class ShwThemingService extends HdsThemingService {
     );
   };
 
-  setShwHdsThemes(
-    stylesheet: ShwStylesheets,
-    theme: HdsThemes,
-    onSetTheme?: OnSetThemeCallback,
-  ) {
-    console.log(
-      '➡️ ShwTheming Service -- setShwHdsThemes() invoked',
-      stylesheet,
-      theme,
-    );
+  setStylesheet(stylesheet: ShwStylesheets) {
+    console.log('➡️ ShwTheming Service -- setStylesheet() invoked', stylesheet);
 
-    if (stylesheet !== this.currentStylesheet) {
-      this.currentStylesheet = stylesheet;
-      updatePageStylesheet(this.currentStylesheet);
+    if (stylesheet !== this._currentStylesheet) {
+      this._currentStylesheet = stylesheet;
+      updatePageStylesheet(this._currentStylesheet);
     }
 
-    // we set the theme for the showcase itself
-    const rootElement = document.querySelector('html');
-    if (rootElement) {
-      if (this.hdsTheming.currentTheme) {
-        rootElement.setAttribute(
-          'data-shw-theme',
-          this.hdsTheming.currentTheme,
-        );
-      } else {
-        rootElement.removeAttribute('data-shw-theme');
-      }
-    }
-
-    this.hdsTheming.setTheme(theme, onSetTheme);
-  }
-
-  set currentStylesheet(currentStylesheet: ShwStylesheets) {
-    this._currentStylesheet = currentStylesheet;
+    // store the current stylesheet in local storage
+    localStorage.setItem(SHW_THEMING_LOCALSTORAGE_KEY, this._currentStylesheet);
   }
 
   get currentStylesheet(): ShwStylesheets {
