@@ -163,3 +163,39 @@
     outline: 2px dashed var(--shw-color-action-active-foreground);
   }
 }
+
+// DEBUGGING PANEL
+
+.shw-theme-switcher__debugging-panel {
+  position: absolute;
+  top: 72px;
+  right: 12px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 6px 4px;
+  width: max-content;
+  padding: 9px 12px;
+  color: var(--shw-color-gray-100);
+  background-color: var(--shw-color-gray-600);
+  border: 1px solid var(--shw-color-gray-400);
+  border-radius: 3px;
+
+  .shw-label {
+    margin: 0;
+
+    &:nth-child(2n + 1) {
+      color: var(--shw-color-gray-200);
+      font-style: italic;
+      text-align: right;
+
+      &::after {
+        content: ":";
+      }
+    }
+
+    &:nth-child(2n) {
+      color: var(--shw-color-gray-100);
+      font-weight: 500;
+    }
+  }
+}
