@@ -6,10 +6,11 @@ import {
   isUnauthorizedResponse,
   isNotFoundResponse,
 } from 'ember-fetch/errors';
-import config from 'ember-get-config';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
 import { reject } from 'rsvp';
+
+import config from 'website/config/environment';
 
 export default class ShowRoute extends Route {
   @service router;
