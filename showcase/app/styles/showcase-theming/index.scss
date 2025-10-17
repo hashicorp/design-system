@@ -1,0 +1,49 @@
+// SHOWCASE COLORS > LIGHT/DARK THEMES
+
+@use "./light-color-variables" as *;
+@use "./dark-color-variables" as *;
+
+// DEFAULT
+
+:root {
+  @include shw-theme-color-variables-light();
+}
+
+// PREFERS COLOR SCHEME
+
+// this works because the specificity of `:root` is 010, the same as a class-based and an attribute-based selector (and they come after)
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @include shw-theme-color-variables-light();
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include shw-theme-color-variables-dark();
+  }
+}
+
+// CSS SELECTORS
+
+// after testing different options, we have decided to rely on `hds-` selectors instead of custom `shw-` selectors
+// to avoid extra un-necessary complexity (see different attempts in https://github.com/hashicorp/design-system/pull/3240)
+
+.hds-theme-light,
+.hds-theme-cds-g0,
+.hds-theme-cds-g10,
+[data-hds-theme='light'],
+[data-hds-theme='cds-g0'],
+[data-hds-theme='cds-g10'] {
+  @include shw-theme-color-variables-light();
+}
+
+.hds-theme-dark,
+.hds-theme-cds-g90,
+.hds-theme-cds-g100,
+[data-hds-theme='dark'],
+[data-hds-theme='cds-g90'],
+[data-hds-theme='cds-g100'] {
+  @include shw-theme-color-variables-dark();
+}
