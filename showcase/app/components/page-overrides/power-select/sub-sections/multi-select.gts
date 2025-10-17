@@ -63,6 +63,7 @@ const SubSectionMultiSelect: TemplateOnlyComponent = <template>
           @onChange={{NOOP}}
           @renderInPlace={{true}}
           @searchEnabled={{true}}
+          @searchFieldPosition="before-options"
           as |option|
         >
           {{option}}
