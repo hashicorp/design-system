@@ -12,12 +12,15 @@ import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 
-import HdsAppFooterItem from '@hashicorp/design-system-components/components/hds/app-footer/item';
-import HdsAppFooterLink from '@hashicorp/design-system-components/components/hds/app-footer/link';
-import HdsAppFooterStatusLink from '@hashicorp/design-system-components/components/hds/app-footer/status-link';
-import HdsAppFooterLegalLinks from '@hashicorp/design-system-components/components/hds/app-footer/legal-links';
-import HdsAppFooterCopyright from '@hashicorp/design-system-components/components/hds/app-footer/copyright';
-import HdsTextBody from '@hashicorp/design-system-components/components/hds/text/body';
+import {
+  HdsAppFooterItem,
+  HdsAppFooterLink,
+  HdsAppFooterStatusLink,
+  HdsAppFooterLegalLinks,
+  HdsAppFooterCopyright,
+  HdsTextBody,
+} from '@hashicorp/design-system-components/components';
+
 
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';

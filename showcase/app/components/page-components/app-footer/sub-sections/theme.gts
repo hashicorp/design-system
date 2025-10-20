@@ -9,8 +9,10 @@ import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 
-import HdsAppFooter from '@hashicorp/design-system-components/components/hds/app-footer/index';
-import HdsTextBody from '@hashicorp/design-system-components/components/hds/text/body';
+import {
+  HdsAppFooter,
+  HdsTextBody,
+} from '@hashicorp/design-system-components/components';
 
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';

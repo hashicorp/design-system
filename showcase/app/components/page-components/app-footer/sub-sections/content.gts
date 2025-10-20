@@ -10,9 +10,11 @@ import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 
-import HdsAppFooter from '@hashicorp/design-system-components/components/hds/app-footer/index';
-import HdsDropdown from '@hashicorp/design-system-components/components/hds/dropdown/index';
-import HdsTextBody from '@hashicorp/design-system-components/components/hds/text/body';
+import {
+  HdsAppFooter,
+  HdsDropdown,
+  HdsTextBody,
+} from '@hashicorp/design-system-components/components';
 
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
