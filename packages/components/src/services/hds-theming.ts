@@ -60,9 +60,13 @@ export const HDS_THEMING_CLASS_SELECTORS_LIST = [
   ...MODES_LIGHT,
   ...MODES_DARK,
 ].map((mode) => `${HDS_THEMING_CLASS_SELECTOR_PREFIX}-${mode}`);
-export const HDS_THEMING_LOCALSTORAGE_KEY = 'hds-current-theming-preferences';
 
-export type HdsThemingServiceOptions = {
+export const HDS_THEMING_LOCALSTORAGE_CURRENT_THEME =
+  'hds-theming-current-theme';
+export const HDS_THEMING_LOCALSTORAGE_THEMING_OPTIONS =
+  'hds-theming-theming-options';
+
+export type HdsThemingOptions = {
   lightTheme: HdsModesLight;
   darkTheme: HdsModesDark;
   cssSelector: HdsCssSelectors;
@@ -101,12 +105,26 @@ export default class HdsThemingService extends Service {
       return;
     }
     console.log('HdsThemingService > initializeTheme');
+
     const storedTheme = localStorage.getItem(
-      HDS_THEMING_LOCALSTORAGE_KEY
+      HDS_THEMING_LOCALSTORAGE_CURRENT_THEME
     ) as HdsThemes;
     if (storedTheme) {
       this.setTheme(storedTheme);
     }
+
+    const rawStoredThemingOptions = localStorage.getItem(
+      HDS_THEMING_LOCALSTORAGE_THEMING_OPTIONS
+    );
+    if (rawStoredThemingOptions !== null) {
+      const storedThemingOptions = JSON.parse(
+        rawStoredThemingOptions
+      ) as HdsThemingOptions;
+      if (storedThemingOptions) {
+        this.setThemingOptions(storedThemingOptions);
+      }
+    }
+
     this.isInitialized = true;
   }
 
@@ -114,13 +132,6 @@ export default class HdsThemingService extends Service {
     console.group('🌞 setTheme');
 
     console.log('🌞 setTheme invoked', `theme=${theme}`);
-
-    // IMPORTANT: for this to work, it needs to be the HTML tag (it's the `:root` in CSS)
-    const rootElement = document.querySelector('html');
-
-    if (!rootElement) {
-      return;
-    }
 
     // set `currentTheme` and `currentMode`
     if (
@@ -144,6 +155,12 @@ export default class HdsThemingService extends Service {
       }
     }
 
+    // IMPORTANT: for this to work, it needs to be the HTML tag (it's the `:root` in CSS)
+    const rootElement = document.querySelector('html');
+
+    if (!rootElement) {
+      return;
+    }
     // remove or update the CSS selectors applied to the root element (depending on the `theme` argument)
     rootElement.removeAttribute(HDS_THEMING_DATA_SELECTOR);
     rootElement.classList.remove(...HDS_THEMING_CLASS_SELECTORS_LIST);
@@ -159,9 +176,12 @@ export default class HdsThemingService extends Service {
 
     // store the current theme in local storage (unless undefined)
     if (this._currentTheme) {
-      localStorage.setItem(HDS_THEMING_LOCALSTORAGE_KEY, this._currentTheme);
+      localStorage.setItem(
+        HDS_THEMING_LOCALSTORAGE_CURRENT_THEME,
+        this._currentTheme
+      );
     } else {
-      localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_KEY);
+      localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_CURRENT_THEME);
     }
 
     // this is a general callback that can be defined globally (by extending the service)
@@ -185,11 +205,11 @@ export default class HdsThemingService extends Service {
   }
 
   // this is used for the HDS Showcase and for consumers that want to customize how they apply theming
-  setThemingServiceOptions(options: HdsThemingServiceOptions) {
+  setThemingOptions(options: HdsThemingOptions) {
     const { lightTheme, darkTheme, cssSelector } = options;
 
     console.log(
-      '🌞 setThemingServiceOptions invoked',
+      '🌞 setThemingOptions invoked',
       `lightTheme=${lightTheme}`,
       `darkTheme=${darkTheme}`,
       `cssSelector=${cssSelector}`
@@ -198,6 +218,16 @@ export default class HdsThemingService extends Service {
     this._currentLightTheme = lightTheme;
     this._currentDarkTheme = darkTheme;
     this._currentCssSelector = cssSelector;
+
+    // store the theming options in local storage
+    localStorage.setItem(
+      HDS_THEMING_LOCALSTORAGE_THEMING_OPTIONS,
+      JSON.stringify({
+        lightTheme: this._currentLightTheme,
+        darkTheme: this._currentDarkTheme,
+        cssSelector: this._currentCssSelector,
+      })
+    );
   }
 
   // getters used for reactivity in the components/services using this service
