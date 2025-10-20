@@ -24,7 +24,7 @@ import type {
   HdsCssSelectors,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
-import type { OnApply, OnApplyOptions } from './index';
+import type { OnApply } from './index';
 
 interface ShwThemeSwitcherPopoverSignature {
   Args: {
@@ -89,11 +89,10 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
     });
 
     if (typeof this.args.onApply === 'function') {
-      const options = {
+      this.args.onApply({
         hasFixedControls: this.hasFixedControls,
         hasDebuggingPanel: this.hasDebuggingPanel,
-      } as OnApplyOptions;
-      this.args.onApply(options);
+      });
     }
 
     // programmatically close the popover
