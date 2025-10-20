@@ -83,8 +83,8 @@ export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignatur
   }
 
   @action
-  setTheme(theme: HdsThemes): void {
+  onSelectTheme(theme: HdsThemes): void {
     // we set the theme in the global service (and provide an optional user-defined callback)
-    this.hdsTheming.setTheme(theme, this.args.onSetTheme);
+    this.hdsTheming.setTheme({ theme, onSetTheme: this.args.onSetTheme });
   }
 }
