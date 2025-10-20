@@ -2,4 +2,6 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`AppFooter` - Update company name in copyright text
+<!-- START {components/app-footer} -->
+`AppFooter` - Updated company name in copyright text
+<!-- END -->
