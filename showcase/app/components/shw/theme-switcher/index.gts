@@ -18,17 +18,15 @@ import HdsThemingService from '@hashicorp/design-system-components/services/hds-
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
-export type OnApplyOptions = {
+export type ControlsPreferences = {
   hasFixedControls: boolean;
   hasDebuggingPanel: boolean;
 };
 
-export type OnApply = (options: OnApplyOptions) => void;
+export type OnApply = (options: ControlsPreferences) => void;
 
-const SHW_THEMING_LOCALSTORAGE_PREF_FIXED_CONTROLS_KEY =
-  'shw-theming-pref-has-fixed-controls';
-const SHW_THEMING_LOCALSTORAGE_PREF_DEBUGGING_PANEL_KEY =
-  'shw-theming-pref-has-debugging-panel';
+const LOCALSTORAGE_FIXED_CONTROLS = 'shw-theming-has-fixed-controls';
+const LOCALSTORAGE_DEBUGGING_PANEL = 'shw-theming-has-debugging-panel';
 
 export default class ShwThemeSwitcher extends Component {
   @service declare readonly hdsTheming: HdsThemingService;
@@ -44,26 +42,26 @@ export default class ShwThemeSwitcher extends Component {
     super(owner, args);
 
     const storedHasFixedControls = localStorage.getItem(
-      SHW_THEMING_LOCALSTORAGE_PREF_FIXED_CONTROLS_KEY,
+      LOCALSTORAGE_FIXED_CONTROLS,
     );
     this.hasFixedControls = storedHasFixedControls === 'true';
 
     const storedHasDebuggingPanel = localStorage.getItem(
-      SHW_THEMING_LOCALSTORAGE_PREF_DEBUGGING_PANEL_KEY,
+      LOCALSTORAGE_DEBUGGING_PANEL,
     );
     this.hasDebuggingPanel = storedHasDebuggingPanel === 'true';
   }
 
-  onApply = ({ hasFixedControls, hasDebuggingPanel }: OnApplyOptions) => {
+  onApply = ({ hasFixedControls, hasDebuggingPanel }: ControlsPreferences) => {
     this.hasFixedControls = hasFixedControls;
     this.hasDebuggingPanel = hasDebuggingPanel;
 
     localStorage.setItem(
-      SHW_THEMING_LOCALSTORAGE_PREF_FIXED_CONTROLS_KEY,
+      LOCALSTORAGE_FIXED_CONTROLS,
       String(this.hasFixedControls),
     );
     localStorage.setItem(
-      SHW_THEMING_LOCALSTORAGE_PREF_DEBUGGING_PANEL_KEY,
+      LOCALSTORAGE_DEBUGGING_PANEL,
       String(this.hasDebuggingPanel),
     );
   };
