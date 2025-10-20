@@ -106,8 +106,21 @@ export function initialize(/* application */) {
           .replace(/{/g, '&#123;')
           .replace(/}/g, '&#125;');
 
+        let gtsEncodedCodeBlock = encodedCodeBlock.replaceAll('::', '');
+
         let blockUniqueId = uniqueId();
         let preBlock = `<pre id="pre-block-${blockUniqueId}" class="doc-code-block__code-snippet language-${language}" tabindex="0"><code ${language ? `class="${language} language-${language}"` : ''}>${encodedCodeBlock}</code></pre>`;
+
+        if (
+          language === 'hbs' ||
+          language === 'handlebars' ||
+          language === undefined
+        ) {
+          preBlock = `<Doc::CodeBlockTabs>
+        <:legacy><pre id="pre-block-${blockUniqueId}" class="doc-code-block__code-snippet language-${language}" tabindex="0"><code ${language ? `class="${language} language-${language}"` : ''}>${encodedCodeBlock}</code></pre>
+        </:legacy>
+        <:gts><pre id="pre-block-${blockUniqueId}-ts" class="doc-code-block__code-snippet language-html" tabindex="0"><code class="html language-html">${gtsEncodedCodeBlock}</code></pre></:gts></Doc::CodeBlockTabs>`;
+        }
 
         let autoExecuteLanguages = ['html', 'handlebars', 'hbs'];
 
