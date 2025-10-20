@@ -28,24 +28,24 @@ export default class ShwThemeSwitcherSelector extends Component {
   }
 
   get selectedOption() {
-    return `${this.shwTheming.currentStylesheet}|${this.hdsTheming.currentTheme}`;
+    return `${this.shwTheming.currentStylesheet ?? 'no-theming'}|${this.hdsTheming.currentTheme ?? ''}`;
   }
 
   get themingOptions(): Record<string, Record<string, string>> {
     return {
       'No theming': {
-        'standard|no-theming': 'HDS / Standard',
+        'no-theming|': 'HDS / Standard',
       },
       'Theming via prefers-color-scheme': {
         'prefers-color-scheme|system': 'Carbon / System',
       },
       'Theming via CSS selectors': {
-        'css-selectors|standard': 'HDS / Default',
+        'css-selectors|': 'HDS / Default',
         'css-selectors|light': `Carbon / Light (${this.gLight})`,
         'css-selectors|dark': `Carbon / Dark (${this.gDark})`,
       },
       'Theming via combined strategies': {
-        'combined-strategies|standard': 'HDS / Default',
+        'combined-strategies|': 'HDS / Default',
         'combined-strategies|system': 'Carbon / System',
         'combined-strategies|light': `Carbon / Light (${this.gLight})`,
         'combined-strategies|dark': `Carbon / Dark (${this.gDark})`,
