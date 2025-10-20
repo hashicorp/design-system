@@ -3,10 +3,11 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
-import type {
-  OnSetThemeCallback,
-  OnSetThemeCallbackOptions,
-} from '@hashicorp/design-system-components/services/hds-theming';
+
+// import type {
+//   OnSetThemeCallback,
+//   OnSetThemeCallbackOptions,
+// } from '@hashicorp/design-system-components/services/hds-theming';
 
 import config from 'showcase/config/environment';
 
@@ -61,32 +62,28 @@ export default class ShwThemingService extends HdsThemingService {
   constructor(owner: Owner) {
     super(owner);
 
-    console.group('➡️ ShwTheming Service -- constructor()');
-
     const storedStylesheet = localStorage.getItem(
       LOCALSTORAGE_CURRENT_STYLESHEET,
     ) as ShwStylesheets;
-    console.log('➡️ localstorage storedStylesheet=', storedStylesheet);
     if (storedStylesheet) {
       this.setStylesheet(storedStylesheet);
     }
-    console.groupEnd();
   }
 
-  globalOnSetTheme: OnSetThemeCallback = ({
-    currentTheme,
-    currentMode,
-  }: OnSetThemeCallbackOptions) => {
-    console.log(
-      '➡️ ShwTheming Service -- globalOnSetTheme invoked',
-      currentTheme,
-      currentMode,
-    );
-  };
+  // example of how a consumer could use the `globalOnSetTheme` callback by extending the `hdsTheming` service
+  //
+  // globalOnSetTheme: OnSetThemeCallback = ({
+  //   currentTheme,
+  //   currentMode,
+  // }: OnSetThemeCallbackOptions) => {
+  //   console.log(
+  //     'ShwTheming Service -- globalOnSetTheme invoked',
+  //     currentTheme,
+  //     currentMode,
+  //   );
+  // };
 
   setStylesheet(stylesheet: ShwStylesheets) {
-    console.log('➡️ ShwTheming Service -- setStylesheet() invoked', stylesheet);
-
     if (stylesheet !== this._currentStylesheet) {
       this._currentStylesheet = stylesheet;
       updatePageStylesheet(this._currentStylesheet);
