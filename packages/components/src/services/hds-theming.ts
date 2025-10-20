@@ -61,15 +61,17 @@ export const HDS_THEMING_CLASS_SELECTORS_LIST = [
   ...MODES_DARK,
 ].map((mode) => `${HDS_THEMING_CLASS_SELECTOR_PREFIX}-${mode}`);
 
-export const HDS_THEMING_LOCALSTORAGE_CURRENT_THEME =
-  'hds-theming-current-theme';
-export const HDS_THEMING_LOCALSTORAGE_THEMING_OPTIONS =
-  'hds-theming-theming-options';
+export const HDS_THEMING_LOCALSTORAGE_DATA = 'hds-theming-data';
 
 export type HdsThemingOptions = {
   lightTheme: HdsModesLight;
   darkTheme: HdsModesDark;
   cssSelector: HdsCssSelectors;
+};
+
+export type HdsThemingData = {
+  theme: HdsThemes;
+  options: HdsThemingOptions;
 };
 
 export type OnSetThemeCallbackOptions = {
@@ -106,34 +108,71 @@ export default class HdsThemingService extends Service {
     }
     console.log('HdsThemingService > initializeTheme');
 
-    const storedTheme = localStorage.getItem(
-      HDS_THEMING_LOCALSTORAGE_CURRENT_THEME
-    ) as HdsThemes;
-    if (storedTheme) {
-      this.setTheme(storedTheme);
-    }
-
-    const rawStoredThemingOptions = localStorage.getItem(
-      HDS_THEMING_LOCALSTORAGE_THEMING_OPTIONS
+    const rawStoredThemingData = localStorage.getItem(
+      HDS_THEMING_LOCALSTORAGE_DATA
     );
-    if (rawStoredThemingOptions !== null) {
-      const storedThemingOptions = JSON.parse(
-        rawStoredThemingOptions
-      ) as HdsThemingOptions;
-      if (storedThemingOptions) {
-        this.setThemingOptions(storedThemingOptions);
+    if (rawStoredThemingData !== null) {
+      const storedThemingData = JSON.parse(
+        rawStoredThemingData
+      ) as HdsThemingData;
+      if (storedThemingData) {
+        const { theme, options } = storedThemingData;
+        this.setTheme({
+          theme,
+          options,
+        });
       }
     }
 
     this.isInitialized = true;
   }
 
-  setTheme(theme: HdsThemes, onSetTheme?: OnSetThemeCallback) {
+  setTheme({
+    theme,
+    options,
+    onSetTheme,
+  }: {
+    theme: HdsThemes;
+    options?: HdsThemingOptions;
+    onSetTheme?: OnSetThemeCallback;
+  }) {
     console.group('🌞 setTheme');
 
-    console.log('🌞 setTheme invoked', `theme=${theme}`);
+    console.log(
+      '🌞 setTheme invoked',
+      `theme=${theme}`,
+      `options=${JSON.stringify(options, null, 2)}`
+    );
 
-    // set `currentTheme` and `currentMode`
+    // if we have new options, we override the current ones (`lightTheme` / `darkTheme` / `cssSelector`)
+    // these options can be used by consumers that want to customize how they apply theming
+    // (and used by the showcase for the custom theming / theme switching logic)
+    if (
+      options !== undefined &&
+      Object.hasOwn(options, 'lightTheme') &&
+      Object.hasOwn(options, 'darkTheme') &&
+      Object.hasOwn(options, 'cssSelector')
+    ) {
+      const { lightTheme, darkTheme, cssSelector } = options;
+
+      console.log(
+        '🌞 setTheme invoked with options',
+        `lightTheme=${lightTheme}`,
+        `darkTheme=${darkTheme}`,
+        `cssSelector=${cssSelector}`
+      );
+
+      this._currentLightTheme = lightTheme;
+      this._currentDarkTheme = darkTheme;
+      this._currentCssSelector = cssSelector;
+    } else {
+      // fallback if something goes wrong
+      this._currentLightTheme = DEFAULT_THEMING_OPTION_LIGHT_THEME;
+      this._currentDarkTheme = DEFAULT_THEMING_OPTION_DARK_THEME;
+      this._currentCssSelector = DEFAULT_THEMING_OPTION_CSS_SELECTOR;
+    }
+
+    // set the current theme/mode (`currentTheme` / `currentMode`)
     if (
       theme === undefined || // standard (no theming)
       !THEMES.includes(theme) // handle possible errors
@@ -174,15 +213,16 @@ export default class HdsThemingService extends Service {
       }
     }
 
-    // store the current theme in local storage (unless undefined)
-    if (this._currentTheme) {
-      localStorage.setItem(
-        HDS_THEMING_LOCALSTORAGE_CURRENT_THEME,
-        this._currentTheme
-      );
-    } else {
-      localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_CURRENT_THEME);
-    }
+    // store the current theme and theming options in local storage (unless undefined)
+    localStorage.setItem(
+      HDS_THEMING_LOCALSTORAGE_DATA,
+      JSON.stringify({
+        theme: this._currentTheme,
+        lightTheme: this._currentLightTheme,
+        darkTheme: this._currentDarkTheme,
+        cssSelector: this._currentCssSelector,
+      })
+    );
 
     // this is a general callback that can be defined globally (by extending the service)
     if (this.globalOnSetTheme) {
@@ -202,32 +242,6 @@ export default class HdsThemingService extends Service {
       });
     }
     console.groupEnd();
-  }
-
-  // this is used for the HDS Showcase and for consumers that want to customize how they apply theming
-  setThemingOptions(options: HdsThemingOptions) {
-    const { lightTheme, darkTheme, cssSelector } = options;
-
-    console.log(
-      '🌞 setThemingOptions invoked',
-      `lightTheme=${lightTheme}`,
-      `darkTheme=${darkTheme}`,
-      `cssSelector=${cssSelector}`
-    );
-
-    this._currentLightTheme = lightTheme;
-    this._currentDarkTheme = darkTheme;
-    this._currentCssSelector = cssSelector;
-
-    // store the theming options in local storage
-    localStorage.setItem(
-      HDS_THEMING_LOCALSTORAGE_THEMING_OPTIONS,
-      JSON.stringify({
-        lightTheme: this._currentLightTheme,
-        darkTheme: this._currentDarkTheme,
-        cssSelector: this._currentCssSelector,
-      })
-    );
   }
 
   // getters used for reactivity in the components/services using this service
