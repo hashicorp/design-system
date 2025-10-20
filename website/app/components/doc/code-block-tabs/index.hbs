@@ -1,6 +1,16 @@
 <ul role="tablist">
-  <li role="presentation"><button type="button" role="tab" {{on "click" (fn this.onClickTab "legacy")}}>Legacy format</button></li>
-  <li role="presentation"><button type="button" role="tab" {{on "click" (fn this.onClickTab "gts")}}>GTS format</button></li>
+  <li role="presentation"><button
+      type="button"
+      role="tab"
+      class="doc-code-block-tab"
+      {{on "click" (fn this.onClickTab "legacy")}}
+    >Legacy format</button></li>
+  <li role="presentation"><button
+      type="button"
+      role="tab"
+      class="doc-code-block-tab"
+      {{on "click" (fn this.onClickTab "gts")}}
+    >GTS format</button></li>
 </ul>
 <div role="tabpanel" id="legacy-{{this.id}}" hidden={{if (eq this.selectedTab "gts") true false}}>
   {{yield to="legacy"}}

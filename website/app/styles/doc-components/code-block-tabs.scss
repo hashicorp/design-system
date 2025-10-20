@@ -1,0 +1,27 @@
+@use "../typography/mixins" as *;
+
+.doc-code-block-tab {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: 1px 7px; // take in account 1px transparent border
+  color: var(--doc-color-white);
+  background-color: var(--doc-color-feedback-information-200);
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  @include doc-font-style-body-small();
+
+  &:hover {
+    background-color: var(--doc-color-feedback-information-100);
+  }
+
+  &:active {
+    background-color: #0a37a7;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
