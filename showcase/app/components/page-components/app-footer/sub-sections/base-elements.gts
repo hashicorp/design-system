@@ -37,6 +37,7 @@ export interface SubSectionBaseElementsSignature {
 }
 
 const LINK_STATES = ['default', 'hover', 'active', 'focus'];
+const THEMES = ['light', 'dark'];
 
 const SubSectionBaseElements: TemplateOnlyComponent<SubSectionBaseElementsSignature> =
   <template>
@@ -63,29 +64,27 @@ const SubSectionBaseElements: TemplateOnlyComponent<SubSectionBaseElementsSignat
 
     <ShwTextH4>States</ShwTextH4>
 
-    {{#let (array "light" "dark") as |themes|}}
-      {{#each themes as |theme|}}
-        <ShwTextBody><strong>{{theme}} theme</strong></ShwTextBody>
+    {{#each THEMES as |theme|}}
+      <ShwTextBody><strong>{{theme}} theme</strong></ShwTextBody>
 
-        <ShwFlex @gap="2rem" {{style justifyContent="space-between"}} as |SF|>
-          {{#each LINK_STATES as |state|}}
-            <SF.Item @label={{state}}>
-              <ul
-                class={{concat
-                  "hds-app-footer__list hds-app-footer--theme-"
-                  theme
-                }}
-              >
-                <HdsAppFooterLink
-                  @href="#"
-                  mock-state-value={{state}}
-                >Link</HdsAppFooterLink>
-              </ul>
-            </SF.Item>
-          {{/each}}
-        </ShwFlex>
-      {{/each}}
-    {{/let}}
+      <ShwFlex @gap="2rem" {{style justifyContent="space-between"}} as |SF|>
+        {{#each LINK_STATES as |state|}}
+          <SF.Item @label={{state}}>
+            <ul
+              class={{concat
+                "hds-app-footer__list hds-app-footer--theme-"
+                theme
+              }}
+            >
+              <HdsAppFooterLink
+                @href="#"
+                mock-state-value={{state}}
+              >Link</HdsAppFooterLink>
+            </ul>
+          </SF.Item>
+        {{/each}}
+      </ShwFlex>
+    {{/each}}
 
     <ShwDivider @level={{2}} />
 
@@ -93,26 +92,24 @@ const SubSectionBaseElements: TemplateOnlyComponent<SubSectionBaseElementsSignat
 
     <ShwTextH4>Status variants</ShwTextH4>
 
-    {{#let (array "light" "dark") as |themes|}}
-      {{#each themes as |theme|}}
-        <ShwTextBody><strong>{{theme}} theme</strong></ShwTextBody>
+    {{#each THEMES as |theme|}}
+      <ShwTextBody><strong>{{theme}} theme</strong></ShwTextBody>
 
-        <ShwFlex @gap="2rem" {{style justifyContent="space-between"}} as |SF|>
-          {{#each-in STATUS_LINK_STATUSES as |status|}}
-            <SF.Item @label={{status}}>
-              <ul
-                class={{concat
-                  "hds-app-footer__list hds-app-footer--theme-"
-                  theme
-                }}
-              >
-                <HdsAppFooterStatusLink @status={{status}} />
-              </ul>
-            </SF.Item>
-          {{/each-in}}
-        </ShwFlex>
-      {{/each}}
-    {{/let}}
+      <ShwFlex @gap="2rem" {{style justifyContent="space-between"}} as |SF|>
+        {{#each-in STATUS_LINK_STATUSES as |status|}}
+          <SF.Item @label={{status}}>
+            <ul
+              class={{concat
+                "hds-app-footer__list hds-app-footer--theme-"
+                theme
+              }}
+            >
+              <HdsAppFooterStatusLink @status={{status}} />
+            </ul>
+          </SF.Item>
+        {{/each-in}}
+      </ShwFlex>
+    {{/each}}
 
     <ShwTextH4>With custom values</ShwTextH4>
 
