@@ -13,7 +13,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import SubSectionContent from 'showcase/components/page-components/app-footer/sub-sections/content';
 import SubSectionTheme from 'showcase/components/page-components/app-footer/sub-sections/theme';
 import SubSectionLayout from 'showcase/components/page-components/app-footer/sub-sections/layout';
-import SubSectionBase from 'showcase/components/page-components/app-footer/sub-sections/base';
+import SubSectionBaseElements from 'showcase/components/page-components/app-footer/sub-sections/base-elements';
 
 export interface PageComponentsAppFooterSignature {
   Element: HTMLDivElement;
@@ -50,7 +50,7 @@ export default class PageComponentsAppFooter extends Component<PageComponentsApp
         @showHighlight={{this.showHighlight}}
         @toggleHighlight={{this.toggleHighlight}}
       />
-      <SubSectionBase
+      <SubSectionBaseElements
         @showHighlight={{this.showHighlight}}
         @toggleHighlight={{this.toggleHighlight}}
       />

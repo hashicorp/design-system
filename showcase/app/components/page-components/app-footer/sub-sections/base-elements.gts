@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
@@ -22,11 +24,9 @@ import style from 'ember-style-modifier';
 
 import { array, concat } from '@ember/helper';
 
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
-
 import { STATUSES as STATUS_LINK_STATUSES } from '@hashicorp/design-system-components/components/hds/app-footer/status-link';
 
-export interface SubSectionBaseSignature {
+export interface SubSectionBaseElementsSignature {
   Args: {
     showHighlight: boolean;
     toggleHighlight: () => void;
@@ -35,7 +35,7 @@ export interface SubSectionBaseSignature {
 
 const LINK_STATES = ['default', 'hover', 'active', 'focus'];
 
-const SubSectionBase: TemplateOnlyComponent<SubSectionBaseSignature> =
+const SubSectionBaseElements: TemplateOnlyComponent<SubSectionBaseElementsSignature> =
   <template>
     <ShwTextH2>Base components & child components</ShwTextH2>
 
@@ -191,4 +191,4 @@ const SubSectionBase: TemplateOnlyComponent<SubSectionBaseSignature> =
     </ShwFlex>
   </template>;
 
-export default SubSectionBase;
+export default SubSectionBaseElements;

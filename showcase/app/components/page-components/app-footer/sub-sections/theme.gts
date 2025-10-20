@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
@@ -12,8 +14,6 @@ import HdsTextBody from '@hashicorp/design-system-components/components/hds/text
 
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
-
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 export interface SubSectionThemeSignature {
   Args: {
