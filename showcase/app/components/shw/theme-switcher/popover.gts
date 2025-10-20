@@ -82,7 +82,7 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
   };
 
   onApplyThemingPreferences = () => {
-    this.hdsTheming.setThemingServiceOptions({
+    this.hdsTheming.setThemingOptions({
       lightTheme: this.selectedLightTheme,
       darkTheme: this.selectedDarkTheme,
       cssSelector: this.selectedCssSelector,
