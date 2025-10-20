@@ -20,8 +20,7 @@ import HdsTextBody from '@hashicorp/design-system-components/components/hds/text
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
 
-import { array } from '@ember/helper';
-import { concat } from '@ember/helper';
+import { array, concat } from '@ember/helper';
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
