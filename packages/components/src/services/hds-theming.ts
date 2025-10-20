@@ -63,10 +63,9 @@ export const HDS_THEMING_CLASS_SELECTORS_LIST = [
 export const HDS_THEMING_LOCALSTORAGE_KEY = 'hds-current-theming-preferences';
 
 export type HdsThemingServiceOptions = {
-  // TODO! should we consider `undefined` here, for when the consumers are loading the page the first time?
-  lightTheme: HdsModesLight; //  | undefined
-  darkTheme: HdsModesDark; //  | undefined
-  cssSelector: HdsCssSelectors; //  | undefined
+  lightTheme: HdsModesLight;
+  darkTheme: HdsModesDark;
+  cssSelector: HdsCssSelectors;
 };
 
 export type OnSetThemeCallbackOptions = {
