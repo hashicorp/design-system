@@ -71,12 +71,15 @@ export default class ShwThemeSwitcherSelector extends Component {
     // we set the `currentStylesheet` in the `shwTheming` service
     this.shwTheming.setStylesheet(selectedStylesheet);
     // we set the `currentTheme` in the `hdsTheming` service
-    this.hdsTheming.setTheme(selectedTheme, ({ currentTheme, currentMode }) => {
-      console.log(
-        '➡️ LOCAL INVOCATION via setShwHdsThemes callback',
-        currentTheme,
-        currentMode,
-      );
+    this.hdsTheming.setTheme({
+      theme: selectedTheme,
+      onSetTheme: ({ currentTheme, currentMode }) => {
+        console.log(
+          '➡️ LOCAL INVOCATION via setShwHdsThemes callback',
+          currentTheme,
+          currentMode,
+        );
+      },
     });
   };
 
