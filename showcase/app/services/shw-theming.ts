@@ -52,7 +52,7 @@ const updatePageStylesheet = (currentStylesheet: string) => {
   }
 };
 
-export const SHW_THEMING_LOCALSTORAGE_KEY = 'shw-theming-current-stylesheet';
+const LOCALSTORAGE_CURRENT_STYLESHEET = 'shw-theming-current-stylesheet';
 export default class ShwThemingService extends HdsThemingService {
   @service declare readonly hdsTheming: HdsThemingService;
 
@@ -64,7 +64,7 @@ export default class ShwThemingService extends HdsThemingService {
     console.group('➡️ ShwTheming Service -- constructor()');
 
     const storedStylesheet = localStorage.getItem(
-      SHW_THEMING_LOCALSTORAGE_KEY,
+      LOCALSTORAGE_CURRENT_STYLESHEET,
     ) as ShwStylesheets;
     console.log('➡️ localstorage storedStylesheet=', storedStylesheet);
     if (storedStylesheet) {
@@ -93,7 +93,10 @@ export default class ShwThemingService extends HdsThemingService {
     }
 
     // store the current stylesheet in local storage
-    localStorage.setItem(SHW_THEMING_LOCALSTORAGE_KEY, this._currentStylesheet);
+    localStorage.setItem(
+      LOCALSTORAGE_CURRENT_STYLESHEET,
+      this._currentStylesheet,
+    );
   }
 
   get currentStylesheet(): ShwStylesheets {
