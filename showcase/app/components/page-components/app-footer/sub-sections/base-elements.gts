@@ -21,11 +21,10 @@ import {
   HdsTextBody,
 } from '@hashicorp/design-system-components/components';
 
-
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
 
-import { array, concat } from '@ember/helper';
+import { concat } from '@ember/helper';
 
 import { STATUSES as STATUS_LINK_STATUSES } from '@hashicorp/design-system-components/components/hds/app-footer/status-link';
 
