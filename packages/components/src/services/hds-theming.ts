@@ -98,7 +98,6 @@ export default class HdsThemingService extends Service {
 
   constructor(owner: Owner) {
     super(owner);
-    console.log('HdsThemingService constructor');
     this.initializeTheme();
   }
 
@@ -106,7 +105,6 @@ export default class HdsThemingService extends Service {
     if (this.isInitialized) {
       return;
     }
-    console.log('HdsThemingService > initializeTheme');
 
     const rawStoredThemingData = localStorage.getItem(
       HDS_THEMING_LOCALSTORAGE_DATA
@@ -136,14 +134,6 @@ export default class HdsThemingService extends Service {
     options?: HdsThemingOptions;
     onSetTheme?: OnSetThemeCallback;
   }) {
-    console.group('🌞 setTheme');
-
-    console.log(
-      '🌞 setTheme invoked',
-      `theme=${theme}`,
-      `options=${JSON.stringify(options, null, 2)}`
-    );
-
     // if we have new options, we override the current ones (`lightTheme` / `darkTheme` / `cssSelector`)
     // these options can be used by consumers that want to customize how they apply theming
     // (and used by the showcase for the custom theming / theme switching logic)
@@ -154,13 +144,6 @@ export default class HdsThemingService extends Service {
       Object.hasOwn(options, 'cssSelector')
     ) {
       const { lightTheme, darkTheme, cssSelector } = options;
-
-      console.log(
-        '🌞 setTheme invoked with options',
-        `lightTheme=${lightTheme}`,
-        `darkTheme=${darkTheme}`,
-        `cssSelector=${cssSelector}`
-      );
 
       this._currentLightTheme = lightTheme;
       this._currentDarkTheme = darkTheme;
@@ -226,7 +209,6 @@ export default class HdsThemingService extends Service {
 
     // this is a general callback that can be defined globally (by extending the service)
     if (this.globalOnSetTheme) {
-      console.log('🌞 globalOnSetTheme callback provided');
       this.globalOnSetTheme({
         currentTheme: this._currentTheme,
         currentMode: this._currentMode,
@@ -235,13 +217,11 @@ export default class HdsThemingService extends Service {
 
     // this is a "local" callback that can be defined "locally" (eg. in a theme switcher)
     if (onSetTheme) {
-      console.log('🌞 onSetTheme callback provided');
       onSetTheme({
         currentTheme: this._currentTheme,
         currentMode: this._currentMode,
       });
     }
-    console.groupEnd();
   }
 
   // getters used for reactivity in the components/services using this service
