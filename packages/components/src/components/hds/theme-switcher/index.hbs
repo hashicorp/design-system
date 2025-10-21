@@ -3,6 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
+{{!
+  ------------------------------------------------------------------------------------------
+  IMPORTANT: this is a temporary implementation, while we wait for the design specifications
+  ------------------------------------------------------------------------------------------
+}}
+
 <Hds::Dropdown
   @enableCollisionDetection={{true}}
   @matchToggleWidth={{@toggleIsFullWidth}}
@@ -13,7 +19,7 @@
   <D.ToggleButton
     @color="secondary"
     @size={{this.toggleSize}}
-    @isFullWidth={{@toggleIsFullWidth}}
+    @isFullWidth={{this.toggleIsFullWidth}}
     @text={{this.toggleContent.label}}
     @icon={{this.toggleContent.icon}}
   />
