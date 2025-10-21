@@ -1,6 +1,5 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import type Owner from '@ember/owner';
 
 export enum HdsThemeValues {
   // system settings (prefers-color-scheme)
@@ -90,11 +89,6 @@ export default class HdsThemingService extends Service {
   @tracked _currentCssSelector: HdsCssSelectors =
     DEFAULT_THEMING_OPTION_CSS_SELECTOR;
   @tracked globalOnSetTheme: OnSetThemeCallback | undefined;
-
-  constructor(owner: Owner) {
-    super(owner);
-    this.initializeTheme();
-  }
 
   initializeTheme() {
     if (this._isInitialized) {
