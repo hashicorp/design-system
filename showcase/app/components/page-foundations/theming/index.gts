@@ -17,18 +17,9 @@ const ThemingIndex: TemplateOnlyComponent = <template>
 
   <section data-test-percy>
     <SubSectionThemeSwitcher />
-  </section>
-
-  <ShwDivider />
-
-  {{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't snapshots them in Percy }}
-  <section>
+    <ShwDivider />
     <SubSectionContexts />
-  </section>
-
-  <ShwDivider />
-
-  <section data-test-percy>
+    <ShwDivider />
     <SubSectionComponents />
   </section>
 
