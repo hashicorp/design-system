@@ -6,7 +6,7 @@ import HdsThemingService from '@hashicorp/design-system-components/services/hds-
 
 // import type {
 //   OnSetThemeCallback,
-//   OnSetThemeCallbackOptions,
+//   OnSetThemeCallbackArgs,
 // } from '@hashicorp/design-system-components/services/hds-theming';
 
 import config from 'showcase/config/environment';
@@ -75,7 +75,7 @@ export default class ShwThemingService extends HdsThemingService {
   // globalOnSetTheme: OnSetThemeCallback = ({
   //   currentTheme,
   //   currentMode,
-  // }: OnSetThemeCallbackOptions) => {
+  // }: OnSetThemeCallbackArgs) => {
   //   console.log(
   //     'ShwTheming Service -- globalOnSetTheme invoked',
   //     currentTheme,

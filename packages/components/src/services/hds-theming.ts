@@ -1,6 +1,5 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-
 import type Owner from '@ember/owner';
 
 export enum HdsThemeValues {
@@ -15,31 +14,49 @@ enum HdsModesBaseValues {
   Hds = 'hds', // TODO understand if it should be `default`
 }
 
-export enum HdsModesLightValues {
+enum HdsModesLightValues {
   CdsG0 = 'cds-g0',
   CdsG10 = 'cds-g10',
 }
 
-export enum HdsModesDarkValues {
+enum HdsModesDarkValues {
   CdsG90 = 'cds-g90',
   CdsG100 = 'cds-g100',
 }
-
-export type HdsModeValues =
-  | HdsModesBaseValues
-  | HdsModesLightValues
-  | HdsModesDarkValues;
 
 export enum HdsCssSelectorsValues {
   Data = 'data',
   Class = 'class',
 }
 
-export type HdsThemes = `${HdsThemeValues}` | undefined;
-export type HdsModes = `${HdsModeValues}` | undefined;
+export type HdsThemes = `${HdsThemeValues}`;
+export type HdsModes =
+  | `${HdsModesBaseValues}`
+  | `${HdsModesLightValues}`
+  | `${HdsModesDarkValues}`
+  | undefined;
 export type HdsModesLight = `${HdsModesLightValues}`;
 export type HdsModesDark = `${HdsModesDarkValues}`;
 export type HdsCssSelectors = `${HdsCssSelectorsValues}`;
+
+type HdsThemingOptions = {
+  lightTheme: HdsModesLight;
+  darkTheme: HdsModesDark;
+  cssSelector: HdsCssSelectors;
+};
+
+type SetThemeArgs = {
+  theme: HdsThemes | undefined;
+  options?: HdsThemingOptions;
+  onSetTheme?: OnSetThemeCallback;
+};
+
+export type OnSetThemeCallbackArgs = {
+  currentTheme: HdsThemes | undefined;
+  currentMode: HdsModes | undefined;
+};
+
+export type OnSetThemeCallback = (args: OnSetThemeCallbackArgs) => void;
 
 export const THEMES: HdsThemes[] = Object.values(HdsThemeValues);
 export const MODES_LIGHT: HdsModesLight[] = Object.values(HdsModesLightValues);
@@ -50,10 +67,6 @@ export const MODES: HdsModes[] = [
   ...MODES_DARK,
 ];
 
-export const CSS_SELECTORS: HdsCssSelectors[] = Object.values(
-  HdsCssSelectorsValues
-);
-
 export const HDS_THEMING_DATA_SELECTOR = 'data-hds-theme';
 export const HDS_THEMING_CLASS_SELECTOR_PREFIX = 'hds-theme';
 export const HDS_THEMING_CLASS_SELECTORS_LIST = [
@@ -63,31 +76,13 @@ export const HDS_THEMING_CLASS_SELECTORS_LIST = [
 
 export const HDS_THEMING_LOCALSTORAGE_DATA = 'hds-theming-data';
 
-export type HdsThemingOptions = {
-  lightTheme: HdsModesLight;
-  darkTheme: HdsModesDark;
-  cssSelector: HdsCssSelectors;
-};
-
-export type HdsThemingData = {
-  theme: HdsThemes;
-  options: HdsThemingOptions;
-};
-
-export type OnSetThemeCallbackOptions = {
-  currentTheme: HdsThemes;
-  currentMode: HdsModes;
-};
-
-export type OnSetThemeCallback = (options: OnSetThemeCallbackOptions) => void;
-
 export const DEFAULT_THEMING_OPTION_LIGHT_THEME = HdsModesLightValues.CdsG0;
 export const DEFAULT_THEMING_OPTION_DARK_THEME = HdsModesDarkValues.CdsG100;
 export const DEFAULT_THEMING_OPTION_CSS_SELECTOR = 'data';
 
 export default class HdsThemingService extends Service {
-  @tracked isInitialized: boolean = false;
-  @tracked _currentTheme: HdsThemes = undefined;
+  @tracked _isInitialized: boolean = false;
+  @tracked _currentTheme: HdsThemes | undefined = undefined;
   @tracked _currentMode: HdsModes = undefined;
   @tracked _currentLightTheme: HdsModesLight =
     DEFAULT_THEMING_OPTION_LIGHT_THEME;
@@ -102,7 +97,7 @@ export default class HdsThemingService extends Service {
   }
 
   initializeTheme() {
-    if (this.isInitialized) {
+    if (this._isInitialized) {
       return;
     }
 
@@ -110,11 +105,12 @@ export default class HdsThemingService extends Service {
       HDS_THEMING_LOCALSTORAGE_DATA
     );
     if (rawStoredThemingData !== null) {
-      const storedThemingData = JSON.parse(
-        rawStoredThemingData
-      ) as HdsThemingData;
+      const storedThemingData: unknown = JSON.parse(rawStoredThemingData);
       if (storedThemingData) {
-        const { theme, options } = storedThemingData;
+        const { theme, options } = storedThemingData as {
+          theme: HdsThemes | undefined;
+          options: HdsThemingOptions;
+        };
         this.setTheme({
           theme,
           options,
@@ -122,18 +118,10 @@ export default class HdsThemingService extends Service {
       }
     }
 
-    this.isInitialized = true;
+    this._isInitialized = true;
   }
 
-  setTheme({
-    theme,
-    options,
-    onSetTheme,
-  }: {
-    theme: HdsThemes;
-    options?: HdsThemingOptions;
-    onSetTheme?: OnSetThemeCallback;
-  }) {
+  setTheme({ theme, options, onSetTheme }: SetThemeArgs) {
     // if we have new options, we override the current ones (`lightTheme` / `darkTheme` / `cssSelector`)
     // these options can be used by consumers that want to customize how they apply theming
     // (and used by the showcase for the custom theming / theme switching logic)
@@ -226,7 +214,7 @@ export default class HdsThemingService extends Service {
 
   // getters used for reactivity in the components/services using this service
 
-  get currentTheme(): HdsThemes {
+  get currentTheme(): HdsThemes | undefined {
     return this._currentTheme;
   }
 
