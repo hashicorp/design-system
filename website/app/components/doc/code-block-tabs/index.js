@@ -16,13 +16,5 @@ export default class DocCodeBlockTabsComponent extends Component {
   @action
   onClickTab(tab) {
     this.selectedTab = tab;
-    // // Invoke the callback function if it's provided as argument
-    // if (typeof tab.onClickTab === 'function') {
-    //   tab.onClickTab(tab);
-    // }
-
-    // // Set focus on tab clicked
-    // let tabElement = document.getElementById(tab.id);
-    // tabElement.focus();
   }
 }

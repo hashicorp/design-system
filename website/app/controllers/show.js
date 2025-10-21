@@ -218,7 +218,6 @@ export default class ShowController extends Controller {
       typeof window?.Prism?.highlightAllUnder === 'function'
     ) {
       codeBlocks.forEach((codeBlock) => {
-        console.log('applying code highlighting to', codeBlock);
         window.Prism.highlightAllUnder(codeBlock);
       });
     }
