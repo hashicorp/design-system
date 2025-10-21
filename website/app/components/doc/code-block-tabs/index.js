@@ -9,7 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 
 export default class DocCodeBlockTabsComponent extends Component {
-  @tracked selectedTab = 'legacy';
+  @tracked selectedTab = 'gts';
 
   id = guidFor(this);
 

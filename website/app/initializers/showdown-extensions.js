@@ -8,6 +8,42 @@ const uniqueId = () => {
   );
 };
 
+const convertToGts = (codeblock) => {
+  const codeblockWithoutColons = codeblock.replaceAll('::', '');
+  const allHdsComponentsInCodeblock = codeblockWithoutColons.match(
+    /\bHds[A-Z][A-Za-z]*\b/g,
+  );
+  const componentsToImport = [...new Set(allHdsComponentsInCodeblock)];
+
+  let gtsEncodedCodeBlock = '';
+  gtsEncodedCodeBlock += `import TemplateOnlyComponent from '@glimmer/component';\n`;
+
+  if (componentsToImport.length === 1) {
+    gtsEncodedCodeBlock += `import { ${componentsToImport[0]} } from '@hashicorp/design-system-components/components';\n`;
+  } else if (componentsToImport.length > 1) {
+    const uniqueComponents = [...new Set(componentsToImport)];
+    gtsEncodedCodeBlock += `import {\n ${uniqueComponents.join(',\n ')}\n} from '@hashicorp/design-system-components/components';\n`;
+  }
+
+  gtsEncodedCodeBlock += `\nconst DemoComponent: TemplateOnlyComponent = <template>`;
+
+  gtsEncodedCodeBlock += `\n${codeblockWithoutColons}`;
+  gtsEncodedCodeBlock += `\n</template>;`;
+  gtsEncodedCodeBlock += `\n\nexport default DemoComponent;`;
+  return gtsEncodedCodeBlock;
+};
+
+const encodeCodeblock = (codeblock, end) => {
+  let encodedCodeBlock = Prism.util.encode(codeblock) + end;
+
+  // escape { and } for the code sample
+  encodedCodeBlock = encodedCodeBlock
+    .replace(/{/g, '&#123;')
+    .replace(/}/g, '&#125;');
+
+  return encodedCodeBlock;
+};
+
 export function initialize(/* application */) {
   // Overriding `unhashHTMLSpans` subparser to overcome the 10 levels of nesting limit
   showdown.subParser('unhashHTMLSpans', function (text, options, globals) {
@@ -99,14 +135,10 @@ export function initialize(/* application */) {
         }
 
         // we encode the codeblock and present it as is (without highlight)
-        encodedCodeBlock = Prism.util.encode(codeblock) + end;
+        encodedCodeBlock = encodeCodeblock(codeblock, end);
 
-        // escape { and } for the code sample
-        encodedCodeBlock = encodedCodeBlock
-          .replace(/{/g, '&#123;')
-          .replace(/}/g, '&#125;');
-
-        let gtsEncodedCodeBlock = encodedCodeBlock.replaceAll('::', '');
+        let gtsEncodedCodeBlock = convertToGts(codeblock);
+        gtsEncodedCodeBlock = encodeCodeblock(gtsEncodedCodeBlock, end);
 
         let blockUniqueId = uniqueId();
         let preBlock = `<pre id="pre-block-${blockUniqueId}" class="doc-code-block__code-snippet language-${language}" tabindex="0"><code ${language ? `class="${language} language-${language}"` : ''}>${encodedCodeBlock}</code></pre>`;
@@ -119,7 +151,7 @@ export function initialize(/* application */) {
           preBlock = `<Doc::CodeBlockTabs>
         <:legacy><pre id="pre-block-${blockUniqueId}" class="doc-code-block__code-snippet language-${language}" tabindex="0"><code ${language ? `class="${language} language-${language}"` : ''}>${encodedCodeBlock}</code></pre>
         </:legacy>
-        <:gts><pre id="pre-block-${blockUniqueId}-ts" class="doc-code-block__code-snippet language-html" tabindex="0"><code class="html language-html">${gtsEncodedCodeBlock}</code></pre></:gts></Doc::CodeBlockTabs>`;
+        <:gts><pre id="pre-block-${blockUniqueId}-ts" class="doc-code-block__code-snippet language-typescript" tabindex="0"><code class="typescript language-typescript">${gtsEncodedCodeBlock}</code></pre></:gts></Doc::CodeBlockTabs>`;
         }
 
         let autoExecuteLanguages = ['html', 'handlebars', 'hbs'];
