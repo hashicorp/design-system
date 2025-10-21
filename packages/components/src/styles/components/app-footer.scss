@@ -109,6 +109,9 @@ $hds-app-footer-icon-text-gap: 6px;
 
 .hds-app-footer__copyright {
   display: flex;
+  // Allow content to wrap and center in smaller viewports
+  justify-content: center;
+  flex-wrap: wrap;
   gap: $hds-app-footer-icon-text-gap;
   align-items: center;
   color: var(--app-footer-copyright-text-color);
