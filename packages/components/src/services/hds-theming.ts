@@ -183,9 +183,11 @@ export default class HdsThemingService extends Service {
       HDS_THEMING_LOCALSTORAGE_DATA,
       JSON.stringify({
         theme: this._currentTheme,
-        lightTheme: this._currentLightTheme,
-        darkTheme: this._currentDarkTheme,
-        cssSelector: this._currentCssSelector,
+        options: {
+          lightTheme: this._currentLightTheme,
+          darkTheme: this._currentDarkTheme,
+          cssSelector: this._currentCssSelector,
+        },
       })
     );
 
