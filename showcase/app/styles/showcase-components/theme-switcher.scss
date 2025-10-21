@@ -38,7 +38,6 @@
 // POPOVER
 
 .shw-theme-switcher-popover {
-  // position: absolute;
   top: 50px;
   right: 24px;
   left: auto;
@@ -210,22 +209,16 @@
     opacity: 1;
   }
 
-  .shw-label {
+  .shw-theme-switcher__debugging-panel-key {
     margin: 0;
+    color: var(--shw-color-gray-200);
+    font-style: italic;
+    text-align: right;
+  }
 
-    &:nth-child(2n + 1) {
-      color: var(--shw-color-gray-200);
-      font-style: italic;
-      text-align: right;
-
-      &::after {
-        content: ":";
-      }
-    }
-
-    &:nth-child(2n) {
-      color: var(--shw-color-gray-100);
-      font-weight: 500;
-    }
+  .shw-theme-switcher__debugging-panel-value {
+    margin: 0;
+    color: var(--shw-color-gray-100);
+    font-weight: 500;
   }
 }

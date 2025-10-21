@@ -3,6 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+// ------------------------------------------------------------------------------------------
+// IMPORTANT: this is a temporary implementation, while we wait for the design specifications
+// ------------------------------------------------------------------------------------------
+
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
@@ -16,25 +20,22 @@ import type {
   OnSetThemeCallback,
 } from '../../../services/hds-theming.ts';
 
-type ThemeOptionKey = 'system' | 'light' | 'dark'; // | 'none';
-
 interface ThemeOption {
-  theme: HdsThemes;
+  theme: HdsThemes | undefined;
   icon: HdsIconSignature['Args']['name'];
   label: string;
 }
 
-export const OPTIONS: Record<ThemeOptionKey, ThemeOption> = {
+const OPTIONS: Record<HdsThemes, ThemeOption> = {
   system: { theme: 'system', icon: 'monitor', label: 'System' },
   light: { theme: 'light', icon: 'sun', label: 'Light' },
   dark: { theme: 'dark', icon: 'moon', label: 'Dark' },
-  // none: { theme: undefined, icon: 'minus', label: 'None' },
 };
 
-export interface HdsThemeSwitcherSignature {
+interface HdsThemeSwitcherSignature {
   Args: {
     toggleSize?: HdsDropdownToggleButtonSignature['Args']['size'];
-    toggleIsFullWidth?: boolean;
+    toggleIsFullWidth?: HdsDropdownToggleButtonSignature['Args']['isFullWidth'];
     hasSystemOption?: boolean;
     onSetTheme?: OnSetThemeCallback;
   };
@@ -46,6 +47,10 @@ export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignatur
 
   get toggleSize() {
     return this.args.toggleSize ?? 'small';
+  }
+
+  get toggleIsFullWidth() {
+    return this.args.toggleIsFullWidth ?? false;
   }
 
   get toggleContent() {
@@ -83,7 +88,7 @@ export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignatur
   }
 
   @action
-  onSelectTheme(theme: HdsThemes): void {
+  onSelectTheme(theme: HdsThemes | undefined): void {
     // we set the theme in the global service (and provide an optional user-defined callback)
     this.hdsTheming.setTheme({ theme, onSetTheme: this.args.onSetTheme });
   }

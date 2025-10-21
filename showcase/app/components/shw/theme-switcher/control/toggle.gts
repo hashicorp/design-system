@@ -8,9 +8,6 @@ interface ShwThemeSwitcherControlToggleSignature {
     checked?: boolean;
     onToggle?: (event: Event) => void;
   };
-  Blocks: {
-    default: [];
-  };
 }
 
 export default class ShwThemeSwitcherControlToggle extends Component<ShwThemeSwitcherControlToggleSignature> {
