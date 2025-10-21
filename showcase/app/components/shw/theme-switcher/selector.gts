@@ -59,14 +59,14 @@ export default class ShwThemeSwitcherSelector extends Component {
 
     const [selectedStylesheet, selectedTheme] = selectValue.split('|') as [
       ShwStylesheets,
-      HdsThemes,
+      HdsThemes | '',
     ];
 
     // we set the `currentStylesheet` in the `shwTheming` service
     this.shwTheming.setStylesheet(selectedStylesheet);
     // we set the `currentTheme` in the `hdsTheming` service
     this.hdsTheming.setTheme({
-      theme: selectedTheme,
+      theme: selectedTheme === '' ? undefined : selectedTheme,
       // example of how a consumer could use the `onSetTheme` callback by passing it to the `setTheme` function as extra option
       // onSetTheme: ({ currentTheme, currentMode }) => {
       //   console.log(

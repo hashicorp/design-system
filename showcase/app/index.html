@@ -5,39 +5,36 @@
 -->
 
 <html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>HDS components showcase</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta name="google-site-verification" content="_aU7ePXLFbs8nz644U2Nv1mpq2OiKnXCrwaDgZFTo-4">
 
-<head>
-  <meta charset="utf-8">
-  <title>HDS components showcase</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-  <meta name="google-site-verification" content="_aU7ePXLFbs8nz644U2Nv1mpq2OiKnXCrwaDgZFTo-4">
+    {{content-for "head"}}
 
-  {{content-for "head"}}
+    <!-- these styles are pre-compiled in the `components` package -->
+    <!-- IMPORTANT: if you add a new entry here, you HAVE TO add it also to the `showcase/tests/index.html` file, which is used to run the tests -->
+    <link id="hds-components-stylesheet" integrity="" rel="stylesheet"
+      href="{{rootURL}}assets/styles/@hashicorp/design-system-components.css">
+    <link integrity="" rel="stylesheet"
+      href="{{rootURL}}assets/styles/@hashicorp/design-system-power-select-overrides.css">
 
-  <!-- these styles are pre-compiled in the `components` package -->
-  <!-- IMPORTANT: if you add a new entry here, you HAVE TO add it also to the `showcase/tests/index.html` file, which is used to run the tests -->
-  <link id="hds-components-stylesheet" integrity="" rel="stylesheet"
-    href="{{rootURL}}assets/styles/@hashicorp/design-system-components.css">
-  <link integrity="" rel="stylesheet"
-    href="{{rootURL}}assets/styles/@hashicorp/design-system-power-select-overrides.css">
+    <!-- these styles are compiled with the Showcase -->
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase.css">
 
-  <!-- these styles are compiled with the Showcase -->
-  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase.css">
+    <link rel="shortcut icon" href="/assets/logos/favicon.png" />
 
-  <link rel="shortcut icon" href="/assets/logos/favicon.png" />
+    {{content-for "head-footer"}}
+  </head>
+  <body class="showcase-app">
+    {{content-for "body"}}
 
-  {{content-for "head-footer"}}
-</head>
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/showcase.js"></script>
 
-<body class="showcase-app">
-  {{content-for "body"}}
-
-  <script src="{{rootURL}}assets/vendor.js"></script>
-  <script src="{{rootURL}}assets/showcase.js"></script>
-
-  {{content-for "body-footer"}}
-</body>
-
+    {{content-for "body-footer"}}
+  </body>
 </html>
