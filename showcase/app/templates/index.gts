@@ -13,11 +13,6 @@ const Index: TemplateOnlyComponent = <template>
       <ShwTextH2>Foundations</ShwTextH2>
       <ol class="shw-text-body">
         <li>
-          <LinkTo @route="page-foundations.color">
-            Color
-          </LinkTo>
-        </li>
-        <li>
           <LinkTo @route="page-foundations.typography">
             Typography
           </LinkTo>
