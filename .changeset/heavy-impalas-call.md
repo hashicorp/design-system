@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/dialog-primitive -->
-`DialogPrimitive` - change `DialogPrimitiveBody` z-index from 0 to -1
+`DialogPrimitive` - changed `DialogPrimitiveBody` z-index from 0 to -1 to keep it focusable without showing visible focus styles.
 <!-- END -->
