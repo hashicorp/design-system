@@ -12,7 +12,6 @@ import type Owner from '@ember/owner';
 import ShwThemeSwitcherPopover from './popover';
 import ShwThemeSwitcherSelector from './selector';
 import ShwThemeSwitcherDebuggingPanel from './debugging-panel';
-import ShwThemingService from 'showcase/services/shw-theming';
 
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 
@@ -30,7 +29,6 @@ const LOCALSTORAGE_DEBUGGING_PANEL = 'shw-theming-has-debugging-panel';
 
 export default class ShwThemeSwitcher extends Component {
   @service declare readonly hdsTheming: HdsThemingService;
-  @service declare readonly shwTheming: ShwThemingService;
 
   @tracked hasFixedControls: boolean;
   @tracked hasDebuggingPanel: boolean;

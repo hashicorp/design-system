@@ -39,32 +39,32 @@ interface ShwThemeSwitcherPopoverSignature {
 export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherPopoverSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
 
-  @tracked selectedLightTheme;
-  @tracked selectedDarkTheme;
-  @tracked selectedCssSelector;
-  @tracked hasFixedControls: boolean;
-  @tracked hasDebuggingPanel: boolean;
+  @tracked _selectedLightTheme;
+  @tracked _selectedDarkTheme;
+  @tracked _selectedCssSelector;
+  @tracked _hasFixedControls: boolean;
+  @tracked _hasDebuggingPanel: boolean;
 
   constructor(owner: Owner, args: ShwThemeSwitcherPopoverSignature['Args']) {
     super(owner, args);
-    this.selectedLightTheme = this.hdsTheming.currentLightTheme;
-    this.selectedDarkTheme = this.hdsTheming.currentDarkTheme;
-    this.selectedCssSelector = this.hdsTheming.currentCssSelector;
-    this.hasFixedControls = this.args.hasFixedControls;
-    this.hasDebuggingPanel = this.args.hasDebuggingPanel;
+    this._selectedLightTheme = this.hdsTheming.currentLightTheme;
+    this._selectedDarkTheme = this.hdsTheming.currentDarkTheme;
+    this._selectedCssSelector = this.hdsTheming.currentCssSelector;
+    this._hasFixedControls = this.args.hasFixedControls;
+    this._hasDebuggingPanel = this.args.hasDebuggingPanel;
   }
 
   onChangeAdvancedOption = (optionName: string, event: Event) => {
     const select = event.target as HTMLSelectElement;
     switch (optionName) {
       case 'light-theme':
-        this.selectedLightTheme = select.value as HdsModesLight;
+        this._selectedLightTheme = select.value as HdsModesLight;
         break;
       case 'dark-theme':
-        this.selectedDarkTheme = select.value as HdsModesDark;
+        this._selectedDarkTheme = select.value as HdsModesDark;
         break;
       case 'css-selector':
-        this.selectedCssSelector = select.value as HdsCssSelectors;
+        this._selectedCssSelector = select.value as HdsCssSelectors;
         break;
     }
   };
@@ -73,10 +73,10 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
     const input = event.target as HTMLInputElement;
     switch (preferenceName) {
       case 'fixed-controls':
-        this.hasFixedControls = input.checked;
+        this._hasFixedControls = input.checked;
         break;
       case 'debugging-panel':
-        this.hasDebuggingPanel = input.checked;
+        this._hasDebuggingPanel = input.checked;
         break;
     }
   };
@@ -87,16 +87,16 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
       theme: this.hdsTheming.currentTheme,
       // we update the options
       options: {
-        lightTheme: this.selectedLightTheme,
-        darkTheme: this.selectedDarkTheme,
-        cssSelector: this.selectedCssSelector,
+        lightTheme: this._selectedLightTheme,
+        darkTheme: this._selectedDarkTheme,
+        cssSelector: this._selectedCssSelector,
       },
     });
 
     if (typeof this.args.onApply === 'function') {
       this.args.onApply({
-        hasFixedControls: this.hasFixedControls,
-        hasDebuggingPanel: this.hasDebuggingPanel,
+        hasFixedControls: this._hasFixedControls,
+        hasDebuggingPanel: this._hasDebuggingPanel,
       });
     }
 
@@ -123,19 +123,19 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
         <ShwThemeSwitcherControlSelect
           @label="Light"
           @values={{MODES_LIGHT}}
-          @selectedValue={{this.selectedLightTheme}}
+          @selectedValue={{this._selectedLightTheme}}
           @onChange={{(fn this.onChangeAdvancedOption "light-theme")}}
         />
         <ShwThemeSwitcherControlSelect
           @label="Dark"
           @values={{MODES_DARK}}
-          @selectedValue={{this.selectedDarkTheme}}
+          @selectedValue={{this._selectedDarkTheme}}
           @onChange={{(fn this.onChangeAdvancedOption "dark-theme")}}
         />
         <ShwThemeSwitcherControlSelect
           @label="CSS selector"
           @values={{(hash data="data attribute" class="CSS class")}}
-          @selectedValue={{this.selectedCssSelector}}
+          @selectedValue={{this._selectedCssSelector}}
           @onChange={{(fn this.onChangeAdvancedOption "css-selector")}}
         />
       </div>
