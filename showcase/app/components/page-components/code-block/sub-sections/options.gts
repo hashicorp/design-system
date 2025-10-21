@@ -307,7 +307,10 @@ end"
       </HdsCodeBlock>
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
-    <SG.Item @label="hasCopyButton=true with custom copySuccessMessageText" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="hasCopyButton=true with custom copySuccessMessageText"
+      @forceMinWidth={{true}}
+    >
       <HdsCodeBlock
         @language="shell-session"
         @hasCopyButton={{true}}
