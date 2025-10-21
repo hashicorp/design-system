@@ -6,6 +6,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
+import ShwGrid from 'showcase/components/shw/grid';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 
@@ -37,23 +38,23 @@ const SubSectionBaseControl: TemplateOnlyComponent<SubSectionBaseControlSignatur
 
       <ShwTextH3>States</ShwTextH3>
 
-      <ShwFlex @gap="2rem" as |SF|>
+      <ShwGrid @columns={{3}} @gap="2rem" as |SG|>
         {{#each STATES as |state|}}
-          <SF.Item @label={{state}}>
+          <SG.Item @label={{state}}>
             <HdsFormFileInputBase
               mock-state-value={{state}}
               aria-label={{state}}
             />
-          </SF.Item>
+          </SG.Item>
         {{/each}}
-        <SF.Item @label="disabled">
+        <SG.Item @label="disabled">
           <HdsFormFileInputBase
             mock-state-value="disabled"
             disabled
             aria-label="disabled"
           />
-        </SF.Item>
-      </ShwFlex>
+        </SG.Item>
+      </ShwGrid>
 
     </div>
 
