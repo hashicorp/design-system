@@ -38,7 +38,7 @@ const SubSectionBaseControl: TemplateOnlyComponent<SubSectionBaseControlSignatur
 
       <ShwTextH3>States</ShwTextH3>
 
-      <ShwGrid @columns={{3}} @gap="2rem" as |SG|>
+      <ShwGrid @columns={{4}} @gap="2rem" as |SG|>
         {{#each STATES as |state|}}
           <SG.Item @label={{state}}>
             <HdsFormFileInputBase
