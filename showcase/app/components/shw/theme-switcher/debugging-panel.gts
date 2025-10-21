@@ -11,7 +11,7 @@ import ShwLabel from '../../shw/label';
 import ShwThemingService from 'showcase/services/shw-theming';
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 
-export default class ShwThemeSwitcherDenbuggingPanel extends Component {
+export default class ShwThemeSwitcherDebuggingPanel extends Component {
   @service declare readonly hdsTheming: HdsThemingService;
   @service declare readonly shwTheming: ShwThemingService;
 
