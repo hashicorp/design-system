@@ -10,7 +10,6 @@ import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 
 import HdsDropdown from '../../dropdown/index.ts';
-import HdsDropdownToggleButton from '../../dropdown/toggle/button.ts';
 
 import HdsAdvancedTableFilterBarCheckbox from './checkbox.ts';
 import HdsAdvancedTableFilterBarRadio from './radio.ts';
@@ -25,6 +24,7 @@ export interface HdsAdvancedTableFilterBarDropdownSignature {
   Args: HdsDropdownSignature['Args'] & {
     dropdown?: WithBoundArgs<typeof HdsDropdown, never>;
     key: string;
+    text?: string;
     filters: HdsAdvancedTableFilters;
     isMultiSelect?: boolean;
     isLiveFilter?: boolean;
@@ -35,10 +35,6 @@ export interface HdsAdvancedTableFilterBarDropdownSignature {
   Blocks: {
     default: [
       {
-        ToggleButton?: WithBoundArgs<
-          typeof HdsDropdownToggleButton,
-          'color' | 'text' | 'size'
-        >;
         Checkbox?: WithBoundArgs<
           typeof HdsAdvancedTableFilterBarCheckbox,
           'checkbox' | 'keyFilter' | 'onChange'
@@ -58,7 +54,7 @@ export default class HdsAdvancedTableFilterBarDropdown extends Component<
 > {
   @tracked internalFilters: HdsAdvancedTableFilter[] | undefined = [];
 
-  private _updateInternalFilters = modifier(() => {
+  private _setUpDropdown = modifier(() => {
     if (this.keyFilter) {
       this.internalFilters = JSON.parse(
         JSON.stringify(this.keyFilter)
@@ -152,15 +148,42 @@ export default class HdsAdvancedTableFilterBarDropdown extends Component<
 
   @action
   onClear(closeDropdown?: () => void): void {
-    this.internalFilters = [];
-
-    const { onChange } = this.args;
-    if (onChange && typeof onChange === 'function') {
-      onChange(this.args.key, this.internalFilters);
-    }
+    this._clearFilters();
 
     if (closeDropdown && typeof closeDropdown === 'function') {
       closeDropdown();
+    }
+  }
+
+  @action
+  onDismiss(): void {
+    this._clearFilters();
+  }
+
+  get toggleButtonText(): string {
+    const { key, filters, text } = this.args;
+
+    let displayText = key;
+    if (text && text.length > 0) {
+      displayText = text;
+    }
+
+    if (Array.isArray(filters[key]) && filters[key].length > 0) {
+      const charMax = 10;
+      let filtersString = '';
+
+      filtersString = filters[key]
+        .map((filter) => {
+          if (filter.text.length > charMax) {
+            return filter.text.slice(0, charMax) + '...';
+          }
+          return filter.text;
+        })
+        .join(', ');
+
+      return `${displayText}: ${filtersString}`;
+    } else {
+      return displayText;
     }
   }
 
@@ -180,5 +203,14 @@ export default class HdsAdvancedTableFilterBarDropdown extends Component<
       return this.args.activeFilterableColumns.includes(this.args.key);
     }
     return false;
+  }
+
+  private _clearFilters(): void {
+    this.internalFilters = [];
+
+    const { onChange } = this.args;
+    if (onChange && typeof onChange === 'function') {
+      onChange(this.args.key, this.internalFilters);
+    }
   }
 }
