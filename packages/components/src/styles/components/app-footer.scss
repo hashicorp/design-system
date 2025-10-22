@@ -108,9 +108,12 @@ $hds-app-footer-icon-text-gap: 6px;
 }
 
 .hds-app-footer__copyright {
+  // Allow content to wrap and center in smaller viewports
   display: flex;
+  flex-wrap: wrap;
   gap: $hds-app-footer-icon-text-gap;
   align-items: center;
+  justify-content: center;
   color: var(--app-footer-copyright-text-color);
 
   .hds-icon {
