@@ -780,7 +780,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   .hds-advanced-table__filter-bar__filters {
     display: flex;
-    gap: 12px 12px;
+    flex-wrap: wrap;
+    gap: 8px 12px;
     align-items: end;
     padding-top: 8px;
     border-top: 1px solid var(--token-color-border-primary);
@@ -822,12 +823,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   }
 }
 
-.hds-advanced-table__filter-bar__dropdown {
-  display: block;
-
-  &--hidden {
-    display: none;
-  }
+.hds-advanced-table__filter-bar__dropdown--hidden.hds-dropdown {
+  display: none;
 }
 
 .hds-advanced-table__filter-bar__actions__right {
