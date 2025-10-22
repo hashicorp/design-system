@@ -651,26 +651,22 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             <D.Checkbox @value="run-status">Run status</D.Checkbox>
             <D.Checkbox @value="terraform-version">Terraform version</D.Checkbox>
           </F.FiltersDropdown>
-          <F.Dropdown @key="name" @searchEnabled={{true}} as |D|>
-            <D.ToggleButton @text="Name" />
+          <F.Dropdown @text="Name" @key="name" @searchEnabled={{true}} as |D|>
             {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
               <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
             {{/each}}
           </F.Dropdown>
-          <F.Dropdown @key="project-name" @searchEnabled={{true}} as |D|>
-            <D.ToggleButton @text="Project name" />
+          <F.Dropdown @text="Project name" @key="project-name" @searchEnabled={{true}} as |D|>
             {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
               <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
             {{/each}}
           </F.Dropdown>
-          <F.Dropdown @key="run-status" as |D|>
-            <D.ToggleButton @text="Run status" />
+          <F.Dropdown @text="Run status" @key="run-status" as |D|>
             {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
               <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
             {{/each}}
           </F.Dropdown>
-          <F.Dropdown @key="terraform-version" as |D|>
-            <D.ToggleButton @text="Terraform version" />
+          <F.Dropdown @text="Terraform version" @key="terraform-version" as |D|>
             {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
               <D.Radio @value={{option.value}}>{{option.label}}</D.Radio>
             {{/each}}

@@ -26,7 +26,6 @@
     <div class="hds-advanced-table__filter-bar__filters">
       {{yield
         (hash
-          FiltersDropdown=(component "hds/advanced-table/filter-bar/filters-dropdown" onChange=this.onFiltersChange)
           Dropdown=(component
             "hds/advanced-table/filter-bar/dropdown"
             onChange=this.onFilter
@@ -36,18 +35,16 @@
           )
         )
       }}
-    </div>
-    {{#if this.hasActiveFilters}}
-      <div class="hds-advanced-table__filter-bar__actions">
-        <div class="hds-advanced-table__filter-bar__active-filters">
-          {{#each-in this.filters as |key filter|}}
-            {{#if filter}}
-              {{#each filter as |f|}}
-                <Hds::Tag @text="{{key}}: {{f.text}}" @onDismiss={{fn this.onFilterDismiss key f.value}} />
-              {{/each}}
-            {{/if}}
-          {{/each-in}}
-        </div>
+      {{yield
+        (hash
+          FiltersDropdown=(component
+            "hds/advanced-table/filter-bar/filters-dropdown"
+            activeFilterableColumns=this.activeFilterableColumns
+            onChange=this.onFiltersChange
+          )
+        )
+      }}
+      {{#if this.hasActiveFilters}}
         <Hds::Button
           class="hds-advanced-table__filter-bar__clear-button"
           @text="Clear all filters"
@@ -56,7 +53,7 @@
           @size="small"
           {{on "click" this.clearFilters}}
         />
-      </div>
-    {{/if}}
+      {{/if}}
+    </div>
   {{/if}}
 </div>
