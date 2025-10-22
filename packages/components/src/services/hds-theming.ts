@@ -116,25 +116,26 @@ export default class HdsThemingService extends Service {
   }
 
   setTheme({ theme, options, onSetTheme }: SetThemeArgs) {
-    // if we have new options, we override the current ones (`lightTheme` / `darkTheme` / `cssSelector`)
-    // these options can be used by consumers that want to customize how they apply theming
-    // (and used by the showcase for the custom theming / theme switching logic)
-    if (
-      options !== undefined &&
-      Object.hasOwn(options, 'lightTheme') &&
-      Object.hasOwn(options, 'darkTheme') &&
-      Object.hasOwn(options, 'cssSelector')
-    ) {
-      const { lightTheme, darkTheme, cssSelector } = options;
+    if (options !== undefined) {
+      // if we have new options, we override the current ones (`lightTheme` / `darkTheme` / `cssSelector`)
+      // these options can be used by consumers that want to customize how they apply theming
+      // (and used by the showcase for the custom theming / theme switching logic)
+      if (
+        Object.hasOwn(options, 'lightTheme') &&
+        Object.hasOwn(options, 'darkTheme') &&
+        Object.hasOwn(options, 'cssSelector')
+      ) {
+        const { lightTheme, darkTheme, cssSelector } = options;
 
-      this._currentLightTheme = lightTheme;
-      this._currentDarkTheme = darkTheme;
-      this._currentCssSelector = cssSelector;
-    } else {
-      // fallback if something goes wrong
-      this._currentLightTheme = DEFAULT_THEMING_OPTION_LIGHT_THEME;
-      this._currentDarkTheme = DEFAULT_THEMING_OPTION_DARK_THEME;
-      this._currentCssSelector = DEFAULT_THEMING_OPTION_CSS_SELECTOR;
+        this._currentLightTheme = lightTheme;
+        this._currentDarkTheme = darkTheme;
+        this._currentCssSelector = cssSelector;
+      } else {
+        // fallback if something goes wrong
+        this._currentLightTheme = DEFAULT_THEMING_OPTION_LIGHT_THEME;
+        this._currentDarkTheme = DEFAULT_THEMING_OPTION_DARK_THEME;
+        this._currentCssSelector = DEFAULT_THEMING_OPTION_CSS_SELECTOR;
+      }
     }
 
     // set the current theme/mode (`currentTheme` / `currentMode`)
