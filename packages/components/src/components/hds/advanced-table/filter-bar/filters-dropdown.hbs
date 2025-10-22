@@ -1,12 +1,18 @@
 {{! @glint-nocheck }}
-<Hds::Dropdown @listPosition="bottom-left" @height="180px" class={{this.classNames}} as |D|>
+<Hds::Dropdown
+  @listPosition="bottom-left"
+  @height="180px"
+  class={{this.classNames}}
+  {{this._updateInternalFilterableColumns}}
+  as |D|
+>
   <D.ToggleButton @text="Add filter" @color="secondary" @size="small" />
   {{yield
     (hash
       Checkbox=(component
         "hds/advanced-table/filter-bar/filters-checkbox"
         checkbox=D.Checkbox
-        activeFilterableColumns=this.activeFilterableColumns
+        activeFilterableColumns=this.internalFilterableColumns
         onChange=this.onChange
       )
     )
