@@ -4,6 +4,11 @@
 }}
 <Hds::PopoverPrimitive @isOpen={{@isOpen}} @onClose={{@onClose}} @enableClickEvents={{true}} as |PP|>
   <div class={{this.classNames}} ...attributes {{PP.setupPrimitiveContainer}} {{this._setUpDropdown}}>
+    {{#if this.onDismiss}}
+      <button class="hds-dropdown__dismiss" type="button" {{on "click" this.onDismiss}}>
+        <Hds::Icon class="hds-tag__dismiss-icon" @name="x" @size="16" />
+      </button>
+    {{/if}}
     {{yield
       (hash
         ToggleButton=(component

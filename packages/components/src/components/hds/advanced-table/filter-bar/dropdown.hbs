@@ -4,13 +4,14 @@
   @height="240px"
   @searchEnabled={{@searchEnabled}}
   @searchPlaceholder="Search {{@key}}"
+  @onDismiss={{this.onDismiss}}
+  {{this._setUpDropdown}}
   class={{this.classNames}}
-  {{this._updateInternalFilters}}
   as |D|
 >
+  <D.ToggleButton @text={{this.toggleButtonText}} @color="secondary" @size="small" />
   {{yield
     (hash
-      ToggleButton=(component D.ToggleButton count=this.numFilters text=@text color="secondary" size="small")
       Checkbox=(component
         "hds/advanced-table/filter-bar/checkbox"
         checkbox=D.Checkbox
