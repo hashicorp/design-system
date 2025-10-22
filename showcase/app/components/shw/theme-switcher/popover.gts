@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
 import { hash, fn } from '@ember/helper';
 import { service } from '@ember/service';
-import type Owner from '@ember/owner';
+import { modifier } from 'ember-modifier';
 
 import ShwThemeSwitcherControlSelect from './control/select';
 import ShwThemeSwitcherControlToggle from './control/toggle';
@@ -39,20 +39,35 @@ interface ShwThemeSwitcherPopoverSignature {
 export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherPopoverSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
 
-  @tracked _selectedLightTheme;
-  @tracked _selectedDarkTheme;
-  @tracked _selectedCssSelector;
-  @tracked _hasFixedControls: boolean;
-  @tracked _hasDebuggingPanel: boolean;
+  // we use `!` (definite assignment assertion) because the actual assignment is done via the modifier
+  _element!: HTMLDivElement;
+  @tracked _selectedLightTheme!: HdsModesLight;
+  @tracked _selectedDarkTheme!: HdsModesDark;
+  @tracked _selectedCssSelector!: HdsCssSelectors;
+  @tracked _hasFixedControls!: boolean;
+  @tracked _hasDebuggingPanel!: boolean;
 
-  constructor(owner: Owner, args: ShwThemeSwitcherPopoverSignature['Args']) {
-    super(owner, args);
+  _registerPopover = modifier((element: HTMLDivElement) => {
+    this._element = element;
+    this._element.addEventListener('toggle', this.syncStates, true);
+    return () => {
+      this._element?.removeEventListener('toggle', this.syncStates, true);
+    };
+  });
+
+  syncStates = (): void => {
+    // we use this to initialize the values when the popover opens (instead of a constructor)
+    // and reset them on close (in case the user dismiss without clicking "apply")
+    // the reason for this is that the popover element is never removed from the DOM
+    // so if a user selects an options and closes the popover without applying,
+    // when it opens it back it would see the previous state, which not in sync with what
+    // is actually stored in the components/services/localstorage
     this._selectedLightTheme = this.hdsTheming.currentLightTheme;
     this._selectedDarkTheme = this.hdsTheming.currentDarkTheme;
     this._selectedCssSelector = this.hdsTheming.currentCssSelector;
     this._hasFixedControls = this.args.hasFixedControls;
     this._hasDebuggingPanel = this.args.hasDebuggingPanel;
-  }
+  };
 
   onChangeAdvancedOption = (optionName: string, event: Event) => {
     const select = event.target as HTMLSelectElement;
@@ -112,6 +127,7 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
       id={{@popoverId}}
       class="shw-theme-switcher-popover"
       popover
+      {{this._registerPopover}}
       ...attributes
     >
       <p class="shw-theme-switcher-popover__title">Advanced options</p>
@@ -148,12 +164,12 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
       <div class="shw-theme-switcher-popover__options-list">
         <ShwThemeSwitcherControlToggle
           @label="Fixed controls"
-          @checked={{@hasFixedControls}}
+          @checked={{this._hasFixedControls}}
           @onToggle={{(fn this.onTogglePreference "fixed-controls")}}
         />
         <ShwThemeSwitcherControlToggle
           @label="Debugging panel"
-          @checked={{@hasDebuggingPanel}}
+          @checked={{this._hasDebuggingPanel}}
           @onToggle={{(fn this.onTogglePreference "debugging-panel")}}
         />
       </div>
