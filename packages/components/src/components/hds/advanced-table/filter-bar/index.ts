@@ -71,24 +71,24 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
 
   @action
   onFilter(key: string, keyFilter?: HdsAdvancedTableFilter[]): void {
-    this._updateFilter(key, keyFilter);
-
-    this.hasActiveFilters = Object.keys(this.filters).length > 0;
-
-    const { onFilter } = this.args;
-    if (onFilter && typeof onFilter === 'function') {
-      onFilter(this.filters);
-    }
+    this._triggerFilter(key, keyFilter);
   }
 
   @action
   onFiltersChange(activeFilterableColumns: string[]): void {
     this.activeFilterableColumns = activeFilterableColumns;
+
+    Object.keys(this.filters).forEach((k) => {
+      if (!this.activeFilterableColumns.includes(k)) {
+        this._triggerFilter(k);
+      }
+    });
   }
 
   @action
   clearFilters(): void {
     this.filters = {};
+    this.activeFilterableColumns = [];
     this.hasActiveFilters = false;
     const { onFilter } = this.args;
     if (onFilter && typeof onFilter === 'function') {
@@ -111,6 +111,20 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
     this.showFilters = !this.showFilters;
   }
 
+  private _triggerFilter(
+    key: string,
+    keyFilter?: HdsAdvancedTableFilter[]
+  ): void {
+    this._updateFilter(key, keyFilter);
+
+    this.hasActiveFilters = Object.keys(this.filters).length > 0;
+
+    const { onFilter } = this.args;
+    if (onFilter && typeof onFilter === 'function') {
+      onFilter(this.filters);
+    }
+  }
+
   private _updateFilter(
     key: string,
     keyFilter?: HdsAdvancedTableFilter[]
@@ -126,6 +140,9 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
       (Array.isArray(keyFilter) && keyFilter.length === 0)
     ) {
       delete newFilters[key];
+      this.activeFilterableColumns = this.activeFilterableColumns.filter(
+        (colKey) => colKey !== key
+      );
     } else {
       Object.assign(newFilters, { [key]: keyFilter });
     }
