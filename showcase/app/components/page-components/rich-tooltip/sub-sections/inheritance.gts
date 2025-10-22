@@ -187,12 +187,7 @@ const SubSectionInheritance: TemplateOnlyComponent = <template>
 
   <ShwTextBody>Used within a parent with explicit text alignment</ShwTextBody>
 
-  <ShwGrid
-    class="shw-component-tooltip-text-alignment"
-    @columns={{3}}
-    {{style margin-bottom="9rem"}}
-    as |SG|
-  >
+  <ShwGrid @columns={{3}} {{style margin-bottom="9rem"}} as |SG|>
     {{#each TEXT_ALIGNMENTS as |alignment|}}
       <SG.Item
         @label="text-align = {{alignment}}"
