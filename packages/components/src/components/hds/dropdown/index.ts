@@ -76,7 +76,6 @@ export interface HdsDropdownSignature {
 }
 
 export default class HdsDropdown extends Component<HdsDropdownSignature> {
-
   private _element!: HTMLDivElement;
 
   private _setUpDropdown = modifier((element: HTMLDivElement) => {
@@ -130,6 +129,17 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     };
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  get onDismiss(): ((event: MouseEvent, ...args: any[]) => void) | false {
+    const { onDismiss } = this.args;
+
+    if (typeof onDismiss === 'function') {
+      return onDismiss;
+    } else {
+      return false;
+    }
+  }
+
   /**
    * Get the class names to apply to the element
    * @method classNames
@@ -141,6 +151,10 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     // add a class based on the @isInline argument
     if (this.args.isInline) {
       classes.push('hds-dropdown--is-inline');
+    }
+
+    if (this.args.onDismiss) {
+      classes.push('hds-dropdown--has-dismiss');
     }
 
     return classes.join(' ');

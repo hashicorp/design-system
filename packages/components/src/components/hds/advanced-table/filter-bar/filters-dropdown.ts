@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 
 import HdsDropdown from '../../dropdown/index.ts';
@@ -35,20 +36,29 @@ export interface HdsAdvancedTableFilterBarFiltersDropdownSignature {
 export default class HdsAdvancedTableFilterBarFiltersDropdown extends Component<
   HdsDropdownSignature & HdsAdvancedTableFilterBarFiltersDropdownSignature
 > {
-  @tracked activeFilterableColumns: string[] =
-    this.args.activeFilterableColumns ?? [];
+  @tracked internalFilterableColumns: string[] = [];
+
+  private _updateInternalFilterableColumns = modifier(() => {
+    const { activeFilterableColumns } = this.args;
+
+    if (activeFilterableColumns) {
+      this.internalFilterableColumns = activeFilterableColumns;
+    } else {
+      this.internalFilterableColumns = [];
+    }
+  });
 
   @action
   onChange(event: Event): void {
     const input = event.target as HTMLInputElement;
 
     if (input.checked) {
-      this.activeFilterableColumns = [
-        ...this.activeFilterableColumns,
+      this.internalFilterableColumns = [
+        ...this.internalFilterableColumns,
         input.value,
       ];
     } else {
-      this.activeFilterableColumns = this.activeFilterableColumns?.filter(
+      this.internalFilterableColumns = this.internalFilterableColumns?.filter(
         (col) => col !== input.value
       );
     }
@@ -58,7 +68,7 @@ export default class HdsAdvancedTableFilterBarFiltersDropdown extends Component<
   onApply(closeDropdown?: () => void): void {
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
-      onChange(this.activeFilterableColumns);
+      onChange(this.internalFilterableColumns);
     }
 
     if (closeDropdown && typeof closeDropdown === 'function') {
@@ -68,11 +78,11 @@ export default class HdsAdvancedTableFilterBarFiltersDropdown extends Component<
 
   @action
   onClear(closeDropdown?: () => void): void {
-    this.activeFilterableColumns = [];
+    this.internalFilterableColumns = [];
 
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
-      onChange(this.activeFilterableColumns);
+      onChange(this.internalFilterableColumns);
     }
 
     if (closeDropdown && typeof closeDropdown === 'function') {
