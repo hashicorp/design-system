@@ -10,6 +10,7 @@
 @use "../../mixins/button" as *;
 
 .hds-form-file-input {
+  width: 100%; // we want to prevent the input from overflowing its container
   margin: -4px 0 -4px -4px; // offset shadow padding + default 1px spacing
   padding: 3px 0 3px 3px; // add padding so button shadow is visible
   color: var(--token-color-foreground-primary);

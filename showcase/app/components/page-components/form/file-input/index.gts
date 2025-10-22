@@ -11,6 +11,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 
 import SubSectionBaseControl from 'showcase/components/page-components/form/file-input/sub-sections/base-control';
 import SubSectionFieldControl from 'showcase/components/page-components/form/file-input/sub-sections/field-control';
+import SubSectionContainers from 'showcase/components/page-components/form/file-input/sub-sections/containers';
 
 export default class FormFileInputIndex extends Component {
   @tracked showHighlight = false;
@@ -35,6 +36,7 @@ export default class FormFileInputIndex extends Component {
       </button>
       <SubSectionBaseControl @showHighlight={{this.showHighlight}} />
       <SubSectionFieldControl @showHighlight={{this.showHighlight}} />
+      <SubSectionContainers @showHighlight={{this.showHighlight}} />
     </section>
   </template>
 }
