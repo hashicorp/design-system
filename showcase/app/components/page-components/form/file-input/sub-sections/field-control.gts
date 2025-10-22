@@ -87,6 +87,8 @@ const SubSectionFieldControl: TemplateOnlyComponent<SubSectionFieldControlSignat
         </HdsFormFileInputField>
       </SG.Item>
     </ShwGrid>
+
+    <ShwDivider />
   </template>;
 
 export default SubSectionFieldControl;
