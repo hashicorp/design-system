@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { array } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
@@ -32,6 +31,8 @@ import {
 } from '@hashicorp/design-system-components/components';
 import { SIZES as DISPLAY_AVAILABLE_SIZES } from '@hashicorp/design-system-components/components/hds/text/display';
 import { DEFAULT_SIZE as FORM_HEADER_TITLE_DEFAULT_SIZE } from '@hashicorp/design-system-components/components/hds/form/header/title';
+
+const MAX_WIDTHS = [undefined, '32em', '100%', 'none'];
 
 interface SubSectionComponentsSignature {
   Args: {
@@ -65,44 +66,42 @@ const SubSectionComponents: TemplateOnlyComponent<SubSectionComponentsSignature>
         }}"
       as |SF|
     >
-      {{#let (array undefined "32em" "100%" "none") as |sectionMaxWidths|}}
-        {{#each sectionMaxWidths as |sectionMaxWidth|}}
-          <SF.Item @label="" as |SFI|>
-            <SFI.Label>
-              {{#if sectionMaxWidth}}
-                sectionMaxWidth={{sectionMaxWidth}}
-              {{else}}
-                default widths
-              {{/if}}
-            </SFI.Label>
-            <HdsForm @sectionMaxWidth={{sectionMaxWidth}} as |FORM|>
-              <FORM.Header>
-                <ShwPlaceholder
-                  @height="36px"
-                  @text="Header"
-                  @background="#e4c5f3"
-                />
-              </FORM.Header>
-              <FORM.Section>
-                <ShwPlaceholder
-                  @height="36px"
-                  @text="Section"
-                  @background="#add8e6"
-                />
-              </FORM.Section>
-              <FORM.Separator />
-              <FORM.Section @isFullWidth={{true}}>
-                <ShwPlaceholder
-                  @height="36px"
-                  @text="Section / Full width"
-                  @background="#add8e6"
-                />
-              </FORM.Section>
-              <FORM.Separator @isFullWidth={{true}} />
-            </HdsForm>
-          </SF.Item>
-        {{/each}}
-      {{/let}}
+      {{#each MAX_WIDTHS as |sectionMaxWidth|}}
+        <SF.Item @label="" as |SFI|>
+          <SFI.Label>
+            {{#if sectionMaxWidth}}
+              sectionMaxWidth={{sectionMaxWidth}}
+            {{else}}
+              default widths
+            {{/if}}
+          </SFI.Label>
+          <HdsForm @sectionMaxWidth={{sectionMaxWidth}} as |FORM|>
+            <FORM.Header>
+              <ShwPlaceholder
+                @height="36px"
+                @text="Header"
+                @background="#e4c5f3"
+              />
+            </FORM.Header>
+            <FORM.Section>
+              <ShwPlaceholder
+                @height="36px"
+                @text="Section"
+                @background="#add8e6"
+              />
+            </FORM.Section>
+            <FORM.Separator />
+            <FORM.Section @isFullWidth={{true}}>
+              <ShwPlaceholder
+                @height="36px"
+                @text="Section / Full width"
+                @background="#add8e6"
+              />
+            </FORM.Section>
+            <FORM.Separator @isFullWidth={{true}} />
+          </HdsForm>
+        </SF.Item>
+      {{/each}}
     </ShwFlex>
 
     <ShwTextH4>tag</ShwTextH4>
@@ -205,7 +204,7 @@ const SubSectionComponents: TemplateOnlyComponent<SubSectionComponentsSignature>
         </HdsForm>
       </SF.Item>
       <SF.Item as |SFI|>
-        <SFI.Label>content yielded via <code>FORM_SECTION</code></SFI.Label>
+        <SFI.Label>component used directly</SFI.Label>
         <HdsForm>
           <HdsFormHeader as |FORM_HEADER|>
             <FORM_HEADER.Title>Section header title</FORM_HEADER.Title>
