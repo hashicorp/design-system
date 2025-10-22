@@ -5,121 +5,78 @@
 
 const CODEMOD_ANALYSIS = process.env.CODEMOD_ANALYSIS;
 
-function processChildren(children, asPrefix, b) {
-  let hasUpdatedChildren = false;
-  let processedChildren = [];
-
-  children.forEach((child) => {
-    let updatedChild;
-    let isProcessed = false;
-
-    // Check if the child is an ElementNode with the specified tag
-    if (child.type === 'ElementNode' && child.tag === `${asPrefix}.Interactive`) {
-      const textAttr = child.attributes.find((a) => a.name === '@text');
-
-      if (textAttr) {
-        const childOutputAttributes = child.attributes.filter((a) => a.name !== '@text');
-
-        const isHandlebarsAttr = textAttr.value.type === 'MustacheStatement';
-
-        let children = [];
-
-        // Handle different types of MustacheStatement values
-        if (isHandlebarsAttr) {
-          if (textAttr.value.path.type === 'NumberLiteral') {
-            children = [b.mustache(b.number(textAttr.value.path.value))];
-          } else if (textAttr.value.path.type === 'StringLiteral') {
-            children = [b.mustache(b.string(textAttr.value.path.value))];
-          } else {
-            children = [
-              b.mustache(
-                textAttr.value.path.original,
-                [...textAttr.value.params],
-                textAttr.value.hash
-              ),
-            ];
-          }
-        } else {
-          children = [b.text(textAttr.value.chars)];
-        }
-
-        // Create a new element with the updated children and attributes
-        updatedChild = b.element(
-          { name: child.tag, selfClosing: false },
-          {
-            children,
-            attrs: childOutputAttributes,
-            modifiers: child.modifiers,
-            blockParams: child.blockParams,
-          }
-        );
-
-        isProcessed = true;
-      } else {
-        updatedChild = child;
-      }
-    } else if (child.type === 'BlockStatement') {
-      // Recursively process children of BlockStatement nodes
-      const { hasUpdatedChildren: nestedHasUpdated, processedChildren: nestedProcessed } =
-        processChildren(child.program.body, asPrefix, b);
-
-      if (nestedHasUpdated) {
-        updatedChild = b.block(
-          child.path,
-          child.params,
-          child.hash,
-          b.program(nestedProcessed, child.program.blockParams),
-          child.inverse
-        );
-        isProcessed = true;
-      } else {
-        updatedChild = child;
-      }
-    }
-
-    processedChildren.push(updatedChild || child);
-    hasUpdatedChildren = hasUpdatedChildren || isProcessed;
-  });
-
-  return { hasUpdatedChildren, processedChildren };
-}
-
 module.exports = function ({ source /*, path*/ }, { parse, visit }) {
   const ast = parse(source);
 
+  // A stack is used to correctly handle nested <Hds::Dropdown> components
+  const asPrefixStack = [];
+
   return visit(ast, (env) => {
-    let { builders: b } = env.syntax;
+    const { builders: b } = env.syntax;
 
     return {
-      ElementNode(node) {
-        // Check if the node is an Hds::Dropdown element
-        if (node.type === 'ElementNode' && node.tag === 'Hds::Dropdown') {
-          if (node.blockParams && node.blockParams.length > 0) {
-            const asPrefix = node.blockParams[0];
-
-            // Process the children of the Hds::Dropdown element
-            const { hasUpdatedChildren, processedChildren } = processChildren(
-              node.children,
-              asPrefix,
-              b
-            );
-
-            // Return the updated element if any children were updated
-            if (hasUpdatedChildren && !CODEMOD_ANALYSIS) {
-              return [
-                b.element(
-                  { name: node.tag, selfClosing: false },
-                  {
-                    attrs: node.attributes,
-                    children: processedChildren,
-                    modifiers: node.modifiers,
-                    blockParams: node.blockParams,
-                  }
-                ),
-              ];
+      ElementNode: {
+        // "enter" is called before visiting the node's children
+        enter(node) {
+          // If we encounter a Dropdown, push its `as` parameter onto the stack
+          if (node.tag === 'Hds::Dropdown') {
+            if (node.blockParams && node.blockParams.length > 0) {
+              asPrefixStack.push(node.blockParams[0]);
+            } else {
+              // Push a falsy value to keep the stack balanced if there's no block param
+              asPrefixStack.push(null);
             }
           }
-        }
+
+          // Get the current prefix from the top of the stack
+          const asPrefix = asPrefixStack[asPrefixStack.length - 1];
+
+          // If there's a prefix and this node is the one we want to transform...
+          if (!CODEMOD_ANALYSIS && asPrefix && node.tag === `${asPrefix}.Interactive`) {
+            const textAttr = node.attributes.find((a) => a.name === '@text');
+
+            if (textAttr) {
+              const childOutputAttributes = node.attributes.filter((a) => a.name !== '@text');
+              const attrValue = textAttr.value;
+              let newChildren = [];
+
+              if (attrValue.type === 'ConcatStatement') {
+                newChildren = attrValue.parts;
+              } else if (attrValue.type === 'MustacheStatement') {
+                if (attrValue.path.type === 'NumberLiteral') {
+                  newChildren = [b.mustache(b.number(attrValue.path.value))];
+                } else if (attrValue.path.type === 'StringLiteral') {
+                  newChildren = [b.mustache(b.string(attrValue.path.value))];
+                } else {
+                  newChildren = [
+                    b.mustache(attrValue.path.original, [...attrValue.params], attrValue.hash),
+                  ];
+                }
+              } else {
+                newChildren = [b.text(attrValue.chars)];
+              }
+
+              // Return a new element to replace the current one
+              // The visitor will automatically use this returned value
+              return b.element(
+                { name: node.tag, selfClosing: false },
+                {
+                  children: newChildren,
+                  attrs: childOutputAttributes,
+                  modifiers: node.modifiers,
+                  blockParams: node.blockParams,
+                }
+              );
+            }
+          }
+        },
+        // "exit" is called after visiting the node's children
+        exit(node) {
+          // As we leave a Dropdown, pop its prefix off the stack
+          if (node.tag === 'Hds::Dropdown') {
+            asPrefixStack.pop();
+          }
+        },
       },
     };
   });
