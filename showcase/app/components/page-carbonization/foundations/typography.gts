@@ -11,7 +11,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
-import { STYLES_COMBINATIONS } from './sub-sections/styles';
+import { STYLES_COMBINATIONS } from 'showcase/components/page-foundations/typography/sub-sections/styles';
 
 const TypographyCarbonization: TemplateOnlyComponent = <template>
   {{pageTitle "Typography - Carbonization"}}
