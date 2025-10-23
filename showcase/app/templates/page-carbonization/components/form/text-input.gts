@@ -4,7 +4,7 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import FormTextInputCarbonization from 'showcase/components/page-components/form/text-input/carbonization';
+import FormTextInputCarbonization from 'showcase/components/page-carbonization/components/form/text-input';
 
 const PageComponentsFormTextInputCarbonization: TemplateOnlyComponent =
   <template><FormTextInputCarbonization /></template>;

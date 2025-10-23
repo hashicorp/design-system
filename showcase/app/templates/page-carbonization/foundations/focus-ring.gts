@@ -4,7 +4,7 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import FocusRingCarbonization from 'showcase/components/page-foundations/focus-ring/carbonization';
+import FocusRingCarbonization from 'showcase/components/page-carbonization/foundations/focus-ring';
 
 const PageFoundationsFocusRingCarbonization: TemplateOnlyComponent = <template>
   <FocusRingCarbonization />
