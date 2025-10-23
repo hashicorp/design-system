@@ -4,7 +4,7 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import ButtonCarbonization from 'showcase/components/page-components/button/carbonization';
+import ButtonCarbonization from 'showcase/components/page-carbonization/components/button';
 
 const PageComponentsButtonCarbonization: TemplateOnlyComponent = <template>
   <ButtonCarbonization />

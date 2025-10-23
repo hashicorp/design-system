@@ -391,56 +391,56 @@ const Index: TemplateOnlyComponent = <template>
         </li>
       </ol>
     </div>
-  </div>
 
-  <div class="shw-landing-lists__vertical-divider" />
+    <div class="shw-landing-lists__vertical-divider" />
 
-  <div>
-    <ShwTextH2>Carbonization</ShwTextH2>
-    <ol class="shw-text-body">
-      <li>
-        <LinkTo @route="page-foundations.color.carbonization">
-          Color
-        </LinkTo>
-      </li>
-      <li>
-        <LinkTo @route="page-foundations.typography.carbonization">
-          Typography
-        </LinkTo>
-      </li>
-      <li>
-        <LinkTo @route="page-foundations.focus-ring.carbonization">
-          Focus-ring
-        </LinkTo>
-      </li>
-    </ol>
-    <ol class="shw-text-body">
-      <li>
-        <LinkTo @route="page-components.badge.carbonization">
-          Badge
-        </LinkTo>
-      </li>
-      <li>
-        <LinkTo @route="page-components.badge-count.carbonization">
-          BadgeCount
-        </LinkTo>
-      </li>
-      <li>
-        <LinkTo @route="page-components.button.carbonization">
-          Button
-        </LinkTo>
-      </li>
-      <li>
-        <LinkTo @route="page-components.form.text-input.carbonization">
-          Form::TextInput
-        </LinkTo>
-      </li>
-      <li>
-        <LinkTo @route="page-components.segmented-group.carbonization">
-          SegmentedGroup
-        </LinkTo>
-      </li>
-    </ol>
+    <div>
+      <ShwTextH2>Carbonization</ShwTextH2>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-carbonization.foundations.color">
+            Color
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.foundations.typography">
+            Typography
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.foundations.focus-ring">
+            Focus-ring
+          </LinkTo>
+        </li>
+      </ol>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-carbonization.components.badge">
+            Badge
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.badge-count">
+            BadgeCount
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.button">
+            Button
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.form.text-input">
+            Form::TextInput
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.segmented-group">
+            SegmentedGroup
+          </LinkTo>
+        </li>
+      </ol>
+    </div>
   </div>
 </template>;
 
