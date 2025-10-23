@@ -34,7 +34,7 @@ module.exports = {
   afterInstall(options) {
     updateDummyAppRouter.call(this, options);
     updateDummyAppCSS.call(this, options);
-    updateDummyAppIndexHBS.call(this, options);
+    updateDummyAppIndexTS.call(this, options);
     updatePercyTest.call(this, options);
   },
 };
@@ -79,9 +79,15 @@ const updateDummyAppCSS = (options) => {
   fs.writeFileSync(cssFilePath, newLinesArray.join('\n'));
 };
 
-const updateDummyAppIndexHBS = (options) => {
+const updateDummyAppIndexTS = (options) => {
   const name = options.entity.name;
-  const hbsFilePath = `${options.project.root}/app/templates/index.hbs`;
+  const tsFilePath = `${options.project.root}/app/templates/index.gts`;
+  const source = fs.readFileSync(tsFilePath, 'utf-8');
+  const oldLinesArray = source.split(/\r?\n/);
+  const closingTemplateTagIndex = oldLinesArray.findIndex((line) =>
+    line.match(/^<\/template>/),
+  );
+
   let newListItemHTML = '';
   newListItemHTML += '<!-- MOVE THIS HTML BLOCK IN THE RIGHT POSITION -->\n';
   newListItemHTML += '<!-- (adjust component name & route if necessary) -->\n';
@@ -90,7 +96,14 @@ const updateDummyAppIndexHBS = (options) => {
   newListItemHTML += `    ${getColumnizedModuleName(name)}\n`;
   newListItemHTML += '  </LinkTo>\n';
   newListItemHTML += '</li>\n';
-  fs.appendFileSync(hbsFilePath, `\n\n${newListItemHTML}\n`);
+
+  const newLinesArray = [].concat(
+    oldLinesArray.slice(0, closingTemplateTagIndex),
+    [newListItemHTML],
+    oldLinesArray.slice(closingTemplateTagIndex),
+  );
+
+  fs.writeFileSync(tsFilePath, newLinesArray.join('\n'));
 };
 
 const updatePercyTest = (options) => {
