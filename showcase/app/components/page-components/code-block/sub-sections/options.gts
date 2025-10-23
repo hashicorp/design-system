@@ -1,191 +1,25 @@
-{{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
-}}
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
 
-{{page-title "CodeBlock Component"}}
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-<Shw::Text::H1>CodeBlock</Shw::Text::H1>
+import ShwDivider from 'showcase/components/shw/divider';
+import ShwGrid from 'showcase/components/shw/grid';
+import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH3 from 'showcase/components/shw/text/h3';
 
-<section data-test-percy>
-  <Shw::Text::H2>Content</Shw::Text::H2>
+import { HdsCodeBlock } from '@hashicorp/design-system-components/components';
 
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="one line">
-      <Hds::CodeBlock
-        @language="bash"
-        @ariaLabel="one line"
-        @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
-      />
-    </SG.Item>
-    <SG.Item @label="multi-line">
-      <Hds::CodeBlock
-        @language="go"
-        @ariaLabel="multi-line"
-        @value="package main
-import 'fmt'
-func main() {
-  res = 'Lorem ipsum dolor sit amet'
-  fmt.Println(res)
-}"
-      />
-    </SG.Item>
-  </Shw::Grid>
+const SubSectionBaseElements: TemplateOnlyComponent = <template>
+  <ShwTextH2>Options</ShwTextH2>
 
-  <Shw::Text::Body>New lines handling</Shw::Text::Body>
+  <ShwTextH3>Standalone</ShwTextH3>
 
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="new lines in Handlebars" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
-        @language="go"
-        @ariaLabel="new lines in Handlebars"
-        @value="package main
-import 'fmt'
-func main() {
-  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
-  fmt.Println(res)
-}"
-      />
-    </SG.Item>
-    <SG.Item @forceMinWidth={{true}} as |SGI|>
-      <SGI.Label>new lines with
-        <code>\n</code>
-        escape sequence in Ruby
-      </SGI.Label>
-      <Hds::CodeBlock
-        @language="ruby"
-        @ariaLabel="new lines with escape sequence in Ruby"
-        @value={{this.textWithNewline}}
-      />
-    </SG.Item>
-    <SG.Item @forceMinWidth={{true}} as |SGI|>
-      <SGI.Label><code>\n</code>
-        in Handlebars (not interpreted as newline)
-      </SGI.Label>
-      <Hds::CodeBlock
-        @language="ruby"
-        @ariaLabel="\n in Handlebars (not interpreted as newline)"
-        @value='Vagrant.configure("2") do |config|\nconfig.vm.box "ubuntu/noble64"\nend'
-      />
-    </SG.Item>
-    <SG.Item @forceMinWidth={{true}} as |SGI|>
-      <SGI.Label>Line numbering start changed to "5"
-      </SGI.Label>
-      {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
-        @language="go"
-        @maxHeight="105px"
-        @lineNumberStart={{5}}
-        @ariaLabel="Line numbering start changed to 5"
-        @value="package main
-import 'fmt'
-func main() {
-  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
-  fmt.Println(res)
-}"
-      />
-      {{! template-lint-enable no-whitespace-for-layout }}
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H3>Title and description</Shw::Text::H3>
-
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="title">
-      <Hds::CodeBlock
-        @value='Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/noble64"
-end'
-        @language="ruby"
-        as |CB|
-      >
-        <CB.Title>Title</CB.Title>
-      </Hds::CodeBlock>
-    </SG.Item>
-    <SG.Item @label="description">
-      <Hds::CodeBlock
-        @value='Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/noble64"
-end'
-        @language="ruby"
-        @ariaLabel="description"
-        as |CB|
-      >
-        <CB.Description>Description</CB.Description>
-      </Hds::CodeBlock>
-    </SG.Item>
-    <SG.Item @label="title and description">
-      <Hds::CodeBlock
-        @value='Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/noble64"
-end'
-        @language="ruby"
-        as |CB|
-      >
-        <CB.Title>Title that may wrap on multiple lines if the parent container is limiting its width</CB.Title>
-        <CB.Description>
-          Description that could contain
-          <a href="#">a link</a>
-          or other basic styling such as
-          <b>bold</b>,
-          <i>italic</i>
-          or even
-          <code>code</code>.
-        </CB.Description>
-      </Hds::CodeBlock>
-    </SG.Item>
-    <SG.Item @label="custom title tag">
-      <Hds::CodeBlock
-        @value='Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/noble64"
-end'
-        @language="ruby"
-        as |CB|
-      >
-        <CB.Title @tag="h2">Title</CB.Title>
-      </Hds::CodeBlock>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H3>Dynamic content</Shw::Text::H3>
-
-  <Shw::Text::Body>
-    <button type="button" {{on "click" this.updateCodeValue}}>
-      Update value
-    </button>
-  </Shw::Text::Body>
-
-  <Shw::Text::Body>
-    <label for="input">Change input value:</label>
-    <input id="input" type="text" value={{this.input}} {{on "input" this.updateInput}} />
-  </Shw::Text::Body>
-
-  <Hds::CodeBlock
-    @value={{this.codeValue}}
-    @language="ruby"
-    @hasCopyButton={{true}}
-    @hasLineNumbers={{false}}
-    id="code-block-with-dynamic-content"
-    as |CB|
-  >
-    <CB.Title>
-      Dynamic content
-    </CB.Title>
-  </Hds::CodeBlock>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>Options</Shw::Text::H2>
-
-  <Shw::Text::H3>Standalone</Shw::Text::H3>
-
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+  <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="isStandalone=false">
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @isStandalone={{false}}
         @language="ruby"
         @ariaLabel="isStandalone=false"
@@ -195,7 +29,7 @@ end'
       />
     </SG.Item>
     <SG.Item @label="isStandalone=false, title and description">
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @value='Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/noble64"
 end'
@@ -205,46 +39,49 @@ end'
       >
         <CB.Title>Title</CB.Title>
         <CB.Description>Description</CB.Description>
-      </Hds::CodeBlock>
+      </HdsCodeBlock>
     </SG.Item>
-  </Shw::Grid>
+  </ShwGrid>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Line wrapping</Shw::Text::H3>
+  <ShwTextH3>Line wrapping</ShwTextH3>
 
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+  <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="hasLineWrapping=false (default)" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="ruby"
         @ariaLabel="hasLineWrapping=false (default)"
         @value="codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
       />
     </SG.Item>
     <SG.Item @label="hasLineWrapping=true" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="ruby"
         @hasLineWrapping={{true}}
         @ariaLabel="hasLineWrapping=true"
         @value="codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
       />
     </SG.Item>
-    <SG.Item @label="hasLineWrapping=true with long string" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+    <SG.Item
+      @label="hasLineWrapping=true with long string"
+      @forceMinWidth={{true}}
+    >
+      <HdsCodeBlock
         @hasLineWrapping={{true}}
         @ariaLabel="hasLineWrapping=true with long string"
         @value="hcp-domain-verification=6ea52e476fc6232d974c31453dcd884a68df6cf374892a50a897c87d11125b67"
       />
     </SG.Item>
-  </Shw::Grid>
+  </ShwGrid>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Line numbers</Shw::Text::H3>
+  <ShwTextH3>Line numbers</ShwTextH3>
 
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+  <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="hasLineNumbers=false">
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="go"
         @hasLineNumbers={{false}}
         @ariaLabel="hasLineNumbers=false"
@@ -257,7 +94,7 @@ func main() {
       />
     </SG.Item>
     <SG.Item @label="hasLineNumbers=false, title and description">
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="go"
         @hasLineNumbers={{false}}
         @value="package main
@@ -270,18 +107,18 @@ func main() {
       >
         <CB.Title>Title</CB.Title>
         <CB.Description>Description</CB.Description>
-      </Hds::CodeBlock>
+      </HdsCodeBlock>
     </SG.Item>
-  </Shw::Grid>
+  </ShwGrid>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Height limit</Shw::Text::H3>
+  <ShwTextH3>Height limit</ShwTextH3>
 
-  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+  <ShwGrid @columns={{1}} @gap="2rem" as |SG|>
     <SG.Item @label="maxHeight='130px'" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="ruby"
         @maxHeight="130px"
         @ariaLabel="maxHeight='130px'"
@@ -312,7 +149,7 @@ end"
       @forceMinWidth={{true}}
     >
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="ruby"
         @maxHeight="130px"
         @hasCopyButton={{true}}
@@ -339,13 +176,16 @@ end"
       >
         <CB.Title>Title</CB.Title>
         <CB.Description>Description</CB.Description>
-      </Hds::CodeBlock>
+      </HdsCodeBlock>
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item @label="maxHeight='130px', hasLineWrapping=true, highlight line 2" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="maxHeight='130px', hasLineWrapping=true, highlight line 2"
+      @forceMinWidth={{true}}
+    >
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="ruby"
         @maxHeight="130px"
         @hasLineNumbers={{true}}
@@ -374,9 +214,12 @@ end"
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item @label="maxHeight='130px, hasLineNumbers=false" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="maxHeight='130px, hasLineNumbers=false"
+      @forceMinWidth={{true}}
+    >
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="ruby"
         @maxHeight="130px"
         @hasLineNumbers={{false}}
@@ -403,32 +246,38 @@ end"
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item @label="maxHeight='130px' with short content that does not overflow" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+    <SG.Item
+      @label="maxHeight='130px' with short content that does not overflow"
+      @forceMinWidth={{true}}
+    >
+      <HdsCodeBlock
         @language="shell-session"
         @maxHeight="130px"
         @ariaLabel="maxHeight='130px' with short content that does not overflow"
         @value="$ brew tap hashicorp/tap"
       />
     </SG.Item>
-  </Shw::Grid>
+  </ShwGrid>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Copy button</Shw::Text::H3>
+  <ShwTextH3>Copy button</ShwTextH3>
 
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+  <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="hasCopyButton=true" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="shell-session"
         @hasCopyButton={{true}}
         @ariaLabel="hasCopyButton=true"
         @value="$ brew tap hashicorp/tap"
       />
     </SG.Item>
-    <SG.Item @label="hasCopyButton=true, maxHeight='130px', title and description" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="hasCopyButton=true, maxHeight='130px', title and description"
+      @forceMinWidth={{true}}
+    >
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         id="clipboardTarget2"
         @hasCopyButton={{true}}
         @language="ruby"
@@ -455,11 +304,14 @@ end"
       >
         <CB.Title>Title</CB.Title>
         <CB.Description>Description</CB.Description>
-      </Hds::CodeBlock>
+      </HdsCodeBlock>
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
-    <SG.Item @label="hasCopyButton=true with custom copySuccessMessageText" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+    <SG.Item
+      @label="hasCopyButton=true with custom copySuccessMessageText"
+      @forceMinWidth={{true}}
+    >
+      <HdsCodeBlock
         @language="shell-session"
         @hasCopyButton={{true}}
         @ariaLabel="hasCopyButton=true"
@@ -467,15 +319,18 @@ end"
         @copySuccessMessageText="Yay! I'm a custom copy success message"
       />
     </SG.Item>
-  </Shw::Grid>
+  </ShwGrid>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Highlight lines</Shw::Text::H3>
+  <ShwTextH3>Highlight lines</ShwTextH3>
 
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="Highlight lines 2 & 4, hasLineNumbers=false" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+  <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item
+      @label="Highlight lines 2 & 4, hasLineNumbers=false"
+      @forceMinWidth={{true}}
+    >
+      <HdsCodeBlock
         @language="go"
         @hasLineNumbers={{false}}
         @highlightLines="2, 4"
@@ -491,7 +346,7 @@ func main() {
 
     <SG.Item @label="Highlight lines 10-12" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="ruby"
         @highlightLines="10-12"
         @ariaLabel="Highlight lines 10-12"
@@ -516,9 +371,12 @@ end"
       />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
-    <SG.Item @label="Highlight lines 14-17, lineNumberStart 2" @forceMinWidth={{true}}>
+    <SG.Item
+      @label="Highlight lines 14-17, lineNumberStart 2"
+      @forceMinWidth={{true}}
+    >
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="ruby"
         @highlightLines="14-17"
         @lineNumberStart={{2}}
@@ -544,15 +402,15 @@ end"
       />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
-  </Shw::Grid>
+  </ShwGrid>
 
-  <Shw::Divider @level={{2}} />
+  <ShwDivider @level={{2}} />
 
-  <Shw::Text::H3>Language</Shw::Text::H3>
+  <ShwTextH3>Language</ShwTextH3>
 
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+  <ShwGrid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="no language (default)" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @ariaLabel="no language (default)"
         @value="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
 GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
@@ -564,7 +422,7 @@ NrRFi9wrf+M7Q=="
     </SG.Item>
 
     <SG.Item @label="bash" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="bash"
         @ariaLabel="bash"
         @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
@@ -572,7 +430,7 @@ NrRFi9wrf+M7Q=="
     </SG.Item>
 
     <SG.Item @label="Go" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="go"
         @ariaLabel="Go"
         @value="package main
@@ -585,7 +443,7 @@ func main() {
 
     <SG.Item @label="HashiCorp Configuration Language" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="hcl"
         @ariaLabel="HashiCorp Configuration Language"
         @value='variable "hvn_id" {
@@ -599,7 +457,7 @@ func main() {
 
     <SG.Item @label="JSON" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="json"
         @ariaLabel="JSON"
         @value='{
@@ -624,7 +482,7 @@ func main() {
 
     <SG.Item @label="log" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="log"
         @ariaLabel="log"
         @value='web_1            | USE_L10N =3D True
@@ -668,11 +526,15 @@ web_1            | [13/Jun/2019 02:54:33] "GET /api/v1/rides/ HTTP/1.1" 500 9049
     </SG.Item>
 
     <SG.Item @label="Shell" @forceMinWidth={{true}}>
-      <Hds::CodeBlock @language="shell-session" @ariaLabel="Shell" @value="$ brew tap hashicorp/tap" />
+      <HdsCodeBlock
+        @language="shell-session"
+        @ariaLabel="Shell"
+        @value="$ brew tap hashicorp/tap"
+      />
     </SG.Item>
 
     <SG.Item @label="YAML" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="yaml"
         @ariaLabel="YAML"
         @value="---
@@ -688,7 +550,7 @@ result:
     </SG.Item>
 
     <SG.Item @label="Ruby" @forceMinWidth={{true}}>
-      <Hds::CodeBlock
+      <HdsCodeBlock
         @language="ruby"
         @ariaLabel="Ruby"
         @value='Vagrant.configure("2") do |config|
@@ -699,7 +561,7 @@ end'
 
     <SG.Item @label="Invalid language (foo)" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
-      <Hds::CodeBlock
+      <HdsCodeBlock
         {{! @glint-expect-error - testing what happens with an invalid language }}
         @language="foo"
         @ariaLabel="Invalid language (foo)"
@@ -711,138 +573,7 @@ end'
       />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
-  </Shw::Grid>
+  </ShwGrid>
+</template>;
 
-  <Shw::Divider />
-
-  <Shw::Text::H2>CodeBlock::CopyButton</Shw::Text::H2>
-
-  <Shw::Text::H3>States</Shw::Text::H3>
-
-  <span class="shw-component-code-block-display-none" id="test-target">Copy me</span>
-  <Shw::Grid @columns={{6}} as |SG|>
-    {{#each @model.STATES as |state|}}
-      <SG.Item @label={{capitalize state}} class="shw-component-code-block-copy-button">
-        <Hds::CodeBlock::CopyButton
-          mock-state-value={{state}}
-          @targetToCopy="#test-target"
-          class="hds-code-block--theme-dark"
-        />
-      </SG.Item>
-    {{/each}}
-    {{#let (array "success" "error") as |statuses|}}
-      {{#each statuses as |status|}}
-        <SG.Item @label={{capitalize status}} class="shw-component-code-block-copy-button">
-          <Hds::CodeBlock::CopyButton
-            mock-copy-status={{status}}
-            @targetToCopy="#test-target"
-            class="hds-code-block--theme-dark"
-          />
-        </SG.Item>
-      {{/each}}
-    {{/let}}
-  </Shw::Grid>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>Demo</Shw::Text::H2>
-
-  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
-    <SF.Item @label="Within Tabs">
-      <Hds::Tabs {{style width="400px"}} as |T|>
-        <T.Tab>Ruby</T.Tab>
-        <T.Tab>Go</T.Tab>
-        <T.Tab>Lorem</T.Tab>
-
-        <T.Panel>
-          <Hds::CodeBlock
-            @language="ruby"
-            @highlightLines="2"
-            @ariaLabel="Ruby within tabs"
-            @value='Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/noble64"
-end'
-          />
-        </T.Panel>
-        <T.Panel>
-          <Hds::CodeBlock
-            @language="go"
-            @highlightLines="2, 4"
-            @hasLineWrapping={{true}}
-            @maxHeight="130px"
-            @ariaLabel="Go within tabs"
-            @value="package main
-import 'fmt'
-func main() {
-  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
-  fmt.Println(res)
-}"
-          />
-        </T.Panel>
-        <T.Panel>
-          <Hds::CodeBlock @language="shell-session" @ariaLabel="Shell within tabs" @value="$ brew tap hashicorp/tap" />
-        </T.Panel>
-      </Hds::Tabs>
-
-    </SF.Item>
-    <SF.Item @label="Within a Dropdown">
-      <Hds::Dropdown @listPosition="bottom-left" as |dd|>
-        <dd.ToggleButton @text="Open menu" />
-        <dd.Generic>
-          <Hds::CodeBlock
-            @hasCopyButton={{true}}
-            @language="go"
-            @highlightLines="2, 4"
-            @ariaLabel="Within a dropdown"
-            @value="package main
-import 'fmt'
-func main() {
-  fmt.Println('hello world')
-}"
-          />
-        </dd.Generic>
-      </Hds::Dropdown>
-    </SF.Item>
-    <SF.Item @label="Within a Modal">
-      <Hds::Button @color="secondary" @text="Open modal" {{on "click" this.activateModal}} />
-
-      {{! template-lint-disable no-autofocus-attribute }}
-      {{#if this.isModalActive}}
-        <Hds::Modal id="test-copy-button-modal" @onClose={{this.deactivateModal}} as |M|>
-          <M.Header>
-            Lorem ipsum dolor
-          </M.Header>
-          <M.Body>
-            <Hds::CodeBlock
-              @hasCopyButton={{true}}
-              @language="go"
-              @highlightLines="2, 4"
-              @ariaLabel="Within a modal"
-              @value="package main
-import 'fmt'
-func main() {
-  fmt.Println('hello world')
-}"
-            />
-          </M.Body>
-          <M.Footer as |F|>
-            <Hds::ButtonSet>
-              <Hds::Button type="submit" @text="OK" {{on "click" this.deactivateModal}} />
-              <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
-            </Hds::ButtonSet>
-          </M.Footer>
-        </Hds::Modal>
-      {{/if}}
-    </SF.Item>
-    <SF.Item @label="Dynamic updates">
-      <Hds::CodeBlock @language="go" @highlightLines="2, 4" @maxHeight="180px" @value={{this.value_demo1}} />
-      <Hds::Button
-        type="button"
-        @text="Update"
-        @isInline={{true}}
-        {{style marginTop="12px"}}
-        {{on "click" this.onUpdateClickDemo1}}
-      />
-    </SF.Item>
-  </Shw::Flex>
-</section>
+export default SubSectionBaseElements;
