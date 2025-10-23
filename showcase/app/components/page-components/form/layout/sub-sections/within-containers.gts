@@ -26,7 +26,7 @@ import {
   HdsTabs,
 } from '@hashicorp/design-system-components/components';
 
-export default class FormLayoutIndex extends Component {
+export default class SubSectionWithinContainers extends Component {
   @tracked isModalActive = false;
   @tracked isFlyoutActive = false;
 
