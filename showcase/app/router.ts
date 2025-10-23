@@ -13,16 +13,9 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('page-foundations', { path: 'foundations' }, function () {
-    this.route('color', function () {
-      this.route('carbonization');
-    });
-    this.route('typography', function () {
-      this.route('carbonization');
-    });
+    this.route('typography');
     this.route('elevation');
-    this.route('focus-ring', function () {
-      this.route('carbonization');
-    });
+    this.route('focus-ring');
     this.route('breakpoints', function () {
       this.route('frameless', function () {
         this.route('demo-viewport-breakpoints-visualization');
@@ -53,16 +46,10 @@ Router.map(function () {
       });
     });
     this.route('application-state');
-    this.route('badge', function () {
-      this.route('carbonization');
-    });
-    this.route('badge-count', function () {
-      this.route('carbonization');
-    });
+    this.route('badge');
+    this.route('badge-count');
     this.route('breadcrumb');
-    this.route('button', function () {
-      this.route('carbonization');
-    });
+    this.route('button');
     this.route('button-set');
     this.route('card');
     this.route('code-block');
@@ -90,9 +77,7 @@ Router.map(function () {
       this.route('radio');
       this.route('select');
       this.route('super-select');
-      this.route('text-input', function () {
-        this.route('carbonization');
-      });
+      this.route('text-input');
       this.route('textarea');
       this.route('toggle');
       this.route('radio-card');
@@ -112,9 +97,7 @@ Router.map(function () {
     });
     this.route('reveal');
     this.route('rich-tooltip');
-    this.route('segmented-group', function () {
-      this.route('carbonization');
-    });
+    this.route('segmented-group');
     this.route('separator');
     this.route('side-nav');
     this.route('stepper', function () {
@@ -172,4 +155,20 @@ Router.map(function () {
       this.route('translation');
     },
   );
+  this.route('page-carbonization', { path: 'carbonization' }, function () {
+    this.route('foundations', function () {
+      this.route('color');
+      this.route('typography');
+      this.route('focus-ring');
+    });
+    this.route('components', function () {
+      this.route('badge');
+      this.route('badge-count');
+      this.route('button');
+      this.route('form', function (): void {
+        this.route('text-input');
+      });
+      this.route('segmented-group');
+    });
+  });
 });
