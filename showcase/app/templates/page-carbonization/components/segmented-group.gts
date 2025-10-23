@@ -4,7 +4,7 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import SegmentedGroupCarbonization from 'showcase/components/page-components/segmented-group/carbonization';
+import SegmentedGroupCarbonization from 'showcase/components/page-carbonization/components/segmented-group';
 
 const PageComponentsSegmentedGroupCarbonization: TemplateOnlyComponent =
   <template><SegmentedGroupCarbonization /></template>;
