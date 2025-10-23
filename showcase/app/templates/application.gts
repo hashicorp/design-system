@@ -32,6 +32,10 @@ export default class Application extends Component {
     return this.router?.currentURL?.includes('frameless') ?? false;
   }
 
+  get isCarbonization() {
+    return this.router?.currentURL?.match(/\/carbonization\//) ? true : false;
+  }
+
   addMockStateClasses = () => {
     document.querySelectorAll('[mock-state-value]').forEach((element) => {
       let targets;
@@ -74,6 +78,9 @@ export default class Application extends Component {
         </LinkTo>
         <div class="shw-page-header__title">Components showcase</div>
         <div class="shw-page-header__theme-toggle">
+          {{#unless this.isCarbonization}}
+            {{! TODO hide the theme switcher and load the correct CSS file }}
+          {{/unless}}
           <ShwThemeSwitcher />
         </div>
       </header>
