@@ -1,6 +1,6 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import TypographyCarbonization from 'showcase/components/page-foundations/typography/carbonization';
+import TypographyCarbonization from 'showcase/components/page-carbonization/foundations/typography';
 
 const PageFoundationsTypographyCarbonization: TemplateOnlyComponent = <template>
   <TypographyCarbonization />
