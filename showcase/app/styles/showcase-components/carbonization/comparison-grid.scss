@@ -1,3 +1,6 @@
+@use "sass:map";
+@use '@carbon/themes/scss/themes' as cdsThemes;
+
 .shw-carbonization-comparison-grid {
   & + & {
     margin-top: 2rem;
@@ -35,36 +38,66 @@
 
 .shw-carbonization-comparison-grid__item-content {
   padding: 8px;
+  color: var(--content-foreground-color);
   background-color: var(--content-background-color);
 }
 
 .shw-carbonization-comparison-grid__item--area-hds {
+  --content-foreground-color: var(--token-color-foreground-primary);
   --content-background-color: var(--token-color-surface-primary);
 }
 
 // TODO replace the hex values (copied from the `--cds-background` themed variable) with CSS design tokens from our theming
 .shw-carbonization-comparison-grid__item--area-cds-g0 {
+  --content-foreground-color: #161616;
   --content-background-color: #fff;
 }
 
 .shw-carbonization-comparison-grid__item--area-cds-g10 {
+  --content-foreground-color: #161616;
   --content-background-color: #f4f4f4;
 }
 
 .shw-carbonization-comparison-grid__item--area-cds-g90 {
+  --content-foreground-color: #f4f4f4;
   --content-background-color: #262626;
 }
 
 .shw-carbonization-comparison-grid__item--area-cds-g100 {
+  --content-foreground-color: #f4f4f4;
   --content-background-color: #161616;
 }
 
-.shw-carbonization-comparison-grid__item--area-cwc-g0,
-.shw-carbonization-comparison-grid__item--area-cwc-g10,
-.shw-carbonization-comparison-grid__item--area-cwc-g90,
-.shw-carbonization-comparison-grid__item--area-cwc-g100 {
-  --content-background-color: var(--cds-background);
+.shw-carbonization-comparison-grid__item--area-cwc-g0 {
+  --content-foreground-color: #{map.get(cdsThemes.$white, text-primary)};
+  --content-background-color: #{map.get(cdsThemes.$white, background)};
 }
+
+.shw-carbonization-comparison-grid__item--area-cwc-g10 {
+  --content-foreground-color: #{map.get(cdsThemes.$g10, text-primary)};
+  --content-background-color: #{map.get(cdsThemes.$g10, background)};
+}
+
+.shw-carbonization-comparison-grid__item--area-cwc-g90 {
+  --content-foreground-color: #{map.get(cdsThemes.$g90, text-primary)};
+  --content-background-color: #{map.get(cdsThemes.$g90, background)};
+}
+
+.shw-carbonization-comparison-grid__item--area-cwc-g100 {
+  --content-foreground-color: #{map.get(cdsThemes.$g100, text-primary)};
+  --content-background-color: #{map.get(cdsThemes.$g100, background)};
+}
+
+// if we had access to the CSS variables directly (without importing also the resets) we could do just this
+// https://github.com/carbon-design-system/ibm-products/blob/main/packages/ibm-products-web-components/examples/tearsheet/src/styles.scss#L16-L17
+// https://github.com/carbon-design-system/carbon-components-angular/blob/master/src/theme/theme.stories.ts#L43-L44
+// .shw-carbonization-comparison-grid__item--area-cwc-g0,
+// .shw-carbonization-comparison-grid__item--area-cwc-g10,
+// .shw-carbonization-comparison-grid__item--area-cwc-g90,
+// .shw-carbonization-comparison-grid__item--area-cwc-g100 {
+//   --content-foreground-color: var(--cds-text-primary);
+//   --content-background-color: var(--cds-background);
+// }
 
 
 // DEBUG
