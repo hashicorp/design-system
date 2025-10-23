@@ -54,11 +54,11 @@ export default class SubSectionContent extends Component {
           @language="go"
           @ariaLabel="multi-line"
           @value="package main
-  import 'fmt'
-  func main() {
-    res = 'Lorem ipsum dolor sit amet'
-    fmt.Println(res)
-  }"
+import 'fmt'
+func main() {
+  res = 'Lorem ipsum dolor sit amet'
+  fmt.Println(res)
+}"
         />
       </SG.Item>
     </ShwGrid>
@@ -71,11 +71,11 @@ export default class SubSectionContent extends Component {
           @language="go"
           @ariaLabel="new lines in Handlebars"
           @value="package main
-  import 'fmt'
-  func main() {
-    res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
-    fmt.Println(res)
-  }"
+import 'fmt'
+func main() {
+  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  fmt.Println(res)
+}"
         />
       </SG.Item>
       <SG.Item @forceMinWidth={{true}} as |SGI|>
@@ -109,11 +109,11 @@ export default class SubSectionContent extends Component {
           @lineNumberStart={{5}}
           @ariaLabel="Line numbering start changed to 5"
           @value="package main
-  import 'fmt'
-  func main() {
-    res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
-    fmt.Println(res)
-  }"
+import 'fmt'
+func main() {
+  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  fmt.Println(res)
+}"
         />
         {{! template-lint-enable no-whitespace-for-layout }}
       </SG.Item>
@@ -127,8 +127,8 @@ export default class SubSectionContent extends Component {
       <SG.Item @label="title">
         <HdsCodeBlock
           @value='Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/noble64"
-  end'
+  config.vm.box = "ubuntu/noble64"
+end'
           @language="ruby"
           as |CB|
         >
@@ -138,8 +138,8 @@ export default class SubSectionContent extends Component {
       <SG.Item @label="description">
         <HdsCodeBlock
           @value='Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/noble64"
-  end'
+  config.vm.box = "ubuntu/noble64"
+end'
           @language="ruby"
           @ariaLabel="description"
           as |CB|
@@ -150,8 +150,8 @@ export default class SubSectionContent extends Component {
       <SG.Item @label="title and description">
         <HdsCodeBlock
           @value='Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/noble64"
-  end'
+  config.vm.box = "ubuntu/noble64"
+end'
           @language="ruby"
           as |CB|
         >
@@ -171,8 +171,8 @@ export default class SubSectionContent extends Component {
       <SG.Item @label="custom title tag">
         <HdsCodeBlock
           @value='Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu/noble64"
-  end'
+  config.vm.box = "ubuntu/noble64"
+end'
           @language="ruby"
           as |CB|
         >
