@@ -41,6 +41,7 @@
     "@babel/plugin-proposal-decorators": "^7.27.1",
     "@carbon/grid": "^11.43.0",
     "@carbon/layout": "^11.41.0",
+    "@carbon/styles": "^1.93.0",
     "@carbon/themes": "^11.60.0",
     "@carbon/type": "^11.47.0",
     "@carbon/web-components": "^2.38.0",
