@@ -37,6 +37,17 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
   get classNames(): string {
     const classes = ['shw-carbonization-comparison-grid__item'];
 
+    // add a class based on `this.area`
+    classes.push(
+      `shw-carbonization-comparison-grid__item--area-${this.areaName}`,
+    );
+
+    return classes.join(' ');
+  }
+
+  get contentClassNames(): string {
+    const classes = ['shw-carbonization-comparison-grid__item-content'];
+
     if (this.args.scope === 'theming') {
       // here we use the custom HDS theming selector
       classes.push(`hds-theme-${this.args.theme}`);
@@ -62,11 +73,6 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
       classes.push(selector);
     }
 
-    // add a class based on `this.area`
-    classes.push(
-      `shw-carbonization-comparison-grid__item--area-${this.areaName}`,
-    );
-
     return classes.join(' ');
   }
 
@@ -77,7 +83,7 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
           class="shw-carbonization-comparison-grid__item-label"
         >{{@label}}</ShwLabel>
       {{/if}}
-      <div class="shw-carbonization-comparison-grid__item-content">
+      <div class={{this.contentClassNames}}>
         {{yield (hash Label=ShwLabel)}}
       </div>
     </div>
