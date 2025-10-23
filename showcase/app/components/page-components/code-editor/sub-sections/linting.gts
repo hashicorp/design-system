@@ -16,7 +16,7 @@ const BAD_JSON_CODE = `{
   "data": null,
 }`;
 
-export default class SubSectionWithLinting extends Component {
+export default class SubSectionLinting extends Component {
   handleLint = (diagnostics: DiagnosticType[], value: string) => {
     console.group('Linting Results');
     console.log('Diagnostics:', diagnostics);
