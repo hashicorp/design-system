@@ -703,6 +703,9 @@ importers:
       globals:
         specifier: ^16.1.0
         version: 16.3.0
+      link-to-external-component:
+        specifier: link:ember-engines/components/link-to-external-component
+        version: link:ember-engines/components/link-to-external-component
       loader.js:
         specifier: ^4.7.0
         version: 4.7.0
