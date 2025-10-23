@@ -4,7 +4,7 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import BadgeCarbonization from 'showcase/components/page-components/badge/carbonization';
+import BadgeCarbonization from 'showcase/components/page-carbonization/components/badge';
 
 const PageComponentsBadgeCarbonization: TemplateOnlyComponent = <template>
   <BadgeCarbonization />
