@@ -36,7 +36,7 @@ const updatePageStylesheet = (currentStylesheet: string) => {
         'assets/styles/@hashicorp/design-system-components-theming-with-combined-strategies.css';
       break;
     default:
-      // this is the standard CSS for HDS components, without any theming
+      // this is the "standard" CSS for HDS components, without any theming
       newStylesheet = 'assets/styles/@hashicorp/design-system-components.css';
       break;
   }
