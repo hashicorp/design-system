@@ -32,8 +32,7 @@ export type HdsThemes = `${HdsThemeValues}`;
 export type HdsModes =
   | `${HdsModesBaseValues}`
   | `${HdsModesLightValues}`
-  | `${HdsModesDarkValues}`
-  | undefined;
+  | `${HdsModesDarkValues}`;
 export type HdsModesLight = `${HdsModesLightValues}`;
 export type HdsModesDark = `${HdsModesDarkValues}`;
 export type HdsCssSelectors = `${HdsCssSelectorsValues}`;
@@ -82,7 +81,7 @@ export const DEFAULT_THEMING_OPTION_CSS_SELECTOR = 'data';
 export default class HdsThemingService extends Service {
   @tracked _isInitialized: boolean = false;
   @tracked _currentTheme: HdsThemes | undefined = undefined;
-  @tracked _currentMode: HdsModes = undefined;
+  @tracked _currentMode: HdsModes | undefined = undefined;
   @tracked _currentLightTheme: HdsModesLight =
     DEFAULT_THEMING_OPTION_LIGHT_THEME;
   @tracked _currentDarkTheme: HdsModesDark = DEFAULT_THEMING_OPTION_DARK_THEME;
@@ -215,7 +214,7 @@ export default class HdsThemingService extends Service {
     return this._currentTheme;
   }
 
-  get currentMode(): HdsModes {
+  get currentMode(): HdsModes | undefined {
     return this._currentMode;
   }
 
