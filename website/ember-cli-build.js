@@ -41,6 +41,7 @@ module.exports = function (defaults) {
         'javascript',
         'markup-templating',
         'scss',
+        'typescript',
       ],
       theme: 'dracula',
       plugins: ['line-numbers', 'normalize-whitespace'],
