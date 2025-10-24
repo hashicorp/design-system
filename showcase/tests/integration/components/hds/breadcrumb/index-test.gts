@@ -6,7 +6,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Breadcrumb from "@hashicorp/design-system-components/components/hds/breadcrumb/index";
+import Breadcrumb from '@hashicorp/design-system-components/components/hds/breadcrumb/index';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | hds/breadcrumb/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -18,18 +19,29 @@ module('Integration | Component | hds/breadcrumb/index', function (hooks) {
 
   test('it should render the correct CSS color class if the @itemsCanWrap prop is declared', async function (assert) {
     await render(
-      <template><Breadcrumb @itemsCanWrap={{true}} id="test-breadcrumb" /></template>,
+      <template>
+        <Breadcrumb @itemsCanWrap={{true}} id="test-breadcrumb" />
+      </template>,
     );
     assert.dom('#test-breadcrumb').hasClass('hds-breadcrumb--items-can-wrap');
   });
 
   test('it should dispatch a didInsert event when the component is rendered', async function (assert) {
-    let inserted = false;
-    this.set('didInsert', () => (inserted = true));
+    const context = tracked({
+      isInserted: false,
+    });
+
+    const onInsertCallback = () => {
+      context.isInserted = true;
+    };
+
     await render(
-      <template><Breadcrumb id="test-breadcrumb" @didInsert={{this.didInsert}} /></template>,
+      <template>
+        <Breadcrumb id="test-breadcrumb" @didInsert={{onInsertCallback}} />
+      </template>,
     );
-    assert.ok(inserted);
+
+    assert.ok(context.isInserted);
   });
 
   // A11Y
@@ -42,7 +54,9 @@ module('Integration | Component | hds/breadcrumb/index', function (hooks) {
   });
   test('it should support a custom aria-label attribute', async function (assert) {
     await render(
-      <template><Breadcrumb id="test-breadcrumb" aria-label="my aria label" /></template>,
+      <template>
+        <Breadcrumb id="test-breadcrumb" aria-label="my aria label" />
+      </template>,
     );
     assert.dom('#test-breadcrumb').hasAria('label', 'my aria label');
     assert.dom('#test-breadcrumb > ol').exists();
