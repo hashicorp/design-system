@@ -130,6 +130,10 @@ export * from './components/hds/dropdown/list-item/types.ts';
 export * from './components/hds/dropdown/toggle/types.ts';
 export * from './components/hds/dropdown/types.ts';
 
+// FilterBar
+export { default as HdsFilterBar } from './components/hds/filter-bar/index.ts';
+export * from './components/hds/filter-bar/types.ts';
+
 // Flyout
 export { default as HdsFlyout } from './components/hds/flyout/index.ts';
 export * from './components/hds/flyout/types.ts';

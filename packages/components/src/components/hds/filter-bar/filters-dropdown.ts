@@ -9,12 +9,12 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 
-import HdsDropdown from '../../dropdown/index.ts';
-import HdsAdvancedTableFilterBarFiltersCheckbox from './filters-checkbox.ts';
+import HdsDropdown from './../dropdown/index.ts';
+import HdsFilterBarFiltersCheckbox from './filters-checkbox.ts';
 
-import type { HdsDropdownSignature } from '../../dropdown/index.ts';
+import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
-export interface HdsAdvancedTableFilterBarFiltersDropdownSignature {
+export interface HdsFilterBarFiltersDropdownSignature {
   Args: HdsDropdownSignature['Args'] & {
     dropdown?: WithBoundArgs<typeof HdsDropdown, never>;
     activeFilterableColumns?: string[];
@@ -24,7 +24,7 @@ export interface HdsAdvancedTableFilterBarFiltersDropdownSignature {
     default: [
       {
         Checkbox?: WithBoundArgs<
-          typeof HdsAdvancedTableFilterBarFiltersCheckbox,
+          typeof HdsFilterBarFiltersCheckbox,
           'checkbox' | 'onChange' | 'activeFilterableColumns'
         >;
       },
@@ -33,8 +33,8 @@ export interface HdsAdvancedTableFilterBarFiltersDropdownSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAdvancedTableFilterBarFiltersDropdown extends Component<
-  HdsDropdownSignature & HdsAdvancedTableFilterBarFiltersDropdownSignature
+export default class HdsFilterBarFiltersDropdown extends Component<
+  HdsDropdownSignature & HdsFilterBarFiltersDropdownSignature
 > {
   @tracked internalFilterableColumns: string[] = [];
 
@@ -91,7 +91,7 @@ export default class HdsAdvancedTableFilterBarFiltersDropdown extends Component<
   }
 
   get classNames(): string {
-    const classes = ['hds-advanced-table__filter-bar__filters-dropdown'];
+    const classes = ['hds-filter-bar__filters-dropdown'];
 
     return classes.join(' ');
   }

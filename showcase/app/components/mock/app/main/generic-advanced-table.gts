@@ -13,6 +13,7 @@ import style from 'ember-style-modifier/modifiers/style';
 // HDS components
 import {
   HdsAdvancedTable,
+  HdsFilterBar,
   HdsLinkInline,
   HdsBadge,
   HdsBadgeColorValues,
@@ -532,6 +533,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   ];
   @deepTracked filters: HdsAdvancedTableSignature['Args']['filters'] = {};
   @tracked isLiveFilter = false;
+  @tracked isSeparatedFilterBar = false;
 
   @action onSelectionChange({
     selectionKey,
@@ -568,13 +570,11 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     return filter.value;
   };
 
-  @action
-  onFilter(filters: HdsAdvancedTableSignature['Args']['filters']) {
+  onFilter = (filters: HdsAdvancedTableSignature['Args']['filters']) => {
     this.filters = filters;
   }
 
-  @action
-  onSearch(event: Event) {
+  onSearch = (event: Event) => {
     const value = event.target.value;
     if (value.length > 0) {
       window.alert(`✅ Search executed with value: ${value}`);
@@ -603,10 +603,14 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     return this.demoModel.filter(filterItem);
   }
 
-  @action
-  onLiveFilterToggle(event: Event) {
+  onLiveFilterToggle = (event: Event) => {
     const target = event.target as HTMLInputElement;
     this.isLiveFilter = target.checked;
+  }
+
+  onSeparatedFilterBar = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    this.isSeparatedFilterBar = target.checked;
   }
 
   <template>
@@ -620,6 +624,62 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
         <F.Label>Live filtering</F.Label>
       </HdsFormToggleField>
     </div>
+    <div class="filters__toggle" {{style marginBottom="24px"}}>
+      <HdsFormToggleField
+        name="demo-separated-filter-bar"
+        {{on "click" this.onSeparatedFilterBar}}
+        checked={{this.isSeparatedFilterBar}}
+        as |F|
+      >
+        <F.Label>Separated filter bar component</F.Label>
+      </HdsFormToggleField>
+    </div>
+
+    {{#if this.isSeparatedFilterBar}}
+      <HdsFilterBar
+        @hasSearch={{true}}
+        @filters={{this.filters}}
+        @isLiveFilter={{this.isLiveFilter}}
+        @onFilter={{this.onFilter}}
+        @onSearch={{this.onSearch}}
+        {{style marginBottom="24px"}}
+        as |F|>
+        <F.ActionsDropdown as |D|>
+          <D.ToggleButton @text="Actions" @color="secondary" @size="small" />
+          <D.Checkbox>access</D.Checkbox>
+          <D.Checkbox>homework</D.Checkbox>
+          <D.Checkbox>discovery</D.Checkbox>
+          <D.Checkbox>memories</D.Checkbox>
+        </F.ActionsDropdown>
+        <F.FiltersDropdown as |D|>
+          <D.Checkbox @value="name">Name</D.Checkbox>
+          <D.Checkbox @value="project-name">Project name</D.Checkbox>
+          <D.Checkbox @value="run-status">Run status</D.Checkbox>
+          <D.Checkbox @value="terraform-version">Terraform version</D.Checkbox>
+        </F.FiltersDropdown>
+        <F.Dropdown @text="Name" @key="name" @searchEnabled={{true}} as |D|>
+          {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
+            <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+          {{/each}}
+        </F.Dropdown>
+        <F.Dropdown @text="Project name" @key="project-name" @searchEnabled={{true}} as |D|>
+          {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
+            <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+          {{/each}}
+        </F.Dropdown>
+        <F.Dropdown @text="Run status" @key="run-status" as |D|>
+          {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
+            <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+          {{/each}}
+        </F.Dropdown>
+        <F.Dropdown @text="Terraform version" @key="terraform-version" as |D|>
+          {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
+            <D.Radio @value={{option.value}}>{{option.label}}</D.Radio>
+          {{/each}}
+        </F.Dropdown>
+      </HdsFilterBar>
+    {{/if}}
+
     <HdsAdvancedTable
       @columns={{this.demoColumns}}
       @model={{this.demoModelFilteredData}}
@@ -628,47 +688,45 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
       @isStriped={{true}}
       @onSelectionChange={{this.onSelectionChange}}
       @hasStickyFirstColumn={{true}}
-      @filters={{this.filters}}
-      @isLiveFilter={{this.isLiveFilter}}
-      @onFilter={{this.onFilter}}
-      @onSearch={{this.onSearch}}
     >
       <:actions as |A|>
-        <A.FilterBar @hasSearch={{true}} as |F|>
-          <F.ActionsDropdown as |D|>
-            <D.ToggleButton @text="Actions" @color="secondary" @size="small" />
-            <D.Checkbox>access</D.Checkbox>
-            <D.Checkbox>homework</D.Checkbox>
-            <D.Checkbox>discovery</D.Checkbox>
-            <D.Checkbox>memories</D.Checkbox>
-          </F.ActionsDropdown>
-          <F.FiltersDropdown as |D|>
-            <D.Checkbox @value="name">Name</D.Checkbox>
-            <D.Checkbox @value="project-name">Project name</D.Checkbox>
-            <D.Checkbox @value="run-status">Run status</D.Checkbox>
-            <D.Checkbox @value="terraform-version">Terraform version</D.Checkbox>
-          </F.FiltersDropdown>
-          <F.Dropdown @text="Name" @key="name" @searchEnabled={{true}} as |D|>
-            {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
-              <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
-            {{/each}}
-          </F.Dropdown>
-          <F.Dropdown @text="Project name" @key="project-name" @searchEnabled={{true}} as |D|>
-            {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
-              <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
-            {{/each}}
-          </F.Dropdown>
-          <F.Dropdown @text="Run status" @key="run-status" as |D|>
-            {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
-              <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
-            {{/each}}
-          </F.Dropdown>
-          <F.Dropdown @text="Terraform version" @key="terraform-version" as |D|>
-            {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
-              <D.Radio @value={{option.value}}>{{option.label}}</D.Radio>
-            {{/each}}
-          </F.Dropdown>
-        </A.FilterBar>
+        {{#unless this.isSeparatedFilterBar}}
+          <A.FilterBar @hasSearch={{true}} @filters={{this.filters}} @isLiveFilter={{this.isLiveFilter}} @onFilter={{this.onFilter}} @onSearch={{this.onSearch}} as |F|>
+            <F.ActionsDropdown as |D|>
+              <D.ToggleButton @text="Actions" @color="secondary" @size="small" />
+              <D.Checkbox>access</D.Checkbox>
+              <D.Checkbox>homework</D.Checkbox>
+              <D.Checkbox>discovery</D.Checkbox>
+              <D.Checkbox>memories</D.Checkbox>
+            </F.ActionsDropdown>
+            <F.FiltersDropdown as |D|>
+              <D.Checkbox @value="name">Name</D.Checkbox>
+              <D.Checkbox @value="project-name">Project name</D.Checkbox>
+              <D.Checkbox @value="run-status">Run status</D.Checkbox>
+              <D.Checkbox @value="terraform-version">Terraform version</D.Checkbox>
+            </F.FiltersDropdown>
+            <F.Dropdown @text="Name" @key="name" @searchEnabled={{true}} as |D|>
+              {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
+                <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+              {{/each}}
+            </F.Dropdown>
+            <F.Dropdown @text="Project name" @key="project-name" @searchEnabled={{true}} as |D|>
+              {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
+                <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+              {{/each}}
+            </F.Dropdown>
+            <F.Dropdown @text="Run status" @key="run-status" as |D|>
+              {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
+                <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+              {{/each}}
+            </F.Dropdown>
+            <F.Dropdown @text="Terraform version" @key="terraform-version" as |D|>
+              {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
+                <D.Radio @value={{option.value}}>{{option.label}}</D.Radio>
+              {{/each}}
+            </F.Dropdown>
+          </A.FilterBar>
+        {{/unless}}
       </:actions>
       <:body as |B|>
         {{! @glint-expect-error }}
