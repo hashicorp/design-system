@@ -7,17 +7,17 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import type { WithBoundArgs } from '@glint/template';
 
-import type { HdsAdvancedTableFilter } from '../types.ts';
+import type { HdsFilterBarFilter } from './types.ts';
 
-import HdsDropdownListItemRadio from '../../dropdown/list-item/radio.ts';
+import HdsDropdownListItemRadio from '../dropdown/list-item/radio.ts';
 
-import type { HdsDropdownSignature } from '../../dropdown/index.ts';
+import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
-export interface HdsAdvancedTableFilterBarRadioSignature {
+export interface HdsFilterBarRadioSignature {
   Args: HdsDropdownSignature['Args'] & {
     radio?: WithBoundArgs<typeof HdsDropdownListItemRadio, never>;
     value?: string;
-    keyFilter: HdsAdvancedTableFilter[] | HdsAdvancedTableFilter | undefined;
+    keyFilter: HdsFilterBarFilter[] | HdsFilterBarFilter | undefined;
     onChange?: (event: Event) => void;
   };
   Blocks: {
@@ -26,7 +26,7 @@ export interface HdsAdvancedTableFilterBarRadioSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAdvancedTableFilterBarRadio extends Component<HdsAdvancedTableFilterBarRadioSignature> {
+export default class HdsFilterBarRadio extends Component<HdsFilterBarRadioSignature> {
   @action
   onChange(event: Event): void {
     const { onChange } = this.args;
