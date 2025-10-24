@@ -74,27 +74,6 @@ export type HdsAdvancedTableSelectableRow = {
 
 export type HdsAdvancedTableExpandState = boolean;
 
-export type HdsAdvancedTableFilterOption = {
-  value: string;
-  label: string;
-};
-
-export interface HdsAdvancedTableFilter {
-  text: string;
-  value: unknown;
-}
-
-export interface HdsAdvancedTableFilters {
-  [name: string]: HdsAdvancedTableFilter[] | undefined;
-}
-
-export enum HdsAdvancedTableFilterTypeValues {
-  Checkbox = 'checkbox',
-  Radio = 'radio',
-}
-
-export type HdsAdvancedTableFilterType = `${HdsAdvancedTableFilterTypeValues}`;
-
 interface BaseHdsAdvancedTableColumn {
   align?: HdsAdvancedTableHorizontalAlignment;
   isVisuallyHidden?: boolean;
@@ -104,8 +83,6 @@ interface BaseHdsAdvancedTableColumn {
   width?: string;
   minWidth?: `${number}px`;
   maxWidth?: `${number}px`;
-  filterOptions?: HdsAdvancedTableFilterOption[];
-  filterType?: HdsAdvancedTableFilterType;
 }
 
 interface SortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {

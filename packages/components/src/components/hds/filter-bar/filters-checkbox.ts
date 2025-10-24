@@ -7,9 +7,9 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import type { WithBoundArgs } from '@glint/template';
 
-import HdsDropdownListItemCheckbox from '../../dropdown/list-item/checkbox.ts';
+import HdsDropdownListItemCheckbox from '../dropdown/list-item/checkbox.ts';
 
-import type { HdsDropdownSignature } from '../../dropdown/index.ts';
+import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
 export interface HdsAdvancedTableFilterBarFiltersCheckboxSignature {
   Args: HdsDropdownSignature['Args'] & {
