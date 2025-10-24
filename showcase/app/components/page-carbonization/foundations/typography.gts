@@ -58,7 +58,7 @@ const TypographyCarbonization: TemplateOnlyComponent = <template>
 
   <section>
     {{#each-in STYLES_COMBINATIONS as |style weights|}}
-      <ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid @sideBySide={{true}}>
         <:theming>
           <ShwFlex @direction="column" as |SF|>
             {{#each weights as |weight|}}
