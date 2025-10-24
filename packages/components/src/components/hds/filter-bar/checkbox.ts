@@ -7,17 +7,17 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import type { WithBoundArgs } from '@glint/template';
 
-import type { HdsAdvancedTableFilter } from '../types.ts';
+import type { HdsFilterBarFilter } from './types.ts';
 
-import HdsDropdownListItemCheckbox from '../../dropdown/list-item/checkbox.ts';
+import HdsDropdownListItemCheckbox from '../dropdown/list-item/checkbox.ts';
 
-import type { HdsDropdownSignature } from '../../dropdown/index.ts';
+import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
-export interface HdsAdvancedTableFilterBarCheckboxSignature {
+export interface HdsFilterBarCheckboxSignature {
   Args: HdsDropdownSignature['Args'] & {
     checkbox?: WithBoundArgs<typeof HdsDropdownListItemCheckbox, never>;
     value?: string;
-    keyFilter: HdsAdvancedTableFilter[] | HdsAdvancedTableFilter | undefined;
+    keyFilter: HdsFilterBarFilter[] | HdsFilterBarFilter | undefined;
     onChange?: (event: Event) => void;
   };
   Blocks: {
@@ -26,7 +26,7 @@ export interface HdsAdvancedTableFilterBarCheckboxSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAdvancedTableFilterBarCheckbox extends Component<HdsAdvancedTableFilterBarCheckboxSignature> {
+export default class HdsFilterBarCheckbox extends Component<HdsFilterBarCheckboxSignature> {
   @action
   onChange(event: Event): void {
     const { onChange } = this.args;
