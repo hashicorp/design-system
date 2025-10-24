@@ -7,7 +7,7 @@ import Modifier from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import { task } from 'ember-concurrency';
-import config from 'ember-get-config';
+import { macroCondition, isTesting } from '@embroider/macros';
 import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
@@ -208,8 +208,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     // if the editor does not exist, setup the editor
     else {
       // the intersection observer makes loading unreliable in tests
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      if (config.environment === 'test') {
+      if (macroCondition(isTesting())) {
         // eslint-disable-next-line @typescript-eslint/no-floating-promises
         this._setupTask.perform(element, positional, named);
       } else {
