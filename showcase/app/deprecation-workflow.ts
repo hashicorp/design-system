@@ -30,5 +30,26 @@ setupDeprecationWorkflow({
     { handler: 'throw', matchId: 'ember-modifier.no-args-property' },
     { handler: 'throw', matchId: 'ember-modifier.no-element-property' },
     { handler: 'silence', matchId: 'importing-inject-from-ember-service' },
+    { handler: 'silence', matchId: 'deprecate-import-destroy-from-ember' },
+    {
+      handler: 'silence',
+      matchId: 'deprecate-import--is-destroying-from-ember',
+    },
+    {
+      handler: 'silence',
+      matchId: 'deprecate-import--is-destroyed-from-ember',
+    },
+    {
+      handler: 'silence',
+      matchId: 'deprecate-import--register-destructor-from-ember',
+    },
+    {
+      handler: 'silence',
+      matchId: 'deprecate-import-test-from-ember',
+    },
+    {
+      handler: 'silence',
+      matchId: 'deprecate-import-libraries-from-ember',
+    },
   ],
 });
