@@ -17,40 +17,44 @@ export type ShwStylesheets =
   | 'css-selectors'
   | 'combined-strategies';
 
-const updatePageStylesheet = (currentStylesheet: string) => {
-  let newStylesheet;
-  switch (currentStylesheet) {
-    case 'prefers-color-scheme':
-      // themed CSS where theming is applied via `@media(prefers-color-scheme)`
-      newStylesheet =
-        'assets/styles/@hashicorp/design-system-components-theming-with-prefers-color-scheme.css';
-      break;
-    case 'css-selectors':
-      // themed CSS where theming is applied via CSS selectors
-      newStylesheet =
-        'assets/styles/@hashicorp/design-system-components-theming-with-css-selectors.css';
-      break;
-    case 'combined-strategies':
-      // this is used for local testing purposes
-      newStylesheet =
-        'assets/styles/@hashicorp/design-system-components-theming-with-combined-strategies.css';
-      break;
-    default:
-      // this is the "standard" CSS for HDS components, without any theming
-      newStylesheet = 'assets/styles/@hashicorp/design-system-components.css';
-      break;
-  }
+const ALL_STYLESHEETS_IDS: string[] = [
+  'hds-components-stylesheet-default',
+  'hds-tokens-with-prefers-color-scheme',
+  'hds-tokens-with-css-selectors',
+  'hds-tokens-with-combined-strategies',
+  'hds-components-stylesheet-common',
+] as const;
 
-  // re-assign the stylesheet `href` attribute
-  const hdsComponentsStylesheet = document.getElementById(
-    'hds-components-stylesheet',
-  );
-  if (hdsComponentsStylesheet) {
-    hdsComponentsStylesheet.setAttribute(
-      'href',
-      `${config.rootURL}${newStylesheet}`,
-    );
-  }
+const STYLESHEETS_MAPPING: Record<ShwStylesheets, string[]> = {
+  standard: ['hds-components-stylesheet-default'],
+  'prefers-color-scheme': [
+    'hds-tokens-with-prefers-color-scheme',
+    'hds-components-stylesheet-common',
+  ],
+  'css-selectors': [
+    'hds-tokens-with-css-selectors',
+    'hds-components-stylesheet-common',
+  ],
+  'combined-strategies': [
+    'hds-tokens-with-combined-strategies',
+    'hds-components-stylesheet-common',
+  ],
+};
+
+const updatePageStylesheets = (currentStylesheet: ShwStylesheets) => {
+  // toggle the stylesheets `disabled` attribute depending on the current choice
+  ALL_STYLESHEETS_IDS.forEach((id) => {
+    const stylesheetElement = document.getElementById(id);
+    const activate = STYLESHEETS_MAPPING[currentStylesheet].includes(id);
+    if (stylesheetElement) {
+      if (activate) {
+        // note: `setAttribute('disabled', 'false')` does not work
+        stylesheetElement.removeAttribute('disabled');
+      } else {
+        stylesheetElement.setAttribute('disabled', 'true');
+      }
+    }
+  });
 };
 
 const LOCALSTORAGE_CURRENT_STYLESHEET = 'shw-theming-current-stylesheet';
@@ -86,7 +90,7 @@ export default class ShwThemingService extends HdsThemingService {
   setStylesheet(stylesheet: ShwStylesheets) {
     if (stylesheet !== this._currentStylesheet) {
       this._currentStylesheet = stylesheet;
-      updatePageStylesheet(this._currentStylesheet);
+      updatePageStylesheets(this._currentStylesheet);
     }
 
     // store the current stylesheet in local storage
