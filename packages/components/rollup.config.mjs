@@ -91,20 +91,8 @@ const plugins = [
       outputFile: 'design-system-components.css',
     },
     {
-      inputFile: 'design-system-components-theming-with-css-selectors.scss',
-      outputFile: 'design-system-components-theming-with-css-selectors.css',
-    },
-    {
-      inputFile:
-        'design-system-components-theming-with-prefers-color-scheme.scss',
-      outputFile:
-        'design-system-components-theming-with-prefers-color-scheme.css',
-    },
-    {
-      inputFile:
-        'design-system-components-theming-with-combined-strategies.scss',
-      outputFile:
-        'design-system-components-theming-with-combined-strategies.css',
+      inputFile: 'design-system-components-common.scss',
+      outputFile: 'design-system-components-common.css',
     },
     {
       inputFile: 'design-system-power-select-overrides.scss',
