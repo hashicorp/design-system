@@ -32,10 +32,7 @@ const SegmentedGroupCarbonization: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Content</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid
-      @label="Button trailing"
-      @hideThemeLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="Button trailing">
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.TextInput aria-label="segmented-text-input-button-trailing" />
@@ -49,10 +46,7 @@ const SegmentedGroupCarbonization: TemplateOnlyComponent = <template>
         </div>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="Button leading"
-      @hideThemeLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="Button leading">
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Button @color="secondary" @text="Button" />
@@ -66,10 +60,7 @@ const SegmentedGroupCarbonization: TemplateOnlyComponent = <template>
         </div>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="Dropdown trailing"
-      @hideThemeLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="Dropdown trailing">
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.TextInput aria-label="segmented-text-input-dropdown-trailing" />
@@ -83,10 +74,7 @@ const SegmentedGroupCarbonization: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid
-      @label="Dropdown leading"
-      @hideThemeLabels={{true}}
-    >
+    <ShwCarbonizationComparisonGrid @label="Dropdown leading">
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Dropdown as |D|>
@@ -104,10 +92,7 @@ const SegmentedGroupCarbonization: TemplateOnlyComponent = <template>
     <ShwDivider @level={{2}} />
 
     {{#each TEXT_INPUT_TYPES as |type|}}
-      <ShwCarbonizationComparisonGrid
-        @label={{capitalize type}}
-        @hideThemeLabels={{true}}
-      >
+      <ShwCarbonizationComparisonGrid @label={{capitalize type}}>
         <:theming>
           <HdsSegmentedGroup as |SGR|>
             <SGR.TextInput
@@ -126,7 +111,7 @@ const SegmentedGroupCarbonization: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwCarbonizationComparisonGrid @label="Select" @hideThemeLabels={{true}}>
+    <ShwCarbonizationComparisonGrid @label="Select">
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Select aria-label="segmented-select" as |SEL|>
@@ -148,7 +133,7 @@ const SegmentedGroupCarbonization: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Within a form field</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @hideThemeLabels={{true}}>
+    <ShwCarbonizationComparisonGrid>
       <:theming>
         <HdsFormField @layout="vertical" @isRequired={{true}} as |F|>
           <F.Label>This is the label</F.Label>
