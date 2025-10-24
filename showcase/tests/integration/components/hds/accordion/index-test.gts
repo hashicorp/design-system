@@ -5,9 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, render } from '@ember/test-helpers';
+import { click, render, settled, find } from '@ember/test-helpers';
 import Accordion from '@hashicorp/design-system-components/components/hds/accordion/index';
 import Item from '@hashicorp/design-system-components/components/hds/accordion/item/index';
+import { tracked } from 'tracked-built-ins';
+
+import type { HdsAccordionForceStates } from '@hashicorp/design-system-components/components/hds/accordion/types';
+
 import { on } from '@ember/modifier';
 
 module('Integration | Component | hds/accordion/index', function (hooks) {
@@ -88,7 +92,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       <template>
         <Accordion id="test-accordion" as |A|>
-          <A.Item>Item</A.Item>
+          <A.Item>
+            <:toggle>Item one</:toggle>
+            <:content>Content one</:content>
+          </A.Item>
         </Accordion>
       </template>,
     );
@@ -102,7 +109,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       <template>
         <Accordion id="test-accordion" @size="large" as |A|>
-          <A.Item>Item</A.Item>
+          <A.Item>
+            <:toggle>Item one</:toggle>
+            <:content>Content one</:content>
+          </A.Item>
         </Accordion>
       </template>,
     );
@@ -116,8 +126,14 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       <template>
         <Accordion id="test-accordion" @size="large" as |A|>
-          <A.Item id="test-accordion-item1">Item 1</A.Item>
-          <A.Item id="test-accordion-item2" @size="small">Item 2</A.Item>
+          <A.Item id="test-accordion-item1">
+            <:toggle>Item 1</:toggle>
+            <:content>Content 1</:content>
+          </A.Item>
+          <A.Item id="test-accordion-item2" @size="small">
+            <:toggle>Item 2</:toggle>
+            <:content>Content 2</:content>
+          </A.Item>
         </Accordion>
       </template>,
     );
@@ -135,7 +151,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       <template>
         <Accordion id="test-accordion" as |A|>
-          <A.Item>Item</A.Item>
+          <A.Item>
+            <:toggle>Item one</:toggle>
+            <:content>Content one</:content>
+          </A.Item>
         </Accordion>
       </template>,
     );
@@ -149,7 +168,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       <template>
         <Accordion id="test-accordion" @type="flush" as |A|>
-          <A.Item>Item</A.Item>
+          <A.Item>
+            <:toggle>Item one</:toggle>
+            <:content>Content one</:content>
+          </A.Item>
         </Accordion>
       </template>,
     );
@@ -163,8 +185,14 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       <template>
         <Accordion id="test-accordion" @type="flush" as |A|>
-          <A.Item id="test-accordion-item1">Item 1</A.Item>
-          <A.Item id="test-accordion-item2" @type="card">Item 2</A.Item>
+          <A.Item id="test-accordion-item1">
+            <:toggle>Item 1</:toggle>
+            <:content>Content 1</:content>
+          </A.Item>
+          <A.Item id="test-accordion-item2" @type="card">
+            <:toggle>Item 2</:toggle>
+            <:content>Content 2</:content>
+          </A.Item>
         </Accordion>
       </template>,
     );
@@ -212,13 +240,12 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await click('.hds-accordion-item__button');
     assert.dom('.hds-accordion-item__button').hasAttribute('aria-controls');
 
+    const accordionButton = find('.hds-accordion-item__button');
+    const accordionContent = find('.hds-disclosure-primitive__content');
+
     assert.strictEqual(
-      this.element
-        .querySelector('.hds-accordion-item__button')
-        .getAttribute('aria-controls'),
-      this.element
-        .querySelector('.hds-disclosure-primitive__content')
-        .getAttribute('id'),
+      accordionButton?.getAttribute('aria-controls'),
+      accordionContent?.getAttribute('id'),
     );
   });
 
@@ -240,13 +267,12 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       .dom('.hds-accordion-item__button')
       .doesNotHaveAttribute('aria-label');
 
+    const accordionButton = find('.hds-accordion-item__button');
+    const accordionToggleContent = find('.hds-accordion-item__toggle-content');
+
     assert.strictEqual(
-      this.element
-        .querySelector('.hds-accordion-item__toggle-content')
-        .getAttribute('id'),
-      this.element
-        .querySelector('.hds-accordion-item__button')
-        .getAttribute('aria-labelledby'),
+      accordionToggleContent?.getAttribute('id'),
+      accordionButton?.getAttribute('aria-labelledby'),
     );
   });
 
@@ -343,9 +369,13 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
 
   // forceState
   test('it displays the correct content based on @forceState', async function (assert) {
+    const context = tracked<Record<'isOpen', HdsAccordionForceStates>>({
+      isOpen: 'close',
+    });
+
     await render(
       <template>
-        <Accordion @forceState={{this.forceState}} as |A|>
+        <Accordion @forceState={{context.isOpen}} as |A|>
           <A.Item @isOpen={{true}}>
             <:toggle>Item one</:toggle>
             <:content>Content one</:content>
@@ -364,7 +394,8 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       .containsText('Content one');
 
     // all items open via forceState (external override to open)
-    this.set('forceState', 'open');
+    context.isOpen = 'open';
+    await settled();
     assert.dom('.hds-accordion-item__content').exists({ count: 2 });
 
     // first item closed via toggle (internal override to close)
@@ -375,7 +406,8 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       .containsText('Content two');
 
     // all items closed via forceState (external override to close)
-    this.set('forceState', 'close');
+    context.isOpen = 'close';
+    await settled();
     assert.dom('.hds-accordion-item__content').doesNotExist();
 
     // first item open via toggle  (internal override to open)
@@ -410,14 +442,19 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
   // onClickToggle
 
   test('it should call onClickToggle function', async function (assert) {
-    let state = 'close';
-    this.set(
-      'onClickToggle',
-      () => (state = state === 'open' ? (state = 'close') : (state = 'open')),
-    );
+    const context = tracked<Record<'isOpen', HdsAccordionForceStates>>({
+      isOpen: 'close',
+    });
+
+    const onClickToggle = () =>
+      (context.isOpen =
+        context.isOpen === 'open'
+          ? (context.isOpen = 'close')
+          : (context.isOpen = 'open'));
+
     await render(
       <template>
-        <Item @forceState={{this.state}} @onClickToggle={{this.onClickToggle}}>
+        <Item @forceState={{context.isOpen}} @onClickToggle={{onClickToggle}}>
           <:toggle>Item one</:toggle>
           <:content>Content one</:content>
         </Item>
@@ -427,11 +464,11 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('.hds-accordion-item__content').doesNotExist();
     // toggle to open
     await click('.hds-accordion-item__button');
-    assert.strictEqual(state, 'open');
+    assert.strictEqual(context.isOpen, 'open');
     assert.dom('.hds-accordion-item__content').exists();
     // toggle to close
     await click('.hds-accordion-item__button');
-    assert.strictEqual(state, 'close');
+    assert.strictEqual(context.isOpen, 'close');
     assert.dom('.hds-accordion-item__content').doesNotExist();
   });
 });
