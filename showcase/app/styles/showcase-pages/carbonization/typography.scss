@@ -1,0 +1,49 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > TYPOGRAPHY
+
+@use "sass:map";
+@use '@carbon/type' as cdsType;
+
+// ----
+
+$styles-maps: (
+'heading-05': cdsType.$heading-05,
+'heading-04': cdsType.$heading-04,
+'heading-03': cdsType.$heading-03,
+'heading-02': cdsType.$heading-02,
+'heading-01': cdsType.$heading-01,
+'body-02': cdsType.$body-02,
+'body-01': cdsType.$body-01,
+'code-02': cdsType.$code-02,
+'code-01': cdsType.$code-01,
+);
+
+body.page-carbonization-foundations-typography {
+  @each $name, $style in $styles-maps {
+    .cds--type-#{$name} {
+      @each $property, $value in $style {
+        // @if $property != 'font-weight' {
+        #{$property}: #{$value};
+        // }
+      }
+    }
+  }
+
+  @each $name, $value in cdsType.$font-weights {
+    .cds--type-#{$name} {
+      font-weight: $value;
+    }
+  }
+
+  p[class^="cds-"] {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+
