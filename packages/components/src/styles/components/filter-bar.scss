@@ -1,0 +1,60 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FILTER BAR
+//
+
+.hds-filter-bar {
+  display: grid;
+  gap: 8px;
+  padding: 8px;
+  background-color: var(--token-color-surface-faint);
+  border: 1px solid var(--token-color-border-primary);
+  border-radius: var(--token-border-radius-medium);
+
+  .hds-filter-bar__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    align-items: end;
+    padding-top: 8px;
+    border-top: 1px solid var(--token-color-border-primary);
+
+    .hds-dropdown__list .hds-form-text-input {
+      width: auto;
+    }
+  }
+
+  .hds-filter-bar__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: end;
+    justify-content: space-between;
+  }
+
+  .hds-filter-bar__active-filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+.hds-filter-bar__dropdown--hidden.hds-dropdown {
+  display: none;
+}
+
+.hds-filter-bar__actions__right {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.hds-filter-bar__search {
+  --token-form-control-padding: 4px;
+}

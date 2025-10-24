@@ -13,14 +13,9 @@
   {{yield
     (hash
       Checkbox=(component
-        "hds/advanced-table/filter-bar/checkbox"
-        checkbox=D.Checkbox
-        keyFilter=this.internalFilters
-        onChange=this.onChange
+        "hds/filter-bar/checkbox" checkbox=D.Checkbox keyFilter=this.internalFilters onChange=this.onChange
       )
-      Radio=(component
-        "hds/advanced-table/filter-bar/radio" radio=D.Radio keyFilter=this.internalFilters onChange=this.onChange
-      )
+      Radio=(component "hds/filter-bar/radio" radio=D.Radio keyFilter=this.internalFilters onChange=this.onChange)
     )
   }}
   {{#unless @isLiveFilter}}
