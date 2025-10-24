@@ -1,5 +1,15 @@
 # @hashicorp/design-system-codemods
 
+## 0.5.2
+
+### Patch Changes
+
+`dropdown-list-item-interactive` - Reworked codemod to support usage in complex conditionals, and values with concatenated handlebars values.
+
+<small class="doc-whats-new-changelog-metadata">[#3303](https://github.com/hashicorp/design-system/pull/3303)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 0.5.1
 
 ### Patch Changes
