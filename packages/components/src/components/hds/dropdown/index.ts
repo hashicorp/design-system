@@ -212,5 +212,5 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
         }
       }
     });
-  }
+  };
 }
