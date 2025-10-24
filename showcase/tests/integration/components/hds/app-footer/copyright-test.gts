@@ -6,7 +6,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Copyright from "@hashicorp/design-system-components/components/hds/app-footer/copyright";
+import Copyright from '@hashicorp/design-system-components/components/hds/app-footer/copyright';
 
 module('Integration | Component | hds/app-footer/copyright', function (hooks) {
   setupRenderingTest(hooks);
@@ -22,7 +22,7 @@ module('Integration | Component | hds/app-footer/copyright', function (hooks) {
 
   test('it renders the copyright with the current year by default', async function (assert) {
     await render(<template><Copyright id="test-copyright" /></template>);
-    assert.dom('#test-copyright').includesText(currentYear);
+    assert.dom('#test-copyright').includesText(`${currentYear}`);
   });
 
   test('it renders the copyright with the passed in year value', async function (assert) {
