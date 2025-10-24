@@ -29,7 +29,7 @@ All inputs should have associated labels. These are built-in to the form compone
 
 ## Accessible name
 
-Not every element is allowed to use `aria-label`. Check the [element’s role documentation](https://www.w3.org/TR/wai-aria/#role_definitions) to see what aria-attributes are permissible. As the saying goes, "no ARIA is better than bad ARIA," so when in doubt, ask in [#team-design-system](https://hashicorp.slack.com/archives/C7KTUHNUS).
+Not every element is allowed to use `aria-label`. Check the [element’s role documentation](https://www.w3.org/TR/wai-aria/#role_definitions) to see what aria-attributes are permissible. As the saying goes, "no ARIA is better than bad ARIA," so when in doubt, ask in [#team-design-system](https://ibm.enterprise.slack.com/archives/C09L2MVUL5S).
 
 ## Focus management
 
@@ -77,4 +77,4 @@ Training is available for HashiCorp employees within the Accessibility library i
 
 The Accessibility Guild is a space where HashiCorp employees of all roles can join and learn more about accessibility. We offer multiple meeting days/times to accommodate our globally-distributed workforce and record meetings for those who can’t attend.
 
-Have a question? We’re here to help! Ask in our internal Slack channel [#talk-a11y](https://hashicorp.slack.com/archives/CLYADQNHZ).
+Have a question? We’re here to help! Ask in our internal Slack channel [#talk-a11y](https://ibm.enterprise.slack.com/archives/C09L399BC04).
