@@ -317,7 +317,7 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwCarbonizationComparisonGrid @hideThemeLabels={{true}} @label="critical">
+    <ShwCarbonizationComparisonGrid @label="critical">
       <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
