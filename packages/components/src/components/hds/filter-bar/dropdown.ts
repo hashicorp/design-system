@@ -9,38 +9,35 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 
-import HdsDropdown from '../../dropdown/index.ts';
+import HdsDropdown from '../dropdown/index.ts';
 
-import HdsAdvancedTableFilterBarCheckbox from './checkbox.ts';
-import HdsAdvancedTableFilterBarRadio from './radio.ts';
+import HdsFilterBarCheckbox from './checkbox.ts';
+import HdsFilterBarRadio from './radio.ts';
 
-import type {
-  HdsAdvancedTableFilter,
-  HdsAdvancedTableFilters,
-} from '../types.ts';
-import type { HdsDropdownSignature } from '../../dropdown/index.ts';
+import type { HdsFilterBarFilter, HdsFilterBarFilters } from './types.ts';
+import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
-export interface HdsAdvancedTableFilterBarDropdownSignature {
+export interface HdsFilterBarDropdownSignature {
   Args: HdsDropdownSignature['Args'] & {
     dropdown?: WithBoundArgs<typeof HdsDropdown, never>;
     key: string;
     text?: string;
-    filters: HdsAdvancedTableFilters;
+    filters: HdsFilterBarFilters;
     isMultiSelect?: boolean;
     isLiveFilter?: boolean;
     activeFilterableColumns?: string[];
     searchEnabled?: boolean;
-    onChange: (key: string, keyFilter?: HdsAdvancedTableFilter[]) => void;
+    onChange: (key: string, keyFilter?: HdsFilterBarFilter[]) => void;
   };
   Blocks: {
     default: [
       {
         Checkbox?: WithBoundArgs<
-          typeof HdsAdvancedTableFilterBarCheckbox,
+          typeof HdsFilterBarCheckbox,
           'checkbox' | 'keyFilter' | 'onChange'
         >;
         Radio?: WithBoundArgs<
-          typeof HdsAdvancedTableFilterBarRadio,
+          typeof HdsFilterBarRadio,
           'radio' | 'keyFilter' | 'onChange'
         >;
       },
@@ -49,22 +46,22 @@ export interface HdsAdvancedTableFilterBarDropdownSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAdvancedTableFilterBarDropdown extends Component<
-  HdsDropdownSignature & HdsAdvancedTableFilterBarDropdownSignature
+export default class HdsFilterBarDropdown extends Component<
+  HdsDropdownSignature & HdsFilterBarDropdownSignature
 > {
-  @tracked internalFilters: HdsAdvancedTableFilter[] | undefined = [];
+  @tracked internalFilters: HdsFilterBarFilter[] | undefined = [];
 
   private _setUpDropdown = modifier(() => {
     if (this.keyFilter) {
       this.internalFilters = JSON.parse(
         JSON.stringify(this.keyFilter)
-      ) as HdsAdvancedTableFilter[];
+      ) as HdsFilterBarFilter[];
     } else {
       this.internalFilters = [];
     }
   });
 
-  get keyFilter(): HdsAdvancedTableFilter[] | undefined {
+  get keyFilter(): HdsFilterBarFilter[] | undefined {
     const { filters, key } = this.args;
 
     if (!filters) {
@@ -82,7 +79,7 @@ export default class HdsAdvancedTableFilterBarDropdown extends Component<
 
   @action
   onChange(event: Event): void {
-    const addFilter = (value: unknown): HdsAdvancedTableFilter[] => {
+    const addFilter = (value: unknown): HdsFilterBarFilter[] => {
       const newFilter = {
         text: value as string,
         value: value,
@@ -98,8 +95,8 @@ export default class HdsAdvancedTableFilterBarDropdown extends Component<
       }
     };
 
-    const removeFilter = (value: string): HdsAdvancedTableFilter[] => {
-      const newFilter = [] as HdsAdvancedTableFilter[];
+    const removeFilter = (value: string): HdsFilterBarFilter[] => {
+      const newFilter = [] as HdsFilterBarFilter[];
       if (Array.isArray(this.internalFilters)) {
         this.internalFilters.forEach((filter) => {
           if (filter.value != value) {
@@ -112,7 +109,7 @@ export default class HdsAdvancedTableFilterBarDropdown extends Component<
 
     const input = event.target as HTMLInputElement;
 
-    let newFilter = [] as HdsAdvancedTableFilter[];
+    let newFilter = [] as HdsFilterBarFilter[];
 
     if (input.checked) {
       newFilter = addFilter(input.value);
@@ -188,11 +185,11 @@ export default class HdsAdvancedTableFilterBarDropdown extends Component<
   }
 
   get classNames(): string {
-    const classes = ['hds-advanced-table__filter-bar__dropdown'];
+    const classes = ['hds-filter-bar__dropdown'];
 
     // add a class based on the @align argument
     if (!this._isActiveFilterableColumn()) {
-      classes.push('hds-advanced-table__filter-bar__dropdown--hidden');
+      classes.push('hds-filter-bar__dropdown--hidden');
     }
 
     return classes.join(' ');

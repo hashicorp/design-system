@@ -10,22 +10,19 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
 
-import type {
-  HdsAdvancedTableFilter,
-  HdsAdvancedTableFilters,
-} from '../types.ts';
-import HdsDropdown from '../../dropdown/index.ts';
-import HdsAdvancedTableFilterBarDropdown from './dropdown.ts';
-import HdsAdvancedTableFilterBarFiltersDropdown from './filters-dropdown.ts';
+import type { HdsFilterBarFilter, HdsFilterBarFilters } from './types.ts';
+import HdsDropdown from '../dropdown/index.ts';
+import HdsFilterBarDropdown from './dropdown.ts';
+import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
 
-export interface HdsAdvancedTableFilterBarSignature {
+export interface HdsFilterBarSignature {
   Args: {
-    filters: HdsAdvancedTableFilters;
+    filters: HdsFilterBarFilters;
     activeFilterableColumns?: string[];
     isLiveFilter?: boolean;
     hasSearch?: boolean;
     showFilters?: boolean;
-    onFilter?: (filters: HdsAdvancedTableFilters) => void;
+    onFilter?: (filters: HdsFilterBarFilters) => void;
     onSearch?: (event: Event) => void;
   };
   Blocks: {
@@ -33,11 +30,11 @@ export interface HdsAdvancedTableFilterBarSignature {
       {
         ActionsDropdown?: ComponentLike<typeof HdsDropdown>;
         FiltersDropdown?: WithBoundArgs<
-          typeof HdsAdvancedTableFilterBarFiltersDropdown,
+          typeof HdsFilterBarFiltersDropdown,
           'onChange'
         >;
         Dropdown?: WithBoundArgs<
-          typeof HdsAdvancedTableFilterBarDropdown,
+          typeof HdsFilterBarDropdown,
           'onChange' | 'filters' | 'isLiveFilter'
         >;
       },
@@ -45,13 +42,13 @@ export interface HdsAdvancedTableFilterBarSignature {
   };
   Element: HTMLDivElement;
 }
-export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTableFilterBarSignature> {
-  @tracked filters: HdsAdvancedTableFilters = {};
+export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
+  @tracked filters: HdsFilterBarFilters = {};
   @tracked hasActiveFilters: boolean = Object.keys(this.filters).length > 0;
   @tracked activeFilterableColumns: string[] = [];
   @tracked showFilters: boolean = true;
 
-  constructor(owner: Owner, args: HdsAdvancedTableFilterBarSignature['Args']) {
+  constructor(owner: Owner, args: HdsFilterBarSignature['Args']) {
     super(owner, args);
 
     const { filters, activeFilterableColumns, showFilters } = args;
@@ -70,7 +67,7 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
   }
 
   @action
-  onFilter(key: string, keyFilter?: HdsAdvancedTableFilter[]): void {
+  onFilter(key: string, keyFilter?: HdsFilterBarFilter[]): void {
     this._triggerFilter(key, keyFilter);
   }
 
@@ -111,10 +108,7 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
     this.showFilters = !this.showFilters;
   }
 
-  private _triggerFilter(
-    key: string,
-    keyFilter?: HdsAdvancedTableFilter[]
-  ): void {
+  private _triggerFilter(key: string, keyFilter?: HdsFilterBarFilter[]): void {
     this._updateFilter(key, keyFilter);
 
     this.hasActiveFilters = Object.keys(this.filters).length > 0;
@@ -125,15 +119,12 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
     }
   }
 
-  private _updateFilter(
-    key: string,
-    keyFilter?: HdsAdvancedTableFilter[]
-  ): void {
-    const newFilters = {} as HdsAdvancedTableFilters;
+  private _updateFilter(key: string, keyFilter?: HdsFilterBarFilter[]): void {
+    const newFilters = {} as HdsFilterBarFilters;
     Object.keys(this.filters).forEach((k) => {
       newFilters[k] = JSON.parse(
         JSON.stringify(this.filters[k])
-      ) as HdsAdvancedTableFilter[];
+      ) as HdsFilterBarFilter[];
     });
     if (
       keyFilter === undefined ||
@@ -151,7 +142,7 @@ export default class HdsAdvancedTableFilterBar extends Component<HdsAdvancedTabl
 
   private onFilterDismiss = (key: string, filterValue: unknown): void => {
     const oldFilter = this.filters[key];
-    let newFilter: HdsAdvancedTableFilter[] = [];
+    let newFilter: HdsFilterBarFilter[] = [];
     if (Array.isArray(oldFilter)) {
       newFilter = oldFilter.filter((filter) => filter.value !== filterValue);
     }
