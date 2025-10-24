@@ -13,7 +13,7 @@ We’re happy to provide support to HashiCorp product teams that use Helios. Use
 
 ## Live support
 
-Join the [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) Slack channel to ask questions, request and provide feedback, or start a conversation with our team. As a globally-distributed team, there may be a slight delay in answering some questions, but we’re committed to responding in a timely manner.
+Join the [#team-design-systems](https://ibm.enterprise.slack.com/archives/C09L2MVUL5S) Slack channel to ask questions, request and provide feedback, or start a conversation with our team. As a globally-distributed team, there may be a slight delay in answering some questions, but we’re committed to responding in a timely manner.
 
 ## File an issue
 
