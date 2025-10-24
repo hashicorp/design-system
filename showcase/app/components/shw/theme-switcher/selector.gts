@@ -28,13 +28,13 @@ export default class ShwThemeSwitcherSelector extends Component {
   }
 
   get selectedOption() {
-    return `${this.shwTheming.currentStylesheet ?? 'no-theming'}|${this.hdsTheming.currentTheme ?? ''}`;
+    return `${this.shwTheming.currentStylesheet ?? 'standard'}|${this.hdsTheming.currentTheme ?? ''}`;
   }
 
   get themingOptions(): Record<string, Record<string, string>> {
     return {
       'No theming': {
-        'no-theming|': 'HDS / Standard',
+        'standard|': 'HDS / Standard',
       },
       'Theming via prefers-color-scheme': {
         'prefers-color-scheme|system': 'Carbon / System',
