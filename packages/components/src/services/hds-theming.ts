@@ -79,7 +79,6 @@ export const DEFAULT_THEMING_OPTION_DARK_THEME = HdsModesDarkValues.CdsG100;
 export const DEFAULT_THEMING_OPTION_CSS_SELECTOR = 'data';
 
 export default class HdsThemingService extends Service {
-  @tracked _isInitialized: boolean = false;
   @tracked _currentTheme: HdsThemes | undefined = undefined;
   @tracked _currentMode: HdsModes | undefined = undefined;
   @tracked _currentLightTheme: HdsModesLight =
@@ -90,10 +89,6 @@ export default class HdsThemingService extends Service {
   @tracked globalOnSetTheme: OnSetThemeCallback | undefined;
 
   initializeTheme() {
-    if (this._isInitialized) {
-      return;
-    }
-
     const rawStoredThemingData = localStorage.getItem(
       HDS_THEMING_LOCALSTORAGE_DATA
     );
@@ -110,8 +105,6 @@ export default class HdsThemingService extends Service {
         });
       }
     }
-
-    this._isInitialized = true;
   }
 
   setTheme({ theme, options, onSetTheme }: SetThemeArgs) {
