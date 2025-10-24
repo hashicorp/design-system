@@ -9,8 +9,6 @@ import HdsThemingService from '@hashicorp/design-system-components/services/hds-
 //   OnSetThemeCallbackArgs,
 // } from '@hashicorp/design-system-components/services/hds-theming';
 
-import config from 'showcase/config/environment';
-
 export type ShwStylesheets =
   | 'standard'
   | 'prefers-color-scheme'
