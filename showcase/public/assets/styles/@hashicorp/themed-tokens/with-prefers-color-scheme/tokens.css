@@ -5,22 +5,33 @@
 @media (prefers-color-scheme: light) {
   :root {
     --token-color-palette-neutral-0: #ffffff;
-    --token-color-foreground-primary: #161616;
+    --token-color-foreground-primary: #f4f4f4;
     --token-typography-font-weight-regular: 400;
     --token-typography-font-weight-medium: 400;
     --token-typography-font-weight-semibold: 600;
     --token-typography-font-weight-bold: 600;
+    /* added these to test theming in the showcase */
+    --token-color-foreground-strong: #0c0c0e;
+    --token-color-foreground-primary: #3b3d45;
+    --token-color-surface-strong: #f1f2f3;
+    --token-color-surface-primary: #ffffff;
+    --token-color-surface-faint: #ffffff;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --token-color-palette-neutral-0: #ffffff;
-    --token-color-foreground-primary: #f4f4f4;
     --token-typography-font-weight-regular: 400;
     --token-typography-font-weight-medium: 400;
     --token-typography-font-weight-semibold: 600;
     --token-typography-font-weight-bold: 600;
+    /* added these to test theming in the showcase */
+    --token-color-foreground-strong: #ffffff;
+    --token-color-foreground-primary: #f1f2f3;
+    --token-color-surface-strong: #3b3d45;
+    --token-color-surface-primary: #0c0c0e;
+    --token-color-surface-faint: #0c0c0e;
   }
 }
 
@@ -82,7 +93,7 @@
   --token-color-focus-action-external: #5990ff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #c00005;
   --token-color-focus-critical-external: #dd7578; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
-  --token-color-foreground-strong: #0c0c0e;
+  /* --token-color-foreground-strong: #0c0c0e; */
   --token-color-foreground-faint: #656a76;
   --token-color-foreground-high-contrast: #ffffff;
   --token-color-foreground-disabled: #8c909c;
@@ -103,9 +114,9 @@
   --token-color-foreground-critical-high-contrast: #51130a;
   --token-color-page-primary: #ffffff;
   --token-color-page-faint: #fafafa;
-  --token-color-surface-primary: #ffffff;
-  --token-color-surface-faint: #fafafa;
-  --token-color-surface-strong: #f1f2f3;
+  /* --token-color-surface-primary: #ffffff; */
+  /* --token-color-surface-faint: #fafafa; */
+  /* --token-color-surface-strong: #f1f2f3; */
   --token-color-surface-interactive: #ffffff;
   --token-color-surface-interactive-hover: #f1f2f3;
   --token-color-surface-interactive-active: #dedfe3;
