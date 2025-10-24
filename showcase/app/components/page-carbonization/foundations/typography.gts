@@ -35,11 +35,11 @@ const HDS_CARBON_STYLES_MAPPING: Record<string, StyleMapping> = {
     weights: { regular: 'regular', medium: 'regular', semibold: 'semibold' },
   },
   'body-200': {
-    mapsTo: 'body-02',
+    mapsTo: 'body-01',
     weights: { regular: 'regular', medium: 'regular', semibold: 'semibold' },
   },
   'body-100': {
-    mapsTo: 'body-01',
+    mapsTo: 'body-compact-01',
     weights: { regular: 'regular', medium: 'regular', semibold: 'semibold' },
   },
   'code-300': {
