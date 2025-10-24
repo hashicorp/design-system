@@ -4,12 +4,13 @@
  */
 
 // these files come from `packages/tokens/dist/`
-@use "products/css/themed-tokens/with-combined-strategies/tokens.css";
-// TODO understand if these are common/shared or we should have different ones for the themed tokens
 @use "products/css/helpers/color";
 @use "products/css/helpers/elevation";
 @use "products/css/helpers/focus-ring";
 @use "products/css/helpers/typography";
+
+// Vendor styles
+@use "./design-system-ember-a11y-refocus";
 
 // main components file
 @use "../components/index";
