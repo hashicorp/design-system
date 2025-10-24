@@ -3,20 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// these files come from `packages/tokens/dist/`
+// these are the "standard" HDS tokens (the file comes from `packages/tokens/dist/`)
 @use "products/css/tokens";
-// TODO understand if these are common/shared or we should have different ones for the themed tokens
-@use "products/css/helpers/color";
-@use "products/css/helpers/elevation";
-@use "products/css/helpers/focus-ring";
-@use "products/css/helpers/typography";
 
-// main components file
-@use "../components/index";
-
-// screen-reader utility class
-@use "../mixins/screen-reader-only" as *;
-
-.sr-only {
-  @include screen-reader-only();
-}
+// these are the styles specific (and only) for the the HDS components
+@use "./design-system-components-common";
