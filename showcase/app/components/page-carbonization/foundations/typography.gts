@@ -13,7 +13,12 @@ import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonizatio
 
 import { STYLES_COMBINATIONS } from 'showcase/components/page-foundations/typography/sub-sections/styles';
 
-const HDS_CARBON_STYLES_MAPPING = {
+type StyleMapping = {
+  mapsTo: string;
+  weights: Record<string, string>;
+};
+
+const HDS_CARBON_STYLES_MAPPING: Record<string, StyleMapping> = {
   'display-500': { mapsTo: 'heading-05', weights: { bold: 'semibold' } },
   'display-400': {
     mapsTo: 'heading-04',
