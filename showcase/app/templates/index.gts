@@ -375,11 +375,6 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-utilities.menu-primitive">
-            MenuPrimitive
-          </LinkTo>
-        </li>
-        <li>
           <LinkTo @route="page-utilities.popover-primitive">
             PopoverPrimitive
           </LinkTo>

@@ -5,4 +5,9 @@
 
 import Route from '@ember/routing/route';
 
+import type { ModelFrom } from 'showcase/utils/model-from-route';
+
+export type PageComponents<%= classifiedModuleName %>Model =
+  ModelFrom<PageComponents<%= classifiedModuleName %>Route>;
+
 export default class PageComponents<%= classifiedModuleName %>Route extends Route {}
