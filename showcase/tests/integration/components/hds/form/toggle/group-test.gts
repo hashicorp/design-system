@@ -5,8 +5,8 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, resetOnerror } from '@ember/test-helpers';
-import Group from "@hashicorp/design-system-components/components/hds/form/toggle/group";
+import { render, resetOnerror, find } from '@ember/test-helpers';
+import Group from '@hashicorp/design-system-components/components/hds/form/toggle/group';
 
 module('Integration | Component | hds/form/toggle/group', function (hooks) {
   setupRenderingTest(hooks);
@@ -24,16 +24,18 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
 
   test('it renders the yielded contextual components and subcomponents', async function (assert) {
     await render(
-      <template><Group as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.HelperText>This is the group helper text</G.HelperText>
-            <G.ToggleField checked="checked" @value="abc123" as |F|>
-              <F.Label>This is the control label</F.Label>
-              <F.HelperText>This is the control helper text</F.HelperText>
-              <F.Error>This is the control error</F.Error>
-            </G.ToggleField>
-            <G.Error>This is the group error</G.Error>
-        </Group></template>,
+      <template>
+        <Group as |G|>
+          <G.Legend>This is the legend</G.Legend>
+          <G.HelperText>This is the group helper text</G.HelperText>
+          <G.ToggleField checked="checked" @value="abc123" as |F|>
+            <F.Label>This is the control label</F.Label>
+            <F.HelperText>This is the control helper text</F.HelperText>
+            <F.Error>This is the control error</F.Error>
+          </G.ToggleField>
+          <G.Error>This is the group error</G.Error>
+        </Group>
+      </template>,
     );
     assert.dom('.hds-form-group__legend').exists();
     assert.dom('.hds-form-group__legend').hasText('This is the legend');
@@ -70,35 +72,30 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
   });
   test('it automatically provides all the ID relations between the elements', async function (assert) {
     await render(
-      <template><Group as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.HelperText>This is the group helper text</G.HelperText>
-            <G.ToggleField checked="checked" @value="abc123" as |F|>
-              <F.Label>This is the control label</F.Label>
-              <F.HelperText>This is the control helper text</F.HelperText>
-              <F.Error>This is the control error</F.Error>
-            </G.ToggleField>
-            <G.Error>This is the group error</G.Error>
-        </Group></template>,
+      <template>
+        <Group as |G|>
+          <G.Legend>This is the legend</G.Legend>
+          <G.HelperText>This is the group helper text</G.HelperText>
+          <G.ToggleField checked="checked" @value="abc123" as |F|>
+            <F.Label>This is the control label</F.Label>
+            <F.HelperText>This is the control helper text</F.HelperText>
+            <F.Error>This is the control error</F.Error>
+          </G.ToggleField>
+          <G.Error>This is the group error</G.Error>
+        </Group>
+      </template>,
     );
     // the IDs are dynamically generated
-    let groupHelperText = this.element.querySelector(
-      '.hds-form-group__helper-text',
-    );
-    let groupHelperTextId = groupHelperText.id;
-    let groupError = this.element.querySelector('.hds-form-group__error');
-    let groupErrorId = groupError.id;
-    let fieldHelperText = this.element.querySelector(
-      '.hds-form-field__helper-text',
-    );
-    let fieldHelperTextId = fieldHelperText.id;
-    let fieldError = this.element.querySelector('.hds-form-field__error');
-    let fieldErrorId = fieldError.id;
+    let groupHelperText = find('.hds-form-group__helper-text');
+    let groupError = find('.hds-form-group__error');
+    let fieldHelperText = find('.hds-form-field__helper-text');
+    let fieldError = find('.hds-form-field__error');
+
     assert
       .dom('input')
       .hasAttribute(
         'aria-describedby',
-        `${fieldHelperTextId} ${fieldErrorId} ${groupHelperTextId} ${groupErrorId}`,
+        `${fieldHelperText?.id} ${fieldError?.id} ${groupHelperText?.id} ${groupError?.id}`,
       );
   });
 
@@ -106,12 +103,14 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
 
   test('it should append an indicator to the legend text and set the required attribute when user input is required', async function (assert) {
     await render(
-      <template><Group @isRequired={{true}} as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.ToggleField checked="checked" @value="abc123" as |F|>
-              <F.Label>This is the control label</F.Label>
-            </G.ToggleField>
-          </Group></template>,
+      <template>
+        <Group @isRequired={{true}} as |G|>
+          <G.Legend>This is the legend</G.Legend>
+          <G.ToggleField checked="checked" @value="abc123" as |F|>
+            <F.Label>This is the control label</F.Label>
+          </G.ToggleField>
+        </Group>
+      </template>,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('Required');
@@ -119,12 +118,14 @@ module('Integration | Component | hds/form/toggle/group', function (hooks) {
   });
   test('it should append an indicator to the legend text when user input is optional', async function (assert) {
     await render(
-      <template><Group @isOptional={{true}} as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.ToggleField checked="checked" @value="abc123" as |F|>
-              <F.Label>This is the control label</F.Label>
-            </G.ToggleField>
-          </Group></template>,
+      <template>
+        <Group @isOptional={{true}} as |G|>
+          <G.Legend>This is the legend</G.Legend>
+          <G.ToggleField checked="checked" @value="abc123" as |F|>
+            <F.Label>This is the control label</F.Label>
+          </G.ToggleField>
+        </Group>
+      </template>,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('(Optional)');
