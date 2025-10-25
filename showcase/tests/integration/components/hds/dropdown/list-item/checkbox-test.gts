@@ -5,8 +5,8 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render } from '@ember/test-helpers';
-import Checkbox from "@hashicorp/design-system-components/components/hds/dropdown/list-item/checkbox";
+import { render, find } from '@ember/test-helpers';
+import Checkbox from '@hashicorp/design-system-components/components/hds/dropdown/list-item/checkbox';
 
 module(
   'Integration | Component | hds/dropdown/list-item/checkbox',
@@ -15,14 +15,18 @@ module(
 
     test('it renders the "list-item/checkbox"', async function (assert) {
       await render(
-        <template><Checkbox>Checkbox item</Checkbox></template>,
+        <template>
+          <Checkbox id="test-checkbox-item">Checkbox item</Checkbox>
+        </template>,
       );
-      assert.dom(this.element).exists();
+      assert.dom('#test-checkbox-item').exists();
     });
 
     test('it should render the "list-item/checkbox" as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Checkbox>Checkbox item</Checkbox></template>,
+        <template>
+          <Checkbox>Checkbox item</Checkbox>
+        </template>,
       );
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
       assert
@@ -34,7 +38,9 @@ module(
 
     test('it should render the "list-item" with a checkbox control', async function (assert) {
       await render(
-        <template><Checkbox>Checkbox item</Checkbox></template>,
+        <template>
+          <Checkbox>Checkbox item</Checkbox>
+        </template>,
       );
       assert.dom('.hds-form-checkbox').exists();
     });
@@ -43,7 +49,10 @@ module(
 
     test('it should forward the `id` and `value` arguments to the input control', async function (assert) {
       await render(
-        <template><Checkbox @id="id" @value="value">Checkbox item</Checkbox></template>,
+        <template>
+          {{! @glint-expect-error - testing invalid component usage (@id arg doesn't exist) }}
+          <Checkbox @id="id" @value="value">Checkbox item</Checkbox>
+        </template>,
       );
       assert.dom('.hds-form-checkbox').hasAttribute('id', 'id');
       assert.dom('.hds-form-checkbox').hasValue('value');
@@ -52,22 +61,24 @@ module(
     // CONTROL-LABEL ASSOCIATION
     test('it automatically creates the control-label relationship via generated id', async function (assert) {
       await render(
-        <template><Checkbox @value="value">Checkbox item</Checkbox></template>,
+        <template>
+          <Checkbox @value="value">Checkbox item</Checkbox>
+        </template>,
       );
-      let control = this.element.querySelector(
-        '.hds-dropdown-list-item__control',
-      );
-      let controlId = control.id;
+
+      let control = find('.hds-dropdown-list-item__control');
       assert
         .dom('.hds-dropdown-list-item__label')
-        .hasAttribute('for', controlId);
+        .hasAttribute('for', control?.id ?? '');
     });
 
     // ICON
 
     test('if an icon is declared the flight icon should render in the component', async function (assert) {
       await render(
-        <template><Checkbox @icon="hexagon">Checkbox item</Checkbox></template>,
+        <template>
+          <Checkbox @icon="hexagon">Checkbox item</Checkbox>
+        </template>,
       );
       assert.dom('.hds-icon.hds-icon-hexagon').exists();
     });
@@ -76,7 +87,9 @@ module(
 
     test('it should render the content passed as block in a form label', async function (assert) {
       await render(
-        <template><Checkbox>Checkbox item</Checkbox></template>,
+        <template>
+          <Checkbox>Checkbox item</Checkbox>
+        </template>,
       );
       assert.dom('.hds-dropdown-list-item__control').exists();
       assert.dom('.hds-dropdown-list-item__label').hasText('Checkbox item');
@@ -86,7 +99,9 @@ module(
 
     test('it should render with a result count badge', async function (assert) {
       await render(
-        <template><Checkbox @count="10">Checkbox item</Checkbox></template>,
+        <template>
+          <Checkbox @count="10">Checkbox item</Checkbox>
+        </template>,
       );
       assert.dom('.hds-dropdown-list-item__count').hasText('10');
     });
@@ -95,7 +110,9 @@ module(
 
     test('it should render as checked if `checked` is true', async function (assert) {
       await render(
-        <template><Checkbox checked={{true}}>Checkbox</Checkbox></template>,
+        <template>
+          <Checkbox checked={{true}}>Checkbox</Checkbox>
+        </template>,
       );
       assert.dom('.hds-form-checkbox').isChecked();
     });
