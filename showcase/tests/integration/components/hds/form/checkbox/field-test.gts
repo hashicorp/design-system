@@ -5,8 +5,8 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, resetOnerror } from '@ember/test-helpers';
-import Field from "@hashicorp/design-system-components/components/hds/form/checkbox/field";
+import { render, resetOnerror, find } from '@ember/test-helpers';
+import Field from '@hashicorp/design-system-components/components/hds/form/checkbox/field';
 
 module('Integration | Component | hds/form/checkbox/field', function (hooks) {
   setupRenderingTest(hooks);
@@ -38,11 +38,13 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
 
   test('it renders the yielded contextual components', async function (assert) {
     await render(
-      <template><Field checked="checked" as |F|>
+      <template>
+        <Field checked="checked" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </Field>
+      </template>,
     );
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
@@ -58,27 +60,29 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
   });
   test('it automatically provides all the ID relations between the elements', async function (assert) {
     await render(
-      <template><Field @extraAriaDescribedBy="extra" as |F|>
+      <template>
+        <Field @extraAriaDescribedBy="extra" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </Field>
+      </template>,
     );
     // the control ID is dynamically generated
-    let control = this.element.querySelector('.hds-form-field__control input');
-    let controlId = control.id;
-    assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
+    const control = find('.hds-form-field__control input');
+
+    assert.dom('.hds-form-field__label').hasAttribute('for', control?.id || '');
     assert
       .dom('.hds-form-field__helper-text')
-      .hasAttribute('id', `helper-text-${controlId}`);
+      .hasAttribute('id', `helper-text-${control?.id || ''}`);
     assert
       .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra`,
+        `helper-text-${control?.id || ''} error-${control?.id || ''} extra`,
       );
     assert
       .dom('.hds-form-field__error')
-      .hasAttribute('id', `error-${controlId}`);
+      .hasAttribute('id', `error-${control?.id || ''}`);
   });
 });
