@@ -7,9 +7,11 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render } from '@ember/test-helpers';
 // we're using this data for multiple tests so we'll define it here
-import Base from "@hashicorp/design-system-components/components/hds/form/super-select/single/base";
+import Base from '@hashicorp/design-system-components/components/hds/form/super-select/single/base';
+
+import NOOP from 'showcase/utils/noop';
+
 const setOptionsData = (context) => {
-  context.set('NOOP', () => {});
   context.set('OPTION', []);
   context.set('OPTIONS', ['Option 1', 'Option 2', 'Option 3']);
 };
@@ -22,7 +24,9 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       setOptionsData(this);
       await render(
-        <template><Base @onChange={{this.NOOP}} id="test-super-select-single" /></template>,
+        <template>
+          <Base @onChange={{NOOP}} id="test-super-select-single" />
+        </template>,
       );
       assert
         .dom('.hds-form-super-select-single #test-super-select-single')
@@ -34,7 +38,13 @@ module(
     test('it should render the options passed', async function (assert) {
       setOptionsData(this);
       await render(
-        <template><Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Base></template>,
+        <template>
+          <Base
+            @onChange={{NOOP}}
+            @options={{this.OPTIONS}}
+            as |option|
+          >{{option}}</Base>
+        </template>,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.ember-power-select-options').exists();
@@ -46,7 +56,13 @@ module(
     test('it should not render the after options block by default', async function (assert) {
       setOptionsData(this);
       await render(
-        <template><Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Base></template>,
+        <template>
+          <Base
+            @onChange={{NOOP}}
+            @options={{this.OPTIONS}}
+            as |option|
+          >{{option}}</Base>
+        </template>,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.hds-form-super-select__after-options').doesNotExist();
@@ -55,7 +71,14 @@ module(
     test('it should render the after options block when showAfterOptions is set to true', async function (assert) {
       setOptionsData(this);
       await render(
-        <template><Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} @showAfterOptions={{true}} as |option|>{{option}}</Base></template>,
+        <template>
+          <Base
+            @onChange={{NOOP}}
+            @options={{this.OPTIONS}}
+            @showAfterOptions={{true}}
+            as |option|
+          >{{option}}</Base>
+        </template>,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert
@@ -68,7 +91,14 @@ module(
     test('it should render custom content in the after options block when `@afterOptionsContent` exists', async function (assert) {
       setOptionsData(this);
       await render(
-        <template><Base @afterOptionsContent="Custom content" @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Base></template>,
+        <template>
+          <Base
+            @afterOptionsContent="Custom content"
+            @onChange={{NOOP}}
+            @options={{this.OPTIONS}}
+            as |option|
+          >{{option}}</Base>
+        </template>,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.hds-form-super-select__result-count').doesNotExist();
@@ -80,7 +110,14 @@ module(
     test('it should not render the after options block when `@showAfterOptions` is false', async function (assert) {
       setOptionsData(this);
       await render(
-        <template><Base @showAfterOptions={{false}} @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Base></template>,
+        <template>
+          <Base
+            @showAfterOptions={{false}}
+            @onChange={{NOOP}}
+            @options={{this.OPTIONS}}
+            as |option|
+          >{{option}}</Base>
+        </template>,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.hds-form-super-select__after-options').doesNotExist();
@@ -90,9 +127,7 @@ module(
 
     test('`@matchTriggerWidth` should be true by default', async function (assert) {
       setOptionsData(this);
-      await render(
-        <template><Base @onChange={{this.NOOP}} /></template>,
-      );
+      await render(<template><Base @onChange={{NOOP}} /></template>);
       assert
         .dom('.hds-form-super-select')
         .doesNotHaveClass('hds-form-super-select--dropdown-content-auto-width');
@@ -101,7 +136,9 @@ module(
     test('it should render the correct CSS class when `@matchTriggerWidth` is false', async function (assert) {
       setOptionsData(this);
       await render(
-        <template><Base @onChange={{this.NOOP}} @matchTriggerWidth={{false}} /></template>,
+        <template>
+          <Base @onChange={{NOOP}} @matchTriggerWidth={{false}} />
+        </template>,
       );
       assert
         .dom('.hds-form-super-select')
@@ -113,7 +150,9 @@ module(
     test('it should set the correct CSS property value when `@dropdownMaxWidth` is set', async function (assert) {
       setOptionsData(this);
       await render(
-        <template><Base @onChange={{this.NOOP}} @dropdownMaxWidth="40em" /></template>,
+        <template>
+          <Base @onChange={{NOOP}} @dropdownMaxWidth="40em" />
+        </template>,
       );
 
       assert
@@ -130,7 +169,7 @@ module(
     test('it should render the correct CSS class when `@isInvalid` is true', async function (assert) {
       setOptionsData(this);
       await render(
-        <template><Base @onChange={{this.NOOP}} @isInvalid={{true}} /></template>,
+        <template><Base @onChange={{NOOP}} @isInvalid={{true}} /></template>,
       );
       assert
         .dom('.hds-form-super-select')
