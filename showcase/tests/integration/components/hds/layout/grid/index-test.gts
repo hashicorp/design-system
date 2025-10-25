@@ -6,8 +6,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
-import Grid from "@hashicorp/design-system-components/components/hds/layout/grid/index";
-import { array } from "@ember/helper";
+import Grid from '@hashicorp/design-system-components/components/hds/layout/grid/index';
+import { array } from '@ember/helper';
 
 module('Integration | Component | hds/layout/grid/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -21,7 +21,9 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the yielded content', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid"><pre>test</pre></Grid></template>,
+      <template>
+        <Grid id="test-layout-grid"><pre>test</pre></Grid>
+      </template>,
     );
     assert.dom('#test-layout-grid > pre').exists().hasText('test');
   });
@@ -31,7 +33,8 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       <template>
         <Grid id="test-layout-grid" as |LG|>
           <LG.Item><pre>test</pre></LG.Item>
-        </Grid></template>,
+        </Grid>
+      </template>,
     );
     assert
       .dom('#test-layout-grid > .hds-layout-grid-item > pre')
@@ -52,13 +55,15 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     await render(<template><Grid id="test-layout-grid" /></template>);
     assert
       .dom('#test-layout-grid')
-      .doesNotHaveStyle('--hds-layout-grid-column-min-width')
-      .doesNotHaveStyle('--hds-layout-grid-column-fill-type');
+      .doesNotHaveStyle({ '--hds-layout-grid-column-min-width': '' })
+      .doesNotHaveStyle({ '--hds-layout-grid-column-fill-type': '' });
   });
 
   test('it should render the correct min-width if the @columnMinWidth prop is declared', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid" @columnMinWidth="200px" /></template>,
+      <template>
+        <Grid id="test-layout-grid" @columnMinWidth="200px" />
+      </template>,
     );
     assert
       .dom('#test-layout-grid')
@@ -100,7 +105,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the correct CSS classes if @align props are declared', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid" @align="stretch" @wrap={{true}} /></template>,
+      <template><Grid id="test-layout-grid" @align="stretch" /></template>,
     );
     assert
       .dom('#test-layout-grid')
@@ -125,7 +130,9 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the correct CSS class if the @gap prop is declared as two values', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid" @gap={{array "4" "48"}} /></template>,
+      <template>
+        <Grid id="test-layout-grid" @gap={{array "4" "48"}} />
+      </template>,
     );
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--row-gap-4');
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--column-gap-48');
@@ -140,7 +147,12 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Grid @align="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <Grid @align="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -153,7 +165,12 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Grid @gap={{array 4 "foo"}} /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <Grid @gap={{array 4 "foo"}} />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -167,7 +184,13 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Grid id="test-layout-grid" @columnMinWidth="200px" @columnWidth="300px" /></template>,
+      <template>
+        <Grid
+          id="test-layout-grid"
+          @columnMinWidth="200px"
+          @columnWidth="300px"
+        />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
