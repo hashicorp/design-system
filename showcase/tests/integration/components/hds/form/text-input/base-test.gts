@@ -5,8 +5,15 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Base from "@hashicorp/design-system-components/components/hds/form/text-input/base";
+import {
+  render,
+  resetOnerror,
+  setupOnerror,
+  settled,
+} from '@ember/test-helpers';
+import Base from '@hashicorp/design-system-components/components/hds/form/text-input/base';
+import type { HdsFormTextInputTypes } from '@hashicorp/design-system-components/components/hds/form/text-input/types';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | hds/form/text-input/base', function (hooks) {
   setupRenderingTest(hooks);
@@ -22,7 +29,9 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
     await render(
-      <template><Base @id="custom-id" @ariaDescribedBy="custom-description-id" /></template>,
+      <template>
+        <Base @id="custom-id" @ariaDescribedBy="custom-description-id" />
+      </template>,
     );
     assert
       .dom('#custom-id')
@@ -37,12 +46,20 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
     assert.dom('#test-form-text-input').hasAttribute('type', 'text');
   });
   test('it should render the correct type depending on the @type prop', async function (assert) {
+    const context = tracked<Record<'type', HdsFormTextInputTypes>>({
+      type: 'email',
+    });
+
     this.set('type', 'email');
     await render(
-      <template><Base @type={{this.type}} id="test-form-text-input" /></template>,
+      <template>
+        <Base @type={{context.type}} id="test-form-text-input" />
+      </template>,
     );
     assert.dom('#test-form-text-input').hasAttribute('type', 'email');
-    this.set('type', 'datetime-local');
+
+    context.type = 'datetime-local';
+    await settled();
     assert.dom('#test-form-text-input').hasAttribute('type', 'datetime-local');
   });
 
@@ -59,7 +76,9 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
     await render(
-      <template><Base id="test-form-text-input" @isInvalid={{true}} /></template>,
+      <template>
+        <Base id="test-form-text-input" @isInvalid={{true}} />
+      </template>,
     );
     assert
       .dom('#test-form-text-input')
@@ -70,7 +89,9 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isLoading prop is declared', async function (assert) {
     await render(
-      <template><Base id="test-form-text-input" @type="search" @isLoading={{true}} /></template>,
+      <template>
+        <Base id="test-form-text-input" @type="search" @isLoading={{true}} />
+      </template>,
     );
     assert
       .dom('#test-form-text-input')
@@ -95,7 +116,12 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Base @type="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <Base @type="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

@@ -5,8 +5,15 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, render, resetOnerror, settled } from '@ember/test-helpers';
-import Field from "@hashicorp/design-system-components/components/hds/form/text-input/field";
+import {
+  click,
+  render,
+  resetOnerror,
+  settled,
+  find,
+} from '@ember/test-helpers';
+import Field from '@hashicorp/design-system-components/components/hds/form/text-input/field';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | hds/form/text-input/field', function (hooks) {
   setupRenderingTest(hooks);
@@ -48,7 +55,9 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
 
   test('it should render the password input without visibility toggle when `hasVisibilityToggle` is false', async function (assert) {
     await render(
-      <template><Field @type="password" @hasVisibilityToggle={{false}} /></template>,
+      <template>
+        <Field @type="password" @hasVisibilityToggle={{false}} />
+      </template>,
     );
     assert.dom('input').hasAttribute('type', 'password');
     assert.dom('.hds-form-visibility-toggle').doesNotExist();
@@ -95,12 +104,14 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
 
   test('it renders the yielded contextual components', async function (assert) {
     await render(
-      <template><Field @value="abc123" as |F|>
+      <template>
+        <Field @value="abc123" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}} />
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </Field>
+      </template>,
     );
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
@@ -117,16 +128,18 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
   });
   test('it automatically provides all the ID relations between the elements', async function (assert) {
     await render(
-      <template><Field @value="abc123" @extraAriaDescribedBy="extra" as |F|>
+      <template>
+        <Field @value="abc123" @extraAriaDescribedBy="extra" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}} />
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </Field>
+      </template>,
     );
     // the control ID is dynamically generated
-    let control = this.element.querySelector('.hds-form-field__control input');
-    let controlId = control.id;
+    let control = find('.hds-form-field__control input');
+    let controlId = control?.id ?? '';
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
       .dom('.hds-form-field__helper-text')
@@ -149,23 +162,29 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
   });
 
   test('it automatically provides all the ID relations between the elements even when dynamically rendered', async function (assert) {
+    const context = tracked({
+      showErrors: false,
+    });
+
     await render(
-      <template><Field @value="abc123" @extraAriaDescribedBy="extra" as |F|>
+      <template>
+        <Field @value="abc123" @extraAriaDescribedBy="extra" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}} />
-          {{#if this.showErrors}}
+          {{#if context.showErrors}}
             <F.Error>This is the error</F.Error>
           {{/if}}
-        </Field></template>,
+        </Field>
+      </template>,
     );
 
-    this.set('showErrors', true);
+    context.showErrors = true;
     await settled();
 
     // the control ID is dynamically generated
-    let control = this.element.querySelector('.hds-form-field__control input');
-    let controlId = control.id;
+    let control = find('.hds-form-field__control input');
+    let controlId = control?.id ?? '';
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
       .dom('.hds-form-field__helper-text')
@@ -191,9 +210,11 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
 
   test('it should append an indicator to the label text and set the required attribute when user input is required', async function (assert) {
     await render(
-      <template><Field @isRequired={{true}} as |F|>
-            <F.Label>This is the label</F.Label>
-          </Field></template>,
+      <template>
+        <Field @isRequired={{true}} as |F|>
+          <F.Label>This is the label</F.Label>
+        </Field>
+      </template>,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('Required');
@@ -201,18 +222,22 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
   });
   test('it should append an indicator to the label text when user input is optional', async function (assert) {
     await render(
-      <template><Field @isOptional={{true}} as |F|>
-            <F.Label>This is the label</F.Label>
-          </Field></template>,
+      <template>
+        <Field @isOptional={{true}} as |F|>
+          <F.Label>This is the label</F.Label>
+        </Field>
+      </template>,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
   });
   test('it should not append an indicator to the label text when the required attribute is set', async function (assert) {
     await render(
-      <template><Field required as |F|>
-            <F.Label>This is the label</F.Label>
-          </Field></template>,
+      <template>
+        <Field required as |F|>
+          <F.Label>This is the label</F.Label>
+        </Field>
+      </template>,
     );
     assert.dom('input').hasAttribute('required');
     assert.dom('label .hds-form-indicator').doesNotExist();
