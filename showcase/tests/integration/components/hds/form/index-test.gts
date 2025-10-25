@@ -6,7 +6,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
-import Form, { AVAILABLE_TAGS } from '@hashicorp/design-system-components/components/hds/form/index';
+import Form, {
+  AVAILABLE_TAGS,
+} from '@hashicorp/design-system-components/components/hds/form/index';
 
 module('Integration | Component | hds/form/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -26,7 +28,9 @@ module('Integration | Component | hds/form/index', function (hooks) {
   });
 
   test('it should render the component using a div tag if specified in the @tag prop', async function (assert) {
-    await render(<template><Form id="test-form-component" @tag="div" /></template>);
+    await render(
+      <template><Form id="test-form-component" @tag="div" /></template>,
+    );
     assert.dom('#test-form-component').hasTagName('div');
   });
 
@@ -34,7 +38,9 @@ module('Integration | Component | hds/form/index', function (hooks) {
 
   test('it should set an inline style for the section max-width custom property', async function (assert) {
     await render(
-      <template><Form id="test-form-component" @sectionMaxWidth="32em" /></template>,
+      <template>
+        <Form id="test-form-component" @sectionMaxWidth="32em" />
+      </template>,
     );
     assert.dom('#test-form-component').hasStyle(
       {
@@ -48,25 +54,26 @@ module('Integration | Component | hds/form/index', function (hooks) {
 
   test('it should yield the different subcomponents as children, for the different available tags', async function (assert) {
     for (const tag of AVAILABLE_TAGS) {
-      this.set('tag', tag);
       await render(
-        <template><Form id="test-form" @tag={{this.tag}} as |FORM|>
-              <FORM.Header>
-                <FORM.HeaderTitle />
-                <FORM.HeaderDescription />
-              </FORM.Header>
-              <FORM.Section>
-                <FORM.SectionHeader>
-                  <FORM.SectionHeaderTitle />
-                  <FORM.SectionHeaderDescription />
-                </FORM.SectionHeader>
-                <FORM.SectionMultiFieldGroup>
-                  <FORM.SectionMultiFieldGroupItem />
-                </FORM.SectionMultiFieldGroup>
-              </FORM.Section>
-              <FORM.Separator />
-              <FORM.Footer />
-            </Form></template>,
+        <template>
+          <Form id="test-form" @tag={{tag}} as |FORM|>
+            <FORM.Header>
+              <FORM.HeaderTitle />
+              <FORM.HeaderDescription />
+            </FORM.Header>
+            <FORM.Section>
+              <FORM.SectionHeader>
+                <FORM.SectionHeaderTitle />
+                <FORM.SectionHeaderDescription />
+              </FORM.SectionHeader>
+              <FORM.SectionMultiFieldGroup>
+                <FORM.SectionMultiFieldGroupItem />
+              </FORM.SectionMultiFieldGroup>
+            </FORM.Section>
+            <FORM.Separator />
+            <FORM.Footer />
+          </Form>
+        </template>,
       );
 
       // Form Header content
@@ -133,7 +140,12 @@ module('Integration | Component | hds/form/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
 
-    await render(<template><Form @tag="section" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <Form @tag="section" />
+      </template>,
+    );
 
     assert.throws(function () {
       throw new Error(errorMessage);
