@@ -5,8 +5,9 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, resetOnerror, settled } from '@ember/test-helpers';
-import Group from "@hashicorp/design-system-components/components/hds/form/radio-card/group";
+import { render, resetOnerror, settled, find } from '@ember/test-helpers';
+import Group from '@hashicorp/design-system-components/components/hds/form/radio-card/group';
+import { tracked } from 'tracked-built-ins';
 
 module('Integration | Component | hds/form/radio-card/group', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,9 +17,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(
-      <template><Group id="test-radio-card-group" /></template>,
-    );
+    await render(<template><Group id="test-radio-card-group" /></template>);
     assert
       .dom('#test-radio-card-group')
       .hasClass('hds-form-group--radio-cards');
@@ -28,7 +27,9 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
   test('it should render the component with CSS classes that reflect the `@layout` argument provided', async function (assert) {
     await render(
-      <template><Group id="test-radio-card-group-layout" @layout="vertical" /></template>,
+      <template>
+        <Group id="test-radio-card-group-layout" @layout="vertical" />
+      </template>,
     );
     assert
       .dom('#test-radio-card-group-layout')
@@ -39,13 +40,15 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
   test('it renders the contextual components', async function (assert) {
     await render(
-      <template><Group as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.HelperText>This is the group helper text</G.HelperText>
-            <G.RadioCard />
-            <G.RadioCard />
-            <G.Error>This is the group error</G.Error>
-          </Group></template>,
+      <template>
+        <Group as |G|>
+          <G.Legend>This is the legend</G.Legend>
+          <G.HelperText>This is the group helper text</G.HelperText>
+          <G.RadioCard />
+          <G.RadioCard />
+          <G.Error>This is the group error</G.Error>
+        </Group>
+      </template>,
     );
     assert.dom('.hds-form-radio-card').exists();
     assert.dom('.hds-form-group__legend').exists();
@@ -69,49 +72,53 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
   test('it automatically provides all the ID relations between the elements', async function (assert) {
     await render(
-      <template><Group as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.HelperText>This is the group helper text</G.HelperText>
-            <G.RadioCard />
-            <G.RadioCard />
-            <G.Error>This is the group error</G.Error>
-          </Group></template>,
+      <template>
+        <Group as |G|>
+          <G.Legend>This is the legend</G.Legend>
+          <G.HelperText>This is the group helper text</G.HelperText>
+          <G.RadioCard />
+          <G.RadioCard />
+          <G.Error>This is the group error</G.Error>
+        </Group>
+      </template>,
     );
     // the IDs are dynamically generated
-    let groupHelperText = this.element.querySelector(
-      '.hds-form-group__helper-text',
-    );
-    let groupHelperTextId = groupHelperText.id;
-    let groupError = this.element.querySelector('.hds-form-group__error');
-    let groupErrorId = groupError.id;
+    let groupHelperText = find('.hds-form-group__helper-text');
+    let groupHelperTextId = groupHelperText?.id ?? '';
+    let groupError = find('.hds-form-group__error');
+    let groupErrorId = groupError?.id ?? '';
     assert
       .dom('input')
       .hasAttribute('aria-describedby', `${groupHelperTextId} ${groupErrorId}`);
   });
 
   test('it automatically provides all the ID relations between the elements when dynamically rendered', async function (assert) {
+    const context = tracked({
+      showErrors: false,
+    });
+
     await render(
-      <template><Group as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.HelperText>This is the group helper text</G.HelperText>
-            <G.RadioCard />
-            <G.RadioCard />
-            {{#if this.showErrors}}
-              <G.Error>This is the group error</G.Error>
-            {{/if}}
-          </Group></template>,
+      <template>
+        <Group as |G|>
+          <G.Legend>This is the legend</G.Legend>
+          <G.HelperText>This is the group helper text</G.HelperText>
+          <G.RadioCard />
+          <G.RadioCard />
+          {{#if context.showErrors}}
+            <G.Error>This is the group error</G.Error>
+          {{/if}}
+        </Group>
+      </template>,
     );
 
-    this.set('showErrors', true);
+    context.showErrors = true;
     await settled();
 
     // the IDs are dynamically generated
-    let groupHelperText = this.element.querySelector(
-      '.hds-form-group__helper-text',
-    );
-    let groupHelperTextId = groupHelperText.id;
-    let groupError = this.element.querySelector('.hds-form-group__error');
-    let groupErrorId = groupError.id;
+    let groupHelperText = find('.hds-form-group__helper-text');
+    let groupHelperTextId = groupHelperText?.id ?? '';
+    let groupError = find('.hds-form-group__error');
+    let groupErrorId = groupError?.id ?? '';
     assert
       .dom('input')
       .hasAttribute('aria-describedby', `${groupHelperTextId} ${groupErrorId}`);
@@ -121,13 +128,20 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
   test('it should render the contextual components with CSS classes that reflect the arguments provided', async function (assert) {
     await render(
-      <template><Group @name="test-name" @alignment="center" @controlPosition="left" as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.HelperText>This is the group helper text</G.HelperText>
-            <G.RadioCard @maxWidth="50%" data-test="first-control" />
-            <G.RadioCard @maxWidth="50%" data-test="second-control" />
-            <G.Error>This is the group error</G.Error>
-          </Group></template>,
+      <template>
+        <Group
+          @name="test-name"
+          @alignment="center"
+          @controlPosition="left"
+          as |G|
+        >
+          <G.Legend>This is the legend</G.Legend>
+          <G.HelperText>This is the group helper text</G.HelperText>
+          <G.RadioCard @maxWidth="50%" data-test="first-control" />
+          <G.RadioCard @maxWidth="50%" data-test="second-control" />
+          <G.Error>This is the group error</G.Error>
+        </Group>
+      </template>,
     );
     assert.dom('[data-test="first-control"]').hasAttribute('name', 'test-name');
     assert
@@ -145,20 +159,24 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
   test('it should append an indicator to the legend text when user input is required', async function (assert) {
     await render(
-      <template><Group @isRequired={{true}} as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.RadioCard />
-          </Group></template>,
+      <template>
+        <Group @isRequired={{true}} as |G|>
+          <G.Legend>This is the legend</G.Legend>
+          <G.RadioCard />
+        </Group>
+      </template>,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('Required');
   });
   test('it should append an indicator to the legend text when user input is optional', async function (assert) {
     await render(
-      <template><Group @isOptional={{true}} as |G|>
-            <G.Legend>This is the legend</G.Legend>
-            <G.RadioCard />
-          </Group></template>,
+      <template>
+        <Group @isOptional={{true}} as |G|>
+          <G.Legend>This is the legend</G.Legend>
+          <G.RadioCard />
+        </Group>
+      </template>,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('(Optional)');
