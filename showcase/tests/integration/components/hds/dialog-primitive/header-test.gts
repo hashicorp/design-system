@@ -6,7 +6,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render, resetOnerror } from '@ember/test-helpers';
-import Header from "@hashicorp/design-system-components/components/hds/dialog-primitive/header";
+import Header from '@hashicorp/design-system-components/components/hds/dialog-primitive/header';
+import { tracked } from 'tracked-built-ins';
 
 module(
   'Integration | Component | hds/dialog-primitive/header',
@@ -20,8 +21,8 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
         <template>
-        <Header id="test-header">Title</Header>
-      </template>,
+          <Header id="test-header">Title</Header>
+        </template>,
       );
       assert.dom('#test-header').hasClass('hds-dialog-primitive__header');
     });
@@ -31,10 +32,10 @@ module(
     test('it renders the title without icon, tagline, or description', async function (assert) {
       await render(
         <template>
-        <Header>
-          Title
-        </Header>
-      </template>,
+          <Header>
+            Title
+          </Header>
+        </template>,
       );
       assert.dom('.hds-dialog-primitive__title').exists();
       assert.dom('.hds-dialog-primitive__title').hasText('Title');
@@ -45,10 +46,10 @@ module(
     test('it renders the title with icon and tagline if provided', async function (assert) {
       await render(
         <template>
-        <Header @icon="info" @tagline="Tagline">
-          Title
-        </Header>
-      </template>,
+          <Header @icon="info" @tagline="Tagline">
+            Title
+          </Header>
+        </template>,
       );
       assert.dom('.hds-dialog-primitive__title').exists();
       assert.dom('.hds-dialog-primitive__title').hasText('Tagline Title');
@@ -58,20 +59,24 @@ module(
     });
 
     test('it renders the title as a div when the @titleTag argument is not provided', async function (assert) {
-      await render(<template>
-        <Header @icon="info" @tagline="Tagline">
-          Title
-        </Header>
-      </template>);
+      await render(
+        <template>
+          <Header @icon="info" @tagline="Tagline">
+            Title
+          </Header>
+        </template>,
+      );
       assert.dom('.hds-dialog-primitive__title').hasTagName('div');
     });
 
     test('it renders the title as a custom title tag when the @titleTag argument is provided', async function (assert) {
-      await render(<template>
-        <Header @icon="info" @tagline="Tagline" @titleTag="h1">
-          Title
-        </Header>
-      </template>);
+      await render(
+        <template>
+          <Header @icon="info" @tagline="Tagline" @titleTag="h1">
+            Title
+          </Header>
+        </template>,
+      );
       assert.dom('.hds-dialog-primitive__title').hasTagName('h1');
     });
 
@@ -80,10 +85,10 @@ module(
     test('it adds contextual classes to different DOM nodes using the `@contextualClassPrefix`', async function (assert) {
       await render(
         <template>
-        <Header @icon="info" @tagline="Tagline" @contextualClassPrefix="abc">
-          Title
-        </Header>
-      </template>,
+          <Header @icon="info" @tagline="Tagline" @contextualClassPrefix="abc">
+            Title
+          </Header>
+        </template>,
       );
       assert.dom('.hds-dialog-primitive__header.abc__header').exists();
       assert.dom('.hds-dialog-primitive__icon.abc__icon').exists();
@@ -97,10 +102,10 @@ module(
     test('it should always render the "dismiss" button', async function (assert) {
       await render(
         <template>
-        <Header>
-          Title
-        </Header>
-      </template>,
+          <Header>
+            Title
+          </Header>
+        </template>,
       );
       assert.dom('button.hds-dialog-primitive__dismiss').exists();
     });
@@ -108,17 +113,24 @@ module(
     // CALLBACK
 
     test('the "dismiss" button should invoke the `onDismiss` callback function', async function (assert) {
-      let dismissed = false;
-      this.set('onDismiss', () => (dismissed = true));
+      const context = tracked({
+        isDismissed: false,
+      });
+
+      const onDismiss = () => {
+        context.isDismissed = true;
+      };
+
       await render(
         <template>
-        <Header @onDismiss={{this.onDismiss}}>
-          Title
-        </Header>
-      </template>,
+          <Header @onDismiss={{onDismiss}}>
+            Title
+          </Header>
+        </template>,
       );
+
       await click('button.hds-dialog-primitive__dismiss');
-      assert.ok(dismissed);
+      assert.ok(context.isDismissed);
     });
   },
 );
