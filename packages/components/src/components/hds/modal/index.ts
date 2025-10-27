@@ -9,7 +9,6 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
-import { modifier } from 'ember-modifier';
 
 import type { WithBoundArgs } from '@glint/template';
 import type { HdsModalSizes, HdsModalColors } from './types.ts';
@@ -62,7 +61,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
   private _element!: HTMLDialogElement;
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
-  private _clickOutsideToDismissHandler!: (event: MouseEvent) => void;
 
   get isDismissDisabled(): boolean {
     return this.args.isDismissDisabled ?? false;
@@ -156,62 +154,27 @@ export default class HdsModal extends Component<HdsModalSignature> {
     }
   }
 
-  private _registerDialog = modifier((element: HTMLDialogElement) => {
+  @action
+  didInsert(element: HTMLDialogElement): void {
     // Store references of `<dialog>` and `<body>` elements
     this._element = element;
     this._body = document.body;
-
-    if (this._body) {
-      // Store the initial `overflow` value of `<body>` so we can reset to it
-      this._bodyInitialOverflowValue =
-        this._body.style.getPropertyValue('overflow');
-    }
-
-    // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    // eslint-disable-next-line @typescript-eslint/unbound-method
-    this._element.addEventListener('close', this.registerOnCloseCallback, true);
-
-    // If the modal dialog is not already open
     if (!this._element.open) {
       this.open();
     }
+  }
 
-    // Note: because the Modal has the `@isDismissedDisabled` argument, we need to add our own click outside to dismiss logic. This is because `ember-focus-trap` treats the `focusTrapOptions` as static, so we can't update it dynamically if `@isDismissDisabled` changes.
-    this._clickOutsideToDismissHandler = (event: MouseEvent) => {
-      // check if the click is outside the modal and the modal is open
-      if (!this._element.contains(event.target as Node) && this._isOpen) {
-        if (!this.isDismissDisabled) {
-          //  here we use `void` because `onDismiss` is an async function, but in reality we don't need to handle the result or wait for its completion
-          void this.onDismiss();
-        }
-      }
-    };
-
-    document.addEventListener('click', this._clickOutsideToDismissHandler, {
-      capture: true,
-      passive: false,
-    });
-
-    return () => {
-      // if the <dialog> is removed from the dom while open we emulate the close event
-      if (this._isOpen) {
-        this._element?.dispatchEvent(new Event('close'));
-      }
-
-      this._element?.removeEventListener(
+  @action
+  willDestroyNode(): void {
+    if (this._element) {
+      this._element.removeEventListener(
         'close',
         // eslint-disable-next-line @typescript-eslint/unbound-method
         this.registerOnCloseCallback,
         true
       );
-
-      document.removeEventListener(
-        'click',
-        this._clickOutsideToDismissHandler,
-        true
-      );
-    };
-  });
+    }
+  }
 
   @action
   open(): void {
@@ -244,5 +207,28 @@ export default class HdsModal extends Component<HdsModalSignature> {
 
     // Make modal dialog invisible using the native `close` method
     this._element.close();
+
+    // Reset page `overflow` property
+    if (this._body) {
+      this._body.style.removeProperty('overflow');
+      if (this._bodyInitialOverflowValue === '') {
+        if (this._body.style.length === 0) {
+          this._body.removeAttribute('style');
+        }
+      } else {
+        this._body.style.setProperty(
+          'overflow',
+          this._bodyInitialOverflowValue
+        );
+      }
+    }
+
+    // Return focus to a specific element (if provided)
+    if (this.args.returnFocusTo) {
+      const initiator = document.getElementById(this.args.returnFocusTo);
+      if (initiator) {
+        initiator.focus();
+      }
+    }
   }
 }
