@@ -2,7 +2,9 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-:root {
+:root,
+.hds-theme-hds,
+[data-hds-theme="hds"] {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #ffffff;
   --token-typography-font-weight-regular: 400;
