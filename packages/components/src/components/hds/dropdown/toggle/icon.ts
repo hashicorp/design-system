@@ -7,7 +7,10 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import { HdsDropdownToggleIconSizeValues } from './types.ts';
+import {
+  HdsDropdownToggleIconSizeValues,
+  HdsDropdownToggleIconAllowedIconValues,
+} from './types.ts';
 
 import type { HdsIconSignature } from '../../icon';
 import type { HdsDropdownToggleIconSizes } from './types';
@@ -19,6 +22,9 @@ export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
 export const SIZES: HdsDropdownToggleIconSizes[] = Object.values(
   HdsDropdownToggleIconSizeValues
 );
+
+export const ALLOWED_ICON_LIST: HdsIconSignature['Args']['name'][] =
+  Object.values(HdsDropdownToggleIconAllowedIconValues);
 
 export interface HdsDropdownToggleIconSignature {
   Args: {
@@ -107,13 +113,25 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
   }
 
   /**
-   * Indicates if a dropdown chevron icon should be displayed; should be displayed unless the "more-horizontal" icon is used.
+   * Indicates if a dropdown chevron icon should be displayed; should be displayed unless the "more-horizontal" or "more-vertical" icons are used.
    *
    * @param hasChevron
    * @type {boolean}
    * @default true
    */
   get hasChevron(): boolean {
+    if (
+      this.args.icon &&
+      !ALLOWED_ICON_LIST.includes(this.args.icon) &&
+      this.args.hasChevron === false
+    ) {
+      assert(
+        `@hasChevron for "Hds::Dropdown::Toggle::Icon" must be true unless the icon is one of the following: ${ALLOWED_ICON_LIST.join(
+          ', '
+        )}; received: ${this.args.icon}`
+      );
+    }
+
     return this.args.hasChevron ?? true;
   }
 
