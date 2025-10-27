@@ -45,6 +45,16 @@
               "Segoe UI Symbol"
             ],
             "private": "true"
+          },
+          "combined": {
+            "$type": "font-family",
+            "$value": [
+              "{typography.font-stack.sans.display.macOS}",
+              "{typography.font-stack.sans.display.windows}",
+              "{typography.font-stack.sans.display.sans}",
+              "{typography.font-stack.sans.display.emoji}"
+            ],
+            "private": "true"
           }
         },
         "text": {
@@ -73,12 +83,31 @@
             ],
             "private": "true"
           },
+          "sans": {
+            "$type": "font-family",
+            "$value": [
+              "Helvetica",
+              "Arial",
+              "sans-serif"
+            ],
+            "private": "true"
+          },
           "emoji": {
             "$type": "font-family",
             "$value": [
               "Apple Color Emoji",
               "Segoe UI Emoji",
               "Segoe UI Symbol"
+            ],
+            "private": "true"
+          },
+          "combined": {
+            "$type": "font-family",
+            "$value": [
+              "{typography.font-stack.sans.text.macOS}",
+              "{typography.font-stack.sans.text.windows}",
+              "{typography.font-stack.sans.text.sans}",
+              "{typography.font-stack.sans.text.emoji}"
             ],
             "private": "true"
           }
@@ -110,34 +139,29 @@
               "Consolas"
             ],
             "private": "true"
+          },
+          "combined": {
+            "$type": "font-family",
+            "$value": [
+              "{typography.font-stack.monospace.code.macOS}",
+              "{typography.font-stack.monospace.code.windows}",
+              "monospace"
+            ],
+            "private": "true"
           }
         }
       },
       "display": {
         "$type": "font-family",
-        "$value": [
-          "{typography.font-stack.sans.display.macOS}",
-          "{typography.font-stack.sans.display.windows}",
-          "{typography.font-stack.sans.display.sans}",
-          "{typography.font-stack.sans.display.emoji}"
-        ]
+        "$value": "{typography.font-stack.sans.display.combined}"
       },
       "text": {
         "$type": "font-family",
-        "$value": [
-          "{typography.font-stack.sans.text.macOS}",
-          "{typography.font-stack.sans.text.windows}",
-          "{typography.font-stack.sans.display.sans}",
-          "{typography.font-stack.sans.text.emoji}"
-        ]
+        "$value": "{typography.font-stack.sans.text.combined}"
       },
       "code": {
         "$type": "font-family",
-        "$value": [
-          "{typography.font-stack.monospace.code.macOS}",
-          "{typography.font-stack.monospace.code.windows}",
-          "monospace"
-        ]
+        "$value": "{typography.font-stack.monospace.code.combined}"
       }
     },
     "font-weight": {
