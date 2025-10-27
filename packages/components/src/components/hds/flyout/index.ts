@@ -122,7 +122,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     }
   }
 
-@action
+  @action
   didInsert(element: HTMLDialogElement): void {
     // Store references of `<dialog>` and `<body>` elements
     this._element = element;

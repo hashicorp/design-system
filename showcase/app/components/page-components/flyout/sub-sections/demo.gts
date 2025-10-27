@@ -234,7 +234,9 @@ export default class SubSectionDemo extends Component {
             <code>close()</code>
             method of the
             <code>Dialog</code>
-            HTML element.</p>
+            HTML element, who then will cause the
+            <code>willDestroyNode</code>
+            action to execute.</p>
         </F.Body>
         <F.Footer as |FF|>
           <HdsButton type="button" @text="Confirm" {{on "click" FF.close}} />
@@ -259,8 +261,8 @@ export default class SubSectionDemo extends Component {
           >This is not equivalent to a manual dismiss (<code>Esc</code>
             key, click outside, click dismiss button) because it will trigger
             directly the
-            <code>_registerDialog</code>
-            modifier's cleanup function.</p>
+            <code>willDestroyNode</code>
+            action.</p>
         </F.Body>
         <F.Footer>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
@@ -286,8 +288,8 @@ export default class SubSectionDemo extends Component {
           >This is not equivalent to a manual dismiss (<code>Esc</code>
             key, click outside, click dismiss button) because it will directly
             trigger the
-            <code>_registerDialog</code>
-            modifier's cleanup function.</p>
+            <code>willDestroyNode</code>
+            action.</p>
           <form
             id="deactivate-flyout-on-submit__form"
             aria-label="Deactivate Flyout on submit form"

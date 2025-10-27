@@ -503,7 +503,9 @@ export default class SubSectionDemo extends Component {
             <code>close()</code>
             method of the
             <code>Dialog</code>
-            HTML element.</p>
+            HTML element, who then will cause the
+            <code>willDestroyNode</code>
+            action to execute.</p>
         </M.Body>
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />
@@ -529,8 +531,8 @@ export default class SubSectionDemo extends Component {
           >This is not equivalent to a manual dismiss (<code>Esc</code>
             key, click outside, click dismiss button) because it will directly
             trigger the
-            <code>_registerDialog</code>
-            modifier's cleanup function.</p>
+            <code>willDestroyNode</code>
+            action.</p>
         </M.Body>
         <M.Footer>
           <HdsButton type="button" @text="Confirm" {{on "click" M.close}} />
@@ -556,8 +558,8 @@ export default class SubSectionDemo extends Component {
           >This is not equivalent to a manual dismiss (<code>Esc</code>
             key, click outside, click dismiss button) because it will directly
             trigger the
-            <code>_registerDialog</code>
-            modifier's cleanup function.</p>
+            <code>willDestroyNode</code>
+            action.</p>
           {{! template-lint-disable no-duplicate-landmark-elements }}
           <form
             id="deactivate-modal-on-submit__form"
