@@ -31,13 +31,11 @@ const CLUSTER_SIZE_OPTIONS = [
     size: 'Small',
     description: '2 vCPU | 2 GiB RAM',
     price: '$0.04',
-    disabled: true,
   },
   {
     size: 'Medium',
     description: '4 vCPU | 4 GiB RAM',
     price: '$0.08',
-    disabled: true,
   },
   { size: 'Large', description: '8 vCPU | 8 GiB RAM', price: '$0.16' },
   {
