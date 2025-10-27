@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-@mixin hds-theme-default() {
+@mixin hds-theme-hds() {
   :root {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #ffffff;
