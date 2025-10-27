@@ -14,20 +14,29 @@ import HdsDropdown from '../dropdown/index.ts';
 import HdsFilterBarCheckbox from './checkbox.ts';
 import HdsFilterBarRadio from './radio.ts';
 
-import type { HdsFilterBarFilter, HdsFilterBarFilters } from './types.ts';
-import type { HdsDropdownSignature } from '../dropdown/index.ts';
+import type {
+  HdsFilterBarFilter,
+  HdsFilterBarFilters,
+  HdsFilterBarFilterType,
+  HdsFilterBarData,
+  HdsFilterBarSelectionFilter,
+  HdsFilterBarRangeFilter,
+  HdsFilterBarRangeFilterSelector,
+} from './types.ts';
+import { SELECTORS_DISPLAY_SYMBOL } from './range.ts';
 
 export interface HdsFilterBarDropdownSignature {
-  Args: HdsDropdownSignature['Args'] & {
+  Args: {
     dropdown?: WithBoundArgs<typeof HdsDropdown, never>;
     key: string;
     text?: string;
+    type?: HdsFilterBarFilterType;
     filters: HdsFilterBarFilters;
     isMultiSelect?: boolean;
     isLiveFilter?: boolean;
     activeFilterableColumns?: string[];
     searchEnabled?: boolean;
-    onChange: (key: string, keyFilter?: HdsFilterBarFilter[]) => void;
+    onChange: (key: string, keyFilter?: HdsFilterBarFilter) => void;
   };
   Blocks: {
     default: [
@@ -46,87 +55,110 @@ export interface HdsFilterBarDropdownSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFilterBarDropdown extends Component<
-  HdsDropdownSignature & HdsFilterBarDropdownSignature
-> {
-  @tracked internalFilters: HdsFilterBarFilter[] | undefined = [];
+export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdownSignature> {
+  @tracked internalFilters: HdsFilterBarData | undefined = [];
 
   private _setUpDropdown = modifier(() => {
     if (this.keyFilter) {
       this.internalFilters = JSON.parse(
         JSON.stringify(this.keyFilter)
-      ) as HdsFilterBarFilter[];
-    } else {
-      this.internalFilters = [];
+      ) as HdsFilterBarData;
     }
   });
 
-  get keyFilter(): HdsFilterBarFilter[] | undefined {
+  get type(): HdsFilterBarFilterType {
+    const { type } = this.args;
+
+    if (!type) {
+      return 'multi-select';
+    }
+    return type;
+  }
+
+  get keyFilter(): HdsFilterBarData | undefined {
     const { filters, key } = this.args;
 
     if (!filters) {
       return undefined;
     }
-    return filters[key];
-  }
-
-  get numFilters(): number {
-    if (Array.isArray(this.keyFilter)) {
-      return this.keyFilter.length;
-    }
-    return 0;
+    return filters[key]?.data;
   }
 
   @action
-  onChange(event: Event): void {
-    const addFilter = (value: unknown): HdsFilterBarFilter[] => {
+  onSelectionChange(event: Event): void {
+    const addFilter = (value: unknown): void => {
       const newFilter = {
         text: value as string,
         value: value,
-      };
-      if (
-        Array.isArray(this.internalFilters) &&
-        input.classList.contains('hds-form-checkbox')
-      ) {
-        this.internalFilters.push(newFilter);
-        return this.internalFilters;
+      } as HdsFilterBarSelectionFilter;
+      if (this.type === 'single-select') {
+        this.internalFilters = newFilter;
       } else {
-        return [newFilter];
+        if (Array.isArray(this.internalFilters)) {
+          this.internalFilters.push(newFilter);
+        } else {
+          this.internalFilters = [newFilter];
+        }
       }
     };
 
-    const removeFilter = (value: string): HdsFilterBarFilter[] => {
-      const newFilter = [] as HdsFilterBarFilter[];
-      if (Array.isArray(this.internalFilters)) {
-        this.internalFilters.forEach((filter) => {
-          if (filter.value != value) {
-            newFilter.push(filter);
-          }
-        });
+    const removeFilter = (value: string): void => {
+      if (this.type === 'single-select') {
+        this.internalFilters = undefined;
+      } else {
+        if (Array.isArray(this.internalFilters)) {
+          const newFilter = [] as HdsFilterBarSelectionFilter[];
+          this.internalFilters.forEach((filter) => {
+            if (filter.value != value) {
+              newFilter.push(filter);
+            }
+          });
+          this.internalFilters = newFilter;
+        } else {
+          this.internalFilters = [];
+        }
       }
-      return newFilter;
     };
 
     const input = event.target as HTMLInputElement;
 
-    let newFilter = [] as HdsFilterBarFilter[];
-
     if (input.checked) {
-      newFilter = addFilter(input.value);
+      addFilter(input.value);
     } else {
-      newFilter = removeFilter(input.value);
+      removeFilter(input.value);
     }
-
-    this.internalFilters = newFilter;
 
     if (this.args.isLiveFilter) {
       const { onChange } = this.args;
       if (onChange && typeof onChange === 'function') {
-        if (newFilter.length === 0) {
-          onChange(this.args.key, undefined);
-        } else {
-          onChange(this.args.key, newFilter);
-        }
+        onChange(this.args.key, this.formattedFilters);
+      }
+    }
+  }
+
+  @action
+  onRangeChange(
+    selector?: HdsFilterBarRangeFilterSelector,
+    value?: number
+  ): void {
+    const addFilter = (): HdsFilterBarData => {
+      const newFilter = {
+        selector: selector,
+        value: value,
+      } as HdsFilterBarRangeFilter;
+      return newFilter;
+    };
+
+    if (selector && value) {
+      this.internalFilters = addFilter();
+    } else {
+      this.internalFilters = undefined;
+    }
+
+    if (this.args.isLiveFilter) {
+      const { onChange } = this.args;
+      if (onChange && typeof onChange === 'function') {
+        onChange(this.args.key, this.formattedFilters);
       }
     }
   }
@@ -135,7 +167,7 @@ export default class HdsFilterBarDropdown extends Component<
   onApply(closeDropdown?: () => void): void {
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
-      onChange(this.args.key, this.internalFilters);
+      onChange(this.args.key, this.formattedFilters);
     }
 
     if (closeDropdown && typeof closeDropdown === 'function') {
@@ -157,6 +189,19 @@ export default class HdsFilterBarDropdown extends Component<
     this._clearFilters();
   }
 
+  get formattedFilters(): HdsFilterBarFilter | undefined {
+    if (
+      this.internalFilters === undefined ||
+      (Array.isArray(this.internalFilters) && this.internalFilters.length === 0)
+    ) {
+      return undefined;
+    }
+    return {
+      type: this.type,
+      data: this.internalFilters,
+    } as HdsFilterBarFilter;
+  }
+
   get toggleButtonText(): string {
     const { key, filters, text } = this.args;
 
@@ -165,22 +210,55 @@ export default class HdsFilterBarDropdown extends Component<
       displayText = text;
     }
 
-    if (Array.isArray(filters[key]) && filters[key].length > 0) {
+    const keyFilter = filters[key];
+
+    if (!filters || !keyFilter || !keyFilter.data) {
+      return displayText;
+    } else if (this.args.type === 'range') {
+      return `${displayText} ${this._rangeFilterText(keyFilter.data)}`;
+    } else if (this.args.type === 'single-select') {
+      return `${displayText}: ${this._singleSelectFilterText(keyFilter.data)}`;
+    } else {
+      return `${displayText}: ${this._multiSelectFilterText(keyFilter.data)}`;
+    }
+  }
+
+  private _rangeFilterText(filterData: HdsFilterBarData): string {
+    if ('selector' in filterData && 'value' in filterData) {
+      return `${SELECTORS_DISPLAY_SYMBOL[filterData.selector]} ${filterData.value}`;
+    } else {
+      return '';
+    }
+  }
+
+  private _singleSelectFilterText(filterData: HdsFilterBarData): string {
+    if ('value' in filterData) {
+      return filterData.value as string;
+    } else {
+      return '';
+    }
+  }
+
+  private _multiSelectFilterText(filterData: HdsFilterBarData): string {
+    if (Array.isArray(filterData) && filterData.length > 0) {
       const charMax = 10;
       let filtersString = '';
 
-      filtersString = filters[key]
+      filtersString = filterData
         .map((filter) => {
-          if (filter.text.length > charMax) {
-            return filter.text.slice(0, charMax) + '...';
+          if ('text' in filter && typeof filter.text === 'string') {
+            if (filter.text.length > charMax) {
+              return filter.text.slice(0, charMax) + '...';
+            }
+            return filter.text;
           }
-          return filter.text;
+          return '';
         })
         .join(', ');
 
-      return `${displayText}: ${filtersString}`;
+      return filtersString;
     } else {
-      return displayText;
+      return '';
     }
   }
 
@@ -191,6 +269,8 @@ export default class HdsFilterBarDropdown extends Component<
     if (!this._isActiveFilterableColumn()) {
       classes.push('hds-filter-bar__dropdown--hidden');
     }
+
+    classes.push(`hds-filter-bar__dropdown--type-${this.type}`);
 
     return classes.join(' ');
   }
@@ -203,11 +283,11 @@ export default class HdsFilterBarDropdown extends Component<
   }
 
   private _clearFilters(): void {
-    this.internalFilters = [];
+    this.internalFilters = undefined;
 
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
-      onChange(this.args.key, this.internalFilters);
+      onChange(this.args.key, undefined);
     }
   }
 }

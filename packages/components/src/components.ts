@@ -132,6 +132,12 @@ export * from './components/hds/dropdown/types.ts';
 
 // FilterBar
 export { default as HdsFilterBar } from './components/hds/filter-bar/index.ts';
+export { default as HdsFilterBarCheckbox } from './components/hds/filter-bar/checkbox.ts';
+export { default as HdsFilterBarDropdown } from './components/hds/filter-bar/dropdown.ts';
+export { default as HdsFilterBarFiltersCheckbox } from './components/hds/filter-bar/filters-checkbox.ts';
+export { default as HdsFilterBarFiltersDropdown } from './components/hds/filter-bar/filters-dropdown.ts';
+export { default as HdsFilterBarRadio } from './components/hds/filter-bar/radio.ts';
+export { default as HdsFilterBarRange } from './components/hds/filter-bar/range.ts';
 export * from './components/hds/filter-bar/types.ts';
 
 // Flyout

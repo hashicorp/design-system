@@ -19,9 +19,11 @@ import {
   HdsBadgeColorValues,
   HdsFormToggleField,
   type HdsAdvancedTableOnSelectionChangeSignature,
+  type HdsFilterBarRangeFilterSelector,
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
+import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 export interface MockAppMainGenericAdvancedTableSignature {
   Element: HTMLDivElement;
@@ -531,7 +533,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   @deepTracked demoModel: HdsAdvancedTableSignature['Args']['model'] = [
     ...SAMPLE_MODEL,
   ];
-  @deepTracked filters: HdsAdvancedTableSignature['Args']['filters'] = {};
+  @deepTracked filters: HdsFilterBarSignature['Args']['filters'] = {};
   @tracked isLiveFilter = false;
   @tracked isSeparatedFilterBar = false;
 
@@ -557,47 +559,39 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     }
   };
 
-  valuesFromFilter = (
-    filters: HdsAdvancedTableSignature['Args']['filters'],
-    name: string,
-  ) => {
-    const filter = filters[name];
-    if (!filter) return;
-
-    if (Array.isArray(filter)) {
-      if (filter.length === 1) return filter[0]?.value;
-      return filter.map(
-        (f: HdsAdvancedTableSignature['Args']['filters'][]) => f.value,
-      );
-    }
-    return filter.value;
-  };
-
-  onFilter = (filters: HdsAdvancedTableSignature['Args']['filters']) => {
+  onFilter = (filters: HdsFilterBarSignature['Args']['filters']) => {
     this.filters = filters;
-  }
+  };
 
   onSearch = (event: Event) => {
     const value = event.target.value;
     if (value.length > 0) {
       window.alert(`✅ Search executed with value: ${value}`);
     }
-  }
+  };
 
   get demoModelFilteredData() {
     const filterItem = (
-      item: HdsAdvancedTableSignature['Args']['filters'],
+      item: HdsFilterBarSignature['Args']['filters'],
     ): boolean => {
       if (Object.keys(this.filters).length === 0) return true;
       let match = true;
       Object.keys(this.filters).forEach((key) => {
-        const keyFilters = this.valuesFromFilter(this.filters, key);
-        if (Array.isArray(keyFilters)) {
-          if (!keyFilters.includes(item[key])) {
-            match = false;
+        const filter = this.filters[key];
+        if (filter && filter.data) {
+          if (filter.type === 'range') {
+            if (!this.isRangeFilterMatch(item[key], filter.data)) {
+              match = false;
+            }
+          } else if (filter.type === 'single-select') {
+            if (!this.isSingleSelectFilterMatch(item[key], filter.data)) {
+              match = false;
+            }
+          } else {
+            if (!this.isMultiSelectFilterMatch(item[key], filter.data)) {
+              match = false;
+            }
           }
-        } else if (item[key] !== keyFilters) {
-          match = false;
         }
       });
       return match;
@@ -606,15 +600,59 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     return this.demoModel.filter(filterItem);
   }
 
+  isRangeFilterMatch(
+    itemValue: unknown,
+    filterData: HdsFilterBarSignature['Args']['filters']['data'],
+  ): boolean {
+    const selector = filterData.selector as HdsFilterBarRangeFilterSelector;
+    const number = Number(itemValue) as number;
+
+    if (isNaN(number)) {
+      return false;
+    } else {
+      switch (selector) {
+        case 'less-than':
+          return number < filterData.value;
+        case 'less-than-or-equal-to':
+          return number <= filterData.value;
+        case 'equal-to':
+          return number === filterData.value;
+        case 'greater-than-or-equal-to':
+          return number >= filterData.value;
+        case 'greater-than':
+          return number > filterData.value;
+        default:
+          return false;
+      }
+    }
+  }
+
+  isSingleSelectFilterMatch(
+    itemValue: unknown,
+    filterData: HdsFilterBarSignature['Args']['filters']['data'],
+  ): boolean {
+    return itemValue === filterData.value;
+  }
+
+  isMultiSelectFilterMatch(
+    itemValue: unknown,
+    filterData: HdsFilterBarSignature['Args']['filters']['data'],
+  ): boolean {
+    const filterValues = filterData.map(
+      (d: HdsFilterBarSignature['Args']['filters']['data']['value']) => d.value,
+    );
+    return filterValues.includes(itemValue);
+  }
+
   onLiveFilterToggle = (event: Event) => {
     const target = event.target as HTMLInputElement;
     this.isLiveFilter = target.checked;
-  }
+  };
 
   onSeparatedFilterBar = (event: Event) => {
     const target = event.target as HTMLInputElement;
     this.isSeparatedFilterBar = target.checked;
-  }
+  };
 
   <template>
     <div class="filters__toggle" {{style marginBottom="24px"}}>
@@ -646,7 +684,8 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
         @onFilter={{this.onFilter}}
         @onSearch={{this.onSearch}}
         {{style marginBottom="24px"}}
-        as |F|>
+        as |F|
+      >
         <F.ActionsDropdown as |D|>
           <D.ToggleButton @text="Actions" @color="secondary" @size="small" />
           <D.Checkbox>access</D.Checkbox>
@@ -659,13 +698,19 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           <D.Checkbox @value="project-name">Project name</D.Checkbox>
           <D.Checkbox @value="run-status">Run status</D.Checkbox>
           <D.Checkbox @value="terraform-version">Terraform version</D.Checkbox>
+          <D.Checkbox @value="module-count">Module count</D.Checkbox>
         </F.FiltersDropdown>
         <F.Dropdown @text="Name" @key="name" @searchEnabled={{true}} as |D|>
           {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
             <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
           {{/each}}
         </F.Dropdown>
-        <F.Dropdown @text="Project name" @key="project-name" @searchEnabled={{true}} as |D|>
+        <F.Dropdown
+          @text="Project name"
+          @key="project-name"
+          @searchEnabled={{true}}
+          as |D|
+        >
           {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
             <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
           {{/each}}
@@ -675,11 +720,17 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
           {{/each}}
         </F.Dropdown>
-        <F.Dropdown @text="Terraform version" @key="terraform-version" as |D|>
+        <F.Dropdown
+          @text="Terraform version"
+          @key="terraform-version"
+          @type="single-select"
+          as |D|
+        >
           {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
             <D.Radio @value={{option.value}}>{{option.label}}</D.Radio>
           {{/each}}
         </F.Dropdown>
+        <F.Dropdown @text="Module count" @key="module-count" @type="range" />
       </HdsFilterBar>
     {{/if}}
 
@@ -694,9 +745,20 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     >
       <:actions as |A|>
         {{#unless this.isSeparatedFilterBar}}
-          <A.FilterBar @hasSearch={{true}} @filters={{this.filters}} @isLiveFilter={{this.isLiveFilter}} @onFilter={{this.onFilter}} @onSearch={{this.onSearch}} as |F|>
+          <A.FilterBar
+            @hasSearch={{true}}
+            @filters={{this.filters}}
+            @isLiveFilter={{this.isLiveFilter}}
+            @onFilter={{this.onFilter}}
+            @onSearch={{this.onSearch}}
+            as |F|
+          >
             <F.ActionsDropdown as |D|>
-              <D.ToggleButton @text="Actions" @color="secondary" @size="small" />
+              <D.ToggleButton
+                @text="Actions"
+                @color="secondary"
+                @size="small"
+              />
               <D.Checkbox>access</D.Checkbox>
               <D.Checkbox>homework</D.Checkbox>
               <D.Checkbox>discovery</D.Checkbox>
@@ -707,27 +769,52 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
               <D.Checkbox @value="project-name">Project name</D.Checkbox>
               <D.Checkbox @value="run-status">Run status</D.Checkbox>
               <D.Checkbox @value="terraform-version">Terraform version</D.Checkbox>
+              <D.Checkbox @value="module-count">Module count</D.Checkbox>
             </F.FiltersDropdown>
             <F.Dropdown @text="Name" @key="name" @searchEnabled={{true}} as |D|>
               {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
-                <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+                <D.Checkbox
+                  @value={{option.value}}
+                >{{option.label}}</D.Checkbox>
               {{/each}}
             </F.Dropdown>
-            <F.Dropdown @text="Project name" @key="project-name" @searchEnabled={{true}} as |D|>
+            <F.Dropdown
+              @text="Project name"
+              @key="project-name"
+              @searchEnabled={{true}}
+              as |D|
+            >
               {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
-                <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+                <D.Checkbox
+                  @value={{option.value}}
+                >{{option.label}}</D.Checkbox>
               {{/each}}
             </F.Dropdown>
             <F.Dropdown @text="Run status" @key="run-status" as |D|>
               {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
-                <D.Checkbox @value={{option.value}}>{{option.label}}</D.Checkbox>
+                <D.Checkbox
+                  @value={{option.value}}
+                >{{option.label}}</D.Checkbox>
               {{/each}}
             </F.Dropdown>
-            <F.Dropdown @text="Terraform version" @key="terraform-version" as |D|>
-              {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
+            <F.Dropdown
+              @text="Terraform version"
+              @key="terraform-version"
+              @type="single-select"
+              as |D|
+            >
+              {{#each
+                (get SAMPLE_MODEL_VALUES "terraform-version")
+                as |option|
+              }}
                 <D.Radio @value={{option.value}}>{{option.label}}</D.Radio>
               {{/each}}
             </F.Dropdown>
+            <F.Dropdown
+              @text="Module count"
+              @key="module-count"
+              @type="range"
+            />
           </A.FilterBar>
         {{/unless}}
       </:actions>
