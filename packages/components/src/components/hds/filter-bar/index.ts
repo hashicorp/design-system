@@ -6,6 +6,8 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { schedule } from '@ember/runloop';
+import { modifier } from 'ember-modifier';
 
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
@@ -49,6 +51,19 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   @tracked activeFilterableColumns: string[] = [];
   @tracked showFilters: boolean = true;
 
+  private _element!: HTMLDivElement;
+  private _filtersDropdownToggleElement!: HTMLDivElement;
+
+  private _setUpFilterBar = modifier((element: HTMLDivElement) => {
+    this._element = element;
+
+    this._filtersDropdownToggleElement = element.querySelector(
+      '.hds-filter-bar__filters-dropdown .hds-dropdown-toggle-button'
+    ) as HTMLDivElement;
+
+    return () => {};
+  });
+
   constructor(owner: Owner, args: HdsFilterBarSignature['Args']) {
     super(owner, args);
 
@@ -81,6 +96,20 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
         this._triggerFilter(k);
       }
     });
+
+    let filterKeyToOpen: string | undefined = undefined;
+    activeFilterableColumns.forEach((k) => {
+      if (!this.filters[k]) {
+        filterKeyToOpen = k;
+      }
+    });
+
+    if (filterKeyToOpen) {
+      // eslint-disable-next-line ember/no-runloop
+      schedule('afterRender', (): void => {
+        this._triggerDropdownOpen(filterKeyToOpen as string);
+      });
+    }
   }
 
   @action
@@ -92,12 +121,12 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     if (onFilter && typeof onFilter === 'function') {
       onFilter(this.filters);
     }
+
+    this._filtersDropdownToggleElement.focus();
   }
 
   @action
   onSearch(event: Event): void {
-    console.log('Search event:', event);
-
     const { onSearch } = this.args;
     if (onSearch && typeof onSearch === 'function') {
       onSearch(event);
@@ -135,9 +164,28 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
       this.activeFilterableColumns = this.activeFilterableColumns.filter(
         (colKey) => colKey !== key
       );
+      // Focus back on the filters dropdown toggle after removing a filter
+      this._filtersDropdownToggleElement.focus();
     } else {
       Object.assign(newFilters, { [key]: keyFilter });
     }
     this.filters = { ...newFilters };
+  }
+
+  private _triggerDropdownOpen(key: string): void {
+    const dropdownElement = this._element.querySelector(
+      `.hds-dropdown[data-filter-key="${key}"]`
+    ) as HTMLElement;
+
+    if (dropdownElement) {
+      const toggleButton = dropdownElement.querySelector(
+        '.hds-dropdown-toggle-button'
+      ) as HTMLElement;
+
+      if (toggleButton) {
+        toggleButton.focus();
+        toggleButton.click();
+      }
+    }
   }
 }
