@@ -42,6 +42,7 @@ export interface HdsFilterBarSignature {
   };
   Element: HTMLDivElement;
 }
+
 export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   @tracked filters: HdsFilterBarFilters = {};
   @tracked hasActiveFilters: boolean = Object.keys(this.filters).length > 0;
@@ -67,7 +68,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   }
 
   @action
-  onFilter(key: string, keyFilter?: HdsFilterBarFilter[]): void {
+  onFilter(key: string, keyFilter?: HdsFilterBarFilter): void {
     this._triggerFilter(key, keyFilter);
   }
 
@@ -108,7 +109,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     this.showFilters = !this.showFilters;
   }
 
-  private _triggerFilter(key: string, keyFilter?: HdsFilterBarFilter[]): void {
+  private _triggerFilter(key: string, keyFilter?: HdsFilterBarFilter): void {
     this._updateFilter(key, keyFilter);
 
     this.hasActiveFilters = Object.keys(this.filters).length > 0;
@@ -119,12 +120,12 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     }
   }
 
-  private _updateFilter(key: string, keyFilter?: HdsFilterBarFilter[]): void {
+  private _updateFilter(key: string, keyFilter?: HdsFilterBarFilter): void {
     const newFilters = {} as HdsFilterBarFilters;
     Object.keys(this.filters).forEach((k) => {
       newFilters[k] = JSON.parse(
         JSON.stringify(this.filters[k])
-      ) as HdsFilterBarFilter[];
+      ) as HdsFilterBarFilter;
     });
     if (
       keyFilter === undefined ||
@@ -139,13 +140,4 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     }
     this.filters = { ...newFilters };
   }
-
-  private onFilterDismiss = (key: string, filterValue: unknown): void => {
-    const oldFilter = this.filters[key];
-    let newFilter: HdsFilterBarFilter[] = [];
-    if (Array.isArray(oldFilter)) {
-      newFilter = oldFilter.filter((filter) => filter.value !== filterValue);
-    }
-    this.onFilter(key, newFilter);
-  };
 }
