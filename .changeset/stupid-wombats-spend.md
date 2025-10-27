@@ -2,4 +2,6 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`SuperSelect` - Fix color style for disabled option items.
+<!-- START components/form/super-select -->
+`SuperSelect` - Fixed color style for disabled option items.
+<!-- END -->
