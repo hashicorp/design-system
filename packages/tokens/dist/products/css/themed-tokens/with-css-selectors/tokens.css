@@ -11,7 +11,9 @@
   --token-typography-font-weight-bold: 700;
 }
 
+.hds-theme-light,
 .hds-theme-cds-g0,
+[data-hds-theme="light"],
 [data-hds-theme="cds-g0"] {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #161616;
@@ -41,7 +43,9 @@
   --token-typography-font-weight-bold: 600;
 }
 
+.hds-theme-dark,
 .hds-theme-cds-g100,
+[data-hds-theme="dark"],
 [data-hds-theme="cds-g100"] {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #f4f4f4;
