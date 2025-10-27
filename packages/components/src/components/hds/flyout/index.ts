@@ -97,29 +97,6 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     }
 
     this._isOpen = false;
-
-    // Reset page `overflow` property
-    if (this._body) {
-      this._body.style.removeProperty('overflow');
-      if (this._bodyInitialOverflowValue === '') {
-        if (this._body.style.length === 0) {
-          this._body.removeAttribute('style');
-        }
-      } else {
-        this._body.style.setProperty(
-          'overflow',
-          this._bodyInitialOverflowValue
-        );
-      }
-    }
-
-    // Return focus to a specific element (if provided)
-    if (this.args.returnFocusTo) {
-      const initiator = document.getElementById(this.args.returnFocusTo);
-      if (initiator) {
-        initiator.focus();
-      }
-    }
   }
 
   @action
@@ -127,6 +104,18 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     // Store references of `<dialog>` and `<body>` elements
     this._element = element;
     this._body = document.body;
+
+    if (this._body) {
+      // Store the initial `overflow` value of `<body>` so we can reset to it
+      this._bodyInitialOverflowValue =
+        this._body.style.getPropertyValue('overflow');
+    }
+
+    // Register "onClose" callback function to be called when a native 'close' event is dispatched
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    this._element.addEventListener('close', this.registerOnCloseCallback, true);
+
+    // If the flyout dialog is not already open
     if (!this._element.open) {
       this.open();
     }
