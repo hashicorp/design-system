@@ -10,6 +10,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
+import ShwCarbonizationStylePreviewTypography from 'showcase/components/shw/carbonization/style-preview-typography';
 
 import { STYLES_COMBINATIONS } from 'showcase/components/page-foundations/typography/sub-sections/styles';
 
@@ -68,9 +69,10 @@ const TypographyCarbonization: TemplateOnlyComponent = <template>
           <ShwFlex @direction="column" as |SF|>
             {{#each weights as |weight|}}
               <SF.Item>
-                <p
-                  class="hds-typography-{{style}} hds-font-weight-{{weight}}"
-                >{{style}} / {{weight}}</p>
+                <ShwCarbonizationStylePreviewTypography
+                  @class="hds-typography-{{style}} hds-font-weight-{{weight}}"
+                  @label="{{style}} / {{weight}}"
+                />
               </SF.Item>
             {{/each}}
           </ShwFlex>
@@ -81,12 +83,12 @@ const TypographyCarbonization: TemplateOnlyComponent = <template>
               {{#each weights as |weight|}}
                 {{#let (get mappingItem.weights weight) as |mappedWeight|}}
                   <SF.Item>
-                    <p
-                      class="cds--type-{{mappingItem.mapsTo}}
-                        cds--type-{{mappedWeight}}"
-                    >{{mappingItem.mapsTo}}
+                    <ShwCarbonizationStylePreviewTypography
+                      @class="cds--type-{{mappingItem.mapsTo}} cds--type-{{mappedWeight}}"
+                      @label="{{mappingItem.mapsTo}}
                       /
-                      {{mappedWeight}}</p>
+                      {{mappedWeight}}"
+                    />
                   </SF.Item>
                 {{/let}}
               {{/each}}
