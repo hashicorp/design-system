@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import type { WithBoundArgs } from '@glint/template';
 
-import type { HdsFilterBarFilter } from './types.ts';
+import type { HdsFilterBarSelectionFilter } from './types.ts';
 
 import HdsDropdownListItemCheckbox from '../dropdown/list-item/checkbox.ts';
 
@@ -17,7 +17,7 @@ export interface HdsFilterBarCheckboxSignature {
   Args: HdsDropdownSignature['Args'] & {
     checkbox?: WithBoundArgs<typeof HdsDropdownListItemCheckbox, never>;
     value?: string;
-    keyFilter: HdsFilterBarFilter[] | HdsFilterBarFilter | undefined;
+    keyFilter: HdsFilterBarSelectionFilter[] | undefined;
     onChange?: (event: Event) => void;
   };
   Blocks: {
@@ -39,8 +39,6 @@ export default class HdsFilterBarCheckbox extends Component<HdsFilterBarCheckbox
     const { keyFilter, value } = this.args;
     if (Array.isArray(keyFilter)) {
       return keyFilter.some((filter) => filter.value === value);
-    } else if (keyFilter && value) {
-      return keyFilter.value === value;
     }
     return false;
   }

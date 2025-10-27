@@ -241,6 +241,7 @@
       "./components/hds/filter-bar/filters-dropdown.js": "./dist/_app_/components/hds/filter-bar/filters-dropdown.js",
       "./components/hds/filter-bar.js": "./dist/_app_/components/hds/filter-bar.js",
       "./components/hds/filter-bar/radio.js": "./dist/_app_/components/hds/filter-bar/radio.js",
+      "./components/hds/filter-bar/range.js": "./dist/_app_/components/hds/filter-bar/range.js",
       "./components/hds/flyout.js": "./dist/_app_/components/hds/flyout.js",
       "./components/hds/form/character-count.js": "./dist/_app_/components/hds/form/character-count.js",
       "./components/hds/form/checkbox/base.js": "./dist/_app_/components/hds/form/checkbox/base.js",

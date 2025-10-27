@@ -103,6 +103,7 @@ import type HdsFilterBarCheckboxComponent from './components/hds/filter-bar/chec
 import type HdsFilterBarRadioComponent from './components/hds/filter-bar/radio';
 import type HdsFilterBarFiltersDropdownComponent from './components/hds/filter-bar/filters-dropdown';
 import type HdsFilterBarFiltersCheckboxComponent from './components/hds/filter-bar/filters-checkbox';
+import type HdsFilterBarRangeComponent from './components/hds/filter-bar/range';
 import type HdsFlyoutComponent from './components/hds/flyout';
 
 import type HdsFormComponent from './components/hds/form';
@@ -573,6 +574,8 @@ export default interface HdsComponentsRegistry {
   'hds/filter-bar/filters-dropdown': typeof HdsFilterBarFiltersDropdownComponent;
   'Hds::FilterBar::FiltersCheckbox': typeof HdsFilterBarFiltersCheckboxComponent;
   'hds/filter-bar/filters-checkbox': typeof HdsFilterBarFiltersCheckboxComponent;
+  'Hds::FilterBar::Range': typeof HdsFilterBarRangeComponent;
+  'hds/filter-bar/range': typeof HdsFilterBarRangeComponent;
 
   // Flyout
   'Hds::Flyout': typeof HdsFlyoutComponent;
