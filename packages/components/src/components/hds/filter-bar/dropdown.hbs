@@ -10,14 +10,24 @@
   as |D|
 >
   <D.ToggleButton @text={{this.toggleButtonText}} @color="secondary" @size="small" />
-  {{yield
-    (hash
-      Checkbox=(component
-        "hds/filter-bar/checkbox" checkbox=D.Checkbox keyFilter=this.internalFilters onChange=this.onChange
+  {{#if (eq @type "range")}}
+    <Hds::FilterBar::Range
+      @generic={{D.Generic}}
+      @keyFilter={{this.internalFilters}}
+      @onChange={{this.onRangeChange}}
+    />
+  {{else}}
+    {{yield
+      (hash
+        Checkbox=(component
+          "hds/filter-bar/checkbox" checkbox=D.Checkbox keyFilter=this.internalFilters onChange=this.onSelectionChange
+        )
+        Radio=(component
+          "hds/filter-bar/radio" radio=D.Radio keyFilter=this.internalFilters onChange=this.onSelectionChange
+        )
       )
-      Radio=(component "hds/filter-bar/radio" radio=D.Radio keyFilter=this.internalFilters onChange=this.onChange)
-    )
-  }}
+    }}
+  {{/if}}
   {{#unless @isLiveFilter}}
     <D.Footer @hasDivider={{true}}>
       <Hds::ButtonSet>

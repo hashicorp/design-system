@@ -242,6 +242,7 @@
       "./components/hds/filter-bar/filters-dropdown.js": "./dist/_app_/components/hds/filter-bar/filters-dropdown.js",
       "./components/hds/filter-bar.js": "./dist/_app_/components/hds/filter-bar.js",
       "./components/hds/filter-bar/radio.js": "./dist/_app_/components/hds/filter-bar/radio.js",
+      "./components/hds/filter-bar/range.js": "./dist/_app_/components/hds/filter-bar/range.js",
       "./components/hds/flyout/body.js": "./dist/_app_/components/hds/flyout/body.js",
       "./components/hds/flyout/description.js": "./dist/_app_/components/hds/flyout/description.js",
       "./components/hds/flyout/footer.js": "./dist/_app_/components/hds/flyout/footer.js",

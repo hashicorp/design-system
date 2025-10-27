@@ -45,10 +45,6 @@
   }
 }
 
-.hds-filter-bar__dropdown--hidden.hds-dropdown {
-  display: none;
-}
-
 .hds-filter-bar__actions__right {
   display: flex;
   flex-direction: row;
@@ -57,4 +53,17 @@
 
 .hds-filter-bar__search {
   --token-form-control-padding: 4px;
+}
+
+// DROPDOWN
+.hds-filter-bar__dropdown--hidden.hds-dropdown {
+  display: none;
+}
+
+.hds-filter-bar__dropdown--type-range .hds-dropdown-list-item {
+  padding: 8px 16px;
+}
+
+.hds-filter-bar__dropdown--type-range .hds-form-label {
+  margin-bottom: 4px;
 }
