@@ -40,7 +40,7 @@ for (const mode of modes) {
       // note: the `slice` is always an object (a token or a parent group)
       function replaceModes(slice: DesignToken) {
         if (slice.$modes) {
-          if (slice.$modes[mode]) {
+          if (mode in slice.$modes) {
             slice.$value = slice.$modes[mode];
           } else {
             // TODO! decide if we want to throw here (and test if it works, by removing a value from one of the test files)
