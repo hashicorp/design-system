@@ -9,16 +9,6 @@
               "-apple-system",
               "BlinkMacSystemFont"
             ],
-            "$modes": {
-              "default": [
-                "-apple-system",
-                "BlinkMacSystemFont"
-              ],
-              "cds-g0": "{carbon.typography.font-family.sans}",
-              "cds-g10": "{carbon.typography.font-family.sans}",
-              "cds-g90": "{carbon.typography.font-family.sans}",
-              "cds-g100": "{carbon.typography.font-family.sans}"
-            },
             "private": "true"
           },
           "windows": {
@@ -45,6 +35,16 @@
               "Segoe UI Symbol"
             ],
             "private": "true"
+          },
+          "combined": {
+            "$type": "font-family",
+            "$value": [
+              "{typography.font-stack.sans.display.macOS}",
+              "{typography.font-stack.sans.display.windows}",
+              "{typography.font-stack.sans.display.sans}",
+              "{typography.font-stack.sans.display.emoji}"
+            ],
+            "private": "true"
           }
         },
         "text": {
@@ -54,16 +54,6 @@
               "-apple-system",
               "BlinkMacSystemFont"
             ],
-            "$modes": {
-              "default": [
-                "-apple-system",
-                "BlinkMacSystemFont"
-              ],
-              "cds-g0": "{carbon.typography.font-family.sans}",
-              "cds-g10": "{carbon.typography.font-family.sans}",
-              "cds-g90": "{carbon.typography.font-family.sans}",
-              "cds-g100": "{carbon.typography.font-family.sans}"
-            },
             "private": "true"
           },
           "windows": {
@@ -73,12 +63,31 @@
             ],
             "private": "true"
           },
+          "sans": {
+            "$type": "font-family",
+            "$value": [
+              "Helvetica",
+              "Arial",
+              "sans-serif"
+            ],
+            "private": "true"
+          },
           "emoji": {
             "$type": "font-family",
             "$value": [
               "Apple Color Emoji",
               "Segoe UI Emoji",
               "Segoe UI Symbol"
+            ],
+            "private": "true"
+          },
+          "combined": {
+            "$type": "font-family",
+            "$value": [
+              "{typography.font-stack.sans.text.macOS}",
+              "{typography.font-stack.sans.text.windows}",
+              "{typography.font-stack.sans.text.sans}",
+              "{typography.font-stack.sans.text.emoji}"
             ],
             "private": "true"
           }
@@ -92,16 +101,6 @@
               "ui-monospace",
               "Menlo"
             ],
-            "$modes": {
-              "default": [
-                "ui-monospace",
-                "Menlo"
-              ],
-              "cds-g0": "{carbon.typography.font-family.mono}",
-              "cds-g10": "{carbon.typography.font-family.mono}",
-              "cds-g90": "{carbon.typography.font-family.mono}",
-              "cds-g100": "{carbon.typography.font-family.mono}"
-            },
             "private": "true"
           },
           "windows": {
@@ -110,34 +109,50 @@
               "Consolas"
             ],
             "private": "true"
+          },
+          "combined": {
+            "$type": "font-family",
+            "$value": [
+              "{typography.font-stack.monospace.code.macOS}",
+              "{typography.font-stack.monospace.code.windows}",
+              "monospace"
+            ],
+            "private": "true"
           }
         }
       },
       "display": {
         "$type": "font-family",
-        "$value": [
-          "{typography.font-stack.sans.display.macOS}",
-          "{typography.font-stack.sans.display.windows}",
-          "{typography.font-stack.sans.display.sans}",
-          "{typography.font-stack.sans.display.emoji}"
-        ]
+        "$value": "{typography.font-stack.sans.display.combined}",
+        "$modes": {
+          "default": "{typography.font-stack.sans.display.combined}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "text": {
         "$type": "font-family",
-        "$value": [
-          "{typography.font-stack.sans.text.macOS}",
-          "{typography.font-stack.sans.text.windows}",
-          "{typography.font-stack.sans.display.sans}",
-          "{typography.font-stack.sans.text.emoji}"
-        ]
+        "$value": "{typography.font-stack.sans.text.combined}",
+        "$modes": {
+          "default": "{typography.font-stack.sans.text.combined}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "code": {
         "$type": "font-family",
-        "$value": [
-          "{typography.font-stack.monospace.code.macOS}",
-          "{typography.font-stack.monospace.code.windows}",
-          "monospace"
-        ]
+        "$value": "{typography.font-stack.monospace.code.combined}",
+        "$modes": {
+          "default": "{typography.font-stack.monospace.code.combined}",
+          "cds-g0": "{carbon.typography.font-family.mono}",
+          "cds-g10": "{carbon.typography.font-family.mono}",
+          "cds-g90": "{carbon.typography.font-family.mono}",
+          "cds-g100": "{carbon.typography.font-family.mono}"
+        }
       }
     },
     "font-weight": {
@@ -189,200 +204,484 @@
     "display-500": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.display}"
+        "$value": "{typography.font-stack.display}",
+        "$modes": {
+          "default": "{typography.font-stack.display}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "font-size": {
         "$type": "font-size",
         "$value": "30",
         "unit": "px",
-        "comment": "30px/1.875rem"
+        "comment": "30px/1.875rem",
+        "$modes": {
+          "default": "30",
+          "cds-g0": "{carbon.typography.heading05.font-size}",
+          "cds-g10": "{carbon.typography.heading05.font-size}",
+          "cds-g90": "{carbon.typography.heading05.font-size}",
+          "cds-g100": "{carbon.typography.heading05.font-size}"
+        }
       },
       "line-height": {
         "$type": "number",
         "$value": 1.2666,
-        "comment": "38px"
+        "comment": "38px",
+        "$modes": {
+          "default": 1.2666,
+          "cds-g0": "{carbon.typography.heading05.line-height}",
+          "cds-g10": "{carbon.typography.heading05.line-height}",
+          "cds-g90": "{carbon.typography.heading05.line-height}",
+          "cds-g100": "{carbon.typography.heading05.line-height}"
+        }
+      },
+      "letter-spacing": {
+        "$type": "letter-spacing",
+        "$value": -0.5,
+        "unit": "px",
+        "comment": "this is `tracking`",
+        "$modes": {
+          "default": -0.5,
+          "cds-g0": "{carbon.typography.heading05.letter-spacing}",
+          "cds-g10": "{carbon.typography.heading05.letter-spacing}",
+          "cds-g90": "{carbon.typography.heading05.letter-spacing}",
+          "cds-g100": "{carbon.typography.heading05.letter-spacing}"
+        }
       }
     },
     "display-400": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.display}"
+        "$value": "{typography.font-stack.display}",
+        "$modes": {
+          "default": "{typography.font-stack.display}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "font-size": {
         "$type": "font-size",
         "$value": "24",
         "unit": "px",
-        "comment": "24px/1.5rem"
+        "comment": "24px/1.5rem",
+        "$modes": {
+          "default": "24",
+          "cds-g0": "{carbon.typography.heading04.font-size}",
+          "cds-g10": "{carbon.typography.heading04.font-size}",
+          "cds-g90": "{carbon.typography.heading04.font-size}",
+          "cds-g100": "{carbon.typography.heading04.font-size}"
+        }
       },
       "line-height": {
         "$type": "number",
         "$value": 1.3333,
-        "comment": "32px"
+        "comment": "32px",
+        "$modes": {
+          "default": 1.3333,
+          "cds-g0": "{carbon.typography.heading04.line-height}",
+          "cds-g10": "{carbon.typography.heading04.line-height}",
+          "cds-g90": "{carbon.typography.heading04.line-height}",
+          "cds-g100": "{carbon.typography.heading04.line-height}"
+        }
+      },
+      "letter-spacing": {
+        "$type": "letter-spacing",
+        "$value": 0,
+        "unit": "px",
+        "comment": "this is `tracking`",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.heading04.letter-spacing}",
+          "cds-g10": "{carbon.typography.heading04.letter-spacing}",
+          "cds-g90": "{carbon.typography.heading04.letter-spacing}",
+          "cds-g100": "{carbon.typography.heading04.letter-spacing}"
+        }
       }
     },
     "display-300": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}"
+        "$value": "{typography.font-stack.text}",
+        "$modes": {
+          "default": "{typography.font-stack.text}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "font-size": {
         "$type": "font-size",
         "$value": "18",
         "unit": "px",
-        "comment": "18px/1.125rem"
+        "comment": "18px/1.125rem",
+        "$modes": {
+          "default": "18",
+          "cds-g0": "{carbon.typography.heading03.font-size}",
+          "cds-g10": "{carbon.typography.heading03.font-size}",
+          "cds-g90": "{carbon.typography.heading03.font-size}",
+          "cds-g100": "{carbon.typography.heading03.font-size}"
+        }
       },
       "line-height": {
         "$type": "number",
         "$value": 1.3333,
-        "comment": "24px"
+        "comment": "24px",
+        "$modes": {
+          "default": 1.3333,
+          "cds-g0": "{carbon.typography.heading03.line-height}",
+          "cds-g10": "{carbon.typography.heading03.line-height}",
+          "cds-g90": "{carbon.typography.heading03.line-height}",
+          "cds-g100": "{carbon.typography.heading03.line-height}"
+        }
       },
       "letter-spacing": {
         "$type": "letter-spacing",
         "$value": -0.5,
         "unit": "px",
-        "comment": "this is `tracking`"
+        "comment": "this is `tracking`",
+        "$modes": {
+          "default": -0.5,
+          "cds-g0": "{carbon.typography.heading03.letter-spacing}",
+          "cds-g10": "{carbon.typography.heading03.letter-spacing}",
+          "cds-g90": "{carbon.typography.heading03.letter-spacing}",
+          "cds-g100": "{carbon.typography.heading03.letter-spacing}"
+        }
       }
     },
     "display-200": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.display}"
+        "$value": "{typography.font-stack.text}",
+        "$modes": {
+          "default": "{typography.font-stack.text}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "font-size": {
         "$type": "font-size",
         "$value": "16",
         "unit": "px",
-        "comment": "16px/1rem"
+        "comment": "16px/1rem",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "{carbon.typography.heading02.font-size}",
+          "cds-g10": "{carbon.typography.heading02.font-size}",
+          "cds-g90": "{carbon.typography.heading02.font-size}",
+          "cds-g100": "{carbon.typography.heading02.font-size}"
+        }
       },
       "line-height": {
         "$type": "number",
         "$value": 1.5,
-        "comment": "24px"
+        "comment": "24px",
+        "$modes": {
+          "default": 1.5,
+          "cds-g0": "{carbon.typography.heading02.line-height}",
+          "cds-g10": "{carbon.typography.heading02.line-height}",
+          "cds-g90": "{carbon.typography.heading02.line-height}",
+          "cds-g100": "{carbon.typography.heading02.line-height}"
+        }
       },
       "letter-spacing": {
         "$type": "letter-spacing",
         "$value": -0.5,
         "unit": "px",
-        "comment": "this is `tracking`"
+        "comment": "this is `tracking`",
+        "$modes": {
+          "default": -0.5,
+          "cds-g0": "{carbon.typography.heading02.letter-spacing}",
+          "cds-g10": "{carbon.typography.heading02.letter-spacing}",
+          "cds-g90": "{carbon.typography.heading02.letter-spacing}",
+          "cds-g100": "{carbon.typography.heading02.letter-spacing}"
+        }
       }
     },
     "display-100": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}"
+        "$value": "{typography.font-stack.text}",
+        "$modes": {
+          "default": "{typography.font-stack.text}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "font-size": {
         "$type": "font-size",
         "$value": "13",
         "unit": "px",
-        "comment": "13px/0.8125rem"
+        "comment": "13px/0.8125rem",
+        "$modes": {
+          "default": "13",
+          "cds-g0": "{carbon.typography.heading01.font-size}",
+          "cds-g10": "{carbon.typography.heading01.font-size}",
+          "cds-g90": "{carbon.typography.heading01.font-size}",
+          "cds-g100": "{carbon.typography.heading01.font-size}"
+        }
       },
       "line-height": {
         "$type": "number",
         "$value": 1.3846,
-        "comment": "18px"
+        "comment": "18px",
+        "$modes": {
+          "default": 1.3846,
+          "cds-g0": "{carbon.typography.heading01.line-height}",
+          "cds-g10": "{carbon.typography.heading01.line-height}",
+          "cds-g90": "{carbon.typography.heading01.line-height}",
+          "cds-g100": "{carbon.typography.heading01.line-height}"
+        }
+      },
+      "letter-spacing": {
+        "$type": "letter-spacing",
+        "$value": 0,
+        "unit": "px",
+        "comment": "this is `tracking`",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.heading01.letter-spacing}",
+          "cds-g10": "{carbon.typography.heading01.letter-spacing}",
+          "cds-g90": "{carbon.typography.heading01.letter-spacing}",
+          "cds-g100": "{carbon.typography.heading01.letter-spacing}"
+        }
       }
     },
     "body-300": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}"
+        "$value": "{typography.font-stack.text}",
+        "$modes": {
+          "default": "{typography.font-stack.text}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "font-size": {
         "$type": "font-size",
         "$value": "16",
         "unit": "px",
-        "comment": "16px/1rem"
+        "comment": "16px/1rem",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "{carbon.typography.body02.font-size}",
+          "cds-g10": "{carbon.typography.body02.font-size}",
+          "cds-g90": "{carbon.typography.body02.font-size}",
+          "cds-g100": "{carbon.typography.body02.font-size}"
+        }
       },
       "line-height": {
         "$type": "number",
         "$value": 1.5,
-        "comment": "24px"
+        "comment": "24px",
+        "$modes": {
+          "default": 1.4286,
+          "cds-g0": "{carbon.typography.body02.line-height}",
+          "cds-g10": "{carbon.typography.body02.line-height}",
+          "cds-g90": "{carbon.typography.body02.line-height}",
+          "cds-g100": "{carbon.typography.body02.line-height}"
+        }
       }
     },
     "body-200": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}"
+        "$value": "{typography.font-stack.text}",
+        "$modes": {
+          "default": "{typography.font-stack.text}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "font-size": {
         "$type": "font-size",
         "$value": "14",
         "unit": "px",
-        "comment": "14px/0.875rem"
+        "comment": "14px/0.875rem",
+        "$modes": {
+          "default": "14",
+          "cds-g0": "{carbon.typography.body01.font-size}",
+          "cds-g10": "{carbon.typography.body01.font-size}",
+          "cds-g90": "{carbon.typography.body01.font-size}",
+          "cds-g100": "{carbon.typography.body01.font-size}"
+        }
       },
       "line-height": {
         "$type": "number",
         "$value": 1.4286,
-        "comment": "20px"
+        "comment": "20px",
+        "$modes": {
+          "default": 1.4286,
+          "cds-g0": "{carbon.typography.body01.line-height}",
+          "cds-g10": "{carbon.typography.body01.line-height}",
+          "cds-g90": "{carbon.typography.body01.line-height}",
+          "cds-g100": "{carbon.typography.body01.line-height}"
+        }
       }
     },
     "body-100": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}"
+        "$value": "{typography.font-stack.text}",
+        "$modes": {
+          "default": "{typography.font-stack.text}",
+          "cds-g0": "{carbon.typography.font-family.sans}",
+          "cds-g10": "{carbon.typography.font-family.sans}",
+          "cds-g90": "{carbon.typography.font-family.sans}",
+          "cds-g100": "{carbon.typography.font-family.sans}"
+        }
       },
       "font-size": {
         "$type": "font-size",
         "$value": "13",
         "unit": "px",
-        "comment": "13px/0.8125rem"
+        "comment": "13px/0.8125rem",
+        "$modes": {
+          "default": "13",
+          "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+          "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+          "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+          "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+        }
       },
       "line-height": {
         "$type": "number",
         "$value": 1.3846,
-        "comment": "18px"
-      }
-    },
-    "code-100": {
-      "font-family": {
-        "$type": "font-family",
-        "$value": "{typography.font-stack.code}"
-      },
-      "font-size": {
-        "$type": "font-size",
-        "$value": "13",
-        "unit": "px",
-        "comment": "13px/0.8125rem"
-      },
-      "line-height": {
-        "$type": "number",
-        "$value": 1.23,
-        "comment": "16px"
-      }
-    },
-    "code-200": {
-      "font-family": {
-        "$type": "font-family",
-        "$value": "{typography.font-stack.code}"
-      },
-      "font-size": {
-        "$type": "font-size",
-        "$value": "14",
-        "unit": "px",
-        "comment": "14px/0.875rem"
-      },
-      "line-height": {
-        "$type": "number",
-        "$value": 1.125,
-        "comment": "18px"
+        "comment": "18px",
+        "$modes": {
+          "default": 1.3846,
+          "cds-g0": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g10": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g90": "{carbon.typography.bodyCompact01.line-height}",
+          "cds-g100": "{carbon.typography.bodyCompact01.line-height}"
+        }
       }
     },
     "code-300": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.code}"
+        "$value": "{typography.font-stack.code}",
+        "$modes": {
+          "default": "{typography.font-stack.code}",
+          "cds-g0": "{carbon.typography.font-family.mono}",
+          "cds-g10": "{carbon.typography.font-family.mono}",
+          "cds-g90": "{carbon.typography.font-family.mono}",
+          "cds-g100": "{carbon.typography.font-family.mono}"
+        }
       },
       "font-size": {
         "$type": "font-size",
         "$value": "16",
         "unit": "px",
-        "comment": "16px/1rem"
+        "comment": "16px/1rem",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "{carbon.typography.code02.font-size}",
+          "cds-g10": "{carbon.typography.code02.font-size}",
+          "cds-g90": "{carbon.typography.code02.font-size}",
+          "cds-g100": "{carbon.typography.code02.font-size}"
+        }
       },
       "line-height": {
         "$type": "number",
         "$value": 1.25,
-        "comment": "20px"
+        "comment": "20px",
+        "$modes": {
+          "default": 1.25,
+          "cds-g0": "{carbon.typography.code02.line-height}",
+          "cds-g10": "{carbon.typography.code02.line-height}",
+          "cds-g90": "{carbon.typography.code02.line-height}",
+          "cds-g100": "{carbon.typography.code02.line-height}"
+        }
+      }
+    },
+    "code-200": {
+      "font-family": {
+        "$type": "font-family",
+        "$value": "{typography.font-stack.code}",
+        "$modes": {
+          "default": "{typography.font-stack.code}",
+          "cds-g0": "{carbon.typography.font-family.mono}",
+          "cds-g10": "{carbon.typography.font-family.mono}",
+          "cds-g90": "{carbon.typography.font-family.mono}",
+          "cds-g100": "{carbon.typography.font-family.mono}"
+        }
+      },
+      "font-size": {
+        "$type": "font-size",
+        "$value": "14",
+        "unit": "px",
+        "comment": "14px/0.875rem",
+        "$modes": {
+          "default": "14",
+          "cds-g0": "{carbon.typography.code02.font-size}",
+          "cds-g10": "{carbon.typography.code02.font-size}",
+          "cds-g90": "{carbon.typography.code02.font-size}",
+          "cds-g100": "{carbon.typography.code02.font-size}"
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 1.125,
+        "comment": "18px",
+        "$modes": {
+          "default": 1.125,
+          "cds-g0": "{carbon.typography.code02.line-height}",
+          "cds-g10": "{carbon.typography.code02.line-height}",
+          "cds-g90": "{carbon.typography.code02.line-height}",
+          "cds-g100": "{carbon.typography.code02.line-height}"
+        }
+      }
+    },
+    "code-100": {
+      "font-family": {
+        "$type": "font-family",
+        "$value": "{typography.font-stack.code}",
+        "$modes": {
+          "default": "{typography.font-stack.code}",
+          "cds-g0": "{carbon.typography.font-family.mono}",
+          "cds-g10": "{carbon.typography.font-family.mono}",
+          "cds-g90": "{carbon.typography.font-family.mono}",
+          "cds-g100": "{carbon.typography.font-family.mono}"
+        }
+      },
+      "font-size": {
+        "$type": "font-size",
+        "$value": "13",
+        "unit": "px",
+        "comment": "13px/0.8125rem",
+        "$modes": {
+          "default": "13",
+          "cds-g0": "{carbon.typography.code02.font-size}",
+          "cds-g10": "{carbon.typography.code02.font-size}",
+          "cds-g90": "{carbon.typography.code02.font-size}",
+          "cds-g100": "{carbon.typography.code02.font-size}"
+        }
+      },
+      "line-height": {
+        "$type": "number",
+        "$value": 1.23,
+        "comment": "16px",
+        "$modes": {
+          "default": 1.23,
+          "cds-g0": "{carbon.typography.code01.line-height}",
+          "cds-g10": "{carbon.typography.code01.line-height}",
+          "cds-g90": "{carbon.typography.code01.line-height}",
+          "cds-g100": "{carbon.typography.code01.line-height}"
+        }
       }
     }
   }
