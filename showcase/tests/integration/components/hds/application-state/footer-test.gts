@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Footer from "@hashicorp/design-system-components/components/hds/application-state/footer";
+
+import { HdsApplicationStateFooter } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/application-state/footer',
@@ -14,11 +16,13 @@ module(
     setupRenderingTest(hooks);
 
     test('it should render with a CSS class that matches the component name', async function (assert) {
-      await render(<template>
-      <Footer id="test-application-state-footer">
-        template block text
-      </Footer>
-    </template>);
+      await render(
+        <template>
+          <HdsApplicationStateFooter id="test-application-state-footer">
+            template block text
+          </HdsApplicationStateFooter>
+        </template>,
+      );
 
       assert
         .dom('#test-application-state-footer')
@@ -28,11 +32,13 @@ module(
     // CONTEXTUAL COMPONENTS
 
     test('it should render an Hds::Link::Standalone component', async function (assert) {
-      await render(<template>
-        <Footer id="test-application-state-footer" as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-        </Footer>
-      </template>);
+      await render(
+        <template>
+          <HdsApplicationStateFooter id="test-application-state-footer" as |F|>
+            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+          </HdsApplicationStateFooter>
+        </template>,
+      );
       assert
         .dom('#test-application-state-footer a')
         .exists()

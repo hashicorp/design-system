@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Media from "@hashicorp/design-system-components/components/hds/application-state/media";
+
+import { HdsApplicationStateMedia } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/application-state/media',
@@ -15,7 +17,9 @@ module(
 
     test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Media id="test-application-state-media" /></template>,
+        <template>
+          <HdsApplicationStateMedia id="test-application-state-media" />
+        </template>,
       );
 
       assert
@@ -25,9 +29,11 @@ module(
 
     test('it should render the yielded content when used in block form', async function (assert) {
       await render(
-        <template><Media id="test-application-state-media">
-        <pre>test</pre>
-      </Media></template>,
+        <template>
+          <HdsApplicationStateMedia id="test-application-state-media">
+            <pre>test</pre>
+          </HdsApplicationStateMedia>
+        </template>,
       );
       assert.dom('#test-application-state-media > pre').exists();
       assert.dom('#test-application-state-media > pre').hasText('test');
