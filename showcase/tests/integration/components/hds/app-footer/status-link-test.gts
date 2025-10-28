@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
-import StatusLink from "@hashicorp/design-system-components/components/hds/app-footer/status-link";
+
+import { HdsAppFooterStatusLink } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/app-footer/status-link',
@@ -15,7 +17,12 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><ul><StatusLink @status="operational" id="test-status-link" /></ul></template>,
+        <template>
+          <ul><HdsAppFooterStatusLink
+              @status="operational"
+              id="test-status-link"
+            /></ul>
+        </template>,
       );
       assert.dom('#test-status-link').hasClass('hds-app-footer__status-link');
     });
@@ -25,12 +32,22 @@ module(
     // status
 
     test('it should display text, icon, and icon color matching the passed in status', async function (assert) {
-      await render(<template><ul class="hds-app-footer hds-app-footer--theme-light">
-        <StatusLink id="test-operational" @status="operational" />
-        <StatusLink id="test-degraded" @status="degraded" />
-        <StatusLink id="test-maintenance" @status="maintenance" />
-        <StatusLink id="test-outage" @status="outage" />
-      </ul></template>);
+      await render(
+        <template>
+          <ul class="hds-app-footer hds-app-footer--theme-light">
+            <HdsAppFooterStatusLink
+              id="test-operational"
+              @status="operational"
+            />
+            <HdsAppFooterStatusLink id="test-degraded" @status="degraded" />
+            <HdsAppFooterStatusLink
+              id="test-maintenance"
+              @status="maintenance"
+            />
+            <HdsAppFooterStatusLink id="test-outage" @status="outage" />
+          </ul>
+        </template>,
+      );
       // operational
       assert
         .dom('#test-operational')
@@ -68,9 +85,15 @@ module(
     // text, statusIcon, statusIconColor
 
     test('it should display the custom text, icon color, and icon passed in', async function (assert) {
-      await render(<template>
-      <ul><StatusLink @text="Waypoint" @statusIcon="waypoint" @statusIconColor="var(--token-color-waypoint-brand)" /></ul>
-    </template>);
+      await render(
+        <template>
+          <ul><HdsAppFooterStatusLink
+              @text="Waypoint"
+              @statusIcon="waypoint"
+              @statusIconColor="var(--token-color-waypoint-brand)"
+            /></ul>
+        </template>,
+      );
       assert.dom('.hds-app-footer__status-link').hasText('Waypoint');
       assert.dom('.hds-app-footer__status-link .hds-icon').exists();
       // .hasStyle({'--hds-app-footer-status-icon-color': 'var(--token-color-waypoint-brand)'})
@@ -79,9 +102,14 @@ module(
     // href
 
     test('it should use the passed in href for the link', async function (assert) {
-      await render(<template>
-      <ul><StatusLink @status="operational" @href="https://www.hashicorp.com/custom-url" /></ul>
-    </template>);
+      await render(
+        <template>
+          <ul><HdsAppFooterStatusLink
+              @status="operational"
+              @href="https://www.hashicorp.com/custom-url"
+            /></ul>
+        </template>,
+      );
       assert
         .dom('.hds-app-footer__status-link')
         .hasAttribute('href', 'https://www.hashicorp.com/custom-url');
@@ -96,7 +124,11 @@ module(
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
-      await render(<template><ul><StatusLink /></ul></template>);
+      await render(
+        <template>
+          <ul><HdsAppFooterStatusLink /></ul>
+        </template>,
+      );
       assert.throws(function () {
         throw new Error(errorMessage);
       });
@@ -109,7 +141,14 @@ module(
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
-      await render(<template><ul><StatusLink @status="foo" /></ul></template>);
+      await render(
+        <template>
+          <ul>
+            {{! @glint-expect-error - assertion testing invalid value }}
+            <HdsAppFooterStatusLink @status="foo" />
+          </ul>
+        </template>,
+      );
       assert.throws(function () {
         throw new Error(errorMessage);
       });
