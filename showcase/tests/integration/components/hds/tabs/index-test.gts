@@ -3,59 +3,103 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip
-// only
-} from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, focus, find,
-// pauseTest,
-render, resetOnerror, setupOnerror, settled, triggerKeyEvent } from '@ember/test-helpers';
-import Tabs from "@hashicorp/design-system-components/components/hds/tabs/index";
+import { module, test, skip } from 'qunit';
+import {
+  click,
+  find,
+  focus,
+  render,
+  resetOnerror,
+  settled,
+  setupOnerror,
+  triggerKeyEvent,
+} from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
 
-function assertCssVarsCloseTo(assert, string, values) {
-  // we need to use this regex because the widths of the tabs in local env and in CI are different (browser rendering)
-  const match = string.match(
-    /^--indicator-left-pos: (\d+)px; --indicator-width: (\d+)px;$/,
-  );
-  if (match) {
-    const indicatorLeftPos = parseInt(match[1]);
-    const indicatorWidth = parseInt(match[2]);
-    const expectedIndicatorLeftPos = values[0];
-    const expectedIndicatorWidth = values[1];
-    let isIndicatorLeftPosWithinTolerance;
-    let isIndicatorWidthWithinTolerance;
-    // debugger;
-    if (indicatorLeftPos === expectedIndicatorLeftPos) {
-      isIndicatorLeftPosWithinTolerance = true;
-    } else {
-      isIndicatorLeftPosWithinTolerance =
-        Math.abs(indicatorLeftPos - expectedIndicatorLeftPos) /
-          expectedIndicatorLeftPos <=
-        0.02;
-    }
-    if (indicatorWidth === expectedIndicatorWidth) {
-      isIndicatorWidthWithinTolerance = true;
-    } else {
-      isIndicatorWidthWithinTolerance =
-        Math.abs(indicatorWidth - expectedIndicatorWidth) /
-          expectedIndicatorWidth <=
-        0.03;
-    }
-    assert.ok(
-      isIndicatorLeftPosWithinTolerance,
-      `comparing expected \`--indicator-left-pos\` value \`${expectedIndicatorLeftPos}\` with actual value \`${indicatorLeftPos}\``,
-    );
-    assert.ok(
-      isIndicatorWidthWithinTolerance,
-      `comparing expected \`--indicator-width\` value \`${expectedIndicatorWidth}\` with actual value \`${indicatorWidth}\``,
-    );
+import { HdsTabs } from '@hashicorp/design-system-components/components';
+import type { HdsTabsSizes } from '@hashicorp/design-system-components/components/hds/tabs/types';
+import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+
+const assertCssVarsCloseTo = (
+  assert: Assert,
+  style: CSSStyleDeclaration,
+  values: number[],
+) => {
+  const indicatorLeftPos = style.getPropertyValue('--indicator-left-pos')
+    ? parseInt(style.getPropertyValue('--indicator-left-pos'))
+    : 0;
+  const indicatorWidth = style.getPropertyValue('--indicator-width')
+    ? parseInt(style.getPropertyValue('--indicator-width'))
+    : 0;
+
+  const expectedIndicatorLeftPos = values[0] ?? 0;
+  const expectedIndicatorWidth = values[1] ?? 0;
+  let isIndicatorLeftPosWithinTolerance;
+  let isIndicatorWidthWithinTolerance;
+  // debugger;
+  if (indicatorLeftPos === expectedIndicatorLeftPos) {
+    isIndicatorLeftPosWithinTolerance = true;
   } else {
-    assert.ok(
-      false,
-      `testing \`${string}\` against \`/^--indicator-left-pos: (\\d+)px; --indicator-width: (\\d+)px;$/\` regex failed because there was no match`,
-    );
+    isIndicatorLeftPosWithinTolerance =
+      Math.abs(indicatorLeftPos - expectedIndicatorLeftPos) /
+        expectedIndicatorLeftPos <=
+      0.02;
   }
-}
+  if (indicatorWidth === expectedIndicatorWidth) {
+    isIndicatorWidthWithinTolerance = true;
+  } else {
+    isIndicatorWidthWithinTolerance =
+      Math.abs(indicatorWidth - expectedIndicatorWidth) /
+        expectedIndicatorWidth <=
+      0.03;
+  }
+
+  assert.ok(
+    isIndicatorLeftPosWithinTolerance,
+    `comparing expected \`--indicator-left-pos\` value \`${expectedIndicatorLeftPos}\` with actual value \`${indicatorLeftPos}\``,
+  );
+  assert.ok(
+    isIndicatorWidthWithinTolerance,
+    `comparing expected \`--indicator-width\` value \`${expectedIndicatorWidth}\` with actual value \`${indicatorWidth}\``,
+  );
+};
+
+const createTabs = async (options: {
+  iconTab1?: HdsIconSignature['Args']['name'];
+  countTab1?: string;
+  isSelectedTab1?: boolean;
+  isSelectedTab2?: boolean;
+  selectedTabIndex?: number;
+  size?: HdsTabsSizes;
+  onClickTab?: (event: Event, index: number) => void;
+}) => {
+  return await render(
+    <template>
+      <HdsTabs
+        id="test-tabs"
+        @size={{options.size}}
+        @selectedTabIndex={{options.selectedTabIndex}}
+        @onClickTab={{options.onClickTab}}
+        as |T|
+      >
+        <T.Tab
+          data-test="tab-1"
+          @isSelected={{options.isSelectedTab1}}
+          @icon={{options.iconTab1}}
+          @count={{options.countTab1}}
+        >One</T.Tab>
+        <T.Tab
+          data-test="tab-2"
+          @isSelected={{options.isSelectedTab2}}
+        >Two</T.Tab>
+        <T.Panel data-test="panel-1">Content 1</T.Panel>
+        <T.Panel data-test="panel-2">Content 2</T.Panel>
+      </HdsTabs>
+    </template>,
+  );
+};
 
 // NOTICE
 // Because of how the `tab` and `panel` subcomponents are built,
@@ -65,32 +109,12 @@ function assertCssVarsCloseTo(assert, string, values) {
 module('Integration | Component | hds/tabs/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function () {
-    this.set('createTabs', async (args = {}) => {
-      this.iconTab1 = args.iconTab1 ?? undefined;
-      this.countTab1 = args.countTab1 ?? undefined;
-      this.isSelectedTab1 = args.isSelectedTab1 ?? false;
-      this.isSelectedTab2 = args.isSelectedTab2 ?? false;
-      this.selectedTabIndex = args.selectedTabIndex ?? undefined;
-      this.size = args.size ?? undefined;
-      this.onClickTab = args.onClickTab ?? undefined;
-      return await render(<template>
-        <Tabs id="test-tabs" @size={{this.size}} @selectedTabIndex={{this.selectedTabIndex}} @onClickTab={{this.onClickTab}} as |T|>
-          <T.Tab data-test="tab-1" @isSelected={{this.isSelectedTab1}} @icon={{this.iconTab1}} @count={{this.countTab1}}>One</T.Tab>
-          <T.Tab data-test="tab-2" @isSelected={{this.isSelectedTab2}}>Two</T.Tab>
-          <T.Panel data-test="panel-1">Content 1</T.Panel>
-          <T.Panel data-test="panel-2">Content 2</T.Panel>
-        </Tabs>
-      </template>);
-    });
-  });
-
   hooks.afterEach(() => {
     resetOnerror();
   });
 
   test('it should render the component with a CSS class that matches the component names', async function (assert) {
-    await this.createTabs();
+    await createTabs({});
     assert.dom('[data-test="tab-1"]').hasClass('hds-tabs__tab');
     assert.dom('[data-test="panel-1"]').hasClass('hds-tabs__panel');
   });
@@ -98,26 +122,26 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   // CONTENT
 
   test('it should have 2 Tabs and 2 Panels', async function (assert) {
-    await this.createTabs();
+    await createTabs({});
     assert.dom('.hds-tabs__panel').exists({ count: 2 });
   });
 
   // SIZE
 
   test('it should render the component with CSS classes that reflect the default values if no arguments provided', async function (assert) {
-    await this.createTabs();
+    await createTabs({});
     assert.dom('#test-tabs').hasClass('hds-tabs--size-medium');
   });
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
-    await this.createTabs({ size: 'large' });
+    await createTabs({ size: 'large' });
     assert.dom('#test-tabs').hasClass('hds-tabs--size-large');
   });
 
   // TAB AND PANEL SELECTION AND DISPLAY
 
   test('it should select the first tab and display the first panel by default', async function (assert) {
-    await this.createTabs();
+    await createTabs({});
     assert.dom('[data-test="tab-1"]').hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="tab-1"] .hds-tabs__tab-button')
@@ -133,7 +157,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   });
 
   test('it should select the specified tab using @isSelected and display the associated panel', async function (assert) {
-    await this.createTabs({ isSelectedTab2: true });
+    await createTabs({ isSelectedTab2: true });
     assert.dom('[data-test="tab-2"]').hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="tab-2"] .hds-tabs__tab-button')
@@ -150,7 +174,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   });
 
   test('it should select the specified tab using @selectedTabIndex and display the associated panel', async function (assert) {
-    await this.createTabs({ selectedTabIndex: 1 });
+    await createTabs({ selectedTabIndex: 1 });
     assert.dom('[data-test="tab-2"]').hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="tab-2"] .hds-tabs__tab-button')
@@ -167,19 +191,37 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   });
 
   test('it should dynamically select the specified tab with multiple @isSelected conditions', async function (assert) {
-    this.set('isSelectedTab1', false);
-    this.set('isSelectedTab2', true);
-    await this.createTabs({
-      isSelectedTab1: this.isSelectedTab1,
-      isSelectedTab2: this.isSelectedTab2,
+    const context = new TrackedObject({
+      isSelectedTab1: false,
+      isSelectedTab2: true,
     });
+
+    await render(
+      <template>
+        <HdsTabs id="test-tabs" as |T|>
+          <T.Tab
+            data-test="tab-1"
+            @isSelected={{context.isSelectedTab1}}
+          >One</T.Tab>
+          <T.Tab
+            data-test="tab-2"
+            @isSelected={{context.isSelectedTab2}}
+          >Two</T.Tab>
+          <T.Panel>Content 1</T.Panel>
+          <T.Panel>Content 2</T.Panel>
+        </HdsTabs>
+      </template>,
+    );
+
     assert
       .dom('[data-test="tab-1"]')
       .doesNotHaveClass('hds-tabs__tab--is-selected');
     assert.dom('[data-test="tab-2"]').hasClass('hds-tabs__tab--is-selected');
-    this.set('isSelectedTab1', true);
-    this.set('isSelectedTab2', false);
+
+    context.isSelectedTab1 = true;
+    context.isSelectedTab2 = false;
     await settled();
+
     assert.dom('[data-test="tab-1"]').hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="tab-2"]')
@@ -187,16 +229,33 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   });
 
   test('it should dynamically select the specified tab when @selectedIndex changes', async function (assert) {
-    this.set('selectedTabIndex', 1);
-    await this.createTabs({
-      selectedTabIndex: this.selectedTabIndex,
+    const context = new TrackedObject({
+      selectedTabIndex: 1,
     });
+
+    await render(
+      <template>
+        <HdsTabs
+          id="test-tabs"
+          @selectedTabIndex={{context.selectedTabIndex}}
+          as |T|
+        >
+          <T.Tab data-test="tab-1">One</T.Tab>
+          <T.Tab data-test="tab-2">Two</T.Tab>
+          <T.Panel>Content 1</T.Panel>
+          <T.Panel>Content 2</T.Panel>
+        </HdsTabs>
+      </template>,
+    );
+
     assert
       .dom('[data-test="tab-1"]')
       .doesNotHaveClass('hds-tabs__tab--is-selected');
     assert.dom('[data-test="tab-2"]').hasClass('hds-tabs__tab--is-selected');
-    this.set('selectedTabIndex', 0);
+
+    context.selectedTabIndex = 0;
     await settled();
+
     assert.dom('[data-test="tab-1"]').hasClass('hds-tabs__tab--is-selected');
     assert
       .dom('[data-test="tab-2"]')
@@ -206,7 +265,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   // TAB CLICK
 
   test('on click it should select the clicked tab, display the associated panel', async function (assert) {
-    await this.createTabs();
+    await createTabs({});
     // select tab 2
     await click('[data-test="tab-2"] .hds-tabs__tab-button');
     assert.dom('[data-test="tab-2"]').hasClass('hds-tabs__tab--is-selected');
@@ -229,7 +288,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     const leftArrowKey = 37;
     const rightArrowKey = 39;
     const spaceKey = 32;
-    await this.createTabs();
+    await createTabs({});
     // focus 2nd tab:
     await focus('[data-test="tab-2"] .hds-tabs__tab-button');
     // test that the navigated to tab is now focused:
@@ -264,7 +323,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   test('It should display the associated panel when a focused tab is activated', async function (assert) {
     const enterKey = 13;
     const spaceKey = 32;
-    await this.createTabs();
+    await createTabs({});
     // focus 2nd tab:
     await focus('[data-test="tab-2"] .hds-tabs__tab-button');
     // activate the tab using the enterKey:
@@ -299,35 +358,37 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   // ATTRIBUTES
 
   test('elements should have a set of attributes based on the arguments provided', async function (assert) {
-    await this.createTabs();
+    await createTabs({});
     assert.dom('[data-test="tab-1"]').hasAttribute('role', 'presentation');
     assert
       .dom('[data-test="tab-1"] .hds-tabs__tab-button')
       .hasAttribute('role', 'tab');
-    const panelId = find('[data-test="panel-1"]').getAttribute('id');
+    const panelId = find('[data-test="panel-1"]')?.id ?? '';
     assert
       .dom('[data-test="tab-1"] .hds-tabs__tab-button')
       .hasAttribute('aria-controls', panelId);
     assert.dom('[data-test="panel-1"]').hasAttribute('role', 'tabpanel');
-    const tabId = find(
-      '[data-test="tab-1"] .hds-tabs__tab-button',
-    ).getAttribute('id');
+    const tabId = find('[data-test="tab-1"] .hds-tabs__tab-button')?.id ?? '';
     assert.dom('[data-test="panel-1"]').hasAttribute('aria-labelledby', tabId);
   });
 
   // CALLBACKS
 
   test('on click it should invoke the `onClickTab` callback function', async function (assert) {
-    let clicked = false;
-    let selected = -1;
-    this.set('onClick', (_event, index) => {
-      clicked = true;
-      selected = index;
+    const context = new TrackedObject({
+      isClicked: false,
+      selected: -1,
     });
-    await this.createTabs({ onClickTab: this.onClick });
+
+    const onClick = (_event: Event, index: number) => {
+      context.isClicked = true;
+      context.selected = index;
+    };
+
+    await createTabs({ onClickTab: onClick });
     await click('[data-test="tab-1"] .hds-tabs__tab-button');
-    assert.ok(clicked);
-    assert.strictEqual(selected, 0);
+    assert.ok(context.isClicked);
+    assert.strictEqual(context.selected, 0);
   });
 
   // ASSERTIONS
@@ -339,15 +400,17 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template>
-      <Tabs as |T|>
-        <T.Tab>One</T.Tab>
-        <T.Tab>Two</T.Tab>
-        <T.Panel>Content 1</T.Panel>
-        <T.Panel>Content 2</T.Panel>
-        <T.Panel>Content 3</T.Panel>
-      </Tabs>
-    </template>);
+    await render(
+      <template>
+        <HdsTabs as |T|>
+          <T.Tab>One</T.Tab>
+          <T.Tab>Two</T.Tab>
+          <T.Panel>Content 1</T.Panel>
+          <T.Panel>Content 2</T.Panel>
+          <T.Panel>Content 3</T.Panel>
+        </HdsTabs>
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -362,15 +425,16 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     // await this.createTabs({ isSelectedTab1: true, isSelectedTab2: true });
-    await render(<template>
-      <Tabs as |T|>
-        <T.Tab @isSelected={{true}} @id="ONE">One</T.Tab>
-        <T.Tab @isSelected={{true}} @id="TWO">Two</T.Tab>
-        <T.Panel data-test="panel-1">Content 1</T.Panel>
-        <T.Panel data-test="panel-2">Content 2</T.Panel>
-      </Tabs>
-    </template>);
-    // await pauseTest();
+    await render(
+      <template>
+        <HdsTabs as |T|>
+          <T.Tab @isSelected={{true}} id="ONE">One</T.Tab>
+          <T.Tab @isSelected={{true}} id="TWO">Two</T.Tab>
+          <T.Panel data-test="panel-1">Content 1</T.Panel>
+          <T.Panel data-test="panel-2">Content 2</T.Panel>
+        </HdsTabs>
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -381,13 +445,13 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   // TAB OPTIONS
 
   test('`Tab` should render an icon if @icon is defined', async function (assert) {
-    await this.createTabs({ iconTab1: 'info' });
+    await createTabs({ iconTab1: 'info' });
     assert.dom('.hds-tabs__tab-icon').exists();
     assert.dom('.hds-tabs__tab-icon').hasAttribute('data-test-icon', 'info');
   });
 
   test('`Tab` should render a badge if @count is defined', async function (assert) {
-    await this.createTabs({ countTab1: '5' });
+    await createTabs({ countTab1: '5' });
     assert.dom('.hds-tabs__tab-count').exists();
     assert.dom('.hds-tabs__tab-count').hasText('5');
   });
@@ -397,38 +461,55 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   // INDICATOR
 
   test('tab indicator should respond to tab clicks', async function (assert) {
-    await this.createTabs();
-    let tablistStyle = find('.hds-tabs__tablist').style;
-    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 51]); // --indicator-left-pos: 0px; --indicator-width: 51px;
+    await createTabs({});
+
+    const tablist = find('.hds-tabs__tablist') as HTMLElement;
+    console.log(tablist);
+
+    let tablistStyle = tablist.style;
+    assertCssVarsCloseTo(assert, tablistStyle, [0, 51]); // --indicator-left-pos: 0px; --indicator-width: 51px;
+
     // select tab 2
     await click('[data-test="tab-2"] .hds-tabs__tab-button');
-    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
+    tablistStyle = tablist.style;
+    assertCssVarsCloseTo(assert, tablistStyle, [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
   });
 
   test('tab indicator should respond to content size changes', async function (assert) {
-    this.set('count', 5);
-    await render(<template>
-      <Tabs id="test-tabs" as |T|>
-        <T.Tab data-test="tab-1" @count="{{this.count}}">One</T.Tab>
-        <T.Tab data-test="tab-2">Two</T.Tab>
-        <T.Panel data-test="panel-1">Content 1</T.Panel>
-        <T.Panel data-test="panel-2">Content 2</T.Panel>
-      </Tabs>
-    </template>);
-    let tablistStyle = find('.hds-tabs__tablist').style;
-    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 81]); // --indicator-left-pos: 0px; --indicator-width: 81px;
-    this.set('count', 12345);
+    const context = new TrackedObject({
+      count: 5,
+    });
+
+    await render(
+      <template>
+        <HdsTabs id="test-tabs" as |T|>
+          <T.Tab data-test="tab-1" @count="{{context.count}}">One</T.Tab>
+          <T.Tab data-test="tab-2">Two</T.Tab>
+          <T.Panel data-test="panel-1">Content 1</T.Panel>
+          <T.Panel data-test="panel-2">Content 2</T.Panel>
+        </HdsTabs>
+      </template>,
+    );
+
+    const tablist = find('.hds-tabs__tablist') as HTMLElement;
+    let tablistStyle = tablist.style;
+
+    assertCssVarsCloseTo(assert, tablistStyle, [0, 81]); // --indicator-left-pos: 0px; --indicator-width: 81px;
+
+    context.count = 12345;
     await settled();
-    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 112]); // --indicator-left-pos: 0px; --indicator-width: 112px;
+    tablistStyle = tablist.style;
+    assertCssVarsCloseTo(assert, tablistStyle, [0, 112]); // --indicator-left-pos: 0px; --indicator-width: 112px;
   });
 
   test('tab indicator should not move when focus is shifted to another tab', async function (assert) {
     const leftArrowKey = 37;
     const spaceKey = 32;
-    await this.createTabs();
-    let tablistStyle = find('.hds-tabs__tablist').style;
+    await createTabs({});
+    const tablist = find('.hds-tabs__tablist') as HTMLElement;
+    let tablistStyle = tablist.style;
     // test that the indicator is in the right position
-    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 51]); // --indicator-left-pos: 0px; --indicator-width: 51px;
+    assertCssVarsCloseTo(assert, tablistStyle, [0, 51]); // --indicator-left-pos: 0px; --indicator-width: 51px;
     // focus 2nd tab:
     await focus('[data-test="tab-2"] .hds-tabs__tab-button');
     // test that the navigated to tab is now focused:
@@ -439,8 +520,9 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       'keyup',
       spaceKey,
     );
+    tablistStyle = tablist.style;
     // test that the indicator has changed position
-    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
+    assertCssVarsCloseTo(assert, tablistStyle, [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
     // navigate back to the previous (1st) tab using left arrow key:
     await triggerKeyEvent(
       '[data-test="tab-2"] .hds-tabs__tab-button',
@@ -450,7 +532,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     // test that the navigated to tab is now focused:
     assert.dom('[data-test="tab-1"] .hds-tabs__tab-button').isFocused();
     // test that the indicator did _not_ changed position (tab has not been activated, just focused)
-    assertCssVarsCloseTo(assert, tablistStyle['cssText'], [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
+    assertCssVarsCloseTo(assert, tablistStyle, [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
   });
 
   // ===============================================================
@@ -460,28 +542,31 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   // NESTED TABS
 
   test('it should have the correct selection of tabs (via @isSelected) and correct indicator at different stages', async function (assert) {
-    await render(<template>
-      <Tabs id="test-tabs" as |T|>
-        <T.Tab data-test="tab-1">One</T.Tab>
-        <T.Tab data-test="tab-2" @isSelected={{true}}>Two</T.Tab>
-        <T.Panel data-test="panel-1">
-          <Tabs id="test-tabs-sub1" as |T|>
-            <T.Tab data-test="tab-1__subtab-1">Tab One / Subtab One</T.Tab>
-            <T.Tab data-test="tab-1__subtab-2">Tab One / Subtab Two</T.Tab>
-            <T.Panel data-test="tab-1__panel-1">Tab One / Subcontent 1</T.Panel>
-            <T.Panel data-test="tab-1__panel-2">Tab One / SubContent 2</T.Panel>
-          </Tabs>
-        </T.Panel>
-        <T.Panel data-test="panel-2">
-          <Tabs id="test-tabs-sub2" as |T|>
-            <T.Tab data-test="tab-2__subtab-1">Tab Two / Subtab One</T.Tab>
-            <T.Tab data-test="tab-2__subtab-2" @isSelected={{true}}>Tab Two / Subtab Two</T.Tab>
-            <T.Panel data-test="tab-2__panel-1">Tab Two / Subcontent 1</T.Panel>
-            <T.Panel data-test="tab-2__panel-2">Tab Two / SubContent 2</T.Panel>
-          </Tabs>
-        </T.Panel>
-      </Tabs>
-    </template>);
+    await render(
+      <template>
+        <HdsTabs id="test-tabs" as |T|>
+          <T.Tab data-test="tab-1">One</T.Tab>
+          <T.Tab data-test="tab-2" @isSelected={{true}}>Two</T.Tab>
+          <T.Panel data-test="panel-1">
+            <HdsTabs id="test-tabs-sub1" as |T|>
+              <T.Tab data-test="tab-1__subtab-1">Tab One / Subtab One</T.Tab>
+              <T.Tab data-test="tab-1__subtab-2">Tab One / Subtab Two</T.Tab>
+              <T.Panel data-test="tab-1__panel-1">Tab One / Subcontent 1</T.Panel>
+              <T.Panel data-test="tab-1__panel-2">Tab One / SubContent 2</T.Panel>
+            </HdsTabs>
+          </T.Panel>
+          <T.Panel data-test="panel-2">
+            <HdsTabs id="test-tabs-sub2" as |T|>
+              <T.Tab data-test="tab-2__subtab-1">Tab Two / Subtab One</T.Tab>
+              <T.Tab data-test="tab-2__subtab-2" @isSelected={{true}}>Tab Two /
+                Subtab Two</T.Tab>
+              <T.Panel data-test="tab-2__panel-1">Tab Two / Subcontent 1</T.Panel>
+              <T.Panel data-test="tab-2__panel-2">Tab Two / SubContent 2</T.Panel>
+            </HdsTabs>
+          </T.Panel>
+        </HdsTabs>
+      </template>,
+    );
 
     // tab 2 is selected (via @isSelected)
     assert.dom('[data-test="tab-2"]').hasClass('hds-tabs__tab--is-selected');
@@ -519,28 +604,30 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
   });
 
   test('it should have the correct selection of tabs (via @selectedTabIndex) and correct indicator at different stages', async function (assert) {
-    await render(<template>
-      <Tabs id="test-tabs" @selectedTabIndex={{1}} as |T|>
-        <T.Tab data-test="tab-1">One</T.Tab>
-        <T.Tab data-test="tab-2">Two</T.Tab>
-        <T.Panel data-test="panel-1">
-          <Tabs id="test-tabs-sub1" as |T|>
-            <T.Tab data-test="tab-1__subtab-1">Tab One / Subtab One</T.Tab>
-            <T.Tab data-test="tab-1__subtab-2">Tab One / Subtab Two</T.Tab>
-            <T.Panel data-test="tab-1__panel-1">Tab One / Subcontent 1</T.Panel>
-            <T.Panel data-test="tab-1__panel-2">Tab One / SubContent 2</T.Panel>
-          </Tabs>
-        </T.Panel>
-        <T.Panel data-test="panel-2">
-          <Tabs id="test-tabs-sub2" @selectedTabIndex={{1}} as |T|>
-            <T.Tab data-test="tab-2__subtab-1">Tab Two / Subtab One</T.Tab>
-            <T.Tab data-test="tab-2__subtab-2">Tab Two / Subtab Two</T.Tab>
-            <T.Panel data-test="tab-2__panel-1">Tab Two / Subcontent 1</T.Panel>
-            <T.Panel data-test="tab-2__panel-2">Tab Two / SubContent 2</T.Panel>
-          </Tabs>
-        </T.Panel>
-      </Tabs>
-    </template>);
+    await render(
+      <template>
+        <HdsTabs id="test-tabs" @selectedTabIndex={{1}} as |T|>
+          <T.Tab data-test="tab-1">One</T.Tab>
+          <T.Tab data-test="tab-2">Two</T.Tab>
+          <T.Panel data-test="panel-1">
+            <HdsTabs id="test-tabs-sub1" as |T|>
+              <T.Tab data-test="tab-1__subtab-1">Tab One / Subtab One</T.Tab>
+              <T.Tab data-test="tab-1__subtab-2">Tab One / Subtab Two</T.Tab>
+              <T.Panel data-test="tab-1__panel-1">Tab One / Subcontent 1</T.Panel>
+              <T.Panel data-test="tab-1__panel-2">Tab One / SubContent 2</T.Panel>
+            </HdsTabs>
+          </T.Panel>
+          <T.Panel data-test="panel-2">
+            <HdsTabs id="test-tabs-sub2" @selectedTabIndex={{1}} as |T|>
+              <T.Tab data-test="tab-2__subtab-1">Tab Two / Subtab One</T.Tab>
+              <T.Tab data-test="tab-2__subtab-2">Tab Two / Subtab Two</T.Tab>
+              <T.Panel data-test="tab-2__panel-1">Tab Two / Subcontent 1</T.Panel>
+              <T.Panel data-test="tab-2__panel-2">Tab Two / SubContent 2</T.Panel>
+            </HdsTabs>
+          </T.Panel>
+        </HdsTabs>
+      </template>,
+    );
 
     // tab 2 is selected (via @isSelected)
     assert.dom('[data-test="tab-2"]').hasClass('hds-tabs__tab--is-selected');
