@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import MultiFieldGroup from "@hashicorp/design-system-components/components/hds/form/section/multi-field-group/index";
+
+import { HdsFormSectionMultiFieldGroup } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/form/section/multi-field-group/index',
@@ -15,7 +17,11 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><MultiFieldGroup id="test-form-section-multi-field-group" /></template>,
+        <template>
+          <HdsFormSectionMultiFieldGroup
+            id="test-form-section-multi-field-group"
+          />
+        </template>,
       );
       assert
         .dom('#test-form-section-multi-field-group')
@@ -26,7 +32,11 @@ module(
 
     test('it should render the yielded content', async function (assert) {
       await render(
-        <template><MultiFieldGroup id="test-form-section-multi-field-group"><pre>test</pre></MultiFieldGroup></template>,
+        <template>
+          <HdsFormSectionMultiFieldGroup
+            id="test-form-section-multi-field-group"
+          ><pre>test</pre></HdsFormSectionMultiFieldGroup>
+        </template>,
       );
       assert
         .dom('#test-form-section-multi-field-group > pre')
@@ -37,9 +47,12 @@ module(
     test('it should render the `Item` yielded contextual component', async function (assert) {
       await render(
         <template>
-          <MultiFieldGroup id="test-form-section-multi-field-group" as |FG|>
+          <HdsFormSectionMultiFieldGroup
+            id="test-form-section-multi-field-group"
+            as |FG|
+          >
             <FG.Item><pre>test</pre></FG.Item>
-          </MultiFieldGroup>
+          </HdsFormSectionMultiFieldGroup>
         </template>,
       );
       assert
