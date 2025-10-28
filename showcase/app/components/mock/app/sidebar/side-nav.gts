@@ -187,7 +187,6 @@ export default class MockAppSidebarOldSideNav extends Component<MockAppSidebarOl
           </SNL.Item>
         </HdsSideNavList>
       </:body>
-
       <:footer>
         {{#if this.showFooter}}
           <HdsDropdown
