@@ -42,7 +42,8 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
       if (fontWeightTokens) {
         Object.keys(fontWeightTokens).forEach(weight => {
           const selector = `.${PREFIX}-font-weight-${weight}`;
-          helpers.push(`${selector} { font-weight: ${fontWeightTokens[weight].$value}; }`);
+          const valueFontWeight = outputCssVars ? `var(--token-typography-font-weight-${weight})` : fontWeightTokens[weight].$value;
+          helpers.push(`${selector} { font-weight: ${valueFontWeight}; }`);
         });
       }
 
