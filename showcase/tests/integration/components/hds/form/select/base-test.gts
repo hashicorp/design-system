@@ -4,21 +4,30 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Base from "@hashicorp/design-system-components/components/hds/form/select/base";
+
+import { HdsFormSelectBase } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/form/select/base', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Base id="test-form-select" /></template>);
+    await render(
+      <template><HdsFormSelectBase id="test-form-select" /></template>,
+    );
     assert.dom('#test-form-select').hasClass('hds-form-select');
   });
 
   test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
     await render(
-      <template><Base @id="custom-id" @ariaDescribedBy="custom-description-id" /></template>,
+      <template>
+        <HdsFormSelectBase
+          @id="custom-id"
+          @ariaDescribedBy="custom-description-id"
+        />
+      </template>,
     );
     assert
       .dom('#custom-id')
@@ -30,7 +39,13 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
 
   test('it should render the options passed via contextual component', async function (assert) {
     await render(
-      <template><Base id="test-form-select" as |C|><C.Options><option value="abc123">This is the option</option></C.Options></Base></template>,
+      <template>
+        <HdsFormSelectBase id="test-form-select" as |C|>
+          <C.Options>
+            <option value="abc123">This is the option</option>
+          </C.Options>
+        </HdsFormSelectBase>
+      </template>,
     );
     assert.dom('#test-form-select option').exists();
     assert.dom('#test-form-select option').hasText('This is the option');
@@ -41,7 +56,9 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
 
   test('it should render the select with a fixed width if a @width value is passed', async function (assert) {
     await render(
-      <template><Base @width="248px" id="test-form-select" /></template>,
+      <template>
+        <HdsFormSelectBase @width="248px" id="test-form-select" />
+      </template>,
     );
     assert.dom('#test-form-select').hasStyle({ width: '248px' });
   });
@@ -50,7 +67,9 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
     await render(
-      <template><Base id="test-form-select" @isInvalid={{true}} /></template>,
+      <template>
+        <HdsFormSelectBase id="test-form-select" @isInvalid={{true}} />
+      </template>,
     );
     assert.dom('#test-form-select').hasClass('hds-form-select--is-invalid');
   });
