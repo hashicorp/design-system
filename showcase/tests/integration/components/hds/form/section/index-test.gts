@@ -4,15 +4,19 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Section from "@hashicorp/design-system-components/components/hds/form/section/index";
+
+import { HdsFormSection } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/form/section/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Section id="test-form-section" /></template>);
+    await render(
+      <template><HdsFormSection id="test-form-section" /></template>,
+    );
     assert.dom('#test-form-section').hasClass('hds-form__section');
   });
 
@@ -20,15 +24,17 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
 
   test('it should yield the Section Header, HeaderTitle/Description, SectionMultiFieldGroup, SectionMultiFieldGroupItem, and Section children', async function (assert) {
     await render(
-      <template><Section id="test-form-section" as |Section|>
-            <Section.Header>
-              <Section.HeaderTitle />
-              <Section.HeaderDescription />
-            </Section.Header>
-            <Section.MultiFieldGroup>
-              <Section.MultiFieldGroupItem />
-            </Section.MultiFieldGroup>
-          </Section></template>,
+      <template>
+        <HdsFormSection id="test-form-section" as |Section|>
+          <Section.Header>
+            <Section.HeaderTitle />
+            <Section.HeaderDescription />
+          </Section.Header>
+          <Section.MultiFieldGroup>
+            <Section.MultiFieldGroupItem />
+          </Section.MultiFieldGroup>
+        </HdsFormSection>
+      </template>,
     );
     assert
       .dom('#test-form-section > .hds-form__section-header')
@@ -57,7 +63,9 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
 
   // isFullWidth
   test(`it should have the default max-width if no @isFullWidth prop is declared`, async function (assert) {
-    await render(<template><Section id="test-form-section" /></template>);
+    await render(
+      <template><HdsFormSection id="test-form-section" /></template>,
+    );
     assert
       .dom('#test-form-section')
       .doesNotHaveClass('hds-form-content--is-full-width');
@@ -65,7 +73,9 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
 
   test(`if @isFullWidth is true, it should not have a max-width set`, async function (assert) {
     await render(
-      <template><Section id="test-form-section" @isFullWidth={{true}} /></template>,
+      <template>
+        <HdsFormSection id="test-form-section" @isFullWidth={{true}} />
+      </template>,
     );
     assert
       .dom('#test-form-section')

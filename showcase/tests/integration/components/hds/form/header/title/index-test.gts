@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
-import Title from "@hashicorp/design-system-components/components/hds/form/header/title";
+
+import { HdsFormHeaderTitle } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/form/header/title/index',
@@ -15,7 +17,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Title id="test-form-header-title" /></template>,
+        <template><HdsFormHeaderTitle id="test-form-header-title" /></template>,
       );
       assert.dom('#test-form-header-title').hasClass('hds-form__header-title');
     });
@@ -23,7 +25,10 @@ module(
     // CONTENT
     test('it should render the yielded content', async function (assert) {
       await render(
-        <template><Title id="test-form-header-title"><pre>test</pre></Title></template>,
+        <template>
+          <HdsFormHeaderTitle id="test-form-header-title"><pre
+            >test</pre></HdsFormHeaderTitle>
+        </template>,
       );
       assert.dom('#test-form-header-title > pre').exists().hasText('test');
     });
@@ -33,14 +38,16 @@ module(
     // Tag
     test('it should render the component using the default div tag', async function (assert) {
       await render(
-        <template><Title id="test-form-header-title" /></template>,
+        <template><HdsFormHeaderTitle id="test-form-header-title" /></template>,
       );
       assert.dom('#test-form-header-title').hasTagName('div');
     });
 
     test('it should render the component using the specified tag', async function (assert) {
       await render(
-        <template><Title id="test-form-header-title" @tag="h2" /></template>,
+        <template>
+          <HdsFormHeaderTitle id="test-form-header-title" @tag="h2" />
+        </template>,
       );
       assert.dom('#test-form-header-title').hasTagName('h2');
     });
@@ -48,7 +55,7 @@ module(
     // Size
     test('it should render the component with the default size', async function (assert) {
       await render(
-        <template><Title id="test-form-header-title" /></template>,
+        <template><HdsFormHeaderTitle id="test-form-header-title" /></template>,
       );
       assert
         .dom('#test-form-header-title')
@@ -57,7 +64,9 @@ module(
 
     test('it should render the component with a specified size', async function (assert) {
       await render(
-        <template><Title id="test-form-header-title" @size="300" /></template>,
+        <template>
+          <HdsFormHeaderTitle id="test-form-header-title" @size="300" />
+        </template>,
       );
       assert
         .dom('#test-form-header-title')
@@ -75,7 +84,12 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
 
-      await render(<template><Title @tag="section" /></template>);
+      await render(
+        <template>
+          {{! @glint-expect-error - testing invalid component usage }}
+          <HdsFormHeaderTitle @tag="section" />
+        </template>,
+      );
 
       assert.throws(function () {
         throw new Error(errorMessage);

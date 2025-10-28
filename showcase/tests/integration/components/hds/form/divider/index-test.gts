@@ -4,15 +4,19 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Separator from "@hashicorp/design-system-components/components/hds/form/separator/index";
+
+import { HdsFormSeparator } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/form/separator/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Separator id="test-form-separator" /></template>);
+    await render(
+      <template><HdsFormSeparator id="test-form-separator" /></template>,
+    );
     assert.dom('#test-form-separator').hasClass('hds-form__separator');
   });
 
@@ -20,7 +24,9 @@ module('Integration | Component | hds/form/separator/index', function (hooks) {
 
   // isFullWidth
   test(`it should have the default max-width if no @isFullWidth prop is declared`, async function (assert) {
-    await render(<template><Separator id="test-form-separator" /></template>);
+    await render(
+      <template><HdsFormSeparator id="test-form-separator" /></template>,
+    );
     assert
       .dom('#test-form-separator')
       .doesNotHaveClass('hds-form-content--is-full-width');
@@ -28,7 +34,9 @@ module('Integration | Component | hds/form/separator/index', function (hooks) {
 
   test(`if @isFullWidth is true, it should not have a max-width set`, async function (assert) {
     await render(
-      <template><Separator id="test-form-separator" @isFullWidth={{true}} /></template>,
+      <template>
+        <HdsFormSeparator id="test-form-separator" @isFullWidth={{true}} />
+      </template>,
     );
     assert
       .dom('#test-form-separator')

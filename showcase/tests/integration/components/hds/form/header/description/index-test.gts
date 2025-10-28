@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Description from "@hashicorp/design-system-components/components/hds/form/header/description";
+
+import { HdsFormHeaderDescription } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/form/header/description/index',
@@ -15,7 +17,9 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Description id="test-form-description" /></template>,
+        <template>
+          <HdsFormHeaderDescription id="test-form-description" />
+        </template>,
       );
       assert
         .dom('#test-form-description')
@@ -26,7 +30,10 @@ module(
 
     test('it should render the yielded content', async function (assert) {
       await render(
-        <template><Description id="test-form-description"><pre>test</pre></Description></template>,
+        <template>
+          <HdsFormHeaderDescription id="test-form-description"><pre
+            >test</pre></HdsFormHeaderDescription>
+        </template>,
       );
       assert.dom('#test-form-description > pre').exists().hasText('test');
     });

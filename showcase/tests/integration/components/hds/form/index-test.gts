@@ -6,13 +6,15 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
-import Form, { AVAILABLE_TAGS } from '@hashicorp/design-system-components/components/hds/form/index';
+
+import { HdsForm } from '@hashicorp/design-system-components/components';
+import { AVAILABLE_TAGS } from '@hashicorp/design-system-components/components/hds/form/index';
 
 module('Integration | Component | hds/form/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Form id="test-form" /></template>);
+    await render(<template><HdsForm id="test-form" /></template>);
     assert.dom('#test-form').hasClass('hds-form');
   });
 
@@ -21,12 +23,14 @@ module('Integration | Component | hds/form/index', function (hooks) {
   // Tag
 
   test('it should render the component using a form tag by default', async function (assert) {
-    await render(<template><Form id="test-form-component" /></template>);
+    await render(<template><HdsForm id="test-form-component" /></template>);
     assert.dom('#test-form-component').hasTagName('form');
   });
 
   test('it should render the component using a div tag if specified in the @tag prop', async function (assert) {
-    await render(<template><Form id="test-form-component" @tag="div" /></template>);
+    await render(
+      <template><HdsForm id="test-form-component" @tag="div" /></template>,
+    );
     assert.dom('#test-form-component').hasTagName('div');
   });
 
@@ -34,7 +38,9 @@ module('Integration | Component | hds/form/index', function (hooks) {
 
   test('it should set an inline style for the section max-width custom property', async function (assert) {
     await render(
-      <template><Form id="test-form-component" @sectionMaxWidth="32em" /></template>,
+      <template>
+        <HdsForm id="test-form-component" @sectionMaxWidth="32em" />
+      </template>,
     );
     assert.dom('#test-form-component').hasStyle(
       {
@@ -48,25 +54,26 @@ module('Integration | Component | hds/form/index', function (hooks) {
 
   test('it should yield the different subcomponents as children, for the different available tags', async function (assert) {
     for (const tag of AVAILABLE_TAGS) {
-      this.set('tag', tag);
       await render(
-        <template><Form id="test-form" @tag={{this.tag}} as |FORM|>
-              <FORM.Header>
-                <FORM.HeaderTitle />
-                <FORM.HeaderDescription />
-              </FORM.Header>
-              <FORM.Section>
-                <FORM.SectionHeader>
-                  <FORM.SectionHeaderTitle />
-                  <FORM.SectionHeaderDescription />
-                </FORM.SectionHeader>
-                <FORM.SectionMultiFieldGroup>
-                  <FORM.SectionMultiFieldGroupItem />
-                </FORM.SectionMultiFieldGroup>
-              </FORM.Section>
-              <FORM.Separator />
-              <FORM.Footer />
-            </Form></template>,
+        <template>
+          <HdsForm id="test-form" @tag={{tag}} as |FORM|>
+            <FORM.Header>
+              <FORM.HeaderTitle />
+              <FORM.HeaderDescription />
+            </FORM.Header>
+            <FORM.Section>
+              <FORM.SectionHeader>
+                <FORM.SectionHeaderTitle />
+                <FORM.SectionHeaderDescription />
+              </FORM.SectionHeader>
+              <FORM.SectionMultiFieldGroup>
+                <FORM.SectionMultiFieldGroupItem />
+              </FORM.SectionMultiFieldGroup>
+            </FORM.Section>
+            <FORM.Separator />
+            <FORM.Footer />
+          </HdsForm>
+        </template>,
       );
 
       // Form Header content
@@ -133,7 +140,12 @@ module('Integration | Component | hds/form/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
 
-    await render(<template><Form @tag="section" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsForm @tag="section" />
+      </template>,
+    );
 
     assert.throws(function () {
       throw new Error(errorMessage);

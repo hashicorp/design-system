@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Header from "@hashicorp/design-system-components/components/hds/form/section/header";
+
+import { HdsFormSectionHeader } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/form/section/header/index',
@@ -15,7 +17,9 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Header id="test-form-section-header" /></template>,
+        <template>
+          <HdsFormSectionHeader id="test-form-section-header" />
+        </template>,
       );
       assert
         .dom('#test-form-section-header')
@@ -27,9 +31,9 @@ module(
     test('it should yield the Title and Description children', async function (assert) {
       await render(
         <template>
-          <Header id="test-form-section-header" as |Header|>
+          <HdsFormSectionHeader id="test-form-section-header" as |Header|>
             <Header.Title /><Header.Description />
-          </Header>
+          </HdsFormSectionHeader>
         </template>,
       );
       assert
