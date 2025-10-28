@@ -4,21 +4,20 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import sinon from 'sinon';
+import { TrackedObject } from 'tracked-built-ins';
 import { wait } from 'showcase/tests/helpers';
-import Snippet from "@hashicorp/design-system-components/components/hds/copy/snippet/index";
+import sinon from 'sinon';
+
+import { HdsCopySnippet } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  // IMPORTANT: don't use an arrow function here or "this.set" will not be recognized
-  hooks.beforeEach(function () {
+  hooks.beforeEach(() => {
     sinon.stub(window.navigator.clipboard, 'writeText').resolves();
-    this.success = undefined;
-    this.set('onSuccess', () => (this.success = true));
-    this.set('onError', () => (this.success = false));
   });
 
   hooks.afterEach(() => {
@@ -29,14 +28,21 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" /></template>,
+      <template>
+        <HdsCopySnippet
+          id="test-copy-snippet"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet');
   });
 
   test('it should render the component with an aria-label that includes the correct copy text', async function (assert) {
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="this aria label" /></template>,
+      <template>
+        <HdsCopySnippet id="test-copy-snippet" @textToCopy="this aria label" />
+      </template>,
     );
     assert.dom('#test-copy-snippet').hasAria('label', 'copy this aria label');
   });
@@ -45,7 +51,12 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should render the correct default component variation: primary color, idle status', async function (assert) {
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" /></template>,
+      <template>
+        <HdsCopySnippet
+          id="test-copy-snippet"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet');
     assert
@@ -56,7 +67,13 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should render the secondary color if defined', async function (assert) {
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @color="secondary" /></template>,
+      <template>
+        <HdsCopySnippet
+          id="test-copy-snippet"
+          @textToCopy="someSecretThingGoesHere"
+          @color="secondary"
+        />
+      </template>,
     );
     assert
       .dom('#test-copy-snippet')
@@ -65,14 +82,26 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should support truncation if @isTruncated is set to true', async function (assert) {
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isTruncated={{true}} /></template>,
+      <template>
+        <HdsCopySnippet
+          id="test-copy-snippet"
+          @textToCopy="someSecretThingGoesHere"
+          @isTruncated={{true}}
+        />
+      </template>,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--is-truncated');
   });
 
   test('it should have the correct CSS class to support full-width size if @isFullWidth prop is true', async function (assert) {
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isFullWidth={{true}} /></template>,
+      <template>
+        <HdsCopySnippet
+          id="test-copy-snippet"
+          @textToCopy="someSecretThingGoesHere"
+          @isFullWidth={{true}}
+        />
+      </template>,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--width-full');
   });
@@ -80,12 +109,29 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   // COPY STATES
 
   test('it should update the status to success if the copy operation was successful', async function (assert) {
+    const context = new TrackedObject<Record<'success', boolean | undefined>>({
+      success: undefined,
+    });
+    const onSuccess = () => {
+      context.success = true;
+    };
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} /></template>,
+      <template>
+        <HdsCopySnippet
+          id="test-copy-snippet"
+          @textToCopy="someSecretThingGoesHere"
+          @onSuccess={{onSuccess}}
+          @onError={{onError}}
+        />
+      </template>,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
-    assert.true(this.success);
+    assert.true(context.success);
     assert
       .dom('#test-copy-snippet')
       .hasClass('hds-copy-snippet--status-success');
@@ -93,7 +139,12 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should update the status back to idle after success', async function (assert) {
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" /></template>,
+      <template>
+        <HdsCopySnippet
+          id="test-copy-snippet"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
@@ -105,19 +156,33 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   });
 
   test('it should update the status to an error after a failed "copy" operation', async function (assert) {
+    const context = new TrackedObject<Record<'success', boolean | undefined>>({
+      success: undefined,
+    });
+    const onSuccess = () => {
+      context.success = true;
+    };
+    const onError = () => {
+      context.success = false;
+    };
+
     sinon.restore();
     sinon
       .stub(window.navigator.clipboard, 'writeText')
-      .throws(
-        'Sinon throws (syntethic error)',
-        'this is a fake error message provided to the sinon.stub().throws() method',
-      );
+      .throws('Sinon throws (syntethic error)');
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} /></template>,
+      <template>
+        <HdsCopySnippet
+          id="test-copy-snippet"
+          @textToCopy="someSecretThingGoesHere"
+          @onSuccess={{onSuccess}}
+          @onError={{onError}}
+        />
+      </template>,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
-    assert.false(this.success);
+    assert.false(context.success);
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-error');
     await wait(2000); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
@@ -133,7 +198,14 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @color="tertiary" /></template>,
+      <template>
+        <HdsCopySnippet
+          id="test-copy-snippet"
+          @textToCopy="someSecretThingGoesHere"
+          {{! @glint-expect-error - assertion testing invalid value }}
+          @color="tertiary"
+        />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
