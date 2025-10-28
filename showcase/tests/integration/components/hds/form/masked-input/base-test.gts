@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render } from '@ember/test-helpers';
-import Base from "@hashicorp/design-system-components/components/hds/form/masked-input/base";
+
+import { HdsFormMaskedInputBase } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/form/masked-input/base',
@@ -15,7 +17,9 @@ module(
 
     test('it should render the component with a specific CSS class', async function (assert) {
       await render(
-        <template><Base id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputBase id="test-form-masked-input" />
+        </template>,
       );
       assert
         .dom('#test-form-masked-input')
@@ -24,7 +28,12 @@ module(
 
     test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
       await render(
-        <template><Base @id="custom-id" @ariaDescribedBy="custom-description-id" /></template>,
+        <template>
+          <HdsFormMaskedInputBase
+            @id="custom-id"
+            @ariaDescribedBy="custom-description-id"
+          />
+        </template>,
       );
       assert
         .dom('#custom-id')
@@ -36,7 +45,9 @@ module(
 
     test('it should render the text masked by default', async function (assert) {
       await render(
-        <template><Base id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputBase id="test-form-masked-input" />
+        </template>,
       );
       assert
         .dom('.hds-form-masked-input__control')
@@ -46,7 +57,12 @@ module(
 
     test('it should render readable text when `isContentMasked` is false', async function (assert) {
       await render(
-        <template><Base id="test-form-masked-input" @isContentMasked={{false}} /></template>,
+        <template>
+          <HdsFormMaskedInputBase
+            id="test-form-masked-input"
+            @isContentMasked={{false}}
+          />
+        </template>,
       );
       assert
         .dom('.hds-form-masked-input__control')
@@ -56,7 +72,9 @@ module(
 
     test('it should toggle the masking when button is pressed', async function (assert) {
       await render(
-        <template><Base id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputBase id="test-form-masked-input" />
+        </template>,
       );
       await click('.hds-form-visibility-toggle');
       assert
@@ -69,7 +87,9 @@ module(
 
     test('it automatically provides the ID relations between the elements', async function (assert) {
       await render(
-        <template><Base @id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputBase @id="test-form-masked-input" />
+        </template>,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -78,7 +98,9 @@ module(
 
     test('it updates the button label on toggle', async function (assert) {
       await render(
-        <template><Base @id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputBase @id="test-form-masked-input" />
+        </template>,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -91,7 +113,9 @@ module(
 
     test('it informs the user about visibility change on toggle', async function (assert) {
       await render(
-        <template><Base @id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputBase @id="test-form-masked-input" />
+        </template>,
       );
       await click('.hds-form-visibility-toggle');
       assert
@@ -107,14 +131,21 @@ module(
 
     test('it should render an `<input>` element by default', async function (assert) {
       await render(
-        <template><Base id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputBase id="test-form-masked-input" />
+        </template>,
       );
       assert.dom('input#test-form-masked-input').exists();
     });
 
     test('it should render a `<textarea>` element when `@isMultiline` is true', async function (assert) {
       await render(
-        <template><Base @isMultiline={{true}} id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputBase
+            @isMultiline={{true}}
+            id="test-form-masked-input"
+          />
+        </template>,
       );
       assert.dom('textarea#test-form-masked-input').exists();
     });
