@@ -17,7 +17,8 @@ import { cloneDeep } from 'lodash-es';
 
 import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
-import { generateExtraThemingFiles } from './build-parts/generateExtraThemingFiles.ts';
+import { generateExtraThemingCssFiles } from './build-parts/generateExtraThemingCssFiles.ts';
+import { generateExtraThemingDocsFiles } from './build-parts/generateExtraThemingDocsFiles.ts';
 
 // SCRIPT CONFIG
 
@@ -293,8 +294,14 @@ StyleDictionary.registerAction({
 });
 
 StyleDictionary.registerAction({
-    name: 'generate-extra-theming-files',
-    do: generateExtraThemingFiles,
+    name: 'generate-extra-theming-css-files',
+    do: generateExtraThemingCssFiles,
+    undo: () => {}
+});
+
+StyleDictionary.registerAction({
+    name: 'generate-extra-theming-docs-files',
+    do: generateExtraThemingDocsFiles,
     undo: () => {}
 });
 
