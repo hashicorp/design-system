@@ -8,9 +8,14 @@ import templateOnlyComponent from '@ember/component/template-only';
 export interface HdsDialogPrimitiveBodySignature {
   Args: {
     contextualClass?: string;
+    onDismiss?: (event: MouseEvent, ...args: unknown[]) => void;
   };
   Blocks: {
-    default: [];
+    default: [
+      {
+        close: (event: MouseEvent, ...args: unknown[]) => void;
+      },
+    ];
   };
   Element: HTMLDivElement;
 }

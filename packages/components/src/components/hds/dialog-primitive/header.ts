@@ -13,8 +13,7 @@ export interface HdsDialogPrimitiveHeaderSignature {
     contextualClassPrefix?: string;
     id?: string;
     icon?: HdsIconSignature['Args']['name'];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
+    onDismiss?: (event: MouseEvent, ...args: unknown[]) => void;
     titleTag?: HdsDialogPrimitiveHeaderTitleTags;
     tagline?: string;
   };

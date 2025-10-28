@@ -8,14 +8,12 @@ import Component from '@glimmer/component';
 export interface HdsDialogPrimitiveFooterSignature {
   Args: {
     contextualClass?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
+    onDismiss?: (event: MouseEvent, ...args: unknown[]) => void;
   };
   Blocks: {
     default: [
       {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        close: (event: MouseEvent, ...args: any[]) => void;
+        close: (event: MouseEvent, ...args: unknown[]) => void;
       },
     ];
   };

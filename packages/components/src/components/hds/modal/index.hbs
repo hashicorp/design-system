@@ -24,7 +24,9 @@
     }}
   </:header>
   <:body>
-    {{yield (hash Body=(component "hds/dialog-primitive/body" contextualClass="hds-modal__body"))}}
+    {{yield
+      (hash Body=(component "hds/dialog-primitive/body" onDismiss=this.onDismiss contextualClass="hds-modal__body"))
+    }}
   </:body>
   <:footer>
     {{yield
