@@ -4,57 +4,69 @@
  */
 
 import { module, test } from 'qunit';
+import { render, find } from '@ember/test-helpers';
+import { get } from '@ember/helper';
+
+import { HdsFormKeyValueInputs } from '@hashicorp/design-system-components/components';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render } from '@ember/test-helpers';
-import KeyValueInputs from "@hashicorp/design-system-components/components/hds/form/key-value-inputs/index";
+
+const createKeyValueInputs = async (options: {
+  data?: Record<string, unknown>[];
+  isFieldsetRequired?: boolean;
+  isFieldsetOptional?: boolean;
+  extraAriaDescribedBy?: string;
+}) => {
+  const data = options?.data ?? [];
+
+  return await render(
+    <template>
+      <HdsFormKeyValueInputs
+        id="test-form-key-value-inputs"
+        @data={{data}}
+        @isRequired={{options.isFieldsetRequired}}
+        @isOptional={{options.isFieldsetOptional}}
+        @extraAriaDescribedBy={{options.extraAriaDescribedBy}}
+      >
+        <:header as |H|>
+          <H.Legend>Legend</H.Legend>
+          <H.HelperText>Helper text</H.HelperText>
+          <H.Generic>
+            <span id="header-generic">Generic content</span>
+          </H.Generic>
+        </:header>
+
+        <:row as |R|>
+          <R.DeleteRowButton />
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.HelperText>Helper text</F.HelperText>
+            {{! @glint-expect-error }}
+            <F.Textarea @value={{get R.rowData "value"}} />
+            <F.Error>Error text</F.Error>
+          </R.Field>
+          <R.Generic>Generic content</R.Generic>
+        </:row>
+
+        <:footer as |F|>
+          <F.AddRowButton />
+          <F.Alert as |A|>
+            <A.Description>Alert content</A.Description>
+          </F.Alert>
+          <F.Error>Error text</F.Error>
+        </:footer>
+      </HdsFormKeyValueInputs>
+    </template>,
+  );
+};
 
 module(
   'Integration | Component | hds/form/key-value-inputs/index',
   function (hooks) {
     setupRenderingTest(hooks);
 
-    hooks.beforeEach(function () {
-      this.set('createKeyValueInputs', async (args = {}) => {
-        this.data = args.data ?? [];
-        this.isFieldsetRequired = args.isFieldsetRequired;
-        this.isFieldsetOptional = args.isFieldsetOptional;
-        this.extraAriaDescribedBy = args.extraAriaDescribedBy;
-        return await render(<template>
-          <KeyValueInputs id="test-form-key-value-inputs" @data={{this.data}} @isRequired={{this.isFieldsetRequired}} @isOptional={{this.isFieldsetOptional}} @extraAriaDescribedBy={{this.extraAriaDescribedBy}}>
-            <:header as |H|>
-              <H.Legend>Legend</H.Legend>
-              <H.HelperText>Helper text</H.HelperText>
-              <H.Generic>
-                <span id="header-generic">Generic content</span>
-              </H.Generic>
-            </:header>
-
-            <:row as |R|>
-              {{!-- for testing purposes, we specifically move it first so we can validate that is rendered last --}}
-              <R.DeleteRowButton />
-              <R.Field as |F|>
-                <F.Label>Value</F.Label>
-                <F.HelperText>Helper text</F.HelperText>
-                <F.Textarea @value={{R.rowData.value}} />
-                <F.Error>Error text</F.Error>
-              </R.Field>
-              <R.Generic>Generic content</R.Generic>
-            </:row>
-
-            <:footer as |F|>
-              <F.AddRowButton />
-              <F.Alert as |A|>
-                <A.Description>Alert content</A.Description>
-              </F.Alert>
-              <F.Error>Error text</F.Error>
-            </:footer>
-          </KeyValueInputs>
-        </template>);
-      });
-    });
-
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      await this.createKeyValueInputs();
+      await createKeyValueInputs({});
       assert
         .dom('#test-form-key-value-inputs')
         .hasClass('hds-form-key-value-inputs');
@@ -63,7 +75,7 @@ module(
     // HEADER
 
     test('it should render the header content', async function (assert) {
-      await this.createKeyValueInputs();
+      await createKeyValueInputs({});
       assert
         .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__header')
         .exists();
@@ -84,7 +96,7 @@ module(
         .hasText('Generic content');
     });
     test('it should render the "required" indicator in the legend', async function (assert) {
-      await this.createKeyValueInputs({ isFieldsetRequired: true });
+      await createKeyValueInputs({ isFieldsetRequired: true });
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend .hds-form-indicator.hds-badge--color-neutral',
@@ -92,7 +104,7 @@ module(
         .exists();
     });
     test('it should render the "optional" indicator in the legend', async function (assert) {
-      await this.createKeyValueInputs({ isFieldsetOptional: true });
+      await createKeyValueInputs({ isFieldsetOptional: true });
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend .hds-form-indicator.hds-form-indicator--optional',
@@ -103,7 +115,7 @@ module(
     // ROW
 
     test('it should render the row content if the data argument is an empty array', async function (assert) {
-      await this.createKeyValueInputs();
+      await createKeyValueInputs({});
       assert
         .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__row')
         .exists({ count: 1 });
@@ -132,7 +144,7 @@ module(
     });
 
     test('it should render the row content if the data argument has entries', async function (assert) {
-      await this.createKeyValueInputs({
+      await createKeyValueInputs({
         data: [{ value: 'Test value' }, { value: 'Another value' }],
       });
       assert
@@ -143,7 +155,7 @@ module(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__row .hds-form-key-value-inputs__field',
         )
         .exists({ count: 2 });
-      assert;
+
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__generic-container',
@@ -157,29 +169,33 @@ module(
     });
 
     test('it should yield `rowData` and `rowIndex`', async function (assert) {
-      this.data = [{ key: 'Test key', value: 'Test value' }];
-      await render(<template>
-        <KeyValueInputs id="test-form-key-value-inputs" @data={{this.data}}>
-          <:row as |R|>
-            <R.Generic>
-              This row has R.rowIndex={{R.rowIndex}} / R.rowData.key={{R.rowData.key}} / R.rowData.value={{R.rowData.value}}
-            </R.Generic>
-          </:row>
-        </KeyValueInputs>
-      </template>);
+      const data = [{ key: 'Test key', value: 'Test value' }];
+      await render(
+        <template>
+          <HdsFormKeyValueInputs id="test-form-key-value-inputs" @data={{data}}>
+            <:row as |R|>
+              <R.Generic>
+                This row has R.rowIndex={{R.rowIndex}}
+                / R.rowData.key={{R.rowData.key}}
+                / R.rowData.value={{R.rowData.value}}
+              </R.Generic>
+            </:row>
+          </HdsFormKeyValueInputs>
+        </template>,
+      );
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__generic-container',
         )
         .hasText(
-          `This row has R.rowIndex=0 / R.rowData.key=${this.data[0].key} / R.rowData.value=${this.data[0].value}`,
+          `This row has R.rowIndex=0 / R.rowData.key=${data[0] ? data[0].key : ''} / R.rowData.value=${data[0] ? data[0].value : ''}`,
         );
     });
 
     // FOOTER
 
     test('it should render the footer content', async function (assert) {
-      await this.createKeyValueInputs();
+      await createKeyValueInputs({});
       assert
         .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__footer')
         .exists();
@@ -202,7 +218,7 @@ module(
     // INLINE STYLES FOR GRID LAYOUT
 
     test('it should set the appropriate column indexes for some row children (generic + button) if there is no data', async function (assert) {
-      await this.createKeyValueInputs();
+      await createKeyValueInputs({});
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__generic-container',
@@ -216,35 +232,38 @@ module(
     });
 
     test('it should set the appropriate column indexes for some row children (generic + button) when there is complex row content and data', async function (assert) {
-      this.data = [
+      const data = [
         { key: 'Test key', value: 'Test value' },
         { key: 'Another key', value: 'Another value' },
       ];
-      await render(<template>
-        <KeyValueInputs id="test-form-key-value-inputs" @data={{this.data}}>
-          <:header as |H|>
-            <H.Legend>Legend</H.Legend>
-          </:header>
-          <:row as |R|>
-            <R.Field as |F|>
-              <F.Label>Key</F.Label>
-              <F.TextInput />
-            </R.Field>
-            <R.Generic data-test-generic-1>
-              Generic content
-            </R.Generic>
-            <R.Field as |F|>
-              <F.Label>Value</F.Label>
-              <F.Textarea />
-            </R.Field>
-            <R.DeleteRowButton />
-            {{!-- Adding generic content after the delete row button to ensure it is actually rendered in a column before the delete icon --}}
-            <R.Generic data-test-generic-2>
-              Generic content
-            </R.Generic>
-          </:row>
-        </KeyValueInputs>
-      </template>);
+
+      await render(
+        <template>
+          <HdsFormKeyValueInputs id="test-form-key-value-inputs" @data={{data}}>
+            <:header as |H|>
+              <H.Legend>Legend</H.Legend>
+            </:header>
+            <:row as |R|>
+              <R.Field as |F|>
+                <F.Label>Key</F.Label>
+                <F.TextInput />
+              </R.Field>
+              <R.Generic data-test-generic-1>
+                Generic content
+              </R.Generic>
+              <R.Field as |F|>
+                <F.Label>Value</F.Label>
+                <F.Textarea />
+              </R.Field>
+              <R.DeleteRowButton />
+              {{! Adding generic content after the delete row button to ensure it is actually rendered in a column before the delete icon }}
+              <R.Generic data-test-generic-2>
+                Generic content
+              </R.Generic>
+            </:row>
+          </HdsFormKeyValueInputs>
+        </template>,
+      );
       assert
         .dom('#test-form-key-value-inputs [data-test-generic-1]')
         .hasStyle({ '--hds-key-value-inputs-column-index': '2' });
@@ -262,7 +281,7 @@ module(
     // CUSTOM WIDTHS
 
     test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows without custom widths', async function (assert) {
-      await this.createKeyValueInputs({
+      await createKeyValueInputs({
         data: [{ value: 'Test value' }, { value: 'Another value' }],
       });
 
@@ -272,36 +291,41 @@ module(
     });
 
     test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows with complex structure', async function (assert) {
-      this.data = [
+      const data = [
         { key: 'Test key', value: 'Test value' },
         { key: 'Another key', value: 'Another value' },
       ];
-      await render(<template>
-        <KeyValueInputs id="test-form-key-value-inputs" @data={{this.data}}>
-          <:row as |R|>
-            <R.Field />
-            <R.Generic />
-            <R.Field />
-            <R.Generic />
-            <R.DeleteRowButton />
-          </:row>
-        </KeyValueInputs>
-      </template>);
+      await render(
+        <template>
+          <HdsFormKeyValueInputs id="test-form-key-value-inputs" @data={{data}}>
+            <:row as |R|>
+              <R.Field />
+              <R.Generic />
+              <R.Field />
+              <R.Generic />
+              <R.DeleteRowButton />
+            </:row>
+          </HdsFormKeyValueInputs>
+        </template>,
+      );
       assert.dom('#test-form-key-value-inputs').hasStyle({
         '--hds-key-value-inputs-columns': '1fr auto 1fr auto 2.25rem',
       });
     });
 
     test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the row when there is no data and no yielded delete button', async function (assert) {
-      this.data = [];
-      await render(<template>
-        <KeyValueInputs id="test-form-key-value-inputs" @data={{this.data}}>
-          <:row as |R|>
-            <R.Field />
-            <R.Generic />
-          </:row>
-        </KeyValueInputs>
-      </template>);
+      const data: never[] = [];
+
+      await render(
+        <template>
+          <HdsFormKeyValueInputs id="test-form-key-value-inputs" @data={{data}}>
+            <:row as |R|>
+              <R.Field />
+              <R.Generic />
+            </:row>
+          </HdsFormKeyValueInputs>
+        </template>,
+      );
       assert
         .dom('#test-form-key-value-inputs')
         // per design specs, the last column is always set to provide space for the delete button, even if the button is not rendered, to avoid layout shifts
@@ -309,16 +333,18 @@ module(
     });
 
     test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows with custom widths', async function (assert) {
-      this.data = [{ value: 'Test value' }, { value: 'Another value' }];
-      await render(<template>
-        <KeyValueInputs id="test-form-key-value-inputs" @data={{this.data}}>
-          <:row as |R|>
-            <R.Field @width="200px" />
-            <R.Generic />
-            <R.DeleteRowButton />
-          </:row>
-        </KeyValueInputs>
-      </template>);
+      const data = [{ value: 'Test value' }, { value: 'Another value' }];
+      await render(
+        <template>
+          <HdsFormKeyValueInputs id="test-form-key-value-inputs" @data={{data}}>
+            <:row as |R|>
+              <R.Field @width="200px" />
+              <R.Generic />
+              <R.DeleteRowButton />
+            </:row>
+          </HdsFormKeyValueInputs>
+        </template>,
+      );
 
       assert
         .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__field')
@@ -333,24 +359,26 @@ module(
 
     test('it should associate together the fieldset and its legend, help text and error', async function (assert) {
       const extraAriaDescribedBy = 'extra';
-      await this.createKeyValueInputs({ extraAriaDescribedBy });
+      await createKeyValueInputs({ extraAriaDescribedBy });
 
-      const legendId = document.querySelector(
+      const legend = find(
         '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend',
-      ).id;
-      const helperId = document.querySelector(
+      );
+      const helper = find(
         '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__helper-text',
-      ).id;
-      const errorId = document.querySelector(
+      );
+      const error = find(
         '#test-form-key-value-inputs .hds-form-key-value-inputs__error',
-      ).id;
+      );
 
-      assert.dom('#test-form-key-value-inputs').hasAria('labelledby', legendId);
+      assert
+        .dom('#test-form-key-value-inputs')
+        .hasAria('labelledby', legend?.id ?? '');
       assert
         .dom('#test-form-key-value-inputs')
         .hasAria(
           'describedby',
-          `${helperId} ${errorId} ${extraAriaDescribedBy}`,
+          `${helper?.id} ${error?.id} ${extraAriaDescribedBy}`,
         );
     });
   },
