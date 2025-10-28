@@ -4,10 +4,12 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
+import { array } from '@ember/helper';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Flex from "@hashicorp/design-system-components/components/hds/layout/flex/index";
-import { array } from "@ember/helper";
+
+import { HdsLayoutFlex } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/layout/flex/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -17,7 +19,7 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Flex id="test-layout-flex" /></template>);
+    await render(<template><HdsLayoutFlex id="test-layout-flex" /></template>);
     assert.dom('#test-layout-flex').hasClass('hds-layout-flex');
   });
 
@@ -25,13 +27,18 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
 
   test('it should render the yielded content', async function (assert) {
     await render(
-      <template><Flex id="test-layout-flex"><pre>test</pre></Flex></template>,
+      <template>
+        <HdsLayoutFlex id="test-layout-flex"><pre>test</pre></HdsLayoutFlex>
+      </template>,
     );
     assert.dom('#test-layout-flex > pre').exists().hasText('test');
   });
   test('it should render the `Item` yielded contextual component', async function (assert) {
     await render(
-      <template><Flex id="test-layout-flex" as |LF|><LF.Item><pre>test</pre></LF.Item></Flex></template>,
+      <template>
+        <HdsLayoutFlex id="test-layout-flex" as |LF|><LF.Item><pre
+            >test</pre></LF.Item></HdsLayoutFlex>
+      </template>,
     );
     assert
       .dom('#test-layout-flex > .hds-layout-flex-item > pre')
@@ -42,12 +49,14 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   // TAG
 
   test('it should render with a "div" element if @tag is not declared', async function (assert) {
-    await render(<template><Flex id="test-layout-flex" /></template>);
+    await render(<template><HdsLayoutFlex id="test-layout-flex" /></template>);
     assert.dom('#test-layout-flex').hasTagName('div');
   });
   test('it should render with the correct @tag declared', async function (assert) {
     await render(
-      <template><Flex id="test-layout-flex" @tag="section" /></template>,
+      <template>
+        <HdsLayoutFlex id="test-layout-flex" @tag="section" />
+      </template>,
     );
     assert.dom('#test-layout-flex').hasTagName('section');
   });
@@ -55,12 +64,14 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   // DIRECTION
 
   test('it should render the element with `row` direction if no @direction is declared', async function (assert) {
-    await render(<template><Flex id="test-layout-flex" /></template>);
+    await render(<template><HdsLayoutFlex id="test-layout-flex" /></template>);
     assert.dom('#test-layout-flex').hasClass('hds-layout-flex--direction-row');
   });
   test('it should render the correct CSS class if the @direction prop is declared', async function (assert) {
     await render(
-      <template><Flex id="test-layout-flex" @direction="column" /></template>,
+      <template>
+        <HdsLayoutFlex id="test-layout-flex" @direction="column" />
+      </template>,
     );
     assert
       .dom('#test-layout-flex')
@@ -70,7 +81,7 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   // JUSTIFY / ALIGN / WRAP / IS-INLINE
 
   test('it should render the element without specific classes if no @justify/@align/@wrap/@isInline are declared', async function (assert) {
-    await render(<template><Flex id="test-layout-flex" /></template>);
+    await render(<template><HdsLayoutFlex id="test-layout-flex" /></template>);
     assert
       .dom('#test-layout-flex')
       .doesNotHaveClass(/hds-layout-flex--justify-content-/)
@@ -80,7 +91,15 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   });
   test('it should render the correct CSS classes if the @justify/@align/@wrap/@isInline props are declared', async function (assert) {
     await render(
-      <template><Flex id="test-layout-flex" @justify="space-between" @align="stretch" @wrap={{true}} @isInline={{true}} /></template>,
+      <template>
+        <HdsLayoutFlex
+          id="test-layout-flex"
+          @justify="space-between"
+          @align="stretch"
+          @wrap={{true}}
+          @isInline={{true}}
+        />
+      </template>,
     );
     assert
       .dom('#test-layout-flex')
@@ -93,14 +112,16 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   // GAP
 
   test('it should render the element with the default `gap` class if no @gap is declared', async function (assert) {
-    await render(<template><Flex id="test-layout-flex" /></template>);
+    await render(<template><HdsLayoutFlex id="test-layout-flex" /></template>);
     assert
       .dom('#test-layout-flex')
       .hasClass('hds-layout-flex--row-gap-0')
       .hasClass('hds-layout-flex--column-gap-0');
   });
   test('it should render the correct CSS classes if the @gap prop is declared as single value', async function (assert) {
-    await render(<template><Flex id="test-layout-flex" @gap="24" /></template>);
+    await render(
+      <template><HdsLayoutFlex id="test-layout-flex" @gap="24" /></template>,
+    );
     assert
       .dom('#test-layout-flex')
       .hasClass('hds-layout-flex--row-gap-24')
@@ -108,7 +129,9 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   });
   test('it should render the correct CSS class if the @gap prop is declared as a couple of values', async function (assert) {
     await render(
-      <template><Flex id="test-layout-flex" @gap={{array "4" "48"}} /></template>,
+      <template>
+        <HdsLayoutFlex id="test-layout-flex" @gap={{array "4" "48"}} />
+      </template>,
     );
     assert
       .dom('#test-layout-flex')
@@ -125,7 +148,12 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Flex @direction="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsLayoutFlex @direction="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -137,7 +165,12 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Flex @justify="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsLayoutFlex @justify="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -149,7 +182,12 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Flex @align="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsLayoutFlex @align="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -161,7 +199,12 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Flex @gap={{array 4 "foo"}} /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsLayoutFlex @gap={{array 4 "foo"}} />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
