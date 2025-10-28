@@ -4,9 +4,12 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Number0 from "@hashicorp/design-system-components/components/hds/pagination/nav/number";
+
+import { HdsPaginationNavNumber } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+import NOOP from 'showcase/utils/noop';
 
 module('Integration | Component | hds/pagination/nav/number', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,9 +18,16 @@ module('Integration | Component | hds/pagination/nav/number', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template>
-        <Number0 @page={{1}} id="test-pagination-number" />
-      </template>);
+    await render(
+      <template>
+        <HdsPaginationNavNumber
+          @page={{1}}
+          @onClick={{NOOP}}
+          @isSelected={{false}}
+          id="test-pagination-number"
+        />
+      </template>,
+    );
     assert
       .dom('#test-pagination-number')
       .hasClass('hds-pagination-nav__number');
@@ -26,19 +36,37 @@ module('Integration | Component | hds/pagination/nav/number', function (hooks) {
   // CONTENT
 
   test('it displays the passed in page number', async function (assert) {
-    await render(<template>
-        <Number0 @page={{5}} />
-      </template>);
+    await render(
+      <template>
+        <HdsPaginationNavNumber
+          @page={{5}}
+          @onClick={{NOOP}}
+          @isSelected={{false}}
+        />
+      </template>,
+    );
     assert.dom('.hds-pagination-nav__control').hasText('page 5');
   });
 
   // SELECTED
 
   test('it is selected if @isSelected is set to true', async function (assert) {
-    await render(<template>
-        <Number0 @page={{1}} @isSelected={{true}} id="test-is-selected" />
-        <Number0 @page={{3}} id="test-not-selected" />
-      </template>);
+    await render(
+      <template>
+        <HdsPaginationNavNumber
+          @page={{1}}
+          @isSelected={{true}}
+          id="test-is-selected"
+          @onClick={{NOOP}}
+        />
+        <HdsPaginationNavNumber
+          @page={{3}}
+          id="test-not-selected"
+          @onClick={{NOOP}}
+          @isSelected={{false}}
+        />
+      </template>,
+    );
     assert
       .dom('#test-is-selected')
       .hasClass('hds-pagination-nav__number--is-selected');
@@ -55,11 +83,17 @@ module('Integration | Component | hds/pagination/nav/number', function (hooks) {
 
   test('it should call the onClick handler with the value of the page number', async function (assert) {
     let pageNumber;
-    this.set('onClick', (pageNum) => (pageNumber = pageNum));
+    const onClick = (pageNum: number) => (pageNumber = pageNum);
+
     await render(
       <template>
-          <Number0 @page={{3}} id="test-pagination-number" @onClick={{this.onClick}} />
-        </template>,
+        <HdsPaginationNavNumber
+          @page={{3}}
+          id="test-pagination-number"
+          @onClick={{onClick}}
+          @isSelected={{false}}
+        />
+      </template>,
     );
     await click('#test-pagination-number');
     assert.strictEqual(pageNumber, 3);
@@ -74,7 +108,12 @@ module('Integration | Component | hds/pagination/nav/number', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Number0 /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationNavNumber @onClick={{NOOP}} @isSelected={{false}} />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

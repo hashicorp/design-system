@@ -4,10 +4,14 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Compact from "@hashicorp/design-system-components/components/hds/pagination/compact/index";
-import { array } from "@ember/helper";
+
+import { HdsPaginationCompact } from '@hashicorp/design-system-components/components';
+import type { HdsPaginationDirections } from '@hashicorp/design-system-components/components/hds/pagination/types';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+
+import { array } from '@ember/helper';
 
 module('Integration | Component | hds/pagination/compact', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,16 +20,18 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template>
-    <Compact id="test-pagination-compact" />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationCompact id="test-pagination-compact" />
+      </template>,
+    );
     assert.dom('#test-pagination-compact').hasClass('hds-pagination');
   });
 
   // CONTENT
 
   test('it should render the "prev" and "next" controls', async function (assert) {
-    await render(<template><Compact /></template>);
+    await render(<template><HdsPaginationCompact /></template>);
     assert
       .dom('.hds-pagination-nav__arrow--direction-prev')
       .includesText('Previous');
@@ -44,25 +50,25 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
       .exists();
   });
   test('it should not render the text labels if @showLabels is set to false', async function (assert) {
-    await render(<template>
-      <Compact @showLabels={{false}} />
-    </template>);
+    await render(
+      <template><HdsPaginationCompact @showLabels={{false}} /></template>,
+    );
     assert.dom('.hds-pagination-nav__arrow-label').doesNotExist();
   });
 
   // SIZE SELECTOR
 
   test('it shows the "size-selector" if @showSizeSelector is true', async function (assert) {
-    await render(<template>
-      <Compact @showSizeSelector={{true}} />
-    </template>);
+    await render(
+      <template><HdsPaginationCompact @showSizeSelector={{true}} /></template>,
+    );
     assert.dom('.hds-pagination .hds-pagination-size-selector').exists();
   });
 
   test('it renders the "size selector" content with default pageSizes values', async function (assert) {
-    await render(<template>
-      <Compact @showSizeSelector={{true}} />
-    </template>);
+    await render(
+      <template><HdsPaginationCompact @showSizeSelector={{true}} /></template>,
+    );
     assert
       .dom('.hds-pagination .hds-pagination-size-selector option[value="10"]')
       .hasText('10');
@@ -75,9 +81,14 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
   });
 
   test('it renders custom options for passed in pageSizes and sets currentPageSize to the first PageSizes item', async function (assert) {
-    await render(<template>
-      <Compact @showSizeSelector={{true}} @pageSizes={{array 20 40 60}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationCompact
+          @showSizeSelector={{true}}
+          @pageSizes={{array 20 40 60}}
+        />
+      </template>,
+    );
     assert
       .dom('.hds-pagination .hds-pagination-size-selector option[value="20"]')
       .hasText('20');
@@ -90,27 +101,43 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
   });
 
   test('it renders the passed in currentPageSize value', async function (assert) {
-    await render(<template>
-      <Compact @showSizeSelector={{true}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationCompact
+          @showSizeSelector={{true}}
+          @currentPageSize={{40}}
+          @pageSizes={{array 20 40 60}}
+        />
+      </template>,
+    );
     assert
       .dom('.hds-pagination .hds-pagination-size-selector select')
       .hasValue('40');
   });
 
   test('it displays the passed in custom text for the SizeSelector label text', async function (assert) {
-    await render(<template>
-      <Compact @showSizeSelector={{true}} @sizeSelectorLabel="Custom text" />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationCompact
+          @showSizeSelector={{true}}
+          @sizeSelectorLabel="Custom text"
+        />
+      </template>,
+    );
     assert.dom('.hds-pagination-size-selector label').hasText('Custom text');
   });
 
   // DISABLED
 
   test('it should render disabled buttons when @isDisabledPrev/Next are set to true', async function (assert) {
-    await render(<template>
-        <Compact @isDisabledPrev={{true}} @isDisabledNext={{true}} />
-      </template>);
+    await render(
+      <template>
+        <HdsPaginationCompact
+          @isDisabledPrev={{true}}
+          @isDisabledNext={{true}}
+        />
+      </template>,
+    );
     assert
       .dom('.hds-pagination-nav__arrow--direction-prev')
       .hasAttribute('disabled');
@@ -123,11 +150,14 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
 
   test('it should invoke the onPageChange callback and return the value of the new page number and page size', async function (assert) {
     let direction;
-    this.set('onPageChange', (dir) => (direction = dir));
+    const onPageChange = (dir: HdsPaginationDirections) => {
+      direction = dir;
+    };
+
     await render(
       <template>
-        <Compact @onPageChange={{this.onPageChange}} />
-        </template>,
+        <HdsPaginationCompact @onPageChange={{onPageChange}} />
+      </template>,
     );
     await click('.hds-pagination-nav__arrow--direction-prev');
     assert.strictEqual(direction, 'prev');
@@ -138,9 +168,15 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
   // ROUTING
 
   test('it should render links instead of buttons, with the correct "href" values, if it has routing', async function (assert) {
-    this.set('myQueryFunction', (page) => ({ page }));
+    const myQueryFunction = (page: string) => ({ page });
+
     await render(
-      <template><Compact @route="page-components.pagination" @queryFunction={{this.myQueryFunction}} /></template>,
+      <template>
+        <HdsPaginationCompact
+          @route="page-components.pagination"
+          @queryFunction={{myQueryFunction}}
+        />
+      </template>,
     );
     assert
       .dom('.hds-pagination-nav__arrow--direction-prev')
@@ -160,7 +196,10 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Compact @queryFunction="foo" @model="test" /></template>,
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationCompact @queryFunction="foo" @model="test" />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -168,7 +207,8 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
   });
 
   test('it should throw an assertion if @queryFunction is provided without a routing argument', async function (assert) {
-    this.set('myQueryFunction', (page) => ({ page }));
+    const myQueryFunction = (page: string) => ({ page });
+
     const errorMessage =
       '@model, @models, or @route for "Hds::Pagination::Compact" must be provided when using the `@queryFunction` argument';
     assert.expect(2);
@@ -176,7 +216,10 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Compact @queryFunction={{this.myQueryFunction}} /></template>,
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationCompact @queryFunction={{myQueryFunction}} />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
