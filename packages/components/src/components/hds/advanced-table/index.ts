@@ -151,6 +151,7 @@ export interface HdsAdvancedTableSignature {
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    isEmpty?: boolean;
     onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
     onSelectionChange?: (
@@ -199,6 +200,7 @@ export interface HdsAdvancedTableSignature {
         isOpen?: HdsAdvancedTableExpandState;
       },
     ];
+    emptyState?: [];
   };
   Element: HTMLDivElement;
 }
@@ -264,6 +266,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     if (hasStickyFirstColumn) {
       this.hasPinnedFirstColumn = true;
     }
+  }
+
+  get isEmpty(): boolean {
+    const { isEmpty } = this.args;
+    if (isEmpty !== undefined) {
+      return isEmpty;
+    }
+    return false;
   }
 
   get identityKey(): string | undefined {
