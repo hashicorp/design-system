@@ -41,6 +41,7 @@
     "@babel/plugin-proposal-decorators": "^7.27.1",
     "@codemirror/lint": "^6.8.4",
     "@codemirror/state": "^6.5.0",
+    "@codemirror/view": "^6.36.2",
     "@ember/optional-features": "^2.2.0",
     "@ember/render-modifiers": "^3.0.0",
     "@ember/string": "^4.0.1",
