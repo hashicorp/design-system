@@ -4,33 +4,37 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import sinon from 'sinon';
+import { TrackedObject } from 'tracked-built-ins';
 import { wait } from 'showcase/tests/helpers';
-import Button from "@hashicorp/design-system-components/components/hds/copy/button/index";
+import sinon from 'sinon';
+
+import { HdsCopyButton } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/copy/button/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  // IMPORTANT: don't use an arrow function here or "this.set" will not be recognized
-  hooks.beforeEach(function () {
+  hooks.beforeEach(() => {
     sinon.stub(window.navigator.clipboard, 'writeText').resolves();
-    this.success = undefined;
-    this.set('onSuccess', () => (this.success = true));
-    this.set('onError', () => (this.success = false));
   });
 
   hooks.afterEach(() => {
     resetOnerror();
     // we need to restore the "window.navigator" methods
     sinon.restore();
-    this.success = undefined;
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button');
   });
@@ -38,27 +42,70 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
   // @TEXT ARGUMENT
 
   test('it should allow to copy a `string` provided as `@text` argument', async function (assert) {
+    const context = new TrackedObject<Record<'success', boolean | undefined>>({
+      success: undefined,
+    });
+    const onSuccess = () => {
+      context.success = true;
+    };
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
-      <template><Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @textToCopy="someSecretThingGoesHere"
+          @onSuccess={{onSuccess}}
+          @onError={{onError}}
+        />
+      </template>,
     );
     await click('button#test-copy-button');
-    assert.true(this.success);
+    assert.true(context.success);
   });
 
   // @TARGET ARGUMENT
 
   test('it should allow to target an element using a `string` selector for the `@target` argument', async function (assert) {
+    const context = new TrackedObject<Record<'success', boolean | undefined>>({
+      success: undefined,
+    });
+    const onSuccess = () => {
+      context.success = true;
+    };
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
-      <template><p id="test-copy-button-target">Hello world!</p><Button id="test-copy-button" @text="Copy your secret key" @targetToCopy="#test-copy-button-target" @onSuccess={{this.onSuccess}} @onError={{this.onError}} /></template>,
+      <template>
+        <p id="test-copy-button-target">Hello world!</p><HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @targetToCopy="#test-copy-button-target"
+          @onSuccess={{onSuccess}}
+          @onError={{onError}}
+        />
+      </template>,
     );
     await click('button#test-copy-button');
-    assert.true(this.success);
+    assert.true(context.success);
   });
 
   // @ariaMessageText ARGUMENT
   test('it should set a custom success message in the aria-live region if passed', async function (assert) {
     await render(
-      <template><Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @ariaMessageText="Custom success message" @onSuccess={{this.onSuccess}} @onError={{this.onError}} /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @textToCopy="someSecretThingGoesHere"
+          @ariaMessageText="Custom success message"
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     // Test the copy success message is not rendered before the button is clicked:
@@ -77,7 +124,13 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should render the correct default component variation: secondary color, medium size, idle status', async function (assert) {
     await render(
-      <template><Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button');
     assert.dom('#test-copy-button').hasClass('hds-button--size-medium');
@@ -87,7 +140,14 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should only render an icon and also render an aria-label if isIconOnly is set to true', async function (assert) {
     await render(
-      <template><Button @text="Copy" @isIconOnly={{true}} @textToCopy="someSecretThingGoesHere" id="test-copy-button" /></template>,
+      <template>
+        <HdsCopyButton
+          @text="Copy"
+          @isIconOnly={{true}}
+          @textToCopy="someSecretThingGoesHere"
+          id="test-copy-button"
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').doesNotIncludeText('Copy');
     assert.dom('#test-copy-button').hasAria('label', 'Copy');
@@ -95,14 +155,27 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should render the small size if @size small is defined', async function (assert) {
     await render(
-      <template><Button id="test-copy-button" @text="copy" @textToCopy="someSecretThingGoesHere" @size="small" /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="copy"
+          @textToCopy="someSecretThingGoesHere"
+          @size="small"
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').hasClass('hds-button--size-small');
   });
 
   test('it always renders the text value, not the text to copy', async function (assert) {
     await render(
-      <template><Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').hasText('Copy your secret key');
     assert
@@ -112,7 +185,14 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should have the correct CSS class to support full-width size if @isFullWidth prop is true', async function (assert) {
     await render(
-      <template><Button id="test-copy-button" @text="copy" @textToCopy="someSecretThingGoesHere" @isFullWidth={{true}} /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="copy"
+          @textToCopy="someSecretThingGoesHere"
+          @isFullWidth={{true}}
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').hasClass('hds-button--width-full');
   });
@@ -120,8 +200,26 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
   // COPY STATES
 
   test('it should update the status to success if the copy operation was successful', async function (assert) {
+    const context = new TrackedObject<Record<'success', boolean | undefined>>({
+      success: undefined,
+    });
+    const onSuccess = () => {
+      context.success = true;
+    };
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
-      <template><Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @textToCopy="someSecretThingGoesHere"
+          @onSuccess={{onSuccess}}
+          @onError={{onError}}
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     // Test the copy success message is not rendered before the button is clicked:
@@ -130,7 +228,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
       .doesNotContainText('Copied to clipboard');
 
     await click('button#test-copy-button');
-    assert.true(this.success);
+    assert.true(context.success);
     // Test the copy success message is rendered after the button is clicked:
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
     assert.dom('#test-copy-button + .sr-only').hasText('Copied to clipboard');
@@ -138,7 +236,13 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should update the status back to idle after success', async function (assert) {
     await render(
-      <template><Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
@@ -151,16 +255,32 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     sinon.restore();
     sinon
       .stub(window.navigator.clipboard, 'writeText')
-      .throws(
-        'Sinon throws (syntethic error)',
-        'this is a fake error message provided to the sinon.stub().throws() method',
-      );
+      .throws('Sinon throws (syntethic error)');
+
+    const context = new TrackedObject<Record<'success', boolean | undefined>>({
+      success: undefined,
+    });
+    const onSuccess = () => {
+      context.success = true;
+    };
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
-      <template><Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} /></template>,
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          @textToCopy="someSecretThingGoesHere"
+          @onSuccess={{onSuccess}}
+          @onError={{onError}}
+        />
+      </template>,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
-    assert.false(this.success);
+    assert.false(context.success);
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-error');
     await wait(2000); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
@@ -174,7 +294,15 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Button id="test-copy-button" @textToCopy="someSecretThingGoesHere" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - assertion testing invalid value }}
+        <HdsCopyButton
+          id="test-copy-button"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -187,7 +315,17 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Button id="test-copy-button" @text="Copy your secret key" @size="tiny" @textToCopy="someSecretThingGoesHere" /></template>);
+    await render(
+      <template>
+        <HdsCopyButton
+          id="test-copy-button"
+          @text="Copy your secret key"
+          {{! @glint-expect-error - assertion testing invalid value }}
+          @size="tiny"
+          @textToCopy="someSecretThingGoesHere"
+        />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
