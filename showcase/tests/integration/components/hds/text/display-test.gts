@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Display from "@hashicorp/design-system-components/components/hds/text/display";
+
+import { HdsTextDisplay } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/text/display', function (hooks) {
   setupRenderingTest(hooks);
@@ -17,7 +19,9 @@ module('Integration | Component | hds/text/display', function (hooks) {
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><Display @size="500" @tag="h1" id="test-text" /></template>,
+      <template>
+        <HdsTextDisplay @size="500" @tag="h1" id="test-text" />
+      </template>,
     );
     assert.dom('#test-text').hasClass('hds-text');
     assert.dom('#test-text').hasClass('hds-typography-display-500');
@@ -28,7 +32,16 @@ module('Integration | Component | hds/text/display', function (hooks) {
 
   test('it renders correctly the provided arguments', async function (assert) {
     await render(
-      <template><Display @size="400" @tag="h3" @weight="bold" @align="right" @color="success" id="test-text">This is the text</Display></template>,
+      <template>
+        <HdsTextDisplay
+          @size="400"
+          @tag="h3"
+          @weight="bold"
+          @align="right"
+          @color="success"
+          id="test-text"
+        >This is the text</HdsTextDisplay>
+      </template>,
     );
     assert.dom('#test-text').hasText('This is the text');
     assert.dom('#test-text').hasClass('hds-typography-display-400');
@@ -47,7 +60,12 @@ module('Integration | Component | hds/text/display', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Display @size="123" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextDisplay @size="123" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -59,7 +77,12 @@ module('Integration | Component | hds/text/display', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Display @size="500" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextDisplay @size="500" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -71,7 +94,12 @@ module('Integration | Component | hds/text/display', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Display @size="400" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextDisplay @size="400" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -83,7 +111,12 @@ module('Integration | Component | hds/text/display', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Display @size="300" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextDisplay @size="300" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -95,7 +128,12 @@ module('Integration | Component | hds/text/display', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Display @size="200" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextDisplay @size="200" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -107,7 +145,12 @@ module('Integration | Component | hds/text/display', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Display @size="100" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextDisplay @size="100" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
