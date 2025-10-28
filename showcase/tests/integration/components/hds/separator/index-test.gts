@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Separator from "@hashicorp/design-system-components/components/hds/separator/index";
+
+import { HdsSeparator } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/separator/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,19 +18,21 @@ module('Integration | Component | hds/separator/index', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Separator id="test-separator" /></template>);
+    await render(<template><HdsSeparator id="test-separator" /></template>);
     assert.dom('#test-separator').hasClass('hds-separator');
   });
 
   // SPACING
 
   test('it should render the component with CSS classes that reflect the default vaules if no arguments provided', async function (assert) {
-    await render(<template><Separator id="test-separator" /></template>);
+    await render(<template><HdsSeparator id="test-separator" /></template>);
     assert.dom('#test-separator').hasClass('hds-separator--spacing-24');
   });
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
-    await render(<template><Separator @spacing="0" id="test-separator" /></template>);
+    await render(
+      <template><HdsSeparator @spacing="0" id="test-separator" /></template>,
+    );
     assert.dom('#test-separator').hasClass('hds-separator--spacing-0');
   });
 
@@ -41,7 +45,12 @@ module('Integration | Component | hds/separator/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Separator @spacing="foo" id="test-separator" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsSeparator @spacing="foo" id="test-separator" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
