@@ -20,7 +20,7 @@ import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
 export interface HdsFilterBarSignature {
   Args: {
     filters: HdsFilterBarFilters;
-    activeFilterableColumns?: string[];
+    visibleFilterableColumns?: string[];
     isLiveFilter?: boolean;
     hasSearch?: boolean;
     showFilters?: boolean;
@@ -46,9 +46,7 @@ export interface HdsFilterBarSignature {
 }
 
 export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
-  @tracked filters: HdsFilterBarFilters = {};
-  @tracked hasActiveFilters: boolean = Object.keys(this.filters).length > 0;
-  @tracked activeFilterableColumns: string[] = [];
+  @tracked visibleFilterableColumns: string[] = [];
   @tracked showFilters: boolean = true;
 
   private _element!: HTMLDivElement;
@@ -67,19 +65,38 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   constructor(owner: Owner, args: HdsFilterBarSignature['Args']) {
     super(owner, args);
 
-    const { filters, activeFilterableColumns, showFilters } = args;
+    const { filters, visibleFilterableColumns, showFilters } = args;
 
-    if (filters) {
-      this.filters = { ...filters };
-    }
-
-    if (activeFilterableColumns) {
-      this.activeFilterableColumns = [...activeFilterableColumns];
-    }
+    console.log('Initializing FilterBar with filters:', filters);
 
     if (showFilters != null) {
       this.showFilters = showFilters;
     }
+
+    if (visibleFilterableColumns) {
+      this.visibleFilterableColumns = [...visibleFilterableColumns];
+    }
+
+    Object.keys(filters).forEach((k) => {
+      if (!this.activeFilterableColumns.includes(k)) {
+        this.activeFilterableColumns.push(k);
+      }
+    });
+  }
+
+  get hasActiveFilters(): boolean {
+    return Object.keys(this.args.filters).length > 0;
+  }
+
+  get activeFilterableColumns(): string[] {
+    const { filters } = this.args;
+    const columns: string[] = [];
+
+    Object.keys(filters).forEach((k) => {
+      columns.push(k);
+    });
+
+    return columns.concat(this.visibleFilterableColumns);
   }
 
   @action
@@ -88,22 +105,25 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   }
 
   @action
-  onFiltersChange(activeFilterableColumns: string[]): void {
-    this.activeFilterableColumns = activeFilterableColumns;
+  onFiltersChange(visibleFilterableColumns: string[]): void {
+    const { filters } = this.args;
 
-    Object.keys(this.filters).forEach((k) => {
+    this.visibleFilterableColumns = visibleFilterableColumns;
+
+    Object.keys(filters).forEach((k) => {
       if (!this.activeFilterableColumns.includes(k)) {
         this._triggerFilter(k);
       }
     });
 
     let filterKeyToOpen: string | undefined = undefined;
-    activeFilterableColumns.forEach((k) => {
-      if (!this.filters[k]) {
+    this.activeFilterableColumns.forEach((k) => {
+      if (!filters[k]) {
         filterKeyToOpen = k;
       }
     });
 
+    console.log('Filter key to open:', filterKeyToOpen);
     if (filterKeyToOpen) {
       // eslint-disable-next-line ember/no-runloop
       schedule('afterRender', (): void => {
@@ -114,12 +134,10 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
   @action
   clearFilters(): void {
-    this.filters = {};
-    this.activeFilterableColumns = [];
-    this.hasActiveFilters = false;
+    this.visibleFilterableColumns = [];
     const { onFilter } = this.args;
     if (onFilter && typeof onFilter === 'function') {
-      onFilter(this.filters);
+      onFilter({});
     }
 
     this._filtersDropdownToggleElement.focus();
@@ -139,21 +157,24 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   }
 
   private _triggerFilter(key: string, keyFilter?: HdsFilterBarFilter): void {
-    this._updateFilter(key, keyFilter);
-
-    this.hasActiveFilters = Object.keys(this.filters).length > 0;
+    const newFilters = this._updateFilter(key, keyFilter);
 
     const { onFilter } = this.args;
     if (onFilter && typeof onFilter === 'function') {
-      onFilter(this.filters);
+      onFilter(newFilters);
     }
   }
 
-  private _updateFilter(key: string, keyFilter?: HdsFilterBarFilter): void {
+  private _updateFilter(
+    key: string,
+    keyFilter?: HdsFilterBarFilter
+  ): HdsFilterBarFilters {
+    const { filters } = this.args;
     const newFilters = {} as HdsFilterBarFilters;
-    Object.keys(this.filters).forEach((k) => {
+
+    Object.keys(filters).forEach((k) => {
       newFilters[k] = JSON.parse(
-        JSON.stringify(this.filters[k])
+        JSON.stringify(filters[k])
       ) as HdsFilterBarFilter;
     });
     if (
@@ -161,7 +182,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
       (Array.isArray(keyFilter) && keyFilter.length === 0)
     ) {
       delete newFilters[key];
-      this.activeFilterableColumns = this.activeFilterableColumns.filter(
+      this.visibleFilterableColumns = this.visibleFilterableColumns.filter(
         (colKey) => colKey !== key
       );
       // Focus back on the filters dropdown toggle after removing a filter
@@ -169,13 +190,15 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     } else {
       Object.assign(newFilters, { [key]: keyFilter });
     }
-    this.filters = { ...newFilters };
+
+    return { ...newFilters };
   }
 
   private _triggerDropdownOpen(key: string): void {
     const dropdownElement = this._element.querySelector(
-      `.hds-dropdown[data-filter-key="${key}"]`
+      `.hds-filter-bar__dropdown[data-filter-key="${key}"]`
     ) as HTMLElement;
+    console.log('Triggering dropdown open for key:', key, dropdownElement);
 
     if (dropdownElement) {
       const toggleButton = dropdownElement.querySelector(
