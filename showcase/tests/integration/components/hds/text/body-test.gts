@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Body from "@hashicorp/design-system-components/components/hds/text/body";
+
+import { HdsTextBody } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/text/body', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,7 +18,9 @@ module('Integration | Component | hds/text/body', function (hooks) {
   });
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Body @size="200" @tag="p" id="test-text" /></template>);
+    await render(
+      <template><HdsTextBody @size="200" @tag="p" id="test-text" /></template>,
+    );
     assert.dom('#test-text').hasClass('hds-text');
     assert.dom('#test-text').hasClass('hds-typography-body-200');
   });
@@ -26,7 +30,16 @@ module('Integration | Component | hds/text/body', function (hooks) {
 
   test('it renders correctly the provided arguments', async function (assert) {
     await render(
-      <template><Body @size="100" @tag="mark" @weight="semibold" @align="right" @color="success" id="test-text">This is the text</Body></template>,
+      <template>
+        <HdsTextBody
+          @size="100"
+          @tag="mark"
+          @weight="semibold"
+          @align="right"
+          @color="success"
+          id="test-text"
+        >This is the text</HdsTextBody>
+      </template>,
     );
     assert.dom('#test-text').hasText('This is the text');
     assert.dom('#test-text').hasClass('hds-typography-body-100');
@@ -45,7 +58,12 @@ module('Integration | Component | hds/text/body', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Body @size="123" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextBody @size="123" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -57,7 +75,12 @@ module('Integration | Component | hds/text/body', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Body @size="300" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextBody @size="300" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -69,7 +92,12 @@ module('Integration | Component | hds/text/body', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Body @size="200" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextBody @size="200" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -81,7 +109,12 @@ module('Integration | Component | hds/text/body', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Body @size="100" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextBody @size="100" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

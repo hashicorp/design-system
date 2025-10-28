@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Code from "@hashicorp/design-system-components/components/hds/text/code";
+
+import { HdsTextCode } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/text/code', function (hooks) {
   setupRenderingTest(hooks);
@@ -17,7 +19,9 @@ module('Integration | Component | hds/text/code', function (hooks) {
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><Code @size="200" @tag="pre" id="test-text" /></template>,
+      <template>
+        <HdsTextCode @size="200" @tag="pre" id="test-text" />
+      </template>,
     );
     assert.dom('#test-text').hasClass('hds-text');
     assert.dom('#test-text').hasClass('hds-typography-code-200');
@@ -28,7 +32,16 @@ module('Integration | Component | hds/text/code', function (hooks) {
 
   test('it renders correctly the provided arguments', async function (assert) {
     await render(
-      <template><Code @size="100" @tag="code" @weight="regular" @align="right" @color="success" id="test-text">This is the text</Code></template>,
+      <template>
+        <HdsTextCode
+          @size="100"
+          @tag="code"
+          @weight="regular"
+          @align="right"
+          @color="success"
+          id="test-text"
+        >This is the text</HdsTextCode>
+      </template>,
     );
     assert.dom('#test-text').hasText('This is the text');
     assert.dom('#test-text').hasClass('hds-typography-code-100');
@@ -47,7 +60,12 @@ module('Integration | Component | hds/text/code', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Code @size="123" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextCode @size="123" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -59,7 +77,12 @@ module('Integration | Component | hds/text/code', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Code @size="300" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextCode @size="300" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -71,7 +94,12 @@ module('Integration | Component | hds/text/code', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Code @size="200" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextCode @size="200" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -83,7 +111,12 @@ module('Integration | Component | hds/text/code', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Code @size="100" @weight="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTextCode @size="100" @weight="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
