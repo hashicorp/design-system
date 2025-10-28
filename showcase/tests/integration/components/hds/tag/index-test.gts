@@ -4,9 +4,18 @@
  */
 
 import { module, test } from 'qunit';
+import {
+  render,
+  resetOnerror,
+  setupOnerror,
+  waitFor,
+} from '@ember/test-helpers';
+import style from 'ember-style-modifier';
+
+import { HdsTag } from '@hashicorp/design-system-components/components';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, resetOnerror, setupOnerror, waitFor } from '@ember/test-helpers';
-import Tag from "@hashicorp/design-system-components/components/hds/tag/index";
+import NOOP from 'showcase/utils/noop';
 
 module('Integration | Component | hds/tag/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,20 +24,21 @@ module('Integration | Component | hds/tag/index', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Tag @text="My tag" id="test-tag" /></template>);
+    await render(<template><HdsTag @text="My tag" id="test-tag" /></template>);
     assert.dom('#test-tag').hasClass('hds-tag');
   });
 
   // DISMISS
 
   test('it should not render the "dismiss" button by default', async function (assert) {
-    await render(<template><Tag @text="My tag" /></template>);
+    await render(<template><HdsTag @text="My tag" /></template>);
     assert.dom('button.hds-tag__dismiss').doesNotExist();
   });
 
   test('it should render the "dismiss" button if a callback function is passed to the @onDismiss argument', async function (assert) {
-    this.set('NOOP', () => {});
-    await render(<template><Tag @text="My tag" @onDismiss={{this.NOOP}} /></template>);
+    await render(
+      <template><HdsTag @text="My tag" @onDismiss={{NOOP}} /></template>,
+    );
     assert.dom('button.hds-tag__dismiss').exists();
     assert
       .dom('button.hds-tag__dismiss')
@@ -36,9 +46,14 @@ module('Integration | Component | hds/tag/index', function (hooks) {
   });
 
   test('it should render a customized label for the dismiss button if custom @ariaLabel text is defined', async function (assert) {
-    this.set('NOOP', () => {});
     await render(
-      <template><Tag @text="My tag" @onDismiss={{this.NOOP}} @ariaLabel="Please dismiss" /></template>,
+      <template>
+        <HdsTag
+          @text="My tag"
+          @onDismiss={{NOOP}}
+          @ariaLabel="Please dismiss"
+        />
+      </template>,
     );
     assert.dom('button.hds-tag__dismiss').exists();
     assert
@@ -50,14 +65,23 @@ module('Integration | Component | hds/tag/index', function (hooks) {
 
   test('it should render the primary color as the default if no @color prop is declared when the text is a link', async function (assert) {
     await render(
-      <template><Tag @text="My text tag" @href="/" id="test-link-tag" /></template>,
+      <template>
+        <HdsTag @text="My text tag" @href="/" id="test-link-tag" />
+      </template>,
     );
     assert.dom('#test-link-tag').hasClass('hds-tag--color-primary');
   });
 
   test('it should render the correct CSS color class if the @color prop is declared when the text is a link', async function (assert) {
     await render(
-      <template><Tag @text="My text tag" @href="/" @color="secondary" id="test-link-tag" /></template>,
+      <template>
+        <HdsTag
+          @text="My text tag"
+          @href="/"
+          @color="secondary"
+          id="test-link-tag"
+        />
+      </template>,
     );
     assert.dom('#test-link-tag').hasClass('hds-tag--color-secondary');
   });
@@ -69,7 +93,12 @@ module('Integration | Component | hds/tag/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Tag @text="My text tag" @href="/" @color="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTag @text="My text tag" @href="/" @color="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -82,7 +111,12 @@ module('Integration | Component | hds/tag/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Tag @text="My text tag" @color="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsTag @text="My text tag" @color="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -91,18 +125,23 @@ module('Integration | Component | hds/tag/index', function (hooks) {
   // OVERFLOW
 
   test('it should not render a tooltip if the text does not overflow', async function (assert) {
-    await render(<template>
-        <Tag @text="My text tag" id="test-tag" />
-    </template>);
+    await render(
+      <template><HdsTag @text="My text tag" id="test-tag" /></template>,
+    );
     assert.dom('.hds-tooltip-button').doesNotExist();
   });
 
   test('it should render a tooltip if the text overflows', async function (assert) {
-    await render(<template>
-      <div style="width: 50px;">
-        <Tag @text="This is a very long text that should go on multiple lines" id="test-tag" />
-      </div>
-    </template>);
+    await render(
+      <template>
+        <div {{style width="50px"}}>
+          <HdsTag
+            @text="This is a very long text that should go on multiple lines"
+            id="test-tag"
+          />
+        </div>
+      </template>,
+    );
     await waitFor('.hds-tooltip-button', { timeout: 1000 });
     assert.dom('.hds-tooltip-button').exists();
   });
