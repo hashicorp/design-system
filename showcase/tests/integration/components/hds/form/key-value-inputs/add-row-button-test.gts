@@ -4,9 +4,12 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, click } from '@ember/test-helpers';
-import AddRowButton from "@hashicorp/design-system-components/components/hds/form/key-value-inputs/add-row-button";
+import { TrackedObject } from 'tracked-built-ins';
+
+import { HdsFormKeyValueInputsAddRowButton } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/form/key-value-inputs/add-row-button',
@@ -15,7 +18,11 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><AddRowButton id="test-form-key-value-add-row-button" /></template>,
+        <template>
+          <HdsFormKeyValueInputsAddRowButton
+            id="test-form-key-value-add-row-button"
+          />
+        </template>,
       );
       assert
         .dom('#test-form-key-value-add-row-button')
@@ -26,14 +33,23 @@ module(
 
     test('it should render with default text', async function (assert) {
       await render(
-        <template><AddRowButton id="test-form-key-value-add-row-button" /></template>,
+        <template>
+          <HdsFormKeyValueInputsAddRowButton
+            id="test-form-key-value-add-row-button"
+          />
+        </template>,
       );
       assert.dom('#test-form-key-value-add-row-button').hasText('Add row');
     });
 
     test('it should render text from `@text` argument', async function (assert) {
       await render(
-        <template><AddRowButton @text="Custom text" id="test-form-key-value-add-row-button" /></template>,
+        <template>
+          <HdsFormKeyValueInputsAddRowButton
+            @text="Custom text"
+            id="test-form-key-value-add-row-button"
+          />
+        </template>,
       );
       assert.dom('#test-form-key-value-add-row-button').hasText('Custom text');
     });
@@ -41,24 +57,36 @@ module(
     // CALLBACKS
 
     test('it should call `@onClick` action when clicked', async function (assert) {
-      let clicked = false;
-      this.set('onClick', () => {
-        clicked = true;
+      const context = new TrackedObject({
+        isClicked: false,
       });
 
+      const onClick = () => {
+        context.isClicked = true;
+      };
+
       await render(
-        <template><AddRowButton @onClick={{this.onClick}} id="test-form-key-value-add-row-button" /></template>,
+        <template>
+          <HdsFormKeyValueInputsAddRowButton
+            @onClick={{onClick}}
+            id="test-form-key-value-add-row-button"
+          />
+        </template>,
       );
 
       await click('#test-form-key-value-add-row-button');
-      assert.ok(clicked);
+      assert.ok(context.isClicked);
     });
 
     // ACCESSIBILITY
 
     test('it should provide an `aria-description` attribute', async function (assert) {
       await render(
-        <template><AddRowButton id="test-form-key-value-add-row-button" /></template>,
+        <template>
+          <HdsFormKeyValueInputsAddRowButton
+            id="test-form-key-value-add-row-button"
+          />
+        </template>,
       );
       assert
         .dom('#test-form-key-value-add-row-button')
