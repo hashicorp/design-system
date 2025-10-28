@@ -4,15 +4,18 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, click, setupOnerror } from '@ember/test-helpers';
-import Tr from "@hashicorp/design-system-components/components/hds/table/tr";
+
+import { HdsTableTr } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+import NOOP from 'showcase/utils/noop';
 
 module('Integration | Component | hds/table/tr', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Tr id="data-test-table-tr" /></template>);
+    await render(<template><HdsTableTr id="data-test-table-tr" /></template>);
     assert.dom('#data-test-table-tr').hasClass('hds-table__tr');
   });
 
@@ -20,7 +23,9 @@ module('Integration | Component | hds/table/tr', function (hooks) {
 
   test('it should render the yielded content', async function (assert) {
     await render(
-      <template><Tr id="data-test-table-tr"><td></td></Tr></template>,
+      <template>
+        <HdsTableTr id="data-test-table-tr"><td></td></HdsTableTr>
+      </template>,
     );
     assert.dom('#data-test-table-tr > td').exists();
   });
@@ -31,58 +36,93 @@ module('Integration | Component | hds/table/tr', function (hooks) {
     '#data-test-table-tr > .hds-table__th--is-selectable input.hds-table__checkbox';
 
   test('it should not render a checkbox if `@isSelectable` is not set', async function (assert) {
-    await render(<template><Tr id="data-test-table-tr" /></template>);
+    await render(<template><HdsTableTr id="data-test-table-tr" /></template>);
     assert.dom(checkboxSelector).doesNotExist();
   });
 
   test('it should render a checkbox if `@isSelectable` is `true`', async function (assert) {
     await render(
-      <template><Tr id="data-test-table-tr" @isSelectable={{true}} /></template>,
+      <template>
+        <HdsTableTr id="data-test-table-tr" @isSelectable={{true}} />
+      </template>,
     );
     assert.dom(checkboxSelector).exists();
   });
 
   test('the checkbox should be checked if `@isSelected` is `true`', async function (assert) {
     await render(
-      <template><Tr id="data-test-table-tr" @isSelectable={{true}} @isSelected={{true}} /></template>,
+      <template>
+        <HdsTableTr
+          id="data-test-table-tr"
+          @isSelectable={{true}}
+          @isSelected={{true}}
+        />
+      </template>,
     );
     assert.dom(checkboxSelector).isChecked();
   });
 
   test('the checkbox contains the `@selectionAriaLabelSuffix` suffix', async function (assert) {
     await render(
-      <template><Tr id="data-test-table-tr" @isSelectable={{true}} @selectionAriaLabelSuffix="row 123" /></template>,
+      <template>
+        <HdsTableTr
+          id="data-test-table-tr"
+          @isSelectable={{true}}
+          @selectionAriaLabelSuffix="row 123"
+        />
+      </template>,
     );
     assert.dom(checkboxSelector).hasAria('label', 'Select row 123');
   });
 
   test('the `th` element has the correct `scope` attribute value provided via `@selectionScope`', async function (assert) {
     await render(
-      <template><Tr id="data-test-table-tr" @isSelectable={{true}} @selectionScope="test-selectionscope" /></template>,
+      <template>
+        <HdsTableTr
+          id="data-test-table-tr"
+          @isSelectable={{true}}
+          @selectionScope="row"
+        />
+      </template>,
     );
     assert
       .dom('#data-test-table-tr > .hds-table__th--is-selectable')
-      .hasAttribute('scope', 'test-selectionscope');
+      .hasAttribute('scope', 'row');
   });
 
   test('it should invoke the `onSelectionChange` callback when the checkbox is selected', async function (assert) {
     let key;
-    this.set(
-      'onSelectionChange',
-      (_checkbox, selectionKey) => (key = selectionKey),
-    );
+    const onSelectionChange = (
+      _checkbox?: HTMLInputElement,
+      selectionKey?: string,
+    ) => {
+      key = selectionKey;
+    };
+
     await render(
-      <template><Tr id="data-test-table-tr" @isSelectable={{true}} @selectionScope="row" @selectionKey="row123" @onSelectionChange={{this.onSelectionChange}} /></template>,
+      <template>
+        <HdsTableTr
+          id="data-test-table-tr"
+          @isSelectable={{true}}
+          @selectionScope="row"
+          @selectionKey="row123"
+          @onSelectionChange={{onSelectionChange}}
+        />
+      </template>,
     );
     await click(checkboxSelector);
     assert.strictEqual(key, 'row123');
   });
 
   test('it should render a sort button in the checkbox cell if `@onClickSortBySelected` is provided and `@isSelectable` is `true`', async function (assert) {
-    this.set('noop', () => {});
-
     await render(
-      <template><Tr id="data-test-table-tr" @isSelectable={{true}} @onClickSortBySelected={{this.noop}} /></template>,
+      <template>
+        <HdsTableTr
+          id="data-test-table-tr"
+          @isSelectable={{true}}
+          @onClickSortBySelected={{NOOP}}
+        />
+      </template>,
     );
 
     assert.dom(checkboxSelector + ' ~ .hds-table__th-button--sort').exists();
@@ -90,7 +130,9 @@ module('Integration | Component | hds/table/tr', function (hooks) {
 
   test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, and `@onClickSortBySelected` is undefined', async function (assert) {
     await render(
-      <template><Tr id="data-test-table-tr" @isSelectable={{true}} /></template>,
+      <template>
+        <HdsTableTr id="data-test-table-tr" @isSelectable={{true}} />
+      </template>,
     );
 
     assert
@@ -101,7 +143,9 @@ module('Integration | Component | hds/table/tr', function (hooks) {
   // ATTRIBUTES
 
   test('it should support splattributes', async function (assert) {
-    await render(<template><Tr id="data-test-table-tr" lang="es" /></template>);
+    await render(
+      <template><HdsTableTr id="data-test-table-tr" lang="es" /></template>,
+    );
     assert.dom('#data-test-table-tr').hasAttribute('lang', 'es');
   });
 
@@ -115,7 +159,9 @@ module('Integration | Component | hds/table/tr', function (hooks) {
       assert.strictEqual(error.message, errorMessage);
     });
     await render(
-      <template><Tr @isSelectable={{true}} @selectionScope="row" /></template>,
+      <template>
+        <HdsTableTr @isSelectable={{true}} @selectionScope="row" />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
