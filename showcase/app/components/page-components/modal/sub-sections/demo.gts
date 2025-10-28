@@ -546,7 +546,7 @@ export default class SubSectionDemo extends Component {
         <M.Header>
           Modal title
         </M.Header>
-        <M.Body>
+        <M.Body as |B|>
           <p class="hds-typography-body-300 hds-foreground-primary">Clicking the
             "confirm" button will submit the form and the associated action will
             remove the modal from the DOM.</p>
@@ -562,7 +562,7 @@ export default class SubSectionDemo extends Component {
           <form
             id="deactivate-modal-on-submit__form"
             aria-label="Deactivate Modal On Submit Form"
-            {{on "submit" (fn this.deactivateModalOnSubmit M.close)}}
+            {{on "submit" (fn this.deactivateModalOnSubmit B.close)}}
           >
             <HdsFormTextInputField
               name="deactivate-modal-on-submit__input"
