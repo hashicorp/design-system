@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import ApplicationState from "@hashicorp/design-system-components/components/hds/application-state/index";
+
+import { HdsApplicationState } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/application-state/index',
@@ -18,21 +20,25 @@ module(
     });
 
     test('it should render with a CSS class that matches the component name', async function (assert) {
-      await render(<template>
-      <ApplicationState id="test-application-state">
-        template block text
-      </ApplicationState>
-    </template>);
+      await render(
+        <template>
+          <HdsApplicationState id="test-application-state">
+            template block text
+          </HdsApplicationState>
+        </template>,
+      );
 
       assert.dom('#test-application-state').hasClass('hds-application-state');
     });
 
     test('it should have the correct alignment class when no alignment is provided', async function (assert) {
-      await render(<template>
-      <ApplicationState id="test-application-state">
-        template block text
-      </ApplicationState>
-    </template>);
+      await render(
+        <template>
+          <HdsApplicationState id="test-application-state">
+            template block text
+          </HdsApplicationState>
+        </template>,
+      );
 
       assert
         .dom('#test-application-state')
@@ -40,11 +46,13 @@ module(
     });
 
     test('it should have the correct alignment class when alignment is set to "left"', async function (assert) {
-      await render(<template>
-      <ApplicationState id="test-application-state" @align="left">
-        template block text
-      </ApplicationState>
-    </template>);
+      await render(
+        <template>
+          <HdsApplicationState id="test-application-state" @align="left">
+            template block text
+          </HdsApplicationState>
+        </template>,
+      );
 
       assert
         .dom('#test-application-state')
@@ -52,11 +60,13 @@ module(
     });
 
     test('it should have the correct alignment class when alignment is set to "center"', async function (assert) {
-      await render(<template>
-      <ApplicationState id="test-application-state" @align="center">
-        template block text
-      </ApplicationState>
-    </template>);
+      await render(
+        <template>
+          <HdsApplicationState id="test-application-state" @align="center">
+            template block text
+          </HdsApplicationState>
+        </template>,
+      );
 
       assert
         .dom('#test-application-state')
@@ -67,12 +77,14 @@ module(
 
     test('it renders the contextual components', async function (assert) {
       await render(
-        <template><ApplicationState as |A|>
-              <A.Media>ApplicationState Media</A.Media>
-              <A.Header @title="ApplicationState Title" />
-              <A.Body>ApplicationState Body</A.Body>
-              <A.Footer>ApplicationState Footer</A.Footer>
-            </ApplicationState></template>,
+        <template>
+          <HdsApplicationState as |A|>
+            <A.Media>ApplicationState Media</A.Media>
+            <A.Header @title="ApplicationState Title" />
+            <A.Body>ApplicationState Body</A.Body>
+            <A.Footer>ApplicationState Footer</A.Footer>
+          </HdsApplicationState>
+        </template>,
       );
       assert
         .dom('.hds-application-state__media')
@@ -88,7 +100,7 @@ module(
         .hasText('ApplicationState Footer');
     });
     test('it does not render the contextual components if not provided', async function (assert) {
-      await render(<template><ApplicationState /></template>);
+      await render(<template><HdsApplicationState /></template>);
       assert.dom('.hds-application-date__media').doesNotExist();
       assert.dom('.hds-application-date__header').doesNotExist();
       assert.dom('.hds-application-date__body').doesNotExist();
@@ -107,11 +119,14 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
 
-      await render(<template>
-      <ApplicationState id="test-application-state" @align="test">
-        template block text
-      </ApplicationState>
-    </template>);
+      await render(
+        <template>
+          {{! @glint-expect-error - assertion testing invalid value }}
+          <HdsApplicationState id="test-application-state" @align="test">
+            template block text
+          </HdsApplicationState>
+        </template>,
+      );
 
       assert.throws(function () {
         throw new Error(errorMessage);
