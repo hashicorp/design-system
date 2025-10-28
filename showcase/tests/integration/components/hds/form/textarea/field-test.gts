@@ -4,9 +4,12 @@
  */
 
 import { module, test } from 'qunit';
+import { render, resetOnerror, settled, find } from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
+
+import { HdsFormTextareaField } from '@hashicorp/design-system-components/components';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, resetOnerror, settled } from '@ember/test-helpers';
-import Field from "@hashicorp/design-system-components/components/hds/form/textarea/field";
 
 module('Integration | Component | hds/form/textarea/field', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,43 +19,43 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
   });
 
   test('it should render the component with a specific CSS class', async function (assert) {
-    await render(<template><Field /></template>);
+    await render(<template><HdsFormTextareaField /></template>);
     assert.dom('.hds-form-field__control').exists();
   });
 
   // VALUE
 
   test('it should render the input with the value provided via @value argument', async function (assert) {
-    await render(<template><Field @value="abc123" /></template>);
+    await render(<template><HdsFormTextareaField @value="abc123" /></template>);
     assert.dom('textarea').hasValue('abc123');
   });
 
   // INVALID
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-    await render(<template><Field @isInvalid={{true}} /></template>);
+    await render(
+      <template><HdsFormTextareaField @isInvalid={{true}} /></template>,
+    );
     assert.dom('textarea').hasClass('hds-form-textarea--is-invalid');
   });
 
   // WIDTH & HEIGHT
 
   test('it should render the textarea control with a fixed width if a @width value is passed', async function (assert) {
-    await render(<template>
-      <Field @width="248px" />
-    </template>);
+    await render(<template><HdsFormTextareaField @width="248px" /></template>);
     assert.dom('textarea').hasStyle({ width: '248px' });
   });
   test('it should render the textarea control with a fixed height if a @height value is passed', async function (assert) {
-    await render(<template>
-      <Field @height="248px" />
-    </template>);
+    await render(<template><HdsFormTextareaField @height="248px" /></template>);
     assert.dom('textarea').hasStyle({ height: '248px' });
   });
 
   // ID
 
   test('it should render the textarea control with a custom @id', async function (assert) {
-    await render(<template><Field @id="my-textarea" /></template>);
+    await render(
+      <template><HdsFormTextareaField @id="my-textarea" /></template>,
+    );
     assert.dom('textarea').hasAttribute('id', 'my-textarea');
   });
 
@@ -60,12 +63,14 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
 
   test('it renders the yielded contextual components', async function (assert) {
     await render(
-      <template><Field @value="abc123" as |F|>
+      <template>
+        <HdsFormTextareaField @value="abc123" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}} />
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </HdsFormTextareaField>
+      </template>,
     );
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
@@ -74,7 +79,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     assert.dom('.hds-form-field__error').exists();
   });
   test('it does not render the yielded contextual components if not provided', async function (assert) {
-    await render(<template><Field /></template>);
+    await render(<template><HdsFormTextareaField /></template>);
     assert.dom('.hds-form-field__label').doesNotExist();
     assert.dom('.hds-form-field__helper-text').doesNotExist();
     assert.dom('.hds-form-field__character-count').doesNotExist();
@@ -82,18 +87,22 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
   });
   test('it automatically provides all the ID relations between the elements', async function (assert) {
     await render(
-      <template><Field @value="abc123" @extraAriaDescribedBy="extra" as |F|>
+      <template>
+        <HdsFormTextareaField
+          @value="abc123"
+          @extraAriaDescribedBy="extra"
+          as |F|
+        >
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}} />
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </HdsFormTextareaField>
+      </template>,
     );
     // the control ID is dynamically generated
-    let control = this.element.querySelector(
-      '.hds-form-field__control textarea',
-    );
-    let controlId = control.id;
+    const control = find('.hds-form-field__control textarea');
+    const controlId = control?.id ?? '';
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
       .dom('.hds-form-field__helper-text')
@@ -113,25 +122,33 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
   });
 
   test('it automatically provides all the ID relations between the elements when dynamically rendered', async function (assert) {
+    const context = new TrackedObject({
+      showErrors: false,
+    });
+
     await render(
-      <template><Field @value="abc123" @extraAriaDescribedBy="extra" as |F|>
+      <template>
+        <HdsFormTextareaField
+          @value="abc123"
+          @extraAriaDescribedBy="extra"
+          as |F|
+        >
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}} />
-          {{#if this.showErrors}}
+          {{#if context.showErrors}}
             <F.Error>This is the error</F.Error>
           {{/if}}
-        </Field></template>,
+        </HdsFormTextareaField>
+      </template>,
     );
 
-    this.set('showErrors', true);
+    context.showErrors = true;
     await settled();
 
     // the control ID is dynamically generated
-    let control = this.element.querySelector(
-      '.hds-form-field__control textarea',
-    );
-    let controlId = control.id;
+    const control = find('.hds-form-field__control textarea');
+    const controlId = control?.id ?? '';
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
       .dom('.hds-form-field__helper-text')
@@ -154,9 +171,11 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
 
   test('it should append an indicator to the label text and set the required attribute when user input is required', async function (assert) {
     await render(
-      <template><Field @isRequired={{true}} as |F|>
-            <F.Label>This is the label</F.Label>
-          </Field></template>,
+      <template>
+        <HdsFormTextareaField @isRequired={{true}} as |F|>
+          <F.Label>This is the label</F.Label>
+        </HdsFormTextareaField>
+      </template>,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('Required');
@@ -164,18 +183,22 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
   });
   test('it should append an indicator to the label text when user input is optional', async function (assert) {
     await render(
-      <template><Field @isOptional={{true}} as |F|>
-            <F.Label>This is the label</F.Label>
-          </Field></template>,
+      <template>
+        <HdsFormTextareaField @isOptional={{true}} as |F|>
+          <F.Label>This is the label</F.Label>
+        </HdsFormTextareaField>
+      </template>,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
   });
   test('it should not append an indicator to the label text when the required attribute is set', async function (assert) {
     await render(
-      <template><Field required as |F|>
-            <F.Label>This is the label</F.Label>
-          </Field></template>,
+      <template>
+        <HdsFormTextareaField required as |F|>
+          <F.Label>This is the label</F.Label>
+        </HdsFormTextareaField>
+      </template>,
     );
     assert.dom('textarea').hasAttribute('required');
     assert.dom('label .hds-form-indicator').doesNotExist();
