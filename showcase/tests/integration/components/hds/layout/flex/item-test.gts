@@ -4,16 +4,22 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Item from "@hashicorp/design-system-components/components/hds/layout/flex/item";
-import Flex from "@hashicorp/design-system-components/components/hds/layout/flex/index";
+
+import {
+  HdsLayoutFlex,
+  HdsLayoutFlexItem,
+} from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/layout/flex/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Item id="test-layout-flex-item" /></template>);
+    await render(
+      <template><HdsLayoutFlexItem id="test-layout-flex-item" /></template>,
+    );
     assert.dom('#test-layout-flex-item').hasClass('hds-layout-flex-item');
   });
 
@@ -21,13 +27,19 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
 
   test('it should render the yielded content', async function (assert) {
     await render(
-      <template><Item id="test-layout-flex-item"><pre>test</pre></Item></template>,
+      <template>
+        <HdsLayoutFlexItem id="test-layout-flex-item"><pre
+          >test</pre></HdsLayoutFlexItem>
+      </template>,
     );
     assert.dom('#test-layout-flex-item > pre').exists().hasText('test');
   });
   test('it should render as yielded contextual component', async function (assert) {
     await render(
-      <template><Flex as |LF|><LF.Item id="test-layout-flex-item"><pre>test</pre></LF.Item></Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|><LF.Item id="test-layout-flex-item"><pre
+            >test</pre></LF.Item></HdsLayoutFlex>
+      </template>,
     );
     assert.dom('#test-layout-flex-item > pre').exists().hasText('test');
   });
@@ -36,13 +48,22 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
 
   test('it should render with a "div" element if @tag is not declared', async function (assert) {
     await render(
-      <template><Flex as |LF|><LF.Item id="test-layout-flex-item" /></Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|><LF.Item
+            id="test-layout-flex-item"
+          /></HdsLayoutFlex>
+      </template>,
     );
     assert.dom('#test-layout-flex-item').hasTagName('div');
   });
   test('it should render with the correct @tag declared', async function (assert) {
     await render(
-      <template><Flex as |LF|><LF.Item id="test-layout-flex-item" @tag="span" /></Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|><LF.Item
+            id="test-layout-flex-item"
+            @tag="span"
+          /></HdsLayoutFlex>
+      </template>,
     );
     assert.dom('#test-layout-flex-item').hasTagName('span');
   });
@@ -51,7 +72,11 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
 
   test('it should render the element without specific classes or inline styles if no @basis/@grow/@shrink are declared', async function (assert) {
     await render(
-      <template><Flex as |LF|><LF.Item id="test-layout-flex-item" /></Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|><LF.Item
+            id="test-layout-flex-item"
+          /></HdsLayoutFlex>
+      </template>,
     );
     assert
       .dom('#test-layout-flex-item')
@@ -62,9 +87,11 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
   });
   test('it should render the correct CSS class if the @basis prop is declared as 0', async function (assert) {
     await render(
-      <template><Flex as |LF|>
-        <LF.Item id="test-layout-flex-item-1" @basis={{0}} />
-      </Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|>
+          <LF.Item id="test-layout-flex-item-1" @basis={{0}} />
+        </HdsLayoutFlex>
+      </template>,
     );
     assert
       .dom('#test-layout-flex-item-1')
@@ -73,12 +100,14 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
   });
   test('it should render the correct inline styles if the @basis prop is declared as string', async function (assert) {
     await render(
-      <template><Flex as |LF|>
-        <LF.Item id="test-layout-flex-item-1" @basis="5%" />
-        <LF.Item id="test-layout-flex-item-2" @basis="100px" />
-        <LF.Item id="test-layout-flex-item-3" @basis="auto" />
-        <LF.Item id="test-layout-flex-item-4" @basis="max-content" />
-      </Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|>
+          <LF.Item id="test-layout-flex-item-1" @basis="5%" />
+          <LF.Item id="test-layout-flex-item-2" @basis="100px" />
+          <LF.Item id="test-layout-flex-item-3" @basis="auto" />
+          <LF.Item id="test-layout-flex-item-4" @basis="max-content" />
+        </HdsLayoutFlex>
+      </template>,
     );
     assert
       .dom('#test-layout-flex-item-1')
@@ -99,12 +128,22 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
   });
   test('it should render the correct CSS class if the @grow/@shrink props are declared as boolean or 0/1', async function (assert) {
     await render(
-      <template><Flex as |LF|>
-        <LF.Item id="test-layout-flex-item-1" @grow={{false}} @shrink={{false}} />
-        <LF.Item id="test-layout-flex-item-2" @grow={{0}} @shrink={{0}} />
-        <LF.Item id="test-layout-flex-item-3" @grow={{true}} @shrink={{true}} />
-        <LF.Item id="test-layout-flex-item-4" @grow={{1}} @shrink={{1}} />
-      </Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|>
+          <LF.Item
+            id="test-layout-flex-item-1"
+            @grow={{false}}
+            @shrink={{false}}
+          />
+          <LF.Item id="test-layout-flex-item-2" @grow={{0}} @shrink={{0}} />
+          <LF.Item
+            id="test-layout-flex-item-3"
+            @grow={{true}}
+            @shrink={{true}}
+          />
+          <LF.Item id="test-layout-flex-item-4" @grow={{1}} @shrink={{1}} />
+        </HdsLayoutFlex>
+      </template>,
     );
     assert
       .dom('#test-layout-flex-item-1')
@@ -129,12 +168,18 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
   });
   test('it should render the correct inline styles if the @grow/@shrink props are declared as strings/numbers', async function (assert) {
     await render(
-      <template><Flex as |LF|>
-        <LF.Item id="test-layout-flex-item-1" @grow="0" @shrink="0" />
-        <LF.Item id="test-layout-flex-item-2" @grow="1" @shrink="1" />
-        <LF.Item id="test-layout-flex-item-3" @grow={{2}} @shrink={{2}} />
-        <LF.Item id="test-layout-flex-item-4" @grow="initial" @shrink="initial" />
-      </Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|>
+          <LF.Item id="test-layout-flex-item-1" @grow="0" @shrink="0" />
+          <LF.Item id="test-layout-flex-item-2" @grow="1" @shrink="1" />
+          <LF.Item id="test-layout-flex-item-3" @grow={{2}} @shrink={{2}} />
+          <LF.Item
+            id="test-layout-flex-item-4"
+            @grow="initial"
+            @shrink="initial"
+          />
+        </HdsLayoutFlex>
+      </template>,
     );
     assert
       .dom('#test-layout-flex-item-1')
@@ -159,7 +204,11 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
 
   test('it should render the element without specific classes if no @enableCollapseBelowContentSize is declared', async function (assert) {
     await render(
-      <template><Flex as |LF|><LF.Item id="test-layout-flex-item" /></Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|><LF.Item
+            id="test-layout-flex-item"
+          /></HdsLayoutFlex>
+      </template>,
     );
     assert
       .dom('#test-layout-flex-item')
@@ -169,7 +218,12 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
   });
   test('it should render the correct CSS class if the @enableCollapseBelowContentSize prop is declared', async function (assert) {
     await render(
-      <template><Flex as |LF|><LF.Item id="test-layout-flex-item" @enableCollapseBelowContentSize={{true}} /></Flex></template>,
+      <template>
+        <HdsLayoutFlex as |LF|><LF.Item
+            id="test-layout-flex-item"
+            @enableCollapseBelowContentSize={{true}}
+          /></HdsLayoutFlex>
+      </template>,
     );
     assert
       .dom('#test-layout-flex-item')

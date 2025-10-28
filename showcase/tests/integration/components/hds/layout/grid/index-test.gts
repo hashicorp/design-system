@@ -4,16 +4,18 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
+import { array } from '@ember/helper';
 import { render, setupOnerror } from '@ember/test-helpers';
-import Grid from "@hashicorp/design-system-components/components/hds/layout/grid/index";
-import { array } from "@ember/helper";
+
+import { HdsLayoutGrid } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/layout/grid/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Grid id="test-layout-grid" /></template>);
+    await render(<template><HdsLayoutGrid id="test-layout-grid" /></template>);
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid');
   });
 
@@ -21,7 +23,9 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the yielded content', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid"><pre>test</pre></Grid></template>,
+      <template>
+        <HdsLayoutGrid id="test-layout-grid"><pre>test</pre></HdsLayoutGrid>
+      </template>,
     );
     assert.dom('#test-layout-grid > pre').exists().hasText('test');
   });
@@ -29,9 +33,10 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
   test('it should render the `Item` yielded contextual component', async function (assert) {
     await render(
       <template>
-        <Grid id="test-layout-grid" as |LG|>
+        <HdsLayoutGrid id="test-layout-grid" as |LG|>
           <LG.Item><pre>test</pre></LG.Item>
-        </Grid></template>,
+        </HdsLayoutGrid>
+      </template>,
     );
     assert
       .dom('#test-layout-grid > .hds-layout-grid-item > pre')
@@ -49,16 +54,18 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   // if neither columnMinWidth or columnWidth are declared, we do not set the inline custom properties
   test('if neither columnMinWidth or columnWidth are declared, we do not set the inline custom properties', async function (assert) {
-    await render(<template><Grid id="test-layout-grid" /></template>);
+    await render(<template><HdsLayoutGrid id="test-layout-grid" /></template>);
     assert
       .dom('#test-layout-grid')
-      .doesNotHaveStyle('--hds-layout-grid-column-min-width')
-      .doesNotHaveStyle('--hds-layout-grid-column-fill-type');
+      .doesNotHaveStyle({ '--hds-layout-grid-column-min-width': '' })
+      .doesNotHaveStyle({ '--hds-layout-grid-column-fill-type': '' });
   });
 
   test('it should render the correct min-width if the @columnMinWidth prop is declared', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid" @columnMinWidth="200px" /></template>,
+      <template>
+        <HdsLayoutGrid id="test-layout-grid" @columnMinWidth="200px" />
+      </template>,
     );
     assert
       .dom('#test-layout-grid')
@@ -67,7 +74,9 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should set the correct fill type and column width if the @columnWidth prop is declared', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid" @columnWidth="200px" /></template>,
+      <template>
+        <HdsLayoutGrid id="test-layout-grid" @columnWidth="200px" />
+      </template>,
     );
     assert
       .dom('#test-layout-grid')
@@ -78,13 +87,15 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
   // TAG
 
   test('it should render with a "div" element if @tag is not declared', async function (assert) {
-    await render(<template><Grid id="test-layout-grid" /></template>);
+    await render(<template><HdsLayoutGrid id="test-layout-grid" /></template>);
     assert.dom('#test-layout-grid').hasTagName('div');
   });
 
   test('it should render with the correct @tag declared', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid" @tag="section" /></template>,
+      <template>
+        <HdsLayoutGrid id="test-layout-grid" @tag="section" />
+      </template>,
     );
     assert.dom('#test-layout-grid').hasTagName('section');
   });
@@ -92,7 +103,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
   // ALIGN
 
   test('it should render the element without specific classes if @align is not declared', async function (assert) {
-    await render(<template><Grid id="test-layout-grid" /></template>);
+    await render(<template><HdsLayoutGrid id="test-layout-grid" /></template>);
     assert
       .dom('#test-layout-grid')
       .doesNotHaveClass(/hds-layout-grid--align-items-/);
@@ -100,7 +111,9 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the correct CSS classes if @align props are declared', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid" @align="stretch" @wrap={{true}} /></template>,
+      <template>
+        <HdsLayoutGrid id="test-layout-grid" @align="stretch" />
+      </template>,
     );
     assert
       .dom('#test-layout-grid')
@@ -110,13 +123,15 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
   // GAP
 
   test('it should render the element with the default `gap` class if no @gap is declared', async function (assert) {
-    await render(<template><Grid id="test-layout-grid" /></template>);
+    await render(<template><HdsLayoutGrid id="test-layout-grid" /></template>);
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--row-gap-0');
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--column-gap-0');
   });
 
   test('it should render the correct CSS classes if the @gap prop is declared as a single value', async function (assert) {
-    await render(<template><Grid id="test-layout-grid" @gap="24" /></template>);
+    await render(
+      <template><HdsLayoutGrid id="test-layout-grid" @gap="24" /></template>,
+    );
     assert
       .dom('#test-layout-grid')
       .hasClass('hds-layout-grid--row-gap-24')
@@ -125,7 +140,9 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the correct CSS class if the @gap prop is declared as two values', async function (assert) {
     await render(
-      <template><Grid id="test-layout-grid" @gap={{array "4" "48"}} /></template>,
+      <template>
+        <HdsLayoutGrid id="test-layout-grid" @gap={{array "4" "48"}} />
+      </template>,
     );
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--row-gap-4');
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--column-gap-48');
@@ -140,7 +157,12 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Grid @align="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsLayoutGrid @align="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -153,7 +175,12 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Grid @gap={{array 4 "foo"}} /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsLayoutGrid @gap={{array 4 "foo"}} />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -167,7 +194,13 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Grid id="test-layout-grid" @columnMinWidth="200px" @columnWidth="300px" /></template>,
+      <template>
+        <HdsLayoutGrid
+          id="test-layout-grid"
+          @columnMinWidth="200px"
+          @columnWidth="300px"
+        />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
