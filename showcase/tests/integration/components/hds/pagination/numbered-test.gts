@@ -4,10 +4,18 @@
  */
 
 import { module, test } from 'qunit';
+import { array } from '@ember/helper';
+import {
+  click,
+  select,
+  render,
+  resetOnerror,
+  setupOnerror,
+} from '@ember/test-helpers';
+
+import { HdsPaginationNumbered } from '@hashicorp/design-system-components/components';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, select, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Numbered from "@hashicorp/design-system-components/components/hds/pagination/numbered/index";
-import { array } from "@ember/helper";
 
 module('Integration | Component | hds/pagination/numbered', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,27 +24,32 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} id="test-pagination-numbered" />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          id="test-pagination-numbered"
+        />
+      </template>,
+    );
     assert.dom('#test-pagination-numbered').hasClass('hds-pagination');
   });
 
   // CONTENT (AND ARGUMENTS DRILLING)
 
   test('it renders the main child components', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} />
-    </template>);
+    await render(
+      <template><HdsPaginationNumbered @totalItems={{100}} /></template>,
+    );
     assert.dom('.hds-pagination .hds-pagination-info').exists();
     assert.dom('.hds-pagination .hds-pagination-nav').exists();
     assert.dom('.hds-pagination .hds-pagination-size-selector').exists();
   });
 
   test('it renders the "info" and "size selector" content with default pageSizes and currentPageSize values', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} />
-    </template>);
+    await render(
+      <template><HdsPaginationNumbered @totalItems={{100}} /></template>,
+    );
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–10 of 100');
     assert
       .dom('.hds-pagination .hds-pagination-size-selector option[value="10"]')
@@ -50,9 +63,14 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('it renders custom options for passed in pageSizes and sets currentPageSize to the first PageSizes item', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @pageSizes={{array 20 40 60}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @pageSizes={{array 20 40 60}}
+        />
+      </template>,
+    );
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–20 of 100');
     assert
       .dom('.hds-pagination .hds-pagination-size-selector select')
@@ -70,7 +88,13 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
 
   test('it renders the passed in currentPageSize value', async function (assert) {
     await render(
-      <template><Numbered @totalItems={{100}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} /></template>,
+      <template>
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @currentPageSize={{40}}
+          @pageSizes={{array 20 40 60}}
+        />
+      </template>,
     );
 
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–40 of 100');
@@ -80,9 +104,9 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('it renders the "nav" content', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} />
-    </template>);
+    await render(
+      <template><HdsPaginationNumbered @totalItems={{100}} /></template>,
+    );
     assert
       .dom('.hds-pagination .hds-pagination-nav__arrow--direction-prev')
       .exists();
@@ -97,33 +121,47 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('it displays the passed in custom text for the SizeSelector label text', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @sizeSelectorLabel="Custom text" />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @sizeSelectorLabel="Custom text"
+        />
+      </template>,
+    );
     assert.dom('.hds-pagination-size-selector label').hasText('Custom text');
   });
 
   // SHOW/HIDE ELEMENTS
   test('it hides the total items from the "info" content when @showTotalItems is false', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @showTotalItems={{false}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @showTotalItems={{false}} />
+      </template>,
+    );
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–10');
   });
 
   test('it hides "info", "page numbers" and "size-selector" @showInfo/@showPageNumbers/@showSizeSelector are false', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @showInfo={{false}} @showPageNumbers={{false}} @showSizeSelector={{false}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @showInfo={{false}}
+          @showPageNumbers={{false}}
+          @showSizeSelector={{false}}
+        />
+      </template>,
+    );
     assert.dom('.hds-pagination .hds-pagination-info').doesNotExist();
     assert.dom('.hds-pagination .hds-pagination-nav__page-list').doesNotExist();
     assert.dom('.hds-pagination .hds-pagination-size-selector').doesNotExist();
   });
 
   test('it hides the "prev/next" labels by default', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} />
-    </template>);
+    await render(
+      <template><HdsPaginationNumbered @totalItems={{100}} /></template>,
+    );
     assert
       .dom(
         '.hds-pagination-nav__arrow--direction-prev .hds-pagination-nav__arrow-label',
@@ -137,9 +175,11 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('it show the "prev/next" labels is @showLabels is true', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @showLabels={{true}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @showLabels={{true}} />
+      </template>,
+    );
     assert
       .dom(
         '.hds-pagination-nav__arrow--direction-prev .hds-pagination-nav__arrow-label',
@@ -155,9 +195,11 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   // CURRENT PAGE
 
   test('the selected page match the passed in @currentPage value', async function (assert) {
-    await render(<template>
-    <Numbered @totalItems={{100}} @currentPage={{2}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @currentPage={{2}} />
+      </template>,
+    );
     assert.dom('.hds-pagination-nav__number--is-selected').exists();
     assert.dom('.hds-pagination-nav__number--is-selected').hasText('page 2');
   });
@@ -165,9 +207,9 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   // TRUNCATION
 
   test('it truncates the page numbers by default', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} />
-    </template>);
+    await render(
+      <template><HdsPaginationNumbered @totalItems={{100}} /></template>,
+    );
     // displays 7 items (the max number displayed)
     assert
       .dom('.hds-pagination-nav .hds-pagination-nav__page-item')
@@ -175,18 +217,22 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('it disable truncation if @isTruncated is false', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @isTruncated={{false}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @isTruncated={{false}} />
+      </template>,
+    );
     assert
       .dom('.hds-pagination .hds-pagination-nav .hds-pagination-nav__page-item')
       .exists({ count: 10 });
   });
 
   test('it should display an ellipsis for the 5th item when the first page number is selected', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @currentPage={{1}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @currentPage={{1}} />
+      </template>,
+    );
     assert
       .dom('.hds-pagination-nav .hds-pagination-nav__page-item:nth-child(5)')
       .hasText('...');
@@ -198,9 +244,11 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('it should display an ellipsis for the 2nd and 6th items when a middle page number is selected', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @currentPage={{4}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @currentPage={{4}} />
+      </template>,
+    );
     assert.dom('.hds-pagination-nav__page-item:nth-child(2)').hasText('...');
     assert.dom('.hds-pagination-nav__page-item:nth-child(6)').hasText('...');
     assert
@@ -211,9 +259,11 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('it should display an ellipsis for the 3rd item when the last page number is selected', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @currentPage={{10}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @currentPage={{10}} />
+      </template>,
+    );
     assert.dom('.hds-pagination-nav__page-item:nth-child(3)').hasText('...');
     assert
       .dom('.hds-pagination-nav__page-item:not(:nth-child(3))')
@@ -223,9 +273,11 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   // DISABLED PREV/NEXT
 
   test('when on the first page, the "Previous" control should be disabled', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @currentPage={{1}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @currentPage={{1}} />
+      </template>,
+    );
     // Test that the first page is selected:
     assert
       .dom(
@@ -236,9 +288,11 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('when on the last page, the "Next" control should be disabled', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @currentPage={{10}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @currentPage={{10}} />
+      </template>,
+    );
     // Test that the last page is selected:
     assert
       .dom(
@@ -249,8 +303,11 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('clicking on the fist/last page disables the "Prev/Next" controls', async function (assert) {
-    await render(<template><Numbered @totalItems={{100}} @currentPage={{10}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @currentPage={{10}} />
+      </template>,
+    );
     assert.dom('.hds-pagination-nav__arrow--direction-prev').isNotDisabled();
     assert.dom('.hds-pagination-nav__arrow--direction-prev').isNotDisabled();
     // Activate the first page:
@@ -280,9 +337,11 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   // INTERACTION
 
   test('it should select the activated page number', async function (assert) {
-    await render(<template>
-    <Numbered @totalItems={{100}} @currentPage={{1}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @currentPage={{1}} />
+      </template>,
+    );
     assert
       .dom(
         '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control',
@@ -301,9 +360,11 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('selecting a pageSize option should change the page size', async function (assert) {
-    await render(<template>
-      <Numbered @totalItems={{100}} @currentPage={{1}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNumbered @totalItems={{100}} @currentPage={{1}} />
+      </template>,
+    );
     // Check that items per page is initially set to 10:
     assert.dom('.hds-pagination-size-selector select').hasValue('10');
     assert.dom('.hds-pagination-info').hasText('1–10 of 100');
@@ -354,14 +415,19 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
 
   test('it should invoke the onPageChange callback and return the value of the new page number and page size', async function (assert) {
     let pageNumber, pageSize;
-    this.set('onPageChange', (page, size) => {
+
+    const onPageChange = (page: number, size: number) => {
       pageNumber = page;
       pageSize = size;
-    });
+    };
+
     await render(
       <template>
-        <Numbered @totalItems={{100}} @onPageChange={{this.onPageChange}} />
-        </template>,
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @onPageChange={{onPageChange}}
+        />
+      </template>,
     );
     await click(
       '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control',
@@ -372,11 +438,18 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
 
   test('it should invoke the onPageSizeChange callback and return the value of the new page size', async function (assert) {
     let size;
-    this.set('onPageSizeChange', (pageSize) => (size = pageSize));
+
+    const onPageSizeChange = (pageSize: number) => {
+      size = pageSize;
+    };
+
     await render(
       <template>
-        <Numbered @totalItems={{100}} @onPageSizeChange={{this.onPageSizeChange}} />
-        </template>,
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @onPageSizeChange={{onPageSizeChange}}
+        />
+      </template>,
     );
     await select('.hds-pagination-size-selector select', '30'); // notice: '30' needs to be a string to work
     assert.strictEqual(size, 30); // notice: it's converted to an integer by the callback function
@@ -385,9 +458,21 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   // ROUTING
 
   test('it should render links instead of buttons, with the correct "href" values, if it has routing', async function (assert) {
-    this.set('myQueryFunction', (page, pageSize) => ({ page, pageSize }));
+    const myQueryFunction = (page: number, pageSize: number) => ({
+      page,
+      pageSize,
+    });
+
     await render(
-      <template><Numbered @totalItems={{30}} @currentPage={{2}} @currentPageSize={{10}} @route="page-components.pagination" @queryFunction={{this.myQueryFunction}} /></template>,
+      <template>
+        <HdsPaginationNumbered
+          @totalItems={{30}}
+          @currentPage={{2}}
+          @currentPageSize={{10}}
+          @route="page-components.pagination"
+          @queryFunction={{myQueryFunction}}
+        />
+      </template>,
     );
     assert
       .dom('.hds-pagination-nav__arrow--direction-prev')
@@ -417,14 +502,29 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Numbered @totalItems={{100}} @queryFunction="foo" @model="test" /></template>,
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @queryFunction="foo"
+          @model="test"
+          @currentPage={{2}}
+          @currentPageSize={{10}}
+          @route=""
+        />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
   });
+
   test('it should throw an assertion if it has routing but @currentPage and @currentPageSize are not defined as number', async function (assert) {
-    this.set('myQueryFunction', (page, pageSize) => ({ page, pageSize }));
+    const myQueryFunction = (page: number, pageSize: number) => ({
+      page,
+      pageSize,
+    });
+
     const errorMessage =
       '@currentPage and @currentPageSize for "Hds::Pagination::Numbered" must be provided as numeric arguments when the pagination controls the routing';
     assert.expect(2);
@@ -432,7 +532,15 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Numbered @totalItems={{100}} @queryFunction={{this.myQueryFunction}} @model="test" /></template>,
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @queryFunction={{myQueryFunction}}
+          @model="test"
+          @route=""
+        />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -445,7 +553,12 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Numbered /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationNumbered />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -457,13 +570,19 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Numbered @totalItems="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationNumbered @totalItems="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
   });
   test('it should throw an assertion if @queryFunction is provided without a routing argument', async function (assert) {
-    this.set('myQueryFunction', (page) => ({ page }));
+    const myQueryFunction = (page: number) => ({ page });
+
     const errorMessage =
       '@model, @models, or @route for "Hds::Pagination::Numbered" must be provided when using the @queryFunction argument';
     assert.expect(2);
@@ -471,7 +590,10 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Numbered @queryFunction={{this.myQueryFunction}} /></template>,
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationNumbered @queryFunction={{myQueryFunction}} />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

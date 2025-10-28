@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Ellipsis from "@hashicorp/design-system-components/components/hds/pagination/nav/ellipsis";
+
+import { HdsPaginationNavEllipsis } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/pagination/nav/ellipsis',
@@ -14,9 +16,11 @@ module(
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      await render(<template>
-      <Ellipsis id="test-nav-ellipsis" />
-    </template>);
+      await render(
+        <template>
+          <HdsPaginationNavEllipsis id="test-nav-ellipsis" />
+        </template>,
+      );
       assert.dom('#test-nav-ellipsis').hasClass('hds-pagination-nav__ellipsis');
     });
   },

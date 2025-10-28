@@ -4,9 +4,13 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Arrow from "@hashicorp/design-system-components/components/hds/pagination/nav/arrow";
+import { TrackedObject } from 'tracked-built-ins';
+
+import { HdsPaginationNavArrow } from '@hashicorp/design-system-components/components';
+import type { HdsPaginationDirections } from '@hashicorp/design-system-components/components/hds/pagination/types';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,19 +19,23 @@ module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template>
-      <Arrow @direction="prev" id="test-nav-arrow" />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNavArrow @direction="prev" id="test-nav-arrow" />
+      </template>,
+    );
     assert.dom('#test-nav-arrow').hasClass('hds-pagination-nav__arrow');
   });
 
   // DIRECTION
 
   test('it should render a "Previous" or "Next" button matching the passed in direction', async function (assert) {
-    await render(<template>
-    <Arrow @direction="prev" id="test-nav-arrow-prev" />
-    <Arrow @direction="next" id="test-nav-arrow-next" />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNavArrow @direction="prev" id="test-nav-arrow-prev" />
+        <HdsPaginationNavArrow @direction="next" id="test-nav-arrow-next" />
+      </template>,
+    );
     assert
       .dom('#test-nav-arrow-next')
       .hasClass('hds-pagination-nav__arrow--direction-next')
@@ -43,10 +51,12 @@ module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
   // LABEL
 
   test('it should render the appropriate text labels by default', async function (assert) {
-    await render(<template>
-      <Arrow @direction="prev" id="test-nav-arrow-prev" />
-      <Arrow @direction="next" id="test-nav-arrow-next" />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNavArrow @direction="prev" id="test-nav-arrow-prev" />
+        <HdsPaginationNavArrow @direction="next" id="test-nav-arrow-next" />
+      </template>,
+    );
     assert
       .dom('#test-nav-arrow-prev .hds-pagination-nav__arrow-label')
       .hasText('Previous');
@@ -55,33 +65,45 @@ module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
       .hasText('Next');
   });
   test('it should not render the text label if @showLabel is set to false', async function (assert) {
-    await render(<template>
-      <Arrow @direction="prev" @showLabel={{false}} />
-    </template>);
+    await render(
+      <template>
+        <HdsPaginationNavArrow @direction="prev" @showLabel={{false}} />
+      </template>,
+    );
     assert.dom('.hds-pagination-nav__arrow-label').doesNotExist();
   });
 
   // DISABLED
 
   test('it should render a disabled button when @disabled is set to true', async function (assert) {
-    await render(<template>
-        <Arrow @direction="prev" @disabled={{true}} />
-      </template>);
+    await render(
+      <template>
+        <HdsPaginationNavArrow @direction="prev" @disabled={{true}} />
+      </template>,
+    );
     assert.dom('.hds-pagination-nav__control').hasAttribute('disabled');
   });
 
   // EVENTS
 
   test('it should call the onClick handler with the value of the direction of the button', async function (assert) {
-    let direction;
-    this.set('onClick', (dir) => (direction = dir));
+    const context = new TrackedObject<
+      Record<'direction', HdsPaginationDirections | undefined>
+    >({
+      direction: undefined,
+    });
+
+    const onClick = (dir: HdsPaginationDirections) => {
+      context.direction = dir;
+    };
+
     await render(
       <template>
-          <Arrow @direction="prev" @onClick={{this.onClick}} />
-        </template>,
+        <HdsPaginationNavArrow @direction="prev" @onClick={{onClick}} />
+      </template>,
     );
     await click('.hds-pagination-nav__control');
-    assert.strictEqual(direction, 'prev');
+    assert.strictEqual(context.direction, 'prev');
   });
 
   // ASSERTIONS
@@ -93,7 +115,12 @@ module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Arrow /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationNavArrow />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -105,7 +132,12 @@ module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Arrow @direction="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsPaginationNavArrow @direction="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
