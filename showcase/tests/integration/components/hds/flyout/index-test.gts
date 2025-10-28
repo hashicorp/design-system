@@ -4,13 +4,28 @@
  */
 
 import { module, test, skip } from 'qunit';
-import { setupRenderingTest, cleanupBodyOverflow } from 'showcase/tests/helpers';
-import { click, render, triggerKeyEvent, resetOnerror, setupOnerror, settled } from '@ember/test-helpers';
-import Flyout from "@hashicorp/design-system-components/components/hds/flyout/index";
-import Button from "@hashicorp/design-system-components/components/hds/button/index";
-import { on } from "@ember/modifier";
-import set from "ember-set-helper/helpers/set";
-import Dropdown from "@hashicorp/design-system-components/components/hds/dropdown/index";
+import {
+  click,
+  find,
+  render,
+  resetOnerror,
+  settled,
+  setupOnerror,
+  triggerKeyEvent,
+} from '@ember/test-helpers';
+import { on } from '@ember/modifier';
+import { TrackedObject } from 'tracked-built-ins';
+
+import {
+  HdsButton,
+  HdsDropdown,
+  HdsFlyout,
+} from '@hashicorp/design-system-components/components';
+
+import {
+  cleanupBodyOverflow,
+  setupRenderingTest,
+} from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/flyout/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -22,7 +37,10 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|><F.Header
+          >Title</F.Header></HdsFlyout>
+      </template>,
     );
     assert.dom('#test-flyout').hasClass('hds-flyout');
   });
@@ -31,14 +49,20 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should render the component with default size if no arguments provided', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|><F.Header
+          >Title</F.Header></HdsFlyout>
+      </template>,
     );
     assert.dom('#test-flyout').hasClass('hds-flyout--size-medium');
   });
 
   test('it should render the component with custom size if provided', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" @size="large" as |F|><F.Header>Title</F.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" @size="large" as |F|><F.Header
+          >Title</F.Header></HdsFlyout>
+      </template>,
     );
     assert.dom('#test-flyout').hasClass('hds-flyout--size-large');
   });
@@ -47,8 +71,12 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should render the component with an overlay element by default', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|><F.Header
+          >Title</F.Header></HdsFlyout>
+      </template>,
     );
+
     assert.dom('.hds-flyout__overlay').isVisible();
   });
 
@@ -56,11 +84,13 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it renders the contextual components', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|>
-            <F.Header>Title</F.Header>
-            <F.Body>Body</F.Body>
-            <F.Footer>Footer</F.Footer>
-          </Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|>
+          <F.Header>Title</F.Header>
+          <F.Body>Body</F.Body>
+          <F.Footer>Footer</F.Footer>
+        </HdsFlyout>
+      </template>,
     );
     assert.dom('.hds-flyout').exists();
     assert.dom('.hds-flyout__header').exists();
@@ -75,9 +105,11 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it renders the title without icon, tagline, and description', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|>
-            <F.Header>Title</F.Header>
-          </Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|>
+          <F.Header>Title</F.Header>
+        </HdsFlyout>
+      </template>,
     );
     assert.dom('.hds-flyout__title').exists();
     assert.dom('.hds-flyout__title').hasText('Title');
@@ -87,9 +119,11 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   });
   test('it renders the title with icon and tagline if provided', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|>
-            <F.Header @icon="info" @tagline="Tagline">Title</F.Header>
-          </Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|>
+          <F.Header @icon="info" @tagline="Tagline">Title</F.Header>
+        </HdsFlyout>
+      </template>,
     );
     assert.dom('.hds-flyout__title').exists();
     assert.dom('.hds-flyout__title').hasText('Tagline Title');
@@ -99,10 +133,12 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   });
   test('it renders the description if provided', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|>
-            <F.Header>Title</F.Header>
-            <F.Description>Description</F.Description>
-          </Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|>
+          <F.Header>Title</F.Header>
+          <F.Description>Description</F.Description>
+        </HdsFlyout>
+      </template>,
     );
     assert.dom('.hds-flyout__title').exists();
     assert.dom('.hds-flyout__title').hasText('Title');
@@ -114,9 +150,11 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it renders the title as an h1', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|>
-            <F.Header @icon="info" @tagline="Tagline">Title</F.Header>
-          </Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|>
+          <F.Header @icon="info" @tagline="Tagline">Title</F.Header>
+        </HdsFlyout>
+      </template>,
     );
     assert.dom('.hds-flyout__title').hasTagName('h1');
   });
@@ -125,13 +163,19 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should always render the "dismiss" button', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|><F.Header
+          >Title</F.Header></HdsFlyout>
+      </template>,
     );
     assert.dom('button.hds-flyout__dismiss').exists();
   });
   test('it should close the flyout when the "dismiss" button is pressed', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|><F.Header
+          >Title</F.Header></HdsFlyout>
+      </template>,
     );
     assert.dom('#test-flyout').isVisible();
     await click('button.hds-flyout__dismiss');
@@ -139,11 +183,19 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   });
   test('it should close the flyout when the "close" function is called', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |M|>
-            <M.Footer as |F|>
-              <Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
-            </M.Footer>
-          </Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |M|>
+          <M.Footer as |F|>
+            <HdsButton
+              id="cancel-button"
+              type="button"
+              @text="Cancel"
+              @color="secondary"
+              {{on "click" F.close}}
+            />
+          </M.Footer>
+        </HdsFlyout>
+      </template>,
     );
     assert.dom('#test-flyout').isVisible();
     await click('#cancel-button');
@@ -151,7 +203,10 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   });
   test('it should close the flyout when the "esc" key is pressed', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |M|><M.Header>Title</M.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |M|><M.Header
+          >Title</M.Header></HdsFlyout>
+      </template>,
     );
     assert.dom('#test-flyout').isVisible();
     await triggerKeyEvent('.hds-flyout', 'keydown', 'Escape');
@@ -159,7 +214,10 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   });
   test('it should close the flyout when clicking outside', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |M|><M.Header>Title</M.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |M|><M.Header
+          >Title</M.Header></HdsFlyout>
+      </template>,
     );
     assert.dom('#test-flyout').isVisible();
     await click('.hds-flyout__overlay');
@@ -170,7 +228,10 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should close the flyout and remove the body overflow style - manual dismiss', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |M|><M.Header>Title</M.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |M|><M.Header
+          >Title</M.Header></HdsFlyout>
+      </template>,
     );
 
     // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
@@ -185,7 +246,10 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should close the flyout and remove the body overflow style - click outside', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |M|><M.Header>Title</M.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |M|><M.Header
+          >Title</M.Header></HdsFlyout>
+      </template>,
     );
 
     // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
@@ -200,12 +264,20 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it should close the flyout and remove the body overflow style - dismiss via `F.close`', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |M|>
-            <M.Header>Title</M.Header>
-            <M.Footer as |F|>
-              <Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
-            </M.Footer>
-          </Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |M|>
+          <M.Header>Title</M.Header>
+          <M.Footer as |F|>
+            <HdsButton
+              id="cancel-button"
+              type="button"
+              @text="Cancel"
+              @color="secondary"
+              {{on "click" F.close}}
+            />
+          </M.Footer>
+        </HdsFlyout>
+      </template>,
     );
 
     // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
@@ -219,29 +291,38 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   });
 
   test('it should close the flyout and remove the body overflow style - direct DOM removal', async function (assert) {
-    this.set('isFlyoutRendered', false);
-    this.set(
-      'deactivateFlyout',
-      function () {
-        this.set('isFlyoutRendered', false);
-      }.bind(this),
-    );
+    const context = new TrackedObject({
+      isFlyoutRendered: false,
+    });
+
+    const deactivateFlyout = () => {
+      context.isFlyoutRendered = false;
+    };
 
     await render(
       <template>
-        {{#if this.isFlyoutRendered}}
-          <Flyout id="test-flyout" as |M|>
+        {{#if context.isFlyoutRendered}}
+          <HdsFlyout id="test-flyout" as |M|>
             <M.Header>Title</M.Header>
             <M.Footer>
-              <Button id="confirm-button" type="button" @text="Confirm" @color="primary" {{on "click" this.deactivateFlyout}} />
+              <HdsButton
+                id="confirm-button"
+                type="button"
+                @text="Confirm"
+                @color="primary"
+                {{on "click" deactivateFlyout}}
+              />
             </M.Footer>
-          </Flyout>
+          </HdsFlyout>
         {{/if}}
       </template>,
     );
 
     assert.dom('#test-flyout').doesNotExist();
-    this.set('isFlyoutRendered', true);
+
+    context.isFlyoutRendered = true;
+    await settled();
+
     assert.dom('#test-flyout').exists();
 
     // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
@@ -255,33 +336,40 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   });
 
   test('it should close the flyout and remove the body overflow style - form submit', async function (assert) {
-    this.set('isFlyoutRendered', false);
-    this.set(
-      'deactivateFlyoutOnSubmit',
-      function (event) {
-        event.preventDefault(); // prevent page reload
-        this.set('isFlyoutRendered', false);
-      }.bind(this),
-    );
+    const context = new TrackedObject({
+      isFlyoutRendered: false,
+    });
+
+    const deactivateFlyoutOnSubmit = (event: SubmitEvent) => {
+      event.preventDefault(); // prevent page reload
+      context.isFlyoutRendered = false;
+    };
 
     await render(
       <template>
-        {{#if this.isFlyoutRendered}}
-          <Flyout id="test-flyout" as |M|>
+        {{#if context.isFlyoutRendered}}
+          <HdsFlyout id="test-flyout" as |M|>
             <M.Header>Title</M.Header>
             <M.Body>
-              <form id="test-form" {{on "submit" this.deactivateFlyoutOnSubmit}} />
+              <form id="test-form" {{on "submit" deactivateFlyoutOnSubmit}} />
             </M.Body>
             <M.Footer>
-              <Button id="submit-button" form="test-form" type="submit" @text="Confirm" @color="primary" />
+              <HdsButton
+                id="submit-button"
+                form="test-form"
+                type="submit"
+                @text="Confirm"
+                @color="primary"
+              />
             </M.Footer>
-          </Flyout>
+          </HdsFlyout>
         {{/if}}
       </template>,
     );
 
     assert.dom('#test-flyout').doesNotExist();
-    this.set('isFlyoutRendered', true);
+    context.isFlyoutRendered = true;
+    await settled();
     assert.dom('#test-flyout').exists();
 
     // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
@@ -298,76 +386,113 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
 
   test('it uses the title as name for the dialog', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|><F.Header
+          >Title</F.Header></HdsFlyout>
+      </template>,
     );
     // the IDs are dynamically generated
-    let titleElement = this.element.querySelector('.hds-flyout__title');
-    let titleElementId = titleElement.id;
-    assert.dom('dialog').hasAttribute('aria-labelledby', titleElementId);
+    const titleElement = find('.hds-flyout__title');
+    assert
+      .dom('dialog')
+      .hasAttribute('aria-labelledby', titleElement?.id ?? '');
   });
 
   // FOCUS MANAGEMENT
 
   test('it sets initial focus on the dimiss button, as first focusable element', async function (assert) {
     await render(
-      <template><Flyout id="test-flyout" as |F|><F.Header>Title</F.Header></Flyout></template>,
+      <template>
+        <HdsFlyout id="test-flyout" as |F|><F.Header
+          >Title</F.Header></HdsFlyout>
+      </template>,
     );
     assert.dom('button.hds-flyout__dismiss').isFocused();
   });
 
   test('it returns focus to the element that initiated the open event, if is still in the DOM', async function (assert) {
+    const context = new TrackedObject({
+      isFlyoutRendered: false,
+    });
+
+    const showFlyout = () => {
+      context.isFlyoutRendered = true;
+    };
+
     await render(
-      <template><button id="test-button" type="button" {{on "click" (set this "showFlyout" true)}}>open flyout</button>
-          {{#if this.showFlyout}}
-            <Flyout id="test-flyout" as |M|>
-              <M.Header>Title</M.Header>
-            </Flyout>
-          {{/if}}
-          </template>,
+      <template>
+        <button id="test-button" type="button" {{on "click" showFlyout}}>open
+          flyout</button>
+        {{#if context.isFlyoutRendered}}
+          <HdsFlyout id="test-flyout" as |M|>
+            <M.Header>Title</M.Header>
+          </HdsFlyout>
+        {{/if}}
+      </template>,
     );
     await click('#test-button');
-    assert.true(this.showFlyout);
+    assert.true(context.isFlyoutRendered);
     await click('button.hds-flyout__dismiss');
     assert.dom('#test-button').isFocused();
   });
 
   // this test is flaky in CI, so skipping for now
   skip('it returns focus to the `body` element, if the one that initiated the open event not anymore in the DOM', async function (assert) {
+    const context = new TrackedObject({
+      isFlyoutRendered: false,
+    });
+
+    const showFlyout = () => {
+      context.isFlyoutRendered = true;
+    };
+
     await render(
-      <template><Dropdown as |D|>
-            <D.ToggleButton id="test-toggle" @text="open flyout" />
-            <D.Interactive id="test-interactive" {{on "click" (set this "showFlyout" true)}}>open flyout</D.Interactive>
-          </Dropdown>
-          {{#if this.showFlyout}}
-            <Flyout id="test-flyout" as |M|>
-              <M.Header>Title</M.Header>
-            </Flyout>
-          {{/if}}
-          </template>,
+      <template>
+        <HdsDropdown as |D|>
+          <D.ToggleButton id="test-toggle" @text="open flyout" />
+          <D.Interactive id="test-interactive" {{on "click" showFlyout}}>open
+            flyout</D.Interactive>
+        </HdsDropdown>
+        {{#if context.isFlyoutRendered}}
+          <HdsFlyout id="test-flyout" as |M|>
+            <M.Header>Title</M.Header>
+          </HdsFlyout>
+        {{/if}}
+      </template>,
     );
     await click('#test-toggle');
     await click('#test-interactive');
-    assert.true(this.showFlyout);
+    assert.true(context.isFlyoutRendered);
     await click('button.hds-flyout__dismiss');
-    assert.dom('body', 'document').isFocused();
+    assert.dom('body', document).isFocused();
   });
 
   test('it returns focus to a specific element if provided via`@returnFocusTo`', async function (assert) {
+    const context = new TrackedObject({
+      isFlyoutRendered: false,
+    });
+
+    const showFlyout = () => {
+      context.isFlyoutRendered = true;
+    };
+
     await render(
-      <template><Dropdown as |D|>
-            <D.ToggleButton id="test-toggle" @text="open flyout" />
-            <D.Interactive id="test-interactive" {{on "click" (set this "showFlyout" true)}}>open flyout</D.Interactive>
-          </Dropdown>
-          {{#if this.showFlyout}}
-            <Flyout id="test-flyout" @returnFocusTo="test-toggle" as |M|>
-              <M.Header>Title</M.Header>
-            </Flyout>
-          {{/if}}
-          </template>,
+      <template>
+        <HdsDropdown as |D|>
+          <D.ToggleButton id="test-toggle" @text="open flyout" />
+          <D.Interactive id="test-interactive" {{on "click" showFlyout}}>open
+            flyout</D.Interactive>
+        </HdsDropdown>
+        {{#if context.isFlyoutRendered}}
+          <HdsFlyout id="test-flyout" @returnFocusTo="test-toggle" as |M|>
+            <M.Header>Title</M.Header>
+          </HdsFlyout>
+        {{/if}}
+      </template>,
     );
     await click('#test-toggle');
     await click('#test-interactive');
-    assert.true(this.showFlyout);
+    assert.true(context.isFlyoutRendered);
     await click('button.hds-flyout__dismiss');
     assert.dom('#test-toggle').isFocused();
   });
@@ -375,55 +500,79 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
   // CALLBACKS
 
   test('it should call `onOpen` function if provided', async function (assert) {
-    let opened = false;
-    this.set('onOpen', () => (opened = true));
+    const context = new TrackedObject({
+      isFlyoutOpen: false,
+    });
+
+    const onOpen = () => {
+      context.isFlyoutOpen = true;
+    };
+
     await render(
-      <template><Flyout id="test-onopen-callback" @onOpen={{this.onOpen}} as |F|>
-            <F.Header>Title</F.Header>
-          </Flyout></template>,
+      <template>
+        <HdsFlyout id="test-onopen-callback" @onOpen={{onOpen}} as |F|>
+          <F.Header>Title</F.Header>
+        </HdsFlyout>
+      </template>,
     );
     assert.dom('#test-onopen-callback').isVisible();
     await settled();
-    assert.ok(opened);
+    assert.ok(context.isFlyoutOpen);
   });
 
   test('it should call `onClose` function if provided', async function (assert) {
-    let closed = false;
-    this.set('onClose', () => (closed = true));
+    const context = new TrackedObject({
+      isFlyoutOpen: true,
+    });
+
+    const onClose = () => {
+      context.isFlyoutOpen = false;
+    };
+
     await render(
-      <template><Flyout id="test-close-callback" @onClose={{this.onClose}} as |F|>
-            <F.Header>Title</F.Header>
-          </Flyout></template>,
+      <template>
+        <HdsFlyout id="test-close-callback" @onClose={{onClose}} as |F|>
+          <F.Header>Title</F.Header>
+        </HdsFlyout>
+      </template>,
     );
     await click('button.hds-flyout__dismiss');
     assert.dom('#test-onclose-callback').isNotVisible();
-    await settled();
-    assert.ok(closed);
+    assert.ok(!context.isFlyoutOpen);
   });
 
   test('it should not call `onClose` when the flyout is removed from the DOM directly', async function (assert) {
-    let closed = false;
+    const context = new TrackedObject({
+      isFlyoutRendered: true,
+      closed: false,
+    });
 
-    this.set('onClose', () => (closed = true));
-    this.set('isFlyoutRendered', true);
+    const onClose = () => {
+      context.closed = true;
+    };
 
     await render(
-      hbs`
-        {{#if this.isFlyoutRendered}}
-          <Hds::Flyout id="test-modal-onclose-no-callback" @onClose={{this.onClose}} as |F|>
+      <template>
+        {{#if context.isFlyoutRendered}}
+          <HdsFlyout
+            id="test-modal-onclose-no-callback"
+            @onClose={{onClose}}
+            as |F|
+          >
             <F.Header>Title</F.Header>
-          </Hds::Flyout>
+          </HdsFlyout>
         {{/if}}
-      `,
+      </template>,
     );
 
     assert.dom('#test-modal-onclose-no-callback').isVisible();
 
-    this.set('isFlyoutRendered', false);
+    context.isFlyoutRendered = false;
+    await settled();
+
     assert.dom('#test-modal-onclose-no-callback').doesNotExist();
 
-    await settled();
-    assert.notOk(closed);
+    assert.notOk(context.closed);
   });
 
   // ASSERTIONS
@@ -436,7 +585,10 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Flyout @size="foo" as |F|><F.Header>Title</F.Header></Flyout></template>,
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsFlyout @size="foo" as |F|><F.Header>Title</F.Header></HdsFlyout>
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
