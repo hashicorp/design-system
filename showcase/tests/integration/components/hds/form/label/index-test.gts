@@ -4,20 +4,24 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Label from "@hashicorp/design-system-components/components/hds/form/label/index";
+
+import { HdsFormLabel } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/form/label/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Label id="test-form-label" /></template>);
+    await render(<template><HdsFormLabel id="test-form-label" /></template>);
     assert.dom('#test-form-label').hasClass('hds-form-label');
   });
   test('it should render with a CSS class provided via the @contextualClass argument', async function (assert) {
     await render(
-      <template><Label @contextualClass="my-class" id="test-form-label" /></template>,
+      <template>
+        <HdsFormLabel @contextualClass="my-class" id="test-form-label" />
+      </template>,
     );
     assert.dom('#test-form-label').hasClass('my-class');
   });
@@ -26,13 +30,18 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
 
   test('it renders a label with the defined text', async function (assert) {
     await render(
-      <template><Label id="test-form-label">This is the label</Label></template>,
+      <template>
+        <HdsFormLabel id="test-form-label">This is the label</HdsFormLabel>
+      </template>,
     );
     assert.dom('#test-form-label').hasText('This is the label');
   });
   test('it renders a label with the yielded content', async function (assert) {
     await render(
-      <template><Label id="test-form-label"><pre>This is an HTML element inside the label</pre></Label></template>,
+      <template>
+        <HdsFormLabel id="test-form-label"><pre
+          >This is an HTML element inside the label</pre></HdsFormLabel>
+      </template>,
     );
     assert.dom('#test-form-label > pre').exists();
     assert
@@ -42,7 +51,10 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
 
   test('it renders hidden text if set @hiddenText', async function (assert) {
     await render(
-      <template><Label id="test-form-label" @hiddenText="this is hidden">This is the label</Label></template>,
+      <template>
+        <HdsFormLabel id="test-form-label" @hiddenText="this is hidden">This is
+          the label</HdsFormLabel>
+      </template>,
     );
     assert.dom('#test-form-label').hasText('This is the label this is hidden');
     assert.dom('#test-form-label .sr-only').hasText('this is hidden');
@@ -52,14 +64,20 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
 
   test('it appends an indicator to the label text when user input is required', async function (assert) {
     await render(
-      <template><Label @isRequired={{true}} id="test-form-label">This is the label</Label></template>,
+      <template>
+        <HdsFormLabel @isRequired={{true}} id="test-form-label">This is the
+          label</HdsFormLabel>
+      </template>,
     );
     assert.dom('#test-form-label .hds-form-indicator').exists();
     assert.dom('#test-form-label .hds-form-indicator').hasText('Required');
   });
   test('it appends an indicator to the label text when user input is optional', async function (assert) {
     await render(
-      <template><Label @isOptional={{true}} id="test-form-label">This is the label</Label></template>,
+      <template>
+        <HdsFormLabel @isOptional={{true}} id="test-form-label">This is the
+          label</HdsFormLabel>
+      </template>,
     );
     assert.dom('#test-form-label > .hds-form-indicator').exists();
     assert.dom('#test-form-label .hds-form-indicator').hasText('(Optional)');
@@ -69,15 +87,27 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
 
   test('it renders a label with the "for" attribute if the @controlId argument is provided', async function (assert) {
     await render(
-      <template><Label @controlId="my-control-id" id="test-form-label">This is the label</Label></template>,
+      <template>
+        <HdsFormLabel @controlId="my-control-id" id="test-form-label">This is
+          the label</HdsFormLabel>
+      </template>,
     );
     assert.dom('#test-form-label').hasAttribute('for', 'my-control-id');
   });
 
   test('it renders a label with the "for" attribute even if the @controlId argument is a boolean', async function (assert) {
     await render(
-      <template><Label @controlId={{true}} id="test-form-label-true">True</Label>
-        <Label @controlId={{false}} id="test-form-label-false">False</Label>
+      <template>
+        <HdsFormLabel
+          {{! @glint-expect-error - testing invalid component usage }}
+          @controlId={{true}}
+          id="test-form-label-true"
+        >True</HdsFormLabel>
+        <HdsFormLabel
+          {{! @glint-expect-error - testing invalid component usage }}
+          @controlId={{false}}
+          id="test-form-label-false"
+        >False</HdsFormLabel>
       </template>,
     );
     assert.dom('#test-form-label-true').hasAttribute('for', 'true');
@@ -88,7 +118,9 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
 
   test('it renders a label with the correct "id" attribute if the @controlId argument is provided', async function (assert) {
     await render(
-      <template><Label @controlId="my-control-id">This is the label</Label></template>,
+      <template>
+        <HdsFormLabel @controlId="my-control-id">This is the label</HdsFormLabel>
+      </template>,
     );
     assert.dom('#label-my-control-id').exists();
   });

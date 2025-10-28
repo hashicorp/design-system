@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
+import { render, resetOnerror, setupOnerror, find } from '@ember/test-helpers';
+
+import { HdsFormField } from '@hashicorp/design-system-components/components';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Field from "@hashicorp/design-system-components/components/hds/form/field/index";
 
 module('Integration | Component | hds/form/field/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -17,7 +19,9 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
 
   test('it should render the component with a CSS class provided via the @contextualClass argument', async function (assert) {
     await render(
-      <template><Field @contextualClass="my-class" id="test-form-field" /></template>,
+      <template>
+        <HdsFormField @contextualClass="my-class" id="test-form-field" />
+      </template>,
     );
     assert.dom('#test-form-field').hasClass('my-class');
   });
@@ -26,54 +30,54 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
 
   test('it should render the correct CSS layout class depending on the @layout prop', async function (assert) {
     await render(
-      <template><Field @layout="vertical" id="test-form-field" /></template>,
+      <template>
+        <HdsFormField @layout="vertical" id="test-form-field" />
+      </template>,
     );
     assert.dom('#test-form-field').hasClass('hds-form-field--layout-vertical');
   });
 
   test('it should render the correct DOM order when the @layout prop has value vertical', async function (assert) {
     await render(
-      <template><Field @layout="vertical" id="test-form-field" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-      </Field></template>,
+      <template>
+        <HdsFormField @layout="vertical" id="test-form-field" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+        </HdsFormField>
+      </template>,
     );
-    let control = this.element.querySelector(
-      '#test-form-field .hds-form-field__control',
-    );
-    let helperText = this.element.querySelector(
-      '#test-form-field .hds-form-field__helper-text',
-    );
-    assert.equal(control.previousElementSibling, helperText);
+    const control = find('#test-form-field .hds-form-field__control');
+    const helperText = find('#test-form-field .hds-form-field__helper-text');
+    assert.equal(control?.previousElementSibling, helperText);
   });
 
   test('it should render the correct DOM order when the @layout prop has value flag', async function (assert) {
     await render(
-      <template><Field @layout="flag" id="test-form-field" as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-      </Field></template>,
+      <template>
+        <HdsFormField @layout="flag" id="test-form-field" as |F|>
+          <F.Label>This is the label</F.Label>
+          <F.HelperText>This is the helper text</F.HelperText>
+        </HdsFormField>
+      </template>,
     );
-    let control = this.element.querySelector(
-      '#test-form-field .hds-form-field__control',
-    );
-    let helperText = this.element.querySelector(
-      '#test-form-field .hds-form-field__helper-text',
-    );
-    assert.equal(control.nextElementSibling, helperText);
+    const control = find('#test-form-field .hds-form-field__control');
+    const helperText = find('#test-form-field .hds-form-field__helper-text');
+    assert.equal(control?.nextElementSibling, helperText);
   });
 
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {
     await render(
-      <template><Field @layout="vertical" id="test-form-field" as |F|>
+      <template>
+        <HdsFormField @layout="vertical" id="test-form-field" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Control>This is a mock control</F.Control>
           <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </HdsFormField>
+      </template>,
     );
     assert.dom('#test-form-field .hds-form-field__label').exists();
     assert.dom('.hds-form-field__label').hasText('This is the label');
@@ -89,19 +93,22 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
   });
   test('it automatically provides all the ID relations between the elements', async function (assert) {
     await render(
-      <template><Field @layout="vertical" id="test-form-field" as |F|>
+      <template>
+        <HdsFormField @layout="vertical" id="test-form-field" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.Control><pre
+              id={{F.id}}
+              aria-describedby={{F.ariaDescribedBy}}
+            >This is a mock control</pre></F.Control>
           <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </HdsFormField>
+      </template>,
     );
     // the control ID is dynamically generated
-    let control = this.element.querySelector(
-      '#test-form-field .hds-form-field__control pre',
-    );
-    let controlId = control.id;
+    const control = find('#test-form-field .hds-form-field__control pre');
+    const controlId = control?.id ?? '';
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
       .dom('.hds-form-field__helper-text')
@@ -121,15 +128,25 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
   });
   test('it automatically provides all the ID relations between the elements with a custom @id', async function (assert) {
     await render(
-      <template><Field @layout="vertical" id="test-form-field" @id="my-custom-id" as |F|>
+      <template>
+        <HdsFormField
+          @layout="vertical"
+          id="test-form-field"
+          @id="my-custom-id"
+          as |F|
+        >
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.Control><pre
+              id={{F.id}}
+              aria-describedby={{F.ariaDescribedBy}}
+            >This is a mock control</pre></F.Control>
           <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </HdsFormField>
+      </template>,
     );
-    let controlId = 'my-custom-id';
+    const controlId = 'my-custom-id';
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
       .dom('.hds-form-field__label')
@@ -152,19 +169,27 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
   });
   test('it provides all the ID relations between the elements and allows extra `aria-describedby` attributes', async function (assert) {
     await render(
-      <template><Field @layout="vertical" id="test-form-field" @extraAriaDescribedBy="extra" as |F|>
+      <template>
+        <HdsFormField
+          @layout="vertical"
+          id="test-form-field"
+          @extraAriaDescribedBy="extra"
+          as |F|
+        >
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
-          <F.Control><pre id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
+          <F.Control><pre
+              id={{F.id}}
+              aria-describedby={{F.ariaDescribedBy}}
+            >This is a mock control</pre></F.Control>
           <F.CharacterCount>20/40</F.CharacterCount>
           <F.Error>This is the error</F.Error>
-        </Field></template>,
+        </HdsFormField>
+      </template>,
     );
     // the control ID is dynamically generated
-    let control = this.element.querySelector(
-      '#test-form-field .hds-form-field__control pre',
-    );
-    let controlId = control.id;
+    const control = find('#test-form-field .hds-form-field__control pre');
+    const controlId = control?.id ?? '';
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
     assert
       .dom('.hds-form-field__helper-text')
@@ -187,18 +212,22 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
 
   test('it should append an indicator to the label text when user input is required', async function (assert) {
     await render(
-      <template><Field @isRequired={{true}} as |F|>
-            <F.Label>This is the label</F.Label>
-          </Field></template>,
+      <template>
+        <HdsFormField @isRequired={{true}} as |F|>
+          <F.Label>This is the label</F.Label>
+        </HdsFormField>
+      </template>,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('Required');
   });
   test('it should append an indicator to the label text when user input is optional', async function (assert) {
     await render(
-      <template><Field @isOptional={{true}} as |F|>
-            <F.Label>This is the label</F.Label>
-          </Field></template>,
+      <template>
+        <HdsFormField @isOptional={{true}} as |F|>
+          <F.Label>This is the label</F.Label>
+        </HdsFormField>
+      </template>,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
@@ -213,7 +242,12 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Field @layout="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsFormField @layout="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

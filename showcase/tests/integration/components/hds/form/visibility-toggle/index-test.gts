@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import VisibilityToggle from "@hashicorp/design-system-components/components/hds/form/visibility-toggle/index";
+
+import { HdsFormVisibilityToggle } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/form/visibility-toggle/index',
@@ -15,7 +17,9 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><VisibilityToggle id="test-visibility-toggle" /></template>,
+        <template>
+          <HdsFormVisibilityToggle id="test-visibility-toggle" />
+        </template>,
       );
       assert
         .dom('#test-visibility-toggle')
@@ -24,7 +28,9 @@ module(
 
     test('it should render the default icon, `aria-label` and `sr-live` message', async function (assert) {
       await render(
-        <template><VisibilityToggle id="test-visibility-toggle" /></template>,
+        <template>
+          <HdsFormVisibilityToggle id="test-visibility-toggle" />
+        </template>,
       );
       assert
         .dom('#test-visibility-toggle .hds-icon')
@@ -33,14 +39,25 @@ module(
 
     test('it should render correct icon when `@isVisible` is `true`', async function (assert) {
       await render(
-        <template><VisibilityToggle @isVisible={{true}} id="test-visibility-toggle" /></template>,
+        <template>
+          <HdsFormVisibilityToggle
+            @isVisible={{true}}
+            id="test-visibility-toggle"
+          />
+        </template>,
       );
       assert.dom('#test-visibility-toggle .hds-icon').hasClass('hds-icon-eye');
     });
 
     test('it should render `aria-label` and `sr-live` message', async function (assert) {
       await render(
-        <template><VisibilityToggle @ariaLabel="Hide masked content" @ariaMessageText="Input content is visible" id="test-visibility-toggle" /></template>,
+        <template>
+          <HdsFormVisibilityToggle
+            @ariaLabel="Hide masked content"
+            @ariaMessageText="Input content is visible"
+            id="test-visibility-toggle"
+          />
+        </template>,
       );
       assert
         .dom('#test-visibility-toggle')
