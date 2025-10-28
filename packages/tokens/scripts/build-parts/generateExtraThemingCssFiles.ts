@@ -9,7 +9,7 @@ import prettier from 'prettier';
 import type { Dictionary, PlatformConfig }  from 'style-dictionary';
 import { fileHeader } from 'style-dictionary/utils';
 
-export async function generateExtraThemingFiles(_dictionary: Dictionary, config: PlatformConfig ): Promise<void> {
+export async function generateExtraThemingCssFiles(_dictionary: Dictionary, config: PlatformConfig): Promise<void> {
 
   const commonSource = await getSourceFromFileWithRootSelector(config, 'hds', 'common-tokens.css');
   const hdsThemedSource = await getSourceFromFileWithRootSelector(config, 'hds', 'themed-tokens.css');

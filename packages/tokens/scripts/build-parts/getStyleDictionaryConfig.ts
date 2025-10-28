@@ -102,6 +102,21 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             ],
             // this has been registered in the `build` file
             preprocessors: [`replace-value-for-mode-${mode}`],
+          },
+          [`docs/themed-json--mode-${mode}`]: {
+            buildPath: 'dist/docs/products/',
+            transformGroup: 'products/web',
+            prefix: 'token',
+            basePxFontSize: 16,
+            files: [
+              {
+                destination: `themed-tokens/${mode}.json`,
+                format: 'docs/json',
+                filter: excludePrivateTokens,
+              }
+            ],
+            // this has been registered in the `build` file
+            preprocessors: [`replace-value-for-mode-${mode}`],
           }
         }
       };
@@ -132,9 +147,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 filter: excludePrivateTokens,
               }
             ],
-            // TODO! do we need this? how do we manage CSS helpers for themed tokens?
-            // actions: ['generate-css-helpers'],
-            actions: ['generate-css-helpers', 'generate-extra-theming-files'],
+            actions: ['generate-css-helpers', 'generate-extra-theming-css-files'],
           },
           'docs/json': {
             buildPath: 'dist/docs/products/',
@@ -147,7 +160,8 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 format: 'docs/json',
                 filter: excludePrivateTokens,
               }
-            ]
+            ],
+            actions: ['generate-extra-theming-docs-files'],
           }
         }
       };
