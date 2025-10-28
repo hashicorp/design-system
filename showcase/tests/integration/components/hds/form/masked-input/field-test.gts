@@ -4,9 +4,18 @@
  */
 
 import { module, test } from 'qunit';
+import {
+  click,
+  find,
+  render,
+  resetOnerror,
+  settled,
+} from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
+
+import { HdsFormMaskedInputField } from '@hashicorp/design-system-components/components';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, render, resetOnerror, settled } from '@ember/test-helpers';
-import Field from "@hashicorp/design-system-components/components/hds/form/masked-input/field";
 
 module(
   'Integration | Component | hds/form/masked-input/field',
@@ -18,28 +27,34 @@ module(
     });
 
     test('it should render the component with a specific CSS class', async function (assert) {
-      await render(<template><Field /></template>);
+      await render(<template><HdsFormMaskedInputField /></template>);
       assert.dom('.hds-form-field__control').exists();
     });
 
     // VALUE
 
     test('it should render the input with the value provided via @value argument', async function (assert) {
-      await render(<template><Field @value="abc123" /></template>);
+      await render(
+        <template><HdsFormMaskedInputField @value="abc123" /></template>,
+      );
       assert.dom('input').hasValue('abc123');
     });
 
     // INVALID
 
     test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
-      await render(<template><Field @isInvalid={{true}} /></template>);
+      await render(
+        <template><HdsFormMaskedInputField @isInvalid={{true}} /></template>,
+      );
       assert.dom('input').hasClass('hds-form-text-input--is-invalid');
     });
 
     // WIDTH
 
     test('it should render the input with a fixed width if a @width value is passed', async function (assert) {
-      await render(<template><Field @width="248px" /></template>);
+      await render(
+        <template><HdsFormMaskedInputField @width="248px" /></template>,
+      );
       assert.dom('.hds-form-masked-input').hasStyle({ width: '248px' });
     });
 
@@ -47,7 +62,9 @@ module(
 
     test('it should render the input with a fixed height if a @height value is passed and `@isMultiline` is true', async function (assert) {
       await render(
-        <template><Field @isMultiline={{true}} @height="248px" /></template>,
+        <template>
+          <HdsFormMaskedInputField @isMultiline={{true}} @height="248px" />
+        </template>,
       );
       assert
         .dom('.hds-form-masked-input__control')
@@ -57,7 +74,9 @@ module(
     // ID
 
     test('it should render the input with a custom @id', async function (assert) {
-      await render(<template><Field @id="my-input" /></template>);
+      await render(
+        <template><HdsFormMaskedInputField @id="my-input" /></template>,
+      );
       assert.dom('input').hasAttribute('id', 'my-input');
     });
 
@@ -65,12 +84,14 @@ module(
 
     test('it renders the yielded contextual components', async function (assert) {
       await render(
-        <template><Field as |F|>
-          <F.Label>This is the label</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          <F.CharacterCount @maxLength={{10}} />
-          <F.Error>This is the error</F.Error>
-        </Field></template>,
+        <template>
+          <HdsFormMaskedInputField as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.CharacterCount @maxLength={{10}} />
+            <F.Error>This is the error</F.Error>
+          </HdsFormMaskedInputField>
+        </template>,
       );
       assert.dom('.hds-form-field__label').exists();
       assert.dom('.hds-form-field__helper-text').exists();
@@ -79,7 +100,7 @@ module(
       assert.dom('.hds-form-field__error').exists();
     });
     test('it does not render the yielded contextual components if not provided', async function (assert) {
-      await render(<template><Field /></template>);
+      await render(<template><HdsFormMaskedInputField /></template>);
       assert.dom('.hds-form-field__label').doesNotExist();
       assert.dom('.hds-form-field__helper-text').doesNotExist();
       assert.dom('.hds-form-field__character-count').doesNotExist();
@@ -87,18 +108,19 @@ module(
     });
     test('it automatically provides all the ID relations between the elements', async function (assert) {
       await render(
-        <template><Field @extraAriaDescribedBy="extra" as |F|>
-          <F.Label>This is the label</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          <F.CharacterCount @maxLength={{10}} />
-          <F.Error>This is the error</F.Error>
-        </Field></template>,
+        <template>
+          <HdsFormMaskedInputField @extraAriaDescribedBy="extra" as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.CharacterCount @maxLength={{10}} />
+            <F.Error>This is the error</F.Error>
+          </HdsFormMaskedInputField>
+        </template>,
       );
       // the control ID is dynamically generated
-      let control = this.element.querySelector(
-        '.hds-form-field__control input',
-      );
-      let controlId = control.id;
+      const control = find('.hds-form-field__control input');
+      const controlId = control?.id ?? '';
+
       assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
       assert
         .dom('.hds-form-field__helper-text')
@@ -117,24 +139,29 @@ module(
         .hasAttribute('id', `error-${controlId}`);
     });
     test('it automatically provides all the ID relations between the elements when dynamically rendered', async function (assert) {
+      const context = new TrackedObject({
+        showErrors: false,
+      });
+
       await render(
-        <template><Field @extraAriaDescribedBy="extra" as |F|>
-          <F.Label>This is the label</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          <F.CharacterCount @maxLength={{10}} />
-          {{#if this.showErrors}}
-            <F.Error>This is the error</F.Error>
-          {{/if}}
-        </Field></template>,
+        <template>
+          <HdsFormMaskedInputField @extraAriaDescribedBy="extra" as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.CharacterCount @maxLength={{10}} />
+            {{#if context.showErrors}}
+              <F.Error>This is the error</F.Error>
+            {{/if}}
+          </HdsFormMaskedInputField>
+        </template>,
       );
 
-      this.set('showErrors', true);
+      context.showErrors = true;
       await settled();
+
       // the control ID is dynamically generated
-      let control = this.element.querySelector(
-        '.hds-form-field__control input',
-      );
-      let controlId = control.id;
+      const control = find('.hds-form-field__control input');
+      const controlId = control?.id ?? '';
       assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
       assert
         .dom('.hds-form-field__helper-text')
@@ -157,9 +184,11 @@ module(
 
     test('it should append an indicator to the label text and set the required attribute when user input is required', async function (assert) {
       await render(
-        <template><Field @isRequired={{true}} as |F|>
+        <template>
+          <HdsFormMaskedInputField @isRequired={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Field></template>,
+          </HdsFormMaskedInputField>
+        </template>,
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('Required');
@@ -167,18 +196,22 @@ module(
     });
     test('it should append an indicator to the label text when user input is optional', async function (assert) {
       await render(
-        <template><Field @isOptional={{true}} as |F|>
+        <template>
+          <HdsFormMaskedInputField @isOptional={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Field></template>,
+          </HdsFormMaskedInputField>
+        </template>,
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('(Optional)');
     });
     test('it should not append an indicator to the label text when the required attribute is set', async function (assert) {
       await render(
-        <template><Field required as |F|>
+        <template>
+          <HdsFormMaskedInputField required as |F|>
             <F.Label>This is the label</F.Label>
-          </Field></template>,
+          </HdsFormMaskedInputField>
+        </template>,
       );
       assert.dom('input').hasAttribute('required');
       assert.dom('label .hds-form-indicator').doesNotExist();
@@ -188,7 +221,9 @@ module(
 
     test('it automatically provides the ID relations between the elements', async function (assert) {
       await render(
-        <template><Field @id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputField @id="test-form-masked-input" />
+        </template>,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -197,7 +232,9 @@ module(
 
     test('it updates the button label on toggle', async function (assert) {
       await render(
-        <template><Field @id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputField @id="test-form-masked-input" />
+        </template>,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -210,7 +247,12 @@ module(
 
     test('it renders a custom toggle button label', async function (assert) {
       await render(
-        <template><Field @id="test-form-masked-input" @visibilityToggleAriaLabel="Show my masked content" /></template>,
+        <template>
+          <HdsFormMaskedInputField
+            @id="test-form-masked-input"
+            @visibilityToggleAriaLabel="Show my masked content"
+          />
+        </template>,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -219,7 +261,9 @@ module(
 
     test('it informs the user about visibility change on toggle', async function (assert) {
       await render(
-        <template><Field @id="test-form-masked-input" /></template>,
+        <template>
+          <HdsFormMaskedInputField @id="test-form-masked-input" />
+        </template>,
       );
       await click('.hds-form-visibility-toggle');
       assert
@@ -233,7 +277,12 @@ module(
 
     test('it renders a custom message on toggle', async function (assert) {
       await render(
-        <template><Field @id="test-form-masked-input" @visibilityToggleAriaMessageText="My input content is visible" /></template>,
+        <template>
+          <HdsFormMaskedInputField
+            @id="test-form-masked-input"
+            @visibilityToggleAriaMessageText="My input content is visible"
+          />
+        </template>,
       );
       assert
         .dom('.hds-form-visibility-toggle')
