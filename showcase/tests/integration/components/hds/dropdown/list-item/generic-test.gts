@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Generic from "@hashicorp/design-system-components/components/hds/dropdown/list-item/generic";
+
+import { HdsDropdownListItemGeneric } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/dropdown/list-item/generic',
@@ -15,7 +17,9 @@ module(
 
     test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Generic id="test-list-item-generic" /></template>,
+        <template>
+          <HdsDropdownListItemGeneric id="test-list-item-generic" />
+        </template>,
       );
       assert.dom('#test-list-item-generic').hasTagName('li');
       assert.dom('#test-list-item-generic').hasClass('hds-dropdown-list-item');
@@ -28,7 +32,10 @@ module(
 
     test('it should render the yielded content', async function (assert) {
       await render(
-        <template><Generic><pre>test</pre></Generic></template>,
+        <template>
+          <HdsDropdownListItemGeneric><pre
+            >test</pre></HdsDropdownListItemGeneric>
+        </template>,
       );
       assert.dom('.hds-dropdown-list-item--variant-generic > pre').exists();
       assert

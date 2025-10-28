@@ -4,12 +4,14 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Description from "@hashicorp/design-system-components/components/hds/dropdown/list-item/description";
+
+import { HdsDropdownListItemTitle } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
-  'Integration | Component | hds/dropdown/list-item/description',
+  'Integration | Component | hds/dropdown/list-item/title',
   function (hooks) {
     setupRenderingTest(hooks);
 
@@ -19,27 +21,32 @@ module(
 
     test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Description @text="description" id="test-list-item-description" /></template>,
+        <template>
+          <HdsDropdownListItemTitle @text="title" id="test-list-item-title" />
+        </template>,
       );
-      assert.dom('#test-list-item-description').hasTagName('li');
+      assert.dom('#test-list-item-title').hasTagName('li');
+      assert.dom('#test-list-item-title').hasClass('hds-dropdown-list-item');
       assert
-        .dom('#test-list-item-description')
-        .hasClass('hds-dropdown-list-item');
-      assert
-        .dom('#test-list-item-description')
-        .hasClass('hds-dropdown-list-item--variant-description');
+        .dom('#test-list-item-title')
+        .hasClass('hds-dropdown-list-item--variant-title');
     });
 
     // ASSERTIONS
 
     test('it should throw an assertion if @text is missing/has no value', async function (assert) {
       const errorMessage =
-        '@text for "Hds::Dropdown::ListItem::Description" must have a valid value';
+        '@text for "Hds::Dropdown::ListItem::Title" must have a valid value';
       assert.expect(2);
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
-      await render(<template><Description /></template>);
+      await render(
+        <template>
+          {{! @glint-expect-error - testing invalid component usage }}
+          <HdsDropdownListItemTitle />
+        </template>,
+      );
       assert.throws(function () {
         throw new Error(errorMessage);
       });

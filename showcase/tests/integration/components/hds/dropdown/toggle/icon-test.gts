@@ -4,14 +4,17 @@
  */
 
 import { module, skip, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import {
   render,
   resetOnerror,
   settled,
   setupOnerror,
 } from '@ember/test-helpers';
-import Icon from '@hashicorp/design-system-components/components/hds/dropdown/toggle/icon';
+import { TrackedObject } from 'tracked-built-ins';
+
+import { HdsDropdownToggleIcon } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   setupRenderingTest(hooks);
@@ -25,7 +28,11 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       <template>
-        <Icon @icon="user" @text="toggle text" id="test-toggle-icon" />
+        <HdsDropdownToggleIcon
+          @icon="user"
+          @text="toggle text"
+          id="test-toggle-icon"
+        />
       </template>,
     );
     assert.dom('#test-toggle-icon').hasClass('hds-dropdown-toggle-icon');
@@ -36,7 +43,11 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('if an @icon is declared the flight icon should render in the component', async function (assert) {
     await render(
       <template>
-        <Icon @icon="settings" @text="settings menu" id="test-toggle-icon" />
+        <HdsDropdownToggleIcon
+          @icon="settings"
+          @text="settings menu"
+          id="test-toggle-icon"
+        />
       </template>,
     );
     assert.dom('.hds-icon.hds-icon-settings').exists();
@@ -47,7 +58,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('if an @imageSrc is declared and exists the image should render in the component', async function (assert) {
     await render(
       <template>
-        <Icon
+        <HdsDropdownToggleIcon
           @icon="user"
           @text="user menu"
           @imageSrc="/assets/images/avatar.png"
@@ -59,20 +70,24 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   });
 
   skip('if an @imageSrc is declared but does not exist, the flight icon should render in the component', async function (assert) {
-    this.set('imageSrc', '/assets/images/avatar.png');
+    const context = new TrackedObject({
+      imageSrc: '/assets/images/avatar.png',
+    });
+
     await render(
       <template>
-        <Icon
+        <HdsDropdownToggleIcon
           @icon="user"
           @text="user menu"
-          @imageSrc={{this.imageSrc}}
+          @imageSrc={{context.imageSrc}}
           id="test-toggle-icon"
         />
       </template>,
     );
     // we load the image dynamically to cover this usecase and also to prevent this test from intermittently failing for no obvious reason
-    this.set('imageSrc', '/assets/images/avatar-broken.png');
+    context.imageSrc = '/assets/images/avatar-broken.png';
     await settled();
+
     assert.dom('img').doesNotExist();
     assert.dom('#test-toggle-icon .hds-icon.hds-icon-user').exists();
   });
@@ -82,7 +97,11 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('it should render the chevron "down" by default', async function (assert) {
     await render(
       <template>
-        <Icon @icon="user" @text="user menu" id="test-toggle-icon" />
+        <HdsDropdownToggleIcon
+          @icon="user"
+          @text="user menu"
+          id="test-toggle-icon"
+        />
       </template>,
     );
     assert.dom('.hds-icon.hds-icon-chevron-down').exists();
@@ -90,7 +109,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('toggle-icon renders no chevron when hasChevron is set to false', async function (assert) {
     await render(
       <template>
-        <Icon
+        <HdsDropdownToggleIcon
           @icon="more-horizontal"
           @text="user menu"
           id="test-toggle-icon"
@@ -106,7 +125,11 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('it should render the medium size as the default if no size is declared', async function (assert) {
     await render(
       <template>
-        <Icon @icon="user" @text="user menu" id="test-toggle-icon" />
+        <HdsDropdownToggleIcon
+          @icon="user"
+          @text="user menu"
+          id="test-toggle-icon"
+        />
       </template>,
     );
     assert
@@ -116,7 +139,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
       <template>
-        <Icon
+        <HdsDropdownToggleIcon
           @icon="user"
           @text="user menu"
           @size="small"
@@ -134,7 +157,11 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('it should render with the correct aria attribute declared using the @text prop', async function (assert) {
     await render(
       <template>
-        <Icon @icon="user" @text="user menu" id="test-toggle-icon" />
+        <HdsDropdownToggleIcon
+          @icon="user"
+          @text="user menu"
+          id="test-toggle-icon"
+        />
       </template>,
     );
     assert.dom('#test-toggle-icon').hasAria('label', 'user menu');
@@ -142,7 +169,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('it should render the user "avatar" image with the correct role', async function (assert) {
     await render(
       <template>
-        <Icon
+        <HdsDropdownToggleIcon
           @icon="user"
           @text="user menu"
           @imageSrc="/assets/images/avatar.png"
@@ -155,7 +182,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   test('it should render with the correct aria-expanded attribute on the toggle element', async function (assert) {
     await render(
       <template>
-        <Icon
+        <HdsDropdownToggleIcon
           @icon="user"
           @text="user menu"
           @isOpen={{true}}
@@ -175,7 +202,10 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Icon @icon="user" id="test-toggle-icon" /></template>,
+      <template>
+        {{! @glint-expect-error - assertion testing invalid value }}
+        <HdsDropdownToggleIcon @icon="user" id="test-toggle-icon" />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -188,7 +218,9 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Icon @text="user menu" /></template>);
+    await render(
+      <template><HdsDropdownToggleIcon @text="user menu" /></template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -201,7 +233,10 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Icon @icon="user" @text="user menu" @size="foo" /></template>,
+      <template>
+        {{! @glint-expect-error - assertion testing invalid value }}
+        <HdsDropdownToggleIcon @icon="user" @text="user menu" @size="foo" />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -215,7 +250,13 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="apple" @text="user menu" @hasChevron={{false}}/>`,
+      <template>
+        <HdsDropdownToggleIcon
+          @icon="apple"
+          @text="user menu"
+          @hasChevron={{false}}
+        />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
