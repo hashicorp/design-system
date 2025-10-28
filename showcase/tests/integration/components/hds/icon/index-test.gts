@@ -4,22 +4,25 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
-import Icon from "@hashicorp/design-system-components/components/hds/icon/index";
+import style from 'ember-style-modifier';
+
+import { HdsIcon } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds-icon', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Icon @name="activity" /></template>);
+    await render(<template><HdsIcon @name="activity" /></template>);
     assert.dom('svg.hds-icon').hasClass('hds-icon');
   });
 
   // SIZE
 
   test('it renders the 16x16 icon by default', async function (assert) {
-    await render(<template><Icon @name="activity" /></template>);
+    await render(<template><HdsIcon @name="activity" /></template>);
     assert
       .dom('svg.hds-icon.hds-icon-activity')
       .hasStyle({ height: '16px', width: '16px' })
@@ -27,7 +30,7 @@ module('Integration | Component | hds-icon', function (hooks) {
       .hasAttribute('height', '16');
   });
   test('it renders the 24x24 icon when the "size" option is set', async function (assert) {
-    await render(<template><Icon @name="activity" @size="24" /></template>);
+    await render(<template><HdsIcon @name="activity" @size="24" /></template>);
     assert
       .dom('svg.hds-icon.hds-icon-activity')
       .hasStyle({ height: '24px', width: '24px' })
@@ -36,7 +39,9 @@ module('Integration | Component | hds-icon', function (hooks) {
   });
   test('it sets the width/height to 100% when the "stretched" option is set to true', async function (assert) {
     await render(
-      <template><Icon @name="activity" @size="24" @stretched={{true}} /></template>,
+      <template>
+        <HdsIcon @name="activity" @size="24" @stretched={{true}} />
+      </template>,
     );
     assert
       .dom('svg.hds-icon.hds-icon-activity')
@@ -47,41 +52,54 @@ module('Integration | Component | hds-icon', function (hooks) {
   // DISPLAY
 
   test('it does not have the "hds-icon--is-inline" class by default', async function (assert) {
-    await render(<template><Icon @name="activity" /></template>);
+    await render(<template><HdsIcon @name="activity" /></template>);
     assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon--is-inline');
   });
   test('it does have the "hds-icon--is-inline" class if the `@isInline` option is set to `true`', async function (assert) {
-    await render(<template><Icon @name="activity" @isInline={{true}} /></template>);
+    await render(
+      <template><HdsIcon @name="activity" @isInline={{true}} /></template>,
+    );
     assert.dom('svg.hds-icon').hasClass('hds-icon--is-inline');
   });
 
   // COLOR
 
   test('the fill color should be `currentColor` if no @color is declared', async function (assert) {
-    await render(<template><Icon @name="alert-circle" /></template>);
+    await render(<template><HdsIcon @name="alert-circle" /></template>);
     assert.dom(`svg.hds-icon`).hasAttribute('fill', 'currentColor');
   });
   test('it should render the correct CSS color class if the @color prop is declared using a pre-defined color', async function (assert) {
-    await render(<template><Icon @name="alert-circle" @color="highlight" /></template>);
+    await render(
+      <template><HdsIcon @name="alert-circle" @color="highlight" /></template>,
+    );
     // notice: we use CSS helper classes for the color definitions
     assert.dom(`svg.hds-icon`).hasClass('hds-foreground-highlight');
     assert.dom(`svg.hds-icon`).hasAttribute('fill', 'currentColor');
   });
   test('it should render the correct style if the @color prop is declared as custom CSS property color', async function (assert) {
     await render(
-      <template><Icon @name="alert-circle" @color="var(--doc-color-feedback-critical-100)" /></template>,
+      <template>
+        <HdsIcon
+          @name="alert-circle"
+          @color="var(--doc-color-feedback-critical-100)"
+        />
+      </template>,
     );
     assert
       .dom(`svg.hds-icon`)
       .hasAttribute('fill', 'var(--doc-color-feedback-critical-100)');
   });
   test('it should render the correct style if the @color prop is declared as custom HEX color', async function (assert) {
-    await render(<template><Icon @name="alert-circle" @color="#FF0000" /></template>);
+    await render(
+      <template><HdsIcon @name="alert-circle" @color="#FF0000" /></template>,
+    );
     assert.dom(`svg.hds-icon`).hasAttribute('fill', '#FF0000');
   });
   test('the fill color should be able to be inherited from parent', async function (assert) {
     await render(
-      <template><div style="color:blue;"><Icon @name="alert-circle" /></div></template>,
+      <template>
+        <div {{style color="blue"}}><HdsIcon @name="alert-circle" /></div>
+      </template>,
     );
     assert.dom(`svg.hds-icon`).hasStyle({
       fill: 'rgb(0, 0, 255)',
@@ -91,38 +109,48 @@ module('Integration | Component | hds-icon', function (hooks) {
   // A11Y
 
   test('it renders the title if one is defined', async function (assert) {
-    await render(<template><Icon @name="activity" @title="try to avoid" /></template>);
+    await render(
+      <template><HdsIcon @name="activity" @title="try to avoid" /></template>,
+    );
     assert.dom('title').containsText('try to avoid');
   });
   test('it has aria-hidden set to true', async function (assert) {
-    await render(<template><Icon @name="activity" /></template>);
+    await render(<template><HdsIcon @name="activity" /></template>);
     assert.dom('svg.hds-icon.hds-icon-activity').hasAria('hidden', 'true');
   });
   test('it has aria-hidden set to false if a title is defined', async function (assert) {
-    await render(<template><Icon @name="activity" @title="try to avoid" /></template>);
+    await render(
+      <template><HdsIcon @name="activity" @title="try to avoid" /></template>,
+    );
     assert.dom('svg.hds-icon.hds-icon-activity').hasAria('hidden', 'false');
   });
   test('it has aria-labelledby if a title exists', async function (assert) {
-    await render(<template><Icon @name="activity" @title="try to avoid" /></template>);
+    await render(
+      <template><HdsIcon @name="activity" @title="try to avoid" /></template>,
+    );
     assert
       .dom('svg.hds-icon.hds-icon-activity')
       .hasAttribute('aria-labelledby');
   });
   test('it does not have aria-labelledby if a title does not exist', async function (assert) {
-    await render(<template><Icon @name="activity" /></template>);
+    await render(<template><HdsIcon @name="activity" /></template>);
     assert
       .dom('svg.hds-icon.hds-icon-activity')
       .doesNotHaveAttribute('aria-labelledby');
   });
   test('it has a g element with role of presentation if a title exists', async function (assert) {
-    await render(<template><Icon @name="activity" @title="computer says no" /></template>);
+    await render(
+      <template>
+        <HdsIcon @name="activity" @title="computer says no" />
+      </template>,
+    );
     assert.dom('svg > g').hasAttribute('role');
   });
 
   // ATTRIBUTES
 
   test('additional classes can be added when component is invoked', async function (assert) {
-    await render(<template><Icon @name="meh" class="demo" /></template>);
+    await render(<template><HdsIcon @name="meh" class="demo" /></template>);
     assert.dom(`svg.hds-icon`).hasClass('demo');
   });
 
@@ -134,7 +162,12 @@ module('Integration | Component | hds-icon', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Icon /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsIcon />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -145,7 +178,12 @@ module('Integration | Component | hds-icon', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Icon @name="abc" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsIcon @name="abc" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
