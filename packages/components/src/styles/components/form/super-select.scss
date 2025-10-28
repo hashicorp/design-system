@@ -198,6 +198,10 @@ $hds-super-select-item-height: 36px;
         background-color: var(--token-color-foreground-action-active);
       }
     }
+
+    &[aria-disabled="true"] {
+      color: var(--token-form-control-disabled-foreground-color);
+    }
   }
 
   // Option Groups (similar to HTML optgroup)
