@@ -43,7 +43,7 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
       outputContent = `${header}\n\n`;
       //
       // this is the fallback to the default `hds` mode
-      outputContent += `${hdsThemedSource}\n\n`;
+      outputContent += `${hdsThemedSource.replace(/^:root/, ':root, .hds-theme-hds, [data-hds-theme="hds"]')}\n\n`;
       //
       // these are the themed `carbonized` tokens
       outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-theme-cds-g0, [data-hds-theme="light"], [data-hds-theme="cds-g0"]')}\n\n`;
@@ -60,7 +60,7 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
       outputContent = `${header}\n\n`;
       //
       // this is the fallback to the default `hds` mode
-      outputContent += `${hdsThemedSource}\n\n`;
+      outputContent += `${hdsThemedSource.replace(/^:root/, ':root, .hds-theme-hds, [data-hds-theme="hds"]')}\n\n`;
       //
       // these are the themed `carbonized` tokens
       // note: we will revisit the `[class*=hds-theme-]` selector if we find that is too generic and there are cases where this is picking up other classes
@@ -78,7 +78,7 @@ export async function generateExtraThemingFiles(_dictionary: Dictionary, config:
     // SCSS file for mixins
     if (method === 'scss-mixins') {
       outputContent = `${header}\n\n`;
-      outputContent += `@mixin hds-theme-default() { ${hdsThemedSource} }\n\n`;
+      outputContent += `@mixin hds-theme-hds() { ${hdsThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-cds0() { ${cds0ThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-cds10() { ${cds10ThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-cds90() { ${cds90ThemedSource} }\n\n`;
