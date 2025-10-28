@@ -4,20 +4,31 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import DismissButton from "@hashicorp/design-system-components/components/hds/dismiss-button/index";
+
+import { HdsDismissButton } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/dismiss-button/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><DismissButton id="test-dismiss-button" /></template>);
+    await render(
+      <template><HdsDismissButton id="test-dismiss-button" /></template>,
+    );
     assert.dom('#test-dismiss-button').hasClass('hds-dismiss-button');
   });
   test('it should spread all the passed attributes', async function (assert) {
     await render(
-      <template><DismissButton id="test-dismiss-button" class="dismiss-button-class" data-test-dismiss-button1 data-test-dismiss-button2="test" /></template>,
+      <template>
+        <HdsDismissButton
+          id="test-dismiss-button"
+          class="dismiss-button-class"
+          data-test-dismiss-button1
+          data-test-dismiss-button2="test"
+        />
+      </template>,
     );
     assert.dom('#test-dismiss-button').hasClass('dismiss-button-class');
     assert
