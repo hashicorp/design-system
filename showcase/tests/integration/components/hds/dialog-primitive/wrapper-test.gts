@@ -4,13 +4,17 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror } from '@ember/test-helpers';
-import Wrapper from "@hashicorp/design-system-components/components/hds/dialog-primitive/wrapper";
-import Header from "@hashicorp/design-system-components/components/hds/dialog-primitive/header";
-import Description from "@hashicorp/design-system-components/components/hds/dialog-primitive/description";
-import Body from "@hashicorp/design-system-components/components/hds/dialog-primitive/body";
-import Footer from "@hashicorp/design-system-components/components/hds/dialog-primitive/footer";
+
+import {
+  HdsDialogPrimitiveBody,
+  HdsDialogPrimitiveDescription,
+  HdsDialogPrimitiveFooter,
+  HdsDialogPrimitiveHeader,
+  HdsDialogPrimitiveWrapper,
+} from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/dialog-primitive/wrapper',
@@ -24,12 +28,12 @@ module(
     test('it should render the component with a CSS class that matches the component name, and its sub', async function (assert) {
       await render(
         <template>
-        <Wrapper id="test-dialog-primitive">
-          <:header>Header</:header>
-          <:body>Body</:body>
-          <:footer>Footer</:footer>
-        </Wrapper>
-      </template>,
+          <HdsDialogPrimitiveWrapper id="test-dialog-primitive">
+            <:header>Header</:header>
+            <:body>Body</:body>
+            <:footer>Footer</:footer>
+          </HdsDialogPrimitiveWrapper>
+        </template>,
       );
       assert
         .dom('#test-dialog-primitive')
@@ -41,19 +45,20 @@ module(
     test('it renders the content slots and the contextual components', async function (assert) {
       await render(
         <template>
-        <Wrapper id="test-dialog-primitive">
-          <:header>
-            <Header>Title</Header>
-            <Description>Description</Description>
-          </:header>
-          <:body>
-            <Body>Body</Body>
-          </:body>
-          <:footer>
-            <Footer>Footer</Footer>
-          </:footer>
-        </Wrapper>
-      </template>,
+          <HdsDialogPrimitiveWrapper id="test-dialog-primitive">
+            <:header>
+              <HdsDialogPrimitiveHeader>Title</HdsDialogPrimitiveHeader>
+              <HdsDialogPrimitiveDescription
+              >Description</HdsDialogPrimitiveDescription>
+            </:header>
+            <:body>
+              <HdsDialogPrimitiveBody>Body</HdsDialogPrimitiveBody>
+            </:body>
+            <:footer>
+              <HdsDialogPrimitiveFooter>Footer</HdsDialogPrimitiveFooter>
+            </:footer>
+          </HdsDialogPrimitiveWrapper>
+        </template>,
       );
       assert.dom('.hds-dialog-primitive__wrapper-header').exists();
       assert.dom('.hds-dialog-primitive__wrapper-body').exists();
