@@ -23,8 +23,7 @@ export interface HdsDialogPrimitiveFooterSignature {
 const NOOP = (): void => {};
 
 export default class HdsDialogPrimitiveFooter extends Component<HdsDialogPrimitiveFooterSignature> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  get onDismiss(): (event: MouseEvent, ...args: any[]) => void {
+  get onDismiss(): (event: MouseEvent, ...args: unknown[]) => void {
     const { onDismiss } = this.args;
 
     // notice: this is to make sure the function is always defined when consumers add `{{on 'click' F.close}}` to a button in the DialogFooter.

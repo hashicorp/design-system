@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 export interface HdsDialogPrimitiveBodySignature {
   Args: {
@@ -20,7 +20,16 @@ export interface HdsDialogPrimitiveBodySignature {
   Element: HTMLDivElement;
 }
 
-const HdsDialogPrimitiveBody =
-  templateOnlyComponent<HdsDialogPrimitiveBodySignature>();
+export default class HdsDialogPrimitiveBody extends Component<HdsDialogPrimitiveBodySignature> {
+  get onDismiss(): (event: MouseEvent, ...args: unknown[]) => void {
+    const { onDismiss } = this.args;
 
-export default HdsDialogPrimitiveBody;
+    // notice: this is to make sure the function is always defined when consumers add `{{on 'click' F.close}}` to a button in the DialogFooter.
+    // in reality it's always used inside the main components as a yielded component, so the onDismiss handler is always defined
+    if (typeof onDismiss === 'function') {
+      return onDismiss;
+    } else {
+      return (): void => {};
+    }
+  }
+}
