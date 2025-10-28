@@ -1,6 +1,7 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { eq } from 'ember-truth-helpers';
 import { helper } from '@ember/component/helper';
+import { hash } from '@ember/helper';
 
 import ShwLabel from 'showcase/components/shw/label';
 import ShwCarbonizationComparisonGridItem from './item';
@@ -14,8 +15,8 @@ export interface ShwCarbonizationComparisonGridSignature {
   };
   Blocks: {
     label: [];
-    theming: [];
-    reference: [];
+    theming: [{ theme: Theme }];
+    reference: [{ theme: Theme }];
   };
   Element: HTMLDivElement;
 }
@@ -58,7 +59,7 @@ const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComp
             @theme={{theme}}
             @label={{(unless @hideThemeLabels theme)}}
           >
-            {{yield to="theming"}}
+            {{yield (hash theme=theme) to="theming"}}
           </ShwCarbonizationComparisonGridItem>
         {{/each}}
       {{/if}}
@@ -70,7 +71,7 @@ const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComp
               @theme={{theme}}
               @label={{(unless @hideCarbonLabels (carbonLabel theme))}}
             >
-              {{yield to="reference"}}
+              {{yield (hash theme=theme) to="reference"}}
             </ShwCarbonizationComparisonGridItem>
           {{/unless}}
         {{/each}}
