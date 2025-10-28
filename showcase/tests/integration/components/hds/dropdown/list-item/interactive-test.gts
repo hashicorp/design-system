@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Interactive from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
+
+import { HdsDropdownListItemInteractive } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/dropdown/list-item/interactive',
@@ -24,9 +26,9 @@ module(
     test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
         <template>
-          <Interactive>
+          <HdsDropdownListItemInteractive>
             interactive
-          </Interactive>
+          </HdsDropdownListItemInteractive>
         </template>,
       );
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
@@ -40,7 +42,8 @@ module(
     test('it should render the "list-item" with a button by default"', async function (assert) {
       await render(
         <template>
-          <Interactive>interactive</Interactive>
+          <HdsDropdownListItemInteractive
+          >interactive</HdsDropdownListItemInteractive>
         </template>,
       );
       assert.dom('.hds-dropdown-list-item > button').exists();
@@ -48,9 +51,9 @@ module(
     test('it should render the "list-item" with a link if it has a @route parameter"', async function (assert) {
       await render(
         <template>
-          <Interactive @route="index">
+          <HdsDropdownListItemInteractive @route="index">
             interactive
-          </Interactive>
+          </HdsDropdownListItemInteractive>
         </template>,
       );
       assert.dom('.hds-dropdown-list-item > a').exists();
@@ -58,7 +61,9 @@ module(
     test('it should render the "list-item" with a link if it has a @href argument"', async function (assert) {
       await render(
         <template>
-          <Interactive @href="#">interactive</Interactive>
+          <HdsDropdownListItemInteractive
+            @href="#"
+          >interactive</HdsDropdownListItemInteractive>
         </template>,
       );
       assert.dom('.hds-dropdown-list-item > a').exists();
@@ -69,7 +74,8 @@ module(
     test('it should render the "action" color as the default if no color is declared"', async function (assert) {
       await render(
         <template>
-          <Interactive>interactive</Interactive>
+          <HdsDropdownListItemInteractive
+          >interactive</HdsDropdownListItemInteractive>
         </template>,
       );
       assert
@@ -79,9 +85,9 @@ module(
     test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
       await render(
         <template>
-          <Interactive @color="critical" @icon="trash">
+          <HdsDropdownListItemInteractive @color="critical" @icon="trash">
             interactive
-          </Interactive>
+          </HdsDropdownListItemInteractive>
         </template>,
       );
       assert
@@ -94,7 +100,9 @@ module(
     test('if an `@icon` is declared a leading icon should be rendered', async function (assert) {
       await render(
         <template>
-          <Interactive @icon="clipboard-copy">interactive</Interactive>
+          <HdsDropdownListItemInteractive
+            @icon="clipboard-copy"
+          >interactive</HdsDropdownListItemInteractive>
         </template>,
       );
       assert.dom('.hds-icon.hds-icon-clipboard-copy').exists();
@@ -102,9 +110,9 @@ module(
     test('if an `@trailingIcon` is declared a trailing icon should be rendered', async function (assert) {
       await render(
         <template>
-          <Interactive @trailingIcon="external-link">
+          <HdsDropdownListItemInteractive @trailingIcon="external-link">
             interactive
-          </Interactive>
+          </HdsDropdownListItemInteractive>
         </template>,
       );
       assert.dom('.hds-icon.hds-icon-external-link').exists();
@@ -112,10 +120,10 @@ module(
     test('if both an `@icon` and an `@trailingIcon` are declared both the leading and trailing icons should be rendered', async function (assert) {
       await render(
         <template>
-          <Interactive
+          <HdsDropdownListItemInteractive
             @icon="clipboard-copy"
             @trailingIcon="external-link"
-          >interactive</Interactive>
+          >interactive</HdsDropdownListItemInteractive>
         </template>,
       );
       assert.dom('.hds-icon.hds-icon-clipboard-copy').exists();
@@ -127,9 +135,9 @@ module(
     test('it should render the yielded content', async function (assert) {
       await render(
         <template>
-          <Interactive>
+          <HdsDropdownListItemInteractive>
             interactive
-          </Interactive>
+          </HdsDropdownListItemInteractive>
         </template>,
       );
       assert.dom('.hds-dropdown-list-item').hasText('interactive');
@@ -146,9 +154,10 @@ module(
       });
       await render(
         <template>
-          <Interactive @color="foo">
+          {{! @glint-expect-error - assertion testing invalid value }}
+          <HdsDropdownListItemInteractive @color="foo">
             interactive text
-          </Interactive>
+          </HdsDropdownListItemInteractive>
         </template>,
       );
       assert.throws(function () {
@@ -161,9 +170,9 @@ module(
     test('it renders the contextual components', async function (assert) {
       await render(
         <template>
-          <Interactive as |I|>
+          <HdsDropdownListItemInteractive as |I|>
             <I.Badge @text="Badge" />
-          </Interactive>
+          </HdsDropdownListItemInteractive>
         </template>,
       );
       assert
@@ -174,9 +183,9 @@ module(
     test('it does not render the contextual components if not provided', async function (assert) {
       await render(
         <template>
-          <Interactive>
+          <HdsDropdownListItemInteractive>
             interactive
-          </Interactive>
+          </HdsDropdownListItemInteractive>
         </template>,
       );
       assert.dom('.hds-badge').doesNotExist();

@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Checkmark from "@hashicorp/design-system-components/components/hds/dropdown/list-item/checkmark";
+
+import { HdsDropdownListItemCheckmark } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/dropdown/list-item/checkmark',
@@ -15,14 +17,18 @@ module(
 
     test('it renders the "list-item/checkmark"', async function (assert) {
       await render(
-        <template><Checkmark>Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark id="test-checkmark-item">Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
-      assert.dom(this.element).exists();
+      assert.dom('#test-checkmark-item').exists();
     });
 
     test('it should render the "list-item/checkmark" as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Checkmark>Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark>Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
       assert.dom('.hds-dropdown-list-item').hasTagName('li');
       assert
@@ -34,19 +40,25 @@ module(
 
     test('it should render the "list-item" with a button by default"', async function (assert) {
       await render(
-        <template><Checkmark>Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark>Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
       assert.dom('button.hds-dropdown-list-item__interactive').exists();
     });
     test('it should render the "list-item" with a link if it has a @route parameter"', async function (assert) {
       await render(
-        <template><Checkmark @route="index">Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark @route="index">Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
       assert.dom('a.hds-dropdown-list-item__interactive').exists();
     });
     test('it should render the "list-item" with a link if it has a @href argument"', async function (assert) {
       await render(
-        <template><Checkmark @href="#">Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark @href="#">Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
       assert.dom('a.hds-dropdown-list-item__interactive').exists();
     });
@@ -55,7 +67,9 @@ module(
 
     test('if an icon is declared the flight icon should render in the component', async function (assert) {
       await render(
-        <template><Checkmark @icon="hexagon">Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark @icon="hexagon">Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
       assert.dom('.hds-icon.hds-icon-hexagon').exists();
     });
@@ -64,7 +78,9 @@ module(
 
     test('it should render the content passed as block', async function (assert) {
       await render(
-        <template><Checkmark>Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark>Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
       assert.dom('.hds-dropdown-list-item').hasText('Checkmark item');
     });
@@ -73,7 +89,9 @@ module(
 
     test('it should render with a result count badge', async function (assert) {
       await render(
-        <template><Checkmark @count="10">Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark @count="10">Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
       assert.dom('.hds-dropdown-list-item__count').hasText('10');
     });
@@ -82,7 +100,9 @@ module(
 
     test('it should render as selected if `@selected` is true', async function (assert) {
       await render(
-        <template><Checkmark @selected={{true}}>Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark @selected={{true}}>Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
       assert
         .dom('.hds-dropdown-list-item')
@@ -94,7 +114,9 @@ module(
 
     test('it should present the interactive element as a selectable option', async function (assert) {
       await render(
-        <template><Checkmark @selected={{true}}>Checkmark item</Checkmark></template>,
+        <template>
+          <HdsDropdownListItemCheckmark @selected={{true}}>Checkmark item</HdsDropdownListItemCheckmark>
+        </template>,
       );
       assert
         .dom('.hds-dropdown-list-item__interactive')

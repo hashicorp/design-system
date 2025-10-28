@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Button from "@hashicorp/design-system-components/components/hds/dropdown/toggle/button";
+
+import { HdsDropdownToggleButton } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/dropdown/toggle/button',
@@ -21,7 +23,12 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Button @text="toggle text" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="toggle text"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert.dom('#test-toggle-button').hasClass('hds-dropdown-toggle-button');
     });
@@ -30,7 +37,12 @@ module(
 
     test('it should render the text passed as @text prop', async function (assert) {
       await render(
-        <template><Button @text="toggle text" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="toggle text"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert.dom('#test-toggle-button').hasText('toggle text');
     });
@@ -39,7 +51,12 @@ module(
 
     test('it should render the chevron "down" by default', async function (assert) {
       await render(
-        <template><Button @text="text toggle" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="text toggle"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert.dom('.hds-icon.hds-icon-chevron-down').exists();
     });
@@ -48,7 +65,9 @@ module(
 
     test('it should render an icon if @icon is defined', async function (assert) {
       await render(
-        <template><Button @text="text toggle" @icon="hexagon" /></template>,
+        <template>
+          <HdsDropdownToggleButton @text="text toggle" @icon="hexagon" />
+        </template>,
       );
       assert.dom('.hds-icon.hds-icon-hexagon').exists();
     });
@@ -57,7 +76,13 @@ module(
 
     test('it should render a badge if @badge is defined', async function (assert) {
       await render(
-        <template><Button @text="Lorem ipsum" @badge="badge" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="Lorem ipsum"
+            @badge="badge"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert
         .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
@@ -66,7 +91,14 @@ module(
     });
     test('it should render a badge with icon if @badge and @badgeIcon is defined', async function (assert) {
       await render(
-        <template><Button @text="Lorem ipsum" @badge="badge" @badgeIcon="hexagon" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="Lorem ipsum"
+            @badge="badge"
+            @badgeIcon="hexagon"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert
         .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
@@ -80,7 +112,13 @@ module(
 
     test('it should render a badge count if @count is defined', async function (assert) {
       await render(
-        <template><Button @text="Lorem ipsum" @count="3" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="Lorem ipsum"
+            @count="3"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert
         .dom('#test-toggle-button .hds-dropdown-toggle-button__count')
@@ -91,7 +129,12 @@ module(
 
     test('it should render the primary color as the default if no color is declared', async function (assert) {
       await render(
-        <template><Button @text="text toggle" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="text toggle"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert
         .dom('#test-toggle-button')
@@ -99,7 +142,13 @@ module(
     });
     test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
       await render(
-        <template><Button @text="text toggle" @color="secondary" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="text toggle"
+            @color="secondary"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert
         .dom('#test-toggle-button')
@@ -110,7 +159,12 @@ module(
 
     test('it should render the medium size as the default if no size is declared', async function (assert) {
       await render(
-        <template><Button @text="text toggle" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="text toggle"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert
         .dom('#test-toggle-button')
@@ -118,7 +172,13 @@ module(
     });
     test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
       await render(
-        <template><Button @text="text toggle" @size="small" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="text toggle"
+            @size="small"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert
         .dom('#test-toggle-button')
@@ -129,7 +189,13 @@ module(
 
     test('it should render with the correct aria-expanded attribute on the toggle element', async function (assert) {
       await render(
-        <template><Button @text="text toggle" @isOpen={{true}} id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="text toggle"
+            @isOpen={{true}}
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert.dom('#test-toggle-button').hasAttribute('aria-expanded', 'true');
     });
@@ -143,7 +209,10 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        <template><Button id="test-toggle-button" /></template>,
+        <template>
+          {{! @glint-expect-error - assertion testing invalid value }}
+          <HdsDropdownToggleButton id="test-toggle-button" />
+        </template>,
       );
       assert.throws(function () {
         throw new Error(errorMessage);
@@ -157,7 +226,14 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        <template><Button @text="text toggle" @color="foo" id="test-toggle-button" /></template>,
+        <template>
+          <HdsDropdownToggleButton
+            @text="text toggle"
+            {{! @glint-expect-error - assertion testing invalid value }}
+            @color="foo"
+            id="test-toggle-button"
+          />
+        </template>,
       );
       assert.throws(function () {
         throw new Error(errorMessage);
@@ -171,7 +247,10 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        <template><Button @text="text toggle" @size="foo" /></template>,
+        <template>
+          {{! @glint-expect-error - assertion testing invalid value }}
+          <HdsDropdownToggleButton @text="text toggle" @size="foo" />
+        </template>,
       );
       assert.throws(function () {
         throw new Error(errorMessage);
