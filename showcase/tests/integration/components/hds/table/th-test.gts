@@ -4,17 +4,23 @@
  */
 
 import { module, test } from 'qunit';
+import { render, focus, find } from '@ember/test-helpers';
+
+import {
+  HdsTable,
+  HdsTableTh,
+} from '@hashicorp/design-system-components/components';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, focus } from '@ember/test-helpers';
-import Th from "@hashicorp/design-system-components/components/hds/table/th";
-import Table from "@hashicorp/design-system-components/components/hds/table/index";
 
 module('Integration | Component | hds/table/th', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><Th id="data-test-table-th">Artist</Th></template>,
+      <template>
+        <HdsTableTh id="data-test-table-th">Artist</HdsTableTh>
+      </template>,
     );
     assert.dom('#data-test-table-th').hasClass('hds-table__th');
   });
@@ -23,13 +29,20 @@ module('Integration | Component | hds/table/th', function (hooks) {
 
   test('it renders text content yielded within the cell (no tooltip)', async function (assert) {
     await render(
-      <template><Th id="data-test-table-th">Artist</Th></template>,
+      <template>
+        <HdsTableTh id="data-test-table-th">Artist</HdsTableTh>
+      </template>,
     );
     assert.dom('#data-test-table-th > span').hasText('Artist');
   });
   test('it renders text content yielded within the cell (with tooltip)', async function (assert) {
     await render(
-      <template><Th id="data-test-table-th" @tooltip="More info.">Artist</Th></template>,
+      <template>
+        <HdsTableTh
+          id="data-test-table-th"
+          @tooltip="More info."
+        >Artist</HdsTableTh>
+      </template>,
     );
     assert
       .dom('#data-test-table-th .hds-table__th-content > span')
@@ -40,7 +53,9 @@ module('Integration | Component | hds/table/th', function (hooks) {
 
   test('it should render with the appropriate `@align` CSS class', async function (assert) {
     await render(
-      <template><Th id="data-test-table-th" @align="right">Artist</Th></template>,
+      <template>
+        <HdsTableTh id="data-test-table-th" @align="right">Artist</HdsTableTh>
+      </template>,
     );
     assert.dom('#data-test-table-th').hasClass('hds-table__th--align-right');
   });
@@ -49,7 +64,9 @@ module('Integration | Component | hds/table/th', function (hooks) {
 
   test('it should add inline styles if `@width` is declared', async function (assert) {
     await render(
-      <template><Th id="data-test-table-th" @width="10%">Artist</Th></template>,
+      <template>
+        <HdsTableTh id="data-test-table-th" @width="10%">Artist</HdsTableTh>
+      </template>,
     );
     assert
       .dom('#data-test-table-th')
@@ -60,20 +77,28 @@ module('Integration | Component | hds/table/th', function (hooks) {
 
   test('it should support splattributes', async function (assert) {
     await render(
-      <template><Th id="data-test-table-th" lang="es">Artist</Th></template>,
+      <template>
+        <HdsTableTh id="data-test-table-th" lang="es">Artist</HdsTableTh>
+      </template>,
     );
     assert.dom('#data-test-table-th').hasAttribute('lang', 'es');
   });
 
   test('it has the scope attribute set to column by default', async function (assert) {
     await render(
-      <template><Th id="data-test-table-th">Artist</Th></template>,
+      <template>
+        <HdsTableTh id="data-test-table-th">Artist</HdsTableTh>
+      </template>,
     );
     assert.dom('#data-test-table-th').hasAttribute('scope', 'col');
   });
   test('it has the scope attribute set to row if inside a tbody', async function (assert) {
     await render(
-      <template><Table><:body as |B|><B.Tr><B.Th id="data-test-table-th">Artist</B.Th></B.Tr></:body></Table></template>,
+      <template>
+        <HdsTable><:body as |B|><B.Tr><B.Th
+                id="data-test-table-th"
+              >Artist</B.Th></B.Tr></:body></HdsTable>
+      </template>,
     );
     assert.dom('#data-test-table-th').hasAttribute('scope', 'row');
   });
@@ -82,7 +107,9 @@ module('Integration | Component | hds/table/th', function (hooks) {
 
   test('if @tooltip is undefined a tooltip button toggle should not be present', async function (assert) {
     await render(
-      <template><Th id="data-test-table-th">Artist</Th></template>,
+      <template>
+        <HdsTableTh id="data-test-table-th">Artist</HdsTableTh>
+      </template>,
     );
 
     assert
@@ -91,7 +118,12 @@ module('Integration | Component | hds/table/th', function (hooks) {
   });
   test('if @tooltip is defined a tooltip should be added to the table cell header', async function (assert) {
     await render(
-      <template><Th @tooltip="More info." id="data-test-table-th">Artist</Th></template>,
+      <template>
+        <HdsTableTh
+          @tooltip="More info."
+          id="data-test-table-th"
+        >Artist</HdsTableTh>
+      </template>,
     );
 
     assert.dom('#data-test-table-th .hds-table__th-button--tooltip').exists();
@@ -102,16 +134,21 @@ module('Integration | Component | hds/table/th', function (hooks) {
   });
   test('it renders the `aria-labelledby` attribute for the tooltip button with the correct IDs', async function (assert) {
     await render(
-      <template><Th id="data-test-table-th" @tooltip="More info.">Artist</Th></template>,
+      <template>
+        <HdsTableTh
+          id="data-test-table-th"
+          @tooltip="More info."
+        >Artist</HdsTableTh>
+      </template>,
     );
-    let prefixLabel = this.element.querySelector(
+    const prefixLabel = find(
       '#data-test-table-th .hds-table__th-button-aria-label-hidden-segment',
     );
-    let buttonLabel = this.element.querySelector(
+    const buttonLabel = find(
       '#data-test-table-th .hds-table__th-content > span',
     );
     assert
       .dom('#data-test-table-th .hds-table__th-button--tooltip')
-      .hasAria('labelledby', `${prefixLabel.id} ${buttonLabel.id}`);
+      .hasAria('labelledby', `${prefixLabel?.id} ${buttonLabel?.id}`);
   });
 });
