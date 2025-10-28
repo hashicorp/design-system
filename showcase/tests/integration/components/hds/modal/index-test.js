@@ -143,6 +143,18 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await click('#cancel-button');
     assert.dom('#test-modal').isNotVisible();
   });
+  test('it should close the modal when the "close" function is called from within the body', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|>
+            <M.Body as |B|>
+              <Hds::Button id="body-close-button" type="button" @text="Close from Body" @color="secondary" {{on "click" B.close}} />
+            </M.Body>
+          </Hds::Modal>`,
+    );
+    assert.dom('#test-modal').isVisible();
+    await click('#body-close-button');
+    assert.dom('#test-modal').isNotVisible();
+  });
   test('it should close the modal when the "esc" key is pressed', async function (assert) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
