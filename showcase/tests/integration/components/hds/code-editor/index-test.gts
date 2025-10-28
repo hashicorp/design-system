@@ -4,22 +4,24 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, render, waitFor } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import { click, render, find, settled, waitFor } from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
 import sinon from 'sinon';
+import type { EditorView } from '@codemirror/view';
 
-async function setupCodeEditor(hbsTemplate) {
-  await render(hbsTemplate);
-  return waitFor('.cm-editor');
-}
+import { HdsCodeEditor } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+import NOOP from 'showcase/utils/noop';
 
 module('Integration | Component | hds/code-editor/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor id="test-code-editor" @ariaLabel="code editor" />`,
+    await render(
+      <template>
+        <HdsCodeEditor id="test-code-editor" @ariaLabel="code editor" />
+      </template>,
     );
     assert.dom('#test-code-editor').hasClass('hds-code-editor');
   });
@@ -28,10 +30,12 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   test('it should render the injected style tag with the provided `@cspNonce` value', async function (assert) {
     const cspNonce = 'csp-nonce-123';
 
-    this.set('cspNonce', cspNonce);
-
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @cspNonce={{this.cspNonce}} as |CE|><CE.Title>Test Title</CE.Title></Hds::CodeEditor>`,
+    await render(
+      <template>
+        <HdsCodeEditor @cspNonce={{cspNonce}} as |CE|>
+          <CE.Title>Test Title</CE.Title>
+        </HdsCodeEditor>
+      </template>,
     );
 
     // can't use assert.dom to access elements in head
@@ -40,8 +44,12 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // title
   test('it should render the component with a title using the default tag', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor as |CE|><CE.Title>Test Title</CE.Title></Hds::CodeEditor>`,
+    await render(
+      <template>
+        <HdsCodeEditor as |CE|>
+          <CE.Title>Test Title</CE.Title>
+        </HdsCodeEditor>
+      </template>,
     );
     assert
       .dom('.hds-code-editor__title')
@@ -49,18 +57,28 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       .hasText('Test Title');
   });
   test('it should render the component title with a custom tag when provided', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor as |CE|><CE.Title @tag="h1">Test Title</CE.Title></Hds::CodeEditor>`,
+    await render(
+      <template>
+        <HdsCodeEditor as |CE|>
+          <CE.Title @tag="h1">Test Title</CE.Title>
+        </HdsCodeEditor>
+      </template>,
     );
     assert.dom('.hds-code-editor__title').hasTagName('h1');
   });
   test('it should not render the component with a title when the `Title` contextual component is not yielded', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
+    await render(
+      <template><HdsCodeEditor @ariaLabel="code editor" /></template>,
+    );
     assert.dom('.hds-code-editor__title').doesNotExist();
   });
   test('when aria-label is not provided and the `Title` contextual component is yielded, it should use the title element id as the aria-labelledby value', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor as |CE|><CE.Title id="test-title">Test Title</CE.Title></Hds::CodeEditor>`,
+    await render(
+      <template>
+        <HdsCodeEditor as |CE|>
+          <CE.Title id="test-title">Test Title</CE.Title>
+        </HdsCodeEditor>
+      </template>,
     );
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
@@ -69,18 +87,30 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // description
   test('it should render the component with a description', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" as |CE|><CE.Description>Test Description</CE.Description></Hds::CodeEditor>`,
+    await render(
+      <template>
+        <HdsCodeEditor @ariaLabel="code editor" as |CE|>
+          <CE.Description>Test Description</CE.Description>
+        </HdsCodeEditor>
+      </template>,
     );
     assert.dom('.hds-code-editor__description').hasText('Test Description');
   });
   test('it should not render the component with a description when the `description` contextual component is not yielded', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
+    await render(
+      <template><HdsCodeEditor @ariaLabel="code editor" /></template>,
+    );
     assert.dom('hds-code-editor__description').doesNotExist();
   });
   test('when aria-describedby is not provided and the `Description` contextual component is yielded, it should use the description element id as the aria-describedby value', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" as |CE|><CE.Description id="test-description">Test Description</CE.Description></Hds::CodeEditor>`,
+    await render(
+      <template>
+        <HdsCodeEditor @ariaLabel="code editor" as |CE|>
+          <CE.Description id="test-description">
+            Test Description
+          </CE.Description>
+        </HdsCodeEditor>
+      </template>,
     );
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
@@ -89,17 +119,21 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // yielded block content
   test('it should render custom content in the toolbar when provided', async function (assert) {
-    await setupCodeEditor(hbs`
-      <Hds::CodeEditor @ariaLabel="code editor">
-        <button id="test-toolbar-button">Test Button</button>
-      </Hds::CodeEditor>
-    `);
+    await render(
+      <template>
+        <HdsCodeEditor @ariaLabel="code editor">
+          <button id="test-toolbar-button" type="button">Test Button</button>
+        </HdsCodeEditor>
+      </template>,
+    );
     assert.dom('#test-toolbar-button').exists();
   });
   // @hasCopyButton
   test('it should render a copy button when the `@hasCopyButton` argument is true', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasCopyButton={{true}} />`,
+    await render(
+      <template>
+        <HdsCodeEditor @ariaLabel="code editor" @hasCopyButton={{true}} />
+      </template>,
     );
     assert
       .dom('.hds-code-editor__copy-button')
@@ -107,12 +141,20 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       .hasAria('label', 'Copy');
   });
   test('it should not render a copy button when the `@hasCopyButton` argument is not provided', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
+    await render(
+      <template><HdsCodeEditor @ariaLabel="code editor" /></template>,
+    );
     assert.dom('.hds-code-editor__copy-button').doesNotExist();
   });
   test('it renders a copy button with custom text', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasCopyButton={{true}} @copyButtonText="Foo" />`,
+    await render(
+      <template>
+        <HdsCodeEditor
+          @ariaLabel="code editor"
+          @hasCopyButton={{true}}
+          @copyButtonText="Foo"
+        />
+      </template>,
     );
     assert
       .dom('.hds-code-editor__copy-button')
@@ -121,17 +163,26 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   });
   // @isStandalone
   test('it should render the component with a standalone style when the `@isStandalone` argument is true and when the argument is ommitted', async function (assert) {
-    this.set('isStandalone', true);
+    const context = new TrackedObject<{ isStandalone: boolean | undefined }>({
+      isStandalone: true,
+    });
 
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" @isStandalone={{this.isStandalone}} />`,
+    await render(
+      <template>
+        <HdsCodeEditor
+          @ariaLabel="code editor"
+          @isStandalone={{context.isStandalone}}
+        />
+      </template>,
     );
     assert.dom('.hds-code-editor').hasClass('hds-code-editor--is-standalone');
 
-    this.set('isStandalone', undefined);
+    context.isStandalone = undefined;
+    await settled();
     assert.dom('.hds-code-editor').hasClass('hds-code-editor--is-standalone');
 
-    this.set('isStandalone', false);
+    context.isStandalone = false;
+    await settled();
     assert
       .dom('.hds-code-editor')
       .doesNotHaveClass('hds-code-editor--is-standalone');
@@ -139,46 +190,51 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // @isLintingEnabled
   test('it should render the component with the correct aria-describedby combination when the `@isLintingEnabled` argument is true and a description is set', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor
-  @ariaLabel='code editor'
-  @language='json'
-  @isLintingEnabled={{true}}
-  as |CE|
-><CE.Description id="test-description">Test Description</CE.Description></Hds::CodeEditor>`,
+    await render(
+      <template>
+        <HdsCodeEditor
+          @ariaLabel="code editor"
+          @language="json"
+          @isLintingEnabled={{true}}
+          as |CE|
+        >
+          <CE.Description id="test-description">Test Description</CE.Description>
+        </HdsCodeEditor>
+      </template>,
     );
 
-    const editorContentElement = document.querySelector(
-      '.hds-code-editor__editor .cm-editor [role="textbox"]',
-    );
-    const ariaDescribedBy =
-      editorContentElement.getAttribute('aria-describedby');
-    const ariaDescribedByArray = ariaDescribedBy.split(' ');
+    await waitFor('.cm-editor');
 
-    assert.ok(ariaDescribedByArray.includes('test-description'));
-    assert.ok(
-      ariaDescribedByArray.some((id) =>
-        id.startsWith('lint-panel-instructions'),
-      ),
-    );
+    const editor = find('.hds-code-editor__editor');
+    const instructionsId = `lint-panel-instructions-${editor?.id}`;
+
+    assert
+      .dom('.cm-editor [role="textbox"]')
+      .hasAria('describedby', `test-description ${instructionsId}`);
   });
 
   // @hasFullScreenButton
   test('it should render a toggle fullscreen button when the `@hasFullScreenButton` argument is true', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasFullScreenButton={{true}} />`,
+    await render(
+      <template>
+        <HdsCodeEditor @ariaLabel="code editor" @hasFullScreenButton={{true}} />
+      </template>,
     );
     assert.dom('.hds-code-editor__full-screen-button').exists();
   });
   test('it should not render a toggle fullscreen button when the `@hasFullScreenButton` argument is not provided', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
+    await render(
+      <template><HdsCodeEditor @ariaLabel="code editor" /></template>,
+    );
     assert.dom('.hds-code-editor__full-screen-button').doesNotExist();
   });
 
   // expand/colapse
   test('it should expand the code editor when the toggle full screen button is clicked', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasFullScreenButton={{true}} />`,
+    await render(
+      <template>
+        <HdsCodeEditor @ariaLabel="code editor" @hasFullScreenButton={{true}} />
+      </template>,
     );
     // initial state
     assert
@@ -217,30 +273,32 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   // copy
   test('it should copy the code editor value to the clipboard when the copy button is clicked', async function (assert) {
     const clipboardStub = sinon.stub(window.navigator.clipboard, 'writeText');
-
-    this.setProperties({
-      handleInput: () => {},
-      handleSetup: (editorView) => {
-        this.set('editorView', editorView);
-      },
+    const context = new TrackedObject<{ editorView: EditorView | undefined }>({
+      editorView: undefined,
     });
 
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor
-        @ariaLabel="code editor"
-        @hasCopyButton={{true}}
-        @value="Test Code"
-        @onInput={{this.handleInput}}
-        @onSetup={{this.handleSetup}}
-      />`,
+    const handleSetup = (editorView: EditorView) => {
+      context.editorView = editorView;
+    };
+
+    await render(
+      <template>
+        <HdsCodeEditor
+          @ariaLabel="code editor"
+          @hasCopyButton={{true}}
+          @value="Test Code"
+          @onInput={{NOOP}}
+          @onSetup={{handleSetup}}
+        />
+      </template>,
     );
 
     await click('.hds-code-editor__copy-button');
     assert.true(clipboardStub.calledWith('Test Code'));
 
-    this.editorView.dispatch({
+    context.editorView?.dispatch({
       changes: {
-        from: this.editorView.state.selection.main.from,
+        from: context.editorView.state.selection.main.from,
         insert: 'Additional text. ',
       },
     });
@@ -253,8 +311,13 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // @ariaDescribedBy
   test('it should render the component with an aria-describedby when provided', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" @ariaDescribedBy="test-description" />`,
+    await render(
+      <template>
+        <HdsCodeEditor
+          @ariaLabel="code editor"
+          @ariaDescribedBy="test-description"
+        />
+      </template>,
     );
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
@@ -263,8 +326,8 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // @ariaLabel
   test('it should render the component with an aria-label when provided', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="Test Code Editor" />`,
+    await render(
+      <template><HdsCodeEditor @ariaLabel="Test Code Editor" /></template>,
     );
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
@@ -273,16 +336,21 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // @ariaLabelledBy
   test('it should render the component with an aria-labelledby when provided', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabelledBy="test-label" />`,
+    await render(
+      <template><HdsCodeEditor @ariaLabelledBy="test-label" /></template>,
     );
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-labelledby', 'test-label');
   });
   test('it should not render the component with an aria-labbelledby when @ariaLabel is provided as well', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="Test Code Editor" @ariaLabelledBy="test-label" />`,
+    await render(
+      <template>
+        <HdsCodeEditor
+          @ariaLabel="Test Code Editor"
+          @ariaLabelledBy="test-label"
+        />
+      </template>,
     );
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
@@ -294,16 +362,24 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // @hasLineWrapping
   test('it should render the editor with line wrapping enabled when hasLineWrapping is true and not when it is false', async function (assert) {
-    this.set('hasLineWrapping', true);
+    const context = new TrackedObject({
+      hasLineWrapping: true,
+    });
 
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="test" @hasLineWrapping={{this.hasLineWrapping}} />`,
+    await render(
+      <template>
+        <HdsCodeEditor
+          @ariaLabel="test"
+          @hasLineWrapping={{context.hasLineWrapping}}
+        />
+      </template>,
     );
     assert
       .dom('.hds-code-editor__editor .cm-editor .cm-content')
       .hasClass('cm-lineWrapping');
 
-    this.set('hasLineWrapping', false);
+    context.hasLineWrapping = false;
+    await settled();
     assert
       .dom('.hds-code-editor__editor .cm-editor .cm-content')
       .doesNotHaveClass('cm-lineWrapping');
@@ -311,8 +387,10 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // @value
   test('it should render the component with the provided value', async function (assert) {
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" @value="Test Code" />`,
+    await render(
+      <template>
+        <HdsCodeEditor @ariaLabel="code editor" @value="Test Code" />
+      </template>,
     );
     assert.dom('.hds-code-editor__editor .cm-editor').includesText('Test Code');
   });
@@ -320,21 +398,27 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   // @onInput
   test('it should call the onInput action when the code editor value changes', async function (assert) {
     const inputSpy = sinon.spy();
-
-    this.setProperties({
-      handleInput: inputSpy,
-      handleSetup: (editorView) => {
-        this.set('editorView', editorView);
-      },
+    const context = new TrackedObject<{ editorView: EditorView | undefined }>({
+      editorView: undefined,
     });
 
-    await setupCodeEditor(
-      hbs`<Hds::CodeEditor @ariaLabel="code editor" @onInput={{this.handleInput}} @onSetup={{this.handleSetup}} />`,
+    const handleSetup = (editorView: EditorView) => {
+      context.editorView = editorView;
+    };
+
+    await render(
+      <template>
+        <HdsCodeEditor
+          @ariaLabel="code editor"
+          @onInput={{inputSpy}}
+          @onSetup={{handleSetup}}
+        />
+      </template>,
     );
 
-    this.editorView.dispatch({
+    context.editorView?.dispatch({
       changes: {
-        from: this.editorView.state.selection.main.from,
+        from: context.editorView.state.selection.main.from,
         insert: 'Test string',
       },
     });

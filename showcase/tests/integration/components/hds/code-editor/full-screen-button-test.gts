@@ -4,10 +4,14 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, render } from '@ember/test-helpers';
+import { click, render, settled } from '@ember/test-helpers';
+import { tracked } from 'tracked-built-ins';
 import sinon from 'sinon';
-import FullScreenButton from "@hashicorp/design-system-components/components/hds/code-editor/full-screen-button";
+
+import { HdsCodeEditorFullScreenButton } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+import NOOP from 'showcase/utils/noop';
 
 module(
   'Integration | Component | hds/code-editor/full-screen-button',
@@ -15,10 +19,13 @@ module(
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      this.set('noop', () => {});
-
       await render(
-        <template><FullScreenButton @isFullScreen={{false}} @onToggleFullScreen={{this.noop}} /></template>,
+        <template>
+          <HdsCodeEditorFullScreenButton
+            @isFullScreen={{false}}
+            @onToggleFullScreen={{NOOP}}
+          />
+        </template>,
       );
 
       assert.dom('.hds-code-editor__full-screen-button').exists();
@@ -26,13 +33,15 @@ module(
 
     // @isFullScreen
     test('it should render the component with the correct class and icon based on the `@isFullScreen` argument', async function (assert) {
-      this.setProperties({
-        noop: () => {},
-        isFullScreen: false,
-      });
+      const context = tracked({ isFullScreen: false });
 
       await render(
-        <template><FullScreenButton @isFullScreen={{this.isFullScreen}} @onToggleFullScreen={{this.noop}} /></template>,
+        <template>
+          <HdsCodeEditorFullScreenButton
+            @isFullScreen={{context.isFullScreen}}
+            @onToggleFullScreen={{NOOP}}
+          />
+        </template>,
       );
       assert
         .dom('.hds-code-editor__full-screen-button')
@@ -45,7 +54,9 @@ module(
         .dom('.hds-code-editor__full-screen-button .hds-icon-minimize')
         .doesNotExist();
 
-      this.set('isFullScreen', true);
+      context.isFullScreen = true;
+      await settled();
+
       assert
         .dom('.hds-code-editor__full-screen-button')
         .doesNotHaveClass('hds-code-editor__full-screen-button--maximize')
@@ -62,10 +73,14 @@ module(
     test('it should call the `@onToggleFullScreen` action when the button is clicked', async function (assert) {
       const onToggleFullScreen = sinon.spy();
 
-      this.set('onToggleFullScreen', onToggleFullScreen);
-
       await render(
-        <template><FullScreenButton id="test-button" @isFullScreen={{false}} @onToggleFullScreen={{this.onToggleFullScreen}} /></template>,
+        <template>
+          <HdsCodeEditorFullScreenButton
+            id="test-button"
+            @isFullScreen={{false}}
+            @onToggleFullScreen={{onToggleFullScreen}}
+          />
+        </template>,
       );
 
       await click('#test-button');
