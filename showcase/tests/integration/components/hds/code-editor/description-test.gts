@@ -4,10 +4,13 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
 import sinon from 'sinon';
-import Description from "@hashicorp/design-system-components/components/hds/code-editor/description";
+
+import { HdsCodeEditorDescription } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+import NOOP from 'showcase/utils/noop';
 
 module(
   'Integration | Component | hds/code-editor/description',
@@ -15,10 +18,10 @@ module(
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      this.set('noop', () => {});
-
       await render(
-        <template><Description @editorId="test" @onInsert={{this.noop}} /></template>,
+        <template>
+          <HdsCodeEditorDescription @editorId="test" @onInsert={{NOOP}} />
+        </template>,
       );
 
       assert.dom('.hds-code-editor__description').exists();
@@ -27,10 +30,12 @@ module(
     // @onInsert
     test('it should call the `@onInsert` action when the description is inserted', async function (assert) {
       const onInsert = sinon.spy();
-      this.set('onInsert', onInsert);
 
       await render(
-        <template><Description @editorId="test" @onInsert={{this.onInsert}}>Test description</Description></template>,
+        <template>
+          <HdsCodeEditorDescription @editorId="test" @onInsert={{onInsert}}>Test
+            description</HdsCodeEditorDescription>
+        </template>,
       );
 
       assert.true(onInsert.calledOnce);

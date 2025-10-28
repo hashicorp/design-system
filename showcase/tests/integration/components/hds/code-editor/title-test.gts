@@ -4,29 +4,32 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
 import sinon from 'sinon';
-import Title from "@hashicorp/design-system-components/components/hds/code-editor/title";
+
+import { HdsCodeEditorTitle } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+import NOOP from 'showcase/utils/noop';
 
 module('Integration | Component | hds/code-editor/title', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    this.set('noop', () => {});
-
     await render(
-      <template><Title @editorId="test" @onInsert={{this.noop}} /></template>,
+      <template>
+        <HdsCodeEditorTitle @editorId="test" @onInsert={{NOOP}} />
+      </template>,
     );
 
     assert.dom('.hds-code-editor__title').exists();
   });
 
   test('it should render the component with a title using the default tag', async function (assert) {
-    this.set('noop', () => {});
-
     await render(
-      <template><Title @editorId="test" @onInsert={{this.noop}}>Test Title</Title></template>,
+      <template>
+        <HdsCodeEditorTitle @editorId="test" @onInsert={{NOOP}}>Test Title</HdsCodeEditorTitle>
+      </template>,
     );
 
     assert
@@ -37,10 +40,11 @@ module('Integration | Component | hds/code-editor/title', function (hooks) {
 
   // @tag
   test('it shoud render the component title with a custom tag when provided', async function (assert) {
-    this.set('noop', () => {});
-
     await render(
-      <template><Title @editorId="test" @tag="h1" @onInsert={{this.noop}}>Test Title</Title></template>,
+      <template>
+        <HdsCodeEditorTitle @editorId="test" @tag="h1" @onInsert={{NOOP}}>Test
+          Title</HdsCodeEditorTitle>
+      </template>,
     );
 
     assert.dom('.hds-code-editor__title').hasTagName('h1');
@@ -49,10 +53,11 @@ module('Integration | Component | hds/code-editor/title', function (hooks) {
   // @onInsert
   test('it should call the `@onInsert` action when the title is inserted', async function (assert) {
     const onInsert = sinon.spy();
-    this.set('onInsert', onInsert);
 
     await render(
-      <template><Title @editorId="test" @onInsert={{this.onInsert}}>Test Title</Title></template>,
+      <template>
+        <HdsCodeEditorTitle @editorId="test" @onInsert={{onInsert}}>Test Title</HdsCodeEditorTitle>
+      </template>,
     );
 
     assert.true(onInsert.calledOnce);
