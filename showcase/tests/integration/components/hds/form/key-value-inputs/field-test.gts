@@ -4,10 +4,14 @@
  */
 
 import { module, test } from 'qunit';
+import { eq } from 'ember-truth-helpers';
+import { render, find, settled } from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
+
+import { HdsFormKeyValueInputsField } from '@hashicorp/design-system-components/components';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render } from '@ember/test-helpers';
-import Field from "@hashicorp/design-system-components/components/hds/form/key-value-inputs/field";
-import eq from "ember-truth-helpers/helpers/eq";
+import NOOP from 'showcase/utils/noop';
 
 const YIELDED_INPUTS = [
   { type: 'FileInput', selector: '.hds-form-file-input' },
@@ -19,60 +23,81 @@ const YIELDED_INPUTS = [
   { type: 'Textarea', selector: '.hds-form-textarea' },
 ];
 
+const createKeyValueInputsField = async (options: {
+  type?: string;
+  isInvalid?: boolean;
+  id?: string;
+  extraAriaDescribedBy?: string;
+}) => {
+  const type = options.type ?? 'TextInput';
+  const superSelectOptions = ['Option 1', 'Option 2'];
+  const superSelectSelected = 'Option 1';
+
+  await render(
+    <template>
+      <HdsFormKeyValueInputsField
+        id="test-form-key-value-field"
+        @id={{options.id}}
+        @isInvalid={{options.isInvalid}}
+        @extraAriaDescribedBy={{options.extraAriaDescribedBy}}
+        @rowIndex={{0}}
+        as |F|
+      >
+        <F.Label>Label</F.Label>
+        <F.HelperText>Helper text</F.HelperText>
+        {{#if (eq type "FileInput")}}
+          <F.FileInput />
+        {{/if}}
+        {{#if (eq type "MaskedInput")}}
+          <F.MaskedInput />
+        {{/if}}
+        {{#if (eq type "SuperSelectSingle")}}
+          <F.SuperSelectSingle
+            @onChange={{NOOP}}
+            @options={{superSelectOptions}}
+            @selected={{superSelectSelected}}
+            as |option|
+          >
+            {{option}}
+          </F.SuperSelectSingle>
+        {{/if}}
+        {{#if (eq type "SuperSelectMultiple")}}
+          <F.SuperSelectMultiple
+            @onChange={{NOOP}}
+            @options={{superSelectOptions}}
+            as |option|
+          >
+            {{option}}
+          </F.SuperSelectMultiple>
+        {{/if}}
+        {{#if (eq type "Select")}}
+          <F.Select />
+        {{/if}}
+        {{#if (eq type "TextInput")}}
+          <F.TextInput />
+        {{/if}}
+        {{#if (eq type "Textarea")}}
+          <F.Textarea />
+        {{/if}}
+        <F.Error>Error text</F.Error>
+      </HdsFormKeyValueInputsField>
+    </template>,
+  );
+};
+
 module(
   'Integration | Component | hds/form/key-value-inputs/field',
   function (hooks) {
     setupRenderingTest(hooks);
 
-    hooks.beforeEach(function () {
-      this.set('createKeyValueInputsField', async (args = {}) => {
-        this.type = args.type ?? 'TextInput';
-        this.isInvalid = args.isInvalid;
-        this.controlId = args.id;
-        this.extraAriaDescribedBy = args.extraAriaDescribedBy;
-        // ---
-        this.options = ['Option 1', 'Option 2'];
-        this.selected_option = 'Option 1';
-        this.NOOP = () => {};
-
-        await render(<template>
-          <Field id="test-form-key-value-field" @id={{this.controlId}} @isInvalid={{this.isInvalid}} @extraAriaDescribedBy={{this.extraAriaDescribedBy}} @rowIndex={{0}} as |F|>
-            <F.Label>Label</F.Label>
-            <F.HelperText>Helper text</F.HelperText>
-            {{#if (eq this.type "FileInput")}}
-              <F.FileInput />
-            {{/if}}
-            {{#if (eq this.type "MaskedInput")}}
-              <F.MaskedInput />
-            {{/if}}
-            {{#if (eq this.type "SuperSelectSingle")}}
-              <F.SuperSelectSingle @onChange={{this.NOOP}} @options={{this.options}} @selected={{this.selected_option}} as |option|>
-                {{option}}
-              </F.SuperSelectSingle>
-            {{/if}}
-            {{#if (eq this.type "SuperSelectMultiple")}}
-              <F.SuperSelectMultiple @onChange={{this.NOOP}} @options={{this.options}} as |option|>
-                {{option}}
-              </F.SuperSelectMultiple>
-            {{/if}}
-            {{#if (eq this.type "Select")}}
-              <F.Select />
-            {{/if}}
-            {{#if (eq this.type "TextInput")}}
-              <F.TextInput />
-            {{/if}}
-            {{#if (eq this.type "Textarea")}}
-              <F.Textarea />
-            {{/if}}
-            <F.Error>Error text</F.Error>
-          </Field>
-        </template>);
-      });
-    });
-
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Field id="test-form-key-value-field" /></template>,
+        <template>
+          <HdsFormKeyValueInputsField
+            id="test-form-key-value-field"
+            @rowIndex={{0}}
+          />
+        </template>,
       );
       assert
         .dom('#test-form-key-value-field')
@@ -82,11 +107,17 @@ module(
     // LABEL HIDDEN TEXT
 
     test('it should render the label with screen-reader-only text based on the provided `@rowIndex` argument', async function (assert) {
-      await render(<template>
-        <Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
-          <F.Label>Label</F.Label>
-        </Field>
-      </template>);
+      await render(
+        <template>
+          <HdsFormKeyValueInputsField
+            id="test-form-key-value-field"
+            @rowIndex={{0}}
+            as |F|
+          >
+            <F.Label>Label</F.Label>
+          </HdsFormKeyValueInputsField>
+        </template>,
+      );
 
       assert
         .dom(
@@ -104,11 +135,18 @@ module(
     // REQUIRED/OPTIONAL
 
     test('it should render as required with `@isRequired` argument', async function (assert) {
-      await render(<template>
-        <Field id="test-form-key-value-field" @isRequired={{true}} @rowIndex={{0}} as |F|>
-          <F.Label>Label</F.Label>
-        </Field>
-      </template>);
+      await render(
+        <template>
+          <HdsFormKeyValueInputsField
+            id="test-form-key-value-field"
+            @isRequired={{true}}
+            @rowIndex={{0}}
+            as |F|
+          >
+            <F.Label>Label</F.Label>
+          </HdsFormKeyValueInputsField>
+        </template>,
+      );
 
       assert
         .dom(
@@ -118,11 +156,18 @@ module(
     });
 
     test('it should render as optional with `@isOptional` argument', async function (assert) {
-      await render(<template>
-        <Field id="test-form-key-value-field" @isOptional={{true}} @rowIndex={{0}} as |F|>
-          <F.Label>Label</F.Label>
-        </Field>
-      </template>);
+      await render(
+        <template>
+          <HdsFormKeyValueInputsField
+            id="test-form-key-value-field"
+            @isOptional={{true}}
+            @rowIndex={{0}}
+            as |F|
+          >
+            <F.Label>Label</F.Label>
+          </HdsFormKeyValueInputsField>
+        </template>,
+      );
 
       assert
         .dom(
@@ -134,7 +179,7 @@ module(
     // YIELDED (CONTEXTUAL) COMPONENTS
 
     test('it renders the yielded `Label`, `HelperText`, and `Error` contextual components', async function (assert) {
-      await this.createKeyValueInputsField();
+      await createKeyValueInputsField({});
       assert
         .dom(
           '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
@@ -154,7 +199,7 @@ module(
 
     YIELDED_INPUTS.forEach(({ type, selector }) => {
       test(`it renders the yielded "${type}" input as contextual components`, async function (assert) {
-        await this.createKeyValueInputsField({ type });
+        await createKeyValueInputsField({ type });
         assert.dom(`#test-form-key-value-field ${selector}`).exists();
       });
     });
@@ -165,7 +210,7 @@ module(
       if (type !== 'FileInput') {
         // file input doesn't have an invalid state
         test(`it should render the "${type}" input as invalid if \`@isInvalid\` is true`, async function (assert) {
-          await this.createKeyValueInputsField({ type, isInvalid: true });
+          await createKeyValueInputsField({ type, isInvalid: true });
           assert
             .dom(`#test-form-key-value-field ${selector}`)
             // we need to remove the initial `.` from the selector string
@@ -178,7 +223,13 @@ module(
 
     test('it should add `data-width` if `@width` is provided', async function (assert) {
       await render(
-        <template><Field id="test-form-key-value-field" @width="50%" /></template>,
+        <template>
+          <HdsFormKeyValueInputsField
+            id="test-form-key-value-field"
+            @width="50%"
+            @rowIndex={{0}}
+          />
+        </template>,
       );
       assert
         .dom('#test-form-key-value-field')
@@ -188,30 +239,40 @@ module(
     // CALLBACKS
 
     test('it should call `@onInsert/@onRemove` callbacks when added/removed', async function (assert) {
-      this.set('isRendered', false);
-      let inserted = false;
-      let removed = false;
-      this.set('onInsert', () => {
-        inserted = true;
+      const context = new TrackedObject({
+        isRendered: false,
+        isInserted: false,
+        isRemoved: false,
       });
-      this.set('onRemove', () => {
-        removed = true;
-      });
+      const onInsert = () => {
+        context.isInserted = true;
+      };
+      const onRemove = () => {
+        context.isRemoved = true;
+      };
 
       await render(
         <template>
-          {{#if this.isRendered}}
-            <Field @onInsert={{this.onInsert}} @onRemove={{this.onRemove}} />
+          {{#if context.isRendered}}
+            <HdsFormKeyValueInputsField
+              @onInsert={{onInsert}}
+              @onRemove={{onRemove}}
+              @rowIndex={{0}}
+            />
           {{/if}}
         </template>,
       );
 
-      assert.notOk(inserted);
-      assert.notOk(removed);
-      this.set('isRendered', true);
-      assert.ok(inserted);
-      this.set('isRendered', false);
-      assert.ok(removed);
+      assert.notOk(context.isInserted);
+      assert.notOk(context.isRemoved);
+
+      context.isRendered = true;
+      await settled();
+      assert.ok(context.isInserted);
+
+      context.isRendered = false;
+      await settled();
+      assert.ok(context.isRemoved);
     });
 
     // ACCESSIBILITY
@@ -220,46 +281,46 @@ module(
       ['default', 'custom'].forEach((mode) => {
         test(`it should associate the label and help text appropriately for the "${type}" input - ${mode === 'custom' ? 'with custom @id' : 'default'}`, async function (assert) {
           const extraAriaDescribedBy = 'extra';
-          const opts = { type, extraAriaDescribedBy };
+          const opts: {
+            type: string;
+            extraAriaDescribedBy: string;
+            id?: string;
+          } = { type, extraAriaDescribedBy };
           if (mode === 'custom') {
             opts.id = 'custom-id';
           }
-          await this.createKeyValueInputsField(opts);
+          await createKeyValueInputsField(opts);
 
-          const labelId = document.querySelector(
-            '#test-form-key-value-field .hds-form-label',
-          ).id;
-          const inputId = document.querySelector(
-            `#test-form-key-value-field ${selector}`,
-          ).id;
-          const helperId = document.querySelector(
+          const label = find('#test-form-key-value-field .hds-form-label');
+          const input = find(`#test-form-key-value-field ${selector}`);
+          const helper = find(
             '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
-          ).id;
-          const errorId = document.querySelector(
+          );
+          const error = find(
             '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
-          ).id;
+          );
 
           if (type === 'SuperSelectSingle' || type === 'SuperSelectMultiple') {
             assert
               .dom('#test-form-key-value-field [role="combobox"]')
-              .hasAria('labelledby', labelId);
+              .hasAria('labelledby', label?.id ?? '');
             assert
               .dom('#test-form-key-value-field [role="combobox"]')
               .hasAria(
                 'describedby',
-                `${helperId} ${errorId} ${extraAriaDescribedBy}`,
+                `${helper?.id} ${error?.id} ${extraAriaDescribedBy}`,
               );
           } else {
             assert
               .dom(
                 '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
               )
-              .hasAttribute('for', inputId);
+              .hasAttribute('for', input?.id ?? '');
             assert
               .dom(`#test-form-key-value-field ${selector}`)
               .hasAria(
                 'describedby',
-                `${helperId} ${errorId} ${extraAriaDescribedBy}`,
+                `${helper?.id} ${error?.id} ${extraAriaDescribedBy}`,
               );
           }
         });
