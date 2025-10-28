@@ -10,7 +10,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
-import ShwCarbonizationStylePreviewTypography from 'showcase/components/shw/carbonization/style-preview-typography';
+import ShwCarbonizationStylePreviewTypography from 'showcase/components/shw/carbonization/style-preview/typography';
 
 import { STYLES_COMBINATIONS } from 'showcase/components/page-foundations/typography/sub-sections/styles';
 
