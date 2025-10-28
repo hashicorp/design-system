@@ -4,21 +4,33 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
-import Item from "@hashicorp/design-system-components/components/hds/breadcrumb/item";
+
+import { HdsBreadcrumbItem } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/breadcrumb/item', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Item id="test-breadcrumb-item" /></template>);
+    await render(
+      <template>
+        <HdsBreadcrumbItem id="test-breadcrumb-item" @text="test" />
+      </template>,
+    );
     assert.dom('#test-breadcrumb-item').hasClass('hds-breadcrumb__item');
   });
 
   test('it should render the correct style if the @maxWidth prop is declared', async function (assert) {
     await render(
-      <template><Item @maxWidth="200px" @text="test" id="test-breadcrumb-item" /></template>,
+      <template>
+        <HdsBreadcrumbItem
+          @maxWidth="200px"
+          @text="test"
+          id="test-breadcrumb-item"
+        />
+      </template>,
     );
     assert.dom('#test-breadcrumb-item').hasStyle({ 'max-width': '200px' });
   });
@@ -27,20 +39,34 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
 
   test('it should render a link by default', async function (assert) {
     await render(
-      <template><Item id="test-breadcrumb-item" @text="text renders" /></template>,
+      <template>
+        <HdsBreadcrumbItem id="test-breadcrumb-item" @text="text renders" />
+      </template>,
     );
     assert.dom('#test-breadcrumb-item > a').exists();
   });
   test('it should not render a if @current is true', async function (assert) {
     await render(
-      <template><Item id="test-breadcrumb-item" @text="text renders" @current={{true}} /></template>,
+      <template>
+        <HdsBreadcrumbItem
+          id="test-breadcrumb-item"
+          @text="text renders"
+          @current={{true}}
+        />
+      </template>,
     );
     assert.dom('#test-breadcrumb-item > a').doesNotExist();
     assert.dom('#test-breadcrumb-item .hds-breadcrumb__current').exists();
   });
   test('it should render the item with icon and text if @icon and @text are provided', async function (assert) {
     await render(
-      <template><Item id="test-breadcrumb-item" @text="text renders" @icon="activity" /></template>,
+      <template>
+        <HdsBreadcrumbItem
+          id="test-breadcrumb-item"
+          @text="text renders"
+          @icon="activity"
+        />
+      </template>,
     );
     assert.dom('.hds-icon.hds-icon-activity').exists();
     assert.dom('.hds-breadcrumb__text').hasText('text renders');
@@ -55,7 +81,10 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Item @maxWidth="123" id="test-breadcrumb-item" /></template>,
+      <template>
+        {{! @glint-expect-error - assertion testing invalid value }}
+        <HdsBreadcrumbItem @maxWidth="123" id="test-breadcrumb-item" />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
