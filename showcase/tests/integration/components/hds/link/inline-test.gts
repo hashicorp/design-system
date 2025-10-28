@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Inline from "@hashicorp/design-system-components/components/hds/link/inline";
+
+import { HdsLinkInline } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/link/inline', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,7 +18,9 @@ module('Integration | Component | hds/link/inline', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><Inline @href="/" id="test-link">watch video</Inline></template>,
+      <template>
+        <HdsLinkInline @href="/" id="test-link">watch video</HdsLinkInline>
+      </template>,
     );
     assert.dom('#test-link').hasClass('hds-link-inline');
   });
@@ -25,14 +29,23 @@ module('Integration | Component | hds/link/inline', function (hooks) {
 
   test('it should render the icon in the trailing position by default', async function (assert) {
     await render(
-      <template><Inline @href="/" @icon="film" id="test-link">watch video</Inline></template>,
+      <template>
+        <HdsLinkInline @href="/" @icon="film" id="test-link">watch video</HdsLinkInline>
+      </template>,
     );
     assert.dom('#test-link .hds-link-inline__icon').exists();
     assert.dom('#test-link ').hasClass('hds-link-inline--icon-trailing');
   });
   test('it should render the icon in the leading position if @iconPosition is set to leading', async function (assert) {
     await render(
-      <template><Inline @href="/" @icon="film" @iconPosition="leading" id="test-link">watch video</Inline></template>,
+      <template>
+        <HdsLinkInline
+          @href="/"
+          @icon="film"
+          @iconPosition="leading"
+          id="test-link"
+        >watch video</HdsLinkInline>
+      </template>,
     );
     assert.dom('#test-link ').hasClass('hds-link-inline--icon-leading');
   });
@@ -41,13 +54,17 @@ module('Integration | Component | hds/link/inline', function (hooks) {
 
   test('it should render the primary color as the default if no @color prop is declared', async function (assert) {
     await render(
-      <template><Inline @href="/" id="test-link">watch video</Inline></template>,
+      <template>
+        <HdsLinkInline @href="/" id="test-link">watch video</HdsLinkInline>
+      </template>,
     );
     assert.dom('#test-link').hasClass('hds-link-inline--color-primary');
   });
   test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
     await render(
-      <template><Inline @href="/" @color="secondary" id="test-link">watch video</Inline></template>,
+      <template>
+        <HdsLinkInline @href="/" @color="secondary" id="test-link">watch video</HdsLinkInline>
+      </template>,
     );
     assert.dom('#test-link').hasClass('hds-link-inline--color-secondary');
   });
@@ -56,7 +73,10 @@ module('Integration | Component | hds/link/inline', function (hooks) {
 
   test('it should yield the children of the <a> element', async function (assert) {
     await render(
-      <template><Inline @href="/" id="test-link"><span>test</span></Inline></template>,
+      <template>
+        <HdsLinkInline @href="/" id="test-link"><span
+          >test</span></HdsLinkInline>
+      </template>,
     );
     assert.dom('#test-link > span').exists();
     assert.dom('#test-link > span').hasText('test');
@@ -65,20 +85,31 @@ module('Integration | Component | hds/link/inline', function (hooks) {
   // TARGET/REL ATTRIBUTES
 
   test('it should render a <a> link with the right "target" and "rel" attributes if @href is passed', async function (assert) {
-    await render(<template><Inline @href="/" id="test-link" /></template>);
+    await render(
+      <template><HdsLinkInline @href="/" id="test-link" /></template>,
+    );
     assert.dom('#test-link').hasAttribute('target', '_blank');
     assert.dom('#test-link').hasAttribute('rel', 'noopener noreferrer');
   });
   test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
     await render(
-      <template><Inline @href="/" id="test-link" target="test-target" rel="test-rel" /></template>,
+      <template>
+        <HdsLinkInline
+          @href="/"
+          id="test-link"
+          target="test-target"
+          rel="test-rel"
+        />
+      </template>,
     );
     assert.dom('#test-link').hasAttribute('target', 'test-target');
     assert.dom('#test-link').hasAttribute('rel', 'test-rel');
   });
   test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
     await render(
-      <template><Inline @href="/" @isHrefExternal={{false}} id="test-link" /></template>,
+      <template>
+        <HdsLinkInline @href="/" @isHrefExternal={{false}} id="test-link" />
+      </template>,
     );
     assert.dom('#test-link').doesNotHaveAttribute('target');
     assert.dom('#test-link').doesNotHaveAttribute('rel');
@@ -93,7 +124,11 @@ module('Integration | Component | hds/link/inline', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Inline>watch video</Inline></template>);
+    await render(
+      <template>
+        <HdsLinkInline>watch video</HdsLinkInline>
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -106,7 +141,15 @@ module('Integration | Component | hds/link/inline', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      <template><Inline @icon="film" @text="watch video" @href="/" @color="foo" /></template>,
+      <template>
+        <HdsLinkInline
+          @icon="film"
+          @text="watch video"
+          @href="/"
+          {{! @glint-expect-error - testing invalid component usage }}
+          @color="foo"
+        />
+      </template>,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
