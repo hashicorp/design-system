@@ -4,20 +4,26 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import PageHeader from "@hashicorp/design-system-components/components/hds/page-header/index";
-import Breadcrumb from "@hashicorp/design-system-components/components/hds/breadcrumb/index";
-import Item from "@hashicorp/design-system-components/components/hds/breadcrumb/item";
+
+import {
+  HdsBreadcrumb,
+  HdsBreadcrumbItem,
+  HdsPageHeader,
+} from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/page-header/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><PageHeader id="test-page-header" as |PH|>
-            <PH.Title>Page title</PH.Title>
-          </PageHeader></template>,
+      <template>
+        <HdsPageHeader id="test-page-header" as |PH|>
+          <PH.Title>Page title</PH.Title>
+        </HdsPageHeader>
+      </template>,
     );
     assert.dom('#test-page-header').hasClass('hds-page-header');
   });
@@ -26,19 +32,21 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
 
   test('it should render contextual components', async function (assert) {
     await render(
-      <template><PageHeader id="test-page-header" as |PH|>
-            <PH.Title>Page title</PH.Title>
-            <PH.Breadcrumb>
-              <Breadcrumb>
-                <Item @text="Breadcrumb" />
-              </Breadcrumb>
-            </PH.Breadcrumb>
-            <PH.IconTile @icon="server-cluster" />
-            <PH.Actions>Actions</PH.Actions>
-            <PH.Subtitle>Subtitle</PH.Subtitle>
-            <PH.Description>Description</PH.Description>
-            <PH.Generic><p class="custom">Generic</p></PH.Generic>
-          </PageHeader></template>,
+      <template>
+        <HdsPageHeader id="test-page-header" as |PH|>
+          <PH.Title>Page title</PH.Title>
+          <PH.Breadcrumb>
+            <HdsBreadcrumb>
+              <HdsBreadcrumbItem @text="Breadcrumb" />
+            </HdsBreadcrumb>
+          </PH.Breadcrumb>
+          <PH.IconTile @icon="server-cluster" />
+          <PH.Actions>Actions</PH.Actions>
+          <PH.Subtitle>Subtitle</PH.Subtitle>
+          <PH.Description>Description</PH.Description>
+          <PH.Generic><p class="custom">Generic</p></PH.Generic>
+        </HdsPageHeader>
+      </template>,
     );
     assert.dom('.hds-page-header').exists();
     assert.dom('.hds-page-header__title').exists();
@@ -55,7 +63,7 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
     assert.dom('.custom').hasText('Generic');
   });
   test('it should not render the contextual components if not provided', async function (assert) {
-    await render(<template><PageHeader /></template>);
+    await render(<template><HdsPageHeader /></template>);
     assert.dom('.hds-breadcrumb').doesNotExist();
     assert.dom('.hds-page-header__title').doesNotExist();
     assert.dom('.hds-page-header__actions').doesNotExist();
