@@ -4,13 +4,13 @@
  */
 
 import { module, test } from 'qunit';
+import { render, settled, find } from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
+
+import { HdsFormSuperSelectSingleField } from '@hashicorp/design-system-components/components';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, settled } from '@ember/test-helpers';
-// we're using this data for multiple tests so we'll define it here
-import Field from "@hashicorp/design-system-components/components/hds/form/super-select/single/field";
-const setOptionsData = (context) => {
-  context.set('NOOP', () => {});
-};
+import NOOP from 'showcase/utils/noop';
 
 module(
   'Integration | Component | hds/form/super-select/single/field',
@@ -18,9 +18,10 @@ module(
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      setOptionsData(this);
       await render(
-        <template><Field @onChange={{this.NOOP}} /></template>,
+        <template>
+          <HdsFormSuperSelectSingleField @onChange={{NOOP}} />
+        </template>,
       );
       assert.dom('.hds-form-field__control .hds-form-super-select').exists();
     });
@@ -28,9 +29,13 @@ module(
     // INVALID
 
     test('it should render the correct CSS class if @isInvalid is true', async function (assert) {
-      setOptionsData(this);
       await render(
-        <template><Field @onChange={{this.NOOP}} @isInvalid={{true}} /></template>,
+        <template>
+          <HdsFormSuperSelectSingleField
+            @onChange={{NOOP}}
+            @isInvalid={{true}}
+          />
+        </template>,
       );
       assert
         .dom('.hds-form-field__control .hds-form-super-select')
@@ -40,9 +45,13 @@ module(
     // ID
 
     test('it should render the trigger with a custom id', async function (assert) {
-      setOptionsData(this);
       await render(
-        <template><Field @id="my-super-select" @onChange={{this.NOOP}} /></template>,
+        <template>
+          <HdsFormSuperSelectSingleField
+            @id="my-super-select"
+            @onChange={{NOOP}}
+          />
+        </template>,
       );
       assert
         .dom('.ember-basic-dropdown-trigger')
@@ -52,13 +61,14 @@ module(
     // YIELDED (CONTEXTUAL) COMPONENTS
 
     test('it renders the yielded contextual components', async function (assert) {
-      setOptionsData(this);
       await render(
-        <template><Field @onChange={{this.NOOP}} as |F|>
-          <F.Label>This is the label</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          <F.Error>This is the error</F.Error>
-        </Field></template>,
+        <template>
+          <HdsFormSuperSelectSingleField @onChange={{NOOP}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Error>This is the error</F.Error>
+          </HdsFormSuperSelectSingleField>
+        </template>,
       );
       assert.dom('.hds-form-field__label').exists();
       assert.dom('.hds-form-field__helper-text').exists();
@@ -66,25 +76,31 @@ module(
       assert.dom('.hds-form-field__error').exists();
     });
     test('it does not render the yielded contextual components if not provided', async function (assert) {
-      setOptionsData(this);
       await render(
-        <template><Field @onChange={{this.NOOP}} /></template>,
+        <template>
+          <HdsFormSuperSelectSingleField @onChange={{NOOP}} />
+        </template>,
       );
       assert.dom('.hds-form-field__label').doesNotExist();
       assert.dom('.hds-form-field__helper-text').doesNotExist();
       assert.dom('.hds-form-field__error').doesNotExist();
     });
     test('it automatically provides all the ID relations between the elements', async function (assert) {
-      setOptionsData(this);
       await render(
-        <template><Field @extraAriaDescribedBy="extra" @onChange={{this.NOOP}} as |F|>
-          <F.Label>This is the label</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          <F.Error>This is the error</F.Error>
-        </Field></template>,
+        <template>
+          <HdsFormSuperSelectSingleField
+            @extraAriaDescribedBy="extra"
+            @onChange={{NOOP}}
+            as |F|
+          >
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Error>This is the error</F.Error>
+          </HdsFormSuperSelectSingleField>
+        </template>,
       );
-      let control = this.element.querySelector('.ember-basic-dropdown-trigger');
-      let controlId = control.id;
+      const control = find('.ember-basic-dropdown-trigger');
+      const controlId = control?.id ?? '';
       assert
         .dom('.hds-form-field__label')
         .hasAttribute('id', `label-${controlId}`);
@@ -106,59 +122,78 @@ module(
     });
 
     test('it automatically provides all the ID relations between the elements when dynamically rendered', async function (assert) {
-      setOptionsData(this);
+      const context = new TrackedObject({
+        showErrors: false,
+      });
+
       await render(
-        <template><Field @extraAriaDescribedBy="extra" @onChange={{this.NOOP}} as |F|>
-          <F.Label>This is the label</F.Label>
-          <F.HelperText>This is the helper text</F.HelperText>
-          {{#if this.showErrors}}
-            <F.Error>This is the error</F.Error>
-          {{/if}}
-        </Field></template>,
+        <template>
+          <HdsFormSuperSelectSingleField
+            @extraAriaDescribedBy="extra"
+            @onChange={{NOOP}}
+            as |F|
+          >
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            {{#if context.showErrors}}
+              <F.Error>This is the error</F.Error>
+            {{/if}}
+          </HdsFormSuperSelectSingleField>
+        </template>,
       );
 
-      this.set('showErrors', true);
+      context.showErrors = true;
       await settled();
-      let control = this.element.querySelector('.ember-basic-dropdown-trigger');
-      let controlId = control.id;
+      const control = find('.ember-basic-dropdown-trigger');
+
       assert
         .dom('.hds-form-field__label')
-        .hasAttribute('id', `label-${controlId}`);
+        .hasAttribute('id', `label-${control?.id}`);
       assert
         .dom('.hds-form-field__helper-text')
-        .hasAttribute('id', `helper-text-${controlId}`);
+        .hasAttribute('id', `helper-text-${control?.id}`);
       assert
         .dom('.ember-basic-dropdown-trigger')
-        .hasAttribute('aria-labelledby', `label-${controlId}`);
+        .hasAttribute('aria-labelledby', `label-${control?.id}`);
       assert
         .dom('.ember-basic-dropdown-trigger')
         .hasAttribute(
           'aria-describedby',
-          `helper-text-${controlId} error-${controlId} extra`,
+          `helper-text-${control?.id} error-${control?.id} extra`,
         );
       assert
         .dom('.hds-form-field__error')
-        .hasAttribute('id', `error-${controlId}`);
+        .hasAttribute('id', `error-${control?.id}`);
     });
 
     // REQUIRED AND OPTIONAL
 
     test('it should append an indicator to the label text when user input is required', async function (assert) {
-      setOptionsData(this);
       await render(
-        <template><Field @isRequired={{true}} @onChange={{this.NOOP}} as |F|>
+        <template>
+          <HdsFormSuperSelectSingleField
+            @isRequired={{true}}
+            @onChange={{NOOP}}
+            as |F|
+          >
             <F.Label>This is the label</F.Label>
-          </Field></template>,
+          </HdsFormSuperSelectSingleField>
+        </template>,
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('Required');
     });
     test('it should append an indicator to the label text when user input is optional', async function (assert) {
-      setOptionsData(this);
       await render(
-        <template><Field @isOptional={{true}} @onChange={{this.NOOP}} as |F|>
+        <template>
+          <HdsFormSuperSelectSingleField
+            @isOptional={{true}}
+            @onChange={{NOOP}}
+            as |F|
+          >
             <F.Label>This is the label</F.Label>
-          </Field></template>,
+          </HdsFormSuperSelectSingleField>
+        </template>,
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('(Optional)');
