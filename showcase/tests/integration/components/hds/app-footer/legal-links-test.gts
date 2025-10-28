@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import LegalLinks from "@hashicorp/design-system-components/components/hds/app-footer/legal-links";
+
+import { HdsAppFooterLegalLinks } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/app-footer/legal-links',
@@ -15,7 +17,9 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><ul><LegalLinks id="test-legal-links" /></ul></template>,
+        <template>
+          <ul><HdsAppFooterLegalLinks id="test-legal-links" /></ul>
+        </template>,
       );
       assert.dom('#test-legal-links').hasClass('hds-app-footer__legal-links');
     });
@@ -24,7 +28,9 @@ module(
 
     test('it contains the default links with default href values', async function (assert) {
       await render(
-        <template><ul><LegalLinks id="test-legal-links" /></ul></template>,
+        <template>
+          <ul><HdsAppFooterLegalLinks id="test-legal-links" /></ul>
+        </template>,
       );
       assert
         .dom('#test-legal-links li:nth-child(1) a')
@@ -51,9 +57,18 @@ module(
     // OPTIONS
 
     test('it uses the passed in custom href values', async function (assert) {
-      await render(<template>
-      <ul><LegalLinks id="test-legal-links" @hrefForSupport="https://www.support.com" @hrefForTerms="https://www.terms.com" @hrefForPrivacy="https://www.privacy.com" @hrefForSecurity="https://www.security.com" @hrefForAccessibility="https://www.a11y.com" /></ul>
-    </template>);
+      await render(
+        <template>
+          <ul><HdsAppFooterLegalLinks
+              id="test-legal-links"
+              @hrefForSupport="https://www.support.com"
+              @hrefForTerms="https://www.terms.com"
+              @hrefForPrivacy="https://www.privacy.com"
+              @hrefForSecurity="https://www.security.com"
+              @hrefForAccessibility="https://www.a11y.com"
+            /></ul>
+        </template>,
+      );
       assert
         .dom('#test-legal-links li:nth-child(1) a')
         .hasText('Support')

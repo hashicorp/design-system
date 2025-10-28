@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Copyright from "@hashicorp/design-system-components/components/hds/app-footer/copyright";
+
+import { HdsAppFooterCopyright } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/app-footer/copyright', function (hooks) {
   setupRenderingTest(hooks);
@@ -14,20 +16,26 @@ module('Integration | Component | hds/app-footer/copyright', function (hooks) {
   const currentYear = new Date().getFullYear();
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Copyright id="test-copyright" /></template>);
+    await render(
+      <template><HdsAppFooterCopyright id="test-copyright" /></template>,
+    );
     assert.dom('#test-copyright').hasClass('hds-app-footer__copyright');
   });
 
   // OPTIONS
 
   test('it renders the copyright with the current year by default', async function (assert) {
-    await render(<template><Copyright id="test-copyright" /></template>);
-    assert.dom('#test-copyright').includesText(currentYear);
+    await render(
+      <template><HdsAppFooterCopyright id="test-copyright" /></template>,
+    );
+    assert.dom('#test-copyright').includesText(`${currentYear}`);
   });
 
   test('it renders the copyright with the passed in year value', async function (assert) {
     await render(
-      <template><Copyright id="test-copyright" @year="1984" /></template>,
+      <template>
+        <HdsAppFooterCopyright id="test-copyright" @year="1984" />
+      </template>,
     );
     assert.dom('#test-copyright').includesText('1984');
   });
