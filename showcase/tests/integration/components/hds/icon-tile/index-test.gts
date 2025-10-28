@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import IconTile from "@hashicorp/design-system-components/components/hds/icon-tile/index";
+
+import { HdsIconTile } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/icon-tile/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,14 +18,22 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><IconTile @icon="dashboard" id="test-icon-tile" /></template>);
+    await render(
+      <template>
+        <HdsIconTile @icon="dashboard" id="test-icon-tile" />
+      </template>,
+    );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile');
   });
 
   // ICON
 
   test('it renders an icon-tile with an icon', async function (assert) {
-    await render(<template><IconTile @icon="dashboard" id="test-icon-tile" /></template>);
+    await render(
+      <template>
+        <HdsIconTile @icon="dashboard" id="test-icon-tile" />
+      </template>,
+    );
     assert.dom('div#test-icon-tile .hds-icon-tile__icon').exists();
     assert
       .dom('div#test-icon-tile .hds-icon-tile__icon svg.hds-icon-dashboard')
@@ -33,7 +43,9 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
   // LOGO
 
   test('it renders an icon-tile with a logo', async function (assert) {
-    await render(<template><IconTile @logo="boundary" id="test-icon-tile" /></template>);
+    await render(
+      <template><HdsIconTile @logo="boundary" id="test-icon-tile" /></template>,
+    );
     assert.dom('div#test-icon-tile .hds-icon-tile__logo').exists();
     assert.dom('div#test-icon-tile .hds-icon-tile__logo svg').exists();
   });
@@ -41,22 +53,32 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
   // COLOR
 
   test('it should render the neutral color as the default if no color is declared and is an icon', async function (assert) {
-    await render(<template><IconTile @icon="dashboard" id="test-icon-tile" /></template>);
+    await render(
+      <template>
+        <HdsIconTile @icon="dashboard" id="test-icon-tile" />
+      </template>,
+    );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile--color-neutral');
   });
   test('it should render the correct CSS color class if the @color prop is declared and is an icon', async function (assert) {
     await render(
-      <template><IconTile @icon="dashboard" @color="boundary" id="test-icon-tile" /></template>,
+      <template>
+        <HdsIconTile @icon="dashboard" @color="boundary" id="test-icon-tile" />
+      </template>,
     );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile--color-boundary');
   });
   test('it should render the product color if is a logo', async function (assert) {
-    await render(<template><IconTile @logo="boundary" id="test-icon-tile" /></template>);
+    await render(
+      <template><HdsIconTile @logo="boundary" id="test-icon-tile" /></template>,
+    );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile--color-boundary');
   });
   test('it should render the product color even if the @color prop is declared and is a logo', async function (assert) {
     await render(
-      <template><IconTile @logo="boundary" @color="waypoint" id="test-icon-tile" /></template>,
+      <template>
+        <HdsIconTile @logo="boundary" @color="waypoint" id="test-icon-tile" />
+      </template>,
     );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile--color-boundary');
   });
@@ -64,12 +86,18 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
   // SIZE
 
   test('it should render the medium size if no size is declared', async function (assert) {
-    await render(<template><IconTile @icon="dashboard" id="test-icon-tile" /></template>);
+    await render(
+      <template>
+        <HdsIconTile @icon="dashboard" id="test-icon-tile" />
+      </template>,
+    );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile--size-medium');
   });
   test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
-      <template><IconTile @icon="dashboard" id="test-icon-tile" @size="small" /></template>,
+      <template>
+        <HdsIconTile @icon="dashboard" id="test-icon-tile" @size="small" />
+      </template>,
     );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile--size-small');
   });
@@ -78,7 +106,13 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
 
   test('it should render the secondary icon if the @iconSecondary prop is declared', async function (assert) {
     await render(
-      <template><IconTile @icon="dashboard" @iconSecondary="plus" id="test-icon-tile" /></template>,
+      <template>
+        <HdsIconTile
+          @icon="dashboard"
+          @iconSecondary="plus"
+          id="test-icon-tile"
+        />
+      </template>,
     );
     assert.dom('div#test-icon-tile .hds-icon-tile__extra').exists();
     assert.dom('div#test-icon-tile .hds-icon-tile__extra-icon').exists();
@@ -90,7 +124,9 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
   // A11Y
 
   test('it should have aria-hidden set to true', async function (assert) {
-    await render(<template><IconTile @logo="boundary" id="test-icon-tile" /></template>);
+    await render(
+      <template><HdsIconTile @logo="boundary" id="test-icon-tile" /></template>,
+    );
     assert.dom('div#test-icon-tile').hasAria('hidden', 'true');
   });
 
@@ -103,7 +139,9 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><IconTile @icon="dashboard" @logo="boundary" /></template>);
+    await render(
+      <template><HdsIconTile @icon="dashboard" @logo="boundary" /></template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -115,7 +153,7 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><IconTile /></template>);
+    await render(<template><HdsIconTile /></template>);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
@@ -127,7 +165,12 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><IconTile @logo="test" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsIconTile @logo="test" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
