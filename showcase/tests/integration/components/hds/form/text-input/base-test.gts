@@ -4,9 +4,18 @@
  */
 
 import { module, test } from 'qunit';
+import {
+  render,
+  resetOnerror,
+  setupOnerror,
+  settled,
+} from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
+
+import { HdsFormTextInputBase } from '@hashicorp/design-system-components/components';
+import type { HdsFormTextInputTypes } from '@hashicorp/design-system-components/components/hds/form/text-input/types';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import Base from "@hashicorp/design-system-components/components/hds/form/text-input/base";
 
 module('Integration | Component | hds/form/text-input/base', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,13 +25,20 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Base id="test-form-text-input" /></template>);
+    await render(
+      <template><HdsFormTextInputBase id="test-form-text-input" /></template>,
+    );
     assert.dom('#test-form-text-input').hasClass('hds-form-text-input');
   });
 
   test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
     await render(
-      <template><Base @id="custom-id" @ariaDescribedBy="custom-description-id" /></template>,
+      <template>
+        <HdsFormTextInputBase
+          @id="custom-id"
+          @ariaDescribedBy="custom-description-id"
+        />
+      </template>,
     );
     assert
       .dom('#custom-id')
@@ -33,16 +49,28 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
   // TYPE
 
   test('it should render the "text" type if no type is declared', async function (assert) {
-    await render(<template><Base id="test-form-text-input" /></template>);
+    await render(
+      <template><HdsFormTextInputBase id="test-form-text-input" /></template>,
+    );
     assert.dom('#test-form-text-input').hasAttribute('type', 'text');
   });
   test('it should render the correct type depending on the @type prop', async function (assert) {
-    this.set('type', 'email');
+    const context = new TrackedObject<Record<'type', HdsFormTextInputTypes>>({
+      type: 'email',
+    });
+
     await render(
-      <template><Base @type={{this.type}} id="test-form-text-input" /></template>,
+      <template>
+        <HdsFormTextInputBase
+          @type={{context.type}}
+          id="test-form-text-input"
+        />
+      </template>,
     );
     assert.dom('#test-form-text-input').hasAttribute('type', 'email');
-    this.set('type', 'datetime-local');
+
+    context.type = 'datetime-local';
+    await settled();
     assert.dom('#test-form-text-input').hasAttribute('type', 'datetime-local');
   });
 
@@ -50,7 +78,9 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the input with the value provided via @value argument', async function (assert) {
     await render(
-      <template><Base @value="abc123" id="test-form-text-input" /></template>,
+      <template>
+        <HdsFormTextInputBase @value="abc123" id="test-form-text-input" />
+      </template>,
     );
     assert.dom('#test-form-text-input').hasValue('abc123');
   });
@@ -59,7 +89,9 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
     await render(
-      <template><Base id="test-form-text-input" @isInvalid={{true}} /></template>,
+      <template>
+        <HdsFormTextInputBase id="test-form-text-input" @isInvalid={{true}} />
+      </template>,
     );
     assert
       .dom('#test-form-text-input')
@@ -70,7 +102,13 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isLoading prop is declared', async function (assert) {
     await render(
-      <template><Base id="test-form-text-input" @type="search" @isLoading={{true}} /></template>,
+      <template>
+        <HdsFormTextInputBase
+          id="test-form-text-input"
+          @type="search"
+          @isLoading={{true}}
+        />
+      </template>,
     );
     assert
       .dom('#test-form-text-input')
@@ -81,7 +119,9 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should render the input with a fixed width if a @width value is passed', async function (assert) {
     await render(
-      <template><Base @width="248px" id="test-form-text-input" /></template>,
+      <template>
+        <HdsFormTextInputBase @width="248px" id="test-form-text-input" />
+      </template>,
     );
     assert.dom('#test-form-text-input').hasStyle({ width: '248px' });
   });
@@ -95,7 +135,12 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><Base @type="foo" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsFormTextInputBase @type="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
