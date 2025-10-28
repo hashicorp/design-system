@@ -4,20 +4,26 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Base from "@hashicorp/design-system-components/components/hds/form/checkbox/base";
+
+import { HdsFormCheckboxBase } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/form/checkbox/base', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Base id="test-form-checkbox" /></template>);
+    await render(
+      <template><HdsFormCheckboxBase id="test-form-checkbox" /></template>,
+    );
     assert.dom('#test-form-checkbox').hasClass('hds-form-checkbox');
   });
   test('it should convert the `indeterminate` attribute into a property', async function (assert) {
     await render(
-      <template><Base id="test-form-checkbox" indeterminate={{true}} /></template>,
+      <template>
+        <HdsFormCheckboxBase id="test-form-checkbox" indeterminate={{true}} />
+      </template>,
     );
     assert.dom('#test-form-checkbox').doesNotHaveAttribute('indeterminate');
     assert.dom('#test-form-checkbox').hasProperty('indeterminate', true);
