@@ -4,16 +4,24 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
-import { focus, render } from '@ember/test-helpers';
-import hdsTooltip from "@hashicorp/design-system-components/modifiers/hds-tooltip";
+import { focus, render, find } from '@ember/test-helpers';
 
-module('Integration | Component | hds/tooltip/index', function (hooks) {
+import hdsTooltip from '@hashicorp/design-system-components/modifiers/hds-tooltip';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+
+module('Integration | Component | hds/tooltip/modifier', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it attaches a tooltip to the element it is invoked on', async function (assert) {
     await render(
-      <template><a href="#" {{hdsTooltip "More info."}} id="test-tooltip-modifier">Info</a></template>,
+      <template>
+        <a
+          href="#"
+          {{hdsTooltip "More info."}}
+          id="test-tooltip-modifier"
+        >Info</a>
+      </template>,
     );
     // activate the tooltip:
     await focus('#test-tooltip-modifier');
@@ -24,17 +32,17 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     assert.dom('#test-tooltip-modifier').hasAttribute('aria-describedby');
     assert.dom('.hds-tooltip-container').exists();
     assert.dom('.hds-tooltip-container').hasAttribute('id');
+
+    const tooltipContainer = find('.hds-tooltip-container');
+    const tooltipModifier = find('#test-tooltip-modifier');
+
     assert.strictEqual(
-      this.element
-        .querySelector('#test-tooltip-modifier')
-        .getAttribute('aria-describedby'),
-      this.element.querySelector('.hds-tooltip-container').getAttribute('id'),
+      tooltipModifier?.getAttribute('aria-describedby'),
+      tooltipContainer?.id ?? '',
     );
     assert.strictEqual(
-      this.element
-        .querySelector('#test-tooltip-modifier')
-        .getAttribute('aria-controls'),
-      this.element.querySelector('.hds-tooltip-container').getAttribute('id'),
+      tooltipModifier?.getAttribute('aria-controls'),
+      tooltipContainer?.id ?? '',
     );
   });
 });
