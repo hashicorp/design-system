@@ -4,79 +4,120 @@
  */
 
 import { module, test } from 'qunit';
+import { array, hash } from '@ember/helper';
+import {
+  click,
+  focus,
+  render,
+  setupOnerror,
+  triggerKeyEvent,
+} from '@ember/test-helpers';
+import { TrackedObject } from 'tracked-built-ins';
+
+import { HdsStepperNav } from '@hashicorp/design-system-components/components';
+import type { HdsStepperTitleTags } from '@hashicorp/design-system-components/components/hds/stepper/types';
+
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, click, focus, setupOnerror, triggerKeyEvent } from '@ember/test-helpers';
-import Nav from "@hashicorp/design-system-components/components/hds/stepper/nav/index";
-import { array, hash } from "@ember/helper";
+
+const createStepperNav = async (options: {
+  currentStep?: number;
+  isInteractive?: boolean;
+  titleTag?: HdsStepperTitleTags;
+  onStepChange?: (event: Event, stepIndex: number) => void;
+  ariaLabel?: string;
+}) => {
+  const ariaLabel = options.ariaLabel ?? 'Label';
+  return await render(
+    <template>
+      <HdsStepperNav
+        id="test-stepper-nav"
+        @currentStep={{options.currentStep}}
+        @titleTag={{options.titleTag}}
+        @isInteractive={{options.isInteractive}}
+        @ariaLabel={{ariaLabel}}
+        @onStepChange={{options.onStepChange}}
+        as |S|
+      >
+        <S.Step data-test="step-1" />
+        <S.Step data-test="step-2" />
+        <S.Panel />
+        <S.Panel />
+      </HdsStepperNav>
+    </template>,
+  );
+};
+
+const createStepperNavArray = async (options: {
+  currentStep?: number;
+  titleTag?: HdsStepperTitleTags;
+  onStepChange?: (event: Event, stepIndex: number) => void;
+  step1Title?: string;
+  step1Description?: string;
+  ariaLabel?: string;
+}) => {
+  const ariaLabel = options.ariaLabel ?? 'Label';
+  const step1Title = options.step1Title ?? 'Step 1';
+
+  return await render(
+    <template>
+      <HdsStepperNav
+        id="test-stepper-nav"
+        @steps={{array
+          (hash title=step1Title description=options.step1Description)
+          (hash title="Step 2")
+        }}
+        @currentStep={{options.currentStep}}
+        @titleTag={{options.titleTag}}
+        @ariaLabel={{ariaLabel}}
+        @onStepChange={{options.onStepChange}}
+      >
+        <:body>
+        </:body>
+      </HdsStepperNav>
+    </template>,
+  );
+};
 
 module('Integration | Component | hds/stepper/nav', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function () {
-    this.set('createStepperNav', async (args = {}) => {
-      this.currentStep = args.currentStep ?? undefined;
-      this.titleTag = args.titleTag ?? undefined;
-      this.onStepChange = args.onStepChange ?? undefined;
-      this.isInteractive = args.isInteractive ?? undefined;
-      this.ariaLabel = args.ariaLabel ?? 'Label';
-      return await render(<template>
-          <Nav id="test-stepper-nav" @currentStep={{this.currentStep}} @titleTag={{this.titleTag}} @isInteractive={{this.isInteractive}} @ariaLabel={{this.ariaLabel}} @onStepChange={{this.onStepChange}} as |S|>
-            <S.Step data-test="step-1">
-            </S.Step>
-            <S.Step data-test="step-2">
-            </S.Step>
-            <S.Panel></S.Panel>
-            <S.Panel></S.Panel>
-          </Nav>
-        </template>);
-    });
-
-    this.set('createStepperNavArray', async (args = {}) => {
-      this.currentStep = args.currentStep ?? undefined;
-      this.titleTag = args.titleTag ?? undefined;
-      this.onStepChange = args.onStepChange ?? undefined;
-      this.step1Title = args.step1Title ?? undefined;
-      this.step1Description = args.step1Description ?? undefined;
-      this.ariaLabel = args.ariaLabel ?? 'Label';
-      return await render(<template>
-          <Nav id="test-stepper-nav" @steps={{array (hash title=this.step1Title description=this.step1Description) (hash title="Step 2")}} @currentStep={{this.currentStep}} @titleTag={{this.titleTag}} @ariaLabel={{this.ariaLabel}} @onStepChange={{this.onStepChange}}>
-            <:body>
-            </:body>
-          </Nav>
-        </template>);
-    });
-  });
-
   // CLASSES
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await this.createStepperNav();
+    await createStepperNav({});
     assert.dom('#test-stepper-nav').hasClass('hds-stepper-nav');
   });
 
   // STEPS
 
   test('it sets the step title when using the @steps argument', async function (assert) {
-    await this.createStepperNavArray({ step1Title: 'Test' });
+    await createStepperNavArray({ step1Title: 'Test' });
     assert.dom('.hds-stepper-nav__step-title').containsText('Test');
   });
 
   test('it sets the step description when using the @steps argument', async function (assert) {
-    await this.createStepperNavArray({ step1Description: 'Test' });
+    await createStepperNavArray({ step1Description: 'Test' });
     assert.dom('.hds-stepper-nav__step-description').containsText('Test');
   });
 
   test('it should have 2 Steps and 2 Panels', async function (assert) {
-    await this.createStepperNavArray();
+    await createStepperNavArray({});
     assert.dom('.hds-stepper-nav__step').exists({ count: 2 });
     assert.dom('.hds-stepper-nav__panel').exists({ count: 2 });
   });
 
   test('it should have 2 Steps and no Panels if no :body named block is added', async function (assert) {
-    await render(<template>
-      <Nav id="test-stepper-nav" @steps={{array (hash title=this.step1Title description=this.step1Description) (hash title="Step 2")}} @currentStep={{this.currentStep}} @isInteractive={{false}} @titleTag={{this.titleTag}} @onStepChange={{this.onStepChange}}>
-      </Nav>
-    </template>);
+    await render(
+      <template>
+        <HdsStepperNav
+          id="test-stepper-nav"
+          @steps={{array (hash title="Step 1") (hash title="Step 2")}}
+          @currentStep={{0}}
+          @isInteractive={{false}}
+          @ariaLabel="Sample stepper"
+        />
+      </template>,
+    );
     assert.dom('.hds-stepper-nav__step').exists({ count: 2 });
     assert.dom('.hds-stepper-nav__panel').doesNotExist();
   });
@@ -84,26 +125,26 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
   // TITLE TAG
 
   test('it renders a div when the @titleTag argument is not provided', async function (assert) {
-    await this.createStepperNav();
+    await createStepperNav({});
     assert.dom('.hds-stepper-nav__step-title').hasTagName('div');
   });
 
   test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
-    await this.createStepperNav({ titleTag: 'h2' });
+    await createStepperNav({ titleTag: 'h2' });
     assert.dom('.hds-stepper-nav__step-title').hasTagName('h2');
   });
 
   // CURRENT STEP
 
   test('it sets the first step to active when the @currentStep argument is not provided', async function (assert) {
-    await this.createStepperNav();
+    await createStepperNav({});
     assert
       .dom('[data-test="step-1"]')
       .hasClass('hds-stepper-nav__step--active');
   });
 
   test('it sets the step number provided active when the @currentStep argument is provided', async function (assert) {
-    await this.createStepperNav({ currentStep: 1 });
+    await createStepperNav({ currentStep: 1 });
     assert
       .dom('[data-test="step-2"]')
       .hasClass('hds-stepper-nav__step--active');
@@ -112,7 +153,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
   // ISINTERACTIVE
 
   test('it sets the steps to interactive when the @isInteractive argument is not provided', async function (assert) {
-    await this.createStepperNav();
+    await createStepperNav({});
     assert.dom('.hds-stepper-nav__list').hasAttribute('role', 'tablist');
     assert
       .dom('[data-test="step-1"]')
@@ -121,7 +162,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
   });
 
   test('it sets the steps to non-interactive when the @isInteractive argument is provided', async function (assert) {
-    await this.createStepperNav({ isInteractive: false });
+    await createStepperNav({ isInteractive: false });
     assert.dom('.hds-stepper-nav__list').hasNoAttribute('role');
     assert
       .dom('[data-test="step-1"]')
@@ -132,27 +173,31 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
   // ARIA LABEL
 
   test('it sets the aria-label of the ol to the value provided to the @ariaLabel argument', async function (assert) {
-    await this.createStepperNav({ ariaLabel: 'test' });
+    await createStepperNav({ ariaLabel: 'test' });
     assert.dom('.hds-stepper-nav__list').hasAttribute('aria-label', 'test');
   });
 
   // CALLBACKS: ONSTEPCHANGE
 
   test('on step click it should invoke the `onStepChange` callback function', async function (assert) {
-    let clicked = false;
-    let stepNumber = 1;
-    this.set('onClick', (_event, index) => {
-      clicked = true;
-      stepNumber = index;
+    const context = new TrackedObject({
+      isClicked: false,
+      stepNumber: 1,
     });
-    await this.createStepperNav({
-      currentStep: stepNumber,
-      onStepChange: this.onClick,
+
+    const onClick = (_event: Event, index: number) => {
+      context.isClicked = true;
+      context.stepNumber = index;
+    };
+
+    await createStepperNav({
+      currentStep: context.stepNumber,
+      onStepChange: onClick,
       isInteractive: true,
     });
     await click('[data-test="step-1"] .hds-stepper-nav__step-button');
-    assert.ok(clicked);
-    assert.strictEqual(stepNumber, 0);
+    assert.ok(context.isClicked);
+    assert.strictEqual(context.stepNumber, 0);
   });
 
   // KEYBOARD CONTROLS
@@ -160,7 +205,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
   test('it should focus interactive steps and navigate through them using left and right arrow keys', async function (assert) {
     const leftArrowKey = 37;
     const rightArrowKey = 39;
-    await this.createStepperNav({
+    await createStepperNav({
       isInteractive: true,
       currentStep: 1,
     });
@@ -205,10 +250,16 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template>
-      <Nav id="test-stepper-nav" @steps={{array (hash title=this.step1Title description=this.step1Description) (hash title="Step 2")}} @currentStep={{this.currentStep}} @titleTag={{this.titleTag}} @onStepChange={{this.onStepChange}}>
-      </Nav>
-    </template>);
+    await render(
+      <template>
+        <HdsStepperNav
+          id="test-stepper-nav"
+          @steps={{array (hash title="Step 1") (hash title="Step 2")}}
+          @currentStep={{0}}
+          @ariaLabel="Sample stepper"
+        />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

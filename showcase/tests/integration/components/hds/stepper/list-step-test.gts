@@ -4,10 +4,14 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Step from "@hashicorp/design-system-components/components/hds/stepper/list/step";
-import List from "@hashicorp/design-system-components/components/hds/stepper/list/index";
+
+import {
+  HdsStepperList,
+  HdsStepperListStep,
+} from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/stepper/list/step', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,7 +19,9 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   // CLASSES
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(<template><Step data-test="step-1" /></template>);
+    await render(
+      <template><HdsStepperListStep data-test="step-1" /></template>,
+    );
     assert.dom('[data-test="step-1"]').hasClass('hds-stepper-list__step');
   });
 
@@ -24,10 +30,10 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   test('it sets the status to incomplete when the @status argument is not provided', async function (assert) {
     await render(
       <template>
-          <Step>
-            <:title>Test</:title>
-          </Step>
-        </template>,
+        <HdsStepperListStep>
+          <:title>Test</:title>
+        </HdsStepperListStep>
+      </template>,
     );
     assert
       .dom('.hds-stepper-list__step')
@@ -41,10 +47,10 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   test('it sets the status to complete when the @status argument is provided', async function (assert) {
     await render(
       <template>
-          <Step @status="complete">
-            <:title>Test</:title>
-          </Step>
-        </template>,
+        <HdsStepperListStep @status="complete">
+          <:title>Test</:title>
+        </HdsStepperListStep>
+      </template>,
     );
     assert
       .dom('.hds-stepper-list__step')
@@ -58,10 +64,10 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   test('it sets the status to progress when the @status argument is provided', async function (assert) {
     await render(
       <template>
-          <Step @status="progress">
-            <:title>Test</:title>
-          </Step>
-        </template>,
+        <HdsStepperListStep @status="progress">
+          <:title>Test</:title>
+        </HdsStepperListStep>
+      </template>,
     );
     assert
       .dom('.hds-stepper-list__step')
@@ -75,10 +81,10 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   test('it sets the status to processing when the @status argument is provided', async function (assert) {
     await render(
       <template>
-          <Step @status="processing">
-            <:title>Test</:title>
-          </Step>
-        </template>,
+        <HdsStepperListStep @status="processing">
+          <:title>Test</:title>
+        </HdsStepperListStep>
+      </template>,
     );
     assert
       .dom('.hds-stepper-list__step')
@@ -94,10 +100,10 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   test('it renders a div when the @titleTag argument is not provided', async function (assert) {
     await render(
       <template>
-          <Step>
-            <:title>Test</:title>
-          </Step>
-        </template>,
+        <HdsStepperListStep>
+          <:title>Test</:title>
+        </HdsStepperListStep>
+      </template>,
     );
     assert.dom('.hds-stepper-list__step-title').hasTagName('div');
   });
@@ -105,10 +111,10 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
     await render(
       <template>
-          <Step @titleTag="h2">
-            <:title>Test</:title>
-          </Step>
-        </template>,
+        <HdsStepperListStep @titleTag="h2">
+          <:title>Test</:title>
+        </HdsStepperListStep>
+      </template>,
     );
     assert.dom('.hds-stepper-list__step-title').hasTagName('h2');
   });
@@ -119,10 +125,10 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     // Note: Testing this use case requires wrapping the element in its parent element
     await render(
       <template>
-          <List as |S|>
-            <S.Step />
-          </List>
-        </template>,
+        <HdsStepperList @ariaLabel="test list" as |S|>
+          <S.Step />
+        </HdsStepperList>
+      </template>,
     );
     assert.dom('.hds-stepper-indicator-step__text').hasText('1');
   });
@@ -132,10 +138,10 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   test('it renders the title when the title contextual component block is used', async function (assert) {
     await render(
       <template>
-          <Step>
-            <:title>Test</:title>
-          </Step>
-        </template>,
+        <HdsStepperListStep>
+          <:title>Test</:title>
+        </HdsStepperListStep>
+      </template>,
     );
     assert.dom('.hds-stepper-list__step-title').containsText('Test');
   });
@@ -143,17 +149,17 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   // DESCRIPTION
 
   test('it does not render the description when the description contextual component block is not used', async function (assert) {
-    await render(<template><Step></Step></template>);
+    await render(<template><HdsStepperListStep /></template>);
     assert.dom('.hds-stepper-list__step-description').doesNotExist();
   });
 
   test('it renders the description when the description contextual component block is used', async function (assert) {
     await render(
       <template>
-          <Step>
-            <:description>Test</:description>
-          </Step>
-        </template>,
+        <HdsStepperListStep>
+          <:description>Test</:description>
+        </HdsStepperListStep>
+      </template>,
     );
     assert.dom('.hds-stepper-list__step-description').exists();
     assert.dom('.hds-stepper-list__step-description').containsText('Test');
@@ -162,17 +168,17 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   // CONTENT
 
   test('it does not render the content when the content contextual component block is not used', async function (assert) {
-    await render(<template><Step></Step></template>);
+    await render(<template><HdsStepperListStep /></template>);
     assert.dom('.hds-stepper-list__step-content').doesNotExist();
   });
 
   test('it renders the content when the content contextual component block is used', async function (assert) {
     await render(
       <template>
-          <Step>
-            <:content>Test</:content>
-          </Step>
-        </template>,
+        <HdsStepperListStep>
+          <:content>Test</:content>
+        </HdsStepperListStep>
+      </template>,
     );
     assert.dom('.hds-stepper-list__step-content').exists();
     assert.dom('.hds-stepper-list__step-content').containsText('Test');
