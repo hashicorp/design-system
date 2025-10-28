@@ -13,11 +13,15 @@ import style from 'ember-style-modifier/modifiers/style';
 // HDS components
 import {
   HdsAdvancedTable,
+  HdsButton,
   HdsFilterBar,
+  HdsLayoutFlex,
   HdsLinkInline,
   HdsBadge,
   HdsBadgeColorValues,
   HdsFormToggleField,
+  HdsTextBody,
+  HdsTextDisplay,
   type HdsAdvancedTableOnSelectionChangeSignature,
   type HdsFilterBarRangeFilterSelector,
 } from '@hashicorp/design-system-components/components';
@@ -536,6 +540,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   @deepTracked filters: HdsFilterBarSignature['Args']['filters'] = {};
   @tracked isLiveFilter = false;
   @tracked isSeparatedFilterBar = false;
+  @tracked emptyData = false;
 
   @action onSelectionChange({
     selectionKey,
@@ -594,7 +599,9 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
       return match;
     };
 
-    return this.demoModel.filter(filterItem);
+    const filteredData = this.demoModel.filter(filterItem);
+    this.emptyData = !(filteredData.length > 0);
+    return filteredData;
   }
 
   isRangeFilterMatch(
@@ -602,7 +609,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     filterData: HdsFilterBarSignature['Args']['filters']['data'],
   ): boolean {
     const selector = filterData.selector as HdsFilterBarRangeFilterSelector;
-    const number = Number(itemValue) as number;
+    const number = Number(itemValue);
 
     if (isNaN(number)) {
       return false;
@@ -640,6 +647,10 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     );
     return filterValues.includes(itemValue);
   }
+
+  clearFilters = () => {
+    this.filters = {};
+  };
 
   onLiveFilterToggle = (event: Event) => {
     const target = event.target as HTMLInputElement;
@@ -739,6 +750,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
       @isStriped={{true}}
       @onSelectionChange={{this.onSelectionChange}}
       @hasStickyFirstColumn={{true}}
+      @isEmpty={{this.emptyData}}
     >
       <:actions as |A|>
         {{#unless this.isSeparatedFilterBar}}
@@ -893,6 +905,23 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           </B.Td>
         </B.Tr>
       </:body>
+      <:emptyState>
+        {{#if this.emptyData}}
+          <HdsLayoutFlex @direction="column" @gap="12">
+            <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
+            <HdsTextBody>
+              No results were found with the selected filters. Please clear or
+              update the filters.
+            </HdsTextBody>
+            <div>
+              <HdsButton
+                @text="Clear filters"
+                {{on "click" this.clearFilters}}
+              />
+            </div>
+          </HdsLayoutFlex>
+        {{/if}}
+      </:emptyState>
     </HdsAdvancedTable>
   </template>
 }

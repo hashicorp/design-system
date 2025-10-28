@@ -788,3 +788,26 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     }
   }
 }
+
+/// ----------------------------------------------------------------
+
+// EMPTY STATE
+.hds-advanced-table__empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  background-color: var(--token-color-surface-primary);
+  border: 1px solid var(--token-color-border-primary);
+  border-bottom-right-radius: $hds-advanced-table-border-radius;
+  border-bottom-left-radius: $hds-advanced-table-border-radius;
+}
+
+.hds-advanced-table__empty-state__content {
+  max-width: 450px;
+}
+
+.hds-advanced-table:not(:has(+ .hds-advanced-table__empty-state)) {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
