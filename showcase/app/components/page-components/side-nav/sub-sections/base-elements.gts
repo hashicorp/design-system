@@ -27,7 +27,6 @@ import {
   HdsSideNavBase,
   HdsSideNavHeader,
   HdsSideNavHeaderHomeLink,
-  HdsSideNavHeaderIconButton,
   HdsSideNavListBackLink,
   HdsSideNavListItem,
   HdsSideNavListLink,
@@ -202,25 +201,6 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
             @ariaLabel="Boundary"
             @color="var(--token-color-boundary-brand)"
             @href="#"
-            mock-state-value={{state}}
-          />
-        </div>
-      </SF.Item>
-    {{/each}}
-  </ShwFlex>
-
-  <ShwDivider @level={{2}} />
-  {{! TODO: Once IconButton is fully deprecated, remove from examples }}
-  <ShwTextH3>SideNavHeaderIconButton (deprecated)</ShwTextH3>
-
-  <ShwTextH4>States</ShwTextH4>
-  <ShwFlex as |SF|>
-    {{#each STATES as |state|}}
-      <SF.Item @label={{state}}>
-        <div class="shw-component-sim-side-nav-elem-wrapper">
-          <HdsSideNavHeaderIconButton
-            @icon="search"
-            @ariaLabel="Search"
             mock-state-value={{state}}
           />
         </div>
