@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import HomeLink from "@hashicorp/design-system-components/components/hds/app-header/home-link";
+
+import { HdsAppHeaderHomeLink } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/app-header/home-link', function (hooks) {
   setupRenderingTest(hooks);
@@ -17,7 +19,13 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><HomeLink @icon="hashicorp" @text="HashiCorp" id="test-home-link" /></template>,
+      <template>
+        <HdsAppHeaderHomeLink
+          @icon="hashicorp"
+          @text="HashiCorp"
+          id="test-home-link"
+        />
+      </template>,
     );
     assert.dom('#test-home-link').hasClass('hds-app-header__home-link');
   });
@@ -26,7 +34,14 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      <template><HomeLink @icon="hashicorp" @text="HashiCorp" @href="https://www.hashicorp.com/" id="test-home-link" /></template>,
+      <template>
+        <HdsAppHeaderHomeLink
+          @icon="hashicorp"
+          @text="HashiCorp"
+          @href="https://www.hashicorp.com/"
+          id="test-home-link"
+        />
+      </template>,
     );
     assert.dom('.hds-icon-hashicorp').exists();
     assert
@@ -37,7 +52,14 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
 
   test('it renders the logo with a custom passed in color', async function (assert) {
     await render(
-      <template><HomeLink @icon="boundary" @text="Boundary" @color="var(--token-color-boundary-brand)" @href="#" /></template>,
+      <template>
+        <HdsAppHeaderHomeLink
+          @icon="boundary"
+          @text="Boundary"
+          @color="var(--token-color-boundary-brand)"
+          @href="#"
+        />
+      </template>,
     );
     assert
       .dom('.hds-icon-boundary')
@@ -46,7 +68,15 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
 
   test('it renders the logo with text when @isIconOnly is false', async function (assert) {
     await render(
-      <template><HomeLink @icon="hashicorp" @text="HashiCorp" @isIconOnly={{false}} @href="#" id="test-home-link" /></template>,
+      <template>
+        <HdsAppHeaderHomeLink
+          @icon="hashicorp"
+          @text="HashiCorp"
+          @isIconOnly={{false}}
+          @href="#"
+          id="test-home-link"
+        />
+      </template>,
     );
     assert.dom('.hds-text').exists();
   });
@@ -60,7 +90,12 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><HomeLink @icon="hashicorp" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - assertion testing invalid value }}
+        <HdsAppHeaderHomeLink @icon="hashicorp" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
