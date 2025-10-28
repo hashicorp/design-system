@@ -4,7 +4,52 @@
 
 :root {
   --token-color-palette-neutral-0: #ffffff;
+  --token-color-border-primary: #6f6f6f;
+  --token-color-border-faint: #393939;
+  --token-color-border-strong: #525252;
+  --token-color-border-action: #4589ff;
+  --token-color-border-highlight: #a56eff;
+  --token-color-border-success: #24a148;
+  --token-color-border-warning: #eb6200;
+  --token-color-border-critical: #fa4d56;
+  --token-color-focus-action-internal: #161616;
+  --token-color-focus-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-focus-critical-internal: #161616;
+  --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-foreground-strong: #f4f4f4;
   --token-color-foreground-primary: #f4f4f4;
+  --token-color-foreground-faint: #f4f4f4;
+  --token-color-foreground-high-contrast: #161616;
+  --token-color-foreground-disabled: rgba(244, 244, 244, 0.25);
+  --token-color-foreground-action: #78a9ff;
+  --token-color-foreground-action-hover: #a6c8ff;
+  --token-color-foreground-action-active: #a6c8ff;
+  --token-color-foreground-highlight: #be95ff;
+  --token-color-foreground-highlight-on-surface: #d4bbff;
+  --token-color-foreground-highlight-high-contrast: #d4bbff;
+  --token-color-foreground-success: #42be65;
+  --token-color-foreground-success-on-surface: #6fdc8c;
+  --token-color-foreground-success-high-contrast: #a7f0ba;
+  --token-color-foreground-warning: #ff832b;
+  --token-color-foreground-warning-on-surface: #ffb784;
+  --token-color-foreground-warning-high-contrast: #ffd9be;
+  --token-color-foreground-critical: #ff8389;
+  --token-color-foreground-critical-on-surface: #ffb3b8;
+  --token-color-foreground-critical-high-contrast: #ffd7d9;
+  --token-color-page-primary: #161616;
+  --token-color-page-faint: #161616;
+  --token-color-surface-primary: #262626;
+  --token-color-surface-faint: #262626;
+  --token-color-surface-strong: #262626;
+  --token-color-surface-interactive: #262626;
+  --token-color-surface-interactive-hover: #333333;
+  --token-color-surface-interactive-active: #525252;
+  --token-color-surface-interactive-disabled: #ff0000;
+  --token-color-surface-action: #0043ce;
+  --token-color-surface-highlight: #6929c4;
+  --token-color-surface-success: #0e6027;
+  --token-color-surface-warning: #8a3800;
+  --token-color-surface-critical: #a2191f;
   --token-typography-font-stack-display: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
   --token-typography-font-stack-text: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
   --token-typography-font-stack-code: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
