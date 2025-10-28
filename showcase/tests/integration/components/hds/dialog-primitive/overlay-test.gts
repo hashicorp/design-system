@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror } from '@ember/test-helpers';
-import Overlay from "@hashicorp/design-system-components/components/hds/dialog-primitive/overlay";
+
+import { HdsDialogPrimitiveOverlay } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/dialog-primitive/overlay',
@@ -18,7 +20,7 @@ module(
     });
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      await render(<template><Overlay /></template>);
+      await render(<template><HdsDialogPrimitiveOverlay /></template>);
       assert.dom('.hds-dialog-primitive__overlay').exists();
     });
   },

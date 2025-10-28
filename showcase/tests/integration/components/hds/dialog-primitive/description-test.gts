@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror } from '@ember/test-helpers';
-import Description from "@hashicorp/design-system-components/components/hds/dialog-primitive/description";
+
+import { HdsDialogPrimitiveDescription } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/dialog-primitive/description',
@@ -20,10 +22,10 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
         <template>
-        <Description id="test-description">
-          Description
-        </Description>
-      </template>,
+          <HdsDialogPrimitiveDescription id="test-description">
+            Description
+          </HdsDialogPrimitiveDescription>
+        </template>,
       );
       assert
         .dom('#test-description')
@@ -35,10 +37,10 @@ module(
     test('it renders the passed in content', async function (assert) {
       await render(
         <template>
-        <Description>
-          Description
-        </Description>
-      </template>,
+          <HdsDialogPrimitiveDescription>
+            Description
+          </HdsDialogPrimitiveDescription>
+        </template>,
       );
       assert.dom('.hds-dialog-primitive__description').hasText('Description');
     });
