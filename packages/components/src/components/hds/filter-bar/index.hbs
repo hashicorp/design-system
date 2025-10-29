@@ -1,0 +1,48 @@
+{{! @glint-nocheck }}
+<div class="hds-filter-bar" ...attributes>
+  <div class="hds-filter-bar__actions">
+    {{yield
+      (hash FiltersDropdown=(component "hds/filter-bar/filters-dropdown" onFilter=this.onFilter filters=@filters))
+    }}
+    {{#if @hasSearch}}
+      <Hds::Form::TextInput::Base
+        @type="search"
+        @width="185px"
+        class="hds-filter-bar__search"
+        placeholder="Search across"
+        aria-label="Search table"
+        name="search"
+        {{on "change" this.onSearch}}
+      />
+    {{/if}}
+    <div class="hds-filter-bar__actions__right">
+      {{yield (hash ActionsDropdown=(component "hds/dropdown"))}}
+    </div>
+  </div>
+  {{#if this.hasActiveFilters}}
+    <div class="hds-filter-bar__filters">
+      {{#each-in @filters as |key filter|}}
+        {{#if filter.data}}
+          {{#if (eq filter.type "single-select")}}
+            <Hds::Tag
+              @text="{{key}}: {{filter.data.text}}"
+              @onDismiss={{fn this.onFilterDismiss key filter.data.value}}
+            />
+          {{else if (eq filter.type "multi-select")}}
+            {{#each filter.data as |item|}}
+              <Hds::Tag @text="{{key}}: {{item.text}}" @onDismiss={{fn this.onFilterDismiss key item.value}} />
+            {{/each}}
+          {{/if}}
+        {{/if}}
+      {{/each-in}}
+      <Hds::Button
+        class="hds-filter-bar__clear-button"
+        @text="Clear all filters"
+        @color="tertiary"
+        @icon="x"
+        @size="small"
+        {{on "click" this.clearFilters}}
+      />
+    </div>
+  {{/if}}
+</div>
