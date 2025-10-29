@@ -1,0 +1,12 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{#let @tab as |Tab|}}
+  <Tab class="hds-filter-bar__filters-dropdown__filter-tab">
+    <Hds::Text::Body>{{yield}}</Hds::Text::Body>
+    {{#unless (eq this.numFilters 0)}}
+      <Hds::Text::Body>{{this.numFilters}}</Hds::Text::Body>
+    {{/unless}}
+  </Tab>
+{{/let}}

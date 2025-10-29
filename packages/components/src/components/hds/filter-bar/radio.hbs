@@ -1,5 +1,9 @@
-{{#let @radio as |Radio|}}
-  <Radio checked={{this.isChecked}} @value={{@value}} {{on "change" this.onChange}}>
-    {{yield}}
-  </Radio>
-{{/let}}
+<Hds::Form::Radio::Field
+  class="hds-filter-bar__filters-dropdown__filter-option"
+  checked={{this.isChecked}}
+  @value={{@value}}
+  {{on "change" this.onChange}}
+  as |F|
+>
+  <F.Label>{{yield}}</F.Label>
+</Hds::Form::Radio::Field>
