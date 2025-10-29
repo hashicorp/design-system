@@ -13,11 +13,7 @@ import {
   HdsSideNavList,
   HdsButton,
   HdsDropdown,
-  HdsButtonSet,
 } from '@hashicorp/design-system-components/components';
-
-import ModalWithTrigger from '../../../page-components/modal/code-fragments/with-trigger';
-import { on } from '@ember/modifier';
 
 // types
 import type { HdsSideNavSignature } from '@hashicorp/design-system-components/components/hds/side-nav/index';
@@ -156,35 +152,6 @@ export default class MockAppSidebarOldSideNav extends Component<MockAppSidebarOl
             @icon="guide"
             @text="Documentation"
           />
-          <SNL.Item>
-            <ModalWithTrigger @triggerText="Open basic modal" id="basic-modal">
-              <:modal as |M|>
-                <M.Header>
-                  Modal title
-                </M.Header>
-                <M.Body>
-                  <p class="hds-typography-body-300 hds-foreground-primary">
-                    Modal content
-                  </p>
-                </M.Body>
-                <M.Footer as |F|>
-                  <HdsButtonSet>
-                    <HdsButton
-                      type="submit"
-                      @text="Leave Beta"
-                      {{on "click" F.close}}
-                    />
-                    <HdsButton
-                      type="button"
-                      @text="Cancel"
-                      @color="secondary"
-                      {{on "click" F.close}}
-                    />
-                  </HdsButtonSet>
-                </M.Footer>
-              </:modal>
-            </ModalWithTrigger>
-          </SNL.Item>
         </HdsSideNavList>
       </:body>
       <:footer>
