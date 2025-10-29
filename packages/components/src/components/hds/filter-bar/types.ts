@@ -42,10 +42,6 @@ export interface HdsFilterBarFilter {
   data?: HdsFilterBarData;
 }
 
-// export interface HdsFilterBarFilters {
-//   [name: string]: HdsFilterBarFilter[] | HdsFilterBarFilter | undefined;
-// }
-
 export interface HdsFilterBarFilters {
   [name: string]: HdsFilterBarFilter;
 }

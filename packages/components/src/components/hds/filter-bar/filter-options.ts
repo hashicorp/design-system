@@ -9,7 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 
-import HdsDropdown from '../dropdown/index.ts';
+import HdsTabsPanel from '../tabs/panel.ts';
 
 import HdsFilterBarCheckbox from './checkbox.ts';
 import HdsFilterBarRadio from './radio.ts';
@@ -23,17 +23,14 @@ import type {
   HdsFilterBarRangeFilter,
   HdsFilterBarRangeFilterSelector,
 } from './types.ts';
-import { SELECTORS_DISPLAY_SYMBOL } from './range.ts';
 
-export interface HdsFilterBarDropdownSignature {
+export interface HdsFilterBarFilterOptionsSignature {
   Args: {
-    dropdown?: WithBoundArgs<typeof HdsDropdown, never>;
+    panel?: WithBoundArgs<typeof HdsTabsPanel, never>;
     key: string;
-    text?: string;
     type?: HdsFilterBarFilterType;
     filters: HdsFilterBarFilters;
     isMultiSelect?: boolean;
-    isLiveFilter?: boolean;
     activeFilterableColumns?: string[];
     searchEnabled?: boolean;
     onChange: (key: string, keyFilter?: HdsFilterBarFilter) => void;
@@ -43,11 +40,11 @@ export interface HdsFilterBarDropdownSignature {
       {
         Checkbox?: WithBoundArgs<
           typeof HdsFilterBarCheckbox,
-          'checkbox' | 'keyFilter' | 'onChange'
+          'keyFilter' | 'onChange'
         >;
         Radio?: WithBoundArgs<
           typeof HdsFilterBarRadio,
-          'radio' | 'keyFilter' | 'onChange'
+          'keyFilter' | 'onChange'
         >;
       },
     ];
@@ -55,10 +52,10 @@ export interface HdsFilterBarDropdownSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdownSignature> {
+export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFilterOptionsSignature> {
   @tracked internalFilters: HdsFilterBarData | undefined = [];
 
-  private _setUpDropdown = modifier(() => {
+  private _setUpFilterOptions = modifier(() => {
     if (this.keyFilter) {
       this.internalFilters = JSON.parse(
         JSON.stringify(this.keyFilter)
@@ -128,11 +125,9 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
       removeFilter(input.value);
     }
 
-    if (this.args.isLiveFilter) {
-      const { onChange } = this.args;
-      if (onChange && typeof onChange === 'function') {
-        onChange(this.args.key, this.formattedFilters);
-      }
+    const { onChange } = this.args;
+    if (onChange && typeof onChange === 'function') {
+      onChange(this.args.key, this.formattedFilters);
     }
   }
 
@@ -155,38 +150,10 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
       this.internalFilters = undefined;
     }
 
-    if (this.args.isLiveFilter) {
-      const { onChange } = this.args;
-      if (onChange && typeof onChange === 'function') {
-        onChange(this.args.key, this.formattedFilters);
-      }
-    }
-  }
-
-  @action
-  onApply(closeDropdown?: () => void): void {
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(this.args.key, this.formattedFilters);
     }
-
-    if (closeDropdown && typeof closeDropdown === 'function') {
-      closeDropdown();
-    }
-  }
-
-  @action
-  onClear(closeDropdown?: () => void): void {
-    this._clearFilters();
-
-    if (closeDropdown && typeof closeDropdown === 'function') {
-      closeDropdown();
-    }
-  }
-
-  @action
-  onDismiss(): void {
-    this._clearFilters();
   }
 
   get formattedFilters(): HdsFilterBarFilter | undefined {
@@ -202,92 +169,71 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
     } as HdsFilterBarFilter;
   }
 
-  get toggleButtonText(): string {
-    const { key, filters, text } = this.args;
+  // get toggleButtonText(): string {
+  //   const { key, filters, text } = this.args;
 
-    let displayText = key;
-    if (text && text.length > 0) {
-      displayText = text;
-    }
+  //   let displayText = key;
+  //   if (text && text.length > 0) {
+  //     displayText = text;
+  //   }
 
-    const keyFilter = filters[key];
+  //   const keyFilter = filters[key];
 
-    if (!filters || !keyFilter || !keyFilter.data) {
-      return displayText;
-    } else if (this.args.type === 'range') {
-      return `${displayText} ${this._rangeFilterText(keyFilter.data)}`;
-    } else if (this.args.type === 'single-select') {
-      return `${displayText}: ${this._singleSelectFilterText(keyFilter.data)}`;
-    } else {
-      return `${displayText}: ${this._multiSelectFilterText(keyFilter.data)}`;
-    }
-  }
+  //   if (!filters || !keyFilter || !keyFilter.data) {
+  //     return displayText;
+  //   } else if (this.args.type === 'range') {
+  //     return `${displayText} ${this._rangeFilterText(keyFilter.data)}`;
+  //   } else if (this.args.type === 'single-select') {
+  //     return `${displayText}: ${this._singleSelectFilterText(keyFilter.data)}`;
+  //   } else {
+  //     return `${displayText}: ${this._multiSelectFilterText(keyFilter.data)}`;
+  //   }
+  // }
 
-  private _rangeFilterText(filterData: HdsFilterBarData): string {
-    if ('selector' in filterData && 'value' in filterData) {
-      return `${SELECTORS_DISPLAY_SYMBOL[filterData.selector]} ${filterData.value}`;
-    } else {
-      return '';
-    }
-  }
+  // private _rangeFilterText(filterData: HdsFilterBarData): string {
+  //   if ('selector' in filterData && 'value' in filterData) {
+  //     return `${SELECTORS_DISPLAY_SYMBOL[filterData.selector]} ${filterData.value}`;
+  //   } else {
+  //     return '';
+  //   }
+  // }
 
-  private _singleSelectFilterText(filterData: HdsFilterBarData): string {
-    if ('value' in filterData) {
-      return filterData.value as string;
-    } else {
-      return '';
-    }
-  }
+  // private _singleSelectFilterText(filterData: HdsFilterBarData): string {
+  //   if ('value' in filterData) {
+  //     return filterData.value as string;
+  //   } else {
+  //     return '';
+  //   }
+  // }
 
-  private _multiSelectFilterText(filterData: HdsFilterBarData): string {
-    if (Array.isArray(filterData) && filterData.length > 0) {
-      const charMax = 10;
-      let filtersString = '';
+  // private _multiSelectFilterText(filterData: HdsFilterBarData): string {
+  //   if (Array.isArray(filterData) && filterData.length > 0) {
+  //     const charMax = 10;
+  //     let filtersString = '';
 
-      filtersString = filterData
-        .map((filter) => {
-          if ('text' in filter && typeof filter.text === 'string') {
-            if (filter.text.length > charMax) {
-              return filter.text.slice(0, charMax) + '...';
-            }
-            return filter.text;
-          }
-          return '';
-        })
-        .join(', ');
+  //     filtersString = filterData
+  //       .map((filter) => {
+  //         if ('text' in filter && typeof filter.text === 'string') {
+  //           if (filter.text.length > charMax) {
+  //             return filter.text.slice(0, charMax) + '...';
+  //           }
+  //           return filter.text;
+  //         }
+  //         return '';
+  //       })
+  //       .join(', ');
 
-      return filtersString;
-    } else {
-      return '';
-    }
-  }
+  //     return filtersString;
+  //   } else {
+  //     return '';
+  //   }
+  // }
 
   get classNames(): string {
-    const classes = ['hds-filter-bar__dropdown'];
-
-    // add a class based on the @align argument
-    if (!this._isActiveFilterableColumn()) {
-      classes.push('hds-filter-bar__dropdown--hidden');
-    }
+    const classes = ['hds-filter-bar__filter-options'];
 
     classes.push(`hds-filter-bar__dropdown--type-${this.type}`);
 
     return classes.join(' ');
-  }
-
-  private _isActiveFilterableColumn(): boolean {
-    if (this.args.activeFilterableColumns) {
-      return this.args.activeFilterableColumns.includes(this.args.key);
-    }
-    return false;
-  }
-
-  private _clearFilters(): void {
-    this.internalFilters = undefined;
-
-    const { onChange } = this.args;
-    if (onChange && typeof onChange === 'function') {
-      onChange(this.args.key, undefined);
-    }
   }
 }

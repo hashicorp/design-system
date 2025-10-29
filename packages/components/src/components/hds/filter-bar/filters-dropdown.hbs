@@ -1,22 +1,18 @@
 {{! @glint-nocheck }}
-<Hds::Dropdown
-  @listPosition="bottom-left"
-  @height="180px"
-  class={{this.classNames}}
-  {{this._updateInternalFilterableColumns}}
-  as |D|
->
-  <D.ToggleButton @text="Add filter" @color="secondary" @size="small" />
-  {{yield
-    (hash
-      Checkbox=(component
-        "hds/filter-bar/filters-checkbox"
-        checkbox=D.Checkbox
-        activeFilterableColumns=this.internalFilterableColumns
-        onChange=this.onChange
-      )
-    )
-  }}
+<Hds::Dropdown @listPosition="bottom-left" @height="500px" class={{this.classNames}} as |D|>
+  <D.ToggleButton @icon="filter" @text="Filter" @color="secondary" @size="small" />
+  <D.Generic>
+    <Hds::Tabs as |T|>
+      {{yield
+        (hash
+          FilterTab=(component "hds/filter-bar/filter-tab" tab=T.Tab filters=this.internalFilters)
+          FilterOptions=(component
+            "hds/filter-bar/filter-options" panel=T.Panel onChange=this.onFilter filters=this.internalFilters
+          )
+        )
+      }}
+    </Hds::Tabs>
+  </D.Generic>
   <D.Footer @hasDivider={{true}}>
     <Hds::ButtonSet>
       <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" {{on "click" (fn this.onApply D.close)}} />

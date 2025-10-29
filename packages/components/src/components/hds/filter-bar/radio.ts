@@ -5,17 +5,12 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import type { WithBoundArgs } from '@glint/template';
 
 import type { HdsFilterBarSelectionFilter } from './types.ts';
-
-import HdsDropdownListItemRadio from '../dropdown/list-item/radio.ts';
-
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
 export interface HdsFilterBarRadioSignature {
   Args: HdsDropdownSignature['Args'] & {
-    radio?: WithBoundArgs<typeof HdsDropdownListItemRadio, never>;
     value?: string;
     keyFilter: HdsFilterBarSelectionFilter | undefined;
     onChange?: (event: Event) => void;

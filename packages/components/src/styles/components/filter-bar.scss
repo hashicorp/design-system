@@ -33,15 +33,6 @@
     flex-direction: row;
     gap: 8px;
     align-items: end;
-    justify-content: space-between;
-  }
-
-  .hds-filter-bar__active-filters {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
   }
 }
 
@@ -49,21 +40,16 @@
   display: flex;
   flex-direction: row;
   gap: 8px;
+  margin-left: auto;
 }
 
 .hds-filter-bar__search {
   --token-form-control-padding: 4px;
 }
 
-// DROPDOWN
-.hds-filter-bar__dropdown--hidden.hds-segmented-group {
-  display: none;
-}
+// FILTERS DROPDOWN
+//
 
-.hds-filter-bar__dropdown--type-range .hds-dropdown-list-item {
-  padding: 8px 16px;
-}
-
-.hds-filter-bar__dropdown--type-range .hds-form-label {
-  margin-bottom: 4px;
+.hds-filter-bar__filters-dropdown__filter-options .hds-form-field--layout-flag {
+  padding: 8px 12px;
 }
