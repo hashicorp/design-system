@@ -1,5 +1,6 @@
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import style from 'ember-style-modifier';
+import { service } from '@ember/service';
 
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -7,41 +8,76 @@ import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwDivider from 'showcase/components/shw/divider';
 
 import { HdsThemeSwitcher } from '@hashicorp/design-system-components/components';
+import ShwThemingService from 'showcase/services/shw-theming';
 
-const SubSectionThemeSwitcher: TemplateOnlyComponent = <template>
-  <ShwTextH2>Theme switcher</ShwTextH2>
+import type {
+  OnSetThemeCallback,
+  OnSetThemeCallbackArgs,
+} from '@hashicorp/design-system-components/services/hds-theming';
 
-  <ShwTextH4 @tag="h3">Size</ShwTextH4>
+export default class SubSectionThemeSwitcher extends Component {
+  @service declare readonly shwTheming: ShwThemingService;
 
-  <ShwFlex @gap="2rem" as |SF|>
-    <SF.Item @label="small (default)">
-      <HdsThemeSwitcher />
-    </SF.Item>
-    <SF.Item @label="medium">
-      <HdsThemeSwitcher @toggleSize="medium" />
-    </SF.Item>
-  </ShwFlex>
+  onSetTheme: OnSetThemeCallback = ({
+    currentTheme,
+  }: OnSetThemeCallbackArgs) => {
+    if (
+      (currentTheme === 'system' &&
+        (this.shwTheming.currentStylesheet === 'standard' ||
+          this.shwTheming.currentStylesheet === 'css-selectors')) ||
+      ((currentTheme === 'light' || currentTheme === 'dark') &&
+        (this.shwTheming.currentStylesheet === 'standard' ||
+          this.shwTheming.currentStylesheet === 'prefers-color-scheme'))
+    ) {
+      window.alert(
+        'The theming stylesheet will be switched to "combined-strategies" to support this theme selection.',
+      );
+      this.shwTheming.setStylesheet('combined-strategies');
+    }
+  };
 
-  <ShwFlex as |SF|>
-    <SF.Item @label="full-width">
-      <div {{style width="150px"}}>
-        <HdsThemeSwitcher @toggleIsFullWidth={{true}} />
-      </div>
-    </SF.Item>
-  </ShwFlex>
+  <template>
+    <ShwTextH2>Theme switcher</ShwTextH2>
 
-  <ShwDivider @level={{2}} />
+    <ShwTextH4 @tag="h3">Size</ShwTextH4>
 
-  <ShwTextH4 @tag="h3">Options</ShwTextH4>
+    <ShwFlex @gap="2rem" as |SF|>
+      <SF.Item @label="small (default)">
+        <HdsThemeSwitcher @onSetTheme={{this.onSetTheme}} />
+      </SF.Item>
+      <SF.Item @label="medium">
+        <HdsThemeSwitcher
+          @toggleSize="medium"
+          @onSetTheme={{this.onSetTheme}}
+        />
+      </SF.Item>
+    </ShwFlex>
 
-  <ShwFlex @gap="2rem" as |SF|>
-    <SF.Item @label="System/Light/Dark (default)">
-      <HdsThemeSwitcher />
-    </SF.Item>
-    <SF.Item @label="Only Light/Dark">
-      <HdsThemeSwitcher @hasSystemOption={{false}} />
-    </SF.Item>
-  </ShwFlex>
-</template>;
+    <ShwFlex as |SF|>
+      <SF.Item @label="full-width">
+        <div {{style width="150px"}}>
+          <HdsThemeSwitcher
+            @toggleIsFullWidth={{true}}
+            @onSetTheme={{this.onSetTheme}}
+          />
+        </div>
+      </SF.Item>
+    </ShwFlex>
 
-export default SubSectionThemeSwitcher;
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH4 @tag="h3">Options</ShwTextH4>
+
+    <ShwFlex @gap="2rem" as |SF|>
+      <SF.Item @label="System/Light/Dark (default)">
+        <HdsThemeSwitcher @onSetTheme={{this.onSetTheme}} />
+      </SF.Item>
+      <SF.Item @label="Only Light/Dark">
+        <HdsThemeSwitcher
+          @hasSystemOption={{false}}
+          @onSetTheme={{this.onSetTheme}}
+        />
+      </SF.Item>
+    </ShwFlex>
+  </template>
+}
