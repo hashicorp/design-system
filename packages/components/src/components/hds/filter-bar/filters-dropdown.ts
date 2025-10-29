@@ -6,26 +6,29 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { modifier } from 'ember-modifier';
+import type Owner from '@ember/owner';
 import type { WithBoundArgs } from '@glint/template';
 
 import HdsDropdown from './../dropdown/index.ts';
-import HdsFilterBarFiltersCheckbox from './filters-checkbox.ts';
+import HdsFilterBarFilterTab from './filter-tab.ts';
+import HdsFilterBarFilterOptions from './filter-options.ts';
+import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
 
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
 export interface HdsFilterBarFiltersDropdownSignature {
   Args: HdsDropdownSignature['Args'] & {
     dropdown?: WithBoundArgs<typeof HdsDropdown, never>;
-    activeFilterableColumns?: string[];
-    onChange: (filterableColumns: string[]) => void;
+    filters: HdsFilterBarFilters;
+    onFilter?: (filters: HdsFilterBarFilters) => void;
   };
   Blocks: {
     default: [
       {
-        Checkbox?: WithBoundArgs<
-          typeof HdsFilterBarFiltersCheckbox,
-          'checkbox' | 'onChange' | 'activeFilterableColumns'
+        Filter?: WithBoundArgs<typeof HdsFilterBarFilterTab, 'tab' | 'filters'>;
+        FilterOptions?: WithBoundArgs<
+          typeof HdsFilterBarFilterOptions,
+          'panel' | 'onChange' | 'filters'
         >;
       },
     ];
@@ -36,39 +39,31 @@ export interface HdsFilterBarFiltersDropdownSignature {
 export default class HdsFilterBarFiltersDropdown extends Component<
   HdsDropdownSignature & HdsFilterBarFiltersDropdownSignature
 > {
-  @tracked internalFilterableColumns: string[] = [];
+  @tracked internalFilters: HdsFilterBarFilters = {};
 
-  private _updateInternalFilterableColumns = modifier(() => {
-    const { activeFilterableColumns } = this.args;
+  constructor(
+    owner: Owner,
+    args: HdsFilterBarFiltersDropdownSignature['Args']
+  ) {
+    super(owner, args);
 
-    if (activeFilterableColumns) {
-      this.internalFilterableColumns = activeFilterableColumns;
-    } else {
-      this.internalFilterableColumns = [];
-    }
-  });
+    const { filters } = this.args;
 
-  @action
-  onChange(event: Event): void {
-    const input = event.target as HTMLInputElement;
-
-    if (input.checked) {
-      this.internalFilterableColumns = [
-        ...this.internalFilterableColumns,
-        input.value,
-      ];
-    } else {
-      this.internalFilterableColumns = this.internalFilterableColumns?.filter(
-        (col) => col !== input.value
-      );
+    if (filters) {
+      this.internalFilters = { ...filters };
     }
   }
 
   @action
+  onFilter(key: string, keyFilter?: HdsFilterBarFilter): void {
+    this.internalFilters = this._updateFilter(key, keyFilter);
+  }
+
+  @action
   onApply(closeDropdown?: () => void): void {
-    const { onChange } = this.args;
-    if (onChange && typeof onChange === 'function') {
-      onChange(this.internalFilterableColumns);
+    const { onFilter } = this.args;
+    if (onFilter && typeof onFilter === 'function') {
+      onFilter(this.internalFilters);
     }
 
     if (closeDropdown && typeof closeDropdown === 'function') {
@@ -78,11 +73,11 @@ export default class HdsFilterBarFiltersDropdown extends Component<
 
   @action
   onClear(closeDropdown?: () => void): void {
-    this.internalFilterableColumns = [];
+    const { onFilter } = this.args;
+    this.internalFilters = {};
 
-    const { onChange } = this.args;
-    if (onChange && typeof onChange === 'function') {
-      onChange(this.internalFilterableColumns);
+    if (onFilter && typeof onFilter === 'function') {
+      onFilter(this.internalFilters);
     }
 
     if (closeDropdown && typeof closeDropdown === 'function') {
@@ -94,5 +89,29 @@ export default class HdsFilterBarFiltersDropdown extends Component<
     const classes = ['hds-filter-bar__filters-dropdown'];
 
     return classes.join(' ');
+  }
+
+  private _updateFilter(
+    key: string,
+    keyFilter?: HdsFilterBarFilter
+  ): HdsFilterBarFilters {
+    const { filters } = this.args;
+    const newFilters = {} as HdsFilterBarFilters;
+
+    Object.keys(filters).forEach((k) => {
+      newFilters[k] = JSON.parse(
+        JSON.stringify(filters[k])
+      ) as HdsFilterBarFilter;
+    });
+    if (
+      keyFilter === undefined ||
+      (Array.isArray(keyFilter) && keyFilter.length === 0)
+    ) {
+      delete newFilters[key];
+    } else {
+      Object.assign(newFilters, { [key]: keyFilter });
+    }
+
+    return { ...newFilters };
   }
 }
