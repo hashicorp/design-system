@@ -21,7 +21,8 @@
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet --ext .js,.ts",
     "extract-carbon-tokens": "tsx ./scripts/extract-carbon-tokens",
-    "build": "tsx ./scripts/build"
+    "build": "tsx ./scripts/build",
+    "postbuild": "cp -R dist/products/css/themed-tokens/with-prefers-color-scheme/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-prefers-color-scheme &&  cp -R dist/products/css/themed-tokens/with-css-selectors/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-css-selectors && cp -R dist/products/css/themed-tokens/with-combined-strategies/*.css ../../showcase/public/assets/styles/@hashicorp/themed-tokens/with-combined-strategies"
   },
   "devDependencies": {
     "@carbon/colors": "^11.39.0",
