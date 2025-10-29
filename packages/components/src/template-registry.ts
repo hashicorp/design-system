@@ -98,11 +98,11 @@ import type HdsDropdownToggleButtonComponent from './components/hds/dropdown/tog
 import type HdsDropdownToggleChevronComponent from './components/hds/dropdown/toggle/chevron';
 import type HdsDropdownToggleIconComponent from './components/hds/dropdown/toggle/icon';
 import type HdsFilterBarComponent from './components/hds/filter-bar';
-import type HdsFilterBarDropdownComponent from './components/hds/filter-bar/dropdown';
 import type HdsFilterBarCheckboxComponent from './components/hds/filter-bar/checkbox';
 import type HdsFilterBarRadioComponent from './components/hds/filter-bar/radio';
 import type HdsFilterBarFiltersDropdownComponent from './components/hds/filter-bar/filters-dropdown';
-import type HdsFilterBarFiltersCheckboxComponent from './components/hds/filter-bar/filters-checkbox';
+import type HdsFilterBarFilterTabComponent from './components/hds/filter-bar/filter-tab';
+import type HdsFilterBarFilterOptionsComponent from './components/hds/filter-bar/filter-options';
 import type HdsFilterBarRangeComponent from './components/hds/filter-bar/range';
 import type HdsFlyoutComponent from './components/hds/flyout';
 
@@ -564,16 +564,16 @@ export default interface HdsComponentsRegistry {
   // Filter Bar
   'Hds::FilterBar': typeof HdsFilterBarComponent;
   'hds/filter-bar': typeof HdsFilterBarComponent;
-  'Hds::FilterBar::Dropdown': typeof HdsFilterBarDropdownComponent;
-  'hds/filter-bar/dropdown': typeof HdsFilterBarDropdownComponent;
   'Hds::FilterBar::Checkbox': typeof HdsFilterBarCheckboxComponent;
   'hds/filter-bar/checkbox': typeof HdsFilterBarCheckboxComponent;
   'Hds::FilterBar::Radio': typeof HdsFilterBarRadioComponent;
   'hds/filter-bar/radio': typeof HdsFilterBarRadioComponent;
   'Hds::FilterBar::FiltersDropdown': typeof HdsFilterBarFiltersDropdownComponent;
   'hds/filter-bar/filters-dropdown': typeof HdsFilterBarFiltersDropdownComponent;
-  'Hds::FilterBar::FiltersCheckbox': typeof HdsFilterBarFiltersCheckboxComponent;
-  'hds/filter-bar/filters-checkbox': typeof HdsFilterBarFiltersCheckboxComponent;
+  'Hds::FilterBar::FilterTab': typeof HdsFilterBarFilterTabComponent;
+  'hds/filter-bar/filter-tab': typeof HdsFilterBarFilterTabComponent;
+  'Hds::FilterBar::FilterOptions': typeof HdsFilterBarFilterOptionsComponent;
+  'hds/filter-bar/filter-options': typeof HdsFilterBarFilterOptionsComponent;
   'Hds::FilterBar::Range': typeof HdsFilterBarRangeComponent;
   'hds/filter-bar/range': typeof HdsFilterBarRangeComponent;
 

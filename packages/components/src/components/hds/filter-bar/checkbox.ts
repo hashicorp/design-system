@@ -5,17 +5,12 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import type { WithBoundArgs } from '@glint/template';
 
 import type { HdsFilterBarSelectionFilter } from './types.ts';
-
-import HdsDropdownListItemCheckbox from '../dropdown/list-item/checkbox.ts';
-
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
 export interface HdsFilterBarCheckboxSignature {
   Args: HdsDropdownSignature['Args'] & {
-    checkbox?: WithBoundArgs<typeof HdsDropdownListItemCheckbox, never>;
     value?: string;
     keyFilter: HdsFilterBarSelectionFilter[] | undefined;
     onChange?: (event: Event) => void;
