@@ -73,6 +73,7 @@ export default class ShwThemingService extends HdsThemingService {
   }
 
   // example of how a consumer could use the `globalOnSetTheme` callback by extending the `hdsTheming` service
+  // note: for this to work, the `setTheme` must be invoked using the `shwTheming` service: `this.shwTheming.setTheme()`
   //
   // globalOnSetTheme: OnSetThemeCallback = ({
   //   currentTheme,
