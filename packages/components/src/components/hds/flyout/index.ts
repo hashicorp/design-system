@@ -119,14 +119,6 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     }
   }
 
-  @action registerOnCloseCallback(event: Event) {
-    if (this.args.onClose && typeof this.args.onClose === 'function') {
-      this.args.onClose(event);
-    }
-
-    this._performCloseCleanup();
-  }
-
   private _registerDialog = modifier((element: HTMLDialogElement) => {
     // Store references of `<dialog>` and `<body>` elements
     this._element = element;
@@ -161,6 +153,14 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
       );
     };
   });
+
+  @action registerOnCloseCallback(event: Event) {
+    if (this.args.onClose && typeof this.args.onClose === 'function') {
+      this.args.onClose(event);
+    }
+
+    this._performCloseCleanup();
+  }
 
   @action
   open(): void {
