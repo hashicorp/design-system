@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Link from "@hashicorp/design-system-components/components/hds/side-nav/list/link";
+
+import { HdsSideNavListLink } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/side-nav/list/link', function (hooks) {
   setupRenderingTest(hooks);
@@ -15,7 +17,9 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><Link id="test-side-nav-list-item-link" /></template>,
+      <template>
+        <HdsSideNavListLink id="test-side-nav-list-item-link" />
+      </template>,
     );
     assert
       .dom('#test-side-nav-list-item-link')
@@ -26,7 +30,16 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      <template><Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} @isHrefExternal={{true}} /></template>,
+      <template>
+        <HdsSideNavListLink
+          @icon="boundary"
+          @text="Boundary"
+          @count="3"
+          @badge="Alpha"
+          @hasSubItems={{true}}
+          @isHrefExternal={{true}}
+        />
+      </template>,
     );
     assert.dom('.hds-icon-boundary').exists();
     assert.dom('.hds-side-nav__list-item-text').hasText('Boundary');
@@ -38,30 +51,36 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it renders the link as "active" if @isActive is true', async function (assert) {
     await render(
-      <template><Link @isActive={{true}} id="test-side-nav-link" /></template>,
+      <template>
+        <HdsSideNavListLink @isActive={{true}} id="test-side-nav-link" />
+      </template>,
     );
     assert.dom('#test-side-nav-link').hasClass('active');
   });
 
   test('it renders the passed in custom content', async function (assert) {
-    await render(<template>
-      <Link>
-        <span id="test-custom-content" />
-      </Link>
-    </template>);
+    await render(
+      <template>
+        <HdsSideNavListLink>
+          <span id="test-custom-content" />
+        </HdsSideNavListLink>
+      </template>,
+    );
     assert.dom('#test-custom-content').exists();
   });
 
   // GENERATED ELEMENTS
 
   test('it should render a <button> if no @href or @route is passed (default)', async function (assert) {
-    await render(<template><Link /></template>);
+    await render(<template><HdsSideNavListLink /></template>);
     assert.dom('.hds-side-nav__list-item-link').hasTagName('button');
   });
 
   test('it should render a <a> link if @href is passed', async function (assert) {
     await render(
-      <template><Link @href="https://www.hashicorp.com/" /></template>,
+      <template>
+        <HdsSideNavListLink @href="https://www.hashicorp.com/" />
+      </template>,
     );
     assert
       .dom('.hds-side-nav__list-item-link')
@@ -71,7 +90,9 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      <template><Link @route="page-utilities.interactive" /></template>,
+      <template>
+        <HdsSideNavListLink @route="page-utilities.interactive" />
+      </template>,
     );
     assert
       .dom('.hds-side-nav__list-item-link')

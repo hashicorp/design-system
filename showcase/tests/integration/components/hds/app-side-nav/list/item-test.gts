@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Item from "@hashicorp/design-system-components/components/hds/app-side-nav/list/item";
+
+import { HdsAppSideNavListItem } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Component | hds/app-side-nav/list/item',
@@ -17,7 +19,9 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        <template><Item id="test-app-side-nav-list-item" /></template>,
+        <template>
+          <HdsAppSideNavListItem id="test-app-side-nav-list-item" />
+        </template>,
       );
       assert
         .dom('#test-app-side-nav-list-item')
@@ -27,9 +31,13 @@ module(
     // Test Content
 
     test('it renders the passed in custom content', async function (assert) {
-      await render(<template>
-        <Item><span id="test-custom-content" /></Item>
-      </template>);
+      await render(
+        <template>
+          <HdsAppSideNavListItem><span
+              id="test-custom-content"
+            /></HdsAppSideNavListItem>
+        </template>,
+      );
       assert.dom('#test-custom-content').exists();
     });
   },
