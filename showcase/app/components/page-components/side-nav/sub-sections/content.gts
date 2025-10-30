@@ -12,8 +12,6 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 
 import {
   HdsSideNav,
-  HdsSideNavHeader,
-  HdsSideNavHeaderHomeLink,
   HdsSideNavPortal,
   HdsSideNavPortalTarget,
   HdsSideNavList,
@@ -23,7 +21,7 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 import ModalWithTrigger from '../../../page-components/modal/code-fragments/with-trigger';
-import SuperSelectWithButtons from 'showcase/components/page-components/form/super-select/code-fragments/with-multiple-base-element';
+import SuperSelectWithButtons from 'showcase/components/page-components/form/super-select/code-fragments/with-minimal-content-and-buttons';
 import FlyoutWithTrigger from 'showcase/components/page-components/flyout/code-fragments/with-trigger';
 
 import { on } from '@ember/modifier';
@@ -161,55 +159,23 @@ const SubSectionContent: TemplateOnlyComponent = <template>
   <ShwFlex as |SF|>
     <SF.Item @label="">
       <HdsSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
-        <:header>
-          <HdsSideNavHeader>
-            <:logo>
-              <HdsSideNavHeaderHomeLink
-                @icon="hashicorp"
-                @ariaLabel="HashiCorp"
-                @href="#"
-              />
-            </:logo>
-            <:actions>
-              <HdsButton @icon="search" @isIconOnly={{true}} @text="Search" />
-              <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
-                <dd.ToggleIcon @icon="help" @text="help menu" />
-                <dd.Title @text="Help & Support" />
-                <dd.Interactive @href="#">Documentation</dd.Interactive>
-                <dd.Interactive @href="#">Tutorials</dd.Interactive>
-                <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
-                <dd.Interactive @href="#">Changelog</dd.Interactive>
-                <dd.Separator />
-                <dd.Interactive @href="#">Create support ticket</dd.Interactive>
-                <dd.Interactive @href="#">Give feedback</dd.Interactive>
-              </HdsDropdown>
-              <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
-                <dd.ToggleIcon @icon="user" @text="user menu" />
-                <dd.Title @text="Signed In" />
-                <dd.Description @text="email@domain.com" />
-                <dd.Interactive @href="#">Account Settings</dd.Interactive>
-              </HdsDropdown>
-            </:actions>
-          </HdsSideNavHeader>
-        </:header>
-
         <:body>
           <HdsSideNavList as |SNL|>
             <SNL.Item>
+              <SuperSelectWithButtons @placeholder="SuperSelect" />
+            </SNL.Item>
+            <SNL.Item>
               <HdsDropdown as |D|>
                 <D.ToggleButton @text="Dropdown" />
-                <D.Interactive @href="#">Add</D.Interactive>
-                <D.Interactive @href="#">Add More</D.Interactive>
-                <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
-                <D.Footer @hasDivider={{true}}>
+                <D.Footer>
                   <HdsButtonSet>
                     <HdsButton
-                      @text="Apply filters"
+                      @text="Primary"
                       @isFullWidth={{true}}
                       @size="small"
                     />
                     <HdsButton
-                      @text="Cancel"
+                      @text="Secondary"
                       @color="secondary"
                       @size="small"
                     />
@@ -218,10 +184,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
               </HdsDropdown>
             </SNL.Item>
             <SNL.Item>
-              <SuperSelectWithButtons @isSelected={{true}} />
-            </SNL.Item>
-            <SNL.Item>
-              <ModalWithTrigger @triggerText="Open modal" id="basic-modal">
+              <ModalWithTrigger @triggerText="Open modal" id="nested-modal">
                 <:modal as |M|>
                   <M.Header>
                     Modal title
@@ -235,12 +198,12 @@ const SubSectionContent: TemplateOnlyComponent = <template>
                     <HdsButtonSet>
                       <HdsButton
                         type="submit"
-                        @text="Leave Beta"
+                        @text="Primary"
                         {{on "click" F.close}}
                       />
                       <HdsButton
                         type="button"
-                        @text="Cancel"
+                        @text="Secondary"
                         @color="secondary"
                         {{on "click" F.close}}
                       />
@@ -250,55 +213,14 @@ const SubSectionContent: TemplateOnlyComponent = <template>
               </ModalWithTrigger>
             </SNL.Item>
             <SNL.Item>
-              <FlyoutWithTrigger
-                @triggerText="Open medium flyout"
-                id="medium-flyout"
-              >
+              <FlyoutWithTrigger @triggerText="Open flyout" id="nested-flyout">
                 <:flyout as |F|>
                   <F.Header>
-                    Medium flyout title
+                    Flyout title
                   </F.Header>
                   <F.Body>
                     <p class="hds-typography-body-300 hds-foreground-primary">
-                      Aliquam ac enim iaculis, faucibus enim id, dapibus quam.
-                      Nunc nibh mi, vehicula sed enim eget, lacinia venenatis
-                      tortor. Quisque vitae accumsan est, eu vehicula arcu.
-                      Pellentesque ut turpis tortor. Curabitur eu turpis nec
-                      tellus vehicula imperdiet finibus in magna. Fusce
-                      tincidunt condimentum tristique. Ut mauris enim, finibus
-                      pulvinar vulputate at, ultrices ut purus. Aenean tincidunt
-                      eros a scelerisque blandit. Praesent vel fermentum velit,
-                      nec sodales turpis. Suspendisse ac rhoncus urna. Donec
-                      fermentum, justo aliquam facilisis sodales, quam magna
-                      pulvinar turpis, ut commodo diam ex ut arcu. Ut suscipit
-                      nisi sed bibendum pretium. Quisque efficitur, arcu quis
-                      congue consectetur, ex lorem euismod arcu, id viverra
-                      velit lacus non odio. Vestibulum ac mauris tortor.
-                      Pellentesque nec dignissim libero.
-                    </p>
-                    <p class="hds-typography-body-300 hds-foreground-primary">
-                      Duis euismod semper egestas. Vivamus consectetur augue eu
-                      mattis suscipit. Ut libero ipsum, sollicitudin a ornare
-                      ornare, consectetur eget mauris. Pellentesque sodales
-                      ligula eget purus congue molestie. Vivamus dolor magna,
-                      condimentum at consectetur vestibulum, mollis a purus.
-                      Aliquam malesuada arcu quis orci imperdiet accumsan. Donec
-                      pharetra odio libero, id cursus ipsum tristique vitae.
-                      Morbi placerat hendrerit massa vel varius. Vestibulum ante
-                      ipsum primis in faucibus orci luctus et ultrices posuere
-                      cubilia curae; Donec maximus porttitor ipsum, sed
-                      ultricies est fermentum at. In dignissim luctus ex vel
-                      condimentum.
-                    </p>
-                    <p class="hds-typography-body-300 hds-foreground-primary">
-                      Nulla facilisi. Mauris consequat vehicula nunc, ut rutrum
-                      elit posuere quis. Duis convallis elit ac nibh viverra
-                      dapibus. Quisque eu laoreet arcu, in pharetra sapien.
-                      Nulla velit urna, elementum non dignissim in, gravida et
-                      dui. Praesent tincidunt vel leo sed ornare. Proin finibus
-                      metus dictum odio blandit dictum. Donec ipsum tellus,
-                      molestie nec aliquam sit amet, sollicitudin non neque.
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Flyout body
                     </p>
                   </F.Body>
                   <F.Footer as |FF|>
