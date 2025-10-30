@@ -1,26 +1,24 @@
-{{#let @generic as |Generic|}}
-  <Generic>
-    <Hds::Form::Label>
-      Number is
-    </Hds::Form::Label>
-    <Hds::Layout::Flex @gap="8">
-      <Hds::Form::Select::Base @id={{this._selectorInputId}} {{on "change" this.onSelectorChange}} as |F|>
-        <F.Options>
-          <option value="">Pick a selector</option>
-          {{#each this._selectorValues as |selectorValue|}}
-            <option value={{selectorValue}} selected={{eq selectorValue this._selector}}>{{this.selectorText
-                selectorValue
-              }}</option>
-          {{/each}}
-        </F.Options>
-      </Hds::Form::Select::Base>
-      <Hds::Form::TextInput::Base
-        @id={{this._valueInputId}}
-        @type="text"
-        @value={{this.stringValue}}
-        placeholder="Enter a number"
-        {{on "change" this.onValueChange}}
-      />
-    </Hds::Layout::Flex>
-  </Generic>
-{{/let}}
+<div class="hds-filter-bar__filters-dropdown__filter-range">
+  <Hds::Form::Label>
+    Number is
+  </Hds::Form::Label>
+  <Hds::Layout::Flex @direction="column" @gap="16">
+    <Hds::Form::Select::Base @id={{this._selectorInputId}} {{on "change" this.onSelectorChange}} as |F|>
+      <F.Options>
+        <option value="">Pick a selector</option>
+        {{#each this._selectorValues as |selectorValue|}}
+          <option value={{selectorValue}} selected={{eq selectorValue this._selector}}>{{this.selectorText
+              selectorValue
+            }}</option>
+        {{/each}}
+      </F.Options>
+    </Hds::Form::Select::Base>
+    <Hds::Form::TextInput::Base
+      @id={{this._valueInputId}}
+      @type="text"
+      @value={{this.stringValue}}
+      placeholder="Enter a number"
+      {{on "change" this.onValueChange}}
+    />
+  </Hds::Layout::Flex>
+</div>
