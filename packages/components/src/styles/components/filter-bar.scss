@@ -53,3 +53,20 @@
 .hds-filter-bar__filters-dropdown__filter-options .hds-form-field--layout-flag {
   padding: 8px 12px;
 }
+
+.hds-filter-bar__filters-dropdown .hds-layout-flex {
+  margin: 8px 0;
+}
+
+.hds-filter-bar__filters-dropdown .hds-button-set {
+  gap: 8px;
+}
+
+.hds-filter-bar__filters-dropdown__filter-options__list {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 4px 0;
+  overflow-y: auto;
+  list-style: none;
+  overscroll-behavior: contain;
+}
