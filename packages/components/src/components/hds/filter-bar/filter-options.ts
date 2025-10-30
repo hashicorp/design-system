@@ -30,8 +30,6 @@ export interface HdsFilterBarFilterOptionsSignature {
     key: string;
     type?: HdsFilterBarFilterType;
     filters: HdsFilterBarFilters;
-    isMultiSelect?: boolean;
-    activeFilterableColumns?: string[];
     searchEnabled?: boolean;
     onChange: (key: string, keyFilter?: HdsFilterBarFilter) => void;
   };
@@ -55,7 +53,11 @@ export interface HdsFilterBarFilterOptionsSignature {
 export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFilterOptionsSignature> {
   @tracked internalFilters: HdsFilterBarData | undefined = [];
 
-  private _setUpFilterOptions = modifier(() => {
+  private _element!: HTMLDivElement;
+
+  private _setUpFilterOptions = modifier((element: HTMLDivElement) => {
+    this._element = element;
+
     if (this.keyFilter) {
       this.internalFilters = JSON.parse(
         JSON.stringify(this.keyFilter)
@@ -169,66 +171,6 @@ export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFil
     } as HdsFilterBarFilter;
   }
 
-  // get toggleButtonText(): string {
-  //   const { key, filters, text } = this.args;
-
-  //   let displayText = key;
-  //   if (text && text.length > 0) {
-  //     displayText = text;
-  //   }
-
-  //   const keyFilter = filters[key];
-
-  //   if (!filters || !keyFilter || !keyFilter.data) {
-  //     return displayText;
-  //   } else if (this.args.type === 'range') {
-  //     return `${displayText} ${this._rangeFilterText(keyFilter.data)}`;
-  //   } else if (this.args.type === 'single-select') {
-  //     return `${displayText}: ${this._singleSelectFilterText(keyFilter.data)}`;
-  //   } else {
-  //     return `${displayText}: ${this._multiSelectFilterText(keyFilter.data)}`;
-  //   }
-  // }
-
-  // private _rangeFilterText(filterData: HdsFilterBarData): string {
-  //   if ('selector' in filterData && 'value' in filterData) {
-  //     return `${SELECTORS_DISPLAY_SYMBOL[filterData.selector]} ${filterData.value}`;
-  //   } else {
-  //     return '';
-  //   }
-  // }
-
-  // private _singleSelectFilterText(filterData: HdsFilterBarData): string {
-  //   if ('value' in filterData) {
-  //     return filterData.value as string;
-  //   } else {
-  //     return '';
-  //   }
-  // }
-
-  // private _multiSelectFilterText(filterData: HdsFilterBarData): string {
-  //   if (Array.isArray(filterData) && filterData.length > 0) {
-  //     const charMax = 10;
-  //     let filtersString = '';
-
-  //     filtersString = filterData
-  //       .map((filter) => {
-  //         if ('text' in filter && typeof filter.text === 'string') {
-  //           if (filter.text.length > charMax) {
-  //             return filter.text.slice(0, charMax) + '...';
-  //           }
-  //           return filter.text;
-  //         }
-  //         return '';
-  //       })
-  //       .join(', ');
-
-  //     return filtersString;
-  //   } else {
-  //     return '';
-  //   }
-  // }
-
   get classNames(): string {
     const classes = ['hds-filter-bar__filter-options'];
 
@@ -236,4 +178,22 @@ export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFil
 
     return classes.join(' ');
   }
+
+  private onSearch = (event: Event) => {
+    const listItems = this._element.querySelectorAll(
+      '.hds-filter-bar__filters-dropdown__filter-option'
+    );
+    const input = event.target as HTMLInputElement;
+    listItems.forEach((item) => {
+      if (item.textContent) {
+        const text = item.textContent.toLowerCase();
+        const searchText = input.value.toLowerCase();
+        if (text.includes(searchText)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      }
+    });
+  };
 }

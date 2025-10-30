@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
 import type { WithBoundArgs } from '@glint/template';
 
@@ -54,6 +55,14 @@ export default class HdsFilterBarFiltersDropdown extends Component<
     }
   }
 
+  private _syncFilters = modifier(
+    (_element, [_filters]: [HdsFilterBarFilters | undefined]) => {
+      if (_filters) {
+        this.internalFilters = _filters;
+      }
+    }
+  );
+
   @action
   onFilter(key: string, keyFilter?: HdsFilterBarFilter): void {
     this.internalFilters = this._updateFilter(key, keyFilter);
@@ -85,6 +94,21 @@ export default class HdsFilterBarFiltersDropdown extends Component<
     }
   }
 
+  get numFilters(): number {
+    let numFilters = 0;
+    Object.keys(this.internalFilters).forEach((key) => {
+      const filter = this.internalFilters[key];
+      if (filter) {
+        if (Array.isArray(filter.data)) {
+          numFilters += filter.data.length;
+        } else {
+          numFilters += 1;
+        }
+      }
+    });
+    return numFilters;
+  }
+
   get classNames(): string {
     const classes = ['hds-filter-bar__filters-dropdown'];
 
@@ -95,12 +119,11 @@ export default class HdsFilterBarFiltersDropdown extends Component<
     key: string,
     keyFilter?: HdsFilterBarFilter
   ): HdsFilterBarFilters {
-    const { filters } = this.args;
     const newFilters = {} as HdsFilterBarFilters;
 
-    Object.keys(filters).forEach((k) => {
+    Object.keys(this.internalFilters).forEach((k) => {
       newFilters[k] = JSON.parse(
-        JSON.stringify(filters[k])
+        JSON.stringify(this.internalFilters[k])
       ) as HdsFilterBarFilter;
     });
     if (
@@ -114,4 +137,13 @@ export default class HdsFilterBarFiltersDropdown extends Component<
 
     return { ...newFilters };
   }
+
+  private _onClose = (): void => {
+    const { filters } = this.args;
+    if (filters) {
+      this.internalFilters = { ...filters };
+    } else {
+      this.internalFilters = {};
+    }
+  };
 }
