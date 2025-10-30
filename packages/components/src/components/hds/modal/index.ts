@@ -45,7 +45,7 @@ export interface HdsModalSignature {
         >;
         Body?: WithBoundArgs<
           typeof HdsDialogPrimitiveBodyComponent,
-          'onDismiss' | 'contextualClass'
+          'contextualClass'
         >;
         Footer?: WithBoundArgs<
           typeof HdsDialogPrimitiveFooterComponent,
