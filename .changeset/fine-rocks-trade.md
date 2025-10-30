@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/button -->
-`Button` - Fixed color inheritance for Buttons within a `Modal` which is triggered from either the `SideNav` or `AppHeader`
+`Button` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav` or `AppHeader`
 <!-- END -->
