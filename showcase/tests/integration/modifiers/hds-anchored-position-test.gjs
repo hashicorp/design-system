@@ -7,7 +7,9 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { wait } from 'showcase/tests/helpers';
-import hdsAnchoredPosition, { getFloatingUIOptions } from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
+import hdsAnchoredPosition, {
+  getFloatingUIOptions,
+} from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
 import anchoredElementModifier from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
 
 //
@@ -213,12 +215,14 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
   });
 
   test('render "anchor/floating/arrow" elements with default `options`', async function (assert) {
-    await render(<template>
-      <div id="wrapper">
-        <div id="anchor">anchor</div>
-        <div id="floating"><div id="arrow"></div>floating</div>
-      </div>
-    </template>);
+    await render(
+      <template>
+        <div id="wrapper">
+          <div id="anchor">anchor</div>
+          <div id="floating"><div id="arrow"></div>floating</div>
+        </div>
+      </template>,
+    );
     this.anchorElement = document.getElementById('anchor');
     this.floatingElement = document.getElementById('floating');
     this.arrowElement = document.getElementById('arrow');
@@ -245,12 +249,14 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
   });
 
   test('render "anchor/floating/arrow" elements with custom options', async function (assert) {
-    await render(<template>
-      <div id="wrapper">
-        <div id="anchor">anchor</div>
-        <div id="floating"><div id="arrow"></div>floating</div>
-      </div>
-    </template>);
+    await render(
+      <template>
+        <div id="wrapper">
+          <div id="anchor">anchor</div>
+          <div id="floating"><div id="arrow"></div>floating</div>
+        </div>
+      </template>,
+    );
     this.anchorElement = document.getElementById('anchor');
     this.floatingElement = document.getElementById('floating');
     this.arrowElement = document.getElementById('arrow');
@@ -283,12 +289,23 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
   });
 
   test('the modifier works also when applied directly in the template code', async function (assert) {
-    await render(<template>
-      <div id="wrapper">
-        <div id="anchor">anchor</div>
-        <div id="floating" {{hdsAnchoredPosition "#anchor" placement="bottom-start" strategy="fixed" offsetOptions=20 arrowSelector="#arrow"}}><div id="arrow"></div>floating</div>
-      </div>
-    </template>);
+    await render(
+      <template>
+        <div id="wrapper">
+          <div id="anchor">anchor</div>
+          <div
+            id="floating"
+            {{hdsAnchoredPosition
+              "#anchor"
+              placement="bottom-start"
+              strategy="fixed"
+              offsetOptions=20
+              arrowSelector="#arrow"
+            }}
+          ><div id="arrow"></div>floating</div>
+        </div>
+      </template>,
+    );
     this.anchorElement = document.getElementById('anchor');
     this.floatingElement = document.getElementById('floating');
     this.arrowElement = document.getElementById('arrow');
