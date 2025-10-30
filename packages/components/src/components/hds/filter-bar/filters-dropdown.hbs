@@ -1,5 +1,13 @@
 {{! @glint-nocheck }}
-<Hds::Dropdown @listPosition="bottom-left" @height="500px" class={{this.classNames}} as |D|>
+<Hds::Dropdown
+  @listPosition="bottom-left"
+  @height="500px"
+  @width="500px"
+  class={{this.classNames}}
+  @onClose={{this._onClose}}
+  {{this._syncFilters @filters}}
+  as |D|
+>
   <D.ToggleButton @icon="filter" @text="Filter" @color="secondary" @size="small" />
   <D.Generic>
     <Hds::Tabs as |T|>
@@ -14,9 +22,20 @@
     </Hds::Tabs>
   </D.Generic>
   <D.Footer @hasDivider={{true}}>
-    <Hds::ButtonSet>
-      <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" {{on "click" (fn this.onApply D.close)}} />
-      <Hds::Button @text="Clear" @color="secondary" @size="small" {{on "click" (fn this.onClear D.close)}} />
-    </Hds::ButtonSet>
+    <Hds::Layout::Flex @direction="row" @justify="space-between" @align="center" as |LF|>
+      <Hds::ButtonSet>
+        <Hds::Button @text="Apply filters" @size="small" {{on "click" (fn this.onApply D.close)}} />
+        <Hds::Button
+          @text="Clear all filters"
+          @color="secondary"
+          @size="small"
+          {{on "click" (fn this.onClear D.close)}}
+        />
+      </Hds::ButtonSet>
+      <LF.Item>
+        <Hds::Text::Body>Filters selected:</Hds::Text::Body>
+        <Hds::BadgeCount @text={{this.numFilters}} @type="outlined" />
+      </LF.Item>
+    </Hds::Layout::Flex>
   </D.Footer>
 </Hds::Dropdown>

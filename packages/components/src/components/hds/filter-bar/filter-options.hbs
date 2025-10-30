@@ -2,17 +2,25 @@
 {{#let @panel as |Panel|}}
   <Panel class="hds-filter-bar__filters-dropdown__filter-options" {{this._setUpFilterOptions}}>
     {{#if @searchEnabled}}
-      <span>Search goes here</span>
+      <div class="hds-filter-bar__filters-dropdown__filter-options__search">
+        <Hds::Form::TextInput::Base
+          @type="search"
+          placeholder={{if @searchPlaceholder @searchPlaceholder "Search"}}
+          {{on "input" this.onSearch}}
+        />
+      </div>
     {{/if}}
     {{#if (eq @type "range")}}
       <Hds::FilterBar::Range @keyFilter={{this.keyFilter}} @onChange={{this.onRangeChange}} />
     {{else}}
-      {{yield
-        (hash
-          Checkbox=(component "hds/filter-bar/checkbox" keyFilter=this.keyFilter onChange=this.onSelectionChange)
-          Radio=(component "hds/filter-bar/radio" keyFilter=this.keyFilter onChange=this.onSelectionChange)
-        )
-      }}
+      <ul class="hds-filter-bar__filters-dropdown__filter-options__list">
+        {{yield
+          (hash
+            Checkbox=(component "hds/filter-bar/checkbox" keyFilter=this.keyFilter onChange=this.onSelectionChange)
+            Radio=(component "hds/filter-bar/radio" keyFilter=this.keyFilter onChange=this.onSelectionChange)
+          )
+        }}
+      </ul>
     {{/if}}
   </Panel>
 {{/let}}
