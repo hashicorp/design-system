@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import type Owner from '@ember/owner';
-import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 
 import type {
@@ -15,8 +14,6 @@ import type {
   HdsFilterBarRangeFilterSelector,
 } from './types.ts';
 import { HdsFilterBarRangeFilterSelectorValues } from './types.ts';
-
-import HdsDropdownListItemGeneric from '../dropdown/list-item/generic.ts';
 
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
@@ -50,7 +47,6 @@ export const SELECTORS_DISPLAY_SYMBOL: Record<
 
 export interface HdsFilterBarRangeSignature {
   Args: HdsDropdownSignature['Args'] & {
-    generic?: WithBoundArgs<typeof HdsDropdownListItemGeneric, never>;
     keyFilter: HdsFilterBarRangeFilter | undefined;
     onChange?: (
       selector?: HdsFilterBarRangeFilterSelector,
