@@ -6,7 +6,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
-import hdsT from "@hashicorp/design-system-components/helpers/hds-t";
+import hdsT from '@hashicorp/design-system-components/helpers/hds-t';
 
 const defaultString = 'Default text';
 
@@ -54,7 +54,9 @@ module('Integration | Helper | hds-t', function (hooks) {
         this.set('translationKey', value);
 
         await render(
-          <template>{{hdsT this.translationKey default=this.defaultString}}</template>,
+          <template>
+            {{hdsT this.translationKey default=this.defaultString}}
+          </template>,
         );
 
         assert.throws(function () {
@@ -76,7 +78,9 @@ module('Integration | Helper | hds-t', function (hooks) {
 
       this.set('key', 'greeting');
 
-      await render(<template>{{hdsT this.key default=this.defaultString}}</template>);
+      await render(
+        <template>{{hdsT this.key default=this.defaultString}}</template>,
+      );
 
       assert.dom().hasText('Hello from Real Intl!');
     });
@@ -93,7 +97,14 @@ module('Integration | Helper | hds-t', function (hooks) {
       });
 
       await render(
-        <template>{{hdsT this.key name=this.nameParam age=this.ageParam default=this.defaultString}}</template>,
+        <template>
+          {{hdsT
+            this.key
+            name=this.nameParam
+            age=this.ageParam
+            default=this.defaultString
+          }}
+        </template>,
       );
 
       assert.dom().hasText('Goodbye Tester, aged 30!');
@@ -109,7 +120,9 @@ module('Integration | Helper | hds-t', function (hooks) {
         `intl.exists('${testKey}') is false`,
       );
 
-      await render(<template>{{hdsT this.key default=this.defaultString}}</template>);
+      await render(
+        <template>{{hdsT this.key default=this.defaultString}}</template>,
+      );
 
       assert
         .dom()

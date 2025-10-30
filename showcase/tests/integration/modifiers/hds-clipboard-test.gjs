@@ -5,9 +5,22 @@
 
 import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { click, render, find, findAll, fillIn, resetOnerror } from '@ember/test-helpers';
+import {
+  click,
+  render,
+  find,
+  findAll,
+  fillIn,
+  resetOnerror,
+} from '@ember/test-helpers';
 import sinon from 'sinon';
-import hdsClipboard, { getTextToCopy, getTargetElement, getTextToCopyFromTargetElement, writeTextToClipboard, copyToClipboard } from '@hashicorp/design-system-components/modifiers/hds-clipboard';
+import hdsClipboard, {
+  getTextToCopy,
+  getTargetElement,
+  getTextToCopyFromTargetElement,
+  writeTextToClipboard,
+  copyToClipboard,
+} from '@hashicorp/design-system-components/modifiers/hds-clipboard';
 
 //
 // ================================================================
@@ -39,19 +52,31 @@ module(
   function (hooks) {
     setupRenderingTest(hooks);
     test('returns the DOM element identified by a CSS selector string passed as argument', async function (assert) {
-      await render(<template><pre id="test-target">Test</pre></template>);
+      await render(
+        <template>
+          <pre id="test-target">Test</pre>
+        </template>,
+      );
       this.target = find('#test-target');
       assert.deepEqual(await this.target, await find('#test-target'));
     });
     test('returns the same DOM element passed as argument', async function (assert) {
-      await render(<template><pre id="test-target">Test</pre></template>);
+      await render(
+        <template>
+          <pre id="test-target">Test</pre>
+        </template>,
+      );
       this.node = await find('#test-target');
       this.target = find('#test-target');
       assert.deepEqual(await this.target, this.node);
     });
     test('it should throw an assertion if the argument provided is a list of DOM nodes', async function (assert) {
       await render(
-        <template><pre class="test-target">Test 1</pre><pre class="test-target">Test 2</pre></template>,
+        <template>
+          <pre class="test-target">Test 1</pre><pre
+            class="test-target"
+          >Test 2</pre>
+        </template>,
       );
       const arg = await findAll('.test-target');
       assert.throws(function () {
@@ -60,7 +85,11 @@ module(
     });
     test('it should throw an assertion if the argument provided is not a string/node', async function (assert) {
       await render(
-        <template><pre class="test-target">Test 1</pre><pre class="test-target">Test 2</pre></template>,
+        <template>
+          <pre class="test-target">Test 1</pre><pre
+            class="test-target"
+          >Test 2</pre>
+        </template>,
       );
       const arg = {};
       assert.throws(function () {
@@ -91,7 +120,9 @@ module(
         this.set('type', type);
         this.set('value', value);
         await render(
-          <template><input id="test-target" type={{this.type}} value={{this.value}} /></template>,
+          <template>
+            <input id="test-target" type={{this.type}} value={{this.value}} />
+          </template>,
         );
         this.target = find('#test-target');
         assert.equal(
@@ -104,7 +135,11 @@ module(
 
     test('returns the value of a <textarea> passed as `target` argument', async function (assert) {
       this.set('value', `hello\nworld<br>!`);
-      await render(<template><textarea id="test-target">{{this.value}}</textarea></template>);
+      await render(
+        <template>
+          <textarea id="test-target">{{this.value}}</textarea>
+        </template>,
+      );
       this.target = find('#test-target');
       assert.deepEqual(this.value, getTextToCopyFromTargetElement(this.target));
     });
@@ -113,11 +148,15 @@ module(
       this.set('option1', `option1`);
       this.set('option2', `option2`);
       this.set('option3', `option3`);
-      await render(<template><select id="test-target">
-        <option>{{this.option1}}</option>
-        <option>{{this.option2}}</option>
-        <option>{{this.option3}}</option>
-      </select></template>);
+      await render(
+        <template>
+          <select id="test-target">
+            <option>{{this.option1}}</option>
+            <option>{{this.option2}}</option>
+            <option>{{this.option3}}</option>
+          </select>
+        </template>,
+      );
       this.target = find('#test-target');
       assert.deepEqual(
         this.option1,
@@ -129,11 +168,15 @@ module(
       this.set('option1', `option1`);
       this.set('option2', `option2`);
       this.set('option3', `option3`);
-      await render(<template><select id="test-target">
-        <option>{{this.option1}}</option>
-        <option selected>{{this.option2}}</option>
-        <option>{{this.option3}}</option>
-      </select></template>);
+      await render(
+        <template>
+          <select id="test-target">
+            <option>{{this.option1}}</option>
+            <option selected>{{this.option2}}</option>
+            <option>{{this.option3}}</option>
+          </select>
+        </template>,
+      );
       this.target = find('#test-target');
       assert.deepEqual(
         this.option2,
@@ -147,10 +190,16 @@ module(
     });
 
     test('returns the innerText of DOM element passed as `target` argument', async function (assert) {
-      await render(<template><ul id="test-target">
-        <li><p>Lorem <span><strong>Ipsum</strong> <em>dolor</em></span></p></li>
-        <li><p><code>Sit</code> <a href="#">Amet</a></p><pre>Some<br />Code</pre></li>
-      </ul></template>);
+      await render(
+        <template>
+          <ul id="test-target">
+            <li><p>Lorem
+                <span><strong>Ipsum</strong> <em>dolor</em></span></p></li>
+            <li><p><code>Sit</code> <a href="#">Amet</a></p><pre>Some<br
+                />Code</pre></li>
+          </ul>
+        </template>,
+      );
       this.target = find('#test-target');
       assert.deepEqual(
         getTextToCopyFromTargetElement(this.target),
@@ -159,19 +208,27 @@ module(
     });
 
     test('returns the innerText of DOM element passed as `target` argument without including hidden elements', async function (assert) {
-      await render(<template><p id="test-target">Lorem
-      <span style="display: none">Ipsum</span>
-      <span style="visibility: hidden">Dolor</span>
-    </p></template>);
+      await render(
+        <template>
+          <p id="test-target">Lorem
+            <span style="display: none">Ipsum</span>
+            <span style="visibility: hidden">Dolor</span>
+          </p>
+        </template>,
+      );
       this.target = find('#test-target');
       assert.deepEqual(getTextToCopyFromTargetElement(this.target), 'Lorem ');
     });
 
     test('returns the innerText of DOM element passed as `target` argument without including sr only text', async function (assert) {
-      await render(<template><p id="test-target">
-        <span>Lorem ipsum</span>
-        <span class="sr-only">Text not to copy</span>
-      </p></template>);
+      await render(
+        <template>
+          <p id="test-target">
+            <span>Lorem ipsum</span>
+            <span class="sr-only">Text not to copy</span>
+          </p>
+        </template>,
+      );
       this.target = find('#test-target');
       assert.deepEqual(
         getTextToCopyFromTargetElement(this.target),
@@ -249,7 +306,16 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
 
   test('it should allow to copy a `string` provided as `@text` argument', async function (assert) {
     await render(
-      <template><button id="test-button" {{hdsClipboard text="Hello world!" onSuccess=this.onSuccess onError=this.onError}}>Test</button></template>,
+      <template>
+        <button
+          id="test-button"
+          {{hdsClipboard
+            text="Hello world!"
+            onSuccess=this.onSuccess
+            onError=this.onError
+          }}
+        >Test</button>
+      </template>,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -257,7 +323,12 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
 
   test('it should copy an empty string provided as a `@text` argument', async function (assert) {
     await render(
-      <template><button id="test-button" {{hdsClipboard text="" onSuccess=this.onSuccess onError=this.onError}}>Test</button></template>,
+      <template>
+        <button
+          id="test-button"
+          {{hdsClipboard text="" onSuccess=this.onSuccess onError=this.onError}}
+        >Test</button>
+      </template>,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -266,7 +337,16 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
   // context: https://github.com/hashicorp/design-system/pull/1564
   test('it should allow to copy an `integer` provided as `@text` argument', async function (assert) {
     await render(
-      <template><button id="test-button" {{hdsClipboard text=1234 onSuccess=this.onSuccess onError=this.onError}}>Test</button></template>,
+      <template>
+        <button
+          id="test-button"
+          {{hdsClipboard
+            text=1234
+            onSuccess=this.onSuccess
+            onError=this.onError
+          }}
+        >Test</button>
+      </template>,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -274,7 +354,12 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
 
   test('it should copy a zero number value provided as a `@text` argument', async function (assert) {
     await render(
-      <template><button id="test-button" {{hdsClipboard text=0 onSuccess=this.onSuccess onError=this.onError}}>Test</button></template>,
+      <template>
+        <button
+          id="test-button"
+          {{hdsClipboard text=0 onSuccess=this.onSuccess onError=this.onError}}
+        >Test</button>
+      </template>,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -284,14 +369,34 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
 
   test('it should allow to target an element using a `string` selector for the `@target` argument', async function (assert) {
     await render(
-      <template><p id="test-target">Hello world!</p><button id="test-button" {{hdsClipboard target="#test-target" onSuccess=this.onSuccess onError=this.onError}}>Test</button></template>,
+      <template>
+        <p id="test-target">Hello world!</p><button
+          id="test-button"
+          {{hdsClipboard
+            target="#test-target"
+            onSuccess=this.onSuccess
+            onError=this.onError
+          }}
+        >Test</button>
+      </template>,
     );
     await click('button#test-button');
     assert.true(this.success);
   });
 
   test('it should allow to target an element using a DOM node', async function (assert) {
-    await render(<template><p id="test-target">Hello world!</p><button id="test-button" {{hdsClipboard target=this.target onSuccess=this.onSuccess onError=this.onError}}>Test</button></template>);
+    await render(
+      <template>
+        <p id="test-target">Hello world!</p><button
+          id="test-button"
+          {{hdsClipboard
+            target=this.target
+            onSuccess=this.onSuccess
+            onError=this.onError
+          }}
+        >Test</button>
+      </template>,
+    );
     this.set('target', find('#test-target'));
     await click('button#test-button');
     assert.true(this.success);
@@ -301,7 +406,16 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
 
   test('it should invoke the `onSuccess` callback on a successful "copy" action', async function (assert) {
     await render(
-      <template><button id="test-button" {{hdsClipboard text="Hello world!" onSuccess=this.onSuccess onError=this.onError}}>Test</button></template>,
+      <template>
+        <button
+          id="test-button"
+          {{hdsClipboard
+            text="Hello world!"
+            onSuccess=this.onSuccess
+            onError=this.onError
+          }}
+        >Test</button>
+      </template>,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -316,7 +430,16 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
         'this is a fake error message provided to the sinon.stub().throws() method',
       );
     await render(
-      <template><button id="test-button" {{hdsClipboard text="Hello world!" onSuccess=this.onSuccess onError=this.onError}}>Test</button></template>,
+      <template>
+        <button
+          id="test-button"
+          {{hdsClipboard
+            text="Hello world!"
+            onSuccess=this.onSuccess
+            onError=this.onError
+          }}
+        >Test</button>
+      </template>,
     );
     await click('button#test-button');
     assert.false(this.success);
