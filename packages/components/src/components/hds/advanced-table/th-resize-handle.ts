@@ -9,6 +9,7 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import { requestAnimationFrameWaiter } from './utils.ts';
 import { BORDER_WIDTH } from './index.ts';
+import type Owner from '@ember/owner';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
@@ -90,7 +91,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   );
 
   constructor(
-    owner: unknown,
+    owner: Owner,
     args: HdsAdvancedTableThResizeHandleSignature['Args']
   ) {
     super(owner, args);

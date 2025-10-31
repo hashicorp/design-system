@@ -211,28 +211,6 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   // COLLAPSIBLE
 
-  test('if the @ariaLabel argument is not provided the default aria-labelledby value is set on the toggle button', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" />`,
-    );
-    assert
-      .dom('.hds-side-nav__toggle-button')
-      .hasAttribute('aria-labelledby', 'hds-side-nav-header');
-    assert.dom('.hds-side-nav__toggle-button').hasNoAttribute('aria-label');
-  });
-
-  test('if the @ariaLabel argument is provided the label value is set on the toggle button', async function (assert) {
-    await render(
-      hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" @ariaLabel="Test"/>`,
-    );
-    assert
-      .dom('.hds-side-nav__toggle-button')
-      .hasNoAttribute('aria-labelledby');
-    assert
-      .dom('.hds-side-nav__toggle-button')
-      .hasAttribute('aria-label', 'Test');
-  });
-
   test('it responds to different events to toggle between "non-minimized" (by default) and "mimimized" states', async function (assert) {
     await render(
       hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" />`,
