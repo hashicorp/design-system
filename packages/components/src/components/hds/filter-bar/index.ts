@@ -8,7 +8,12 @@ import { action } from '@ember/object';
 
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 
-import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
+import type {
+  HdsFilterBarFilters,
+  HdsFilterBarFilter,
+  HdsFilterBarData,
+  HdsFilterBarSelectionFilterData,
+} from './types.ts';
 import HdsDropdown from '../dropdown/index.ts';
 import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
 import { isArray } from '@ember/array';
@@ -26,7 +31,7 @@ export interface HdsFilterBarSignature {
         ActionsDropdown?: ComponentLike<typeof HdsDropdown>;
         FiltersDropdown?: WithBoundArgs<
           typeof HdsFilterBarFiltersDropdown,
-          never
+          'filters' | 'onFilter'
         >;
       },
     ];
@@ -93,5 +98,33 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
       this.onFilter({ ...newFilters });
     }
+  };
+
+  private _filterData = (
+    data: HdsFilterBarData
+  ): HdsFilterBarSelectionFilterData => {
+    if ('text' in data && 'value' in data) {
+      return { text: data.text, value: data.value };
+    }
+    return { text: '', value: '' };
+  };
+
+  private _filterText = (data: HdsFilterBarData): string => {
+    const result = this._filterData(data);
+    return result?.text ?? '';
+  };
+
+  private _filterValue = (data: HdsFilterBarData): unknown => {
+    const result = this._filterData(data);
+    return result?.value;
+  };
+
+  private _filterArrayData = (
+    data: HdsFilterBarData
+  ): { text: string; value: unknown }[] => {
+    if (isArray(data)) {
+      return data.map((item) => this._filterData(item));
+    }
+    return [];
   };
 }

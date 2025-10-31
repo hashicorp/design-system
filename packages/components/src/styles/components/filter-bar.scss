@@ -70,3 +70,11 @@
   list-style: none;
   overscroll-behavior: contain;
 }
+
+.hds-filter-bar__filters-dropdown__filter-option {
+  display: block;
+
+  &--hidden {
+    display: none;
+  }
+}

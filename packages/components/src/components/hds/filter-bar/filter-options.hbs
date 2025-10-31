@@ -1,11 +1,14 @@
-{{! @glint-nocheck }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
 {{#let @panel as |Panel|}}
   <Panel class="hds-filter-bar__filters-dropdown__filter-options" {{this._setUpFilterOptions}}>
     {{#if @searchEnabled}}
       <div class="hds-filter-bar__filters-dropdown__filter-options__search">
         <Hds::Form::TextInput::Base
           @type="search"
-          placeholder={{if @searchPlaceholder @searchPlaceholder "Search"}}
+          placeholder={{hds-t "components.filter-bar.filter-options.search-input-placeholder" default="Search"}}
           {{on "input" this.onSearch}}
         />
       </div>

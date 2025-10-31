@@ -6,13 +6,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-import type { HdsFilterBarSelectionFilter } from './types.ts';
-import type { HdsDropdownSignature } from '../dropdown/index.ts';
+import type { HdsFilterBarData } from './types.ts';
 
 export interface HdsFilterBarRadioSignature {
-  Args: HdsDropdownSignature['Args'] & {
+  Args: {
     value?: string;
-    keyFilter: HdsFilterBarSelectionFilter | undefined;
+    keyFilter: HdsFilterBarData | undefined;
     onChange?: (event: Event) => void;
   };
   Blocks: {
@@ -32,7 +31,7 @@ export default class HdsFilterBarRadio extends Component<HdsFilterBarRadioSignat
 
   get isChecked(): boolean {
     const { keyFilter, value } = this.args;
-    if (keyFilter && value) {
+    if (keyFilter && value && 'value' in keyFilter) {
       return keyFilter.value === value;
     }
     return false;

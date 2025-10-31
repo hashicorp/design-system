@@ -10,12 +10,10 @@ import type Owner from '@ember/owner';
 import { guidFor } from '@ember/object/internals';
 
 import type {
-  HdsFilterBarRangeFilter,
+  HdsFilterBarData,
   HdsFilterBarRangeFilterSelector,
 } from './types.ts';
 import { HdsFilterBarRangeFilterSelectorValues } from './types.ts';
-
-import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
 export const SELECTORS: HdsFilterBarRangeFilterSelector[] = Object.values(
   HdsFilterBarRangeFilterSelectorValues
@@ -46,8 +44,8 @@ export const SELECTORS_DISPLAY_SYMBOL: Record<
 };
 
 export interface HdsFilterBarRangeSignature {
-  Args: HdsDropdownSignature['Args'] & {
-    keyFilter: HdsFilterBarRangeFilter | undefined;
+  Args: {
+    keyFilter: HdsFilterBarData | undefined;
     onChange?: (
       selector?: HdsFilterBarRangeFilterSelector,
       value?: number
@@ -71,7 +69,7 @@ export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignat
     super(owner, args);
 
     const { keyFilter } = this.args;
-    if (keyFilter) {
+    if (keyFilter && 'selector' in keyFilter) {
       this._selector = keyFilter.selector;
       this._value = keyFilter.value;
     }
