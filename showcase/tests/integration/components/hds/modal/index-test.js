@@ -430,6 +430,31 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.ok(closed);
   });
 
+  test('it should not call `onClose` when the modal is removed from the DOM directly', async function (assert) {
+    let closed = false;
+
+    this.set('onClose', () => (closed = true));
+    this.set('isModalRendered', true);
+
+    await render(
+      hbs`
+        {{#if this.isModalRendered}}
+          <Hds::Modal id="test-modal-onclose-no-callback" @onClose={{this.onClose}} as |M|>
+            <M.Header>Title</M.Header>
+          </Hds::Modal>
+        {{/if}}
+      `,
+    );
+
+    assert.dom('#test-modal-onclose-no-callback').isVisible();
+
+    this.set('isModalRendered', false);
+
+    await settled();
+    assert.dom('#test-modal-onclose-no-callback').doesNotExist();
+    assert.notOk(closed);
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {

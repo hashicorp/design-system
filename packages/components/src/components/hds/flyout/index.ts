@@ -92,11 +92,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     return classes.join(' ');
   }
 
-  @action registerOnCloseCallback(event: Event) {
-    if (this.args.onClose && typeof this.args.onClose === 'function') {
-      this.args.onClose(event);
-    }
-
+  private _performCloseCleanup() {
     this._isOpen = false;
 
     // Reset page `overflow` property
@@ -146,7 +142,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     return () => {
       // if the <dialog> is removed from the dom while open we emulate the close event
       if (this._isOpen) {
-        this._element?.dispatchEvent(new Event('close'));
+        this._performCloseCleanup();
       }
 
       this._element?.removeEventListener(
@@ -157,6 +153,14 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
       );
     };
   });
+
+  @action registerOnCloseCallback(event: Event) {
+    if (this.args.onClose && typeof this.args.onClose === 'function') {
+      this.args.onClose(event);
+    }
+
+    this._performCloseCleanup();
+  }
 
   @action
   open(): void {

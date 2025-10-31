@@ -110,6 +110,33 @@ export default class HdsModal extends Component<HdsModalSignature> {
     return classes.join(' ');
   }
 
+  private _performCloseCleanup(): void {
+    this._isOpen = false;
+
+    // Reset page `overflow` property
+    if (this._body) {
+      this._body.style.removeProperty('overflow');
+      if (this._bodyInitialOverflowValue === '') {
+        if (this._body.style.length === 0) {
+          this._body.removeAttribute('style');
+        }
+      } else {
+        this._body.style.setProperty(
+          'overflow',
+          this._bodyInitialOverflowValue
+        );
+      }
+    }
+
+    // Return focus to a specific element (if provided)
+    if (this.args.returnFocusTo) {
+      const initiator = document.getElementById(this.args.returnFocusTo);
+      if (initiator) {
+        initiator.focus();
+      }
+    }
+  }
+
   @action registerOnCloseCallback(event: Event): void {
     if (
       !this.isDismissDisabled &&
@@ -129,30 +156,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
         this._element.showModal();
       }
     } else {
-      this._isOpen = false;
-
-      // Reset page `overflow` property
-      if (this._body) {
-        this._body.style.removeProperty('overflow');
-        if (this._bodyInitialOverflowValue === '') {
-          if (this._body.style.length === 0) {
-            this._body.removeAttribute('style');
-          }
-        } else {
-          this._body.style.setProperty(
-            'overflow',
-            this._bodyInitialOverflowValue
-          );
-        }
-      }
-
-      // Return focus to a specific element (if provided)
-      if (this.args.returnFocusTo) {
-        const initiator = document.getElementById(this.args.returnFocusTo);
-        if (initiator) {
-          initiator.focus();
-        }
-      }
+      this._performCloseCleanup();
     }
   }
 
@@ -195,7 +199,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     return () => {
       // if the <dialog> is removed from the dom while open we emulate the close event
       if (this._isOpen) {
-        this._element?.dispatchEvent(new Event('close'));
+        this._performCloseCleanup();
       }
 
       this._element?.removeEventListener(

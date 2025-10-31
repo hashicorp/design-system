@@ -407,6 +407,31 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.ok(closed);
   });
 
+  test('it should not call `onClose` when the flyout is removed from the DOM directly', async function (assert) {
+    let closed = false;
+
+    this.set('onClose', () => (closed = true));
+    this.set('isFlyoutRendered', true);
+
+    await render(
+      hbs`
+        {{#if this.isFlyoutRendered}}
+          <Hds::Flyout id="test-modal-onclose-no-callback" @onClose={{this.onClose}} as |F|>
+            <F.Header>Title</F.Header>
+          </Hds::Flyout>
+        {{/if}}
+      `,
+    );
+
+    assert.dom('#test-modal-onclose-no-callback').isVisible();
+
+    this.set('isFlyoutRendered', false);
+    assert.dom('#test-modal-onclose-no-callback').doesNotExist();
+
+    await settled();
+    assert.notOk(closed);
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {
