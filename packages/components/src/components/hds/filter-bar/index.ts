@@ -18,6 +18,8 @@ import HdsDropdown from '../dropdown/index.ts';
 import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
 import { isArray } from '@ember/array';
 
+import { SELECTORS_DISPLAY_SYMBOL } from './range.ts';
+
 export interface HdsFilterBarSignature {
   Args: {
     filters: HdsFilterBarFilters;
@@ -68,7 +70,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     return Object.keys(this.args.filters).length > 0;
   }
 
-  private onFilterDismiss = (key: string, filterValue: unknown): void => {
+  private onFilterDismiss = (key: string, filterValue?: unknown): void => {
     const { filters } = this.args;
     if (filters && filters[key]) {
       const keyFilter: HdsFilterBarFilter = filters[key];
@@ -91,6 +93,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
         } else {
           newFilters[key] = {
             type: 'multi-select',
+            text: keyFilter.text,
             data: newKeyfilter,
           };
         }
@@ -114,11 +117,6 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     return result?.text ?? '';
   };
 
-  private _filterValue = (data: HdsFilterBarData): unknown => {
-    const result = this._filterData(data);
-    return result?.value;
-  };
-
   private _filterArrayData = (
     data: HdsFilterBarData
   ): { text: string; value: unknown }[] => {
@@ -126,5 +124,21 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
       return data.map((item) => this._filterData(item));
     }
     return [];
+  };
+
+  private _filterKeyText = (key: string, data: HdsFilterBarFilter): string => {
+    if (data.text) {
+      return data.text;
+    } else {
+      return key;
+    }
+  };
+
+  private _rangeFilterText = (data: HdsFilterBarData): string => {
+    if ('selector' in data && 'value' in data) {
+      return `${SELECTORS_DISPLAY_SYMBOL[data.selector]} ${data.value}`;
+    } else {
+      return '';
+    }
   };
 }
