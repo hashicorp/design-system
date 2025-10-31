@@ -20,7 +20,7 @@ export const SELECTORS: HdsFilterBarRangeFilterSelector[] = Object.values(
 );
 
 export const SELECTORS_DISPLAY_TEXT: Record<
-  HdsFilterBarRangeFilterSelectorValues,
+  HdsFilterBarRangeFilterSelector,
   string
 > = {
   [HdsFilterBarRangeFilterSelectorValues.lessThan]: 'Less than',
@@ -33,7 +33,7 @@ export const SELECTORS_DISPLAY_TEXT: Record<
 };
 
 export const SELECTORS_DISPLAY_SYMBOL: Record<
-  HdsFilterBarRangeFilterSelectorValues,
+  HdsFilterBarRangeFilterSelector,
   string
 > = {
   [HdsFilterBarRangeFilterSelectorValues.lessThan]: '<',

@@ -28,14 +28,20 @@
         {{#if filter.data}}
           {{#if (and (eq filter.type "single-select"))}}
             <Hds::Tag
-              @text="{{key}}: {{this._filterText filter.data}}"
-              @onDismiss={{fn this.onFilterDismiss key (this._filterValue filter.data)}}
+              @text="{{this._filterKeyText key filter}}: {{this._filterText filter.data}}"
+              @onDismiss={{fn this.onFilterDismiss key}}
             />
           {{else if (eq filter.type "range")}}
-            <Hds::Tag @text="{{key}}: to do" />
+            <Hds::Tag
+              @text="{{this._filterKeyText key filter}} {{this._rangeFilterText filter.data}}"
+              @onDismiss={{fn this.onFilterDismiss key}}
+            />
           {{else if (eq filter.type "multi-select")}}
             {{#each (this._filterArrayData filter.data) as |item|}}
-              <Hds::Tag @text="{{key}}: {{item.text}}" @onDismiss={{fn this.onFilterDismiss key item.value}} />
+              <Hds::Tag
+                @text="{{this._filterKeyText key filter}}: {{item.text}}"
+                @onDismiss={{fn this.onFilterDismiss key item.value}}
+              />
             {{/each}}
           {{/if}}
         {{/if}}
