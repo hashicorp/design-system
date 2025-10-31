@@ -10,8 +10,7 @@ import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
 import type { WithBoundArgs } from '@glint/template';
 
-import HdsFilterBarFilterTab from './filter-tab.ts';
-import HdsFilterBarFilterOptions from './filter-options.ts';
+import HdsFilterBarFilterGroup from './filter-group.ts';
 import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
 
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
@@ -24,13 +23,9 @@ export interface HdsFilterBarFiltersDropdownSignature {
   Blocks: {
     default: [
       {
-        FilterTab?: WithBoundArgs<
-          typeof HdsFilterBarFilterTab,
-          'tab' | 'filters'
-        >;
-        FilterOptions?: WithBoundArgs<
-          typeof HdsFilterBarFilterOptions,
-          'panel' | 'onChange' | 'filters'
+        FilterGroup?: WithBoundArgs<
+          typeof HdsFilterBarFilterGroup,
+          'tab' | 'panel' | 'filters' | 'onChange'
         >;
       },
     ];
