@@ -47,7 +47,7 @@ const BASIC_MUSIC_COLUMNS = [
 const SubSectionBasic: TemplateOnlyComponent = <template>
   <ShwTextBody>
     <a
-      class="shw-frame__open-link"
+      class="shw-component-advanced-table__open-link"
       href="/layouts/app-frame/frameless/demo-full-app-frame-with-advanced-table"
       target="_blank"
       rel="noopener noreferrer"
