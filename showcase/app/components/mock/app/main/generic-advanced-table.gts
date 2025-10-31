@@ -607,7 +607,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   }
 
   get noFilterData() {
-    return this.demoModel.length === 0;
+    return this.demoModelFilteredData.length === 0;
   }
 
   isRangeFilterMatch(
@@ -691,12 +691,9 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           <D.Checkbox>memories</D.Checkbox>
         </F.ActionsDropdown>
         <F.FiltersDropdown as |D|>
-          <D.FilterTab @key="name">Name</D.FilterTab>
-          <D.FilterTab @key="project-name">Project name</D.FilterTab>
-          <D.FilterTab @key="run-status">Run status</D.FilterTab>
-          <D.FilterTab @key="terraform-version">Terraform version</D.FilterTab>
-          <D.FilterOptions
+          <D.FilterGroup
             @key="name"
+            @text="Name"
             @type="multi-select"
             @searchEnabled={{true}}
             as |F|
@@ -704,9 +701,10 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
               <F.Checkbox @value={{option.value}}>{{option.label}}</F.Checkbox>
             {{/each}}
-          </D.FilterOptions>
-          <D.FilterOptions
+          </D.FilterGroup>
+          <D.FilterGroup
             @key="project-name"
+            @text="Project name"
             @type="multi-select"
             @searchEnabled={{true}}
             as |F|
@@ -714,21 +712,32 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
               <F.Checkbox @value={{option.value}}>{{option.label}}</F.Checkbox>
             {{/each}}
-          </D.FilterOptions>
-          <D.FilterOptions @key="run-status" @type="multi-select" as |F|>
+          </D.FilterGroup>
+          <D.FilterGroup
+            @key="run-status"
+            @text="Run status"
+            @type="multi-select"
+            as |F|
+          >
             {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
               <F.Checkbox @value={{option.value}}>{{option.label}}</F.Checkbox>
             {{/each}}
-          </D.FilterOptions>
-          <D.FilterOptions
+          </D.FilterGroup>
+          <D.FilterGroup
             @key="terraform-version"
+            @text="Terraform version"
             @type="single-select"
             as |F|
           >
             {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
               <F.Radio @value={{option.value}}>{{option.label}}</F.Radio>
             {{/each}}
-          </D.FilterOptions>
+          </D.FilterGroup>
+          <D.FilterGroup
+            @key="module-count"
+            @text="Module count"
+            @type="range"
+          />
         </F.FiltersDropdown>
       </HdsFilterBar>
     {{/if}}
@@ -764,13 +773,9 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
               <D.Checkbox>memories</D.Checkbox>
             </F.ActionsDropdown>
             <F.FiltersDropdown as |D|>
-              <D.FilterTab @key="name">Name</D.FilterTab>
-              <D.FilterTab @key="project-name">Project name</D.FilterTab>
-              <D.FilterTab @key="run-status">Run status</D.FilterTab>
-              <D.FilterTab @key="terraform-version">Terraform version</D.FilterTab>
-              <D.FilterTab @key="module-count">Module count</D.FilterTab>
-              <D.FilterOptions
+              <D.FilterGroup
                 @key="name"
+                @text="Name"
                 @type="multi-select"
                 @searchEnabled={{true}}
                 as |F|
@@ -780,9 +785,10 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                     @value={{option.value}}
                   >{{option.label}}</F.Checkbox>
                 {{/each}}
-              </D.FilterOptions>
-              <D.FilterOptions
+              </D.FilterGroup>
+              <D.FilterGroup
                 @key="project-name"
+                @text="Project name"
                 @type="multi-select"
                 @searchEnabled={{true}}
                 as |F|
@@ -792,16 +798,22 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                     @value={{option.value}}
                   >{{option.label}}</F.Checkbox>
                 {{/each}}
-              </D.FilterOptions>
-              <D.FilterOptions @key="run-status" @type="multi-select" as |F|>
+              </D.FilterGroup>
+              <D.FilterGroup
+                @key="run-status"
+                @text="Run status"
+                @type="multi-select"
+                as |F|
+              >
                 {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
                   <F.Checkbox
                     @value={{option.value}}
                   >{{option.label}}</F.Checkbox>
                 {{/each}}
-              </D.FilterOptions>
-              <D.FilterOptions
+              </D.FilterGroup>
+              <D.FilterGroup
                 @key="terraform-version"
+                @text="Terraform version"
                 @type="single-select"
                 as |F|
               >
@@ -811,8 +823,12 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                 }}
                   <F.Radio @value={{option.value}}>{{option.label}}</F.Radio>
                 {{/each}}
-              </D.FilterOptions>
-              <D.FilterOptions @key="module-count" @type="range" />
+              </D.FilterGroup>
+              <D.FilterGroup
+                @key="module-count"
+                @text="Module count"
+                @type="range"
+              />
             </F.FiltersDropdown>
           </A.FilterBar>
         {{/unless}}
