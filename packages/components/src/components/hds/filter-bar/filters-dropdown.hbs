@@ -1,4 +1,7 @@
-{{! @glint-nocheck }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
 <Hds::Dropdown
   @listPosition="bottom-left"
   @height="500px"
@@ -17,6 +20,7 @@
           FilterOptions=(component
             "hds/filter-bar/filter-options" panel=T.Panel onChange=this.onFilter filters=this.internalFilters
           )
+          close=D.close
         )
       }}
     </Hds::Tabs>
@@ -24,16 +28,23 @@
   <D.Footer @hasDivider={{true}}>
     <Hds::Layout::Flex @direction="row" @justify="space-between" @align="center" as |LF|>
       <Hds::ButtonSet>
-        <Hds::Button @text="Apply filters" @size="small" {{on "click" (fn this.onApply D.close)}} />
         <Hds::Button
-          @text="Clear all filters"
+          @text={{hds-t "hds.components.filter-bar.filters-dropdown.apply" default="Apply filters"}}
+          @size="small"
+          {{on "click" (fn this.onApply D.close)}}
+        />
+        <Hds::Button
+          @text={{hds-t "hds.components.filter-bar.filters-dropdown.clear" default="Clear all filters"}}
           @color="secondary"
           @size="small"
           {{on "click" (fn this.onClear D.close)}}
         />
       </Hds::ButtonSet>
       <LF.Item>
-        <Hds::Text::Body>Filters selected:</Hds::Text::Body>
+        <Hds::Text::Body>{{hds-t
+            "hds.components.filter-bar.filters-dropdown.selected-filters"
+            default="Filters selected"
+          }}:</Hds::Text::Body>
         <Hds::BadgeCount @text={{this.numFilters}} @type="outlined" />
       </LF.Item>
     </Hds::Layout::Flex>
