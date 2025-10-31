@@ -16,9 +16,8 @@
     <Hds::Tabs as |T|>
       {{yield
         (hash
-          FilterTab=(component "hds/filter-bar/filter-tab" tab=T.Tab filters=this.internalFilters)
-          FilterOptions=(component
-            "hds/filter-bar/filter-options" panel=T.Panel onChange=this.onFilter filters=this.internalFilters
+          FilterGroup=(component
+            "hds/filter-bar/filter-group" tab=T.Tab panel=T.Panel onChange=this.onFilter filters=this.internalFilters
           )
           close=D.close
         )
