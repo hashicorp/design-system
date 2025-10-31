@@ -23,7 +23,10 @@ import {
   HdsTextBody,
   HdsTextDisplay,
   type HdsAdvancedTableOnSelectionChangeSignature,
-  type HdsFilterBarRangeFilterSelector,
+  type HdsFilterBarRangeFilter,
+  type HdsFilterBarSingleSelectFilter,
+  type HdsFilterBarMultiSelectFilter,
+  type HdsFilterBarFilter,
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
@@ -539,7 +542,6 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   ];
   @deepTracked filters: HdsFilterBarSignature['Args']['filters'] = {};
   @tracked isSeparatedFilterBar = false;
-  @tracked emptyData = false;
 
   @action onSelectionChange({
     selectionKey,
@@ -565,31 +567,30 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   };
 
   onSearch = (event: Event) => {
-    const value = event.target.value;
+    const target = event.target as HTMLInputElement;
+    const value = target.value;
     if (value.length > 0) {
       window.alert(`✅ Search executed with value: ${value}`);
     }
   };
 
   get demoModelFilteredData() {
-    const filterItem = (
-      item: HdsFilterBarSignature['Args']['filters'],
-    ): boolean => {
+    const filterItem = (item: Record<string, unknown>): boolean => {
       if (Object.keys(this.filters).length === 0) return true;
       let match = true;
       Object.keys(this.filters).forEach((key) => {
-        const filter = this.filters[key];
-        if (filter && filter.data) {
+        const filter = this.filters[key] as HdsFilterBarFilter;
+        if (filter) {
           if (filter.type === 'range') {
-            if (!this.isRangeFilterMatch(item[key], filter.data)) {
+            if (!this.isRangeFilterMatch(item[key], filter)) {
               match = false;
             }
           } else if (filter.type === 'single-select') {
-            if (!this.isSingleSelectFilterMatch(item[key], filter.data)) {
+            if (!this.isSingleSelectFilterMatch(item[key], filter)) {
               match = false;
             }
           } else {
-            if (!this.isMultiSelectFilterMatch(item[key], filter.data)) {
+            if (!this.isMultiSelectFilterMatch(item[key], filter)) {
               match = false;
             }
           }
@@ -599,15 +600,19 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     };
 
     const filteredData = this.demoModel.filter(filterItem);
-    this.emptyData = !(filteredData.length > 0);
     return filteredData;
+  }
+
+  get noFilterData() {
+    return this.demoModel.length === 0;
   }
 
   isRangeFilterMatch(
     itemValue: unknown,
-    filterData: HdsFilterBarSignature['Args']['filters']['data'],
+    filter: HdsFilterBarRangeFilter,
   ): boolean {
-    const selector = filterData.selector as HdsFilterBarRangeFilterSelector;
+    const filterData = filter.data;
+    const selector = filterData.selector;
     const number = Number(itemValue);
 
     if (isNaN(number)) {
@@ -632,18 +637,16 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
 
   isSingleSelectFilterMatch(
     itemValue: unknown,
-    filterData: HdsFilterBarSignature['Args']['filters']['data'],
+    filter: HdsFilterBarSingleSelectFilter,
   ): boolean {
-    return itemValue === filterData.value;
+    return itemValue === filter.data.value;
   }
 
   isMultiSelectFilterMatch(
     itemValue: unknown,
-    filterData: HdsFilterBarSignature['Args']['filters']['data'],
+    filter: HdsFilterBarMultiSelectFilter,
   ): boolean {
-    const filterValues = filterData.map(
-      (d: HdsFilterBarSignature['Args']['filters']['data']['value']) => d.value,
-    );
+    const filterValues = filter.data.map((d) => d.value);
     return filterValues.includes(itemValue);
   }
 
@@ -689,17 +692,27 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           <D.FilterTab @key="project-name">Project name</D.FilterTab>
           <D.FilterTab @key="run-status">Run status</D.FilterTab>
           <D.FilterTab @key="terraform-version">Terraform version</D.FilterTab>
-          <D.FilterOptions @key="name" @searchEnabled={{true}} as |F|>
+          <D.FilterOptions
+            @key="name"
+            @type="multi-select"
+            @searchEnabled={{true}}
+            as |F|
+          >
             {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
               <F.Checkbox @value={{option.value}}>{{option.label}}</F.Checkbox>
             {{/each}}
           </D.FilterOptions>
-          <D.FilterOptions @key="project-name" @searchEnabled={{true}} as |F|>
+          <D.FilterOptions
+            @key="project-name"
+            @type="multi-select"
+            @searchEnabled={{true}}
+            as |F|
+          >
             {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
               <F.Checkbox @value={{option.value}}>{{option.label}}</F.Checkbox>
             {{/each}}
           </D.FilterOptions>
-          <D.FilterOptions @key="run-status" as |F|>
+          <D.FilterOptions @key="run-status" @type="multi-select" as |F|>
             {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
               <F.Checkbox @value={{option.value}}>{{option.label}}</F.Checkbox>
             {{/each}}
@@ -725,7 +738,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
       @isStriped={{true}}
       @onSelectionChange={{this.onSelectionChange}}
       @hasStickyFirstColumn={{true}}
-      @isEmpty={{this.emptyData}}
+      @isEmpty={{this.noFilterData}}
     >
       <:actions as |A|>
         {{#unless this.isSeparatedFilterBar}}
@@ -753,7 +766,12 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
               <D.FilterTab @key="run-status">Run status</D.FilterTab>
               <D.FilterTab @key="terraform-version">Terraform version</D.FilterTab>
               <D.FilterTab @key="module-count">Module count</D.FilterTab>
-              <D.FilterOptions @key="name" @searchEnabled={{true}} as |F|>
+              <D.FilterOptions
+                @key="name"
+                @type="multi-select"
+                @searchEnabled={{true}}
+                as |F|
+              >
                 {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
                   <F.Checkbox
                     @value={{option.value}}
@@ -762,6 +780,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
               </D.FilterOptions>
               <D.FilterOptions
                 @key="project-name"
+                @type="multi-select"
                 @searchEnabled={{true}}
                 as |F|
               >
@@ -771,7 +790,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                   >{{option.label}}</F.Checkbox>
                 {{/each}}
               </D.FilterOptions>
-              <D.FilterOptions @key="run-status" as |F|>
+              <D.FilterOptions @key="run-status" @type="multi-select" as |F|>
                 {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
                   <F.Checkbox
                     @value={{option.value}}
@@ -874,7 +893,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
         </B.Tr>
       </:body>
       <:emptyState>
-        {{#if this.emptyData}}
+        {{#if this.noFilterData}}
           <HdsLayoutFlex @direction="column" @gap="12">
             <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
             <HdsTextBody>
