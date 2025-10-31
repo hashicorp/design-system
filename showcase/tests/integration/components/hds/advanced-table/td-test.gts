@@ -4,16 +4,20 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
-import Td from "@hashicorp/design-system-components/components/hds/advanced-table/td";
+
+import { HdsAdvancedTableTd } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/advanced-table/td', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><Td id="data-test-advanced-table-td" /></template>,
+      <template>
+        <HdsAdvancedTableTd id="data-test-advanced-table-td" />
+      </template>,
     );
     assert
       .dom('#data-test-advanced-table-td')
@@ -22,14 +26,18 @@ module('Integration | Component | hds/advanced-table/td', function (hooks) {
 
   test('it should render with the appropriate role', async function (assert) {
     await render(
-      <template><Td id="data-test-advanced-table-td" @align="right" /></template>,
+      <template>
+        <HdsAdvancedTableTd id="data-test-advanced-table-td" @align="right" />
+      </template>,
     );
     assert.dom('#data-test-advanced-table-td').hasAttribute('role', 'gridcell');
   });
 
   test('it should render with the appropriate `@align` CSS class', async function (assert) {
     await render(
-      <template><Td id="data-test-advanced-table-td" @align="right" /></template>,
+      <template>
+        <HdsAdvancedTableTd id="data-test-advanced-table-td" @align="right" />
+      </template>,
     );
     assert
       .dom('#data-test-advanced-table-td')
@@ -38,7 +46,9 @@ module('Integration | Component | hds/advanced-table/td', function (hooks) {
 
   test('it should render with the appropriate span information by default', async function (assert) {
     await render(
-      <template><Td id="data-test-advanced-table-td" /></template>,
+      <template>
+        <HdsAdvancedTableTd id="data-test-advanced-table-td" />
+      </template>,
     );
 
     assert.dom('#data-test-advanced-table-td').hasNoAttribute('aria-rowspan');
@@ -51,7 +61,13 @@ module('Integration | Component | hds/advanced-table/td', function (hooks) {
 
   test('it should render with the appropriate span information when pass rowspan and colspan', async function (assert) {
     await render(
-      <template><Td id="data-test-advanced-table-td" @rowspan={{3}} @colspan={{5}} /></template>,
+      <template>
+        <HdsAdvancedTableTd
+          id="data-test-advanced-table-td"
+          @rowspan={{3}}
+          @colspan={{5}}
+        />
+      </template>,
     );
 
     assert
@@ -70,7 +86,9 @@ module('Integration | Component | hds/advanced-table/td', function (hooks) {
 
   test('it should support splattributes', async function (assert) {
     await render(
-      <template><Td id="data-test-advanced-table-td" lang="es" /></template>,
+      <template>
+        <HdsAdvancedTableTd id="data-test-advanced-table-td" lang="es" />
+      </template>,
     );
     assert.dom('#data-test-advanced-table-td').hasAttribute('lang', 'es');
   });
