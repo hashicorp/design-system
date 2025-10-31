@@ -1,3 +1,7 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
 <li class="hds-filter-bar__filters-dropdown__filter-option">
   <Hds::Form::Radio::Field checked={{this.isChecked}} @value={{@value}} {{on "change" this.onChange}} as |F|>
     <F.Label>{{yield}}</F.Label>
