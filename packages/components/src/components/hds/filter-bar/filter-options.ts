@@ -10,6 +10,7 @@ import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 
 import HdsTabsPanel from '../tabs/panel.ts';
+import type { HdsTabsPanelSignature } from '../tabs/panel.ts';
 
 import HdsFilterBarCheckbox from './checkbox.ts';
 import HdsFilterBarRadio from './radio.ts';
@@ -19,8 +20,8 @@ import type {
   HdsFilterBarFilters,
   HdsFilterBarFilterType,
   HdsFilterBarData,
-  HdsFilterBarSelectionFilter,
-  HdsFilterBarRangeFilter,
+  HdsFilterBarSelectionFilterData,
+  HdsFilterBarRangeFilterData,
   HdsFilterBarRangeFilterSelector,
 } from './types.ts';
 
@@ -47,23 +48,25 @@ export interface HdsFilterBarFilterOptionsSignature {
       },
     ];
   };
-  Element: HTMLDivElement;
+  Element: HdsTabsPanelSignature['Element'];
 }
 
 export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFilterOptionsSignature> {
   @tracked internalFilters: HdsFilterBarData | undefined = [];
 
-  private _element!: HTMLDivElement;
+  private _element!: HdsTabsPanelSignature['Element'];
 
-  private _setUpFilterOptions = modifier((element: HTMLDivElement) => {
-    this._element = element;
+  private _setUpFilterOptions = modifier(
+    (element: HdsTabsPanelSignature['Element']) => {
+      this._element = element;
 
-    if (this.keyFilter) {
-      this.internalFilters = JSON.parse(
-        JSON.stringify(this.keyFilter)
-      ) as HdsFilterBarData;
+      if (this.keyFilter) {
+        this.internalFilters = JSON.parse(
+          JSON.stringify(this.keyFilter)
+        ) as HdsFilterBarData;
+      }
     }
-  });
+  );
 
   get type(): HdsFilterBarFilterType {
     const { type } = this.args;
@@ -89,7 +92,7 @@ export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFil
       const newFilter = {
         text: value as string,
         value: value,
-      } as HdsFilterBarSelectionFilter;
+      } as HdsFilterBarSelectionFilterData;
       if (this.type === 'single-select') {
         this.internalFilters = newFilter;
       } else {
@@ -106,7 +109,7 @@ export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFil
         this.internalFilters = undefined;
       } else {
         if (Array.isArray(this.internalFilters)) {
-          const newFilter = [] as HdsFilterBarSelectionFilter[];
+          const newFilter = [] as HdsFilterBarSelectionFilterData[];
           this.internalFilters.forEach((filter) => {
             if (filter.value != value) {
               newFilter.push(filter);
@@ -142,7 +145,7 @@ export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFil
       const newFilter = {
         selector: selector,
         value: value,
-      } as HdsFilterBarRangeFilter;
+      } as HdsFilterBarRangeFilterData;
       return newFilter;
     };
 
@@ -189,9 +192,13 @@ export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFil
         const text = item.textContent.toLowerCase();
         const searchText = input.value.toLowerCase();
         if (text.includes(searchText)) {
-          item.style.display = '';
+          item.classList.remove(
+            'hds-filter-bar__filters-dropdown__filter-option--hidden'
+          );
         } else {
-          item.style.display = 'none';
+          item.classList.add(
+            'hds-filter-bar__filters-dropdown__filter-option--hidden'
+          );
         }
       }
     });

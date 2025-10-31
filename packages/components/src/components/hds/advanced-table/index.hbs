@@ -218,9 +218,15 @@
           {{yield to="emptyState"}}
         {{else}}
           <Hds::Layout::Flex @direction="column" @gap="8">
-            <Hds::Text::Display @tag="h3" @size="300">No data to display</Hds::Text::Display>
+            <Hds::Text::Display @tag="h3" @size="300">{{hds-t
+                "hds.components.advanced-table.empty-state.title"
+                default="No data available"
+              }}</Hds::Text::Display>
             <Hds::Text::Body>
-              No data is available in the table to display.
+              {{hds-t
+                "hds.components.advanced-table.empty-state.description"
+                default="There is currently no data to display in the table."
+              }}
             </Hds::Text::Body>
           </Hds::Layout::Flex>
         {{/if}}

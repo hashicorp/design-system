@@ -1,11 +1,18 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
 <div class="hds-filter-bar__filters-dropdown__filter-range">
   <Hds::Form::Label>
-    Number is
+    {{hds-t "hds.components.filter-bar.range.label" default="Number is"}}
   </Hds::Form::Label>
   <Hds::Layout::Flex @direction="column" @gap="16">
     <Hds::Form::Select::Base @id={{this._selectorInputId}} {{on "change" this.onSelectorChange}} as |F|>
       <F.Options>
-        <option value="">Pick a selector</option>
+        <option value="">{{hds-t
+            "hds.components.filter-bar.range.selector-input.default-value"
+            default="Pick a selector"
+          }}</option>
         {{#each this._selectorValues as |selectorValue|}}
           <option value={{selectorValue}} selected={{eq selectorValue this._selector}}>{{this.selectorText
               selectorValue
