@@ -1,4 +1,7 @@
-{{! @glint-nocheck }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
 <div class="hds-filter-bar" ...attributes>
   <div class="hds-filter-bar__actions">
     {{yield
@@ -9,8 +12,8 @@
         @type="search"
         @width="185px"
         class="hds-filter-bar__search"
-        placeholder="Search across"
-        aria-label="Search table"
+        placeholder={{hds-t "hds.components.filter-bar.search.placeholder" default="Search"}}
+        aria-label={{hds-t "hds.components.filter-bar.search.aria-label" default="Search filters"}}
         name="search"
         {{on "change" this.onSearch}}
       />
@@ -23,13 +26,15 @@
     <div class="hds-filter-bar__filters">
       {{#each-in @filters as |key filter|}}
         {{#if filter.data}}
-          {{#if (eq filter.type "single-select")}}
+          {{#if (and (eq filter.type "single-select"))}}
             <Hds::Tag
-              @text="{{key}}: {{filter.data.text}}"
-              @onDismiss={{fn this.onFilterDismiss key filter.data.value}}
+              @text="{{key}}: {{this._filterText filter.data}}"
+              @onDismiss={{fn this.onFilterDismiss key (this._filterValue filter.data)}}
             />
+          {{else if (eq filter.type "range")}}
+            <Hds::Tag @text="{{key}}: to do" />
           {{else if (eq filter.type "multi-select")}}
-            {{#each filter.data as |item|}}
+            {{#each (this._filterArrayData filter.data) as |item|}}
               <Hds::Tag @text="{{key}}: {{item.text}}" @onDismiss={{fn this.onFilterDismiss key item.value}} />
             {{/each}}
           {{/if}}

@@ -6,13 +6,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-import type { HdsFilterBarSelectionFilter } from './types.ts';
-import type { HdsDropdownSignature } from '../dropdown/index.ts';
+import type { HdsFilterBarData } from './types.ts';
 
 export interface HdsFilterBarCheckboxSignature {
-  Args: HdsDropdownSignature['Args'] & {
+  Args: {
     value?: string;
-    keyFilter: HdsFilterBarSelectionFilter[] | undefined;
+    keyFilter: HdsFilterBarData | undefined;
     onChange?: (event: Event) => void;
   };
   Blocks: {
