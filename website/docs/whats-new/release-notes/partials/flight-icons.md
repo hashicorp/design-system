@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.14.0
+
+**Minor changes**
+
+`jenkins` and `jenkins-color` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#3337](https://github.com/hashicorp/design-system/pull/3337)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.13.0
 
 **Minor changes**
@@ -228,16 +238,6 @@ Fixed the size and position of the `plus-circle` icon.
 Added `IconName` type to `iconNames` export
 
 <small class="doc-whats-new-changelog-metadata">[#1776](https://github.com/hashicorp/design-system/pull/1776) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 2.21.0
-
-**Minor changes**
-
-Added static SVG sprite sheet file
-
-<small class="doc-whats-new-changelog-metadata">[#1763](https://github.com/hashicorp/design-system/pull/1763) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
