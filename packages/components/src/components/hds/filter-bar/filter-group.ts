@@ -9,6 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 
+import HdsTabsTab from '../tabs/tab.ts';
 import HdsTabsPanel from '../tabs/panel.ts';
 import type { HdsTabsPanelSignature } from '../tabs/panel.ts';
 
@@ -25,10 +26,12 @@ import type {
   HdsFilterBarRangeFilterSelector,
 } from './types.ts';
 
-export interface HdsFilterBarFilterOptionsSignature {
+export interface HdsFilterBarFilterGroupSignature {
   Args: {
+    tab?: WithBoundArgs<typeof HdsTabsTab, never>;
     panel?: WithBoundArgs<typeof HdsTabsPanel, never>;
     key: string;
+    text: string;
     type?: HdsFilterBarFilterType;
     filters: HdsFilterBarFilters;
     searchEnabled?: boolean;
@@ -51,14 +54,14 @@ export interface HdsFilterBarFilterOptionsSignature {
   Element: HdsTabsPanelSignature['Element'];
 }
 
-export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFilterOptionsSignature> {
+export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilterGroupSignature> {
   @tracked internalFilters: HdsFilterBarData | undefined = [];
 
-  private _element!: HdsTabsPanelSignature['Element'];
+  private _panelElement!: HdsTabsPanelSignature['Element'];
 
-  private _setUpFilterOptions = modifier(
+  private _setUpFilterPanel = modifier(
     (element: HdsTabsPanelSignature['Element']) => {
-      this._element = element;
+      this._panelElement = element;
 
       if (this.keyFilter) {
         this.internalFilters = JSON.parse(
@@ -84,6 +87,19 @@ export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFil
       return undefined;
     }
     return filters[key]?.data;
+  }
+
+  get numFilters(): number {
+    const { filters, key } = this.args;
+    if (filters && key in filters) {
+      const keyFilters = filters[key]?.data;
+      if (Array.isArray(keyFilters)) {
+        return keyFilters.length;
+      } else if (keyFilters) {
+        return 1;
+      }
+    }
+    return 0;
   }
 
   @action
@@ -170,6 +186,7 @@ export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFil
     }
     return {
       type: this.type,
+      text: this.args.text,
       data: this.internalFilters,
     } as HdsFilterBarFilter;
   }
@@ -183,7 +200,7 @@ export default class HdsFilterBarFilterOptions extends Component<HdsFilterBarFil
   }
 
   private onSearch = (event: Event) => {
-    const listItems = this._element.querySelectorAll(
+    const listItems = this._panelElement.querySelectorAll(
       '.hds-filter-bar__filters-dropdown__filter-option'
     );
     const input = event.target as HTMLInputElement;
