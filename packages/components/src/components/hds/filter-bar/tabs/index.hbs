@@ -1,0 +1,34 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class="hds-filter-bar__tabs" ...attributes {{this._setUpFilterBarTabs}}>
+  <ol class="hds-filter-bar__tabs__list" aria-label={{@ariaLabel}} role="tablist">
+    {{yield
+      (hash
+        Tab=(component
+          "hds/filter-bar/tabs/tab"
+          selectedTabIndex=this._selectedTabIndex
+          tabIds=this._tabIds
+          panelIds=this._panelIds
+          didInsertNode=this.didInsertTab
+          willDestroyNode=this.willDestroyTab
+          onClick=this.onClick
+          onKeyUp=this.onKeyUp
+        )
+      )
+    }}
+  </ol>
+  {{yield
+    (hash
+      Panel=(component
+        "hds/filter-bar/tabs/panel"
+        selectedTabIndex=this._selectedTabIndex
+        tabIds=this._tabIds
+        panelIds=this._panelIds
+        didInsertNode=this.didInsertPanel
+        willDestroyNode=this.willDestroyPanel
+      )
+    )
+  }}
+</div>
