@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 
@@ -42,6 +43,8 @@ export interface HdsFilterBarSignature {
 }
 
 export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
+  @tracked _isExpanded: boolean = true;
+
   @action
   onFilter(filters: HdsFilterBarFilters): void {
     const { onFilter } = this.args;
@@ -64,6 +67,11 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     if (onSearch && typeof onSearch === 'function') {
       onSearch(event);
     }
+  }
+
+  @action
+  toggleExpand(): void {
+    this._isExpanded = !this._isExpanded;
   }
 
   get hasActiveFilters(): boolean {
