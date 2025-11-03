@@ -104,7 +104,8 @@ The selected items are automatically styled to resemble the [Tag](/components/ta
 
 ```handlebars
 <div class="hds-power-select">
-  <PowerSelectMultiple
+  <PowerSelect
+    @multiple={{true}}
     @options={{this.OPTIONS}}
     @selected={{this.SELECTEDMULTIPLE}}
     @onChange={{this.noop}}
@@ -113,6 +114,6 @@ The selected items are automatically styled to resemble the [Tag](/components/ta
     as |option|
   >
     {{option}}
-  </PowerSelectMultiple>
+  </PowerSelect>
 </div>
 ```
