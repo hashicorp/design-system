@@ -36,6 +36,14 @@
     },
     "patchedDependencies": {
       "broccoli-asset-rewrite": "patches/broccoli-asset-rewrite.patch"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@carbon/colors",
+      "@carbon/grid",
+      "@carbon/layout",
+      "@carbon/motion",
+      "@carbon/themes",
+      "@carbon/type"
+    ]
   }
 }

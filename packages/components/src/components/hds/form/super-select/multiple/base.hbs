@@ -4,7 +4,7 @@
 }}
 {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
 <div class={{this.classNames}} {{style this.styles}}>
-  <PowerSelectMultiple
+  <PowerSelect
     tabindex="0"
     @afterOptionsComponent={{if
       this.showAfterOptions
@@ -40,6 +40,7 @@
     @loadingMessage={{@loadingMessage}}
     @matcher={{@matcher}}
     @matchTriggerWidth={{if @dropdownMaxWidth false @matchTriggerWidth}}
+    @multiple={{true}}
     @noMatchesMessage={{@noMatchesMessage}}
     @onBlur={{@onBlur}}
     @onChange={{@onChange}}
@@ -77,5 +78,5 @@
   >
     {{! even if technically what is yielded here are _a list_ of options, we've decided to keep the `option` name for consistency with the existing `PowerSelect` API }}
     {{yield option select}}
-  </PowerSelectMultiple>
+  </PowerSelect>
 </div>
