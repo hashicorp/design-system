@@ -9,8 +9,8 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 
-import HdsTabsTab from '../tabs/tab.ts';
-import HdsTabsPanel from '../tabs/panel.ts';
+import HdsFilterBarTabsTab from './tabs/tab.ts';
+import HdsFilterBarTabsPanel from './tabs/panel.ts';
 import type { HdsTabsPanelSignature } from '../tabs/panel.ts';
 
 import HdsFilterBarCheckbox from './checkbox.ts';
@@ -28,8 +28,8 @@ import type {
 
 export interface HdsFilterBarFilterGroupSignature {
   Args: {
-    tab?: WithBoundArgs<typeof HdsTabsTab, never>;
-    panel?: WithBoundArgs<typeof HdsTabsPanel, never>;
+    tab?: WithBoundArgs<typeof HdsFilterBarTabsTab, never>;
+    panel?: WithBoundArgs<typeof HdsFilterBarTabsPanel, never>;
     key: string;
     text: string;
     type?: HdsFilterBarFilterType;
@@ -192,7 +192,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   }
 
   get classNames(): string {
-    const classes = ['hds-filter-bar__filter-options'];
+    const classes = ['hds-filter-bar__filter-group'];
 
     classes.push(`hds-filter-bar__dropdown--type-${this.type}`);
 
