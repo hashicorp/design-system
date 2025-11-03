@@ -4,52 +4,73 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import {
-  render,
   click,
+  render,
   resetOnerror,
   settled,
   triggerKeyEvent,
 } from '@ember/test-helpers';
-import SideNav from '@hashicorp/design-system-components/components/hds/side-nav/index';
+import { TrackedArray, TrackedObject } from 'tracked-built-ins';
 
-class MockEventTarget extends EventTarget {}
+import { HdsSideNav } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
+
+class MockMediaQueryList extends EventTarget {
+  matches: boolean;
+  media: string;
+  onchange: ((ev: MediaQueryListEvent) => unknown) | null = null;
+
+  constructor(matches: boolean, media: string = '') {
+    super();
+    this.matches = matches;
+    this.media = media;
+  }
+
+  addEventListener(type: string, listener: EventListenerOrEventListenerObject) {
+    super.addEventListener(type, listener);
+  }
+
+  removeEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+  ) {
+    super.removeEventListener(type, listener);
+  }
+
+  addListener(): void {}
+  removeListener(): void {}
+
+  dispatchEvent(event: Event): boolean {
+    if (event.type === 'change' && this.onchange) {
+      this.onchange(event as MediaQueryListEvent);
+    }
+    return super.dispatchEvent(event);
+  }
+}
+
+interface SideNavTestContext {
+  __matchMedia: typeof window.matchMedia;
+}
 
 module('Integration | Component | hds/side-nav/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function () {
-    // Mock window.matchMedia to control media query events
-    let mockMedia = new MockEventTarget();
-    mockMedia.matches = true;
-
+  hooks.beforeEach(function (this: SideNavTestContext) {
     this.__matchMedia = window.matchMedia;
-
-    this.mockMedia = () => {
-      window.matchMedia = () => mockMedia;
-    };
-
-    this.changeBrowserSize = async (isDesktop) => {
-      mockMedia.matches = isDesktop;
-      mockMedia.dispatchEvent(
-        new MediaQueryListEvent('change', {
-          matches: isDesktop,
-        }),
-      );
-      await settled();
-    };
   });
 
-  hooks.afterEach(function () {
+  hooks.afterEach(function (this: SideNavTestContext) {
     resetOnerror();
+
     window.matchMedia = this.__matchMedia;
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       <template>
-        <SideNav id="test-side-nav" @hasA11yRefocus={{false}} />
+        <HdsSideNav id="test-side-nav" @hasA11yRefocus={{false}} />
       </template>,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav');
@@ -60,7 +81,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it renders content passed to the named blocks', async function (assert) {
     await render(
       <template>
-        <SideNav @hasA11yRefocus={{false}}>
+        <HdsSideNav @hasA11yRefocus={{false}}>
           <:header>
             <span id="test-side-nav-header" />
           </:header>
@@ -70,7 +91,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
           <:footer>
             <span id="test-side-nav-footer" />
           </:footer>
-        </SideNav>
+        </HdsSideNav>
       </template>,
     );
     assert.dom('#test-side-nav-header').exists();
@@ -81,7 +102,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   // A11Y
 
   test('it renders the `a11y-refocus` elements by default with a default skip link href value of "#hds-main', async function (assert) {
-    await render(<template><SideNav /></template>);
+    await render(<template><HdsSideNav /></template>);
     assert.dom('#ember-a11y-refocus-nav-message').exists();
     assert
       .dom('#ember-a11y-refocus-skip-link')
@@ -92,7 +113,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it renders the `a11y-refocus` elements with the right properties provided as arguments', async function (assert) {
     await render(
       <template>
-        <SideNav
+        <HdsSideNav
           @a11yRefocusSkipTo="test-skip-to"
           @a11yRefocusSkipText="test-skip-text"
           @a11yRefocusNavigationText="test-navigation-text"
@@ -109,7 +130,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   });
 
   test('it does not render the `a11y-refocus` elements if `hasA11yRefocus` is false', async function (assert) {
-    await render(<template><SideNav @hasA11yRefocus={{false}} /></template>);
+    await render(<template><HdsSideNav @hasA11yRefocus={{false}} /></template>);
     assert.dom('#ember-a11y-refocus-nav-message').doesNotExist();
     assert.dom('#ember-a11y-refocus-skip-link').doesNotExist();
   });
@@ -117,19 +138,19 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   // RESPONSIVENESS
 
   test('it is "desktop" by default', async function (assert) {
-    await render(<template><SideNav id="test-side-nav" /></template>);
+    await render(<template><HdsSideNav id="test-side-nav" /></template>);
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-desktop');
   });
 
   test('it is "responsive" by default', async function (assert) {
-    await render(<template><SideNav id="test-side-nav" /></template>);
+    await render(<template><HdsSideNav id="test-side-nav" /></template>);
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-responsive');
   });
 
   test('it is not "responsive" if `isResponsive` is false', async function (assert) {
     await render(
       <template>
-        <SideNav id="test-side-nav" @isResponsive={{false}} />
+        <HdsSideNav id="test-side-nav" @isResponsive={{false}} />
       </template>,
     );
     assert
@@ -142,12 +163,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it is "mobile" on narrow viewports', async function (assert) {
     await render(
       <template>
+        {{! template-lint-disable no-forbidden-elements }}
         <style>
           :root {
             --hds-app-desktop-breakpoint: 10088px;
           }
         </style>
-        <SideNav id="test-side-nav" />
+        <HdsSideNav id="test-side-nav" />
       </template>,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-mobile');
@@ -156,12 +178,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it is minimized/collapsed on narrow viewports by default', async function (assert) {
     await render(
       <template>
+        {{! template-lint-disable no-forbidden-elements }}
         <style>
           :root {
             --hds-app-desktop-breakpoint: 10088px;
           }
         </style>
-        <SideNav id="test-side-nav" />
+        <HdsSideNav id="test-side-nav" />
       </template>,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
@@ -170,12 +193,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it is not minimized/collapsed on narrow viewports if `isResponsive` is false', async function (assert) {
     await render(
       <template>
+        {{! template-lint-disable no-forbidden-elements }}
         <style>
           :root {
             --hds-app-desktop-breakpoint: 10088px;
           }
         </style>
-        <SideNav id="test-side-nav" @isResponsive={{false}} />
+        <HdsSideNav id="test-side-nav" @isResponsive={{false}} />
       </template>,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
@@ -184,12 +208,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it shows a toggle button on narrow viewports by default', async function (assert) {
     await render(
       <template>
+        {{! template-lint-disable no-forbidden-elements }}
         <style>
           :root {
             --hds-app-desktop-breakpoint: 10088px;
           }
         </style>
-        <SideNav id="test-side-nav" />
+        <HdsSideNav id="test-side-nav" />
       </template>,
     );
     assert.dom('.hds-side-nav__toggle-button').exists();
@@ -198,12 +223,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it does not show a toggle button on narrow viewports if `isResponsive` is false', async function (assert) {
     await render(
       <template>
+        {{! template-lint-disable no-forbidden-elements }}
         <style>
           :root {
             --hds-app-desktop-breakpoint: 10088px;
           }
         </style>
-        <SideNav id="test-side-nav" @isResponsive={{false}} />
+        <HdsSideNav id="test-side-nav" @isResponsive={{false}} />
       </template>,
     );
     assert.dom('.hds-side-nav__toggle-button').doesNotExist();
@@ -212,12 +238,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it expands/collapses when the toggle button is pressed on narrow viewports', async function (assert) {
     await render(
       <template>
+        {{! template-lint-disable no-forbidden-elements }}
         <style>
           :root {
             --hds-app-desktop-breakpoint: 10088px;
           }
         </style>
-        <SideNav id="test-side-nav" />
+        <HdsSideNav id="test-side-nav" />
       </template>,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
@@ -231,12 +258,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it collapses when the ESC key is pressed on narrow viewports', async function (assert) {
     await render(
       <template>
+        {{! template-lint-disable no-forbidden-elements }}
         <style>
           :root {
             --hds-app-desktop-breakpoint: 10088px;
           }
         </style>
-        <SideNav id="test-side-nav">
+        <HdsSideNav id="test-side-nav">
           <:header as |H|>
             <span
               id="test-side-nav-header"
@@ -256,7 +284,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
               data-test-minimized={{F.isMinimized}}
             />
           </:footer>
-        </SideNav>
+        </HdsSideNav>
       </template>,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
@@ -273,7 +301,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it responds to different events to toggle between "non-minimized" (by default) and "mimimized" states', async function (assert) {
     await render(
       <template>
-        <SideNav @isCollapsible={{true}} id="test-side-nav" />
+        <HdsSideNav @isCollapsible={{true}} id="test-side-nav" />
       </template>,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
@@ -288,7 +316,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('the "non-minimized" and "minimized" states have impact on its internal properties', async function (assert) {
     await render(
       <template>
-        <SideNav @isCollapsible={{true}} id="test-side-nav">
+        <HdsSideNav @isCollapsible={{true}} id="test-side-nav">
           <:header as |H|>
             <span
               id="test-side-nav-header"
@@ -308,7 +336,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
               data-test-minimized={{F.isMinimized}}
             />
           </:footer>
-        </SideNav>
+        </HdsSideNav>
       </template>,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
@@ -349,18 +377,30 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   });
 
   test('when the viewport changes from desktop to mobile, it automatically collapses and becomes inert', async function (assert) {
-    this.mockMedia();
+    const mockMedia = new MockMediaQueryList(true);
 
-    let calls = [];
-    this.setProperties({
-      onDesktopViewportChange: (...args) => calls.push(args),
-    });
+    window.matchMedia = () => mockMedia;
+
+    const changeBrowserSize = async (isDesktop: boolean) => {
+      mockMedia.matches = isDesktop;
+      mockMedia.dispatchEvent(
+        new MediaQueryListEvent('change', {
+          matches: isDesktop,
+        }),
+      );
+      await settled();
+    };
+
+    const calls = new TrackedArray();
+    const onDesktopViewportChange = (args: boolean) => {
+      calls.push(args);
+    };
 
     await render(
       <template>
-        <SideNav
+        <HdsSideNav
           @isCollapsible={{true}}
-          @onDesktopViewportChange={{this.onDesktopViewportChange}}
+          @onDesktopViewportChange={{onDesktopViewportChange}}
         >
           <:header as |H|>
             <span
@@ -381,16 +421,16 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
               data-test-minimized={{F.isMinimized}}
             />
           </:footer>
-        </SideNav>
+        </HdsSideNav>
       </template>,
     );
 
     assert.strictEqual(calls.length, 1, 'called with initial viewport');
 
-    await this.changeBrowserSize(false);
+    await changeBrowserSize(false);
     assert.deepEqual(
       calls[1],
-      [false],
+      false,
       'resizing to mobile triggers a false event',
     );
 
@@ -398,18 +438,30 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   });
 
   test('when collapsed and the viewport changes from mobile to desktop, it automatically expands and is no longer inert', async function (assert) {
-    this.mockMedia();
+    const mockMedia = new MockMediaQueryList(true);
 
-    let calls = [];
-    this.setProperties({
-      onDesktopViewportChange: (...args) => calls.push(args),
-    });
+    window.matchMedia = () => mockMedia;
+
+    const changeBrowserSize = async (isDesktop: boolean) => {
+      mockMedia.matches = isDesktop;
+      mockMedia.dispatchEvent(
+        new MediaQueryListEvent('change', {
+          matches: isDesktop,
+        }),
+      );
+      await settled();
+    };
+
+    const calls = new TrackedArray();
+    const onDesktopViewportChange = (args: boolean) => {
+      calls.push(args);
+    };
 
     await render(
       <template>
-        <SideNav
+        <HdsSideNav
           @isCollapsible={{true}}
-          @onDesktopViewportChange={{this.onDesktopViewportChange}}
+          @onDesktopViewportChange={{onDesktopViewportChange}}
         >
           <:header as |H|>
             <span
@@ -430,25 +482,25 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
               data-test-minimized={{F.isMinimized}}
             />
           </:footer>
-        </SideNav>
+        </HdsSideNav>
       </template>,
     );
 
     await click('.hds-side-nav__toggle-button');
     assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
 
-    await this.changeBrowserSize(false);
+    await changeBrowserSize(false);
     assert.deepEqual(
       calls[1],
-      [false],
+      false,
       'resizing to mobile triggers a false event',
     );
     assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
 
-    await this.changeBrowserSize(true);
+    await changeBrowserSize(true);
     assert.deepEqual(
       calls[2],
-      [true],
+      true,
       'resizing to desktop triggers a true event',
     );
     assert
@@ -459,17 +511,22 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   // CALLBACKS
 
   test('it should call `onToggleMinimizedStatus` function if provided', async function (assert) {
-    let toggled = false;
-    this.set('onToggleMinimizedStatus', () => (toggled = true));
+    const context = new TrackedObject({
+      isToggled: false,
+    });
+    const onToggleMinimizedStatus = () => {
+      context.isToggled = true;
+    };
+
     await render(
       <template>
-        <SideNav
+        <HdsSideNav
           @isCollapsible={{true}}
-          @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}}
+          @onToggleMinimizedStatus={{onToggleMinimizedStatus}}
         />
       </template>,
     );
     await click('.hds-side-nav__toggle-button');
-    assert.ok(toggled);
+    assert.ok(context.isToggled);
   });
 });

@@ -2,11 +2,12 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import HomeLink from "@hashicorp/design-system-components/components/hds/side-nav/header/home-link";
+
+import { HdsSideNavHeaderHomeLink } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/side-nav/home-link', function (hooks) {
   setupRenderingTest(hooks);
@@ -17,7 +18,13 @@ module('Integration | Component | hds/side-nav/home-link', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" id="test-home-link" /></template>,
+      <template>
+        <HdsSideNavHeaderHomeLink
+          @icon="hashicorp"
+          @ariaLabel="Hashicorp"
+          id="test-home-link"
+        />
+      </template>,
     );
     assert.dom('#test-home-link').hasClass('hds-side-nav__home-link');
   });
@@ -26,7 +33,14 @@ module('Integration | Component | hds/side-nav/home-link', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      <template><HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" @href="https://www.hashicorp.com/" id="test-home-link" /></template>,
+      <template>
+        <HdsSideNavHeaderHomeLink
+          @icon="hashicorp"
+          @ariaLabel="Hashicorp"
+          @href="https://www.hashicorp.com/"
+          id="test-home-link"
+        />
+      </template>,
     );
     assert.dom('.hds-icon-hashicorp').exists();
     assert
@@ -37,7 +51,14 @@ module('Integration | Component | hds/side-nav/home-link', function (hooks) {
 
   test('it renders the logo with a custom passed in color', async function (assert) {
     await render(
-      <template><HomeLink @icon="boundary" @ariaLabel="Boundary" @color="var(--token-color-boundary-brand)" @href="#" /></template>,
+      <template>
+        <HdsSideNavHeaderHomeLink
+          @icon="boundary"
+          @ariaLabel="Boundary"
+          @color="var(--token-color-boundary-brand)"
+          @href="#"
+        />
+      </template>,
     );
     assert
       .dom('.hds-icon-boundary')
@@ -53,7 +74,12 @@ module('Integration | Component | hds/side-nav/home-link', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(<template><HomeLink @icon="hashicorp" /></template>);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsSideNavHeaderHomeLink @icon="hashicorp" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
