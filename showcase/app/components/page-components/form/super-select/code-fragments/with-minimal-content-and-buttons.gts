@@ -5,7 +5,6 @@
 import Component from '@glimmer/component';
 import { fn } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
-import type Owner from '@ember/owner';
 
 import { HdsFormSuperSelectMultipleBase } from '@hashicorp/design-system-components/components';
 
@@ -26,13 +25,6 @@ export default class CodeFragmentWithMultipleBaseElement extends Component<CodeF
   @tracked selectedOptions: string[] = [];
 
   options = OPTIONS;
-
-  constructor(
-    owner: Owner,
-    args: CodeFragmentWithMultipleBaseElementSignature['Args'],
-  ) {
-    super(owner, args);
-  }
 
   <template>
     <HdsFormSuperSelectMultipleBase
