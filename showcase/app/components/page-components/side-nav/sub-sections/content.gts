@@ -14,7 +14,17 @@ import {
   HdsSideNav,
   HdsSideNavPortal,
   HdsSideNavPortalTarget,
+  HdsSideNavList,
+  HdsButton,
+  HdsButtonSet,
+  HdsDropdown,
 } from '@hashicorp/design-system-components/components';
+
+import ModalWithTrigger from 'showcase/components/page-components/modal/code-fragments/with-trigger';
+import SuperSelectWithButtons from 'showcase/components/page-components/form/super-select/code-fragments/with-minimal-content-and-buttons';
+import FlyoutWithTrigger from 'showcase/components/page-components/flyout/code-fragments/with-trigger';
+
+import { on } from '@ember/modifier';
 
 const SubSectionContent: TemplateOnlyComponent = <template>
   <ShwTextH2>Content</ShwTextH2>
@@ -141,6 +151,101 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <ShwPlaceholder @height="72px" @text="extraAfter" @background="#f3d9c5" />
     </Nav.ExtraAfter>
   </HdsSideNavPortal>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>With nested button content</ShwTextH3>
+
+  <ShwFlex as |SF|>
+    <SF.Item @label="">
+      <HdsSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+        <:body>
+          <HdsSideNavList as |SNL|>
+            <SNL.Item>
+              <SuperSelectWithButtons @placeholder="SuperSelect" />
+            </SNL.Item>
+            <SNL.Item>
+              <HdsDropdown as |D|>
+                <D.ToggleButton @text="Dropdown" />
+                <D.Footer>
+                  <HdsButtonSet>
+                    <HdsButton
+                      @text="Primary"
+                      @isFullWidth={{true}}
+                      @size="small"
+                    />
+                    <HdsButton
+                      @text="Secondary"
+                      @color="secondary"
+                      @size="small"
+                    />
+                  </HdsButtonSet>
+                </D.Footer>
+              </HdsDropdown>
+            </SNL.Item>
+            <SNL.Item>
+              <ModalWithTrigger @triggerText="Open modal" id="nested-modal">
+                <:modal as |M|>
+                  <M.Header>
+                    Modal title
+                  </M.Header>
+                  <M.Body>
+                    <p class="hds-typography-body-300 hds-foreground-primary">
+                      Modal content
+                    </p>
+                  </M.Body>
+                  <M.Footer as |F|>
+                    <HdsButtonSet>
+                      <HdsButton
+                        type="submit"
+                        @text="Primary"
+                        {{on "click" F.close}}
+                      />
+                      <HdsButton
+                        type="button"
+                        @text="Secondary"
+                        @color="secondary"
+                        {{on "click" F.close}}
+                      />
+                    </HdsButtonSet>
+                  </M.Footer>
+                </:modal>
+              </ModalWithTrigger>
+            </SNL.Item>
+            <SNL.Item>
+              <FlyoutWithTrigger @triggerText="Open flyout" id="nested-flyout">
+                <:flyout as |F|>
+                  <F.Header>
+                    Flyout title
+                  </F.Header>
+                  <F.Body>
+                    <p class="hds-typography-body-300 hds-foreground-primary">
+                      Flyout body
+                    </p>
+                  </F.Body>
+                  <F.Footer as |FF|>
+                    <HdsButtonSet>
+                      <HdsButton
+                        type="submit"
+                        @text="Primary"
+                        {{on "click" FF.close}}
+                      />
+                      <HdsButton
+                        type="button"
+                        @text="Secondary"
+                        @color="secondary"
+                        {{on "click" FF.close}}
+                      />
+                    </HdsButtonSet>
+                  </F.Footer>
+                </:flyout>
+              </FlyoutWithTrigger>
+            </SNL.Item>
+          </HdsSideNavList>
+        </:body>
+      </HdsSideNav>
+    </SF.Item>
+  </ShwFlex>
 </template>;
 
 export default SubSectionContent;

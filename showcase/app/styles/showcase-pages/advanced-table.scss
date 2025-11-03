@@ -93,4 +93,16 @@ body.page-components-advanced-table {
     visibility: visible;
     opacity: 1;
   }
+
+  .shw-component-advanced-table__open-link {
+    color: var(--shw-color-gray-300);
+
+     &:hover {
+      color: var(--shw-color-gray-200);
+    }
+
+    &:active {
+      color: var(--shw-color-gray-100);
+    }
+  }
 }
