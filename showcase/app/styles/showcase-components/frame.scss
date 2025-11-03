@@ -34,17 +34,17 @@ $shw-frame-navigation-bar-height: 48px;
 }
 
 .shw-frame__open-link {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  // dimensions meet a11y touch target minimums
-  width: 48px;
-  height: 48px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: flex-end;
+  // // dimensions meet a11y touch target minimums
+  // width: 48px;
+  // height: 48px;
 
-  > .hds-icon {
+  // > .hds-icon {
     width: 16px;
     height: 16px;
-  }
+  // }
 
   color: var(--shw-color-gray-300);
 
