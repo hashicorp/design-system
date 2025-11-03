@@ -11,7 +11,7 @@ import ShwFlex from 'showcase/components/shw/flex';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwDivider from 'showcase/components/shw/divider';
 
-import ModalWithTrigger from '../../../page-components/modal/code-fragments/with-trigger';
+import ModalWithTrigger from 'showcase/components/page-components/modal/code-fragments/with-trigger';
 import SuperSelectWithButtons from 'showcase/components/page-components/form/super-select/code-fragments/with-minimal-content-and-buttons';
 import FlyoutWithTrigger from 'showcase/components/page-components/flyout/code-fragments/with-trigger';
 import CodeFragmentWithGenericContent from 'showcase/components/page-components/app-header/code-fragments/with-generic-content';

@@ -20,7 +20,7 @@ import {
   HdsDropdown,
 } from '@hashicorp/design-system-components/components';
 
-import ModalWithTrigger from '../../../page-components/modal/code-fragments/with-trigger';
+import ModalWithTrigger from 'showcase/components/page-components/modal/code-fragments/with-trigger';
 import SuperSelectWithButtons from 'showcase/components/page-components/form/super-select/code-fragments/with-minimal-content-and-buttons';
 import FlyoutWithTrigger from 'showcase/components/page-components/flyout/code-fragments/with-trigger';
 
