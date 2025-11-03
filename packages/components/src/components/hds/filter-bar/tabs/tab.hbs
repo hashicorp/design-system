@@ -1,0 +1,25 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! template-lint-disable require-context-role no-invalid-role }}
+{{! template-lint-disable require-presentational-children }}
+<li class={{this.classNames}} ...attributes role="presentation">
+  <button
+    class="hds-filter-bar__tabs__tab__button"
+    id={{this._tabId}}
+    type="button"
+    role="tab"
+    aria-controls={{this.coupledPanelId}}
+    aria-selected={{if this.isSelected "true" "false"}}
+    tabindex={{unless this.isSelected "-1"}}
+    {{on "click" this.onClick}}
+    {{on "keyup" this.onKeyUp}}
+    {{this._setUpTab this.didInsertNode this.willDestroyNode}}
+  >
+    <Hds::Text::Body @size="200" @weight="medium">{{yield}}</Hds::Text::Body>
+    <Hds::Icon @name="chevron-right" />
+  </button>
+</li>
+{{! template-lint-enable require-presentational-children }}
+{{! template-lint-enable require-context-role no-invalid-role }}

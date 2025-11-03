@@ -104,6 +104,9 @@ import type HdsFilterBarRadioComponent from './components/hds/filter-bar/radio';
 import type HdsFilterBarFiltersDropdownComponent from './components/hds/filter-bar/filters-dropdown';
 import type HdsFilterBarFilterGroupComponent from './components/hds/filter-bar/filter-group';
 import type HdsFilterBarRangeComponent from './components/hds/filter-bar/range';
+import type HdsFilterBarTabsComponent from './components/hds/filter-bar/tabs';
+import type HdsFilterBarTabsPanelComponent from './components/hds/filter-bar/tabs/panel';
+import type HdsFilterBarTabsTabComponent from './components/hds/filter-bar/tabs/tab';
 import type HdsFlyoutComponent from './components/hds/flyout';
 
 import type HdsFormComponent from './components/hds/form';
@@ -574,6 +577,12 @@ export default interface HdsComponentsRegistry {
   'hds/filter-bar/filter-group': typeof HdsFilterBarFilterGroupComponent;
   'Hds::FilterBar::Range': typeof HdsFilterBarRangeComponent;
   'hds/filter-bar/range': typeof HdsFilterBarRangeComponent;
+  'Hds::FilterBar::Tabs': typeof HdsFilterBarTabsComponent;
+  'hds/filter-bar/tabs': typeof HdsFilterBarTabsComponent;
+  'Hds::FilterBar::Tabs::Panel': typeof HdsFilterBarTabsPanelComponent;
+  'hds/filter-bar/tabs/panel': typeof HdsFilterBarTabsPanelComponent;
+  'Hds::FilterBar::Tabs::Tab': typeof HdsFilterBarTabsTabComponent;
+  'hds/filter-bar/tabs/tab': typeof HdsFilterBarTabsTabComponent;
 
   // Flyout
   'Hds::Flyout': typeof HdsFlyoutComponent;
