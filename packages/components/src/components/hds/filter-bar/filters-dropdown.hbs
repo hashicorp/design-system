@@ -11,7 +11,12 @@
   {{this._syncFilters @filters}}
   as |D|
 >
-  <D.ToggleButton @icon="filter" @text="Filter" @color="secondary" @size="small" />
+  <D.ToggleButton
+    @icon="filter"
+    @text={{hds-t "hds.components.filter-bar.filters-dropdown.toggle-button" default="Add filter"}}
+    @color="secondary"
+    @size="small"
+  />
   <D.Generic>
     <Hds::FilterBar::Tabs @ariaLabel="Filter bar tabs" as |T|>
       {{yield
