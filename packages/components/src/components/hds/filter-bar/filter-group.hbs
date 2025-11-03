@@ -3,20 +3,25 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{#let @tab as |Tab|}}
-  <Tab class="hds-filter-bar__filters-dropdown__filter-tab">
-    <Hds::Text::Body>{{@text}}</Hds::Text::Body>
+  <Tab>
+    {{@text}}
     {{#unless (eq this.numFilters 0)}}
-      <Hds::Text::Body>{{this.numFilters}}</Hds::Text::Body>
+      <Hds::BadgeCount
+        @text={{this.numFilters}}
+        @type="outlined"
+        @size="small"
+        class="hds-filter-bar__filters-dropdown__filter-group__filters-count"
+      />
     {{/unless}}
   </Tab>
 {{/let}}
 {{#let @panel as |Panel|}}
-  <Panel class="hds-filter-bar__filters-dropdown__filter-options" {{this._setUpFilterPanel}}>
+  <Panel {{this._setUpFilterPanel}}>
     {{#if @searchEnabled}}
-      <div class="hds-filter-bar__filters-dropdown__filter-options__search">
+      <div class="hds-filter-bar__filters-dropdown__filter-group__search">
         <Hds::Form::TextInput::Base
           @type="search"
-          placeholder={{hds-t "components.filter-bar.filter-options.search-input-placeholder" default="Search"}}
+          placeholder={{hds-t "components.filter-bar.filter-group.search-input-placeholder" default="Search"}}
           {{on "input" this.onSearch}}
         />
       </div>
@@ -24,7 +29,7 @@
     {{#if (eq @type "range")}}
       <Hds::FilterBar::Range @keyFilter={{this.keyFilter}} @onChange={{this.onRangeChange}} />
     {{else}}
-      <ul class="hds-filter-bar__filters-dropdown__filter-options__list">
+      <ul class="hds-filter-bar__filters-dropdown__filter-group__list">
         {{yield
           (hash
             Checkbox=(component "hds/filter-bar/checkbox" keyFilter=this.keyFilter onChange=this.onSelectionChange)
