@@ -50,8 +50,13 @@
 // FILTERS DROPDOWN
 //
 
-.hds-filter-bar__filters-dropdown__filter-options .hds-form-field--layout-flag {
+.hds-filter-bar__filters-dropdown__filter-group .hds-form-field--layout-flag {
   padding: 8px 12px;
+}
+
+.hds-filter-bar__filters-dropdown .hds-dropdown__list,
+.hds-filter-bar__filters-dropdown .hds-dropdown-list-item {
+  padding: 0;
 }
 
 .hds-filter-bar__filters-dropdown .hds-layout-flex {
@@ -62,19 +67,89 @@
   gap: 8px;
 }
 
-.hds-filter-bar__filters-dropdown__filter-options__list {
+.hds-filter-bar__filters-dropdown__filter-group__list {
   flex: 1 1 auto;
   margin: 0;
-  padding: 4px 0;
+  padding: 0;
   overflow-y: auto;
   list-style: none;
   overscroll-behavior: contain;
 }
 
+.hds-filter-bar__filters-dropdown__filters-count,
+.hds-filter-bar__filters-dropdown__filter-group__filters-count {
+  margin-left: 8px;
+}
+
 .hds-filter-bar__filters-dropdown__filter-option {
   display: block;
+  padding: 8px 0;
 
   &--hidden {
     display: none;
+  }
+}
+
+// TABS
+//
+
+.hds-filter-bar__tabs {
+  display: flex;
+}
+
+.hds-filter-bar__tabs__list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 50%;
+  padding: 8px;
+  list-style: none;
+  background-color: var(--token-color-surface-faint);
+  border-right: 1px solid var(--token-color-border-primary);
+  border-top-left-radius: var(--token-border-radius-medium);
+}
+
+.hds-filter-bar__tabs__panel:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 50%;
+  padding: 16px;
+  background-color: var(--token-color-surface-primary);
+  border-top-right-radius: var(--token-border-radius-medium);
+}
+
+.hds-filter-bar__tabs__tab__button {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  color: var(--token-color-foreground-primary);
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  border-radius: var(--token-border-radius-small);
+
+  .hds-icon {
+    fill: var(--token-color-foreground-primary);
+  }
+
+  &.mock-hover,
+  &:hover,
+  &.mock-focus,
+  &:focus {
+    background-color: var(--token-color-surface-interactive-hover);
+    cursor: pointer;
+  }
+}
+
+.hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button {
+  color: var(--token-color-foreground-strong);
+  background-color: var(--token-color-surface-interactive-active);
+
+  .hds-icon {
+    fill: var(--token-color-foreground-strong);
   }
 }
