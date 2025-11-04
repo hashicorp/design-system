@@ -366,7 +366,6 @@
       "./helpers/hds-format-date.js": "./dist/_app_/helpers/hds-format-date.js",
       "./helpers/hds-format-relative.js": "./dist/_app_/helpers/hds-format-relative.js",
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
-      "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
       "./helpers/hds-t.js": "./dist/_app_/helpers/hds-t.js",
       "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
       "./modifiers/hds-advanced-table-cell.js": "./dist/_app_/modifiers/hds-advanced-table-cell.js",
