@@ -7,6 +7,8 @@ import HeadDataService from 'ember-meta/services/head-data';
 import { service } from '@ember/service';
 import config from 'website/config/environment';
 
+import config from 'website/config/environment';
+
 export default class CustomHeadDataService extends HeadDataService {
   @service router;
 
