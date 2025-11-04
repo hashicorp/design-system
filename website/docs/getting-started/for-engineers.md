@@ -78,7 +78,7 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 ### Single file components
 
-If you are are using single file components (ie. `.gts` or `.gjs` files), the components need to be individually imported into the file for them to render. All components can be imported from the `@hashicorp/design-system-components/components` path.
+If you are are using single file components (i.e., `.gts` or `.gjs` files), the components need to be individually imported into the file for them to render. All components can be imported from the `@hashicorp/design-system-components/components` path.
 
 ```typescript
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
