@@ -76,6 +76,27 @@ Our component library assumes that a box-sizing reset is applied globally in you
 `*, *::before, *::after { box-sizing: border-box; }`
 !!!
 
+### Single file components
+
+If you are are using single file components (ie. `.gts` or `.gjs` files), the components need to be individually imported into the file for them to render. All components can be imported from the `@hashicorp/design-system-components/components` path.
+
+```typescript
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { 
+  HdsButton, 
+  HdsFormTextInputField
+} from '@hashicorp/design-system-components/components';
+
+const MyComponent: TemplateOnlyComponent = <template>
+  <HdsFormTextInputField as |F|>
+    <F.Label>Name</F.Label>
+  </HdsFormTextInputField>
+  <HdsButton @text="Save">
+</template>;
+
+export default MyComponent;
+```
+
 ## Icons
 
 There are two ways to use icons in your codebase. We provide icons:
