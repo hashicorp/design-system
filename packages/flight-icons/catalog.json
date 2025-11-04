@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2025-10-30T17:40:18.632Z",
+  "lastRunTimeISO": "2025-11-04T22:13:53.325Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2601,6 +2601,46 @@
       "fileName": "openid-color-16",
       "iconName": "openid-color",
       "description": "OpenID, OIDC",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "9088:170",
+      "fileName": "openstack-24",
+      "iconName": "openstack",
+      "description": "activity, pulse, health",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "9088:174",
+      "fileName": "openstack-16",
+      "iconName": "openstack",
+      "description": "activity, pulse, health",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "9088:159",
+      "fileName": "openstack-color-24",
+      "iconName": "openstack-color",
+      "description": "activity, pulse, health",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "9088:163",
+      "fileName": "openstack-color-16",
+      "iconName": "openstack-color",
+      "description": "activity, pulse, health",
       "category": "Services",
       "size": "16",
       "width": 16,
