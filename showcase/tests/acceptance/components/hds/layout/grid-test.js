@@ -5,14 +5,14 @@
 
 import { module, test } from 'qunit';
 import { visit } from '@ember/test-helpers';
-import { setupApplicationTest } from 'dummy/tests/helpers';
+import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/layout/grid', function (hooks) {
+module('Acceptance | layouts/grid', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Components/layout/grid page passes automated a11y checks', async function (assert) {
-    await visit('/components/layout/grid');
+  test('Layout/grid page passes automated a11y checks', async function (assert) {
+    await visit('/layouts/grid');
 
     await a11yAudit();
 
