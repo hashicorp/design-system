@@ -62,7 +62,6 @@
     "ember-concurrency": "^4.0.4",
     "ember-element-helper": "^0.8.6",
     "ember-focus-trap": "^1.1.1",
-    "ember-get-config": "^2.1.1",
     "ember-modifier": "^4.2.2",
     "ember-power-select": "^8.7.1",
     "ember-stargate": "^1.0.2",
