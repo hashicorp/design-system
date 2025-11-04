@@ -63,6 +63,7 @@
     "@tsconfig/ember": "^3.0.10",
     "@types/qunit": "^2.19.12",
     "@types/rsvp": "^4.0.9",
+    "@types/sinon": "^17.0.4",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^9.1.2",
     "ember-a11y-testing": "^7.1.2",
