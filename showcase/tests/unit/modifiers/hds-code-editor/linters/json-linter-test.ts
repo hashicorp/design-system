@@ -76,11 +76,11 @@ module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
     );
     assert.strictEqual(element.children.length, 2, 'Has two children');
     assert.ok(
-      element.children[0].classList.contains('cm-lint-marker-error'),
+      element?.children[0]?.classList.contains('cm-lint-marker-error'),
       'Has error icon',
     );
     assert.strictEqual(
-      element.children[1].textContent,
+      element?.children[1]?.textContent,
       `Line ${lineNumber}: ${message}`,
       'Has correct text content',
     );
