@@ -19,7 +19,7 @@ export default class Index extends Component {
 
   get demoSelectedTab() {
     return parseInt(
-      this.router?.currentRoute?.queryParams?.demoSelectedTab ?? 0,
+      this.router?.currentRoute?.queryParams?.demoSelectedTab ?? 0
     );
   }
 
