@@ -18,8 +18,8 @@
   "scripts": {
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet --ext .js,.ts,.tsx",
-    "sync": "ts-node --transpile-only ./scripts/sync",
-    "build": "ts-node --transpile-only ./scripts/build"
+    "sync": "ts-node --transpile-only ./scripts/sync.ts",
+    "build": "ts-node --transpile-only ./scripts/build.ts"
   },
   "devDependencies": {
     "@figma-export/cli": "^6.0.2",
