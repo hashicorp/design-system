@@ -69,19 +69,12 @@
 }
 
 // Dropdown & Button color theming overrides
-.hds-side-nav__dropdown, // deprecated classname
-.hds-side-nav,
-.hds-side-nav-header {
+.hds-side-nav {
   .hds-button,
   .hds-dropdown-toggle-button,
   .hds-dropdown-toggle-icon {
     // Apply dark theme to child interactive components not within a nested dropdown
-    &:not(
-      .hds-dropdown * *,
-      .ember-basic-dropdown-trigger * *,
-      .ember-basic-dropdown-content * *,
-      .hds-dialog-primitive__wrapper *
-    ) {
+    &:not(.hds-dropdown * *, .ember-basic-dropdown * *, .hds-dialog-primitive__wrapper *) {
       @include hds-interactive-dark-theme();
 
       // disabled state:
