@@ -1,3 +1,13 @@
+## 5.0.0
+
+Removed the deprecated `@text` argument from the `HdsDropdownListItemInteractive` component.
+
+To migrate, run the codemod `v4/dropdown-list-item-interactive` (see [readme file](https://github.com/hashicorp/design-system/tree/main/packages/codemods/transforms/v4/dropdown-list-item-interactive))
+
+
+Added assertion to the `ToggleIcon` to provide improved developer guidance for the `hasChevron` attribute
+
+
 ## 4.23.0
 
 Updated the type of the `close` callback to allow an optional event to be passed and to make it always returned.

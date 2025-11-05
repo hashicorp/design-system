@@ -1,3 +1,8 @@
+## 5.0.0
+
+Removed the component invocation paths `Hds::Card` and `hds/card`. Consumers must update their templates to use `<Hds::Card::Container>` or `{{hds/card/container}}`
+
+
 ## 4.23.0
 
 Updated all exported types to use template literals instead of enum values.

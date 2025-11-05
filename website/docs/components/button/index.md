@@ -19,8 +19,6 @@ navigation:
   keywords:
     - action
     - link
-status:
-  updated: 4.24.1
 ---
 
 <section data-tab="Guidelines">

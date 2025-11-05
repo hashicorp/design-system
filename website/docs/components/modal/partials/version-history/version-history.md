@@ -1,3 +1,8 @@
+## 5.0.0
+
+Removed deprecated `HdsModalHeader`, `HdsModalBody`, and `HdsModalFooter` subcomponents.
+
+
 ## 4.24.1
 
 Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Modal is closed.

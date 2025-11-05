@@ -22,8 +22,6 @@ navigation:
     - collision
     - detection
     - bubble
-status:
-  updated: 4.24.0
 ---
 
 <section data-tab="Code">

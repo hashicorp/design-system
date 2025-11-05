@@ -1,3 +1,8 @@
+## 5.0.0
+
+Renamed the `volume-2` icon to `volume-up`
+
+
 ## 4.15.0
 
 Aligned private class properties to follow a standardized notation

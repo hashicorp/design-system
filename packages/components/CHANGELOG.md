@@ -6,59 +6,47 @@
 
 ### Major Changes
 
-<!-- START components/flyout -->
 
 `Flyout` - Removed deprecated `HdsFlyoutHeader`, `HdsFlyoutBody`, `HdsFlyoutDescription`, and `HdsFlyoutFooter` subcomponents.
 
-<!-- END -->
 
-<!-- START components/modal -->
 
 `Modal` - Removed deprecated `HdsModalHeader`, `HdsModalBody`, and `HdsModalFooter` subcomponents.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/dropdown -->
 
 `Dropdown` - Removed the deprecated `@text` argument from the `HdsDropdownListItemInteractive` component.
 
 To migrate, run the codemod `v4/dropdown-list-item-interactive` (see [readme file](https://github.com/hashicorp/design-system/tree/main/packages/codemods/transforms/v4/dropdown-list-item-interactive))
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/dropdown -->
 
 `Dropdown` - Added assertion to the `ToggleIcon` to provide improved developer guidance for the `hasChevron` attribute
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/super-select -->
 
 Added `ember-basic-dropdown` as a peer dependency required by `ember-power-select`. To migrate, if your application uses `SuperSelect`, make sure to add this dependency.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/application-state -->
 
 `ApplicationState` - Replaced the default opinionated `margin: 0 auto;` rule from the component's root element with a new `@isAutoCentered` argument (which defaults to `true`, to preserve the existing centering behavior). This delegates the horizontal alignment control to the consumers, allowing them to disable it when needed.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
@@ -76,11 +64,9 @@ Removed `sass` and `ember-cli-sass` dependencies. Consumers using `sass` in thei
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Removed the `@isVisuallyHidden` argument from `HdsAdvancedTableTh` component. This setting is supported via setting `isVisuallyHidden` in the corresponding `@columns` item's configuration.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
@@ -99,34 +85,28 @@ Upgraded `@glimmer/component` dependency to version `2.0`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/card -->
 
 `Card` - Removed the component invocation paths `Hds::Card` and `hds/card`. Consumers must update their templates to use `<Hds::Card::Container>` or `{{hds/card/container}}`
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/side-nav -->
 
 `SideNav` - Removed deprecated features
 
 - Removed the `@ariaLabel` argument
 - Removed the `HdsSideNavHeaderIconButton` component
 - Updated the deprecation removal version from `5.0.0` to `6.0.0`
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/icon -->
 
 `Icon` - Renamed the `volume-2` icon to `volume-up`
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
@@ -140,17 +120,13 @@ Removed support for deprecated `ember-flight-icons` `lazyEmbed` config
 
 ### Patch Changes
 
-<!-- START components/side-nav -->
 
 `SideNav` - Fixed the type of `@a11yRefocusRouteChangeValidator` to match the expected type from `ember-a11y-refocus`. The new type is `(transition: Transition) => boolean` instead of `string`.
 
-<!-- END -->
 
-<!-- START components/app-header -->
 
 `AppHeader` - Fixed the type of `@a11yRefocusRouteChangeValidator` to match the expected type from `ember-a11y-refocus`. The new type is `(transition: Transition) => boolean` instead of `string`.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
