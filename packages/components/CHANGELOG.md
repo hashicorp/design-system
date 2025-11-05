@@ -1,19 +1,98 @@
 # @hashicorp/design-system-components
 
+## 4.24.1
+
+[4.24.1 documentation](https://hds-website-4-24-1.vercel.app/)
+
+### Patch Changes
+
+
+`CodeBlock` - Fixed a11y issue with its `CopyButton` by adding `copySuccessMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
+
+
+
+`CopyButton` - Fixed a11y issue by adding `ariaMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
+
+
+<small class="doc-whats-new-changelog-metadata">[#3304](https://github.com/hashicorp/design-system/pull/3304)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`FileInput` - Added width of 100% to prevent the component from overflowing its container and making it consistent with other Input components
+
+
+<small class="doc-whats-new-changelog-metadata">[#3318](https://github.com/hashicorp/design-system/pull/3318)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Button` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav` or `AppHeader`
+
+
+
+`SideNav` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav`
+
+
+
+`AppHeader` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `AppHeader`
+
+
+<small class="doc-whats-new-changelog-metadata">[#3335](https://github.com/hashicorp/design-system/pull/3335)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AppFooter` - Updated company name in copyright text
+
+
+<small class="doc-whats-new-changelog-metadata">[#3314](https://github.com/hashicorp/design-system/pull/3314)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`SuperSelect` - Fixed issue with tabbing to `SuperSelectMultiple` with search enabled by adding tabindex of "0"
+
+
+<small class="doc-whats-new-changelog-metadata">[#3333](https://github.com/hashicorp/design-system/pull/3333)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Modal` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Modal is closed.
+
+
+
+`Flyout` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Flyout is closed.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3215](https://github.com/hashicorp/design-system/pull/3215)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`SuperSelect` - Fixed color style for disabled option items.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3331](https://github.com/hashicorp/design-system/pull/3331)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.14.0
+
 ## 4.24.0
 
 [4.24.0 documentation](https://hds-website-4-24-0.vercel.app/)
 
 ### Minor Changes
 
-
 `PopoverPrimitive` - Added support for dynamic swap/injection of the toggle element.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3189](https://github.com/hashicorp/design-system/pull/3189)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
 
 `AdvancedTable` - Added support for column reordering.
 
@@ -28,13 +107,9 @@
 
 ### Patch Changes
 
-
 `Table` - Update the model and returned `B.data` to use generic types, so the type of the data is retained.
 
-
-
 `KeyValueInputs` - Update the data and returned `R.rowData` to use generic types, so the type of the data is retained.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3150](https://github.com/hashicorp/design-system/pull/3150) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 

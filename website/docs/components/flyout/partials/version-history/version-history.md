@@ -1,3 +1,8 @@
+## 4.24.1
+
+Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Flyout is closed.
+
+
 ## 4.15.0
 
 Aligned private class properties to follow a standardized notation

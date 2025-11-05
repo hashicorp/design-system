@@ -1,3 +1,8 @@
+## 4.24.1
+
+Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav` or `AppHeader`
+
+
 ## 4.23.0
 
 Removed CSS declaration for pseudo element in disabled state

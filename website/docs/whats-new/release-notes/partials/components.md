@@ -12,20 +12,99 @@
   </a>
 </p>
 
+## 4.24.1
+
+[4.24.1 documentation](https://hds-website-4-24-1.vercel.app/)
+
+**Patch changes**
+
+
+`CodeBlock` - Fixed a11y issue with its `CopyButton` by adding `copySuccessMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
+
+
+
+`CopyButton` - Fixed a11y issue by adding `ariaMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
+
+
+<small class="doc-whats-new-changelog-metadata">[#3304](https://github.com/hashicorp/design-system/pull/3304)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`FileInput` - Added width of 100% to prevent the component from overflowing its container and making it consistent with other Input components
+
+
+<small class="doc-whats-new-changelog-metadata">[#3318](https://github.com/hashicorp/design-system/pull/3318)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Button` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav` or `AppHeader`
+
+
+
+`SideNav` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav`
+
+
+
+`AppHeader` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `AppHeader`
+
+
+<small class="doc-whats-new-changelog-metadata">[#3335](https://github.com/hashicorp/design-system/pull/3335)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AppFooter` - Updated company name in copyright text
+
+
+<small class="doc-whats-new-changelog-metadata">[#3314](https://github.com/hashicorp/design-system/pull/3314)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`SuperSelect` - Fixed issue with tabbing to `SuperSelectMultiple` with search enabled by adding tabindex of "0"
+
+
+<small class="doc-whats-new-changelog-metadata">[#3333](https://github.com/hashicorp/design-system/pull/3333)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Modal` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Modal is closed.
+
+
+
+`Flyout` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Flyout is closed.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3215](https://github.com/hashicorp/design-system/pull/3215)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`SuperSelect` - Fixed color style for disabled option items.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3331](https://github.com/hashicorp/design-system/pull/3331)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.14.0
+
 ## 4.24.0
 
 [4.24.0 documentation](https://hds-website-4-24-0.vercel.app/)
 
 **Minor changes**
 
-
 `PopoverPrimitive` - Added support for dynamic swap/injection of the toggle element.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3189](https://github.com/hashicorp/design-system/pull/3189)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
 
 `AdvancedTable` - Added support for column reordering.
 
@@ -40,13 +119,9 @@
 
 **Patch changes**
 
-
 `Table` - Update the model and returned `B.data` to use generic types, so the type of the data is retained.
 
-
-
 `KeyValueInputs` - Update the data and returned `R.rowData` to use generic types, so the type of the data is retained.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3150](https://github.com/hashicorp/design-system/pull/3150) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 
@@ -1352,118 +1427,6 @@ Upgraded `ember-style-modifier` to `4.4.0`
 **🔄 Updated dependencies:**
 
 - @hashicorp/flight-icons@3.7.0
-
-## 4.12.0
-
-[4.12.0 documentation](https://hds-website-4-12-0.vercel.app/)
-
-**Minor changes**
-
-`Dropdown` - Made the `isOpen` state available in the yielded block
-
-<small class="doc-whats-new-changelog-metadata">[#2443](https://github.com/hashicorp/design-system/pull/2443)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`IconTile` - Fixed `@color` argument type signature
-
-<small class="doc-whats-new-changelog-metadata">[#2452](https://github.com/hashicorp/design-system/pull/2452)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Interactive` - Aligned types with `LinkTo`
-
-<small class="doc-whats-new-changelog-metadata">[#2455](https://github.com/hashicorp/design-system/pull/2455)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`DialogPrimitive` - Fixed issue with `box-sizing` inheritance
-
-`Modal`/`Flyout` - Updated `box-sizing` inheritance via `DialogPrimitive` fix
-
-<small class="doc-whats-new-changelog-metadata">[#2442](https://github.com/hashicorp/design-system/pull/2442)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Upgraded `eslint-plugin-ember` to `12.2.0`
-
-`AppFooter`, `AppFrame`, `SideNav` - refactored subcomponents to use `TemplateOnlyComponent` instead of empty classes.
-
-<small class="doc-whats-new-changelog-metadata">[#2427](https://github.com/hashicorp/design-system/pull/2427)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`RadioCard`
-
-- Fixed selected border colors to match Figma and interactive states.
-- Updated icon, label, and description colors to use `disabled-foreground` when
-  the `RadioCard` is disabled.
-
-<small class="doc-whats-new-changelog-metadata">[#2445](https://github.com/hashicorp/design-system/pull/2445)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`MaskedInput` - Changed textarea `scrollbar-width` to "thin" to reduce overlap with toggle button.
-
-`CodeBlock` - Changed textarea `scrollbar-width` to "thin" to reduce overlap with copy button.
-
-<small class="doc-whats-new-changelog-metadata">[#2444](https://github.com/hashicorp/design-system/pull/2444)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Removed `ember-keyboard` dependency
-
-<small class="doc-whats-new-changelog-metadata">[#2460](https://github.com/hashicorp/design-system/pull/2460)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tabs` - Fixed signatures for subcomponents
-
-<small class="doc-whats-new-changelog-metadata">[#2448](https://github.com/hashicorp/design-system/pull/2448)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Table` - Fixed signatures for subcomponents
-
-<small class="doc-whats-new-changelog-metadata">[#2449](https://github.com/hashicorp/design-system/pull/2449)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`BadgeCount` - updated the type of the `text` argument to allow numbers
-
-`TooltipButton` - made the default value for the `placement` argument `'top'` and fixed the type definition
-
-`TooltipButton` - made the `extraTippyOptions` argument optional and allowed to be a partial object
-
-<small class="doc-whats-new-changelog-metadata">[#2447](https://github.com/hashicorp/design-system/pull/2447)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`DialogPrimitive` - added a guard so the yielded close function is always defined
-
-<small class="doc-whats-new-changelog-metadata">[#2453](https://github.com/hashicorp/design-system/pull/2453)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Hds::SideNav` - Fixed a couple of bugs where SideNav would remain inert when no longer minimized (or would not be inert when minimized)
-
-<small class="doc-whats-new-changelog-metadata">[#2431](https://github.com/hashicorp/design-system/pull/2431) - Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Button` - aligned type names to convention
-
-<small class="doc-whats-new-changelog-metadata">[#2457](https://github.com/hashicorp/design-system/pull/2457)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Fixed issue with icon sprite not initiated
-
-<small class="doc-whats-new-changelog-metadata">[#2433](https://github.com/hashicorp/design-system/pull/2433) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---

@@ -1,3 +1,8 @@
+## 4.24.1
+
+Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Modal is closed.
+
+
 ## 4.20.2
 
 Reverted changes introduced in [#2846](https://github.com/hashicorp/design-system/pull/2846) and [#2902](https://github.com/hashicorp/design-system/pull/2902) related to the click behavior outside the modal when dismissing is disabled
