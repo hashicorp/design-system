@@ -1,5 +1,21 @@
 # @hashicorp/flight-icons
 
+## 3.14.0
+
+### Minor Changes
+
+Added `openstack` and `openstack-color` icons.
+
+<small class="doc-whats-new-changelog-metadata">[#3353](https://github.com/hashicorp/design-system/pull/3353)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`jenkins` and `jenkins-color` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#3337](https://github.com/hashicorp/design-system/pull/3337)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.13.0
 
 ### Minor Changes
