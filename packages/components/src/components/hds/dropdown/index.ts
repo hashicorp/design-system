@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 
 import {
   // map Dropdown's `listPosition` values to PopoverPrimitive's `placement` values
@@ -48,6 +49,10 @@ export interface HdsDropdownSignature {
     enableCollisionDetection?: HdsAnchoredPositionOptions['enableCollisionDetection'];
     preserveContentInDom?: boolean;
     matchToggleWidth?: boolean;
+    searchEnabled?: boolean;
+    searchPlaceholder?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
   Blocks: {
     default: [
@@ -73,6 +78,14 @@ export interface HdsDropdownSignature {
 }
 
 export default class HdsDropdown extends Component<HdsDropdownSignature> {
+  private _element!: HTMLDivElement;
+
+  private _setUpDropdown = modifier((element: HTMLDivElement) => {
+    this._element = element;
+
+    return () => {};
+  });
+
   /**
    * @param listPosition
    * @type {string}
@@ -116,6 +129,17 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     };
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  get onDismiss(): ((event: MouseEvent, ...args: any[]) => void) | false {
+    const { onDismiss } = this.args;
+
+    if (typeof onDismiss === 'function') {
+      return onDismiss;
+    } else {
+      return false;
+    }
+  }
+
   /**
    * Get the class names to apply to the element
    * @method classNames
@@ -127,6 +151,10 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     // add a class based on the @isInline argument
     if (this.args.isInline) {
       classes.push('hds-dropdown--is-inline');
+    }
+
+    if (this.args.onDismiss) {
+      classes.push('hds-dropdown--has-dismiss');
     }
 
     return classes.join(' ');
@@ -169,4 +197,20 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
       }
     }
   }
+
+  onSearch = (event: Event) => {
+    const listItems = this._element.querySelectorAll('.hds-dropdown-list-item') as NodeListOf<HTMLLIElement>;
+    const input = event.target as HTMLInputElement;
+    listItems.forEach((item) => {
+      if (item.textContent) {
+        const text = item.textContent.toLowerCase();
+        const searchText = input.value.toLowerCase();
+        if (text.includes(searchText)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      }
+    });
+  };
 }
