@@ -4,7 +4,6 @@
  */
 
 'use strict';
-
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const fs = require('fs');
 const path = require('path');
@@ -21,7 +20,11 @@ const componentsSrcStylesPath = path.resolve(
 );
 const hasSrcStyles = fs.existsSync(componentsSrcStylesPath);
 
-module.exports = function (defaults) {
+const { compatBuild } = require('@embroider/compat');
+
+module.exports = async function (defaults) {
+  const { buildOnce } = await import('@embroider/vite');
+
   const app = new EmberApp(defaults, {
     'ember-cli-babel': {
       enableTypeScriptTransform: true,
@@ -54,15 +57,5 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  const { maybeEmbroider } = require('@embroider/test-setup');
-  return maybeEmbroider(app, {
-    skipBabel: [
-      {
-        package: 'qunit',
-      },
-      {
-        package: '@hashicorp/flight-icons',
-      },
-    ],
-  });
+  return compatBuild(app, buildOnce);
 };

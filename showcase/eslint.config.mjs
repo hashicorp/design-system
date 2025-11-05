@@ -28,22 +28,13 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import qunit from 'eslint-plugin-qunit';
 import n from 'eslint-plugin-n';
 
-import babelParser from '@babel/eslint-parser';
+import babelParser from '@babel/eslint-parser/experimental-worker';
 
 const parserOptions = {
   esm: {
     js: {
       ecmaFeatures: { modules: true },
       ecmaVersion: 'latest',
-      requireConfigFile: false,
-      babelOptions: {
-        plugins: [
-          [
-            '@babel/plugin-proposal-decorators',
-            { decoratorsBeforeExport: true },
-          ],
-        ],
-      },
     },
     ts: {
       projectService: true,
@@ -109,10 +100,8 @@ export default ts.config(
     files: [
       '**/*.cjs',
       'config/**/*.js',
-      'tests/dummy/config/**/*.js',
       'testem.js',
       'testem*.js',
-      'index.js',
       '.prettierrc.js',
       '.stylelintrc.js',
       '.template-lintrc.js',
