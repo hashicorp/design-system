@@ -26,6 +26,7 @@ import {
   type HdsFilterBarRangeFilter,
   type HdsFilterBarSingleSelectFilter,
   type HdsFilterBarMultiSelectFilter,
+  type HdsFilterBarSearchFilter,
   type HdsFilterBarFilter,
 } from '@hashicorp/design-system-components/components';
 
@@ -563,15 +564,8 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   }
 
   onFilter = (filters: HdsFilterBarSignature['Args']['filters']) => {
+    console.log('onFilter called with filters: ', filters);
     this.filters = filters;
-  };
-
-  onSearch = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    const value = target.value;
-    if (value.length > 0) {
-      window.alert(`✅ Search executed with value: ${value}`);
-    }
   };
 
   get demoModelFilteredData() {
@@ -587,6 +581,10 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             }
           } else if (filter.type === 'single-select') {
             if (!this.isSingleSelectFilterMatch(item[key], filter)) {
+              match = false;
+            }
+          } else if (filter.type === 'search') {
+            if (!this.isSearchFilterMatch(item, filter)) {
               match = false;
             }
           } else {
@@ -650,6 +648,25 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     return filterValues.includes(itemValue);
   }
 
+  isSearchFilterMatch(
+    item: Record<string, unknown>,
+    filter: HdsFilterBarSearchFilter,
+  ): boolean {
+    let match = false;
+    Object.keys(item).forEach((key) => {
+      const itemValue = item[key];
+      const filterValue = filter.data.value;
+      if (
+        typeof itemValue === 'string' &&
+        typeof filterValue === 'string' &&
+        itemValue.toLowerCase().includes(filterValue.toLowerCase())
+      ) {
+        match = true;
+      }
+    });
+    return match;
+  }
+
   clearFilters = () => {
     this.filters = {};
   };
@@ -676,7 +693,6 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
         @hasSearch={{true}}
         @filters={{this.filters}}
         @onFilter={{this.onFilter}}
-        @onSearch={{this.onSearch}}
         {{style marginBottom="24px"}}
         as |F|
       >
@@ -755,7 +771,6 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             @hasSearch={{true}}
             @filters={{this.filters}}
             @onFilter={{this.onFilter}}
-            @onSearch={{this.onSearch}}
             as |F|
           >
             <F.ActionsDropdown as |D|>

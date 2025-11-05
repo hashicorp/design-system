@@ -10,7 +10,8 @@
     {{#if @hasSearch}}
       <Hds::Form::TextInput::Base
         @type="search"
-        @width="185px"
+        @width="320px"
+        @value={{this.searchValue}}
         class="hds-filter-bar__search"
         placeholder={{hds-t "hds.components.filter-bar.search.placeholder" default="Search"}}
         aria-label={{hds-t "hds.components.filter-bar.search.aria-label" default="Search filters"}}
@@ -50,10 +51,15 @@
               @text="{{this._filterKeyText key filter}} {{this._rangeFilterText filter.data}}"
               @onDismiss={{fn this.onFilterDismiss key}}
             />
+          {{else if (eq filter.type "search")}}
+            <Hds::Tag
+              @text="{{this._filterKeyText key filter}}: {{this._filterText filter.data}}"
+              @onDismiss={{fn this.onFilterDismiss key}}
+            />
           {{else if (eq filter.type "multi-select")}}
             {{#each (this._filterArrayData filter.data) as |item|}}
               <Hds::Tag
-                @text="{{this._filterKeyText key filter}}: {{item.text}}"
+                @text="{{this._filterKeyText key filter}}: {{item.value}}"
                 @onDismiss={{fn this.onFilterDismiss key item.value}}
               />
             {{/each}}
