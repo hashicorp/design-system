@@ -78,10 +78,10 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 ### Single file components
 
-If you are are using single file components (ie., `.gts` or `.gjs` files), the components need to be individually imported into the file for them to render. All components can be imported from the `@hashicorp/design-system-components/components` path. To use a component's signature, you must import it from the definition file.
+If you are are using single file components (i.e., `.gts` or `.gjs` files), the components need to be individually imported into the file for them to render. All components can be imported from the `@hashicorp/design-system-components/components` path. To use a component's signature, you must import it from the definition file.
 
 ```typescript
-import type { TOC } from '@ember/component/template-only';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { 
   HdsButton, 
   HdsFormTextInputField
@@ -92,13 +92,15 @@ import type {
 } from '@hashicorp/design-system-components/components/hds/form/text-input/field';
 
 interface MyComponentSignature {
-  Args: {};
-  Element: HdsFormTextInputFieldSignature;
+  Args: {
+    fieldLabel: string;
+  };
+  Element: HdsFormTextInputFieldSignature['Element'];
 }
 
-const MyComponent: TOC<MyComponentSignature> = <template>
+const MyComponent: TemplateOnlyComponent<MyComponentSignature> = <template>
   <HdsFormTextInputField ...attributes as |F|>
-    <F.Label>Name</F.Label>
+    <F.Label>{{@fieldLabel}}</F.Label>
   </HdsFormTextInputField>
   <HdsButton type="submit" @text="Save">
 </template>;
