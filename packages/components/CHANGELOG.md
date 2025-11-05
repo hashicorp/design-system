@@ -6,95 +6,73 @@
 
 ### Patch Changes
 
-<!-- START components/code-block -->
 
 `CodeBlock` - Fixed a11y issue with its `CopyButton` by adding `copySuccessMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
 
-<!-- END -->
 
-<!-- START components/copy/button -->
 
 `CopyButton` - Fixed a11y issue by adding `ariaMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3304](https://github.com/hashicorp/design-system/pull/3304)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/file-input -->
 
 `FileInput` - Added width of 100% to prevent the component from overflowing its container and making it consistent with other Input components
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3318](https://github.com/hashicorp/design-system/pull/3318)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/button -->
 
 `Button` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav` or `AppHeader`
 
-<!-- END -->
 
-<!-- START components/side-nav -->
 
 `SideNav` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav`
 
-<!-- END -->
 
-<!-- START components/app-header -->
 
 `AppHeader` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `AppHeader`
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3335](https://github.com/hashicorp/design-system/pull/3335)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/app-footer -->
 
 `AppFooter` - Updated company name in copyright text
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3314](https://github.com/hashicorp/design-system/pull/3314)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/super-select -->
 
 `SuperSelect` - Fixed issue with tabbing to `SuperSelectMultiple` with search enabled by adding tabindex of "0"
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3333](https://github.com/hashicorp/design-system/pull/3333)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/modal -->
 
 `Modal` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Modal is closed.
 
-<!-- END -->
 
-<!-- START components/flyout -->
 
 `Flyout` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Flyout is closed.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3215](https://github.com/hashicorp/design-system/pull/3215)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/super-select -->
 
 `SuperSelect` - Fixed color style for disabled option items.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3331](https://github.com/hashicorp/design-system/pull/3331)</small>
 

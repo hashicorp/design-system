@@ -23,6 +23,8 @@ navigation:
     - security
     - accessibility
     - system status
+status:
+  updated: 4.24.1
 ---
 
 <section data-tab="Guidelines">

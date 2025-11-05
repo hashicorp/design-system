@@ -1,3 +1,11 @@
+## 4.24.1
+
+Fixed issue with tabbing to `SuperSelectMultiple` with search enabled by adding tabindex of "0"
+
+
+Fixed color style for disabled option items.
+
+
 ## 4.22.0
 
 Translated template strings

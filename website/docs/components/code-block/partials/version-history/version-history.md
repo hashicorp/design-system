@@ -1,3 +1,8 @@
+## 4.24.1
+
+Fixed a11y issue with its `CopyButton` by adding `copySuccessMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
+
+
 ## 4.20.0
 
 Updated signature to use `WithBoundArgs` instead of `ComponentLike` for contextual components to resolve linting issues

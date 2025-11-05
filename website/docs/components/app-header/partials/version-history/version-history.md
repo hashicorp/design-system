@@ -1,3 +1,8 @@
+## 4.24.1
+
+Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `AppHeader`
+
+
 ## 4.23.0
 
 return `close` callback to the `:logo` named block so the menu actions can be hidden programmatically when the component is in a mobile view.
