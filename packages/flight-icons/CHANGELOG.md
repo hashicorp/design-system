@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 4.0.0
+
+### Major Changes
+
+Renamed `volume-2` to `volume-up`.
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.14.0
 
 ### Minor Changes
