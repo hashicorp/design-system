@@ -21,7 +21,7 @@ import type {
   HdsFilterBarFilters,
   HdsFilterBarFilterType,
   HdsFilterBarData,
-  HdsFilterBarSelectionFilterData,
+  HdsFilterBarGenericFilterData,
   HdsFilterBarRangeFilterData,
   HdsFilterBarRangeFilterSelector,
 } from './types.ts';
@@ -106,9 +106,8 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   onSelectionChange(event: Event): void {
     const addFilter = (value: unknown): void => {
       const newFilter = {
-        text: value as string,
         value: value,
-      } as HdsFilterBarSelectionFilterData;
+      } as HdsFilterBarGenericFilterData;
       if (this.type === 'single-select') {
         this.internalFilters = newFilter;
       } else {
@@ -125,7 +124,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
         this.internalFilters = undefined;
       } else {
         if (Array.isArray(this.internalFilters)) {
-          const newFilter = [] as HdsFilterBarSelectionFilterData[];
+          const newFilter = [] as HdsFilterBarGenericFilterData[];
           this.internalFilters.forEach((filter) => {
             if (filter.value != value) {
               newFilter.push(filter);
