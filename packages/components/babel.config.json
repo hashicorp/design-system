@@ -10,7 +10,7 @@
     ],
     "@embroider/addon-dev/template-colocation-plugin",
     [
-      "babel-plugin-ember-template-compilation",
+      "module:babel-plugin-ember-template-compilation",
       {
         "targetFormat": "hbs",
         "transforms": []

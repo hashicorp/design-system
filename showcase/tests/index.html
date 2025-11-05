@@ -37,11 +37,11 @@
     <link rel="stylesheet" href="{{rootURL}}assets/styles/@hashicorp/design-system-power-select-overrides.css">
 
     <!-- these styles are compiled with the Showcase -->
-    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link rel="stylesheet" href="{{rootURL}}assets/showcase.css">
+    <link rel="stylesheet" href="/@embroider/virtual/vendor.css">
+    <link rel="stylesheet" href="/@embroider/virtual/app.css">
 
     <!-- this file is not really used -->
-    <link rel="stylesheet" href="{{rootURL}}assets/test-support.css">
+    <link rel="stylesheet" href="/@embroider/virtual/test-support.css">
 
     {{content-for "head-footer"}}
     {{content-for "test-head-footer"}}
@@ -59,13 +59,18 @@
     </div>
 
     <script src="/testem.js" integrity="" data-embroider-ignore></script>
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/test-support.js"></script>
-    <script src="{{rootURL}}assets/showcase.js"></script>
-    <script src="{{rootURL}}assets/tests.js"></script>
+    <script src="/@embroider/virtual/vendor.js"></script>
+    <script src="/@embroider/virtual/test-support.js"></script>
+    
+    <script type="module">import "ember-testing";</script>
+    <script type="module">
+      import { start } from './test-helper';
+      import.meta.glob("./**/*.{js,ts,gjs,gts}", { eager: true });
+      start();
+    </script>
 
     {{content-for "body-footer"}}
-    {{content-for "test-body-footer"}}
+    
   </body>
 
 </html>
