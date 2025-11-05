@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-import type { ComponentLike, WithBoundArgs } from '@glint/template';
+import type { WithBoundArgs } from '@glint/template';
 
 import type {
   HdsFilterBarFilters,
@@ -30,7 +30,7 @@ export interface HdsFilterBarSignature {
   Blocks: {
     default?: [
       {
-        ActionsDropdown?: ComponentLike<typeof HdsDropdown>;
+        ActionsDropdown?: WithBoundArgs<typeof HdsDropdown, never>;
         FiltersDropdown?: WithBoundArgs<
           typeof HdsFilterBarFiltersDropdown,
           'filters' | 'onFilter'
