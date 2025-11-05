@@ -14,6 +14,8 @@
 
 ## 5.0.0
 
+[5.0.0 documentation](https://hds-website-5-0-0.vercel.app/)
+
 **Major changes**
 
 <!-- START components/flyout -->
