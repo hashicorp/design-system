@@ -14,6 +14,8 @@
 
 ## 4.24.1
 
+[4.24.1 documentation](https://hds-website-4-24-1.vercel.app/)
+
 **Patch changes**
 
 <!-- START components/code-block -->
