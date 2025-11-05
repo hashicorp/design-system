@@ -372,7 +372,7 @@ export default class Index extends Component {
     let { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
       this.demoCurrentCursor,
       this.demoCurrentPageSize,
-      this.model.records,
+      this.model.records
     );
     return {
       newPrevCursor,
