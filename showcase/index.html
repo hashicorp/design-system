@@ -41,8 +41,8 @@
     <link rel="stylesheet" integrity="" href="{{rootURL}}assets/styles/@hashicorp/design-system-plex-fonts.css">
 
     <!-- these styles are compiled with the Showcase -->
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase.css">
+    <link integrity="" rel="stylesheet" href="/@embroider/virtual/vendor.css">
+    <link integrity="" rel="stylesheet" href="/@embroider/virtual/app.css">
 
     <link rel="shortcut icon" href="/assets/logos/favicon.png" />
 
@@ -195,9 +195,14 @@
   <body class="showcase-app">
     {{content-for "body"}}
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/showcase.js"></script>
+    <script src="/@embroider/virtual/vendor.js"></script>
+    <script type="module">
+      import Application from './app/app';
+      import environment from './app/config/environment';
 
+      Application.create(environment.APP);
+    </script>
+    
     {{content-for "body-footer"}}
   </body>
 </html>

@@ -34,9 +34,20 @@ const getColumnOrder = (columns?: typeof DEFAULT_REORDERABLE_COLUMNS) => {
   const thElements = findAll('.hds-advanced-table__th');
 
   return thElements.map((th) => {
+    // Read the label from the dedicated label element rather than the whole
+    // `th.textContent`, which can include text from an open context menu,
+    // tooltip, sort button, etc., and break the lookup.
+    const labelElement = th.querySelector(
+      '.hds-advanced-table__th-content-text',
+    );
+    const labelText = (
+      labelElement?.textContent ??
+      th.textContent ??
+      ''
+    ).trim();
     const column = getColumnByLabel(
       columns ?? DEFAULT_REORDERABLE_COLUMNS,
-      th.textContent.trim(),
+      labelText,
     );
 
     return column ? column.key : undefined;
@@ -474,6 +485,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           await click(secondContextMenuToggle);
           await click('[data-test-context-option-key="move-column-to-end"]');
 
+          await waitForLayout();
+
           const columnOrder = getColumnOrder();
           assert.deepEqual(
             columnOrder,
@@ -639,6 +652,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           .exists('Move to end is available after unpinning the first column');
         await click('[data-test-context-option-key="move-column-to-end"]');
       }
+
+      await waitForLayout();
 
       const columnOrder = getColumnOrder();
       assert.deepEqual(
