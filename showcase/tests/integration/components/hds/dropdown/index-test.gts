@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { on } from '@ember/modifier';
-import { render, click, find } from '@ember/test-helpers';
+import { render, click, find, triggerEvent } from '@ember/test-helpers';
 import style from 'ember-style-modifier';
 import { TrackedObject } from 'tracked-built-ins';
 
@@ -389,6 +389,11 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await click('button#test-toggle-button');
     // click outside of the dropdown to trigger focus out
     await click('#test-dropdown-demo-button');
+    // `HdsPopoverPrimitive#onFocusOut` only invokes the `@onFocusOut`
+    // callback when the focusout event has no `relatedTarget` (i.e. focus
+    // moved to nowhere). Dispatch such an event explicitly so the test is
+    // not coupled to browser-specific implicit refocus behavior.
+    await triggerEvent('#test-dropdown', 'focusout', { relatedTarget: null });
     assert.strictEqual(context.status, 'focus-out');
   });
 });
