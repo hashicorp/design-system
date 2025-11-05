@@ -13,7 +13,7 @@ import type {
   HdsFilterBarFilters,
   HdsFilterBarFilter,
   HdsFilterBarData,
-  HdsFilterBarSelectionFilterData,
+  HdsFilterBarGenericFilterData,
 } from './types.ts';
 import HdsDropdown from '../dropdown/index.ts';
 import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
@@ -26,7 +26,6 @@ export interface HdsFilterBarSignature {
     filters: HdsFilterBarFilters;
     hasSearch?: boolean;
     onFilter?: (filters: HdsFilterBarFilters) => void;
-    onSearch?: (event: Event) => void;
   };
   Blocks: {
     default?: [
@@ -44,6 +43,14 @@ export interface HdsFilterBarSignature {
 
 export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   @tracked _isExpanded: boolean = true;
+
+  get searchValue(): string {
+    const { filters } = this.args;
+    if (filters['search']) {
+      return this._filterText(filters['search'].data);
+    }
+    return '';
+  }
 
   @action
   onFilter(filters: HdsFilterBarFilters): void {
@@ -63,10 +70,29 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
   @action
   onSearch(event: Event): void {
-    const { onSearch } = this.args;
-    if (onSearch && typeof onSearch === 'function') {
-      onSearch(event);
+    const { filters } = this.args;
+    const input = event.target as HTMLInputElement;
+    const value = input?.value;
+
+    const newFilters = {} as HdsFilterBarFilters;
+
+    Object.keys(filters).forEach((k) => {
+      newFilters[k] = JSON.parse(
+        JSON.stringify(filters[k])
+      ) as HdsFilterBarFilter;
+    });
+
+    if (value.length > 0) {
+      newFilters['search'] = {
+        type: 'search',
+        text: 'Search',
+        data: { value },
+      };
+    } else {
+      delete newFilters['search'];
     }
+
+    this.onFilter({ ...newFilters });
   }
 
   @action
@@ -90,9 +116,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
         ) as HdsFilterBarFilter;
       });
 
-      if (keyFilter.type === 'single-select' || keyFilter.type === 'range') {
-        delete newFilters[key];
-      } else if (isArray(keyFilter.data)) {
+      if (keyFilter.type === 'multi-select' && isArray(keyFilter.data)) {
         const newKeyfilter = keyFilter.data?.filter(
           (item) => item.value !== filterValue
         );
@@ -105,6 +129,8 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
             data: newKeyfilter,
           };
         }
+      } else {
+        delete newFilters[key];
       }
 
       this.onFilter({ ...newFilters });
@@ -113,21 +139,20 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
   private _filterData = (
     data: HdsFilterBarData
-  ): HdsFilterBarSelectionFilterData => {
-    if ('text' in data && 'value' in data) {
-      return { text: data.text, value: data.value };
+  ): HdsFilterBarGenericFilterData => {
+    if ('value' in data) {
+      return { value: data.value };
     }
-    return { text: '', value: '' };
+    return { value: '' };
   };
 
   private _filterText = (data: HdsFilterBarData): string => {
     const result = this._filterData(data);
-    return result?.text ?? '';
+    const resultText = result?.value as string;
+    return resultText ?? '';
   };
 
-  private _filterArrayData = (
-    data: HdsFilterBarData
-  ): { text: string; value: unknown }[] => {
+  private _filterArrayData = (data: HdsFilterBarData): { value: unknown }[] => {
     if (isArray(data)) {
       return data.map((item) => this._filterData(item));
     }
