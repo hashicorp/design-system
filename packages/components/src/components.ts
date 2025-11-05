@@ -279,7 +279,6 @@ export { default as HdsSideNav } from './components/hds/side-nav/index.ts';
 export { default as HdsSideNavBase } from './components/hds/side-nav/base.ts';
 export { default as HdsSideNavHeader } from './components/hds/side-nav/header/index.ts';
 export { default as HdsSideNavHeaderHomeLink } from './components/hds/side-nav/header/home-link.ts';
-export { default as HdsSideNavHeaderIconButton } from './components/hds/side-nav/header/icon-button.ts';
 export { default as HdsSideNavList } from './components/hds/side-nav/list/index.ts';
 export { default as HdsSideNavListBackLink } from './components/hds/side-nav/list/back-link.ts';
 export { default as HdsSideNavListItem } from './components/hds/side-nav/list/item.ts';
@@ -389,9 +388,6 @@ export { default as HdsDismissButton } from './components/hds/dismiss-button/ind
 
 // Interactive
 export { default as HdsInteractive } from './components/hds/interactive/index.ts';
-
-// MenuPrimitive
-export { default as HdsMenuPrimitive } from './components/hds/menu-primitive/index.ts';
 
 // PopoverPrimitive
 export { default as HdsPopoverPrimitive } from './components/hds/popover-primitive/index.ts';

@@ -97,10 +97,6 @@ import type HdsDropdownListItemTitleComponent from './components/hds/dropdown/li
 import type HdsDropdownToggleButtonComponent from './components/hds/dropdown/toggle/button';
 import type HdsDropdownToggleChevronComponent from './components/hds/dropdown/toggle/chevron';
 import type HdsDropdownToggleIconComponent from './components/hds/dropdown/toggle/icon';
-import type HdsFlyoutBodyComponent from './components/hds/flyout/body';
-import type HdsFlyoutDescriptionComponent from './components/hds/flyout/description';
-import type HdsFlyoutFooterComponent from './components/hds/flyout/footer';
-import type HdsFlyoutHeaderComponent from './components/hds/flyout/header';
 import type HdsFlyoutComponent from './components/hds/flyout';
 
 import type HdsFormComponent from './components/hds/form';
@@ -168,10 +164,6 @@ import type HdsLayoutGridComponent from './components/hds/layout/grid';
 import type HdsLayoutGridItemComponent from './components/hds/layout/grid/item';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
-import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
-import type HdsModalBodyComponent from './components/hds/modal/body';
-import type HdsModalFooterComponent from './components/hds/modal/footer';
-import type HdsModalHeaderComponent from './components/hds/modal/header';
 import type HdsModalComponent from './components/hds/modal/';
 import type HdsPageHeaderComponent from './components/hds/page-header';
 import type HdsPageHeaderActionsComponent from './components/hds/page-header/actions';
@@ -201,7 +193,6 @@ import type HdsSideNavPortalComponent from './components/hds/side-nav/portal';
 import type HdsSideNavPortalTargetComponent from './components/hds/side-nav/portal/target';
 import type HdsSideNavHeaderComponent from './components/hds/side-nav/header';
 import type HdsSideNavHeaderHomeLinkComponent from './components/hds/side-nav/header/home-link';
-import type HdsSideNavHeaderIconButtonComponent from './components/hds/side-nav/header/icon-button';
 import type HdsSideNavListComponent from './components/hds/side-nav/list';
 import type HdsSideNavListBackLinkComponent from './components/hds/side-nav/list/back-link';
 import type HdsSideNavListItemComponent from './components/hds/side-nav/list/item';
@@ -433,9 +424,6 @@ export default interface HdsComponentsRegistry {
   'hds/button-set': typeof HdsButtonSetComponent;
 
   // Card
-  // NOTE: `Hds::Card` and `hds/card` will be removed in 5.0.0, use 'Hds::Card::Container' instead
-  'Hds::Card': typeof HdsCardContainerComponent;
-  'hds/card': typeof HdsCardContainerComponent;
   'Hds::Card::Container': typeof HdsCardContainerComponent;
   'hds/card/container': typeof HdsCardContainerComponent;
 
@@ -569,18 +557,6 @@ export default interface HdsComponentsRegistry {
   // Flyout
   'Hds::Flyout': typeof HdsFlyoutComponent;
   'hds/flyout': typeof HdsFlyoutComponent;
-
-  'Hds::Flyout::Body': typeof HdsFlyoutBodyComponent;
-  'hds/flyout/body': typeof HdsFlyoutBodyComponent;
-
-  'Hds::Flyout::Description': typeof HdsFlyoutDescriptionComponent;
-  'hds/flyout/description': typeof HdsFlyoutDescriptionComponent;
-
-  'Hds::Flyout::Footer': typeof HdsFlyoutFooterComponent;
-  'hds/flyout/footer': typeof HdsFlyoutFooterComponent;
-
-  'Hds::Flyout::Header': typeof HdsFlyoutHeaderComponent;
-  'hds/flyout/header': typeof HdsFlyoutHeaderComponent;
 
   // FORM
   'Hds::Form': typeof HdsFormComponent;
@@ -806,22 +782,9 @@ export default interface HdsComponentsRegistry {
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
 
-  // MenuPrimitive
-  'Hds::MenuPrimitive': typeof HdsMenuPrimitiveComponent;
-  'hds/menu-primitive': typeof HdsMenuPrimitiveComponent;
-
   // Modal
   'Hds::Modal': typeof HdsModalComponent;
   'hds/modal': typeof HdsModalComponent;
-
-  'Hds::ModalBody': typeof HdsModalBodyComponent;
-  'hds/modal/body': typeof HdsModalBodyComponent;
-
-  'Hds::ModalFooter': typeof HdsModalFooterComponent;
-  'hds/modal/footer': typeof HdsModalFooterComponent;
-
-  'Hds::ModalHeader': typeof HdsModalHeaderComponent;
-  'hds/modal/header': typeof HdsModalHeaderComponent;
 
   // PageHeader
   'Hds::PageHeader': typeof HdsPageHeaderComponent;
@@ -924,10 +887,6 @@ export default interface HdsComponentsRegistry {
   'Hds::SideNav::Header::HomeLink': typeof HdsSideNavHeaderHomeLinkComponent;
   'hds/side-nav/header/home-link': typeof HdsSideNavHeaderHomeLinkComponent;
   HdsSideNavHeaderHomeLink: typeof HdsSideNavHeaderHomeLinkComponent;
-
-  'Hds::SideNav::Header::IconButton': typeof HdsSideNavHeaderIconButtonComponent;
-  'hds/side-nav/header/icon-button': typeof HdsSideNavHeaderIconButtonComponent;
-  HdsSideNavHeaderIconButton: typeof HdsSideNavHeaderIconButtonComponent;
 
   'Hds::SideNav::List': typeof HdsSideNavListComponent;
   'hds/side-nav/list': typeof HdsSideNavListComponent;

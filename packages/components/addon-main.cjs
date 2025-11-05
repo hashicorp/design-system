@@ -8,12 +8,10 @@ const flightIconSprite = require('@hashicorp/flight-icons/svg-sprite/svg-sprite-
 
 module.exports = {
   ...addonV1Shim(__dirname),
-  contentFor(type, config) {
-    const legacyLazyEmbed = config?.emberFlightIcons?.lazyEmbed;
 
+  contentFor(type, config) {
     if (
       !config.flightIconsSpriteLazyEmbed &&
-      !legacyLazyEmbed &&
       !config.__flightIconsSpriteLoaded &&
       type === 'body-footer'
     ) {
