@@ -12,6 +12,12 @@
 </p>
 
 
+### November 5th, 2025
+
+This changelog corresponds with the [5.0](/whats-new/release-notes#500) release.
+
+`AppFooter` - Updated the copyright language to read "HashiCorp, an IBM Company" per brand guidance.
+
 ### October 1st, 2025
 
 This changelog corresponds with the [4.24](/whats-new/release-notes#4240) release.
@@ -127,14 +133,6 @@ Unpublished all local variables for component-level tokens.
 `Advanced Table` - Restructured `Cell::Selection` to mimic the `Table::Cell::Selection` component.
 
 _This change alters the layer structure of the component and results in a breaking change for the `Advanced Table` cell "selection" components only._
-
-### January 23rd, 2025
-
-`Advanced Table` - Added new component.
-
-`CodeEditor` - Added new component.
-
-`Table` - Added column borders.
 
 
 ---
