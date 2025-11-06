@@ -69,6 +69,10 @@
 }
 
 // Dropdown & Button color theming overrides
+
+// ORIGINAL: Using :not selector
+
+/*
 .hds-side-nav {
   .hds-button,
   .hds-dropdown-toggle-button,
@@ -92,3 +96,85 @@
     }
   }
 }
+*/
+
+// TEST: More optimized selectors (w/o :not)
+
+/*
+.hds-side-nav {
+  // header content:
+  .hds-side-nav__wrapper-header,
+  .hds-side-nav-header__actions-container,
+  // body content:
+  .hds-side-nav__wrapper-body,
+  .hds-side-nav__list-wrapper,
+  .hds-side-nav__list-item,
+  // footer content:
+  .hds-side-nav__wrapper-footer {
+    > .hds-button,
+    > .hds-dropdown > button {
+      @include hds-interactive-dark-theme();
+
+      // disabled state:
+      &:disabled,
+      &[disabled],
+      &.mock-disabled,
+      &:disabled:focus,
+      &[disabled]:focus,
+      &.mock-disabled:focus,
+      &:disabled:hover,
+      &[disabled]:hover,
+      &.mock-disabled:hover {
+        @include hds-interactive-dark-theme-state-disabled();
+      }
+    }
+  }
+}
+*/
+
+// TEST: partial class selector
+[class*="hds-side-nav"] {
+  > .hds-button,
+  > .hds-dropdown > button,
+  > [class*="hds-dropdown-toggle"] {
+    @include hds-interactive-dark-theme();
+
+    // disabled state:
+    &:disabled,
+    &[disabled],
+    &.mock-disabled,
+    &:disabled:focus,
+    &[disabled]:focus,
+    &.mock-disabled:focus,
+    &:disabled:hover,
+    &[disabled]:hover,
+    &.mock-disabled:hover {
+      @include hds-interactive-dark-theme-state-disabled();
+    }
+  }
+}
+
+// TEST: @scope selector (not enough browser support though...)
+
+/*
+@scope (.hds-side-nav) to (.ember-basic-dropdown, .hds-dropdown__content, dialog) {
+  .hds-button,
+  .hds-dropdown-toggle-button,
+  .hds-dropdown-toggle-icon {
+    @include hds-interactive-dark-theme();
+
+    // disabled state:
+    &:disabled,
+    &[disabled],
+    &.mock-disabled,
+    &:disabled:focus,
+    &[disabled]:focus,
+    &.mock-disabled:focus,
+    &:disabled:hover,
+    &[disabled]:hover,
+    &.mock-disabled:hover {
+      @include hds-interactive-dark-theme-state-disabled();
+    }
+  }
+}
+*/
