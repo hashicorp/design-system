@@ -12,79 +12,193 @@
   </a>
 </p>
 
+## 5.0.0
+
+[5.0.0 documentation](https://hds-website-5-0-0.vercel.app/)
+
+**Major changes**
+
+
+`Flyout` - Removed deprecated `HdsFlyoutHeader`, `HdsFlyoutBody`, `HdsFlyoutDescription`, and `HdsFlyoutFooter` subcomponents.
+
+
+
+`Modal` - Removed deprecated `HdsModalHeader`, `HdsModalBody`, and `HdsModalFooter` subcomponents.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Dropdown` - Removed the deprecated `@text` argument from the `HdsDropdownListItemInteractive` component.
+
+To migrate, run the codemod `v4/dropdown-list-item-interactive` (see [readme file](https://github.com/hashicorp/design-system/tree/main/packages/codemods/transforms/v4/dropdown-list-item-interactive))
+
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Dropdown` - Added assertion to the `ToggleIcon` to provide improved developer guidance for the `hasChevron` attribute
+
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+Added `ember-basic-dropdown` as a peer dependency required by `ember-power-select`. To migrate, if your application uses `SuperSelect`, make sure to add this dependency.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`ApplicationState` - Replaced the default opinionated `margin: 0 auto;` rule from the component's root element with a new `@isAutoCentered` argument (which defaults to `true`, to preserve the existing centering behavior). This delegates the horizontal alignment control to the consumers, allowing them to disable it when needed.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Removed support for Ember 3.28. New minimum support target is Ember 4.12.
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Removed `sass` and `ember-cli-sass` dependencies. Consumers using `sass` in their projects should make sure it's added as a direct dependency to their project.
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable` - Removed the `@isVisuallyHidden` argument from `HdsAdvancedTableTh` component. This setting is supported via setting `isVisuallyHidden` in the corresponding `@columns` item's configuration.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Removed the deprecated `MenuPrimitive` component
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Upgraded `ember-a11y-refocus` dependency to version `5.0`
+Upgraded `@glimmer/component` dependency to version `2.0`
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Card` - Removed the component invocation paths `Hds::Card` and `hds/card`. Consumers must update their templates to use `<Hds::Card::Container>` or `{{hds/card/container}}`
+
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`SideNav` - Removed deprecated features
+
+- Removed the `@ariaLabel` argument
+- Removed the `HdsSideNavHeaderIconButton` component
+- Updated the deprecation removal version from `5.0.0` to `6.0.0`
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Icon` - Renamed the `volume-2` icon to `volume-up`
+
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Removed support for deprecated `ember-flight-icons` `lazyEmbed` config
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+
+`SideNav` - Fixed the type of `@a11yRefocusRouteChangeValidator` to match the expected type from `ember-a11y-refocus`. The new type is `(transition: Transition) => boolean` instead of `string`.
+
+
+
+`AppHeader` - Fixed the type of `@a11yRefocusRouteChangeValidator` to match the expected type from `ember-a11y-refocus`. The new type is `(transition: Transition) => boolean` instead of `string`.
+
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@4.0.0
+
 ## 4.24.1
 
 [4.24.1 documentation](https://hds-website-4-24-1.vercel.app/)
 
 **Patch changes**
 
-
 `CodeBlock` - Fixed a11y issue with its `CopyButton` by adding `copySuccessMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
 
-
-
 `CopyButton` - Fixed a11y issue by adding `ariaMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
-
 
 <small class="doc-whats-new-changelog-metadata">[#3304](https://github.com/hashicorp/design-system/pull/3304)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `FileInput` - Added width of 100% to prevent the component from overflowing its container and making it consistent with other Input components
-
 
 <small class="doc-whats-new-changelog-metadata">[#3318](https://github.com/hashicorp/design-system/pull/3318)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Button` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav` or `AppHeader`
-
-
 
 `SideNav` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav`
 
-
-
 `AppHeader` - Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `AppHeader`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3335](https://github.com/hashicorp/design-system/pull/3335)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppFooter` - Updated company name in copyright text
-
 
 <small class="doc-whats-new-changelog-metadata">[#3314](https://github.com/hashicorp/design-system/pull/3314)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `SuperSelect` - Fixed issue with tabbing to `SuperSelectMultiple` with search enabled by adding tabindex of "0"
-
 
 <small class="doc-whats-new-changelog-metadata">[#3333](https://github.com/hashicorp/design-system/pull/3333)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Modal` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Modal is closed.
 
-
-
 `Flyout` - Refactored the component to not use `ember-render-modifiers` which fixes issues where the DOM may not be cleaned up when the Flyout is closed.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3215](https://github.com/hashicorp/design-system/pull/3215)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `SuperSelect` - Fixed color style for disabled option items.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3331](https://github.com/hashicorp/design-system/pull/3331)</small>
 
@@ -1342,91 +1456,6 @@ Export TypeScript signatures for all components and modifiers
 <small class="doc-whats-new-changelog-metadata">[#2500](https://github.com/hashicorp/design-system/pull/2500)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 4.13.0
-
-[4.13.0 documentation](https://hds-website-4-13-0.vercel.app/)
-
-**Minor changes**
-
-`Modal` - Added `@returnFocusTo` argument to control where the browser focus is returned once the modal is closed
-
-`Flyout` - Added `@returnFocusTo` argument to control where the browser focus is returned once the flyout is closed
-
-<small class="doc-whats-new-changelog-metadata">[#2497](https://github.com/hashicorp/design-system/pull/2497)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeBlock` - Added `@lineNumberStart` option to set custom starting number for line numbering
-
-<small class="doc-whats-new-changelog-metadata">[#2467](https://github.com/hashicorp/design-system/pull/2467)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SuperSelect::Multiple` - Added `@resultCountMessage` argument to enable override
-
-<small class="doc-whats-new-changelog-metadata">[#2502](https://github.com/hashicorp/design-system/pull/2502)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Dropdown`
-
-- Fixed content being preserved in the DOM when closed
-- Removed the `@isOpen` yielded argument
-- Added `@preserveContentInDom` to optionally control rendering of the content
-
-<small class="doc-whats-new-changelog-metadata">[#2490](https://github.com/hashicorp/design-system/pull/2490)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Modal` - Fixed `isDismissDisabled` functionality
-`Flyout` - Removed `isDismissDisabled` from signature (not an actual argument)
-
-<small class="doc-whats-new-changelog-metadata">[#2485](https://github.com/hashicorp/design-system/pull/2485)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SuperSelect` - Update the the default state of selected list items to `Foreground` / `Primary` to match other list items and the `Dropdown`.
-
-<small class="doc-whats-new-changelog-metadata">[#2479](https://github.com/hashicorp/design-system/pull/2479)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SuperSelect::Multiple` - Fixed placeholder style and layout
-
-<small class="doc-whats-new-changelog-metadata">[#2473](https://github.com/hashicorp/design-system/pull/2473)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown` - Update the color of the text and icons in the selected state checkmark list item to match the styling of the ListItems (`Radio` and `Checkbox`).
-
-<small class="doc-whats-new-changelog-metadata">[#2464](https://github.com/hashicorp/design-system/pull/2464)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeBlock` - Decoupled the display of line numbers from `highlightLines`
-
-<small class="doc-whats-new-changelog-metadata">[#2474](https://github.com/hashicorp/design-system/pull/2474)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown` - Fixed dropdown content not being preserved when interacted with
-
-<small class="doc-whats-new-changelog-metadata">[#2506](https://github.com/hashicorp/design-system/pull/2506)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Upgraded `ember-style-modifier` to `4.4.0`
-
-<small class="doc-whats-new-changelog-metadata">[#2482](https://github.com/hashicorp/design-system/pull/2482)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/flight-icons@3.7.0
 
 
 ---

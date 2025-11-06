@@ -1,3 +1,14 @@
+## 5.0.0
+
+Removed deprecated features
+
+- Removed the `@ariaLabel` argument
+- Removed the `HdsSideNavHeaderIconButton` component
+- Updated the deprecation removal version from `5.0.0` to `6.0.0`
+
+Fixed the type of `@a11yRefocusRouteChangeValidator` to match the expected type from `ember-a11y-refocus`. The new type is `(transition: Transition) => boolean` instead of `string`.
+
+
 ## 4.24.1
 
 Fixed color inheritance for Buttons within `DialogPrimitive` based components (such as the `Modal` and `Flyout`) when triggered from within the `SideNav`

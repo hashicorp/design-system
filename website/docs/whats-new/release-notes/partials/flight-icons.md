@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.0.0
+
+**Major changes**
+
+Renamed `volume-2` to `volume-up`.
+
+<small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.14.0
 
 **Minor changes**
@@ -234,16 +244,6 @@ Added "category" to the icons' metadata in the `catalog.json` file.
 Fixed the size and position of the `plus-circle` icon.
 
 <small class="doc-whats-new-changelog-metadata">[#1839](https://github.com/hashicorp/design-system/pull/1839)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 2.22.0
-
-**Minor changes**
-
-Added `IconName` type to `iconNames` export
-
-<small class="doc-whats-new-changelog-metadata">[#1776](https://github.com/hashicorp/design-system/pull/1776) - Thanks [@dstaley](https://github.com/dstaley) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 

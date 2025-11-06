@@ -1,3 +1,8 @@
+## 5.0.0
+
+Removed the `@isVisuallyHidden` argument from `HdsAdvancedTableTh` component. This setting is supported via setting `isVisuallyHidden` in the corresponding `@columns` item's configuration.
+
+
 ## 4.24.0
 
 Added support for column reordering.
