@@ -6,7 +6,7 @@
 import type { Config, DesignToken } from 'style-dictionary/types';
 
 export const targets = ['products', 'devdot', 'marketing', 'cloud-email'];
-export const modes = ['hds', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100'];
+export const modes = ['default', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100'];
 
 export type Target = typeof targets[number];
 export type Mode = typeof modes[number];
