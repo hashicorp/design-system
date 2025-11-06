@@ -11,8 +11,8 @@ import { fileHeader } from 'style-dictionary/utils';
 
 export async function generateExtraThemingCssFiles(_dictionary: Dictionary, config: PlatformConfig): Promise<void> {
 
-  const commonSource = await getSourceFromFileWithRootSelector(config, 'hds', 'common-tokens.css');
-  const hdsThemedSource = await getSourceFromFileWithRootSelector(config, 'hds', 'themed-tokens.css');
+  const commonSource = await getSourceFromFileWithRootSelector(config, 'default', 'common-tokens.css');
+  const defaultThemedSource = await getSourceFromFileWithRootSelector(config, 'default', 'themed-tokens.css');
   const cds0ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-g0', 'themed-tokens.css');
   const cds10ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-g10', 'themed-tokens.css');
   const cds90ThemedSource = await getSourceFromFileWithRootSelector(config, 'cds-g90', 'themed-tokens.css');
@@ -42,8 +42,8 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
     if (method === 'css-selectors') {
       outputContent = `${header}\n\n`;
       //
-      // this is the fallback to the default `hds` mode
-      outputContent += `${hdsThemedSource.replace(/^:root/, ':root, .hds-theme-hds, [data-hds-theme="hds"]')}\n\n`;
+      // this is the fallback to the `default` mode (standard HDS)
+      outputContent += `${defaultThemedSource.replace(/^:root/, ':root, .hds-theme-default, [data-hds-theme="default"]')}\n\n`;
       //
       // these are the themed `carbonized` tokens
       outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-theme-cds-g0, [data-hds-theme="light"], [data-hds-theme="cds-g0"]')}\n\n`;
@@ -59,8 +59,8 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
     if (method === 'combined-strategies') {
       outputContent = `${header}\n\n`;
       //
-      // this is the fallback to the default `hds` mode
-      outputContent += `${hdsThemedSource.replace(/^:root/, ':root, .hds-theme-hds, [data-hds-theme="hds"]')}\n\n`;
+      // this is the fallback to the `default` mode (standard HDS)
+      outputContent += `${defaultThemedSource.replace(/^:root/, ':root, .hds-theme-default, [data-hds-theme="default"]')}\n\n`;
       //
       // these are the themed `carbonized` tokens
       // note: we will revisit the `[class*=hds-theme-]` selector if we find that is too generic and there are cases where this is picking up other classes
@@ -78,7 +78,7 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
     // SCSS file for mixins
     if (method === 'scss-mixins') {
       outputContent = `${header}\n\n`;
-      outputContent += `@mixin hds-theme-hds() { ${hdsThemedSource} }\n\n`;
+      outputContent += `@mixin hds-theme-default() { ${defaultThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-cds0() { ${cds0ThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-cds10() { ${cds10ThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-cds90() { ${cds90ThemedSource} }\n\n`;
