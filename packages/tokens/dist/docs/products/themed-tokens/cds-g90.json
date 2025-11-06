@@ -887,7 +887,7 @@
     "$value": "#ffffff",
     "group": "palette",
     "$modes": {
-      "hds": "#ffffff",
+      "default": "#ffffff",
       "cds-g0": "#ffffff",
       "cds-g10": "#ffffff",
       "cds-g90": "#ffffff",
@@ -898,7 +898,7 @@
       "$value": "{carbon.color.white.0}",
       "group": "palette",
       "$modes": {
-        "hds": "#ffffff",
+        "default": "#ffffff",
         "cds-g0": "{carbon.color.white.0}",
         "cds-g10": "{carbon.color.white.0}",
         "cds-g90": "{carbon.color.white.0}",
@@ -1272,7 +1272,7 @@
     "$value": "#f4f4f4",
     "group": "semantic",
     "$modes": {
-      "hds": "#ffffff",
+      "default": "#ffffff",
       "cds-g0": "#161616",
       "cds-g10": "#161616",
       "cds-g90": "#f4f4f4",
@@ -1283,7 +1283,7 @@
       "$value": "{carbon.themes.g90.textPrimary}",
       "group": "semantic",
       "$modes": {
-        "hds": "#ffffff",
+        "default": "#ffffff",
         "cds-g0": "{carbon.themes.white.textPrimary}",
         "cds-g10": "{carbon.themes.g10.textPrimary}",
         "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -7483,7 +7483,7 @@
     "$type": "font-weight",
     "$value": 400,
     "$modes": {
-      "hds": "400",
+      "default": "400",
       "cds-g0": 400,
       "cds-g10": 400,
       "cds-g90": 400,
@@ -7493,7 +7493,7 @@
       "$type": "font-weight",
       "$value": "{carbon.typography.font-weight.regular}",
       "$modes": {
-        "hds": "400",
+        "default": "400",
         "cds-g0": "{carbon.typography.font-weight.regular}",
         "cds-g10": "{carbon.typography.font-weight.regular}",
         "cds-g90": "{carbon.typography.font-weight.regular}",
@@ -7516,7 +7516,7 @@
     "$type": "font-weight",
     "$value": 400,
     "$modes": {
-      "hds": "500",
+      "default": "500",
       "cds-g0": 400,
       "cds-g10": 400,
       "cds-g90": 400,
@@ -7526,7 +7526,7 @@
       "$type": "font-weight",
       "$value": "{carbon.typography.font-weight.regular}",
       "$modes": {
-        "hds": "500",
+        "default": "500",
         "cds-g0": "{carbon.typography.font-weight.regular}",
         "cds-g10": "{carbon.typography.font-weight.regular}",
         "cds-g90": "{carbon.typography.font-weight.regular}",
@@ -7549,7 +7549,7 @@
     "$type": "font-weight",
     "$value": 600,
     "$modes": {
-      "hds": "600",
+      "default": "600",
       "cds-g0": 600,
       "cds-g10": 600,
       "cds-g90": 600,
@@ -7559,7 +7559,7 @@
       "$type": "font-weight",
       "$value": "{carbon.typography.font-weight.semibold}",
       "$modes": {
-        "hds": "600",
+        "default": "600",
         "cds-g0": "{carbon.typography.font-weight.semibold}",
         "cds-g10": "{carbon.typography.font-weight.semibold}",
         "cds-g90": "{carbon.typography.font-weight.semibold}",
@@ -7582,7 +7582,7 @@
     "$type": "font-weight",
     "$value": 600,
     "$modes": {
-      "hds": "700",
+      "default": "700",
       "cds-g0": 600,
       "cds-g10": 600,
       "cds-g90": 600,
@@ -7592,7 +7592,7 @@
       "$type": "font-weight",
       "$value": "{carbon.typography.font-weight.semibold}",
       "$modes": {
-        "hds": "700",
+        "default": "700",
         "cds-g0": "{carbon.typography.font-weight.semibold}",
         "cds-g10": "{carbon.typography.font-weight.semibold}",
         "cds-g90": "{carbon.typography.font-weight.semibold}",
