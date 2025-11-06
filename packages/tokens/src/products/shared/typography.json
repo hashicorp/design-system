@@ -10,7 +10,7 @@
               "BlinkMacSystemFont"
             ],
             "$modes": {
-              "hds": [
+              "default": [
                 "-apple-system",
                 "BlinkMacSystemFont"
               ],
@@ -55,7 +55,7 @@
               "BlinkMacSystemFont"
             ],
             "$modes": {
-              "hds": [
+              "default": [
                 "-apple-system",
                 "BlinkMacSystemFont"
               ],
@@ -93,7 +93,7 @@
               "Menlo"
             ],
             "$modes": {
-              "hds": [
+              "default": [
                 "ui-monospace",
                 "Menlo"
               ],
@@ -145,7 +145,7 @@
         "$type": "font-weight",
         "$value": "400",
         "$modes": {
-          "hds": "400",
+          "default": "400",
           "cds-g0": "{carbon.typography.font-weight.regular}",
           "cds-g10": "{carbon.typography.font-weight.regular}",
           "cds-g90": "{carbon.typography.font-weight.regular}",
@@ -156,7 +156,7 @@
         "$type": "font-weight",
         "$value": "500",
         "$modes": {
-          "hds": "500",
+          "default": "500",
           "cds-g0": "{carbon.typography.font-weight.regular}",
           "cds-g10": "{carbon.typography.font-weight.regular}",
           "cds-g90": "{carbon.typography.font-weight.regular}",
@@ -167,7 +167,7 @@
         "$type": "font-weight",
         "$value": "600",
         "$modes": {
-          "hds": "600",
+          "default": "600",
           "cds-g0": "{carbon.typography.font-weight.semibold}",
           "cds-g10": "{carbon.typography.font-weight.semibold}",
           "cds-g90": "{carbon.typography.font-weight.semibold}",
@@ -178,7 +178,7 @@
         "$type": "font-weight",
         "$value": "700",
         "$modes": {
-          "hds": "700",
+          "default": "700",
           "cds-g0": "{carbon.typography.font-weight.semibold}",
           "cds-g10": "{carbon.typography.font-weight.semibold}",
           "cds-g90": "{carbon.typography.font-weight.semibold}",
