@@ -3,8 +3,8 @@
  */
 
 :root,
-.hds-theme-hds,
-[data-hds-theme="hds"] {
+.hds-theme-default,
+[data-hds-theme="default"] {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #ffffff;
   --token-typography-font-weight-regular: 400;
