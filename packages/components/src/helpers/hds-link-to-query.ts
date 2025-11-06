@@ -17,7 +17,6 @@ import { helper } from '@ember/component/helper';
  */
 
 // this is a workaround for https://github.com/emberjs/ember.js/issues/19693
-// don't remove until we drop support for ember 3.27 and 3.28
 
 export function hdsLinkToQuery([query]: [
   Record<string, unknown> | undefined,
