@@ -46,7 +46,7 @@
         "$value": "#ffffff",
         "group": "palette",
         "$modes": {
-          "hds": "#ffffff",
+          "default": "#ffffff",
           "cds-g0": "{carbon.color.white.0}",
           "cds-g10": "{carbon.color.white.0}",
           "cds-g90": "{carbon.color.white.0}",
