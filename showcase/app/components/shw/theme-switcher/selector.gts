@@ -37,15 +37,16 @@ export default class ShwThemeSwitcherSelector extends Component {
         'standard|': 'HDS / Standard',
       },
       'Theming via prefers-color-scheme': {
+        'prefers-color-scheme|default': 'HDS / Default',
         'prefers-color-scheme|system': 'Carbon / System',
       },
       'Theming via CSS selectors': {
-        'css-selectors|': 'HDS / Default',
+        'css-selectors|default': 'HDS / Default',
         'css-selectors|light': `Carbon / Light (${this.gLight})`,
         'css-selectors|dark': `Carbon / Dark (${this.gDark})`,
       },
       'Theming via combined strategies': {
-        'combined-strategies|': 'HDS / Default',
+        'combined-strategies|default': 'HDS / Default',
         'combined-strategies|system': 'Carbon / System',
         'combined-strategies|light': `Carbon / Light (${this.gLight})`,
         'combined-strategies|dark': `Carbon / Dark (${this.gDark})`,
