@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  NODE_VERSION: '22.x'
+  NODE_VERSION: "24.x"
 
 jobs:
   release:
@@ -18,7 +18,7 @@ jobs:
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
-      
+
       - name: Install PNPM
         uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
         with:
