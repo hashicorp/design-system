@@ -70,23 +70,24 @@
 
 // Dropdown & Button color theming overrides
 
-[class*="hds-side-nav"] {
-  > .hds-button,
-  > .hds-dropdown > button,
-  > [class*="hds-dropdown-toggle"] {
-    @include hds-interactive-dark-theme();
-
-    // disabled state:
-    &:disabled,
-    &[disabled],
-    &.mock-disabled,
-    &:disabled:focus,
-    &[disabled]:focus,
-    &.mock-disabled:focus,
-    &:disabled:hover,
-    &[disabled]:hover,
-    &.mock-disabled:hover {
-      @include hds-interactive-dark-theme-state-disabled();
+.hds-side-nav {
+  .hds-button,
+  button[class*="hds-dropdown-toggle"] {
+    // Apply dark theme to child interactive components not within a nested dropdown
+    &:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
+      @include hds-interactive-dark-theme();
+      // disabled state:
+      &:disabled,
+      &[disabled],
+      &.mock-disabled,
+      &:disabled:focus,
+      &[disabled]:focus,
+      &.mock-disabled:focus,
+      &:disabled:hover,
+      &[disabled]:hover,
+      &.mock-disabled:hover {
+        @include hds-interactive-dark-theme-state-disabled();
+      }
     }
   }
 }

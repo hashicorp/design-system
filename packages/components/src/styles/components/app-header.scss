@@ -104,27 +104,27 @@
     gap: inherit;
     align-items: center;
   }
-}
 
-// Dropdown & Button color theming overrides
+  // Dropdown & Button color theming overrides
 
-[class*="hds-app-header"] {
-  > .hds-button,
-  > .hds-dropdown > button,
-  > [class*="hds-dropdown-toggle"] {
-    @include hds-interactive-dark-theme();
+  .hds-button,
+  button[class*="hds-dropdown-toggle"] {
+    // Apply dark theme to child interactive components not within a nested content container
+    &:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
+      @include hds-interactive-dark-theme();
 
-    // disabled state:
-    &:disabled,
-    &[disabled],
-    &.mock-disabled,
-    &:disabled:focus,
-    &[disabled]:focus,
-    &.mock-disabled:focus,
-    &:disabled:hover,
-    &[disabled]:hover,
-    &.mock-disabled:hover {
-      @include hds-interactive-dark-theme-state-disabled();
+      // disabled state:
+      &:disabled,
+      &[disabled],
+      &.mock-disabled,
+      &:disabled:focus,
+      &[disabled]:focus,
+      &.mock-disabled:focus,
+      &:disabled:hover,
+      &[disabled]:hover,
+      &.mock-disabled:hover {
+        @include hds-interactive-dark-theme-state-disabled();
+      }
     }
   }
 }
