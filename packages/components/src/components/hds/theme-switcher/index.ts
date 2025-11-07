@@ -27,6 +27,7 @@ interface ThemeOption {
 }
 
 const OPTIONS: Record<HdsThemes, ThemeOption> = {
+  default: { theme: 'default', icon: 'hashicorp', label: 'Default' },
   system: { theme: 'system', icon: 'monitor', label: 'System' },
   light: { theme: 'light', icon: 'sun', label: 'Light' },
   dark: { theme: 'dark', icon: 'moon', label: 'Dark' },
@@ -36,6 +37,7 @@ interface HdsThemeSwitcherSignature {
   Args: {
     toggleSize?: HdsDropdownToggleButtonSignature['Args']['size'];
     toggleIsFullWidth?: HdsDropdownToggleButtonSignature['Args']['isFullWidth'];
+    hasDefaultOption?: boolean;
     hasSystemOption?: boolean;
     onSetTheme?: OnSetThemeCallback;
   };
@@ -55,6 +57,7 @@ export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignatur
 
   get toggleContent() {
     if (
+      (this.currentTheme === 'default' && this.hasDefaultOption) ||
       (this.currentTheme === 'system' && this.hasSystemOption) ||
       this.currentTheme === 'light' ||
       this.currentTheme === 'dark'
@@ -68,12 +71,22 @@ export default class HdsThemeSwitcher extends Component<HdsThemeSwitcherSignatur
     }
   }
 
+  // note: we will use the `default` option in development, while migrating to the `cds` theming
+  // during this process, consumers will enable/disable this option via code logic or feature flag
+  get hasDefaultOption() {
+    return this.args.hasDefaultOption ?? false;
+  }
+
   get hasSystemOption() {
     return this.args.hasSystemOption ?? true;
   }
 
   get _options() {
     const options: Partial<typeof OPTIONS> = { ...OPTIONS };
+
+    if (!this.hasDefaultOption) {
+      delete options.default;
+    }
 
     if (!this.hasSystemOption) {
       delete options.system;
