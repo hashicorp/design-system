@@ -2,7 +2,9 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-:root {
+:root,
+.hds-theme-default,
+[data-hds-theme="default"] {
   --token-color-palette-neutral-0: #ffffff;
   --token-typography-font-weight-regular: 400;
   --token-typography-font-weight-medium: 500;
@@ -18,8 +20,8 @@
 
 .hds-theme-light,
 .hds-theme-cds-g0,
-[data-hds-theme="cds-g0"],
-[data-hds-theme="light"] {
+[data-hds-theme="light"],
+[data-hds-theme="cds-g0"] {
   --token-color-palette-neutral-0: #ffffff;
   --token-typography-font-weight-regular: 400;
   --token-typography-font-weight-medium: 400;
@@ -65,8 +67,8 @@
 
 .hds-theme-dark,
 .hds-theme-cds-g100,
-[data-hds-theme="cds-g100"],
-[data-hds-theme="dark"] {
+[data-hds-theme="dark"],
+[data-hds-theme="cds-g100"] {
   --token-color-palette-neutral-0: #ffffff;
   --token-typography-font-weight-regular: 400;
   --token-typography-font-weight-medium: 400;
