@@ -14,7 +14,8 @@
 }
 
 @media (prefers-color-scheme: light) {
-  :root:not([class*="hds-theme-"]):not([data-hds-theme]) {
+  .hds-theme-system,
+  [data-hds-theme="system"] {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #161616;
     --token-typography-font-weight-regular: 400;
@@ -25,7 +26,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([class*="hds-theme-"]):not([data-hds-theme]) {
+  .hds-theme-system,
+  [data-hds-theme="system"] {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #f4f4f4;
     --token-typography-font-weight-regular: 400;
