@@ -1,5 +1,11 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+## November 5th, 2025
+
+This changelog corresponds with the [5.0](/whats-new/release-notes#500) release.
+
+`AppFooter` - Updated the copyright language to read "HashiCorp, an IBM Company" per brand guidance.
+
 ## October 1st, 2025
 
 This changelog corresponds with the [4.24](/whats-new/release-notes#4240) release.
