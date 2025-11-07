@@ -17,6 +17,12 @@
   --token-color-surface-strong: #f1f2f3;
   --token-color-surface-primary: #ffffff;
   --token-color-surface-faint: #ffffff;
+  --token-typography-font-stack-display:
+    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-font-stack-text:
+    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 
 @media (prefers-color-scheme: light) {
@@ -34,6 +40,8 @@
     --token-color-surface-strong: #3b3d45;
     --token-color-surface-primary: #0c0c0e;
     --token-color-surface-faint: #0c0c0e;
+    --token-typography-font-stack-display: Papyrus, fantasy;
+    --token-typography-font-stack-text: Papyrus, fantasy;
   }
 }
 
@@ -52,6 +60,8 @@
     --token-color-surface-strong: #f1f2f3;
     --token-color-surface-primary: #ffffff;
     --token-color-surface-faint: #ffffff;
+    --token-typography-font-stack-display: "Brush Script MT", cursive;
+    --token-typography-font-stack-text: "Brush Script MT", cursive;
   }
 }
 
@@ -71,6 +81,8 @@
   --token-color-surface-strong: #f1f2f3;
   --token-color-surface-primary: #ffffff;
   --token-color-surface-faint: #ffffff;
+  --token-typography-font-stack-display: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  --token-typography-font-stack-text: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .hds-theme-cds-g10,
@@ -87,6 +99,8 @@
   --token-color-surface-strong: #d1d2d3;
   --token-color-surface-primary: #dddddd;
   --token-color-surface-faint: #dddddd;
+  --token-typography-font-stack-display: "Goudy Old Style", Garamond, "Times New Roman", serif;
+  --token-typography-font-stack-text: "Goudy Old Style", Garamond, "Times New Roman", serif;
 }
 
 .hds-theme-cds-g90,
@@ -103,6 +117,8 @@
   --token-color-surface-strong: #4b4d45;
   --token-color-surface-primary: #1c1c1e;
   --token-color-surface-faint: #1c1c1e;
+  --token-typography-font-stack-display: Rockwell, serif;
+  --token-typography-font-stack-text: Rockwell, serif;
 }
 
 .hds-theme-dark,
@@ -121,6 +137,8 @@
   --token-color-surface-strong: #3b3d45;
   --token-color-surface-primary: #0c0c0e;
   --token-color-surface-faint: #0c0c0e;
+  --token-typography-font-stack-display: Impact, "Arial Black", "sans serif";
+  --token-typography-font-stack-text: Impact, "Arial Black", "sans serif";
 }
 
 :root {
@@ -498,53 +516,37 @@
   --token-tooltip-padding-horizontal: 12px;
   --token-tooltip-padding-vertical: 8px;
   --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
-  --token-typography-font-stack-display:
+  /* --token-typography-font-stack-display:
     -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  --token-typography-font-stack-text:
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
+  /* --token-typography-font-stack-text:
     -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
   --token-typography-font-stack-code: ui-monospace, Menlo, Consolas, monospace;
-  --token-typography-display-500-font-family:
-    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-display-500-font-family: var(--token-typography-font-stack-display);
   --token-typography-display-500-font-size: 1.875rem; /** 30px/1.875rem */
   --token-typography-display-500-line-height: 1.2666; /** 38px */
-  --token-typography-display-400-font-family:
-    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-display-400-font-family: var(--token-typography-font-stack-display);
   --token-typography-display-400-font-size: 1.5rem; /** 24px/1.5rem */
   --token-typography-display-400-line-height: 1.3333; /** 32px */
-  --token-typography-display-300-font-family:
-    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-display-300-font-family: var(--token-typography-font-stack-display);
   --token-typography-display-300-font-size: 1.125rem; /** 18px/1.125rem */
   --token-typography-display-300-line-height: 1.3333; /** 24px */
   --token-typography-display-300-letter-spacing: -0.5px; /** this is `tracking` */
-  --token-typography-display-200-font-family:
-    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-display-200-font-family: var(--token-typography-font-stack-display);
   --token-typography-display-200-font-size: 1rem; /** 16px/1rem */
   --token-typography-display-200-line-height: 1.5; /** 24px */
   --token-typography-display-200-letter-spacing: -0.5px; /** this is `tracking` */
-  --token-typography-display-100-font-family:
-    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-display-100-font-family: var(--token-typography-font-stack-display);
   --token-typography-display-100-font-size: 0.8125rem; /** 13px/0.8125rem */
   --token-typography-display-100-line-height: 1.3846; /** 18px */
-  --token-typography-body-300-font-family:
-    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-body-300-font-family: var(--token-typography-font-stack-text);
   --token-typography-body-300-font-size: 1rem; /** 16px/1rem */
   --token-typography-body-300-line-height: 1.5; /** 24px */
-  --token-typography-body-200-font-family:
-    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-body-200-font-family: var(--token-typography-font-stack-text);
   --token-typography-body-200-font-size: 0.875rem; /** 14px/0.875rem */
   --token-typography-body-200-line-height: 1.4286; /** 20px */
-  --token-typography-body-100-font-family:
-    -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-body-100-font-family: var(--token-typography-font-stack-text);
   --token-typography-body-100-font-size: 0.8125rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.3846; /** 18px */
   --token-typography-code-100-font-family:
