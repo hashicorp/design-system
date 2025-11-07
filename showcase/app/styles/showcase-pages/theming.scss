@@ -23,13 +23,24 @@ body.page-foundations-theming {
     width: fit-content;
     min-width: 120px;
     min-height: 120px;
-    padding: 50px;
     color: var(--token-color-foreground-strong);
     font-weight: bold;
-    font-size: 10px;
-    font-family: monaco, Consolas, "Lucida Console", monospace;
+    font-size: 16px;
+    font-family: var(--token-typography-font-stack-text);
     line-height: 1.2;
     background-color: var(--token-color-surface-strong);
+
+    &:has(.shw-foundation-theming-basic-container) {
+      padding: 50px;
+    }
+
+    &.shw-foundation-theming-basic-container--not-available {
+      color: #7f7f7f;
+      font-size: 24px;
+      font-family: monaco, Consolas, "Lucida Console", monospace;
+      background-color: transparent;
+      opacity: 0.5;
+    }
   }
 
   .shw-page-foundations-theming-banner-incorrect-stylesheet {
