@@ -44,6 +44,7 @@ type HdsThemingOptions = {
   lightTheme: HdsModesLight;
   darkTheme: HdsModesDark;
   cssSelector: HdsCssSelectors;
+  isComplex: boolean;
 };
 
 type SetThemeArgs = {
@@ -70,10 +71,6 @@ export const MODES: HdsModes[] = [
 
 export const HDS_THEMING_DATA_SELECTOR = 'data-hds-theme';
 export const HDS_THEMING_CLASS_SELECTOR_PREFIX = 'hds-theme';
-export const HDS_THEMING_CLASS_SELECTORS_LIST = [
-  ...MODES_LIGHT,
-  ...MODES_DARK,
-].map((mode) => `${HDS_THEMING_CLASS_SELECTOR_PREFIX}-${mode}`);
 
 export const HDS_THEMING_LOCALSTORAGE_DATA = 'hds-theming-data';
 
@@ -134,22 +131,26 @@ export default class HdsThemingService extends Service {
     }
 
     // set the current theme/mode (`currentTheme` / `currentMode`)
+    let cssSelectorPartial;
     if (
       theme === undefined || // standard (no theming)
       !THEMES.includes(theme) // handle possible errors
     ) {
       this._currentTheme = undefined;
       this._currentMode = undefined;
+      cssSelectorPartial = undefined;
     } else if (
       theme === HdsThemeValues.Default // default (original HDS)
     ) {
       this._currentTheme = HdsThemeValues.Default;
       this._currentMode = undefined;
+      cssSelectorPartial = HdsThemeValues.Default;
     } else if (
       theme === HdsThemeValues.System // system (prefers-color-scheme)
     ) {
       this._currentTheme = HdsThemeValues.System;
       this._currentMode = undefined;
+      cssSelectorPartial = HdsThemeValues.System;
     } else {
       this._currentTheme = theme;
       if (this._currentTheme === HdsThemeValues.Light) {
@@ -158,6 +159,9 @@ export default class HdsThemingService extends Service {
       if (this._currentTheme === HdsThemeValues.Dark) {
         this._currentMode = this._currentDarkTheme;
       }
+      cssSelectorPartial = options?.isComplex
+        ? this._currentMode
+        : this._currentTheme;
     }
 
     // IMPORTANT: for this to work, it needs to be the HTML tag (it's the `:root` in CSS)
@@ -168,13 +172,17 @@ export default class HdsThemingService extends Service {
     }
     // remove or update the CSS selectors applied to the root element (depending on the `theme` argument)
     rootElement.removeAttribute(HDS_THEMING_DATA_SELECTOR);
-    rootElement.classList.remove(...HDS_THEMING_CLASS_SELECTORS_LIST);
-    if (this._currentMode !== undefined) {
+    const hdsThemingClassesToRemove = Array.from(rootElement.classList).filter(
+      (className) =>
+        className.startsWith(`${HDS_THEMING_CLASS_SELECTOR_PREFIX}-`)
+    );
+    rootElement.classList.remove(...hdsThemingClassesToRemove);
+    if (cssSelectorPartial !== undefined) {
       if (this._currentCssSelector === 'data') {
-        rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, this._currentMode);
+        rootElement.setAttribute(HDS_THEMING_DATA_SELECTOR, cssSelectorPartial);
       } else if (this._currentCssSelector === 'class') {
         rootElement.classList.add(
-          `${HDS_THEMING_CLASS_SELECTOR_PREFIX}-${this._currentMode}`
+          `${HDS_THEMING_CLASS_SELECTOR_PREFIX}-${cssSelectorPartial}`
         );
       }
     }
