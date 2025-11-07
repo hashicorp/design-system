@@ -22,7 +22,7 @@ export interface ShwCarbonizationComparisonGridSignature {
 }
 
 export const THEMES = [
-  'hds',
+  'default',
   'cds-g0',
   'cds-g10',
   'cds-g90',
@@ -65,7 +65,7 @@ const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComp
       {{/if}}
       {{#if (has-block "reference")}}
         {{#each THEMES as |theme|}}
-          {{#unless (eq theme "hds")}}
+          {{#unless (eq theme "default")}}
             <ShwCarbonizationComparisonGridItem
               @scope="reference"
               @theme={{theme}}
