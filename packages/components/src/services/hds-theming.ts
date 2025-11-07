@@ -2,6 +2,8 @@ import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export enum HdsThemeValues {
+  // default (original HDS)
+  Default = 'default',
   // system settings (prefers-color-scheme)
   System = 'system',
   // user settings for dark/light
@@ -9,8 +11,9 @@ export enum HdsThemeValues {
   Dark = 'dark',
 }
 
+// TODO! understand if we really need this
 enum HdsModesBaseValues {
-  Hds = 'hds', // TODO understand if it should be `default`
+  Default = 'default',
 }
 
 enum HdsModesLightValues {
@@ -136,6 +139,11 @@ export default class HdsThemingService extends Service {
       !THEMES.includes(theme) // handle possible errors
     ) {
       this._currentTheme = undefined;
+      this._currentMode = undefined;
+    } else if (
+      theme === HdsThemeValues.Default // default (original HDS)
+    ) {
+      this._currentTheme = HdsThemeValues.Default;
       this._currentMode = undefined;
     } else if (
       theme === HdsThemeValues.System // system (prefers-color-scheme)
