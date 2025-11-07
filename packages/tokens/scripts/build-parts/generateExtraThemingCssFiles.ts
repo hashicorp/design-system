@@ -30,9 +30,12 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
     if (method === 'prefers-color-scheme') {
       outputContent = `${header}\n\n`;
       //
+      // this is the fallback to the `default` mode (standard HDS)
+      outputContent += `${defaultThemedSource.replace(/^:root/, ':root, .hds-theme-default, [data-hds-theme="default"]')}\n\n`;
+      //
       // these are the themed `carbonized` tokens
-      outputContent += `@media (prefers-color-scheme: light) { ${cds0ThemedSource} }\n\n`;
-      outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource} }\n\n`;
+      outputContent += `@media (prefers-color-scheme: light) { ${cds0ThemedSource.replace(/^:root/, '.hds-theme-system, [data-hds-theme="system"]')} }\n\n`;
+      outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource.replace(/^:root/, '.hds-theme-system, [data-hds-theme="system"]')} }\n\n`;
       //
       // this is the common part
       outputContent += `${commonSource}\n\n`;
@@ -64,8 +67,8 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
       //
       // these are the themed `carbonized` tokens
       // note: we will revisit the `[class*=hds-theme-]` selector if we find that is too generic and there are cases where this is picking up other classes
-      outputContent += `@media (prefers-color-scheme: light) { ${cds0ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
-      outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource.replace(/^:root/, ':root:not([class*=hds-theme-]):not([data-hds-theme])')} }\n\n`;
+      outputContent += `@media (prefers-color-scheme: light) { ${cds0ThemedSource.replace(/^:root/, '.hds-theme-system, [data-hds-theme="system"]')} }\n\n`;
+      outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource.replace(/^:root/, '.hds-theme-system, [data-hds-theme="system"]')} }\n\n`;
       outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-theme-cds-g0, [data-hds-theme="light"], [data-hds-theme="cds-g0"]')}\n\n`;
       outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-g10, [data-hds-theme="cds-g10"]')}\n\n`;
       outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-g90, [data-hds-theme="cds-g90"]')}\n\n`;
