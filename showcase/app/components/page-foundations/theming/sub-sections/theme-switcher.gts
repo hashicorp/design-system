@@ -3,6 +3,7 @@ import style from 'ember-style-modifier';
 import { service } from '@ember/service';
 
 import ShwFlex from 'showcase/components/shw/flex';
+import ShwGrid from 'showcase/components/shw/grid';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwDivider from 'showcase/components/shw/divider';
@@ -68,16 +69,29 @@ export default class SubSectionThemeSwitcher extends Component {
 
     <ShwTextH4 @tag="h3">Options</ShwTextH4>
 
-    <ShwFlex @gap="2rem" as |SF|>
-      <SF.Item @label="System/Light/Dark (default)">
+    <ShwGrid @columns={{4}} @gap="2rem" {{style width="fit-content"}} as |SG|>
+      <SG.Item @label="System/Light/Dark (default)">
         <HdsThemeSwitcher @onSetTheme={{this.onSetTheme}} />
-      </SF.Item>
-      <SF.Item @label="Only Light/Dark">
+      </SG.Item>
+      <SG.Item @label="Only Light/Dark">
         <HdsThemeSwitcher
           @hasSystemOption={{false}}
           @onSetTheme={{this.onSetTheme}}
         />
-      </SF.Item>
-    </ShwFlex>
+      </SG.Item>
+      <SG.Item @label="Light/Dark + Default">
+        <HdsThemeSwitcher
+          @hasDefaultOption={{true}}
+          @hasSystemOption={{false}}
+          @onSetTheme={{this.onSetTheme}}
+        />
+      </SG.Item>
+      <SG.Item @label="System/Light/Dark + Default">
+        <HdsThemeSwitcher
+          @hasDefaultOption={{true}}
+          @onSetTheme={{this.onSetTheme}}
+        />
+      </SG.Item>
+    </ShwGrid>
   </template>
 }
