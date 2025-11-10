@@ -373,7 +373,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
-    const { isSelectable } = this.args;
+    const { isSelectable } = this;
     const { orderedColumns } = this._tableModel;
 
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
@@ -476,7 +476,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       }
     };
 
-    const { isSelectable = false } = this.args;
+    const { isSelectable } = this;
 
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
@@ -615,6 +615,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setupTableModelData(): void {
+    debugger;
     const { columns, model, sortBy, sortOrder } = this.args;
 
     this._tableModel.setupData({
@@ -670,6 +671,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     checkbox: HdsFormCheckboxBaseSignature['Element'],
     selectionKey?: string
   ): void {
+    debugger;
     if (selectionKey) {
       this._selectableRows.push({ selectionKey, checkbox });
     }
@@ -678,6 +680,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   willDestroyRowCheckbox(selectionKey?: string): void {
+    debugger;
     this._selectableRows = this._selectableRows.filter(
       (row) => row.selectionKey !== selectionKey
     );
