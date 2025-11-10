@@ -4,9 +4,12 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import style from 'ember-style-modifier';
+import { array } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwDivider from 'showcase/components/shw/divider';
@@ -25,6 +28,8 @@ import {
   HdsButton,
   HdsButtonSet,
   HdsDropdown,
+  HdsDropdownToggleButton,
+  HdsDropdownToggleIcon,
 } from '@hashicorp/design-system-components/components';
 
 const SubSectionContent: TemplateOnlyComponent = <template>
@@ -170,78 +175,152 @@ const SubSectionContent: TemplateOnlyComponent = <template>
 
   <ShwTextH3>With nested button content</ShwTextH3>
 
-  <HdsAppHeader @hasA11yRefocus={{false}}>
-    <:logo>
-      {{! empty span for layout purposes}}
-      <span />
-    </:logo>
-    <:globalActions>
-      <SuperSelectWithButtons @placeholder="SuperSelect" />
+  <ShwFlex @direction="column" {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Fully interactive examples">
+      <HdsAppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          {{! empty span for layout purposes}}
+          <span />
+        </:logo>
+        <:globalActions>
+          <SuperSelectWithButtons @placeholder="SuperSelect" />
 
-      <HdsDropdown as |D|>
-        <D.ToggleButton @text="Dropdown" />
-        <D.Footer>
-          <HdsButtonSet>
-            <HdsButton @text="Primary" @isFullWidth={{true}} @size="small" />
-            <HdsButton @text="Secondary" @color="secondary" @size="small" />
-          </HdsButtonSet>
-        </D.Footer>
-      </HdsDropdown>
+          <HdsDropdown as |D|>
+            <D.ToggleButton @text="Dropdown" />
+            <D.Footer>
+              <HdsButtonSet>
+                <HdsButton
+                  @text="Primary"
+                  @isFullWidth={{true}}
+                  @size="small"
+                />
+                <HdsButton @text="Secondary" @color="secondary" @size="small" />
+              </HdsButtonSet>
+            </D.Footer>
+          </HdsDropdown>
 
-      <ModalWithTrigger @triggerText="Open modal" id="nested-modal">
-        <:modal as |M|>
-          <M.Header>
-            Modal title
-          </M.Header>
-          <M.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">
-              Modal content
-            </p>
-          </M.Body>
-          <M.Footer as |F|>
-            <HdsButtonSet>
-              <HdsButton type="submit" @text="Primary" {{on "click" F.close}} />
-              <HdsButton
-                type="button"
-                @text="Secondary"
-                @color="secondary"
-                {{on "click" F.close}}
-              />
-            </HdsButtonSet>
-          </M.Footer>
-        </:modal>
-      </ModalWithTrigger>
+          <HdsDropdown as |D|>
+            <D.ToggleIcon @text="Dropdown" @icon="more-horizontal" />
+            <D.Footer>
+              <HdsButtonSet>
+                <HdsButton
+                  @text="Primary"
+                  @isFullWidth={{true}}
+                  @size="small"
+                />
+                <HdsButton @text="Secondary" @color="secondary" @size="small" />
+              </HdsButtonSet>
+            </D.Footer>
+          </HdsDropdown>
 
-      <FlyoutWithTrigger @triggerText="Open flyout" id="nested-flyout">
-        <:flyout as |F|>
-          <F.Header>
-            Flyout title
-          </F.Header>
-          <F.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">
-              Flyout body
-            </p>
-          </F.Body>
-          <F.Footer as |FF|>
-            <HdsButtonSet>
-              <HdsButton
-                type="submit"
-                @text="Primary"
-                {{on "click" FF.close}}
-              />
-              <HdsButton
-                type="button"
-                @text="Secondary"
-                @color="secondary"
-                {{on "click" FF.close}}
-              />
-            </HdsButtonSet>
-          </F.Footer>
-        </:flyout>
-      </FlyoutWithTrigger>
-    </:globalActions>
-  </HdsAppHeader>
+          <ModalWithTrigger @triggerText="Open modal" id="nested-modal">
+            <:modal as |M|>
+              <M.Header>
+                Modal title
+              </M.Header>
+              <M.Body>
+                <p class="hds-typography-body-300 hds-foreground-primary">
+                  Modal content
+                </p>
+              </M.Body>
+              <M.Footer as |F|>
+                <HdsButtonSet>
+                  <HdsButton
+                    type="submit"
+                    @text="Primary"
+                    {{on "click" F.close}}
+                  />
+                  <HdsButton
+                    type="button"
+                    @text="Secondary"
+                    @color="secondary"
+                    {{on "click" F.close}}
+                  />
+                </HdsButtonSet>
+              </M.Footer>
+            </:modal>
+          </ModalWithTrigger>
 
+          <FlyoutWithTrigger @triggerText="Open flyout" id="nested-flyout">
+            <:flyout as |F|>
+              <F.Header>
+                Flyout title
+              </F.Header>
+              <F.Body>
+                <p class="hds-typography-body-300 hds-foreground-primary">
+                  Flyout body
+                </p>
+              </F.Body>
+              <F.Footer as |FF|>
+                <HdsButtonSet>
+                  <HdsButton
+                    type="submit"
+                    @text="Primary"
+                    {{on "click" FF.close}}
+                  />
+                  <HdsButton
+                    type="button"
+                    @text="Secondary"
+                    @color="secondary"
+                    {{on "click" FF.close}}
+                  />
+                </HdsButtonSet>
+              </F.Footer>
+            </:flyout>
+          </FlyoutWithTrigger>
+        </:globalActions>
+      </HdsAppHeader>
+    </SF.Item>
+
+    {{#let
+      (array
+        ""
+        "hds-dropdown__content"
+        "ember-basic-dropdown-content"
+        "hds-dialog-primitive__wrapper"
+      )
+      as |classNames|
+    }}
+      {{#each classNames as |className|}}
+        <SF.Item as |SFI|>
+          {{#if (eq className "")}}
+            <SFI.Label>Buttons without specific parent</SFI.Label>
+          {{else}}
+            {{#if (eq className "hds-dropdown__content")}}
+              <ShwTextH4>Nested content using default button styles</ShwTextH4>
+            {{/if}}
+            <SFI.Label>Buttons within a
+              <code>.{{className}}</code>
+              parent</SFI.Label>
+          {{/if}}
+          <HdsAppHeader @hasA11yRefocus={{false}}>
+            <:logo>
+              {{! empty span for layout purposes}}
+              <span />
+            </:logo>
+            <:globalActions>
+              <div class={{className}}>
+                <HdsButtonSet>
+                  <HdsButton @text="Primary" @size="small" />
+                  <HdsButton
+                    @text="Secondary"
+                    @color="secondary"
+                    @size="small"
+                  />
+                  <HdsDropdownToggleButton @text="Dropdown" @size="small" />
+                  <HdsDropdownToggleIcon
+                    @text="Dropdown"
+                    @icon="more-horizontal"
+                    @size="small"
+                  />
+                </HdsButtonSet>
+              </div>
+            </:globalActions>
+          </HdsAppHeader>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </ShwFlex>
   <ShwDivider />
 </template>;
 
