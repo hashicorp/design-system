@@ -280,7 +280,7 @@ const SubSectionContent: TemplateOnlyComponent = <template>
     </SF.Item>
   </ShwFlex>
 
-  <ShwTextH4>Nested content using default button styles</ShwTextH4>
+  <ShwTextH4 @tag="h3">Nested content using default button styles</ShwTextH4>
 
   <ShwFlex
     class="shw-component-sidenav-content-examples shw-component-sidenav-ember-basic-dropdown-content-example"
