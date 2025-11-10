@@ -4,7 +4,6 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { array } from '@ember/helper';
-import { eq } from 'ember-truth-helpers';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
