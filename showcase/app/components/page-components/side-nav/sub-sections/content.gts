@@ -3,12 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import { array } from '@ember/helper';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 import {
   HdsSideNav,
@@ -18,6 +20,8 @@ import {
   HdsButton,
   HdsButtonSet,
   HdsDropdown,
+  HdsDropdownToggleButton,
+  HdsDropdownToggleIcon,
 } from '@hashicorp/design-system-components/components';
 
 import ModalWithTrigger from 'showcase/components/page-components/modal/code-fragments/with-trigger';
@@ -156,8 +160,8 @@ const SubSectionContent: TemplateOnlyComponent = <template>
 
   <ShwTextH3>With nested button content</ShwTextH3>
 
-  <ShwFlex as |SF|>
-    <SF.Item @label="">
+  <ShwFlex class="shw-component-sidenav-content-examples" as |SF|>
+    <SF.Item @label="Fully interactive examples">
       <HdsSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
         <:body>
           <HdsSideNavList as |SNL|>
@@ -168,18 +172,18 @@ const SubSectionContent: TemplateOnlyComponent = <template>
               <HdsDropdown as |D|>
                 <D.ToggleButton @text="Dropdown" />
                 <D.Footer>
-                  <HdsButtonSet>
-                    <HdsButton
-                      @text="Primary"
-                      @isFullWidth={{true}}
-                      @size="small"
-                    />
-                    <HdsButton
-                      @text="Secondary"
-                      @color="secondary"
-                      @size="small"
-                    />
-                  </HdsButtonSet>
+                  {{! <HdsButtonSet> }}
+                  <HdsButton
+                    @text="Primary"
+                    @isFullWidth={{true}}
+                    @size="small"
+                  />
+                  <HdsButton
+                    @text="Secondary"
+                    @color="secondary"
+                    @size="small"
+                  />
+                  {{! </HdsButtonSet> }}
                 </D.Footer>
               </HdsDropdown>
             </SNL.Item>
@@ -245,6 +249,87 @@ const SubSectionContent: TemplateOnlyComponent = <template>
         </:body>
       </HdsSideNav>
     </SF.Item>
+
+    <SF.Item as |SFI|>
+      <SFI.Label>Buttons without specific parent</SFI.Label>
+
+      <HdsSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+        <:body>
+          <div>
+            <HdsSideNavList as |SNL|>
+              <SNL.Item>
+                <HdsButton @text="Primary" @size="small" />
+              </SNL.Item>
+              <SNL.Item>
+                <HdsButton @text="Secondary" @color="secondary" @size="small" />
+              </SNL.Item>
+              <SNL.Item>
+                <HdsDropdownToggleButton @text="Dropdown" @size="small" />
+              </SNL.Item>
+              <SNL.Item>
+                <HdsDropdownToggleIcon
+                  @text="Dropdown"
+                  @icon="more-horizontal"
+                  @size="small"
+                />
+              </SNL.Item>
+            </HdsSideNavList>
+          </div>
+        </:body>
+      </HdsSideNav>
+    </SF.Item>
+  </ShwFlex>
+
+  <ShwTextH4 @tag="h3">Nested content using default button styles</ShwTextH4>
+
+  <ShwFlex
+    class="shw-component-sidenav-content-examples shw-component-sidenav-ember-basic-dropdown-content-example"
+    as |SF|
+  >
+    {{#let
+      (array
+        "hds-dropdown__content"
+        "ember-basic-dropdown-content"
+        "hds-dialog-primitive__wrapper"
+      )
+      as |classNames|
+    }}
+      {{#each classNames as |className|}}
+        <SF.Item as |SFI|>
+          <SFI.Label>in an
+            <code>.{{className}}</code>
+            parent</SFI.Label>
+          <HdsSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+            <:body>
+              <div class={{className}}>
+                <HdsSideNavList as |SNL|>
+                  <SNL.Item>
+                    <HdsButton @text="Primary" @size="small" />
+                  </SNL.Item>
+                  <SNL.Item>
+                    <HdsButton
+                      @text="Secondary"
+                      @color="secondary"
+                      @size="small"
+                    />
+                  </SNL.Item>
+                  <SNL.Item>
+                    <HdsDropdownToggleButton @text="Dropdown" @size="small" />
+                  </SNL.Item>
+                  <SNL.Item>
+                    <HdsDropdownToggleIcon
+                      @text="Dropdown"
+                      @icon="more-horizontal"
+                      @size="small"
+                    />
+                  </SNL.Item>
+                </HdsSideNavList>
+              </div>
+            </:body>
+          </HdsSideNav>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
   </ShwFlex>
 </template>;
 

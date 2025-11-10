@@ -106,16 +106,13 @@
   }
 
   // Dropdown & Button color theming overrides
+  // Note: We need to apply dark theme styles to .hds-dropdown-toggle-button & .hds-dropdown-toggle-icon
+  // so we use a partial classname selector to cover both cases
+
   .hds-button,
-  .hds-dropdown-toggle-button,
-  .hds-dropdown-toggle-icon {
-    // Apply dark theme to child interactive components not within a nested dropdown
-    &:not(
-      .hds-dropdown * *,
-      .ember-basic-dropdown-trigger * *,
-      .ember-basic-dropdown-content * *,
-      .hds-dialog-primitive__wrapper *
-    ) {
+  button[class*="hds-dropdown-toggle"] {
+    // Apply dark theme to child interactive components not within a nested content container
+    &:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
       @include hds-interactive-dark-theme();
 
       // disabled state:

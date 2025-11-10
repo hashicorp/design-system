@@ -71,79 +71,85 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwFlex as |SF|>
     <SF.Item @label="Logo (generic) + Actions (generic)">
-      <div class="shw-component-sim-side-nav-header">
-        <HdsSideNavHeader>
-          <:logo>
-            <ShwPlaceholder @height="100%" @width="100%" @text="generic" />
-          </:logo>
-          <:actions>
-            <ShwPlaceholder @height="36px" @width="60px" @text="action" />
-            <ShwPlaceholder @height="36px" @width="60px" @text="action" />
-          </:actions>
-        </HdsSideNavHeader>
+      <div class="hds-side-nav">
+        <div class="shw-component-sim-side-nav-header">
+          <HdsSideNavHeader>
+            <:logo>
+              <ShwPlaceholder @height="100%" @width="100%" @text="generic" />
+            </:logo>
+            <:actions>
+              <ShwPlaceholder @height="36px" @width="60px" @text="action" />
+              <ShwPlaceholder @height="36px" @width="60px" @text="action" />
+            </:actions>
+          </HdsSideNavHeader>
+        </div>
       </div>
     </SF.Item>
     <SF.Item @label="Logo (HomeLink) + Actions (Dropdowns)">
-      <div class="shw-component-sim-side-nav-header">
-        <HdsSideNavHeader>
-          <:logo>
-            <HdsSideNavHeaderHomeLink
-              @icon="hashicorp"
-              @ariaLabel="HashiCorp"
-              @href="#"
-            />
-          </:logo>
-          <:actions>
-            <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
-              <dd.ToggleIcon @icon="help" @text="help menu" />
-              <dd.Title @text="Help & Support" />
-              <dd.Interactive @href="#">Documentation</dd.Interactive>
-              <dd.Interactive @href="#">Tutorials</dd.Interactive>
-              <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
-              <dd.Interactive @href="#">Changelog</dd.Interactive>
-              <dd.Separator />
-              <dd.Interactive @href="#">Create support ticket</dd.Interactive>
-              <dd.Interactive @href="#">Give feedback</dd.Interactive>
-            </HdsDropdown>
-            <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
-              <dd.ToggleIcon @icon="user" @text="user menu" />
-              <dd.Title @text="Signed In" />
-              <dd.Description @text="email@domain.com" />
-              <dd.Interactive @href="#">Account Settings</dd.Interactive>
-            </HdsDropdown>
-          </:actions>
-        </HdsSideNavHeader>
+      <div class="hds-side-nav">
+        <div class="shw-component-sim-side-nav-header">
+          <HdsSideNavHeader>
+            <:logo>
+              <HdsSideNavHeaderHomeLink
+                @icon="hashicorp"
+                @ariaLabel="HashiCorp"
+                @href="#"
+              />
+            </:logo>
+            <:actions>
+              <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
+                <dd.ToggleIcon @icon="help" @text="help menu" />
+                <dd.Title @text="Help & Support" />
+                <dd.Interactive @href="#">Documentation</dd.Interactive>
+                <dd.Interactive @href="#">Tutorials</dd.Interactive>
+                <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
+                <dd.Interactive @href="#">Changelog</dd.Interactive>
+                <dd.Separator />
+                <dd.Interactive @href="#">Create support ticket</dd.Interactive>
+                <dd.Interactive @href="#">Give feedback</dd.Interactive>
+              </HdsDropdown>
+              <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
+                <dd.ToggleIcon @icon="user" @text="user menu" />
+                <dd.Title @text="Signed In" />
+                <dd.Description @text="email@domain.com" />
+                <dd.Interactive @href="#">Account Settings</dd.Interactive>
+              </HdsDropdown>
+            </:actions>
+          </HdsSideNavHeader>
+        </div>
       </div>
     </SF.Item>
     <SF.Item @label="Logo (HomeLink) + Actions (IconButton + Dropdown)">
-      <div class="shw-component-sim-side-nav-header">
-        <HdsSideNavHeader>
-          <:logo>
-            <HdsSideNavHeaderHomeLink
-              @icon="hashicorp"
-              @ariaLabel="HashiCorp"
-              @href="#"
-            />
-          </:logo>
-          <:actions>
-            <HdsButton
-              @icon="terminal-screen"
-              @isIconOnly={{true}}
-              @text="Terminal"
-            />
-            <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
-              <dd.ToggleButton @text="Help" />
-              <dd.Title @text="Help & Support" />
-              <dd.Interactive @href="#">Documentation</dd.Interactive>
-              <dd.Interactive @href="#">Tutorials</dd.Interactive>
-              <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
-              <dd.Interactive @href="#">Changelog</dd.Interactive>
-              <dd.Separator />
-              <dd.Interactive @href="#">Create support ticket</dd.Interactive>
-              <dd.Interactive @href="#">Give feedback</dd.Interactive>
-            </HdsDropdown>
-          </:actions>
-        </HdsSideNavHeader>
+      <div class="hds-side-nav">
+        <div class="shw-component-sim-side-nav-header">
+          <HdsSideNavHeader>
+            <:logo>
+              <HdsSideNavHeaderHomeLink
+                @icon="hashicorp"
+                @ariaLabel="HashiCorp"
+                @href="#"
+              />
+            </:logo>
+            <:actions>
+              <HdsButton
+                @icon="terminal-screen"
+                @isIconOnly={{true}}
+                @text="Terminal"
+              />
+              <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
+                <dd.ToggleButton @text="Help" />
+                <dd.Title @text="Help & Support" />
+                <dd.Interactive @href="#">Documentation</dd.Interactive>
+                <dd.Interactive @href="#">Tutorials</dd.Interactive>
+                <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
+                <dd.Interactive @href="#">Changelog</dd.Interactive>
+                <dd.Separator />
+                <dd.Interactive @href="#">Create support ticket</dd.Interactive>
+                <dd.Interactive @href="#">Give feedback</dd.Interactive>
+              </HdsDropdown>
+            </:actions>
+          </HdsSideNavHeader>
+        </div>
       </div>
     </SF.Item>
   </ShwFlex>

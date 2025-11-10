@@ -107,4 +107,18 @@ body.page-components-side-nav {
       }
     }
   }
+
+  // used to simulate nested content of dropdowns & dialogs
+  .shw-component-sidenav-content-examples {
+    .hds-side-nav {
+      height: auto;
+      min-height: none;
+    }
+  }
+
+  .shw-component-sidenav-ember-basic-dropdown-content-example {
+    .ember-basic-dropdown-content {
+      position: static;
+    }
+  }
 }
