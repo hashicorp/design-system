@@ -7410,15 +7410,24 @@
   {
     "key": "{typography.font-stack.display}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": [
-        "{typography.font-stack.sans.display.macOS}",
-        "{typography.font-stack.sans.display.windows}",
-        "{typography.font-stack.sans.display.sans}",
-        "{typography.font-stack.sans.display.emoji}"
-      ],
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.sans.display.combined}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.font-stack.display}"
     },
     "name": "token-typography-font-stack-display",
@@ -7434,15 +7443,24 @@
   {
     "key": "{typography.font-stack.text}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": [
-        "{typography.font-stack.sans.text.macOS}",
-        "{typography.font-stack.sans.text.windows}",
-        "{typography.font-stack.sans.display.sans}",
-        "{typography.font-stack.sans.text.emoji}"
-      ],
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.sans.text.combined}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.font-stack.text}"
     },
     "name": "token-typography-font-stack-text",
@@ -7458,14 +7476,24 @@
   {
     "key": "{typography.font-stack.code}",
     "$type": "font-family",
-    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace",
+    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+    "$modes": {
+      "default": "ui-monospace, Menlo, Consolas, monospace",
+      "cds-g0": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g10": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g90": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g100": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace"
+    },
     "original": {
       "$type": "font-family",
-      "$value": [
-        "{typography.font-stack.monospace.code.macOS}",
-        "{typography.font-stack.monospace.code.windows}",
-        "monospace"
-      ],
+      "$value": "{carbon.typography.font-family.mono}",
+      "$modes": {
+        "default": "{typography.font-stack.monospace.code.combined}",
+        "cds-g0": "{carbon.typography.font-family.mono}",
+        "cds-g10": "{carbon.typography.font-family.mono}",
+        "cds-g90": "{carbon.typography.font-family.mono}",
+        "cds-g100": "{carbon.typography.font-family.mono}"
+      },
       "key": "{typography.font-stack.code}"
     },
     "name": "token-typography-font-stack-code",
@@ -7613,10 +7641,24 @@
   {
     "key": "{typography.display-500.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.display}",
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.display}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.display-500.font-family}"
     },
     "name": "token-typography-display-500-font-family",
@@ -7632,14 +7674,28 @@
   {
     "key": "{typography.display-500.font-size}",
     "$type": "font-size",
-    "$value": "1.875rem",
+    "$value": "2rem",
     "unit": "px",
     "comment": "30px/1.875rem",
+    "$modes": {
+      "default": "30",
+      "cds-g0": "2rem",
+      "cds-g10": "2rem",
+      "cds-g90": "2rem",
+      "cds-g100": "2rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "30",
+      "$value": "{carbon.typography.heading05.font-size}",
       "unit": "px",
       "comment": "30px/1.875rem",
+      "$modes": {
+        "default": "30",
+        "cds-g0": "{carbon.typography.heading05.font-size}",
+        "cds-g10": "{carbon.typography.heading05.font-size}",
+        "cds-g90": "{carbon.typography.heading05.font-size}",
+        "cds-g100": "{carbon.typography.heading05.font-size}"
+      },
       "key": "{typography.display-500.font-size}"
     },
     "name": "token-typography-display-500-font-size",
@@ -7655,12 +7711,26 @@
   {
     "key": "{typography.display-500.line-height}",
     "$type": "number",
-    "$value": 1.2666,
+    "$value": 1.25,
     "comment": "38px",
+    "$modes": {
+      "default": 1.2666,
+      "cds-g0": 1.25,
+      "cds-g10": 1.25,
+      "cds-g90": 1.25,
+      "cds-g100": 1.25
+    },
     "original": {
       "$type": "number",
-      "$value": 1.2666,
+      "$value": "{carbon.typography.heading05.line-height}",
       "comment": "38px",
+      "$modes": {
+        "default": 1.2666,
+        "cds-g0": "{carbon.typography.heading05.line-height}",
+        "cds-g10": "{carbon.typography.heading05.line-height}",
+        "cds-g90": "{carbon.typography.heading05.line-height}",
+        "cds-g100": "{carbon.typography.heading05.line-height}"
+      },
       "key": "{typography.display-500.line-height}"
     },
     "name": "token-typography-display-500-line-height",
@@ -7674,12 +7744,63 @@
     ]
   },
   {
+    "key": "{typography.display-500.letter-spacing}",
+    "$type": "letter-spacing",
+    "$value": "0px",
+    "unit": "px",
+    "comment": "this is `tracking`",
+    "$modes": {
+      "default": -0.5,
+      "cds-g0": "0px",
+      "cds-g10": "0px",
+      "cds-g90": "0px",
+      "cds-g100": "0px"
+    },
+    "original": {
+      "$type": "letter-spacing",
+      "$value": "{carbon.typography.heading05.letter-spacing}",
+      "unit": "px",
+      "comment": "this is `tracking`",
+      "$modes": {
+        "default": -0.5,
+        "cds-g0": "{carbon.typography.heading05.letter-spacing}",
+        "cds-g10": "{carbon.typography.heading05.letter-spacing}",
+        "cds-g90": "{carbon.typography.heading05.letter-spacing}",
+        "cds-g100": "{carbon.typography.heading05.letter-spacing}"
+      },
+      "key": "{typography.display-500.letter-spacing}"
+    },
+    "name": "token-typography-display-500-letter-spacing",
+    "attributes": {
+      "category": "typography"
+    },
+    "path": [
+      "typography",
+      "display-500",
+      "letter-spacing"
+    ]
+  },
+  {
     "key": "{typography.display-400.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.display}",
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.display}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.display-400.font-family}"
     },
     "name": "token-typography-display-400-font-family",
@@ -7695,14 +7816,28 @@
   {
     "key": "{typography.display-400.font-size}",
     "$type": "font-size",
-    "$value": "1.5rem",
+    "$value": "1.75rem",
     "unit": "px",
     "comment": "24px/1.5rem",
+    "$modes": {
+      "default": "24",
+      "cds-g0": "1.75rem",
+      "cds-g10": "1.75rem",
+      "cds-g90": "1.75rem",
+      "cds-g100": "1.75rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "24",
+      "$value": "{carbon.typography.heading04.font-size}",
       "unit": "px",
       "comment": "24px/1.5rem",
+      "$modes": {
+        "default": "24",
+        "cds-g0": "{carbon.typography.heading04.font-size}",
+        "cds-g10": "{carbon.typography.heading04.font-size}",
+        "cds-g90": "{carbon.typography.heading04.font-size}",
+        "cds-g100": "{carbon.typography.heading04.font-size}"
+      },
       "key": "{typography.display-400.font-size}"
     },
     "name": "token-typography-display-400-font-size",
@@ -7718,12 +7853,26 @@
   {
     "key": "{typography.display-400.line-height}",
     "$type": "number",
-    "$value": 1.3333,
+    "$value": 1.28572,
     "comment": "32px",
+    "$modes": {
+      "default": 1.3333,
+      "cds-g0": 1.28572,
+      "cds-g10": 1.28572,
+      "cds-g90": 1.28572,
+      "cds-g100": 1.28572
+    },
     "original": {
       "$type": "number",
-      "$value": 1.3333,
+      "$value": "{carbon.typography.heading04.line-height}",
       "comment": "32px",
+      "$modes": {
+        "default": 1.3333,
+        "cds-g0": "{carbon.typography.heading04.line-height}",
+        "cds-g10": "{carbon.typography.heading04.line-height}",
+        "cds-g90": "{carbon.typography.heading04.line-height}",
+        "cds-g100": "{carbon.typography.heading04.line-height}"
+      },
       "key": "{typography.display-400.line-height}"
     },
     "name": "token-typography-display-400-line-height",
@@ -7737,12 +7886,63 @@
     ]
   },
   {
+    "key": "{typography.display-400.letter-spacing}",
+    "$type": "letter-spacing",
+    "$value": "0px",
+    "unit": "px",
+    "comment": "this is `tracking`",
+    "$modes": {
+      "default": 0,
+      "cds-g0": "0px",
+      "cds-g10": "0px",
+      "cds-g90": "0px",
+      "cds-g100": "0px"
+    },
+    "original": {
+      "$type": "letter-spacing",
+      "$value": "{carbon.typography.heading04.letter-spacing}",
+      "unit": "px",
+      "comment": "this is `tracking`",
+      "$modes": {
+        "default": 0,
+        "cds-g0": "{carbon.typography.heading04.letter-spacing}",
+        "cds-g10": "{carbon.typography.heading04.letter-spacing}",
+        "cds-g90": "{carbon.typography.heading04.letter-spacing}",
+        "cds-g100": "{carbon.typography.heading04.letter-spacing}"
+      },
+      "key": "{typography.display-400.letter-spacing}"
+    },
+    "name": "token-typography-display-400-letter-spacing",
+    "attributes": {
+      "category": "typography"
+    },
+    "path": [
+      "typography",
+      "display-400",
+      "letter-spacing"
+    ]
+  },
+  {
     "key": "{typography.display-300.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.text}",
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.text}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.display-300.font-family}"
     },
     "name": "token-typography-display-300-font-family",
@@ -7758,14 +7958,28 @@
   {
     "key": "{typography.display-300.font-size}",
     "$type": "font-size",
-    "$value": "1.125rem",
+    "$value": "1.25rem",
     "unit": "px",
     "comment": "18px/1.125rem",
+    "$modes": {
+      "default": "18",
+      "cds-g0": "1.25rem",
+      "cds-g10": "1.25rem",
+      "cds-g90": "1.25rem",
+      "cds-g100": "1.25rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "18",
+      "$value": "{carbon.typography.heading03.font-size}",
       "unit": "px",
       "comment": "18px/1.125rem",
+      "$modes": {
+        "default": "18",
+        "cds-g0": "{carbon.typography.heading03.font-size}",
+        "cds-g10": "{carbon.typography.heading03.font-size}",
+        "cds-g90": "{carbon.typography.heading03.font-size}",
+        "cds-g100": "{carbon.typography.heading03.font-size}"
+      },
       "key": "{typography.display-300.font-size}"
     },
     "name": "token-typography-display-300-font-size",
@@ -7781,12 +7995,26 @@
   {
     "key": "{typography.display-300.line-height}",
     "$type": "number",
-    "$value": 1.3333,
+    "$value": 1.4,
     "comment": "24px",
+    "$modes": {
+      "default": 1.3333,
+      "cds-g0": 1.4,
+      "cds-g10": 1.4,
+      "cds-g90": 1.4,
+      "cds-g100": 1.4
+    },
     "original": {
       "$type": "number",
-      "$value": 1.3333,
+      "$value": "{carbon.typography.heading03.line-height}",
       "comment": "24px",
+      "$modes": {
+        "default": 1.3333,
+        "cds-g0": "{carbon.typography.heading03.line-height}",
+        "cds-g10": "{carbon.typography.heading03.line-height}",
+        "cds-g90": "{carbon.typography.heading03.line-height}",
+        "cds-g100": "{carbon.typography.heading03.line-height}"
+      },
       "key": "{typography.display-300.line-height}"
     },
     "name": "token-typography-display-300-line-height",
@@ -7802,14 +8030,28 @@
   {
     "key": "{typography.display-300.letter-spacing}",
     "$type": "letter-spacing",
-    "$value": "-0.5px",
+    "$value": "0px",
     "unit": "px",
     "comment": "this is `tracking`",
+    "$modes": {
+      "default": -0.5,
+      "cds-g0": "0px",
+      "cds-g10": "0px",
+      "cds-g90": "0px",
+      "cds-g100": "0px"
+    },
     "original": {
       "$type": "letter-spacing",
-      "$value": -0.5,
+      "$value": "{carbon.typography.heading03.letter-spacing}",
       "unit": "px",
       "comment": "this is `tracking`",
+      "$modes": {
+        "default": -0.5,
+        "cds-g0": "{carbon.typography.heading03.letter-spacing}",
+        "cds-g10": "{carbon.typography.heading03.letter-spacing}",
+        "cds-g90": "{carbon.typography.heading03.letter-spacing}",
+        "cds-g100": "{carbon.typography.heading03.letter-spacing}"
+      },
       "key": "{typography.display-300.letter-spacing}"
     },
     "name": "token-typography-display-300-letter-spacing",
@@ -7825,10 +8067,24 @@
   {
     "key": "{typography.display-200.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.display}",
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.text}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.display-200.font-family}"
     },
     "name": "token-typography-display-200-font-family",
@@ -7847,11 +8103,25 @@
     "$value": "1rem",
     "unit": "px",
     "comment": "16px/1rem",
+    "$modes": {
+      "default": "16",
+      "cds-g0": "1rem",
+      "cds-g10": "1rem",
+      "cds-g90": "1rem",
+      "cds-g100": "1rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "16",
+      "$value": "{carbon.typography.heading02.font-size}",
       "unit": "px",
       "comment": "16px/1rem",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "{carbon.typography.heading02.font-size}",
+        "cds-g10": "{carbon.typography.heading02.font-size}",
+        "cds-g90": "{carbon.typography.heading02.font-size}",
+        "cds-g100": "{carbon.typography.heading02.font-size}"
+      },
       "key": "{typography.display-200.font-size}"
     },
     "name": "token-typography-display-200-font-size",
@@ -7869,10 +8139,24 @@
     "$type": "number",
     "$value": 1.5,
     "comment": "24px",
+    "$modes": {
+      "default": 1.5,
+      "cds-g0": 1.5,
+      "cds-g10": 1.5,
+      "cds-g90": 1.5,
+      "cds-g100": 1.5
+    },
     "original": {
       "$type": "number",
-      "$value": 1.5,
+      "$value": "{carbon.typography.heading02.line-height}",
       "comment": "24px",
+      "$modes": {
+        "default": 1.5,
+        "cds-g0": "{carbon.typography.heading02.line-height}",
+        "cds-g10": "{carbon.typography.heading02.line-height}",
+        "cds-g90": "{carbon.typography.heading02.line-height}",
+        "cds-g100": "{carbon.typography.heading02.line-height}"
+      },
       "key": "{typography.display-200.line-height}"
     },
     "name": "token-typography-display-200-line-height",
@@ -7888,14 +8172,28 @@
   {
     "key": "{typography.display-200.letter-spacing}",
     "$type": "letter-spacing",
-    "$value": "-0.5px",
+    "$value": "0px",
     "unit": "px",
     "comment": "this is `tracking`",
+    "$modes": {
+      "default": -0.5,
+      "cds-g0": "0px",
+      "cds-g10": "0px",
+      "cds-g90": "0px",
+      "cds-g100": "0px"
+    },
     "original": {
       "$type": "letter-spacing",
-      "$value": -0.5,
+      "$value": "{carbon.typography.heading02.letter-spacing}",
       "unit": "px",
       "comment": "this is `tracking`",
+      "$modes": {
+        "default": -0.5,
+        "cds-g0": "{carbon.typography.heading02.letter-spacing}",
+        "cds-g10": "{carbon.typography.heading02.letter-spacing}",
+        "cds-g90": "{carbon.typography.heading02.letter-spacing}",
+        "cds-g100": "{carbon.typography.heading02.letter-spacing}"
+      },
       "key": "{typography.display-200.letter-spacing}"
     },
     "name": "token-typography-display-200-letter-spacing",
@@ -7911,10 +8209,24 @@
   {
     "key": "{typography.display-100.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.text}",
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.text}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.display-100.font-family}"
     },
     "name": "token-typography-display-100-font-family",
@@ -7930,14 +8242,28 @@
   {
     "key": "{typography.display-100.font-size}",
     "$type": "font-size",
-    "$value": "0.8125rem",
+    "$value": "0.875rem",
     "unit": "px",
     "comment": "13px/0.8125rem",
+    "$modes": {
+      "default": "13",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "13",
+      "$value": "{carbon.typography.heading01.font-size}",
       "unit": "px",
       "comment": "13px/0.8125rem",
+      "$modes": {
+        "default": "13",
+        "cds-g0": "{carbon.typography.heading01.font-size}",
+        "cds-g10": "{carbon.typography.heading01.font-size}",
+        "cds-g90": "{carbon.typography.heading01.font-size}",
+        "cds-g100": "{carbon.typography.heading01.font-size}"
+      },
       "key": "{typography.display-100.font-size}"
     },
     "name": "token-typography-display-100-font-size",
@@ -7953,12 +8279,26 @@
   {
     "key": "{typography.display-100.line-height}",
     "$type": "number",
-    "$value": 1.3846,
+    "$value": 1.42857,
     "comment": "18px",
+    "$modes": {
+      "default": 1.3846,
+      "cds-g0": 1.42857,
+      "cds-g10": 1.42857,
+      "cds-g90": 1.42857,
+      "cds-g100": 1.42857
+    },
     "original": {
       "$type": "number",
-      "$value": 1.3846,
+      "$value": "{carbon.typography.heading01.line-height}",
       "comment": "18px",
+      "$modes": {
+        "default": 1.3846,
+        "cds-g0": "{carbon.typography.heading01.line-height}",
+        "cds-g10": "{carbon.typography.heading01.line-height}",
+        "cds-g90": "{carbon.typography.heading01.line-height}",
+        "cds-g100": "{carbon.typography.heading01.line-height}"
+      },
       "key": "{typography.display-100.line-height}"
     },
     "name": "token-typography-display-100-line-height",
@@ -7972,12 +8312,63 @@
     ]
   },
   {
+    "key": "{typography.display-100.letter-spacing}",
+    "$type": "letter-spacing",
+    "$value": "0.16px",
+    "unit": "px",
+    "comment": "this is `tracking`",
+    "$modes": {
+      "default": 0,
+      "cds-g0": "0.16px",
+      "cds-g10": "0.16px",
+      "cds-g90": "0.16px",
+      "cds-g100": "0.16px"
+    },
+    "original": {
+      "$type": "letter-spacing",
+      "$value": "{carbon.typography.heading01.letter-spacing}",
+      "unit": "px",
+      "comment": "this is `tracking`",
+      "$modes": {
+        "default": 0,
+        "cds-g0": "{carbon.typography.heading01.letter-spacing}",
+        "cds-g10": "{carbon.typography.heading01.letter-spacing}",
+        "cds-g90": "{carbon.typography.heading01.letter-spacing}",
+        "cds-g100": "{carbon.typography.heading01.letter-spacing}"
+      },
+      "key": "{typography.display-100.letter-spacing}"
+    },
+    "name": "token-typography-display-100-letter-spacing",
+    "attributes": {
+      "category": "typography"
+    },
+    "path": [
+      "typography",
+      "display-100",
+      "letter-spacing"
+    ]
+  },
+  {
     "key": "{typography.body-300.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.text}",
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.text}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.body-300.font-family}"
     },
     "name": "token-typography-body-300-font-family",
@@ -7996,11 +8387,25 @@
     "$value": "1rem",
     "unit": "px",
     "comment": "16px/1rem",
+    "$modes": {
+      "default": "16",
+      "cds-g0": "1rem",
+      "cds-g10": "1rem",
+      "cds-g90": "1rem",
+      "cds-g100": "1rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "16",
+      "$value": "{carbon.typography.body02.font-size}",
       "unit": "px",
       "comment": "16px/1rem",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "{carbon.typography.body02.font-size}",
+        "cds-g10": "{carbon.typography.body02.font-size}",
+        "cds-g90": "{carbon.typography.body02.font-size}",
+        "cds-g100": "{carbon.typography.body02.font-size}"
+      },
       "key": "{typography.body-300.font-size}"
     },
     "name": "token-typography-body-300-font-size",
@@ -8018,10 +8423,24 @@
     "$type": "number",
     "$value": 1.5,
     "comment": "24px",
+    "$modes": {
+      "default": 1.4286,
+      "cds-g0": 1.5,
+      "cds-g10": 1.5,
+      "cds-g90": 1.5,
+      "cds-g100": 1.5
+    },
     "original": {
       "$type": "number",
-      "$value": 1.5,
+      "$value": "{carbon.typography.body02.line-height}",
       "comment": "24px",
+      "$modes": {
+        "default": 1.4286,
+        "cds-g0": "{carbon.typography.body02.line-height}",
+        "cds-g10": "{carbon.typography.body02.line-height}",
+        "cds-g90": "{carbon.typography.body02.line-height}",
+        "cds-g100": "{carbon.typography.body02.line-height}"
+      },
       "key": "{typography.body-300.line-height}"
     },
     "name": "token-typography-body-300-line-height",
@@ -8037,10 +8456,24 @@
   {
     "key": "{typography.body-200.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.text}",
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.text}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.body-200.font-family}"
     },
     "name": "token-typography-body-200-font-family",
@@ -8059,11 +8492,25 @@
     "$value": "0.875rem",
     "unit": "px",
     "comment": "14px/0.875rem",
+    "$modes": {
+      "default": "14",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "14",
+      "$value": "{carbon.typography.body01.font-size}",
       "unit": "px",
       "comment": "14px/0.875rem",
+      "$modes": {
+        "default": "14",
+        "cds-g0": "{carbon.typography.body01.font-size}",
+        "cds-g10": "{carbon.typography.body01.font-size}",
+        "cds-g90": "{carbon.typography.body01.font-size}",
+        "cds-g100": "{carbon.typography.body01.font-size}"
+      },
       "key": "{typography.body-200.font-size}"
     },
     "name": "token-typography-body-200-font-size",
@@ -8079,12 +8526,26 @@
   {
     "key": "{typography.body-200.line-height}",
     "$type": "number",
-    "$value": 1.4286,
+    "$value": 1.42857,
     "comment": "20px",
+    "$modes": {
+      "default": 1.4286,
+      "cds-g0": 1.42857,
+      "cds-g10": 1.42857,
+      "cds-g90": 1.42857,
+      "cds-g100": 1.42857
+    },
     "original": {
       "$type": "number",
-      "$value": 1.4286,
+      "$value": "{carbon.typography.body01.line-height}",
       "comment": "20px",
+      "$modes": {
+        "default": 1.4286,
+        "cds-g0": "{carbon.typography.body01.line-height}",
+        "cds-g10": "{carbon.typography.body01.line-height}",
+        "cds-g90": "{carbon.typography.body01.line-height}",
+        "cds-g100": "{carbon.typography.body01.line-height}"
+      },
       "key": "{typography.body-200.line-height}"
     },
     "name": "token-typography-body-200-line-height",
@@ -8100,10 +8561,24 @@
   {
     "key": "{typography.body-100.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+    "$modes": {
+      "default": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g0": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g10": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g90": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif",
+      "cds-g100": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.text}",
+      "$value": "{carbon.typography.font-family.sans}",
+      "$modes": {
+        "default": "{typography.font-stack.text}",
+        "cds-g0": "{carbon.typography.font-family.sans}",
+        "cds-g10": "{carbon.typography.font-family.sans}",
+        "cds-g90": "{carbon.typography.font-family.sans}",
+        "cds-g100": "{carbon.typography.font-family.sans}"
+      },
       "key": "{typography.body-100.font-family}"
     },
     "name": "token-typography-body-100-font-family",
@@ -8119,14 +8594,28 @@
   {
     "key": "{typography.body-100.font-size}",
     "$type": "font-size",
-    "$value": "0.8125rem",
+    "$value": "0.875rem",
     "unit": "px",
     "comment": "13px/0.8125rem",
+    "$modes": {
+      "default": "13",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "13",
+      "$value": "{carbon.typography.bodyCompact01.font-size}",
       "unit": "px",
       "comment": "13px/0.8125rem",
+      "$modes": {
+        "default": "13",
+        "cds-g0": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g10": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g90": "{carbon.typography.bodyCompact01.font-size}",
+        "cds-g100": "{carbon.typography.bodyCompact01.font-size}"
+      },
       "key": "{typography.body-100.font-size}"
     },
     "name": "token-typography-body-100-font-size",
@@ -8142,12 +8631,26 @@
   {
     "key": "{typography.body-100.line-height}",
     "$type": "number",
-    "$value": 1.3846,
+    "$value": 1.28572,
     "comment": "18px",
+    "$modes": {
+      "default": 1.3846,
+      "cds-g0": 1.28572,
+      "cds-g10": 1.28572,
+      "cds-g90": 1.28572,
+      "cds-g100": 1.28572
+    },
     "original": {
       "$type": "number",
-      "$value": 1.3846,
+      "$value": "{carbon.typography.bodyCompact01.line-height}",
       "comment": "18px",
+      "$modes": {
+        "default": 1.3846,
+        "cds-g0": "{carbon.typography.bodyCompact01.line-height}",
+        "cds-g10": "{carbon.typography.bodyCompact01.line-height}",
+        "cds-g90": "{carbon.typography.bodyCompact01.line-height}",
+        "cds-g100": "{carbon.typography.bodyCompact01.line-height}"
+      },
       "key": "{typography.body-100.line-height}"
     },
     "name": "token-typography-body-100-line-height",
@@ -8161,75 +8664,131 @@
     ]
   },
   {
-    "key": "{typography.code-100.font-family}",
+    "key": "{typography.code-300.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace",
+    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+    "$modes": {
+      "default": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g0": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g10": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g90": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g100": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.code}",
-      "key": "{typography.code-100.font-family}"
+      "$value": "{carbon.typography.font-family.mono}",
+      "$modes": {
+        "default": "{typography.font-stack.code}",
+        "cds-g0": "{carbon.typography.font-family.mono}",
+        "cds-g10": "{carbon.typography.font-family.mono}",
+        "cds-g90": "{carbon.typography.font-family.mono}",
+        "cds-g100": "{carbon.typography.font-family.mono}"
+      },
+      "key": "{typography.code-300.font-family}"
     },
-    "name": "token-typography-code-100-font-family",
+    "name": "token-typography-code-300-font-family",
     "attributes": {
       "category": "typography"
     },
     "path": [
       "typography",
-      "code-100",
+      "code-300",
       "font-family"
     ]
   },
   {
-    "key": "{typography.code-100.font-size}",
+    "key": "{typography.code-300.font-size}",
     "$type": "font-size",
-    "$value": "0.8125rem",
+    "$value": "0.875rem",
     "unit": "px",
-    "comment": "13px/0.8125rem",
+    "comment": "16px/1rem",
+    "$modes": {
+      "default": "16",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "13",
+      "$value": "{carbon.typography.code02.font-size}",
       "unit": "px",
-      "comment": "13px/0.8125rem",
-      "key": "{typography.code-100.font-size}"
+      "comment": "16px/1rem",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "{carbon.typography.code02.font-size}",
+        "cds-g10": "{carbon.typography.code02.font-size}",
+        "cds-g90": "{carbon.typography.code02.font-size}",
+        "cds-g100": "{carbon.typography.code02.font-size}"
+      },
+      "key": "{typography.code-300.font-size}"
     },
-    "name": "token-typography-code-100-font-size",
+    "name": "token-typography-code-300-font-size",
     "attributes": {
       "category": "typography"
     },
     "path": [
       "typography",
-      "code-100",
+      "code-300",
       "font-size"
     ]
   },
   {
-    "key": "{typography.code-100.line-height}",
+    "key": "{typography.code-300.line-height}",
     "$type": "number",
-    "$value": 1.23,
-    "comment": "16px",
+    "$value": 1.42857,
+    "comment": "20px",
+    "$modes": {
+      "default": 1.25,
+      "cds-g0": 1.42857,
+      "cds-g10": 1.42857,
+      "cds-g90": 1.42857,
+      "cds-g100": 1.42857
+    },
     "original": {
       "$type": "number",
-      "$value": 1.23,
-      "comment": "16px",
-      "key": "{typography.code-100.line-height}"
+      "$value": "{carbon.typography.code02.line-height}",
+      "comment": "20px",
+      "$modes": {
+        "default": 1.25,
+        "cds-g0": "{carbon.typography.code02.line-height}",
+        "cds-g10": "{carbon.typography.code02.line-height}",
+        "cds-g90": "{carbon.typography.code02.line-height}",
+        "cds-g100": "{carbon.typography.code02.line-height}"
+      },
+      "key": "{typography.code-300.line-height}"
     },
-    "name": "token-typography-code-100-line-height",
+    "name": "token-typography-code-300-line-height",
     "attributes": {
       "category": "typography"
     },
     "path": [
       "typography",
-      "code-100",
+      "code-300",
       "line-height"
     ]
   },
   {
     "key": "{typography.code-200.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace",
+    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+    "$modes": {
+      "default": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g0": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g10": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g90": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g100": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.code}",
+      "$value": "{carbon.typography.font-family.mono}",
+      "$modes": {
+        "default": "{typography.font-stack.code}",
+        "cds-g0": "{carbon.typography.font-family.mono}",
+        "cds-g10": "{carbon.typography.font-family.mono}",
+        "cds-g90": "{carbon.typography.font-family.mono}",
+        "cds-g100": "{carbon.typography.font-family.mono}"
+      },
       "key": "{typography.code-200.font-family}"
     },
     "name": "token-typography-code-200-font-family",
@@ -8248,11 +8807,25 @@
     "$value": "0.875rem",
     "unit": "px",
     "comment": "14px/0.875rem",
+    "$modes": {
+      "default": "14",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "14",
+      "$value": "{carbon.typography.code02.font-size}",
       "unit": "px",
       "comment": "14px/0.875rem",
+      "$modes": {
+        "default": "14",
+        "cds-g0": "{carbon.typography.code02.font-size}",
+        "cds-g10": "{carbon.typography.code02.font-size}",
+        "cds-g90": "{carbon.typography.code02.font-size}",
+        "cds-g100": "{carbon.typography.code02.font-size}"
+      },
       "key": "{typography.code-200.font-size}"
     },
     "name": "token-typography-code-200-font-size",
@@ -8268,12 +8841,26 @@
   {
     "key": "{typography.code-200.line-height}",
     "$type": "number",
-    "$value": 1.125,
+    "$value": 1.42857,
     "comment": "18px",
+    "$modes": {
+      "default": 1.125,
+      "cds-g0": 1.42857,
+      "cds-g10": 1.42857,
+      "cds-g90": 1.42857,
+      "cds-g100": 1.42857
+    },
     "original": {
       "$type": "number",
-      "$value": 1.125,
+      "$value": "{carbon.typography.code02.line-height}",
       "comment": "18px",
+      "$modes": {
+        "default": 1.125,
+        "cds-g0": "{carbon.typography.code02.line-height}",
+        "cds-g10": "{carbon.typography.code02.line-height}",
+        "cds-g90": "{carbon.typography.code02.line-height}",
+        "cds-g100": "{carbon.typography.code02.line-height}"
+      },
       "key": "{typography.code-200.line-height}"
     },
     "name": "token-typography-code-200-line-height",
@@ -8287,65 +8874,107 @@
     ]
   },
   {
-    "key": "{typography.code-300.font-family}",
+    "key": "{typography.code-100.font-family}",
     "$type": "font-family",
-    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace",
+    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+    "$modes": {
+      "default": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g0": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g10": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g90": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace",
+      "cds-g100": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace"
+    },
     "original": {
       "$type": "font-family",
-      "$value": "{typography.font-stack.code}",
-      "key": "{typography.code-300.font-family}"
+      "$value": "{carbon.typography.font-family.mono}",
+      "$modes": {
+        "default": "{typography.font-stack.code}",
+        "cds-g0": "{carbon.typography.font-family.mono}",
+        "cds-g10": "{carbon.typography.font-family.mono}",
+        "cds-g90": "{carbon.typography.font-family.mono}",
+        "cds-g100": "{carbon.typography.font-family.mono}"
+      },
+      "key": "{typography.code-100.font-family}"
     },
-    "name": "token-typography-code-300-font-family",
+    "name": "token-typography-code-100-font-family",
     "attributes": {
       "category": "typography"
     },
     "path": [
       "typography",
-      "code-300",
+      "code-100",
       "font-family"
     ]
   },
   {
-    "key": "{typography.code-300.font-size}",
+    "key": "{typography.code-100.font-size}",
     "$type": "font-size",
-    "$value": "1rem",
+    "$value": "0.875rem",
     "unit": "px",
-    "comment": "16px/1rem",
+    "comment": "13px/0.8125rem",
+    "$modes": {
+      "default": "13",
+      "cds-g0": "0.875rem",
+      "cds-g10": "0.875rem",
+      "cds-g90": "0.875rem",
+      "cds-g100": "0.875rem"
+    },
     "original": {
       "$type": "font-size",
-      "$value": "16",
+      "$value": "{carbon.typography.code02.font-size}",
       "unit": "px",
-      "comment": "16px/1rem",
-      "key": "{typography.code-300.font-size}"
+      "comment": "13px/0.8125rem",
+      "$modes": {
+        "default": "13",
+        "cds-g0": "{carbon.typography.code02.font-size}",
+        "cds-g10": "{carbon.typography.code02.font-size}",
+        "cds-g90": "{carbon.typography.code02.font-size}",
+        "cds-g100": "{carbon.typography.code02.font-size}"
+      },
+      "key": "{typography.code-100.font-size}"
     },
-    "name": "token-typography-code-300-font-size",
+    "name": "token-typography-code-100-font-size",
     "attributes": {
       "category": "typography"
     },
     "path": [
       "typography",
-      "code-300",
+      "code-100",
       "font-size"
     ]
   },
   {
-    "key": "{typography.code-300.line-height}",
+    "key": "{typography.code-100.line-height}",
     "$type": "number",
-    "$value": 1.25,
-    "comment": "20px",
+    "$value": 1.33333,
+    "comment": "16px",
+    "$modes": {
+      "default": 1.23,
+      "cds-g0": 1.33333,
+      "cds-g10": 1.33333,
+      "cds-g90": 1.33333,
+      "cds-g100": 1.33333
+    },
     "original": {
       "$type": "number",
-      "$value": 1.25,
-      "comment": "20px",
-      "key": "{typography.code-300.line-height}"
+      "$value": "{carbon.typography.code01.line-height}",
+      "comment": "16px",
+      "$modes": {
+        "default": 1.23,
+        "cds-g0": "{carbon.typography.code01.line-height}",
+        "cds-g10": "{carbon.typography.code01.line-height}",
+        "cds-g90": "{carbon.typography.code01.line-height}",
+        "cds-g100": "{carbon.typography.code01.line-height}"
+      },
+      "key": "{typography.code-100.line-height}"
     },
-    "name": "token-typography-code-300-line-height",
+    "name": "token-typography-code-100-line-height",
     "attributes": {
       "category": "typography"
     },
     "path": [
       "typography",
-      "code-300",
+      "code-100",
       "line-height"
     ]
   }
