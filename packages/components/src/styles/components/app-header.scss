@@ -106,6 +106,8 @@
   }
 
   // Dropdown & Button color theming overrides
+  // Note: We need to apply dark theme styles to .hds-dropdown-toggle-button & .hds-dropdown-toggle-icon 
+  // so we use a partial classname selector to cover both cases
 
   .hds-button,
   button[class*="hds-dropdown-toggle"] {
