@@ -4,12 +4,26 @@
       "primary": {
         "$type": "color",
         "$value": "{color.palette.neutral-0}",
-        "group": "semantic"
+        "group": "semantic",
+        "$modes": {
+          "default": "{color.palette.neutral-0}",
+          "cds-g0": "{carbon.themes.white.background}",
+          "cds-g10": "{carbon.themes.g10.background}",
+          "cds-g90": "{carbon.themes.g90.background}",
+          "cds-g100": "{carbon.themes.g100.background}"
+        }
       },
       "faint": {
         "$type": "color",
         "$value": "{color.palette.neutral-50}",
-        "group": "semantic"
+        "group": "semantic",
+        "$modes": {
+          "default": "{color.palette.neutral-0}",
+          "cds-g0": "{carbon.themes.white.background}",
+          "cds-g10": "{carbon.themes.g10.background}",
+          "cds-g90": "{carbon.themes.g90.background}",
+          "cds-g100": "{carbon.themes.g100.background}"
+        }
       }
     }
   }
