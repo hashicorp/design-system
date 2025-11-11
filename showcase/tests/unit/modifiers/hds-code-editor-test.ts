@@ -14,7 +14,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     );
 
     if (meta) {
-      meta.parentNode.removeChild(meta);
+      meta.parentNode?.removeChild(meta);
     }
   });
 
@@ -24,7 +24,7 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
     );
 
     if (existing) {
-      existing.parentNode.removeChild(existing);
+      existing.parentNode?.removeChild(existing);
     }
 
     assert.strictEqual(

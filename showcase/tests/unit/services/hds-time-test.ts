@@ -6,7 +6,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import sinon from 'sinon';
-import {
+import HdsTimeService, {
   HdsDisplayKeyValues,
   DEFAULT_DISPLAY_MAPPING,
   MINUTE_IN_MS,
@@ -14,7 +14,7 @@ import {
   HdsTimeRelativeUnitValues,
 } from '@hashicorp/design-system-components/services/hds-time';
 
-let table = [
+const table = [
   {
     case: 'triggers relative display',
     date: Date.now() - 1000 * 60,
@@ -34,33 +34,34 @@ let table = [
 module('Unit | Service | time', function (hooks) {
   setupTest(hooks);
 
-  hooks.beforeEach(function () {
-    this.service = this.owner.lookup('service:hdsTime');
-    this.selectTimeRelativeUnitSpy = sinon.spy(
-      this.service,
-      'selectTimeRelativeUnit',
-    );
-  });
-
   test('it exists', function (assert) {
-    assert.ok(this.service);
-    assert.ok(this.service.format);
-    assert.ok(this.service.formatTimeRelativeUnit);
-    assert.ok(this.service.timeDifference);
-    assert.ok(this.service.register);
-    assert.ok(this.service.selectTimeRelativeUnit);
-    assert.ok(this.service.start);
-    assert.ok(this.service.toIsoUtcString);
-    assert.ok(this.service.unregister);
+    const service = this.owner.lookup('service:hds-time') as HdsTimeService;
+
+    assert.ok(service);
+    assert.ok(service.format.bind(service));
+    assert.ok(service.formatTimeRelativeUnit.bind(service));
+    assert.ok(service.timeDifference.bind(service));
+    assert.ok(service.register.bind(service));
+    assert.ok(service.selectTimeRelativeUnit.bind(service));
+    assert.ok(service.start);
+    assert.ok(service.toIsoUtcString.bind(service));
+    assert.ok(service.unregister.bind(service));
   });
 
   for (const item of table) {
     test(`it can format: ${item.case}`, function (assert) {
-      let difference = {
+      const service = this.owner.lookup('service:hds-time') as HdsTimeService;
+
+      const selectTimeRelativeUnitSpy = sinon.spy(
+        service,
+        'selectTimeRelativeUnit',
+      );
+
+      const difference = {
         valueInMs: item.difference,
         absValueInMs: Math.abs(item.difference),
       };
-      let format = this.service.format(difference);
+      const format = service.format(difference);
       assert.ok(format, 'format is defined');
       assert.strictEqual(
         format.options,
@@ -78,7 +79,7 @@ module('Unit | Service | time', function (hooks) {
         `returns difference abs value in ms: ${difference.valueInMs}`,
       );
       assert.ok(
-        this.selectTimeRelativeUnitSpy.calledWith(difference),
+        selectTimeRelativeUnitSpy.calledWith(difference),
         'selects relative unit via fn',
       );
       assert.strictEqual(
@@ -95,9 +96,11 @@ module('Unit | Service | time', function (hooks) {
   }
 
   test(`it can formatTimeRelativeUnit`, function (assert) {
-    let value = -1.523423423;
-    let unit = HdsTimeRelativeUnitValues.Second;
-    let relativeUnit = this.service.formatTimeRelativeUnit(value, unit);
+    const service = this.owner.lookup('service:hds-time') as HdsTimeService;
+
+    const value = -1.523423423;
+    const unit = HdsTimeRelativeUnitValues.Second;
+    const relativeUnit = service.formatTimeRelativeUnit(value, unit);
 
     assert.ok(relativeUnit, 'relativeUnit is defined');
     assert.strictEqual(
@@ -112,39 +115,37 @@ module('Unit | Service | time', function (hooks) {
     );
   });
 
-  test(`it can register and unregister listeners`, async function (assert) {
-    let id = Date.now();
+  test(`it can register and unregister listeners`, function (assert) {
+    const service = this.owner.lookup('service:hds-time') as HdsTimeService;
+
+    const id = new Date(Date.now());
     assert.strictEqual(
-      this.service.listeners.size,
+      service.listeners.size,
       0,
       'there no listeners right away',
     );
     assert.notOk(
-      this.service.listeners.has(id),
+      service.listeners.has(id),
       'the registered id does not exist yet',
     );
-    let unregister = await this.service.register(id);
-    assert.ok(this.service.listeners.has(id), 'the registered id exists');
-    assert.strictEqual(
-      this.service.listeners.size,
-      1,
-      'register adds the listener',
-    );
+    const unregister = service.register(id);
+    assert.ok(service.listeners.has(id), 'the registered id exists');
+    assert.strictEqual(service.listeners.size, 1, 'register adds the listener');
     unregister();
     assert.strictEqual(
-      this.service.listeners.size,
+      service.listeners.size,
       0,
       'a returned unregister curried function deletes the listener',
     );
-    this.service.register(id);
+    service.register(id);
     assert.strictEqual(
-      this.service.listeners.size,
+      service.listeners.size,
       1,
       'register adds the listener again',
     );
-    this.service.unregister(id);
+    service.unregister(id);
     assert.strictEqual(
-      this.service.listeners.size,
+      service.listeners.size,
       0,
       'a direct unregister with an id deletes the listener',
     );
