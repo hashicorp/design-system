@@ -39,7 +39,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
         <HdsFormRadioGroup as |G|>
           <G.Legend>This is the legend</G.Legend>
           <G.HelperText>This is the group helper text</G.HelperText>
-          <G.RadioField checked="checked" @value="abc123" as |F|>
+          <G.RadioField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
             <F.HelperText>This is the control helper text</F.HelperText>
             <F.Error>This is the control error</F.Error>
@@ -87,7 +87,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
         <HdsFormRadioGroup as |G|>
           <G.Legend>This is the legend</G.Legend>
           <G.HelperText>This is the group helper text</G.HelperText>
-          <G.RadioField checked="checked" @value="abc123" as |F|>
+          <G.RadioField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
             <F.HelperText>This is the control helper text</F.HelperText>
             <F.Error>This is the control error</F.Error>
@@ -96,7 +96,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
         </HdsFormRadioGroup>
       </template>,
     );
-    // the IDs are dynamically generated
+
     const groupHelperText = find('.hds-form-group__helper-text');
     const groupError = find('.hds-form-group__error');
     const fieldHelperText = find('.hds-form-field__helper-text');
@@ -120,7 +120,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
         <HdsFormRadioGroup as |G|>
           <G.Legend>This is the legend</G.Legend>
           <G.HelperText>This is the group helper text</G.HelperText>
-          <G.RadioField checked="checked" @value="abc123" as |F|>
+          <G.RadioField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
             <F.HelperText>This is the control helper text</F.HelperText>
             <F.Error>This is the control error</F.Error>
@@ -135,7 +135,6 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
     context.showErrors = true;
     await settled();
 
-    // the IDs are dynamically generated
     const groupHelperText = find('.hds-form-group__helper-text');
     const groupError = find('.hds-form-group__error');
     const fieldHelperText = find('.hds-form-field__helper-text');
@@ -210,7 +209,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
       <template>
         <HdsFormRadioGroup @isRequired={{true}} as |G|>
           <G.Legend>This is the legend</G.Legend>
-          <G.RadioField checked="checked" @value="abc123" as |F|>
+          <G.RadioField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
           </G.RadioField>
         </HdsFormRadioGroup>
@@ -225,7 +224,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
       <template>
         <HdsFormRadioGroup @isOptional={{true}} as |G|>
           <G.Legend>This is the legend</G.Legend>
-          <G.RadioField checked="checked" @value="abc123" as |F|>
+          <G.RadioField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
           </G.RadioField>
         </HdsFormRadioGroup>

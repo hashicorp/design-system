@@ -33,7 +33,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
         <HdsFormCheckboxGroup as |G|>
           <G.Legend>This is the legend</G.Legend>
           <G.HelperText>This is the group helper text</G.HelperText>
-          <G.CheckboxField checked="checked" @value="abc123" as |F|>
+          <G.CheckboxField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
             <F.HelperText>This is the control helper text</F.HelperText>
             <F.Error>This is the control error</F.Error>
@@ -81,7 +81,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
         <HdsFormCheckboxGroup as |G|>
           <G.Legend>This is the legend</G.Legend>
           <G.HelperText>This is the group helper text</G.HelperText>
-          <G.CheckboxField checked="checked" @value="abc123" as |F|>
+          <G.CheckboxField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
             <F.HelperText>This is the control helper text</F.HelperText>
             <F.Error>This is the control error</F.Error>
@@ -90,7 +90,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
         </HdsFormCheckboxGroup>
       </template>,
     );
-    // the IDs are dynamically generated
+
     const groupHelperText = find('.hds-form-group__helper-text');
     const groupError = find('.hds-form-group__error');
     const fieldHelperText = find('.hds-form-field__helper-text');
@@ -112,7 +112,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
         <HdsFormCheckboxGroup as |G|>
           <G.Legend>This is the legend</G.Legend>
           <G.HelperText>This is the group helper text</G.HelperText>
-          <G.CheckboxField checked="checked" @value="abc123" as |F|>
+          <G.CheckboxField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
             <F.HelperText>This is the control helper text</F.HelperText>
             <F.Error>This is the control error</F.Error>
@@ -127,7 +127,6 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
     context.showErrors = true;
     await settled();
 
-    // the IDs are dynamically generated
     const groupHelperText = find('.hds-form-group__helper-text');
     const groupError = find('.hds-form-group__error');
     const fieldHelperText = find('.hds-form-field__helper-text');
@@ -172,7 +171,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
       <template>
         <HdsFormCheckboxGroup @isRequired={{true}} as |G|>
           <G.Legend>This is the legend</G.Legend>
-          <G.CheckboxField checked="checked" @value="abc123" as |F|>
+          <G.CheckboxField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
           </G.CheckboxField>
         </HdsFormCheckboxGroup>
@@ -187,7 +186,7 @@ module('Integration | Component | hds/form/checkbox/group', function (hooks) {
       <template>
         <HdsFormCheckboxGroup @isOptional={{true}} as |G|>
           <G.Legend>This is the legend</G.Legend>
-          <G.CheckboxField checked="checked" @value="abc123" as |F|>
+          <G.CheckboxField checked @value="abc123" as |F|>
             <F.Label>This is the control label</F.Label>
           </G.CheckboxField>
         </HdsFormCheckboxGroup>

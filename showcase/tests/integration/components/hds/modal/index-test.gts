@@ -417,7 +417,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
         </HdsModal>
       </template>,
     );
-    // the IDs are dynamically generated
+
     const titleElement = find('.hds-modal__title');
     assert
       .dom('dialog')
