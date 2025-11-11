@@ -41,7 +41,7 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
   test('it renders the yielded contextual components', async function (assert) {
     await render(
       <template>
-        <HdsFormCheckboxField checked="checked" as |F|>
+        <HdsFormCheckboxField checked as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>

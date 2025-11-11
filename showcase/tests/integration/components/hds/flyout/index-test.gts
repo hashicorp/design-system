@@ -391,7 +391,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
           >Title</F.Header></HdsFlyout>
       </template>,
     );
-    // the IDs are dynamically generated
+
     const titleElement = find('.hds-flyout__title');
     assert
       .dom('dialog')

@@ -89,7 +89,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
         </HdsFormRadioCardGroup>
       </template>,
     );
-    // the IDs are dynamically generated
+
     const groupHelperText = find('.hds-form-group__helper-text');
     const groupHelperTextId = groupHelperText?.id ?? '';
     const groupError = find('.hds-form-group__error');
@@ -121,7 +121,6 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
     context.showErrors = true;
     await settled();
 
-    // the IDs are dynamically generated
     const groupHelperText = find('.hds-form-group__helper-text');
     const groupHelperTextId = groupHelperText?.id ?? '';
     const groupError = find('.hds-form-group__error');
