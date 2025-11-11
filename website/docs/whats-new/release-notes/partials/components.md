@@ -12,53 +12,75 @@
   </a>
 </p>
 
+## 5.0.1
+
+**Patch changes**
+
+<!-- START components/button -->
+
+`Button` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
+
+<!-- END -->
+
+<!-- START components/dropdown -->
+
+`Dropdown` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
+
+<!-- END -->
+
+<!-- START components/side-nav -->
+
+`SideNav`:
+
+- Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
+- Removed deprecated ".hds-side-nav\_\_dropdown" class name which is redundant to the HDS Dropdown class name referenced in styles
+<!-- END -->
+
+<!-- START components/app-header -->
+
+`AppHeader` - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3356](https://github.com/hashicorp/design-system/pull/3356)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.0.0
 
 [5.0.0 documentation](https://hds-website-5-0-0.vercel.app/)
 
 **Major changes**
 
-
 `Flyout` - Removed deprecated `HdsFlyoutHeader`, `HdsFlyoutBody`, `HdsFlyoutDescription`, and `HdsFlyoutFooter` subcomponents.
 
-
-
 `Modal` - Removed deprecated `HdsModalHeader`, `HdsModalBody`, and `HdsModalFooter` subcomponents.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
 
 `Dropdown` - Removed the deprecated `@text` argument from the `HdsDropdownListItemInteractive` component.
 
 To migrate, run the codemod `v4/dropdown-list-item-interactive` (see [readme file](https://github.com/hashicorp/design-system/tree/main/packages/codemods/transforms/v4/dropdown-list-item-interactive))
 
-
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
 
 `Dropdown` - Added assertion to the `ToggleIcon` to provide improved developer guidance for the `hasChevron` attribute
 
-
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
 
 Added `ember-basic-dropdown` as a peer dependency required by `ember-power-select`. To migrate, if your application uses `SuperSelect`, make sure to add this dependency.
 
-
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `ApplicationState` - Replaced the default opinionated `margin: 0 auto;` rule from the component's root element with a new `@isAutoCentered` argument (which defaults to `true`, to preserve the existing centering behavior). This delegates the horizontal alignment control to the consumers, allowing them to disable it when needed.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
@@ -76,9 +98,7 @@ Removed `sass` and `ember-cli-sass` dependencies. Consumers using `sass` in thei
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Removed the `@isVisuallyHidden` argument from `HdsAdvancedTableTh` component. This setting is supported via setting `isVisuallyHidden` in the corresponding `@columns` item's configuration.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
@@ -97,14 +117,11 @@ Upgraded `@glimmer/component` dependency to version `2.0`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Card` - Removed the component invocation paths `Hds::Card` and `hds/card`. Consumers must update their templates to use `<Hds::Card::Container>` or `{{hds/card/container}}`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
 
 `SideNav` - Removed deprecated features
 
@@ -116,9 +133,7 @@ Upgraded `@glimmer/component` dependency to version `2.0`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Icon` - Renamed the `volume-2` icon to `volume-up`
-
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
@@ -132,13 +147,9 @@ Removed support for deprecated `ember-flight-icons` `lazyEmbed` config
 
 **Patch changes**
 
-
 `SideNav` - Fixed the type of `@a11yRefocusRouteChangeValidator` to match the expected type from `ember-a11y-refocus`. The new type is `(transition: Transition) => boolean` instead of `string`.
 
-
-
 `AppHeader` - Fixed the type of `@a11yRefocusRouteChangeValidator` to match the expected type from `ember-a11y-refocus`. The new type is `(transition: Transition) => boolean` instead of `string`.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
 
@@ -1426,34 +1437,6 @@ Fixed instances where arguments are passed into tracked properties at declaratio
 `Dropdown` - Fixed the height of the chevron in `ToggleButton`
 
 <small class="doc-whats-new-changelog-metadata">[#2522](https://github.com/hashicorp/design-system/pull/2522)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 4.13.1
-
-**Patch changes**
-
-`Hds::Flyout`
-
-- Fixed error in `Description` and `Body` subcomponents, caused by not passing the `args` argument from the constructor to `super`
-
-`Hds::Modal`
-
-- Fixed error in `Body` subcomponent, caused by not passing the `args` argument from the constructor to `super`
-
-<small class="doc-whats-new-changelog-metadata">[#2511](https://github.com/hashicorp/design-system/pull/2511)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Export TypeScript signatures for all components and modifiers
-
-<small class="doc-whats-new-changelog-metadata">[#2499](https://github.com/hashicorp/design-system/pull/2499) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Alert` - Removed `role="alert"` and `aria-live="polite"` attributes from Alerts with color set to "neutral" or "highlight"
-
-<small class="doc-whats-new-changelog-metadata">[#2500](https://github.com/hashicorp/design-system/pull/2500)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
