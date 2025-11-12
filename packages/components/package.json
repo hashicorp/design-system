@@ -50,7 +50,7 @@
     "@embroider/addon-shim": "^1.10.0",
     "@embroider/macros": "^1.18.1",
     "@embroider/util": "^1.13.4",
-    "@floating-ui/dom": "^1.6.12",
+    "@floating-ui/dom": "1.6.4",
     "@hashicorp/design-system-tokens": "workspace:^3.0.0",
     "@hashicorp/flight-icons": "workspace:^4.0.0",
     "@lezer/highlight": "^1.2.1",
