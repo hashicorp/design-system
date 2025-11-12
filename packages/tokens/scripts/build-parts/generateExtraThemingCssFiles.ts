@@ -38,7 +38,8 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
       outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource.replace(/^:root/, '.hds-theme-system, [data-hds-theme="system"]')} }\n\n`;
       //
       // this is the common part
-      outputContent += `${commonSource}\n\n`;
+      outputContent += getCssVariablesStalenessComment();
+      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-system, [data-hds-theme="default"], [data-hds-theme="system"]')}\n\n`;
     }
 
     // CSS file for `.class/[data]` selectors
@@ -55,7 +56,8 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
       outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark, .hds-theme-cds-g100, [data-hds-theme="dark"], [data-hds-theme="cds-g100"]')}\n\n`;
       //
       // this is the common part
-      outputContent += `${commonSource}\n\n`;
+      outputContent += getCssVariablesStalenessComment();
+      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-light, .hds-theme-dark, .hds-theme-cds-g0, .hds-theme-cds-g10, .hds-theme-cds-g90, .hds-theme-cds-g100, [data-hds-theme="default"], [data-hds-theme="light"], [data-hds-theme="dark"], [data-hds-theme="cds-g0"], [data-hds-theme="cds-g10"], [data-hds-theme="cds-g90"], [data-hds-theme="cds-g100"]')}\n\n`;
     }
 
     // CSS file for combined `prefers-color-scheme` and CSS selectors in the same file
@@ -75,7 +77,8 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
       outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark, .hds-theme-cds-g100, [data-hds-theme="dark"], [data-hds-theme="cds-g100"]')}\n\n`;
       //
       // this is the common part
-      outputContent += `${commonSource}\n\n`;
+      outputContent += getCssVariablesStalenessComment();
+      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-system, .hds-theme-light, .hds-theme-dark, .hds-theme-cds-g0, .hds-theme-cds-g10, .hds-theme-cds-g90, .hds-theme-cds-g100, [data-hds-theme="default"], [data-hds-theme="system"], [data-hds-theme="light"], [data-hds-theme="dark"], [data-hds-theme="cds-g0"], [data-hds-theme="cds-g10"], [data-hds-theme="cds-g90"], [data-hds-theme="cds-g100"]')}\n\n`;
     }
 
     // SCSS file for mixins
@@ -100,8 +103,28 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
 }
 
 async function getSourceFromFileWithRootSelector(config: PlatformConfig, theme: string, path: string): Promise<string> {
-
   const rawSource = await fs.readFile(`${config.buildPath}themed-tokens/with-root-selector/${theme}/${path}`, 'utf8');
   const header = await fileHeader({});
   return rawSource.replace(header, '');
+}
+
+function getCssVariablesStalenessComment(): string {
+  let comment = '';
+  comment += '\n/*\n\n';
+  comment += 'WHY ARE ALL "COMPUTED" CSS VARIABLES REDECLARED IN EACH THEME SCOPE?\n';
+  comment += '\n';
+  comment += 'CSS custom properties (variables) inherit from parent to child, but when a variable is defined\n';
+  comment += 'as a calculation or alias of another variable (e.g., `--alias-value: var(--source-value)`, its value is fixed\n';
+  comment += 'at the scope where it is declared—using whatever is visible at that level in the DOM (eg. `:root`).\n';
+  comment += '\n';
+  comment += 'This block of "common/shared" CSS variables contains a lot of these aliases, so if we only declare these\n';
+  comment += '"computed" variables at `:root` level, their values do not update in themed blocks that override\n';
+  comment += 'the "source" variables (e.g., `--source-value`) at a lower scope.\n';
+  comment += 'This results in _stale_ variables, where the computed value is always stuck on the `:root` value,\n';
+  comment += 'even inside a themed block where the source variable is assigned.\n';
+  comment += '\n';
+  comment += 'To make sure every themed block/scoped context (eg. `.hds-theme-light`) correctly computes the aliased values,\n';
+  comment += 'we redeclare each "computed" variable in every theme scope where its "source" variable is overridden.\n';
+  comment += '\n*/\n\n';
+  return comment;
 }
