@@ -14,15 +14,16 @@ module('Integration | Modifier | hds-register-event', function (hooks) {
   test('it adds an event listener to the element', async function (assert) {
     assert.expect(1);
 
-    this.set('eventHandler', () => {
+    const eventHandler = () => {
       assert.ok(true, 'event handler was called');
-    });
+    };
 
     await render(
       <template>
         <button
+          type="button"
           id="test-button"
-          {{hdsRegisterEvent "click" this.eventHandler}}
+          {{hdsRegisterEvent "click" eventHandler}}
         >Test</button>
       </template>,
     );
@@ -33,19 +34,20 @@ module('Integration | Modifier | hds-register-event', function (hooks) {
   test('it passes the `useCapture` option to the event listener', async function (assert) {
     assert.expect(1);
 
-    this.set('eventHandler', (event) => {
+    const eventHandler = (event) => {
       assert.strictEqual(
         event.eventPhase,
         Event.CAPTURING_PHASE,
         'event was captured',
       );
-    });
+    };
 
     await render(
       <template>
         <button
+          type="button"
           id="test-button"
-          {{hdsRegisterEvent "click" this.eventHandler useCapture=true}}
+          {{hdsRegisterEvent "click" eventHandler useCapture=true}}
         ><span>Test</span></button>
       </template>,
     );
