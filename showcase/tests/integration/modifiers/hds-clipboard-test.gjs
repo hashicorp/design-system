@@ -15,6 +15,7 @@ import {
 import sinon from 'sinon';
 import { TrackedObject } from 'tracked-built-ins';
 import style from 'ember-style-modifier';
+import { modifier } from 'ember-modifier';
 
 import hdsClipboard, {
   getTextToCopy,
@@ -425,6 +426,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
   test('it should allow to target an element using a DOM node', async function (assert) {
     const context = new TrackedObject({
       success: undefined,
+      target: undefined,
     });
 
     const onSuccess = () => {
@@ -435,15 +437,22 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
       context.success = false;
     };
 
-    const target = find('#test-target');
+    // need to use a modifier to set the target DOM node to make sure that it is defined
+    const registerTarget = modifier((element) => {
+      context.target = element;
+    });
 
     await render(
       <template>
-        <p id="test-target">Hello world!</p>
+        <p {{registerTarget}}>Hello world!</p>
         <button
           type="button"
           id="test-button"
-          {{hdsClipboard target=target onSuccess=onSuccess onError=onError}}
+          {{hdsClipboard
+            target=context.target
+            onSuccess=onSuccess
+            onError=onError
+          }}
         >Test</button>
       </template>,
     );
