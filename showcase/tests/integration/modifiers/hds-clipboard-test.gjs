@@ -4,7 +4,6 @@
  */
 
 import { module, test, skip } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import {
   click,
   render,
@@ -14,6 +13,9 @@ import {
   resetOnerror,
 } from '@ember/test-helpers';
 import sinon from 'sinon';
+import { TrackedObject } from 'tracked-built-ins';
+import style from 'ember-style-modifier';
+
 import hdsClipboard, {
   getTextToCopy,
   getTargetElement,
@@ -22,23 +24,17 @@ import hdsClipboard, {
   copyToClipboard,
 } from '@hashicorp/design-system-components/modifiers/hds-clipboard';
 
-//
-// ================================================================
-//
-// NOTICE:
-// we're collecting both _unit_ and _integration_ tests
-// in a single file for simplicity / ease of maintainance
-//
-// ================================================================
-//
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Unit | Modifier | hds-clipboard - getTextToCopy()', function () {
   test('returns the string that is passed as argument', async function (assert) {
     assert.deepEqual(getTextToCopy('test'), 'test');
   });
+
   test('returns the number that is passed as argument as a string', async function (assert) {
     assert.deepEqual(getTextToCopy(1234), '1234');
   });
+
   test('it should throw an assertion if the argument provided is not a string/number', async function (assert) {
     const arg = {};
     assert.throws(function () {
@@ -211,8 +207,8 @@ module(
       await render(
         <template>
           <p id="test-target">Lorem
-            <span style="display: none">Ipsum</span>
-            <span style="visibility: hidden">Dolor</span>
+            <span {{style display="none"}}>Ipsum</span>
+            <span {{style visibility="hidden"}}>Dolor</span>
           </p>
         </template>,
       );
@@ -287,141 +283,237 @@ module(
 module('Integration | Modifier | hds-clipboard', function (hooks) {
   setupRenderingTest(hooks);
 
-  // IMPORTANT: don't use an arrow function here or "this.set" will not be recognized
-  hooks.beforeEach(function () {
+  hooks.beforeEach(() => {
     sinon.stub(window.navigator.clipboard, 'writeText').resolves();
-    this.success = undefined;
-    this.set('onSuccess', () => (this.success = true));
-    this.set('onError', () => (this.success = false));
   });
 
   hooks.afterEach(() => {
     resetOnerror();
     // we need to restore the "window.navigator" methods
     sinon.restore();
-    this.success = undefined;
   });
 
   // @TEXT ARGUMENT
 
   test('it should allow to copy a `string` provided as `@text` argument', async function (assert) {
+    const context = new TrackedObject({
+      success: undefined,
+    });
+
+    const onSuccess = () => {
+      context.success = true;
+    };
+
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
       <template>
         <button
+          type="button"
           id="test-button"
           {{hdsClipboard
             text="Hello world!"
-            onSuccess=this.onSuccess
-            onError=this.onError
+            onSuccess=onSuccess
+            onError=onError
           }}
         >Test</button>
       </template>,
     );
     await click('button#test-button');
-    assert.true(this.success);
+    assert.true(context.success);
   });
 
   test('it should copy an empty string provided as a `@text` argument', async function (assert) {
+    const context = new TrackedObject({
+      success: undefined,
+    });
+
+    const onSuccess = () => {
+      context.success = true;
+    };
+
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
       <template>
         <button
+          type="button"
           id="test-button"
-          {{hdsClipboard text="" onSuccess=this.onSuccess onError=this.onError}}
+          {{hdsClipboard text="" onSuccess=onSuccess onError=onError}}
         >Test</button>
       </template>,
     );
     await click('button#test-button');
-    assert.true(this.success);
+    assert.true(context.success);
   });
 
   // context: https://github.com/hashicorp/design-system/pull/1564
   test('it should allow to copy an `integer` provided as `@text` argument', async function (assert) {
+    const context = new TrackedObject({
+      success: undefined,
+    });
+
+    const onSuccess = () => {
+      context.success = true;
+    };
+
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
       <template>
         <button
+          type="button"
           id="test-button"
-          {{hdsClipboard
-            text=1234
-            onSuccess=this.onSuccess
-            onError=this.onError
-          }}
+          {{hdsClipboard text=1234 onSuccess=onSuccess onError=onError}}
         >Test</button>
       </template>,
     );
     await click('button#test-button');
-    assert.true(this.success);
+    assert.true(context.success);
   });
 
   test('it should copy a zero number value provided as a `@text` argument', async function (assert) {
+    const context = new TrackedObject({
+      success: undefined,
+    });
+
+    const onSuccess = () => {
+      context.success = true;
+    };
+
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
       <template>
         <button
+          type="button"
           id="test-button"
-          {{hdsClipboard text=0 onSuccess=this.onSuccess onError=this.onError}}
+          {{hdsClipboard text=0 onSuccess=onSuccess onError=onError}}
         >Test</button>
       </template>,
     );
     await click('button#test-button');
-    assert.true(this.success);
+    assert.true(context.success);
   });
 
   // @TARGET ARGUMENT
 
   test('it should allow to target an element using a `string` selector for the `@target` argument', async function (assert) {
+    const context = new TrackedObject({
+      success: undefined,
+    });
+
+    const onSuccess = () => {
+      context.success = true;
+    };
+
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
       <template>
-        <p id="test-target">Hello world!</p><button
+        <p id="test-target">Hello world!</p>
+        <button
+          type="button"
           id="test-button"
           {{hdsClipboard
             target="#test-target"
-            onSuccess=this.onSuccess
-            onError=this.onError
+            onSuccess=onSuccess
+            onError=onError
           }}
         >Test</button>
       </template>,
     );
     await click('button#test-button');
-    assert.true(this.success);
+    assert.true(context.success);
   });
 
   test('it should allow to target an element using a DOM node', async function (assert) {
+    const context = new TrackedObject({
+      success: undefined,
+    });
+
+    const onSuccess = () => {
+      context.success = true;
+    };
+
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
       <template>
-        <p id="test-target">Hello world!</p><button
+        <p id="test-target">Hello world!</p>
+        <button
+          type="button"
           id="test-button"
           {{hdsClipboard
             target=this.target
-            onSuccess=this.onSuccess
-            onError=this.onError
+            onSuccess=onSuccess
+            onError=onError
           }}
         >Test</button>
       </template>,
     );
     this.set('target', find('#test-target'));
     await click('button#test-button');
-    assert.true(this.success);
+    assert.true(context.success);
   });
 
   // ONSUCCESS/ONERROR CALLBACKS
 
   test('it should invoke the `onSuccess` callback on a successful "copy" action', async function (assert) {
+    const context = new TrackedObject({
+      success: undefined,
+    });
+
+    const onSuccess = () => {
+      context.success = true;
+    };
+
+    const onError = () => {
+      context.success = false;
+    };
+
     await render(
       <template>
         <button
+          type="button"
           id="test-button"
           {{hdsClipboard
             text="Hello world!"
-            onSuccess=this.onSuccess
-            onError=this.onError
+            onSuccess=onSuccess
+            onError=onError
           }}
         >Test</button>
       </template>,
     );
     await click('button#test-button');
-    assert.true(this.success);
+    assert.true(context.success);
   });
 
   test('it should invoke the `onError` callback on a failed "copy" action', async function (assert) {
+    const context = new TrackedObject({
+      success: undefined,
+    });
+
+    const onSuccess = () => {
+      context.success = true;
+    };
+
+    const onError = () => {
+      context.success = false;
+    };
+
     sinon.restore();
     sinon
       .stub(window.navigator.clipboard, 'writeText')
@@ -429,19 +521,21 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
         'Sinon throws (syntethic error)',
         'this is a fake error message provided to the sinon.stub().throws() method',
       );
+
     await render(
       <template>
         <button
+          type="button"
           id="test-button"
           {{hdsClipboard
             text="Hello world!"
-            onSuccess=this.onSuccess
-            onError=this.onError
+            onSuccess=onSuccess
+            onError=onError
           }}
         >Test</button>
       </template>,
     );
     await click('button#test-button');
-    assert.false(this.success);
+    assert.false(context.success);
   });
 });
