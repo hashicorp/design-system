@@ -113,76 +113,61 @@ module(
       'returns the value of an <input> element (with "type") passed as `target` argument',
       cases,
       async function (assert, [type, value]) {
-        this.set('type', type);
-        this.set('value', value);
         await render(
           <template>
-            <input id="test-target" type={{this.type}} value={{this.value}} />
+            <input id="test-target" type={{type}} value={{value}} />
           </template>,
         );
-        this.target = find('#test-target');
+
+        const target = find('#test-target');
         assert.equal(
-          this.value,
-          getTextToCopyFromTargetElement(this.target),
+          value,
+          getTextToCopyFromTargetElement(target),
           `input type="${type}"`,
         );
       },
     );
 
     test('returns the value of a <textarea> passed as `target` argument', async function (assert) {
-      this.set('value', `hello\nworld<br>!`);
+      const value = `hello\nworld<br>!`;
       await render(
         <template>
-          <textarea id="test-target">{{this.value}}</textarea>
+          <textarea id="test-target">{{value}}</textarea>
         </template>,
       );
-      this.target = find('#test-target');
-      assert.deepEqual(this.value, getTextToCopyFromTargetElement(this.target));
+
+      const target = find('#test-target');
+      assert.deepEqual(value, getTextToCopyFromTargetElement(target));
     });
 
     test('returns the value of a <select> element passed as `target` argument', async function (assert) {
-      this.set('option1', `option1`);
-      this.set('option2', `option2`);
-      this.set('option3', `option3`);
       await render(
         <template>
           <select id="test-target">
-            <option>{{this.option1}}</option>
-            <option>{{this.option2}}</option>
-            <option>{{this.option3}}</option>
+            <option>option1</option>
+            <option>option2</option>
+            <option>option3</option>
           </select>
         </template>,
       );
-      this.target = find('#test-target');
-      assert.deepEqual(
-        this.option1,
-        getTextToCopyFromTargetElement(this.target),
-      );
+      const target = find('#test-target');
+      assert.deepEqual('option1', getTextToCopyFromTargetElement(target));
     });
 
     test('returns the value of the selected option of a <select> element passed as `target` argument', async function (assert) {
-      this.set('option1', `option1`);
-      this.set('option2', `option2`);
-      this.set('option3', `option3`);
       await render(
         <template>
           <select id="test-target">
-            <option>{{this.option1}}</option>
-            <option selected>{{this.option2}}</option>
-            <option>{{this.option3}}</option>
+            <option>option1</option>
+            <option selected>option2</option>
+            <option>option3</option>
           </select>
         </template>,
       );
-      this.target = find('#test-target');
-      assert.deepEqual(
-        this.option2,
-        getTextToCopyFromTargetElement(this.target),
-      );
-      await fillIn(this.target, this.option3);
-      assert.deepEqual(
-        this.option3,
-        getTextToCopyFromTargetElement(this.target),
-      );
+      const target = find('#test-target');
+      assert.deepEqual('option2', getTextToCopyFromTargetElement(target));
+      await fillIn(target, 'option3');
+      assert.deepEqual('option3', getTextToCopyFromTargetElement(target));
     });
 
     test('returns the innerText of DOM element passed as `target` argument', async function (assert) {
@@ -464,7 +449,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
         >Test</button>
       </template>,
     );
-    this.set('target', find('#test-target'));
+
     await click('button#test-button');
     assert.true(context.success);
   });
