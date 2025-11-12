@@ -7,12 +7,10 @@
 // BADGE-COUNT COMPONENT
 //
 
-@use "sass:math";
-@use "sass:map";
 
-$hds-badge-count-types: ("flat", "inverted", "outlined");
 $hds-badge-count-sizes: ("small", "medium", "large");
-$hds-badge-count-border-width: 1px;
+$hds-badge-count-colors: ("neutral", "neutral-dark-mode");
+$hds-badge-count-types: ("filled", "inverted", "outlined");
 
 .hds-badge-count {
   display: inline-flex;
@@ -20,87 +18,36 @@ $hds-badge-count-border-width: 1px;
   max-width: 100%;
   font-weight: var(--token-typography-font-weight-medium);
   font-family: var(--token-typography-font-stack-text);
-  border: $hds-badge-count-border-width solid transparent;
+  border: var(--token-badge-border-width) solid transparent;
 }
 
 // SIZE
 
-// these values later may come from the design tokens
-$hds-badge-count-size-props: (
-  "small": (
-    // 13px = 0.8125rem
-    "font-size": 0.8125rem,
-    "height": 1.25rem,
-    // 16px = 1.2308
-    "line-height": 1.2308,
-    "padding-vertical": 0.125rem,
-    "padding-horizontal": 0.5rem,
-  ),
-  "medium": (
-    // 13px = 0.8125rem
-    "font-size": 0.8125rem,
-    "height": 1.5rem,
-    // 16px = 1.2308
-    "line-height": 1.2308,
-    "padding-vertical": 0.25rem,
-    "padding-horizontal": 0.75rem,
-  ),
-  "large": (
-    // 16px = 1rem
-    "font-size": 1rem,
-    "height": 2rem,
-    // 24px = 1.5
-    "line-height": 1.5,
-    "padding-vertical": 0.25rem,
-    "padding-horizontal": 0.875rem,
-  ),
-);
-
 @each $size in $hds-badge-count-sizes {
   .hds-badge-count--size-#{$size} {
-    min-height: map.get($hds-badge-count-size-props, $size, "height");
-    padding: calc(#{map.get($hds-badge-count-size-props, $size, "padding-vertical")} - #{$hds-badge-count-border-width})
-      calc(#{map.get($hds-badge-count-size-props, $size, "padding-horizontal")} - #{$hds-badge-count-border-width});
-    font-size: map.get($hds-badge-count-size-props, $size, "font-size");
-    line-height: map.get($hds-badge-count-size-props, $size, "line-height");
-    border-radius: math.div(map.get($hds-badge-count-size-props, $size, "height"), 2);
+    min-height: var(--token-badge-height-#{$size});
+    // note: for the horizontal padding, we're using a specific design token for the `BadgeCount` component
+    padding: calc(var(--token-badge-padding-vertical-#{$size}) - var(--token-badge-border-width))
+      calc(var(--token-badge-count-padding-horizontal-#{$size}) - var(--token-badge-border-width));
+    font-size: var(--token-badge-font-size-#{$size});
+    line-height: var(--token-badge-line-height-#{$size});
+    border-radius: calc(var(--token-badge-height-#{$size}) / 2);
   }
 }
 
 // COLOR + TYPE COMBINATIONS
 
-.hds-badge-count--color-neutral {
-  &.hds-badge-count--type-filled {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-palette-neutral-200);
-  }
+@each $color in $hds-badge-count-colors {
+  .hds-badge-count--color-#{$color} {
+    @each $type in $hds-badge-count-types {
+      &.hds-badge-count--type-#{$type} {
+        color: var(--token-badge-foreground-color-#{$color}-#{$type});
+        background-color: var(--token-badge-surface-color-#{$color}-#{$type});
 
-  &.hds-badge-count--type-inverted {
-    color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-palette-neutral-500);
-  }
-
-  &.hds-badge-count--type-outlined {
-    color: var(--token-color-foreground-primary);
-    background-color: transparent;
-    border-color: var(--token-color-palette-neutral-500);
-  }
-}
-
-.hds-badge-count--color-neutral-dark-mode {
-  &.hds-badge-count--type-filled {
-    color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-palette-neutral-500);
-  }
-
-  &.hds-badge-count--type-inverted {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-faint);
-  }
-
-  &.hds-badge-count--type-outlined {
-    color: var(--token-color-foreground-high-contrast);
-    background-color: transparent;
-    border-color: var(--token-color-palette-neutral-50);
+        @if $type == "outlined" {
+          border-color: var(--token-badge-border-color-#{$color}-#{$type});
+        }
+      }
+    }
   }
 }
