@@ -435,17 +435,15 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
       context.success = false;
     };
 
+    const target = find('#test-target');
+
     await render(
       <template>
         <p id="test-target">Hello world!</p>
         <button
           type="button"
           id="test-button"
-          {{hdsClipboard
-            target=this.target
-            onSuccess=onSuccess
-            onError=onError
-          }}
+          {{hdsClipboard target=target onSuccess=onSuccess onError=onError}}
         >Test</button>
       </template>,
     );
