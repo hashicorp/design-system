@@ -8,14 +8,10 @@ import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
 import hdsT from '@hashicorp/design-system-components/helpers/hds-t';
 
-const defaultString = 'Default text';
+const DEFAULT_STRING = 'Default text';
 
 module('Integration | Helper | hds-t', function (hooks) {
   setupRenderingTest(hooks);
-
-  hooks.beforeEach(function () {
-    this.set('defaultString', defaultString);
-  });
 
   module('invalid key values', function () {
     const invalidKeyScenarios = [
@@ -51,12 +47,8 @@ module('Integration | Helper | hds-t', function (hooks) {
           );
         });
 
-        this.set('translationKey', value);
-
         await render(
-          <template>
-            {{hdsT this.translationKey default=this.defaultString}}
-          </template>,
+          <template>{{hdsT value default=DEFAULT_STRING}}</template>,
         );
 
         assert.throws(function () {
@@ -76,10 +68,8 @@ module('Integration | Helper | hds-t', function (hooks) {
         greeting: 'Hello from Real Intl!',
       });
 
-      this.set('key', 'greeting');
-
       await render(
-        <template>{{hdsT this.key default=this.defaultString}}</template>,
+        <template>{{hdsT "greeting" default=DEFAULT_STRING}}</template>,
       );
 
       assert.dom().hasText('Hello from Real Intl!');
@@ -102,7 +92,7 @@ module('Integration | Helper | hds-t', function (hooks) {
             this.key
             name=this.nameParam
             age=this.ageParam
-            default=this.defaultString
+            default=DEFAULT_STRING
           }}
         </template>,
       );
@@ -113,20 +103,18 @@ module('Integration | Helper | hds-t', function (hooks) {
     test('it returns default string if key is valid but not found in translations', async function (assert) {
       const testKey = 'untranslated.key';
 
-      this.set('key', testKey);
-
       assert.notOk(
         this.intl.exists(testKey),
         `intl.exists('${testKey}') is false`,
       );
 
       await render(
-        <template>{{hdsT this.key default=this.defaultString}}</template>,
+        <template>{{hdsT testKey default=DEFAULT_STRING}}</template>,
       );
 
       assert
         .dom()
-        .hasText(defaultString, 'returns default for untranslated key');
+        .hasText(DEFAULT_STRING, 'returns default for untranslated key');
     });
   });
 });
