@@ -5,8 +5,11 @@
 
 import { LinkTo } from '@ember/routing';
 import { assert } from '@ember/debug';
-import { dependencySatisfies, macroCondition, importSync } from '@embroider/macros';
-
+import {
+  dependencySatisfies,
+  macroCondition,
+  importSync,
+} from '@embroider/macros';
 
 /**
  * Resolves the correct component to use for the `LinkTo`.
@@ -20,7 +23,9 @@ export function hdsResolveLinkToExternal(
   if (isRouteExternal) {
     if (macroCondition(dependencySatisfies('ember-engines', '*'))) {
       // Use importSync for compile-time conditional import
-      const module = importSync('ember-engines/components/link-to-external-component') as { default: typeof LinkTo };
+      const module = importSync(
+        'ember-engines/components/link-to-external-component'
+      ) as { default: typeof LinkTo };
       return module.default;
     } else {
       assert(
