@@ -33,7 +33,7 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
-        <HdsBadge @text="Only text" />
+        <HdsBadge @text="Lorem ipsum" />
       </:theming>
       <:reference>
         <cds-tag>Lorem ipsum</cds-tag>
@@ -41,7 +41,7 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
     </ShwCarbonizationComparisonGrid>
     <ShwCarbonizationComparisonGrid>
       <:theming>
-        <HdsBadge @icon="activity" @text="Text + icon" />
+        <HdsBadge @icon="activity" @text="Lorem ipsum" />
       </:theming>
       <:reference>
         <cds-tag>Lorem ipsum <HdsIcon @name="activity" slot="icon" /></cds-tag>
