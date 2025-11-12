@@ -40,6 +40,7 @@ module('Integration | Helper | hds-t', function (hooks) {
     invalidKeyScenarios.forEach(({ name, value }) => {
       test(`it throws an error if key is ${name}`, async function (assert) {
         const errorMessage = `Hds::T helper requires a key as the first positional argument`;
+
         setupOnerror(function (error) {
           assert.strictEqual(
             error.message,
@@ -64,7 +65,9 @@ module('Integration | Helper | hds-t', function (hooks) {
     });
 
     test('it returns translated string if locale is present and key exists', async function (assert) {
-      this.intl.addTranslations('en-us', {
+      const intl = this.owner.lookup('service:intl');
+
+      intl.addTranslations('en-us', {
         greeting: 'Hello from Real Intl!',
       });
 
@@ -76,22 +79,24 @@ module('Integration | Helper | hds-t', function (hooks) {
     });
 
     test('it passes options to intl.t() and translates if key exists', async function (assert) {
-      this.intl.addTranslations('en-us', {
+      const intl = this.owner.lookup('service:intl');
+
+      intl.addTranslations('en-us', {
         farewell: 'Goodbye {name}, aged {age}!',
       });
 
-      this.setProperties({
+      const props = {
         key: 'farewell',
         nameParam: 'Tester',
         ageParam: 30,
-      });
+      };
 
       await render(
         <template>
           {{hdsT
-            this.key
-            name=this.nameParam
-            age=this.ageParam
+            props.key
+            name=props.nameParam
+            age=props.ageParam
             default=DEFAULT_STRING
           }}
         </template>,
@@ -101,12 +106,10 @@ module('Integration | Helper | hds-t', function (hooks) {
     });
 
     test('it returns default string if key is valid but not found in translations', async function (assert) {
+      const intl = this.owner.lookup('service:intl');
       const testKey = 'untranslated.key';
 
-      assert.notOk(
-        this.intl.exists(testKey),
-        `intl.exists('${testKey}') is false`,
-      );
+      assert.notOk(intl.exists(testKey), `intl.exists('${testKey}') is false`);
 
       await render(
         <template>{{hdsT testKey default=DEFAULT_STRING}}</template>,
