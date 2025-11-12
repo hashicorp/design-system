@@ -225,6 +225,76 @@
   --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
   --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
   --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
+  --token-badge-count-padding-horizontal-small: 8px;
+  --token-badge-count-padding-horizontal-medium: 12px;
+  --token-badge-count-padding-horizontal-large: 14px;
+  --token-badge-height-small: 20px;
+  --token-badge-height-medium: 24px;
+  --token-badge-height-large: 32px;
+  --token-badge-padding-horizontal-small: 6px;
+  --token-badge-padding-horizontal-medium: 8px;
+  --token-badge-padding-horizontal-large: 8px;
+  --token-badge-padding-vertical-small: 2px;
+  --token-badge-padding-vertical-medium: 4px;
+  --token-badge-padding-vertical-large: 4px;
+  --token-badge-gap-small: 4px;
+  --token-badge-gap-medium: 4px;
+  --token-badge-gap-large: 6px;
+  --token-badge-font-size-small: 0.8125rem;
+  --token-badge-font-size-medium: 0.8125rem;
+  --token-badge-font-size-large: 1rem;
+  --token-badge-line-height-small: 1.2308; /** 16px = 1.2308 */
+  --token-badge-line-height-medium: 1.2308; /** 16px = 1.2308 */
+  --token-badge-line-height-large: 1.5; /** 24px = 1.5 */
+  --token-badge-foreground-color-neutral-filled: #3b3d45;
+  --token-badge-foreground-color-neutral-inverted: #ffffff;
+  --token-badge-foreground-color-neutral-outlined: #3b3d45;
+  --token-badge-foreground-color-neutral-dark-mode-filled: #ffffff;
+  --token-badge-foreground-color-neutral-dark-mode-inverted: #3b3d45;
+  --token-badge-foreground-color-neutral-dark-mode-outlined: #ffffff;
+  --token-badge-foreground-color-highlight-filled: #911ced; /** TODO - different from Figma */
+  --token-badge-foreground-color-highlight-inverted: #ffffff;
+  --token-badge-foreground-color-highlight-outlined: #a737ff;
+  --token-badge-foreground-color-success-filled: #00781e; /** TODO - different from Figma */
+  --token-badge-foreground-color-success-inverted: #ffffff;
+  --token-badge-foreground-color-success-outlined: #008a22;
+  --token-badge-foreground-color-warning-filled: #9e4b00; /** TODO - different from Figma + there is no `yellow` color in the theme colors for the tag (in code) */
+  --token-badge-foreground-color-warning-inverted: #ffffff;
+  --token-badge-foreground-color-warning-outlined: #bb5a00; /** TODO - discuss with Lilith, there is no `yellow` color in the theme colors for the tag (in code) */
+  --token-badge-foreground-color-critical-filled: #c00005; /** TODO - different from Figma */
+  --token-badge-foreground-color-critical-inverted: #ffffff;
+  --token-badge-foreground-color-critical-outlined: #e52228;
+  --token-badge-surface-color-neutral-filled: #dedfe3;
+  --token-badge-surface-color-neutral-inverted: #656a76; /** TODO - discuss with Lilith: there's no high-contrast in carbon colors for tag */
+  --token-badge-surface-color-neutral-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-neutral-dark-mode-filled: #656a76; /** TODO - discuss with Lilith, there is no high-contrast color in the theme colors for the tag (in code) */
+  --token-badge-surface-color-neutral-dark-mode-inverted: #fafafa;
+  --token-badge-surface-color-neutral-dark-mode-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-highlight-filled: #f9f2ff;
+  --token-badge-surface-color-highlight-inverted: #a737ff;
+  --token-badge-surface-color-highlight-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-success-filled: #f2fbf6;
+  --token-badge-surface-color-success-inverted: #008a22;
+  --token-badge-surface-color-success-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-warning-filled: #fff9e8; /** TODO - discuss with Lilith, there is no `yellow` color in the theme colors for the tag (in code) */
+  --token-badge-surface-color-warning-inverted: #bb5a00; /** TODO - discuss with Lilith, there is no `yellow` color in the theme colors for the tag (in code) */
+  --token-badge-surface-color-warning-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-critical-filled: #fff5f5;
+  --token-badge-surface-color-critical-inverted: #e52228;
+  --token-badge-surface-color-critical-outlined: rgba(0, 0, 0, 0);
+  --token-badge-border-color-neutral-outlined: #656a76; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
+  --token-badge-border-color-neutral-dark-mode-outlined: #fafafa; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
+  --token-badge-border-color-highlight-outlined: #a737ff; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
+  --token-badge-border-color-success-outlined: #008a22; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
+  --token-badge-border-color-warning-outlined: #bb5a00; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
+  --token-badge-border-color-critical-outlined: #e52228; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
+  --token-badge-border-width: 1px;
+  --token-badge-border-radius-small: 5px; /** TODO - no Figma variable for this? */
+  --token-badge-border-radius-medium: 5px; /** TODO - no Figma variable for this? */
+  --token-badge-border-radius-large: 5px; /** TODO - no Figma variable for this? */
+  --token-badge-icon-size-small: 12px; /** TODO - discuss with Lilith what to do in this case (she has set the size to 0) */
+  --token-badge-icon-size-medium: 16px;
+  --token-badge-icon-size-large: 16px;
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;
