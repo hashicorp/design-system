@@ -10,6 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
+import { isDestroyed, isDestroying } from '@ember/destroyable';
 import HdsAdvancedTableTableModel from './models/table.ts';
 
 import type Owner from '@ember/owner';
@@ -559,7 +560,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     if (reorderedMessageText !== undefined) {
       this.reorderedMessageText = reorderedMessageText;
-    } else {
+    } else if(!isDestroyed(this) && !isDestroying(this)) {
       const newPosition = insertedAt + 1;
       const translatedReorderedMessageText = this.hdsIntl.t(
         'hds.advanced-table.reordered-message',

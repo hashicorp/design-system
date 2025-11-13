@@ -4,7 +4,7 @@
  */
 
 import Service from '@ember/service';
-import { getOwner } from '@ember/owner';
+import { service } from '@ember/service';
 import { isPresent } from '@ember/utils';
 import { assert } from '@ember/debug';
 
@@ -18,18 +18,7 @@ export type HdsIntlTOptions = FormatMessageParameters[1] & {
 };
 
 export default class HdsIntlService extends Service {
-  get intl(): IntlService | undefined {
-    const owner = getOwner(this);
-
-    if (
-      typeof owner?.factoryFor === 'function' &&
-      owner.factoryFor('service:intl')
-    ) {
-      return owner.lookup('service:intl');
-    }
-
-    return undefined;
-  }
+  @service('intl') declare intl:IntlService;
 
   t(key: string, options: HdsIntlTOptions): string {
     const { default: defaultString, ...restOptions } = options;

@@ -80,6 +80,8 @@ async function getColumnOrder(columns) {
   });
 }
 
+
+
 async function startReorderDrag(handleElement) {
   return triggerEvent(handleElement, 'dragstart');
 }
@@ -376,7 +378,8 @@ const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
   </:body>
 </Hds::AdvancedTable>`;
 
-const hbsResizableColumnsAdvancedTable = hbs`<div style="width: 1000px;">
+const hbsResizableColumnsAdvancedTable = hbs`{{!-- template-lint-disable no-inline-styles --}}
+  <div style="width: 1000px;">
   <Hds::AdvancedTable
   @model={{this.model}} @columns={{this.columns}} @hasResizableColumns={{true}} id="resize-test-table"
 >
@@ -386,7 +389,7 @@ const hbsResizableColumnsAdvancedTable = hbs`<div style="width: 1000px;">
       <B.Td>{{B.data.col2}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::AdvancedTable></div>`;
+</Hds::AdvancedTable></div>{{!-- template-lint-enable no-inline-styles --}}`;
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -727,10 +730,14 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       );
       await focus(firstThElement);
       await focus(firstReorderHandle);
+      // need to flush the frame to let the RAF waiter finish doing its thing
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+
       assert.dom(firstReorderHandle).isFocused();
 
       await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
       let columnOrder = await getColumnOrder(this.columns);
+      await settled();
       assert.deepEqual(
         columnOrder,
         [this.columns[1].key, this.columns[0].key, this.columns[2].key],
@@ -740,6 +747,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
       columnOrder = await getColumnOrder(this.columns);
+      // doing this because request animation frame stuff
+      await settled();
       assert.deepEqual(
         columnOrder,
         [this.columns[1].key, this.columns[2].key, this.columns[0].key],
@@ -749,6 +758,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowLeft');
       columnOrder = await getColumnOrder(this.columns);
+      await settled();
       assert.deepEqual(
         columnOrder,
         [this.columns[1].key, this.columns[0].key, this.columns[2].key],
@@ -842,7 +852,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       ];
 
       // when dealing with dynamic columns, you must handle the order of all potential columns rather than just the ones currently rendered
-      // inital column order is 'artist', 'album', 'year', 'genre'
+      // initial column order is 'artist', 'album', 'year', 'genre'
       const initialColumnOrder = availableColumns.map((col) => col.key);
 
       // initially set the columns in the reverse order to ensure the table respects the column order and ommit the genre column
@@ -876,6 +886,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       // make sure the initial column order is correct based on the columnOrder
       let columnOrder = await getColumnOrder(this.columns);
+      await settled();
       assert.deepEqual(
         columnOrder,
         ['artist', 'album', 'year'],
