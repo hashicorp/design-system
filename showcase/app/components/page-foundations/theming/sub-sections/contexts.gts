@@ -13,9 +13,14 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 
+import { HdsThemeContext } from '@hashicorp/design-system-components/components';
+
 import ShwThemingService from 'showcase/services/shw-theming';
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import type { HdsCssSelectors } from '@hashicorp/design-system-components/services/hds-theming';
+
+// TODO do we need 'system' here?
+const THEMES = ['system', 'light', 'dark'];
 
 interface ThemingBasicContainerSignature {
   Args: {
@@ -124,6 +129,101 @@ export default class SubSectionContexts extends Component {
     </ShwFlex>
 
     <ShwDivider />
+
+    <ShwTextH3>Local theming via ThemeContext</ShwTextH3>
+
+    <ShwTextBody>These examples below should remain the same even when changing
+      theme</ShwTextBody>
+
+    <ShwTextH4>Parent container</ShwTextH4>
+
+    {{#if this.showParentContainerExamples}}
+      <ShwGrid
+        @gap="4rem"
+        @columns={{2}}
+        {{style width="fit-content" grid-template-columns="repeat(4, auto)"}}
+        as |SG|
+      >
+        {{#each THEMES as |theme|}}
+          <SG.Item as |SGI|>
+            <SGI.Label><code>theme={{theme}}</code></SGI.Label>
+            <HdsThemeContext @theme={{theme}}>
+              <ThemingBasicContainer @text="TEXT" />
+            </HdsThemeContext>
+          </SG.Item>
+        {{/each}}
+      </ShwGrid>
+    {{else}}
+      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
+        <ShwTextBody>These examples are visible only if theming is applied via
+          "prefers color scheme" or "CSS selectors" or "combined strategies",
+          please select a theme below one of these two groups of options in the
+          selector at the top of the page</ShwTextBody>
+      </div>
+    {{/if}}
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH4>Nested</ShwTextH4>
+
+    {{#if this.showNestedExamples}}
+      <ShwGrid
+        @gap="4rem"
+        @columns={{3}}
+        {{style width="fit-content" grid-template-columns="repeat(3, auto)"}}
+        as |SG|
+      >
+        <SG.Item as |SGI|>
+          <SGI.Label><code>theme=light</code>
+            &gt;
+            <code>theme=dark</code></SGI.Label>
+          <HdsThemeContext @theme="light">
+            <ThemingBasicContainer>
+              <HdsThemeContext @theme="dark">
+                <ThemingBasicContainer @text="TEXT" />
+              </HdsThemeContext>
+            </ThemingBasicContainer>
+          </HdsThemeContext>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>theme=dark</code>
+            &gt;
+            <code>theme=light</code></SGI.Label>
+          <HdsThemeContext @theme="dark">
+            <ThemingBasicContainer>
+              <HdsThemeContext @theme="light">
+                <ThemingBasicContainer @text="TEXT" />
+              </HdsThemeContext>
+            </ThemingBasicContainer>
+          </HdsThemeContext>
+        </SG.Item>
+        <SG.Item as |SGI|>
+          <SGI.Label><code>theme=dark</code>
+            &gt;
+            <code>theme=light</code>
+            &gt;
+            <code>theme=dark</code></SGI.Label>
+          <HdsThemeContext @theme="dark">
+            <ThemingBasicContainer>
+              <HdsThemeContext @theme="light">
+                <ThemingBasicContainer>
+                  <HdsThemeContext @theme="dark">
+                    <ThemingBasicContainer @text="TEXT" />
+                  </HdsThemeContext>
+                </ThemingBasicContainer>
+              </HdsThemeContext>
+            </ThemingBasicContainer>
+          </HdsThemeContext>
+        </SG.Item>
+      </ShwGrid>
+    {{else}}
+      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
+        <ShwTextBody>These examples are visible only if theming is applied via
+          "CSS selectors" or "combined strategies", please select a theme below
+          one of these two groups of options in the selector at the top of the
+          page</ShwTextBody>
+      </div>
+    {{/if}}
 
     <ShwTextH3>Local theming via CSS selectors</ShwTextH3>
 
