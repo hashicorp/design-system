@@ -18,7 +18,7 @@ export type HdsIntlTOptions = FormatMessageParameters[1] & {
 };
 
 export default class HdsIntlService extends Service {
-  @service('intl') declare intl:IntlService;
+  @service('intl') declare intl: IntlService;
 
   t(key: string, options: HdsIntlTOptions): string {
     const { default: defaultString, ...restOptions } = options;
