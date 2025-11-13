@@ -112,65 +112,67 @@
         }
       }
     },
-    "font-size": {
-      "small": {
-        "$type": "font-size",
-        "$value": "13",
-        "unit": "px",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
+    "typography": {
+      "font-size": {
+        "small": {
+          "$type": "font-size",
+          "$value": "13",
+          "unit": "px",
+          "$modes": {
+            "default": "13",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
+        },
+        "medium": {
+          "$type": "font-size",
+          "$value": "13",
+          "unit": "px",
+          "$modes": {
+            "default": "13",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
+        },
+        "large": {
+          "$type": "font-size",
+          "$value": "16",
+          "unit": "px",
+          "$modes": {
+            "default": "16",
+            "cds-g0": "12",
+            "cds-g10": "12",
+            "cds-g90": "12",
+            "cds-g100": "12"
+          }
         }
       },
-      "medium": {
-        "$type": "font-size",
-        "$value": "13",
-        "unit": "px",
-        "$modes": {
-          "default": "13",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
-        }
-      },
-      "large": {
-        "$type": "font-size",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "16",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
-        }
-      }
-    },
-    "line-height": {
-      "small": {
-        "$type": "number",
-        "$value": 1.2308,
-        "comment": "16px = 1.2308"
-      },
-      "medium": {
-        "$type": "number",
-        "$value": 1.2308,
-        "comment": "16px = 1.2308"
-      },
-      "large": {
-        "$type": "number",
-        "$value": 1.5,
-        "comment": "24px = 1.5",
-        "$modes": {
-          "default": 1.5,
-          "cds-g0": 1,
-          "cds-g10": 1,
-          "cds-g90": 1,
-          "cds-g100": 1
+      "line-height": {
+        "small": {
+          "$type": "number",
+          "$value": 1.2308,
+          "comment": "16px = 1.2308"
+        },
+        "medium": {
+          "$type": "number",
+          "$value": 1.2308,
+          "comment": "16px = 1.2308"
+        },
+        "large": {
+          "$type": "number",
+          "$value": 1.5,
+          "comment": "24px = 1.5",
+          "$modes": {
+            "default": 1.5,
+            "cds-g0": 1,
+            "cds-g10": 1,
+            "cds-g90": 1,
+            "cds-g100": 1
+          }
         }
       }
     },
@@ -197,17 +199,18 @@
               "cds-g10": "{carbon.themes.g10.textInverse}",
               "cds-g90": "{carbon.themes.g90.textInverse}",
               "cds-g100": "{carbon.themes.g100.textInverse}"
-            }
+            },
+            "comment": "TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?)"
           },
           "outlined": {
             "$type": "color",
             "$value": "{color.foreground.primary}",
             "$modes": {
               "default": "{color.foreground.primary}",
-              "cds-g0": "{carbon.themes.tagTokens.tagBorderGray.white}",
-              "cds-g10": "{carbon.themes.tagTokens.tagBorderGray.g10}",
-              "cds-g90": "{carbon.themes.tagTokens.tagBorderGray.g90}",
-              "cds-g100": "{carbon.themes.tagTokens.tagBorderGray.g100}"
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
             }
           }
         },
@@ -218,20 +221,34 @@
           },
           "inverted": {
             "$type": "color",
-            "$value": "{color.foreground.primary}"
+            "$value": "{color.foreground.primary}",
+            "$modes": {
+              "default": "{color.foreground.primary}",
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGray.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGray.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGray.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGray.g100}"
+            }
           },
           "outlined": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}"
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            }
           }
         },
         "highlight": {
           "filled": {
             "$type": "color",
-            "$value": "{color.foreground.highlight-on-surface}",
-            "comment": "TODO - different from Figma",
+            "$value": "{color.palette.purple-400}",
+            "comment": "we don't use `highlight-on-surface` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.foreground.highlight-on-surface}",
+              "default": "{color.palette.purple-400}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorPurple.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorPurple.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorPurple.g90}",
@@ -264,10 +281,10 @@
         "success": {
           "filled": {
             "$type": "color",
-            "$value": "{color.foreground.success-on-surface}",
-            "comment": "TODO - different from Figma",
+            "$value": "{color.palette.green-400}",
+            "comment": "we don't use `success-on-surface` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.foreground.success-on-surface}",
+              "default": "{color.palette.green-400}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorGreen.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorGreen.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorGreen.g90}",
@@ -300,8 +317,15 @@
         "warning": {
           "filled": {
             "$type": "color",
-            "$value": "{color.foreground.warning-on-surface}",
-            "comment": "TODO - different from Figma + there is no `yellow` color in the theme colors for the tag (in code)"
+            "$value": "{color.palette.amber-400}",
+            "comment": "we don't use `warning-on-surface` for accessibility (better contrast)",
+            "$modes": {
+              "default": "{color.palette.amber-400}",
+              "cds-g0": "{carbon.color.yellow.70}",
+              "cds-g10": "{carbon.color.yellow.70}",
+              "cds-g90": "{carbon.color.yellow.20}",
+              "cds-g100": "{carbon.color.yellow.20}"
+            }
           },
           "inverted": {
             "$type": "color",
@@ -317,16 +341,22 @@
           "outlined": {
             "$type": "color",
             "$value": "{color.foreground.warning}",
-            "comment": "TODO - discuss with Lilith, there is no `yellow` color in the theme colors for the tag (in code)"
+            "$modes": {
+              "default": "{color.foreground.warning}",
+              "cds-g0": "{carbon.color.yellow.70}",
+              "cds-g10": "{carbon.color.yellow.70}",
+              "cds-g90": "{carbon.color.yellow.20}",
+              "cds-g100": "{carbon.color.yellow.20}"
+            }
           }
         },
         "critical": {
           "filled": {
             "$type": "color",
-            "$value": "{color.foreground.critical-on-surface}",
-            "comment": "TODO - different from Figma",
+            "$value": "{color.palette.red-400}",
+            "comment": "we don't use `critical-on-surface` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.foreground.critical-on-surface}",
+              "default": "{color.palette.red-400}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorRed.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorRed.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorRed.g90}",
@@ -375,18 +405,14 @@
           "inverted": {
             "$type": "color",
             "$value": "{color.palette.neutral-500}",
-            "comment": "TODO - discuss with Lilith: there's no high-contrast in carbon colors for tag"
-          },
-          "outlined": {
-            "$type": "color",
-            "$value": "transparent"
+            "comment": "TODO - cristiano to ask Carbon team what to do because there is no equivalent color in code for the Tag inverted"
           }
         },
         "neutral-dark-mode": {
           "filled": {
             "$type": "color",
             "$value": "{color.palette.neutral-500}",
-            "comment": "TODO - discuss with Lilith, there is no high-contrast color in the theme colors for the tag (in code)"
+            "comment": "TODO - cristiano to ask Carbon team what to do because there is no high-contrast color in the theme colors for the tag (in code)"
           },
           "inverted": {
             "$type": "color",
@@ -398,18 +424,15 @@
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
               "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
             }
-          },
-          "outlined": {
-            "$type": "color",
-            "$value": "transparent"
           }
         },
         "highlight": {
           "filled": {
             "$type": "color",
-            "$value": "{color.surface.highlight}",
+            "$value": "{color.palette.purple-100}",
+            "comment": "we don't use `surface-highlight` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.surface.highlight}",
+              "default": "{color.palette.purple-100}",
               "cds-g0": "{carbon.themes.tagTokens.tagBackgroundPurple.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagBackgroundPurple.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundPurple.g90}",
@@ -426,18 +449,15 @@
               "cds-g90": "{carbon.color.purple.40}",
               "cds-g100": "{carbon.color.purple.40}"
             }
-          },
-          "outlined": {
-            "$type": "color",
-            "$value": "transparent"
           }
         },
         "success": {
           "filled": {
             "$type": "color",
-            "$value": "{color.surface.success}",
+            "$value": "{color.palette.green-100}",
+            "comment": "we don't use `surface-success` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.surface.success}",
+              "default": "{color.palette.green-100}",
               "cds-g0": "{carbon.themes.tagTokens.tagBackgroundGreen.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagBackgroundGreen.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGreen.g90}",
@@ -454,34 +474,40 @@
               "cds-g90": "{carbon.color.green.40}",
               "cds-g100": "{carbon.color.green.40}"
             }
-          },
-          "outlined": {
-            "$type": "color",
-            "$value": "transparent"
           }
         },
         "warning": {
           "filled": {
             "$type": "color",
-            "$value": "{color.surface.warning}",
-            "comment": "TODO - discuss with Lilith, there is no `yellow` color in the theme colors for the tag (in code)"
+            "$value": "{color.palette.amber-100}",
+            "comment": "we don't use `surface-warning` for accessibility (better contrast)",
+            "$modes": {
+              "default": "{color.palette.amber-100}",
+              "cds-g0": "{carbon.color.yellow.20}",
+              "cds-g10": "{carbon.color.yellow.20}",
+              "cds-g90": "{carbon.color.yellow.70}",
+              "cds-g100": "{carbon.color.yellow.70}"
+            }
           },
           "inverted": {
             "$type": "color",
             "$value": "{color.palette.amber-200}",
-            "comment": "TODO - discuss with Lilith, there is no `yellow` color in the theme colors for the tag (in code)"
-          },
-          "outlined": {
-            "$type": "color",
-            "$value": "transparent"
+            "$modes": {
+              "default": "{color.palette.amber-200}",
+              "cds-g0": "{carbon.color.yellow.70}",
+              "cds-g10": "{carbon.color.yellow.70}",
+              "cds-g90": "{carbon.color.yellow.40}",
+              "cds-g100": "{carbon.color.yellow.40}"
+            }
           }
         },
         "critical": {
           "filled": {
             "$type": "color",
-            "$value": "{color.surface.critical}",
+            "$value": "{color.palette.red-100}",
+            "comment": "we don't use `surface-critical` for accessibility (better contrast)",
             "$modes": {
-              "default": "{color.surface.critical}",
+              "default": "{color.palette.red-100}",
               "cds-g0": "{carbon.themes.tagTokens.tagBackgroundRed.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagBackgroundRed.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundRed.g90}",
@@ -498,59 +524,11 @@
               "cds-g90": "{carbon.color.red.40}",
               "cds-g100": "{carbon.color.red.40}"
             }
-          },
-          "outlined": {
-            "$type": "color",
-            "$value": "transparent"
           }
         }
       }
     },
     "border": {
-      "color": {
-        "neutral": {
-          "outlined": {
-            "$type": "color",
-            "$value": "{color.palette.neutral-500}",
-            "comment": "TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!)"
-          }
-        },
-        "neutral-dark-mode": {
-          "outlined": {
-            "$type": "color",
-            "$value": "{color.palette.neutral-50}",
-            "comment": "TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!)"
-          }
-        },
-        "highlight": {
-          "outlined": {
-            "$type": "color",
-            "$value": "{color.palette.purple-200}",
-            "comment": "TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!)"
-          }
-        },
-        "success": {
-          "outlined": {
-            "$type": "color",
-            "$value": "{color.palette.green-200}",
-            "comment": "TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!)"
-          }
-        },
-        "warning": {
-          "outlined": {
-            "$type": "color",
-            "$value": "{color.palette.amber-200}",
-            "comment": "TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!)"
-          }
-        },
-        "critical": {
-          "outlined": {
-            "$type": "color",
-            "$value": "{color.palette.red-200}",
-            "comment": "TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!)"
-          }
-        }
-      },
       "width": {
         "$type": "dimension",
         "$value": "1",
@@ -567,8 +545,7 @@
             "cds-g10": "8",
             "cds-g90": "8",
             "cds-g100": "8"
-          },
-          "comment": "TODO - no Figma variable for this?"
+          }
         },
         "medium": {
           "$type": "dimension",
@@ -580,8 +557,7 @@
             "cds-g10": "12",
             "cds-g90": "12",
             "cds-g100": "12"
-          },
-          "comment": "TODO - no Figma variable for this?"
+          }
         },
         "large": {
           "$type": "dimension",
@@ -593,8 +569,7 @@
             "cds-g10": "16",
             "cds-g90": "16",
             "cds-g100": "16"
-          },
-          "comment": "TODO - no Figma variable for this?"
+          }
         }
       }
     },
@@ -603,8 +578,7 @@
         "small": {
           "$type": "dimension",
           "$value": "12",
-          "unit": "px",
-          "comment": "TODO - discuss with Lilith what to do in this case (she has set the size to 0)"
+          "unit": "px"
         },
         "medium": {
           "$type": "dimension",
