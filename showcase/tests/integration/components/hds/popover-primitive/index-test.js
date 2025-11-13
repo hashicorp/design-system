@@ -169,6 +169,7 @@ module(
         .dom('[data-test-id="popover-content"]')
         .isNotVisible('The popover is hidden again by the new toggle');
     });
+    // we have to skip this test because no CSS classes are applied to the popover primitive but I want to leave this test here so we don't think a test is missing.
     skip('it should toggle the popover visibility on click', async function (assert) {
       await render(hbs`
         <Hds::PopoverPrimitive @enableClickEvents={{true}}>
@@ -207,7 +208,7 @@ module(
           as |PP|
         >
           <div {{PP.setupPrimitiveContainer}}>
-            <button {{PP.setupPrimitiveToggle}}  id="test-popover-primitive-toggle" />
+            <button type="button" {{PP.setupPrimitiveToggle}}  id="test-popover-primitive-toggle" />
             <div {{PP.setupPrimitivePopover}} />
           </div>
         </Hds::PopoverPrimitive>
