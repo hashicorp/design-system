@@ -18,7 +18,8 @@ $hds-badge-count-types: ("filled", "inverted", "outlined");
   max-width: 100%;
   font-weight: var(--token-typography-font-weight-medium);
   font-family: var(--token-typography-font-stack-text);
-  border: var(--token-badge-border-width) solid transparent;
+  border-style: solid;
+  border-width: var(--token-badge-border-width);
 }
 
 // SIZE
@@ -29,8 +30,8 @@ $hds-badge-count-types: ("filled", "inverted", "outlined");
     // note: for the horizontal padding, we're using a specific design token for the `BadgeCount` component
     padding: calc(var(--token-badge-padding-vertical-#{$size}) - var(--token-badge-border-width))
       calc(var(--token-badge-count-padding-horizontal-#{$size}) - var(--token-badge-border-width));
-    font-size: var(--token-badge-font-size-#{$size});
-    line-height: var(--token-badge-line-height-#{$size});
+    font-size: var(--token-badge-typography-font-size-#{$size});
+    line-height: var(--token-badge-typography-line-height-#{$size});
     border-radius: calc(var(--token-badge-height-#{$size}) / 2);
   }
 }
@@ -42,10 +43,13 @@ $hds-badge-count-types: ("filled", "inverted", "outlined");
     @each $type in $hds-badge-count-types {
       &.hds-badge-count--type-#{$type} {
         color: var(--token-badge-foreground-color-#{$color}-#{$type});
-        background-color: var(--token-badge-surface-color-#{$color}-#{$type});
 
         @if $type == "outlined" {
-          border-color: var(--token-badge-border-color-#{$color}-#{$type});
+          background-color: transparent;
+          border-color: var(--token-badge-foreground-color-#{$color}-#{$type});
+        } @else {
+          background-color: var(--token-badge-surface-color-#{$color}-#{$type});
+          border-color: transparent;
         }
       }
     }
