@@ -42,9 +42,9 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     assert.dom('img').exists();
   });
 
-  test('if an @imageSrc is declared but does not exist, the flight icon should render in the component', async function (assert) {
+  test('if an @imageSrc is declared but the file does not exist, the flight icon should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc='broken/path/name' id="test-toggle-icon" />`,
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc='/assets/images/avatar-broken.png' id="test-toggle-icon" />`,
     );
     assert.dom('img').doesNotExist();
     assert.dom('#test-toggle-icon .hds-icon.hds-icon-user').exists();
