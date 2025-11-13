@@ -7,12 +7,12 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import type Owner from '@ember/owner';
 
-import type { HdsThemes } from './types.ts';
-import { HdsThemeValues } from './types.ts';
+import type { HdsContextualThemes } from './types.ts';
+// import { HdsContextualThemeValues } from './types.ts';
 
 export interface HdsThemeContextSignature {
   Args: {
-    theme: HdsThemes;
+    theme: HdsContextualThemes;
   };
   Blocks: {
     default: [];
@@ -20,7 +20,20 @@ export interface HdsThemeContextSignature {
   Element: HTMLElement;
 }
 
-export const THEMES: HdsThemes[] = Object.values(HdsThemeValues);
+// TODO understand how to make this work!
+// export const CONTEXTUAL_THEMES: HdsContextualThemes[] = Object.values(
+//   HdsContextualThemeValues
+// );
+export const CONTEXTUAL_THEMES = [
+  'default',
+  'system',
+  'light',
+  'dark',
+  'cds-g0',
+  'cds-g10',
+  'cds-g90',
+  'cds-g100',
+];
 
 export default class HdsThemeContext extends Component<HdsThemeContextSignature> {
   constructor(owner: Owner, args: HdsThemeContextSignature['Args']) {
@@ -29,10 +42,10 @@ export default class HdsThemeContext extends Component<HdsThemeContextSignature>
     const { theme } = args;
 
     assert(
-      `@theme for "Hds::ThemeContext" must be one of the following: ${THEMES.join(
+      `@theme for "Hds::ThemeContext" must be one of the following: ${CONTEXTUAL_THEMES.join(
         ', '
       )}; received: ${theme}`,
-      THEMES.includes(theme)
+      CONTEXTUAL_THEMES.includes(theme)
     );
   }
 
