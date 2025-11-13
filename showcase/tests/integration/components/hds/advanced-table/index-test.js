@@ -80,8 +80,6 @@ async function getColumnOrder(columns) {
   });
 }
 
-
-
 async function startReorderDrag(handleElement) {
   return triggerEvent(handleElement, 'dragstart');
 }
