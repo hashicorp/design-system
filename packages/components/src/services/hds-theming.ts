@@ -12,16 +12,16 @@ export enum HdsThemeValues {
 }
 
 // TODO! understand if we really need this
-enum HdsModesBaseValues {
+export enum HdsModesBaseValues {
   Default = 'default',
 }
 
-enum HdsModesLightValues {
+export enum HdsModesLightValues {
   CdsG0 = 'cds-g0',
   CdsG10 = 'cds-g10',
 }
 
-enum HdsModesDarkValues {
+export enum HdsModesDarkValues {
   CdsG90 = 'cds-g90',
   CdsG100 = 'cds-g100',
 }
