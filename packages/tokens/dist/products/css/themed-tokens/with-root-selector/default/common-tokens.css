@@ -144,31 +144,13 @@
   --token-badge-padding-vertical-small: 2px;
   --token-badge-padding-vertical-medium: 4px;
   --token-badge-padding-vertical-large: 4px;
-  --token-badge-line-height-small: 1.2308; /** 16px = 1.2308 */
-  --token-badge-line-height-medium: 1.2308; /** 16px = 1.2308 */
+  --token-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
+  --token-badge-typography-line-height-medium: 1.2308; /** 16px = 1.2308 */
   --token-badge-foreground-color-neutral-dark-mode-filled: #ffffff;
-  --token-badge-foreground-color-neutral-dark-mode-inverted: #3b3d45;
-  --token-badge-foreground-color-neutral-dark-mode-outlined: #ffffff;
-  --token-badge-foreground-color-warning-filled: #9e4b00; /** TODO - different from Figma + there is no `yellow` color in the theme colors for the tag (in code) */
-  --token-badge-foreground-color-warning-outlined: #bb5a00; /** TODO - discuss with Lilith, there is no `yellow` color in the theme colors for the tag (in code) */
-  --token-badge-surface-color-neutral-inverted: #656a76; /** TODO - discuss with Lilith: there's no high-contrast in carbon colors for tag */
-  --token-badge-surface-color-neutral-outlined: rgba(0, 0, 0, 0);
-  --token-badge-surface-color-neutral-dark-mode-filled: #656a76; /** TODO - discuss with Lilith, there is no high-contrast color in the theme colors for the tag (in code) */
-  --token-badge-surface-color-neutral-dark-mode-outlined: rgba(0, 0, 0, 0);
-  --token-badge-surface-color-highlight-outlined: rgba(0, 0, 0, 0);
-  --token-badge-surface-color-success-outlined: rgba(0, 0, 0, 0);
-  --token-badge-surface-color-warning-filled: #fff9e8; /** TODO - discuss with Lilith, there is no `yellow` color in the theme colors for the tag (in code) */
-  --token-badge-surface-color-warning-inverted: #bb5a00; /** TODO - discuss with Lilith, there is no `yellow` color in the theme colors for the tag (in code) */
-  --token-badge-surface-color-warning-outlined: rgba(0, 0, 0, 0);
-  --token-badge-surface-color-critical-outlined: rgba(0, 0, 0, 0);
-  --token-badge-border-color-neutral-outlined: #656a76; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
-  --token-badge-border-color-neutral-dark-mode-outlined: #fafafa; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
-  --token-badge-border-color-highlight-outlined: #a737ff; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
-  --token-badge-border-color-success-outlined: #008a22; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
-  --token-badge-border-color-warning-outlined: #bb5a00; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
-  --token-badge-border-color-critical-outlined: #e52228; /** TODO - discuss with Lilith what to do here: in Figma it's `Tag/Outline/TagBorder` - Could it be just set to the same color as the foreground? (less tokens!) */
+  --token-badge-surface-color-neutral-inverted: #656a76; /** TODO - cristiano to ask Carbon team what to do because there is no equivalent color in code for the Tag inverted */
+  --token-badge-surface-color-neutral-dark-mode-filled: #656a76; /** TODO - cristiano to ask Carbon team what to do because there is no high-contrast color in the theme colors for the tag (in code) */
   --token-badge-border-width: 1px;
-  --token-badge-icon-size-small: 12px; /** TODO - discuss with Lilith what to do in this case (she has set the size to 0) */
+  --token-badge-icon-size-small: 12px;
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-large: 16px;
   --token-form-label-color: #0c0c0e;
