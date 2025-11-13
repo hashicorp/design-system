@@ -5,12 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import {
-  render,
-  resetOnerror,
-  settled,
-  setupOnerror,
-} from '@ember/test-helpers';
+import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
@@ -40,7 +35,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   // IMAGE (AVATAR)
 
-  test('if an @imageSrc is declared and exists the image should render in the component', async function (assert) {
+  test('if an @imageSrc is declared and also exists, the image should render in the component', async function (assert) {
     await render(
       hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`,
     );
@@ -48,15 +43,9 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   });
 
   test('if an @imageSrc is declared but does not exist, the flight icon should render in the component', async function (assert) {
-    this.set('imageSrc', '/assets/images/avatar.png');
-
-    await settled();
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc={{this.imageSrc}} id="test-toggle-icon" />`,
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc='broken/path/name' id="test-toggle-icon" />`,
     );
-    // we load the image dynamically to cover this use case and also to prevent this test from intermittently failing for no obvious reason
-    this.set('imageSrc', '/assets/images/avatar-broken.png');
-    await settled();
     assert.dom('img').doesNotExist();
     assert.dom('#test-toggle-icon .hds-icon.hds-icon-user').exists();
   });
