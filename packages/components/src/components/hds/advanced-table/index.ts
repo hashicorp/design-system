@@ -560,7 +560,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     if (reorderedMessageText !== undefined) {
       this.reorderedMessageText = reorderedMessageText;
-    } else if(!isDestroyed(this) && !isDestroying(this)) {
+    } else if (!isDestroyed(this) && !isDestroying(this)) {
       const newPosition = insertedAt + 1;
       const translatedReorderedMessageText = this.hdsIntl.t(
         'hds.advanced-table.reordered-message',
