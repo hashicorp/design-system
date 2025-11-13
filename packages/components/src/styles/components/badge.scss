@@ -17,7 +17,8 @@ $hds-badge-types: ("filled", "inverted", "outlined");
   align-items: center;
   max-width: 100%;
   vertical-align: middle;
-  border: var(--token-badge-border-width) solid transparent;
+  border-style: solid;
+  border-width: var(--token-badge-border-width);
 }
 
 .hds-badge__icon {
@@ -47,8 +48,8 @@ $hds-badge-types: ("filled", "inverted", "outlined");
     }
 
     .hds-badge__text {
-      font-size: var(--token-badge-font-size-#{$size});
-      line-height: var(--token-badge-line-height-#{$size});
+      font-size: var(--token-badge-typography-font-size-#{$size});
+      line-height: var(--token-badge-typography-line-height-#{$size});
     }
   }
 }
@@ -60,10 +61,13 @@ $hds-badge-types: ("filled", "inverted", "outlined");
     @each $type in $hds-badge-types {
       &.hds-badge--type-#{$type} {
         color: var(--token-badge-foreground-color-#{$color}-#{$type});
-        background-color: var(--token-badge-surface-color-#{$color}-#{$type});
 
         @if $type == "outlined" {
-          border-color: var(--token-badge-border-color-#{$color}-#{$type});
+          background-color: transparent;
+          border-color: var(--token-badge-foreground-color-#{$color}-#{$type});
+        } @else {
+          background-color: var(--token-badge-surface-color-#{$color}-#{$type});
+          border-color: transparent;
         }
       }
     }
