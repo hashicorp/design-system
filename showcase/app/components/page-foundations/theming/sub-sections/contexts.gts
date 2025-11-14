@@ -17,7 +17,7 @@ import { HdsThemeContext } from '@hashicorp/design-system-components/components'
 
 import ShwThemingService from 'showcase/services/shw-theming';
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
-import { CONTEXTUAL_THEMES } from '@hashicorp/design-system-components/components/hds/theme-context/index';
+import { CONTEXTUAL_THEMES, CONTEXTUAL_MODES } from '@hashicorp/design-system-components/components/hds/theme-context/index';
 import type { HdsCssSelectors } from '@hashicorp/design-system-components/services/hds-theming';
 
 interface ThemingBasicContainerSignature {
@@ -143,8 +143,16 @@ export default class SubSectionContexts extends Component {
       >
         {{#each CONTEXTUAL_THEMES as |theme|}}
           <SG.Item as |SGI|>
-            <SGI.Label><code>@theme={{theme}}</code></SGI.Label>
-            <HdsThemeContext @theme={{theme}}>
+            <SGI.Label><code>@context={{theme}}</code></SGI.Label>
+            <HdsThemeContext @context={{theme}}>
+              <ThemingBasicContainer @text="TEXT" />
+            </HdsThemeContext>
+          </SG.Item>
+        {{/each}}
+        {{#each CONTEXTUAL_MODES as |mode|}}
+          <SG.Item as |SGI|>
+            <SGI.Label><code>@context={{mode}}</code></SGI.Label>
+            <HdsThemeContext @context={{mode}}>
               <ThemingBasicContainer @text="TEXT" />
             </HdsThemeContext>
           </SG.Item>
@@ -171,40 +179,40 @@ export default class SubSectionContexts extends Component {
         as |SG|
       >
         <SG.Item as |SGI|>
-          <SGI.Label><code>@theme=light</code>
+          <SGI.Label><code>@context=light</code>
             &gt;
-            <code>@theme=dark</code></SGI.Label>
-          <HdsThemeContext @theme="light">
+            <code>@context=dark</code></SGI.Label>
+          <HdsThemeContext @context="light">
             <ThemingBasicContainer>
-              <HdsThemeContext @theme="dark">
+              <HdsThemeContext @context="dark">
                 <ThemingBasicContainer @text="TEXT" />
               </HdsThemeContext>
             </ThemingBasicContainer>
           </HdsThemeContext>
         </SG.Item>
         <SG.Item as |SGI|>
-          <SGI.Label><code>@theme=dark</code>
+          <SGI.Label><code>@context=dark</code>
             &gt;
-            <code>@theme=light</code></SGI.Label>
-          <HdsThemeContext @theme="dark">
+            <code>@context=light</code></SGI.Label>
+          <HdsThemeContext @context="dark">
             <ThemingBasicContainer>
-              <HdsThemeContext @theme="light">
+              <HdsThemeContext @context="light">
                 <ThemingBasicContainer @text="TEXT" />
               </HdsThemeContext>
             </ThemingBasicContainer>
           </HdsThemeContext>
         </SG.Item>
         <SG.Item as |SGI|>
-          <SGI.Label><code>@theme=dark</code>
+          <SGI.Label><code>@context=dark</code>
             &gt;
-            <code>@theme=light</code>
+            <code>@context=light</code>
             &gt;
-            <code>@theme=dark</code></SGI.Label>
-          <HdsThemeContext @theme="dark">
+            <code>@context=dark</code></SGI.Label>
+          <HdsThemeContext @context="dark">
             <ThemingBasicContainer>
-              <HdsThemeContext @theme="light">
+              <HdsThemeContext @context="light">
                 <ThemingBasicContainer>
-                  <HdsThemeContext @theme="dark">
+                  <HdsThemeContext @context="dark">
                     <ThemingBasicContainer @text="TEXT" />
                   </HdsThemeContext>
                 </ThemingBasicContainer>
