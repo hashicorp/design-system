@@ -12,7 +12,8 @@ import type { HdsContextualThemes } from './types.ts';
 
 export interface HdsThemeContextSignature {
   Args: {
-    theme: HdsContextualThemes;
+    // it can be an `HdsTheme` or an `HdsMode`
+    context: HdsContextualThemes;
   };
   Blocks: {
     default: [];
@@ -29,23 +30,31 @@ export const CONTEXTUAL_THEMES = [
   'system',
   'light',
   'dark',
+];
+
+export const CONTEXTUAL_MODES = [
   'cds-g0',
   'cds-g10',
   'cds-g90',
   'cds-g100',
 ];
 
+export const CONTEXTUAL_VALUES = [
+  ...CONTEXTUAL_THEMES,
+  ...CONTEXTUAL_MODES,
+];
+
 export default class HdsThemeContext extends Component<HdsThemeContextSignature> {
   constructor(owner: Owner, args: HdsThemeContextSignature['Args']) {
     super(owner, args);
 
-    const { theme } = args;
+    const { context } = args;
 
     assert(
-      `@theme for "Hds::ThemeContext" must be one of the following: ${CONTEXTUAL_THEMES.join(
+      `@context for "Hds::ThemeContext" must be one of the following: ${CONTEXTUAL_VALUES.join(
         ', '
-      )}; received: ${theme}`,
-      CONTEXTUAL_THEMES.includes(theme)
+      )}; received: ${context}`,
+      CONTEXTUAL_VALUES.includes(context)
     );
   }
 
@@ -53,8 +62,14 @@ export default class HdsThemeContext extends Component<HdsThemeContextSignature>
   get classNames(): string {
     const classes = ['hds-theme-context'];
 
-    // add "theme" classes based on the @theme arguments
-    classes.push(`hds-theme-${this.args.theme}`);
+    const { context } = this.args;
+
+    // add "theme" or "mode" classes based on the @context arguments
+    if (CONTEXTUAL_THEMES.includes(context)) {
+      classes.push(`hds-theme-${context}`);
+    } else if (CONTEXTUAL_MODES.includes(context)) {
+      classes.push(`hds-mode-${context}`);
+    }
 
     return classes.join(' ');
   }
