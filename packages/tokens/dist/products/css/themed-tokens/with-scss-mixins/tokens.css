@@ -13,7 +13,7 @@
   }
 }
 
-@mixin hds-theme-cds0() {
+@mixin hds-theme-light() {
   :root {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #161616;
@@ -24,18 +24,7 @@
   }
 }
 
-@mixin hds-theme-cds10() {
-  :root {
-    --token-color-palette-neutral-0: #ffffff;
-    --token-color-foreground-primary: #161616;
-    --token-typography-font-weight-regular: 400;
-    --token-typography-font-weight-medium: 400;
-    --token-typography-font-weight-semibold: 600;
-    --token-typography-font-weight-bold: 600;
-  }
-}
-
-@mixin hds-theme-cds90() {
+@mixin hds-theme-dark() {
   :root {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #f4f4f4;
@@ -46,7 +35,40 @@
   }
 }
 
-@mixin hds-theme-cds100() {
+@mixin hds-mode-cds0() {
+  :root {
+    --token-color-palette-neutral-0: #ffffff;
+    --token-color-foreground-primary: #161616;
+    --token-typography-font-weight-regular: 400;
+    --token-typography-font-weight-medium: 400;
+    --token-typography-font-weight-semibold: 600;
+    --token-typography-font-weight-bold: 600;
+  }
+}
+
+@mixin hds-mode-cds10() {
+  :root {
+    --token-color-palette-neutral-0: #ffffff;
+    --token-color-foreground-primary: #161616;
+    --token-typography-font-weight-regular: 400;
+    --token-typography-font-weight-medium: 400;
+    --token-typography-font-weight-semibold: 600;
+    --token-typography-font-weight-bold: 600;
+  }
+}
+
+@mixin hds-mode-cds90() {
+  :root {
+    --token-color-palette-neutral-0: #ffffff;
+    --token-color-foreground-primary: #f4f4f4;
+    --token-typography-font-weight-regular: 400;
+    --token-typography-font-weight-medium: 400;
+    --token-typography-font-weight-semibold: 600;
+    --token-typography-font-weight-bold: 600;
+  }
+}
+
+@mixin hds-mode-cds100() {
   :root {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #f4f4f4;
