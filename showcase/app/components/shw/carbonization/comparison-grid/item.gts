@@ -6,12 +6,12 @@ import ShwLabel from '../../label';
 import type { ComponentLike } from '@glint/template';
 import type { ShwLabelSignature } from 'showcase/components/shw/label';
 
-import type { Theme } from './index';
+import type { Mode } from './index';
 
 export interface ShwCarbonizationComparisonGridItemSignature {
   Args: {
     label?: string;
-    theme: Theme;
+    mode: Mode;
     scope: 'theming' | 'reference';
   };
   Blocks: {
@@ -27,10 +27,10 @@ export interface ShwCarbonizationComparisonGridItemSignature {
 export default class ShwCarbonizationComparisonGridItem extends Component<ShwCarbonizationComparisonGridItemSignature> {
   get areaName(): string {
     if (this.args.scope === 'reference') {
-      // `hds` is not included in the loop for the references
-      return this.args.theme.replace('cds', 'cwc');
+      // `default` is not included in the loop for the references
+      return this.args.mode.replace('cds', 'cwc');
     } else {
-      return this.args.theme;
+      return this.args.mode;
     }
   }
 
@@ -50,13 +50,13 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
 
     if (this.args.scope === 'theming') {
       // here we use the custom HDS theming selector
-      classes.push(`hds-theme-${this.args.theme}`);
+      classes.push(`hds-mode-${this.args.mode}`);
     }
 
     if (this.args.scope === 'reference') {
       // here we use the web-components specific selector (see: https://github.com/carbon-design-system/carbon/blob/main/packages/web-components/docs/carbon-cdn-style-helpers.mdx#carbon-theme-zoning-classes)
       let selector;
-      switch (this.args.theme) {
+      switch (this.args.mode) {
         case 'cds-g100':
           selector = 'cds-theme-zone-g100';
           break;
