@@ -521,6 +521,9 @@ importers:
       '@eslint/js':
         specifier: ^9.27.0
         version: 9.32.0
+      '@floating-ui/dom':
+        specifier: ^1.6.12
+        version: 1.7.3
       '@glimmer/component':
         specifier: ^2.0.0
         version: 2.0.0
