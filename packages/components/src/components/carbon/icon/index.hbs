@@ -1,0 +1,38 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={{@icon.attrs.viewBox}}
+  width={{@icon.attrs.width}}
+  height={{@icon.attrs.height}}
+  fill={{this.fillColor}}
+  role={{this.role}}
+  aria-hidden={{this.ariaHidden}}
+  ...attributes
+>
+  {{#if @title}}
+    <title>{{@title}}</title>
+  {{/if}}
+
+  {{#each @icon.content as |node|}}
+    {{#if (eq node.elem "path")}}
+      <path
+        d={{node.attrs.d}}
+        fill={{node.attrs.fill}}
+        opacity={{node.attrs.opacity}}
+        transform={{node.attrs.transform}}
+      />
+    {{else if (eq node.elem "circle")}}
+      <circle cx={{node.attrs.cx}} cy={{node.attrs.cy}} r={{node.attrs.r}} fill={{node.attrs.fill}} />
+    {{else if (eq node.elem "rect")}}
+      <rect
+        x={{node.attrs.x}}
+        y={{node.attrs.y}}
+        width={{node.attrs.width}}
+        height={{node.attrs.height}}
+        fill={{node.attrs.fill}}
+        transform={{node.attrs.transform}}
+      />
+    {{else if (eq node.elem "polygon")}}
+      <polygon points={{node.attrs.points}} fill={{node.attrs.fill}} />
+    {{/if}}
+  {{/each}}
+</svg>

@@ -4,6 +4,7 @@
  */
 
 // components
+import type CarbonIconComponent from './components/carbon/icon';
 import type HdsAccordionComponent from './components/hds/accordion';
 import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
@@ -244,6 +245,10 @@ import type HdsTooltipModifier from './modifiers/hds-tooltip.ts';
 import type HdsAdvancedTableCellModifier from './modifiers/hds-advanced-table-cell.ts';
 
 export default interface HdsComponentsRegistry {
+  // ----- CARBON -------------------------------------------------------
+  'Carbon::Icon': typeof CarbonIconComponent;
+  'carbon/icon': typeof CarbonIconComponent;
+
   // ----- COMPONENTS ---------------------------------------------------
 
   // Accordion

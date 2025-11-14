@@ -150,4 +150,7 @@ Router.map(function () {
       this.route('translation');
     },
   );
+  this.route('page-carbon', { path: 'carbon' }, function() {
+    this.route('icon');
+  });
 });
