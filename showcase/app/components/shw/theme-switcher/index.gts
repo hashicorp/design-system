@@ -27,7 +27,13 @@ export type OnApply = (options: ControlsPreferences) => void;
 const LOCALSTORAGE_FIXED_CONTROLS = 'shw-theming-has-fixed-controls';
 const LOCALSTORAGE_DEBUGGING_PANEL = 'shw-theming-has-debugging-panel';
 
-export default class ShwThemeSwitcher extends Component {
+interface ShwThemeSwitcherSignature {
+  Args: {
+    isCarbonizationPage: boolean;
+  };
+}
+
+export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
 
   @tracked hasFixedControls: boolean;
@@ -35,8 +41,7 @@ export default class ShwThemeSwitcher extends Component {
 
   popoverId = `shw-theming-options-popover-${guidFor(this)}`;
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-  constructor(owner: Owner, args: {}) {
+  constructor(owner: Owner, args: ShwThemeSwitcherSignature['Args']) {
     super(owner, args);
 
     const storedHasFixedControls = localStorage.getItem(
@@ -69,12 +74,15 @@ export default class ShwThemeSwitcher extends Component {
       class="shw-theme-switcher
         {{if this.hasFixedControls 'shw-theme-switcher--is-fixed'}}"
     >
-      <ShwThemeSwitcherSelector />
+      <ShwThemeSwitcherSelector
+        disabled={{if @isCarbonizationPage true undefined}}
+      />
       <button
         type="button"
         class="shw-theme-switcher__options-button"
         popovertarget={{this.popoverId}}
         aria-label="Options for theming"
+        disabled={{if @isCarbonizationPage true undefined}}
       >
         <HdsIcon @name="settings" /></button>
       <ShwThemeSwitcherPopover

@@ -10,12 +10,17 @@ import { service } from '@ember/service';
 import ShwThemeSwitcherControlSelect from './control/select';
 import ShwThemingService from 'showcase/services/shw-theming';
 import type { ShwStylesheets } from 'showcase/services/shw-theming';
+import type { ShwThemeSwitcherControlSelectSignature } from './control/select';
 
 import type { HdsThemes } from '@hashicorp/design-system-components/services/hds-theming';
 
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 
-export default class ShwThemeSwitcherSelector extends Component {
+interface ShwThemeSwitcherSelectorSignature {
+  Element: ShwThemeSwitcherControlSelectSignature['Element'];
+}
+
+export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcherSelectorSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
   @service declare readonly shwTheming: ShwThemingService;
 
@@ -83,6 +88,7 @@ export default class ShwThemeSwitcherSelector extends Component {
     <ShwThemeSwitcherControlSelect
       @label="Theming:"
       @onChange={{this.onSelectPageTheme}}
+      ...attributes
     >
       {{#each-in this.themingOptions as |groupLabel options|}}
         <optgroup label={{groupLabel}}>

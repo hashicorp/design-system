@@ -386,6 +386,56 @@ const Index: TemplateOnlyComponent = <template>
         </li>
       </ol>
     </div>
+
+    <div class="shw-landing-lists__vertical-divider" />
+
+    <div>
+      <ShwTextH2>Carbonization</ShwTextH2>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-carbonization.foundations.color">
+            Color
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.foundations.typography">
+            Typography
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.foundations.focus-ring">
+            Focus-ring
+          </LinkTo>
+        </li>
+      </ol>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-carbonization.components.badge">
+            Badge
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.badge-count">
+            BadgeCount
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.button">
+            Button
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.form.text-input">
+            Form::TextInput
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.segmented-group">
+            SegmentedGroup
+          </LinkTo>
+        </li>
+      </ol>
+    </div>
   </div>
 </template>;
 
