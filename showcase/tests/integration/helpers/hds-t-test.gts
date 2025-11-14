@@ -49,7 +49,10 @@ module('Integration | Helper | hds-t', function (hooks) {
         });
 
         await render(
-          <template>{{hdsT value default=DEFAULT_STRING}}</template>,
+          <template>
+            {{! @glint-expect-error - testing invalid scenarios }}
+            {{hdsT value default=DEFAULT_STRING}}
+          </template>,
         );
 
         assert.throws(function () {
@@ -59,11 +62,7 @@ module('Integration | Helper | hds-t', function (hooks) {
     });
   });
 
-  module('ember-intl service is available', function (hooks) {
-    hooks.beforeEach(function () {
-      this.intl = this.owner.lookup('service:intl');
-    });
-
+  module('ember-intl service is available', function () {
     test('it returns translated string if locale is present and key exists', async function (assert) {
       const intl = this.owner.lookup('service:intl');
 

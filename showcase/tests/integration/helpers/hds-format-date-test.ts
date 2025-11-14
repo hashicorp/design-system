@@ -12,9 +12,17 @@ module(
   function (hooks) {
     setupRenderingTest(hooks);
 
-    test('it formats a date with the provided options', async function (assert) {
+    test('it formats a date with the provided options', function (assert) {
       const date = new Date('2021-01-01T00:00:00Z');
-      const options = {
+      const options: {
+        month: Intl.DateTimeFormatOptions['month'];
+        day: Intl.DateTimeFormatOptions['day'];
+        year?: Intl.DateTimeFormatOptions['year'];
+        hour?: Intl.DateTimeFormatOptions['hour'];
+        minute?: Intl.DateTimeFormatOptions['minute'];
+        second?: Intl.DateTimeFormatOptions['second'];
+        timeZoneName?: Intl.DateTimeFormatOptions['timeZoneName'];
+      } = {
         month: 'long',
         day: 'numeric',
         year: 'numeric',

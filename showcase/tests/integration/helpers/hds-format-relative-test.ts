@@ -12,7 +12,7 @@ module(
   function (hooks) {
     setupRenderingTest(hooks);
 
-    test('it formats a relative time with the default options', async function (assert) {
+    test('it formats a relative time with the default options', function (assert) {
       const value = -1;
       const result = hdsFormatRelative([value]);
 
@@ -22,7 +22,7 @@ module(
       );
     });
 
-    test('it formats a relative time with the provided options', async function (assert) {
+    test('it formats a relative time with the provided options', function (assert) {
       const value = -1;
       const unit = 'day';
       const result = hdsFormatRelative([value, unit]);
