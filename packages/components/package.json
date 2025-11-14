@@ -369,6 +369,8 @@
       "./components/hds/text/code.js": "./dist/_app_/components/hds/text/code.js",
       "./components/hds/text/display.js": "./dist/_app_/components/hds/text/display.js",
       "./components/hds/text.js": "./dist/_app_/components/hds/text.js",
+      "./components/hds/theme-context.js": "./dist/_app_/components/hds/theme-context.js",
+      "./components/hds/theme-switcher.js": "./dist/_app_/components/hds/theme-switcher.js",
       "./components/hds/time.js": "./dist/_app_/components/hds/time.js",
       "./components/hds/time/range.js": "./dist/_app_/components/hds/time/range.js",
       "./components/hds/time/single.js": "./dist/_app_/components/hds/time/single.js",
@@ -397,6 +399,7 @@
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
       "./services/hds-intl.js": "./dist/_app_/services/hds-intl.js",
+      "./services/hds-theming.js": "./dist/_app_/services/hds-theming.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"
     }
   },
