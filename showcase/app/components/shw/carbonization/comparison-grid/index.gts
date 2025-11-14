@@ -15,13 +15,13 @@ export interface ShwCarbonizationComparisonGridSignature {
   };
   Blocks: {
     label: [];
-    theming: [{ theme: Theme }];
-    reference: [{ theme: Theme }];
+    theming: [{ mode: Mode }];
+    reference: [{ mode: Mode }];
   };
   Element: HTMLDivElement;
 }
 
-export const THEMES = [
+export const MODES = [
   'default',
   'cds-g0',
   'cds-g10',
@@ -29,7 +29,7 @@ export const THEMES = [
   'cds-g100',
 ] as const;
 
-export type Theme = (typeof THEMES)[number];
+export type Mode = (typeof MODES)[number];
 
 const carbonLabel = helper(([hdsLabel]: [string]) => {
   return hdsLabel.replace(/^cds-/, 'carbon/').replace(/g0$/, 'white');
@@ -53,25 +53,25 @@ const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComp
       ...attributes
     >
       {{#if (has-block "theming")}}
-        {{#each THEMES as |theme|}}
+        {{#each MODES as |mode|}}
           <ShwCarbonizationComparisonGridItem
             @scope="theming"
-            @theme={{theme}}
-            @label={{(unless @hideThemeLabels theme)}}
+            @mode={{mode}}
+            @label={{(unless @hideThemeLabels mode)}}
           >
-            {{yield (hash theme=theme) to="theming"}}
+            {{yield (hash mode=mode) to="theming"}}
           </ShwCarbonizationComparisonGridItem>
         {{/each}}
       {{/if}}
       {{#if (has-block "reference")}}
-        {{#each THEMES as |theme|}}
-          {{#unless (eq theme "default")}}
+        {{#each MODES as |mode|}}
+          {{#unless (eq mode "default")}}
             <ShwCarbonizationComparisonGridItem
               @scope="reference"
-              @theme={{theme}}
-              @label={{(unless @hideCarbonLabels (carbonLabel theme))}}
+              @mode={{mode}}
+              @label={{(unless @hideCarbonLabels (carbonLabel mode))}}
             >
-              {{yield (hash theme=theme) to="reference"}}
+              {{yield (hash mode=mode) to="reference"}}
             </ShwCarbonizationComparisonGridItem>
           {{/unless}}
         {{/each}}
