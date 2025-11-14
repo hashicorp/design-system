@@ -292,7 +292,11 @@ module(
           await createKeyValueInputsField(opts);
 
           const label = find('#test-form-key-value-field .hds-form-label');
+          const labelId = label?.id ?? '';
+
           const input = find(`#test-form-key-value-field ${selector}`);
+          const inputId = input?.id ?? '';
+
           const helper = find(
             '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
           );
@@ -303,7 +307,7 @@ module(
           if (type === 'SuperSelectSingle' || type === 'SuperSelectMultiple') {
             assert
               .dom('#test-form-key-value-field [role="combobox"]')
-              .hasAria('labelledby', label?.id ?? '');
+              .hasAria('labelledby', labelId);
             assert
               .dom('#test-form-key-value-field [role="combobox"]')
               .hasAria(
@@ -315,7 +319,7 @@ module(
               .dom(
                 '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
               )
-              .hasAttribute('for', input?.id ?? '');
+              .hasAttribute('for', inputId);
             assert
               .dom(`#test-form-key-value-field ${selector}`)
               .hasAria(

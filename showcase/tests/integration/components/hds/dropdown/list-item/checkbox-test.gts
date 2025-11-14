@@ -69,9 +69,11 @@ module(
       );
 
       const control = find('.hds-dropdown-list-item__control');
+      const controlId = control?.id ?? '';
+
       assert
         .dom('.hds-dropdown-list-item__label')
-        .hasAttribute('for', control?.id ?? '');
+        .hasAttribute('for', controlId);
     });
 
     // ICON

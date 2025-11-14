@@ -280,7 +280,9 @@ module('Integration | Component | hds/alert/index', function (hooks) {
       </template>,
     );
     const title = find('#test-alert .hds-alert__title');
-    assert.dom('#test-alert').hasAttribute('aria-labelledby', title?.id ?? '');
+    const titleId = title?.id ?? '';
+
+    assert.dom('#test-alert').hasAttribute('aria-labelledby', titleId);
   });
 
   test('it should render with an auto-generated `aria-labelledby` when description is provided', async function (assert) {

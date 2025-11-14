@@ -34,15 +34,17 @@ module('Integration | Component | hds/tooltip/modifier', function (hooks) {
     assert.dom('.hds-tooltip-container').hasAttribute('id');
 
     const tooltipContainer = find('.hds-tooltip-container');
+    const tooltipContainerId = tooltipContainer?.id ?? '';
+
     const tooltipModifier = find('#test-tooltip-modifier');
 
     assert.strictEqual(
       tooltipModifier?.getAttribute('aria-describedby'),
-      tooltipContainer?.id ?? '',
+      tooltipContainerId,
     );
     assert.strictEqual(
       tooltipModifier?.getAttribute('aria-controls'),
-      tooltipContainer?.id ?? '',
+      tooltipContainerId,
     );
   });
 });

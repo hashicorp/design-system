@@ -393,9 +393,9 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     );
 
     const titleElement = find('.hds-flyout__title');
-    assert
-      .dom('dialog')
-      .hasAttribute('aria-labelledby', titleElement?.id ?? '');
+    const titleId = titleElement?.id ?? '';
+
+    assert.dom('dialog').hasAttribute('aria-labelledby', titleId);
   });
 
   // FOCUS MANAGEMENT

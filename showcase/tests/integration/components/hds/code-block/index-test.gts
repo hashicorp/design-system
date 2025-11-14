@@ -94,13 +94,15 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
       </template>,
     );
     const title = find('.hds-code-block__title');
-    assert.dom('.hds-code-block__code').hasAria('labelledby', title?.id ?? '');
+    const titleId = title?.id ?? '';
+
+    assert.dom('.hds-code-block__code').hasAria('labelledby', titleId);
     assert.dom('.hds-code-block__title').hasText('Title');
 
     const description = find('.hds-code-block__description');
-    assert
-      .dom('.hds-code-block__code')
-      .hasAria('describedby', description?.id ?? '');
+    const descriptionId = description?.id ?? '';
+
+    assert.dom('.hds-code-block__code').hasAria('describedby', descriptionId);
     assert.dom('.hds-code-block__description').hasText('Description');
   });
 

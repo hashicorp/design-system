@@ -173,9 +173,9 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
     assert.dom(labels[0]).hasAttribute('for', 'true');
 
     // the `false` value should not be used, but the `id` (input) attribute should be generated and the `for` (label) attribute should match it
-    const generatedId = inputs[1]?.id;
+    const generatedId = inputs[1]?.id ?? '';
     assert.true(generatedId?.startsWith('ember'));
-    assert.dom(labels[1]).hasAttribute('for', generatedId ?? '');
+    assert.dom(labels[1]).hasAttribute('for', generatedId);
   });
 
   // NAME

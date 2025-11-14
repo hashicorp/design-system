@@ -81,9 +81,11 @@ module(
       );
 
       const control = find('.hds-form-select');
+      const controlId = control?.id ?? '';
+
       assert
         .dom('.hds-pagination-size-selector label')
-        .hasAttribute('for', control?.id ?? '');
+        .hasAttribute('for', controlId);
     });
 
     test('the label text matches the default value if no custom value is set', async function (assert) {
