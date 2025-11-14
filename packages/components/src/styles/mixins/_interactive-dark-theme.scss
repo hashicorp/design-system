@@ -61,11 +61,20 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
   &.mock-focus {
     @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
 
-    color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-palette-neutral-700);
+    // See: https://sass-lang.com/d/mixed-decls
+    & {
+      color: var(--token-color-foreground-high-contrast);
+    }
+
+    & {
+      background-color: var(--token-color-palette-neutral-700);
+    }
 
     @if ($add-visible-border) {
-      border-color: $hds-interactive-dark-theme-color-focus-action-internal;
+      // See: https://sass-lang.com/d/mixed-decls
+      & {
+        border-color: $hds-interactive-dark-theme-color-focus-action-internal;
+      }
     }
 
     // focus ring:
