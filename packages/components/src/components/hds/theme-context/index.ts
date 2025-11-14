@@ -7,13 +7,16 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import type Owner from '@ember/owner';
 
-import type { HdsContextualThemes } from './types.ts';
-// import { HdsContextualThemeValues } from './types.ts';
+import {
+  HdsThemeContextThemesValues,
+  HdsThemeContextModesValues,
+} from './types.ts';
+import type { HdsThemeContexts } from './types.ts';
 
 export interface HdsThemeContextSignature {
   Args: {
     // it can be an `HdsTheme` or an `HdsMode`
-    context: HdsContextualThemes;
+    context: HdsThemeContexts;
   };
   Blocks: {
     default: [];
@@ -21,25 +24,13 @@ export interface HdsThemeContextSignature {
   Element: HTMLElement;
 }
 
-// TODO understand how to make this work!
-// export const CONTEXTUAL_THEMES: HdsContextualThemes[] = Object.values(
-//   HdsContextualThemeValues
-// );
-export const CONTEXTUAL_THEMES = [
-  'default',
-  'system',
-  'light',
-  'dark',
-];
-
-export const CONTEXTUAL_MODES = [
-  'cds-g0',
-  'cds-g10',
-  'cds-g90',
-  'cds-g100',
-];
-
-export const CONTEXTUAL_VALUES = [
+export const CONTEXTUAL_THEMES: string[] = Object.values(
+  HdsThemeContextThemesValues
+);
+export const CONTEXTUAL_MODES: string[] = Object.values(
+  HdsThemeContextModesValues
+);
+export const CONTEXTUAL_VALUES: string[] = [
   ...CONTEXTUAL_THEMES,
   ...CONTEXTUAL_MODES,
 ];
