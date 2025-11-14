@@ -50,14 +50,14 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
       outputContent += `${defaultThemedSource.replace(/^:root/, ':root, .hds-theme-default, [data-hds-theme="default"]')}\n\n`;
       //
       // these are the themed `carbonized` tokens
-      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-theme-cds-g0, [data-hds-theme="light"], [data-hds-theme="cds-g0"]')}\n\n`;
-      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-g10, [data-hds-theme="cds-g10"]')}\n\n`;
-      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-g90, [data-hds-theme="cds-g90"]')}\n\n`;
-      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark, .hds-theme-cds-g100, [data-hds-theme="dark"], [data-hds-theme="cds-g100"]')}\n\n`;
+      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-mode-cds-g0, [data-hds-theme="light"], [data-hds-mode="cds-g0"]')}\n\n`;
+      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark, .hds-mode-cds-g100, [data-hds-theme="dark"], [data-hds-mode="cds-g100"]')}\n\n`;
+      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-mode-cds-g10, [data-hds-mode="cds-g10"]')}\n\n`;
+      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-mode-cds-g90, [data-hds-mode="cds-g90"]')}\n\n`;
       //
       // this is the common part
       outputContent += getCssVariablesStalenessComment();
-      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-light, .hds-theme-dark, .hds-theme-cds-g0, .hds-theme-cds-g10, .hds-theme-cds-g90, .hds-theme-cds-g100, [data-hds-theme="default"], [data-hds-theme="light"], [data-hds-theme="dark"], [data-hds-theme="cds-g0"], [data-hds-theme="cds-g10"], [data-hds-theme="cds-g90"], [data-hds-theme="cds-g100"]')}\n\n`;
+      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-light, .hds-theme-dark, .hds-mode-cds-g0, .hds-mode-cds-g10, .hds-mode-cds-g90, .hds-mode-cds-g100, [data-hds-theme="default"], [data-hds-theme="light"], [data-hds-theme="dark"], [data-hds-mode="cds-g0"], [data-hds-mode="cds-g10"], [data-hds-mode="cds-g90"], [data-hds-mode="cds-g100"]')}\n\n`;
     }
 
     // CSS file for combined `prefers-color-scheme` and CSS selectors in the same file
@@ -71,24 +71,26 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
       // note: we will revisit the `[class*=hds-theme-]` selector if we find that is too generic and there are cases where this is picking up other classes
       outputContent += `@media (prefers-color-scheme: light) { ${cds0ThemedSource.replace(/^:root/, '.hds-theme-system, [data-hds-theme="system"]')} }\n\n`;
       outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource.replace(/^:root/, '.hds-theme-system, [data-hds-theme="system"]')} }\n\n`;
-      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-theme-cds-g0, [data-hds-theme="light"], [data-hds-theme="cds-g0"]')}\n\n`;
-      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-theme-cds-g10, [data-hds-theme="cds-g10"]')}\n\n`;
-      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-theme-cds-g90, [data-hds-theme="cds-g90"]')}\n\n`;
-      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark, .hds-theme-cds-g100, [data-hds-theme="dark"], [data-hds-theme="cds-g100"]')}\n\n`;
+      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-mode-cds-g0, [data-hds-theme="light"], [data-hds-mode="cds-g0"]')}\n\n`;
+      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark, .hds-mode-cds-g100, [data-hds-theme="dark"], [data-hds-mode="cds-g100"]')}\n\n`;
+      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-mode-cds-g10, [data-hds-mode="cds-g10"]')}\n\n`;
+      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-mode-cds-g90, [data-hds-mode="cds-g90"]')}\n\n`;
       //
       // this is the common part
       outputContent += getCssVariablesStalenessComment();
-      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-system, .hds-theme-light, .hds-theme-dark, .hds-theme-cds-g0, .hds-theme-cds-g10, .hds-theme-cds-g90, .hds-theme-cds-g100, [data-hds-theme="default"], [data-hds-theme="system"], [data-hds-theme="light"], [data-hds-theme="dark"], [data-hds-theme="cds-g0"], [data-hds-theme="cds-g10"], [data-hds-theme="cds-g90"], [data-hds-theme="cds-g100"]')}\n\n`;
+      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-system, .hds-theme-light, .hds-theme-dark, .hds-mode-cds-g0, .hds-mode-cds-g10, .hds-mode-cds-g90, .hds-mode-cds-g100, [data-hds-theme="default"], [data-hds-theme="system"], [data-hds-theme="light"], [data-hds-theme="dark"], [data-hds-mode="cds-g0"], [data-hds-mode="cds-g10"], [data-hds-mode="cds-g90"], [data-hds-mode="cds-g100"]')}\n\n`;
     }
 
     // SCSS file for mixins
     if (method === 'scss-mixins') {
       outputContent = `${header}\n\n`;
       outputContent += `@mixin hds-theme-default() { ${defaultThemedSource} }\n\n`;
-      outputContent += `@mixin hds-theme-cds0() { ${cds0ThemedSource} }\n\n`;
-      outputContent += `@mixin hds-theme-cds10() { ${cds10ThemedSource} }\n\n`;
-      outputContent += `@mixin hds-theme-cds90() { ${cds90ThemedSource} }\n\n`;
-      outputContent += `@mixin hds-theme-cds100() { ${cds100ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-theme-light() { ${cds0ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-theme-dark() { ${cds100ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-mode-cds0() { ${cds0ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-mode-cds10() { ${cds10ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-mode-cds90() { ${cds90ThemedSource} }\n\n`;
+      outputContent += `@mixin hds-mode-cds100() { ${cds100ThemedSource} }\n\n`;
       //
       // this is the mixin that needs to be used to include the common tokens, shared across themes
       outputContent += `@mixin hds-theme-common() { ${commonSource} }\n\n`;
