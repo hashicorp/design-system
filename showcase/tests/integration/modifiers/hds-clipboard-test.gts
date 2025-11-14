@@ -3,7 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import {
+  module,
+  test,
+  // skip
+} from 'qunit';
 import {
   click,
   render,
@@ -22,23 +26,24 @@ import hdsClipboard, {
   getTargetElement,
   getTextToCopyFromTargetElement,
   writeTextToClipboard,
-  copyToClipboard,
+  // copyToClipboard,
 } from '@hashicorp/design-system-components/modifiers/hds-clipboard';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Unit | Modifier | hds-clipboard - getTextToCopy()', function () {
-  test('returns the string that is passed as argument', async function (assert) {
+  test('returns the string that is passed as argument', function (assert) {
     assert.deepEqual(getTextToCopy('test'), 'test');
   });
 
-  test('returns the number that is passed as argument as a string', async function (assert) {
+  test('returns the number that is passed as argument as a string', function (assert) {
     assert.deepEqual(getTextToCopy(1234), '1234');
   });
 
-  test('it should throw an assertion if the argument provided is not a string/number', async function (assert) {
+  test('it should throw an assertion if the argument provided is not a string/number', function (assert) {
     const arg = {};
     assert.throws(function () {
+      // @ts-expect-error - testing invalid usage
       getTextToCopy(arg);
     });
   });
@@ -54,8 +59,8 @@ module(
           <pre id="test-target">Test</pre>
         </template>,
       );
-      this.target = find('#test-target');
-      assert.deepEqual(await this.target, await find('#test-target'));
+      const target = getTargetElement('#test-target');
+      assert.deepEqual(target, find('#test-target'));
     });
     test('returns the same DOM element passed as argument', async function (assert) {
       await render(
@@ -63,9 +68,13 @@ module(
           <pre id="test-target">Test</pre>
         </template>,
       );
-      this.node = await find('#test-target');
-      this.target = find('#test-target');
-      assert.deepEqual(await this.target, this.node);
+
+      const node = find('#test-target');
+
+      if (node) {
+        const target = getTargetElement(node);
+        assert.deepEqual(target, node);
+      }
     });
     test('it should throw an assertion if the argument provided is a list of DOM nodes', async function (assert) {
       await render(
@@ -75,8 +84,9 @@ module(
           >Test 2</pre>
         </template>,
       );
-      const arg = await findAll('.test-target');
+      const arg = findAll('.test-target');
       assert.throws(function () {
+        // @ts-expect-error - testing invalid usage
         getTargetElement(arg);
       });
     });
@@ -90,6 +100,7 @@ module(
       );
       const arg = {};
       assert.throws(function () {
+        // @ts-expect-error - testing invalid usage
         getTargetElement(arg);
       });
     });
@@ -120,7 +131,8 @@ module(
           </template>,
         );
 
-        const target = find('#test-target');
+        const target = find('#test-target') as HTMLElement;
+
         assert.equal(
           value,
           getTextToCopyFromTargetElement(target),
@@ -137,7 +149,7 @@ module(
         </template>,
       );
 
-      const target = find('#test-target');
+      const target = find('#test-target') as HTMLElement;
       assert.deepEqual(value, getTextToCopyFromTargetElement(target));
     });
 
@@ -151,7 +163,7 @@ module(
           </select>
         </template>,
       );
-      const target = find('#test-target');
+      const target = find('#test-target') as HTMLElement;
       assert.deepEqual('option1', getTextToCopyFromTargetElement(target));
     });
 
@@ -165,7 +177,7 @@ module(
           </select>
         </template>,
       );
-      const target = find('#test-target');
+      const target = find('#test-target') as HTMLElement;
       assert.deepEqual('option2', getTextToCopyFromTargetElement(target));
       await fillIn(target, 'option3');
       assert.deepEqual('option3', getTextToCopyFromTargetElement(target));
@@ -182,9 +194,10 @@ module(
           </ul>
         </template>,
       );
-      this.target = find('#test-target');
+
+      const target = find('#test-target') as HTMLElement;
       assert.deepEqual(
-        getTextToCopyFromTargetElement(this.target),
+        getTextToCopyFromTargetElement(target),
         `Lorem Ipsum dolor\n\nSit Amet\n\nSome\nCode`,
       );
     });
@@ -198,8 +211,8 @@ module(
           </p>
         </template>,
       );
-      this.target = find('#test-target');
-      assert.deepEqual(getTextToCopyFromTargetElement(this.target), 'Lorem ');
+      const target = find('#test-target') as HTMLElement;
+      assert.deepEqual(getTextToCopyFromTargetElement(target), 'Lorem ');
     });
 
     test('returns the innerText of DOM element passed as `target` argument without including sr only text', async function (assert) {
@@ -211,11 +224,8 @@ module(
           </p>
         </template>,
       );
-      this.target = find('#test-target');
-      assert.deepEqual(
-        getTextToCopyFromTargetElement(this.target),
-        'Lorem ipsum',
-      );
+      const target = find('#test-target') as HTMLElement;
+      assert.deepEqual(getTextToCopyFromTargetElement(target), 'Lorem ipsum');
     });
   },
 );
@@ -243,28 +253,25 @@ module(
       // we need to mock the "catch" in the `try/catch`
       sinon
         .stub(window.navigator.clipboard, 'writeText')
-        .throws(
-          'Sinon throws (syntethic error)',
-          'this is a fake error message provided to the sinon.stub().throws() method',
-        );
+        .throws('Sinon throws (syntethic error)');
       const success = await writeTextToClipboard('test');
       assert.false(success);
     });
   },
 );
 
-module(
-  'Unit | Modifier | hds-clipboard - copyToClipboard()', // for this one we test only the assertion (the functionality is tested in the integration tests below)
-  function (hooks) {
-    setupRenderingTest(hooks);
-    // not sure why it's not working...
-    skip('it should throw an assertion if no `text` or `target` argument is provided', async function (assert) {
-      assert.throws(async function () {
-        await copyToClipboard();
-      });
-    });
-  },
-);
+// commented out this test because it does not work and it has linting errors
+// module(
+//   'Unit | Modifier | hds-clipboard - copyToClipboard()', // for this one we test only the assertion (the functionality is tested in the integration tests below)
+//   function (hooks) {
+//     setupRenderingTest(hooks);
+//     skip('it should throw an assertion if no `text` or `target` argument is provided', async function (assert) {
+//       assert.throws(async function () {
+//         await copyToClipboard();
+//       });
+//     });
+//   },
+// );
 
 module('Integration | Modifier | hds-clipboard', function (hooks) {
   setupRenderingTest(hooks);
@@ -282,7 +289,9 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
   // @TEXT ARGUMENT
 
   test('it should allow to copy a `string` provided as `@text` argument', async function (assert) {
-    const context = new TrackedObject({
+    const context = new TrackedObject<{
+      success?: boolean;
+    }>({
       success: undefined,
     });
 
@@ -312,7 +321,9 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
   });
 
   test('it should copy an empty string provided as a `@text` argument', async function (assert) {
-    const context = new TrackedObject({
+    const context = new TrackedObject<{
+      success?: boolean;
+    }>({
       success: undefined,
     });
 
@@ -339,7 +350,9 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
 
   // context: https://github.com/hashicorp/design-system/pull/1564
   test('it should allow to copy an `integer` provided as `@text` argument', async function (assert) {
-    const context = new TrackedObject({
+    const context = new TrackedObject<{
+      success?: boolean;
+    }>({
       success: undefined,
     });
 
@@ -365,7 +378,9 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
   });
 
   test('it should copy a zero number value provided as a `@text` argument', async function (assert) {
-    const context = new TrackedObject({
+    const context = new TrackedObject<{
+      success?: boolean;
+    }>({
       success: undefined,
     });
 
@@ -393,7 +408,9 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
   // @TARGET ARGUMENT
 
   test('it should allow to target an element using a `string` selector for the `@target` argument', async function (assert) {
-    const context = new TrackedObject({
+    const context = new TrackedObject<{
+      success?: boolean;
+    }>({
       success: undefined,
     });
 
@@ -424,7 +441,10 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
   });
 
   test('it should allow to target an element using a DOM node', async function (assert) {
-    const context = new TrackedObject({
+    const context = new TrackedObject<{
+      success?: boolean;
+      target?: HTMLElement;
+    }>({
       success: undefined,
       target: undefined,
     });
@@ -439,7 +459,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
 
     // need to use a modifier to set the target DOM node to make sure that it is defined
     const registerTarget = modifier((element) => {
-      context.target = element;
+      context.target = element as HTMLElement;
     });
 
     await render(
@@ -464,7 +484,9 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
   // ONSUCCESS/ONERROR CALLBACKS
 
   test('it should invoke the `onSuccess` callback on a successful "copy" action', async function (assert) {
-    const context = new TrackedObject({
+    const context = new TrackedObject<{
+      success?: boolean;
+    }>({
       success: undefined,
     });
 
@@ -494,7 +516,9 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
   });
 
   test('it should invoke the `onError` callback on a failed "copy" action', async function (assert) {
-    const context = new TrackedObject({
+    const context = new TrackedObject<{
+      success?: boolean;
+    }>({
       success: undefined,
     });
 
@@ -509,10 +533,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
     sinon.restore();
     sinon
       .stub(window.navigator.clipboard, 'writeText')
-      .throws(
-        'Sinon throws (syntethic error)',
-        'this is a fake error message provided to the sinon.stub().throws() method',
-      );
+      .throws('Sinon throws (syntethic error)');
 
     await render(
       <template>
