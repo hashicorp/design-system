@@ -66,9 +66,9 @@
 }
 
 .hds-theme-light,
-.hds-theme-cds-g0,
+.hds-mode-cds-g0,
 [data-hds-theme="light"],
-[data-hds-theme="cds-g0"] {
+[data-hds-mode="cds-g0"] {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #161616;
   --token-typography-font-weight-regular: 400;
@@ -85,46 +85,10 @@
   --token-typography-font-stack-text: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
-.hds-theme-cds-g10,
-[data-hds-theme="cds-g10"] {
-  --token-color-palette-neutral-0: #ffffff;
-  --token-color-foreground-primary: #161616;
-  --token-typography-font-weight-regular: 400;
-  --token-typography-font-weight-medium: 400;
-  --token-typography-font-weight-semibold: 600;
-  --token-typography-font-weight-bold: 600;
-  /* added these to test theming in the showcase */
-  --token-color-foreground-strong: #1c1c1e;
-  --token-color-foreground-primary: #4b4d45;
-  --token-color-surface-strong: #d1d2d3;
-  --token-color-surface-primary: #dddddd;
-  --token-color-surface-faint: #dddddd;
-  --token-typography-font-stack-display: "Goudy Old Style", Garamond, "Times New Roman", serif;
-  --token-typography-font-stack-text: "Goudy Old Style", Garamond, "Times New Roman", serif;
-}
-
-.hds-theme-cds-g90,
-[data-hds-theme="cds-g90"] {
-  --token-color-palette-neutral-0: #ffffff;
-  --token-color-foreground-primary: #f4f4f4;
-  --token-typography-font-weight-regular: 400;
-  --token-typography-font-weight-medium: 400;
-  --token-typography-font-weight-semibold: 600;
-  --token-typography-font-weight-bold: 600;
-  /* added these to test theming in the showcase */
-  --token-color-foreground-strong: #dddddd;
-  --token-color-foreground-primary: #d1d2d3;
-  --token-color-surface-strong: #4b4d45;
-  --token-color-surface-primary: #1c1c1e;
-  --token-color-surface-faint: #1c1c1e;
-  --token-typography-font-stack-display: Rockwell, serif;
-  --token-typography-font-stack-text: Rockwell, serif;
-}
-
 .hds-theme-dark,
-.hds-theme-cds-g100,
+.hds-mode-cds-g100,
 [data-hds-theme="dark"],
-[data-hds-theme="cds-g100"] {
+[data-hds-mode="cds-g100"] {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #f4f4f4;
   --token-typography-font-weight-regular: 400;
@@ -141,7 +105,76 @@
   --token-typography-font-stack-text: Impact, "Arial Black", "sans serif";
 }
 
-:root {
+.hds-mode-cds-g10,
+[data-hds-mode="cds-g10"] {
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-foreground-primary: #161616;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 400;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 600;
+  /* added these to test theming in the showcase */
+  --token-color-foreground-strong: #1c1c1e;
+  --token-color-foreground-primary: #4b4d45;
+  --token-color-surface-strong: #d1d2d3;
+  --token-color-surface-primary: #dddddd;
+  --token-color-surface-faint: #dddddd;
+  --token-typography-font-stack-display: "Goudy Old Style", Garamond, "Times New Roman", serif;
+  --token-typography-font-stack-text: "Goudy Old Style", Garamond, "Times New Roman", serif;
+}
+
+.hds-mode-cds-g90,
+[data-hds-mode="cds-g90"] {
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-foreground-primary: #f4f4f4;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 400;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 600;
+  /* added these to test theming in the showcase */
+  --token-color-foreground-strong: #dddddd;
+  --token-color-foreground-primary: #d1d2d3;
+  --token-color-surface-strong: #4b4d45;
+  --token-color-surface-primary: #1c1c1e;
+  --token-color-surface-faint: #1c1c1e;
+  --token-typography-font-stack-display: Rockwell, serif;
+  --token-typography-font-stack-text: Rockwell, serif;
+}
+
+/*
+  WHY ARE ALL "COMPUTED" CSS VARIABLES REDECLARED IN EACH THEME SCOPE?
+
+  CSS custom properties (variables) inherit from parent to child, but when a variable is defined
+  as a calculation or alias of another variable (e.g., `--alias-value: var(--source-value)`, its value is fixed
+  at the scope where it is declared—using whatever is visible at that level in the DOM (eg. `:root`).
+
+  This block of "common/shared" CSS variables contains a lot of these aliases, so if we only declare these
+  "computed" variables at `:root` level, their values do not update in themed blocks that override
+  the "source" variables (e.g., `--source-value`) at a lower scope.
+  This results in _stale_ variables, where the computed value is always stuck on the `:root` value,
+  even inside a themed block where the source variable is assigned.
+
+  To make sure every themed block/scoped context (eg. `.hds-theme-light`) correctly computes the aliased values,
+  we redeclare each "computed" variable in every theme scope where its "source" variable is overridden.
+*/
+
+:root,
+.hds-theme-default,
+.hds-theme-system,
+.hds-theme-light,
+.hds-theme-dark,
+.hds-mode-cds-g0,
+.hds-mode-cds-g10,
+.hds-mode-cds-g90,
+.hds-mode-cds-g100,
+[data-hds-theme="default"],
+[data-hds-theme="system"],
+[data-hds-theme="light"],
+[data-hds-theme="dark"],
+[data-hds-mode="cds-g0"],
+[data-hds-mode="cds-g10"],
+[data-hds-mode="cds-g90"],
+[data-hds-mode="cds-g100"] {
   --token-border-radius-x-small: 3px;
   --token-border-radius-small: 5px;
   --token-border-radius-medium: 6px;
