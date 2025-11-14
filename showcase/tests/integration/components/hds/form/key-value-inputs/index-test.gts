@@ -364,6 +364,7 @@ module(
       const legend = find(
         '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend',
       );
+      const legendId = legend?.id ?? '';
       const helper = find(
         '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__helper-text',
       );
@@ -371,9 +372,7 @@ module(
         '#test-form-key-value-inputs .hds-form-key-value-inputs__error',
       );
 
-      assert
-        .dom('#test-form-key-value-inputs')
-        .hasAria('labelledby', legend?.id ?? '');
+      assert.dom('#test-form-key-value-inputs').hasAria('labelledby', legendId);
       assert
         .dom('#test-form-key-value-inputs')
         .hasAria(

@@ -112,12 +112,14 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     );
     await focus('[data-test-tooltip-button]');
     const tooltipContainer = find('.hds-tooltip-container');
+    const tooltipContainerId = tooltipContainer?.id ?? '';
+
     assert
       .dom('[data-test-tooltip-button]')
-      .hasAttribute('aria-describedby', tooltipContainer?.id ?? '');
+      .hasAttribute('aria-describedby', tooltipContainerId);
     assert
       .dom('[data-test-tooltip-button]')
-      .hasAttribute('aria-controls', tooltipContainer?.id ?? '');
+      .hasAttribute('aria-controls', tooltipContainerId);
   });
 
   // PLACEMENT

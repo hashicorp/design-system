@@ -322,11 +322,11 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
       </template>,
     );
     const button = find('.hds-dropdown-toggle-button');
+    const buttonId = button?.id ?? '';
+
     await click('button.hds-dropdown-toggle-button');
 
     assert.dom('#test-dropdown ul').hasAttribute('role', 'listbox');
-    assert
-      .dom('#test-dropdown ul')
-      .hasAttribute('aria-labelledby', button?.id ?? '');
+    assert.dom('#test-dropdown ul').hasAttribute('aria-labelledby', buttonId);
   });
 });
