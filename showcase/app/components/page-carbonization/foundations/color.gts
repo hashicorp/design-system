@@ -26,7 +26,7 @@ const ColorCarbonization: TemplateOnlyComponent = <template>
         <ShwCarbonizationComparisonGrid @label={{tokenShortName token}}>
           <:theming as |T|>
             <ShwCarbonizationTokenPreviewHdsColor
-              @mode={{T.theme}}
+              @mode={{T.mode}}
               @tokenName={{token.name}}
             />
           </:theming>
