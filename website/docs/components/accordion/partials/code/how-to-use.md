@@ -209,9 +209,9 @@ The `@forceState` argument can be used to programmatically control individual Ac
       </:content>
     </A.Item>
     <A.Item>
-      <:toggle>Item two</:toggle>
+      <:toggle>Item three</:toggle>
       <:content>
-        Additional content for item two
+        Additional content for item three
       </:content>
     </A.Item>
   </Hds::Accordion>
