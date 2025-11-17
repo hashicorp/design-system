@@ -1,3 +1,8 @@
 label: Number is
 selector-input:
   default-value: Pick a selector
+  less-than: Less than (<)
+  less-than-or-equal-to: Less than or equal to (≤)
+  equal-to: Equal to (=)
+  greater-than-or-equal-to: Greater than or equal to (≥)
+  greater-than: Greater than (>)
