@@ -147,12 +147,12 @@ The `@forceState` argument enables you to implement expand/collapse all function
   <div class="doc-accordion-flex-layout">
     <Hds::Text::Display @size="300">Examination period</Hds::Text::Display>
     <Hds::Button
-      @text={{if (eq this.state "open") "Collapse all" "Expand all"}}
-      @icon={{if (eq this.state "open") "unfold-close" "unfold-open"}}
-      @color="tertiary" @size="small" {{on "click" this.toggleState}}
+      @text={{if (eq this.accordionState "open") "Collapse all" "Expand all"}}
+      @icon={{if (eq this.accordionState "open") "unfold-close" "unfold-open"}}
+      @color="tertiary" @size="small" {{on "click" this.toggleAccordionState}}
     />
   </div>
-  <Hds::Accordion @forceState={{this.state}} as |A|>
+  <Hds::Accordion @forceState={{this.accordionState}} as |A|>
     <A.Item>
       <:toggle>Exam experience</:toggle>
       <:content>
@@ -184,6 +184,55 @@ The `@forceState` argument enables you to implement expand/collapse all function
       </:content>
     </A.Item>
   </Hds::Accordion>
+```
+
+### Persist Item state
+
+The `@forceState` argument can be used to programmatically control individual Accordion Items. For example, use `@onClickToggle` to respond to the user’s click, save the open/close state, then use `@forceState` to persist the state if the screen refreshes.
+
+```handlebars
+  <Hds::Accordion as |A|>
+    <A.Item>
+      <:toggle>Item one</:toggle>
+      <:content>
+        Additional content for item one
+      </:content>
+    </A.Item>
+    <A.Item
+      @onClickToggle={{this.onItemToggle}} 
+      @forceState={{this.itemState}}
+    >
+      <:toggle>Item two</:toggle>
+      <:content>
+        Item open on page load. Click to close then refresh the window. 
+        The Item will remember its state and remain closed.
+      </:content>
+    </A.Item>
+    <A.Item>
+      <:toggle>Item three</:toggle>
+      <:content>
+        Additional content for item three
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+```
+
+#### JavaScript code
+
+```javascript{data-execute=false}
+  @tracked itemState;
+
+  // Store Item state in session storage to persist across page reloads
+  constructor(owner, args) {
+    super(owner, args);
+    this.itemState = sessionStorage.getItem(STORAGE_KEY) ?? 'open';
+  }
+
+  @action
+  onItemToggle() {
+    this.itemState = this.itemState === 'open' ? 'close' : 'open';
+    sessionStorage.setItem(STORAGE_KEY, this.itemState);
+  }
 ```
 
 ### Accessible name
