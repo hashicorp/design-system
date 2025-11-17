@@ -6,3 +6,5 @@ selector-input:
   equal-to: Equal to (=)
   greater-than-or-equal-to: Greater than or equal to (≥)
   greater-than: Greater than (>)
+value-input:
+  placeholder: Enter a value
