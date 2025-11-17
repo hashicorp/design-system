@@ -220,7 +220,6 @@ The `@forceState` argument can be used to programmatically control individual Ac
 #### JavaScript code
 
 ```javascript{data-execute=false}
-<Hds::Form>
   @tracked itemState;
 
   // Store Item state in session storage to persist across page reloads
@@ -234,7 +233,6 @@ The `@forceState` argument can be used to programmatically control individual Ac
     this.itemState = this.itemState === 'open' ? 'close' : 'open';
     sessionStorage.setItem(STORAGE_KEY, this.itemState);
   }
-</Hds::Form>
 ```
 
 ### Accessible name
