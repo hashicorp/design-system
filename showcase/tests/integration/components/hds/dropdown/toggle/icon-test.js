@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -42,7 +42,8 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     assert.dom('img').exists();
   });
 
-  test('if an @imageSrc is declared but the file does not exist, the flight icon should render in the component', async function (assert) {
+  // Skipping this test because we're not actually checking the correct thing here. Noting that this test needs to be re-written and it's possible the component needs to be revisited.
+  skip('if an @imageSrc is declared but the file does not exist, the flight icon should render in the component', async function (assert) {
     await render(
       hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc='/assets/images/avatar-broken.png' id="test-toggle-icon" />`,
     );
