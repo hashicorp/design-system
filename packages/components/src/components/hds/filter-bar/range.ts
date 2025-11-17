@@ -8,7 +8,9 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import type Owner from '@ember/owner';
 import { guidFor } from '@ember/object/internals';
+import { service } from '@ember/service';
 
+import type HdsIntlService from '../../../services/hds-intl';
 import type {
   HdsFilterBarData,
   HdsFilterBarRangeFilterSelector,
@@ -23,13 +25,13 @@ export const SELECTORS_DISPLAY_TEXT: Record<
   HdsFilterBarRangeFilterSelector,
   string
 > = {
-  [HdsFilterBarRangeFilterSelectorValues.lessThan]: 'Less than',
+  [HdsFilterBarRangeFilterSelectorValues.lessThan]: 'Less than (<)',
   [HdsFilterBarRangeFilterSelectorValues.lessThanOrEqualTo]:
-    'Less than or equal to',
-  [HdsFilterBarRangeFilterSelectorValues.equalTo]: 'Equal to',
+    'Less than or equal to (≤)',
+  [HdsFilterBarRangeFilterSelectorValues.equalTo]: 'Equal to (=)',
   [HdsFilterBarRangeFilterSelectorValues.greaterThanOrEqualTo]:
-    'Greater than or equal to',
-  [HdsFilterBarRangeFilterSelectorValues.greaterThan]: 'Greater than',
+    'Greater than or equal to (≥)',
+  [HdsFilterBarRangeFilterSelectorValues.greaterThan]: 'Greater than (>)',
 };
 
 export const SELECTORS_DISPLAY_SYMBOL: Record<
@@ -37,9 +39,9 @@ export const SELECTORS_DISPLAY_SYMBOL: Record<
   string
 > = {
   [HdsFilterBarRangeFilterSelectorValues.lessThan]: '<',
-  [HdsFilterBarRangeFilterSelectorValues.lessThanOrEqualTo]: '<=',
+  [HdsFilterBarRangeFilterSelectorValues.lessThanOrEqualTo]: '≤',
   [HdsFilterBarRangeFilterSelectorValues.equalTo]: '=',
-  [HdsFilterBarRangeFilterSelectorValues.greaterThanOrEqualTo]: '>=',
+  [HdsFilterBarRangeFilterSelectorValues.greaterThanOrEqualTo]: '≥',
   [HdsFilterBarRangeFilterSelectorValues.greaterThan]: '>',
 };
 
@@ -58,6 +60,8 @@ export interface HdsFilterBarRangeSignature {
 }
 
 export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignature> {
+  @service hdsIntl!: HdsIntlService;
+
   @tracked private _selector: HdsFilterBarRangeFilterSelector | undefined;
   @tracked private _value: number | undefined;
 
@@ -79,9 +83,16 @@ export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignat
     return this._value !== undefined ? this._value.toString() : undefined;
   }
 
-  selectorText(selector: HdsFilterBarRangeFilterSelector): string {
-    return SELECTORS_DISPLAY_TEXT[selector];
-  }
+  private _selectorText = (
+    selector: HdsFilterBarRangeFilterSelector
+  ): string => {
+    return this.hdsIntl.t(
+      `hds.components.filter-bar.range.selector-input.${selector}`,
+      {
+        default: 'test',
+      }
+    );
+  };
 
   @action
   onSelectorChange(event: Event): void {
