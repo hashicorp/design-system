@@ -6,8 +6,8 @@
 
 ### When not to use
 
-- If needing a multi-line text input, consider [Textarea](/components/form/textarea)
-- If needing to allow the user to make a selection from a predetermined list of options, consider [Checkbox](/components/form/checkbox), [Radio button](/components/form/radio), or [Select](/components/form/select).
+- For multi-line text input, consider [Textarea](/components/form/textarea).
+- To allow the user to make a selection from a predetermined list of options, consider [Checkbox](/components/form/checkbox), [Radio button](/components/form/radio), or [Select](/components/form/select).
 
 ## Types of text inputs
 
@@ -29,11 +29,13 @@ The `TextInput` component has a visibility toggle feature for password fields. B
 
 ### Search
 
+#### Default state
+
 <Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" as |F|>
   <F.Label>Search</F.Label>
 </Hds::Form::TextInput::Field>
 
-#### Loading
+#### Loading state
 
 <Hds::Form::TextInput::Field @type="search" placeholder="Search" @width="300px" @isLoading="true" as |F|>
   <F.Label>Search</F.Label>
@@ -48,25 +50,25 @@ The `TextInput` component has a visibility toggle feature for password fields. B
 Date and time fields use the native browser functionality for the popovers. Some browsers do not display an icon or popover.
 !!!
 
-<Hds::Form::TextInput::Field @type="date" placeholder="mm/dd/yy" as |F|>
-  <F.Label>Date</F.Label>
-</Hds::Form::TextInput::Field>
-
-<Hds::Form::TextInput::Field @type="time" placeholder="--:-- --" as |F|>
-  <F.Label>Time</F.Label>
-</Hds::Form::TextInput::Field>
-
-<Hds::Form::TextInput::Field @type="datetime-local" placeholder="mm/dd/yyT--:-- --" as |F|>
-  <F.Label>Datetime</F.Label>
-</Hds::Form::TextInput::Field>
-
-<Hds::Form::TextInput::Field @type="month" placeholder="yyyy-mm" as |F|>
-  <F.Label>Month</F.Label>
-</Hds::Form::TextInput::Field>
-
-<Hds::Form::TextInput::Field @type="week" placeholder="yyyy-W00" as |F|>
-  <F.Label>Week</F.Label>
-</Hds::Form::TextInput::Field>
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::TextInput::Field @type="date" placeholder="mm/dd/yy" as |F|>
+      <F.Label>Date</F.Label>
+    </Hds::Form::TextInput::Field>
+    <Hds::Form::TextInput::Field @type="time" placeholder="--:-- --" as |F|>
+      <F.Label>Time</F.Label>
+    </Hds::Form::TextInput::Field>
+    <Hds::Form::TextInput::Field @type="datetime-local" placeholder="mm/dd/yyT--:-- --" as |F|>
+      <F.Label>Datetime</F.Label>
+    </Hds::Form::TextInput::Field>
+    <Hds::Form::TextInput::Field @type="month" placeholder="yyyy-mm" as |F|>
+      <F.Label>Month</F.Label>
+    </Hds::Form::TextInput::Field>
+    <Hds::Form::TextInput::Field @type="week" placeholder="yyyy-W00" as |F|>
+      <F.Label>Week</F.Label>
+    </Hds::Form::TextInput::Field>
+  </FORM.Section>
+</Hds::Form>
 
 ### Telephone
 
@@ -78,9 +80,13 @@ Date and time fields use the native browser functionality for the popovers. Some
 
 For complex forms, indicate **required** fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
 
+### Required
+
 <Hds::Form::TextInput::Field @type="text" @isRequired={{true}} @width="300px" as |F|>
   <F.Label>Label</F.Label>
 </Hds::Form::TextInput::Field>
+
+### Optional
 
 For shorter, simpler forms (e.g., login/signup and feedback requests), indicate **optional** fields instead.
 
@@ -92,17 +98,30 @@ For shorter, simpler forms (e.g., login/signup and feedback requests), indicate 
 
 Readonly, disabled, and hidden fields are very similar, but there are key differences to be aware of when choosing the correct type of Text Input. Since these fields are not editable by a user, we recommend using them sparingly.
 
+### Readonly
+
 Readonly fields are not editable by the user but the value in the field **is** passed when the form is submitted.
 
 <Hds::Form::TextInput::Field @type="text" @width="300px" @value="helios-cluster-31" readonly as |F|>
   <F.Label>Cluster ID</F.Label>
 </Hds::Form::TextInput::Field>
 
-Disabled fields are not editable by the user and the value in the field **is not** passed when the form is submitted.
+### Disabled
+
+Disabled fields are also not editable by the user and the value in the field **is not** passed when the form is submitted.
+
+!!! Warning
+
+**Accessibility alert**
+
+Screen readers do not have access to disabled fields; therefore, we recommend against disabling fields. Please read more about [showing, hiding, or disabling elements](https://helios.hashicorp.design/patterns/disabled-patterns).
+!!!
 
 <Hds::Form::TextInput::Field @type="text" @width="300px" @value="helios-cluster-31" disabled as |F|>
   <F.Label>Cluster ID</F.Label>
 </Hds::Form::TextInput::Field>
+
+### Hidden
 
 Hidden fields are not visible to the user but the value in the field **is** passed when the form is submitted.
 
