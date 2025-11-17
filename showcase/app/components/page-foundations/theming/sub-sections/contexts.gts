@@ -1,8 +1,6 @@
 import Component from '@glimmer/component';
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { service } from '@ember/service';
-import { array } from '@ember/helper';
-import { eq } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -17,8 +15,10 @@ import { HdsThemeContext } from '@hashicorp/design-system-components/components'
 
 import ShwThemingService from 'showcase/services/shw-theming';
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
-import { CONTEXTUAL_THEMES, CONTEXTUAL_MODES } from '@hashicorp/design-system-components/components/hds/theme-context/index';
-import type { HdsCssSelectors } from '@hashicorp/design-system-components/services/hds-theming';
+import {
+  CONTEXTUAL_THEMES,
+  CONTEXTUAL_MODES,
+} from '@hashicorp/design-system-components/components/hds/theme-context/index';
 
 interface ThemingBasicContainerSignature {
   Args: {
@@ -32,7 +32,6 @@ interface ThemingBasicContainerSignature {
 
 interface TheminBasicContainerWithParentSelectorSignature {
   Args: {
-    selector: HdsCssSelectors;
     subselector: string;
   };
   Element: ThemingBasicContainerSignature['Element'];
@@ -54,13 +53,7 @@ class TheminBasicContainerWithParentSelector extends Component<TheminBasicContai
   @service declare readonly hdsTheming: HdsThemingService;
 
   get classSelector() {
-    return this.args.selector === 'class'
-      ? `hds-theme-${this.args.subselector}`
-      : undefined;
-  }
-
-  get dataSelector() {
-    return this.args.selector === 'data' ? this.args.subselector : undefined;
+    return `hds-theme-${this.args.subselector}`;
   }
 
   get notAvailable() {
@@ -75,7 +68,7 @@ class TheminBasicContainerWithParentSelector extends Component<TheminBasicContai
   }
 
   <template>
-    <div class={{this.classSelector}} data-hds-theme={{this.dataSelector}}>
+    <div class={{this.classSelector}}>
       <ThemingBasicContainer
         class={{if
           this.notAvailable
@@ -246,27 +239,14 @@ export default class SubSectionContexts extends Component {
         {{style width="fit-content" grid-template-columns="repeat(4, auto)"}}
         as |SG|
       >
-        {{#let (array "class" "data") as |selectors|}}
-          {{#each selectors as |selector|}}
-            {{#let CONTEXTUAL_THEMES as |subselectors|}}
-              {{#each subselectors as |subselector|}}
-                <SG.Item as |SGI|>
-                  <SGI.Label><code>
-                      {{#if (eq selector "class")}}
-                        .hds-theme-{{subselector}}
-                      {{/if}}
-                      {{#if (eq selector "data")}}
-                        [data-hds-theme={{subselector}}]
-                      {{/if}}
-                    </code></SGI.Label>
-                  <TheminBasicContainerWithParentSelector
-                    @selector={{selector}}
-                    @subselector={{subselector}}
-                    @text="TEXT"
-                  />
-                </SG.Item>
-              {{/each}}
-            {{/let}}
+        {{#let CONTEXTUAL_THEMES as |themes|}}
+          {{#each themes as |theme|}}
+            <SG.Item as |SGI|>
+              <SGI.Label><code>
+                  .hds-theme-{{theme}}
+                </code></SGI.Label>
+              <TheminBasicContainerWithParentSelector @subselector={{theme}} />
+            </SG.Item>
           {{/each}}
         {{/let}}
       </ShwGrid>
@@ -325,48 +305,6 @@ export default class SubSectionContexts extends Component {
               <div class="hds-theme-light">
                 <ThemingBasicContainer>
                   <div class="hds-theme-dark">
-                    <ThemingBasicContainer @text="TEXT" />
-                  </div>
-                </ThemingBasicContainer>
-              </div>
-            </ThemingBasicContainer>
-          </div>
-        </SG.Item>
-        <SG.Item as |SGI|>
-          <SGI.Label><code>[data-hds-theme=light]</code>
-            &gt;
-            <code>[data-hds-theme=dark]</code></SGI.Label>
-          <div data-hds-theme="light">
-            <ThemingBasicContainer>
-              <div data-hds-theme="dark">
-                <ThemingBasicContainer @text="TEXT" />
-              </div>
-            </ThemingBasicContainer>
-          </div>
-        </SG.Item>
-        <SG.Item as |SGI|>
-          <SGI.Label><code>[data-hds-theme=dark]</code>
-            &gt;
-            <code>[data-hds-theme=light]</code></SGI.Label>
-          <div data-hds-theme="dark">
-            <ThemingBasicContainer>
-              <div data-hds-theme="light">
-                <ThemingBasicContainer @text="TEXT" />
-              </div>
-            </ThemingBasicContainer>
-          </div>
-        </SG.Item>
-        <SG.Item as |SGI|>
-          <SGI.Label><code>[data-hds-theme=dark]</code>
-            &gt;
-            <code>[data-hds-theme=light]</code>
-            &gt;
-            <code>[data-hds-theme=dark]</code></SGI.Label>
-          <div data-hds-theme="dark">
-            <ThemingBasicContainer>
-              <div data-hds-theme="light">
-                <ThemingBasicContainer>
-                  <div data-hds-theme="dark">
                     <ThemingBasicContainer @text="TEXT" />
                   </div>
                 </ThemingBasicContainer>
