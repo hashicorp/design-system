@@ -24,7 +24,7 @@
       @id={{this._valueInputId}}
       @type="text"
       @value={{this.stringValue}}
-      placeholder="Enter a number"
+      placeholder={{hds-t "hds.components.filter-bar.range.value-input.placeholder" default="Enter a value"}}
       {{on "change" this.onValueChange}}
     />
   </Hds::Layout::Flex>
