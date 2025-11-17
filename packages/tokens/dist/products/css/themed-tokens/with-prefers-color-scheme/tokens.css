@@ -3,8 +3,7 @@
  */
 
 :root,
-.hds-theme-default,
-[data-hds-theme="default"] {
+.hds-theme-default {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #ffffff;
   --token-typography-font-weight-regular: 400;
@@ -14,8 +13,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .hds-theme-system,
-  [data-hds-theme="system"] {
+  .hds-theme-system {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #161616;
     --token-typography-font-weight-regular: 400;
@@ -26,8 +24,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .hds-theme-system,
-  [data-hds-theme="system"] {
+  .hds-theme-system {
     --token-color-palette-neutral-0: #ffffff;
     --token-color-foreground-primary: #f4f4f4;
     --token-typography-font-weight-regular: 400;
@@ -58,9 +55,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
 
 :root,
 .hds-theme-default,
-.hds-theme-system,
-[data-hds-theme="default"],
-[data-hds-theme="system"] {
+.hds-theme-system {
   --token-border-radius-x-small: 3px;
   --token-border-radius-small: 5px;
   --token-border-radius-medium: 6px;

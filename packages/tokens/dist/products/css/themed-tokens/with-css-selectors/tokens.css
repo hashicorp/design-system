@@ -3,8 +3,7 @@
  */
 
 :root,
-.hds-theme-default,
-[data-hds-theme="default"] {
+.hds-theme-default {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #ffffff;
   --token-typography-font-weight-regular: 400;
@@ -14,9 +13,7 @@
 }
 
 .hds-theme-light,
-.hds-mode-cds-g0,
-[data-hds-theme="light"],
-[data-hds-mode="cds-g0"] {
+.hds-mode-cds-g0 {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #161616;
   --token-typography-font-weight-regular: 400;
@@ -26,9 +23,7 @@
 }
 
 .hds-theme-dark,
-.hds-mode-cds-g100,
-[data-hds-theme="dark"],
-[data-hds-mode="cds-g100"] {
+.hds-mode-cds-g100 {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #f4f4f4;
   --token-typography-font-weight-regular: 400;
@@ -37,8 +32,7 @@
   --token-typography-font-weight-bold: 600;
 }
 
-.hds-mode-cds-g10,
-[data-hds-mode="cds-g10"] {
+.hds-mode-cds-g10 {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #161616;
   --token-typography-font-weight-regular: 400;
@@ -47,8 +41,7 @@
   --token-typography-font-weight-bold: 600;
 }
 
-.hds-mode-cds-g90,
-[data-hds-mode="cds-g90"] {
+.hds-mode-cds-g90 {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #f4f4f4;
   --token-typography-font-weight-regular: 400;
@@ -83,14 +76,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
 .hds-mode-cds-g0,
 .hds-mode-cds-g10,
 .hds-mode-cds-g90,
-.hds-mode-cds-g100,
-[data-hds-theme="default"],
-[data-hds-theme="light"],
-[data-hds-theme="dark"],
-[data-hds-mode="cds-g0"],
-[data-hds-mode="cds-g10"],
-[data-hds-mode="cds-g90"],
-[data-hds-mode="cds-g100"] {
+.hds-mode-cds-g100 {
   --token-border-radius-x-small: 3px;
   --token-border-radius-small: 5px;
   --token-border-radius-medium: 6px;
