@@ -12,6 +12,7 @@ export interface HdsDropdownListItemCheckboxSignature {
   Args: HdsFormCheckboxBaseSignature['Args'] & {
     count?: string | number;
     icon?: HdsIconSignature['Args']['name'];
+    id?: string;
   };
   Blocks: {
     default: [];
