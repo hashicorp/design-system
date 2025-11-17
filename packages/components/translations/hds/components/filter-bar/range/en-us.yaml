@@ -6,5 +6,9 @@ selector-input:
   equal-to: Equal to (=)
   greater-than-or-equal-to: Greater than or equal to (≥)
   greater-than: Greater than (>)
+  between: Between
 value-input:
   placeholder: Enter a value
+between-value-inputs:
+  start-placeholder: Start
+  end-placeholder: End

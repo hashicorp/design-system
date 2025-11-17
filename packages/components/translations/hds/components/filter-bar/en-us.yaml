@@ -1,3 +1,6 @@
 search:
   aria-label: Search filters
   placeholder: Search
+filter-text:
+  range-filter:
+    separator: and

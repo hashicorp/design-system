@@ -24,6 +24,7 @@ import type {
   HdsFilterBarGenericFilterData,
   HdsFilterBarRangeFilterData,
   HdsFilterBarRangeFilterSelector,
+  HdsFilterBarRangeFilterValue,
 } from './types.ts';
 
 export interface HdsFilterBarFilterGroupSignature {
@@ -154,7 +155,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   @action
   onRangeChange(
     selector?: HdsFilterBarRangeFilterSelector,
-    value?: number
+    value?: HdsFilterBarRangeFilterValue
   ): void {
     const addFilter = (): HdsFilterBarData => {
       const newFilter = {
