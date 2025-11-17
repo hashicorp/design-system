@@ -3,11 +3,11 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-filter-bar__filters-dropdown__filter-range">
-  <Hds::Form::Label>
-    {{hds-t "hds.components.filter-bar.range.label" default="Number is"}}
-  </Hds::Form::Label>
   <Hds::Layout::Flex @direction="column" @gap="16">
-    <Hds::Form::Select::Base @id={{this._selectorInputId}} {{on "change" this.onSelectorChange}} as |F|>
+    <Hds::Form::Select::Field @id={{this._selectorInputId}} {{on "change" this.onSelectorChange}} as |F|>
+      <F.Label>
+        {{hds-t "hds.components.filter-bar.range.label" default="Number is"}}
+      </F.Label>
       <F.Options>
         <option value="">{{hds-t
             "hds.components.filter-bar.range.selector-input.default-value"
@@ -19,13 +19,32 @@
             }}</option>
         {{/each}}
       </F.Options>
-    </Hds::Form::Select::Base>
-    <Hds::Form::TextInput::Base
-      @id={{this._valueInputId}}
-      @type="text"
-      @value={{this.stringValue}}
-      placeholder={{hds-t "hds.components.filter-bar.range.value-input.placeholder" default="Enter a value"}}
-      {{on "change" this.onValueChange}}
-    />
+    </Hds::Form::Select::Field>
+    {{#if (eq this._selector "between")}}
+      <Hds::Layout::Flex @gap="8">
+        <Hds::Form::TextInput::Base
+          @id={{this._betweenValueStartInputId}}
+          @type="text"
+          @value={{this.stringBetweenValueStart}}
+          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.start-placeholder" default="Start"}}
+          {{on "change" this.onBetweenValueStartChange}}
+        />
+        <Hds::Form::TextInput::Base
+          @id={{this._betweenValueEndInputId}}
+          @type="text"
+          @value={{this.stringBetweenValueEnd}}
+          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.end-placeholder" default="End"}}
+          {{on "change" this.onBetweenValueEndChange}}
+        />
+      </Hds::Layout::Flex>
+    {{else}}
+      <Hds::Form::TextInput::Base
+        @id={{this._valueInputId}}
+        @type="text"
+        @value={{this.stringValue}}
+        placeholder={{hds-t "hds.components.filter-bar.range.value-input.placeholder" default="Enter a value"}}
+        {{on "change" this.onValueChange}}
+      />
+    {{/if}}
   </Hds::Layout::Flex>
 </div>

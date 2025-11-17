@@ -114,7 +114,6 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
 
   @action
   onClick(event: MouseEvent, tabIndex: number): void {
-    console.log('onClick event in Tabs:', event, tabIndex);
     this._selectedTabIndex = tabIndex;
 
     // invoke the callback function if it's provided as argument

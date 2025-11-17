@@ -613,24 +613,34 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     const selector = filterData.selector;
     const number = Number(itemValue);
 
+    const value = filterData.value;
+    const valueNumber = Number(value);
+
     if (isNaN(number)) {
       return false;
-    } else {
+    } else if (!isNaN(valueNumber)) {
       switch (selector) {
         case 'less-than':
-          return number < filterData.value;
+          return number < valueNumber;
         case 'less-than-or-equal-to':
-          return number <= filterData.value;
+          return number <= valueNumber;
         case 'equal-to':
-          return number === filterData.value;
+          return number === valueNumber;
         case 'greater-than-or-equal-to':
-          return number >= filterData.value;
+          return number >= valueNumber;
         case 'greater-than':
-          return number > filterData.value;
+          return number > valueNumber;
         default:
           return false;
       }
+    } else if (selector === 'between' && typeof value === 'object') {
+      if (!value.start || !value.end) {
+        return false;
+      }
+      return number >= value.start && number <= value.end;
     }
+
+    return false;
   }
 
   isSingleSelectFilterMatch(
