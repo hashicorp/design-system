@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
+import type { Diagnostic as DiagnosticType } from '@hashicorp/design-system-components/codemirror';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwFlex from 'showcase/components/shw/flex';
