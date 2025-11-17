@@ -14,7 +14,7 @@
             default="Pick a selector"
           }}</option>
         {{#each this._selectorValues as |selectorValue|}}
-          <option value={{selectorValue}} selected={{eq selectorValue this._selector}}>{{this.selectorText
+          <option value={{selectorValue}} selected={{eq selectorValue this._selector}}>{{this._selectorText
               selectorValue
             }}</option>
         {{/each}}
