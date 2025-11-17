@@ -42,8 +42,8 @@ type HdsCodeEditorBlurHandler = (
 ) => void;
 
 interface HdsCodeEditorExtraKeys {
-  [key: string]: () => void;
-}
+  [key: string]: (view: EditorViewType) => boolean;
+};
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -53,6 +53,7 @@ export interface HdsCodeEditorSignature {
       ariaLabelledBy?: string;
       cspNonce?: string;
       extraKeys?: HdsCodeEditorExtraKeys;
+      customExtensions?: Extension[];
       hasLineWrapping?: boolean;
       isLintingEnabled?: boolean;
       language?: HdsCodeEditorLanguages;
@@ -397,8 +398,18 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       language,
       hasLineWrapping,
       isLintingEnabled,
+      customExtensions,
       onLint,
-    }) => {
+    }: Pick<
+      HdsCodeEditorSignature['Args']['Named'],
+      | 'cspNonce'
+      | 'extraKeys'
+      | 'language'
+      | 'hasLineWrapping'
+      | 'isLintingEnabled'
+      | 'customExtensions'
+      | 'onLint'
+    >) => {
       const [
         {
           keymap,
@@ -417,11 +428,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
       const languageExtensions = await this._loadLanguageExtensionsTask.perform(
         {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           language,
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           isLintingEnabled,
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           onLint,
         }
       );
@@ -448,7 +456,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         hasLineWrapping ? EditorView.lineWrapping : []
       );
 
-      let extensions = [
+      let extensions: Extension[] = [
         lineWrappingExtension,
         bracketMatching(),
         highlightActiveLine(),
@@ -458,13 +466,14 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         keymap.of([...defaultKeymap, ...historyKeymap]),
         // custom extensions
         handleUpdateExtension,
+        // user-provided extensions
+        ...(customExtensions ?? []),
         // hds dark theme
         hdsDarkTheme,
         syntaxHighlighting(hdsDarkHighlightStyle),
       ];
 
       if (extraKeys !== undefined) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         const customKeyMap = Object.entries(extraKeys).map(([key, value]) => ({
           key: key,
           run: value,
@@ -478,11 +487,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       }
 
       // add nonce to the editor view if it exists
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const nonce = cspNonce ?? getCSPNonceFromMeta();
 
       if (nonce !== undefined) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         extensions = [...extensions, EditorView.cspNonce.of(nonce)];
       }
 
@@ -504,6 +511,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         value,
         hasLineWrapping,
         isLintingEnabled,
+        customExtensions,
         onLint,
       }: Pick<
         HdsCodeEditorSignature['Args']['Named'],
@@ -513,6 +521,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         | 'value'
         | 'hasLineWrapping'
         | 'isLintingEnabled'
+        | 'customExtensions'
         | 'onLint'
       >
     ) => {
@@ -525,6 +534,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           language,
           hasLineWrapping: hasLineWrapping ?? false,
           isLintingEnabled,
+          customExtensions,
           onLint,
         });
 
@@ -592,6 +602,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         isLintingEnabled,
         language,
         value,
+        customExtensions,
       } = named;
 
       this.onInput = onInput;
@@ -610,6 +621,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         extraKeys,
         language,
         value,
+        customExtensions,
       });
 
       if (editor === undefined) {

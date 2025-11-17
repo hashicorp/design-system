@@ -397,7 +397,11 @@
       "types": "./declarations/*.d.ts",
       "default": "./dist/*"
     },
-    "./addon-main.js": "./addon-main.cjs"
+    "./addon-main.js": "./addon-main.cjs",
+    "./codemirror": {
+      "types": "./declarations/codemirror.d.ts",
+      "default": "./dist/codemirror.js"
+    }
   },
   "typesVersions": {
     "*": {
