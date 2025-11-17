@@ -64,6 +64,9 @@ importers:
 
   packages/components:
     dependencies:
+      '@carbon/icons':
+        specifier: ^11.70.0
+        version: 11.70.0
       '@codemirror/commands':
         specifier: ^6.8.0
         version: 6.8.1
@@ -488,6 +491,9 @@ importers:
       '@babel/plugin-proposal-decorators':
         specifier: ^7.27.1
         version: 7.28.0(@babel/core@7.28.0)
+      '@carbon/icons':
+        specifier: ^11.70.0
+        version: 11.70.0
       '@codemirror/lint':
         specifier: ^6.8.4
         version: 6.8.5
@@ -1907,6 +1913,9 @@ packages:
 
   '@carbon/grid@11.42.0':
     resolution: {integrity: sha512-l91wFV7uMhaf2PX89cW1zS5iMnzrFVY2d81Xf7U9OdNu8sBTQWxUPtj1RnZyep4F7v/HG8U4DOzfa+nO5GgZeA==}
+
+  '@carbon/icons@11.70.0':
+    resolution: {integrity: sha512-pw/u032VfP3UDcAr0SZzYJlfSmtiDkOHEgQSchmU9Z1g7CmpfQ7EWSW8ExcHm4DFdun8M3Z1QCkCyu0Hq+s1gg==}
 
   '@carbon/layout@11.40.0':
     resolution: {integrity: sha512-2wIOPJZFjt5Y+TZ7NwPTf0l3zif14hBiPwv/nQo76J2Wr1i/NJrYNfBTpUnKxoq6IZEsVd0e6Ab4RLGGIP2eVA==}
@@ -12894,6 +12903,10 @@ snapshots:
       '@carbon/layout': 11.40.0
       '@ibm/telemetry-js': 1.10.1
 
+  '@carbon/icons@11.70.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
   '@carbon/layout@11.40.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
@@ -14162,6 +14175,7 @@ snapshots:
 
   '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-basic-dropdown@8.6.2(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.9.2)(webpack@5.101.0))(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
     dependencies:
+      '@carbon/icons': 11.70.0
       '@codemirror/commands': 6.8.1
       '@codemirror/lang-go': 6.0.1
       '@codemirror/lang-javascript': 6.2.4
@@ -14216,6 +14230,7 @@ snapshots:
 
   '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-basic-dropdown@8.6.2(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.9.2)(webpack@5.101.0))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
     dependencies:
+      '@carbon/icons': 11.70.0
       '@codemirror/commands': 6.8.1
       '@codemirror/lang-go': 6.0.1
       '@codemirror/lang-javascript': 6.2.4

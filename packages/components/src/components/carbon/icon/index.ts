@@ -1,10 +1,10 @@
 import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 
-import type { CarbonIcon as CarbonIconType } from './types.ts';
+import type { CarbonIcon as CarbonIconType } from './types';
 
 export interface CarbonIconSignature {
   Args: {
-    color?: string;
     icon: CarbonIconType;
     title?: string;
   };
@@ -12,15 +12,17 @@ export interface CarbonIconSignature {
 }
 
 export default class CarbonIcon extends Component<CarbonIconSignature> {
-  get ariaHidden(): boolean {
-    return this.args.title ? false : true;
+  private _titleId = 'title-' + guidFor(this);
+
+  get ariaHidden(): 'true' | 'false' {
+    return this.args.title ? 'false' : 'true';
   }
 
-  get fillColor(): string {
-    return this.args.color ?? 'currentColor';
+  get ariaLabelledby(): string | null {
+    return this.args.title ? this._titleId : null;
   }
 
-  get role(): string | undefined {
+  get role(): 'img' | undefined {
     return this.args.title ? 'img' : undefined;
   }
 }

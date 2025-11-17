@@ -3,13 +3,13 @@
   viewBox={{@icon.attrs.viewBox}}
   width={{@icon.attrs.width}}
   height={{@icon.attrs.height}}
-  fill={{this.fillColor}}
   role={{this.role}}
-  aria-hidden={{this.ariaHidden}}
+  aria-hidden="{{if @title 'false' 'true'}}"
+  aria-labelledby={{this.ariaLabelledby}}
   ...attributes
 >
   {{#if @title}}
-    <title>{{@title}}</title>
+    <title id={{this._titleId}}>{{@title}}</title>
   {{/if}}
 
   {{#each @icon.content as |node|}}
