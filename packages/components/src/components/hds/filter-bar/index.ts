@@ -6,9 +6,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { service } from '@ember/service';
 
 import type { WithBoundArgs } from '@glint/template';
 
+import type HdsIntlService from '../../../services/hds-intl';
 import type {
   HdsFilterBarFilters,
   HdsFilterBarFilter,
@@ -42,6 +44,8 @@ export interface HdsFilterBarSignature {
 }
 
 export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
+  @service hdsIntl!: HdsIntlService;
+
   @tracked _isExpanded: boolean = true;
 
   get searchValue(): string {
@@ -169,7 +173,22 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
   private _rangeFilterText = (data: HdsFilterBarData): string => {
     if ('selector' in data && 'value' in data) {
-      return `${SELECTORS_DISPLAY_SYMBOL[data.selector]} ${data.value}`;
+      if (
+        data.selector === 'between' &&
+        typeof data.value === 'object' &&
+        data.value !== null
+      ) {
+        const separatorText = this.hdsIntl.t(
+          'hds.components.filter-bar.filter-text.range-filter.separator',
+          {
+            default: 'and',
+          }
+        );
+        return `${SELECTORS_DISPLAY_SYMBOL[data.selector]} ${data.value.start} ${separatorText} ${data.value.end}`;
+      } else if (typeof data.value !== 'object') {
+        return `${SELECTORS_DISPLAY_SYMBOL[data.selector]} ${data.value}`;
+      }
+      return '';
     } else {
       return '';
     }

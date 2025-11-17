@@ -19,7 +19,7 @@ export interface HdsFilterBarGenericFilterData {
 
 export interface HdsFilterBarRangeFilterData {
   selector: HdsFilterBarRangeFilterSelector;
-  value: number;
+  value: HdsFilterBarRangeFilterValue;
 }
 
 export type HdsFilterBarData =
@@ -67,7 +67,12 @@ export enum HdsFilterBarRangeFilterSelectorValues {
   equalTo = 'equal-to',
   greaterThanOrEqualTo = 'greater-than-or-equal-to',
   greaterThan = 'greater-than',
+  between = 'between',
 }
 
 export type HdsFilterBarRangeFilterSelector =
   `${HdsFilterBarRangeFilterSelectorValues}`;
+
+export type HdsFilterBarRangeFilterValue =
+  | number
+  | { start?: number; end?: number };

@@ -87,8 +87,6 @@ export default class HdsFilterBarTabsTab extends Component<HdsFilterBarTabsTabSi
   onClick(event: MouseEvent): false | undefined {
     const { onClick } = this.args;
 
-    console.log('onClick event in Tab:', event);
-
     if (this.nodeIndex !== undefined && typeof onClick === 'function') {
       onClick(event, this.nodeIndex);
     } else {
