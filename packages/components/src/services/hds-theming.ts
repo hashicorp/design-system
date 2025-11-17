@@ -26,11 +26,6 @@ export enum HdsModesDarkValues {
   CdsG100 = 'cds-g100',
 }
 
-export enum HdsCssSelectorsValues {
-  Data = 'data',
-  Class = 'class',
-}
-
 export type HdsThemes = `${HdsThemeValues}`;
 export type HdsModes =
   | `${HdsModesBaseValues}`
@@ -38,12 +33,10 @@ export type HdsModes =
   | `${HdsModesDarkValues}`;
 export type HdsModesLight = `${HdsModesLightValues}`;
 export type HdsModesDark = `${HdsModesDarkValues}`;
-export type HdsCssSelectors = `${HdsCssSelectorsValues}`;
 
 type HdsThemingOptions = {
   lightTheme: HdsModesLight;
   darkTheme: HdsModesDark;
-  cssSelector: HdsCssSelectors;
 };
 
 type SetThemeArgs = {
@@ -72,7 +65,6 @@ export const HDS_THEMING_LOCALSTORAGE_DATA = 'hds-theming-data';
 
 export const DEFAULT_THEMING_OPTION_LIGHT_THEME = HdsModesLightValues.CdsG0;
 export const DEFAULT_THEMING_OPTION_DARK_THEME = HdsModesDarkValues.CdsG100;
-export const DEFAULT_THEMING_OPTION_CSS_SELECTOR = 'data';
 
 export default class HdsThemingService extends Service {
   @tracked _currentTheme: HdsThemes | undefined = undefined;
@@ -80,8 +72,6 @@ export default class HdsThemingService extends Service {
   @tracked _currentLightTheme: HdsModesLight =
     DEFAULT_THEMING_OPTION_LIGHT_THEME;
   @tracked _currentDarkTheme: HdsModesDark = DEFAULT_THEMING_OPTION_DARK_THEME;
-  @tracked _currentCssSelector: HdsCssSelectors =
-    DEFAULT_THEMING_OPTION_CSS_SELECTOR;
   @tracked globalOnSetTheme: OnSetThemeCallback | undefined;
 
   initializeTheme() {
@@ -105,24 +95,21 @@ export default class HdsThemingService extends Service {
 
   setTheme({ theme, options, onSetTheme }: SetThemeArgs) {
     if (options !== undefined) {
-      // if we have new options, we override the current ones (`lightTheme` / `darkTheme` / `cssSelector`)
+      // if we have new options, we override the current ones (`lightTheme` / `darkTheme`)
       // these options can be used by consumers that want to customize how they apply theming
       // (and used by the showcase for the custom theming / theme switching logic)
       if (
         Object.hasOwn(options, 'lightTheme') &&
-        Object.hasOwn(options, 'darkTheme') &&
-        Object.hasOwn(options, 'cssSelector')
+        Object.hasOwn(options, 'darkTheme')
       ) {
-        const { lightTheme, darkTheme, cssSelector } = options;
+        const { lightTheme, darkTheme } = options;
 
         this._currentLightTheme = lightTheme;
         this._currentDarkTheme = darkTheme;
-        this._currentCssSelector = cssSelector;
       } else {
         // fallback if something goes wrong
         this._currentLightTheme = DEFAULT_THEMING_OPTION_LIGHT_THEME;
         this._currentDarkTheme = DEFAULT_THEMING_OPTION_DARK_THEME;
-        this._currentCssSelector = DEFAULT_THEMING_OPTION_CSS_SELECTOR;
       }
     }
 
@@ -160,30 +147,15 @@ export default class HdsThemingService extends Service {
       return;
     }
     // remove or update the CSS selectors applied to the root element (depending on the `theme`/`mode` arguments)
-    const hdsThemingDataAttributesToRemove = Array.from(
-      rootElement.attributes
-    ).filter((attribute) => attribute.name.match(/^hds-data-(theme|mode)/));
-    hdsThemingDataAttributesToRemove.forEach((attribute) =>
-      rootElement.removeAttribute(attribute.name)
-    );
     const hdsThemingClassesToRemove = Array.from(rootElement.classList).filter(
       (className) => className.match(/^hds-(theme|mode)/)
     );
     rootElement.classList.remove(...hdsThemingClassesToRemove);
-    if (this._currentCssSelector === 'data') {
-      if (this._currentTheme !== undefined) {
-        rootElement.setAttribute('data-hds-theme', this._currentTheme);
-      }
-      if (this._currentMode !== undefined) {
-        rootElement.setAttribute('data-hds-mode', this._currentMode);
-      }
-    } else if (this._currentCssSelector === 'class') {
-      if (this._currentTheme !== undefined) {
-        rootElement.classList.add(`hds-theme-${this._currentTheme}`);
-      }
-      if (this._currentMode !== undefined) {
-        rootElement.classList.add(`hds-mode-${this._currentMode}`);
-      }
+    if (this._currentTheme !== undefined) {
+      rootElement.classList.add(`hds-theme-${this._currentTheme}`);
+    }
+    if (this._currentMode !== undefined) {
+      rootElement.classList.add(`hds-mode-${this._currentMode}`);
     }
 
     // store the current theme and theming options in local storage (unless undefined)
@@ -194,7 +166,6 @@ export default class HdsThemingService extends Service {
         options: {
           lightTheme: this._currentLightTheme,
           darkTheme: this._currentDarkTheme,
-          cssSelector: this._currentCssSelector,
         },
       })
     );
@@ -232,9 +203,5 @@ export default class HdsThemingService extends Service {
 
   get currentDarkTheme(): HdsModesDark {
     return this._currentDarkTheme ?? DEFAULT_THEMING_OPTION_DARK_THEME;
-  }
-
-  get currentCssSelector(): HdsCssSelectors {
-    return this._currentCssSelector ?? DEFAULT_THEMING_OPTION_CSS_SELECTOR;
   }
 }

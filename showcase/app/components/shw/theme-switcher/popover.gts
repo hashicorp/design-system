@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
-import { hash, fn } from '@ember/helper';
+import { fn } from '@ember/helper';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
 
@@ -21,7 +21,6 @@ import {
 import type {
   HdsModesLight,
   HdsModesDark,
-  HdsCssSelectors,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
 import type { OnApply } from './index';
@@ -43,7 +42,6 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
   _element!: HTMLDivElement;
   @tracked _selectedLightTheme!: HdsModesLight;
   @tracked _selectedDarkTheme!: HdsModesDark;
-  @tracked _selectedCssSelector!: HdsCssSelectors;
   @tracked _hasFixedControls!: boolean;
   @tracked _hasDebuggingPanel!: boolean;
 
@@ -64,7 +62,6 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
     // is actually stored in the components/services/localstorage
     this._selectedLightTheme = this.hdsTheming.currentLightTheme;
     this._selectedDarkTheme = this.hdsTheming.currentDarkTheme;
-    this._selectedCssSelector = this.hdsTheming.currentCssSelector;
     this._hasFixedControls = this.args.hasFixedControls;
     this._hasDebuggingPanel = this.args.hasDebuggingPanel;
   };
@@ -77,9 +74,6 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
         break;
       case 'dark-theme':
         this._selectedDarkTheme = select.value as HdsModesDark;
-        break;
-      case 'css-selector':
-        this._selectedCssSelector = select.value as HdsCssSelectors;
         break;
     }
   };
@@ -104,7 +98,6 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
       options: {
         lightTheme: this._selectedLightTheme,
         darkTheme: this._selectedDarkTheme,
-        cssSelector: this._selectedCssSelector,
       },
     });
 
@@ -147,12 +140,6 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
           @values={{MODES_DARK}}
           @selectedValue={{this._selectedDarkTheme}}
           @onChange={{(fn this.onChangeAdvancedOption "dark-theme")}}
-        />
-        <ShwThemeSwitcherControlSelect
-          @label="CSS selector"
-          @values={{(hash data="data attribute" class="CSS class")}}
-          @selectedValue={{this._selectedCssSelector}}
-          @onChange={{(fn this.onChangeAdvancedOption "css-selector")}}
         />
       </div>
 
