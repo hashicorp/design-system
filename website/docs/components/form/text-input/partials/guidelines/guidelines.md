@@ -110,7 +110,12 @@ Readonly fields are not editable by the user but the value in the field **is** p
 
 Disabled fields are also not editable by the user and the value in the field **is not** passed when the form is submitted.
 
-Note: Screen readers do not have access to disabled fields. For that reason, we recommend caution in using them.
+!!! Warning
+
+**Accessibility alert**
+
+Screen readers do not have access to disabled fields; therefore, we recommend against disabling fields. Please read more about [showing, hiding, or disabling elements](https://helios.hashicorp.design/patterns/disabled-patterns).
+!!!
 
 <Hds::Form::TextInput::Field @type="text" @width="300px" @value="helios-cluster-31" disabled as |F|>
   <F.Label>Cluster ID</F.Label>
