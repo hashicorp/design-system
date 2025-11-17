@@ -3,9 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  resetOnerror,
+  setupOnerror,
+  settled,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
@@ -42,11 +47,15 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     assert.dom('img').exists();
   });
 
-  // Skipping this test because we're not actually checking the correct thing here. Noting that this test needs to be re-written and it's possible the component needs to be revisited.
-  skip('if an @imageSrc is declared but the file does not exist, the flight icon should render in the component', async function (assert) {
+  // Need the extra await settled here because the test is flaky otherwise; would fail 1/6 times the test was run. After adding the extra settled, ran the test 20 times in a row and the test passed each time.
+  test('if an @imageSrc is declared but the file does not exist, the flight icon should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc='/assets/images/avatar-broken.png' id="test-toggle-icon" />`,
+      hbs`<Hds::Dropdown::Toggle::Icon
+      @imageSrc="/assets/images/avatar-broken.png"
+      @text="user menu" id="test-toggle-icon" />`,
     );
+    // eslint-disable-next-line ember/no-settled-after-test-helper
+    await settled();
     assert.dom('img').doesNotExist();
     assert.dom('#test-toggle-icon .hds-icon.hds-icon-user').exists();
   });
