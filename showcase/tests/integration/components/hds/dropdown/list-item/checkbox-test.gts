@@ -52,7 +52,6 @@ module(
     test('it should forward the `id` and `value` arguments to the input control', async function (assert) {
       await render(
         <template>
-          {{! @glint-expect-error - testing invalid component usage (@id arg doesn't exist) }}
           <HdsDropdownListItemCheckbox @id="id" @value="value">Checkbox item</HdsDropdownListItemCheckbox>
         </template>,
       );
