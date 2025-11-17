@@ -12,6 +12,7 @@ export interface HdsDropdownListItemRadioSignature {
   Args: HdsFormRadioBaseSignature['Args'] & {
     count?: string | number;
     icon?: HdsIconSignature['Args']['name'];
+    id?: string;
   };
   Blocks: {
     default: [];
