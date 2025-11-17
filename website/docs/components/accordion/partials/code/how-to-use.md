@@ -226,19 +226,13 @@ The `@forceState` argument can be used to programmatically control individual Ac
   // Store Item state in session storage to persist across page reloads
   constructor(owner, args) {
     super(owner, args);
-
-    if (typeof window !== 'undefined' && typeof sessionStorage !== 'undefined') {
-      const saved = sessionStorage.getItem(STORAGE_KEY);
-        this.itemState = saved ?? 'open';
-      }
+    this.itemState = sessionStorage.getItem(STORAGE_KEY) ?? 'open';
   }
 
   @action
   onItemToggle() {
     this.itemState = this.itemState === 'open' ? 'close' : 'open';
-     if (typeof window !== 'undefined' && typeof sessionStorage !== 'undefined') {
-      sessionStorage.setItem(STORAGE_KEY, this.itemState);
-    }
+    sessionStorage.setItem(STORAGE_KEY, this.itemState);
   }
 </Hds::Form>
 ```
