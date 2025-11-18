@@ -488,12 +488,6 @@ importers:
       '@babel/plugin-proposal-decorators':
         specifier: ^7.27.1
         version: 7.28.0(@babel/core@7.28.0)
-      '@codemirror/lint':
-        specifier: ^6.8.4
-        version: 6.8.5
-      '@codemirror/state':
-        specifier: ^6.5.0
-        version: 6.5.2
       '@ember/optional-features':
         specifier: ^2.2.0
         version: 2.2.0

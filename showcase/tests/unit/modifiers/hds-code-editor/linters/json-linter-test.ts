@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { Text } from '@codemirror/state';
+import { Text } from '@hashicorp/design-system-components/codemirror';
 import {
   findNextToken,
   determineErrorMessage,
