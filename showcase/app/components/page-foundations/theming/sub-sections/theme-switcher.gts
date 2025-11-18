@@ -23,17 +23,14 @@ export default class SubSectionThemeSwitcher extends Component {
     currentTheme,
   }: OnSetThemeCallbackArgs) => {
     if (
-      (currentTheme === 'system' &&
-        (this.shwTheming.currentStylesheet === 'standard' ||
-          this.shwTheming.currentStylesheet === 'css-selectors')) ||
-      ((currentTheme === 'light' || currentTheme === 'dark') &&
-        (this.shwTheming.currentStylesheet === 'standard' ||
-          this.shwTheming.currentStylesheet === 'prefers-color-scheme'))
+      this.shwTheming.currentStylesheet === 'standard' ||
+      (currentTheme === 'default' &&
+        this.shwTheming.currentStylesheet === 'css-selectors')
     ) {
       window.alert(
-        'The theming stylesheet will be switched to "combined-strategies" to support this theme selection.',
+        'The theming stylesheet will be switched to "css-selectors--migration" to support this theme selection.',
       );
-      this.shwTheming.setStylesheet('combined-strategies');
+      this.shwTheming.setStylesheet('css-selectors--migration');
     }
   };
 
