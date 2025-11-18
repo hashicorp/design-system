@@ -132,6 +132,7 @@ const ButtonCarbonization: TemplateOnlyComponent = <template>
             <SF.Item>
               <HdsButton
                 @icon="plus"
+                @iconPosition="trailing"
                 @text="Lorem ipsum"
                 @size={{size}}
                 @isInline={{true}}
@@ -163,7 +164,12 @@ const ButtonCarbonization: TemplateOnlyComponent = <template>
     {{#each COLORS as |color|}}
       <ShwCarbonizationComparisonGrid @label={{color}}>
         <:theming>
-          <HdsButton @icon="plus" @text="Lorem ipsum" @color={{color}} />
+          <HdsButton
+            @icon="plus"
+            @iconPosition="trailing"
+            @text="Lorem ipsum"
+            @color={{color}}
+          />
         </:theming>
         <:reference>
           <cds-button size="md" kind={{mapHdsColorToCdsKind color}}><HdsIcon
@@ -190,6 +196,7 @@ const ButtonCarbonization: TemplateOnlyComponent = <template>
                   {{#if (eq state "disabled")}}
                     <HdsButton
                       @icon="plus"
+                      @iconPosition="trailing"
                       @text="Lorem"
                       @size={{size}}
                       @color={{color}}
@@ -198,6 +205,7 @@ const ButtonCarbonization: TemplateOnlyComponent = <template>
                   {{else}}
                     <HdsButton
                       @icon="plus"
+                      @iconPosition="trailing"
                       @text="Lorem"
                       @size={{size}}
                       @color={{color}}
