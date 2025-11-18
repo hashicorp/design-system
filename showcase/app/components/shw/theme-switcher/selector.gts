@@ -15,7 +15,13 @@ import type { HdsThemes } from '@hashicorp/design-system-components/services/hds
 
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 
-export default class ShwThemeSwitcherSelector extends Component {
+interface ShwThemeSwitcherSelectorSignature {
+  Args: {
+    showAdvancedOptions?: boolean;
+  };
+}
+
+export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcherSelectorSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
   @service declare readonly shwTheming: ShwThemingService;
 
@@ -32,14 +38,9 @@ export default class ShwThemeSwitcherSelector extends Component {
   }
 
   get themingOptions(): Record<string, Record<string, string>> {
-    return {
+    const defaultOptions = {
       'No theming': {
         'standard|': 'HDS / Standard',
-      },
-      'Theming via CSS selectors': {
-        'css-selectors|system': 'Carbon / System',
-        'css-selectors|light': 'Carbon / Light',
-        'css-selectors|dark': 'Carbon / Dark',
       },
       'Theming via CSS selectors / Migration': {
         'css-selectors--migration|default': 'HDS / Default',
@@ -47,6 +48,13 @@ export default class ShwThemeSwitcherSelector extends Component {
         'css-selectors--migration|light': 'Carbon / Light',
         'css-selectors--migration|dark': 'Carbon / Dark',
       },
+      'Theming via CSS selectors / Final': {
+        'css-selectors|system': 'Carbon / System',
+        'css-selectors|light': 'Carbon / Light',
+        'css-selectors|dark': 'Carbon / Dark',
+      },
+    };
+    const advancedOptions = {
       'Theming via CSS selectors / Advanced': {
         'css-selectors--advanced|default': 'HDS / Default',
         'css-selectors--advanced|system': 'Carbon / System',
@@ -54,6 +62,10 @@ export default class ShwThemeSwitcherSelector extends Component {
         'css-selectors--advanced|dark': `Carbon / Dark (${this.gDark})`,
       },
     };
+
+    return this.args.showAdvancedOptions
+      ? { ...defaultOptions, ...advancedOptions }
+      : defaultOptions;
   }
 
   onSelectPageTheme = (event: Event) => {
