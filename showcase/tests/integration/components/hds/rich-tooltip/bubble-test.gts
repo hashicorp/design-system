@@ -84,7 +84,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
 
   // WIDTH/HEIGHT
 
-  test('it should render the container with the provided with/height', async function (assert) {
+  test('it should render the container with the provided width/height', async function (assert) {
     await render(
       <template>
         {{! @glint-expect-error - @setupPrimitivePopper is a required arg, but we are not passing to test the bubble in isolation }}
