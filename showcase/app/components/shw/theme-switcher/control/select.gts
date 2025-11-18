@@ -3,7 +3,7 @@ import { guidFor } from '@ember/object/internals';
 import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
 
-interface ShwThemeSwitcherControlSelectSignature {
+export interface ShwThemeSwitcherControlSelectSignature {
   Args: {
     label: string;
     values?: string[] | Record<string, string>;
@@ -13,6 +13,7 @@ interface ShwThemeSwitcherControlSelectSignature {
   Blocks: {
     default: [];
   };
+  Element: HTMLSelectElement;
 }
 
 export default class ShwThemeSwitcherControlSelect extends Component<ShwThemeSwitcherControlSelectSignature> {
@@ -46,6 +47,7 @@ export default class ShwThemeSwitcherControlSelect extends Component<ShwThemeSwi
         id={{this.selectId}}
         class="shw-theme-switcher__control-select"
         {{on "change" this.onChange}}
+        ...attributes
       >
         {{#if this.options}}
           {{#each-in this.options as |key text|}}
