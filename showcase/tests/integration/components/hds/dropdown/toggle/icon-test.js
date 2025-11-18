@@ -9,7 +9,7 @@ import {
   render,
   resetOnerror,
   setupOnerror,
-  settled,
+  waitFor,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
@@ -48,14 +48,14 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   });
 
   // Need the extra await settled here because the test is flaky otherwise; would fail 1/6 times the test was run. After adding the extra settled, ran the test 20 times in a row and the test passed each time.
-  test('if an @imageSrc is declared but the file does not exist, the flight icon should render in the component', async function (assert) {
+  test('if an @imageSrc is declared but the file does not exist, the user icon should render in the component', async function (assert) {
     await render(
       hbs`<Hds::Dropdown::Toggle::Icon
       @imageSrc="/assets/images/avatar-broken.png"
       @text="user menu" id="test-toggle-icon" />`,
     );
-    // eslint-disable-next-line ember/no-settled-after-test-helper
-    await settled();
+
+    await waitFor('.hds-icon.hds-icon-user');
     assert.dom('img').doesNotExist();
     assert.dom('#test-toggle-icon .hds-icon.hds-icon-user').exists();
   });
