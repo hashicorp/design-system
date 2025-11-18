@@ -181,7 +181,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
       .dom('.hds-rich-tooltip__bubble')
       .hasAttribute('id', 'test-rich-tooltip-bubble');
   });
-  test('it should not override the ID value provided with @popoverId with an attribute', async function (assert) {
+  test('it should not override the ID value provided with @popoverId with a passed in id attribute', async function (assert) {
     await render(
       <template>
         {{! @glint-expect-error - @setupPrimitivePopper is a required arg, but we are not passing to test the bubble in isolation }}
