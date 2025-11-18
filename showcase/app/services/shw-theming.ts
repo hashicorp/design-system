@@ -11,30 +11,30 @@ import HdsThemingService from '@hashicorp/design-system-components/services/hds-
 
 export type ShwStylesheets =
   | 'standard'
-  | 'prefers-color-scheme'
   | 'css-selectors'
-  | 'combined-strategies';
+  | 'css-selectors--migration'
+  | 'css-selectors--advanced'
 
 const ALL_STYLESHEETS_IDS: string[] = [
   'hds-components-stylesheet-default',
-  'hds-tokens-with-prefers-color-scheme',
   'hds-tokens-with-css-selectors',
-  'hds-tokens-with-combined-strategies',
+  'hds-tokens-with-css-selectors--migration',
+  'hds-tokens-with-css-selectors--advanced',
   'hds-components-stylesheet-common',
 ] as const;
 
 const STYLESHEETS_MAPPING: Record<ShwStylesheets, string[]> = {
   standard: ['hds-components-stylesheet-default'],
-  'prefers-color-scheme': [
-    'hds-tokens-with-prefers-color-scheme',
-    'hds-components-stylesheet-common',
-  ],
   'css-selectors': [
     'hds-tokens-with-css-selectors',
     'hds-components-stylesheet-common',
   ],
-  'combined-strategies': [
-    'hds-tokens-with-combined-strategies',
+  'css-selectors--migration': [
+    'hds-tokens-with-css-selectors--migration',
+    'hds-components-stylesheet-common',
+  ],
+  'css-selectors--advanced': [
+    'hds-tokens-with-css-selectors--advanced',
     'hds-components-stylesheet-common',
   ],
 };
