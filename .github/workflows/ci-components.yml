@@ -70,7 +70,6 @@ jobs:
       matrix:
         try-scenario:
           - ember-lts-4.12
-          # - hds-ember
           # - ember-release
           - ember-beta
           # - ember-canary
