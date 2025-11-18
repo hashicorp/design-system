@@ -12,3 +12,4 @@ value-input:
 between-value-inputs:
   start-placeholder: Start
   end-placeholder: End
+clear: Clear filter
