@@ -20,70 +20,56 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
 
   const header = await fileHeader({});
 
-  const methods = ['prefers-color-scheme', 'css-selectors', 'combined-strategies', 'scss-mixins'];
+  const methods = ['css-selectors', 'css-selectors--migration', 'css-selectors--advanced', 'scss-mixins'];
 
   for (const method of methods) {
 
     let outputContent = `${header}\n\n`;
 
-    // CSS file for `prefers-color-scheme` (note: we use `cds-g0` for `light` and `cds-g100` for `dark`
-    if (method === 'prefers-color-scheme') {
-      outputContent = `${header}\n\n`;
-      //
-      // this is the fallback to the `default` mode (standard HDS)
-      outputContent += `${defaultThemedSource.replace(/^:root/, ':root, .hds-theme-default')}\n\n`;
-      //
+    // CSS file for combined `system/light/dark` themes in the same file (using `.class` selectors)
+    if (method.startsWith('css-selectors')) {
+
+      // this is the `:root`-only fallback if no theme is applied at all (we use the light/`cds-g0` mode)
+      if (method === 'css-selectors') {
+        outputContent += `${cds0ThemedSource}\n\n`;
+      }
+      // this is the `default` mode (standard HDS) - used for development (while migrating or in the showcase) but also as `:root`-only fallback fallback if no theme is applied at all
+      if (method === 'css-selectors--migration' || method === 'css-selectors--advanced') {
+        outputContent += `${defaultThemedSource.replace(/^:root/, ':root, .hds-theme-default')}\n\n`;
+      }
+
       // these are the themed `carbonized` tokens
       outputContent += `@media (prefers-color-scheme: light) { ${cds0ThemedSource.replace(/^:root/, '.hds-theme-system')} }\n\n`;
       outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource.replace(/^:root/, '.hds-theme-system')} }\n\n`;
-      //
-      // this is the common part
-      outputContent += getCssVariablesStalenessComment();
-      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-system')}\n\n`;
-    }
+      if (method === 'css-selectors' || method === 'css-selectors--migration') {
+        // note: we use `cds-g0` for `light` and `cds-g100` for `dark`
+        outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light')}\n\n`;
+        outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark')}\n\n`;
+      }
+      if (method === 'css-selectors--advanced') {
+        // note: we use `cds-g0` for `light` and `cds-g100` for `dark`
+        outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-mode-cds-g0')}\n\n`;
+        outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark, .hds-mode-cds-g100')}\n\n`;
+        // we write these _after_ the light/dark selectors so they can overwrite the previous declarations (they all have the same specificity)
+        outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-mode-cds-g10')}\n\n`;
+        outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-mode-cds-g90')}\n\n`;
+      }
 
-    // CSS file for `.class` selectors
-    if (method === 'css-selectors') {
-      outputContent = `${header}\n\n`;
-      //
-      // this is the fallback to the `default` mode (standard HDS)
-      outputContent += `${defaultThemedSource.replace(/^:root/, ':root, .hds-theme-default')}\n\n`;
-      //
-      // these are the themed `carbonized` tokens
-      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-mode-cds-g0')}\n\n`;
-      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark, .hds-mode-cds-g100')}\n\n`;
-      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-mode-cds-g10')}\n\n`;
-      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-mode-cds-g90')}\n\n`;
-      //
       // this is the common part
       outputContent += getCssVariablesStalenessComment();
-      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-light, .hds-theme-dark, .hds-mode-cds-g0, .hds-mode-cds-g10, .hds-mode-cds-g90, .hds-mode-cds-g100')}\n\n`;
-    }
-
-    // CSS file for combined `prefers-color-scheme` and CSS selectors in the same file
-    if (method === 'combined-strategies') {
-      outputContent = `${header}\n\n`;
-      //
-      // this is the fallback to the `default` mode (standard HDS)
-      outputContent += `${defaultThemedSource.replace(/^:root/, ':root, .hds-theme-default')}\n\n`;
-      //
-      // these are the themed `carbonized` tokens
-      // note: we will revisit the `[class*=hds-theme-]` selector if we find that is too generic and there are cases where this is picking up other classes
-      outputContent += `@media (prefers-color-scheme: light) { ${cds0ThemedSource.replace(/^:root/, '.hds-theme-system')} }\n\n`;
-      outputContent += `@media (prefers-color-scheme: dark) { ${cds100ThemedSource.replace(/^:root/, '.hds-theme-system')} }\n\n`;
-      outputContent += `${cds0ThemedSource.replace(/^:root/, '.hds-theme-light, .hds-mode-cds-g0')}\n\n`;
-      outputContent += `${cds100ThemedSource.replace(/^:root/, '.hds-theme-dark, .hds-mode-cds-g100')}\n\n`;
-      outputContent += `${cds10ThemedSource.replace(/^:root/, '.hds-mode-cds-g10')}\n\n`;
-      outputContent += `${cds90ThemedSource.replace(/^:root/, '.hds-mode-cds-g90')}\n\n`;
-      //
-      // this is the common part
-      outputContent += getCssVariablesStalenessComment();
-      outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-system, .hds-theme-light, .hds-theme-dark, .hds-mode-cds-g0, .hds-mode-cds-g10, .hds-mode-cds-g90, .hds-mode-cds-g100')}\n\n`;
+      if (method === 'css-selectors') {
+        outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-system, .hds-theme-light, .hds-theme-dark')}\n\n`;
+      }
+      if (method === 'css-selectors--migration') {
+        outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-system, .hds-theme-light, .hds-theme-dark')}\n\n`;
+      }
+      if (method === 'css-selectors--advanced') {
+        outputContent += `${commonSource.replace(/^:root/, ':root, .hds-theme-default, .hds-theme-system, .hds-theme-light, .hds-theme-dark, .hds-mode-cds-g0, .hds-mode-cds-g10, .hds-mode-cds-g90, .hds-mode-cds-g100')}\n\n`;
+      }
     }
 
     // SCSS file for mixins
     if (method === 'scss-mixins') {
-      outputContent = `${header}\n\n`;
       outputContent += `@mixin hds-theme-default() { ${defaultThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-light() { ${cds0ThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-dark() { ${cds100ThemedSource} }\n\n`;
