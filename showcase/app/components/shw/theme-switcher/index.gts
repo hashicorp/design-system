@@ -30,7 +30,13 @@ const LOCALSTORAGE_SHOW_ADVANCED_OPTIONS = 'shw-theming-show-advanced-options';
 const LOCALSTORAGE_FIXED_CONTROLS = 'shw-theming-has-fixed-controls';
 const LOCALSTORAGE_DEBUGGING_PANEL = 'shw-theming-has-debugging-panel';
 
-export default class ShwThemeSwitcher extends Component {
+interface ShwThemeSwitcherSignature {
+  Args: {
+    isCarbonizationPage: boolean;
+  };
+}
+
+export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
   @service declare readonly shwTheming: ShwThemingService;
 
@@ -40,8 +46,7 @@ export default class ShwThemeSwitcher extends Component {
 
   popoverId = `shw-theming-options-popover-${guidFor(this)}`;
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-  constructor(owner: Owner, args: {}) {
+  constructor(owner: Owner, args: ShwThemeSwitcherSignature['Args']) {
     super(owner, args);
 
     const storedShowAdvancedOptions = localStorage.getItem(
@@ -99,12 +104,14 @@ export default class ShwThemeSwitcher extends Component {
     >
       <ShwThemeSwitcherSelector
         @showAdvancedOptions={{this.showAdvancedOptions}}
+        @isCarbonizationPage={{@isCarbonizationPage}}
       />
       <button
         type="button"
         class="shw-theme-switcher__options-button"
         popovertarget={{this.popoverId}}
         aria-label="Options for theming"
+        disabled={{if @isCarbonizationPage true undefined}}
       >
         <HdsIcon @name="settings" /></button>
       <ShwThemeSwitcherPopover
