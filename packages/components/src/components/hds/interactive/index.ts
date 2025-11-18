@@ -44,10 +44,8 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
     }
   }
 
-  async resolveLinkToExternal() {
-    this.linkToExternal = await hdsResolveLinkToExternal(
-      this.args.isRouteExternal
-    );
+  resolveLinkToExternal() {
+    this.linkToExternal = hdsResolveLinkToExternal(this.args.isRouteExternal);
   }
   /**
    * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
