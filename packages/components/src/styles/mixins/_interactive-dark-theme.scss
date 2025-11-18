@@ -64,15 +64,9 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
     // See: https://sass-lang.com/d/mixed-decls
     & {
       color: var(--token-color-foreground-high-contrast);
-    }
-
-    & {
       background-color: var(--token-color-palette-neutral-700);
-    }
 
-    @if ($add-visible-border) {
-      // See: https://sass-lang.com/d/mixed-decls
-      & {
+      @if ($add-visible-border) {
         border-color: $hds-interactive-dark-theme-color-focus-action-internal;
       }
     }
