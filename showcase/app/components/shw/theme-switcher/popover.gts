@@ -28,6 +28,7 @@ import type { OnApply } from './index';
 interface ShwThemeSwitcherPopoverSignature {
   Args: {
     popoverId: string;
+    showAdvancedOptions: boolean;
     hasFixedControls: boolean;
     hasDebuggingPanel: boolean;
     onApply: OnApply;
@@ -42,6 +43,7 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
   _element!: HTMLDivElement;
   @tracked _selectedLightTheme!: HdsModesLight;
   @tracked _selectedDarkTheme!: HdsModesDark;
+  @tracked _showAdvancedOptions!: boolean;
   @tracked _hasFixedControls!: boolean;
   @tracked _hasDebuggingPanel!: boolean;
 
@@ -62,6 +64,7 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
     // is actually stored in the components/services/localstorage
     this._selectedLightTheme = this.hdsTheming.currentLightTheme;
     this._selectedDarkTheme = this.hdsTheming.currentDarkTheme;
+    this._showAdvancedOptions = this.args.showAdvancedOptions;
     this._hasFixedControls = this.args.hasFixedControls;
     this._hasDebuggingPanel = this.args.hasDebuggingPanel;
   };
@@ -84,6 +87,9 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
       case 'fixed-controls':
         this._hasFixedControls = input.checked;
         break;
+      case 'advanced-options':
+        this._showAdvancedOptions = input.checked;
+        break;
       case 'debugging-panel':
         this._hasDebuggingPanel = input.checked;
         break;
@@ -103,6 +109,7 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
 
     if (typeof this.args.onApply === 'function') {
       this.args.onApply({
+        showAdvancedOptions: this._showAdvancedOptions,
         hasFixedControls: this._hasFixedControls,
         hasDebuggingPanel: this._hasDebuggingPanel,
       });
@@ -123,24 +130,29 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
       {{this._registerPopover}}
       ...attributes
     >
-      <p class="shw-theme-switcher-popover__title">Advanced options</p>
-      <p class="shw-theme-switcher-popover__description">You can change what
-        modes are used for the light/dark themes, and what CSS selector is used
-        to apply the mode to the page:</p>
+      <p class="shw-theme-switcher-popover__description">You can change the
+        modes used for the light/dark themes using the advanced options:</p>
 
       <div class="shw-theme-switcher-popover__options-list">
-        <ShwThemeSwitcherControlSelect
-          @label="Light"
-          @values={{MODES_LIGHT}}
-          @selectedValue={{this._selectedLightTheme}}
-          @onChange={{(fn this.onChangeAdvancedOption "light-theme")}}
+        <ShwThemeSwitcherControlToggle
+          @label="Show advanced options"
+          @checked={{this._showAdvancedOptions}}
+          @onToggle={{(fn this.onTogglePreference "advanced-options")}}
         />
-        <ShwThemeSwitcherControlSelect
-          @label="Dark"
-          @values={{MODES_DARK}}
-          @selectedValue={{this._selectedDarkTheme}}
-          @onChange={{(fn this.onChangeAdvancedOption "dark-theme")}}
-        />
+        {{#if this._showAdvancedOptions}}
+          <ShwThemeSwitcherControlSelect
+            @label="Light"
+            @values={{MODES_LIGHT}}
+            @selectedValue={{this._selectedLightTheme}}
+            @onChange={{(fn this.onChangeAdvancedOption "light-theme")}}
+          />
+          <ShwThemeSwitcherControlSelect
+            @label="Dark"
+            @values={{MODES_DARK}}
+            @selectedValue={{this._selectedDarkTheme}}
+            @onChange={{(fn this.onChangeAdvancedOption "dark-theme")}}
+          />
+        {{/if}}
       </div>
 
       <hr class="shw-theme-switcher-popover__separator" />

@@ -11,7 +11,13 @@ import ShwLabel from '../../shw/label';
 import ShwThemingService from 'showcase/services/shw-theming';
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 
-export default class ShwThemeSwitcherDebuggingPanel extends Component {
+interface ShwThemeSwitcherDebuggingPanelSignature {
+  Args: {
+    showAdvancedOptions?: boolean;
+  };
+}
+
+export default class ShwThemeSwitcherDebuggingPanel extends Component<ShwThemeSwitcherDebuggingPanelSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
   @service declare readonly shwTheming: ShwThemingService;
 
@@ -35,18 +41,20 @@ export default class ShwThemeSwitcherDebuggingPanel extends Component {
       <ShwLabel
         class="shw-theme-switcher__debugging-panel-value"
       >{{this.hdsTheming.currentMode}}</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-key"
-      >currentLightTheme:</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-value"
-      >{{this.hdsTheming.currentLightTheme}}</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-key"
-      >currentDarkTheme:</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-value"
-      >{{this.hdsTheming.currentDarkTheme}}</ShwLabel>
+      {{#if @showAdvancedOptions}}
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-key"
+        >currentLightTheme:</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-value"
+        >{{this.hdsTheming.currentLightTheme}}</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-key"
+        >currentDarkTheme:</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-value"
+        >{{this.hdsTheming.currentDarkTheme}}</ShwLabel>
+      {{/if}}
     </div>
   </template>
 }
