@@ -29,14 +29,24 @@
     {{#if (eq @type "range")}}
       <Hds::FilterBar::Range @keyFilter={{this.keyFilter}} @onChange={{this.onRangeChange}} />
     {{else}}
-      <ul class="hds-filter-bar__filters-dropdown__filter-group__list">
-        {{yield
-          (hash
-            Checkbox=(component "hds/filter-bar/checkbox" keyFilter=this.keyFilter onChange=this.onSelectionChange)
-            Radio=(component "hds/filter-bar/radio" keyFilter=this.keyFilter onChange=this.onSelectionChange)
-          )
-        }}
-      </ul>
+      <div class="hds-filter-bar__filters-dropdown__filter-group__values-list">
+        <div class="hds-filter-bar__filters-dropdown__clear">
+          <Hds::Button
+            @text={{hds-t "hds.components.filter-bar.filter-group.clear" default="Clear selection"}}
+            @color="tertiary"
+            @icon="rotate-ccw"
+            {{on "click" this.onClear}}
+          />
+        </div>
+        <ul class="hds-filter-bar__filters-dropdown__filter-group__list">
+          {{yield
+            (hash
+              Checkbox=(component "hds/filter-bar/checkbox" keyFilter=this.keyFilter onChange=this.onSelectionChange)
+              Radio=(component "hds/filter-bar/radio" keyFilter=this.keyFilter onChange=this.onSelectionChange)
+            )
+          }}
+        </ul>
+      </div>
     {{/if}}
   </Panel>
 {{/let}}
