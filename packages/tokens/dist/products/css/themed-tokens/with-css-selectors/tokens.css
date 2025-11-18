@@ -2,18 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-:root,
-.hds-theme-default {
-  --token-color-palette-neutral-0: #ffffff;
-  --token-color-foreground-primary: #ffffff;
-  --token-typography-font-weight-regular: 400;
-  --token-typography-font-weight-medium: 500;
-  --token-typography-font-weight-semibold: 600;
-  --token-typography-font-weight-bold: 700;
-}
-
-.hds-theme-light,
-.hds-mode-cds-g0 {
+:root {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #161616;
   --token-typography-font-weight-regular: 400;
@@ -22,17 +11,29 @@
   --token-typography-font-weight-bold: 600;
 }
 
-.hds-theme-dark,
-.hds-mode-cds-g100 {
-  --token-color-palette-neutral-0: #ffffff;
-  --token-color-foreground-primary: #f4f4f4;
-  --token-typography-font-weight-regular: 400;
-  --token-typography-font-weight-medium: 400;
-  --token-typography-font-weight-semibold: 600;
-  --token-typography-font-weight-bold: 600;
+@media (prefers-color-scheme: light) {
+  .hds-theme-system {
+    --token-color-palette-neutral-0: #ffffff;
+    --token-color-foreground-primary: #161616;
+    --token-typography-font-weight-regular: 400;
+    --token-typography-font-weight-medium: 400;
+    --token-typography-font-weight-semibold: 600;
+    --token-typography-font-weight-bold: 600;
+  }
 }
 
-.hds-mode-cds-g10 {
+@media (prefers-color-scheme: dark) {
+  .hds-theme-system {
+    --token-color-palette-neutral-0: #ffffff;
+    --token-color-foreground-primary: #f4f4f4;
+    --token-typography-font-weight-regular: 400;
+    --token-typography-font-weight-medium: 400;
+    --token-typography-font-weight-semibold: 600;
+    --token-typography-font-weight-bold: 600;
+  }
+}
+
+.hds-theme-light {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #161616;
   --token-typography-font-weight-regular: 400;
@@ -41,7 +42,7 @@
   --token-typography-font-weight-bold: 600;
 }
 
-.hds-mode-cds-g90 {
+.hds-theme-dark {
   --token-color-palette-neutral-0: #ffffff;
   --token-color-foreground-primary: #f4f4f4;
   --token-typography-font-weight-regular: 400;
@@ -70,13 +71,9 @@ we redeclare each "computed" variable in every theme scope where its "source" va
 */
 
 :root,
-.hds-theme-default,
+.hds-theme-system,
 .hds-theme-light,
-.hds-theme-dark,
-.hds-mode-cds-g0,
-.hds-mode-cds-g10,
-.hds-mode-cds-g90,
-.hds-mode-cds-g100 {
+.hds-theme-dark {
   --token-border-radius-x-small: 3px;
   --token-border-radius-small: 5px;
   --token-border-radius-medium: 6px;
