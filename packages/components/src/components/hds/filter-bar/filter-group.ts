@@ -177,6 +177,16 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
     }
   }
 
+  @action
+  onClear(): void {
+    this.internalFilters = undefined;
+
+    const { onChange } = this.args;
+    if (onChange && typeof onChange === 'function') {
+      onChange(this.args.key, this.formattedFilters);
+    }
+  }
+
   get formattedFilters(): HdsFilterBarFilter | undefined {
     if (
       this.internalFilters === undefined ||
