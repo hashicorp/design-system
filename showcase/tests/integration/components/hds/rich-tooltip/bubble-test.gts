@@ -216,7 +216,6 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
       <template>
         {{! @glint-expect-error - @setupPrimitivePopper is a required arg, but we are not passing to test the bubble in isolation }}
         <HdsRichTooltipBubble
-          id="test-rich-tooltip-bubble"
           @popoverId="test-rich-tooltip-bubble"
           @arrowId="test-rich-tooltip-bubble-arrow"
         />
