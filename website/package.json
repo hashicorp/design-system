@@ -111,7 +111,7 @@
     "eslint-plugin-n": "^17.18.0",
     "eslint-plugin-qunit": "^8.1.2",
     "fs-extra": "^11.3.0",
-    "glob": "^11.0.3",
+    "glob": "^11.1.0",
     "globals": "^16.1.0",
     "gray-matter": "^4.0.3",
     "jsonapi-serializer": "^3.6.9",
