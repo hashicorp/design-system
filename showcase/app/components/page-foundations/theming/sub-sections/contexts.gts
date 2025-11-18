@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { service } from '@ember/service';
+import { helper } from '@ember/component/helper';
+import { eq } from 'ember-truth-helpers';
 import style from 'ember-style-modifier';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -14,15 +15,31 @@ import ShwGrid from 'showcase/components/shw/grid';
 import { HdsThemeContext } from '@hashicorp/design-system-components/components';
 
 import ShwThemingService from 'showcase/services/shw-theming';
-import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import {
   CONTEXTUAL_THEMES,
   CONTEXTUAL_MODES,
 } from '@hashicorp/design-system-components/components/hds/theme-context/index';
 
+import type { ShwStylesheets } from 'showcase/services/shw-theming';
+
+const styleIsAvailable = helper(
+  ([currentStylesheet, context]: [ShwStylesheets, string]) => {
+    const isAvailable =
+      (context === 'default' &&
+        (currentStylesheet === 'css-selectors--migration' ||
+          currentStylesheet === 'css-selectors--advanced')) ||
+      ((context === 'system' || context === 'light' || context === 'dark') &&
+        currentStylesheet !== 'standard') ||
+      (context.startsWith('cds-g') &&
+        currentStylesheet === 'css-selectors--advanced');
+    return isAvailable;
+  },
+);
+
 interface ThemingBasicContainerSignature {
   Args: {
     text?: string;
+    isAvailable?: boolean;
   };
   Blocks: {
     default: [];
@@ -30,74 +47,40 @@ interface ThemingBasicContainerSignature {
   Element: HTMLDivElement;
 }
 
-interface TheminBasicContainerWithParentSelectorSignature {
-  Args: {
-    subselector: string;
-  };
-  Element: ThemingBasicContainerSignature['Element'];
-}
+class ThemingBasicContainer extends Component<ThemingBasicContainerSignature> {
+  get text() {
+    // we use a special text if `@isAvailable` is explictly set to `false`
+    if (this.args.isAvailable === false) {
+      return '⤫';
+    } else {
+      return this.args.text;
+    }
+  }
 
-const ThemingBasicContainer: TemplateOnlyComponent<ThemingBasicContainerSignature> =
+  get classNames(): string {
+    const classes = ['shw-foundation-theming-basic-container'];
+
+    // add a class if `@isAvailable` is explictly set to `false`
+    if (this.args.isAvailable === false) {
+      classes.push('shw-foundation-theming-basic-container--not-available');
+    }
+
+    return classes.join(' ');
+  }
+
   <template>
-    <div class="shw-foundation-theming-basic-container" ...attributes>
-      {{#if @text}}
-        {{@text}}
-      {{else}}
+    <div class={{this.classNames}} ...attributes>
+      {{#if (has-block)}}
         {{yield}}
+      {{else}}
+        <div>{{this.text}}</div>
       {{/if}}
-    </div>
-  </template>;
-
-class TheminBasicContainerWithParentSelector extends Component<TheminBasicContainerWithParentSelectorSignature> {
-  @service declare readonly shwTheming: ShwThemingService;
-  @service declare readonly hdsTheming: HdsThemingService;
-
-  get classSelector() {
-    return `hds-theme-${this.args.subselector}`;
-  }
-
-  get notAvailable() {
-    const isAvailable =
-      (this.shwTheming.currentStylesheet === 'prefers-color-scheme' &&
-        (this.args.subselector === 'default' ||
-          this.args.subselector === 'system')) ||
-      (this.shwTheming.currentStylesheet === 'css-selectors' &&
-        this.args.subselector !== 'system') ||
-      this.shwTheming.currentStylesheet === 'combined-strategies';
-    return !isAvailable;
-  }
-
-  <template>
-    <div class={{this.classSelector}}>
-      <ThemingBasicContainer
-        class={{if
-          this.notAvailable
-          "shw-foundation-theming-basic-container--not-available"
-        }}
-      >
-        {{if this.notAvailable "⤫" "TEXT"}}
-      </ThemingBasicContainer>
     </div>
   </template>
 }
 
 export default class SubSectionContexts extends Component {
   @service declare readonly shwTheming: ShwThemingService;
-
-  get showParentContainerExamples() {
-    return (
-      this.shwTheming.currentStylesheet === 'prefers-color-scheme' ||
-      this.shwTheming.currentStylesheet === 'css-selectors' ||
-      this.shwTheming.currentStylesheet === 'combined-strategies'
-    );
-  }
-
-  get showNestedExamples() {
-    return (
-      this.shwTheming.currentStylesheet === 'css-selectors' ||
-      this.shwTheming.currentStylesheet === 'combined-strategies'
-    );
-  }
 
   <template>
     <ShwTextH2>Contextual theming</ShwTextH2>
@@ -127,7 +110,14 @@ export default class SubSectionContexts extends Component {
 
     <ShwTextH4>Parent container</ShwTextH4>
 
-    {{#if this.showParentContainerExamples}}
+    {{#if (eq this.shwTheming.currentStylesheet "standard")}}
+      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
+        <ShwTextBody>These examples are visible only if theming is applied via
+          "prefers color scheme" or "CSS selectors" or "combined strategies",
+          please select a theme below one of these two groups of options in the
+          selector at the top of the page</ShwTextBody>
+      </div>
+    {{else}}
       <ShwGrid
         @gap="4rem"
         @columns={{2}}
@@ -138,7 +128,16 @@ export default class SubSectionContexts extends Component {
           <SG.Item as |SGI|>
             <SGI.Label><code>@context={{theme}}</code></SGI.Label>
             <HdsThemeContext @context={{theme}}>
-              <ThemingBasicContainer @text="TEXT" />
+              {{#let
+                (styleIsAvailable this.shwTheming.currentStylesheet theme)
+                as |isAvailable|
+              }}
+                <ThemingBasicContainer
+                  @text="TEXT"
+                  @context={{theme}}
+                  @isAvailable={{isAvailable}}
+                />
+              {{/let}}
             </HdsThemeContext>
           </SG.Item>
         {{/each}}
@@ -146,25 +145,34 @@ export default class SubSectionContexts extends Component {
           <SG.Item as |SGI|>
             <SGI.Label><code>@context={{mode}}</code></SGI.Label>
             <HdsThemeContext @context={{mode}}>
-              <ThemingBasicContainer @text="TEXT" />
+              {{#let
+                (styleIsAvailable this.shwTheming.currentStylesheet mode)
+                as |isAvailable|
+              }}
+                <ThemingBasicContainer
+                  @text="TEXT"
+                  @context={{mode}}
+                  @isAvailable={{isAvailable}}
+                />
+              {{/let}}
             </HdsThemeContext>
           </SG.Item>
         {{/each}}
       </ShwGrid>
-    {{else}}
-      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
-        <ShwTextBody>These examples are visible only if theming is applied via
-          "prefers color scheme" or "CSS selectors" or "combined strategies",
-          please select a theme below one of these two groups of options in the
-          selector at the top of the page</ShwTextBody>
-      </div>
     {{/if}}
 
     <ShwDivider @level={{2}} />
 
     <ShwTextH4>Nested</ShwTextH4>
 
-    {{#if this.showNestedExamples}}
+    {{#if (eq this.shwTheming.currentStylesheet "standard")}}
+      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
+        <ShwTextBody>These examples are visible only if theming is applied via
+          "CSS selectors" or "combined strategies", please select a theme below
+          one of these two groups of options in the selector at the top of the
+          page</ShwTextBody>
+      </div>
+    {{else}}
       <ShwGrid
         @gap="4rem"
         @columns={{3}}
@@ -214,13 +222,6 @@ export default class SubSectionContexts extends Component {
           </HdsThemeContext>
         </SG.Item>
       </ShwGrid>
-    {{else}}
-      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
-        <ShwTextBody>These examples are visible only if theming is applied via
-          "CSS selectors" or "combined strategies", please select a theme below
-          one of these two groups of options in the selector at the top of the
-          page</ShwTextBody>
-      </div>
     {{/if}}
 
     <ShwDivider />
@@ -232,7 +233,14 @@ export default class SubSectionContexts extends Component {
 
     <ShwTextH4>Parent container</ShwTextH4>
 
-    {{#if this.showParentContainerExamples}}
+    {{#if (eq this.shwTheming.currentStylesheet "standard")}}
+      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
+        <ShwTextBody>These examples are visible only if theming is applied via
+          "prefers color scheme" or "CSS selectors" or "combined strategies",
+          please select a theme below one of these two groups of options in the
+          selector at the top of the page</ShwTextBody>
+      </div>
+    {{else}}
       <ShwGrid
         @gap="4rem"
         @columns={{2}}
@@ -245,25 +253,36 @@ export default class SubSectionContexts extends Component {
               <SGI.Label><code>
                   .hds-theme-{{theme}}
                 </code></SGI.Label>
-              <TheminBasicContainerWithParentSelector @subselector={{theme}} />
+              <div class="hds-theme-{{theme}}">
+                {{#let
+                  (styleIsAvailable this.shwTheming.currentStylesheet theme)
+                  as |isAvailable|
+                }}
+                  <ThemingBasicContainer
+                    @text="TEXT"
+                    @context={{theme}}
+                    @isAvailable={{isAvailable}}
+                  />
+                {{/let}}
+              </div>
             </SG.Item>
           {{/each}}
         {{/let}}
       </ShwGrid>
-    {{else}}
-      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
-        <ShwTextBody>These examples are visible only if theming is applied via
-          "prefers color scheme" or "CSS selectors" or "combined strategies",
-          please select a theme below one of these two groups of options in the
-          selector at the top of the page</ShwTextBody>
-      </div>
     {{/if}}
 
     <ShwDivider @level={{2}} />
 
     <ShwTextH4>Nested</ShwTextH4>
 
-    {{#if this.showNestedExamples}}
+    {{#if (eq this.shwTheming.currentStylesheet "standard")}}
+      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
+        <ShwTextBody>These examples are visible only if theming is applied via
+          "CSS selectors" or "combined strategies", please select a theme below
+          one of these two groups of options in the selector at the top of the
+          page</ShwTextBody>
+      </div>
+    {{else}}
       <ShwGrid
         @gap="4rem"
         @columns={{3}}
@@ -313,13 +332,6 @@ export default class SubSectionContexts extends Component {
           </div>
         </SG.Item>
       </ShwGrid>
-    {{else}}
-      <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
-        <ShwTextBody>These examples are visible only if theming is applied via
-          "CSS selectors" or "combined strategies", please select a theme below
-          one of these two groups of options in the selector at the top of the
-          page</ShwTextBody>
-      </div>
     {{/if}}
   </template>
 }
