@@ -36,20 +36,22 @@ export default class ShwThemeSwitcherSelector extends Component {
       'No theming': {
         'standard|': 'HDS / Standard',
       },
-      'Theming via prefers-color-scheme': {
-        'prefers-color-scheme|default': 'HDS / Default',
-        'prefers-color-scheme|system': 'Carbon / System',
-      },
       'Theming via CSS selectors': {
-        'css-selectors|default': 'HDS / Default',
-        'css-selectors|light': `Carbon / Light (${this.gLight})`,
-        'css-selectors|dark': `Carbon / Dark (${this.gDark})`,
+        'css-selectors|system': 'Carbon / System',
+        'css-selectors|light': 'Carbon / Light',
+        'css-selectors|dark': 'Carbon / Dark',
       },
-      'Theming via combined strategies': {
-        'combined-strategies|default': 'HDS / Default',
-        'combined-strategies|system': 'Carbon / System',
-        'combined-strategies|light': `Carbon / Light (${this.gLight})`,
-        'combined-strategies|dark': `Carbon / Dark (${this.gDark})`,
+      'Theming via CSS selectors / Migration': {
+        'css-selectors--migration|default': 'HDS / Default',
+        'css-selectors--migration|system': 'Carbon / System',
+        'css-selectors--migration|light': 'Carbon / Light',
+        'css-selectors--migration|dark': 'Carbon / Dark',
+      },
+      'Theming via CSS selectors / Advanced': {
+        'css-selectors--advanced|default': 'HDS / Default',
+        'css-selectors--advanced|system': 'Carbon / System',
+        'css-selectors--advanced|light': `Carbon / Light (${this.gLight})`,
+        'css-selectors--advanced|dark': `Carbon / Dark (${this.gDark})`,
       },
     };
   }
