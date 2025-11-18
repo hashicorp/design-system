@@ -18,18 +18,21 @@ import HdsThemingService from '@hashicorp/design-system-components/services/hds-
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
 export type ControlsPreferences = {
+  showAdvancedOptions: boolean;
   hasFixedControls: boolean;
   hasDebuggingPanel: boolean;
 };
 
 export type OnApply = (options: ControlsPreferences) => void;
 
+const LOCALSTORAGE_SHOW_ADVANCED_OPTIONS = 'shw-theming-show-advanced-options';
 const LOCALSTORAGE_FIXED_CONTROLS = 'shw-theming-has-fixed-controls';
 const LOCALSTORAGE_DEBUGGING_PANEL = 'shw-theming-has-debugging-panel';
 
 export default class ShwThemeSwitcher extends Component {
   @service declare readonly hdsTheming: HdsThemingService;
 
+  @tracked showAdvancedOptions: boolean;
   @tracked hasFixedControls: boolean;
   @tracked hasDebuggingPanel: boolean;
 
@@ -38,6 +41,11 @@ export default class ShwThemeSwitcher extends Component {
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   constructor(owner: Owner, args: {}) {
     super(owner, args);
+
+    const storedShowAdvancedOptions = localStorage.getItem(
+      LOCALSTORAGE_SHOW_ADVANCED_OPTIONS,
+    );
+    this.showAdvancedOptions = storedShowAdvancedOptions === 'true';
 
     const storedHasFixedControls = localStorage.getItem(
       LOCALSTORAGE_FIXED_CONTROLS,
@@ -50,10 +58,19 @@ export default class ShwThemeSwitcher extends Component {
     this.hasDebuggingPanel = storedHasDebuggingPanel === 'true';
   }
 
-  onApply = ({ hasFixedControls, hasDebuggingPanel }: ControlsPreferences) => {
+  onApply = ({
+    showAdvancedOptions,
+    hasFixedControls,
+    hasDebuggingPanel,
+  }: ControlsPreferences) => {
+    this.showAdvancedOptions = showAdvancedOptions;
     this.hasFixedControls = hasFixedControls;
     this.hasDebuggingPanel = hasDebuggingPanel;
 
+    localStorage.setItem(
+      LOCALSTORAGE_SHOW_ADVANCED_OPTIONS,
+      String(this.showAdvancedOptions),
+    );
     localStorage.setItem(
       LOCALSTORAGE_FIXED_CONTROLS,
       String(this.hasFixedControls),
@@ -69,7 +86,9 @@ export default class ShwThemeSwitcher extends Component {
       class="shw-theme-switcher
         {{if this.hasFixedControls 'shw-theme-switcher--is-fixed'}}"
     >
-      <ShwThemeSwitcherSelector />
+      <ShwThemeSwitcherSelector
+        @showAdvancedOptions={{this.showAdvancedOptions}}
+      />
       <button
         type="button"
         class="shw-theme-switcher__options-button"
@@ -79,12 +98,15 @@ export default class ShwThemeSwitcher extends Component {
         <HdsIcon @name="settings" /></button>
       <ShwThemeSwitcherPopover
         @popoverId={{this.popoverId}}
+        @showAdvancedOptions={{this.showAdvancedOptions}}
         @hasFixedControls={{this.hasFixedControls}}
         @hasDebuggingPanel={{this.hasDebuggingPanel}}
         @onApply={{this.onApply}}
       />
       {{#if this.hasDebuggingPanel}}
-        <ShwThemeSwitcherDebuggingPanel />
+        <ShwThemeSwitcherDebuggingPanel
+          @showAdvancedOptions={{this.showAdvancedOptions}}
+        />
       {{/if}}
     </div>
   </template>
