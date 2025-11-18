@@ -144,6 +144,12 @@ export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignat
     this._onChange();
   }
 
+  @action
+  onClear(): void {
+    this._resetInputValues();
+    this._onChange();
+  }
+
   private _onChange(): void {
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
@@ -171,5 +177,12 @@ export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignat
         default: 'test',
       }
     );
+  };
+
+  private _resetInputValues = (): void => {
+    this._selector = undefined;
+    this._value = undefined;
+    this._betweenValueStart = undefined;
+    this._betweenValueEnd = undefined;
   };
 }

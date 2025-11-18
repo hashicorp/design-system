@@ -47,4 +47,13 @@
       />
     {{/if}}
   </Hds::Layout::Flex>
+  <div class="hds-filter-bar__filters-dropdown__clear">
+    <Hds::Button
+      @text={{hds-t "hds.components.filter-bar.range.clear" default="Clear filter"}}
+      @color="tertiary"
+      @icon="rotate-ccw"
+      @isInline={{true}}
+      {{on "click" this.onClear}}
+    />
+  </div>
 </div>
