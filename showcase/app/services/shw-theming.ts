@@ -13,7 +13,7 @@ export type ShwStylesheets =
   | 'standard'
   | 'css-selectors'
   | 'css-selectors--migration'
-  | 'css-selectors--advanced'
+  | 'css-selectors--advanced';
 
 const ALL_STYLESHEETS_IDS: string[] = [
   'hds-components-stylesheet-default',
@@ -40,10 +40,18 @@ const STYLESHEETS_MAPPING: Record<ShwStylesheets, string[]> = {
 };
 
 const updatePageStylesheets = (currentStylesheet: ShwStylesheets) => {
+  // fallback in case the `currentStylesheet` is not found in the `STYLESHEETS_MAPPING` list
+  // note: this may happen if the underlying code/names has changed but the `currentStylesheet` is read from local storage
+  const styleSheetToActivate: ShwStylesheets = STYLESHEETS_MAPPING[
+    currentStylesheet
+  ]
+    ? currentStylesheet
+    : 'standard';
+
   // toggle the stylesheets `disabled` attribute depending on the current choice
   ALL_STYLESHEETS_IDS.forEach((id) => {
     const stylesheetElement = document.getElementById(id);
-    const activate = STYLESHEETS_MAPPING[currentStylesheet].includes(id);
+    const activate = STYLESHEETS_MAPPING[styleSheetToActivate].includes(id);
     if (stylesheetElement) {
       if (activate) {
         // note: `setAttribute('disabled', 'false')` does not work
