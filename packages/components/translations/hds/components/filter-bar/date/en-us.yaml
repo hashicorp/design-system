@@ -1,0 +1,18 @@
+date:
+  label: Date is
+datetime:
+  label: Datetime is
+time:
+  label: Time is
+selector-input:
+  default-value: Pick a selector
+  before: Before
+  exactly: Exactly
+  after: After
+  between: Between
+value-input:
+  placeholder: Enter a date
+between-value-inputs:
+  start-placeholder: Start
+  end-placeholder: End
+clear: Clear filter

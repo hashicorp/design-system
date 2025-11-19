@@ -25,6 +25,9 @@ import type {
   HdsFilterBarRangeFilterData,
   HdsFilterBarRangeFilterSelector,
   HdsFilterBarRangeFilterValue,
+  HdsFilterBarDateFilterData,
+  HdsFilterBarDateFilterSelector,
+  HdsFilterBarDateFilterValue,
 } from './types.ts';
 
 export interface HdsFilterBarFilterGroupSignature {
@@ -66,7 +69,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
 
       if (this.keyFilter) {
         this.internalFilters = JSON.parse(
-          JSON.stringify(this.keyFilter)
+          JSON.stringify(this.keyFilter.data)
         ) as HdsFilterBarData;
       }
     }
@@ -81,13 +84,13 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
     return type;
   }
 
-  get keyFilter(): HdsFilterBarData | undefined {
+  get keyFilter(): HdsFilterBarFilter | undefined {
     const { filters, key } = this.args;
 
     if (!filters) {
       return undefined;
     }
-    return filters[key]?.data;
+    return filters[key];
   }
 
   get numFilters(): number {
@@ -162,6 +165,31 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
         selector: selector,
         value: value,
       } as HdsFilterBarRangeFilterData;
+      return newFilter;
+    };
+
+    if (selector && value) {
+      this.internalFilters = addFilter();
+    } else {
+      this.internalFilters = undefined;
+    }
+
+    const { onChange } = this.args;
+    if (onChange && typeof onChange === 'function') {
+      onChange(this.args.key, this.formattedFilters);
+    }
+  }
+
+  @action
+  onDateChange(
+    selector?: HdsFilterBarDateFilterSelector,
+    value?: HdsFilterBarDateFilterValue
+  ): void {
+    const addFilter = (): HdsFilterBarData => {
+      const newFilter = {
+        selector: selector,
+        value: value,
+      } as HdsFilterBarDateFilterData;
       return newFilter;
     };
 

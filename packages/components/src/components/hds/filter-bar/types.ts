@@ -7,6 +7,9 @@ export enum HdsFilterBarFilterTypeValues {
   multiSelect = 'multi-select',
   singleSelect = 'single-select',
   range = 'range',
+  date = 'date',
+  time = 'time',
+  datetime = 'datetime',
   generic = 'generic',
   search = 'search',
 }
@@ -22,10 +25,16 @@ export interface HdsFilterBarRangeFilterData {
   value: HdsFilterBarRangeFilterValue;
 }
 
+export interface HdsFilterBarDateFilterData {
+  selector: HdsFilterBarDateFilterSelector;
+  value: HdsFilterBarDateFilterValue;
+}
+
 export type HdsFilterBarData =
   | HdsFilterBarGenericFilterData[]
   | HdsFilterBarGenericFilterData
-  | HdsFilterBarRangeFilterData;
+  | HdsFilterBarRangeFilterData
+  | HdsFilterBarDateFilterData;
 
 export interface HdsFilterBarSingleSelectFilter {
   type: 'single-select';
@@ -45,6 +54,12 @@ export interface HdsFilterBarRangeFilter {
   data: HdsFilterBarRangeFilterData;
 }
 
+export interface HdsFilterBarDateFilter {
+  type: 'date' | 'time' | 'datetime';
+  text?: string;
+  data: HdsFilterBarDateFilterData;
+}
+
 export interface HdsFilterBarSearchFilter {
   type: 'search';
   text?: string;
@@ -55,6 +70,7 @@ export type HdsFilterBarFilter =
   | HdsFilterBarSingleSelectFilter
   | HdsFilterBarMultiSelectFilter
   | HdsFilterBarRangeFilter
+  | HdsFilterBarDateFilter
   | HdsFilterBarSearchFilter;
 
 export interface HdsFilterBarFilters {
@@ -73,6 +89,20 @@ export enum HdsFilterBarRangeFilterSelectorValues {
 export type HdsFilterBarRangeFilterSelector =
   `${HdsFilterBarRangeFilterSelectorValues}`;
 
+export enum HdsFilterBarDateFilterSelectorValues {
+  before = 'before',
+  exactly = 'exactly',
+  after = 'after',
+  between = 'between',
+}
+
+export type HdsFilterBarDateFilterSelector =
+  `${HdsFilterBarDateFilterSelectorValues}`;
+
 export type HdsFilterBarRangeFilterValue =
   | number
   | { start?: number; end?: number };
+
+export type HdsFilterBarDateFilterValue =
+  | string
+  | { start?: string; end?: string };

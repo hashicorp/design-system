@@ -4,3 +4,5 @@ search:
 filter-text:
   range-filter:
     separator: and
+  date-filter:
+    separator: and
