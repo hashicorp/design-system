@@ -603,12 +603,8 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           switch (filter.type) {
             case 'date':
             case 'datetime':
-              if (!this.isDateFilterMatch(item[key], filter)) {
-                match = false;
-              }
-              break;
             case 'time':
-              if (!this.isTimeFilterMatch(item[key], filter)) {
+              if (!this.isDateFilterMatch(item[key], filter)) {
                 match = false;
               }
               break;
@@ -690,84 +686,41 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     const filterData = filter.data;
     const selector = filterData.selector;
     const value = filterData.value;
-    const date = new Date(itemValue);
-    const valueDate = new Date(value);
 
-    if (!isNaN(valueDate.getTime()) && !isNaN(date.getTime())) {
-      switch (selector) {
-        case 'before':
-          return date.getTime() < valueDate.getTime();
-        case 'exactly':
-          return date.getTime() === valueDate.getTime();
-        case 'after':
-          return date.getTime() > valueDate.getTime();
-        default:
-          return false;
-      }
-    } else if (selector === 'between' && typeof value === 'object') {
+    const date = this.dateFromFilter(String(itemValue), filter.type);
+
+    if (selector === 'between' && typeof value === 'object') {
       if (!value.start || !value.end) {
         return false;
       }
-      const startDate = new Date(value.start);
-      const endDate = new Date(value.end);
-      if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+      const startDate = this.dateFromFilter(value.start, filter.type);
+      const endDate = this.dateFromFilter(value.end, filter.type);
+      if (this.dateIsValid(startDate) && this.dateIsValid(endDate)) {
+        return (
+          date.getTime() >= startDate.getTime() &&
+          date.getTime() <= endDate.getTime()
+        );
+      } else {
         return false;
       }
-      return (
-        date.getTime() >= startDate.getTime() &&
-        date.getTime() <= endDate.getTime()
-      );
+    } else if (typeof value === 'string') {
+      const valueDate = this.dateFromFilter(value, filter.type);
+      if (this.dateIsValid(valueDate)) {
+        switch (selector) {
+          case 'before':
+            return date.getTime() < valueDate.getTime();
+          case 'exactly':
+            return date.getTime() === valueDate.getTime();
+          case 'after':
+            return date.getTime() > valueDate.getTime();
+          default:
+            return false;
+        }
+      }
     }
 
     return false;
   }
-
-  isTimeFilterMatch(
-    itemValue: unknown,
-    filter: HdsFilterBarDateFilter,
-  ): boolean {
-    const filterData = filter.data;
-    const selector = filterData.selector;
-
-    const value = filterData.value;
-
-    if (selector === 'between' && typeof value === 'object') {
-      if (value.start && value.end) {
-        const timeDiffStart = this.compareTimes(
-          String(itemValue),
-          String(value.start),
-        );
-        const timeDiffEnd = this.compareTimes(
-          String(itemValue),
-          String(value.end),
-        );
-        return timeDiffStart >= 0 && timeDiffEnd <= 0;
-      }
-      return false;
-    } else if (typeof value !== 'object') {
-      const timeDiff = this.compareTimes(String(itemValue), String(value));
-      switch (selector) {
-        case 'before':
-          return timeDiff < 0;
-        case 'exactly':
-          return timeDiff === 0;
-        case 'after':
-          return timeDiff > 0;
-        default:
-          return false;
-      }
-    }
-    return false;
-  }
-
-  compareTimes = (t1: string, t2: string): number => {
-    const [h1, m1] = t1.split(':').map(Number);
-    const [h2, m2] = t2.split(':').map(Number);
-    if (!h1 || !m1 || !h2 || !m2) {
-      return 0;
-    }
-    return h1 * 60 + m1 - (h2 * 60 + m2);
-  };
 
   isSingleSelectFilterMatch(
     itemValue: unknown,
@@ -802,6 +755,16 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     });
     return match;
   }
+
+  dateFromFilter = (dateString: string, filterType: string): Date => {
+    if (filterType === 'time') {
+      return new Date(`1970-01-01T${dateString}`);
+    }
+    return new Date(dateString);
+  };
+
+  dateIsValid = (date?: Date | string): date is Date =>
+    date instanceof Date && !isNaN(+date);
 
   clearFilters = () => {
     this.filters = {};
