@@ -232,6 +232,7 @@
       "./components/hds/dropdown/toggle/chevron.js": "./dist/_app_/components/hds/dropdown/toggle/chevron.js",
       "./components/hds/dropdown/toggle/icon.js": "./dist/_app_/components/hds/dropdown/toggle/icon.js",
       "./components/hds/filter-bar/checkbox.js": "./dist/_app_/components/hds/filter-bar/checkbox.js",
+      "./components/hds/filter-bar/date.js": "./dist/_app_/components/hds/filter-bar/date.js",
       "./components/hds/filter-bar/filter-group.js": "./dist/_app_/components/hds/filter-bar/filter-group.js",
       "./components/hds/filter-bar/filters-dropdown.js": "./dist/_app_/components/hds/filter-bar/filters-dropdown.js",
       "./components/hds/filter-bar.js": "./dist/_app_/components/hds/filter-bar.js",
