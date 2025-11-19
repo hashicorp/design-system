@@ -101,15 +101,21 @@
   }
 }
 
-.hds-filter-bar__filters-dropdown__filter-range {
+.hds-filter-bar__filters-dropdown__filter-range,
+.hds-filter-bar__filters-dropdown__filter-date {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 16px 0;
 }
 
-.hds-filter-bar__filters-dropdown__filter-range .hds-layout-flex {
+.hds-filter-bar__filters-dropdown__fields {
   padding: 0 16px;
+}
+
+.hds-filter-bar__filters-dropdown__fields .hds-filter-bar__filters-dropdown__field,
+.hds-filter-bar__filters-dropdown__fields .hds-filter-bar__filters-dropdown__field[type="time"] {
+  width: 100%;
 }
 
 .hds-filter-bar__filters-dropdown__clear {
