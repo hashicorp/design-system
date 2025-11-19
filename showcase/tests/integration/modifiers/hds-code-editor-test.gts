@@ -130,14 +130,16 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
     await waitFor('.cm-editor');
 
-    context.editorView?.dispatch({
-      changes: {
-        from: context.editorView.state.selection.main.from,
-        insert: 'Test string',
-      },
-    });
+    if (context.editorView) {
+      context.editorView.dispatch({
+        changes: {
+          from: context.editorView.state.selection.main.from,
+          insert: 'Test string',
+        },
+      });
 
-    assert.ok(inputSpy.calledOnceWith('Test string', context.editorView));
+      assert.ok(inputSpy.calledOnceWith('Test string', context.editorView));
+    }
   });
 
   // onLint
