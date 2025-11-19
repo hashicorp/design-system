@@ -29,6 +29,7 @@ body.page-foundations-theming {
     font-family: var(--token-typography-font-stack-text);
     line-height: 1.2;
     background-color: var(--token-color-surface-strong);
+    box-shadow: 0 0 0 1px #8989891a;
 
     &:has(.shw-foundation-theming-basic-container) {
       padding: 50px;
