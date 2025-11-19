@@ -21,7 +21,8 @@ import HdsDropdown from '../dropdown/index.ts';
 import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
 import { isArray } from '@ember/array';
 
-import { SELECTORS_DISPLAY_SYMBOL } from './range.ts';
+import { RANGE_SELECTORS_TEXT } from './range.ts';
+import { DATE_SELECTORS_TEXT } from './date.ts';
 
 export interface HdsFilterBarSignature {
   Args: {
@@ -51,7 +52,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   get searchValue(): string {
     const { filters } = this.args;
     if (filters['search']) {
-      return this._filterText(filters['search'].data);
+      return this._filterText(filters['search']);
     }
     return '';
   }
@@ -150,8 +151,8 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     return { value: '' };
   };
 
-  private _filterText = (data: HdsFilterBarData): string => {
-    const result = this._filterData(data);
+  private _filterText = (filter: HdsFilterBarFilter): string => {
+    const result = this._filterData(filter.data);
     const resultText = result?.value as string;
     return resultText ?? '';
   };
@@ -171,10 +172,13 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     }
   };
 
-  private _rangeFilterText = (data: HdsFilterBarData): string => {
-    if ('selector' in data && 'value' in data) {
+  private _rangeFilterText = (filter: HdsFilterBarFilter): string => {
+    const data = filter.data;
+
+    if (filter.type === 'range' && 'selector' in data && 'value' in data) {
+      const selector = data.selector as keyof typeof RANGE_SELECTORS_TEXT;
       if (
-        data.selector === 'between' &&
+        selector === 'between' &&
         typeof data.value === 'object' &&
         data.value !== null
       ) {
@@ -184,9 +188,41 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
             default: 'and',
           }
         );
-        return `${SELECTORS_DISPLAY_SYMBOL[data.selector]} ${data.value.start} ${separatorText} ${data.value.end}`;
+        return `${RANGE_SELECTORS_TEXT[selector]} ${data.value.start} ${separatorText} ${data.value.end}`;
       } else if (typeof data.value !== 'object') {
-        return `${SELECTORS_DISPLAY_SYMBOL[data.selector]} ${data.value}`;
+        return `${RANGE_SELECTORS_TEXT[selector]} ${data.value}`;
+      }
+      return '';
+    } else {
+      return '';
+    }
+  };
+
+  private _dateFilterText = (filter: HdsFilterBarFilter): string => {
+    const data = filter.data;
+
+    if (
+      (filter.type === 'date' ||
+        filter.type === 'datetime' ||
+        filter.type === 'time') &&
+      'selector' in data &&
+      'value' in data
+    ) {
+      const selector = data.selector as keyof typeof DATE_SELECTORS_TEXT;
+      if (
+        selector === 'between' &&
+        typeof data.value === 'object' &&
+        data.value !== null
+      ) {
+        const separatorText = this.hdsIntl.t(
+          'hds.components.filter-bar.filter-text.date-filter.separator',
+          {
+            default: 'and',
+          }
+        );
+        return `${DATE_SELECTORS_TEXT[selector]} ${data.value.start} ${separatorText} ${data.value.end}`;
+      } else if (data.value !== null && typeof data.value !== 'object') {
+        return `${DATE_SELECTORS_TEXT[selector]} ${data.value}`;
       }
       return '';
     } else {

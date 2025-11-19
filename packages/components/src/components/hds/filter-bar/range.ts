@@ -12,17 +12,29 @@ import { service } from '@ember/service';
 
 import type HdsIntlService from '../../../services/hds-intl';
 import type {
-  HdsFilterBarData,
+  HdsFilterBarFilter,
   HdsFilterBarRangeFilterSelector,
   HdsFilterBarRangeFilterValue,
 } from './types.ts';
 import { HdsFilterBarRangeFilterSelectorValues } from './types.ts';
 
-export const SELECTORS: HdsFilterBarRangeFilterSelector[] = Object.values(
+export const RANGE_SELECTORS: HdsFilterBarRangeFilterSelector[] = Object.values(
   HdsFilterBarRangeFilterSelectorValues
 );
 
-export const SELECTORS_DISPLAY_TEXT: Record<
+export const RANGE_SELECTORS_TEXT: Record<
+  HdsFilterBarRangeFilterSelector,
+  string
+> = {
+  [HdsFilterBarRangeFilterSelectorValues.lessThan]: '<',
+  [HdsFilterBarRangeFilterSelectorValues.lessThanOrEqualTo]: '≤',
+  [HdsFilterBarRangeFilterSelectorValues.equalTo]: '=',
+  [HdsFilterBarRangeFilterSelectorValues.greaterThanOrEqualTo]: '≥',
+  [HdsFilterBarRangeFilterSelectorValues.greaterThan]: '>',
+  [HdsFilterBarRangeFilterSelectorValues.between]: 'between',
+};
+
+export const RANGE_SELECTORS_INPUT_TEXT: Record<
   HdsFilterBarRangeFilterSelector,
   string
 > = {
@@ -36,21 +48,9 @@ export const SELECTORS_DISPLAY_TEXT: Record<
   [HdsFilterBarRangeFilterSelectorValues.between]: 'Between',
 };
 
-export const SELECTORS_DISPLAY_SYMBOL: Record<
-  HdsFilterBarRangeFilterSelector,
-  string
-> = {
-  [HdsFilterBarRangeFilterSelectorValues.lessThan]: '<',
-  [HdsFilterBarRangeFilterSelectorValues.lessThanOrEqualTo]: '≤',
-  [HdsFilterBarRangeFilterSelectorValues.equalTo]: '=',
-  [HdsFilterBarRangeFilterSelectorValues.greaterThanOrEqualTo]: '≥',
-  [HdsFilterBarRangeFilterSelectorValues.greaterThan]: '>',
-  [HdsFilterBarRangeFilterSelectorValues.between]: 'between',
-};
-
 export interface HdsFilterBarRangeSignature {
   Args: {
-    keyFilter: HdsFilterBarData | undefined;
+    keyFilter: HdsFilterBarFilter | undefined;
     onChange?: (
       selector?: HdsFilterBarRangeFilterSelector,
       value?: HdsFilterBarRangeFilterValue
@@ -70,7 +70,7 @@ export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignat
   @tracked private _betweenValueStart: number | undefined;
   @tracked private _betweenValueEnd: number | undefined;
 
-  private _selectorValues = SELECTORS;
+  private _selectorValues = RANGE_SELECTORS;
   private _selectorInputId = 'selector-input-' + guidFor(this);
   private _valueInputId = 'value-input-' + guidFor(this);
   private _betweenValueStartInputId =
@@ -81,15 +81,16 @@ export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignat
     super(owner, args);
 
     const { keyFilter } = this.args;
-    if (keyFilter && 'selector' in keyFilter) {
-      this._selector = keyFilter.selector;
-      if (keyFilter.selector === 'between') {
-        if (keyFilter.value && typeof keyFilter.value === 'object') {
-          this._betweenValueStart = Number(keyFilter.value.start);
-          this._betweenValueEnd = Number(keyFilter.value.end);
+    if (keyFilter && keyFilter.type === 'range') {
+      const data = keyFilter.data;
+      this._selector = data?.selector;
+      if (data.selector === 'between') {
+        if (data.value && typeof data.value === 'object') {
+          this._betweenValueStart = Number(data.value.start);
+          this._betweenValueEnd = Number(data.value.end);
         }
       } else {
-        this._value = Number(keyFilter.value);
+        this._value = Number(data.value);
       }
     }
   }
@@ -174,7 +175,7 @@ export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignat
     return this.hdsIntl.t(
       `hds.components.filter-bar.range.selector-input.${selector}`,
       {
-        default: 'test',
+        default: RANGE_SELECTORS_INPUT_TEXT[selector],
       }
     );
   };
