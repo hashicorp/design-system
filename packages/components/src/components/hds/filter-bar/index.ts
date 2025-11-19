@@ -14,6 +14,7 @@ import type HdsIntlService from '../../../services/hds-intl';
 import type {
   HdsFilterBarFilters,
   HdsFilterBarFilter,
+  HdsFilterBarFilterType,
   HdsFilterBarData,
   HdsFilterBarGenericFilterData,
 } from './types.ts';
@@ -220,13 +221,49 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
             default: 'and',
           }
         );
-        return `${DATE_SELECTORS_TEXT[selector]} ${data.value.start} ${separatorText} ${data.value.end}`;
+        const startDateText = this._dateDisplayText(
+          data.value.start as string,
+          filter.type
+        );
+        const endDateText = this._dateDisplayText(
+          data.value.end as string,
+          filter.type
+        );
+        return `${DATE_SELECTORS_TEXT[selector]} ${startDateText} ${separatorText} ${endDateText}`;
       } else if (data.value !== null && typeof data.value !== 'object') {
-        return `${DATE_SELECTORS_TEXT[selector]} ${data.value}`;
+        const dateText = this._dateDisplayText(
+          data.value as string,
+          filter.type
+        );
+        return `${DATE_SELECTORS_TEXT[selector]} ${dateText}`;
       }
       return '';
     } else {
       return '';
     }
+  };
+
+  private _dateDisplayText = (
+    dateString: string,
+    filterType: HdsFilterBarFilterType
+  ): string => {
+    let date;
+    if (filterType === 'time') {
+      date = new Date(`1970-01-01T${dateString}`);
+    } else {
+      date = new Date(dateString);
+    }
+
+    let options = {};
+    if (filterType === 'date') {
+      options = { dateStyle: 'short' };
+    } else if (filterType === 'time') {
+      options = { timeStyle: 'short' };
+    } else {
+      options = { dateStyle: 'short', timeStyle: 'short' };
+    }
+
+    const newDate = new Intl.DateTimeFormat(undefined, options);
+    return newDate.format(date);
   };
 }
