@@ -6,12 +6,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-import type { HdsFilterBarData } from './types.ts';
+import type { HdsFilterBarFilter } from './types.ts';
 
 export interface HdsFilterBarCheckboxSignature {
   Args: {
     value?: string;
-    keyFilter: HdsFilterBarData | undefined;
+    keyFilter: HdsFilterBarFilter | undefined;
     onChange?: (event: Event) => void;
   };
   Blocks: {
@@ -31,8 +31,8 @@ export default class HdsFilterBarCheckbox extends Component<HdsFilterBarCheckbox
 
   get isChecked(): boolean {
     const { keyFilter, value } = this.args;
-    if (Array.isArray(keyFilter)) {
-      return keyFilter.some((filter) => filter.value === value);
+    if (keyFilter && Array.isArray(keyFilter.data)) {
+      return keyFilter.data.some((filter) => filter.value === value);
     }
     return false;
   }

@@ -2,20 +2,18 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-filter-bar__filters-dropdown__filter-range">
+<div class="hds-filter-bar__filters-dropdown__filter-date">
   <Hds::Layout::Flex class="hds-filter-bar__filters-dropdown__fields" @direction="column" @gap="16">
     <Hds::Form::Select::Field
       @id={{this._selectorInputId}}
-      class="hds-filter-bar__filters-dropdown__field"
       {{on "change" this.onSelectorChange}}
+      class="hds-filter-bar__filters-dropdown__field"
       as |F|
     >
-      <F.Label>
-        {{hds-t "hds.components.filter-bar.range.label" default="Number is"}}
-      </F.Label>
+      <F.Label>{{this.selectorLabelText}}</F.Label>
       <F.Options>
         <option value="">{{hds-t
-            "hds.components.filter-bar.range.selector-input.default-value"
+            "hds.components.filter-bar.date.selector-input.default-value"
             default="Pick a selector"
           }}</option>
         {{#each this._selectorValues as |selectorValue|}}
@@ -26,20 +24,20 @@
       </F.Options>
     </Hds::Form::Select::Field>
     {{#if (eq this._selector "between")}}
-      <Hds::Layout::Flex @gap="8">
+      <Hds::Layout::Flex @gap="8" @direction={{if (eq @type "datetime") "column" "row"}}>
         <Hds::Form::TextInput::Base
           @id={{this._betweenValueStartInputId}}
-          @type="text"
-          @value={{this.stringBetweenValueStart}}
-          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.start-placeholder" default="Start"}}
+          @type={{this.inputType}}
+          @value={{this._betweenValueStart}}
+          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.date.start-placeholder" default="Start"}}
           class="hds-filter-bar__filters-dropdown__field"
           {{on "change" this.onBetweenValueStartChange}}
         />
         <Hds::Form::TextInput::Base
           @id={{this._betweenValueEndInputId}}
-          @type="text"
-          @value={{this.stringBetweenValueEnd}}
-          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.end-placeholder" default="End"}}
+          @type={{this.inputType}}
+          @value={{this._betweenValueEnd}}
+          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.date.end-placeholder" default="End"}}
           class="hds-filter-bar__filters-dropdown__field"
           {{on "change" this.onBetweenValueEndChange}}
         />
@@ -47,9 +45,9 @@
     {{else}}
       <Hds::Form::TextInput::Base
         @id={{this._valueInputId}}
-        @type="text"
-        @value={{this.stringValue}}
-        placeholder={{hds-t "hds.components.filter-bar.range.value-input.placeholder" default="Enter a value"}}
+        @type={{this.inputType}}
+        @value={{this._value}}
+        placeholder={{hds-t "hds.components.filter-bar.date.value-input.placeholder" default="Enter a value"}}
         class="hds-filter-bar__filters-dropdown__field"
         {{on "change" this.onValueChange}}
       />
@@ -57,7 +55,7 @@
   </Hds::Layout::Flex>
   <div class="hds-filter-bar__filters-dropdown__clear">
     <Hds::Button
-      @text={{hds-t "hds.components.filter-bar.range.clear" default="Clear filter"}}
+      @text={{hds-t "hds.components.filter-bar.date.clear" default="Clear filter"}}
       @color="tertiary"
       @icon="rotate-ccw"
       @isInline={{true}}

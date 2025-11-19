@@ -24,6 +24,7 @@ import {
   HdsTextDisplay,
   type HdsAdvancedTableOnSelectionChangeSignature,
   type HdsFilterBarRangeFilter,
+  type HdsFilterBarDateFilter,
   type HdsFilterBarSingleSelectFilter,
   type HdsFilterBarMultiSelectFilter,
   type HdsFilterBarSearchFilter,
@@ -45,6 +46,7 @@ const SAMPLE_MODEL = [
     'run-status': 'errored',
     'run-status-color': HdsBadgeColorValues.Critical,
     'current-run-applied': 'Mar 06, 2025 09:10:14 am',
+    'creation-time': '09:13:13',
     'vcs-repo': 'example/a))!hzfpKcBl0',
     'module-count': 46,
     modules: 'wad-bedzeaje-rogmejca',
@@ -62,6 +64,7 @@ const SAMPLE_MODEL = [
     'run-status': 'applied',
     'run-status-color': HdsBadgeColorValues.Success,
     'current-run-applied': 'Mar 06, 2025 09:09:14 am',
+    'creation-time': '22:22:45',
     'vcs-repo': 'example/tp7Xe!mDHlI[70ZO1',
     'module-count': 152,
     modules: 'wad-bedzeaje-rogmejca',
@@ -79,6 +82,7 @@ const SAMPLE_MODEL = [
     'run-status': 'applied',
     'run-status-color': HdsBadgeColorValues.Success,
     'current-run-applied': 'Mar 06, 2025 09:08:14 am',
+    'creation-time': '11:05:33',
     'vcs-repo': 'example/a))!hzfpKcBl0',
     'module-count': 31,
     modules: 'wad-bedzeaje-rogmejca',
@@ -96,6 +100,7 @@ const SAMPLE_MODEL = [
     'run-status': 'planned',
     'run-status-color': HdsBadgeColorValues.Warning,
     'current-run-applied': 'Mar 06, 2025 09:07:14 am',
+    'creation-time': '20:44:21',
     'vcs-repo': 'example/a))!hzfpKcBl0',
     'module-count': 58,
     modules: 'wad-bedzeaje-rogmejca',
@@ -113,6 +118,7 @@ const SAMPLE_MODEL = [
     'run-status': 'applied',
     'run-status-color': HdsBadgeColorValues.Success,
     'current-run-applied': 'Mar 06, 2025 09:06:14 am',
+    'creation-time': '07:59:59',
     'vcs-repo': 'example/a))!hzfpKcBl0',
     'module-count': 32,
     modules: 'wad-bedzeaje-rogmejca',
@@ -130,6 +136,7 @@ const SAMPLE_MODEL = [
     'run-status': 'errored',
     'run-status-color': HdsBadgeColorValues.Critical,
     'current-run-applied': 'Mar 06, 2025 09:05:14 am',
+    'creation-time': '20:30:00',
     'vcs-repo': 'example/a))!hzfpKcBl0',
     'module-count': 94,
     modules: 'wad-bedzeaje-rogmejca',
@@ -147,6 +154,7 @@ const SAMPLE_MODEL = [
     'run-status': 'applied',
     'run-status-color': HdsBadgeColorValues.Success,
     'current-run-applied': 'Mar 06, 2025 09:04:14 am',
+    'creation-time': '10:15:30',
     'vcs-repo': 'example/&j[RmmtjpQX6',
     'module-count': 117,
     modules: 'wad-bedzeaje-rogmejca',
@@ -164,6 +172,7 @@ const SAMPLE_MODEL = [
     'run-status': 'errored',
     'run-status-color': HdsBadgeColorValues.Critical,
     'current-run-applied': 'Mar 06, 2025 09:03:14 am',
+    'creation-time': '09:45:00',
     'vcs-repo': 'example/&j[RmmtjpQX6',
     'module-count': 114,
     modules: 'wad-bedzeaje-rogmejca',
@@ -181,6 +190,7 @@ const SAMPLE_MODEL = [
     'run-status': 'planned',
     'run-status-color': HdsBadgeColorValues.Warning,
     'current-run-applied': 'Mar 06, 2025 09:02:14 am',
+    'creation-time': '10:30:00',
     'vcs-repo': 'example/&j[RmmtjpQX6',
     'module-count': 106,
     modules: 'wad-bedzeaje-rogmejca',
@@ -198,6 +208,7 @@ const SAMPLE_MODEL = [
     'run-status': 'errored',
     'run-status-color': HdsBadgeColorValues.Critical,
     'current-run-applied': 'Mar 06, 2025 09:01:14 am',
+    'creation-time': '11:00:00',
     'vcs-repo': 'example/&j[RmmtjpQX6',
     'module-count': 124,
     modules: 'wad-bedzeaje-rogmejca',
@@ -215,6 +226,7 @@ const SAMPLE_MODEL = [
     'run-status': 'applied',
     'run-status-color': HdsBadgeColorValues.Success,
     'current-run-applied': 'Mar 06, 2025 09:00:14 am',
+    'creation-time': '10:45:00',
     'vcs-repo': 'example/&j[RmmtjpQX6',
     'module-count': 70,
     modules: 'wad-bedzeaje-rogmejca',
@@ -232,6 +244,7 @@ const SAMPLE_MODEL = [
     'run-status': 'applied',
     'run-status-color': HdsBadgeColorValues.Success,
     'current-run-applied': 'Mar 06, 2025 09:00:14 am',
+    'creation-time': '10:45:00',
     'vcs-repo': 'example/d2s3B46I10',
     'module-count': 70,
     modules: 'wad-bedzeaje-rogmejca',
@@ -249,6 +262,7 @@ const SAMPLE_MODEL = [
     'run-status': 'errored',
     'run-status-color': HdsBadgeColorValues.Critical,
     'current-run-applied': 'Mar 06, 2025 08:59:14 am',
+    'creation-time': '09:50:00',
     'vcs-repo': 'example/d2s3B46I10',
     'module-count': 106,
     modules: 'wad-bedzeaje-rogmejca',
@@ -266,6 +280,7 @@ const SAMPLE_MODEL = [
     'run-status': 'applied',
     'run-status-color': HdsBadgeColorValues.Success,
     'current-run-applied': 'Mar 06, 2025 08:58:14 am',
+    'creation-time': '10:10:00',
     'vcs-repo': 'example/d2s3B46I10',
     'module-count': 14,
     modules: 'wad-bedzeaje-rogmejca',
@@ -283,6 +298,7 @@ const SAMPLE_MODEL = [
     'run-status': 'planned',
     'run-status-color': HdsBadgeColorValues.Warning,
     'current-run-applied': 'Mar 06, 2025 08:58:14 am',
+    'creation-time': '10:20:00',
     'vcs-repo': 'example/d2s3B46I10',
     'module-count': 14,
     modules: 'wad-bedzeaje-rogmejca',
@@ -300,6 +316,7 @@ const SAMPLE_MODEL = [
     'run-status': 'errored',
     'run-status-color': HdsBadgeColorValues.Critical,
     'current-run-applied': 'Mar 06, 2025 08:57:14 am',
+    'creation-time': '09:30:00',
     'vcs-repo': 'example/JUha^7zr14',
     'module-count': 114,
     modules: 'wad-bedzeaje-rogmejca',
@@ -317,6 +334,7 @@ const SAMPLE_MODEL = [
     'run-status': 'applied',
     'run-status-color': HdsBadgeColorValues.Success,
     'current-run-applied': 'Mar 06, 2025 08:56:14 am',
+    'creation-time': '10:05:00',
     'vcs-repo': 'example/JUha^7zr14',
     'module-count': 99,
     modules: 'wad-bedzeaje-rogmejca',
@@ -334,6 +352,7 @@ const SAMPLE_MODEL = [
     'run-status': 'planned',
     'run-status-color': HdsBadgeColorValues.Warning,
     'current-run-applied': 'Mar 06, 2025 08:57:14 am',
+    'creation-time': '09:55:00',
     'vcs-repo': 'example/d2s3B46I10',
     'module-count': 139,
     modules: 'wad-bedzeaje-rogmejca',
@@ -351,6 +370,7 @@ const SAMPLE_MODEL = [
     'run-status': 'planned',
     'run-status-color': HdsBadgeColorValues.Warning,
     'current-run-applied': 'Mar 06, 2025 08:57:14 am',
+    'creation-time': '09:40:00',
     'vcs-repo': 'example/8G3C81*u*q*O$17',
     'module-count': 107,
     modules: 'wad-bedzeaje-rogmejca',
@@ -368,6 +388,7 @@ const SAMPLE_MODEL = [
     'run-status': 'errored',
     'run-status-color': HdsBadgeColorValues.Critical,
     'current-run-applied': 'Mar 06, 2025 08:56:14 am',
+    'creation-time': '09:15:00',
     'vcs-repo': 'example/gt]5*c!N1*N%I!m)18',
     'module-count': 80,
     modules: 'wad-bedzeaje-rogmejca',
@@ -385,6 +406,7 @@ const SAMPLE_MODEL = [
     'run-status': 'applied',
     'run-status-color': HdsBadgeColorValues.Success,
     'current-run-applied': 'Mar 06, 2025 08:57:14 am',
+    'creation-time': '10:00:00',
     'vcs-repo': 'example/gt]5*c!N1*N%I!m)18',
     'module-count': 158,
     modules: 'wad-bedzeaje-rogmejca',
@@ -424,14 +446,12 @@ const SAMPLE_COLUMNS = [
     label: 'Name',
     key: 'name',
     width: 'max-content',
-    filterType: 'checkbox',
   },
   {
     label: 'Project name',
     key: 'project-name',
     isSortable: true,
     width: 'max-content',
-    filterType: 'checkbox',
   },
   {
     label: 'Current run ID',
@@ -444,7 +464,6 @@ const SAMPLE_COLUMNS = [
     key: 'run-status',
     isSortable: true,
     width: 'max-content',
-    filterType: 'checkbox',
   },
   {
     label: 'Current run applied',
@@ -453,11 +472,16 @@ const SAMPLE_COLUMNS = [
     width: 'max-content',
   },
   {
+    label: 'Creation time',
+    key: 'creation-time',
+    isSortable: true,
+    width: 'max-content',
+  },
+  {
     label: 'VCS repo',
     key: 'vcs-repo',
     isSortable: true,
     width: 'max-content',
-    filterType: 'checkbox',
   },
   {
     label: 'Module count',
@@ -488,14 +512,12 @@ const SAMPLE_COLUMNS = [
     key: 'terraform-version',
     isSortable: true,
     width: 'max-content',
-    filterType: 'radio',
   },
   {
     label: 'State terraform version',
     key: 'state-terraform-version',
     isSortable: true,
     width: 'max-content',
-    filterType: 'radio',
   },
   {
     label: 'Created',
@@ -578,22 +600,37 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
       Object.keys(this.filters).forEach((key) => {
         const filter = this.filters[key] as HdsFilterBarFilter;
         if (filter) {
-          if (filter.type === 'range') {
-            if (!this.isRangeFilterMatch(item[key], filter)) {
-              match = false;
-            }
-          } else if (filter.type === 'single-select') {
-            if (!this.isSingleSelectFilterMatch(item[key], filter)) {
-              match = false;
-            }
-          } else if (filter.type === 'search') {
-            if (!this.isSearchFilterMatch(item, filter)) {
-              match = false;
-            }
-          } else {
-            if (!this.isMultiSelectFilterMatch(item[key], filter)) {
-              match = false;
-            }
+          switch (filter.type) {
+            case 'date':
+            case 'datetime':
+              if (!this.isDateFilterMatch(item[key], filter)) {
+                match = false;
+              }
+              break;
+            case 'time':
+              if (!this.isTimeFilterMatch(item[key], filter)) {
+                match = false;
+              }
+              break;
+            case 'range':
+              if (!this.isRangeFilterMatch(item[key], filter)) {
+                match = false;
+              }
+              break;
+            case 'single-select':
+              if (!this.isSingleSelectFilterMatch(item[key], filter)) {
+                match = false;
+              }
+              break;
+            case 'search':
+              if (!this.isSearchFilterMatch(item, filter)) {
+                match = false;
+              }
+              break;
+            default:
+              if (!this.isMultiSelectFilterMatch(item[key], filter)) {
+                match = false;
+              }
           }
         }
       });
@@ -645,6 +682,92 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
 
     return false;
   }
+
+  isDateFilterMatch(
+    itemValue: unknown,
+    filter: HdsFilterBarDateFilter,
+  ): boolean {
+    const filterData = filter.data;
+    const selector = filterData.selector;
+    const value = filterData.value;
+    const date = new Date(itemValue);
+    const valueDate = new Date(value);
+
+    if (!isNaN(valueDate.getTime()) && !isNaN(date.getTime())) {
+      switch (selector) {
+        case 'before':
+          return date.getTime() < valueDate.getTime();
+        case 'exactly':
+          return date.getTime() === valueDate.getTime();
+        case 'after':
+          return date.getTime() > valueDate.getTime();
+        default:
+          return false;
+      }
+    } else if (selector === 'between' && typeof value === 'object') {
+      if (!value.start || !value.end) {
+        return false;
+      }
+      const startDate = new Date(value.start);
+      const endDate = new Date(value.end);
+      if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+        return false;
+      }
+      return (
+        date.getTime() >= startDate.getTime() &&
+        date.getTime() <= endDate.getTime()
+      );
+    }
+
+    return false;
+  }
+
+  isTimeFilterMatch(
+    itemValue: unknown,
+    filter: HdsFilterBarDateFilter,
+  ): boolean {
+    const filterData = filter.data;
+    const selector = filterData.selector;
+
+    const value = filterData.value;
+
+    if (selector === 'between' && typeof value === 'object') {
+      if (value.start && value.end) {
+        const timeDiffStart = this.compareTimes(
+          String(itemValue),
+          String(value.start),
+        );
+        const timeDiffEnd = this.compareTimes(
+          String(itemValue),
+          String(value.end),
+        );
+        return timeDiffStart >= 0 && timeDiffEnd <= 0;
+      }
+      return false;
+    } else if (typeof value !== 'object') {
+      const timeDiff = this.compareTimes(String(itemValue), String(value));
+      switch (selector) {
+        case 'before':
+          return timeDiff < 0;
+        case 'exactly':
+          return timeDiff === 0;
+        case 'after':
+          return timeDiff > 0;
+        default:
+          return false;
+      }
+    }
+    return false;
+  }
+
+  compareTimes = (t1: string, t2: string): number => {
+    const [h1, m1] = t1.split(':').map(Number);
+    const [h2, m2] = t2.split(':').map(Number);
+    if (!h1 || !m1 || !h2 || !m2) {
+      return 0;
+    }
+    return h1 * 60 + m1 - (h2 * 60 + m2);
+  };
 
   isSingleSelectFilterMatch(
     itemValue: unknown,
@@ -760,10 +883,21 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             {{/each}}
           </D.FilterGroup>
           <D.FilterGroup
+            @key="current-run-applied"
+            @text="Current run applied"
+            @type="datetime"
+          />
+          <D.FilterGroup
+            @key="creation-time"
+            @text="Creation time"
+            @type="time"
+          />
+          <D.FilterGroup
             @key="module-count"
             @text="Module count"
             @type="range"
           />
+          <D.FilterGroup @key="created" @text="Created" @type="date" />
         </F.FiltersDropdown>
       </HdsFilterBar>
     {{/if}}
@@ -850,10 +984,21 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                 {{/each}}
               </D.FilterGroup>
               <D.FilterGroup
+                @key="current-run-applied"
+                @text="Current run applied"
+                @type="datetime"
+              />
+              <D.FilterGroup
+                @key="creation-time"
+                @text="Creation time"
+                @type="time"
+              />
+              <D.FilterGroup
                 @key="module-count"
                 @text="Module count"
                 @type="range"
               />
+              <D.FilterGroup @key="created" @text="Created" @type="date" />
             </F.FiltersDropdown>
           </A.FilterBar>
         {{/unless}}
@@ -891,6 +1036,10 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           <B.Td>
             {{! @glint-expect-error }}
             {{get B.data "current-run-applied"}}
+          </B.Td>
+          <B.Td>
+            {{! @glint-expect-error }}
+            {{get B.data "creation-time"}}
           </B.Td>
           <B.Td>
             {{! @glint-expect-error }}
