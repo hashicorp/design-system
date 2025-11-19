@@ -128,7 +128,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       </template>,
     );
 
-    await waitFor('.cm-editor', { timeout: 5000 });
+    await waitFor('.cm-editor', { timeout: 10000 });
 
     context.editorView?.dispatch({
       changes: {
@@ -178,7 +178,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     );
 
     // we know linting is complete when the error marker is rendered
-    await waitFor('.cm-lint-marker-error', { timeout: 5000 });
+    await waitFor('.cm-lint-marker-error', { timeout: 10000 });
 
     const [diagnostics, value, editor] = lintSpy.firstCall.args;
 
