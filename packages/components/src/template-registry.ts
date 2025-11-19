@@ -97,6 +97,17 @@ import type HdsDropdownListItemTitleComponent from './components/hds/dropdown/li
 import type HdsDropdownToggleButtonComponent from './components/hds/dropdown/toggle/button';
 import type HdsDropdownToggleChevronComponent from './components/hds/dropdown/toggle/chevron';
 import type HdsDropdownToggleIconComponent from './components/hds/dropdown/toggle/icon';
+
+import type HdsFilterBarComponent from './components/hds/filter-bar';
+import type HdsFilterBarCheckboxComponent from './components/hds/filter-bar/checkbox';
+import type HdsFilterBarDateComponent from './components/hds/filter-bar/date';
+import type HdsFilterBarRadioComponent from './components/hds/filter-bar/radio';
+import type HdsFilterBarFiltersDropdownComponent from './components/hds/filter-bar/filters-dropdown';
+import type HdsFilterBarFilterGroupComponent from './components/hds/filter-bar/filter-group';
+import type HdsFilterBarRangeComponent from './components/hds/filter-bar/range';
+import type HdsFilterBarTabsComponent from './components/hds/filter-bar/tabs';
+import type HdsFilterBarTabsPanelComponent from './components/hds/filter-bar/tabs/panel';
+import type HdsFilterBarTabsTabComponent from './components/hds/filter-bar/tabs/tab';
 import type HdsFlyoutComponent from './components/hds/flyout';
 
 import type HdsFormComponent from './components/hds/form';
@@ -553,6 +564,28 @@ export default interface HdsComponentsRegistry {
   // Dropdown Toggle Icon
   'Hds::Dropdown::Toggle::Icon': typeof HdsDropdownToggleIconComponent;
   'hds/dropdown/toggle/icon': typeof HdsDropdownToggleIconComponent;
+
+  // Filter Bar
+  'Hds::FilterBar': typeof HdsFilterBarComponent;
+  'hds/filter-bar': typeof HdsFilterBarComponent;
+  'Hds::FilterBar::Checkbox': typeof HdsFilterBarCheckboxComponent;
+  'hds/filter-bar/checkbox': typeof HdsFilterBarCheckboxComponent;
+  'Hds::FilterBar::Date': typeof HdsFilterBarDateComponent;
+  'hds/filter-bar/date': typeof HdsFilterBarDateComponent;
+  'Hds::FilterBar::Radio': typeof HdsFilterBarRadioComponent;
+  'hds/filter-bar/radio': typeof HdsFilterBarRadioComponent;
+  'Hds::FilterBar::FiltersDropdown': typeof HdsFilterBarFiltersDropdownComponent;
+  'hds/filter-bar/filters-dropdown': typeof HdsFilterBarFiltersDropdownComponent;
+  'Hds::FilterBar::FilterGroup': typeof HdsFilterBarFilterGroupComponent;
+  'hds/filter-bar/filter-group': typeof HdsFilterBarFilterGroupComponent;
+  'Hds::FilterBar::Range': typeof HdsFilterBarRangeComponent;
+  'hds/filter-bar/range': typeof HdsFilterBarRangeComponent;
+  'Hds::FilterBar::Tabs': typeof HdsFilterBarTabsComponent;
+  'hds/filter-bar/tabs': typeof HdsFilterBarTabsComponent;
+  'Hds::FilterBar::Tabs::Panel': typeof HdsFilterBarTabsPanelComponent;
+  'hds/filter-bar/tabs/panel': typeof HdsFilterBarTabsPanelComponent;
+  'Hds::FilterBar::Tabs::Tab': typeof HdsFilterBarTabsTabComponent;
+  'hds/filter-bar/tabs/tab': typeof HdsFilterBarTabsTabComponent;
 
   // Flyout
   'Hds::Flyout': typeof HdsFlyoutComponent;
