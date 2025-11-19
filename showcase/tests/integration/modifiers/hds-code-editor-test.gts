@@ -128,6 +128,8 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       </template>,
     );
 
+    await waitFor('.cm-editor');
+
     context.editorView?.dispatch({
       changes: {
         from: context.editorView.state.selection.main.from,
