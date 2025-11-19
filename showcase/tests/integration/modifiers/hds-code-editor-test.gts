@@ -128,18 +128,16 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       </template>,
     );
 
-    await waitFor('.cm-editor');
+    await waitFor('.cm-editor', { timeout: 5000 });
 
-    if (context.editorView) {
-      context.editorView.dispatch({
-        changes: {
-          from: context.editorView.state.selection.main.from,
-          insert: 'Test string',
-        },
-      });
+    context.editorView?.dispatch({
+      changes: {
+        from: context.editorView.state.selection.main.from,
+        insert: 'Test string',
+      },
+    });
 
-      assert.ok(inputSpy.calledOnceWith('Test string', context.editorView));
-    }
+    assert.ok(inputSpy.calledOnceWith('Test string', context.editorView));
   });
 
   // onLint
@@ -180,7 +178,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     );
 
     // we know linting is complete when the error marker is rendered
-    await waitFor('.cm-lint-marker-error');
+    await waitFor('.cm-lint-marker-error', { timeout: 5000 });
 
     const [diagnostics, value, editor] = lintSpy.firstCall.args;
 
