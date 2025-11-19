@@ -43,17 +43,22 @@
         {{#if filter.data}}
           {{#if (and (eq filter.type "single-select"))}}
             <Hds::Tag
-              @text="{{this._filterKeyText key filter}}: {{this._filterText filter.data}}"
+              @text="{{this._filterKeyText key filter}}: {{this._filterText filter}}"
               @onDismiss={{fn this.onFilterDismiss key}}
             />
           {{else if (eq filter.type "range")}}
             <Hds::Tag
-              @text="{{this._filterKeyText key filter}} {{this._rangeFilterText filter.data}}"
+              @text="{{this._filterKeyText key filter}} {{this._rangeFilterText filter}}"
+              @onDismiss={{fn this.onFilterDismiss key}}
+            />
+          {{else if (or (eq filter.type "date") (eq filter.type "datetime") (eq filter.type "time"))}}
+            <Hds::Tag
+              @text="{{this._filterKeyText key filter}} {{this._dateFilterText filter}}"
               @onDismiss={{fn this.onFilterDismiss key}}
             />
           {{else if (eq filter.type "search")}}
             <Hds::Tag
-              @text="{{this._filterKeyText key filter}}: {{this._filterText filter.data}}"
+              @text="{{this._filterKeyText key filter}}: {{this._filterText filter}}"
               @onDismiss={{fn this.onFilterDismiss key}}
             />
           {{else if (eq filter.type "multi-select")}}

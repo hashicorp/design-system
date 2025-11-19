@@ -28,6 +28,12 @@
     {{/if}}
     {{#if (eq @type "range")}}
       <Hds::FilterBar::Range @keyFilter={{this.keyFilter}} @onChange={{this.onRangeChange}} />
+    {{else if (eq @type "date")}}
+      <Hds::FilterBar::Date @keyFilter={{this.keyFilter}} @onChange={{this.onDateChange}} @type="date" />
+    {{else if (eq @type "datetime")}}
+      <Hds::FilterBar::Date @keyFilter={{this.keyFilter}} @onChange={{this.onDateChange}} @type="datetime" />
+    {{else if (eq @type "time")}}
+      <Hds::FilterBar::Date @keyFilter={{this.keyFilter}} @onChange={{this.onDateChange}} @type="time" />
     {{else}}
       <div class="hds-filter-bar__filters-dropdown__filter-group__values-list">
         <div class="hds-filter-bar__filters-dropdown__clear">
