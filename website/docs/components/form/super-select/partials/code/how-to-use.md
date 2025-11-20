@@ -6,13 +6,33 @@ It’s primarily a wrapper for [ember-power-select](https://ember-power-select.c
 
 !!! Warning
 
-**Consumer responsibility**
+**Consumer responsibilities**
 
-ember-power-select 8.0, and by extension the Super Select component, requires the following line in your `application.hbs`. [Read more about migrating from 7.0 to 8.0](https://ember-power-select.com/docs/migrate-7-0-to-8-0).
+* ember-power-select 8.0, and by extension the Super Select component, requires the following line in your `application.hbs`. [Read more about migrating from 7.0 to 8.0](https://ember-power-select.com/docs/migrate-7-0-to-8-0).
 
 ```markup
 <BasicDropdownWormhole />
 ```
+* Both `ember-basic-dropdown` and `ember-power-select` should be included in your devDependencies and `ember-power-select` styles should be imported into your CSS or SCSS file.
+
+### JSON
+```json
+"devDependencies": {
+  "ember-basic-dropdown": "^8.8.0",
+  "ember-power-select": "^8.7.1"
+}
+```
+
+### SCSS
+```scss
+@use 'ember-power-select';
+```
+
+### CSS
+```css
+@import 'ember-power-select';
+```
+
 !!!
 
 We provide two main components with similar APIs: `Form::SuperSelect::Single` and `Form::SuperSelect::Multiple`.
