@@ -28,6 +28,7 @@ import { DATE_SELECTORS_TEXT } from './date.ts';
 export interface HdsFilterBarSignature {
   Args: {
     filters: HdsFilterBarFilters;
+    isLiveFilter?: boolean;
     hasSearch?: boolean;
     onFilter?: (filters: HdsFilterBarFilters) => void;
   };
@@ -37,7 +38,7 @@ export interface HdsFilterBarSignature {
         ActionsDropdown?: WithBoundArgs<typeof HdsDropdown, never>;
         FiltersDropdown?: WithBoundArgs<
           typeof HdsFilterBarFiltersDropdown,
-          'filters' | 'onFilter'
+          'filters' | 'isLiveFilter' | 'onFilter'
         >;
       },
     ];
