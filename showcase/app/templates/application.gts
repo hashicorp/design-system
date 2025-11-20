@@ -79,7 +79,7 @@ export default class Application extends Component {
     ) {
       if (this.isCarbonizationPage) {
         this.shwTheming.setStylesheet('css-selectors--advanced');
-        // todo set theme and mode
+        // TODO should we set theme and mode here too, in some conditions?
       }
     }
     // transitioning from a carbonized page to a non-carbonized
@@ -97,7 +97,7 @@ export default class Application extends Component {
       this.isPreviousRouteCarbonized === false &&
       this.isCurrentRouteCarbonized === true
     ) {
-      // we save locally the previous stylesheet and update the page stylesheet/theme/mode
+      // we save locally (in memory) the previous stylesheet and update the page stylesheet/theme/mode
       this.previousStylesheet = this.shwTheming.currentStylesheet;
       this.previousTheme = this.hdsTheming.currentTheme;
       this.previousMode = this.hdsTheming.currentMode;
