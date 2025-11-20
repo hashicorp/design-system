@@ -20,6 +20,7 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
 
   const header = await fileHeader({});
 
+  // for the moment we're covering only the use cases we know of, later we may add more formats if needed
   const methods = ['css-selectors', 'css-selectors--migration', 'css-selectors--advanced', 'scss-mixins'];
 
   for (const method of methods) {
@@ -70,6 +71,7 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
 
     // SCSS file for mixins
     if (method === 'scss-mixins') {
+      // these are the mixins that can be used to include the "themed" tokens
       outputContent += `@mixin hds-theme-default() { ${defaultThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-light() { ${cds0ThemedSource} }\n\n`;
       outputContent += `@mixin hds-theme-dark() { ${cds100ThemedSource} }\n\n`;
@@ -77,12 +79,12 @@ export async function generateExtraThemingCssFiles(_dictionary: Dictionary, conf
       outputContent += `@mixin hds-mode-cds10() { ${cds10ThemedSource} }\n\n`;
       outputContent += `@mixin hds-mode-cds90() { ${cds90ThemedSource} }\n\n`;
       outputContent += `@mixin hds-mode-cds100() { ${cds100ThemedSource} }\n\n`;
-      //
+
       // this is the mixin that needs to be used to include the common tokens, shared across themes
       outputContent += `@mixin hds-theme-common() { ${commonSource} }\n\n`;
     }
 
-    const outputTokensCss = await prettier.format(outputContent, { parser: 'css', tabWidth: 2, });
+    const outputTokensCss = await prettier.format(outputContent, { parser: 'scss', tabWidth: 2, });
 
     const outputFolder = `${config.buildPath}themed-tokens/with-${method}/`;
     await fs.ensureDir(outputFolder);
