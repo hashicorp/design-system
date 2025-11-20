@@ -5,7 +5,7 @@ import { eq, notEq, and } from 'ember-truth-helpers';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
-import ShwCarbonizationTokenPreviewHdsColor from 'showcase/components/shw/carbonization/token-preview/hds-color';
+import ShwCarbonizationTokenPreviewColor from 'showcase/components/shw/carbonization/token-preview/color';
 
 import type { DesignToken } from '../../../../types/design-token';
 
@@ -25,7 +25,7 @@ const ColorCarbonization: TemplateOnlyComponent = <template>
       {{#if (and (eq token.$type "color") (notEq token.name undefined))}}
         <ShwCarbonizationComparisonGrid @label={{tokenShortName token}}>
           <:theming as |T|>
-            <ShwCarbonizationTokenPreviewHdsColor
+            <ShwCarbonizationTokenPreviewColor
               @mode={{T.context}}
               @tokenName={{token.name}}
             />
