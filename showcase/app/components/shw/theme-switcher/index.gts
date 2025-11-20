@@ -9,6 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import type Owner from '@ember/owner';
 
+import ShwThemingService from 'showcase/services/shw-theming';
 import ShwThemeSwitcherPopover from './popover';
 import ShwThemeSwitcherSelector from './selector';
 import ShwThemeSwitcherDebuggingPanel from './debugging-panel';
@@ -31,6 +32,7 @@ const LOCALSTORAGE_DEBUGGING_PANEL = 'shw-theming-has-debugging-panel';
 
 export default class ShwThemeSwitcher extends Component {
   @service declare readonly hdsTheming: HdsThemingService;
+  @service declare readonly shwTheming: ShwThemingService;
 
   @tracked showAdvancedOptions: boolean;
   @tracked hasFixedControls: boolean;
@@ -79,6 +81,15 @@ export default class ShwThemeSwitcher extends Component {
       LOCALSTORAGE_DEBUGGING_PANEL,
       String(this.hasDebuggingPanel),
     );
+
+    if (
+      this.showAdvancedOptions === false &&
+      this.shwTheming.currentStylesheet === 'css-selectors--advanced'
+    ) {
+      // since the "advanced options" in the dropdown are not available anymore,
+      // we have to switch to another stylesheet which is available (and has the same options)
+      this.shwTheming.setStylesheet('css-selectors--migration');
+    }
   };
 
   <template>
