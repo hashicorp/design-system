@@ -18,6 +18,7 @@ import type { HdsDropdownSignature } from '../dropdown/index.ts';
 export interface HdsFilterBarFiltersDropdownSignature {
   Args: HdsDropdownSignature['Args'] & {
     filters: HdsFilterBarFilters;
+    isLiveFilter: boolean;
     onFilter?: (filters: HdsFilterBarFilters) => void;
   };
   Blocks: {
@@ -59,21 +60,22 @@ export default class HdsFilterBarFiltersDropdown extends Component<
     }
   );
 
+  get isLiveFilter(): boolean {
+    return this.args.isLiveFilter || false;
+  }
+
   @action
   onFilter(key: string, keyFilter?: HdsFilterBarFilter): void {
     this.internalFilters = this._updateFilter(key, keyFilter);
+
+    if (this.isLiveFilter) {
+      this._applyFilters();
+    }
   }
 
   @action
   onApply(closeDropdown?: () => void): void {
-    const { onFilter } = this.args;
-    if (onFilter && typeof onFilter === 'function') {
-      onFilter(this.internalFilters);
-    }
-
-    if (closeDropdown && typeof closeDropdown === 'function') {
-      closeDropdown();
-    }
+    this._applyFilters(closeDropdown);
   }
 
   @action
@@ -133,6 +135,17 @@ export default class HdsFilterBarFiltersDropdown extends Component<
 
     return { ...newFilters };
   }
+
+  private _applyFilters = (closeDropdown?: () => void): void => {
+    const { onFilter } = this.args;
+    if (onFilter && typeof onFilter === 'function') {
+      onFilter(this.internalFilters);
+    }
+
+    if (closeDropdown && typeof closeDropdown === 'function') {
+      closeDropdown();
+    }
+  };
 
   private _onClose = (): void => {
     const { filters } = this.args;
