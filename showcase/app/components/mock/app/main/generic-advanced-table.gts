@@ -10,6 +10,8 @@ import { get } from '@ember/helper';
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier/modifiers/style';
 
+import ShwPlaceholder from 'showcase/components/shw/placeholder';
+
 // HDS components
 import {
   HdsAdvancedTable,
@@ -810,6 +812,9 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
         {{style marginBottom="24px"}}
         as |F|
       >
+        <F.ActionsGeneric>
+          <ShwPlaceholder @text="generic content" @height="24" />
+        </F.ActionsGeneric>
         <F.ActionsDropdown as |D|>
           <D.ToggleButton @text="Actions" @color="secondary" @size="small" />
           <D.Checkbox>access</D.Checkbox>
@@ -899,6 +904,9 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             @onFilter={{this.onFilter}}
             as |F|
           >
+            <F.ActionsGeneric>
+              <ShwPlaceholder @text="generic content" @height="24" />
+            </F.ActionsGeneric>
             <F.ActionsDropdown as |D|>
               <D.ToggleButton
                 @text="Actions"

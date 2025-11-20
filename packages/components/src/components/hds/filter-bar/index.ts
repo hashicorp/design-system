@@ -19,6 +19,7 @@ import type {
   HdsFilterBarGenericFilterData,
 } from './types.ts';
 import HdsDropdown from '../dropdown/index.ts';
+import HdsYield from '../yield/index.ts';
 import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
 import { isArray } from '@ember/array';
 
@@ -36,6 +37,7 @@ export interface HdsFilterBarSignature {
     default?: [
       {
         ActionsDropdown?: WithBoundArgs<typeof HdsDropdown, never>;
+        ActionsGeneric?: WithBoundArgs<typeof HdsYield, never>;
         FiltersDropdown?: WithBoundArgs<
           typeof HdsFilterBarFiltersDropdown,
           'filters' | 'isLiveFilter' | 'onFilter'
