@@ -8,7 +8,7 @@ import fs from 'fs-extra';
 import type { Dictionary, PlatformConfig }  from 'style-dictionary';
 import type { DesignToken } from 'style-dictionary/types';
 
-export async function generateExtraThemingDocsFiles(_dictionary: Dictionary, config: PlatformConfig): Promise<void> {
+export async function generateThemingDocsFiles(_dictionary: Dictionary, config: PlatformConfig): Promise<void> {
 
   const defaultThemedTokens = await getJsonThemedObjectFromFile(config, 'default');
   const cds0ThemedTokens = await getJsonThemedObjectFromFile(config, 'cds-g0');
