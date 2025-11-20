@@ -49,7 +49,7 @@ export interface HdsFilterBarSignature {
 export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   @service hdsIntl!: HdsIntlService;
 
-  @tracked _isExpanded: boolean = true;
+  @tracked _isExpanded: boolean = false;
 
   get searchValue(): string {
     const { filters } = this.args;
@@ -64,6 +64,12 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     const { onFilter } = this.args;
     if (onFilter && typeof onFilter === 'function') {
       onFilter(filters);
+
+      if (Object.keys(filters).length > 0) {
+        this._isExpanded = true;
+      } else {
+        this._isExpanded = false;
+      }
     }
   }
 
@@ -72,6 +78,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     const { onFilter } = this.args;
     if (onFilter && typeof onFilter === 'function') {
       onFilter({});
+      this._isExpanded = false;
     }
   }
 
