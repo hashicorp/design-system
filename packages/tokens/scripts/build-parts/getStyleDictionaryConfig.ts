@@ -26,15 +26,6 @@ const excludePrivateTokens = (token: DesignToken) => {
   return !token.private;
 }
 
-// const getFilterForMode = (mode: Mode) => {
-//   // this function returns a function to filter based on
-//   return function (token: DesignToken) {
-//     // TODO!
-//     console.log('xxx filter for mode', mode);
-//     return !token.private;
-//   };
-// }
-
 export function getStyleDictionaryConfig({ target, mode }: { target: Target, mode?: Mode }): Config {
 
   // -----------------------
@@ -67,7 +58,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 destination: `themed-tokens/with-root-selector/${mode}/common-tokens.css`,
                 format: 'css/variables',
                 options: {
-                  // TODO understand if is better to output references or not for the "common" definitions (probably yes)
+                  // TODO understand if is better to output references or not for the "common" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
                   outputReferences: false,
                   // outputReferences: (token, { dictionary, usesDtcg }) => {
                   //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
@@ -85,7 +76,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 destination: `themed-tokens/with-root-selector/${mode}/themed-tokens.css`,
                 format: 'css/variables',
                 options: {
-                  // TODO understand if is better to output references or not for the "themed" definitions (almost certainly yes)
+                  // TODO understand if is better to output references or not for the "themed" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
                   outputReferences: false,
                   // outputReferences: (token, { dictionary, usesDtcg }) => {
                   //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
