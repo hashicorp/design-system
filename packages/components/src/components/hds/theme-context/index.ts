@@ -13,6 +13,8 @@ import {
 } from './types.ts';
 import type { HdsThemeContexts } from './types.ts';
 
+import type { HdsThemes, HdsModes } from '../../../services/hds-theming.ts';
+
 export interface HdsThemeContextSignature {
   Args: {
     // it can be an `HdsTheme` or an `HdsMode`
@@ -24,13 +26,13 @@ export interface HdsThemeContextSignature {
   Element: HTMLElement;
 }
 
-export const CONTEXTUAL_THEMES: string[] = Object.values(
+export const CONTEXTUAL_THEMES: HdsThemes[] = Object.values(
   HdsThemeContextThemesValues
 );
-export const CONTEXTUAL_MODES: string[] = Object.values(
+export const CONTEXTUAL_MODES: HdsModes[] = Object.values(
   HdsThemeContextModesValues
 );
-export const CONTEXTUAL_VALUES: string[] = [
+export const CONTEXTUAL_VALUES: HdsThemeContexts[] = [
   ...CONTEXTUAL_THEMES,
   ...CONTEXTUAL_MODES,
 ];
@@ -56,9 +58,9 @@ export default class HdsThemeContext extends Component<HdsThemeContextSignature>
     const { context } = this.args;
 
     // add "theme" or "mode" classes based on the @context arguments
-    if (CONTEXTUAL_THEMES.includes(context)) {
+    if (CONTEXTUAL_THEMES.includes(context as HdsThemes)) {
       classes.push(`hds-theme-${context}`);
-    } else if (CONTEXTUAL_MODES.includes(context)) {
+    } else if (CONTEXTUAL_MODES.includes(context as HdsModes)) {
       classes.push(`hds-mode-${context}`);
     }
 
