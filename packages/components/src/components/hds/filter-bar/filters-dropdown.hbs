@@ -32,11 +32,13 @@
   <D.Footer @hasDivider={{true}}>
     <Hds::Layout::Flex @direction="row" @justify="space-between" @align="center" as |LF|>
       <Hds::ButtonSet>
-        <Hds::Button
-          @text={{hds-t "hds.components.filter-bar.filters-dropdown.apply" default="Apply filters"}}
-          @size="small"
-          {{on "click" (fn this.onApply D.close)}}
-        />
+        {{#unless this.isLiveFilter}}
+          <Hds::Button
+            @text={{hds-t "hds.components.filter-bar.filters-dropdown.apply" default="Apply filters"}}
+            @size="small"
+            {{on "click" (fn this.onApply D.close)}}
+          />
+        {{/unless}}
         <Hds::Button
           @text={{hds-t "hds.components.filter-bar.filters-dropdown.clear" default="Clear all filters"}}
           @color="secondary"

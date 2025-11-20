@@ -5,7 +5,11 @@
 <div class="hds-filter-bar" ...attributes>
   <div class="hds-filter-bar__actions">
     {{yield
-      (hash FiltersDropdown=(component "hds/filter-bar/filters-dropdown" onFilter=this.onFilter filters=@filters))
+      (hash
+        FiltersDropdown=(component
+          "hds/filter-bar/filters-dropdown" filters=@filters isLiveFilter=@isLiveFilter onFilter=this.onFilter
+        )
+      )
     }}
     {{#if @hasSearch}}
       <Hds::Form::TextInput::Base
