@@ -2,18 +2,18 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
+import { modifier } from 'ember-modifier';
 import { render, find } from '@ember/test-helpers';
-import { wait } from 'showcase/tests/helpers';
+import { TrackedObject } from 'tracked-built-ins';
+import type { MiddlewareState, MiddlewareReturn } from '@floating-ui/dom';
+
 import hdsAnchoredPosition, {
   getFloatingUIOptions,
 } from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
 import hdsAnchoredPositionModifier from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
-import { TrackedObject } from 'tracked-built-ins';
-import { modifier } from 'ember-modifier';
-import type { MiddlewareState, MiddlewareReturn } from '@floating-ui/dom';
+
+import { setupRenderingTest, wait } from 'showcase/tests/helpers';
 
 // see: https://codepen.io/didoo/pen/VwNpOJb
 const STYLE_CONTENT = `

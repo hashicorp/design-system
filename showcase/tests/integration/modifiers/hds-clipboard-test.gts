@@ -3,11 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import {
-  module,
-  test,
-  // skip
-} from 'qunit';
+import { module, test } from 'qunit';
 import {
   click,
   render,
@@ -16,17 +12,16 @@ import {
   fillIn,
   resetOnerror,
 } from '@ember/test-helpers';
-import sinon from 'sinon';
-import { TrackedObject } from 'tracked-built-ins';
-import style from 'ember-style-modifier';
 import { modifier } from 'ember-modifier';
+import { TrackedObject } from 'tracked-built-ins';
+import sinon from 'sinon';
+import style from 'ember-style-modifier';
 
 import hdsClipboard, {
   getTextToCopy,
   getTargetElement,
   getTextToCopyFromTargetElement,
   writeTextToClipboard,
-  // copyToClipboard,
 } from '@hashicorp/design-system-components/modifiers/hds-clipboard';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';

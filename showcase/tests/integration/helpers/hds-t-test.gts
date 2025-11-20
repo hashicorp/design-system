@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, setupOnerror } from '@ember/test-helpers';
+
 import hdsT from '@hashicorp/design-system-components/helpers/hds-t';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 const DEFAULT_STRING = 'Default text';
 

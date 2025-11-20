@@ -4,7 +4,6 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import {
   render,
   focus,
@@ -18,6 +17,8 @@ import { focusable } from 'tabbable';
 import { get } from '@ember/helper';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const DEFAULT_SORTABLE_MODEL = [

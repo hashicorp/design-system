@@ -4,8 +4,10 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
+
 import { hdsFormatRelative } from '@hashicorp/design-system-components/helpers/hds-format-relative';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Helper | hds-format-relative - hdsFormatRelative()',

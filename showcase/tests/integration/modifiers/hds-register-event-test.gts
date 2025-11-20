@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render, triggerEvent } from '@ember/test-helpers';
+
 import hdsRegisterEvent from '@hashicorp/design-system-components/modifiers/hds-register-event';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Modifier | hds-register-event', function (hooks) {
   setupRenderingTest(hooks);
