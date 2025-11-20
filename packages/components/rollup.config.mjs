@@ -15,7 +15,7 @@ const addon = new Addon({
   destDir: 'dist',
 });
 
-// Custom SCSS compilation plugins for Rollup
+// Custom SCSS compilation plugin for Rollup
 function addScssCompilationPlugins(options) {
   return options.map(({ inputFile, outputFile }) => ({
     name: `rollup custom plugin to generate ${outputFile}`,
