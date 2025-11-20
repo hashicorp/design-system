@@ -61,6 +61,7 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
               <HdsThemeSwitcher
                 @toggleSize="medium"
                 @toggleIsFullWidth={{true}}
+                @hasDefaultOption={{true}}
               />
             </div>
           </:extraBodyAfter>
