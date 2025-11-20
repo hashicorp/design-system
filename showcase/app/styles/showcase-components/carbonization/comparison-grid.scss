@@ -45,7 +45,7 @@
   margin-bottom: 0;
 }
 
-// THEMING BACKGROUNDS
+// THEMING AREAS
 
 .shw-carbonization-comparison-grid__item-content {
   padding: 8px;
@@ -53,10 +53,14 @@
   background-color: var(--content-background-color);
 }
 
+// area: HDS "default"
+
 .shw-carbonization-comparison-grid__item--area-default {
   --content-foreground-color: var(--token-color-foreground-primary);
   --content-background-color: var(--token-color-surface-primary);
 }
+
+// area: HDS carbonized
 
 // TODO replace the hex values (copied from the `--cds-background` themed variable) with CSS design tokens from our theming
 .shw-carbonization-comparison-grid__item--area-cds-g0 {
@@ -79,6 +83,8 @@
   --content-background-color: #161616;
 }
 
+// area: CDS web components
+
 .shw-carbonization-comparison-grid__item--area-cwc-g0 {
   --content-foreground-color: #{map.get(cdsThemes.$white, text-primary)};
   --content-background-color: #{map.get(cdsThemes.$white, background)};
@@ -99,17 +105,25 @@
   --content-background-color: #{map.get(cdsThemes.$g100, background)};
 }
 
-// if we had access to the CSS variables directly (without importing also the resets) we could do just this
-// https://github.com/carbon-design-system/ibm-products/blob/main/packages/ibm-products-web-components/examples/tearsheet/src/styles.scss#L16-L17
-// https://github.com/carbon-design-system/carbon-components-angular/blob/master/src/theme/theme.stories.ts#L43-L44
-// .shw-carbonization-comparison-grid__item--area-cwc-g0,
-// .shw-carbonization-comparison-grid__item--area-cwc-g10,
-// .shw-carbonization-comparison-grid__item--area-cwc-g90,
-// .shw-carbonization-comparison-grid__item--area-cwc-g100 {
-//   --content-foreground-color: var(--cds-text-primary);
-//   --content-background-color: var(--cds-background);
-// }
+// WEB COMPONENTS local styling
+// these come from https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css
+// they are used in selectors like `:host(.cds-theme-zone-g10), .cds-theme-zone-g10` to apply specific CSS variables for a theme/mode
 
+// see: https://github.com/carbon-design-system/carbon/blob/main/packages/web-components/docs/carbon-cdn-style-helpers.mdx#carbon-theme-zoning-classes
+.cds-theme-zone-white,
+.cds-theme-zone-g10,
+.cds-theme-zone-g90,
+.cds-theme-zone-g100 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  code {
+    font-family: 'IBM Plex Mono', Menlo, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace
+  }
+
+  button, select, input, textarea {
+    font-family: inherit
+  }
+}
 
 // DEBUG
 
