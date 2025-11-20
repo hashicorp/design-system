@@ -63,7 +63,7 @@ const updatePageStylesheets = (currentStylesheet: ShwStylesheets) => {
   });
 };
 
-export const LOCALSTORAGE_CURRENT_STYLESHEET = 'shw-theming-current-stylesheet';
+const LOCALSTORAGE_CURRENT_STYLESHEET = 'shw-theming-current-stylesheet';
 export default class ShwThemingService extends HdsThemingService {
   @service declare readonly hdsTheming: HdsThemingService;
 
