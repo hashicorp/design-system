@@ -565,6 +565,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   ];
   @deepTracked filters: HdsFilterBarSignature['Args']['filters'] = {};
   @tracked isSeparatedFilterBar = false;
+  @tracked isLiveFilter = false;
 
   @action onSelectionChange({
     selectionKey,
@@ -772,6 +773,11 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     this.isSeparatedFilterBar = target.checked;
   };
 
+  onLiveFilterToggle = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    this.isLiveFilter = target.checked;
+  };
+
   <template>
     <div class="filters__toggle" {{style marginBottom="24px"}}>
       <HdsFormToggleField
@@ -784,9 +790,21 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
       </HdsFormToggleField>
     </div>
 
+    <div class="filters__toggle" {{style marginBottom="24px"}}>
+      <HdsFormToggleField
+        name="demo-live-filtering"
+        {{on "click" this.onLiveFilterToggle}}
+        checked={{this.isLiveFilter}}
+        as |F|
+      >
+        <F.Label>Live filtering</F.Label>
+      </HdsFormToggleField>
+    </div>
+
     {{#if this.isSeparatedFilterBar}}
       <HdsFilterBar
         @hasSearch={{true}}
+        @isLiveFilter={{this.isLiveFilter}}
         @filters={{this.filters}}
         @onFilter={{this.onFilter}}
         {{style marginBottom="24px"}}
@@ -876,6 +894,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
         {{#unless this.isSeparatedFilterBar}}
           <A.FilterBar
             @hasSearch={{true}}
+            @isLiveFilter={{this.isLiveFilter}}
             @filters={{this.filters}}
             @onFilter={{this.onFilter}}
             as |F|
