@@ -4,8 +4,11 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { or, eq } from 'ember-truth-helpers';
+import type { WithBoundArgs } from '@glint/template';
+import { hash } from '@ember/helper';
 
 import DocBadge from 'website/components/doc/badge';
+import DocBanner from 'website/components/doc/banner';
 
 export interface DocComponentApiPropertySignature {
   Args: {
@@ -18,7 +21,11 @@ export interface DocComponentApiPropertySignature {
     valueNote?: string;
   };
   Blocks: {
-    default: [];
+    default: [
+      {
+        Banner: WithBoundArgs<typeof DocBanner, 'type'>;
+      },
+    ];
   };
   Element: HTMLDivElement;
 }
@@ -75,8 +82,7 @@ const DocComponentApiProperty: TemplateOnlyComponent<DocComponentApiPropertySign
       {{/if}}
       {{#if (has-block)}}
         <div class="doc-component-api__property-description">
-          {{! @glint-expect-error - component not typed yet }}
-          {{yield (hash Banner=(component "doc/banner" type="warning"))}}
+          {{yield (hash Banner=(component DocBanner type="warning"))}}
         </div>
       {{/if}}
     </div>
