@@ -37,7 +37,7 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
   get classNames(): string {
     const classes = ['shw-carbonization-comparison-grid__item'];
 
-    // add a class based on `this.area`
+    // add a class based on `this.areaName`
     classes.push(
       `shw-carbonization-comparison-grid__item--area-${this.areaName}`,
     );
