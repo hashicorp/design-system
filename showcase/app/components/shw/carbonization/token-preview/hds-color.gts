@@ -2,7 +2,9 @@ import Component from '@glimmer/component';
 import style from 'ember-style-modifier';
 
 import ShwLabel from 'showcase/components/shw/label';
-import THEMED_TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/themed-tokens.json';
+
+// Use namespace import to avoid the module bundler wrapping the JSON in a `.default` export
+import * as THEMED_TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/themed-tokens.json';
 
 import type { HdsModes } from '@hashicorp/design-system-components/services/hds-theming';
 
