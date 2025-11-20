@@ -6,3 +6,4 @@ filter-text:
     separator: and
   date-filter:
     separator: and
+no-filters-applied: No filters applied
