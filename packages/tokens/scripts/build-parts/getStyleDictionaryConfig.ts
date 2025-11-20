@@ -138,7 +138,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 filter: excludePrivateTokens,
               }
             ],
-            actions: ['generate-css-helpers', 'generate-extra-theming-css-files'],
+            actions: ['generate-css-helpers', 'generate-theming-css-files'],
           },
           'docs/json': {
             buildPath: 'dist/docs/products/',
@@ -152,7 +152,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 filter: excludePrivateTokens,
               }
             ],
-            actions: ['generate-extra-theming-docs-files'],
+            actions: ['generate-theming-docs-files'],
           }
         }
       };
