@@ -44,7 +44,7 @@ for (const mode of modes) {
           if (mode in slice.$modes) {
             slice.$value = slice.$modes[mode];
           } else {
-            // TODO! decide if we want to throw here (and test if it works, by removing a value from one of the test files)
+            // TODO! decide if we want to throw here (and test if it works, by removing a value from one of the test files) - see: https://hashicorp.atlassian.net/browse/HDS-5668
             console.error(`❌ ERROR - Found themed token without '${mode}' value:`, JSON.stringify(slice, null, 2));
           }
         } else {
@@ -73,14 +73,14 @@ StyleDictionary.registerTransform({
       isThemeable = true;
     }
 
-    // TODO! understand how we can make this themeable using `usesReferences`/`getReferences`
+    // TODO! understand how we can make this themeable using `usesReferences`/`getReferences` - see: https://hashicorp.atlassian.net/browse/HDS-5667
     // if (token.key === "{typography.display-500.font-family}") {
-    //   console.log('usesReferences', usesReferences(token.original.$value));
-    //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
-    //   console.log('refs', refs);
-    // }
+      //   console.log('usesReferences', usesReferences(token.original.$value));
+      //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
+      //   console.log('refs', refs);
+      // }
 
-    // TODO understand if we really need this to split themeable vs non-themeable tokens
+      // TODO understand if we really need this to split themeable vs non-themeable tokens - see: https://hashicorp.atlassian.net/browse/HDS-5667
     // if (usesReferences(token.original.$value)) {
     //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
     //   isThemeable = refs.some((ref) => '$modes' in ref);
