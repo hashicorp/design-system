@@ -6,12 +6,12 @@ import ShwLabel from '../../label';
 import type { ComponentLike } from '@glint/template';
 import type { ShwLabelSignature } from 'showcase/components/shw/label';
 
-import type { Mode } from './index';
+import type { Context } from './index';
 
 export interface ShwCarbonizationComparisonGridItemSignature {
   Args: {
     label?: string;
-    mode: Mode;
+    context: Context;
     scope: 'theming' | 'reference';
   };
   Blocks: {
@@ -28,9 +28,9 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
   get areaName(): string {
     if (this.args.scope === 'reference') {
       // `default` is not included in the loop for the references
-      return this.args.mode.replace('cds', 'cwc');
+      return this.args.context.replace('cds', 'cwc');
     } else {
-      return this.args.mode;
+      return this.args.context;
     }
   }
 
@@ -49,28 +49,37 @@ export default class ShwCarbonizationComparisonGridItem extends Component<ShwCar
     const classes = ['shw-carbonization-comparison-grid__item-content'];
 
     if (this.args.scope === 'theming') {
-      // here we use the custom HDS theming selector
-      classes.push(`hds-mode-${this.args.mode}`);
+      let hdsSelector: string;
+      // here we use the HDS theme/mode class selectors
+      switch (this.args.context) {
+        case 'default':
+          hdsSelector = 'hds-theme-default';
+          break;
+        default:
+          hdsSelector = `hds-mode-${this.args.context}`;
+          break;
+      }
+      classes.push(hdsSelector);
     }
 
     if (this.args.scope === 'reference') {
       // here we use the web-components specific selector (see: https://github.com/carbon-design-system/carbon/blob/main/packages/web-components/docs/carbon-cdn-style-helpers.mdx#carbon-theme-zoning-classes)
-      let selector;
-      switch (this.args.mode) {
+      let cdsSelector: string;
+      switch (this.args.context) {
         case 'cds-g100':
-          selector = 'cds-theme-zone-g100';
+          cdsSelector = 'cds-theme-zone-g100';
           break;
         case 'cds-g90':
-          selector = 'cds-theme-zone-g90';
+          cdsSelector = 'cds-theme-zone-g90';
           break;
         case 'cds-g10':
-          selector = 'cds-theme-zone-g10';
+          cdsSelector = 'cds-theme-zone-g10';
           break;
         default:
-          selector = 'cds-theme-zone-white';
+          cdsSelector = 'cds-theme-zone-white';
           break;
       }
-      classes.push(selector);
+      classes.push(cdsSelector);
     }
 
     return classes.join(' ');
