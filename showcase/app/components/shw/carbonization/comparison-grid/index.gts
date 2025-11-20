@@ -15,13 +15,13 @@ export interface ShwCarbonizationComparisonGridSignature {
   };
   Blocks: {
     label: [];
-    theming: [{ mode: Mode }];
-    reference: [{ mode: Mode }];
+    theming: [{ context: Context }];
+    reference: [{ context: Context }];
   };
   Element: HTMLDivElement;
 }
 
-export const MODES = [
+export const CONTEXTS = [
   'default',
   'cds-g0',
   'cds-g10',
@@ -29,7 +29,7 @@ export const MODES = [
   'cds-g100',
 ] as const;
 
-export type Mode = (typeof MODES)[number];
+export type Context = (typeof CONTEXTS)[number];
 
 const carbonLabel = helper(([hdsLabel]: [string]) => {
   return hdsLabel.replace(/^cds-/, 'carbon/').replace(/g0$/, 'white');
@@ -53,25 +53,25 @@ const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComp
       ...attributes
     >
       {{#if (has-block "theming")}}
-        {{#each MODES as |mode|}}
+        {{#each CONTEXTS as |context|}}
           <ShwCarbonizationComparisonGridItem
             @scope="theming"
-            @mode={{mode}}
-            @label={{(unless @hideThemeLabels mode)}}
+            @context={{context}}
+            @label={{(unless @hideThemeLabels context)}}
           >
-            {{yield (hash mode=mode) to="theming"}}
+            {{yield (hash context=context) to="theming"}}
           </ShwCarbonizationComparisonGridItem>
         {{/each}}
       {{/if}}
       {{#if (has-block "reference")}}
-        {{#each MODES as |mode|}}
-          {{#unless (eq mode "default")}}
+        {{#each CONTEXTS as |context|}}
+          {{#unless (eq context "default")}}
             <ShwCarbonizationComparisonGridItem
               @scope="reference"
-              @mode={{mode}}
-              @label={{(unless @hideCarbonLabels (carbonLabel mode))}}
+              @context={{context}}
+              @label={{(unless @hideCarbonLabels (carbonLabel context))}}
             >
-              {{yield (hash mode=mode) to="reference"}}
+              {{yield (hash context=context) to="reference"}}
             </ShwCarbonizationComparisonGridItem>
           {{/unless}}
         {{/each}}
