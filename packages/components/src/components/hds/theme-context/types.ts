@@ -9,10 +9,7 @@ import {
   HdsModesDarkValues,
 } from '../../../services/hds-theming.ts';
 
-import type {
-HdsThemes,
-HdsModes,
-} from '../../../services/hds-theming.ts';
+import type { HdsThemes, HdsModes } from '../../../services/hds-theming.ts';
 
 // re-export the enum values for the `HdsThemes` to use in the component
 // note: using `as const` ensures Object.values() returns only the values (not keys _and_ values)
@@ -32,4 +29,4 @@ export const HdsThemeContextModesValues = {
   CdsG100: HdsModesDarkValues.CdsG100,
 } as const;
 
-export type HdsThemeContexts = HdsThemes | HdsModes;
+export type HdsThemeContexts = HdsThemes | Exclude<HdsModes, 'default'>;

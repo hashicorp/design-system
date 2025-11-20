@@ -13,6 +13,7 @@ import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 
 import { HdsThemeContext } from '@hashicorp/design-system-components/components';
+import type { HdsThemeContexts } from '@hashicorp/design-system-components/components/hds/theme-context/types';
 
 import ShwThemingService from 'showcase/services/shw-theming';
 import {
@@ -82,6 +83,14 @@ class ThemingBasicContainer extends Component<ThemingBasicContainerSignature> {
 export default class SubSectionContexts extends Component {
   @service declare readonly shwTheming: ShwThemingService;
 
+  get contextualThemes() {
+    return CONTEXTUAL_THEMES as HdsThemeContexts[];
+  }
+
+  get contextualModes() {
+    return CONTEXTUAL_MODES as HdsThemeContexts[];
+  }
+
   <template>
     <ShwTextH2>Contextual theming</ShwTextH2>
 
@@ -124,7 +133,7 @@ export default class SubSectionContexts extends Component {
         {{style width="fit-content" grid-template-columns="repeat(4, auto)"}}
         as |SG|
       >
-        {{#each CONTEXTUAL_THEMES as |theme|}}
+        {{#each this.contextualThemes as |theme|}}
           <SG.Item as |SGI|>
             <SGI.Label><code>@context={{theme}}</code></SGI.Label>
             <HdsThemeContext @context={{theme}}>
@@ -134,14 +143,13 @@ export default class SubSectionContexts extends Component {
               }}
                 <ThemingBasicContainer
                   @text="TEXT"
-                  @context={{theme}}
                   @isAvailable={{isAvailable}}
                 />
               {{/let}}
             </HdsThemeContext>
           </SG.Item>
         {{/each}}
-        {{#each CONTEXTUAL_MODES as |mode|}}
+        {{#each this.contextualModes as |mode|}}
           <SG.Item as |SGI|>
             <SGI.Label><code>@context={{mode}}</code></SGI.Label>
             <HdsThemeContext @context={{mode}}>
@@ -151,7 +159,6 @@ export default class SubSectionContexts extends Component {
               }}
                 <ThemingBasicContainer
                   @text="TEXT"
-                  @context={{mode}}
                   @isAvailable={{isAvailable}}
                 />
               {{/let}}
@@ -247,7 +254,7 @@ export default class SubSectionContexts extends Component {
         {{style width="fit-content" grid-template-columns="repeat(4, auto)"}}
         as |SG|
       >
-        {{#let CONTEXTUAL_THEMES as |themes|}}
+        {{#let this.contextualThemes as |themes|}}
           {{#each themes as |theme|}}
             <SG.Item as |SGI|>
               <SGI.Label><code>
@@ -260,7 +267,6 @@ export default class SubSectionContexts extends Component {
                 }}
                   <ThemingBasicContainer
                     @text="TEXT"
-                    @context={{theme}}
                     @isAvailable={{isAvailable}}
                   />
                 {{/let}}
