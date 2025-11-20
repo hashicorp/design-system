@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-filter-bar" ...attributes>
-  <div class="hds-filter-bar__actions">
+  <Hds::Layout::Flex @align="end" @gap="8" class="hds-filter-bar__actions">
     {{yield
       (hash
         FiltersDropdown=(component
@@ -23,7 +23,8 @@
         {{on "change" this.onSearch}}
       />
     {{/if}}
-    <div class="hds-filter-bar__actions__right">
+    <Hds::Layout::Flex @gap="8" @align="center" class="hds-filter-bar__actions__right">
+      {{yield (hash ActionsGeneric=(component "hds/yield"))}}
       {{yield (hash ActionsDropdown=(component "hds/dropdown"))}}
       <Hds::Button
         @text={{if
@@ -37,8 +38,8 @@
         @isIconOnly={{true}}
         {{on "click" this.toggleExpand}}
       />
-    </div>
-  </div>
+    </Hds::Layout::Flex>
+  </Hds::Layout::Flex>
   {{#if this._isExpanded}}
     <div class="hds-filter-bar__filters">
       {{#if this.hasActiveFilters}}
