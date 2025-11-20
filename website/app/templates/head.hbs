@@ -3,6 +3,8 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
+{{! @glint-nocheck - not typesafe yet (need the model from the show.js file to apply here) }}
+
 {{!
 
 Per https://github.com/shipshapecode/ember-meta#defining-your-own-headhbs this is a place where we can customize what information is injected by the ember-meta addon
@@ -11,12 +13,14 @@ We've made some small customizations to simplify this compared to the default te
 
 }}
 
+{{! We need to disable no-forbidden-elements here because generally meta tags aren't allowed in template files }}
+{{! template-lint-disable no-forbidden-elements }}
+
 {{! BEGIN GENERAL }}
 
 {{#if this.model.description}}
   <meta name="description" content={{this.model.description}} />
 {{/if}}
-
 <meta name="referrer" content="unsafe-url" />
 
 {{#if this.model.url}}
