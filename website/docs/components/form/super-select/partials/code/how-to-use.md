@@ -8,11 +8,8 @@ It’s primarily a wrapper for [ember-power-select](https://ember-power-select.c
 
 **Consumer responsibility**
 
-ember-power-select 8.0, and by extension the Super Select component, requires the following line in your `application.hbs`. [Read more about migrating from 7.0 to 8.0](https://ember-power-select.com/docs/migrate-7-0-to-8-0).
+This component depends on `ember-power-select` 8.0, and by extension requires [additional setup](https://ember-power-select.com/docs/installation) including adding a wormhole component and importing its styles to ensure correct rendering.
 
-```markup
-<BasicDropdownWormhole />
-```
 !!!
 
 We provide two main components with similar APIs: `Form::SuperSelect::Single` and `Form::SuperSelect::Multiple`.
