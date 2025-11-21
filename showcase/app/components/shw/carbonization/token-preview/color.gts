@@ -32,7 +32,7 @@ export default class ShwCarbonizationTokenPreviewColor extends Component<ShwCarb
       return themedToken.$value as string;
     } else {
       console.error(
-        `Missing themed token for theme=${this.args.mode} and name=${this.args.tokenName}`,
+        `Missing themed token for mode=${this.args.mode} and name=${this.args.tokenName}`,
       );
       return 'Undefined token value';
     }
