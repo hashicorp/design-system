@@ -121,10 +121,8 @@ export default class SubSectionContexts extends Component {
 
     {{#if (eq this.shwTheming.currentStylesheet "standard")}}
       <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
-        <ShwTextBody>These examples are visible only if theming is applied via
-          "prefers color scheme" or "CSS selectors" or "combined strategies",
-          please select a theme below one of these two groups of options in the
-          selector at the top of the page</ShwTextBody>
+        <ShwTextBody>These examples are visible only if theming is applied,
+          please select a theme in the selector at the top of the page</ShwTextBody>
       </div>
     {{else}}
       <ShwGrid
@@ -174,10 +172,8 @@ export default class SubSectionContexts extends Component {
 
     {{#if (eq this.shwTheming.currentStylesheet "standard")}}
       <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
-        <ShwTextBody>These examples are visible only if theming is applied via
-          "CSS selectors" or "combined strategies", please select a theme below
-          one of these two groups of options in the selector at the top of the
-          page</ShwTextBody>
+        <ShwTextBody>These examples are visible only if theming is applied,
+          please select a theme in the selector at the top of the page</ShwTextBody>
       </div>
     {{else}}
       <ShwGrid
@@ -242,10 +238,8 @@ export default class SubSectionContexts extends Component {
 
     {{#if (eq this.shwTheming.currentStylesheet "standard")}}
       <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
-        <ShwTextBody>These examples are visible only if theming is applied via
-          "prefers color scheme" or "CSS selectors" or "combined strategies",
-          please select a theme below one of these two groups of options in the
-          selector at the top of the page</ShwTextBody>
+        <ShwTextBody>These examples are visible only if theming is applied,
+          please select a theme in the selector at the top of the page</ShwTextBody>
       </div>
     {{else}}
       <ShwGrid
@@ -283,10 +277,8 @@ export default class SubSectionContexts extends Component {
 
     {{#if (eq this.shwTheming.currentStylesheet "standard")}}
       <div class="shw-page-foundations-theming-banner-incorrect-stylesheet">
-        <ShwTextBody>These examples are visible only if theming is applied via
-          "CSS selectors" or "combined strategies", please select a theme below
-          one of these two groups of options in the selector at the top of the
-          page</ShwTextBody>
+        <ShwTextBody>These examples are visible only if theming is applied,
+          please select a theme in the selector at the top of the page</ShwTextBody>
       </div>
     {{else}}
       <ShwGrid
