@@ -14,15 +14,45 @@
   role={{this.role}}
   width="{{this.svgSize.width}}"
   height="{{this.svgSize.height}}"
-  viewBox="0 0 {{this.size}} {{this.size}}"
+  viewBox={{this.viewBox}}
   xmlns="http://www.w3.org/2000/svg"
+  {{this.loadCarbonIcon this.hdsCarbon.carbonModeEnabled}}
 >
   {{#if @title}}
     <title id={{this._titleId}}>{{@title}}</title>
-    <g role="presentation">
-      <use href="#flight-{{@name}}-{{this.size}}"></use>
-    </g>
+  {{/if}}
+
+  {{#if this.hasLoadedCarbonIcon}}
+    {{#each this.carbonIcon.content as |node|}}
+      {{#if (eq node.elem "path")}}
+        <path
+          d={{node.attrs.d}}
+          fill={{node.attrs.fill}}
+          opacity={{node.attrs.opacity}}
+          transform={{node.attrs.transform}}
+        />
+      {{else if (eq node.elem "circle")}}
+        <circle cx={{node.attrs.cx}} cy={{node.attrs.cy}} r={{node.attrs.r}} fill={{node.attrs.fill}} />
+      {{else if (eq node.elem "rect")}}
+        <rect
+          x={{node.attrs.x}}
+          y={{node.attrs.y}}
+          width={{node.attrs.width}}
+          height={{node.attrs.height}}
+          fill={{node.attrs.fill}}
+          transform={{node.attrs.transform}}
+        />
+      {{else if (eq node.elem "polygon")}}
+        <polygon points={{node.attrs.points}} fill={{node.attrs.fill}} />
+      {{/if}}
+    {{/each}}
   {{else}}
-    <use href="#flight-{{@name}}-{{this.size}}"></use>
+    {{#if @title}}
+      <g role="presentation">
+        <use href="#flight-{{@name}}-{{this.size}}"></use>
+      </g>
+    {{else}}
+      <use href="#flight-{{@name}}-{{this.size}}"></use>
+    {{/if}}
   {{/if}}
 </svg>

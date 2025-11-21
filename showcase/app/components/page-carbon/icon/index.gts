@@ -3,30 +3,68 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import { pageTitle } from 'ember-page-title';
+import { HdsFormToggleField } from '@hashicorp/design-system-components/components';
+import { on } from '@ember/modifier';
+import { not } from 'ember-truth-helpers';
+import { fn } from '@ember/helper';
+import { service } from '@ember/service';
 
-import AddIcon from '@carbon/icons/es/add/24';
-import AddAltIcon from '@carbon/icons/es/add--alt/24';
-import AddFilledIcon from '@carbon/icons/es/add--filled/24';
-import AppsIcon from '@carbon/icons/es/apps/24';
+import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
+import type { HdsCarbonService } from '@hashicorp/design-system-components/components';
 
-import { CarbonIcon } from '@hashicorp/design-system-components/components';
+import {
+  HdsIcon,
+  hdsCarbonIconMap,
+} from '@hashicorp/design-system-components/components';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 
-const icons = [AddIcon, AddAltIcon, AddFilledIcon, AppsIcon];
+type IconName = HdsIconSignature['Args']['name'];
 
-const IconIndex: TemplateOnlyComponent = <template>
-  {{pageTitle "Icon"}}
+export default class IconIndex extends Component {
+  @service declare readonly hdsCarbon: HdsCarbonService;
 
-  <ShwTextH1>Icon</ShwTextH1>
+  // iconNames: IconName[] = Object.keys(hdsCarbonIconMap).sort() as IconName[];
+  iconNames = [
+    'accessibility',
+    'accessibility',
+    'accessibility',
+    'accessibility',
+    'accessibility',
+    'accessibility',
+    'accessibility',
+    'accessibility',
+  ];
 
-  <section data-test-percy>
-    {{#each icons as |icon|}}
-      <CarbonIcon @icon={{icon}} />
-    {{/each}}
-  </section>
-</template>;
+  <template>
+    {{pageTitle "Icon"}}
 
-export default IconIndex;
+    <ShwTextH1>Icon</ShwTextH1>
+
+    <HdsFormToggleField
+      checked={{this.hdsCarbon.carbonModeEnabled}}
+      {{on
+        "change"
+        (fn
+          (mut this.hdsCarbon.carbonModeEnabled)
+          (not this.hdsCarbon.carbonModeEnabled)
+        )
+      }}
+      as |F|
+    >
+      <F.Label>Carbon Mode</F.Label>
+    </HdsFormToggleField>
+
+    {{! template-lint-disable no-inline-styles }}
+    <section
+      data-test-percy
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 16px; align-items: center;"
+    >
+      {{#each this.iconNames as |iconName|}}
+        <HdsIcon @name={{iconName}} @size="24" />
+      {{/each}}
+    </section>
+  </template>
+}
