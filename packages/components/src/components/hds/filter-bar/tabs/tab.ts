@@ -13,6 +13,7 @@ export interface HdsFilterBarTabsTabSignature {
     selectedTabIndex?: number;
     tabIds?: string[];
     panelIds?: string[];
+    numFilters?: number;
     didInsertNode?: () => void;
     willDestroyNode?: (element: HTMLButtonElement) => void;
     onClick?: (event: MouseEvent, nodeIndex: number) => void;
