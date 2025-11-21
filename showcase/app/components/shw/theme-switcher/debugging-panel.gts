@@ -41,20 +41,18 @@ export default class ShwThemeSwitcherDebuggingPanel extends Component<ShwThemeSw
       <ShwLabel
         class="shw-theme-switcher__debugging-panel-value"
       >{{this.hdsTheming.currentMode}}</ShwLabel>
-      {{#if @showAdvancedOptions}}
-        <ShwLabel
-          class="shw-theme-switcher__debugging-panel-key"
-        >currentLightTheme:</ShwLabel>
-        <ShwLabel
-          class="shw-theme-switcher__debugging-panel-value"
-        >{{this.hdsTheming.currentLightTheme}}</ShwLabel>
-        <ShwLabel
-          class="shw-theme-switcher__debugging-panel-key"
-        >currentDarkTheme:</ShwLabel>
-        <ShwLabel
-          class="shw-theme-switcher__debugging-panel-value"
-        >{{this.hdsTheming.currentDarkTheme}}</ShwLabel>
-      {{/if}}
+      <ShwLabel
+        class="shw-theme-switcher__debugging-panel-key"
+      >currentLightTheme:</ShwLabel>
+      <ShwLabel
+        class="shw-theme-switcher__debugging-panel-value"
+      >{{this.hdsTheming.currentLightTheme}}</ShwLabel>
+      <ShwLabel
+        class="shw-theme-switcher__debugging-panel-key"
+      >currentDarkTheme:</ShwLabel>
+      <ShwLabel
+        class="shw-theme-switcher__debugging-panel-value"
+      >{{this.hdsTheming.currentDarkTheme}}</ShwLabel>
     </div>
   </template>
 }
