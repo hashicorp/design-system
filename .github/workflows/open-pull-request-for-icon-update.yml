@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: '22.x'
+  NODE_VERSION: "24.x"
 
 jobs:
   sync_iconset:
@@ -37,10 +37,10 @@ jobs:
       - name: Open a PR
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
-          branch: 'hds-icon-export'
-          branch-suffix: 'short-commit-hash'
-          commit-message: 'sync & build of flight icons'
-          title: 'Updated export of icons from Figma'
+          branch: "hds-icon-export"
+          branch-suffix: "short-commit-hash"
+          commit-message: "sync & build of flight icons"
+          title: "Updated export of icons from Figma"
           draft: true
           body: |
             ### :pushpin: Summary
