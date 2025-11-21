@@ -3,16 +3,8 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{#let @tab as |Tab|}}
-  <Tab>
+  <Tab @numFilters={{this.numFilters}}>
     {{@text}}
-    {{#unless (eq this.numFilters 0)}}
-      <Hds::BadgeCount
-        @text={{this.numFilters}}
-        @type="outlined"
-        @size="small"
-        class="hds-filter-bar__filters-dropdown__filter-group__filters-count"
-      />
-    {{/unless}}
   </Tab>
 {{/let}}
 {{#let @panel as |Panel|}}

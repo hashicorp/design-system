@@ -13,7 +13,8 @@
 >
   <D.ToggleButton
     @icon="filter"
-    @text={{hds-t "hds.components.filter-bar.filters-dropdown.toggle-button" default="Add filter"}}
+    @text={{hds-t "hds.components.filter-bar.filters-dropdown.toggle-button" default="Filters"}}
+    @count={{this.numFilters}}
     @color="secondary"
     @size="small"
   />
@@ -30,34 +31,20 @@
     </Hds::FilterBar::Tabs>
   </D.Generic>
   <D.Footer @hasDivider={{true}}>
-    <Hds::Layout::Flex @direction="row" @justify="space-between" @align="center" as |LF|>
-      <Hds::ButtonSet>
-        {{#unless this.isLiveFilter}}
-          <Hds::Button
-            @text={{hds-t "hds.components.filter-bar.filters-dropdown.apply" default="Apply filters"}}
-            @size="small"
-            {{on "click" (fn this.onApply D.close)}}
-          />
-        {{/unless}}
+    <Hds::ButtonSet>
+      {{#unless this.isLiveFilter}}
         <Hds::Button
-          @text={{hds-t "hds.components.filter-bar.filters-dropdown.clear" default="Clear all filters"}}
-          @color="secondary"
+          @text={{hds-t "hds.components.filter-bar.filters-dropdown.apply" default="Apply filters"}}
           @size="small"
-          {{on "click" (fn this.onClear D.close)}}
+          {{on "click" (fn this.onApply D.close)}}
         />
-      </Hds::ButtonSet>
-      <LF.Item>
-        <Hds::Text::Body>{{hds-t
-            "hds.components.filter-bar.filters-dropdown.selected-filters"
-            default="Filters selected"
-          }}:</Hds::Text::Body>
-        <Hds::BadgeCount
-          @text={{this.numFilters}}
-          @type="outlined"
-          @size="small"
-          class="hds-filter-bar__filters-dropdown__filters-count"
-        />
-      </LF.Item>
-    </Hds::Layout::Flex>
+      {{/unless}}
+      <Hds::Button
+        @text={{hds-t "hds.components.filter-bar.filters-dropdown.clear" default="Clear all filters"}}
+        @color="secondary"
+        @size="small"
+        {{on "click" (fn this.onClear D.close)}}
+      />
+    </Hds::ButtonSet>
   </D.Footer>
 </Hds::Dropdown>

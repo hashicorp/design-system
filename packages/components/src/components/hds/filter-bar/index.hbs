@@ -4,6 +4,18 @@
 }}
 <div class="hds-filter-bar" ...attributes>
   <Hds::Layout::Flex @align="end" @gap="8" class="hds-filter-bar__actions">
+    <Hds::Button
+      @text={{if
+        this._isExpanded
+        (hds-t "hds.components.filter-bar.expand-collapse-button.collapse" default="Collapse filters")
+        (hds-t "hds.components.filter-bar.expand-collapse-button.expand" default="Expand filters")
+      }}
+      @color="secondary"
+      @size="small"
+      @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
+      @isIconOnly={{true}}
+      {{on "click" this.toggleExpand}}
+    />
     {{yield
       (hash
         FiltersDropdown=(component
@@ -26,18 +38,6 @@
     <Hds::Layout::Flex @gap="8" @align="center" class="hds-filter-bar__actions__right">
       {{yield (hash ActionsGeneric=(component "hds/yield"))}}
       {{yield (hash ActionsDropdown=(component "hds/dropdown"))}}
-      <Hds::Button
-        @text={{if
-          this._isExpanded
-          (hds-t "hds.components.filter-bar.expand-collapse-button.collapse" default="Collapse filters")
-          (hds-t "hds.components.filter-bar.expand-collapse-button.expand" default="Expand filters")
-        }}
-        @color="secondary"
-        @size="small"
-        @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
-        @isIconOnly={{true}}
-        {{on "click" this.toggleExpand}}
-      />
     </Hds::Layout::Flex>
   </Hds::Layout::Flex>
   {{#if this._isExpanded}}
