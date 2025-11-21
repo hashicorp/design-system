@@ -244,8 +244,7 @@ $hds-button-sizes: ("small", "medium", "large");
   @each $size in $hds-button-sizes {
     .#{$blockName}--size-#{$size} {
       min-height: var(--token-button-height-#{$size});
-      padding: var(--token-button-padding-vertical-#{$size})
-        var(--token-button-padding-horizontal-#{$size});
+      padding: var(--token-button-padding-vertical-#{$size}) var(--token-button-padding-horizontal-#{$size});
 
       .#{$blockName}__icon {
         width: var(--token-button-icon-size-#{$size});
