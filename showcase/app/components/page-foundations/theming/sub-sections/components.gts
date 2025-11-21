@@ -1,5 +1,4 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { on } from '@ember/modifier';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
