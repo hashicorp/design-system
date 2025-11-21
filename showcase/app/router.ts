@@ -155,4 +155,20 @@ Router.map(function () {
       this.route('translation');
     },
   );
+  this.route('page-carbonization', { path: 'carbonization' }, function () {
+    this.route('foundations', function () {
+      this.route('color');
+      this.route('typography');
+      this.route('focus-ring');
+    });
+    this.route('components', function () {
+      this.route('badge');
+      this.route('badge-count');
+      this.route('button');
+      this.route('form', function (): void {
+        this.route('text-input');
+      });
+      this.route('segmented-group');
+    });
+  });
 });

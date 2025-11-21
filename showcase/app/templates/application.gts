@@ -8,19 +8,37 @@ import { LinkTo } from '@ember/routing';
 import { inject as service } from '@ember/service';
 import type RouterService from '@ember/routing/router-service';
 import type Owner from '@ember/owner';
-import { scheduleOnce } from '@ember/runloop';
+import type Transition from '@ember/routing/transition';
+import { scheduleOnce, next } from '@ember/runloop';
 import { modifier } from 'ember-modifier';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
 import ShwLogoDesignSystem from 'showcase/components/shw/logo/design-system';
 import ShwThemeSwitcher from 'showcase/components/shw/theme-switcher';
+import ShwThemingService from 'showcase/services/shw-theming';
+import type { ShwStylesheets } from 'showcase/services/shw-theming';
 
 import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
+import type {
+  HdsThemes,
+  HdsModes,
+} from '@hashicorp/design-system-components/services/hds-theming';
+
+const isCarbonizationRoute = (routeName: string | null | undefined) => {
+  return routeName && routeName?.match(/^page-carbonization/) ? true : false;
+};
 
 export default class Application extends Component {
   @service declare readonly router: RouterService;
   @service declare readonly hdsTheming: HdsThemingService;
+  @service declare readonly shwTheming: ShwThemingService;
+
+  isPreviousRouteCarbonized: boolean | undefined;
+  isCurrentRouteCarbonized: boolean | undefined;
+  previousStylesheet: ShwStylesheets | undefined;
+  previousTheme: HdsThemes | undefined;
+  previousMode: HdsModes | undefined;
 
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
@@ -30,6 +48,10 @@ export default class Application extends Component {
 
   get isFrameless() {
     return this.router?.currentURL?.includes('frameless') ?? false;
+  }
+
+  get isCarbonizationPage() {
+    return isCarbonizationRoute(this.router?.currentRouteName);
   }
 
   addMockStateClasses = () => {
@@ -49,13 +71,66 @@ export default class Application extends Component {
     });
   };
 
-  routeDidChange = () => {
-    // eslint-disable-next-line ember/no-runloop
-    scheduleOnce('afterRender', this, this.addMockStateClasses.bind(this));
+  handleStylesheetForCarbonizedPages = () => {
+    // first page load (or page reload)
+    if (
+      this.isPreviousRouteCarbonized === undefined &&
+      this.isCurrentRouteCarbonized === undefined
+    ) {
+      if (this.isCarbonizationPage) {
+        this.shwTheming.setStylesheet('css-selectors--advanced');
+        // TODO should we set theme and mode here too, in some conditions?
+      }
+    }
+    // transitioning from a carbonized page to a non-carbonized
+    if (
+      this.isPreviousRouteCarbonized === true &&
+      this.isCurrentRouteCarbonized === false
+    ) {
+      // we restore the previous stylesheet/theme/mode
+      const stylesheet: ShwStylesheets =
+        this.previousStylesheet ?? ('standard' as ShwStylesheets);
+      this.shwTheming.setStylesheet(stylesheet);
+    }
+    // transitioning from a non-carbonized page to a carbonized page
+    if (
+      this.isPreviousRouteCarbonized === false &&
+      this.isCurrentRouteCarbonized === true
+    ) {
+      // we save locally (in memory) the previous stylesheet and update the page stylesheet/theme/mode
+      this.previousStylesheet = this.shwTheming.currentStylesheet;
+      this.previousTheme = this.hdsTheming.currentTheme;
+      this.previousMode = this.hdsTheming.currentMode;
+      this.shwTheming.setStylesheet('css-selectors--advanced');
+      if (this.previousTheme === undefined && this.previousMode === undefined) {
+        this.hdsTheming.setTheme({ theme: 'light' });
+      }
+    }
   };
 
-  handleInitialStateClasses = modifier(() => {
+  routeDidChange = (transition: Transition) => {
+    this.isPreviousRouteCarbonized = isCarbonizationRoute(
+      transition.from?.name,
+    );
+    this.isCurrentRouteCarbonized = isCarbonizationRoute(transition.to?.name);
+
+    // eslint-disable-next-line ember/no-runloop
+    scheduleOnce('afterRender', this, this.addMockStateClasses.bind(this));
+    // eslint-disable-next-line ember/no-runloop
+    scheduleOnce(
+      'afterRender',
+      this,
+      this.handleStylesheetForCarbonizedPages.bind(this),
+    );
+  };
+
+  initializePage = modifier(() => {
     this.addMockStateClasses();
+    // we use `next()` here to avoid clashes with the `setStylesheet` triggered by the initialization of the `shwTheming` service
+    // eslint-disable-next-line ember/no-runloop
+    next((): void => {
+      this.handleStylesheetForCarbonizedPages();
+    });
   });
 
   <template>
@@ -74,7 +149,7 @@ export default class Application extends Component {
         </LinkTo>
         <div class="shw-page-header__title">Components showcase</div>
         <div class="shw-page-header__theme-toggle">
-          <ShwThemeSwitcher />
+          <ShwThemeSwitcher @isCarbonizationPage={{this.isCarbonizationPage}} />
         </div>
       </header>
 
@@ -85,7 +160,7 @@ export default class Application extends Component {
         </LinkTo>
       </aside>
 
-      <main id="main" class="shw-page-main" {{this.handleInitialStateClasses}}>
+      <main id="main" class="shw-page-main" {{this.initializePage}}>
         {{outlet}}
       </main>
     {{/if}}
