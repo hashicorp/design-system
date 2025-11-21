@@ -8,7 +8,6 @@
 // - https://www.tpgi.com/focus-visible-and-backwards-compatibility/
 
 @mixin hds-focus-ring-basic($color: action) {
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent;
 
   // default focus for browsers that still rely on ":focus"
@@ -41,7 +40,6 @@
   $position: relative
 ) {
   position: $position;
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent;
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
@@ -95,7 +93,6 @@
   $position: relative
 ) {
   position: $position;
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent;
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 

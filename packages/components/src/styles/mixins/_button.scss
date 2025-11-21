@@ -73,7 +73,6 @@ $hds-button-size-props: (
   text-decoration: none;
   border: $hds-button-border-width solid transparent; // We need this to be transparent for a11y
   border-radius: $hds-button-border-radius;
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   isolation: isolate;
 }

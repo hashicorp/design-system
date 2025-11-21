@@ -40,7 +40,6 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   background-color: var(--token-color-surface-faint);
   border: 1px solid var(--token-color-border-strong);
   border-radius: $hds-dropdown-toggle-border-radius;
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
@@ -348,7 +347,6 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     padding: 7px 9px 7px 15px; // notice: we're subtracting 1px because of the transparent border
     text-decoration: none;
     border: 1px solid transparent; // because a border for the button is needed for a11y, we apply it to both the button and the link so they have the same height
-    outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
     outline-color: transparent;
 
     // this is used for the left "hover" indicator
