@@ -1,0 +1,21 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// these files come from `packages/tokens/dist/`
+@use "products/css/helpers/color";
+@use "products/css/helpers/elevation";
+@use "products/css/helpers/focus-ring";
+@use "products/css/helpers/typography";
+
+// main components file
+@use "../components/index";
+
+// screen-reader utility class
+@use "../mixins/screen-reader-only" as *;
+
+// The `.sr-only` utility class visually hides content but keeps it accessible to screen readers for accessibility purposes.
+.sr-only {
+  @include screen-reader-only();
+}
