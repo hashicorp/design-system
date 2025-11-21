@@ -8,8 +8,8 @@ import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 import {
   HdsAppFooter,
-  HdsDropdown,
   HdsCodeBlock,
+  HdsThemeSwitcher,
 } from '@hashicorp/design-system-components/components';
 
 const SubSectionComponents: TemplateOnlyComponent = <template>
@@ -22,21 +22,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
       <div class="shw-foundation-theming-light-background">
         <HdsAppFooter @theme="light" as |AF|>
           <AF.ExtraBefore>
-            <HdsDropdown as |D|>
-              <D.ToggleButton @text="Theme" @color="secondary" @size="small" />
-              <D.Interactive
-                @icon="monitor"
-                {{on "click" D.close}}
-              >System</D.Interactive>
-              <D.Interactive
-                @icon="moon"
-                {{on "click" D.close}}
-              >Dark</D.Interactive>
-              <D.Interactive
-                @icon="sun"
-                {{on "click" D.close}}
-              >Light</D.Interactive>
-            </HdsDropdown>
+            <HdsThemeSwitcher />
           </AF.ExtraBefore>
           <AF.StatusLink @status="operational" />
           <AF.Link
@@ -50,21 +36,7 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
       <div class="shw-foundation-theming-dark-background">
         <HdsAppFooter @theme="dark" as |AF|>
           <AF.ExtraBefore>
-            <HdsDropdown as |D|>
-              <D.ToggleButton @text="Theme" @color="secondary" @size="small" />
-              <D.Interactive
-                @icon="monitor"
-                {{on "click" D.close}}
-              >System</D.Interactive>
-              <D.Interactive
-                @icon="moon"
-                {{on "click" D.close}}
-              >Dark</D.Interactive>
-              <D.Interactive
-                @icon="sun"
-                {{on "click" D.close}}
-              >Light</D.Interactive>
-            </HdsDropdown>
+            <HdsThemeSwitcher />
           </AF.ExtraBefore>
           <AF.StatusLink @status="operational" />
           <AF.Link
