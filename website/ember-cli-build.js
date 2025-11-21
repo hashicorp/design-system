@@ -11,6 +11,7 @@ const isVercelProduction = process.env.VERCEL_ENV === 'production';
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    'ember-cli-babel': { enableTypeScriptTransform: true },
     // Add options here
     sassOptions: {
       precision: 4,
