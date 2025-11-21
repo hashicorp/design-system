@@ -4,15 +4,17 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
+
 import { hdsFormatRelative } from '@hashicorp/design-system-components/helpers/hds-format-relative';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module(
   'Integration | Helper | hds-format-relative - hdsFormatRelative()',
   function (hooks) {
     setupRenderingTest(hooks);
 
-    test('it formats a relative time with the default options', async function (assert) {
+    test('it formats a relative time with the default options', function (assert) {
       const value = -1;
       const result = hdsFormatRelative([value]);
 
@@ -22,7 +24,7 @@ module(
       );
     });
 
-    test('it formats a relative time with the provided options', async function (assert) {
+    test('it formats a relative time with the provided options', function (assert) {
       const value = -1;
       const unit = 'day';
       const result = hdsFormatRelative([value, unit]);
