@@ -170,7 +170,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
         `src/carbon-extracted/**/*.json`,
         `src/global/**/*.json`,
         `src/products/shared/**/*.json`,
-        // just uncomment the line below to include overrides for 'devdot' tokens
+        // custom overrides for 'devdot' tokens
         `src/devdot/**/*.json`
       ],
       'platforms': {
