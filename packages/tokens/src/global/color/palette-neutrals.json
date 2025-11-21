@@ -44,7 +44,14 @@
       "neutral-0": {
         "$type": "color",
         "$value": "#ffffff",
-        "group": "palette"
+        "group": "palette",
+        "$modes": {
+          "default": "#ffffff",
+          "cds-g0": "{carbon.color.white.0}",
+          "cds-g10": "{carbon.color.white.0}",
+          "cds-g90": "{carbon.color.white.0}",
+          "cds-g100": "{carbon.color.white.0}"
+        }
       },
       "alpha-300": {
         "$type": "color",

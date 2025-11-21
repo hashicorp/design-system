@@ -9,6 +9,16 @@
               "-apple-system",
               "BlinkMacSystemFont"
             ],
+            "$modes": {
+              "default": [
+                "-apple-system",
+                "BlinkMacSystemFont"
+              ],
+              "cds-g0": "{carbon.typography.font-family.sans}",
+              "cds-g10": "{carbon.typography.font-family.sans}",
+              "cds-g90": "{carbon.typography.font-family.sans}",
+              "cds-g100": "{carbon.typography.font-family.sans}"
+            },
             "private": "true"
           },
           "windows": {
@@ -44,6 +54,16 @@
               "-apple-system",
               "BlinkMacSystemFont"
             ],
+            "$modes": {
+              "default": [
+                "-apple-system",
+                "BlinkMacSystemFont"
+              ],
+              "cds-g0": "{carbon.typography.font-family.sans}",
+              "cds-g10": "{carbon.typography.font-family.sans}",
+              "cds-g90": "{carbon.typography.font-family.sans}",
+              "cds-g100": "{carbon.typography.font-family.sans}"
+            },
             "private": "true"
           },
           "windows": {
@@ -72,6 +92,16 @@
               "ui-monospace",
               "Menlo"
             ],
+            "$modes": {
+              "default": [
+                "ui-monospace",
+                "Menlo"
+              ],
+              "cds-g0": "{carbon.typography.font-family.mono}",
+              "cds-g10": "{carbon.typography.font-family.mono}",
+              "cds-g90": "{carbon.typography.font-family.mono}",
+              "cds-g100": "{carbon.typography.font-family.mono}"
+            },
             "private": "true"
           },
           "windows": {
@@ -113,19 +143,47 @@
     "font-weight": {
       "regular": {
         "$type": "font-weight",
-        "$value": 400
+        "$value": "400",
+        "$modes": {
+          "default": "400",
+          "cds-g0": "{carbon.typography.font-weight.regular}",
+          "cds-g10": "{carbon.typography.font-weight.regular}",
+          "cds-g90": "{carbon.typography.font-weight.regular}",
+          "cds-g100": "{carbon.typography.font-weight.regular}"
+        }
       },
       "medium": {
         "$type": "font-weight",
-        "$value": 500
+        "$value": "500",
+        "$modes": {
+          "default": "500",
+          "cds-g0": "{carbon.typography.font-weight.regular}",
+          "cds-g10": "{carbon.typography.font-weight.regular}",
+          "cds-g90": "{carbon.typography.font-weight.regular}",
+          "cds-g100": "{carbon.typography.font-weight.regular}"
+        }
       },
       "semibold": {
         "$type": "font-weight",
-        "$value": 600
+        "$value": "600",
+        "$modes": {
+          "default": "600",
+          "cds-g0": "{carbon.typography.font-weight.semibold}",
+          "cds-g10": "{carbon.typography.font-weight.semibold}",
+          "cds-g90": "{carbon.typography.font-weight.semibold}",
+          "cds-g100": "{carbon.typography.font-weight.semibold}"
+        }
       },
       "bold": {
         "$type": "font-weight",
-        "$value": 700
+        "$value": "700",
+        "$modes": {
+          "default": "700",
+          "cds-g0": "{carbon.typography.font-weight.semibold}",
+          "cds-g10": "{carbon.typography.font-weight.semibold}",
+          "cds-g90": "{carbon.typography.font-weight.semibold}",
+          "cds-g100": "{carbon.typography.font-weight.semibold}"
+        }
       }
     },
     "display-500": {

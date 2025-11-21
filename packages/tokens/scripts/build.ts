@@ -4,7 +4,8 @@
  */
 
 import StyleDictionary from 'style-dictionary';
-import type { Config, DesignToken, Platform } from 'style-dictionary/types';
+// import { getReferences, usesReferences } from "style-dictionary/utils";
+import type { DesignToken, PlatformConfig } from 'style-dictionary/types';
 
 import tinycolor from 'tinycolor2';
 
@@ -14,9 +15,10 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { cloneDeep } from 'lodash-es';
 
-import type { ConfigTargets } from './build-parts/@types/Config.d.ts';
-
+import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
+import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
+import { generateThemingDocsFiles } from './build-parts/generateThemingDocsFiles.ts';
 
 // SCRIPT CONFIG
 
@@ -24,7 +26,69 @@ const __filename = fileURLToPath(import.meta.url); // Get the file path of the c
 const __dirname = dirname(__filename); // Get the directory name of the current module
 const distFolder = path.resolve(__dirname, '../dist');
 
+
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
+
+// CUSTOM PREPROCESSORS
+
+for (const mode of modes) {
+  StyleDictionary.registerPreprocessor({
+    name: `replace-value-for-mode-${mode}`,
+    preprocessor: (dictionary, _options) => {
+      // recursively traverse token objects and replace the `$value` with the corresponding colocated `$modes` theme value
+      // note: the `slice` is always an object (a token or a parent group)
+      function replaceModes(slice: DesignToken) {
+        if (slice.$modes) {
+          if (mode in slice.$modes) {
+            slice.$value = slice.$modes[mode];
+          } else {
+            // TODO! decide if we want to throw here (and test if it works, by removing a value from one of the test files) - see: https://hashicorp.atlassian.net/browse/HDS-5668
+            console.error(`❌ ERROR - Found themed token without '${mode}' value:`, JSON.stringify(slice, null, 2));
+          }
+        } else {
+            Object.values(slice).forEach((value) => {
+              if (typeof value === 'object') {
+                replaceModes(value);
+              }
+            });
+        }
+        return slice;
+      }
+      return replaceModes(dictionary);
+    },
+  });
+}
+
 // CUSTOM TRANSFORMS
+
+StyleDictionary.registerTransform({
+  name: 'attributes/themeable',
+  type: 'attribute',
+  transform: (token: DesignToken) => {
+    let isThemeable = false;
+
+    if ('$modes' in token) {
+      isThemeable = true;
+    }
+
+    // TODO! understand how we can make this themeable using `usesReferences`/`getReferences` - see: https://hashicorp.atlassian.net/browse/HDS-5667
+    // if (token.key === "{typography.display-500.font-family}") {
+      //   console.log('usesReferences', usesReferences(token.original.$value));
+      //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
+      //   console.log('refs', refs);
+      // }
+
+      // TODO understand if we really need this to split themeable vs non-themeable tokens - see: https://hashicorp.atlassian.net/browse/HDS-5667
+    // if (usesReferences(token.original.$value)) {
+    //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
+    //   isThemeable = refs.some((ref) => '$modes' in ref);
+    // }
+
+    return isThemeable ? { themeable: true } : { };
+  },
+});
 
 StyleDictionary.registerTransform({
   // the CTI convention is not outdated, but we still need to use the top-level path as `category` for the token
@@ -71,9 +135,9 @@ StyleDictionary.registerTransform({
     // (see `isFontSize()` and the `transforms.sizePx` transformation, for example)
     return token.$type === 'font-size';
   },
-  transform: (token: DesignToken, platform: Platform) => {
+  transform: (token: DesignToken, platformConfig: PlatformConfig) => {
     const val = parseFloat(token.$value);
-    const baseFont = platform?.basePxFontSize || 16;
+    const baseFont = platformConfig?.basePxFontSize || 16;
     const unit = token.unit;
     if (isNaN(val)) {
       console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot transform to 'rem'.\n`);
@@ -95,10 +159,10 @@ StyleDictionary.registerTransform({
     // (see `isFontSize()` and the `transforms.sizePx` transformation, for example)
     return token.$type === 'font-size';
   },
-  transform: (token: DesignToken, platform: Platform) => {
+  transform: (token: DesignToken, platformConfig: PlatformConfig) => {
     const val = parseFloat(token.$value);
     const unit = token.unit;
-    const baseFont = platform?.basePxFontSize || 16;
+    const baseFont = platformConfig?.basePxFontSize || 16;
     if (isNaN(val)) {
       console.error(`🚨 Invalid Number: '${token.name}: ${token.$value}' is not a valid number, cannot transform to 'px'.\n`);
     }
@@ -185,18 +249,23 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web',
-  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'products/web/themed',
+  transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
-  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
-  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerFormat({
@@ -224,143 +293,22 @@ StyleDictionary.registerAction({
   undo: () => {}
 });
 
-// DYNAMIC CONFIG
+StyleDictionary.registerAction({
+    name: 'generate-theming-css-files',
+    do: generateThemingCssFiles,
+    undo: () => {}
+});
 
-const targets: ConfigTargets = {
-  'products': {
-    'source': [
-      `src/global/**/*.json`,
-      `src/products/shared/**/*.json`
-    ],
-    'transformGroup': 'products/web',
-    'platforms': ['web/css-variables', 'docs/json']
-  },
-  'devdot': {
-    'source': [
-      `src/global/**/*.json`,
-      `src/products/shared/**/*.json`,
-      // just uncomment the line below to include overrides for "devdot" tokens
-      `src/devdot/**/*.json`
-    ],
-    'transformGroup': 'products/web',
-    'platforms': ['web/css-variables']
-  },
-  'marketing': {
-    'source': [
-      `src/global/**/*.json`,
-      `src/products/shared/**/*.json`,
-    ],
-    'transformGroup': 'marketing/web',
-    'platforms': ['web/css-variables', 'json']
-  },
-  // these tokens will be consumed by the email templating system in https://github.com/hashicorp/cloud-email
-  'cloud-email': {
-    // we need only foundational tokens (colors, typography, etc)
-    'source': [
-      `src/global/**/*.json`,
-      `src/products/shared/color/**/*.json`,
-      `src/products/shared/typography.json`,
-    ],
-    'transformGroup': 'products/email',
-    'platforms': ['email/sass-variables']
-  }
-};
+StyleDictionary.registerAction({
+    name: 'generate-theming-docs-files',
+    do: generateThemingDocsFiles,
+    undo: () => {}
+});
 
-function getStyleDictionaryConfig({ target }: { target: string }): Config {
-  // @ts-ignore safe to ignore, since we control the `targets` object, and the `getStyleDictionaryConfig` invocations
-  const { source, transformGroup, platforms } = targets[target];
 
-  // we need to explicitly initialize the `config` object this way to make TS happy
-  const config: Config = {
-    // log: {
-    //   // options: warn | error | disabled
-    //   warnings: 'warn',
-    //   // options: default | silent | verbose
-    //   verbosity: 'verbose',
-    //   errors: {
-    //     // options: throw | console
-    //     brokenReferences: 'console',
-    //   },
-    // }
-  };
-  config.source = source;
-  config.platforms = {};
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+// •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
-  if (platforms.includes('web/css-variables')) {
-    config.platforms['web/css-variables'] = {
-      transformGroup,
-      "buildPath": `dist/${target}/css/`,
-      "prefix": "token",
-      "basePxFontSize": 16,
-      "files": [
-        {
-          "destination": "tokens.css",
-          "format": "css/variables",
-          "filter": function(token: DesignToken) {
-            return !token.private;
-          },
-        }
-      ],
-      'actions': ['generate-css-helpers'],
-    }
-  }
-
-  if (platforms.includes("docs/json")) {
-    config.platforms["docs/json"] = {
-      transformGroup,
-      "buildPath": `dist/docs/${target}/`,
-      "prefix": "token",
-      "basePxFontSize": 16,
-      "files": [
-        {
-          "destination": "tokens.json",
-          "format": "docs/json",
-          "filter": function(token: DesignToken) {
-            return !token.private;
-          },
-        }
-      ]
-    }
-  }
-
-  if (platforms.includes("json")) {
-    config.platforms["json"] = {
-      transformGroup,
-      "buildPath": `dist/${target}/`,
-      "prefix": "token",
-      "basePxFontSize": 16,
-      "files": [
-        {
-          "destination": "tokens.json",
-          "format": "json",
-          "filter": function(token: DesignToken) {
-            return !token.private;
-          },
-        }
-      ]
-    }
-  }
-
-  if (platforms.includes("email/sass-variables")) {
-    config.platforms["email/sass-variables"] = {
-      transformGroup,
-      "buildPath": `dist/${target}/`,
-      "prefix": "token",
-      "files": [
-        {
-          "destination": "tokens.scss",
-          "format": "scss/variables",
-          "filter": function(token: DesignToken) {
-            return !token.private;
-          },
-        }
-      ],
-      'actions': ['generate-css-helpers'],
-    }
-  }
-
-  return config;
-}
 
 // PROCESS THE DESIGN TOKENS
 
@@ -371,15 +319,20 @@ console.log('\n==============================================');
 console.log(`\nCleaning up dist folder`);
 fs.emptyDirSync(distFolder);
 
-for (const target of Object.keys(targets)) {
-  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
-
-  console.log(`\nProcessing target "${target}"...`);
+// generate themed tokens
+for (const mode of modes) {
+  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target: 'products', mode }));
+  console.log(`\n---\n\nProcessing mode "${mode}"...`);
   await StyleDictionaryInstance.hasInitialized;
   await StyleDictionaryInstance.buildAllPlatforms()
   console.log('\nEnd processing');
 }
 
-
-console.log('\n==============================================');
-console.log('\nBuild completed!');
+// generate standard tokens
+for (const target of targets) {
+  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
+  console.log(`\n---\n\nProcessing target "${target}"...`);
+  await StyleDictionaryInstance.hasInitialized;
+  await StyleDictionaryInstance.buildAllPlatforms()
+  console.log('\nEnd processing');
+}
