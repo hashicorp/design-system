@@ -21,12 +21,8 @@ export default class ShwThemeSwitcherControlSelect extends Component<ShwThemeSwi
   get options() {
     if (Array.isArray(this.args.values)) {
       // Convert array to an object where keys and values are the same
-      return this.args.values.reduce(
-        (acc, value) => {
-          acc[value] = value;
-          return acc;
-        },
-        {} as Record<string, string>,
+      return Object.fromEntries(
+        this.args.values.map((value) => [value, value]),
       );
     } else {
       // If values is already an object, return it directly

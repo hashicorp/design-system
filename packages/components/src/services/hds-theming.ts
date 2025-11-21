@@ -11,7 +11,7 @@ export enum HdsThemeValues {
   Dark = 'dark',
 }
 
-// TODO! understand if we really need this
+// TODO! understand if we really need this - see: https://hashicorp.atlassian.net/browse/HDS-5681
 export enum HdsModesBaseValues {
   Default = 'default',
 }
@@ -140,7 +140,7 @@ export default class HdsThemingService extends Service {
       }
     }
 
-    // IMPORTANT: for this to work, it needs to be the HTML tag (it's the `:root` in CSS)
+    // IMPORTANT: for this to work, it needs to be the `<html>` tag (it's the `:root` in CSS)
     const rootElement = document.querySelector('html');
 
     if (!rootElement) {
@@ -158,7 +158,7 @@ export default class HdsThemingService extends Service {
       rootElement.classList.add(`hds-mode-${this._currentMode}`);
     }
 
-    // store the current theme and theming options in local storage (unless undefined)
+    // store the current theme and theming options in local storage
     localStorage.setItem(
       HDS_THEMING_LOCALSTORAGE_DATA,
       JSON.stringify({
@@ -198,10 +198,10 @@ export default class HdsThemingService extends Service {
   }
 
   get currentLightTheme(): HdsModesLight {
-    return this._currentLightTheme ?? DEFAULT_THEMING_OPTION_LIGHT_THEME;
+    return this._currentLightTheme;
   }
 
   get currentDarkTheme(): HdsModesDark {
-    return this._currentDarkTheme ?? DEFAULT_THEMING_OPTION_DARK_THEME;
+    return this._currentDarkTheme;
   }
 }
