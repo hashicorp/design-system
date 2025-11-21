@@ -5,6 +5,8 @@
 
 // THEMING
 
+@use "../typography" as *;
+
 body.page-foundations-theming {
   .shw-foundation-theming-light-background {
     padding: 8px;
@@ -36,9 +38,9 @@ body.page-foundations-theming {
     }
 
     &.shw-foundation-theming-basic-container--not-available {
+      @include shw-font-family("system mono");
       color: #7f7f7f;
       font-size: 24px;
-      font-family: monaco, Consolas, "Lucida Console", monospace;
       background-color: transparent;
       opacity: 0.5;
     }
