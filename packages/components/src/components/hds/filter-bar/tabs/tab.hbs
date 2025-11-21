@@ -17,8 +17,13 @@
     {{on "keyup" this.onKeyUp}}
     {{this._setUpTab this.didInsertNode this.willDestroyNode}}
   >
-    <Hds::Text::Body @size="200" @weight="medium">{{yield}}</Hds::Text::Body>
-    <Hds::Icon @name="chevron-right" />
+    <Hds::Text::Body @size="200" @weight="medium" class="hds-filter-bar__tabs__tab__text">{{yield}}</Hds::Text::Body>
+    {{#if (gt @numFilters 0)}}
+      <Hds::Text::Body @size="200" @color="primary">
+        {{@numFilters}}
+      </Hds::Text::Body>
+    {{/if}}
+    <Hds::Icon @name="chevron-right" @color="primary" />
   </button>
 </li>
 {{! template-lint-enable require-presentational-children }}
