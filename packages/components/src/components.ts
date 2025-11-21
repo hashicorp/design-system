@@ -391,3 +391,13 @@ export { default as HdsInteractive } from './components/hds/interactive/index.ts
 
 // PopoverPrimitive
 export { default as HdsPopoverPrimitive } from './components/hds/popover-primitive/index.ts';
+
+// -----------------------------------------------------------
+// ### CARBON
+// -----------------------------------------------------------
+
+export { default as CarbonIcon } from './components/carbon/icon/index.ts';
+export { default as hdsCarbonIconMap } from './utils/hds-carbon-icon-map.ts';
+export * from './components/carbon/icon/types.ts';
+
+export { default as HdsCarbonService } from './services/hds-carbon.ts';

@@ -42,6 +42,15 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
       </ol>
+
+      <ShwTextH2>Carbon</ShwTextH2>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-carbon.icon">
+            Icon
+          </LinkTo>
+        </li>
+      </ol>
     </div>
 
     <div>
