@@ -9,8 +9,8 @@ export type CarbonIconSizes = `${CarbonIconSizeValues}`;
 
 export interface CarbonIconAttrs {
   viewBox: string;
-  width?: number | string;
-  height?: number | string;
+  width: number | string;
+  height: number | string;
 }
 
 export type CarbonIconNodeAttrs = {
@@ -20,8 +20,8 @@ export type CarbonIconNodeAttrs = {
   r?: number | string;
   x?: number | string;
   y?: number | string;
-  width?: number | string;
-  height?: number | string;
+  width: number;
+  height: number;
   points?: string;
   opacity?: number | string;
   transform?: string;
