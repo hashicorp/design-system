@@ -32,18 +32,12 @@
 
 .hds-theme-light,
 .hds-theme-cds-g0,
-.hds-theme-cds-g10,
-[data-hds-theme='light'],
-[data-hds-theme='cds-g0'],
-[data-hds-theme='cds-g10'] {
+.hds-theme-cds-g10 {
   @include shw-theme-color-variables-light();
 }
 
 .hds-theme-dark,
 .hds-theme-cds-g90,
-.hds-theme-cds-g100,
-[data-hds-theme='dark'],
-[data-hds-theme='cds-g90'],
-[data-hds-theme='cds-g100'] {
+.hds-theme-cds-g100 {
   @include shw-theme-color-variables-dark();
 }

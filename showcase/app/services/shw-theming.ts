@@ -40,7 +40,7 @@ const STYLESHEETS_MAPPING: Record<ShwStylesheets, string[]> = {
 };
 
 const updatePageStylesheets = (currentStylesheet: ShwStylesheets) => {
-  // fallback in case the `currentStylesheet` is not found in the `STYLESHEETS_MAPPING` list
+  // we need a fallback in case the `currentStylesheet` is not found in the `STYLESHEETS_MAPPING` list
   // note: this may happen if the underlying code/names has changed but the `currentStylesheet` is read from local storage
   const styleSheetToActivate: ShwStylesheets = STYLESHEETS_MAPPING[
     currentStylesheet
@@ -64,6 +64,7 @@ const updatePageStylesheets = (currentStylesheet: ShwStylesheets) => {
 };
 
 const LOCALSTORAGE_CURRENT_STYLESHEET = 'shw-theming-current-stylesheet';
+
 export default class ShwThemingService extends HdsThemingService {
   @service declare readonly hdsTheming: HdsThemingService;
 
