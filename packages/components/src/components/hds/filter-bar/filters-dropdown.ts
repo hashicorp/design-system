@@ -92,21 +92,6 @@ export default class HdsFilterBarFiltersDropdown extends Component<
     }
   }
 
-  get numFilters(): number {
-    let numFilters = 0;
-    Object.keys(this.internalFilters).forEach((key) => {
-      const filter = this.internalFilters[key];
-      if (filter) {
-        if (Array.isArray(filter.data)) {
-          numFilters += filter.data.length;
-        } else {
-          numFilters += 1;
-        }
-      }
-    });
-    return numFilters;
-  }
-
   get classNames(): string {
     const classes = ['hds-filter-bar__filters-dropdown'];
 
