@@ -31,7 +31,12 @@ export default class HdsFilterBarRadio extends Component<HdsFilterBarRadioSignat
 
   get isChecked(): boolean {
     const { keyFilter, value } = this.args;
-    if (keyFilter && value && 'value' in keyFilter.data) {
+    if (
+      keyFilter &&
+      keyFilter.type === 'single-select' &&
+      value &&
+      'value' in keyFilter.data
+    ) {
       return keyFilter.data.value === value;
     }
     return false;
