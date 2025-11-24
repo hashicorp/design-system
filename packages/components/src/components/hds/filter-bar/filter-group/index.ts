@@ -9,13 +9,13 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 
-import HdsFilterBarTabsTab from './tabs/tab.ts';
-import HdsFilterBarTabsPanel from './tabs/panel.ts';
-import type { HdsTabsPanelSignature } from '../tabs/panel.ts';
+import HdsFilterBarTabsTab from '../tabs/tab.ts';
+import HdsFilterBarTabsPanel from '../tabs/panel.ts';
+import type { HdsTabsPanelSignature } from '../../tabs/panel.ts';
 
-import HdsFilterBarGeneric from './generic.ts';
-import HdsFilterBarCheckbox from './checkbox.ts';
-import HdsFilterBarRadio from './radio.ts';
+import HdsFilterBarFilterGroupGeneric from './generic.ts';
+import HdsFilterBarFilterGroupCheckbox from './checkbox.ts';
+import HdsFilterBarFilterGroupRadio from './radio.ts';
 
 import type {
   HdsFilterBarFilter,
@@ -24,13 +24,13 @@ import type {
   HdsFilterBarData,
   HdsFilterBarGenericFilter,
   HdsFilterBarGenericFilterData,
-  HdsFilterBarRangeFilterData,
-  HdsFilterBarRangeFilterSelector,
-  HdsFilterBarRangeFilterValue,
+  HdsFilterBarNumericalFilterData,
+  HdsFilterBarNumericalFilterSelector,
+  HdsFilterBarNumericalFilterValue,
   HdsFilterBarDateFilterData,
   HdsFilterBarDateFilterSelector,
   HdsFilterBarDateFilterValue,
-} from './types.ts';
+} from '../types.ts';
 
 export interface HdsFilterBarFilterGroupSignature {
   Args: {
@@ -46,13 +46,16 @@ export interface HdsFilterBarFilterGroupSignature {
   Blocks: {
     default: [
       {
-        Generic?: WithBoundArgs<typeof HdsFilterBarGeneric, 'keyFilter'>;
+        Generic?: WithBoundArgs<
+          typeof HdsFilterBarFilterGroupGeneric,
+          'keyFilter'
+        >;
         Checkbox?: WithBoundArgs<
-          typeof HdsFilterBarCheckbox,
+          typeof HdsFilterBarFilterGroupCheckbox,
           'keyFilter' | 'onChange'
         >;
         Radio?: WithBoundArgs<
-          typeof HdsFilterBarRadio,
+          typeof HdsFilterBarFilterGroupRadio,
           'keyFilter' | 'onChange'
         >;
       },
@@ -159,15 +162,15 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   }
 
   @action
-  onRangeChange(
-    selector?: HdsFilterBarRangeFilterSelector,
-    value?: HdsFilterBarRangeFilterValue
+  onNumericalChange(
+    selector?: HdsFilterBarNumericalFilterSelector,
+    value?: HdsFilterBarNumericalFilterValue
   ): void {
     const addFilter = (): HdsFilterBarData => {
       const newFilter = {
         selector: selector,
         value: value,
-      } as HdsFilterBarRangeFilterData;
+      } as HdsFilterBarNumericalFilterData;
       return newFilter;
     };
 
@@ -257,7 +260,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
 
   private onSearch = (event: Event) => {
     const listItems = this._panelElement.querySelectorAll(
-      '.hds-filter-bar__filters-dropdown__filter-option'
+      '.hds-filter-bar__dropdown__filter-option'
     );
     const input = event.target as HTMLInputElement;
     listItems.forEach((item) => {
@@ -266,12 +269,10 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
         const searchText = input.value.toLowerCase();
         if (text.includes(searchText)) {
           item.classList.remove(
-            'hds-filter-bar__filters-dropdown__filter-option--hidden'
+            'hds-filter-bar__dropdown__filter-option--hidden'
           );
         } else {
-          item.classList.add(
-            'hds-filter-bar__filters-dropdown__filter-option--hidden'
-          );
+          item.classList.add('hds-filter-bar__dropdown__filter-option--hidden');
         }
       }
     });

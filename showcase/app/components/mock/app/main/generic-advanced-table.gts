@@ -25,7 +25,7 @@ import {
   HdsTextBody,
   HdsTextDisplay,
   type HdsAdvancedTableOnSelectionChangeSignature,
-  type HdsFilterBarRangeFilter,
+  type HdsFilterBarNumericalFilter,
   type HdsFilterBarDateFilter,
   type HdsFilterBarSingleSelectFilter,
   type HdsFilterBarMultiSelectFilter,
@@ -617,8 +617,8 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                 match = false;
               }
               break;
-            case 'range':
-              if (!this.isRangeFilterMatch(item[key], filter)) {
+            case 'numerical':
+              if (!this.isNumericalFilterMatch(item[key], filter)) {
                 match = false;
               }
               break;
@@ -655,9 +655,9 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     return this.demoModelFilteredData.length === 0;
   }
 
-  isRangeFilterMatch(
+  isNumericalFilterMatch(
     itemValue: unknown,
-    filter: HdsFilterBarRangeFilter,
+    filter: HdsFilterBarNumericalFilter,
   ): boolean {
     const filterData = filter.data;
     const selector = filterData.selector;
@@ -848,7 +848,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           <D.Checkbox>discovery</D.Checkbox>
           <D.Checkbox>memories</D.Checkbox>
         </F.ActionsDropdown>
-        <F.FiltersDropdown as |D|>
+        <F.Dropdown as |D|>
           <D.FilterGroup
             @key="name"
             @text="Name"
@@ -904,10 +904,10 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           <D.FilterGroup
             @key="module-count"
             @text="Module count"
-            @type="range"
+            @type="numerical"
           />
           <D.FilterGroup @key="created" @text="Created" @type="date" />
-        </F.FiltersDropdown>
+        </F.Dropdown>
       </HdsFilterBar>
     {{/if}}
 
@@ -944,7 +944,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
               <D.Checkbox>discovery</D.Checkbox>
               <D.Checkbox>memories</D.Checkbox>
             </F.ActionsDropdown>
-            <F.FiltersDropdown as |D|>
+            <F.Dropdown as |D|>
               <D.FilterGroup
                 @key="name"
                 @text="Name"
@@ -1009,7 +1009,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
               <D.FilterGroup
                 @key="module-count"
                 @text="Module count"
-                @type="range"
+                @type="numerical"
               />
               <D.FilterGroup @key="created" @text="Created" @type="date" />
               <D.FilterGroup
@@ -1028,7 +1028,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                   />
                 </F.Generic>
               </D.FilterGroup>
-            </F.FiltersDropdown>
+            </F.Dropdown>
           </A.FilterBar>
         {{/unless}}
       </:actions>
