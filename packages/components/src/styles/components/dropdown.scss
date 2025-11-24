@@ -386,7 +386,9 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
       }
     }
 
-    &:focus-visible &.mock-focus {
+    // default focus for browsers that still rely on ":focus"
+    &:focus-visible,
+    &.mock-focus {
       color: var(--current-color-focus);
 
       &::after {
