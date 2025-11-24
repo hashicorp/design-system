@@ -16,6 +16,37 @@
 
     <link rel="shortcut icon" href="/assets/logos/favicon.png" />
 
+<script
+  type="text/javascript"
+  async="async"
+  src="//1.www.s81c.com/common/carbon/autotrack.min.js"></script>
+
+<script>
+  window.onload = () => {
+    if (window.autoTrack) {
+      window.autoTrack.updateClassConfig([
+        '.hds-button',
+        '.hds-link-inline',
+        '.hds-link-standalone',
+        '.hds-dropdown-list-item',
+        '.hds-pagination-nav__control',
+        '.hds-tag__dismiss',
+        '.hds-dismiss-button',
+        '.hds-tabs__tab',
+        '.hds-app-side-nav__list-item-link',
+        '.hds-breadcrumb__link',
+        '.hds-stepper-nav__step-button']);
+    }
+
+      window.autoTrack.updateCallback((eventName, eventData) => {
+        console.log(`Override event (${eventName}) - Data: ${JSON.stringify(eventData)}`);
+      });
+
+      // UNCOMMENT TO ENABLE DEV MODE (VISUALLY HIGHLIGHTS ELEMENTS ON PAGE)
+      window.autoTrack.setDevMode(true);
+  };
+</script>
+
     {{content-for "head-footer"}}
   </head>
   <body class="doc-page-wrapper" id="topofpage">
