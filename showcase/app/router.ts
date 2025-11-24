@@ -50,6 +50,7 @@ Router.map(function () {
     this.route('code-block');
     this.route('code-editor');
     this.route('dropdown');
+    this.route('filter-bar');
     this.route('flyout');
     this.route('form', function (): void {
       this.route('frameless', function (): void {
