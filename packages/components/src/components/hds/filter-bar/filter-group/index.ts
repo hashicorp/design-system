@@ -260,7 +260,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
 
   private onSearch = (event: Event) => {
     const listItems = this._panelElement.querySelectorAll(
-      '.hds-filter-bar__dropdown__filter-option'
+      '.hds-filter-bar__filter-group__selection-option'
     );
     const input = event.target as HTMLInputElement;
     listItems.forEach((item) => {
@@ -269,10 +269,12 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
         const searchText = input.value.toLowerCase();
         if (text.includes(searchText)) {
           item.classList.remove(
-            'hds-filter-bar__dropdown__filter-option--hidden'
+            'hds-filter-bar__filter-group__selection-option--hidden'
           );
         } else {
-          item.classList.add('hds-filter-bar__dropdown__filter-option--hidden');
+          item.classList.add(
+            'hds-filter-bar__filter-group__selection-option--hidden'
+          );
         }
       }
     });
