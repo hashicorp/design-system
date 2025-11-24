@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<li class="hds-filter-bar__dropdown__filter-option">
+<li class="hds-filter-bar__filter-group__selection-option">
   <Hds::Form::Checkbox::Field checked={{this.isChecked}} @value={{@value}} {{on "change" this.onChange}} as |F|>
     <F.Label>{{yield}}</F.Label>
   </Hds::Form::Checkbox::Field>
