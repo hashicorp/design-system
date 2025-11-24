@@ -8,10 +8,9 @@ import { service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { iconNames } from '@hashicorp/flight-icons/svg';
-import hdsCarbonIconMap from '../../../utils/hds-carbon-icon-map.ts';
-import { carbonMap } from '../../../utils/carbon-import-map.ts';
+import { getByHdsIconName } from '../../../utils/hds-carbon-icon-map.ts';
 import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
-import { dropTask } from 'ember-concurrency';
+import { task } from 'ember-concurrency';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 
@@ -19,28 +18,7 @@ import type { HdsIconSizes, HdsIconColors } from './types';
 import type { IconName } from '@hashicorp/flight-icons/svg';
 import type Owner from '@ember/owner';
 import type HdsCarbonService from '../../../services/hds-carbon.ts';
-import type { CarbonIcon } from '../../carbon/icon/types.ts';
-
-interface IconInfo {
-  name: string;
-  isCarbon: boolean;
-}
-
-function getIcon(name: IconName): IconInfo {
-  const carbonIconName = hdsCarbonIconMap[name];
-
-  if (carbonIconName) {
-    return {
-      name: carbonIconName,
-      isCarbon: true,
-    };
-  } else {
-    return {
-      name,
-      isCarbon: false,
-    };
-  }
-}
+import type { CarbonIcon } from '../../../utils/hds-carbon-icon-map';
 
 export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
 export const NAMES = iconNames;
@@ -78,6 +56,14 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     }
   }
 
+  get name(): string | undefined {
+    if (this.hdsCarbon.carbonModeEnabled) {
+      return this.carbonIcon?.name;
+    } else {
+      return this.args.name;
+    }
+  }
+
   get isInline(): boolean {
     return this.args.isInline ?? false;
   }
@@ -102,14 +88,6 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
   get size(): HdsIconSizes {
     return this.args.size ?? HdsIconSizeValues.Sixteen;
-  }
-
-  get hasLoadedCarbonIcon(): boolean | undefined {
-    if (this.hdsCarbon.carbonModeEnabled) {
-      return this.carbonIcon !== null;
-    } else {
-      return undefined;
-    }
   }
 
   get svgSize(): {
@@ -153,12 +131,14 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
     const classes = ['hds-icon'];
 
-    const nameClassSegment = this.hasLoadedCarbonIcon
-      ? this.carbonIcon!.name
-      : name;
-
     // add a class based on the @name argument
-    classes.push(`hds-icon-${nameClassSegment}`);
+    if (this.hdsCarbon.carbonModeEnabled) {
+      if (this.carbonIcon !== null) {
+        classes.push(`hds-icon--carbon--${this.carbonIcon.name}`);
+      }
+    } else {
+      classes.push(`hds-icon--${name}`);
+    }
 
     if (this.isInline) {
       classes.push('hds-icon--is-inline');
@@ -176,9 +156,9 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     return classes.join(' ');
   }
 
-  get viewBox(): string {
-    if (this.hasLoadedCarbonIcon) {
-      return this.carbonIcon!.attrs.viewBox;
+  get viewBox(): string | undefined {
+    if (this.hdsCarbon.carbonModeEnabled) {
+      return this.carbonIcon?.attrs.viewBox;
     } else {
       return `0 0 ${this.size} ${this.size}`;
     }
@@ -192,15 +172,17 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     }
   });
 
-  loadCarbonIconTask = dropTask(async () => {
-    const { name, isCarbon } = getIcon(this.args.name);
+  loadCarbonIconTask = task(async () => {
+    const iconDefinition = getByHdsIconName(this.args.name);
 
-    if (!isCarbon) {
+    if (iconDefinition === undefined) {
       return;
     }
 
-    const icon = await carbonMap[`${name}/${this.size}`]?.();
+    const icon = await iconDefinition.importCarbonIcon(this.size);
 
-    this.carbonIcon = (icon?.default as CarbonIcon | undefined) ?? null;
+    this.carbonIcon =
+      ((icon as { default: unknown })?.default as CarbonIcon | undefined) ??
+      null;
   });
 }
