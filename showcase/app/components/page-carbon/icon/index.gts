@@ -16,7 +16,7 @@ import type { HdsCarbonService } from '@hashicorp/design-system-components/compo
 
 import {
   HdsIcon,
-  hdsCarbonIconMap,
+  mappedHdsIconNames,
 } from '@hashicorp/design-system-components/components';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
@@ -26,17 +26,7 @@ type IconName = HdsIconSignature['Args']['name'];
 export default class IconIndex extends Component {
   @service declare readonly hdsCarbon: HdsCarbonService;
 
-  // iconNames: IconName[] = Object.keys(hdsCarbonIconMap).sort() as IconName[];
-  iconNames = [
-    'accessibility',
-    'accessibility',
-    'accessibility',
-    'accessibility',
-    'accessibility',
-    'accessibility',
-    'accessibility',
-    'accessibility',
-  ];
+  iconNames = mappedHdsIconNames;
 
   <template>
     {{pageTitle "Icon"}}
