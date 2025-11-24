@@ -4,9 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'showcase/tests/helpers';
 import { click, render, triggerEvent } from '@ember/test-helpers';
+
 import hdsRegisterEvent from '@hashicorp/design-system-components/modifiers/hds-register-event';
+
+import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Modifier | hds-register-event', function (hooks) {
   setupRenderingTest(hooks);
@@ -18,12 +20,15 @@ module('Integration | Modifier | hds-register-event', function (hooks) {
       assert.ok(true, 'event handler was called');
     };
 
+    // note: this workaround is needed because something is weird about how we're defining the type for the modifier
+    const eventName = 'click' as keyof ElementEventMap;
+
     await render(
       <template>
         <button
           type="button"
           id="test-button"
-          {{hdsRegisterEvent "click" eventHandler}}
+          {{hdsRegisterEvent eventName eventHandler}}
         >Test</button>
       </template>,
     );
@@ -34,7 +39,7 @@ module('Integration | Modifier | hds-register-event', function (hooks) {
   test('it passes the `useCapture` option to the event listener', async function (assert) {
     assert.expect(1);
 
-    const eventHandler = (event) => {
+    const eventHandler = (event: Event) => {
       assert.strictEqual(
         event.eventPhase,
         Event.CAPTURING_PHASE,
@@ -42,12 +47,15 @@ module('Integration | Modifier | hds-register-event', function (hooks) {
       );
     };
 
+    // note: this workaround is needed because something is weird about how we're defining the type for the modifier
+    const eventName = 'click' as keyof ElementEventMap;
+
     await render(
       <template>
         <button
           type="button"
           id="test-button"
-          {{hdsRegisterEvent "click" eventHandler useCapture=true}}
+          {{hdsRegisterEvent eventName eventHandler useCapture=true}}
         ><span>Test</span></button>
       </template>,
     );
