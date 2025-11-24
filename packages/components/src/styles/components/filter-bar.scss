@@ -40,29 +40,29 @@
 // FILTERS DROPDOWN
 //
 
-.hds-filter-bar__filters-dropdown__filter-group .hds-form-field--layout-flag {
+.hds-filter-bar__dropdown__filter-group .hds-form-field--layout-flag {
   padding: 8px 12px;
 }
 
-.hds-filter-bar__filters-dropdown .hds-dropdown__list,
-.hds-filter-bar__filters-dropdown .hds-dropdown-list-item {
+.hds-filter-bar__dropdown .hds-dropdown__list,
+.hds-filter-bar__dropdown .hds-dropdown-list-item {
   padding: 0;
 }
 
-.hds-filter-bar__filters-dropdown .hds-dropdown__footer .hds-layout-flex {
+.hds-filter-bar__dropdown .hds-dropdown__footer .hds-layout-flex {
   margin: 8px 0;
 }
 
-.hds-filter-bar__filters-dropdown .hds-dropdown__footer .hds-button-set {
+.hds-filter-bar__dropdown .hds-dropdown__footer .hds-button-set {
   gap: 8px;
 }
 
-.hds-filter-bar__filters-dropdown__filter-group__search {
+.hds-filter-bar__dropdown__filter-group__search {
   padding: 0 16px 16px 16px;
   border-bottom: 1px solid var(--token-color-border-primary);
 }
 
-.hds-filter-bar__filters-dropdown__filter-group__list {
+.hds-filter-bar__dropdown__filter-group__list {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -73,11 +73,11 @@
   overscroll-behavior: contain;
 }
 
-.hds-filter-bar__filters-dropdown__filters-count {
+.hds-filter-bar__dropdown__filters-count {
   margin-left: 8px;
 }
 
-.hds-filter-bar__filters-dropdown__filter-option {
+.hds-filter-bar__dropdown__filter-option {
   display: block;
   padding: 8px 16px;
 
@@ -86,24 +86,24 @@
   }
 }
 
-.hds-filter-bar__filters-dropdown__filter-range,
-.hds-filter-bar__filters-dropdown__filter-date {
+.hds-filter-bar__dropdown__filter-numerical,
+.hds-filter-bar__dropdown__filter-date {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.hds-filter-bar__filters-dropdown__fields {
+.hds-filter-bar__dropdown__fields {
   padding: 0 16px;
 }
 
-.hds-filter-bar__filters-dropdown__fields .hds-filter-bar__filters-dropdown__field,
-.hds-filter-bar__filters-dropdown__fields .hds-filter-bar__filters-dropdown__field[type="date"],
-.hds-filter-bar__filters-dropdown__fields .hds-filter-bar__filters-dropdown__field[type="time"] {
+.hds-filter-bar__dropdown__fields .hds-filter-bar__dropdown__field,
+.hds-filter-bar__dropdown__fields .hds-filter-bar__dropdown__field[type="date"],
+.hds-filter-bar__dropdown__fields .hds-filter-bar__dropdown__field[type="time"] {
   width: 100%;
 }
 
-.hds-filter-bar__filters-dropdown__clear {
+.hds-filter-bar__dropdown__clear {
   padding: 4px;
 }
 

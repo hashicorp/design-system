@@ -6,9 +6,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-import type { HdsFilterBarFilter } from './types.ts';
+import type { HdsFilterBarFilter } from '../types.ts';
 
-export interface HdsFilterBarCheckboxSignature {
+export interface HdsFilterBarFilterGroupRadioSignature {
   Args: {
     value?: string;
     keyFilter: HdsFilterBarFilter | undefined;
@@ -20,7 +20,7 @@ export interface HdsFilterBarCheckboxSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFilterBarCheckbox extends Component<HdsFilterBarCheckboxSignature> {
+export default class HdsFilterBarFilterGroupRadio extends Component<HdsFilterBarFilterGroupRadioSignature> {
   @action
   onChange(event: Event): void {
     const { onChange } = this.args;
@@ -31,8 +31,13 @@ export default class HdsFilterBarCheckbox extends Component<HdsFilterBarCheckbox
 
   get isChecked(): boolean {
     const { keyFilter, value } = this.args;
-    if (keyFilter && Array.isArray(keyFilter.data)) {
-      return keyFilter.data.some((filter) => filter.value === value);
+    if (
+      keyFilter &&
+      keyFilter.type === 'single-select' &&
+      value &&
+      'value' in keyFilter.data
+    ) {
+      return keyFilter.data.value === value;
     }
     return false;
   }

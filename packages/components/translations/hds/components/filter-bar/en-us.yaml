@@ -2,7 +2,7 @@ search:
   aria-label: Search filters
   placeholder: Search
 filter-text:
-  range-filter:
+  numerical-filter:
     separator: and
   date-filter:
     separator: and
