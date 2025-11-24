@@ -26,7 +26,16 @@ export const contentBlocks = function () {
   var outputExtension = {
     type: 'output',
     filter: function (text) {
-      // console.log('outputExtension1 text', '\n', text, '\n\n');
+      console.log('outputExtension1 text', '\n', text, '\n\n');
+
+          const outputRegexWithFile = /<\?php start="content-block" type="(.*?)" fileName="(.*?)" \?>\n?/g;
+    text = text.replace(outputRegexWithFile, function (_match, type, fileName) {
+      if (type === 'demo') {
+      // Add your custom block for type+fileName
+      return `<Doc::Demo @fileName="${fileName}">\n`;
+      }
+    });
+
       // https://regex101.com/r/DebuYI/1
       const outputRegex = new RegExp(
         /<\?php start="content-block" type="(.*?)" \?>\n?/,
@@ -35,15 +44,18 @@ export const contentBlocks = function () {
       text = text.replace(outputRegex, function (_match, type) {
         if (type === 'do' || type === 'dont') {
           return `<Doc::DoDont @type="${type}">\n`;
-        } else {
+        } else if (type !== 'demo') {
           return `<Doc::Banner @type="${type}">\n`;
         }
       });
+
       text = text.replace(
         /\n?<\?php end="content-block" type="(.*?)" \?>/g,
         function (_match, type) {
           if (type === 'do' || type === 'dont') {
             return '</Doc::DoDont>';
+          } else if (type === 'demo') {
+            return `</Doc::Demo>`;
           } else {
             return '</Doc::Banner>';
           }

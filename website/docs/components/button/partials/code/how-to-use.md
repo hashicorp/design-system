@@ -13,6 +13,8 @@ The basic invocation requires text to be passed:
 <Hds::Button @text="Basic button" />
 ```
 
+!!! Demo basic-button.hbs !!!
+
 ### Add an icon
 
 To add an icon to your Button, give the `@icon` any [icon](/icons/library) name:
