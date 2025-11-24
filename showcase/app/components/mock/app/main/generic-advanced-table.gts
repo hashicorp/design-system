@@ -6,7 +6,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
-import { get } from '@ember/helper';
+import { get, fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier/modifiers/style';
 
@@ -31,6 +31,7 @@ import {
   type HdsFilterBarMultiSelectFilter,
   type HdsFilterBarSearchFilter,
   type HdsFilterBarFilter,
+  type HdsFilterBarGenericFilter,
 } from '@hashicorp/design-system-components/components';
 
 import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
@@ -535,6 +536,14 @@ const SAMPLE_COLUMNS = [
   },
 ];
 
+const CUSTOM_FILTER = {
+  type: 'generic',
+  dismissTagText: 'equals example/a))!hzfpKcBl0',
+  data: {
+    value: 'example/a))!hzfpKcBl0',
+  },
+} as HdsFilterBarGenericFilter;
+
 const updateModelWithSelectAllState = (
   modelData: HdsAdvancedTableSignature['Args']['model'],
   selectAllState: boolean,
@@ -620,6 +629,11 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
               break;
             case 'search':
               if (!this.isSearchFilterMatch(item, filter)) {
+                match = false;
+              }
+              break;
+            case 'generic':
+              if (!this.isGenericFilterMatch(item[key], filter)) {
                 match = false;
               }
               break;
@@ -754,6 +768,18 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
       }
     });
     return match;
+  }
+
+  isGenericFilterMatch(
+    itemValue: unknown,
+    filter: HdsFilterBarGenericFilter,
+  ): boolean {
+    if (Array.isArray(filter.data)) {
+      const filterValues = filter.data.map((d) => d.value);
+      return filterValues.includes(itemValue);
+    } else {
+      return itemValue === filter.data.value;
+    }
   }
 
   dateFromFilter = (dateString: string, filterType: string): Date => {
@@ -986,6 +1012,22 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                 @type="range"
               />
               <D.FilterGroup @key="created" @text="Created" @type="date" />
+              <D.FilterGroup
+                @key="vcs-repo"
+                @text="VCS repo"
+                @type="generic"
+                as |F|
+              >
+                <F.Generic as |G|>
+                  <ShwPlaceholder @text="generic content" @height="100" />
+                  <HdsButton
+                    @text="Add custom filter"
+                    @color="secondary"
+                    @size="small"
+                    {{on "click" (fn G.updateFilter CUSTOM_FILTER)}}
+                  />
+                </F.Generic>
+              </D.FilterGroup>
             </F.FiltersDropdown>
           </A.FilterBar>
         {{/unless}}

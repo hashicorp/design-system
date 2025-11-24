@@ -101,6 +101,7 @@ import type HdsDropdownToggleIconComponent from './components/hds/dropdown/toggl
 import type HdsFilterBarComponent from './components/hds/filter-bar';
 import type HdsFilterBarCheckboxComponent from './components/hds/filter-bar/checkbox';
 import type HdsFilterBarDateComponent from './components/hds/filter-bar/date';
+import type HdsFilterBarGenericComponent from './components/hds/filter-bar/generic';
 import type HdsFilterBarRadioComponent from './components/hds/filter-bar/radio';
 import type HdsFilterBarFiltersDropdownComponent from './components/hds/filter-bar/filters-dropdown';
 import type HdsFilterBarFilterGroupComponent from './components/hds/filter-bar/filter-group';
@@ -572,6 +573,8 @@ export default interface HdsComponentsRegistry {
   'hds/filter-bar/checkbox': typeof HdsFilterBarCheckboxComponent;
   'Hds::FilterBar::Date': typeof HdsFilterBarDateComponent;
   'hds/filter-bar/date': typeof HdsFilterBarDateComponent;
+  'Hds::FilterBar::Generic': typeof HdsFilterBarGenericComponent;
+  'hds/filter-bar/generic': typeof HdsFilterBarGenericComponent;
   'Hds::FilterBar::Radio': typeof HdsFilterBarRadioComponent;
   'hds/filter-bar/radio': typeof HdsFilterBarRadioComponent;
   'Hds::FilterBar::FiltersDropdown': typeof HdsFilterBarFiltersDropdownComponent;
