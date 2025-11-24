@@ -13,6 +13,7 @@ import HdsFilterBarTabsTab from './tabs/tab.ts';
 import HdsFilterBarTabsPanel from './tabs/panel.ts';
 import type { HdsTabsPanelSignature } from '../tabs/panel.ts';
 
+import HdsFilterBarGeneric from './generic.ts';
 import HdsFilterBarCheckbox from './checkbox.ts';
 import HdsFilterBarRadio from './radio.ts';
 
@@ -21,6 +22,7 @@ import type {
   HdsFilterBarFilters,
   HdsFilterBarFilterType,
   HdsFilterBarData,
+  HdsFilterBarGenericFilter,
   HdsFilterBarGenericFilterData,
   HdsFilterBarRangeFilterData,
   HdsFilterBarRangeFilterSelector,
@@ -44,6 +46,7 @@ export interface HdsFilterBarFilterGroupSignature {
   Blocks: {
     default: [
       {
+        Generic?: WithBoundArgs<typeof HdsFilterBarGeneric, 'keyFilter'>;
         Checkbox?: WithBoundArgs<
           typeof HdsFilterBarCheckbox,
           'keyFilter' | 'onChange'
@@ -202,6 +205,21 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(this.args.key, this.formattedFilters);
+    }
+  }
+
+  @action
+  onGenericChange(filter?: HdsFilterBarGenericFilter): void {
+    if (filter) {
+      this.internalFilters = filter.data;
+      filter.text = this.args.text;
+    } else {
+      this.internalFilters = undefined;
+    }
+
+    const { onChange } = this.args;
+    if (onChange && typeof onChange === 'function') {
+      onChange(this.args.key, filter);
     }
   }
 

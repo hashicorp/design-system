@@ -58,12 +58,8 @@
 }
 
 .hds-filter-bar__filters-dropdown__filter-group__search {
-  padding: 16px;
+  padding: 0 16px 16px 16px;
   border-bottom: 1px solid var(--token-color-border-primary);
-}
-
-.hds-filter-bar__filters-dropdown__filter-group__values-list {
-  padding: 8px 0;
 }
 
 .hds-filter-bar__filters-dropdown__filter-group__list {
@@ -95,7 +91,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 16px 0;
 }
 
 .hds-filter-bar__filters-dropdown__fields {
@@ -136,6 +131,7 @@
   flex-direction: column;
   gap: 8px;
   width: 50%;
+  padding: 16px 0;
   background-color: var(--token-color-surface-primary);
   border-top-right-radius: var(--token-border-radius-medium);
 }

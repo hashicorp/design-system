@@ -136,6 +136,7 @@ export { default as HdsFilterBarCheckbox } from './components/hds/filter-bar/che
 export { default as HdsFilterBarDate } from './components/hds/filter-bar/date.ts';
 export { default as HdsFilterBarFiltersDropdown } from './components/hds/filter-bar/filters-dropdown.ts';
 export { default as HdsFilterBarFilterGroup } from './components/hds/filter-bar/filter-group.ts';
+export { default as HdsFilterBarGeneric } from './components/hds/filter-bar/generic.ts';
 export { default as HdsFilterBarRadio } from './components/hds/filter-bar/radio.ts';
 export { default as HdsFilterBarRange } from './components/hds/filter-bar/range.ts';
 export { default as HdsFilterBarTabs } from './components/hds/filter-bar/tabs/index.ts';

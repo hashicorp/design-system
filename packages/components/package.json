@@ -235,6 +235,7 @@
       "./components/hds/filter-bar/date.js": "./dist/_app_/components/hds/filter-bar/date.js",
       "./components/hds/filter-bar/filter-group.js": "./dist/_app_/components/hds/filter-bar/filter-group.js",
       "./components/hds/filter-bar/filters-dropdown.js": "./dist/_app_/components/hds/filter-bar/filters-dropdown.js",
+      "./components/hds/filter-bar/generic.js": "./dist/_app_/components/hds/filter-bar/generic.js",
       "./components/hds/filter-bar.js": "./dist/_app_/components/hds/filter-bar.js",
       "./components/hds/filter-bar/radio.js": "./dist/_app_/components/hds/filter-bar/radio.js",
       "./components/hds/filter-bar/range.js": "./dist/_app_/components/hds/filter-bar/range.js",

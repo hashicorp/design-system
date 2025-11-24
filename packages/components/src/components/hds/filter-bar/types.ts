@@ -36,6 +36,12 @@ export type HdsFilterBarData =
   | HdsFilterBarRangeFilterData
   | HdsFilterBarDateFilterData;
 
+export interface HdsFilterBarGenericFilter {
+  type: 'generic';
+  text?: string;
+  dismissTagText?: string;
+  data: HdsFilterBarGenericFilterData | HdsFilterBarGenericFilterData[];
+}
 export interface HdsFilterBarSingleSelectFilter {
   type: 'single-select';
   text?: string;
@@ -71,7 +77,8 @@ export type HdsFilterBarFilter =
   | HdsFilterBarMultiSelectFilter
   | HdsFilterBarRangeFilter
   | HdsFilterBarDateFilter
-  | HdsFilterBarSearchFilter;
+  | HdsFilterBarSearchFilter
+  | HdsFilterBarGenericFilter;
 
 export interface HdsFilterBarFilters {
   [name: string]: HdsFilterBarFilter;
