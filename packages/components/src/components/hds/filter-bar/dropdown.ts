@@ -10,12 +10,12 @@ import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
 import type { WithBoundArgs } from '@glint/template';
 
-import HdsFilterBarFilterGroup from './filter-group.ts';
+import HdsFilterBarFilterGroup from './filter-group/index.ts';
 import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
 
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
-export interface HdsFilterBarFiltersDropdownSignature {
+export interface HdsFilterBarDropdownSignature {
   Args: HdsDropdownSignature['Args'] & {
     filters: HdsFilterBarFilters;
     isLiveFilter: boolean;
@@ -34,15 +34,12 @@ export interface HdsFilterBarFiltersDropdownSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFilterBarFiltersDropdown extends Component<
-  HdsDropdownSignature & HdsFilterBarFiltersDropdownSignature
+export default class HdsFilterBarDropdown extends Component<
+  HdsDropdownSignature & HdsFilterBarDropdownSignature
 > {
   @tracked internalFilters: HdsFilterBarFilters = {};
 
-  constructor(
-    owner: Owner,
-    args: HdsFilterBarFiltersDropdownSignature['Args']
-  ) {
+  constructor(owner: Owner, args: HdsFilterBarDropdownSignature['Args']) {
     super(owner, args);
 
     const { filters } = this.args;
@@ -93,7 +90,7 @@ export default class HdsFilterBarFiltersDropdown extends Component<
   }
 
   get classNames(): string {
-    const classes = ['hds-filter-bar__filters-dropdown'];
+    const classes = ['hds-filter-bar__dropdown'];
 
     return classes.join(' ');
   }

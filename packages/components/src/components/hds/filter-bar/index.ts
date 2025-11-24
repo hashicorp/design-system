@@ -20,11 +20,11 @@ import type {
 } from './types.ts';
 import HdsDropdown from '../dropdown/index.ts';
 import HdsYield from '../yield/index.ts';
-import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
+import HdsFilterBarDropdown from './dropdown.ts';
 import { isArray } from '@ember/array';
 
-import { RANGE_SELECTORS_TEXT } from './range.ts';
-import { DATE_SELECTORS_TEXT } from './date.ts';
+import { NUMERICAL_SELECTORS_TEXT } from './filter-group/numerical.ts';
+import { DATE_SELECTORS_TEXT } from './filter-group/date.ts';
 
 export interface HdsFilterBarSignature {
   Args: {
@@ -38,8 +38,8 @@ export interface HdsFilterBarSignature {
       {
         ActionsDropdown?: WithBoundArgs<typeof HdsDropdown, never>;
         ActionsGeneric?: WithBoundArgs<typeof HdsYield, never>;
-        FiltersDropdown?: WithBoundArgs<
-          typeof HdsFilterBarFiltersDropdown,
+        Dropdown?: WithBoundArgs<
+          typeof HdsFilterBarDropdown,
           'filters' | 'isLiveFilter' | 'onFilter'
         >;
       },
@@ -183,25 +183,25 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     }
   };
 
-  private _rangeFilterText = (filter: HdsFilterBarFilter): string => {
+  private _numericalFilterText = (filter: HdsFilterBarFilter): string => {
     const data = filter.data;
 
-    if (filter.type === 'range' && 'selector' in data && 'value' in data) {
-      const selector = data.selector as keyof typeof RANGE_SELECTORS_TEXT;
+    if (filter.type === 'numerical' && 'selector' in data && 'value' in data) {
+      const selector = data.selector as keyof typeof NUMERICAL_SELECTORS_TEXT;
       if (
         selector === 'between' &&
         typeof data.value === 'object' &&
         data.value !== null
       ) {
         const separatorText = this.hdsIntl.t(
-          'hds.components.filter-bar.filter-text.range-filter.separator',
+          'hds.components.filter-bar.filter-text.numerical-filter.separator',
           {
             default: 'and',
           }
         );
-        return `${RANGE_SELECTORS_TEXT[selector]} ${data.value.start} ${separatorText} ${data.value.end}`;
+        return `${NUMERICAL_SELECTORS_TEXT[selector]} ${data.value.start} ${separatorText} ${data.value.end}`;
       } else if (typeof data.value !== 'object') {
-        return `${RANGE_SELECTORS_TEXT[selector]} ${data.value}`;
+        return `${NUMERICAL_SELECTORS_TEXT[selector]} ${data.value}`;
       }
       return '';
     } else {
