@@ -276,4 +276,12 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     const newDate = new Intl.DateTimeFormat(undefined, options);
     return newDate.format(date);
   };
+
+  private _genericFilterText = (filter: HdsFilterBarFilter): string => {
+    if ('dismissTagText' in filter) {
+      return filter.dismissTagText ?? '';
+    } else {
+      return '';
+    }
+  };
 }

@@ -1,0 +1,18 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class="hds-filter-bar__filters-dropdown__filter-generic">
+  <Hds::Layout::Flex class="hds-filter-bar__filters-dropdown__fields" @direction="column" @gap="16">
+    {{yield (hash updateFilter=this.updateFilter)}}
+  </Hds::Layout::Flex>
+  <div class="hds-filter-bar__filters-dropdown__clear">
+    <Hds::Button
+      @text={{hds-t "hds.components.filter-bar.date.clear" default="Clear filter"}}
+      @color="tertiary"
+      @icon="rotate-ccw"
+      @isInline={{true}}
+      {{on "click" this.onClear}}
+    />
+  </div>
+</div>
