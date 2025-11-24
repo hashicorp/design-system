@@ -8,7 +8,7 @@
   ...attributes
   aria-hidden="{{if @title 'false' 'true'}}"
   aria-labelledby={{this.ariaLabelledby}}
-  data-test-icon={{@name}}
+  data-test-icon={{this.name}}
   fill="{{this.fillColor}}"
   id={{this._iconId}}
   role={{this.role}}
@@ -22,30 +22,32 @@
     <title id={{this._titleId}}>{{@title}}</title>
   {{/if}}
 
-  {{#if this.hasLoadedCarbonIcon}}
-    {{#each this.carbonIcon.content as |node|}}
-      {{#if (eq node.elem "path")}}
-        <path
-          d={{node.attrs.d}}
-          fill={{node.attrs.fill}}
-          opacity={{node.attrs.opacity}}
-          transform={{node.attrs.transform}}
-        />
-      {{else if (eq node.elem "circle")}}
-        <circle cx={{node.attrs.cx}} cy={{node.attrs.cy}} r={{node.attrs.r}} fill={{node.attrs.fill}} />
-      {{else if (eq node.elem "rect")}}
-        <rect
-          x={{node.attrs.x}}
-          y={{node.attrs.y}}
-          width={{node.attrs.width}}
-          height={{node.attrs.height}}
-          fill={{node.attrs.fill}}
-          transform={{node.attrs.transform}}
-        />
-      {{else if (eq node.elem "polygon")}}
-        <polygon points={{node.attrs.points}} fill={{node.attrs.fill}} />
-      {{/if}}
-    {{/each}}
+  {{#if this.hdsCarbon.carbonModeEnabled}}
+    {{#if (not-eq this.carbonIcon null)}}
+      {{#each this.carbonIcon.content as |node|}}
+        {{#if (eq node.elem "path")}}
+          <path
+            d={{node.attrs.d}}
+            fill={{node.attrs.fill}}
+            opacity={{node.attrs.opacity}}
+            transform={{node.attrs.transform}}
+          />
+        {{else if (eq node.elem "circle")}}
+          <circle cx={{node.attrs.cx}} cy={{node.attrs.cy}} r={{node.attrs.r}} fill={{node.attrs.fill}} />
+        {{else if (eq node.elem "rect")}}
+          <rect
+            x={{node.attrs.x}}
+            y={{node.attrs.y}}
+            width={{node.attrs.width}}
+            height={{node.attrs.height}}
+            fill={{node.attrs.fill}}
+            transform={{node.attrs.transform}}
+          />
+        {{else if (eq node.elem "polygon")}}
+          <polygon points={{node.attrs.points}} fill={{node.attrs.fill}} />
+        {{/if}}
+      {{/each}}
+    {{/if}}
   {{else}}
     {{#if @title}}
       <g role="presentation">
