@@ -10,7 +10,7 @@
 {{#let @panel as |Panel|}}
   <Panel {{this._setUpFilterPanel}}>
     {{#if @searchEnabled}}
-      <div class="hds-filter-bar__dropdown__filter-group__search">
+      <div class="hds-filter-bar__filter-group__search">
         <Hds::Form::TextInput::Base
           @type="search"
           placeholder={{hds-t "components.filter-bar.filter-group.search-input-placeholder" default="Search"}}
@@ -39,8 +39,8 @@
         )
       }}
     {{else}}
-      <div class="hds-filter-bar__dropdown__filter-group__values-list">
-        <div class="hds-filter-bar__dropdown__clear">
+      <div class="hds-filter-bar__filter-group__values-list">
+        <div class="hds-filter-bar__filter-group__clear">
           <Hds::Button
             @text={{hds-t "hds.components.filter-bar.filter-group.clear" default="Clear selection"}}
             @color="tertiary"
@@ -48,7 +48,7 @@
             {{on "click" this.onClear}}
           />
         </div>
-        <ul class="hds-filter-bar__dropdown__filter-group__list">
+        <ul class="hds-filter-bar__filter-group__list">
           {{yield
             (hash
               Checkbox=(component

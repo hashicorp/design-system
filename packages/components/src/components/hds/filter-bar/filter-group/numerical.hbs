@@ -2,11 +2,11 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-filter-bar__dropdown__filter-numerical">
-  <Hds::Layout::Flex class="hds-filter-bar__dropdown__fields" @direction="column" @gap="16">
+<div class="hds-filter-bar__filter-group__numerical">
+  <Hds::Layout::Flex class="hds-filter-bar__filter-group__fields" @direction="column" @gap="16">
     <Hds::Form::Select::Field
       @id={{this._selectorInputId}}
-      class="hds-filter-bar__dropdown__field"
+      class="hds-filter-bar__filter-group__field"
       {{on "change" this.onSelectorChange}}
       as |F|
     >
@@ -32,7 +32,7 @@
           @type="text"
           @value={{this.stringBetweenValueStart}}
           placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.start-placeholder" default="Start"}}
-          class="hds-filter-bar__dropdown__field"
+          class="hds-filter-bar__filter-group__field"
           {{on "change" this.onBetweenValueStartChange}}
         />
         <Hds::Form::TextInput::Base
@@ -40,7 +40,7 @@
           @type="text"
           @value={{this.stringBetweenValueEnd}}
           placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.end-placeholder" default="End"}}
-          class="hds-filter-bar__dropdown__field"
+          class="hds-filter-bar__filter-group__field"
           {{on "change" this.onBetweenValueEndChange}}
         />
       </Hds::Layout::Flex>
@@ -53,12 +53,12 @@
           "hds.components.filter-bar.filter-group.numerical.value-input.placeholder"
           default="Enter a value"
         }}
-        class="hds-filter-bar__dropdown__field"
+        class="hds-filter-bar__filter-group__field"
         {{on "change" this.onValueChange}}
       />
     {{/if}}
   </Hds::Layout::Flex>
-  <div class="hds-filter-bar__dropdown__clear">
+  <div class="hds-filter-bar__filter-group__clear">
     <Hds::Button
       @text={{hds-t "hds.components.filter-bar.filter-group.numerical.clear" default="Clear filter"}}
       @color="tertiary"
