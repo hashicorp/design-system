@@ -386,25 +386,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
       }
     }
 
-    // default focus for browsers that still rely on ":focus"
-    &:focus,
-    &.mock-focus {
-      color: var(--current-color-focus);
-
-      &::after {
-        left: 4px;
-        box-shadow: var(--current-focus-ring-box-shadow);
-      }
-    }
-    // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-    &:focus:not(:focus-visible) {
-      &::after {
-        background-color: transparent;
-        box-shadow: none;
-      }
-    }
-    // set focus for browsers that support ":focus-visible"
-    &:focus-visible {
+    &:focus-visible &.mock-focus {
       color: var(--current-color-focus);
 
       &::after {
@@ -414,7 +396,6 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     }
 
     // remove the focus ring on "active + focused" state (by design)
-    &:focus:active,
     &:focus-visible:active,
     &.mock-focus.mock-active {
       &::after {

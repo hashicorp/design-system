@@ -41,6 +41,8 @@
   &:disabled:focus,
   &[disabled]:focus,
   &.mock-disabled:focus,
+  &:disabled:focus-visible,
+  &[disabled]:focus-visible,
   &:disabled:hover,
   &[disabled]:hover,
   &.mock-disabled:hover {
@@ -57,6 +59,7 @@
   }
 
   &:focus,
+  &:focus-visible,
   &.mock-focus {
     @include hds-button-state-focus();
   }

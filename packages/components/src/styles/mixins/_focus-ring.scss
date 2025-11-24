@@ -10,21 +10,13 @@
 @mixin hds-focus-ring-basic($color: action) {
   outline-color: transparent;
 
-  // default focus for browsers that still rely on ":focus"
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
     box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
   }
-  // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-  // set focus for browsers that support ":focus-visible"
-  &:focus-visible {
-    box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-  }
+
   // remove the focus ring on "active + focused" state (by design)
-  &:focus:active,
+  &:focus-visible:active,
   &.mock-focus.mock-active {
     box-shadow: none;
   }
@@ -54,27 +46,15 @@
     content: "";
   }
 
-  // default focus for browsers that still rely on ":focus"
-  &:focus,
+  &:focus-visible,
   &.mock-focus {
     &::before {
       box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
     }
   }
-  // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-  &:focus:not(:focus-visible) {
-    &::before {
-      box-shadow: none;
-    }
-  }
-  // set focus for browsers that support ":focus-visible"
-  &:focus-visible {
-    &::before {
-      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-    }
-  }
+
   // remove the focus ring on "active + focused" state (by design)
-  &:focus:active,
+  &:focus-visible:active,
   &.mock-focus.mock-active {
     &::before {
       box-shadow: none;
@@ -107,7 +87,7 @@
     content: "";
   }
 
-  // default focus for browsers that still rely on ":focus"
+  // focus for rare case we want focus ring to be visible on click vs. just for keyboard users
   &:focus,
   &.mock-focus {
     &::before {
