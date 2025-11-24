@@ -2,12 +2,12 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-filter-bar__filters-dropdown__filter-date">
-  <Hds::Layout::Flex class="hds-filter-bar__filters-dropdown__fields" @direction="column" @gap="16">
+<div class="hds-filter-bar__dropdown__filter-date">
+  <Hds::Layout::Flex class="hds-filter-bar__dropdown__fields" @direction="column" @gap="16">
     <Hds::Form::Select::Field
       @id={{this._selectorInputId}}
       {{on "change" this.onSelectorChange}}
-      class="hds-filter-bar__filters-dropdown__field"
+      class="hds-filter-bar__dropdown__field"
       as |F|
     >
       <F.Label>{{this.selectorLabelText}}</F.Label>
@@ -30,7 +30,7 @@
           @type={{this.inputType}}
           @value={{this._betweenValueStart}}
           placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.date.start-placeholder" default="Start"}}
-          class="hds-filter-bar__filters-dropdown__field"
+          class="hds-filter-bar__dropdown__field"
           {{on "change" this.onBetweenValueStartChange}}
         />
         <Hds::Form::TextInput::Base
@@ -38,7 +38,7 @@
           @type={{this.inputType}}
           @value={{this._betweenValueEnd}}
           placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.date.end-placeholder" default="End"}}
-          class="hds-filter-bar__filters-dropdown__field"
+          class="hds-filter-bar__dropdown__field"
           {{on "change" this.onBetweenValueEndChange}}
         />
       </Hds::Layout::Flex>
@@ -48,12 +48,12 @@
         @type={{this.inputType}}
         @value={{this._value}}
         placeholder={{hds-t "hds.components.filter-bar.date.value-input.placeholder" default="Enter a value"}}
-        class="hds-filter-bar__filters-dropdown__field"
+        class="hds-filter-bar__dropdown__field"
         {{on "change" this.onValueChange}}
       />
     {{/if}}
   </Hds::Layout::Flex>
-  <div class="hds-filter-bar__filters-dropdown__clear">
+  <div class="hds-filter-bar__dropdown__clear">
     <Hds::Button
       @text={{hds-t "hds.components.filter-bar.date.clear" default="Clear filter"}}
       @color="tertiary"

@@ -10,50 +10,49 @@ import type Owner from '@ember/owner';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 
-import type HdsIntlService from '../../../services/hds-intl';
+import type HdsIntlService from '../../../../services/hds-intl';
 import type {
   HdsFilterBarFilter,
-  HdsFilterBarRangeFilterSelector,
-  HdsFilterBarRangeFilterValue,
-} from './types.ts';
-import { HdsFilterBarRangeFilterSelectorValues } from './types.ts';
+  HdsFilterBarNumericalFilterSelector,
+  HdsFilterBarNumericalFilterValue,
+} from '../types.ts';
+import { HdsFilterBarNumericalFilterSelectorValues } from '../types.ts';
 
-export const RANGE_SELECTORS: HdsFilterBarRangeFilterSelector[] = Object.values(
-  HdsFilterBarRangeFilterSelectorValues
-);
+export const NUMERICAL_SELECTORS: HdsFilterBarNumericalFilterSelector[] =
+  Object.values(HdsFilterBarNumericalFilterSelectorValues);
 
-export const RANGE_SELECTORS_TEXT: Record<
-  HdsFilterBarRangeFilterSelector,
+export const NUMERICAL_SELECTORS_TEXT: Record<
+  HdsFilterBarNumericalFilterSelector,
   string
 > = {
-  [HdsFilterBarRangeFilterSelectorValues.lessThan]: '<',
-  [HdsFilterBarRangeFilterSelectorValues.lessThanOrEqualTo]: '≤',
-  [HdsFilterBarRangeFilterSelectorValues.equalTo]: '=',
-  [HdsFilterBarRangeFilterSelectorValues.greaterThanOrEqualTo]: '≥',
-  [HdsFilterBarRangeFilterSelectorValues.greaterThan]: '>',
-  [HdsFilterBarRangeFilterSelectorValues.between]: 'between',
+  [HdsFilterBarNumericalFilterSelectorValues.lessThan]: '<',
+  [HdsFilterBarNumericalFilterSelectorValues.lessThanOrEqualTo]: '≤',
+  [HdsFilterBarNumericalFilterSelectorValues.equalTo]: '=',
+  [HdsFilterBarNumericalFilterSelectorValues.greaterThanOrEqualTo]: '≥',
+  [HdsFilterBarNumericalFilterSelectorValues.greaterThan]: '>',
+  [HdsFilterBarNumericalFilterSelectorValues.between]: 'between',
 };
 
-export const RANGE_SELECTORS_INPUT_TEXT: Record<
-  HdsFilterBarRangeFilterSelector,
+export const NUMERICAL_SELECTORS_INPUT_TEXT: Record<
+  HdsFilterBarNumericalFilterSelector,
   string
 > = {
-  [HdsFilterBarRangeFilterSelectorValues.lessThan]: 'Less than (<)',
-  [HdsFilterBarRangeFilterSelectorValues.lessThanOrEqualTo]:
+  [HdsFilterBarNumericalFilterSelectorValues.lessThan]: 'Less than (<)',
+  [HdsFilterBarNumericalFilterSelectorValues.lessThanOrEqualTo]:
     'Less than or equal to (≤)',
-  [HdsFilterBarRangeFilterSelectorValues.equalTo]: 'Equal to (=)',
-  [HdsFilterBarRangeFilterSelectorValues.greaterThanOrEqualTo]:
+  [HdsFilterBarNumericalFilterSelectorValues.equalTo]: 'Equal to (=)',
+  [HdsFilterBarNumericalFilterSelectorValues.greaterThanOrEqualTo]:
     'Greater than or equal to (≥)',
-  [HdsFilterBarRangeFilterSelectorValues.greaterThan]: 'Greater than (>)',
-  [HdsFilterBarRangeFilterSelectorValues.between]: 'Between',
+  [HdsFilterBarNumericalFilterSelectorValues.greaterThan]: 'Greater than (>)',
+  [HdsFilterBarNumericalFilterSelectorValues.between]: 'Between',
 };
 
-export interface HdsFilterBarRangeSignature {
+export interface HdsFilterBarFilterGroupNumericalSignature {
   Args: {
     keyFilter: HdsFilterBarFilter | undefined;
     onChange?: (
-      selector?: HdsFilterBarRangeFilterSelector,
-      value?: HdsFilterBarRangeFilterValue
+      selector?: HdsFilterBarNumericalFilterSelector,
+      value?: HdsFilterBarNumericalFilterValue
     ) => void;
   };
   Blocks: {
@@ -62,26 +61,29 @@ export interface HdsFilterBarRangeSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignature> {
+export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilterBarFilterGroupNumericalSignature> {
   @service hdsIntl!: HdsIntlService;
 
-  @tracked private _selector: HdsFilterBarRangeFilterSelector | undefined;
+  @tracked private _selector: HdsFilterBarNumericalFilterSelector | undefined;
   @tracked private _value: number | undefined;
   @tracked private _betweenValueStart: number | undefined;
   @tracked private _betweenValueEnd: number | undefined;
 
-  private _selectorValues = RANGE_SELECTORS;
+  private _selectorValues = NUMERICAL_SELECTORS;
   private _selectorInputId = 'selector-input-' + guidFor(this);
   private _valueInputId = 'value-input-' + guidFor(this);
   private _betweenValueStartInputId =
     'between-value-start-input-' + guidFor(this);
   private _betweenValueEndInputId = 'between-value-end-input-' + guidFor(this);
 
-  constructor(owner: Owner, args: HdsFilterBarRangeSignature['Args']) {
+  constructor(
+    owner: Owner,
+    args: HdsFilterBarFilterGroupNumericalSignature['Args']
+  ) {
     super(owner, args);
 
     const { keyFilter } = this.args;
-    if (keyFilter && keyFilter.type === 'range') {
+    if (keyFilter && keyFilter.type === 'numerical') {
       const data = keyFilter.data;
       this._selector = data?.selector;
       if (data.selector === 'between') {
@@ -114,7 +116,7 @@ export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignat
   @action
   onSelectorChange(event: Event): void {
     const select = event.target as HTMLSelectElement;
-    this._selector = select.value as HdsFilterBarRangeFilterSelector;
+    this._selector = select.value as HdsFilterBarNumericalFilterSelector;
     if (this._selector === 'between') {
       this._value = undefined;
     } else {
@@ -170,12 +172,12 @@ export default class HdsFilterBarRange extends Component<HdsFilterBarRangeSignat
   }
 
   private _selectorText = (
-    selector: HdsFilterBarRangeFilterSelector
+    selector: HdsFilterBarNumericalFilterSelector
   ): string => {
     return this.hdsIntl.t(
-      `hds.components.filter-bar.range.selector-input.${selector}`,
+      `hds.components.filter-bar.filter-group.numerical.selector-input.${selector}`,
       {
-        default: RANGE_SELECTORS_INPUT_TEXT[selector],
+        default: NUMERICAL_SELECTORS_INPUT_TEXT[selector],
       }
     );
   };

@@ -18,8 +18,8 @@
     />
     {{yield
       (hash
-        FiltersDropdown=(component
-          "hds/filter-bar/filters-dropdown" filters=@filters isLiveFilter=@isLiveFilter onFilter=this.onFilter
+        Dropdown=(component
+          "hds/filter-bar/dropdown" filters=@filters isLiveFilter=@isLiveFilter onFilter=this.onFilter
         )
       )
     }}
@@ -50,9 +50,9 @@
                 @text="{{this._filterKeyText key filter}}: {{this._filterText filter}}"
                 @onDismiss={{fn this.onFilterDismiss key}}
               />
-            {{else if (eq filter.type "range")}}
+            {{else if (eq filter.type "numerical")}}
               <Hds::Tag
-                @text="{{this._filterKeyText key filter}} {{this._rangeFilterText filter}}"
+                @text="{{this._filterKeyText key filter}} {{this._numericalFilterText filter}}"
                 @onDismiss={{fn this.onFilterDismiss key}}
               />
             {{else if (or (eq filter.type "date") (eq filter.type "datetime") (eq filter.type "time"))}}

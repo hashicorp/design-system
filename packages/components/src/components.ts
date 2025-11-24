@@ -132,13 +132,13 @@ export * from './components/hds/dropdown/types.ts';
 
 // FilterBar
 export { default as HdsFilterBar } from './components/hds/filter-bar/index.ts';
-export { default as HdsFilterBarCheckbox } from './components/hds/filter-bar/checkbox.ts';
-export { default as HdsFilterBarDate } from './components/hds/filter-bar/date.ts';
-export { default as HdsFilterBarFiltersDropdown } from './components/hds/filter-bar/filters-dropdown.ts';
-export { default as HdsFilterBarFilterGroup } from './components/hds/filter-bar/filter-group.ts';
-export { default as HdsFilterBarGeneric } from './components/hds/filter-bar/generic.ts';
-export { default as HdsFilterBarRadio } from './components/hds/filter-bar/radio.ts';
-export { default as HdsFilterBarRange } from './components/hds/filter-bar/range.ts';
+export { default as HdsFilterBarDropdown } from './components/hds/filter-bar/dropdown.ts';
+export { default as HdsFilterBarFilterGroup } from './components/hds/filter-bar/filter-group/index.ts';
+export { default as HdsFilterBarFilterGroupCheckbox } from './components/hds/filter-bar/filter-group/checkbox.ts';
+export { default as HdsFilterBarFilterGroupDate } from './components/hds/filter-bar/filter-group/date.ts';
+export { default as HdsFilterBarFilterGroupGeneric } from './components/hds/filter-bar/filter-group/generic.ts';
+export { default as HdsFilterBarFilterGroupRadio } from './components/hds/filter-bar/filter-group/radio.ts';
+export { default as HdsFilterBarFilterGroupNumerical } from './components/hds/filter-bar/filter-group/numerical.ts';
 export { default as HdsFilterBarTabs } from './components/hds/filter-bar/tabs/index.ts';
 export { default as HdsFilterBarTabsPanel } from './components/hds/filter-bar/tabs/panel.ts';
 export { default as HdsFilterBarTabsTab } from './components/hds/filter-bar/tabs/tab.ts';

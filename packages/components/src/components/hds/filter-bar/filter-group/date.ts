@@ -10,15 +10,15 @@ import type Owner from '@ember/owner';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 
-import type HdsIntlService from '../../../services/hds-intl';
-import type { HdsFormTextInputTypes } from '../form/text-input/types.ts';
+import type HdsIntlService from '../../../../services/hds-intl';
+import type { HdsFormTextInputTypes } from '../../form/text-input/types.ts';
 
 import type {
   HdsFilterBarFilter,
   HdsFilterBarDateFilterSelector,
   HdsFilterBarDateFilterValue,
-} from './types.ts';
-import { HdsFilterBarDateFilterSelectorValues } from './types.ts';
+} from '../types.ts';
+import { HdsFilterBarDateFilterSelectorValues } from '../types.ts';
 
 export const DATE_SELECTORS: HdsFilterBarDateFilterSelector[] = Object.values(
   HdsFilterBarDateFilterSelectorValues
@@ -44,7 +44,7 @@ export const DATE_SELECTORS_INPUT_TEXT: Record<
   [HdsFilterBarDateFilterSelectorValues.between]: 'Between',
 };
 
-export interface HdsFilterBarDateSignature {
+export interface HdsFilterBarFilterGroupDateSignature {
   Args: {
     keyFilter: HdsFilterBarFilter | undefined;
     type?: 'date' | 'time' | 'datetime';
@@ -59,7 +59,7 @@ export interface HdsFilterBarDateSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFilterBarDate extends Component<HdsFilterBarDateSignature> {
+export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarFilterGroupDateSignature> {
   @service hdsIntl!: HdsIntlService;
 
   @tracked private _selector: HdsFilterBarDateFilterSelector | undefined;
@@ -74,7 +74,10 @@ export default class HdsFilterBarDate extends Component<HdsFilterBarDateSignatur
     'between-value-start-input-' + guidFor(this);
   private _betweenValueEndInputId = 'between-value-end-input-' + guidFor(this);
 
-  constructor(owner: Owner, args: HdsFilterBarDateSignature['Args']) {
+  constructor(
+    owner: Owner,
+    args: HdsFilterBarFilterGroupDateSignature['Args']
+  ) {
     super(owner, args);
 
     const { keyFilter } = this.args;
