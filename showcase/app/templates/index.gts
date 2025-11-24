@@ -138,6 +138,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-components.filter-bar">
+            FilterBar
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-components.flyout">
             Flyout
           </LinkTo>
