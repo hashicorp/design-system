@@ -11,16 +11,14 @@
 
 // PREFERS COLOR SCHEME
 
-// this works because the specificity of `:root` is 010, the same as a class-based and an attribute-based selector; when specificity is equal, the later rules override earlier ones due to cascade order
-
 @media (prefers-color-scheme: light) {
-  :root {
+  .hds-theme-system {
     @include shw-theme-color-variables-light();
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  .hds-theme-system {
     @include shw-theme-color-variables-dark();
   }
 }
