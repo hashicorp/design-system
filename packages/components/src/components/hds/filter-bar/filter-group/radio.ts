@@ -11,8 +11,9 @@ import type { HdsFilterBarFilter } from '../types.ts';
 export interface HdsFilterBarFilterGroupRadioSignature {
   Args: {
     value?: string;
+    label?: string;
     keyFilter: HdsFilterBarFilter | undefined;
-    onChange?: (event: Event) => void;
+    onChange?: (event: Event, label?: string) => void;
   };
   Blocks: {
     default: [];
@@ -23,9 +24,9 @@ export interface HdsFilterBarFilterGroupRadioSignature {
 export default class HdsFilterBarFilterGroupRadio extends Component<HdsFilterBarFilterGroupRadioSignature> {
   @action
   onChange(event: Event): void {
-    const { onChange } = this.args;
+    const { onChange, label } = this.args;
     if (onChange && typeof onChange === 'function') {
-      onChange(event);
+      onChange(event, label);
     }
   }
 
