@@ -42,15 +42,15 @@ type HdsThemingOptions = {
 type SetThemeArgs = {
   theme: HdsThemes | undefined;
   options?: HdsThemingOptions;
-  onSetTheme?: OnSetThemeCallback;
+  onSetTheme?: HdsOnSetThemeCallback;
 };
 
-export type OnSetThemeCallbackArgs = {
+export type HdsOnSetThemeCallbackArgs = {
   currentTheme: HdsThemes | undefined;
   currentMode: HdsModes | undefined;
 };
 
-export type OnSetThemeCallback = (args: OnSetThemeCallbackArgs) => void;
+export type HdsOnSetThemeCallback = (args: HdsOnSetThemeCallbackArgs) => void;
 
 export const THEMES: HdsThemes[] = Object.values(HdsThemeValues);
 export const MODES_LIGHT: HdsModesLight[] = Object.values(HdsModesLightValues);
@@ -72,7 +72,7 @@ export default class HdsThemingService extends Service {
   @tracked _currentLightTheme: HdsModesLight =
     DEFAULT_THEMING_OPTION_LIGHT_THEME;
   @tracked _currentDarkTheme: HdsModesDark = DEFAULT_THEMING_OPTION_DARK_THEME;
-  @tracked globalOnSetTheme: OnSetThemeCallback | undefined;
+  @tracked globalOnSetTheme: HdsOnSetThemeCallback | undefined;
 
   initializeTheme() {
     const rawStoredThemingData = localStorage.getItem(

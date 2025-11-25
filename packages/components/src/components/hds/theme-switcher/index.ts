@@ -17,7 +17,7 @@ import type { HdsIconSignature } from '../icon/index.ts';
 import type HdsThemingService from '../../../services/hds-theming.ts';
 import type {
   HdsThemes,
-  OnSetThemeCallback,
+  HdsOnSetThemeCallback,
 } from '../../../services/hds-theming.ts';
 
 interface ThemeOption {
@@ -39,7 +39,7 @@ interface HdsThemeSwitcherSignature {
     toggleIsFullWidth?: HdsDropdownToggleButtonSignature['Args']['isFullWidth'];
     hasDefaultOption?: boolean;
     hasSystemOption?: boolean;
-    onSetTheme?: OnSetThemeCallback;
+    onSetTheme?: HdsOnSetThemeCallback;
   };
   Element: HdsDropdownSignature['Element'];
 }
