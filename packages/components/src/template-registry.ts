@@ -1029,7 +1029,7 @@ export default interface HdsComponentsRegistry {
 
   // ThemeContext
   'Hds::ThemeContext': typeof HdsThemeContextComponent;
-  'hds/theme-Context': typeof HdsThemeContextComponent;
+  'hds/theme-context': typeof HdsThemeContextComponent;
 
   // ThemeSwitcher
   'Hds::ThemeSwitcher': typeof HdsThemeSwitcherComponent;
