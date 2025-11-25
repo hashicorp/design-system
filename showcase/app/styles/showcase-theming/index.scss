@@ -29,13 +29,13 @@
 // to avoid extra un-necessary complexity (see different attempts in https://github.com/hashicorp/design-system/pull/3240)
 
 .hds-theme-light,
-.hds-theme-cds-g0,
-.hds-theme-cds-g10 {
+.hds-mode-cds-g0,
+.hds-mode-cds-g10 {
   @include shw-theme-color-variables-light();
 }
 
 .hds-theme-dark,
-.hds-theme-cds-g90,
-.hds-theme-cds-g100 {
+.hds-mode-cds-g90,
+.hds-mode-cds-g100 {
   @include shw-theme-color-variables-dark();
 }
