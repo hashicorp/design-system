@@ -17,7 +17,7 @@ export const PREFIX = 'hds';
 
 export async function generateCssHelpers(dictionary: Dictionary, config: PlatformConfig ): Promise<void> {
 
-  fs.ensureDir(`${config.buildPath}helpers/`);
+  await fs.ensureDir(`${config.buildPath}helpers/`);
 
   const header = await fileHeader({});
 
