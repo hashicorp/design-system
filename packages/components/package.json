@@ -88,6 +88,8 @@
     "@glint/environment-ember-loose": "^1.5.2",
     "@glint/environment-ember-template-imports": "^1.5.2",
     "@glint/template": "^1.5.2",
+    "@ibm/plex-mono": "^1.1.0",
+    "@ibm/plex-sans": "^1.1.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@tsconfig/ember": "^3.0.10",
     "@types/luxon": "^3.4.2",
