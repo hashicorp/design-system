@@ -51,7 +51,7 @@ export interface HdsFilterBarSignature {
 export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   @service hdsIntl!: HdsIntlService;
 
-  @tracked _isExpanded: boolean = false;
+  @tracked _isExpanded: boolean = this.hasActiveFilters;
 
   get searchValue(): string {
     const { filters } = this.args;
@@ -156,19 +156,28 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   private _filterData = (
     data: HdsFilterBarData
   ): HdsFilterBarGenericFilterData => {
+    const result = {
+      value: '',
+    } as HdsFilterBarGenericFilterData;
     if ('value' in data) {
-      return { value: data.value };
+      result.value = data.value;
     }
-    return { value: '' };
+    if ('label' in data) {
+      result.label = data.label;
+    }
+    return result;
   };
 
   private _filterText = (filter: HdsFilterBarFilter): string => {
     const result = this._filterData(filter.data);
-    const resultText = result?.value as string;
-    return resultText ?? '';
+    const resultLabel = result?.label as string;
+    const resultValue = result?.value as string;
+    return resultLabel ?? resultValue;
   };
 
-  private _filterArrayData = (data: HdsFilterBarData): { value: unknown }[] => {
+  private _filterArrayData = (
+    data: HdsFilterBarData
+  ): { value: unknown; text?: string }[] => {
     if (isArray(data)) {
       return data.map((item) => this._filterData(item));
     }

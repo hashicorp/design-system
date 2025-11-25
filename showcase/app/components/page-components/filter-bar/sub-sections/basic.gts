@@ -35,9 +35,9 @@ export default class SubSectionBasic extends Component {
           @searchEnabled={{true}}
           as |F|
         >
-          <F.Checkbox @value="1">Option 1</F.Checkbox>
-          <F.Checkbox @value="2">Option 2</F.Checkbox>
-          <F.Checkbox @value="3">Option 3</F.Checkbox>
+          <F.Checkbox @value="1" @label="Option 1" />
+          <F.Checkbox @value="2" @label="Option 2" />
+          <F.Checkbox @value="3" @label="Option 3" />
         </D.FilterGroup>
         <D.FilterGroup
           @key="single-select"
@@ -46,9 +46,9 @@ export default class SubSectionBasic extends Component {
           @searchEnabled={{true}}
           as |F|
         >
-          <F.Radio @value="1">Option 1</F.Radio>
-          <F.Radio @value="2">Option 2</F.Radio>
-          <F.Radio @value="3">Option 3</F.Radio>
+          <F.Radio @value="1" @label="Option 1" />
+          <F.Radio @value="2" @label="Option 2" />
+          <F.Radio @value="3" @label="Option 3" />
         </D.FilterGroup>
         <D.FilterGroup @key="numerical" @text="Numerical" @type="numerical" />
         <D.FilterGroup @key="date" @text="Date" @type="date" />

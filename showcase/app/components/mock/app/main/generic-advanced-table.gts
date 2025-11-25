@@ -860,7 +860,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             as |F|
           >
             {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
-              <F.Checkbox @value={{option.value}}>{{option.label}}</F.Checkbox>
+              <F.Checkbox @value={{option.value}} @label={{option.label}} />
             {{/each}}
           </D.FilterGroup>
           <D.FilterGroup
@@ -871,7 +871,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             as |F|
           >
             {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
-              <F.Checkbox @value={{option.value}}>{{option.label}}</F.Checkbox>
+              <F.Checkbox @value={{option.value}} @label={{option.label}} />
             {{/each}}
           </D.FilterGroup>
           <D.FilterGroup
@@ -881,7 +881,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             as |F|
           >
             {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
-              <F.Checkbox @value={{option.value}}>{{option.label}}</F.Checkbox>
+              <F.Checkbox @value={{option.value}} @label={{option.label}} />
             {{/each}}
           </D.FilterGroup>
           <D.FilterGroup
@@ -891,7 +891,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             as |F|
           >
             {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
-              <F.Radio @value={{option.value}}>{{option.label}}</F.Radio>
+              <F.Radio @value={{option.value}} @label={{option.label}} />
             {{/each}}
           </D.FilterGroup>
           <D.FilterGroup
@@ -910,6 +910,22 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
             @type="numerical"
           />
           <D.FilterGroup @key="created" @text="Created" @type="date" />
+          <D.FilterGroup
+            @key="vcs-repo"
+            @text="VCS repo"
+            @type="generic"
+            as |F|
+          >
+            <F.Generic as |G|>
+              <ShwPlaceholder @text="generic content" @height="100" />
+              <HdsButton
+                @text="Add custom filter"
+                @color="secondary"
+                @size="small"
+                {{on "click" (fn G.updateFilter CUSTOM_FILTER)}}
+              />
+            </F.Generic>
+          </D.FilterGroup>
         </F.Dropdown>
       </HdsFilterBar>
     {{/if}}
@@ -956,9 +972,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                 as |F|
               >
                 {{#each (get SAMPLE_MODEL_VALUES "name") as |option|}}
-                  <F.Checkbox
-                    @value={{option.value}}
-                  >{{option.label}}</F.Checkbox>
+                  <F.Checkbox @value={{option.value}} @label={{option.label}} />
                 {{/each}}
               </D.FilterGroup>
               <D.FilterGroup
@@ -969,9 +983,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                 as |F|
               >
                 {{#each (get SAMPLE_MODEL_VALUES "project-name") as |option|}}
-                  <F.Checkbox
-                    @value={{option.value}}
-                  >{{option.label}}</F.Checkbox>
+                  <F.Checkbox @value={{option.value}} @label={{option.label}} />
                 {{/each}}
               </D.FilterGroup>
               <D.FilterGroup
@@ -981,9 +993,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                 as |F|
               >
                 {{#each (get SAMPLE_MODEL_VALUES "run-status") as |option|}}
-                  <F.Checkbox
-                    @value={{option.value}}
-                  >{{option.label}}</F.Checkbox>
+                  <F.Checkbox @value={{option.value}} @label={{option.label}} />
                 {{/each}}
               </D.FilterGroup>
               <D.FilterGroup
@@ -996,7 +1006,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                   (get SAMPLE_MODEL_VALUES "terraform-version")
                   as |option|
                 }}
-                  <F.Radio @value={{option.value}}>{{option.label}}</F.Radio>
+                  <F.Radio @value={{option.value}} @label={{option.label}} />
                 {{/each}}
               </D.FilterGroup>
               <D.FilterGroup

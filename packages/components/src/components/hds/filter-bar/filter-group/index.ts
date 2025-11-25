@@ -113,10 +113,11 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   }
 
   @action
-  onSelectionChange(event: Event): void {
+  onSelectionChange(event: Event, label?: string): void {
     const addFilter = (value: unknown): void => {
       const newFilter = {
         value: value,
+        label: label,
       } as HdsFilterBarGenericFilterData;
       if (this.type === 'single-select') {
         this.internalFilters = newFilter;
