@@ -895,7 +895,7 @@
     },
     "original": {
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "{carbon.color.white.0}",
       "group": "palette",
       "$modes": {
         "default": "#ffffff",
@@ -1269,7 +1269,7 @@
   {
     "key": "{color.foreground.primary}",
     "$type": "color",
-    "$value": "#3b3d45",
+    "$value": "#161616",
     "group": "semantic",
     "$modes": {
       "default": "#ffffff",
@@ -1280,7 +1280,7 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.neutral-600}",
+      "$value": "{carbon.themes.white.textPrimary}",
       "group": "semantic",
       "$modes": {
         "default": "#ffffff",
@@ -5329,7 +5329,7 @@
   {
     "key": "{form.control.readonly.foreground-color}",
     "$type": "color",
-    "$value": "#3b3d45",
+    "$value": "#161616",
     "group": "components",
     "original": {
       "$type": "color",
@@ -7410,7 +7410,7 @@
   {
     "key": "{typography.font-stack.display}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": [
@@ -7434,7 +7434,7 @@
   {
     "key": "{typography.font-stack.text}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": [
@@ -7458,7 +7458,7 @@
   {
     "key": "{typography.font-stack.code}",
     "$type": "font-family",
-    "$value": "ui-monospace, Menlo, Consolas, monospace",
+    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace",
     "original": {
       "$type": "font-family",
       "$value": [
@@ -7481,7 +7481,7 @@
   {
     "key": "{typography.font-weight.regular}",
     "$type": "font-weight",
-    "$value": "400",
+    "$value": 400,
     "$modes": {
       "default": "400",
       "cds-g0": 400,
@@ -7491,7 +7491,7 @@
     },
     "original": {
       "$type": "font-weight",
-      "$value": "400",
+      "$value": "{carbon.typography.font-weight.regular}",
       "$modes": {
         "default": "400",
         "cds-g0": "{carbon.typography.font-weight.regular}",
@@ -7514,7 +7514,7 @@
   {
     "key": "{typography.font-weight.medium}",
     "$type": "font-weight",
-    "$value": "500",
+    "$value": 400,
     "$modes": {
       "default": "500",
       "cds-g0": 400,
@@ -7524,7 +7524,7 @@
     },
     "original": {
       "$type": "font-weight",
-      "$value": "500",
+      "$value": "{carbon.typography.font-weight.regular}",
       "$modes": {
         "default": "500",
         "cds-g0": "{carbon.typography.font-weight.regular}",
@@ -7547,7 +7547,7 @@
   {
     "key": "{typography.font-weight.semibold}",
     "$type": "font-weight",
-    "$value": "600",
+    "$value": 600,
     "$modes": {
       "default": "600",
       "cds-g0": 600,
@@ -7557,7 +7557,7 @@
     },
     "original": {
       "$type": "font-weight",
-      "$value": "600",
+      "$value": "{carbon.typography.font-weight.semibold}",
       "$modes": {
         "default": "600",
         "cds-g0": "{carbon.typography.font-weight.semibold}",
@@ -7580,7 +7580,7 @@
   {
     "key": "{typography.font-weight.bold}",
     "$type": "font-weight",
-    "$value": "700",
+    "$value": 600,
     "$modes": {
       "default": "700",
       "cds-g0": 600,
@@ -7590,7 +7590,7 @@
     },
     "original": {
       "$type": "font-weight",
-      "$value": "700",
+      "$value": "{carbon.typography.font-weight.semibold}",
       "$modes": {
         "default": "700",
         "cds-g0": "{carbon.typography.font-weight.semibold}",
@@ -7613,7 +7613,7 @@
   {
     "key": "{typography.display-500.font-family}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.display}",
@@ -7676,7 +7676,7 @@
   {
     "key": "{typography.display-400.font-family}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.display}",
@@ -7739,7 +7739,7 @@
   {
     "key": "{typography.display-300.font-family}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.text}",
@@ -7825,7 +7825,7 @@
   {
     "key": "{typography.display-200.font-family}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.display}",
@@ -7911,7 +7911,7 @@
   {
     "key": "{typography.display-100.font-family}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.text}",
@@ -7974,7 +7974,7 @@
   {
     "key": "{typography.body-300.font-family}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.text}",
@@ -8037,7 +8037,7 @@
   {
     "key": "{typography.body-200.font-family}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.text}",
@@ -8100,7 +8100,7 @@
   {
     "key": "{typography.body-100.font-family}",
     "$type": "font-family",
-    "$value": "-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+    "$value": "'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.text}",
@@ -8163,7 +8163,7 @@
   {
     "key": "{typography.code-100.font-family}",
     "$type": "font-family",
-    "$value": "ui-monospace, Menlo, Consolas, monospace",
+    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.code}",
@@ -8226,7 +8226,7 @@
   {
     "key": "{typography.code-200.font-family}",
     "$type": "font-family",
-    "$value": "ui-monospace, Menlo, Consolas, monospace",
+    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.code}",
@@ -8289,7 +8289,7 @@
   {
     "key": "{typography.code-300.font-family}",
     "$type": "font-family",
-    "$value": "ui-monospace, Menlo, Consolas, monospace",
+    "$value": "'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace, Consolas, monospace",
     "original": {
       "$type": "font-family",
       "$value": "{typography.font-stack.code}",

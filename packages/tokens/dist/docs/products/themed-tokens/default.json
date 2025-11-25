@@ -1269,7 +1269,7 @@
   {
     "key": "{color.foreground.primary}",
     "$type": "color",
-    "$value": "#3b3d45",
+    "$value": "#ffffff",
     "group": "semantic",
     "$modes": {
       "default": "#ffffff",
@@ -1280,7 +1280,7 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.neutral-600}",
+      "$value": "#ffffff",
       "group": "semantic",
       "$modes": {
         "default": "#ffffff",
@@ -5329,7 +5329,7 @@
   {
     "key": "{form.control.readonly.foreground-color}",
     "$type": "color",
-    "$value": "#3b3d45",
+    "$value": "#ffffff",
     "group": "components",
     "original": {
       "$type": "color",
