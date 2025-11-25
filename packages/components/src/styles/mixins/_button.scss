@@ -76,12 +76,14 @@ $hds-button-sizes: ("small", "medium", "large");
   &.mock-focus {
     color: var(--token-button-foreground-color-primary-focus);
     background-color: var(--token-button-surface-color-primary-focus);
-    // border-color: var(--token-button-border-color-primary-focus-internal);
+    border-color: var(--token-button-border-color-primary-focus-internal);
 
     // TEST: Replacement of pseudo-element-based focus ring
-    border-color: #fff; // TEST: to add greater contrast
-    box-shadow: 0 0 0 3px var(--token-color-focus-action-external); // standardized w/ other variants
-    // box-shadow: 0 0 0 1px #fff, 0 0 0 4px var(--token-color-focus-action-external); // closer to original style
+    // border-color: #fff; // TEST: to add greater contrast
+    // box-shadow: 0 0 0 3px var(--token-color-focus-action-external); // standardized w/ other variants
+    box-shadow:
+      0 0 0 2px #fff,
+      0 0 0 5px var(--token-color-focus-action-external); // similar to original style using pseudo-element
 
     // &::before {
     //   // the position absolute of an element is computed from the inside of the border of the container
