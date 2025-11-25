@@ -1,0 +1,9 @@
+search:
+  aria-label: Search filters
+  placeholder: Search
+filter-text:
+  numerical-filter:
+    separator: and
+  date-filter:
+    separator: and
+no-filters-applied: No filters applied
