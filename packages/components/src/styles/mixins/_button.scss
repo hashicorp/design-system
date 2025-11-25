@@ -75,20 +75,22 @@ $hds-button-sizes: ("small", "medium", "large");
   &.mock-focus {
     color: var(--token-button-foreground-color-primary-focus);
     background-color: var(--token-button-surface-color-primary-focus);
-    border-color: var(--token-button-border-color-primary-focus-internal);
+    // border-color: var(--token-button-border-color-primary-focus-internal);
+    border-color: #fff; // TEST: to add greater contrast
 
+    // TEST: Styles that differ from other button variants are commented out to standardize how focus styling is applied
     &::before {
       // the position absolute of an element is computed from the inside of the border of the container
       // so we have to take in account the border width of the pseudo-element container itself
       // plus for the primary button we want to have a 2px gap between the button and the focus
-      $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-      $radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
-      top: $shift;
-      right: $shift;
-      bottom: $shift;
-      left: $shift;
+      // $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+      // $radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
+      // top: $shift;
+      // right: $shift;
+      // bottom: $shift;
+      // left: $shift;
       border-color: var(--token-button-border-color-primary-focus-external);
-      border-radius: $radius;
+      // border-radius: $radius;
     }
   }
 
