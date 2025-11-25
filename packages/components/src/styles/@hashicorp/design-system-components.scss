@@ -3,63 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// these files come from the 'design-system-tokens' package
-@use "tokens";
-@use "helpers/color";
-@use "helpers/elevation";
-@use "helpers/focus-ring";
-@use "helpers/typography";
+// these are the "standard" HDS tokens (the file comes from `packages/tokens/dist/`)
+@use "products/css/tokens";
 
-// Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
-// START COMPONENTS CSS FILES IMPORTS
-@use "../components/accordion";
-@use "../components/advanced-table";
-@use "../components/alert";
-@use "../components/app-footer";
-@use "../components/app-frame";
-@use "../components/app-header";
-@use "../components/app-side-nav";
-@use "../components/application-state";
-@use "../components/badge";
-@use "../components/badge-count";
-@use "../components/breadcrumb";
-@use "../components/button";
-@use "../components/button-set";
-@use "../components/card";
-@use "../components/code-block";
-@use "../components/code-editor";
-@use "../components/copy";
-@use "../components/dialog-primitive";
-@use "../components/disclosure-primitive";
-@use "../components/dismiss-button";
-@use "../components/dropdown";
-@use "../components/flyout";
-@use "../components/form"; // multiple components
-@use "../components/icon";
-@use "../components/icon-tile";
-@use "../components/layout"; // multiple components
-@use "../components/link"; // multiple components
-@use "../components/menu-primitive";
-@use "../components/modal";
-@use "../components/page-header";
-@use "../components/pagination";
-@use "../components/reveal";
-@use "../components/rich-tooltip";
-@use "../components/segmented-group";
-@use "../components/separator";
-@use "../components/side-nav";
-@use "../components/stepper";
-@use "../components/table";
-@use "../components/tabs";
-@use "../components/tag";
-@use "../components/text";
-@use "../components/time";
-@use "../components/toast";
-@use "../components/tooltip";
-// END COMPONENT CSS FILES IMPORTS
-
-@use "../mixins/screen-reader-only" as *;
-// stylelint-disable-next-line selector-class-pattern
-.sr-only {
-  @include screen-reader-only();
-}
+// these are the styles specific (and only) for the HDS components
+@use "./design-system-components-common";
