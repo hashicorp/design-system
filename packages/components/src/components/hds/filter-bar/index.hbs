@@ -73,7 +73,7 @@
             {{else if (eq filter.type "multi-select")}}
               {{#each (this._filterArrayData filter.data) as |item|}}
                 <Hds::Tag
-                  @text="{{this._filterKeyText key filter}}: {{if item.text item.text item.value}}"
+                  @text="{{this._filterKeyText key filter}}: {{if item.label item.label item.value}}"
                   @onDismiss={{fn this.onFilterDismiss key item.value}}
                 />
               {{/each}}
