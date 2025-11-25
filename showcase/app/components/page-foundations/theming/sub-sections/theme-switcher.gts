@@ -12,16 +12,16 @@ import { HdsThemeSwitcher } from '@hashicorp/design-system-components/components
 import ShwThemingService from 'showcase/services/shw-theming';
 
 import type {
-  OnSetThemeCallback,
-  OnSetThemeCallbackArgs,
+  HdsOnSetThemeCallback,
+  HdsOnSetThemeCallbackArgs,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
 export default class SubSectionThemeSwitcher extends Component {
   @service declare readonly shwTheming: ShwThemingService;
 
-  onSetTheme: OnSetThemeCallback = ({
+  onSetTheme: HdsOnSetThemeCallback = ({
     currentTheme,
-  }: OnSetThemeCallbackArgs) => {
+  }: HdsOnSetThemeCallbackArgs) => {
     if (
       this.shwTheming.currentStylesheet === 'standard' ||
       (currentTheme === 'default' &&
