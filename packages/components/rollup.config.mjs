@@ -26,7 +26,10 @@ function addScssCompilationPlugins(options) {
 
         const result = sass.compile(inputFileFullPath, {
           sourceMap: true,
-          loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
+          loadPaths: [
+            'node_modules/@hashicorp/design-system-tokens/dist',
+            'node_modules/@ibm',
+          ],
         });
 
         // Emit the compiled CSS
@@ -97,6 +100,10 @@ const plugins = [
     {
       inputFile: 'design-system-power-select-overrides.scss',
       outputFile: 'design-system-power-select-overrides.css',
+    },
+    {
+      inputFile: 'design-system-plex-fonts.scss',
+      outputFile: 'design-system-plex-fonts.css',
     },
   ]),
 
