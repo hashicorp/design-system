@@ -90,6 +90,7 @@
 @use "./showcase-components/carbonization/comparison-grid";
 @use "./showcase-components/carbonization/style-preview-typography";
 @use "./showcase-components/carbonization/token-preview-color";
+@use "./showcase-pages/carbonization/modal" as carbonization-modal;
 @use "./showcase-pages/carbonization/segmented-group" as carbonization-segmented-group;
 @use "./showcase-pages/carbonization/typography" as carbonization-typography;
 
