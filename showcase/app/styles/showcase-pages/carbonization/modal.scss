@@ -1,0 +1,35 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > MODAL
+
+// ----
+
+body.page-carbonization-components-modal {
+  .hds-modal[open] {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+  }
+
+  cds-modal {
+    position: relative;
+    z-index: 0;
+    display: block;
+    block-size: auto;
+    inline-size: auto;
+
+    &::part(dialog) {
+      // we use the same size as the "small" HDS Modal
+      inline-size: min(400px, 95vw) !important;
+      max-block-size: none !important;
+    }
+  }
+
+
+  .hds-modal__dismiss {
+    pointer-events: none;
+  }
+}
