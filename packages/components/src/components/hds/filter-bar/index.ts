@@ -177,7 +177,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
   private _filterArrayData = (
     data: HdsFilterBarData
-  ): { value: unknown; text?: string }[] => {
+  ): { value: unknown; label?: string }[] => {
     if (isArray(data)) {
       return data.map((item) => this._filterData(item));
     }
