@@ -24,7 +24,7 @@ import {
 import type { ShwStylesheets } from 'showcase/services/shw-theming';
 
 const styleIsAvailable = helper(
-  ([currentStylesheet, context]: [ShwStylesheets, string]) => {
+  ([currentStylesheet, context]: [ShwStylesheets, HdsThemeContexts]) => {
     const isAvailable =
       (context === 'default' &&
         (currentStylesheet === 'css-selectors--migration' ||
