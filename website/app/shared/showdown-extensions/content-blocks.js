@@ -19,23 +19,14 @@ export const contentBlocks = function () {
         // see: https://github.com/showdownjs/showdown/blob/master/src/subParsers/makehtml/hashHTMLBlocks.js#L93-L95
         return `\n<?php start="content-block" type="${type.toLowerCase()}" ?>\n${content}\n<?php end="content-block" type="${type.toLowerCase()}" ?>\n`;
       });
+
       // console.log('langExtension2 text', '\n', text, '\n\n');
       return text;
     },
   };
   var outputExtension = {
     type: 'output',
-    filter: function (text) {
-      console.log('outputExtension1 text', '\n', text, '\n\n');
-
-          const outputRegexWithFile = /<\?php start="content-block" type="(.*?)" fileName="(.*?)" \?>\n?/g;
-    text = text.replace(outputRegexWithFile, function (_match, type, fileName) {
-      if (type === 'demo') {
-      // Add your custom block for type+fileName
-      return `<Doc::Demo @fileName="${fileName}">\n`;
-      }
-    });
-
+    filter: (text) => {
       // https://regex101.com/r/DebuYI/1
       const outputRegex = new RegExp(
         /<\?php start="content-block" type="(.*?)" \?>\n?/,
@@ -54,13 +45,25 @@ export const contentBlocks = function () {
         function (_match, type) {
           if (type === 'do' || type === 'dont') {
             return '</Doc::DoDont>';
-          } else if (type === 'demo') {
-            return `</Doc::Demo>`;
-          } else {
+          } else if (type !== 'demo') {
             return '</Doc::Banner>';
           }
         },
       );
+
+      const demoRegex = new RegExp(
+        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" gts="(.*?)" \?>\n?/,
+        'g',
+      );
+
+      text = text.replace(demoRegex, function (_match, filename, hbs, gts) {
+        return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @gtsSnippet="${gts}">\n`;
+      });
+
+      text = text.replace(/\n?<\?php end="demo-block"\s*\?>/g, function () {
+        return '</Doc::CodeGroup>\n';
+      });
+
       // console.log('outputExtension2 text', '\n', text, '\n\n');
       return text;
     },

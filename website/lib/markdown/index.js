@@ -7,7 +7,8 @@ const fs = require('fs-extra');
 const path = require('path');
 const resolve = require('resolve');
 
-const MarkdownProcessIncludeDirectives = require('./markdown-process-includes');
+const MarkdownProcessDemos = require('./markdown-process-demos.js');
+const MarkdownProcessIncludeDirectives = require('./markdown-process-includes.js');
 const MarkdownToJson = require('./markdown-to-jsonapi');
 const TableOfContents = require('./table-of-contents');
 const MergeTrees = require('broccoli-merge-trees');
@@ -47,11 +48,14 @@ module.exports = {
   },
 
   treeForPublic: function () {
-    let processedDocsMardownFilesTree = new MarkdownProcessIncludeDirectives(
-      'docs',
+    let processedDocsMarkdownFilesTree = new MarkdownProcessDemos('docs');
+
+    processedDocsMarkdownFilesTree = new MarkdownProcessIncludeDirectives(
+      processedDocsMarkdownFilesTree,
     );
+
     let processedDocsJsonFilesTree = new MarkdownToJson(
-      processedDocsMardownFilesTree,
+      processedDocsMarkdownFilesTree,
       'docs',
     );
 
