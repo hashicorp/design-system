@@ -13,7 +13,7 @@ The basic invocation requires text to be passed:
 <Hds::Button @text="Basic button" />
 ```
 
-!!! Demo basic-button.hbs !!!
+[[demo: code-snippets/basic-button.hbs]]
 
 ### Add an icon
 
