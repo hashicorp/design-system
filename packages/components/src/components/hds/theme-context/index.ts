@@ -17,7 +17,7 @@ import type { HdsThemes, HdsModes } from '../../../services/hds-theming.ts';
 
 export interface HdsThemeContextSignature {
   Args: {
-    // it can be an `HdsTheme` or an `HdsMode`
+    // can be either an `HdsTheme` or an `HdsMode`
     context: HdsThemeContexts;
   };
   Blocks: {
