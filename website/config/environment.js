@@ -41,6 +41,11 @@ module.exports = function (environment) {
       hostWhitelist: [/^localhost:\d+$/],
     },
 
+    'ember-shiki': {
+      defaultLanguages: ['gjs', 'gts', 'css'],
+      defaultThemes: ['github-dark'],
+    },
+
     'ember-meta': {
       description:
         'The Helios Design System from HashiCorp provides the open source building blocks to design and implement consistent, accessible, and delightful product experiences.',
