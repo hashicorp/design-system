@@ -156,7 +156,6 @@ export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAp
             {{yield to="extraAfter"}}
           </SNL.ExtraAfter>
         {{/if}}
-
       </HdsAppSideNavList>
     </HdsAppSideNav>
   </template>
