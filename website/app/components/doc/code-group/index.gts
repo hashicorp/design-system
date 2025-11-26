@@ -2,14 +2,18 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
-// import { CodeGroup, CodeBlock } from 'ember-shiki';
+import Component from '@glimmer/component';
+import { CodeBlock } from 'ember-shiki';
+
+import { HdsTabs } from '@hashicorp/design-system-components/components';
+
+import DocCopyButton from 'website/components/doc/copy-button';
 
 interface DocCodeGroupSignature {
   Args: {
     filename?: string;
-    snippet1?: string;
-    snippet2?: string;
+    hbsSnippet: string;
+    gtsSnippet: string;
   };
   Blocks: {
     default: [];
@@ -17,19 +21,59 @@ interface DocCodeGroupSignature {
   Element: HTMLDivElement;
 }
 
-const TAB_NAMES = ['.hbs', '.gts'];
+// Helper to undo code escaping for display
+const unescapeCode = (code: string) => {
+  return code.replace(/\\n/g, '\n');
+};
 
-const DocCodeGroup: TemplateOnlyComponent<DocCodeGroupSignature> = <template>
-  <div>Test {{@filename}}</div>
+export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
+  get unescapedHbsSnippet() {
+    return unescapeCode(this.args.hbsSnippet);
+  }
 
-  {{!-- <CodeGroup @names={{TAB_NAMES}} as |Tab|>
-    <Tab @name=".hbs">
-      <CodeBlock @code={{@snippet1}} @language="hbs" />
-    </Tab>
-    <Tab @name=".gts">
-      <CodeBlock @code={{@snippet2}} @language="gts" />
-    </Tab>
-  </CodeGroup> --}}
-</template>;
+  get unescapedGtsSnippet() {
+    return unescapeCode(this.args.gtsSnippet);
+  }
 
-export default DocCodeGroup;
+  <template>
+    <div>
+      <div>
+        {{! preview }}
+      </div>
+
+      <HdsTabs as |T|>
+        <T.Tab>.hbs</T.Tab>
+        <T.Tab>.gts</T.Tab>
+
+        <T.Panel>
+          <div>
+            <DocCopyButton
+              @type="solid"
+              @textToCopy={{this.unescapedHbsSnippet}}
+            />
+          </div>
+          <CodeBlock
+            @code={{this.unescapedHbsSnippet}}
+            @language="hbs"
+            @theme="github-dark"
+            @showCopyButton={{false}}
+          />
+        </T.Panel>
+        <T.Panel>
+          <div>
+            <DocCopyButton
+              @type="solid"
+              @textToCopy={{this.unescapedGtsSnippet}}
+            />
+          </div>
+          <CodeBlock
+            @code={{this.unescapedGtsSnippet}}
+            @language="gts"
+            @theme="github-dark"
+            @showCopyButton={{false}}
+          />
+        </T.Panel>
+      </HdsTabs>
+    </div>
+  </template>
+}
