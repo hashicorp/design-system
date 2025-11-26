@@ -39,30 +39,6 @@ const STYLESHEETS_MAPPING: Record<ShwStylesheets, string[]> = {
   ],
 };
 
-const updatePageStylesheets = (currentStylesheet: ShwStylesheets) => {
-  // we need a fallback in case the `currentStylesheet` is not found in the `STYLESHEETS_MAPPING` list
-  // note: this may happen if the underlying code/names has changed but the `currentStylesheet` is read from local storage
-  const styleSheetToActivate: ShwStylesheets = STYLESHEETS_MAPPING[
-    currentStylesheet
-  ]
-    ? currentStylesheet
-    : 'standard';
-
-  // toggle the stylesheets `disabled` attribute depending on the current choice
-  ALL_STYLESHEETS_IDS.forEach((id) => {
-    const stylesheetElement = document.getElementById(id);
-    const activate = STYLESHEETS_MAPPING[styleSheetToActivate].includes(id);
-    if (stylesheetElement) {
-      if (activate) {
-        // note: `setAttribute('disabled', 'false')` does not work
-        stylesheetElement.removeAttribute('disabled');
-      } else {
-        stylesheetElement.setAttribute('disabled', 'true');
-      }
-    }
-  });
-};
-
 const LOCALSTORAGE_CURRENT_STYLESHEET = 'shw-theming-current-stylesheet';
 
 export default class ShwThemingService extends HdsThemingService {
@@ -95,10 +71,34 @@ export default class ShwThemingService extends HdsThemingService {
   //   );
   // };
 
-  setStylesheet(stylesheet: ShwStylesheets) {
+  _updatePageStylesheets = (currentStylesheet: ShwStylesheets) => {
+    // we need a fallback in case the `currentStylesheet` is not found in the `STYLESHEETS_MAPPING` list
+    // note: this may happen if the underlying code/names has changed but the `currentStylesheet` is read from local storage
+    const styleSheetToActivate: ShwStylesheets = STYLESHEETS_MAPPING[
+      currentStylesheet
+    ]
+      ? currentStylesheet
+      : 'standard';
+
+    // toggle the stylesheets `disabled` attribute depending on the current choice
+    ALL_STYLESHEETS_IDS.forEach((id) => {
+      const stylesheetElement = document.getElementById(id);
+      const activate = STYLESHEETS_MAPPING[styleSheetToActivate].includes(id);
+      if (stylesheetElement) {
+        if (activate) {
+          // note: `setAttribute('disabled', 'false')` does not work
+          stylesheetElement.removeAttribute('disabled');
+        } else {
+          stylesheetElement.setAttribute('disabled', 'true');
+        }
+      }
+    });
+  };
+
+  setStylesheet = (stylesheet: ShwStylesheets) => {
     if (stylesheet !== this._currentStylesheet) {
       this._currentStylesheet = stylesheet;
-      updatePageStylesheets(this._currentStylesheet);
+      this._updatePageStylesheets(this._currentStylesheet);
     }
 
     // store the current stylesheet in local storage
@@ -106,7 +106,7 @@ export default class ShwThemingService extends HdsThemingService {
       LOCALSTORAGE_CURRENT_STYLESHEET,
       this._currentStylesheet,
     );
-  }
+  };
 
   get currentStylesheet(): ShwStylesheets {
     return this._currentStylesheet;
