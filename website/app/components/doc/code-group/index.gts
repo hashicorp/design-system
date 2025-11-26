@@ -8,6 +8,7 @@ import { CodeBlock } from 'ember-shiki';
 import { HdsTabs } from '@hashicorp/design-system-components/components';
 
 import DocCopyButton from 'website/components/doc/copy-button';
+import DocCodePreview from 'website/components/doc/code-preview';
 
 interface DocCodeGroupSignature {
   Args: {
@@ -37,8 +38,8 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   <template>
     <div>
-      <div>
-        {{! preview }}
+      <div class="doc-code-block__code-rendered">
+        <DocCodePreview @templateString={{this.unescapedHbsSnippet}} />
       </div>
 
       <HdsTabs as |T|>
