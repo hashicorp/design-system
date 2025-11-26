@@ -2,10 +2,10 @@ name: Compress Images
 on:
   workflow_dispatch:
   schedule:
-    - cron: '00 23 * * 0'
+    - cron: "00 23 * * 0"
 
 env:
-  NODE_VERSION: '22.x'
+  NODE_VERSION: "24.x"
 
 jobs:
   build:
@@ -23,8 +23,8 @@ jobs:
         if: steps.calibre.outputs.markdown != ''
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
-          title: 'Compressed Image Assets'
+          title: "Compressed Image Assets"
           branch-suffix: timestamp
-          commit-message: 'compressed image assets'
+          commit-message: "compressed image assets"
           body: ${{ steps.calibre.outputs.markdown }}
           token: ${{ secrets.PAT_TOKEN }}

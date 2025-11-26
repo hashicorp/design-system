@@ -7,7 +7,7 @@ on:
   pull_request: {}
 
 env:
-  NODE_VERSION: '22.x'
+  NODE_VERSION: "24.x"
 
 concurrency:
   group: ci-website-${{ github.head_ref || github.ref }}
@@ -28,7 +28,7 @@ jobs:
         run: ./.github/scripts/filter_changed_files.sh "website" "packages/flight-icons/catalog.json" ".github/workflows/ci-website.yml"
 
   lint:
-    name: 'Lint'
+    name: "Lint"
     runs-on: ubuntu-latest
     needs: [conditional-skip]
     if: needs.conditional-skip.outputs.trigger-ci == 'true'
@@ -51,7 +51,7 @@ jobs:
         working-directory: website
 
   test:
-    name: 'Test'
+    name: "Test"
     runs-on: ubuntu-latest
     needs: [conditional-skip]
     if: needs.conditional-skip.outputs.trigger-ci == 'true'

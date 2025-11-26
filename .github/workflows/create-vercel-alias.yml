@@ -1,15 +1,14 @@
-
-name: 'Create Vercel Alias'
+name: "Create Vercel Alias"
 
 on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: '22.x'
+  NODE_VERSION: "24.x"
 
 jobs:
   create-vercel-alias:
-    name: 'Create Vercel Alias'
+    name: "Create Vercel Alias"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
