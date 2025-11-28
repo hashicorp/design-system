@@ -4,10 +4,10 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import ModalCarbonization from 'showcase/components/page-carbonization/components/modal';
+import ModalCarbonizationIndex from 'showcase/components/page-carbonization/components/modal';
 
-const PageComponentsModalCarbonization: TemplateOnlyComponent = <template>
-  <ModalCarbonization />
+const PageCarbonizationComponentsModal: TemplateOnlyComponent = <template>
+  <ModalCarbonizationIndex />
 </template>;
 
-export default PageComponentsModalCarbonization;
+export default PageCarbonizationComponentsModal;

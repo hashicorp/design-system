@@ -4,10 +4,10 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import BadgeCarbonization from 'showcase/components/page-carbonization/components/badge';
+import BadgeCarbonizationIndex from 'showcase/components/page-carbonization/components/badge';
 
-const PageComponentsBadgeCarbonization: TemplateOnlyComponent = <template>
-  <BadgeCarbonization />
+const PageCarbonizationComponentsBadge: TemplateOnlyComponent = <template>
+  <BadgeCarbonizationIndex />
 </template>;
 
-export default PageComponentsBadgeCarbonization;
+export default PageCarbonizationComponentsBadge;
