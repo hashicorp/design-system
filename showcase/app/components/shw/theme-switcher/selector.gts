@@ -10,6 +10,7 @@ import { service } from '@ember/service';
 import ShwThemeSwitcherControlSelect from './control/select';
 import ShwThemingService from 'showcase/services/shw-theming';
 import type { ShwStylesheets } from 'showcase/services/shw-theming';
+import type { ShwThemeSwitcherControlSelectSignature } from './control/select';
 
 import type { HdsThemes } from '@hashicorp/design-system-components/services/hds-theming';
 
@@ -18,7 +19,9 @@ import HdsThemingService from '@hashicorp/design-system-components/services/hds-
 interface ShwThemeSwitcherSelectorSignature {
   Args: {
     showAdvancedOptions?: boolean;
+    isCarbonizationPage?: boolean;
   };
+  Element: ShwThemeSwitcherControlSelectSignature['Element'];
 }
 
 export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcherSelectorSignature> {
@@ -38,6 +41,10 @@ export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcher
   }
 
   get themingOptions(): Record<string, Record<string, string>> {
+    if (this.args.isCarbonizationPage === true) {
+      return { 'Carbonized page': { '---': '---------' } };
+    }
+
     const defaultOptions = {
       'No theming': {
         'standard|': 'HDS / Standard',
@@ -97,6 +104,7 @@ export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcher
     <ShwThemeSwitcherControlSelect
       @label="Theming:"
       @onChange={{this.onSelectPageTheme}}
+      disabled={{if @isCarbonizationPage true undefined}}
     >
       {{#each-in this.themingOptions as |groupLabel options|}}
         <optgroup label={{groupLabel}}>

@@ -157,7 +157,12 @@
   border-radius: 3px;
   appearance: none;
 
-  &:hover {
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:hover:not([disabled]) {
     background-color: var(--shw-color-gray-500);
   }
 
@@ -179,7 +184,13 @@
   cursor: pointer;
   appearance: none;
 
-  &:hover {
+  &[disabled] {
+    color: var(--shw-color-gray-300);
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:hover:not([disabled]) {
     background-color: var(--shw-color-gray-500);
   }
 
