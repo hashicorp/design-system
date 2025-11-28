@@ -9,10 +9,10 @@ import { service } from '@ember/service';
 
 import ShwThemingService from 'showcase/services/shw-theming';
 
-export type PageComponentsFormFramelessDemoFormComplexModel =
-  ModelFrom<PageComponentsFormFramelessDemoFormComplexRoute>;
+export type PageFoundationsThemingFramelessDemoApplicationWithThemeSwitcherModel =
+  ModelFrom<PageFoundationsThemingFramelessDemoApplicationWithThemeSwitcherRoute>;
 
-export default class PageComponentsFormFramelessDemoFormComplexRoute extends Route {
+export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwitcherRoute extends Route {
   @service declare readonly shwTheming: ShwThemingService;
 
   // this is not a perfect solution, but for the moment it will do
