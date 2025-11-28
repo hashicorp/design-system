@@ -6,8 +6,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import ColorCarbonization from 'showcase/components/page-carbonization/foundations/color';
 
-const PageFoundationsColorCarbonization: TemplateOnlyComponent = <template>
+const PageCarbonizationFoundationsColor: TemplateOnlyComponent = <template>
   <ColorCarbonization />
 </template>;
 
-export default PageFoundationsColorCarbonization;
+export default PageCarbonizationFoundationsColor;

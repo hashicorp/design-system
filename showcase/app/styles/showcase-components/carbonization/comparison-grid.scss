@@ -56,13 +56,12 @@
 // area: HDS "default"
 
 .shw-carbonization-comparison-grid__item--area-default {
-  --content-foreground-color: var(--token-color-foreground-primary);
-  --content-background-color: var(--token-color-surface-primary);
+  --content-foreground-color: #3b3d45;
+  --content-background-color: #fff;
 }
 
 // area: HDS carbonized
 
-// TODO replace the hex values (copied from the `--cds-background` themed variable) with CSS design tokens from our theming
 .shw-carbonization-comparison-grid__item--area-cds-g0 {
   --content-foreground-color: #161616;
   --content-background-color: #fff;

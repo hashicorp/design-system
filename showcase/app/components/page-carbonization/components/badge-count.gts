@@ -14,7 +14,7 @@ import {
   TYPES,
 } from '@hashicorp/design-system-components/components/hds/badge-count/index';
 
-const BadgeCountIndex: TemplateOnlyComponent = <template>
+const BadgeCountCarbonization: TemplateOnlyComponent = <template>
   {{pageTitle "BadgeCount - Carbonization"}}
 
   <ShwTextH1>BadgeCount - Carbonization</ShwTextH1>
@@ -85,7 +85,7 @@ const BadgeCountIndex: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
-            <SF.Item class="shw-component-badge-sample-color--neutral">
+            <SF.Item>
               <HdsBadgeCount @text="3" @type={{type}} @color="neutral" />
               <HdsBadgeCount @text="99+" @type={{type}} @color="neutral" />
             </SF.Item>
@@ -110,9 +110,7 @@ const BadgeCountIndex: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
-            <SF.Item
-              class="shw-component-badge-sample-color--neutral-dark-mode"
-            >
+            <SF.Item>
               <HdsBadgeCount
                 @text="3"
                 @type={{type}}
@@ -136,4 +134,4 @@ const BadgeCountIndex: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default BadgeCountIndex;
+export default BadgeCountCarbonization;

@@ -13,7 +13,6 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwFlex from 'showcase/components/shw/flex';
-// import ShwGrid from 'showcase/components/shw/grid';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 

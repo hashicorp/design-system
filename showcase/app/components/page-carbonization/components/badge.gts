@@ -52,7 +52,6 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
         <HdsBadge @icon="activity" @text="Only icon" @isIconOnly={{true}} />
       </:theming>
       <:reference>
-        {{! <cds-tag><cds-icon shape="check"></cds-icon></cds-tag> }}
         <cds-tag><HdsIcon @name="activity" slot="icon" /></cds-tag>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -155,7 +154,7 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
-            <SF.Item class="shw-component-badge-sample-color--neutral">
+            <SF.Item>
               <HdsBadge
                 @icon="activity"
                 @text="Lorem Ipsum"
@@ -199,9 +198,7 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
-            <SF.Item
-              class="shw-component-badge-sample-color--neutral-dark-mode"
-            >
+            <SF.Item>
               <HdsBadge
                 @icon="activity"
                 @text="Lorem Ipsum"
@@ -233,7 +230,7 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
-            <SF.Item class="shw-component-badge-sample-color--highlight">
+            <SF.Item>
               <HdsBadge
                 @icon="activity"
                 @text="Lorem Ipsum"
@@ -265,7 +262,7 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
-            <SF.Item class="shw-component-badge-sample-color--success">
+            <SF.Item>
               <HdsBadge
                 @icon="activity"
                 @text="Lorem Ipsum"
@@ -294,7 +291,7 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
-            <SF.Item class="shw-component-badge-sample-color--warning">
+            <SF.Item>
               <HdsBadge
                 @icon="activity"
                 @text="Lorem Ipsum"
@@ -321,7 +318,7 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
       <:theming>
         <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
           {{#each TYPES as |type|}}
-            <SF.Item class="shw-component-badge-sample-color--critical">
+            <SF.Item>
               <HdsBadge
                 @icon="activity"
                 @text="Lorem Ipsum"
