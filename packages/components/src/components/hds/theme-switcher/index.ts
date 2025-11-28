@@ -33,7 +33,7 @@ const OPTIONS: Record<HdsThemes, ThemeOption> = {
   dark: { theme: 'dark', icon: 'moon', label: 'Dark' },
 };
 
-interface HdsThemeSwitcherSignature {
+export interface HdsThemeSwitcherSignature {
   Args: {
     toggleSize?: HdsDropdownToggleButtonSignature['Args']['size'];
     toggleIsFullWidth?: HdsDropdownToggleButtonSignature['Args']['isFullWidth'];
