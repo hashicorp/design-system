@@ -4,10 +4,10 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import ButtonCarbonization from 'showcase/components/page-carbonization/components/button';
+import ButtonCarbonizationIndex from 'showcase/components/page-carbonization/components/button';
 
-const PageComponentsButtonCarbonization: TemplateOnlyComponent = <template>
-  <ButtonCarbonization />
+const PageCarbonizationComponentsButton: TemplateOnlyComponent = <template>
+  <ButtonCarbonizationIndex />
 </template>;
 
-export default PageComponentsButtonCarbonization;
+export default PageCarbonizationComponentsButton;
