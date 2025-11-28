@@ -435,6 +435,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.form.radio-card">
+            Form::RadioCard
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.modal">
             Modal
           </LinkTo>
