@@ -94,7 +94,7 @@ func main() {
   fmt.Println("Hello, world!")
 }`;
 
-const FocusRingIndex: TemplateOnlyComponent = <template>
+const FocusRingCarbonization: TemplateOnlyComponent = <template>
   {{pageTitle "Focus ring"}}
 
   <ShwTextH1>Focus Ring - Carbonization</ShwTextH1>
@@ -1340,4 +1340,4 @@ const FocusRingIndex: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default FocusRingIndex;
+export default FocusRingCarbonization;
