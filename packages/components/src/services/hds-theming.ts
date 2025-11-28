@@ -79,7 +79,17 @@ export default class HdsThemingService extends Service {
       HDS_THEMING_LOCALSTORAGE_DATA
     );
     if (rawStoredThemingData !== null) {
-      const storedThemingData: unknown = JSON.parse(rawStoredThemingData);
+      let storedThemingData: unknown;
+      try {
+        storedThemingData = JSON.parse(rawStoredThemingData);
+      } catch (error) {
+        // malformed JSON in localStorage, ignore and proceed with defaults
+        console.error(
+          `Error while reading local storage '${HDS_THEMING_LOCALSTORAGE_DATA}' for theming`,
+          error
+        );
+        storedThemingData = undefined;
+      }
       if (storedThemingData) {
         const { theme, options } = storedThemingData as {
           theme: HdsThemes | undefined;
