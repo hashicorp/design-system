@@ -11,22 +11,14 @@ import { not } from 'ember-truth-helpers';
 import { fn } from '@ember/helper';
 import { service } from '@ember/service';
 
-import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 import type { HdsCarbonService } from '@hashicorp/design-system-components/components';
 
-import {
-  HdsIcon,
-  mappedHdsIconNames,
-} from '@hashicorp/design-system-components/components';
+import { HdsIcon } from '@hashicorp/design-system-components/components';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 
-type IconName = HdsIconSignature['Args']['name'];
-
 export default class IconIndex extends Component {
   @service declare readonly hdsCarbon: HdsCarbonService;
-
-  iconNames = mappedHdsIconNames;
 
   <template>
     {{pageTitle "Icon"}}
@@ -52,9 +44,7 @@ export default class IconIndex extends Component {
       data-test-percy
       style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 16px; align-items: center;"
     >
-      {{#each this.iconNames as |iconName|}}
-        <HdsIcon @name={{iconName}} @size="24" />
-      {{/each}}
+      <HdsIcon @name="accessibility" @size="24" />
     </section>
   </template>
 }
