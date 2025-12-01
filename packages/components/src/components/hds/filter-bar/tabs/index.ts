@@ -54,7 +54,6 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   @tracked private _panelNodes: HTMLElement[] = [];
   @tracked private _panelIds: string[] = [];
   @tracked private _selectedTabIndex: number = 0;
-  @tracked private _selectedTabId?: string;
 
   private _element!: HTMLDivElement;
 
@@ -74,7 +73,7 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   didInsertTab(): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
-      this.updateTabs();
+      this._updateTabs();
     });
   }
 
@@ -95,7 +94,7 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   didInsertPanel(): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
-      this.updatePanels();
+      this._updatePanels();
     });
   }
 
@@ -133,11 +132,11 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
 
     if (event.key === rightArrow || event.key === downArrow) {
       const nextTabIndex = (tabIndex + 1) % this._tabIds.length;
-      this.focusTab(nextTabIndex, event);
+      this._focusTab(nextTabIndex, event);
     } else if (event.key === leftArrow || event.key === upArrow) {
       const prevTabIndex =
         (tabIndex + this._tabIds.length - 1) % this._tabIds.length;
-      this.focusTab(prevTabIndex, event);
+      this._focusTab(prevTabIndex, event);
     } else if (event.key === enterKey || event.key === spaceKey) {
       this._selectedTabIndex = tabIndex;
     }
@@ -153,13 +152,13 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   }
 
   // Focus tab for keyboard & mouse navigation:
-  focusTab(tabIndex: number, event: KeyboardEvent): void {
+  private _focusTab(tabIndex: number, event: KeyboardEvent): void {
     event.preventDefault();
     this._tabNodes[tabIndex]?.focus();
   }
 
   // Update the tab arrays based on how they are ordered in the DOM
-  private updateTabs(): void {
+  private _updateTabs(): void {
     const tabs = this._element.querySelectorAll(TAB_ELEMENT_SELECTOR);
     let newTabIds: string[] = [];
     let newTabNodes: HTMLElement[] = [];
@@ -172,7 +171,7 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   }
 
   // Update the panel arrays based on how they are ordered in the DOM
-  private updatePanels(): void {
+  private _updatePanels(): void {
     const panels = this._element.querySelectorAll(PANEL_ELEMENT_SELECTOR);
     let newPanelIds: string[] = [];
     let newPanelNodes: HTMLElement[] = [];
