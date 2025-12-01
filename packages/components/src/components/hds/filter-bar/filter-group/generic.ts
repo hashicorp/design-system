@@ -29,7 +29,6 @@ export interface HdsFilterBarFilterGroupGenericSignature {
 export default class HdsFilterBarFilterGroupGeneric extends Component<HdsFilterBarFilterGroupGenericSignature> {
   @action
   updateFilter(filter: HdsFilterBarGenericFilter): void {
-    console.log('Update filter action triggered', filter);
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(filter);
@@ -38,7 +37,6 @@ export default class HdsFilterBarFilterGroupGeneric extends Component<HdsFilterB
 
   @action
   onClear(): void {
-    console.log('Clear action triggered');
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange();

@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
-
+import { isArray } from '@ember/array';
 import type { WithBoundArgs } from '@glint/template';
 
 import type HdsIntlService from '../../../services/hds-intl';
@@ -21,7 +21,6 @@ import type {
 import HdsDropdown from '../dropdown/index.ts';
 import HdsYield from '../yield/index.ts';
 import HdsFilterBarDropdown from './dropdown.ts';
-import { isArray } from '@ember/array';
 
 import { NUMERICAL_SELECTORS_TEXT } from './filter-group/numerical.ts';
 import { DATE_SELECTORS_TEXT } from './filter-group/date.ts';
@@ -56,9 +55,13 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   get searchValue(): string {
     const { filters } = this.args;
     if (filters['search']) {
-      return this._filterText(filters['search']);
+      return this._getFilterValueText(filters['search']);
     }
     return '';
+  }
+
+  get hasActiveFilters(): boolean {
+    return Object.keys(this.args.filters).length > 0;
   }
 
   @action
@@ -90,13 +93,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     const input = event.target as HTMLInputElement;
     const value = input?.value;
 
-    const newFilters = {} as HdsFilterBarFilters;
-
-    Object.keys(filters).forEach((k) => {
-      newFilters[k] = JSON.parse(
-        JSON.stringify(filters[k])
-      ) as HdsFilterBarFilter;
-    });
+    const newFilters = this._copyFilters(filters);
 
     if (value.length > 0) {
       newFilters['search'] = {
@@ -116,21 +113,25 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     this._isExpanded = !this._isExpanded;
   }
 
-  get hasActiveFilters(): boolean {
-    return Object.keys(this.args.filters).length > 0;
-  }
+  private _copyFilters = (
+    filters: HdsFilterBarFilters
+  ): HdsFilterBarFilters => {
+    const newFilters = {} as HdsFilterBarFilters;
 
-  private onFilterDismiss = (key: string, filterValue?: unknown): void => {
+    Object.keys(filters).forEach((k) => {
+      newFilters[k] = JSON.parse(
+        JSON.stringify(filters[k])
+      ) as HdsFilterBarFilter;
+    });
+
+    return newFilters;
+  };
+
+  private _onFilterDismiss = (key: string, filterValue?: unknown): void => {
     const { filters } = this.args;
     if (filters && filters[key]) {
       const keyFilter: HdsFilterBarFilter = filters[key];
-      const newFilters = {} as HdsFilterBarFilters;
-
-      Object.keys(filters).forEach((k) => {
-        newFilters[k] = JSON.parse(
-          JSON.stringify(filters[k])
-        ) as HdsFilterBarFilter;
-      });
+      const newFilters = this._copyFilters(filters);
 
       if (keyFilter.type === 'multi-select' && isArray(keyFilter.data)) {
         const newKeyfilter = keyFilter.data?.filter(
@@ -168,23 +169,17 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     return result;
   };
 
-  private _filterText = (filter: HdsFilterBarFilter): string => {
+  private _getFilterValueText = (filter: HdsFilterBarFilter): string => {
     const result = this._filterData(filter.data);
     const resultLabel = result?.label as string;
     const resultValue = result?.value as string;
     return resultLabel ?? resultValue;
   };
 
-  private _filterArrayData = (
-    data: HdsFilterBarData
-  ): { value: unknown; label?: string }[] => {
-    if (isArray(data)) {
-      return data.map((item) => this._filterData(item));
-    }
-    return [];
-  };
-
-  private _filterKeyText = (key: string, data: HdsFilterBarFilter): string => {
+  private _getFilterKeyText = (
+    key: string,
+    data: HdsFilterBarFilter
+  ): string => {
     if (data.text) {
       return data.text;
     } else {
@@ -192,7 +187,9 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     }
   };
 
-  private _numericalFilterText = (filter: HdsFilterBarFilter): string => {
+  private _getNumericalFilterValueText = (
+    filter: HdsFilterBarFilter
+  ): string => {
     const data = filter.data;
 
     if (filter.type === 'numerical' && 'selector' in data && 'value' in data) {
@@ -218,7 +215,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     }
   };
 
-  private _dateFilterText = (filter: HdsFilterBarFilter): string => {
+  private _getDateFilterValueText = (filter: HdsFilterBarFilter): string => {
     const data = filter.data;
 
     if (
@@ -240,17 +237,17 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
             default: 'and',
           }
         );
-        const startDateText = this._dateDisplayText(
+        const startDateText = this._formatDateFilterText(
           data.value.start as string,
           filter.type
         );
-        const endDateText = this._dateDisplayText(
+        const endDateText = this._formatDateFilterText(
           data.value.end as string,
           filter.type
         );
         return `${DATE_SELECTORS_TEXT[selector]} ${startDateText} ${separatorText} ${endDateText}`;
       } else if (data.value !== null && typeof data.value !== 'object') {
-        const dateText = this._dateDisplayText(
+        const dateText = this._formatDateFilterText(
           data.value as string,
           filter.type
         );
@@ -262,7 +259,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     }
   };
 
-  private _dateDisplayText = (
+  private _formatDateFilterText = (
     dateString: string,
     filterType: HdsFilterBarFilterType
   ): string => {
@@ -286,11 +283,20 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     return newDate.format(date);
   };
 
-  private _genericFilterText = (filter: HdsFilterBarFilter): string => {
+  private _getGenericFilterValueText = (filter: HdsFilterBarFilter): string => {
     if ('dismissTagText' in filter) {
       return filter.dismissTagText ?? '';
     } else {
       return '';
     }
+  };
+
+  private _getMultiSelectFilterData = (
+    data: HdsFilterBarData
+  ): { value: unknown; label?: string }[] => {
+    if (isArray(data)) {
+      return data.map((item) => this._filterData(item));
+    }
+    return [];
   };
 }
