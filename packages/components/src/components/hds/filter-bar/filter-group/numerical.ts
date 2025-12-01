@@ -171,7 +171,7 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
     }
   }
 
-  private _selectorText = (
+  private _getSelectorText = (
     selector: HdsFilterBarNumericalFilterSelector
   ): string => {
     return this.hdsIntl.t(
