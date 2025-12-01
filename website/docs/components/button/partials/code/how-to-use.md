@@ -9,10 +9,6 @@ Due to differences in text rendering between Figma and web browsers, the `Button
 
 The basic invocation requires text to be passed:
 
-```handlebars
-<Hds::Button @text="Basic button" />
-```
-
 [[demo: code-snippets/basic-button.hbs]]
 
 ### Add an icon
@@ -100,9 +96,7 @@ Define the action in your route or controller, and add it to the component invoc
 
 Read the Ember.js guides for more information: [Patterns for Actions](https://guides.emberjs.com/release/in-depth-topics/patterns-for-actions/) .
 
-```handlebars
-<Hds::Button @text="Alert me" {{on "click" this.alertOnClick}} />
-```
+[[demo: code-snippets/button-action.hbs]]
 
 ### Links
 
@@ -144,14 +138,7 @@ If the route is external to your current engine, you have to pass `@isRouteExter
 
 If the button needs to toggle between an "idle" and a "loading" state, we suggest applying a width to it (via inline style or CSS class) to prevent the button from resizing on click (and potentially causing layout shifts).
 
-```handlebars
-<Hds::Button
-  {{style width="7.5rem"}}
-  @icon={{if this.isLoading "loading"}}
-  @text={{if this.isLoading "Loading" "Save"}}
-  {{on "click" this.toggleIsLoading}}
-/>
-```
+[[demo: code-snippets/button-loading.hbs]]
 
 We suggest limiting the application of this override only to this specific use case and letting the button resize accordingly to its content.
 
