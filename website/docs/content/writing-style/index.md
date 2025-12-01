@@ -43,7 +43,7 @@ Terraform Cloud includes a private module registry.
 
 A plan represents the execution plan of a run.
 
-Enable a Secrets Engine in Vault
+Enable a secrets engine in Vault
 
 We’ll use the Vault namespaces feature.
 
@@ -55,7 +55,7 @@ Terraform Cloud includes a Private Module Registry.
 
 A Plan represents the execution plan of a Run.
 
-Enable a secrets engine in Vault
+Enable a Secrets Engine in Vault
 
 We’ll use the Vault Namespaces feature.
 
