@@ -615,6 +615,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setupTableModelData(): void {
+    console.log('setting up table model data');
     const { columns, model, sortBy, sortOrder } = this.args;
 
     this._tableModel.setupData({
@@ -678,9 +679,20 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   willDestroyRowCheckbox(selectionKey?: string): void {
-    this._selectableRows = this._selectableRows.filter(
-      (row) => row.selectionKey !== selectionKey
+    if (selectionKey === undefined) {
+      return;
+    }
+
+    const index = this._selectableRows.findIndex(
+      (row) => row.selectionKey === selectionKey
     );
+
+    if (index === -1) {
+      return;
+    }
+
+    this._selectableRows.splice(index, 1);
+
     this.setSelectAllState();
   }
 
