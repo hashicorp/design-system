@@ -4,10 +4,11 @@
  */
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-// import CopyButton from 'ember-cli-clipboard/index';
 
-import { HdsCopyButton } from '@hashicorp/design-system-components/components';
-import type { HdsCopyButtonSignature } from '@hashicorp/design-system-components/components/hds/copy/button/index';
+import { HdsIcon } from '@hashicorp/design-system-components/components';
+import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
+
+import docClipboard from 'website/modifiers/doc-clipboard';
 
 interface DocCopyButtonCodeSignature {
   Args: {
@@ -21,12 +22,12 @@ interface DocCopyButtonCodeSignature {
   Blocks: {
     default: [];
   };
-  Element: HdsCopyButtonSignature['Element'];
+  Element: HTMLButtonElement;
 }
 
 export default class DocCopyButton extends Component<DocCopyButtonCodeSignature> {
   @tracked status = 'idle';
-  // @tracked iconName: HdsIconSignature['Args']['name'] = 'clipboard-copy';
+  @tracked iconName: HdsIconSignature['Args']['name'] = 'clipboard-copy';
   @tracked timer: ReturnType<typeof setTimeout> | undefined;
 
   get type() {
@@ -77,13 +78,13 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
 
   onSuccess = () => {
     this.status = 'success';
-    // this.iconName = 'clipboard-checked';
+    this.iconName = 'clipboard-checked';
     this.resetStatusDelayed();
   };
 
   onError = () => {
     this.status = 'error';
-    // this.iconName = 'alert-triangle';
+    this.iconName = 'alert-triangle';
     this.resetStatusDelayed();
   };
 
@@ -92,7 +93,7 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
     // make it fade back to the default state
     this.timer = setTimeout(() => {
       this.status = 'idle';
-      // this.iconName = 'clipboard-copy';
+      this.iconName = 'clipboard-copy';
     }, 2000);
   }
 
@@ -106,21 +107,14 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
   }
 
   <template>
-    <HdsCopyButton
-      {{!-- class={{this.classNames}} --}}
-      @color="primary"
-      @text="Copy"
-      @textToCopy={{this.textToCopy}}
-      @onSuccess={{this.onSuccess}}
-      @onError={{this.onError}}
-      ...attributes
-    />
-    {{!-- <CopyButton
+    <button
       class={{this.classNames}}
-      @text={{this.textToCopy}}
-      @onSuccess={{this.onSuccess}}
-      @onError={{this.onError}}
-      ...attributes
+      type="button"
+      {{docClipboard
+        text=@textToCopy
+        onSuccess=this.onSuccess
+        onError=this.onError
+      }}
     >
       {{#if this.textToShow}}
         <span class="doc-copy-button__visible-value">{{this.textToShow}}</span>
@@ -136,6 +130,6 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
         @name={{this.iconName}}
         @stretched={{true}}
       />
-    </CopyButton> --}}
+    </button>
   </template>
 }

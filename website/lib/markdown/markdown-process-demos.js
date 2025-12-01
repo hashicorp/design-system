@@ -11,8 +11,9 @@ const fs = require('fs-extra');
 const path = require('path');
 const walkSync = require('walk-sync');
 
-// Regex to match [[demo: filename.hbs]]
-const demoBlockRegex = /\[\[demo:\s*([^\]]+\.hbs)\s*\]\]/g;
+const demoBlockRegex =
+  /\[\[demo:\s*([^\]]+\.hbs)(?:\s+execute=(true|false))?\s*\]\]/g;
+const fileNameRegex = /(components\/.*?)\.hbs$/;
 
 // Helper to escape code for attribute usage
 function escapeCode(code) {
@@ -21,6 +22,8 @@ function escapeCode(code) {
     .replace(/"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
+    .replace(/\{\{/g, '&#123;&#123;')
+    .replace(/\}\}/g, '&#125;&#125;')
     .replace(/\n/g, '\\n');
 }
 
@@ -43,7 +46,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
       let dependencies = [fullInputPath];
       markdownFileContent = markdownFileContent.replace(
         demoBlockRegex,
-        (_match, fileName, _content) => {
+        (_match, fileName, shouldExecute, _content) => {
           const demoFilePath = path.join(fullParentFolder, fileName.trim());
           let code = '';
           if (fs.existsSync(demoFilePath)) {
@@ -66,8 +69,10 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             gtsCode = `// Unable to load file: ${gtsFileName}, path: ${gtsFilePath}`;
           }
           const escapedGtsCode = escapeCode(gtsCode);
+          const fileNameToForward = demoFilePath.match(fileNameRegex)?.[1];
+          const shouldHidePreview = shouldExecute === 'false' ? true : false;
 
-          return `\n<?php start="demo-block" filename="${fileName.trim()}" hbs="${escapedCode}" gts="${escapedGtsCode}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${escapedCode}" gts="${escapedGtsCode}" hidePreview="${shouldHidePreview}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
