@@ -52,13 +52,16 @@ export const contentBlocks = function () {
       );
 
       const demoRegex = new RegExp(
-        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" gts="(.*?)" \?>\n?/,
+        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" gts="(.*?)" hidePreview="(.*?)" \?>\n?/,
         'g',
       );
 
-      text = text.replace(demoRegex, function (_match, filename, hbs, gts) {
-        return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @gtsSnippet="${gts}">\n`;
-      });
+      text = text.replace(
+        demoRegex,
+        function (_match, filename, hbs, gts, hidePreview) {
+          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @gtsSnippet="${gts}" @hidePreview="${hidePreview}">\n`;
+        },
+      );
 
       text = text.replace(/\n?<\?php end="demo-block"\s*\?>/g, function () {
         return '</Doc::CodeGroup>\n';
