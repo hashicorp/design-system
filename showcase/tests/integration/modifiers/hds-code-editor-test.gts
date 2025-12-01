@@ -39,6 +39,7 @@ const createCodeEditor = async (options: {
   language?: HdsCodeEditorSignature['Args']['Named']['language'];
   isLintingEnabled?: HdsCodeEditorSignature['Args']['Named']['isLintingEnabled'];
   cspNonce?: HdsCodeEditorSignature['Args']['Named']['cspNonce'];
+  customExtensions?: HdsCodeEditorSignature['Args']['Named']['customExtensions'];
 }) => {
   return await render(
     <template>
@@ -56,6 +57,7 @@ const createCodeEditor = async (options: {
           language=options.language
           isLintingEnabled=options.isLintingEnabled
           cspNonce=options.cspNonce
+          customExtensions=options.customExtensions
         }}
       />
     </template>,
@@ -333,6 +335,31 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     document.querySelector('.cm-content')?.dispatchEvent(event);
 
     assert.ok(saveSpy.calledOnce);
+  });
+
+  // customExtensions
+  test('it should load custom extensions provided via the customExtensions argument', async function (assert) {
+    const { EditorView } = await import('@codemirror/view');
+
+    const customClassName = 'my-custom-test-class';
+
+    // create a simple extension that adds a specific class to the editor's wrapper element.
+    const myTestClassExtension = EditorView.editorAttributes.of({
+      class: customClassName,
+    });
+
+    await createCodeEditor({
+      ariaLabel: 'test with custom extension',
+      customExtensions: [myTestClassExtension],
+    });
+
+    await waitFor('.cm-editor');
+    assert
+      .dom('.cm-editor')
+      .hasClass(
+        customClassName,
+        'the custom extension successfully injected the class attribute',
+      );
   });
 
   // ASSERTIONS
