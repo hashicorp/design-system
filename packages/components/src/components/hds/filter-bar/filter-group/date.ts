@@ -180,7 +180,7 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     }
   }
 
-  private _selectorText = (
+  private _getSelectorText = (
     selector: HdsFilterBarDateFilterSelector
   ): string => {
     return this.hdsIntl.t(

@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<li class="hds-filter-bar__filter-group__selection-option">
+<li class="hds-filter-bar__filter-group__radio hds-filter-bar__filter-group__selection-option">
   <Hds::Form::Radio::Field checked={{this.isChecked}} @value={{@value}} {{on "change" this.onChange}} as |F|>
     <F.Label>{{@label}}</F.Label>
   </Hds::Form::Radio::Field>

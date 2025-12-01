@@ -21,10 +21,40 @@ export interface HdsFilterBarGenericFilterData {
   label?: string;
 }
 
+export enum HdsFilterBarNumericalFilterSelectorValues {
+  lessThan = 'less-than',
+  lessThanOrEqualTo = 'less-than-or-equal-to',
+  equalTo = 'equal-to',
+  greaterThanOrEqualTo = 'greater-than-or-equal-to',
+  greaterThan = 'greater-than',
+  between = 'between',
+}
+
+export type HdsFilterBarNumericalFilterSelector =
+  `${HdsFilterBarNumericalFilterSelectorValues}`;
+
+export type HdsFilterBarNumericalFilterValue =
+  | number
+  | { start?: number; end?: number };
+
 export interface HdsFilterBarNumericalFilterData {
   selector: HdsFilterBarNumericalFilterSelector;
   value: HdsFilterBarNumericalFilterValue;
 }
+
+export enum HdsFilterBarDateFilterSelectorValues {
+  before = 'before',
+  exactly = 'exactly',
+  after = 'after',
+  between = 'between',
+}
+
+export type HdsFilterBarDateFilterSelector =
+  `${HdsFilterBarDateFilterSelectorValues}`;
+
+export type HdsFilterBarDateFilterValue =
+  | string
+  | { start?: string; end?: string };
 
 export interface HdsFilterBarDateFilterData {
   selector: HdsFilterBarDateFilterSelector;
@@ -37,22 +67,16 @@ export type HdsFilterBarData =
   | HdsFilterBarNumericalFilterData
   | HdsFilterBarDateFilterData;
 
-export interface HdsFilterBarGenericFilter {
-  type: 'generic';
-  text?: string;
-  dismissTagText?: string;
-  data: HdsFilterBarGenericFilterData | HdsFilterBarGenericFilterData[];
-}
-export interface HdsFilterBarSingleSelectFilter {
-  type: 'single-select';
-  text?: string;
-  data: HdsFilterBarGenericFilterData;
-}
-
 export interface HdsFilterBarMultiSelectFilter {
   type: 'multi-select';
   text?: string;
   data: HdsFilterBarGenericFilterData[];
+}
+
+export interface HdsFilterBarSingleSelectFilter {
+  type: 'single-select';
+  text?: string;
+  data: HdsFilterBarGenericFilterData;
 }
 
 export interface HdsFilterBarNumericalFilter {
@@ -67,6 +91,13 @@ export interface HdsFilterBarDateFilter {
   data: HdsFilterBarDateFilterData;
 }
 
+export interface HdsFilterBarGenericFilter {
+  type: 'generic';
+  text?: string;
+  dismissTagText?: string;
+  data: HdsFilterBarGenericFilterData | HdsFilterBarGenericFilterData[];
+}
+
 export interface HdsFilterBarSearchFilter {
   type: 'search';
   text?: string;
@@ -74,43 +105,13 @@ export interface HdsFilterBarSearchFilter {
 }
 
 export type HdsFilterBarFilter =
-  | HdsFilterBarSingleSelectFilter
   | HdsFilterBarMultiSelectFilter
+  | HdsFilterBarSingleSelectFilter
   | HdsFilterBarNumericalFilter
   | HdsFilterBarDateFilter
-  | HdsFilterBarSearchFilter
-  | HdsFilterBarGenericFilter;
+  | HdsFilterBarGenericFilter
+  | HdsFilterBarSearchFilter;
 
 export interface HdsFilterBarFilters {
   [name: string]: HdsFilterBarFilter;
 }
-
-export enum HdsFilterBarNumericalFilterSelectorValues {
-  lessThan = 'less-than',
-  lessThanOrEqualTo = 'less-than-or-equal-to',
-  equalTo = 'equal-to',
-  greaterThanOrEqualTo = 'greater-than-or-equal-to',
-  greaterThan = 'greater-than',
-  between = 'between',
-}
-
-export type HdsFilterBarNumericalFilterSelector =
-  `${HdsFilterBarNumericalFilterSelectorValues}`;
-
-export enum HdsFilterBarDateFilterSelectorValues {
-  before = 'before',
-  exactly = 'exactly',
-  after = 'after',
-  between = 'between',
-}
-
-export type HdsFilterBarDateFilterSelector =
-  `${HdsFilterBarDateFilterSelectorValues}`;
-
-export type HdsFilterBarNumericalFilterValue =
-  | number
-  | { start?: number; end?: number };
-
-export type HdsFilterBarDateFilterValue =
-  | string
-  | { start?: string; end?: string };

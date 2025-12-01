@@ -6,8 +6,8 @@
   @listPosition="bottom-left"
   @height="600px"
   @width="600px"
-  class={{this.classNames}}
   @onClose={{this._onClose}}
+  class="hds-filter-bar__dropdown"
   {{this._syncFilters @filters}}
   as |D|
 >
@@ -18,7 +18,10 @@
     @size="small"
   />
   <D.Generic>
-    <Hds::FilterBar::Tabs @ariaLabel="Filter bar tabs" as |T|>
+    <Hds::FilterBar::Tabs
+      @ariaLabel={{hds-t "hds.components.filter-bar.dropdown.tabs.aria-label" default="Filter bar tabs"}}
+      as |T|
+    >
       {{yield
         (hash
           FilterGroup=(component
