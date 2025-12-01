@@ -16,7 +16,7 @@ import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
 export interface HdsFilterBarDropdownSignature {
-  Args: HdsDropdownSignature['Args'] & {
+  Args: {
     filters: HdsFilterBarFilters;
     isLiveFilter: boolean;
     onFilter?: (filters: HdsFilterBarFilters) => void;
@@ -28,15 +28,14 @@ export interface HdsFilterBarDropdownSignature {
           typeof HdsFilterBarFilterGroup,
           'tab' | 'panel' | 'filters' | 'onChange'
         >;
+        close: HdsDropdownSignature['Blocks']['default'][0]['close'];
       },
     ];
   };
   Element: HTMLDivElement;
 }
 
-export default class HdsFilterBarDropdown extends Component<
-  HdsDropdownSignature & HdsFilterBarDropdownSignature
-> {
+export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdownSignature> {
   @tracked internalFilters: HdsFilterBarFilters = {};
 
   constructor(owner: Owner, args: HdsFilterBarDropdownSignature['Args']) {
@@ -89,23 +88,25 @@ export default class HdsFilterBarDropdown extends Component<
     }
   }
 
-  get classNames(): string {
-    const classes = ['hds-filter-bar__dropdown'];
+  private _copyFilters = (
+    filters: HdsFilterBarFilters
+  ): HdsFilterBarFilters => {
+    const newFilters = {} as HdsFilterBarFilters;
 
-    return classes.join(' ');
-  }
+    Object.keys(filters).forEach((k) => {
+      newFilters[k] = JSON.parse(
+        JSON.stringify(filters[k])
+      ) as HdsFilterBarFilter;
+    });
+
+    return newFilters;
+  };
 
   private _updateFilter(
     key: string,
     keyFilter?: HdsFilterBarFilter
   ): HdsFilterBarFilters {
-    const newFilters = {} as HdsFilterBarFilters;
-
-    Object.keys(this.internalFilters).forEach((k) => {
-      newFilters[k] = JSON.parse(
-        JSON.stringify(this.internalFilters[k])
-      ) as HdsFilterBarFilter;
-    });
+    const newFilters = this._copyFilters(this.internalFilters);
     if (
       keyFilter === undefined ||
       (Array.isArray(keyFilter) && keyFilter.length === 0)

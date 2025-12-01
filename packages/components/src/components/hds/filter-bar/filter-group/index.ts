@@ -112,6 +112,20 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
     return 0;
   }
 
+  get formattedFilters(): HdsFilterBarFilter | undefined {
+    if (
+      this.internalFilters === undefined ||
+      (Array.isArray(this.internalFilters) && this.internalFilters.length === 0)
+    ) {
+      return undefined;
+    }
+    return {
+      type: this.type,
+      text: this.args.text,
+      data: this.internalFilters,
+    } as HdsFilterBarFilter;
+  }
+
   @action
   onSelectionChange(event: Event, label?: string): void {
     const addFilter = (value: unknown): void => {
@@ -235,20 +249,6 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
     if (onChange && typeof onChange === 'function') {
       onChange(this.args.key, this.formattedFilters);
     }
-  }
-
-  get formattedFilters(): HdsFilterBarFilter | undefined {
-    if (
-      this.internalFilters === undefined ||
-      (Array.isArray(this.internalFilters) && this.internalFilters.length === 0)
-    ) {
-      return undefined;
-    }
-    return {
-      type: this.type,
-      text: this.args.text,
-      data: this.internalFilters,
-    } as HdsFilterBarFilter;
   }
 
   get classNames(): string {
