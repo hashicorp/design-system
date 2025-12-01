@@ -14,4 +14,3 @@ node_modules/
 .pnp.*
 *.vscode/settings.json
 /packages/codemods/coverage
-.tool-versions

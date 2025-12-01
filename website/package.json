@@ -150,7 +150,7 @@
     "yaml-front-matter": "^4.1.1"
   },
   "engines": {
-    "node": ">= 22"
+    "node": ">= 24"
   },
   "ember": {
     "edition": "octane"
