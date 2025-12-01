@@ -1,12 +1,12 @@
 /**
- * Copyright IBM Corp. 2021, 2025
+ * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export default class Index extends Component {
+export default class ButtonAction extends Component {
   @action
   alertOnClick() {
     alert('Hello from Helios!');
