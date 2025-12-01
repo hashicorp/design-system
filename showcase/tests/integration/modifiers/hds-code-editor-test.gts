@@ -314,7 +314,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
   // extraKeys
   test('setting extraKeys should add the provided keybindings to the editor', async function (assert) {
-    const saveSpy = sinon.spy(() => console.log('Save!'));
+    const saveSpy = sinon.spy(() => true);
 
     const extraKeys = {
       'Shift-Enter': saveSpy,
