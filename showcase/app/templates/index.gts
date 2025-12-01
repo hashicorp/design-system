@@ -6,6 +6,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { LinkTo } from '@ember/routing';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 
 const Index: TemplateOnlyComponent = <template>
   <div class="shw-landing-lists">
@@ -391,6 +392,7 @@ const Index: TemplateOnlyComponent = <template>
 
     <div>
       <ShwTextH2>Carbonization</ShwTextH2>
+      <ShwTextH4 @tag="h3">Foundations</ShwTextH4>
       <ol class="shw-text-body">
         <li>
           <LinkTo @route="page-carbonization.foundations.color">
@@ -408,6 +410,7 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
       </ol>
+      <ShwTextH4 @tag="h3">Components</ShwTextH4>
       <ol class="shw-text-body">
         <li>
           <LinkTo @route="page-carbonization.components.badge">
