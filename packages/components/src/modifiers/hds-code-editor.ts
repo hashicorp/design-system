@@ -43,7 +43,7 @@ type HdsCodeEditorBlurHandler = (
 
 interface HdsCodeEditorExtraKeys {
   [key: string]: () => boolean;
-};
+}
 
 export interface HdsCodeEditorSignature {
   Args: {
