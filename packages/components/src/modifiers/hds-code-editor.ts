@@ -42,7 +42,7 @@ type HdsCodeEditorBlurHandler = (
 ) => void;
 
 interface HdsCodeEditorExtraKeys {
-  [key: string]: (view: EditorViewType) => boolean;
+  [key: string]: () => boolean;
 };
 
 export interface HdsCodeEditorSignature {
