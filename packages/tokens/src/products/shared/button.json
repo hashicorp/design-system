@@ -666,9 +666,9 @@
                 "cds-g0": "magenta",
                 "cds-g10": "magenta",
                 "cds-g90": "magenta",
-                "cds-g100": "magenta",
-                "comment": "TODO - replace the `magenta` values with the correct ones"
-              }
+                "cds-g100": "magenta"
+              },
+              "comment": "TODO - replace the `magenta` values with the correct ones"
             }
           },
           "active": {

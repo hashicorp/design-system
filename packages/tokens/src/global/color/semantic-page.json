@@ -18,7 +18,7 @@
         "$value": "{color.palette.neutral-50}",
         "group": "semantic",
         "$modes": {
-          "default": "{color.palette.neutral-0}",
+          "default": "{color.palette.neutral-50}",
           "cds-g0": "{carbon.themes.white.background}",
           "cds-g10": "{carbon.themes.g10.background}",
           "cds-g90": "{carbon.themes.g90.background}",

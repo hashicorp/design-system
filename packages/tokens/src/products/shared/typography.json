@@ -357,9 +357,9 @@
     "display-200": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}",
+        "$value": "{typography.font-stack.display}",
         "$modes": {
-          "default": "{typography.font-stack.text}",
+          "default": "{typography.font-stack.display}",
           "cds-g0": "{carbon.typography.font-family.sans}",
           "cds-g10": "{carbon.typography.font-family.sans}",
           "cds-g90": "{carbon.typography.font-family.sans}",
@@ -408,9 +408,9 @@
     "display-100": {
       "font-family": {
         "$type": "font-family",
-        "$value": "{typography.font-stack.text}",
+        "$value": "{typography.font-stack.display}",
         "$modes": {
-          "default": "{typography.font-stack.text}",
+          "default": "{typography.font-stack.display}",
           "cds-g0": "{carbon.typography.font-family.sans}",
           "cds-g10": "{carbon.typography.font-family.sans}",
           "cds-g90": "{carbon.typography.font-family.sans}",
@@ -486,7 +486,7 @@
         "$value": 1.5,
         "comment": "24px",
         "$modes": {
-          "default": 1.4286,
+          "default": 1.5,
           "cds-g0": "{carbon.typography.body02.line-height}",
           "cds-g10": "{carbon.typography.body02.line-height}",
           "cds-g90": "{carbon.typography.body02.line-height}",
