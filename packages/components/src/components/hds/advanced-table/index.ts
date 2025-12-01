@@ -615,7 +615,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setupTableModelData(): void {
-    console.log('setting up table model data');
     const { columns, model, sortBy, sortOrder } = this.args;
 
     this._tableModel.setupData({
