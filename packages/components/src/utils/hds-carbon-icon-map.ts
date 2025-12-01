@@ -3446,8 +3446,4 @@ export const hdsCarbonIconList: IconMapItem[] = [
   },
 ];
 
-export const mappedHdsIconNames: IconName[] = hdsCarbonIconList.map(
-  (item) => item.hdsIconName
-);
-
 export default hdsCarbonIconList;

@@ -56,14 +56,6 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     }
   }
 
-  get name(): string | undefined {
-    if (this.hdsCarbon.carbonModeEnabled) {
-      return this.carbonIcon?.name;
-    } else {
-      return this.args.name;
-    }
-  }
-
   get isInline(): boolean {
     return this.args.isInline ?? false;
   }

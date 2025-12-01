@@ -11,6 +11,7 @@ import chalk from 'chalk';
 import { optimizeAssetsSVG } from './build-parts/optimizeAssetsSVG';
 import { generateBundleSVG } from './build-parts/generateBundleSVG';
 import { generateBundleSVGSprite } from './build-parts/generateBundleSVGSprite';
+import { generateBundleSVGCarbon } from './build-parts/generateBundleSVGCarbon';
 import { generateBundleSVGReact } from './build-parts/generateBundleSVGReact';
 import { generatePublicZIPFile } from './build-parts/generatePublicZIPFile';
 
@@ -63,6 +64,10 @@ async function build() {
     // generate the bundle for the SVG sprite
     console.log('Generating bundle for SVG sprite');
     await generateBundleSVGSprite({ config, catalog });
+
+    // generate the bundle for the SVGs in Carbon
+    console.log('Generating bundle for SVG Carbon');
+    await generateBundleSVGCarbon({ config, catalog });
 
     // generate the bundle for the SVGs in React
     console.log('Generating bundle for SVG React');
