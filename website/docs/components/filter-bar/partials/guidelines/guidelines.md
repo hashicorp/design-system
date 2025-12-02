@@ -1,5 +1,7 @@
 The Filter Bar is used to display and apply filters to a data set. It is most often used in conjunction with the [Advanced Table](/components/table/advanced-table), but is flexible enough to support different renderings of data sets such as in a list or grid of cards.
 
+The Filter Bar comes paired with a complex dropdown menu that supports 
+
 ## Usage
 
 ### When to use
@@ -22,13 +24,51 @@ While the Filter Bar underwent rigorous research and testing, this component is 
 
 ## Type
 
+While we recommend that the Filter Bar be paired with the [Advanced Table](/components/table/advanced-table) in most circumstances, the component is agnostic and can be paired with different ways of rendering a data set. To support this visually, the component features two types; `attached` and `standalone`.
+
+<!-- JT: Consider including additional context for where to use each on in this section, or make it more concise -->
+
 ### Attached
 
+Use the `attached` variant with the [Advanced Table](/components/table/advanced-table) and standard [Table](/components/table/table).
+
+![Example of an attached Filter Bar paired with a data set rendered in an Advanced Table](/assets/components/filter-bar/filter-bar-type-attached.png)
+
 ### Standalone
+
+Use the `standalone` variant when a data set is rendered in formats other than a table, e.g., a list or array of cards.
+
+![Example of a standalone Filter Bar paired with a data set rendered in cards](/assets/components/filter-bar/filter-bar-type-standalone.png)
+
+## Expand & collapse
 
 ## Search
 
 ## Bulk actions
 
 ## Generic content
+
+## Applied filters
+
+## Filter dropdown
+
+### Methods
+
+#### Multi-selection
+
+#### Single-selection
+
+#### Numbers
+
+#### Dates & times
+
+#### Method options
+
+#### Filter ranges
+
+#### Search across filter values
+
+## Applying Filters
+
+## Clearing filters
 
