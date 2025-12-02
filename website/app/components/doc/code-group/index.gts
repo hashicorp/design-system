@@ -94,6 +94,16 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return label;
   }
 
+  get copyButtonClassNames() {
+    const classNames = ['doc-code-group__copy-button'];
+    if (this.copyStatus === 'success') {
+      classNames.push('doc-code-group__copy-button--status-success');
+    } else if (this.copyStatus === 'error') {
+      classNames.push('doc-code-group__copy-button--status-error');
+    }
+    return classNames.join(' ');
+  }
+
   handleGtsExpandClick = () => {
     this.isExpanded = !this.isExpanded;
     this.expandIconName = this.isExpanded ? 'unfold-close' : 'unfold-open';
@@ -162,7 +172,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
             <button
               type="button"
               aria-label={{this.copyButtonLabel}}
-              class="doc-code-group__copy-button"
+              class={{this.copyButtonClassNames}}
               {{docClipboard
                 text=this.currentViewSnippet
                 onSuccess=this.onSuccess
