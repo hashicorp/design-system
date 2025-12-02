@@ -339,7 +339,9 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
   // customExtensions
   test('it should load custom extensions provided via the customExtensions argument', async function (assert) {
-    const { EditorView } = await import('@codemirror/view');
+    const { EditorView } = await import(
+      '@hashicorp/design-system-components/codemirror'
+    );
 
     const customClassName = 'my-custom-test-class';
 
