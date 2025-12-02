@@ -160,8 +160,13 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
 function convertDurationValue(value: string) {
   const match = value.match(/^(\d+)(s|ms)$/);
   if (match) {
-    const $value = Number(match[1]);
-    const unit = match[2];
+    let $value = Number(match[1]);
+    let unit = match[2];
+    // we want to standardize the unit to "seconds"
+    if (unit === 'ms') {
+      $value = $value / 1000;
+      unit = 's';
+    }
     return { $value, unit };
   } else {
     return undefined;
