@@ -8,6 +8,7 @@ import StyleDictionary from 'style-dictionary';
 import type { DesignToken, PlatformConfig } from 'style-dictionary/types';
 
 import tinycolor from 'tinycolor2';
+import chalk from 'chalk';
 
 import fs from 'fs-extra';
 import path from 'path';
@@ -42,10 +43,14 @@ for (const mode of modes) {
       function replaceModes(slice: DesignToken) {
         if (slice.$modes) {
           if (mode in slice.$modes) {
+            // extra validation to catch instances where the `default` mode value is different from the `$value`
+            if (mode === 'default' && slice.$modes[mode] !== slice.$value) {
+              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - File: ${slice.filePath}`);
+            }
             slice.$value = slice.$modes[mode];
           } else {
-            // TODO! decide if we want to throw here (and test if it works, by removing a value from one of the test files) - see: https://hashicorp.atlassian.net/browse/HDS-5668
-            console.error(`❌ ERROR - Found themed token without '${mode}' value:`, JSON.stringify(slice, null, 2));
+            // we want to interrupt the execution of the script if one of the expected modes is missing
+            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token without '${mode}' value - ${JSON.stringify(slice, null, 2)}`);
           }
         } else {
             Object.values(slice).forEach((value) => {
