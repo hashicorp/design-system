@@ -15,80 +15,50 @@ The basic invocation requires text to be passed:
 
 To add an icon to your Button, give the `@icon` any [icon](/icons/library) name:
 
-```handlebars
-<Hds::Button @text="Create cluster" @icon="plus" />
-```
+[[demo: code-snippets/button-icon.hbs]]
 
 ### Icon position
 
 By default, if you define an icon, it is placed in the leading position (before the text). If you need to position the icon in the trailing position (after the text), define `@iconPosition`:
 
-```handlebars
-<Hds::Button @text="Next step" @icon="arrow-right" @iconPosition="trailing" />
-```
+[[demo: code-snippets/button-icon-position.hbs]]
 
 ### Icon-only Button
 
 
 If you would like to create an icon-only Button, set `@isIconOnly` to `true`. Note that you still have to define the `@text` value; it will be used as the `aria-label` attribute value on the `Button` element.
 
-```handlebars
-<Hds::Button @text="Create cluster" @icon="plus" @isIconOnly={{true}} />
-```
+[[demo: code-snippets/button-icon-only.hbs]]
 
 ### Color
 
 There are four available colors for the Button: `primary`, `secondary`, `tertiary`, and `critical`. The default is `primary`. To use a different color, declare another value for `@color`:
 
-```handlebars
-<Hds::Button @text="Secondary" @color="secondary" />
-```
-
-```handlebars
-<Hds::Button @text="Tertiary" @color="tertiary" @icon="bulb" />
-```
-
-```handlebars
-<Hds::Button @text="Critical" @color="critical" />
-```
+[[demo: code-snippets/button-color.hbs]]
 
 ### Size
 
 There are three sizes available for the Button: `small`, `medium`, and `large`. The default is `medium`. To use a different size, declare a value for `@size`:
 
-```handlebars
-<Hds::Button @text="Small button" @size="small" />
-```
-
-```handlebars
-<Hds::Button @text="Large button" @size="large" />
-```
+[[demo: code-snippets/button-size.hbs]]
 
 ### Full-width
 
 This indicates that the Button should take up the full-width of the parent container. It’s set to `false` by default.
 
-```handlebars
-<Hds::Button @text="Full width button" @isFullWidth={{true}} />
-```
+[[demo: code-snippets/button-full-width.hbs]]
 
 ### Layout
 
 To change the default `block` layout to `inline`, set `@isInline` to `true`. This can be useful in contexts where the Button needs to be <em>inline</em>, for example to inherit the alignment from a parent.
 
-```handlebars
-<div class="doc-button-mock-text-align-right">
-  <Hds::Button @text="inline layout" @isInline={{true}} />
-</div>
-```
+[[demo: code-snippets/button-layout.hbs]]
 
 ### Type
 
 This is the native HTML button attribute, `type`. There are three possible values: `button`, `submit`, and `reset`. The default `type` for the Button is `button`. To submit form data to the server, set `type` to `submit`.
 
-```handlebars
-<Hds::Button @text="Submit" type="submit" />
-```
+[[demo: code-snippets/button-type.hbs]]
 
 ### Actions
 
@@ -118,9 +88,7 @@ If you pass an `@href` argument, an `<a>` link will be generated.
 
 By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
-```handlebars
-<Hds::Button @text="Visit website" @icon="external-link" @iconPosition="trailing" @href="https://hashicorp.com" />
-```
+[[demo: code-snippets/button-with-href.hbs]]
 
 If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" or "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
@@ -130,9 +98,7 @@ If you pass a `@route` argument, an `<a>` link will be generated using a `<LinkT
 
 If the route is external to your current engine, you have to pass `@isRouteExternal={{true}}` so it will use `<LinkToExternal>` instead of `<LinkTo>` for the `@route`. For more details, see the [Hds::Interactive component](/utilities/interactive).
 
-```handlebars
-<Hds::Button @text="Back to homepage" @icon="arrow-left" @route="index" />
-```
+[[demo: code-snippets/button-with-route.hbs]]
 
 ### Loading state
 
@@ -153,6 +119,4 @@ Links cannot use the `disabled` attribute (per HTML specification); even if you 
 
 To disable a Button, manually add the native `disabled` attribute:
 
-```handlebars
-<Hds::Button @text="Alert me" disabled {{on "click" this.alertOnClick}} />
-```
+[[demo: code-snippets/button-disabled.hbs]]
