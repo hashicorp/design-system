@@ -67,10 +67,19 @@
       border-radius: 4px;
       cursor: pointer;
 
-
-     &:hover {
+      &:hover {
         background-color: var(--doc-color-gray-600);
      }
+
+      &.doc-code-group__copy-button--status-success {
+        color: var(--doc-color-feedback-success-100);
+        background-color: var(--doc-color-feedback-success-300);
+      }
+
+      &.doc-code-group__copy-button--status-error {
+        color: var(--doc-color-feedback-critical-100);
+        background-color: var(--doc-color-feedback-critical-300);
+      }
     }
   }
 }
