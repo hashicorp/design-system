@@ -30,6 +30,7 @@ export default class ButtonLoading extends Component<ButtonLoadingSignature> {
       @icon={{if this.isLoading "loading"}}
       @text={{if this.isLoading "Loading" "Save"}}
       {{on "click" this.toggleIsLoading}}
+      ...attributes
     />
   </template>
 }
