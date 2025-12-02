@@ -7,14 +7,12 @@ import { modifier } from 'ember-modifier';
 import { assert } from '@ember/debug';
 
 type TextToCopy = string | number | bigint;
-type TargetToCopy = HTMLElement | string;
 
 export interface DocClipboardModifierSignature {
   Element: HTMLElement;
   Args: {
     Named: {
       text?: TextToCopy;
-      target?: TargetToCopy;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onSuccess?: (...args: any[]) => void;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -83,7 +81,7 @@ export default modifier<DocClipboardModifierSignature>(
       element,
     );
 
-    const { text, target, onSuccess, onError } = named;
+    const { text, onSuccess, onError } = named;
 
     const onClick = async (event: MouseEvent): Promise<void> => {
       const trigger = event.currentTarget;
@@ -92,11 +90,11 @@ export default modifier<DocClipboardModifierSignature>(
       // fire the `onSuccess/onError` callbacks (if provided)
       if (success) {
         if (typeof onSuccess === 'function') {
-          onSuccess({ trigger, text, target });
+          onSuccess({ trigger, text });
         }
       } else {
         if (typeof onError === 'function') {
-          onError({ trigger, text, target });
+          onError({ trigger, text });
         }
       }
     };
