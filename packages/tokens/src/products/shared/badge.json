@@ -270,7 +270,7 @@
             "$type": "color",
             "$value": "{color.foreground.highlight}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{color.foreground.highlight}",
               "cds-g0": "{carbon.themes.tagTokens.tagColorPurple.white}",
               "cds-g10": "{carbon.themes.tagTokens.tagColorPurple.g10}",
               "cds-g90": "{carbon.themes.tagTokens.tagColorPurple.g90}",

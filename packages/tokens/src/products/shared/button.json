@@ -322,7 +322,7 @@
             "$type": "color",
             "$value": "{color.foreground.action-hover}",
             "$modes": {
-              "default": "{color.foreground.action}",
+              "default": "{color.foreground.action-hover}",
               "cds-g0": "{carbon.themes.white.textInverse}",
               "cds-g10": "{carbon.themes.g10.textInverse}",
               "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -344,7 +344,7 @@
             "$type": "color",
             "$value": "{color.foreground.action-active}",
             "$modes": {
-              "default": "{color.foreground.action}",
+              "default": "{color.foreground.action-active}",
               "cds-g0": "{carbon.themes.white.textInverse}",
               "cds-g10": "{carbon.themes.g10.textInverse}",
               "cds-g90": "{carbon.themes.g90.textInverse}",
@@ -525,7 +525,7 @@
             "$type": "color",
             "$value": "transparent",
             "$modes": {
-              "default": "{color.surface.primary}",
+              "default": "transparent",
               "cds-g0": "{carbon.themes.buttonTokens.buttonTertiaryHover.white}",
               "cds-g10": "{carbon.themes.buttonTokens.buttonTertiaryHover.g10}",
               "cds-g90": "{carbon.themes.buttonTokens.buttonTertiaryHover.g90}",
