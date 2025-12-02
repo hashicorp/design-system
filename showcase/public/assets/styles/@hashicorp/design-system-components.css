@@ -1481,12 +1481,42 @@
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: var(--token-border-radius-x-small);
+  position: relative;
+  outline-style: solid;
+  outline-color: transparent;
+  isolation: isolate;
 }
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:hover, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-hover {
   color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-interactive);
   border-color: var(--token-color-border-strong);
   box-shadow: var(--token-elevation-low-box-shadow);
+}
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: inherit;
+  content: "";
+}
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus::before, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus::before {
+  box-shadow: var(--token-focus-ring-action-box-shadow);
+}
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus:not(:focus-visible)::before {
+  box-shadow: none;
+}
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus-visible::before {
+  box-shadow: var(--token-focus-ring-action-box-shadow);
+}
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus:active::before, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus.mock-active::before {
+  box-shadow: none;
+}
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus,
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon .hds-dropdown-toggle-icon--is-open {
+  outline: none;
 }
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon:focus::before, .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon.mock-focus::before,
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon .hds-dropdown-toggle-icon--is-open::before {

@@ -433,9 +433,15 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     box-shadow: var(--token-elevation-low-box-shadow);
   }
 
+  // Use pseudo element for focus ring to allow offset position to be partially inside the button
+  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+
   &:focus,
   &.mock-focus,
   .hds-dropdown-toggle-icon--is-open {
+    // Override outline used on regular hds-dropdown-toggle-icon
+    outline: none;
+
     &::before {
       top: 0;
       right: 0;
