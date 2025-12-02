@@ -11,7 +11,6 @@ export enum HdsThemeValues {
   Dark = 'dark',
 }
 
-// TODO! understand if we really need this - see: https://hashicorp.atlassian.net/browse/HDS-5681
 export enum HdsModesBaseValues {
   Default = 'default',
 }
