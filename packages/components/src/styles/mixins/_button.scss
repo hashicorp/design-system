@@ -37,26 +37,10 @@ $hds-button-sizes: ("small", "medium", "large");
   cursor: not-allowed;
 }
 
-@mixin hds-button-state-focus() {
-  box-shadow: none;
-
-  // TEST: Replacement of pseudo-element-based focus ring
-  // &::before {
-  //   // the position absolute of an element is computed from the inside of the border of the container
-  //   // so we have to take in account the border width of the pseudo-element container itself
-  //   $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width)));
-  //   $radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width));
-  //   position: absolute;
-  //   top: $shift;
-  //   right: $shift;
-  //   bottom: $shift;
-  //   left: $shift;
-  //   z-index: -1;
-  //   border: var(--token-button-focus-border-width) solid transparent;
-  //   border-radius: $radius;
-  //   content: "";
-  // }
-}
+// TODO: not needed if outline is used for the focus ring
+// @mixin hds-button-state-focus() {
+//   box-shadow: none;
+// }
 
 @mixin hds-button-color-primary() {
   color: var(--token-button-foreground-color-primary-default);
@@ -77,27 +61,16 @@ $hds-button-sizes: ("small", "medium", "large");
     color: var(--token-button-foreground-color-primary-focus);
     background-color: var(--token-button-surface-color-primary-focus);
     border-color: var(--token-button-border-color-primary-focus-internal);
+    // border-color: #fff; // TEST: add greater contrast & standardize with other variants (remove outline-offset)
 
     // TEST: Replacement of pseudo-element-based focus ring
-    // border-color: #fff; // TEST: to add greater contrast
+    // Test: outline instead of box-shadow
+    outline: 3px solid var(--token-color-focus-action-external);
+    outline-offset: 2px; // non-standard (other Button variants don't use)
     // box-shadow: 0 0 0 3px var(--token-color-focus-action-external); // standardized w/ other variants
-    box-shadow:
-      0 0 0 2px #fff,
-      0 0 0 5px var(--token-color-focus-action-external); // similar to original style using pseudo-element
-
-    // &::before {
-    //   // the position absolute of an element is computed from the inside of the border of the container
-    //   // so we have to take in account the border width of the pseudo-element container itself
-    //   // plus for the primary button we want to have a 2px gap between the button and the focus
-    //   $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-    //   $radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
-    //   top: $shift;
-    //   right: $shift;
-    //   bottom: $shift;
-    //   left: $shift;
-    //   border-color: var(--token-button-border-color-primary-focus-external);
-    //   border-radius: $radius;
-    // }
+    // box-shadow:
+    //   0 0 0 2px #fff,
+    //   0 0 0 5px var(--token-color-focus-action-external); // similar to original style using pseudo-element
   }
 
   &:active,
@@ -106,10 +79,6 @@ $hds-button-sizes: ("small", "medium", "large");
     background-color: var(--token-button-surface-color-primary-active);
     border-color: var(--token-button-border-color-primary-active);
     box-shadow: none;
-
-    &::before {
-      border-color: transparent;
-    }
   }
 }
 
@@ -134,11 +103,9 @@ $hds-button-sizes: ("small", "medium", "large");
     border-color: var(--token-button-border-color-secondary-focus-internal);
 
     // TEST: Replacement of pseudo-element-based focus ring
-    box-shadow: 0 0 0 3px var(--token-button-border-color-secondary-focus-external);
-
-    // &::before {
-    //   border-color: var(--token-button-border-color-secondary-focus-external);
-    // }
+    // Test: outline instead of box-shadow
+    outline: 3px solid var(--token-button-border-color-secondary-focus-external);
+    // box-shadow: 0 0 0 3px var(--token-button-border-color-secondary-focus-external);
   }
 
   &:active,
@@ -147,10 +114,6 @@ $hds-button-sizes: ("small", "medium", "large");
     background-color: var(--token-button-surface-color-secondary-active);
     border-color: var(--token-button-border-color-secondary-active);
     box-shadow: none;
-
-    &::before {
-      border-color: transparent;
-    }
   }
 }
 
@@ -174,11 +137,9 @@ $hds-button-sizes: ("small", "medium", "large");
     border-color: var(--token-button-border-color-tertiary-focus-internal);
 
     // TEST: Replacement of pseudo-element-based focus ring
-    box-shadow: 0 0 0 3px var(--token-button-border-color-tertiary-focus-external);
-
-    // &::before {
-    //   border-color: var(--token-button-border-color-tertiary-focus-external);
-    // }
+    // Test: outline instead of box-shadow
+    outline: 3px solid var(--token-button-border-color-tertiary-focus-external);
+    // box-shadow: 0 0 0 3px var(--token-button-border-color-tertiary-focus-external);
   }
 
   &:active,
@@ -187,10 +148,6 @@ $hds-button-sizes: ("small", "medium", "large");
     background-color: var(--token-button-surface-color-tertiary-active);
     border-color: var(--token-button-border-color-tertiary-active);
     box-shadow: none;
-
-    &::before {
-      border-color: transparent;
-    }
   }
 
   //
@@ -209,10 +166,6 @@ $hds-button-sizes: ("small", "medium", "large");
   &.mock-disabled:hover {
     background-color: transparent;
     border-color: transparent;
-
-    &::before {
-      border-color: transparent;
-    }
   }
 }
 
@@ -237,11 +190,9 @@ $hds-button-sizes: ("small", "medium", "large");
     border-color: var(--token-button-border-color-critical-focus-internal);
 
     // TEST: Replacement of pseudo-element-based focus ring
-    box-shadow: 0 0 0 3px var(--token-button-border-color-critical-focus-external);
-
-    // &::before {
-    //   border-color: var(--token-button-border-color-critical-focus-external);
-    // }
+    // Test: outline instead of box-shadow
+    outline: 3px solid var(--token-button-border-color-critical-focus-external);
+    // box-shadow: 0 0 0 3px var(--token-button-border-color-critical-focus-external);
   }
 
   &:active,
@@ -250,10 +201,6 @@ $hds-button-sizes: ("small", "medium", "large");
     background-color: var(--token-button-surface-color-critical-active);
     border-color: var(--token-button-border-color-critical-active);
     box-shadow: none;
-
-    &::before {
-      border-color: transparent;
-    }
   }
 }
 

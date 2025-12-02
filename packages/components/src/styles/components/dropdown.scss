@@ -50,12 +50,14 @@
 
   &:focus,
   &.mock-focus {
-    @include hds-button-state-focus();
-    border-color: var(--token-color-focus-action-internal);
+    // @include hds-button-state-focus();
 
-    &::before {
-      border-color: var(--token-color-focus-action-external);
-    }
+    border-color: var(--token-color-focus-action-internal);
+    outline: 3px solid var(--token-color-focus-action-external);
+
+    // &::before {
+    //   border-color: var(--token-color-focus-action-external);
+    // }
   }
 
   &:active,
@@ -119,10 +121,11 @@
 .hds-dropdown-toggle-button {
   @include hds-button();
 
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
-  }
+  // TODO: not needed if outline is used for the focus ring
+  // &:focus,
+  // &.mock-focus {
+  //   @include hds-button-state-focus();
+  // }
 
   &:disabled,
   &.mock-disabled,
