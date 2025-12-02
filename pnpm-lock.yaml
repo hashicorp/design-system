@@ -824,6 +824,9 @@ importers:
       '@tsconfig/ember':
         specifier: ^3.0.10
         version: 3.0.11
+      '@types/ember-cli-fastboot':
+        specifier: ^2.2.6
+        version: 2.2.6
       '@types/qunit':
         specifier: ^2.19.12
         version: 2.19.12
@@ -3585,6 +3588,9 @@ packages:
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
+
+  '@types/ember-cli-fastboot@2.2.6':
+    resolution: {integrity: sha512-zyXMLlIoC28rAlIof9e71RUxb/Ka5JTdlKqGd0QnNF2W3GgPRUQZzr1hK3CJLNJr9N2ecFEM4ew2qduxDynhGg==}
 
   '@types/ember@3.16.14':
     resolution: {integrity: sha512-m3fM87W1J75ri9Uu79hzKimiAhxdAF3dZyzmwGrf4OPPQp3yt2L9uHAkwmMIxstk4F1rBWG/SHJOnvlqif23Rw==}
@@ -15157,6 +15163,10 @@ snapshots:
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 0.7.34
+
+  '@types/ember-cli-fastboot@2.2.6':
+    dependencies:
+      '@types/ember__service': 3.16.9
 
   '@types/ember@3.16.14':
     dependencies:
