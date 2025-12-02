@@ -19,6 +19,7 @@ import type { EditorView as EditorViewType } from '@codemirror/view';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 
 import hdsCodeEditor from '@hashicorp/design-system-components/modifiers/hds-code-editor';
+import { EditorView } from '@hashicorp/design-system-components/codemirror';
 import type { HdsCodeEditorSignature } from '@hashicorp/design-system-components/modifiers/hds-code-editor';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
@@ -339,10 +340,6 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
   // customExtensions
   test('it should load custom extensions provided via the customExtensions argument', async function (assert) {
-    const { EditorView } = await import(
-      '@hashicorp/design-system-components/codemirror'
-    );
-
     const customClassName = 'my-custom-test-class';
 
     // create a simple extension that adds a specific class to the editor's wrapper element.
