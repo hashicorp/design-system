@@ -4,9 +4,9 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import FormRadioCardCarbonization from 'showcase/components/page-carbonization/components/form/radio-card';
+import FormRadioCardCarbonizationIndex from 'showcase/components/page-carbonization/components/form/radio-card/index';
 
 const PageComponentsFormRadioCardCarbonization: TemplateOnlyComponent =
-  <template><FormRadioCardCarbonization /></template>;
+  <template><FormRadioCardCarbonizationIndex /></template>;
 
 export default PageComponentsFormRadioCardCarbonization;
