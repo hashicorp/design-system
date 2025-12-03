@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { get, fn } from '@ember/helper';
@@ -12,6 +11,7 @@ import style from 'ember-style-modifier/modifiers/style';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import RUNS from 'showcase/mocks/run-data';
+import type { Run } from 'showcase/mocks/run-data';
 
 // HDS components
 import {
@@ -24,7 +24,6 @@ import {
   HdsFormToggleField,
   HdsTextBody,
   HdsTextDisplay,
-  type HdsAdvancedTableOnSelectionChangeSignature,
   type HdsFilterBarNumericalFilter,
   type HdsFilterBarDateFilter,
   type HdsFilterBarSingleSelectFilter,
@@ -34,7 +33,6 @@ import {
   type HdsFilterBarGenericFilter,
 } from '@hashicorp/design-system-components/components';
 
-import type { HdsAdvancedTableSignature } from '@hashicorp/design-system-components/components/hds/advanced-table/index';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 export interface MockAppMainGenericAdvancedTableFilteringSignature {
@@ -42,15 +40,16 @@ export interface MockAppMainGenericAdvancedTableFilteringSignature {
 }
 
 const RUNS_VALUES = {
-  name: Array.from(new Set(RUNS.map((item) => item['name']))).map(
-    (value) => ({ value, label: value }),
-  ),
+  name: Array.from(new Set(RUNS.map((item) => item['name']))).map((value) => ({
+    value,
+    label: value,
+  })),
   'project-name': Array.from(
     new Set(RUNS.map((item) => item['project-name'])),
   ).map((value) => ({ value, label: value })),
-  'run-status': Array.from(
-    new Set(RUNS.map((item) => item['run-status'])),
-  ).map((value) => ({ value, label: value })),
+  'run-status': Array.from(new Set(RUNS.map((item) => item['run-status']))).map(
+    (value) => ({ value, label: value }),
+  ),
   'terraform-version': Array.from(
     new Set(RUNS.map((item) => item['terraform-version'])),
   ).map((value) => ({ value, label: value })),
@@ -157,65 +156,17 @@ const CUSTOM_FILTER = {
   },
 } as HdsFilterBarGenericFilter;
 
-const updateModelWithSelectAllState = (
-  modelData: HdsAdvancedTableSignature['Args']['model'],
-  selectAllState: boolean,
-) => {
-  modelData.forEach((modelRow) => {
-    modelRow['isSelected'] = selectAllState;
-  });
-};
-
-const updateModelWithSelectableRowsStates = (
-  modelData: HdsAdvancedTableSignature['Args']['model'],
-  selectableRowsStates: HdsAdvancedTableOnSelectionChangeSignature['selectableRowsStates'],
-) => {
-  const modelDataMap = new Map(
-    modelData.map((modelRow) => [modelRow['id'], modelRow]),
-  );
-  selectableRowsStates.forEach((row) => {
-    // safe to assume that there is always a record for the "selectionKey" since it's coming from the model (the selectable "rows" are a subset of the model dataset)
-    const rowFromModel = modelDataMap.get(row.selectionKey);
-    if (rowFromModel) {
-      rowFromModel['isSelected'] = row.isSelected;
-    }
-  });
-};
-
 export default class MockAppMainGenericAdvancedTableFiltering extends Component<MockAppMainGenericAdvancedTableFilteringSignature> {
-  demoColumns = SAMPLE_COLUMNS;
-  @deepTracked demoModel: HdsAdvancedTableSignature['Args']['model'] = [
-    ...RUNS,
-  ];
   @deepTracked filters: HdsFilterBarSignature['Args']['filters'] = {};
   @tracked isSeparatedFilterBar = false;
   @tracked isLiveFilter = false;
-
-  @action onSelectionChange({
-    selectionKey,
-    selectionCheckboxElement,
-    selectableRowsStates,
-  }: HdsAdvancedTableOnSelectionChangeSignature) {
-    // eslint-disable-next-line prefer-rest-params
-    console.log(...arguments);
-
-    if (selectionKey === 'all' && this.demoModel) {
-      const state = selectionCheckboxElement
-        ? selectionCheckboxElement.checked
-        : false;
-
-      updateModelWithSelectAllState(this.demoModel, state);
-    } else {
-      updateModelWithSelectableRowsStates(this.demoModel, selectableRowsStates);
-    }
-  }
 
   onFilter = (filters: HdsFilterBarSignature['Args']['filters']) => {
     this.filters = filters;
   };
 
-  get demoModelFilteredData() {
-    const filterItem = (item: Record<string, unknown>): boolean => {
+  get filteredData() {
+    const filterItem = (item: Run): boolean => {
       if (Object.keys(this.filters).length === 0) return true;
       let match = true;
       Object.keys(this.filters).forEach((key) => {
@@ -225,17 +176,21 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
             case 'date':
             case 'datetime':
             case 'time':
-              if (!this.isDateFilterMatch(item[key], filter)) {
+              if (!this.isDateFilterMatch(item[key as keyof Run], filter)) {
                 match = false;
               }
               break;
             case 'numerical':
-              if (!this.isNumericalFilterMatch(item[key], filter)) {
+              if (
+                !this.isNumericalFilterMatch(item[key as keyof Run], filter)
+              ) {
                 match = false;
               }
               break;
             case 'single-select':
-              if (!this.isSingleSelectFilterMatch(item[key], filter)) {
+              if (
+                !this.isSingleSelectFilterMatch(item[key as keyof Run], filter)
+              ) {
                 match = false;
               }
               break;
@@ -245,12 +200,14 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
               }
               break;
             case 'generic':
-              if (!this.isGenericFilterMatch(item[key], filter)) {
+              if (!this.isGenericFilterMatch(item[key as keyof Run], filter)) {
                 match = false;
               }
               break;
             default:
-              if (!this.isMultiSelectFilterMatch(item[key], filter)) {
+              if (
+                !this.isMultiSelectFilterMatch(item[key as keyof Run], filter)
+              ) {
                 match = false;
               }
           }
@@ -259,12 +216,12 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
       return match;
     };
 
-    const filteredData = this.demoModel.filter(filterItem);
-    return filteredData;
+    const filteredData = RUNS.filter(filterItem);
+    return filteredData as unknown as Record<string, unknown>[];
   }
 
   get noFilterData() {
-    return this.demoModelFilteredData.length === 0;
+    return this.filteredData.length === 0;
   }
 
   isNumericalFilterMatch(
@@ -363,13 +320,10 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
     return filterValues.includes(itemValue);
   }
 
-  isSearchFilterMatch(
-    item: Record<string, unknown>,
-    filter: HdsFilterBarSearchFilter,
-  ): boolean {
+  isSearchFilterMatch(item: Run, filter: HdsFilterBarSearchFilter): boolean {
     let match = false;
     Object.keys(item).forEach((key) => {
-      const itemValue = item[key];
+      const itemValue = item[key as keyof Run];
       const filterValue = filter.data.value;
       if (
         typeof itemValue === 'string' &&
@@ -540,12 +494,10 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
     {{/if}}
 
     <HdsAdvancedTable
-      @columns={{this.demoColumns}}
-      @model={{this.demoModelFilteredData}}
+      @columns={{SAMPLE_COLUMNS}}
+      @model={{this.filteredData}}
       @maxHeight="600px"
-      @isSelectable={{true}}
       @isStriped={{true}}
-      @onSelectionChange={{this.onSelectionChange}}
       @hasStickyFirstColumn={{true}}
       @isEmpty={{this.noFilterData}}
     >
@@ -611,10 +563,7 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
                 @type="single-select"
                 as |F|
               >
-                {{#each
-                  (get RUNS_VALUES "terraform-version")
-                  as |option|
-                }}
+                {{#each (get RUNS_VALUES "terraform-version") as |option|}}
                   <F.Radio @value={{option.value}} @label={{option.label}} />
                 {{/each}}
               </D.FilterGroup>

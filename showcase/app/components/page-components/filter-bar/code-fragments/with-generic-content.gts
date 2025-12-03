@@ -9,6 +9,7 @@ import { get } from '@ember/object';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 import { HdsFilterBar } from '@hashicorp/design-system-components/components';
+import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 const FILTERS = {
   'single-select': {
@@ -18,8 +19,8 @@ const FILTERS = {
       data: {
         value: '1',
         label: 'Option 1',
-      }
-    }
+      },
+    },
   },
   'multi-select': {
     'multi-select': {
@@ -28,17 +29,17 @@ const FILTERS = {
       data: [
         { value: '1', label: 'Option 1' },
         { value: '2', label: 'Option 2' },
-      ]
-    }
+      ],
+    },
   },
-  'numerical': {
-    'numerical': {
+  numerical: {
+    numerical: {
       type: 'numerical',
       text: 'Numerical',
       data: {
         selector: 'less-than',
         value: 10,
-      }
+      },
     },
     'numerical-2': {
       type: 'numerical',
@@ -46,7 +47,7 @@ const FILTERS = {
       data: {
         selector: 'less-than-or-equal-to',
         value: 10,
-      }
+      },
     },
     'numerical-3': {
       type: 'numerical',
@@ -54,7 +55,7 @@ const FILTERS = {
       data: {
         selector: 'equal-to',
         value: 10,
-      }
+      },
     },
     'numerical-4': {
       type: 'numerical',
@@ -62,7 +63,7 @@ const FILTERS = {
       data: {
         selector: 'greater-than',
         value: 10,
-      }
+      },
     },
     'numerical-5': {
       type: 'numerical',
@@ -70,17 +71,17 @@ const FILTERS = {
       data: {
         selector: 'greater-than-or-equal-to',
         value: 10,
-      }
-    }
+      },
+    },
   },
-  'date': {
-    'date': {
+  date: {
+    date: {
       type: 'date',
       text: 'Date',
       data: {
         selector: 'before',
         value: '2025-01-01',
-      }
+      },
     },
     'date-2': {
       type: 'date',
@@ -88,7 +89,7 @@ const FILTERS = {
       data: {
         selector: 'exactly',
         value: '2025-01-01',
-      }
+      },
     },
     'date-3': {
       type: 'date',
@@ -96,7 +97,7 @@ const FILTERS = {
       data: {
         selector: 'after',
         value: '2025-01-01',
-      }
+      },
     },
     'date-4': {
       type: 'date',
@@ -106,18 +107,18 @@ const FILTERS = {
         value: {
           start: '2024-01-01',
           end: '2025-01-01',
-        }
-      }
-    }
+        },
+      },
+    },
   },
-  'time': {
-    'time': {
+  time: {
+    time: {
       type: 'time',
       text: 'Time',
       data: {
         selector: 'before',
         value: '12:00',
-      }
+      },
     },
     'time-2': {
       type: 'time',
@@ -125,7 +126,7 @@ const FILTERS = {
       data: {
         selector: 'exactly',
         value: '12:00',
-      }
+      },
     },
     'time-3': {
       type: 'time',
@@ -133,7 +134,7 @@ const FILTERS = {
       data: {
         selector: 'after',
         value: '12:00',
-      }
+      },
     },
     'time-4': {
       type: 'time',
@@ -143,18 +144,18 @@ const FILTERS = {
         value: {
           start: '10:00',
           end: '12:00',
-        }
-      }
-    }
+        },
+      },
+    },
   },
-  'datetime': {
-    'datetime': {
+  datetime: {
+    datetime: {
       type: 'datetime',
       text: 'Datetime',
       data: {
         selector: 'before',
         value: '2025-01-01T12:00',
-      }
+      },
     },
     'datetime-2': {
       type: 'datetime',
@@ -162,7 +163,7 @@ const FILTERS = {
       data: {
         selector: 'exactly',
         value: '2025-01-01T12:00',
-      }
+      },
     },
     'datetime-3': {
       type: 'datetime',
@@ -170,7 +171,7 @@ const FILTERS = {
       data: {
         selector: 'after',
         value: '2025-01-01T12:00',
-      }
+      },
     },
     'datetime-4': {
       type: 'datetime',
@@ -180,30 +181,30 @@ const FILTERS = {
         value: {
           start: '2024-01-01T10:00',
           end: '2025-01-01T12:00',
-        }
-      }
-    }
+        },
+      },
+    },
   },
-  'generic': {
-    'generic': {
+  generic: {
+    generic: {
       type: 'generic',
       text: 'Generic',
       dismissTagText: 'lorem ipsum',
       data: {
-        value: 'lorem ipsum'
+        value: 'lorem ipsum',
       },
-    }
+    },
   },
-  'search': {
-    'search': {
+  search: {
+    search: {
       type: 'search',
       text: 'Search',
       data: {
         value: 'lorem ipsum',
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 
 export interface CodeFragmentWithGenericContentSignature {
   Args: {
@@ -216,12 +217,12 @@ export interface CodeFragmentWithGenericContentSignature {
 }
 
 export default class CodeFragmentWithGenericContent extends Component<CodeFragmentWithGenericContentSignature> {
-  get filters() {
+  get filters(): HdsFilterBarSignature['Args']['filters'] {
+    let filters = {};
     if (this.args.appliedFiltersType) {
-      return get(FILTERS, this.args.appliedFiltersType) ?? {};
-    } else {
-      return {};
+      filters = get(FILTERS, this.args.appliedFiltersType) ?? {};
     }
+    return filters as HdsFilterBarSignature['Args']['filters'];
   }
 
   <template>
