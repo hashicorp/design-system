@@ -8,6 +8,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
 import { eq } from 'ember-truth-helpers';
+import { on } from '@ember/modifier';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -164,13 +165,18 @@ export default class FormRadioCardCarbonizationIndex extends Component {
             as |G|
           >
             <G.Legend>This is the group legend</G.Legend>
-            <G.RadioCard @checked={{true}} @value="1" as |R|>
+            <G.RadioCard
+              @checked={{true}}
+              @value="1"
+              {{on "change" this.onChange}}
+              as |R|
+            >
               <R.Icon @name="hexagon" />
               <R.Label>Radio card label 1</R.Label>
               <R.Badge @text="Badge" />
               <R.Description>Radio card description 1</R.Description>
             </G.RadioCard>
-            <G.RadioCard @value="2" as |R|>
+            <G.RadioCard @value="2" {{on "change" this.onChange}} as |R|>
               <R.Icon @name="hexagon" />
               <R.Label>Radio card label 2</R.Label>
               <R.Badge @text="Badge" />
@@ -213,13 +219,18 @@ export default class FormRadioCardCarbonizationIndex extends Component {
           >
             <G.Legend>This is the group legend</G.Legend>
             <G.HelperText>This is the group helper text</G.HelperText>
-            <G.RadioCard @checked={{true}} @value="1" as |R|>
+            <G.RadioCard
+              @checked={{true}}
+              @value="1"
+              {{on "change" this.onChange}}
+              as |R|
+            >
               <R.Icon @name="hexagon" />
               <R.Label>Radio card label 1</R.Label>
               <R.Badge @text="Badge" />
               <R.Description>Radio card description 1</R.Description>
             </G.RadioCard>
-            <G.RadioCard @value="2" as |R|>
+            <G.RadioCard @value="2" {{on "change" this.onChange}} as |R|>
               <R.Icon @name="hexagon" />
               <R.Label>Radio card label 2</R.Label>
               <R.Badge @text="Badge" />
@@ -266,13 +277,18 @@ export default class FormRadioCardCarbonizationIndex extends Component {
               @controlPosition={{position}}
               as |G|
             >
-              <G.RadioCard @checked={{true}} @value="1" as |R|>
+              <G.RadioCard
+                @checked={{true}}
+                @value="1"
+                {{on "change" this.onChange}}
+                as |R|
+              >
                 <R.Icon @name="hexagon" />
                 <R.Label>Radio card label 1</R.Label>
                 <R.Badge @text="Badge" />
                 <R.Description>Radio card description 1</R.Description>
               </G.RadioCard>
-              <G.RadioCard @value="2" as |R|>
+              <G.RadioCard @value="2" {{on "change" this.onChange}} as |R|>
                 <R.Icon @name="hexagon" />
                 <R.Label>Radio card label 2</R.Label>
                 <R.Badge @text="Badge" />
@@ -318,13 +334,18 @@ export default class FormRadioCardCarbonizationIndex extends Component {
               @alignment={{alignment}}
               as |G|
             >
-              <G.RadioCard @checked={{true}} @value="1" as |R|>
+              <G.RadioCard
+                @checked={{true}}
+                @value="1"
+                {{on "change" this.onChange}}
+                as |R|
+              >
                 <R.Icon @name="hexagon" />
                 <R.Label>Radio card label 1</R.Label>
                 <R.Badge @text="Badge" />
                 <R.Description>Radio card description 1</R.Description>
               </G.RadioCard>
-              <G.RadioCard @value="2" as |R|>
+              <G.RadioCard @value="2" {{on "change" this.onChange}} as |R|>
                 <R.Icon @name="hexagon" />
                 <R.Label>Radio card label 2</R.Label>
                 <R.Badge @text="Badge" />
@@ -373,13 +394,18 @@ export default class FormRadioCardCarbonizationIndex extends Component {
               @layout={{layout}}
               as |G|
             >
-              <G.RadioCard @checked={{true}} @value="1" as |R|>
+              <G.RadioCard
+                @checked={{true}}
+                @value="1"
+                {{on "change" this.onChange}}
+                as |R|
+              >
                 <R.Icon @name="hexagon" />
                 <R.Label>Radio card label 1</R.Label>
                 <R.Badge @text="Badge" />
                 <R.Description>Radio card description 1</R.Description>
               </G.RadioCard>
-              <G.RadioCard @value="2" as |R|>
+              <G.RadioCard @value="2" {{on "change" this.onChange}} as |R|>
                 <R.Icon @name="hexagon" />
                 <R.Label>Radio card label 2</R.Label>
                 <R.Badge @text="Badge" />
