@@ -138,6 +138,7 @@
 
 // entire toggle area is interactive
 .hds-accordion-item__button--parent-does-not-contain-interactive {
+  // Pseudo element is used to make entire AccordionItemToggle area interactive (vs. just its nested button) and to style the focus ring accordingly
   @include hds-focus-ring-with-pseudo-element(
     $top: var(--hds-accordion-item-focus-ring-offset),
     $right: var(--hds-accordion-item-focus-ring-offset),
