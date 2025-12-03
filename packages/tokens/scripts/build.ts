@@ -37,31 +37,33 @@ const distFolder = path.resolve(__dirname, '../dist');
 for (const mode of modes) {
   StyleDictionary.registerPreprocessor({
     name: `replace-value-for-mode-${mode}`,
-    preprocessor: (dictionary, _options) => {
+    preprocessor: (dictionary, options) => {
+      // we get the `buildPath` from the `PlatformConfig` option
+      const buildPath = (options as any).buildPath;
       // recursively traverse token objects and replace the `$value` with the corresponding colocated `$modes` theme value
       // note: the `slice` is always an object (a token or a parent group)
-      function replaceModes(slice: DesignToken) {
+      function replaceModes(slice: DesignToken, tokenPath: string[]) {
         if (slice.$modes) {
           if (mode in slice.$modes) {
             // extra validation to catch instances where the `default` mode value is different from the `$value`
             if (mode === 'default' && slice.$modes[mode] !== slice.$value) {
-              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - File: ${slice.filePath}`);
+              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${path.join('.')}}' with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
             }
             slice.$value = slice.$modes[mode];
           } else {
             // we want to interrupt the execution of the script if one of the expected modes is missing
-            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token without '${mode}' value - ${JSON.stringify(slice, null, 2)}`);
+            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${path.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${path.join('.')} - ${JSON.stringify(slice, null, 2)}`);
           }
         } else {
-            Object.values(slice).forEach((value) => {
+            Object.entries(slice).forEach(([key, value]) => {
               if (typeof value === 'object') {
-                replaceModes(value);
+                replaceModes(value, [...tokenPath, key]);
               }
             });
         }
         return slice;
       }
-      return replaceModes(dictionary);
+      return replaceModes(dictionary, []);
     },
   });
 }
