@@ -12,8 +12,8 @@ const path = require('path');
 const walkSync = require('walk-sync');
 
 const demoBlockRegex =
-  /\[\[demo:\s*([^\]]+\.hbs)(?:\s+execute=(true|false))?\s*\]\]/g;
-const fileNameRegex = /(components\/.*?)\.hbs$/;
+  /\[\[demo:\s*([^\]\s]+\.(?:hbs|gts|js))(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?\s*\]\]/g;
+const fileNameRegex = /(components\/.*?)\.(?:hbs|gts|js)$/;
 
 // Helper to escape code for attribute usage
 function escapeCode(code) {
@@ -46,8 +46,17 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
       let dependencies = [fullInputPath];
       markdownFileContent = markdownFileContent.replace(
         demoBlockRegex,
-        (_match, fileName, shouldExecute, _content) => {
+        (
+          _match,
+          fileName,
+          shouldExecute,
+          shouldIncludeBackingClass,
+          _content,
+        ) => {
           const demoFilePath = path.join(fullParentFolder, fileName.trim());
+          const fileNameToForward = demoFilePath.match(fileNameRegex)?.[1];
+          const shouldHidePreview = shouldExecute === 'false' ? true : false;
+
           let code = '';
           if (fs.existsSync(demoFilePath)) {
             code = fs.readFileSync(demoFilePath, 'utf8');
@@ -56,23 +65,44 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             code = `// Unable to load file: ${fileName}, path: ${demoFilePath}`;
           }
           const escapedCode = escapeCode(code);
+          let escapedHbsCode = '';
+          let escapedGtsCode = '';
+          let escapedJsCode = '';
 
-          const gtsFileName = fileName
-            .trim()
-            .replace(/\.hbs$/, '-component.gts');
-          const gtsFilePath = path.join(fullParentFolder, gtsFileName);
-          let gtsCode = '';
-          if (fs.existsSync(gtsFilePath)) {
-            gtsCode = fs.readFileSync(gtsFilePath, 'utf8');
-            dependencies.push(gtsFilePath);
+          const isJsFile = fileName.trim().endsWith('.js');
+
+          if (isJsFile) {
+            escapedJsCode = escapedCode;
           } else {
-            gtsCode = `// Unable to load file: ${gtsFileName}, path: ${gtsFilePath}`;
-          }
-          const escapedGtsCode = escapeCode(gtsCode);
-          const fileNameToForward = demoFilePath.match(fileNameRegex)?.[1];
-          const shouldHidePreview = shouldExecute === 'false' ? true : false;
+            escapedHbsCode = escapedCode;
+            const gtsFileName = fileName
+              .trim()
+              .replace(/\.hbs$/, '-component.gts');
+            const gtsFilePath = path.join(fullParentFolder, gtsFileName);
+            let gtsCode = '';
+            if (fs.existsSync(gtsFilePath)) {
+              gtsCode = fs.readFileSync(gtsFilePath, 'utf8');
+              dependencies.push(gtsFilePath);
+            } else {
+              gtsCode = `// Unable to load file: ${gtsFileName}, path: ${gtsFilePath}`;
+            }
+            escapedGtsCode = escapeCode(gtsCode);
 
-          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${escapedCode}" gts="${escapedGtsCode}" hidePreview="${shouldHidePreview}" ?><?php end="demo-block" ?>\n`;
+            if (shouldIncludeBackingClass === 'true') {
+              const jsFileName = fileName.trim().replace(/\.hbs$/, '.js');
+              const jsFilePath = path.join(fullParentFolder, jsFileName);
+              let jsCode = '';
+              if (fs.existsSync(jsFilePath)) {
+                jsCode = fs.readFileSync(jsFilePath, 'utf8');
+                dependencies.push(jsFilePath);
+              } else {
+                jsCode = `// Unable to load file: ${jsFileName}, path: ${jsFilePath}`;
+              }
+              escapedJsCode = escapeCode(jsCode);
+            }
+          }
+
+          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${escapedHbsCode}" gts="${escapedGtsCode}" hidePreview="${shouldHidePreview}" js="${escapedJsCode}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
@@ -96,7 +126,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
 
 module.exports = function (folder) {
   const sourceMarkdownFunnel = new Funnel(folder, {
-    include: ['**/*.md', '**/*.hbs', '**/*.gts'],
+    include: ['**/*.md', '**/*.hbs', '**/*.gts', '**/*.js'],
   });
 
   const processedTree = new MarkdownReplaceDemoBlocks([sourceMarkdownFunnel]);

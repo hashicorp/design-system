@@ -52,14 +52,14 @@ export const contentBlocks = function () {
       );
 
       const demoRegex = new RegExp(
-        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" gts="(.*?)" hidePreview="(.*?)" \?>\n?/,
+        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" gts="(.*?)" hidePreview="(.*?)" js="(.*?)" \?>\n?/,
         'g',
       );
 
       text = text.replace(
         demoRegex,
-        function (_match, filename, hbs, gts, hidePreview) {
-          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @gtsSnippet="${gts}" @hidePreview="${hidePreview}">\n`;
+        function (_match, filename, hbs, gts, hidePreview, js) {
+          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @gtsSnippet="${gts}" @hidePreview="${hidePreview}" @jsSnippet="${js}">\n`;
         },
       );
 
