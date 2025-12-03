@@ -1,8 +1,7 @@
 ---
 title: Filter Bar
-description: >-
-  TBD
-caption: TBD
+description: A composition of HDS components to support filtering a data set.
+caption: A composition of HDS components to support filtering a data set.
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67385-76599&t=w8xQlWxzH7bwXLe2-1
@@ -15,6 +14,8 @@ previewImage: assets/illustrations/components/filter-bar.jpg
 navigation:
   keywords:
     - filtering
+status:
+  added: 5.2.0
 ---
 
 <section data-tab="Guidelines">
