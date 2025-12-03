@@ -40,15 +40,20 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             'cds-original-value': value
           };
         case 'cubic-bezier':
-          return {
-            // TODO convert to `cubicBezier` per DTCG specifications when we are sure that Style Dictionary process it correctly
-            // see: https://www.designtokens.org/tr/drafts/format/#cubic-bezier
-            '$type': 'cubic-bezier',
-            '$value': value,
-            'group': group || 'cds-generic-cubic-bezier',
-            'private': true,
-            'cds-original-value': value
-          };
+          const convertedCubicBezierValue = convertCubicBezierValue(value);
+          if (convertedCubicBezierValue !== undefined) {
+            return {
+              // see: https://www.designtokens.org/tr/drafts/format/#cubic-bezier
+              '$type': 'cubicBezier',
+              '$value': convertedCubicBezierValue.$value,
+              'group': group || 'cds-generic-cubic-bezier',
+              'private': true,
+              'cds-original-value': value
+            };
+          } else {
+            const unknownCubicBezierToken = returnUnknownToken(value, `🚨 convertCubicBezierValue: value for key "${key}" / group "${group}" is not in the expected format:`);
+            return unknownCubicBezierToken;
+          }
         case 'duration':
           const convertedDurationValue = convertDurationValue(value);
           if (convertedDurationValue !== undefined) {
@@ -157,11 +162,27 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
   }
 }
 
+function convertCubicBezierValue(value: string) {
+  // eg. `cubic-bezier(0.2, 0, 0.38, 0.9)`
+  const match = value.match(/^cubic-bezier\((.*)\)$/);
+  if (match) {
+    const $value = `[${match[1]}]`;
+    return { $value };
+  } else {
+    return undefined;
+  }
+}
+
 function convertDurationValue(value: string) {
   const match = value.match(/^(\d+)(s|ms)$/);
   if (match) {
-    const $value = Number(match[1]);
-    const unit = match[2];
+    let $value = Number(match[1]);
+    let unit = match[2];
+    // we want to standardize the unit to "seconds"
+    if (unit === 'ms') {
+      $value = $value / 1000;
+      unit = 's';
+    }
     return { $value, unit };
   } else {
     return undefined;
