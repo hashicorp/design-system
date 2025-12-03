@@ -73,7 +73,7 @@ const CdsRadioTileContent: TemplateOnlyComponent<CdsRadioTileContentSignature> =
     </div>
   </template>;
 
-export default class FormRadioCardCarbonization extends Component {
+export default class FormRadioCardCarbonizationIndex extends Component {
   onChange = (event: Event) => {
     const control = event.target as HTMLInputElement;
     const group = control.closest('.hds-form-group__control-fields-wrapper');
