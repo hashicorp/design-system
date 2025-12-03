@@ -1,5 +1,9 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+## December 4th, 2025
+
+`Breadcrumb` - Fixed a bug that caused the text styles in the default state of the Breadcrumb Item to detach.
+
 ## November 5th, 2025
 
 This changelog corresponds with the [5.0](/whats-new/release-notes#500) release.
