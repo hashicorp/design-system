@@ -57,7 +57,7 @@ const HDS_CARBON_STYLES_MAPPING: Record<string, StyleMapping> = {
   },
 };
 
-const TypographyCarbonization: TemplateOnlyComponent = <template>
+const TypographyCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Typography - Carbonization"}}
 
   <ShwTextH1>Typography - Carbonization</ShwTextH1>
@@ -100,4 +100,4 @@ const TypographyCarbonization: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default TypographyCarbonization;
+export default TypographyCarbonizationIndex;

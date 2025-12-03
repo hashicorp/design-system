@@ -22,7 +22,7 @@ import {
   TYPES,
 } from '@hashicorp/design-system-components/components/hds/badge/index';
 
-const BadgeCarbonization: TemplateOnlyComponent = <template>
+const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Badge - Carbonization"}}
 
   <ShwTextH1>Badge - Carbonization</ShwTextH1>
@@ -346,4 +346,4 @@ const BadgeCarbonization: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default BadgeCarbonization;
+export default BadgeCarbonizationIndex;
