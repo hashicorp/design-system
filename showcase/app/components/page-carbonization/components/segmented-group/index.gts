@@ -23,7 +23,7 @@ const TEXT_INPUT_TYPES: HdsFormTextInputTypes[] = [
   'password',
 ];
 
-const SegmentedGroupCarbonization: TemplateOnlyComponent = <template>
+const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "SegmentedGroup - Carbonization"}}
 
   <ShwTextH1>SegmentedGroup - Carbonization</ShwTextH1>
@@ -482,4 +482,4 @@ const SegmentedGroupCarbonization: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default SegmentedGroupCarbonization;
+export default SegmentedGroupCarbonizationIndex;

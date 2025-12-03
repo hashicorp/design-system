@@ -40,7 +40,7 @@ const mapHdsColorToCdsKind = helper(function ([color]: HdsButtonColors) {
   return MAPPING_HDS_COLOR_TO_CDS_KIND[color];
 });
 
-const ButtonCarbonization: TemplateOnlyComponent = <template>
+const ButtonCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Button - Carbonization"}}
 
   <ShwTextH1>Button - Carbonization</ShwTextH1>
@@ -255,4 +255,4 @@ const ButtonCarbonization: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default ButtonCarbonization;
+export default ButtonCarbonizationIndex;
