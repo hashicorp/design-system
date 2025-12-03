@@ -42,13 +42,36 @@ Use the `standalone` variant when a data set is rendered in formats other than a
 
 ## Expand & collapse
 
+- The Filter Bar supports expanding and collapsing the applied filters section
+- This can simplify the visual noise around the data set, especially when many filters are applied
+- When no filters are applied, the Filter Bar is collapsed by default. Otherwise, if the Filter Bar is expanded, the applied filters will display an empty state.
+- The Filter Bar expands automatically when one or more filters are applied
+
 ## Search
 
 ## Bulk actions
 
+The Filter Bar supports bulk actions corresponding with our recommendations for [multi-select](/patterns/table-multi-select) within a table, and can be used to perform bulk actions such as edit, delete, and different types of selection across the data set.
+
+![Example of bulk actions]()
+
 ## Generic content
 
+If custom functionality is needed for manipulating the view or contents of the data set, a generic block is grouped with the bulk actions in the Filter Bar. We aren't presecriptive about what can be passed to this generic block, but it should generally be limited to additional actions (as [Buttons](/components/button)) and [Dropdowns](/components/dropdown) with multiple grouped actions.
+
+![Example of generic content]()
+
 ## Applied filters
+
+Applied filters are represented within a [Tag](/components/tag) displaying the filter parameter (the category or column the filter corresponds to) and the filter value (corresponding with the specific cell content).
+
+![](/assets/components/filter-bar/filter-bar-tag-example.png)
+
+<!-- Include information about how/if this can be customized -->
+
+### Tag truncation
+
+<!-- Consider whether it's useful to include something like this -->
 
 ## Filter dropdown
 
@@ -71,4 +94,6 @@ Use the `standalone` variant when a data set is rendered in formats other than a
 ## Applying Filters
 
 ## Clearing filters
+
+## Empty state
 
