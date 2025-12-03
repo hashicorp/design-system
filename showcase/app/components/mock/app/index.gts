@@ -11,6 +11,7 @@ import MockAppSidebarOldSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
 import MockAppMainGenericTextContent from './main/generic-text-content';
 import MockAppMainGenericAdvancedTable from './main/generic-advanced-table';
+import MockAppMainGenericAdvancedTableFiltering from './main/generic-advanced-table-filtering';
 import MockAppFooterAppFooter from './footer/app-footer';
 
 // HDS components
@@ -25,6 +26,7 @@ import type { MockAppSidebarOldSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
 import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
 import type { MockAppMainGenericAdvancedTableSignature } from './main/generic-advanced-table';
+import type { MockAppMainGenericAdvancedTableFilteringSignature } from './main/generic-advanced-table-filtering';
 import type { MockAppFooterAppFooterSignature } from './footer/app-footer';
 
 export interface MockAppSignature {
@@ -52,6 +54,7 @@ export interface MockAppSignature {
         PageHeader?: ComponentLike<MockAppMainPageHeaderSignature>;
         GenericTextContent?: ComponentLike<MockAppMainGenericTextContentSignature>;
         GenericAdvancedTable?: ComponentLike<MockAppMainGenericAdvancedTableSignature>;
+        GenericAdvancedTableFiltering?: ComponentLike<MockAppMainGenericAdvancedTableFilteringSignature>;
       },
     ];
     footer?: [
@@ -98,6 +101,7 @@ export default class MockApp extends Component<MockAppSignature> {
               PageHeader=MockAppMainPageHeader
               GenericTextContent=MockAppMainGenericTextContent
               GenericAdvancedTable=MockAppMainGenericAdvancedTable
+              GenericAdvancedTableFiltering=MockAppMainGenericAdvancedTableFiltering
             )
             to="main"
           }}
