@@ -29,7 +29,7 @@ const colorToIconMap: Record<
   critical: 'alert-diamond',
 };
 
-const ModalCarbonization: TemplateOnlyComponent = <template>
+const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Modal - Carbonization"}}
 
   <ShwTextH1>Modal - Carbonization</ShwTextH1>
@@ -427,4 +427,4 @@ const ModalCarbonization: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default ModalCarbonization;
+export default ModalCarbonizationIndex;
