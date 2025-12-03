@@ -112,7 +112,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
             </div>
           </:theming>
           <:reference>
-            <cds-radio-tile>
+            <cds-radio-tile disabled={{eq state "disabled"}}>
               <CdsRadioTileContent @showIcon={{true}} />
             </cds-radio-tile>
           </:reference>
@@ -141,7 +141,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
             </div>
           </:theming>
           <:reference>
-            <cds-radio-tile selected="">
+            <cds-radio-tile selected="" disabled={{eq state "disabled"}}>
               <CdsRadioTileContent @showIcon={{true}} />
             </cds-radio-tile>
           </:reference>
