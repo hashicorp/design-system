@@ -19,7 +19,7 @@ The Filter Bar component is a successor to the [Filter pattern](/patterns/filter
 
 !!! Callout
 
-While the Filter Bar underwent rigorous research and testing, this component is relatively complex compared other Components in the the HDS library. If specific funcionality or filtering methods don't meet your needs, please [contact the Design Systems Team](/about/support) so we can provide support.
+While the Filter Bar underwent rigorous research and testing, this component is relatively complex compared other Components in the the HDS library. If specific functionality or filtering methods don't meet your needs, please [contact the Design Systems Team](/about/support) so we can provide support.
 !!!
 
 ## Type
@@ -57,7 +57,7 @@ The Filter Bar supports bulk actions corresponding with our recommendations for 
 
 ## Generic content
 
-If custom functionality is needed for manipulating the view or contents of the data set, a generic block is grouped with the bulk actions in the Filter Bar. We aren't presecriptive about what can be passed to this generic block, but it should generally be limited to additional actions (as [Buttons](/components/button)) and [Dropdowns](/components/dropdown) with multiple grouped actions.
+If custom functionality is needed for manipulating the view or contents of the data set, a generic block is grouped with the bulk actions in the Filter Bar. We aren't prescriptive about what can be passed to this generic block, but it should generally be limited to additional actions (as [Buttons](/components/button)) and [Dropdowns](/components/dropdown) with multiple grouped actions.
 
 ![Example of generic content]()
 
