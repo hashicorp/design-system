@@ -158,8 +158,11 @@ export default class FormRadioCardCarbonizationIndex extends Component {
         @label="With standard content"
         @sideBySide={{true}}
       >
-        <:theming>
-          <HdsFormRadioCardGroup @name="radio-card-group-default" as |G|>
+        <:theming as |T|>
+          <HdsFormRadioCardGroup
+            @name="radio-card-group-default--{{T.context}}"
+            as |G|
+          >
             <G.Legend>This is the group legend</G.Legend>
             <G.RadioCard @checked={{true}} @value="1" as |R|>
               <R.Icon @name="hexagon" />
@@ -202,9 +205,9 @@ export default class FormRadioCardCarbonizationIndex extends Component {
         @label="With helper text, required, error"
         @sideBySide={{true}}
       >
-        <:theming>
+        <:theming as |T|>
           <HdsFormRadioCardGroup
-            @name="radio-card-group-with-extra-elements"
+            @name="radio-card-group-with-extra-elements--{{T.context}}"
             @isRequired={{true}}
             as |G|
           >
@@ -257,9 +260,9 @@ export default class FormRadioCardCarbonizationIndex extends Component {
           @label="Position = {{position}}"
           @sideBySide={{true}}
         >
-          <:theming>
+          <:theming as |T|>
             <HdsFormRadioCardGroup
-              @name="radio-card-position-{{position}}"
+              @name="radio-card-position-{{position}}--{{T.context}}"
               @controlPosition={{position}}
               as |G|
             >
@@ -309,9 +312,9 @@ export default class FormRadioCardCarbonizationIndex extends Component {
           @label="Alignment = {{alignment}}"
           @sideBySide={{true}}
         >
-          <:theming>
+          <:theming as |T|>
             <HdsFormRadioCardGroup
-              @name="radio-card-alignment-{{alignment}}"
+              @name="radio-card-alignment-{{alignment}}--{{T.context}}"
               @alignment={{alignment}}
               as |G|
             >
@@ -363,9 +366,9 @@ export default class FormRadioCardCarbonizationIndex extends Component {
           @label="Layout = {{layout}}"
           @sideBySide={{true}}
         >
-          <:theming>
+          <:theming as |T|>
             <HdsFormRadioCardGroup
-              @name="radio-card-layout-{{layout}}"
+              @name="radio-card-layout-{{layout}}--{{T.context}}"
               @controlPosition="left"
               @layout={{layout}}
               as |G|
