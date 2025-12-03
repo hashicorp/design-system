@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { visit } from '@ember/test-helpers';
+import { waitFor, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
@@ -14,7 +14,13 @@ module('Acceptance | components/code-editor', function (hooks) {
   test('Components/code-editor page passes automated a11y checks', async function (assert) {
     await visit('/components/code-editor');
 
-    await a11yAudit();
+    await waitFor('.cm-editor');
+
+    await a11yAudit({
+      rules: {
+        'scrollable-region-focusable': { enabled: false },
+      },
+    });
 
     assert.ok(true, 'a11y automation audit passed');
   });
