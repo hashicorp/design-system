@@ -12,7 +12,7 @@ export interface HdsFilterBarFilterGroupCheckboxSignature {
   Args: {
     value?: string;
     label?: string;
-    keyFilter: HdsFilterBarFilter | undefined;
+    keyFilter?: HdsFilterBarFilter;
     onChange?: (event: Event, label?: string) => void;
   };
   Blocks: {

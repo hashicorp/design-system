@@ -597,7 +597,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                 match = false;
               }
               break;
-            default:
+            case 'multi-select':
               if (!this.isMultiSelectFilterMatch(item[key], filter)) {
                 match = false;
               }
@@ -688,7 +688,10 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
               @type="single-select"
               as |F|
             >
-              {{#each (get SAMPLE_MODEL_VALUES "terraform-version") as |option|}}
+              {{#each
+                (get SAMPLE_MODEL_VALUES "terraform-version")
+                as |option|
+              }}
                 <F.Radio @value={{option.value}} @label={{option.label}} />
               {{/each}}
             </D.FilterGroup>

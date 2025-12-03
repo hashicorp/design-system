@@ -4,13 +4,15 @@
  */
 
 import Component from '@glimmer/component';
-import { get, fn } from '@ember/object';
+import { get } from '@ember/object';
+import { fn } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
 import style from 'ember-style-modifier/modifiers/style';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import RUNS from 'showcase/mocks/run-data';
+import type { Run } from 'showcase/mocks/run-data';
 
 import {
   HdsBadge,
@@ -25,13 +27,12 @@ import {
   type HdsFilterBarFilter,
   type HdsFilterBarGenericFilter,
 } from '@hashicorp/design-system-components/components';
-
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 const RUNS_VALUES = {
-  'run-status': Array.from(
-    new Set(RUNS.map((item) => item['run-status'])),
-  ).map((value) => ({ value, label: value })),
+  'run-status': Array.from(new Set(RUNS.map((item) => item['run-status']))).map(
+    (value) => ({ value, label: value }),
+  ),
   'terraform-version': Array.from(
     new Set(RUNS.map((item) => item['terraform-version'])),
   ).map((value) => ({ value, label: value })),
@@ -122,8 +123,8 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
     this.filters = filters;
   };
 
-  get demoModelFilteredData() {
-    const filterItem = (item: Record<string, unknown>): boolean => {
+  get filteredData() {
+    const filterItem = (item: Run): boolean => {
       if (Object.keys(this.filters).length === 0) return true;
       let match = true;
       Object.keys(this.filters).forEach((key) => {
@@ -133,17 +134,21 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
             case 'date':
             case 'datetime':
             case 'time':
-              if (!this.isDateFilterMatch(item[key], filter)) {
+              if (!this.isDateFilterMatch(item[key as keyof Run], filter)) {
                 match = false;
               }
               break;
             case 'numerical':
-              if (!this.isNumericalFilterMatch(item[key], filter)) {
+              if (
+                !this.isNumericalFilterMatch(item[key as keyof Run], filter)
+              ) {
                 match = false;
               }
               break;
             case 'single-select':
-              if (!this.isSingleSelectFilterMatch(item[key], filter)) {
+              if (
+                !this.isSingleSelectFilterMatch(item[key as keyof Run], filter)
+              ) {
                 match = false;
               }
               break;
@@ -153,12 +158,14 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
               }
               break;
             case 'generic':
-              if (!this.isGenericFilterMatch(item[key], filter)) {
+              if (!this.isGenericFilterMatch(item[key as keyof Run], filter)) {
                 match = false;
               }
               break;
             default:
-              if (!this.isMultiSelectFilterMatch(item[key], filter)) {
+              if (
+                !this.isMultiSelectFilterMatch(item[key as keyof Run], filter)
+              ) {
                 match = false;
               }
           }
@@ -267,13 +274,10 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
     return filterValues.includes(itemValue);
   }
 
-  isSearchFilterMatch(
-    item: Record<string, unknown>,
-    filter: HdsFilterBarSearchFilter,
-  ): boolean {
+  isSearchFilterMatch(item: Run, filter: HdsFilterBarSearchFilter): boolean {
     let match = false;
     Object.keys(item).forEach((key) => {
-      const itemValue = item[key];
+      const itemValue = item[key as keyof Run];
       const filterValue = filter.data.value;
       if (
         typeof itemValue === 'string' &&
@@ -309,7 +313,14 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
     date instanceof Date && !isNaN(+date);
 
   <template>
-    <HdsFilterBar @filters={{this.filters}} @isLiveFilter={{@isLiveFilter}} @hasSearch={{true}} @onFilter={{this.onFilter}} {{style marginBottom="24px"}} as |F|>
+    <HdsFilterBar
+      @filters={{this.filters}}
+      @isLiveFilter={{@isLiveFilter}}
+      @hasSearch={{true}}
+      @onFilter={{this.onFilter}}
+      {{style marginBottom="24px"}}
+      as |F|
+    >
       <F.Dropdown as |D|>
         <D.FilterGroup
           @key="run-status"
@@ -347,12 +358,7 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
           @type="numerical"
         />
         <D.FilterGroup @key="created" @text="Created" @type="date" />
-        <D.FilterGroup
-          @key="vcs-repo"
-          @text="VCS repo"
-          @type="generic"
-          as |F|
-        >
+        <D.FilterGroup @key="vcs-repo" @text="VCS repo" @type="generic" as |F|>
           <F.Generic as |G|>
             <ShwPlaceholder @text="generic content" @height="100" />
             <HdsButton
@@ -366,16 +372,19 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
       </F.Dropdown>
     </HdsFilterBar>
     <div class="shw-component-table-scrollable-wrapper">
-      <HdsTable @model={{this.demoModelFilteredData}} @columns={{COLUMNS}}>
+      <HdsTable @model={{this.filteredData}} @columns={{COLUMNS}}>
         <:body as |B|>
           <B.Tr>
             <B.Th>
+              {{! @glint-expect-error }}
               {{get B.data "name"}}
             </B.Th>
             <B.Td>
+              {{! @glint-expect-error }}
               {{get B.data "project-name"}}
             </B.Td>
             <B.Td>
+              {{! @glint-expect-error }}
               {{get B.data "current-run-id"}}
             </B.Td>
             <B.Td>
@@ -408,6 +417,7 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
               {{get B.data "modules"}}
             </B.Td>
             <B.Td>
+              {{! @glint-expect-error }}
               {{get B.data "provider-count"}}
             </B.Td>
             <B.Td>
@@ -419,6 +429,7 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
               {{get B.data "terraform-version"}}
             </B.Td>
             <B.Td>
+              {{! @glint-expect-error }}
               {{get B.data "state-terraform-version"}}
             </B.Td>
             <B.Td>

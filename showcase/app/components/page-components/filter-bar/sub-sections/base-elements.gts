@@ -30,19 +30,14 @@ import {
   HdsFilterBarFilterGroupRadio,
   type HdsFilterBarNumericalFilter,
   type HdsFilterBarDateFilter,
-  type HdsFilterBarSingleSelectFilter,
-  type HdsFilterBarMultiSelectFilter,
-  type HdsFilterBarSearchFilter,
-  type HdsFilterBarFilter,
   type HdsFilterBarFilters,
-  type HdsFilterBarGenericFilter,
 } from '@hashicorp/design-system-components/components';
+
+import { DATE_FILTER_GROUP_TYPES } from '@hashicorp/design-system-components/components/hds/filter-bar/filter-group/date';
 
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 const EMPTY_FILTERS = {} as HdsFilterBarFilters;
-
-const DATE_FILTER_GROUP_TYPES = ['date', 'time', 'datetime'];
 
 const DATE_FILTERS = {
   date: {
@@ -50,45 +45,44 @@ const DATE_FILTERS = {
     data: {
       selector: 'before',
       value: '2025-01-01',
-    }
-  },
+    },
+  } as HdsFilterBarDateFilter,
   datetime: {
     type: 'datetime',
     data: {
       selector: 'before',
       value: '2025-01-01T12:00',
-    }
-  },
+    },
+  } as HdsFilterBarDateFilter,
   time: {
     type: 'time',
     data: {
       selector: 'before',
-      value: '12:00'
-    }
-  }
-}
+      value: '12:00',
+    },
+  } as HdsFilterBarDateFilter,
+};
 
 const DATE_BETWEEN_FILTERS = {
   date: {
     type: 'date',
     data: {
       selector: 'between',
-
     },
-  },
+  } as HdsFilterBarDateFilter,
   datetime: {
     type: 'datetime',
     data: {
       selector: 'between',
     },
-  },
+  } as HdsFilterBarDateFilter,
   time: {
     type: 'time',
     data: {
       selector: 'between',
     },
-  },
-}
+  } as HdsFilterBarDateFilter,
+};
 
 const NUMERICAL_FILTER = {
   type: 'numerical',
@@ -96,14 +90,14 @@ const NUMERICAL_FILTER = {
     selector: 'less-than',
     value: 100,
   },
-};
+} as HdsFilterBarNumericalFilter;
 
 const NUMERICAL_BETWEEN_FILTER = {
   type: 'numerical',
   data: {
     selector: 'between',
   },
-};
+} as HdsFilterBarNumericalFilter;
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
@@ -143,7 +137,11 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With pre-selected tab</SFI.Label>
-      <HdsFilterBarTabs @ariaLabel="Filter bar tabs" @selectedTabIndex={{1}} as |T|>
+      <HdsFilterBarTabs
+        @ariaLabel="Filter bar tabs"
+        @selectedTabIndex={{1}}
+        as |T|
+      >
         <T.Tab>Tab 1</T.Tab>
         <T.Tab>Tab 2</T.Tab>
         <T.Tab>Tab 3</T.Tab>
@@ -167,10 +165,21 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   {{#each (array "Unselected" "Selected") as |selection|}}
     <ShwGrid @columns={{2}} @label={{selection}} as |SG|>
       <SG.Item @label="Base (default)">
-        <HdsFilterBarTabsTab class={{if (eq selection "Selected") "hds-filter-bar__tabs__tab--is-selected"}}>Tab 1</HdsFilterBarTabsTab>
+        <HdsFilterBarTabsTab
+          class={{if
+            (eq selection "Selected")
+            "hds-filter-bar__tabs__tab--is-selected"
+          }}
+        >Tab 1</HdsFilterBarTabsTab>
       </SG.Item>
       <SG.Item @label="With filter count">
-        <HdsFilterBarTabsTab @numFilters={{1}} class={{if (eq selection "Selected") "hds-filter-bar__tabs__tab--is-selected"}}>Tab 1</HdsFilterBarTabsTab>
+        <HdsFilterBarTabsTab
+          @numFilters={{1}}
+          class={{if
+            (eq selection "Selected")
+            "hds-filter-bar__tabs__tab--is-selected"
+          }}
+        >Tab 1</HdsFilterBarTabsTab>
       </SG.Item>
     </ShwGrid>
   {{/each}}
@@ -181,7 +190,15 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     <ShwGrid @columns={{4}} @label={{selection}} as |SG|>
       {{#each STATES as |state|}}
         <SG.Item @label={{state}}>
-          <HdsFilterBarTabsTab @numFilters={{1}} class={{if (eq selection "Selected") "hds-filter-bar__tabs__tab--is-selected"}} mock-state-value={{state}} mock-state-selector="button">Tab 1</HdsFilterBarTabsTab>
+          <HdsFilterBarTabsTab
+            @numFilters={{1}}
+            class={{if
+              (eq selection "Selected")
+              "hds-filter-bar__tabs__tab--is-selected"
+            }}
+            mock-state-value={{state}}
+            mock-state-selector="button"
+          >Tab 1</HdsFilterBarTabsTab>
         </SG.Item>
       {{/each}}
     </ShwGrid>
@@ -352,10 +369,10 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       </HdsFilterBarFilterGroupGeneric>
     </SG.Item>
     <SG.Item @label="Checkbox">
-      <HdsFilterBarFilterGroupCheckbox @label="Label" @value="value" @keyFilter={{undefined}} />
+      <HdsFilterBarFilterGroupCheckbox @label="Label" @value="value" />
     </SG.Item>
     <SG.Item @label="Radio">
-      <HdsFilterBarFilterGroupRadio @label="Label" @value="value" @keyFilter={{undefined}} />
+      <HdsFilterBarFilterGroupRadio @label="Label" @value="value" />
     </SG.Item>
   </ShwGrid>
 
@@ -365,25 +382,33 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         <HdsFilterBarFilterGroupDate @type={{type}} />
       </SG.Item>
       <SG.Item @label="Selector + value">
-        <HdsFilterBarFilterGroupDate @type={{type}} @keyFilter={{get DATE_FILTERS type}} />
+        <HdsFilterBarFilterGroupDate
+          @type={{type}}
+          @keyFilter={{get DATE_FILTERS type}}
+        />
       </SG.Item>
       <SG.Item @label="Selector: between">
-        <HdsFilterBarFilterGroupDate @type={{type}} @keyFilter={{get DATE_BETWEEN_FILTERS type}} />
+        <HdsFilterBarFilterGroupDate
+          @type={{type}}
+          @keyFilter={{get DATE_BETWEEN_FILTERS type}}
+        />
       </SG.Item>
     </ShwGrid>
   {{/each}}
 
   <ShwGrid @columns={{3}} @label="Numerical" as |SG|>
     <SG.Item @label="Base (default)">
-      <HdsFilterBarFilterGroupNumerical @keyFilter={{undefined}} />
+      <HdsFilterBarFilterGroupNumerical />
     </SG.Item>
     <SG.Item @label="Selector + value">
       <HdsFilterBarFilterGroupNumerical @keyFilter={{NUMERICAL_FILTER}} />
     </SG.Item>
     <SG.Item @label="Selector: between">
-      <HdsFilterBarFilterGroupNumerical @keyFilter={{NUMERICAL_BETWEEN_FILTER}} />
+      <HdsFilterBarFilterGroupNumerical
+        @keyFilter={{NUMERICAL_BETWEEN_FILTER}}
+      />
     </SG.Item>
   </ShwGrid>
-</template>
+</template>;
 
 export default SubSectionBaseElements;
