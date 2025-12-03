@@ -27,7 +27,8 @@
   "pnpm": {
     "overrides": {
       "@glimmer/component": "^2.0.0",
-      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11"
+      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11",
+      "mdast-util-to-hast": "13.2.1"
     },
     "patchedDependencies": {
       "broccoli-asset-rewrite": "patches/broccoli-asset-rewrite.patch"
