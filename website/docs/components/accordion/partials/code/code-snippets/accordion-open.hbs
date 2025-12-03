@@ -1,0 +1,14 @@
+<Hds::Accordion as |A|>
+  <A.Item @isOpen={{true}}>
+    <:toggle>Item one</:toggle>
+    <:content>
+      Additional content for item one which is displayed on page load
+    </:content>
+  </A.Item>
+  <A.Item>
+    <:toggle>Item two</:toggle>
+    <:content>
+      Additional content for item two which is hidden on page load
+    </:content>
+  </A.Item>
+</Hds::Accordion>
