@@ -7,7 +7,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 import ShwCarbonizationTokenPreviewColor from 'showcase/components/shw/carbonization/token-preview/color';
 
-import type { DesignToken } from '../../../../types/design-token';
+import type { DesignToken } from '../../../../../types/design-token';
 
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 
@@ -15,7 +15,7 @@ const tokenShortName = helper(function ([token]: [DesignToken]) {
   return token.name?.replace(/^token-/, '');
 });
 
-const ColorCarbonization: TemplateOnlyComponent = <template>
+const ColorCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Color - Carbonization"}}
 
   <ShwTextH1>Color - Carbonization</ShwTextH1>
@@ -35,4 +35,4 @@ const ColorCarbonization: TemplateOnlyComponent = <template>
     {{/each}}
   </section>
 </template>;
-export default ColorCarbonization;
+export default ColorCarbonizationIndex;
