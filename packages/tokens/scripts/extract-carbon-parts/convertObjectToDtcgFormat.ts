@@ -78,7 +78,7 @@ function recursivelyProcessObject({ key, value, type, group}: Args): CarbonDesig
             'cds-original-value': value
           };
         case 'font-size':
-          const convertedFontSizeValue = convertSizeValue(value, false);
+          const convertedFontSizeValue = convertSizeValue(value, true);
           if (convertedFontSizeValue !== undefined) {
             return {
               '$type': 'font-size',
