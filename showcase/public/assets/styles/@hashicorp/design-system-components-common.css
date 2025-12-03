@@ -3513,12 +3513,7 @@ button.hds-button[href]::after {
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-faint);
   border-color: var(--hds-code-block-color-focus-action-internal);
-}
-.hds-code-block__height-toggle-button:focus::before, .hds-code-block__height-toggle-button.mock-focus::before, .hds-code-block__height-toggle-button:focus-visible::before,
-.hds-code-block__copy-button:focus::before,
-.hds-code-block__copy-button.mock-focus::before,
-.hds-code-block__copy-button:focus-visible::before {
-  border-color: var(--hds-code-block-color-focus-action-external);
+  outline-color: var(--hds-code-block-color-focus-action-external);
 }
 .hds-code-block__height-toggle-button .hds-icon,
 .hds-code-block__copy-button .hds-icon {
