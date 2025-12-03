@@ -7,6 +7,8 @@
 // FILTER BAR
 //
 
+@use "../mixins/focus-ring" as *;
+
 .hds-filter-bar {
   display: grid;
   gap: 8px;
@@ -58,7 +60,13 @@
   border-top-left-radius: var(--token-border-radius-medium);
 }
 
+.hds-filter-bar__tabs__tab {
+  list-style: none;
+}
+
 .hds-filter-bar__tabs__tab__button {
+  @include hds-focus-ring-basic();
+
   display: flex;
   gap: 16px;
   align-items: center;
