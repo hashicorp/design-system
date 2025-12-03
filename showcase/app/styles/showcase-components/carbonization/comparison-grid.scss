@@ -1,0 +1,134 @@
+@use "sass:map";
+@use '@carbon/themes/scss/themes' as cdsThemes;
+
+.shw-carbonization-comparison-grid {
+  & + & {
+    margin-top: 2rem;
+  }
+
+  display: grid;
+  grid-template-areas:
+    "hds cds-g0 cds-g10 cds-g90 cds-g100"
+    "--- cwc-g0 cwc-g10 cwc-g90 cwc-g100";
+  grid-template-rows: auto auto;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 12px;
+  column-gap: 8px;
+}
+
+.shw-carbonization-comparison-grid--side-by-side {
+  grid-template-areas:
+    "hds cds-g0 cwc-g0"
+    "--- cds-g10 cwc-g10"
+    "--- cds-g90 cwc-g90"
+    "--- cds-g100 cwc-g100";
+  grid-template-rows: auto auto auto auto;
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+.shw-carbonization-comparison-grid__top-label {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+// ITEM
+
+@each $area in 'hds', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100', 'cwc-g0', 'cwc-g10', 'cwc-g90', 'cwc-g100' {
+  .shw-carbonization-comparison-grid__item--area-#{$area} {
+    grid-area: #{$area};
+  }
+}
+
+.shw-carbonization-comparison__item-label {
+  // override the margin since we're using `row-gap` above
+  margin-bottom: 0;
+}
+
+// THEMING AREAS
+
+.shw-carbonization-comparison-grid__item-content {
+  padding: 8px;
+  color: var(--content-foreground-color);
+  background-color: var(--content-background-color);
+}
+
+// area: HDS "default"
+
+.shw-carbonization-comparison-grid__item--area-default {
+  --content-foreground-color: #3b3d45;
+  --content-background-color: #fff;
+}
+
+// area: HDS carbonized
+
+.shw-carbonization-comparison-grid__item--area-cds-g0 {
+  --content-foreground-color: #161616;
+  --content-background-color: #fff;
+}
+
+.shw-carbonization-comparison-grid__item--area-cds-g10 {
+  --content-foreground-color: #161616;
+  --content-background-color: #f4f4f4;
+}
+
+.shw-carbonization-comparison-grid__item--area-cds-g90 {
+  --content-foreground-color: #f4f4f4;
+  --content-background-color: #262626;
+}
+
+.shw-carbonization-comparison-grid__item--area-cds-g100 {
+  --content-foreground-color: #f4f4f4;
+  --content-background-color: #161616;
+}
+
+// area: CDS web components
+
+.shw-carbonization-comparison-grid__item--area-cwc-g0 {
+  --content-foreground-color: #{map.get(cdsThemes.$white, text-primary)};
+  --content-background-color: #{map.get(cdsThemes.$white, background)};
+}
+
+.shw-carbonization-comparison-grid__item--area-cwc-g10 {
+  --content-foreground-color: #{map.get(cdsThemes.$g10, text-primary)};
+  --content-background-color: #{map.get(cdsThemes.$g10, background)};
+}
+
+.shw-carbonization-comparison-grid__item--area-cwc-g90 {
+  --content-foreground-color: #{map.get(cdsThemes.$g90, text-primary)};
+  --content-background-color: #{map.get(cdsThemes.$g90, background)};
+}
+
+.shw-carbonization-comparison-grid__item--area-cwc-g100 {
+  --content-foreground-color: #{map.get(cdsThemes.$g100, text-primary)};
+  --content-background-color: #{map.get(cdsThemes.$g100, background)};
+}
+
+// WEB COMPONENTS local styling
+// these come from https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css
+// they are used in selectors like `:host(.cds-theme-zone-g10), .cds-theme-zone-g10` to apply specific CSS variables for a theme/mode
+
+// see: https://github.com/carbon-design-system/carbon/blob/main/packages/web-components/docs/carbon-cdn-style-helpers.mdx#carbon-theme-zoning-classes
+.cds-theme-zone-white,
+.cds-theme-zone-g10,
+.cds-theme-zone-g90,
+.cds-theme-zone-g100 {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  code {
+    font-family: 'IBM Plex Mono', Menlo, 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace
+  }
+
+  button, select, input, textarea {
+    font-family: inherit
+  }
+}
+
+// DEBUG
+
+// .shw-carbonization-comparison-grid {
+//   outline: 1px solid blue;
+// }
+// .shw-carbonization-comparison-grid__item {
+//   outline: 1px dotted magenta;
+// }

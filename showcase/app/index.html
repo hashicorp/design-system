@@ -43,6 +43,53 @@
 
     <link rel="shortcut icon" href="/assets/logos/favicon.png" />
 
+    <!-- IBM Carbon Web Components - Import via CDN -->
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.40.1/badge-indicator.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.40.1/button.min.js"></script>
+    <!-- <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.40.1/icon.min.js"></script> -->
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.40.1/icon-button.min.js"></script>
+    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.40.1/tag.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.40.1/inline-loading.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.40.1/text-input.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.43.0/modal.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.43.0/tile.min.js"></script>
+
+    <!-- This contains global styles and CSS resets too! -->
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css" />
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/plex/sans.css" />
+    <style type="text/css">
+      /* Suppress custom element until styles are loaded */
+      cds-badge-indicator:not(:defined),
+      cds-button:not(:defined),
+      cds-icon:not(:defined),
+      /* cds-icon-button:not(:defined), */
+      cds-modal:not(:defined),
+      cds-modal-body:not(:defined),
+      cds-modal-body-content:not(:defined),
+      cds-modal-close-button:not(:defined),
+      cds-modal-footer:not(:defined),
+      cds-modal-footer-button:not(:defined),
+      cds-modal-header:not(:defined),
+      cds-modal-heading:not(:defined),
+      cds-modal-label:not(:defined),
+      cds-radio-tile:not(:defined),
+      cds-text-input:not(:defined),
+      cds-tag:not(:defined),
+      cds-tile-group:not(:defined),
+      cds-dismissible-tag:not(:defined),
+      cds-operational-tag:not(:defined),
+      cds-selectable-tag:not(:defined) {
+        visibility: hidden;
+      }
+    </style>
+
     {{content-for "head-footer"}}
   </head>
   <body class="showcase-app">
