@@ -14,8 +14,13 @@ module('Acceptance | components/code-editor', function (hooks) {
   test('Components/code-editor page passes automated a11y checks', async function (assert) {
     await visit('/components/code-editor');
 
+    // Wait for CodeMirror to initialize
     await waitFor('.cm-editor');
 
+    // CodeMirror 6 intentionally sets tabindex="-1" on the scroller and delegates
+    // keyboard scrolling to the inner content-editable element.
+    // We disable 'scrollable-region-focusable' because the editor remains
+    // functional for keyboard users via arrow keys, making this a false positive.
     await a11yAudit({
       rules: {
         'scrollable-region-focusable': { enabled: false },
