@@ -17,8 +17,12 @@ import type {
   HdsFilterBarFilter,
   HdsFilterBarDateFilterSelector,
   HdsFilterBarDateFilterValue,
+  HdsFilterBarFilterGroupDateType
 } from '../types.ts';
-import { HdsFilterBarDateFilterSelectorValues } from '../types.ts';
+import {
+  HdsFilterBarDateFilterSelectorValues,
+  HdsFilterBarFilterGroupDateTypeValues,
+} from '../types.ts';
 
 export const DATE_SELECTORS: HdsFilterBarDateFilterSelector[] = Object.values(
   HdsFilterBarDateFilterSelectorValues
@@ -44,10 +48,14 @@ export const DATE_SELECTORS_INPUT_TEXT: Record<
   [HdsFilterBarDateFilterSelectorValues.between]: 'Between',
 };
 
+export const DATE_FILTER_GROUP_TYPES: HdsFilterBarFilterGroupDateType[] = Object.values(
+  HdsFilterBarFilterGroupDateTypeValues
+);
+
 export interface HdsFilterBarFilterGroupDateSignature {
   Args: {
-    keyFilter: HdsFilterBarFilter | undefined;
-    type?: 'date' | 'time' | 'datetime';
+    keyFilter?: HdsFilterBarFilter;
+    type?: HdsFilterBarFilterGroupDateType;
     onChange?: (
       selector?: HdsFilterBarDateFilterSelector,
       value?: HdsFilterBarDateFilterValue

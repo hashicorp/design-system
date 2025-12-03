@@ -33,10 +33,14 @@ const SubSectionContent: TemplateOnlyComponent = <template>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With search, ActionsDropdown, ActionsGeneric</SFI.Label>
-      <CodeFragmentWithGenericContent @hasSearch={{true}} @hasActionsDropdown={{true}} @hasActionsGeneric={{true}} />
+      <CodeFragmentWithGenericContent
+        @hasSearch={{true}}
+        @hasActionsDropdown={{true}}
+        @hasActionsGeneric={{true}}
+      />
     </SF.Item>
   </ShwFlex>
   <ShwDivider />
-</template>
+</template>;
 
 export default SubSectionContent;

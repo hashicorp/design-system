@@ -115,3 +115,12 @@ export type HdsFilterBarFilter =
 export interface HdsFilterBarFilters {
   [name: string]: HdsFilterBarFilter;
 }
+
+export enum HdsFilterBarFilterGroupDateTypeValues {
+  date = 'date',
+  time = 'time',
+  datetime = 'datetime',
+}
+
+export type HdsFilterBarFilterGroupDateType =
+  `${HdsFilterBarFilterGroupDateTypeValues}`;

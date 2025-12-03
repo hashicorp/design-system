@@ -10,6 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import style from 'ember-style-modifier/modifiers/style';
 
 import MUSIC from 'showcase/mocks/folk-music-data';
+import type { FolkMusic } from 'showcase/mocks/folk-music-data';
 
 import {
   HdsFilterBar,
@@ -44,8 +45,8 @@ export default class CodeFragmentWithTable extends Component<CodeFragmentWithTab
     this.filters = filters;
   };
 
-  get demoModelFilteredData() {
-    const filterItem = (item: Record<string, unknown>): boolean => {
+  get filteredData() {
+    const filterItem = (item: FolkMusic): boolean => {
       if (Object.keys(this.filters).length === 0) return true;
       let match = true;
       Object.keys(this.filters).forEach((key) => {
@@ -53,7 +54,12 @@ export default class CodeFragmentWithTable extends Component<CodeFragmentWithTab
         if (filter) {
           switch (filter.type) {
             case 'single-select':
-              if (!this.isSingleSelectFilterMatch(item[key], filter)) {
+              if (
+                !this.isSingleSelectFilterMatch(
+                  item[key as keyof FolkMusic],
+                  filter,
+                )
+              ) {
                 match = false;
               }
               break;
@@ -63,7 +69,12 @@ export default class CodeFragmentWithTable extends Component<CodeFragmentWithTab
               }
               break;
             case 'multi-select':
-              if (!this.isMultiSelectFilterMatch(item[key], filter)) {
+              if (
+                !this.isMultiSelectFilterMatch(
+                  item[key as keyof FolkMusic],
+                  filter,
+                )
+              ) {
                 match = false;
               }
           }
@@ -92,12 +103,12 @@ export default class CodeFragmentWithTable extends Component<CodeFragmentWithTab
   }
 
   isSearchFilterMatch(
-    item: Record<string, unknown>,
+    item: FolkMusic,
     filter: HdsFilterBarSearchFilter,
   ): boolean {
     let match = false;
     Object.keys(item).forEach((key) => {
-      const itemValue = item[key];
+      const itemValue = item[key as keyof FolkMusic];
       const filterValue = filter.data.value;
       if (
         typeof itemValue === 'string' &&
@@ -111,7 +122,14 @@ export default class CodeFragmentWithTable extends Component<CodeFragmentWithTab
   }
 
   <template>
-    <HdsFilterBar @filters={{this.filters}} @isLiveFilter={{@isLiveFilter}} @hasSearch={{true}} @onFilter={{this.onFilter}} {{style marginBottom="24px"}} as |F|>
+    <HdsFilterBar
+      @filters={{this.filters}}
+      @isLiveFilter={{@isLiveFilter}}
+      @hasSearch={{true}}
+      @onFilter={{this.onFilter}}
+      {{style marginBottom="24px"}}
+      as |F|
+    >
       <F.Dropdown as |D|>
         <D.FilterGroup
           @key="artist"
@@ -137,12 +155,15 @@ export default class CodeFragmentWithTable extends Component<CodeFragmentWithTab
         </D.FilterGroup>
       </F.Dropdown>
     </HdsFilterBar>
-    <HdsTable @model={{this.demoModelFilteredData}} @columns={{array
+    <HdsTable
+      @model={{this.filteredData}}
+      @columns={{array
         (hash key="artist" label="Artist")
         (hash key="album" label="Album")
         (hash key="vinyl-cost" label="Vinyl Cost")
         (hash key="year" label="Release Year")
-      }}>
+      }}
+    >
       <:body as |B|>
         <B.Tr>
           <B.Td>{{B.data.artist}}</B.Td>
