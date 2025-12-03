@@ -232,6 +232,8 @@ import type HdsTagComponent from './components/hds/tag';
 import type HdsTooltipButtonComponent from './components/hds/tooltip-button';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
+import type HdsThemeContextComponent from './components/hds/theme-context';
+import type HdsThemeSwitcherComponent from './components/hds/theme-switcher';
 import type HdsTimeComponent from './components/hds/time';
 import type HdsTimeSingleComponent from './components/hds/time/single';
 import type HdsTimeRangeComponent from './components/hds/time/range';
@@ -1020,6 +1022,14 @@ export default interface HdsComponentsRegistry {
   // Toast
   'Hds::Toast': typeof HdsToastComponent;
   'hds/toast': typeof HdsToastComponent;
+
+  // ThemeContext
+  'Hds::ThemeContext': typeof HdsThemeContextComponent;
+  'hds/theme-context': typeof HdsThemeContextComponent;
+
+  // ThemeSwitcher
+  'Hds::ThemeSwitcher': typeof HdsThemeSwitcherComponent;
+  'hds/theme-switcher': typeof HdsThemeSwitcherComponent;
 
   // Time
   'Hds::Time': typeof HdsTimeComponent;

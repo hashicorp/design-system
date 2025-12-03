@@ -8,6 +8,7 @@ import ShwDivider from 'showcase/components/shw/divider';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwBodyLinkToRoute from 'showcase/components/shw/body-link-to-route';
 import MUSIC from 'showcase/mocks/folk-music-data';
 
 import {
@@ -45,17 +46,14 @@ const BASIC_MUSIC_COLUMNS = [
 ];
 
 const SubSectionBasic: TemplateOnlyComponent = <template>
-  <ShwTextBody>
-    <a
-      class="shw-component-advanced-table__open-link"
-      href="/layouts/app-frame/frameless/demo-full-app-frame-with-advanced-table"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      See an Advanced Table in the context of a full App Frame
-      <span class="sr-only">open the frame in a new window</span>
-    </a>
-  </ShwTextBody>
+  <ShwBodyLinkToRoute
+    @route="page-layouts.app-frame.frameless.demo-full-app-frame-with-advanced-table"
+    @isRouteExternal={{true}}
+  >
+    See an Advanced Table in the context of a full App Frame
+    <span class="sr-only">open the frame in a new window</span>
+  </ShwBodyLinkToRoute>
+
   <ShwTextH2>Basic AdvancedTable</ShwTextH2>
   <ShwTextH3>Keyboard interaction</ShwTextH3>
 
