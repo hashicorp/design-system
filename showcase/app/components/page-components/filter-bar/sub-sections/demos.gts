@@ -32,6 +32,6 @@ const SubSectionDemos: TemplateOnlyComponent = <template>
   <CodeFragmentWithComplexTable />
 
   <ShwDivider />
-</template>
+</template>;
 
 export default SubSectionDemos;

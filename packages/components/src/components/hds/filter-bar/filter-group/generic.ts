@@ -13,7 +13,7 @@ import type {
 
 export interface HdsFilterBarFilterGroupGenericSignature {
   Args: {
-    keyFilter: HdsFilterBarFilter | undefined;
+    keyFilter?: HdsFilterBarFilter;
     onChange?: (filter?: HdsFilterBarGenericFilter) => void;
   };
   Blocks: {

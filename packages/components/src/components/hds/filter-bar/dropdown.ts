@@ -18,7 +18,7 @@ import type { HdsDropdownSignature } from '../dropdown/index.ts';
 export interface HdsFilterBarDropdownSignature {
   Args: {
     filters: HdsFilterBarFilters;
-    isLiveFilter: boolean;
+    isLiveFilter?: boolean;
     onFilter?: (filters: HdsFilterBarFilters) => void;
   };
   Blocks: {
