@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of a modal](/assets/components/modal/modal-anatomy.png =729x*)
+![Anatomy of a modal](/assets/components/modal/modal-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
@@ -8,6 +8,7 @@
 | Title icon       | Optional                                        |
 | Tagline          | Optional                                        |
 | Title            | Required                                        |
+| Description      | Optional                                        |
 | Dismiss          | Required, all modals are dismissible            |
 | **Body**         |                                                 |
 | Content          | Required; either default (simple text) or custom|
