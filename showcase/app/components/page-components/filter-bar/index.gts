@@ -8,15 +8,21 @@ import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 
-import SubSectionBasic from 'showcase/components/page-components/filter-bar/sub-sections/basic';
+import SubSectionContent from 'showcase/components/page-components/filter-bar/sub-sections/content';
+import SubSectionAppliedFilters from 'showcase/components/page-components/filter-bar/sub-sections/applied-filters';
+import SubSectionDemos from 'showcase/components/page-components/filter-bar/sub-sections/demos';
+import SubSectionBaseElements from 'showcase/components/page-components/filter-bar/sub-sections/base-elements';
 
 const FilterBarIndex: TemplateOnlyComponent = <template>
   {{pageTitle "FilterBar Component"}}
 
-  <ShwTextH1>Filter Bar</ShwTextH1>
+  <ShwTextH1>FilterBar</ShwTextH1>
 
   <section data-test-percy>
-    <SubSectionBasic />
+    <SubSectionContent />
+    <SubSectionAppliedFilters />
+    <SubSectionDemos />
+    <SubSectionBaseElements />
   </section>
 </template>;
 
