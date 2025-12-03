@@ -14,7 +14,7 @@ import {
   TYPES,
 } from '@hashicorp/design-system-components/components/hds/badge-count/index';
 
-const BadgeCountCarbonization: TemplateOnlyComponent = <template>
+const BadgeCountCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "BadgeCount - Carbonization"}}
 
   <ShwTextH1>BadgeCount - Carbonization</ShwTextH1>
@@ -134,4 +134,4 @@ const BadgeCountCarbonization: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default BadgeCountCarbonization;
+export default BadgeCountCarbonizationIndex;

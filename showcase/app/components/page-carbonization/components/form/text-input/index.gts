@@ -27,7 +27,7 @@ import { TYPES } from '@hashicorp/design-system-components/components/hds/form/t
 
 const STATES = ['default', 'hover', 'focus'];
 
-const FormTextInputCarbonization: TemplateOnlyComponent = <template>
+const FormTextInputCarbonizationIndex: TemplateOnlyComponent = <template>
   {{pageTitle "TextInput - Carbonization"}}
 
   <ShwTextH1>TextInput - Carbonization</ShwTextH1>
@@ -570,4 +570,4 @@ const FormTextInputCarbonization: TemplateOnlyComponent = <template>
   </section>
 </template>;
 
-export default FormTextInputCarbonization;
+export default FormTextInputCarbonizationIndex;
