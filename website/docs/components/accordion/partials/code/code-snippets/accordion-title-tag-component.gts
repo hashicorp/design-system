@@ -1,0 +1,48 @@
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
+import {
+  HdsAccordion,
+  HdsTextDisplay,
+} from '@hashicorp/design-system-components/components';
+
+const AccordionTitleTag: TemplateOnlyComponent = <template>
+  <div class="doc-accordion-demo-heading">
+    <HdsTextDisplay @tag="h2" @size="300">Examination period</HdsTextDisplay>
+  </div>
+  <HdsAccordion @titleTag="h3" as |A|>
+    <A.Item>
+      <:toggle>Exam experience</:toggle>
+      <:content>
+        All certification exams are taken online with a live proctor,
+        accommodating all locations and time zones. Online proctoring provides
+        the same benefits of a physical test center while being more accessible
+        to exam-takers. The live proctor verifies your identity, walks you
+        through rules and procedures, and watches you take the exam. Learn more
+        ways to prepare for an online proctored exam in our Knowledgebase.
+      </:content>
+    </A.Item>
+    <A.Item>
+      <:toggle>Requirements for attending an exam</:toggle>
+      <:content>
+        Before you register for an exam, review the Exam-taker Handbook to learn
+        the requirements and policies for taking exams. It is your
+        responsibility to know and abide by our program rules to successfully
+        enter your exam appointment, failure to do so may result in forfeiture
+        of appointment fees.
+      </:content>
+    </A.Item>
+    <A.Item>
+      <:toggle>Your badge and certificate</:toggle>
+      <:content>
+        HashiCorp has partnered with Credly to offer you a digital badge and
+        downloadable certificate upon passing a certification exam. There is no
+        fee for this service and acceptance is up to you. Digital badges can be
+        used in email signatures or digital resumes, and on social media sites
+        such as LinkedIn, Facebook, and Twitter. Badges link back to a real-time
+        verification feature that describes your qualifications.
+      </:content>
+    </A.Item>
+  </HdsAccordion>
+</template>;
+
+export default AccordionTitleTag;

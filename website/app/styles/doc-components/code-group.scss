@@ -56,6 +56,13 @@
     }
   }
 
+  .doc-code-group__secondary-actions {
+      display: flex;
+      flex-direction: row;
+    flex-grow: 1;;
+    justify-content: flex-end;
+  }
+
   .doc-code-group__copy-button-container {
     padding: 6px;
     border-left: 1px solid var(--doc-color-gray-400);
