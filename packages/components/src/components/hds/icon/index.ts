@@ -8,7 +8,7 @@ import { service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { iconNames } from '@hashicorp/flight-icons/svg';
-import { getByHdsIconName } from '../../../utils/hds-carbon-icon-map.ts';
+import { hdsCarbonIcons } from '../../../utils/hds-carbon-icon-map.ts';
 import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
 import { task } from 'ember-concurrency';
 import { tracked } from '@glimmer/tracking';
@@ -165,13 +165,17 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   });
 
   loadCarbonIconTask = task(async () => {
-    const iconDefinition = getByHdsIconName(this.args.name);
+    const iconDefinition = (
+      hdsCarbonIcons as Partial<
+        Record<IconName, (size?: HdsIconSizes) => Promise<unknown>>
+      >
+    )[this.args.name];
 
     if (iconDefinition === undefined) {
       return;
     }
 
-    const icon = await iconDefinition.importCarbonIcon(this.size);
+    const icon = await iconDefinition(this.size);
 
     this.carbonIcon =
       ((icon as { default: unknown })?.default as CarbonIcon | undefined) ??
