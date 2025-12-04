@@ -42,7 +42,7 @@ Use the `standalone` variant when a data set is rendered in formats other than a
 
 ## Expand & collapse
 
-The Filter Bar supports expanding and collapsing the applied filters section. This can simplify the UI around the data set allowing more focus on the data or contet, especially when many filters are applied.
+The Filter Bar supports expanding and collapsing the applied filters section. This can simplify the UI around the data set allowing more focus on the data or content, especially when many filters are applied.
 
 ![An example of the collapsed state of the Filter Bar](/assets/components/filter-bar/filter-bar-collapsed.png)
 
