@@ -12,7 +12,7 @@
 | Generic content | Optional |
 | Bulk actions | Optional |
 | Applied Filters List | Displays the filters that have been applied to the data set, or an empty state. |
-| Applied Filter Tag | Displays the filter as `Paramater: Value` within an HDS [Tag](/components/tag). |
+| Applied Filter Tag | Displays the filter as `Parameter: Value` within an HDS [Tag](/components/tag). |
 | Clear All Filters | Clears all of the applied filters, sets the Filter Bar and the data set back to their default state. |
 
 ### Filter Dropdown
