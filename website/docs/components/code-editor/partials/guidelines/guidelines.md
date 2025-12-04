@@ -71,7 +71,6 @@ Some elements or functions outside the Code Editor may affect the content within
 
 ![A Code Editor with the external title “Automations and expressions” coupled with a filter input, “Copy” dropdown, “Version” dropdown, and a “Create new version” button.](/assets/components/code-editor/code-editor-external-functions.png)
 
-
 ## Active line highlighting
 
 When a user edits a line of code, a highlight will display to show their location within the Code Editor.
@@ -103,7 +102,7 @@ For more details around syntax, visit the [specifications](/components/code-edit
 
 ## Linting
 
-!!! Info 
+!!! Info
 Linting is only available in the Ember component and is not supported in Figma.
 !!!
 
@@ -120,3 +119,47 @@ To view all alerts in the editor, open the alert dialog using Ctrl-Shift-m (Cmd-
 ![Code Editor with linting errors. There is a dialog on top of the bottom half of the Code Editor with several alerts that can be dismissed. The dialog does not block the user from interacting with the Code Editor content.](/assets/components/code-editor/codeeditor-linting-preview-dialog.png)
 
 If you require linting for additional languages, [contact the Design Systems Team](/about/support).
+
+## Custom extensions
+
+The Code Editor supports valid CodeMirror 6 [extensions](https://codemirror.net/docs/ref/#state.Extension) via the `@customExtensions` argument. This allows you to add custom keymaps, gutter markers, theme overrides, or advanced editor behavior.
+
+### Importing CodeMirror modules
+
+!!! Warning
+Do not install CodeMirror packages directly.
+!!!
+
+To prevent "multiple instance" errors where the application crashes, do not add CodeMirror packages (like `@codemirror/view` or `@codemirror/state`) to your application's package.json.
+
+Instead, you must import the necessary modules from the HDS Components re-export. This guarantees that your extension uses the exact same instance of the library as the Code Editor component.
+
+All standard CodeMirror utilities are available via: `@hashicorp/design-system-components/codemirror`
+
+### Usage example
+
+Here is how to create a custom keymap extension using the re-exported modules.
+
+```javacript
+import Component from '@glimmer/component';
+// ✅ Import from HDS, not from '@codemirror/view'
+import { keymap } from '@hashicorp/design-system-components/codemirror';
+
+// 1. Define your extension
+const myKeymap = keymap.of([
+  {
+    key: 'Cntrl-Shift-h',
+    run: (view) => {
+      console.log('Hello World');
+      return true;
+    },
+  },
+]);
+
+export default class MyComponent extends Component {
+  // 2. Create an array of extensions
+  myExtensions = [myKeymap];
+}
+```
+
+The created extensions array can be passed to the editor through the `@customExtensions` argument.
