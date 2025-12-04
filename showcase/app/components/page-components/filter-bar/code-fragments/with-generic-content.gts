@@ -209,6 +209,7 @@ const FILTERS = {
 export interface CodeFragmentWithGenericContentSignature {
   Args: {
     hasSearch?: boolean;
+    searchPlaceholder?: string;
     hasActionsDropdown?: boolean;
     hasActionsGeneric?: boolean;
     appliedFiltersType?: string;
@@ -226,7 +227,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
   }
 
   <template>
-    <HdsFilterBar @filters={{this.filters}} @hasSearch={{@hasSearch}} as |F|>
+    <HdsFilterBar @filters={{this.filters}} @hasSearch={{@hasSearch}} @searchPlaceholder={{@searchPlaceholder}} as |F|>
       {{#if @hasActionsGeneric}}
         <F.ActionsGeneric>
           <ShwPlaceholder @text="generic content" @height="24" />
