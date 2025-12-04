@@ -19,14 +19,14 @@ export const contentBlocks = function () {
         // see: https://github.com/showdownjs/showdown/blob/master/src/subParsers/makehtml/hashHTMLBlocks.js#L93-L95
         return `\n<?php start="content-block" type="${type.toLowerCase()}" ?>\n${content}\n<?php end="content-block" type="${type.toLowerCase()}" ?>\n`;
       });
+
       // console.log('langExtension2 text', '\n', text, '\n\n');
       return text;
     },
   };
   var outputExtension = {
     type: 'output',
-    filter: function (text) {
-      // console.log('outputExtension1 text', '\n', text, '\n\n');
+    filter: (text) => {
       // https://regex101.com/r/DebuYI/1
       const outputRegex = new RegExp(
         /<\?php start="content-block" type="(.*?)" \?>\n?/,
@@ -35,20 +35,38 @@ export const contentBlocks = function () {
       text = text.replace(outputRegex, function (_match, type) {
         if (type === 'do' || type === 'dont') {
           return `<Doc::DoDont @type="${type}">\n`;
-        } else {
+        } else if (type !== 'demo') {
           return `<Doc::Banner @type="${type}">\n`;
         }
       });
+
       text = text.replace(
         /\n?<\?php end="content-block" type="(.*?)" \?>/g,
         function (_match, type) {
           if (type === 'do' || type === 'dont') {
             return '</Doc::DoDont>';
-          } else {
+          } else if (type !== 'demo') {
             return '</Doc::Banner>';
           }
         },
       );
+
+      const demoRegex = new RegExp(
+        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" gts="(.*?)" hidePreview="(.*?)" js="(.*?)" \?>\n?/,
+        'g',
+      );
+
+      text = text.replace(
+        demoRegex,
+        function (_match, filename, hbs, gts, hidePreview, js) {
+          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @gtsSnippet="${gts}" @hidePreview="${hidePreview}" @jsSnippet="${js}">\n`;
+        },
+      );
+
+      text = text.replace(/\n?<\?php end="demo-block"\s*\?>/g, function () {
+        return '</Doc::CodeGroup>\n';
+      });
+
       // console.log('outputExtension2 text', '\n', text, '\n\n');
       return text;
     },

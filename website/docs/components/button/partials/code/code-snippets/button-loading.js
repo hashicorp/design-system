@@ -21,9 +21,4 @@ export default class Index extends Component {
       this.isLoading = false;
     }, 4000);
   }
-
-  @action
-  alertOnClick() {
-    alert('Hello from Helios!');
-  }
 }

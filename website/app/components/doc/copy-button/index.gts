@@ -2,15 +2,33 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 
-export default class DocCopyButtonComponent extends Component {
+import { HdsIcon } from '@hashicorp/design-system-components/components';
+import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
+
+import docClipboard from 'website/modifiers/doc-clipboard';
+
+interface DocCopyButtonCodeSignature {
+  Args: {
+    type?: 'solid' | 'ghost';
+    textToCopy: string;
+    textToShow?: string;
+    encoded?: boolean;
+    isFullWidth?: boolean;
+    id?: string;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class DocCopyButton extends Component<DocCopyButtonCodeSignature> {
   @tracked status = 'idle';
-  @tracked iconName = 'clipboard-copy';
-  @tracked timer;
+  @tracked iconName: HdsIconSignature['Args']['name'] = 'clipboard-copy';
+  @tracked timer: ReturnType<typeof setTimeout> | undefined;
 
   get type() {
     return this.args.type ?? 'solid'; // options are `solid` or `ghost`
@@ -58,19 +76,17 @@ export default class DocCopyButtonComponent extends Component {
     return this.args.isFullWidth ?? false;
   }
 
-  @action
-  onSuccess() {
+  onSuccess = () => {
     this.status = 'success';
     this.iconName = 'clipboard-checked';
     this.resetStatusDelayed();
-  }
+  };
 
-  @action
-  onError() {
+  onError = () => {
     this.status = 'error';
     this.iconName = 'alert-triangle';
     this.resetStatusDelayed();
-  }
+  };
 
   resetStatusDelayed() {
     clearTimeout(this.timer);
@@ -82,11 +98,38 @@ export default class DocCopyButtonComponent extends Component {
   }
 
   get classNames() {
-    let classes = ['doc-copy-button'];
+    const classes = ['doc-copy-button'];
     classes.push(`doc-copy-button--type-${this.type}`);
     if (this.isFullWidth) {
       classes.push(`doc-copy-button--width-full`);
     }
     return classes.join(' ');
   }
+
+  <template>
+    <button
+      class={{this.classNames}}
+      type="button"
+      {{docClipboard
+        text=@textToCopy
+        onSuccess=this.onSuccess
+        onError=this.onError
+      }}
+    >
+      {{#if this.textToShow}}
+        <span class="doc-copy-button__visible-value">{{this.textToShow}}</span>
+      {{/if}}
+      {{#if this.label}}
+        <span
+          id="copy-label-{{@id}}"
+          class="doc-copy-button__label"
+        >{{this.label}}</span>
+      {{/if}}
+      <HdsIcon
+        class="doc-copy-button__icon"
+        @name={{this.iconName}}
+        @stretched={{true}}
+      />
+    </button>
+  </template>
 }
