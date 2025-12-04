@@ -24,6 +24,10 @@ const SubSectionContent: TemplateOnlyComponent = <template>
       <CodeFragmentWithGenericContent @hasSearch={{true}} />
     </SF.Item>
     <SF.Item as |SFI|>
+      <SFI.Label>With search, custom placeholder</SFI.Label>
+      <CodeFragmentWithGenericContent @hasSearch={{true}} @searchPlaceholder="Search workspaces" />
+    </SF.Item>
+    <SF.Item as |SFI|>
       <SFI.Label>With ActionsDropdown</SFI.Label>
       <CodeFragmentWithGenericContent @hasActionsDropdown={{true}} />
     </SF.Item>
