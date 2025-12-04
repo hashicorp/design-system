@@ -214,7 +214,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
         data.value !== null
       ) {
         const separatorText = this.hdsIntl.t(
-          'hds.components.filter-bar.filter-text.numerical-filter.separator',
+          'hds.components.filter-bar.filter.numerical-filter.separator',
           {
             default: 'and',
           }
@@ -246,7 +246,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
         data.value !== null
       ) {
         const separatorText = this.hdsIntl.t(
-          'hds.components.filter-bar.filter-text.date-filter.separator',
+          'hds.components.filter-bar.filter.date-filter.separator',
           {
             default: 'and',
           }

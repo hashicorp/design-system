@@ -124,9 +124,12 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
   }
 
   get selectorLabelText(): string {
-    return this.hdsIntl.t(`hds.components.filter-bar.date.${this.type}.label`, {
-      default: 'Date is',
-    });
+    return this.hdsIntl.t(
+      `hds.components.filter-bar.filter-group.date.${this.type}.label`,
+      {
+        default: 'Date is',
+      }
+    );
   }
 
   @action
@@ -191,7 +194,7 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     selector: HdsFilterBarDateFilterSelector
   ): string => {
     return this.hdsIntl.t(
-      `hds.components.filter-bar.date.selector-input.${selector}`,
+      `hds.components.filter-bar.filter-group.date.selector-input.${selector}`,
       {
         default: DATE_SELECTORS_INPUT_TEXT[selector],
       }

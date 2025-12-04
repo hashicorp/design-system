@@ -13,7 +13,7 @@
       <F.Label>{{this.selectorLabelText}}</F.Label>
       <F.Options>
         <option value="">{{hds-t
-            "hds.components.filter-bar.date.selector-input.default-value"
+            "hds.components.filter-bar.filter-group.date.selector-input.default-value"
             default="Pick a selector"
           }}</option>
         {{#each this._selectorValues as |selectorValue|}}
@@ -29,7 +29,10 @@
           @id={{this._betweenValueStartInputId}}
           @type={{this.inputType}}
           @value={{this._betweenValueStart}}
-          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.date.start-placeholder" default="Start"}}
+          placeholder={{hds-t
+            "hds.components.filter-bar.filter-group.date.between-value-inputs.start-placeholder"
+            default="Start"
+          }}
           class="hds-filter-bar__filter-group__field"
           {{on "change" this.onBetweenValueStartChange}}
         />
@@ -37,7 +40,10 @@
           @id={{this._betweenValueEndInputId}}
           @type={{this.inputType}}
           @value={{this._betweenValueEnd}}
-          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.date.end-placeholder" default="End"}}
+          placeholder={{hds-t
+            "hds.components.filter-bar.filter-group.date.between-value-inputs.end-placeholder"
+            default="End"
+          }}
           class="hds-filter-bar__filter-group__field"
           {{on "change" this.onBetweenValueEndChange}}
         />
@@ -47,7 +53,10 @@
         @id={{this._valueInputId}}
         @type={{this.inputType}}
         @value={{this._value}}
-        placeholder={{hds-t "hds.components.filter-bar.date.value-input.placeholder" default="Enter a value"}}
+        placeholder={{hds-t
+          "hds.components.filter-bar.filter-group.date.value-input.placeholder"
+          default="Enter a value"
+        }}
         class="hds-filter-bar__filter-group__field"
         {{on "change" this.onValueChange}}
       />
@@ -55,7 +64,7 @@
   </Hds::Layout::Flex>
   <div class="hds-filter-bar__filter-group__clear">
     <Hds::Button
-      @text={{hds-t "hds.components.filter-bar.date.clear" default="Clear filter"}}
+      @text={{hds-t "hds.components.filter-bar.filter-group.date.clear" default="Clear filter"}}
       @color="tertiary"
       @icon="rotate-ccw"
       @isInline={{true}}
