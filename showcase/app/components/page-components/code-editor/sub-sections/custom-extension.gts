@@ -15,7 +15,8 @@ const insertCodeSnippet = (view: EditorView) => {
   view.dispatch({
     changes: {
       from: view.state.selection.main.head,
-      insert: '// This is a custom inserted snippet, added via `ctrl-shift-h`\n',
+      insert:
+        '// This is a custom inserted snippet, added via `ctrl-shift-h`\n',
     },
   });
 
