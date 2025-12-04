@@ -29,7 +29,7 @@
         @width="320px"
         @value={{this.searchValue}}
         class="hds-filter-bar__search"
-        placeholder={{hds-t "hds.components.filter-bar.search.placeholder" default="Search"}}
+        placeholder={{this.searchPlaceholder}}
         aria-label={{hds-t "hds.components.filter-bar.search.aria-label" default="Search filters"}}
         name="search"
         {{on "change" this.onSearch}}
