@@ -227,7 +227,12 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
   }
 
   <template>
-    <HdsFilterBar @filters={{this.filters}} @hasSearch={{@hasSearch}} @searchPlaceholder={{@searchPlaceholder}} as |F|>
+    <HdsFilterBar
+      @filters={{this.filters}}
+      @hasSearch={{@hasSearch}}
+      @searchPlaceholder={{@searchPlaceholder}}
+      as |F|
+    >
       {{#if @hasActionsGeneric}}
         <F.ActionsGeneric>
           <ShwPlaceholder @text="generic content" @height="24" />
@@ -235,10 +240,13 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
       {{/if}}
       {{#if @hasActionsDropdown}}
         <F.ActionsDropdown as |D|>
-          <D.ToggleButton @text="Actions" @color="secondary" @size="small" />
-          <D.Checkbox>Action 1</D.Checkbox>
-          <D.Checkbox>Action 2</D.Checkbox>
-          <D.Checkbox>Action 3</D.Checkbox>
+          <D.Title @text="Title Text" />
+          <D.Description @text="Descriptive text goes here." />
+          <D.Interactive @href="#">Add</D.Interactive>
+          <D.Interactive @href="#">Add More</D.Interactive>
+          <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
+          <D.Separator />
+          <D.Interactive @icon="trash" @color="critical">Delete</D.Interactive>
         </F.ActionsDropdown>
       {{/if}}
       <F.Dropdown as |D|>
