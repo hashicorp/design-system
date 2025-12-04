@@ -18,8 +18,6 @@ While the Filter Bar underwent rigorous research and testing, this component is 
 
 - For complex query builder features.
 
-
-
 ## Overlap with the Filter pattern guidance <!--Consider a different headline -->
 
 The Filter Bar component is a successor to the [Filter patterns](/patterns/filter-patterns) documentation and directly supports the vast majority of filtering experiences within HashiCorp applications out of the box. New experiences should use the Filter Bar by default instead of the adhering to the pattern guidance, while already delivered features should consider migrating to the Filter Bar component.
@@ -44,24 +42,31 @@ Use the `standalone` variant when a data set is rendered in formats other than a
 
 ## Expand & collapse
 
-- The Filter Bar supports expanding and collapsing the applied filters section
-- This can simplify the visual noise around the data set, especially when many filters are applied
-- When no filters are applied, the Filter Bar is collapsed by default. Otherwise, if the Filter Bar is expanded, the applied filters will display an empty state.
-- The Filter Bar expands automatically when one or more filters are applied
+The Filter Bar supports expanding and collapsing the applied filters section. This can simplify the UI around the data set allowing more focus on the data or contet, especially when many filters are applied.
+
+![An example of the collapsed state of the Filter Bar](/assets/components/filter-bar/filter-bar-collapsed.png)
+
+When no filters are applied, the Filter Bar is collapsed by default and displays an empty state message when expanded.
+
+![An example of the expanded Filter Bar with no filters applied and an empty state](/assets/components/filter-bar/filter-bar-expanded-empty-state.png)
+
+When one or more filters are applied the Filter Bar is expanded by default.
+
+![An example of the expanded Filter Bar with several filters applied](/assets/components/filter-bar/filter-bar-expanded-with-filters.png)
 
 ## Search
 
 ## Bulk actions
 
-The Filter Bar supports bulk actions corresponding with our recommendations for [multi-select](/patterns/table-multi-select) within a table, and can be used to perform bulk actions such as edit, delete, and different types of selection across the data set.
+The Filter Bar supports bulk actions corresponding with our recommendations for [multi-select](/patterns/table-multi-select) within a table. This can be used to perform bulk actions such as edit, delete, and different types of selection across the data set.
 
-![Example of bulk actions]()
+![Example of bulk actions](/assets/components/filter-bar/filter-bar-bulk-actions.png)
 
 ## Generic content
 
 If custom functionality is needed for manipulating the view or contents of the data set, a generic block is grouped with the bulk actions in the Filter Bar. We aren't prescriptive about what can be passed to this generic block, but it should generally be limited to additional actions (as [Buttons](/components/button)) and [Dropdowns](/components/dropdown) with multiple grouped actions.
 
-![Example of generic content]()
+![Example of generic content](/assets/components/filter-bar/filter-bar-generic-content.png)
 
 ## Applied filters
 
@@ -70,10 +75,6 @@ Applied filters are represented within a [Tag](/components/tag) displaying the f
 ![](/assets/components/filter-bar/filter-bar-tag-example.png)
 
 <!-- Include information about how/if this can be customized -->
-
-### Tag truncation
-
-<!-- Consider whether it's useful to include something like this -->
 
 ## Filter dropdown
 
