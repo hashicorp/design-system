@@ -17,15 +17,11 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
 
   <CodeFragmentWithEmptyState />
 
-  <ShwTextH4 @tag="h3">Customized with
+  <ShwTextH4 @tag="h3">With
     <code>:emptyState</code>
     block</ShwTextH4>
 
   <CodeFragmentWithEmptyState @customEmptyState={{true}} />
-
-  <ShwTextH4 @tag="h3">Sticky header</ShwTextH4>
-
-  <CodeFragmentWithEmptyState @hasStickyHeader={{true}} />
 
   <ShwDivider />
 </template>;

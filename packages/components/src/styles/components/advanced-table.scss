@@ -792,6 +792,12 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 /// ----------------------------------------------------------------
 
 // EMPTY STATE
+
+.hds-advanced-table:has(+ .hds-advanced-table__empty-state) {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
 .hds-advanced-table__empty-state {
   display: flex;
   align-items: center;
@@ -805,9 +811,4 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
 .hds-advanced-table__empty-state__content {
   max-width: 450px;
-}
-
-.hds-advanced-table:not(:has(+ .hds-advanced-table__empty-state)) {
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
 }

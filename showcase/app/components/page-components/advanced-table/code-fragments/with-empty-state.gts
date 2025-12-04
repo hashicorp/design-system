@@ -21,7 +21,6 @@ export const DEFAULT_COLUMNS = [
 export interface CodeFragmentWithEmptyStateSignature {
   Args: {
     customEmptyState?: boolean;
-    hasStickyHeader?: boolean;
   };
   Element: HTMLDivElement;
 }
@@ -29,17 +28,12 @@ export interface CodeFragmentWithEmptyStateSignature {
 export default class CodeFragmentWithEmptyState extends Component<CodeFragmentWithEmptyStateSignature> {
   model = USERS.slice(0, 4);
 
-  get hasStickyHeader() {
-    return this.args.hasStickyHeader ?? false;
-  }
-
   <template>
     {{#if @customEmptyState}}
       <HdsAdvancedTable
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @model={{this.model}}
         @columns={{DEFAULT_COLUMNS}}
-        @hasStickyHeader={{this.hasStickyHeader}}
         @maxHeight="400px"
         @isEmpty={{true}}
       >
@@ -56,7 +50,6 @@ export default class CodeFragmentWithEmptyState extends Component<CodeFragmentWi
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @model={{this.model}}
         @columns={{DEFAULT_COLUMNS}}
-        @hasStickyHeader={{this.hasStickyHeader}}
         @maxHeight="400px"
         @isEmpty={{true}}
       />
