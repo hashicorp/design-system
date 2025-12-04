@@ -30,6 +30,7 @@ export interface HdsFilterBarSignature {
     filters: HdsFilterBarFilters;
     isLiveFilter?: boolean;
     hasSearch?: boolean;
+    searchPlaceholder?: string;
     onFilter?: (filters: HdsFilterBarFilters) => void;
   };
   Blocks: {
@@ -58,6 +59,15 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
       return this._getFilterValueText(filters['search']);
     }
     return '';
+  }
+
+  get searchPlaceholder(): string {
+    return (
+      this.args.searchPlaceholder ||
+      this.hdsIntl.t('hds.components.filter-bar.search.placeholder', {
+        default: 'Search',
+      })
+    );
   }
 
   get hasActiveFilters(): boolean {
