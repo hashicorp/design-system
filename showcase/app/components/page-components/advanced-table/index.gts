@@ -11,6 +11,8 @@ import SubSectionBaseElements from 'showcase/components/page-components/advanced
 import SubSectionBasic from 'showcase/components/page-components/advanced-table/sub-sections/basic';
 import SubSectionCustomization from 'showcase/components/page-components/advanced-table/sub-sections/customization';
 import SubSectionDemos from 'showcase/components/page-components/advanced-table/sub-sections/demos';
+import SubSectionEmptyState from 'showcase/components/page-components/advanced-table/sub-sections/empty-state';
+import SubSectionFilterBar from 'showcase/components/page-components/advanced-table/sub-sections/filter-bar';
 import SubSectionFunctionalExamples from 'showcase/components/page-components/advanced-table/sub-sections/functional-examples';
 import SubSectionLayout from 'showcase/components/page-components/advanced-table/sub-sections/layout';
 import SubSectionMultiSelect from 'showcase/components/page-components/advanced-table/sub-sections/multi-select';
@@ -37,6 +39,8 @@ const AdvancedTableIndex: TemplateOnlyComponent = <template>
     <SubSectionReorderableColumns />
     <SubSectionResizableColumns />
     <SubSectionPinnableColumns />
+    <SubSectionFilterBar />
+    <SubSectionEmptyState />
     <SubSectionFunctionalExamples />
     <SubSectionCustomization />
     <SubSectionLayout />

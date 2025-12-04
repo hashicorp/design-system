@@ -26,6 +26,7 @@ import CodeFragmentWithDebugSelect from 'showcase/components/page-components/adv
 import CodeFragmentWithSimpleData, {
   DEFAULT_COLUMNS,
 } from 'showcase/components/page-components/advanced-table/code-fragments/with-simple-data';
+import CodeFragmentWithFiltering from 'showcase/components/page-components/advanced-table/code-fragments/with-filtering';
 
 export default class SubSectionFunctionalExamples extends Component {
   // INLINE FILTER EXAMPLE
@@ -185,6 +186,14 @@ export default class SubSectionFunctionalExamples extends Component {
         </HdsFormSelectBase>
       </:topbarAction>
     </CodeFragmentWithDebugSelect>
+
+    <ShwTextH3>With FilterBar filtering</ShwTextH3>
+
+    <CodeFragmentWithFiltering />
+
+    <ShwTextH3>With FilterBar live filtering</ShwTextH3>
+
+    <CodeFragmentWithFiltering @isLiveFilter={{true}} />
 
     <ShwTextH3>With pagination</ShwTextH3>
     <CodeFragmentWithDebugSelect @hasPagination={{true}} />
