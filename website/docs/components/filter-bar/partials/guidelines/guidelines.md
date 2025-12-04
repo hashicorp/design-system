@@ -1,6 +1,11 @@
-The Filter Bar is used to display and apply filters to a data set. It is most often used in conjunction with the [Advanced Table](/components/table/advanced-table), but is flexible enough to support different renderings of data sets such as in a list or grid of cards.
+The Filter Bar is used to apply and display filters to a data set. It is most often used in conjunction with the [Advanced Table](/components/table/advanced-table), but is flexible enough to support different data sets and rendering methods such as in a list or grid of cards.
 
-The Filter Bar comes paired with a complex dropdown menu that supports 
+The Filter Bar comes paired with a complex dropdown menu that displays the available parameters to filter upon (parameter is often the equivalent of a column in a table), the available values within each parameter, the ability to enter numerical/date/time values, ranges of values, and actions to apply and clear filters from the data set.
+
+!!! Callout
+
+While the Filter Bar underwent rigorous research and testing, this component is relatively complex compared other Components in the the HDS library. If specific functionality or filtering methods don't meet your needs, please [contact the Design Systems Team](/about/support) so we can provide support.
+!!!
 
 ## Usage
 
@@ -11,16 +16,13 @@ The Filter Bar comes paired with a complex dropdown menu that supports
 
 ### When not to use
 
-- for complex query builder features.
+- For complex query builder features.
+
+
 
 ## Overlap with the Filter pattern guidance <!--Consider a different headline -->
 
-The Filter Bar component is a successor to the [Filter pattern](/patterns/filter-patterns) documentation and supports the vast majority of filtering experiences within HashiCorp applications. New experiences should use the Filter Bar by default instead of the adhering to the pattern guidance, while already delivered features should consider migrating to the Filter Bar component.
-
-!!! Callout
-
-While the Filter Bar underwent rigorous research and testing, this component is relatively complex compared other Components in the the HDS library. If specific functionality or filtering methods don't meet your needs, please [contact the Design Systems Team](/about/support) so we can provide support.
-!!!
+The Filter Bar component is a successor to the [Filter patterns](/patterns/filter-patterns) documentation and directly supports the vast majority of filtering experiences within HashiCorp applications out of the box. New experiences should use the Filter Bar by default instead of the adhering to the pattern guidance, while already delivered features should consider migrating to the Filter Bar component.
 
 ## Type
 
