@@ -18,8 +18,9 @@ import type {
   HdsFilterBarData,
   HdsFilterBarGenericFilterData,
 } from './types.ts';
-import HdsDropdown from '../dropdown/index.ts';
+// import HdsDropdown from '../dropdown/index.ts';
 import HdsYield from '../yield/index.ts';
+import HdsFilterBarActionsDropdown from './actions-dropdown.ts';
 import HdsFilterBarDropdown from './dropdown.ts';
 
 import { NUMERICAL_SELECTORS_TEXT } from './filter-group/numerical.ts';
@@ -36,7 +37,10 @@ export interface HdsFilterBarSignature {
   Blocks: {
     default?: [
       {
-        ActionsDropdown?: WithBoundArgs<typeof HdsDropdown, never>;
+        ActionsDropdown?: WithBoundArgs<
+          typeof HdsFilterBarActionsDropdown,
+          never
+        >;
         ActionsGeneric?: WithBoundArgs<typeof HdsYield, never>;
         Dropdown?: WithBoundArgs<
           typeof HdsFilterBarDropdown,

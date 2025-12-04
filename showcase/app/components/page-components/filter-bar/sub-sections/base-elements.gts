@@ -18,6 +18,7 @@ import ShwGrid from 'showcase/components/shw/grid';
 import NOOP from 'showcase/utils/noop';
 
 import {
+  HdsFilterBarActionsDropdown,
   HdsFilterBarDropdown,
   HdsFilterBarTabs,
   HdsFilterBarTabsTab,
@@ -102,16 +103,56 @@ const NUMERICAL_BETWEEN_FILTER = {
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
 
+  <ShwTextH3>ActionsDropdown</ShwTextH3>
+
+  <ShwFlex @gap="2rem" as |SF|>
+    <SF.Item @label="Base (default)">
+      <HdsFilterBarActionsDropdown as |D|>
+        <D.Title @text="Title Text" />
+        <D.Description @text="Descriptive text goes here." />
+        <D.Interactive @href="#">Add</D.Interactive>
+        <D.Interactive @href="#">Add More</D.Interactive>
+        <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
+        <D.Separator />
+        <D.Interactive @icon="trash" @color="critical">Delete</D.Interactive>
+      </HdsFilterBarActionsDropdown>
+    </SF.Item>
+    <SF.Item @label="With toggle button text">
+      <HdsFilterBarActionsDropdown @toggleButtonText="Custom Actions" as |D|>
+        <D.Title @text="Title Text" />
+        <D.Description @text="Descriptive text goes here." />
+        <D.Interactive @href="#">Add</D.Interactive>
+        <D.Interactive @href="#">Add More</D.Interactive>
+        <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
+        <D.Separator />
+        <D.Interactive @icon="trash" @color="critical">Delete</D.Interactive>
+      </HdsFilterBarActionsDropdown>
+    </SF.Item>
+    <SF.Item @label="With toggle button icon">
+      <HdsFilterBarActionsDropdown @toggleButtonIcon="plus" as |D|>
+        <D.Title @text="Title Text" />
+        <D.Description @text="Descriptive text goes here." />
+        <D.Interactive @href="#">Add</D.Interactive>
+        <D.Interactive @href="#">Add More</D.Interactive>
+        <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
+        <D.Separator />
+        <D.Interactive @icon="trash" @color="critical">Delete</D.Interactive>
+      </HdsFilterBarActionsDropdown>
+    </SF.Item>
+  </ShwFlex>
+
+  <ShwDivider @level={{2}} />
+
   <ShwTextH3>Dropdown</ShwTextH3>
 
-  <ShwGrid @columns={{2}} as |SG|>
-    <SG.Item @label="Base (default)">
+  <ShwFlex @gap="2rem" as |SF|>
+    <SF.Item @label="Base (default)">
       <HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} />
-    </SG.Item>
-    <SG.Item @label="With live filtering">
+    </SF.Item>
+    <SF.Item @label="With live filtering">
       <HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} @isLiveFilter={{true}} />
-    </SG.Item>
-  </ShwGrid>
+    </SF.Item>
+  </ShwFlex>
 
   <ShwDivider @level={{2}} />
 

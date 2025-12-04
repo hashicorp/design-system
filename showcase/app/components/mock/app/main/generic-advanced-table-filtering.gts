@@ -408,7 +408,6 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
           <ShwPlaceholder @text="generic content" @height="24" />
         </F.ActionsGeneric>
         <F.ActionsDropdown as |D|>
-          <D.ToggleButton @text="Actions" @color="secondary" @size="small" />
           <D.Checkbox>access</D.Checkbox>
           <D.Checkbox>homework</D.Checkbox>
           <D.Checkbox>discovery</D.Checkbox>
@@ -514,11 +513,6 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
               <ShwPlaceholder @text="generic content" @height="24" />
             </F.ActionsGeneric>
             <F.ActionsDropdown as |D|>
-              <D.ToggleButton
-                @text="Actions"
-                @color="secondary"
-                @size="small"
-              />
               <D.Checkbox>access</D.Checkbox>
               <D.Checkbox>homework</D.Checkbox>
               <D.Checkbox>discovery</D.Checkbox>

@@ -37,7 +37,7 @@
     {{/if}}
     <Hds::Layout::Flex @gap="8" @align="center" class="hds-filter-bar__actions__right">
       {{yield (hash ActionsGeneric=(component "hds/yield"))}}
-      {{yield (hash ActionsDropdown=(component "hds/dropdown"))}}
+      {{yield (hash ActionsDropdown=(component "hds/filter-bar/actions-dropdown"))}}
     </Hds::Layout::Flex>
   </Hds::Layout::Flex>
   {{#if this._isExpanded}}
