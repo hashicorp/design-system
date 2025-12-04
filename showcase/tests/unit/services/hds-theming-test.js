@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { setupTest } from 'showcase/tests/helpers';
+import { setupTest } from 'ember-qunit';
 import sinon from 'sinon';
 import {
   HdsThemeValues,
@@ -20,15 +20,13 @@ module('Unit | Service | hds-theming', function (hooks) {
 
   hooks.beforeEach(function () {
     this.service = this.owner.lookup('service:hds-theming');
-    // Clear local storage and classes on root element before each test
-    window.localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_DATA);
-    document.documentElement.className = '';
   });
 
   hooks.afterEach(function () {
-    // Clean up after each test
+    // clear up local storage and classes on root element
     window.localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_DATA);
     document.documentElement.className = '';
+    // restores all sinon spies/stubs/mocks to their original state
     sinon.restore();
   });
 
@@ -68,8 +66,8 @@ module('Unit | Service | hds-theming', function (hooks) {
       'currentMode remains undefined',
     );
     assert.notOk(
-      document.documentElement.classList.contains('hds-theme-light'),
-      'does not add light theme class',
+      /hds-theme-/.test(document.documentElement.className),
+      'does not add any theme class',
     );
   });
 
@@ -139,9 +137,8 @@ module('Unit | Service | hds-theming', function (hooks) {
       undefined,
       'currentMode is undefined',
     );
-    assert.strictEqual(
-      document.documentElement.className,
-      '',
+    assert.notOk(
+      /hds-theme-/.test(document.documentElement.className),
       'no theme classes are applied',
     );
   });
@@ -192,7 +189,7 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentMode,
       DEFAULT_THEMING_OPTION_LIGHT_THEME,
-      'currentMode is the default light mode',
+      'currentMode is the default light mode (cds-g0)',
     );
     assert.ok(
       document.documentElement.classList.contains('hds-theme-light'),
@@ -216,7 +213,7 @@ module('Unit | Service | hds-theming', function (hooks) {
     assert.strictEqual(
       this.service.currentMode,
       DEFAULT_THEMING_OPTION_DARK_THEME,
-      'currentMode is the default dark mode',
+      'currentMode is the default dark mode (cds-g100)',
     );
     assert.ok(
       document.documentElement.classList.contains('hds-theme-dark'),
@@ -270,11 +267,43 @@ module('Unit | Service | hds-theming', function (hooks) {
       'currentMode reflects new light theme',
     );
 
+    // Check localStorage after setting light theme with custom options
+    let storedData = JSON.parse(
+      window.localStorage.getItem(HDS_THEMING_LOCALSTORAGE_DATA),
+    );
+    assert.deepEqual(
+      storedData,
+      {
+        theme: HdsThemeValues.Light,
+        options: {
+          lightTheme: HdsModesLightValues.CdsG10,
+          darkTheme: HdsModesDarkValues.CdsG90,
+        },
+      },
+      'localStorage is updated correctly with custom options',
+    );
+
     this.service.setTheme({ theme: HdsThemeValues.Dark });
     assert.strictEqual(
       this.service.currentMode,
       HdsModesDarkValues.CdsG90,
       'currentMode reflects new dark theme',
+    );
+
+    // Check localStorage after switching to dark theme
+    storedData = JSON.parse(
+      window.localStorage.getItem(HDS_THEMING_LOCALSTORAGE_DATA),
+    );
+    assert.deepEqual(
+      storedData,
+      {
+        theme: HdsThemeValues.Dark,
+        options: {
+          lightTheme: HdsModesLightValues.CdsG10,
+          darkTheme: HdsModesDarkValues.CdsG90,
+        },
+      },
+      'localStorage preserves custom options when switching themes',
     );
   });
 
