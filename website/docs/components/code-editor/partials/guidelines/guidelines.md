@@ -103,6 +103,7 @@ For more details around syntax, visit the [specifications](/components/code-edit
 ## Linting
 
 !!! Info
+
 Linting is only available in the Ember component and is not supported in Figma.
 !!!
 
@@ -127,6 +128,7 @@ The Code Editor supports valid CodeMirror 6 [extensions](https://codemirror.net/
 ### Importing CodeMirror modules
 
 !!! Warning
+
 Do not install CodeMirror packages directly.
 !!!
 
