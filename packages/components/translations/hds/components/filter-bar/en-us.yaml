@@ -1,10 +1,16 @@
+live-filtering: Filters will be applied automatically as selections are made
 search:
-  aria-label: Search filters
+  aria-label: Search
   placeholder: Search
-filter:
-  numerical-filter:
-    separator: and
-  date-filter:
-    separator: and
-no-filters-applied: No filters applied
-clear-filters: Clear all filters
+applied-filters:
+  toggle-button:
+    expand: Expand applied filters
+    collapse: Collapse applied filters
+  tag:
+    aria-label: Clear filter
+    numerical-filter:
+      separator: and
+    date-filter:
+      separator: and
+  no-filters-applied: No filters applied
+  clear-filters: Clear all filters
