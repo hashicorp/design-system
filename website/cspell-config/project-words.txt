@@ -4,6 +4,7 @@ Autoscaler
 borderless
 charcount
 Charcount
+Cntrl
 codemod
 codemods
 commodo
@@ -25,6 +26,9 @@ frontmatter
 hcp’s
 heatmaps
 hmac
+keymaps
+keymap
+Keymap
 Knowledgebase
 letterforms
 lezer

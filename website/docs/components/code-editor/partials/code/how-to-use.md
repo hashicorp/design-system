@@ -136,17 +136,17 @@ All standard CodeMirror utilities are available via: `@hashicorp/design-system-c
 
 Here is how to create a custom keymap extension using the re-exported modules.
 
-```javacript
-import Component from '@glimmer/component';
+```javascript
+import Component from "@glimmer/component";
 // ✅ Import from HDS, not from '@codemirror/view'
-import { keymap } from '@hashicorp/design-system-components/codemirror';
+import { keymap } from "@hashicorp/design-system-components/codemirror";
 
 // 1. Define your extension
 const myKeymap = keymap.of([
   {
-    key: 'Cntrl-Shift-h',
+    key: "Cntrl-Shift-h",
     run: (view) => {
-      console.log('Hello World');
+      console.log("Hello World");
       return true;
     },
   },
