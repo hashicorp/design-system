@@ -1,3 +1,8 @@
+## 5.1.0
+
+Fixed a bug in the cleanup logic of selectable rows where data updates caused the internal selection state to be incorrectly reset.
+
+
 ## 5.0.0
 
 Removed the `@isVisuallyHidden` argument from `HdsAdvancedTableTh` component. This setting is supported via setting `isVisuallyHidden` in the corresponding `@columns` item's configuration.

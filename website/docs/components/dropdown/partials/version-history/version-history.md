@@ -1,3 +1,11 @@
+## 5.1.0
+
+Updated component signature for `ListItemCheckbox` and `ListItemRadio` to have an optional `@id` argument.
+
+
+Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
+
+
 ## 5.0.0
 
 Removed the deprecated `@text` argument from the `HdsDropdownListItemInteractive` component.

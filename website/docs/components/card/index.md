@@ -13,8 +13,6 @@ navigation:
     - tile
     - container
     - box
-status:
-  updated: 5.0.0
 ---
 
 <section data-tab="Guidelines">

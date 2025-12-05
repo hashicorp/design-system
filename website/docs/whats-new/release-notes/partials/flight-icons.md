@@ -1,5 +1,5 @@
 <!--
- Copyright (c) HashiCorp, Inc.
+ Copyright IBM Corp. 2021, 2025
  SPDX-License-Identifier: MPL-2.0
 -->
 
@@ -11,6 +11,16 @@
     <img src="https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg" alt="npm version" height="20">
   </a>
 </p>
+
+## 4.1.0
+
+**Minor changes**
+
+`ansible-community`, `ansible-community-color`, `ansible-automation-platform`, and `ansible-automation-platform-color` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#3404](https://github.com/hashicorp/design-system/pull/3404)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
 
 ## 4.0.0
 
@@ -233,17 +243,6 @@ Added "category" to the icons' metadata in the `catalog.json` file.
 `rabbitmq`, `openid`, `jwt`, `meetup`, and `transform-data` icons added.
 
 <small class="doc-whats-new-changelog-metadata">[#1873](https://github.com/hashicorp/design-system/pull/1873)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 2.23.0
-
-**Minor changes**
-
-`accessibility`, `channel`, `minus-circle-fill`, `plus-circle-fill` icons added.
-Fixed the size and position of the `plus-circle` icon.
-
-<small class="doc-whats-new-changelog-metadata">[#1839](https://github.com/hashicorp/design-system/pull/1839)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 

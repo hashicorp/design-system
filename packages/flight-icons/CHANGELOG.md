@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 4.1.0
+
+### Minor Changes
+
+`ansible-community`, `ansible-community-color`, `ansible-automation-platform`, and `ansible-automation-platform-color` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#3404](https://github.com/hashicorp/design-system/pull/3404)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.0.0
 
 ### Major Changes

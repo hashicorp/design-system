@@ -13,8 +13,6 @@ navigation:
     - empty state
     - error state
     - message
-status:
-  updated: 5.0.0
 ---
 
 <section data-tab="Guidelines">
