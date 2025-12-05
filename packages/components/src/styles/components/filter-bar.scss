@@ -153,6 +153,11 @@
   .hds-filter-bar__filter-group__field[type="time"] {
     width: 100%;
   }
+
+  .hds-filter-bar__filter-group__field--between[type="date"] {
+    // Due to a limitation with the native date input's min-width in Chrome, we need to explicitly set the width.
+    width: 130px;
+  }
 }
 
 .hds-filter-bar__filter-group__numerical,
