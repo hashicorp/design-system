@@ -35,7 +35,7 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
     // general dark theme tokens
     color: var(--token-color-foreground-high-contrast);
     background-color: var(--token-color-palette-neutral-700);
-    border-radius: $hds-button-border-radius; // We don't have a button border-radius token so we use the button mixin sass variable
+    border-radius: var(--token-button-border-radius);
   }
 
   // Hover:
