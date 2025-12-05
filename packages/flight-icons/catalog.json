@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2025-11-05T17:40:01.941Z",
+  "lastRunTimeISO": "2025-12-04T22:37:44.409Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -241,6 +241,86 @@
       "fileName": "amazon-eks-color-16",
       "iconName": "amazon-eks-color",
       "description": "amazon, aws, eks, kubenetes",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "9341:214",
+      "fileName": "ansible-community-24",
+      "iconName": "ansible-community",
+      "description": "ansible, redhat, community",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "9341:218",
+      "fileName": "ansible-community-16",
+      "iconName": "ansible-community",
+      "description": "ansible, redhat, community",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "9341:225",
+      "fileName": "ansible-community-color-24",
+      "iconName": "ansible-community-color",
+      "description": "ansible, redhat, community",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "9341:229",
+      "fileName": "ansible-community-color-16",
+      "iconName": "ansible-community-color",
+      "description": "ansible, redhat, community",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "9341:186",
+      "fileName": "ansible-automation-platform-24",
+      "iconName": "ansible-automation-platform",
+      "description": "ansible, redhat, platform, automation",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "9341:192",
+      "fileName": "ansible-automation-platform-16",
+      "iconName": "ansible-automation-platform",
+      "description": "ansible, redhat, platform, automation",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "9341:201",
+      "fileName": "ansible-automation-platform-color-24",
+      "iconName": "ansible-automation-platform-color",
+      "description": "ansible, redhat, platform, automation",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "9341:206",
+      "fileName": "ansible-automation-platform-color-16",
+      "iconName": "ansible-automation-platform-color",
+      "description": "ansible, redhat, platform, automation",
       "category": "Services",
       "size": "16",
       "width": 16,
