@@ -399,8 +399,8 @@
     },
     "./addon-main.js": "./addon-main.cjs",
     "./codemirror": {
-      "types": "./declarations/codemirror.d.ts",
-      "default": "./dist/codemirror.js"
+      "types": "./declarations/re-exports/codemirror.d.ts",
+      "default": "./dist/re-exports/codemirror.js"
     }
   },
   "typesVersions": {
