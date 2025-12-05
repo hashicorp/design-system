@@ -19,6 +19,10 @@
   >
     <Hds::Text::Body @size="200" @weight="medium" class="hds-filter-bar__tabs__tab__text">{{yield}}</Hds::Text::Body>
     {{#if (gt @numFilters 0)}}
+      <span class="sr-only">{{hds-t
+          "hds.components.filter-bar.tabs.tab.filters-applied"
+          default="Filters applied"
+        }}</span>
       <Hds::Text::Body @size="200" @color="primary">
         {{@numFilters}}
       </Hds::Text::Body>
