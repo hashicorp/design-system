@@ -14,6 +14,8 @@
 
 ## 5.1.0
 
+[5.1.0 documentation](https://hds-website-5-1-0.vercel.app/)
+
 **Minor changes**
 
 <!-- START components/code-editor -->
