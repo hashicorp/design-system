@@ -117,7 +117,7 @@ Set `hasLineWrapping` to `true` to enable line wrapping within the editor.
 
 ### Custom extensions
 
-The Code Editor supports valid CodeMirror 6 [extensions](https://codemirror.net/docs/ref/#state.Extension) via the `@customExtensions` argument. This allows you to add custom keymaps, gutter markers, theme overrides, or advanced editor behavior.
+The Code Editor supports valid [CodeMirror 6 extensions](https://codemirror.net/docs/ref/#state.Extension) via the `@customExtensions` argument. This allows you to add custom keymaps, gutter markers, theme overrides, or advanced editor behavior.
 
 #### Importing CodeMirror modules
 
