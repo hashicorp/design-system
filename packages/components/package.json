@@ -400,7 +400,7 @@
     "./addon-main.js": "./addon-main.cjs",
     "./codemirror": {
       "types": "./declarations/codemirror.d.ts",
-      "default": "./dist/codemirror.js"
+      "default": "./dist/re-exports/codemirror.js"
     }
   },
   "typesVersions": {
