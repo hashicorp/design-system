@@ -14,15 +14,21 @@
   role={{this.role}}
   width="{{this.svgSize.width}}"
   height="{{this.svgSize.height}}"
-  viewBox="0 0 {{this.size}} {{this.size}}"
+  viewBox={{this.viewBox}}
   xmlns="http://www.w3.org/2000/svg"
+  {{this.loadCarbonIcon this.hdsCarbon.carbonModeEnabled}}
 >
-  {{#if @title}}
-    <title id={{this._titleId}}>{{@title}}</title>
-    <g role="presentation">
-      <use href="#flight-{{@name}}-{{this.size}}"></use>
-    </g>
+  {{#if this.hdsCarbon.carbonModeEnabled}}
+    {{this.carbonPaths}}
   {{else}}
-    <use href="#flight-{{@name}}-{{this.size}}"></use>
+    {{#if @title}}
+      <title id={{this._titleId}}>{{@title}}</title>
+
+      <g role="presentation">
+        <use href="#flight-{{@name}}-{{this.size}}"></use>
+      </g>
+    {{else}}
+      <use href="#flight-{{@name}}-{{this.size}}"></use>
+    {{/if}}
   {{/if}}
 </svg>

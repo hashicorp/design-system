@@ -36,6 +36,7 @@
     "test:a11y-report": "pnpm build:packages && ENABLE_A11Y_AUDIT=true ENABLE_A11Y_MIDDLEWARE_REPORTER=true ember test -f=\"Acceptance\""
   },
   "devDependencies": {
+    "@carbon/icons": "^11.70.0",
     "@babel/core": "^7.27.1",
     "@babel/eslint-parser": "^7.27.1",
     "@babel/plugin-proposal-decorators": "^7.27.1",

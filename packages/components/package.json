@@ -33,6 +33,8 @@
     "prepublishOnly": "pnpm build && test -f 'dist/styles/@hashicorp/design-system-components.css' || (echo \"\n\\033[31m⚠️  Error: the pre-compiled CSS file \\`dist/styles/@hashicorp/design-system-components.css\\` was not found\\033[0m\\n\" && exit 1)"
   },
   "dependencies": {
+    "@carbon/icon-helpers": "^10.69.0",
+    "@carbon/icons": "^11.70.0",
     "@codemirror/commands": "^6.8.0",
     "@codemirror/lang-go": "^6.0.1",
     "@codemirror/lang-javascript": "^6.2.2",
@@ -384,6 +386,7 @@
       "./modifiers/hds-code-editor/types.js": "./dist/_app_/modifiers/hds-code-editor/types.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
+      "./services/hds-carbon.js": "./dist/_app_/services/hds-carbon.js",
       "./services/hds-intl.js": "./dist/_app_/services/hds-intl.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"
     }
