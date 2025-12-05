@@ -19,6 +19,10 @@
 }
 
 .hds-filter-bar__applied-filters-list {
+  display: contents;
+}
+
+.hds-filter-bar__applied-filters-list__content {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 12px;
