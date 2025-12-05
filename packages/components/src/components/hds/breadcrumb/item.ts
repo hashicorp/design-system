@@ -44,10 +44,8 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
     }
   }
 
-  async resolveLinkToExternal() {
-    this.linkToExternal = await hdsResolveLinkToExternal(
-      this.args.isRouteExternal
-    );
+  resolveLinkToExternal() {
+    this.linkToExternal = hdsResolveLinkToExternal(this.args.isRouteExternal);
   }
 
   /**
