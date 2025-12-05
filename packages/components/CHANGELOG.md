@@ -86,7 +86,7 @@ Upgraded `@glimmer/component` dependency to version `2.0`
 <div class="doc-whats-new-changelog-separator"></div>
 
 
-`Card` - Removed the component invocation paths `Hds::Card` and `hds/card`. Consumers must update their templates to use `<Hds::Card::Container>` or `{{hds/card/container}}`
+`Card` - Removed the component invocation paths `Hds::Card` and `hds/card`. Consumers must update their templates to use `<Hds::Card::Container>` or `hds/card/container`.
 
 
 <small class="doc-whats-new-changelog-metadata">[#3211](https://github.com/hashicorp/design-system/pull/3211)</small>
