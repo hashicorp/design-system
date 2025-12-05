@@ -33,7 +33,7 @@
             "hds.components.filter-bar.filter-group.date.between-value-inputs.start-placeholder"
             default="Start"
           }}
-          class="hds-filter-bar__filter-group__field"
+          class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
           {{on "change" this.onBetweenValueStartChange}}
         />
         <Hds::Form::TextInput::Base
@@ -44,7 +44,7 @@
             "hds.components.filter-bar.filter-group.date.between-value-inputs.end-placeholder"
             default="End"
           }}
-          class="hds-filter-bar__filter-group__field"
+          class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
           {{on "change" this.onBetweenValueEndChange}}
         />
       </Hds::Layout::Flex>
