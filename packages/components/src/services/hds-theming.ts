@@ -65,6 +65,42 @@ export const HDS_THEMING_LOCALSTORAGE_DATA = 'hds-theming-data';
 export const DEFAULT_THEMING_OPTION_LIGHT_THEME = HdsModesLightValues.CdsG0;
 export const DEFAULT_THEMING_OPTION_DARK_THEME = HdsModesDarkValues.CdsG100;
 
+type StoredThemingData = {
+  theme: HdsThemes | undefined;
+  options: HdsThemingOptions;
+};
+
+// We use this guard function to check if the data parsed from `localStorage` conforms to the `StoredThemingData` type and so is safe to use.
+// This prevents the application from using corrupted, malformed or malicious data, by validating the object structure, theme, and mode values.
+
+function isSafeStoredThemingData(data: unknown): data is StoredThemingData {
+  if (typeof data !== 'object' || data === null) return false;
+
+  const d = data as Record<string, unknown>;
+
+  const isSafeThemeData =
+    // there is no stored `theme` key in the object (eg. the `default` theme was selected)
+    !('theme' in d) ||
+    // there is a `theme` value and is one of the valid `HdsThemes`
+    d['theme'] === undefined ||
+    THEMES.includes(d['theme'] as HdsThemes);
+
+  const options = d['options'] as Record<string, unknown> | undefined;
+
+  const isSafeOptionsData =
+    // there is no stored `options` key in the object (eg. it's the first run of the application)
+    !('options' in d) ||
+    // there is an `options` value and has valid entries
+    (typeof options === 'object' &&
+      options !== null &&
+      'lightTheme' in options &&
+      MODES_LIGHT.includes(options['lightTheme'] as HdsModesLight) &&
+      'darkTheme' in options &&
+      MODES_DARK.includes(options['darkTheme'] as HdsModesDark));
+
+  return isSafeThemeData && isSafeOptionsData;
+}
+
 export default class HdsThemingService extends Service {
   @tracked _currentTheme: HdsThemes | undefined = undefined;
   @tracked _currentMode: HdsModes | undefined = undefined;
@@ -77,6 +113,7 @@ export default class HdsThemingService extends Service {
     const rawStoredThemingData = localStorage.getItem(
       HDS_THEMING_LOCALSTORAGE_DATA
     );
+
     if (rawStoredThemingData !== null) {
       let storedThemingData: unknown;
       try {
@@ -87,16 +124,18 @@ export default class HdsThemingService extends Service {
           `Error while reading local storage '${HDS_THEMING_LOCALSTORAGE_DATA}' for theming`,
           error
         );
-        storedThemingData = undefined;
       }
-      if (storedThemingData) {
-        const { theme, options } = storedThemingData as {
-          theme: HdsThemes | undefined;
-          options: HdsThemingOptions;
-        };
+
+      if (isSafeStoredThemingData(storedThemingData)) {
         this.setTheme({
-          theme,
-          options,
+          theme: storedThemingData.theme,
+          options: storedThemingData.options,
+        });
+      } else {
+        // if data is not safe or malformed, reset theming to its defaults
+        this.setTheme({
+          theme: undefined,
+          options: undefined,
         });
       }
     }
