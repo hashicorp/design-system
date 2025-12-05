@@ -5,26 +5,29 @@
 
 import { LinkTo } from '@ember/routing';
 import { assert } from '@ember/debug';
+import {
+  dependencySatisfies,
+  macroCondition,
+  importSync,
+} from '@embroider/macros';
 
 /**
  * Resolves the correct component to use for the `LinkTo`.
  *
  * @param isRouteExternal - If true, will return the `LinkToExternal` component. If `ember-engines` is not installed, an assertion will be thrown.
- * @returns A promise resolving to the correct component to use for the `LinkTo`.
+ * @returns The correct component to use for the `LinkTo`.
  */
-export async function hdsResolveLinkToExternal(
+export function hdsResolveLinkToExternal(
   isRouteExternal?: boolean
-): Promise<typeof LinkTo> {
+): typeof LinkTo {
   if (isRouteExternal) {
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const mod = await import(
-        // @ts-expect-error: we list this as optional peer dependency
+    if (macroCondition(dependencySatisfies('ember-engines', '*'))) {
+      // Use importSync for compile-time conditional import
+      const module = importSync(
         'ember-engines/components/link-to-external-component'
-      );
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      return mod.default as typeof LinkTo;
-    } catch {
+      ) as { default: typeof LinkTo };
+      return module.default;
+    } else {
       assert(
         `@isRouteExternal is only available when using the "ember-engines" addon. Please install it to use this feature.`,
         false
