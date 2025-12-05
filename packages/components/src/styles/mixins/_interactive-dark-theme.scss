@@ -15,9 +15,6 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
 
 // Used to apply dark theme to interactive elements such as Button & Dropdown
 @mixin hds-interactive-dark-theme($add-visible-border: true, $is-within-side-nav: false) {
-  // Override token used in focus ring mixin
-  --token-focus-ring-action-box-shadow: #{$hds-interactive-dark-theme-focus-ring-action-box-shadow};
-
   // Default:
   border: 1px solid transparent;
   cursor: pointer;
@@ -59,25 +56,11 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
   // Focus:
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
-
     color: var(--token-color-foreground-high-contrast);
     background-color: var(--token-color-palette-neutral-700);
-
-    @if ($add-visible-border) {
-      border-color: $hds-interactive-dark-theme-color-focus-action-internal;
-    }
-
-    // focus ring:
-    &::before {
-      color: var(--token-color-foreground-high-contrast);
-      border: none;
-    }
-  }
-
-  // override style removing the focus style
-  &:focus:focus:not(:focus-visible)::before {
-    box-shadow: $hds-interactive-dark-theme-focus-ring-action-box-shadow;
+    border-color: $hds-interactive-dark-theme-color-focus-action-internal;
+    outline: 3px solid #{$hds-interactive-dark-theme-color-focus-action-external};
+    outline-offset: 0; // override Primary button variant offset
   }
 
   // Active:

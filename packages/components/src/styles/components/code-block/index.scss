@@ -180,10 +180,7 @@ $hds-code-block-code-footer-height: 48px;
     color: var(--hds-code-block-color-foreground-primary);
     background-color: var(--hds-code-block-color-surface-faint);
     border-color: var(--hds-code-block-color-focus-action-internal);
-
-    &::before {
-      border-color: var(--hds-code-block-color-focus-action-external);
-    }
+    outline-color: var(--hds-code-block-color-focus-action-external);
   }
 
   .hds-icon {
