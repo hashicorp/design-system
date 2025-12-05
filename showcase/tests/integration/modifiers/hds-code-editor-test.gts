@@ -19,6 +19,7 @@ import type { EditorView as EditorViewType } from '@codemirror/view';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 
 import hdsCodeEditor from '@hashicorp/design-system-components/modifiers/hds-code-editor';
+import { EditorView } from '@hashicorp/design-system-components/codemirror';
 import type { HdsCodeEditorSignature } from '@hashicorp/design-system-components/modifiers/hds-code-editor';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
@@ -39,6 +40,7 @@ const createCodeEditor = async (options: {
   language?: HdsCodeEditorSignature['Args']['Named']['language'];
   isLintingEnabled?: HdsCodeEditorSignature['Args']['Named']['isLintingEnabled'];
   cspNonce?: HdsCodeEditorSignature['Args']['Named']['cspNonce'];
+  customExtensions?: HdsCodeEditorSignature['Args']['Named']['customExtensions'];
 }) => {
   return await render(
     <template>
@@ -56,6 +58,7 @@ const createCodeEditor = async (options: {
           language=options.language
           isLintingEnabled=options.isLintingEnabled
           cspNonce=options.cspNonce
+          customExtensions=options.customExtensions
         }}
       />
     </template>,
@@ -312,7 +315,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
   // extraKeys
   test('setting extraKeys should add the provided keybindings to the editor', async function (assert) {
-    const saveSpy = sinon.spy(() => console.log('Save!'));
+    const saveSpy = sinon.spy(() => true);
 
     const extraKeys = {
       'Shift-Enter': saveSpy,
@@ -333,6 +336,29 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     document.querySelector('.cm-content')?.dispatchEvent(event);
 
     assert.ok(saveSpy.calledOnce);
+  });
+
+  // customExtensions
+  test('it should load custom extensions provided via the customExtensions argument', async function (assert) {
+    const customClassName = 'my-custom-test-class';
+
+    // create a simple extension that adds a specific class to the editor's wrapper element.
+    const myTestClassExtension = EditorView.editorAttributes.of({
+      class: customClassName,
+    });
+
+    await createCodeEditor({
+      ariaLabel: 'test with custom extension',
+      customExtensions: [myTestClassExtension],
+    });
+
+    await waitFor('.cm-editor');
+    assert
+      .dom('.cm-editor')
+      .hasClass(
+        customClassName,
+        'the custom extension successfully injected the class attribute',
+      );
   });
 
   // ASSERTIONS
