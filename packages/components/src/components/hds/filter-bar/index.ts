@@ -8,6 +8,8 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 import { isArray } from '@ember/array';
+import { modifier } from 'ember-modifier';
+import { guidFor } from '@ember/object/internals';
 import type { WithBoundArgs } from '@glint/template';
 
 import type HdsIntlService from '../../../services/hds-intl';
@@ -57,6 +59,18 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
   @tracked _isExpanded: boolean = this.hasActiveFilters;
 
+  private _dropdownToggleElemenet!: HTMLDivElement;
+  private _appliedFiltersButtonId = 'applied-filters-button-' + guidFor(this);
+  private _appliedFiltersContentId = 'applied-filters-content-' + guidFor(this);
+
+  private _setUpFilterBar = modifier((element: HTMLDivElement) => {
+    this._dropdownToggleElemenet = element.querySelector(
+      '.hds-filter-bar__dropdown .hds-dropdown-toggle-button'
+    ) as HTMLDivElement;
+
+    return () => {};
+  });
+
   get searchValue(): string {
     const { filters } = this.args;
     if (filters['search']) {
@@ -99,6 +113,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
       onFilter({});
       this._isExpanded = false;
     }
+    this._dropdownToggleElemenet?.focus();
   }
 
   @action
@@ -166,6 +181,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
       this.onFilter({ ...newFilters });
     }
+    this._dropdownToggleElemenet?.focus();
   };
 
   private _filterData = (
@@ -214,7 +230,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
         data.value !== null
       ) {
         const separatorText = this.hdsIntl.t(
-          'hds.components.filter-bar.filter.numerical-filter.separator',
+          'hds.components.filter-bar.tag.numerical-filter.separator',
           {
             default: 'and',
           }
@@ -246,7 +262,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
         data.value !== null
       ) {
         const separatorText = this.hdsIntl.t(
-          'hds.components.filter-bar.filter.date-filter.separator',
+          'hds.components.filter-bar.tag.date-filter.separator',
           {
             default: 'and',
           }
