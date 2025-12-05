@@ -29,6 +29,9 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
   <C.Property @name="copyButtonText" @type="string" @default="'Copy'">
     Override this value to provide a meaningful `aria-label` for the [`Copy::Button`](/components/copy/button) component.
   </C.Property>
+  <C.Property @name="customExtensions" @type="array">
+    Accepts custom CodeMirror 6 extensions. More information about creating extensions can be found in the [CodeMirror documentation](https://codemirror.net/docs/ref/#state.Extension).
+  </C.Property>
   <C.Property @name="cspNonce" @type="string">
     Provides a Content Security Policy nonce to use when creating the style sheets for the editor. If none is provided, the editor will attempt to extract a nonce from the Content Security Policy.
   </C.Property>

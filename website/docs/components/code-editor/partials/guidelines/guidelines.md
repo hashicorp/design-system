@@ -71,7 +71,6 @@ Some elements or functions outside the Code Editor may affect the content within
 
 ![A Code Editor with the external title “Automations and expressions” coupled with a filter input, “Copy” dropdown, “Version” dropdown, and a “Create new version” button.](/assets/components/code-editor/code-editor-external-functions.png)
 
-
 ## Active line highlighting
 
 When a user edits a line of code, a highlight will display to show their location within the Code Editor.
@@ -103,7 +102,8 @@ For more details around syntax, visit the [specifications](/components/code-edit
 
 ## Linting
 
-!!! Info 
+!!! Info
+
 Linting is only available in the Ember component and is not supported in Figma.
 !!!
 
