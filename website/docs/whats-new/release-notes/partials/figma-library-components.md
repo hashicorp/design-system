@@ -12,6 +12,10 @@
 </p>
 
 
+### December 4th, 2025
+
+`Breadcrumb` - Fixed a bug that caused the text styles in the default state of the Breadcrumb Item to detach.
+
 ### November 5th, 2025
 
 This changelog corresponds with the [5.0](/whats-new/release-notes#500) release.
@@ -117,22 +121,6 @@ Unpublished all local variables for component-level tokens.
 - Added support for a sticky column in the [Template] components.
 
 `CodeBlock` and `CodeEditor` - Improved the color contrast in the focus ring.
-
-### March 5th, 2025
-
-`CodeEditor` - Added support for Javascript and Rego languages.
-
-`Badge` - Updated colors for improved contrast and accessibility.
-
-`Tag` - Updated to support truncation and tooltip. Content no longer wraps.
-
-`Advanced Table` - Removed an unnecessary border from `Header::Selection`.
-
-#### Breaking changes
-
-`Advanced Table` - Restructured `Cell::Selection` to mimic the `Table::Cell::Selection` component.
-
-_This change alters the layer structure of the component and results in a breaking change for the `Advanced Table` cell "selection" components only._
 
 
 ---
