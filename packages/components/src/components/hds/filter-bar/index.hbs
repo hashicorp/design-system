@@ -2,18 +2,27 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-filter-bar" ...attributes>
+<div class="hds-filter-bar" ...attributes {{this._setUpFilterBar}}>
+  {{#if @isLiveFilter}}
+    <span class="sr-only">{{hds-t
+        "hds.components.filter-bar.live-filtering"
+        default="Filters will be applied automatically as selections are made"
+      }}</span>
+  {{/if}}
   <Hds::Layout::Flex @align="end" @gap="8" class="hds-filter-bar__actions">
     <Hds::Button
       @text={{if
         this._isExpanded
-        (hds-t "hds.components.filter-bar.expand-collapse-button.collapse" default="Collapse filters")
-        (hds-t "hds.components.filter-bar.expand-collapse-button.expand" default="Expand filters")
+        (hds-t "hds.components.filter-bar.applied-filters.toggle-button.collapse" default="Collapse applied filters")
+        (hds-t "hds.components.filter-bar.applied-filters.toggle-button.expand" default="Expand applied filters")
       }}
       @color="secondary"
       @size="small"
       @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
       @isIconOnly={{true}}
+      id={{this._appliedFiltersButtonId}}
+      aria-controls={{this._appliedFiltersContentId}}
+      aria-expanded={{if this._isExpanded "true" "false"}}
       {{on "click" this.toggleExpand}}
     />
     {{yield
@@ -30,7 +39,7 @@
         @value={{this.searchValue}}
         class="hds-filter-bar__search"
         placeholder={{this.searchPlaceholder}}
-        aria-label={{hds-t "hds.components.filter-bar.search.aria-label" default="Search filters"}}
+        aria-label={{hds-t "hds.components.filter-bar.search.aria-label" default="Search"}}
         name="search"
         {{on "change" this.onSearch}}
       />
@@ -40,59 +49,70 @@
       {{yield (hash ActionsDropdown=(component "hds/filter-bar/actions-dropdown"))}}
     </Hds::Layout::Flex>
   </Hds::Layout::Flex>
-  {{#if this._isExpanded}}
-    <div class="hds-filter-bar__applied-filters-list">
-      {{#if this.hasActiveFilters}}
-        {{#each-in @filters as |key filter|}}
-          {{#if filter.data}}
-            {{#if (eq filter.type "single-select")}}
-              <Hds::Tag
-                @text="{{this._getFilterKeyText key filter}}: {{this._getFilterValueText filter}}"
-                @onDismiss={{fn this._onFilterDismiss key}}
-              />
-            {{else if (eq filter.type "numerical")}}
-              <Hds::Tag
-                @text="{{this._getFilterKeyText key filter}} {{this._getNumericalFilterValueText filter}}"
-                @onDismiss={{fn this._onFilterDismiss key}}
-              />
-            {{else if (or (eq filter.type "date") (eq filter.type "datetime") (eq filter.type "time"))}}
-              <Hds::Tag
-                @text="{{this._getFilterKeyText key filter}} {{this._getDateFilterValueText filter}}"
-                @onDismiss={{fn this._onFilterDismiss key}}
-              />
-            {{else if (eq filter.type "search")}}
-              <Hds::Tag
-                @text="{{this._getFilterKeyText key filter}}: {{this._getFilterValueText filter}}"
-                @onDismiss={{fn this._onFilterDismiss key}}
-              />
-            {{else if (eq filter.type "generic")}}
-              <Hds::Tag
-                @text="{{this._getFilterKeyText key filter}} {{this._getGenericFilterValueText filter}}"
-                @onDismiss={{fn this._onFilterDismiss key}}
-              />
-            {{else if (eq filter.type "multi-select")}}
-              {{#each (this._getMultiSelectFilterData filter.data) as |item|}}
+  <div class="hds-filter-bar__applied-filters-list" id={{this._appliedFiltersContentId}}>
+    {{#if this._isExpanded}}
+      <div class="hds-filter-bar__applied-filters-list__content">
+        {{#if this.hasActiveFilters}}
+          {{#each-in @filters as |key filter|}}
+            {{#if filter.data}}
+              {{#if (eq filter.type "single-select")}}
                 <Hds::Tag
-                  @text="{{this._getFilterKeyText key filter}}: {{if item.label item.label item.value}}"
-                  @onDismiss={{fn this._onFilterDismiss key item.value}}
+                  @text="{{this._getFilterKeyText key filter}}: {{this._getFilterValueText filter}}"
+                  @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
+                  @onDismiss={{fn this._onFilterDismiss key}}
                 />
-              {{/each}}
+              {{else if (eq filter.type "numerical")}}
+                <Hds::Tag
+                  @text="{{this._getFilterKeyText key filter}} {{this._getNumericalFilterValueText filter}}"
+                  @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
+                  @onDismiss={{fn this._onFilterDismiss key}}
+                />
+              {{else if (or (eq filter.type "date") (eq filter.type "datetime") (eq filter.type "time"))}}
+                <Hds::Tag
+                  @text="{{this._getFilterKeyText key filter}} {{this._getDateFilterValueText filter}}"
+                  @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
+                  @onDismiss={{fn this._onFilterDismiss key}}
+                />
+              {{else if (eq filter.type "search")}}
+                <Hds::Tag
+                  @text="{{this._getFilterKeyText key filter}}: {{this._getFilterValueText filter}}"
+                  @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
+                  @onDismiss={{fn this._onFilterDismiss key}}
+                />
+              {{else if (eq filter.type "generic")}}
+                <Hds::Tag
+                  @text="{{this._getFilterKeyText key filter}} {{this._getGenericFilterValueText filter}}"
+                  @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
+                  @onDismiss={{fn this._onFilterDismiss key}}
+                />
+              {{else if (eq filter.type "multi-select")}}
+                {{#each (this._getMultiSelectFilterData filter.data) as |item|}}
+                  <Hds::Tag
+                    @text="{{this._getFilterKeyText key filter}}: {{if item.label item.label item.value}}"
+                    @ariaLabel={{hds-t
+                      "hds.components.filter-bar.applied-filters.tag.aria-label"
+                      default="Clear filter"
+                    }}
+                    @onDismiss={{fn this._onFilterDismiss key item.value}}
+                  />
+                {{/each}}
+              {{/if}}
             {{/if}}
-          {{/if}}
-        {{/each-in}}
-        <Hds::Button
-          class="hds-filter-bar__clear-button"
-          @text={{hds-t "hds.components.filter-bar.clear-filters" default="Clear all filters"}}
-          @color="tertiary"
-          @icon="x"
-          @size="small"
-          {{on "click" this.clearFilters}}
-        />
-      {{else}}
-        <Hds::Text::Body @size={{100}} @color="faint">
-          {{hds-t "hds.components.filter-bar.no-filters-applied" default="No filters applied"}}
-        </Hds::Text::Body>
-      {{/if}}
-    </div>
-  {{/if}}
+          {{/each-in}}
+          <Hds::Button
+            class="hds-filter-bar__clear-button"
+            @text={{hds-t "hds.components.filter-bar.applied-filters.clear-filters" default="Clear all filters"}}
+            @color="tertiary"
+            @icon="x"
+            @size="small"
+            {{on "click" this.clearFilters}}
+          />
+        {{else}}
+          <Hds::Text::Body @size={{100}} @color="faint">
+            {{hds-t "hds.components.filter-bar.applied-filters.no-filters-applied" default="No filters applied"}}
+          </Hds::Text::Body>
+        {{/if}}
+      </div>
+    {{/if}}
+  </div>
 </div>
