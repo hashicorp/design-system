@@ -3,24 +3,24 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{#if this.hdsCarbon.carbonModeEnabled}}
-  Hey there
-{{else}}
-  <svg
-    class={{this.classNames}}
-    ...attributes
-    aria-hidden="{{if @title 'false' 'true'}}"
-    aria-labelledby={{this.ariaLabelledby}}
-    data-test-icon={{@name}}
-    fill="{{this.fillColor}}"
-    id={{this._iconId}}
-    role={{this.role}}
-    width="{{this.svgSize.width}}"
-    height="{{this.svgSize.height}}"
-    viewBox={{this.viewBox}}
-    xmlns="http://www.w3.org/2000/svg"
-    {{this.loadCarbonIcon this.hdsCarbon.carbonModeEnabled}}
-  >
+<svg
+  class={{this.classNames}}
+  ...attributes
+  aria-hidden="{{if @title 'false' 'true'}}"
+  aria-labelledby={{this.ariaLabelledby}}
+  data-test-icon={{@name}}
+  fill="{{this.fillColor}}"
+  id={{this._iconId}}
+  role={{this.role}}
+  width="{{this.svgSize.width}}"
+  height="{{this.svgSize.height}}"
+  viewBox={{this.viewBox}}
+  xmlns="http://www.w3.org/2000/svg"
+  {{this.loadCarbonIcon this.hdsCarbon.carbonModeEnabled}}
+>
+  {{#if this.hdsCarbon.carbonModeEnabled}}
+    {{this.carbonPaths}}
+  {{else}}
     {{#if @title}}
       <title id={{this._titleId}}>{{@title}}</title>
 
@@ -30,5 +30,5 @@
     {{else}}
       <use href="#flight-{{@name}}-{{this.size}}"></use>
     {{/if}}
-  </svg>
-{{/if}}
+  {{/if}}
+</svg>

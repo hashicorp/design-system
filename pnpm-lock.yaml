@@ -64,6 +64,9 @@ importers:
 
   packages/components:
     dependencies:
+      '@carbon/icon-helpers':
+        specifier: ^10.69.0
+        version: 10.69.0
       '@carbon/icons':
         specifier: ^11.70.0
         version: 11.70.0
@@ -1916,6 +1919,9 @@ packages:
 
   '@carbon/grid@11.42.0':
     resolution: {integrity: sha512-l91wFV7uMhaf2PX89cW1zS5iMnzrFVY2d81Xf7U9OdNu8sBTQWxUPtj1RnZyep4F7v/HG8U4DOzfa+nO5GgZeA==}
+
+  '@carbon/icon-helpers@10.69.0':
+    resolution: {integrity: sha512-AYkP9+le5pLllM4OX1zHCSpBIX4uk8hzaV7EakyzQsUoWZIdLip0+j1n9WJvGA7EnMMaFxtmRkt1KAbSGi+YIg==}
 
   '@carbon/icons@11.70.0':
     resolution: {integrity: sha512-pw/u032VfP3UDcAr0SZzYJlfSmtiDkOHEgQSchmU9Z1g7CmpfQ7EWSW8ExcHm4DFdun8M3Z1QCkCyu0Hq+s1gg==}
@@ -12904,6 +12910,10 @@ snapshots:
   '@carbon/grid@11.42.0':
     dependencies:
       '@carbon/layout': 11.40.0
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/icon-helpers@10.69.0':
+    dependencies:
       '@ibm/telemetry-js': 1.10.1
 
   '@carbon/icons@11.70.0':
