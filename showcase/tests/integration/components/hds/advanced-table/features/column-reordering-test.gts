@@ -494,10 +494,16 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       if (firstReorderHandle && firstThElement) {
         await focus(firstThElement);
         await focus(firstReorderHandle);
+
+        // need to flush the frame to let the RAF waiter finish doing its thing
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+
         assert.dom(firstReorderHandle).isFocused();
 
         await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
         let columnOrder = getColumnOrder();
+        await settled();
+
         assert.deepEqual(
           columnOrder,
           [
@@ -511,6 +517,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
         await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowRight');
         columnOrder = getColumnOrder();
+        // doing this because request animation frame stuff
+        await settled();
+
         assert.deepEqual(
           columnOrder,
           [
@@ -524,6 +533,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
         await triggerKeyEvent(firstReorderHandle, 'keydown', 'ArrowLeft');
         columnOrder = getColumnOrder();
+        // doing this because request animation frame stuff
+        await settled();
+
         assert.deepEqual(
           columnOrder,
           [
@@ -616,7 +628,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       ];
 
       // when dealing with dynamic columns, you must handle the order of all potential columns rather than just the ones currently rendered
-      // inital column order is 'artist', 'album', 'year', 'genre'
+      // initial column order is 'artist', 'album', 'year', 'genre'
       const initialColumnOrder = availableColumns.map((col) => col.key);
 
       // initially set the columns in the reverse order to ensure the table respects the column order and ommit the genre column
@@ -658,6 +670,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       // make sure the initial column order is correct based on the columnOrder
       let columnOrder = getColumnOrder(availableColumns);
+      await settled();
+
       assert.deepEqual(
         columnOrder,
         ['artist', 'album', 'year'],

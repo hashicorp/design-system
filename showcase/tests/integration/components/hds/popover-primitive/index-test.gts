@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import {
   blur,
   click,
@@ -228,36 +228,6 @@ module(
       assert
         .dom('[data-test-id="popover-content"]')
         .isNotVisible('The popover is hidden again by the new toggle');
-    });
-    skip('it should toggle the popover visibility on click', async function (assert) {
-      await render(
-        <template>
-          <HdsPopoverPrimitive @enableClickEvents={{true}} as |PP|>
-            <button
-              {{PP.setupPrimitiveToggle}}
-              id="test-popover-primitive-toggle"
-              type="button"
-            >
-              Toggle</button>
-            <div {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}>
-              <div id="test-popover-primitive-content">Content</div>
-            </div>
-          </HdsPopoverPrimitive>
-        </template>,
-      );
-      // it's hidden when closed
-      assert.dom('.hds-popover-primitive__content').isNotVisible();
-      assert.dom('#test-popover-primitive-content').doesNotExist();
-      // click the toggle to show the content
-      await click('button.hds-popover-primitive__toggle');
-      // now it should be visible
-      assert.dom('.hds-popover-primitive__content').isVisible();
-      assert.dom('#test-popover-primitive-content').exists().isVisible();
-      // click again the toggle to hide the content
-      await click('button.hds-popover-primitive__toggle');
-      // it's hidden when closed
-      assert.dom('.hds-popover-primitive__content').isNotVisible();
-      assert.dom('#test-popover-primitive-content').doesNotExist();
     });
 
     // CALLBACKS
