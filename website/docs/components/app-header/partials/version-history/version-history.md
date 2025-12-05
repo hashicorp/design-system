@@ -1,3 +1,8 @@
+## 5.1.0
+
+Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
+
+
 ## 5.0.0
 
 Fixed the type of `@a11yRefocusRouteChangeValidator` to match the expected type from `ember-a11y-refocus`. The new type is `(transition: Transition) => boolean` instead of `string`.

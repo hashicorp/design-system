@@ -1,3 +1,10 @@
+## 5.1.0
+
+Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
+
+Removed deprecated ".hds-side-nav\_\_dropdown" class name which is redundant to the HDS Dropdown class name referenced in styles
+
+
 ## 5.0.0
 
 Removed deprecated features

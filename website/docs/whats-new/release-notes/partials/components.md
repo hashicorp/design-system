@@ -18,11 +18,9 @@
 
 **Minor changes**
 
-<!-- START components/code-editor -->
 
 `CodeEditor` - Added a new `@customExtensions` argument which allows consumers to provide their own custom CodeMirror extensions.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3372](https://github.com/hashicorp/design-system/pull/3372)</small>
 
@@ -30,11 +28,9 @@
 
 **Patch changes**
 
-<!-- START components/dropdown -->
 
 `Dropdown` - Updated component signature for `ListItemCheckbox` and `ListItemRadio` to have an optional `@id` argument.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3371](https://github.com/hashicorp/design-system/pull/3371)</small>
 
@@ -46,41 +42,31 @@ Fix mixed sass declaration syntax to silence warnings
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/advanced-table -->
 
 `AdvancedTable` - Fixed a bug in the cleanup logic of selectable rows where data updates caused the internal selection state to be incorrectly reset.
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3373](https://github.com/hashicorp/design-system/pull/3373)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/button -->
 
 `Button` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
 
-<!-- END -->
 
-<!-- START components/dropdown -->
 
 `Dropdown` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
 
-<!-- END -->
 
-<!-- START components/side-nav -->
 
 `SideNav`:
 
 - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
 - Removed deprecated ".hds-side-nav\_\_dropdown" class name which is redundant to the HDS Dropdown class name referenced in styles
-<!-- END -->
 
-<!-- START components/app-header -->
 
 `AppHeader` - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3356](https://github.com/hashicorp/design-system/pull/3356)</small>
 
