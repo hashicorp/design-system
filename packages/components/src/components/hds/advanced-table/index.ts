@@ -555,6 +555,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     newOrder,
     insertedAt,
   }) => {
+    // Guard against accessing hdsIntl service after component destruction
+    if (this.isDestroying || this.isDestroyed) return;
+
     const { reorderedMessageText } = this.args;
 
     if (reorderedMessageText !== undefined) {
