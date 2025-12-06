@@ -3,14 +3,13 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, skip, test } from 'qunit';
+import { module, test } from 'qunit';
 import {
   render,
   resetOnerror,
-  settled,
   setupOnerror,
+  waitFor,
 } from '@ember/test-helpers';
-import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsDropdownToggleIcon } from '@hashicorp/design-system-components/components';
 
@@ -55,7 +54,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   // IMAGE (AVATAR)
 
-  test('if an @imageSrc is declared and exists the image should render in the component', async function (assert) {
+  test('if an @imageSrc is declared and also exists, the image should render in the component', async function (assert) {
     await render(
       <template>
         <HdsDropdownToggleIcon
@@ -69,24 +68,20 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
     assert.dom('img').exists();
   });
 
-  skip('if an @imageSrc is declared but does not exist, the flight icon should render in the component', async function (assert) {
-    const context = new TrackedObject({
-      imageSrc: '/assets/images/avatar.png',
-    });
-
+  // Need the extra await settled here because the test is flaky otherwise; would fail 1/6 times the test was run.
+  test('if an @imageSrc is declared but does not exist, the flight icon should render in the component', async function (assert) {
     await render(
       <template>
         <HdsDropdownToggleIcon
           @icon="user"
           @text="user menu"
-          @imageSrc={{context.imageSrc}}
+          @imageSrc="/assets/images/avatar-broken.png"
           id="test-toggle-icon"
         />
       </template>,
     );
-    // we load the image dynamically to cover this usecase and also to prevent this test from intermittently failing for no obvious reason
-    context.imageSrc = '/assets/images/avatar-broken.png';
-    await settled();
+
+    await waitFor('.hds-icon.hds-icon-user');
 
     assert.dom('img').doesNotExist();
     assert.dom('#test-toggle-icon .hds-icon.hds-icon-user').exists();
