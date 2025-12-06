@@ -82,7 +82,8 @@ export type FloatingUIOptions = {
   matchToggleWidth?: boolean;
   boundary?:
     | string
-    | HTMLElement
+    | Element
+    | Element[]
     | {
         x: number;
         y: number;
