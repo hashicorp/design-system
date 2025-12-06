@@ -14,6 +14,7 @@ interface CodeFragmentWithSimpleActionsSignature {
     enableCollisionDetection?: HdsDropdownSignature['Args']['enableCollisionDetection'];
     isOpen?: HdsDropdownSignature['Args']['isOpen'];
     isInline?: HdsDropdownSignature['Args']['isInline'];
+    boundary?: HdsDropdownSignature['Args']['boundary'];
   };
 }
 
@@ -24,6 +25,7 @@ const CodeFragmentWithSimpleActions: TemplateOnlyComponent<CodeFragmentWithSimpl
       @isOpen={{@isOpen}}
       @listPosition={{@listPosition}}
       @enableCollisionDetection={{@enableCollisionDetection}}
+      @boundary={{@boundary}}
       as |D|
     >
       <D.ToggleButton @color="secondary" @text="Menu" />

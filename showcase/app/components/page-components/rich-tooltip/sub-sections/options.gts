@@ -222,7 +222,7 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH3>Collision detection</ShwTextH3>
+  <ShwTextH3>Collision detection using custom boundary element</ShwTextH3>
 
   <ShwTextBody>Scroll within the boxes to see the collision detection in action</ShwTextBody>
 
@@ -232,7 +232,10 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
         @forceMinWidth={{true}}
         @label={{concat "enableCollisionDetection=" detection}}
       >
-        <ShwAutoscrollable @verticalShift={{30}}>
+        <ShwAutoscrollable
+          @verticalShift={{30}}
+          id={{concat "shw-example-collision-detection-" detection}}
+        >
           <div class="shw-component-rich-tooltip-collision-detection-wrapper">
             <HdsRichTooltip
               @isOpen={{true}}
@@ -240,7 +243,13 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
               as |RT|
             >
               <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-              <RT.Bubble @enableCollisionDetection={{detection}}>
+              <RT.Bubble
+                @enableCollisionDetection={{detection}}
+                @boundary={{concat
+                  "#shw-example-collision-detection-"
+                  detection
+                }}
+              >
                 <ShwPlaceholder @text="generic content" @height="30" />
               </RT.Bubble>
             </HdsRichTooltip>
@@ -255,7 +264,10 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
         @forceMinWidth={{true}}
         @label={{concat "enableCollisionDetection=" detection}}
       >
-        <ShwAutoscrollable @verticalShift={{30}}>
+        <ShwAutoscrollable
+          @verticalShift={{30}}
+          id={{concat "shw-example-collision-detection-second-" detection}}
+        >
           <div class="shw-component-rich-tooltip-collision-detection-wrapper">
             <HdsRichTooltip
               @isOpen={{true}}
@@ -263,7 +275,13 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
               as |RT|
             >
               <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-              <RT.Bubble @enableCollisionDetection={{detection}}>
+              <RT.Bubble
+                @enableCollisionDetection={{detection}}
+                @boundary={{concat
+                  "#shw-example-collision-detection-second-"
+                  detection
+                }}
+              >
                 <ShwPlaceholder @text="generic content" @height="30" />
               </RT.Bubble>
             </HdsRichTooltip>

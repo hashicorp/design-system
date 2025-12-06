@@ -20,6 +20,7 @@ export interface CodeFragmentWithButtonTriggerSignature {
     enableCollisionDetection?: HdsAnchoredPositionOptions['enableCollisionDetection'];
     enableClickEvents?: boolean;
     enableSoftEvents?: boolean;
+    boundary?: HdsAnchoredPositionOptions['boundary'];
   };
   Element: HTMLDivElement;
 }
@@ -32,6 +33,7 @@ export default class CodeFragmentWithButtonTrigger extends Component<CodeFragmen
       strategy,
       placement = 'bottom',
       arrowId,
+      boundary,
     } = this.args;
 
     const options: HdsAnchoredPositionOptions = {
@@ -40,6 +42,7 @@ export default class CodeFragmentWithButtonTrigger extends Component<CodeFragmen
       arrowSelector: hasArrow ? `#${arrowId}` : undefined,
       offsetOptions: hasArrow ? 16 : undefined,
       strategy,
+      boundary,
     };
 
     return options;
@@ -54,6 +57,7 @@ export default class CodeFragmentWithButtonTrigger extends Component<CodeFragmen
         @enableClickEvents
       }}
       @enableSoftEvents={{@enableSoftEvents}}
+      @boundary={{@boundary}}
       as |PP|
     >
       <div

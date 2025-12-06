@@ -49,6 +49,7 @@ export interface HdsDropdownSignature {
     preserveContentInDom?: boolean;
     matchToggleWidth?: boolean;
     onClose?: HdsPopoverPrimitiveSignature['Args']['onClose'];
+    boundary?: HdsAnchoredPositionOptions['boundary'];
   };
   Blocks: {
     default: [
@@ -106,6 +107,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     offsetOptions: HdsAnchoredPositionOptions['offsetOptions'];
     enableCollisionDetection: HdsAnchoredPositionOptions['enableCollisionDetection'];
     matchToggleWidth: HdsAnchoredPositionOptions['matchToggleWidth'];
+    boundary: HdsAnchoredPositionOptions['boundary'];
   } {
     // custom options specific for the `RichTooltip` component
     // for details see the `hds-anchored-position` modifier
@@ -114,6 +116,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
       offsetOptions: 4,
       enableCollisionDetection: this.enableCollisionDetection ? 'flip' : false,
       matchToggleWidth: this.matchToggleWidth,
+      boundary: this.args.boundary,
     };
   }
 

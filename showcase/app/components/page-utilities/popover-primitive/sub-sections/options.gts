@@ -157,7 +157,7 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH3>Collision detection</ShwTextH3>
+  <ShwTextH3>Collision detection using custom boundary element</ShwTextH3>
 
   <ShwTextBody>Scroll within the boxes to see the collision detection in action</ShwTextBody>
 
@@ -167,7 +167,10 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
         @forceMinWidth={{true}}
         @label={{concat "enableCollisionDetection=" detection}}
       >
-        <ShwAutoscrollable @verticalShift={{20}}>
+        <ShwAutoscrollable
+          @verticalShift={{20}}
+          id={{concat "shw-example-collision-detection-" detection}}
+        >
           <div
             class="shw-utilities-popover-primitive-collision-detection-wrapper"
           >
@@ -175,6 +178,7 @@ const SubSectionOptions: TemplateOnlyComponent = <template>
               @arrowId={{concat "arrow-collision-detection-" detection}}
               @hasArrow={{true}}
               @enableCollisionDetection={{detection}}
+              @boundary={{concat "#shw-example-collision-detection-" detection}}
             />
           </div>
         </ShwAutoscrollable>
