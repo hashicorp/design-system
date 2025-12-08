@@ -70,15 +70,36 @@ If custom functionality is needed for manipulating the view or contents of the d
 
 ## Applied filters
 
-Applied filters are represented within a [Tag](/components/tag) displaying the filter parameter (the category or column the filter corresponds to) and the filter value (corresponding with the specific cell content).
+Applied filters are represented by a [Tag](/components/tag) displaying the filter parameter (the category or column the filter corresponds to) and the filter value (corresponding with the specific cell content).
 
 ![](/assets/components/filter-bar/filter-bar-tag-example.png)
 
-<!-- Include information about how/if this can be customized -->
+The rendered text within the Tag is a standardized format depending on the type of filter and the method.
+
+- Single and multiple selection filters group the parameter and value using a colon; e.g., "Region: AWS (us-east)".
+- Numerical filters group the parameter and value with an operator symbol; e.g., "Modules > 50".
+- Date and time filters group the parameter and value with natural language; e.g., "Creation time before 12:00 PM".
+
+![](/assets/components/filter-bar/filter-bar-tag-filter-methods.png)
+
+For a full list of supported operators visit the [specifications](/components/filter-bar?tab=specifications#value-input-operators) page.
+
+### Custom applied filter text
+
+If necessary, the default formatting within the Tag can be overidden with custom text. This can be useful if the label of the parameter is an irregular plural, if the parameter reads more naturally with certain punctuation or grammar, or for product-specific reasons.
+
+<!-- @dylan could you help me out a bit with this? -->
+
+<!-- Should something be included about truncation? -->
 
 ## Filter dropdown
 
-### Methods
+The Filter Dropdown is responsible for the selection and application of filters and is broken two "panels":
+
+- The left panel displays the list of parameters (categories) that can be filtered upon
+- The right panel conditionally displays a list of single or multiple selection options, or grouping of input fields when filtering by a numerical, date, or time value.
+
+### Methods <!-- Consider removing this level of headline and bumping the others up -->
 
 #### Multi-selection
 
@@ -96,7 +117,46 @@ Applied filters are represented within a [Tag](/components/tag) displaying the f
 
 ## Applying Filters
 
+Depending on how the data set is fetched and updated, the Filter Bar supports different methods of applying filters:
+
+- **Per-filter:** selected filters are applied when the user interacts with the "Apply filters" submit button. This is the most common method and generally requires a database or API call to update the data set with the corresponding filter parameters.
+- **Live filtering:** filters are applied immediately upon selection. This method generally requires updating the data set on the client.
+
+<!-- @dylan I think I have a reasonable outline for this section, but could you double check it? -->
+
 ## Clearing filters
 
+Filters can be cleared either in bulk or individually both the Filter Bar and Dropdown.
+
+### Filter Bar
+
+Clear all filters with the button in the Filter Bar.
+
+![](/assets/components/filter-bar/filter-bar-clear-all-filters.png)
+
+Clear filters individually via the dismiss button of the Tag.
+
+![](/assets/components/filter-bar/filter-bar-clear-individual-filter.png)
+
+### Filter Dropdown
+
+Clear all filters via the Button in the footer of the Dropdown.
+
+![](/assets/components/filter-bar/filter-bar-dropdown-clear-all-filters.png)
+
+Clear all filter values within a parameter with the "Clear selection" Button, then apply the changes with the "Apply filters" Button in the footer.
+
+![](/assets/components/filter-bar/filter-bar-dropdown-clear-selection-filter.png)
+
+Clear filter input fields with the "Clear filter" Button, then apply the changes with the "Apply filters" Button in the footer.
+
+![](/assets/components/filter-bar/filter-bar-dropdown-clear-filter-input.png)
+
 ## Empty state
+
+An empty state occurs if the filters applied don't match any results in the data set. This is supported out of the box in the [Advanced Table](/components/table/advanced-table/) and will display an informative message about the empty state and prompt users to either adjust the applied filters or clear all of them.
+
+![](/assets/components/filter-bar/filter-bar-empty-state.png)
+
+If the data set is being rendered in a list or method outside of what is directly supported by HDS, use the [Application State](/components/application-state) to communicate the empty state result from the applied filters.
 
