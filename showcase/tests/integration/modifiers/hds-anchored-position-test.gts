@@ -118,8 +118,7 @@ module(
     });
 
     test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a boundary is provided', function (assert) {
-      let floatingUIOptions;
-      floatingUIOptions = getFloatingUIOptions({
+      const floatingUIOptions = getFloatingUIOptions({
         enableCollisionDetection: true,
         flipOptions: { padding: 1234 },
         shiftOptions: { padding: 9876 },
