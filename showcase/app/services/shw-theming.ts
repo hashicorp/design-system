@@ -9,11 +9,14 @@ import HdsThemingService from '@hashicorp/design-system-components/services/hds-
 //   HdsOnSetThemeCallbackArgs,
 // } from '@hashicorp/design-system-components/services/hds-theming';
 
-export type ShwStylesheets =
-  | 'standard'
-  | 'css-selectors'
-  | 'css-selectors--migration'
-  | 'css-selectors--advanced';
+const STYLESHEETS = [
+  'standard',
+  'css-selectors',
+  'css-selectors--migration',
+  'css-selectors--advanced',
+] as const;
+
+export type ShwStylesheets = (typeof STYLESHEETS)[number];
 
 const ALL_STYLESHEETS_IDS: string[] = [
   'hds-components-stylesheet-default',
@@ -41,6 +44,10 @@ const STYLESHEETS_MAPPING: Record<ShwStylesheets, string[]> = {
 
 const LOCALSTORAGE_CURRENT_STYLESHEET = 'shw-theming-current-stylesheet';
 
+function isSafeStylesheetData(data: string): data is ShwStylesheets {
+  return STYLESHEETS.includes(data as ShwStylesheets);
+}
+
 export default class ShwThemingService extends HdsThemingService {
   @service declare readonly hdsTheming: HdsThemingService;
 
@@ -52,8 +59,11 @@ export default class ShwThemingService extends HdsThemingService {
     const storedStylesheet = localStorage.getItem(
       LOCALSTORAGE_CURRENT_STYLESHEET,
     ) as ShwStylesheets;
-    if (storedStylesheet) {
+    if (storedStylesheet && isSafeStylesheetData(storedStylesheet)) {
       this.setStylesheet(storedStylesheet);
+    } else {
+      // if data is not safe or malformed, reset stylesheet to its default
+      this.setStylesheet('standard');
     }
   }
 
