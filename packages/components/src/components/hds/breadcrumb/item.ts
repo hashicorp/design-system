@@ -50,7 +50,6 @@ HdsBreadcrumbItem.linkToExternal = LinkToExternalComponent;`
     return component;
   }
 
-
   /**
    * @param maxWidth
    * @type {string}
