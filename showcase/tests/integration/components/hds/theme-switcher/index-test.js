@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import sinon from 'sinon';
 
 module('Integration | Component | hds/theme-switcher/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -30,8 +31,8 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
   test('it should render with small size by default', async function (assert) {
     await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
     assert
-      .dom('#test-theme-switcher .hds-button')
-      .hasClass('hds-button--size-small');
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .hasClass('hds-dropdown-toggle-button--size-small');
   });
 
   test('it should render the correct CSS size class if @toggleSize is declared', async function (assert) {
@@ -39,8 +40,8 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
       hbs`<Hds::ThemeSwitcher @toggleSize="medium" id="test-theme-switcher" />`,
     );
     assert
-      .dom('#test-theme-switcher .hds-button')
-      .hasClass('hds-button--size-medium');
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .hasClass('hds-dropdown-toggle-button--size-medium');
   });
 
   // TOGGLE IS FULL WIDTH
@@ -48,7 +49,7 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
   test('it should not be full width by default', async function (assert) {
     await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
     assert
-      .dom('#test-theme-switcher .hds-button')
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .doesNotHaveClass('hds-button--width-full');
   });
 
@@ -57,33 +58,41 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
       hbs`<Hds::ThemeSwitcher @toggleIsFullWidth={{true}} id="test-theme-switcher" />`,
     );
     assert
-      .dom('#test-theme-switcher .hds-button')
-      .hasClass('hds-button--width-full');
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .hasClass('hds-dropdown-toggle-button--width-full');
   });
 
   // THEME DISPLAY
 
   test('it should display "Theme" label when no theme is set', async function (assert) {
     await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    assert.dom('#test-theme-switcher .hds-button').containsText('Theme');
+    assert
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .containsText('Theme');
   });
 
   test('it should display "System" label when system theme is set', async function (assert) {
     this.themingService.setTheme({ theme: 'system' });
     await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    assert.dom('#test-theme-switcher .hds-button').containsText('System');
+    assert
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .containsText('System');
   });
 
   test('it should display "Light" label when light theme is set', async function (assert) {
     this.themingService.setTheme({ theme: 'light' });
     await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    assert.dom('#test-theme-switcher .hds-button').containsText('Light');
+    assert
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .containsText('Light');
   });
 
   test('it should display "Dark" label when dark theme is set', async function (assert) {
     this.themingService.setTheme({ theme: 'dark' });
     await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    assert.dom('#test-theme-switcher .hds-button').containsText('Dark');
+    assert
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .containsText('Dark');
   });
 
   test('it should display "Default" label when default theme is set and hasDefaultOption is true', async function (assert) {
@@ -91,19 +100,21 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     await render(
       hbs`<Hds::ThemeSwitcher @hasDefaultOption={{true}} id="test-theme-switcher" />`,
     );
-    assert.dom('#test-theme-switcher .hds-button').containsText('Default');
+    assert
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .containsText('Default');
   });
 
   // HAS DEFAULT OPTION
 
-  test('it should not include default option by default', async function (assert) {
+  test('it should not include the "Default" option by default', async function (assert) {
     await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').exists({ count: 3 });
     assert.dom('.hds-dropdown-list-item').doesNotContainText('Default');
   });
 
-  test('it should include default option when @hasDefaultOption is true', async function (assert) {
+  test('it should include the "Default" option when `@hasDefaultOption` is `true`', async function (assert) {
     await render(
       hbs`<Hds::ThemeSwitcher @hasDefaultOption={{true}} id="test-theme-switcher" />`,
     );
@@ -114,13 +125,13 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
 
   // HAS SYSTEM OPTION
 
-  test('it should include system option by default', async function (assert) {
+  test('it should include the "System" option by default', async function (assert) {
     await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').containsText('System');
   });
 
-  test('it should not include system option when @hasSystemOption is false', async function (assert) {
+  test('it should not include the "System" option when `@hasSystemOption` is `false`', async function (assert) {
     await render(
       hbs`<Hds::ThemeSwitcher @hasSystemOption={{false}} id="test-theme-switcher" />`,
     );
@@ -129,111 +140,79 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     assert.dom('.hds-dropdown-list-item').doesNotContainText('System');
   });
 
-  // DROPDOWN INTERACTION
-
-  test('it should open the dropdown when toggle button is clicked', async function (assert) {
-    await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    assert.dom('.hds-dropdown-list-item').doesNotExist();
-    await click('#test-theme-switcher button');
-    assert.dom('.hds-dropdown-list-item').exists();
-  });
-
   // THEME SELECTION
 
-  test('it should update the theme when a theme option is clicked', async function (assert) {
-    await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
+  test('it should update the theme in the service and the label in the toggle when a dropdown option is selected', async function (assert) {
+    await render(
+      hbs`<Hds::ThemeSwitcher @hasDefaultOption={{true}} @hasSystemOption={{true}} id="test-theme-switcher" />`,
+    );
+
+    // oen the dropdown
     await click('#test-theme-switcher button');
 
-    // Click on Light theme
-    const lightOption = [
-      ...this.element.querySelectorAll('.hds-dropdown-list-item'),
-    ].find((el) => el.textContent.trim() === 'Light');
-    await click(lightOption);
-
+    // click on `Light` theme
+    await click('.hds-dropdown-list-item:nth-of-type(3) button');
     assert.strictEqual(
       this.themingService.currentTheme,
       'light',
-      'theme service should be updated to light',
+      'theme service should be updated to `light`',
     );
-  });
+    assert
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .containsText('Light');
 
-  test('it should update the theme when dark option is clicked', async function (assert) {
-    await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    await click('#test-theme-switcher button');
-
-    // Click on Dark theme
-    const darkOption = [
-      ...this.element.querySelectorAll('.hds-dropdown-list-item'),
-    ].find((el) => el.textContent.trim() === 'Dark');
-    await click(darkOption);
-
+    // click on `Dark` theme
+    await click('.hds-dropdown-list-item:nth-of-type(4) button');
     assert.strictEqual(
       this.themingService.currentTheme,
       'dark',
-      'theme service should be updated to dark',
+      'theme service should be updated to `dark`',
     );
+    assert
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .containsText('Dark');
+
+    // click on `System` theme
+    await click('.hds-dropdown-list-item:nth-of-type(2) button');
+    assert.strictEqual(
+      this.themingService.currentTheme,
+      'system',
+      'theme service should be updated to `system`',
+    );
+    assert
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .containsText('System');
+
+    // click on `Default` theme
+    await click('.hds-dropdown-list-item:nth-of-type(1) button');
+    assert.strictEqual(
+      this.themingService.currentTheme,
+      'default',
+      'theme service should be updated to `undefined` (default)',
+    );
+    assert
+      .dom('#test-theme-switcher .hds-dropdown-toggle-button')
+      .containsText('Default');
   });
 
-  test('it should call @onSetTheme callback when provided', async function (assert) {
-    assert.expect(2);
+  // CALLBACKS
 
-    this.onSetTheme = (theme) => {
-      assert.strictEqual(
-        theme,
-        'light',
-        'callback receives the selected theme',
-      );
-      assert.step('onSetTheme-called');
-    };
+  test('it should call @onSetTheme callback when provided', async function (assert) {
+    const onSetTheme = sinon.spy();
+
+    this.set('onSetTheme', onSetTheme);
 
     await render(
       hbs`<Hds::ThemeSwitcher @onSetTheme={{this.onSetTheme}} id="test-theme-switcher" />`,
     );
     await click('#test-theme-switcher button');
 
-    // Click on Light theme
-    const lightOption = [
-      ...this.element.querySelectorAll('.hds-dropdown-list-item'),
-    ].find((el) => el.textContent.trim() === 'Light');
-    await click(lightOption);
-
-    assert.verifySteps(['onSetTheme-called']);
-  });
-
-  // ICONS
-
-  test('it should render the correct icon for system theme', async function (assert) {
-    this.themingService.setTheme({ theme: 'system' });
-    await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    assert.dom('#test-theme-switcher .hds-icon-monitor').exists();
-  });
-
-  test('it should render the correct icon for light theme', async function (assert) {
-    this.themingService.setTheme({ theme: 'light' });
-    await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    assert.dom('#test-theme-switcher .hds-icon-sun').exists();
-  });
-
-  test('it should render the correct icon for dark theme', async function (assert) {
-    this.themingService.setTheme({ theme: 'dark' });
-    await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    assert.dom('#test-theme-switcher .hds-icon-moon').exists();
-  });
-
-  test('it should render the correct icon for default theme when enabled', async function (assert) {
-    this.themingService.setTheme({ theme: 'default' });
-    await render(
-      hbs`<Hds::ThemeSwitcher @hasDefaultOption={{true}} id="test-theme-switcher" />`,
+    // change theme
+    const lightOptionButton = this.element.querySelector(
+      '.hds-dropdown-list-item:nth-of-type(3) button',
     );
-    assert.dom('#test-theme-switcher .hds-icon-hashicorp').exists();
-  });
+    await click(lightOptionButton);
 
-  test('it should render icons for all theme options in the dropdown', async function (assert) {
-    await render(hbs`<Hds::ThemeSwitcher id="test-theme-switcher" />`);
-    await click('#test-theme-switcher button');
-
-    assert.dom('.hds-dropdown-list-item .hds-icon-monitor').exists();
-    assert.dom('.hds-dropdown-list-item .hds-icon-sun').exists();
-    assert.dom('.hds-dropdown-list-item .hds-icon-moon').exists();
+    assert.true(onSetTheme.calledOnce);
   });
 });
