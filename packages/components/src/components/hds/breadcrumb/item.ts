@@ -4,13 +4,9 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
-import { hdsResolveLinkToExternal } from '../../../utils/hds-resolve-link-to-external.ts';
-
-import type Owner from '@ember/owner';
 import type { LinkTo } from '@ember/routing';
 import type { SafeString } from '@ember/template';
 import type { HdsIconSignature } from '../icon/index';
@@ -33,22 +29,27 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
-  @tracked linkToExternal: LinkTo | null = null;
+  static linkToExternal: LinkTo | null = null;
 
-  constructor(owner: Owner, args: HdsBreadcrumbItemSignature['Args']) {
-    super(owner, args);
+  /**
+   *
+   * @param linkToExternal
+   * @type LinkTo | null
+   * @default null
+   */
+  get linkToExternal(): LinkTo | null {
+    const component = HdsBreadcrumbItem.linkToExternal;
+    if (component === null) {
+      assert(
+        `HdsBreadcrumbItem: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
 
-    // we want to avoid resolving the component if it's not needed
-    if (args.isRouteExternal) {
-      void this.resolveLinkToExternal();
+import { HdsBreadcrumbItem } from @hashicorp/design-system-components/components;'
+HdsBreadcrumbItem.linkToExternal = LinkToExternalComponent;`
+      );
     }
+    return component;
   }
 
-  async resolveLinkToExternal() {
-    this.linkToExternal = await hdsResolveLinkToExternal(
-      this.args.isRouteExternal
-    );
-  }
 
   /**
    * @param maxWidth
