@@ -23,10 +23,10 @@ export function hdsResolveLinkToExternal(
   if (isRouteExternal) {
     if (macroCondition(dependencySatisfies('ember-engines', '*'))) {
       // Use importSync for compile-time conditional import
-      const module = importSync(
+      const { default: module } = importSync(
         'ember-engines/components/link-to-external-component'
       ) as { default: typeof LinkTo };
-      return module.default;
+      return module;
     } else {
       assert(
         `@isRouteExternal is only available when using the "ember-engines" addon. Please install it to use this feature.`,
