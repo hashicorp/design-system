@@ -153,6 +153,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
           @offset={{123}}
           @enableCollisionDetection={{false}}
           @setupPrimitivePopover={{fakeSetupPrimitivePopover}}
+          @boundary={{"#test-boundary-id"}}
         />
       </template>,
     );
@@ -163,7 +164,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
         enableCollisionDetection: false,
         offsetOptions: 123,
         placement: 'top-start',
-        boundary: undefined,
+        boundary: '#test-boundary-id',
       },
     });
   });
