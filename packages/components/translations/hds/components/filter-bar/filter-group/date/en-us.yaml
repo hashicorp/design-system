@@ -11,8 +11,13 @@ selector-input:
   after: After
   between: Between
 value-input:
+  aria-label: "{type} value"
   placeholder: Enter a date
 between-value-inputs:
-  start-placeholder: Start
-  end-placeholder: End
+  start:
+    aria-label: "{type} start value"
+    placeholder: Start
+  end:
+    aria-label: "{type} end value"
+    placeholder: End
 clear: Clear filter

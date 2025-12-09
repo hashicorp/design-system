@@ -31,7 +31,11 @@
           @id={{this._betweenValueStartInputId}}
           @type="text"
           @value={{this.stringBetweenValueStart}}
-          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.start-placeholder" default="Start"}}
+          aria-label={{hds-t
+            "hds.components.filter-bar.between-value-inputs.start.aria-label"
+            default="Number start value"
+          }}
+          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.start.placeholder" default="Start"}}
           class="hds-filter-bar__filter-group__field"
           {{on "change" this.onBetweenValueStartChange}}
         />
@@ -39,7 +43,11 @@
           @id={{this._betweenValueEndInputId}}
           @type="text"
           @value={{this.stringBetweenValueEnd}}
-          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.end-placeholder" default="End"}}
+          aria-label={{hds-t
+            "hds.components.filter-bar.between-value-inputs.end.aria-label"
+            default="Number end value"
+          }}
+          placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.end.placeholder" default="End"}}
           class="hds-filter-bar__filter-group__field"
           {{on "change" this.onBetweenValueEndChange}}
         />
@@ -49,6 +57,10 @@
         @id={{this._valueInputId}}
         @type="text"
         @value={{this.stringValue}}
+        aria-label={{hds-t
+          "hds.components.filter-bar.filter-group.numerical.value-input.aria-label"
+          default="Number value"
+        }}
         placeholder={{hds-t
           "hds.components.filter-bar.filter-group.numerical.value-input.placeholder"
           default="Enter a value"
