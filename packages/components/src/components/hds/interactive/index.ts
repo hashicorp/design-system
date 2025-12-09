@@ -8,6 +8,7 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
 import type { LinkTo } from '@ember/routing';
+import { getLinkToExternal } from '../../../utils/hds-link-to-external.ts';
 
 export interface HdsInteractiveSignature {
   Args: {
@@ -30,8 +31,6 @@ export interface HdsInteractiveSignature {
 }
 
 export default class HdsInteractive extends Component<HdsInteractiveSignature> {
-  static linkToExternal: LinkTo | null = null;
-
   /**
    * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
    *
@@ -40,13 +39,13 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
    * @default null
    */
   get linkToExternal(): LinkTo | null {
-    const component = HdsInteractive.linkToExternal;
+    const component = getLinkToExternal();
     if (component === null) {
       assert(
         `HdsInteractive: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
 
-import { HdsInteractive } from '@hashicorp/design-system-components/components';
-HdsInteractive.linkToExternal = LinkToExternalComponent;`
+import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
+setLinkToExternal(LinkToExternalComponent);`
       );
     }
     return component;

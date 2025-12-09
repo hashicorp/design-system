@@ -10,6 +10,7 @@ import { tracked } from 'tracked-built-ins';
 
 import { HdsInteractive } from '@hashicorp/design-system-components/components';
 import { LinkTo } from '@ember/routing';
+import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
@@ -160,8 +161,8 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
   test('it should error if @isRouteExternal is true and no component has been configured on the HdsInteractive class', async function (assert) {
     const errorMessage = `HdsInteractive: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
 
-import { HdsInteractive } from '@hashicorp/design-system-components/components';
-HdsInteractive.linkToExternal = LinkToExternalComponent;`;
+import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
+setLinkToExternal(LinkToExternalComponent);`;
 
     assert.expect(1);
     setupOnerror(function (error) {
@@ -180,8 +181,7 @@ HdsInteractive.linkToExternal = LinkToExternalComponent;`;
   });
 
   test('it should render configured link component when @isRouteExternal is true', async function (assert) {
-    HdsInteractive.linkToExternal = LinkTo;
-
+    setLinkToExternal(LinkTo);
     assert.expect(1);
 
     await render(
@@ -194,6 +194,6 @@ HdsInteractive.linkToExternal = LinkToExternalComponent;`;
       </template>,
     );
     assert.dom('a#test-interactive').exists();
-    HdsInteractive.linkToExternal = null;
+    setLinkToExternal(null);
   });
 });
