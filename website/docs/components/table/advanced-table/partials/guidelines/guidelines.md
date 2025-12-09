@@ -25,7 +25,9 @@
 Sorting is not supported for nested rows at this time.
 !!!
 
-While multiple columns may offer sorting, only one column can be sorted at a time. Sorting is not relevant for all content and should be applied thoughtfully.
+- While multiple columns may offer sorting, only one column can be sorted at a time.
+- In addition to standard sorting methods (like alphabetical or chronological), domain-specific sorting, such as by status severity, can also be useful.
+- Sorting is not relevant for all content and should be applied thoughtfully.
 
 ![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
 
