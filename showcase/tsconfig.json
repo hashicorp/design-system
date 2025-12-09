@@ -16,5 +16,10 @@
     },
     "types": ["ember-source/types"]
   },
-  "include": ["app/**/*", "tests/**/*", "types/**/*"]
+  "include": [
+    "app/**/*",
+    "tests/**/*",
+    "types/**/*",
+    "../packages/components/src/types/virtual-carbon-icons.d.ts"
+  ]
 }
