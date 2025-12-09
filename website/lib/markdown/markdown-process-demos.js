@@ -88,7 +88,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             }
             escapedGtsCode = escapeCode(gtsCode);
 
-            if (shouldIncludeBackingClass === 'true') {
+            if (shouldIncludeBackingClass !== 'false') {
               const jsFileName = fileName.trim().replace(/\.hbs$/, '.js');
               const jsFilePath = path.join(fullParentFolder, jsFileName);
               let jsCode = '';
