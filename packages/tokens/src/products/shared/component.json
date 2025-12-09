@@ -19,6 +19,11 @@
       "$type": "color",
       "$value": "{color.foreground.mixed}",
       "group": "component"
+    },
+    "color-to-action-primary": {
+      "$type": "color",
+      "$value": "{color.foreground.action.primary}",
+      "group": "component"
     }
   }
 }

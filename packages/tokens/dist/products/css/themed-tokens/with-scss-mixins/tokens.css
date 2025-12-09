@@ -4,84 +4,56 @@
 
 @mixin hds-theme-default() {
   :root {
-    --token-color-palette-black: #000000;
-    --token-color-palette-gray: #666666;
-    --token-color-palette-white: #ffffff;
-    --token-color-foreground-primary: #000000;
-    --token-color-foreground-mixed: #000000;
-    --token-color-foreground-action-primary: #ffff00;
+    --token-themed-simple: #ffffff;
+    --token-themed-mixed: #123456;
   }
 }
 
 @mixin hds-theme-light() {
   :root {
-    --token-color-palette-black: #000000;
-    --token-color-palette-gray: #545454;
-    --token-color-palette-white: #ffffff;
-    --token-color-foreground-primary: #111111;
-    --token-color-foreground-mixed: #111111;
-    --token-color-foreground-action-primary: #ff0000;
+    --token-themed-simple: #ffffff;
+    --token-themed-mixed: #ffffff;
   }
 }
 
 @mixin hds-theme-dark() {
   :root {
-    --token-color-palette-black: #000000;
-    --token-color-palette-gray: #545454;
-    --token-color-palette-white: #ffffff;
-    --token-color-foreground-primary: #ffffff;
-    --token-color-foreground-mixed: #121212;
-    --token-color-foreground-action-primary: #ff00ff;
+    --token-themed-simple: #000000;
+    --token-themed-mixed: var(--token-themed-simple);
   }
 }
 
 @mixin hds-mode-cds0() {
   :root {
-    --token-color-palette-black: #000000;
-    --token-color-palette-gray: #545454;
-    --token-color-palette-white: #ffffff;
-    --token-color-foreground-primary: #111111;
-    --token-color-foreground-mixed: #111111;
-    --token-color-foreground-action-primary: #ff0000;
+    --token-themed-simple: #ffffff;
+    --token-themed-mixed: #ffffff;
   }
 }
 
 @mixin hds-mode-cds10() {
   :root {
-    --token-color-palette-black: #000000;
-    --token-color-palette-gray: #545454;
-    --token-color-palette-white: #ffffff;
-    --token-color-foreground-primary: #222222;
-    --token-color-foreground-mixed: #fafafa;
-    --token-color-foreground-action-primary: #008000;
+    --token-themed-simple: #cccccc;
+    --token-themed-mixed: var(--token-themed-simple);
   }
 }
 
 @mixin hds-mode-cds90() {
   :root {
-    --token-color-palette-black: #000000;
-    --token-color-palette-gray: #545454;
-    --token-color-palette-white: #ffffff;
-    --token-color-foreground-primary: #dddddd;
-    --token-color-foreground-mixed: #dddddd;
-    --token-color-foreground-action-primary: #0000ff;
+    --token-themed-simple: #333333;
+    --token-themed-mixed: var(--token-themed-simple);
   }
 }
 
 @mixin hds-mode-cds100() {
   :root {
-    --token-color-palette-black: #000000;
-    --token-color-palette-gray: #545454;
-    --token-color-palette-white: #ffffff;
-    --token-color-foreground-primary: #ffffff;
-    --token-color-foreground-mixed: #121212;
-    --token-color-foreground-action-primary: #ff00ff;
+    --token-themed-simple: #000000;
+    --token-themed-mixed: var(--token-themed-simple);
   }
 }
 
 @mixin hds-theme-common() {
   :root {
-    --token-color-foreground-secondary: #666666;
-    --token-color-foreground-tertiary: #123456;
+    --token-base-aliased: #123456;
+    --token-themed-aliased: #ffffff;
   }
 }

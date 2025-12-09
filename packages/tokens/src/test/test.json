@@ -1,0 +1,46 @@
+{
+  "base": {
+    "simple": {
+      "$type": "color",
+      "$value": "#123456",
+      "group": "palette",
+      "private": "true"
+    },
+    "aliased": {
+      "$type": "color",
+      "$value": "{base.simple}",
+      "group": "palette"
+    }
+  },
+  "themed": {
+    "simple": {
+      "$type": "color",
+      "$value": "#ffffff",
+      "group": "palette",
+      "$modes": {
+        "default": "#ffffff",
+        "cds-g0": "#ffffff",
+        "cds-g10": "#cccccc",
+        "cds-g90": "#333333",
+        "cds-g100": "#000000"
+      }
+    },
+    "aliased": {
+      "$type": "color",
+      "$value": "{themed.simple}",
+      "group": "palette"
+    },
+    "mixed": {
+      "$type": "color",
+      "$value": "{base.simple}",
+      "group": "palette",
+      "$modes": {
+        "default": "{base.simple}",
+        "cds-g0": "{themed.aliased}",
+        "cds-g10": "{themed.simple}",
+        "cds-g90": "{themed.simple}",
+        "cds-g100": "{themed.simple}"
+      }
+    }
+  }
+}

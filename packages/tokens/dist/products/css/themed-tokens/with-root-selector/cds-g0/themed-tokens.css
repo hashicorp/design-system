@@ -3,10 +3,6 @@
  */
 
 :root {
-  --token-color-palette-black: #000000;
-  --token-color-palette-gray: #545454;
-  --token-color-palette-white: #ffffff;
-  --token-color-foreground-primary: #111111;
-  --token-color-foreground-mixed: #111111;
-  --token-color-foreground-action-primary: #ff0000;
+  --token-themed-simple: #ffffff;
+  --token-themed-mixed: #ffffff;
 }
