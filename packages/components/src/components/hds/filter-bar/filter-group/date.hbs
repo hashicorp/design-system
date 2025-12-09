@@ -29,8 +29,13 @@
           @id={{this._betweenValueStartInputId}}
           @type={{this.inputType}}
           @value={{this._betweenValueStart}}
+          aria-label={{hds-t
+            "hds.components.filter-bar.filter-group.date.between-value-inputs.start.aria-label"
+            type=this.type
+            default="Date start value"
+          }}
           placeholder={{hds-t
-            "hds.components.filter-bar.filter-group.date.between-value-inputs.start-placeholder"
+            "hds.components.filter-bar.filter-group.date.between-value-inputs.start.placeholder"
             default="Start"
           }}
           class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
@@ -40,8 +45,13 @@
           @id={{this._betweenValueEndInputId}}
           @type={{this.inputType}}
           @value={{this._betweenValueEnd}}
+          aria-label={{hds-t
+            "hds.components.filter-bar.filter-group.date.between-value-inputs.end.aria-label"
+            type=this.type
+            default="Date end value"
+          }}
           placeholder={{hds-t
-            "hds.components.filter-bar.filter-group.date.between-value-inputs.end-placeholder"
+            "hds.components.filter-bar.filter-group.date.between-value-inputs.end.placeholder"
             default="End"
           }}
           class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
@@ -53,6 +63,11 @@
         @id={{this._valueInputId}}
         @type={{this.inputType}}
         @value={{this._value}}
+        aria-label={{hds-t
+          "hds.components.filter-bar.filter-group.date.value-input.aria-label"
+          type=this.type
+          default="Date value"
+        }}
         placeholder={{hds-t
           "hds.components.filter-bar.filter-group.date.value-input.placeholder"
           default="Enter a value"

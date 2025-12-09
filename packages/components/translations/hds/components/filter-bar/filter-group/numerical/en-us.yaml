@@ -8,8 +8,13 @@ selector-input:
   greater-than: Greater than (>)
   between: Between
 value-input:
+  aria-label: Number value
   placeholder: Enter a value
 between-value-inputs:
-  start-placeholder: Start
-  end-placeholder: End
+  start:
+    aria-label: Number start value
+    placeholder: Start
+  end:
+    aria-label: Number end value
+    placeholder: End
 clear: Clear filter
