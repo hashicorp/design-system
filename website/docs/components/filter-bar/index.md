@@ -9,6 +9,7 @@ links:
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/filter-bar
 related:
   - components/table/advanced-table
+  - components/table/table
   - patterns/filter-patterns
 previewImage: assets/illustrations/components/filter-bar.jpg
 navigation:
