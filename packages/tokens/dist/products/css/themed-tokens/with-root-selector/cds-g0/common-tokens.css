@@ -3,6 +3,6 @@
  */
 
 :root {
-  --token-color-foreground-secondary: #545454;
-  --token-color-foreground-tertiary: #123456;
+  --token-base-aliased: #123456;
+  --token-themed-aliased: #ffffff;
 }

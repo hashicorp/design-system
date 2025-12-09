@@ -4,52 +4,32 @@
 
 :root,
 .hds-theme-default {
-  --token-color-palette-black: #000000;
-  --token-color-palette-gray: #666666;
-  --token-color-palette-white: #ffffff;
-  --token-color-foreground-primary: #000000;
-  --token-color-foreground-mixed: #000000;
-  --token-color-foreground-action-primary: #ffff00;
+  --token-themed-simple: #ffffff;
+  --token-themed-mixed: #123456;
 }
 
 @media (prefers-color-scheme: light) {
   .hds-theme-system {
-    --token-color-palette-black: #000000;
-    --token-color-palette-gray: #545454;
-    --token-color-palette-white: #ffffff;
-    --token-color-foreground-primary: #111111;
-    --token-color-foreground-mixed: #111111;
-    --token-color-foreground-action-primary: #ff0000;
+    --token-themed-simple: #ffffff;
+    --token-themed-mixed: #ffffff;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   .hds-theme-system {
-    --token-color-palette-black: #000000;
-    --token-color-palette-gray: #545454;
-    --token-color-palette-white: #ffffff;
-    --token-color-foreground-primary: #ffffff;
-    --token-color-foreground-mixed: #121212;
-    --token-color-foreground-action-primary: #ff00ff;
+    --token-themed-simple: #000000;
+    --token-themed-mixed: var(--token-themed-simple);
   }
 }
 
 .hds-theme-light {
-  --token-color-palette-black: #000000;
-  --token-color-palette-gray: #545454;
-  --token-color-palette-white: #ffffff;
-  --token-color-foreground-primary: #111111;
-  --token-color-foreground-mixed: #111111;
-  --token-color-foreground-action-primary: #ff0000;
+  --token-themed-simple: #ffffff;
+  --token-themed-mixed: #ffffff;
 }
 
 .hds-theme-dark {
-  --token-color-palette-black: #000000;
-  --token-color-palette-gray: #545454;
-  --token-color-palette-white: #ffffff;
-  --token-color-foreground-primary: #ffffff;
-  --token-color-foreground-mixed: #121212;
-  --token-color-foreground-action-primary: #ff00ff;
+  --token-themed-simple: #000000;
+  --token-themed-mixed: var(--token-themed-simple);
 }
 
 /*
@@ -76,6 +56,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
 .hds-theme-system,
 .hds-theme-light,
 .hds-theme-dark {
-  --token-color-foreground-secondary: #666666;
-  --token-color-foreground-tertiary: #123456;
+  --token-base-aliased: #123456;
+  --token-themed-aliased: #ffffff;
 }

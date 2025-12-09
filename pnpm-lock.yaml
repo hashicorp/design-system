@@ -468,8 +468,8 @@ importers:
         specifier: ^3.4.2
         version: 3.6.2
       style-dictionary:
-        specifier: ^5.0.4
-        version: 5.0.4
+        specifier: file:/Users/cristianorastelli/src/github/style-dictionary-didoo
+        version: file:../../github/style-dictionary-didoo
       tinycolor2:
         specifier: ^1.6.0
         version: 1.6.0
@@ -10915,8 +10915,8 @@ packages:
   strip-test-selectors@0.1.0:
     resolution: {integrity: sha512-wkVYph30L7wYkMf5EypfTqhY4qZwmQ0hpFOTksaXne49YbUr2jenJl5w5yj9IWx3ojtoH9BGAQ7cShnYEzbs5g==}
 
-  style-dictionary@5.0.4:
-    resolution: {integrity: sha512-+k82riDTHnCpOYzKz1Xa4W219dEOI8pc2a2jnWZuAFY11PHvRL1Ao55Lle3t/kQbiRU5QACdC3xeUNuByaKE3w==}
+  style-dictionary@file:../../github/style-dictionary-didoo:
+    resolution: {directory: ../../github/style-dictionary-didoo, type: directory}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -25521,7 +25521,7 @@ snapshots:
 
   strip-test-selectors@0.1.0: {}
 
-  style-dictionary@5.0.4:
+  style-dictionary@file:../../github/style-dictionary-didoo:
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.1
       '@bundled-es-modules/glob': 11.0.3
