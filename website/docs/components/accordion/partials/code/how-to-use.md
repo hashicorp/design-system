@@ -38,7 +38,7 @@ The `@forceState` argument enables you to implement expand/collapse all function
 
 The `@forceState` argument can be used to programmatically control individual Accordion Items. For example, use `@onClickToggle` to respond to the user’s click, save the open/close state, then use `@forceState` to persist the state if the screen refreshes.
 
-[[demo: code-snippets/accordion-persist-state.hbs includeBackingClass=true]]
+[[demo: code-snippets/accordion-persist-state.hbs]]
 
 ### Accessible name
 
