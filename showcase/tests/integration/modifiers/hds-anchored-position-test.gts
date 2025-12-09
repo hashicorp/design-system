@@ -134,6 +134,24 @@ module(
       });
     });
 
+    test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a bounding box is provided as boundary', function (assert) {
+      const testBoundary = { x: 0, y: 0, width: 100, height: 100 };
+      const floatingUIOptions = getFloatingUIOptions({
+        enableCollisionDetection: true,
+        flipOptions: { padding: 1234 },
+        shiftOptions: { padding: 9876 },
+        boundary: testBoundary,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[1]?.options, {
+        padding: 1234,
+        boundary: testBoundary,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[2]?.options, {
+        padding: 9876,
+        boundary: testBoundary,
+      });
+    });
+
     test('returns the offset options for the `flip` middleware functions if the `enableCollisionDetection` is set to `flip`', function (assert) {
       let floatingUIOptions;
       floatingUIOptions = getFloatingUIOptions({
