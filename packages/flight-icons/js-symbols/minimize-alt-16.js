@@ -1,0 +1,10 @@
+/**
+ * Generated Icon: minimize-alt-16
+ */
+export const flight = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M5.25.953a.75.75 0 01.75.75V3.75A2.25 2.25 0 013.75 6H1.703a.75.75 0 010-1.5H3.75a.75.75 0 00.75-.75V1.703a.75.75 0 01.75-.75zm5.5 0a.75.75 0 01.75.75V3.75c0 .414.336.75.75.75h2.048a.75.75 0 010 1.5H12.25A2.25 2.25 0 0110 3.75V1.703a.75.75 0 01.75-.75zM.953 10.75a.75.75 0 01.75-.75H3.75A2.25 2.25 0 016 12.25v2.047a.75.75 0 01-1.5 0V12.25a.75.75 0 00-.75-.75H1.703a.75.75 0 01-.75-.75zM10 12.25A2.25 2.25 0 0112.25 10h2.048a.75.75 0 010 1.5H12.25a.75.75 0 00-.75.75v2.047a.75.75 0 01-1.5 0V12.25z" clip-rule="evenodd"/></symbol>`;
+};
+
+export const carbon = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 9L2 10 5.3 10 1 14.3 1.7 15 6 10.7 6 14 7 14 7 9zM14 7L14 6 10.7 6 15 1.7 14.3 1 10 5.3 10 2 9 2 9 7z"/></symbol>`;
+};

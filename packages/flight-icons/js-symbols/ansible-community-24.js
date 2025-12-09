@@ -1,0 +1,8 @@
+/**
+ * Generated Icon: ansible-community-24
+ */
+export const flight = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M20.455 19.974L13.374 3.06c-.207-.481-.619-.756-1.1-.756-.481 0-.894.275-1.1.756L3.405 21.555h2.681l3.094-7.631 9.144 7.356c.343.275.618.412.962.412.688 0 1.306-.48 1.306-1.237 0-.137-.068-.275-.137-.481zM12.274 6.086l4.606 11.275-6.944-5.431 2.338-5.844z"/></symbol>`;
+};
+
+export const carbon = null;

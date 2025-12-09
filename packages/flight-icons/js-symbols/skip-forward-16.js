@@ -1,0 +1,10 @@
+/**
+ * Generated Icon: skip-forward-16
+ */
+export const flight = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path fill-rule="evenodd" d="M4.76 2.5C3.6 1.682 2 2.51 2 3.93v8.14c0 1.419 1.6 2.248 2.76 1.43l5.765-4.07a1.75 1.75 0 000-2.86L4.76 2.5zM3.5 3.93a.25.25 0 01.394-.204l5.766 4.07a.25.25 0 010 .408l-5.766 4.07a.25.25 0 01-.394-.204V3.93z" clip-rule="evenodd"/><path d="M14 3a.75.75 0 00-1.5 0v10a.75.75 0 001.5 0V3z"/></g></symbol>`;
+};
+
+export const carbon = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 28a1 1 0 01-1-1V5a1 1 0 01.5-.87 1 1 0 011 0l19 11a1 1 0 010 1.74l-19 11A1 1 0 015 28zM6 6.73V25.27L22 16zM28 4H30V28H28z"/></symbol>`;
+};
