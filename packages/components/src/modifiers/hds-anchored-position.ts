@@ -35,6 +35,8 @@ import type {
   Boundary,
 } from '@floating-ui/dom';
 
+type BoundaryExtended = Boundary | (string & {});
+
 export enum HdsEnableCollisionDetectionOptions {
   Shift = 'shift',
   Flip = 'flip',
@@ -80,16 +82,7 @@ export type FloatingUIOptions = {
   arrowElement?: ArrowOptions['element'];
   arrowPadding?: ArrowOptions['padding'];
   matchToggleWidth?: boolean;
-  boundary?:
-    | string
-    | Element
-    | Element[]
-    | {
-        x: number;
-        y: number;
-        width: number;
-        height: number;
-      };
+  boundary?: BoundaryExtended;
 };
 
 export type HdsAnchoredPositionOptions = FloatingUIOptions & {
@@ -97,23 +90,23 @@ export type HdsAnchoredPositionOptions = FloatingUIOptions & {
 };
 
 // resolve boundary selector/values to Floating UI Boundary
-const resolveBoundary = (
-  boundary?: FloatingUIOptions['boundary']
-): Boundary | undefined => {
-  if (!boundary) return undefined;
-
+const resolveBoundary = (boundary?: BoundaryExtended): Boundary | undefined => {
   if (typeof boundary === 'string') {
+    // this is necessary to satisfy TypeScript
     if (boundary === 'clippingAncestors') {
       return 'clippingAncestors';
     }
     const el = document.querySelector(boundary);
     assert(
-      '`hds-anchored-position` modifier - the `boundary` selector did not resolve to an element',
+      '`hds-anchored-position` modifier - the `boundary` selector `' +
+        boundary +
+        '` did not resolve to an element',
       el !== null && el.nodeType === Node.ELEMENT_NODE
     );
-    return el as Boundary;
+    return el;
+  } else {
+    return boundary;
   }
-  return boundary as Boundary;
 };
 
 // we use this function to process all the options provided to the modifier in a single place,

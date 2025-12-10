@@ -406,7 +406,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
 
   test('An assertion is thrown if the boundary selector does not resolve to an element', async function (assert) {
     const errorMessage =
-      '`hds-anchored-position` modifier - the `boundary` selector did not resolve to an element';
+      '`hds-anchored-position` modifier - the `boundary` selector `#test-non-existant-element` did not resolve to an element';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
