@@ -67,12 +67,6 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
     return textToShow;
   }
 
-  /**
-   * @param isFullWidth
-   * @type {boolean}
-   * @default false
-   * @description Indicates that a button should take up the full width of the parent container. The default is false.
-   */
   get isFullWidth() {
     return this.args.isFullWidth ?? false;
   }
