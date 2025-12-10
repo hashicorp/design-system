@@ -42,9 +42,9 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
 
     assert(
       `@size for "Hds::Badge" must be one of the following: ${SIZES.join(
-        ', ',
+        ', '
       )}; received: ${size}`,
-      SIZES.includes(size),
+      SIZES.includes(size)
     );
 
     return size;
@@ -55,9 +55,9 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
 
     assert(
       `@type for "Hds::Badge" must be one of the following: ${TYPES.join(
-        ', ',
+        ', '
       )}; received: ${type}`,
-      TYPES.includes(type),
+      TYPES.includes(type)
     );
 
     return type;
@@ -68,9 +68,9 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
 
     assert(
       `@color for "Hds::Badge" must be one of the following: ${COLORS.join(
-        ', ',
+        ', '
       )}; received: ${color}`,
-      COLORS.includes(color),
+      COLORS.includes(color)
     );
 
     return color;
@@ -81,7 +81,7 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
 
     assert(
       '@text for "Hds::Badge" must have a valid value',
-      text !== undefined,
+      text !== undefined
     );
 
     return text;
