@@ -137,17 +137,17 @@ export const getFloatingUIOptions = (
 
   // build options for each type of collision detection, adding the `boundary` if defined
 
-  const flipOptsWithBoundary: FlipOptions = {
+  const flipOptsExtended: FlipOptions = {
     ...flipOptions,
     ...(resolvedBoundary ? { boundary: resolvedBoundary } : {}),
   };
 
-  const autoPlacementOptsWithBoundary: AutoPlacementOptions = {
+  const autoPlacementOptsExtended: AutoPlacementOptions = {
     ...autoPlacementOptions,
     ...(resolvedBoundary ? { boundary: resolvedBoundary } : {}),
   };
 
-  const shiftOptsWithBoundary: ShiftOptions = {
+  const shiftOptsExtended: ShiftOptions = {
     ...shiftOptions,
     ...(resolvedBoundary ? { boundary: resolvedBoundary } : {}),
   };
@@ -166,16 +166,16 @@ export const getFloatingUIOptions = (
     enableCollisionDetection === true ||
     enableCollisionDetection === 'flip'
   ) {
-    middleware.push(flip(flipOptsWithBoundary));
+    middleware.push(flip(flipOptsExtended));
   }
   if (
     enableCollisionDetection === true ||
     enableCollisionDetection === 'shift'
   ) {
-    middleware.push(shift(shiftOptsWithBoundary));
+    middleware.push(shift(shiftOptsExtended));
   }
   if (enableCollisionDetection === 'auto') {
-    middleware.push(autoPlacement(autoPlacementOptsWithBoundary));
+    middleware.push(autoPlacement(autoPlacementOptsExtended));
   }
 
   // https://floating-ui.com/docs/arrow
