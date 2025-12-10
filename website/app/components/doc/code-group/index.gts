@@ -43,14 +43,13 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @tracked copyTimer: ReturnType<typeof setTimeout> | undefined;
   @tracked copyIconName: HdsIconSignature['Args']['name'] = 'clipboard-copy';
   @tracked expandIconName: HdsIconSignature['Args']['name'] = 'unfold-open';
-  @tracked hasScrollbar = false;
 
   componentId = guidFor(this);
   codeSnippetWrapperElement!: HTMLDivElement;
 
   constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
     super(owner, args);
-    if (this.args.gtsSnippet === '' && this.args.hbsSnippet == '') {
+    if (this.args.gtsSnippet === '' && this.args.hbsSnippet === '') {
       this.currentView = 'js';
     }
   }
@@ -118,13 +117,13 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   get languageOptions() {
     const options = [];
 
-    if (this.args.hbsSnippet != '') {
+    if (this.args.hbsSnippet !== '') {
       options.push({ label: '.hbs', value: 'hbs' });
     }
-    if (this.args.jsSnippet != '') {
+    if (this.args.jsSnippet !== '') {
       options.push({ label: '.js', value: 'js' });
     }
-    if (this.args.gtsSnippet != '') {
+    if (this.args.gtsSnippet !== '') {
       options.push({ label: '.gts', value: 'gts' });
     }
     return options;
@@ -193,7 +192,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   handleGtsExpandClick = () => {
     this.isExpanded = !this.isExpanded;
     this.expandIconName = this.isExpanded ? 'unfold-close' : 'unfold-open';
-    this.checkHorizontalScrollbar();
   };
 
   handleLanguageChange = (event: Event) => {
@@ -201,7 +199,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     if (input.checked) {
       this.currentView = input.value;
     }
-    this.checkHorizontalScrollbar();
   };
 
   onSuccess = () => {
@@ -223,20 +220,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       this.copyStatus = 'idle';
       this.copyIconName = 'clipboard-copy';
     }, 2000);
-  }
-
-  checkHorizontalScrollbar() {
-    const codeElement = this.codeSnippetWrapperElement.querySelector(
-      'code',
-    ) as HTMLElement;
-
-    console.log(codeElement);
-
-    if (codeElement.scrollHeight != codeElement.clientHeight) {
-      this.hasScrollbar = true;
-    } else {
-      this.hasScrollbar = false;
-    }
   }
 
   <template>
