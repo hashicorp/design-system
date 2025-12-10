@@ -1,10 +1,10 @@
 The Filter Bar is used to apply and display filters to a data set. It is most often used in conjunction with the [Advanced Table](/components/table/advanced-table), but is flexible enough to support different data sets and rendering methods such as in a list or grid of cards.
 
-The Filter Bar comes paired with a complex dropdown menu that displays the available parameters to filter upon (parameter is often the equivalent of a column in a table), the available values within each parameter, support for numerical/date/time values, ranges of values, and actions to apply and clear filters from the data set.
+The Filter Bar comes paired with a complex dropdown menu that displays available filter parameters (a parameter is often the equivalent of a column in a table), values within each parameter, support for numerical/date/time values, ranges of values, and actions to apply and clear filters from the data set.
 
 !!! Callout
 
-While the Filter Bar underwent rigorous research and testing, this component is relatively complex compared other Components in the the HDS library. If specific functionality or the filtering methods don't meet your needs, please [contact the Design Systems Team](/about/support) so we can provide support.
+While the Filter Bar underwent rigorous research and testing, this component is relatively complex. If specific functionality or the filtering methods don't meet your needs, please [contact the Design Systems Team](/about/support) so we can provide support.
 !!!
 
 ## Usage
@@ -118,7 +118,7 @@ Single selection supports a _mutually exclusive_ selection using radio buttons; 
 
 ### Numbers, dates, and times
 
-Filtering by numerical values, dates, and times is handled through the combination of an operator (greater than, less than, before, etc) and an input field or grouping of input fields. This filtering method is best suited for range-based filtering; e.g., filtering by results relationally compared to the value or range of values.
+Filtering by numerical values, dates, and times is handled through the combination of an operator (greater than, less than, before, etc.) and an input field or grouping of input fields. This filtering method is best suited for range-based filtering; e.g., filtering by results relationally compared to the value or range of values.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-numerical-filter.png)
 
@@ -163,7 +163,7 @@ Clear all filters via the Button in the footer of the Dropdown.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-clear-all-filters.png)
 
-De-select all filter values within a parameter with the "Clear selection" Button, then confirm the changes with the "Apply filters" Button in the footer.
+Deselect all filter values within a parameter with the "Clear selection" Button, then confirm the changes with the "Apply filters" Button in the footer.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-clear-selection-filter.png)
 
