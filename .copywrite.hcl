@@ -32,6 +32,10 @@ project {
     "website/app/routes/show.js",
     "website/app/controllers/show.js",
     "website/app/templates/show.hbs",
+    # Don't include header on examples for the website
+    "website/docs/**/*.hbs",
+    "website/docs/**/*.gts",
+    "website/docs/**/*.js",
     "website/lib/markdown/index.js",
     "website/lib/markdown/markdown-to-jsonapi.js",
     "website/lib/markdown/table-of-contents.js",
