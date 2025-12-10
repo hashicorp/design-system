@@ -65,8 +65,6 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
     }
 
     this._element = element;
-
-    return () => {};
   });
 
   @action
@@ -160,14 +158,8 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   // Update the tab arrays based on how they are ordered in the DOM
   private _updateTabs(): void {
     const tabs = this._element.querySelectorAll(TAB_ELEMENT_SELECTOR);
-    let newTabIds: string[] = [];
-    let newTabNodes: HTMLElement[] = [];
-    tabs.forEach((tab) => {
-      newTabIds = [...newTabIds, tab.id];
-      newTabNodes = [...newTabNodes, tab as HTMLElement];
-    });
-    this._tabIds = newTabIds;
-    this._tabNodes = newTabNodes;
+    this._tabIds = Array.from(tabs).map((t) => t.id);
+    this._tabNodes = Array.from(tabs) as HTMLElement[];
   }
 
   // Update the panel arrays based on how they are ordered in the DOM
