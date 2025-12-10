@@ -67,7 +67,7 @@ export { default as HdsApplicationStateMedia } from './components/hds/applicatio
 export * from './components/hds/application-state/types.ts';
 
 // Badge
-export { default as HdsBadge } from './components/hds/badge/index.ts';
+export { default as HdsBadge } from './components/hds/badge/index.gts';
 export * from './components/hds/badge/types.ts';
 
 // BadgeCount
@@ -223,7 +223,7 @@ export { default as HdsFormToggleField } from './components/hds/form/toggle/fiel
 export { default as HdsFormToggleGroup } from './components/hds/form/toggle/group.ts';
 
 // Icon
-export { default as HdsIcon } from './components/hds/icon/index.ts';
+export { default as HdsIcon } from './components/hds/icon/index.gts';
 export * from './components/hds/icon/types.ts';
 
 // IconTile
