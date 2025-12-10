@@ -147,7 +147,7 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
       hbs`<Hds::ThemeSwitcher @hasDefaultOption={{true}} @hasSystemOption={{true}} id="test-theme-switcher" />`,
     );
 
-    // oen the dropdown
+    // open the dropdown
     await click('#test-theme-switcher button');
 
     // click on `Light` theme

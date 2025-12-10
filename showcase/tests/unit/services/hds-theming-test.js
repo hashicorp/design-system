@@ -23,7 +23,7 @@ module('Unit | Service | hds-theming', function (hooks) {
   });
 
   hooks.afterEach(function () {
-    // clear up local storage and classes on root element
+    // clean up local storage and classes on root element
     window.localStorage.removeItem(HDS_THEMING_LOCALSTORAGE_DATA);
     document.documentElement.className = '';
     // restores all sinon spies/stubs/mocks to their original state
