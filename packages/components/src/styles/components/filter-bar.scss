@@ -26,9 +26,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px 12px;
-  align-items: end;
-  padding-top: 8px;
-  border-top: 1px solid var(--token-color-border-primary);
+  align-items: center;
 }
 
 .hds-filter-bar__actions__right {
@@ -75,12 +73,12 @@
   gap: 16px;
   align-items: center;
   width: 100%;
-  padding: 8px 12px;
+  padding: 8px 16px;
   color: var(--token-color-foreground-primary);
   text-align: left;
   background-color: transparent;
   border: none;
-  border-radius: var(--token-border-radius-small);
+  border-radius: var(--token-border-radius-x-small);
 
   &.mock-hover,
   &:hover {
@@ -104,11 +102,13 @@
 
   &.mock-hover,
   &:hover {
+    color: var(--token-color-foreground-action-hover);
     background-color: var(--token-color-palette-neutral-200);
   }
 
   &.mock-active,
   &:active {
+    color: var(--token-color-foreground-action-active);
     background-color: var(--token-color-palette-neutral-300);
   }
 }
@@ -176,6 +176,6 @@
   }
 }
 
-.hds-filter-bar__filter-group__clear {
+.hds-filter-bar__filter-group__clear:has(~ .hds-filter-bar__filter-group__list) {
   padding: 4px;
 }

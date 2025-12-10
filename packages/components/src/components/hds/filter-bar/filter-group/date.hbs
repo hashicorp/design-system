@@ -2,88 +2,91 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-filter-bar__filter-group__date">
-  <Hds::Layout::Flex class="hds-filter-bar__filter-group__fields" @direction="column" @gap="16">
-    <Hds::Form::Select::Field
-      @id={{this._selectorInputId}}
-      {{on "change" this.onSelectorChange}}
-      class="hds-filter-bar__filter-group__field"
-      as |F|
-    >
-      <F.Label>{{this.selectorLabelText}}</F.Label>
-      <F.Options>
-        <option value="">{{hds-t
-            "hds.components.filter-bar.filter-group.date.selector-input.default-value"
-            default="Pick a selector"
+<Hds::Layout::Flex
+  class="hds-filter-bar__filter-group__date hds-filter-bar__filter-group__fields"
+  @direction="column"
+  @gap="16"
+>
+  <Hds::Form::Select::Field
+    @id={{this._selectorInputId}}
+    {{on "change" this.onSelectorChange}}
+    class="hds-filter-bar__filter-group__field"
+    as |F|
+  >
+    <F.Label>{{this.selectorLabelText}}</F.Label>
+    <F.Options>
+      <option value="">{{hds-t
+          "hds.components.filter-bar.filter-group.date.selector-input.default-value"
+          default="Pick a selector"
+        }}</option>
+      {{#each this._selectorValues as |selectorValue|}}
+        <option value={{selectorValue}} selected={{eq selectorValue this._selector}}>{{this._getSelectorText
+            selectorValue
           }}</option>
-        {{#each this._selectorValues as |selectorValue|}}
-          <option value={{selectorValue}} selected={{eq selectorValue this._selector}}>{{this._getSelectorText
-              selectorValue
-            }}</option>
-        {{/each}}
-      </F.Options>
-    </Hds::Form::Select::Field>
-    {{#if (eq this._selector "between")}}
-      <Hds::Layout::Flex @gap="8" @direction={{if (eq @type "datetime") "column" "row"}}>
-        <Hds::Form::TextInput::Base
-          @id={{this._betweenValueStartInputId}}
-          @type={{this.inputType}}
-          @value={{this._betweenValueStart}}
-          aria-label={{hds-t
-            "hds.components.filter-bar.filter-group.date.between-value-inputs.start.aria-label"
-            type=this.type
-            default="Date start value"
-          }}
-          placeholder={{hds-t
-            "hds.components.filter-bar.filter-group.date.between-value-inputs.start.placeholder"
-            default="Start"
-          }}
-          class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
-          {{on "change" this.onBetweenValueStartChange}}
-        />
-        <Hds::Form::TextInput::Base
-          @id={{this._betweenValueEndInputId}}
-          @type={{this.inputType}}
-          @value={{this._betweenValueEnd}}
-          aria-label={{hds-t
-            "hds.components.filter-bar.filter-group.date.between-value-inputs.end.aria-label"
-            type=this.type
-            default="Date end value"
-          }}
-          placeholder={{hds-t
-            "hds.components.filter-bar.filter-group.date.between-value-inputs.end.placeholder"
-            default="End"
-          }}
-          class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
-          {{on "change" this.onBetweenValueEndChange}}
-        />
-      </Hds::Layout::Flex>
-    {{else}}
+      {{/each}}
+    </F.Options>
+  </Hds::Form::Select::Field>
+  {{#if (eq this._selector "between")}}
+    <Hds::Layout::Flex @gap="8" @direction={{if (eq @type "datetime") "column" "row"}}>
       <Hds::Form::TextInput::Base
-        @id={{this._valueInputId}}
+        @id={{this._betweenValueStartInputId}}
         @type={{this.inputType}}
-        @value={{this._value}}
+        @value={{this._betweenValueStart}}
         aria-label={{hds-t
-          "hds.components.filter-bar.filter-group.date.value-input.aria-label"
+          "hds.components.filter-bar.filter-group.date.between-value-inputs.start.aria-label"
           type=this.type
-          default="Date value"
+          default="Date start value"
         }}
         placeholder={{hds-t
-          "hds.components.filter-bar.filter-group.date.value-input.placeholder"
-          default="Enter a value"
+          "hds.components.filter-bar.filter-group.date.between-value-inputs.start.placeholder"
+          default="Start"
         }}
-        class="hds-filter-bar__filter-group__field"
-        {{on "change" this.onValueChange}}
+        class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
+        {{on "change" this.onBetweenValueStartChange}}
       />
-    {{/if}}
-  </Hds::Layout::Flex>
+      <Hds::Form::TextInput::Base
+        @id={{this._betweenValueEndInputId}}
+        @type={{this.inputType}}
+        @value={{this._betweenValueEnd}}
+        aria-label={{hds-t
+          "hds.components.filter-bar.filter-group.date.between-value-inputs.end.aria-label"
+          type=this.type
+          default="Date end value"
+        }}
+        placeholder={{hds-t
+          "hds.components.filter-bar.filter-group.date.between-value-inputs.end.placeholder"
+          default="End"
+        }}
+        class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
+        {{on "change" this.onBetweenValueEndChange}}
+      />
+    </Hds::Layout::Flex>
+  {{else}}
+    <Hds::Form::TextInput::Base
+      @id={{this._valueInputId}}
+      @type={{this.inputType}}
+      @value={{this._value}}
+      aria-label={{hds-t
+        "hds.components.filter-bar.filter-group.date.value-input.aria-label"
+        type=this.type
+        default="Date value"
+      }}
+      placeholder={{hds-t
+        "hds.components.filter-bar.filter-group.date.value-input.placeholder"
+        default="Enter a value"
+      }}
+      class="hds-filter-bar__filter-group__field"
+      {{on "change" this.onValueChange}}
+    />
+  {{/if}}
   <div class="hds-filter-bar__filter-group__clear">
     <Hds::Button
       @text={{hds-t "hds.components.filter-bar.filter-group.date.clear" default="Clear filter"}}
       @color="tertiary"
+      @size="small"
       @icon="rotate-ccw"
       @isInline={{true}}
       {{on "click" this.onClear}}
     />
   </div>
-</div>
+</Hds::Layout::Flex>

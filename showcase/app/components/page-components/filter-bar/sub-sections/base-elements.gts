@@ -401,6 +401,25 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     />
   </HdsFilterBarTabs>
 
+  <ShwTextBody>Generic</ShwTextBody>
+
+  <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+    <HdsFilterBarFilterGroup
+      @key="name"
+      @text="Name"
+      @type="generic"
+      @tab={{T.Tab}}
+      @panel={{T.Panel}}
+      @filters={{EMPTY_FILTERS}}
+      @onChange={{NOOP}}
+      as |F|
+    >
+      <F.Generic>
+        <ShwPlaceholder @text="Generic content" @height="50" />
+      </F.Generic>
+    </HdsFilterBarFilterGroup>
+  </HdsFilterBarTabs>
+
   <ShwTextH4>Base elements</ShwTextH4>
 
   <ShwGrid @columns={{4}} as |SG|>
