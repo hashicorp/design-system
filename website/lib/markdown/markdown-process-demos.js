@@ -46,13 +46,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
       let dependencies = [fullInputPath];
       markdownFileContent = markdownFileContent.replace(
         demoBlockRegex,
-        (
-          _match,
-          fileName,
-          shouldExecute,
-          shouldIncludeBackingClass,
-          _content,
-        ) => {
+        (_match, fileName, shouldExecute, shouldIncludeBackingClass) => {
           const demoFilePath = path.join(fullParentFolder, fileName.trim());
           const fileNameToForward = demoFilePath.match(fileNameRegex)?.[1];
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
