@@ -10,6 +10,11 @@
       "$type": "color",
       "$value": "{base.simple}",
       "group": "palette"
+    },
+    "double-aliased": {
+      "$type": "color",
+      "$value": "{base.aliased}",
+      "group": "palette"
     }
   },
   "themed": {
@@ -32,7 +37,7 @@
     },
     "mixed": {
       "$type": "color",
-      "$value": "{base.simple}",
+      "$value": "{base.aliased}",
       "group": "palette",
       "$modes": {
         "default": "{base.simple}",

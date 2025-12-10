@@ -328,6 +328,7 @@ fs.emptyDirSync(distFolder);
 
 // generate themed tokens
 for (const mode of modes) {
+// for (const mode of ['default']) {
   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target: 'products', mode }));
   console.log(`\n---\n\nProcessing mode "${mode}"...`);
   await StyleDictionaryInstance.hasInitialized;
@@ -336,10 +337,10 @@ for (const mode of modes) {
 }
 
 // generate standard tokens
-for (const target of targets) {
-  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
-  console.log(`\n---\n\nProcessing target "${target}"...`);
-  await StyleDictionaryInstance.hasInitialized;
-  await StyleDictionaryInstance.buildAllPlatforms()
-  console.log('\nEnd processing');
-}
+// for (const target of targets) {
+//   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
+//   console.log(`\n---\n\nProcessing target "${target}"...`);
+//   await StyleDictionaryInstance.hasInitialized;
+//   await StyleDictionaryInstance.buildAllPlatforms()
+//   console.log('\nEnd processing');
+// }

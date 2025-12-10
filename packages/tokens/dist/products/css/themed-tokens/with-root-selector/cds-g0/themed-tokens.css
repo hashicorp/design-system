@@ -4,5 +4,5 @@
 
 :root {
   --token-themed-simple: #ffffff;
-  --token-themed-mixed: #ffffff;
+  --token-themed-mixed: var(--token-themed-aliased);
 }

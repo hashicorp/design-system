@@ -4,7 +4,10 @@
  */
 
 import type { Config, DesignToken, Dictionary } from 'style-dictionary/types';
-import { outputReferencesFilter, outputReferencesTransformed } from 'style-dictionary/utils';
+import { getReferences, resolveReferences, outputReferencesFilter, outputReferencesTransformed } from 'style-dictionary/utils';
+
+// import GroupMessages from 'style-dictionary/utils/groupMessages.js';
+// const FILTER_WARNINGS = GroupMessages.GROUP.FilteredOutputReferences;
 
 export const targets = ['products', 'devdot', 'marketing', 'cloud-email'];
 export const modes = ['default', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100'];
@@ -27,48 +30,67 @@ const excludePrivateTokens = (token: DesignToken) => {
   return !token.private;
 }
 
-const outputReferencesCustomFunction = (token: DesignToken, options: { dictionary: Dictionary, usesDtcg?: boolean }) => {
+const outputReferencesStandardFunction = (token: DesignToken, options: { dictionary: Dictionary, usesDtcg?: boolean }) => {
   const isFiltered = outputReferencesFilter(token, options);
   const isTransformed = outputReferencesTransformed(token, options);
-  // {
-  //   "key": "{base.themed-mixed}",
-  //   "$type": "color",
-  //   "$value": "#000000",
-  //   "group": "palette",
-  //   "$modes": {
-  //     "default": "#123456",
-  //     "cds-g0": "#000000",
-  //     "cds-g10": "#000000",
-  //     "cds-g90": "#000000",
-  //     "cds-g100": "#000000"
-  //   },
-  //   "filePath": "src/test/test.json",
-  //   "isSource": true,
-  //   "original": {
-  //     "$type": "color",
-  //     "$value": "{base.themed}",
-  //     "group": "palette",
-  //     "$modes": {
-  //       "default": "{base.simple}",
-  //       "cds-g0": "{base.themed}",
-  //       "cds-g10": "{base.themed}",
-  //       "cds-g90": "{base.themed}",
-  //       "cds-g100": "{base.themed}"
-  //     },
-  //     "key": "{base.themed-mixed}"
-  //   },
-  //   "name": "token-base-themed-mixed",
-  //   "attributes": {
-  //     "themeable": true,
-  //     "category": "base"
-  //   },
-  //   "path": [
-  //     "base",
-  //     "themed-mixed"
-  //   ]
-  // }
-  console.log(token.name, `isFiltered=${isFiltered}`, `isTransformed=${isTransformed}`);
   return isFiltered && isTransformed;
+}
+
+const outputReferencesCustomFunction = (token: DesignToken, options: { dictionary: Dictionary, usesDtcg?: boolean }) => {
+  // const isFiltered = outputReferencesFilter(token, options);
+  // const isTransformed = outputReferencesTransformed(token, options);
+
+  const { dictionary, usesDtcg } = options;
+
+  console.log('\n\n--------\n\n🚧 PROCESSING', token.name)
+
+  const value = usesDtcg ? token.$value : token.value;
+  const originalValue = usesDtcg ? token.original.$value : token.original.value;
+
+  // derived from by `outputReferencesFilter` - see: https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesFilter.js
+
+  // get refs, pass unfilteredTokens to ensure we find the refs even if they are filtered out
+  const refs = getReferences(originalValue, dictionary.tokens, {
+    unfilteredTokens: dictionary.unfilteredTokens,
+    usesDtcg,
+    warnImmediately: false,
+  });
+
+  const hasNoPrivateReferences = refs.every((ref: DesignToken) => {
+    // check whether every ref can be found in the filtered set of tokens
+    const isPrivate = ref.private;
+    if (!isPrivate) {
+      // remove the warning about this ref being filtered out, since we now prevent it from outputting it as a ref
+      // TODO!
+      // GroupMessages.remove(FILTER_WARNINGS, ref.path.join('.'));
+    }
+    return !isPrivate;
+  });
+
+  // derived from by `outputReferencesTransformed` - https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesTransformed.js
+
+  // double check if this is a string, technically speaking the token could also be an object
+  // and pass the usesReferences check
+  let hasBeenTransformed;
+  if (typeof originalValue === 'string') {
+    // Check if the token's value is the same as if we were resolve references on the original value
+    // This checks whether the token's value has been transformed e.g. transitive transforms.
+    // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
+    hasBeenTransformed = (
+      value ===
+      resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
+        usesDtcg,
+        warnImmediately: false,
+      })
+    );
+  } else {
+    hasBeenTransformed = false;
+  }
+
+
+  console.log('DONE 🙂', token.name, originalValue, `hasNoPrivateReferences=${hasNoPrivateReferences}`, `hasBeenTransformed=${hasBeenTransformed}`);
+
+  return hasNoPrivateReferences && hasBeenTransformed;
 }
 
 export function getStyleDictionaryConfig({ target, mode }: { target: Target, mode?: Mode }): Config {

@@ -4,5 +4,6 @@
 
 :root {
   --token-base-aliased: #123456;
-  --token-themed-aliased: #000000;
+  --token-themed-aliased: var(--token-themed-simple);
+  --token-base-double-aliased: var(--token-base-aliased);
 }
