@@ -51,6 +51,7 @@
   </Hds::Layout::Flex>
   <div class="hds-filter-bar__applied-filters-list" id={{this._appliedFiltersContentId}}>
     {{#if this._isExpanded}}
+      <Hds::Separator @spacing="0" />
       <div class="hds-filter-bar__applied-filters-list__content">
         {{#if this.hasActiveFilters}}
           {{#each-in @filters as |key filter|}}
