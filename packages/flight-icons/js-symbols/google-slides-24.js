@@ -1,0 +1,8 @@
+/**
+ * Generated Icon: google-slides-24
+ */
+export const flight = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M15.398 10.864H8.602v3.863h6.796v-3.863z"/><path fill-rule="evenodd" d="M6.11 22h11.78c.748 0 1.36-.614 1.36-1.364V7l-4.984-5H6.109c-.747 0-1.359.614-1.359 1.364v17.272c0 .75.612 1.364 1.36 1.364zM16.53 9.727H7.47v6.137h9.062V9.727z" clip-rule="evenodd"/></g></symbol>`;
+};
+
+export const carbon = null;

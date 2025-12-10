@@ -1,0 +1,8 @@
+/**
+ * Generated Icon: ansible-automation-platform-color-24
+ */
+export const flight = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M12 22.496c-5.79 0-10.501-4.711-10.501-10.501 0-5.79 4.71-10.503 10.501-10.503 5.79 0 10.502 4.712 10.502 10.503 0 5.79-4.711 10.501-10.502 10.501zM12 3c-4.959 0-8.994 4.034-8.994 8.994S7.041 20.988 12 20.988s8.994-4.034 8.994-8.994S16.959 3 12 3z"/><path fill="currentColor" d="M8.25 16.496a.749.749 0 01-.682-1.06l3.75-8.25a.75.75 0 011.364 0l3.75 8.25a.75.75 0 01-1.127.913l-4.872-3.594-1.5 3.301a.748.748 0 01-.684.44zm2.818-5.136l2.805 2.07L12 9.308l-.932 2.052z"/></symbol>`;
+};
+
+export const carbon = null;

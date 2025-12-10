@@ -1,0 +1,8 @@
+/**
+ * Generated Icon: packer-fill-16
+ */
+export const flight = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M2 0a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V2a2 2 0 00-2-2H2zm7.828 5.03L6.227 3v1.408l2.45 1.384v4.228l1.152.647c.713.403 1.296.166 1.296-.535V7.029c0-.697-.586-1.596-1.297-2zm-4.953-.808l3.313 1.873V13l-3.313-1.873V4.222z" clip-rule="evenodd"/></symbol>`;
+};
+
+export const carbon = null;

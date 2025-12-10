@@ -1,0 +1,10 @@
+/**
+ * Generated Icon: closed-caption-16
+ */
+export const flight = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M0 3.25A2.25 2.25 0 012.25 1h11.5A2.25 2.25 0 0116 3.25v9a2.25 2.25 0 01-2.25 2.25H2.25A2.25 2.25 0 010 12.25v-9zm2.25-.75a.75.75 0 00-.75.75v9c0 .414.336.75.75.75h11.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75H2.25zm3.5 4a1.25 1.25 0 10.836 2.179.75.75 0 011.005 1.114 2.75 2.75 0 110-4.086.75.75 0 01-1.005 1.114A1.243 1.243 0 005.75 6.5zM10 7.75a1.25 1.25 0 012.086-.929.75.75 0 101.005-1.114 2.75 2.75 0 100 4.086.75.75 0 00-1.005-1.114A1.25 1.25 0 0110 7.75z" clip-rule="evenodd"/></symbol>`;
+};
+
+export const carbon = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 21H10a2 2 0 01-2-2V13a2 2 0 012-2h5v2H10v6h5zM25 21H20a2 2 0 01-2-2V13a2 2 0 012-2h5v2H20v6h5z"/><path d="M28,26H4a2,2,0,0,1-2-2V8A2,2,0,0,1,4,6H28a2,2,0,0,1,2,2V24A2,2,0,0,1,28,26ZM4,8V24H28V8Z"/></symbol>`;
+};

@@ -1,0 +1,10 @@
+/**
+ * Generated Icon: bottom-16
+ */
+export const flight = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M8 1a.75.75 0 01.75.75v7.614l2.955-3.129a.75.75 0 011.09 1.03l-4.25 4.5a.747.747 0 01-.533.235h-.024a.747.747 0 01-.51-.211l-.004-.005a.862.862 0 01-.02-.02l-4.25-4.499a.75.75 0 011.091-1.03L7.25 9.364V1.75A.75.75 0 018 1zM2.75 13.5a.75.75 0 000 1.5h10.5a.75.75 0 000-1.5H2.75z"/></g></symbol>`;
+};
+
+export const carbon = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 18L6 8 7.4 6.6 16 15.2 24.6 6.6 26 8zM4 22H28V24H4z"/></symbol>`;
+};

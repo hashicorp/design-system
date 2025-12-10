@@ -1,0 +1,8 @@
+/**
+ * Generated Icon: waypoint-fill-24
+ */
+export const flight = function (id) {
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M2 0a2 2 0 00-2 2v20a2 2 0 002 2h20a2 2 0 002-2V2a2 2 0 00-2-2H2zm7.334 9.312H8l3.332 5.777L10 17.4 4 7h6.667L14 12.778l.666-1.155L12 7h2.666l2.668 4.623L14 17.4 9.334 9.312zM20 7l-1.998 3.463L16.004 7H20z" clip-rule="evenodd"/></symbol>`;
+};
+
+export const carbon = null;
