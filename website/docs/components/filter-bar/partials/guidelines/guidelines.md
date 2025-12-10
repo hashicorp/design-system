@@ -102,6 +102,8 @@ The Filter Dropdown is responsible for the selection and application of filters 
 - The left panel displays the list of parameters (categories) that can be filtered upon.
 - The right panel conditionally displays either a list of options, or a grouping of input fields when filtering by a numerical, date, or time value.
 
+![](/assets/components/filter-bar/filter-bar-dropdown-open.png)
+
 Which filtering method to use depends on the data type and context. In the Figma component, select the `type` from the nested FilterValue component. In Ember, pass the filter type and method to in the configuration.
 
 ### Multi-selection
