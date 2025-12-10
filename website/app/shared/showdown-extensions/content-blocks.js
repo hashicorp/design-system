@@ -35,7 +35,7 @@ export const contentBlocks = function () {
       text = text.replace(outputRegex, function (_match, type) {
         if (type === 'do' || type === 'dont') {
           return `<Doc::DoDont @type="${type}">\n`;
-        } else if (type !== 'demo') {
+        } else {
           return `<Doc::Banner @type="${type}">\n`;
         }
       });
@@ -45,7 +45,7 @@ export const contentBlocks = function () {
         function (_match, type) {
           if (type === 'do' || type === 'dont') {
             return '</Doc::DoDont>';
-          } else if (type !== 'demo') {
+          } else {
             return '</Doc::Banner>';
           }
         },
