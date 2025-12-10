@@ -1,8 +1,4 @@
-/**
- * Generated Icon: new-relic-color-24
- */
 export const flight = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M16.884 8.923v6.154l-5.383 3.077V22l8.75-5V7l-3.367 1.923z"/><path fill="currentColor" d="M11.5 5.847l5.384 3.076L20.25 7 11.5 2 2.75 7l3.366 1.923 5.385-3.076z"/><path fill="currentColor" d="M8.133 13.924v6.154L11.501 22V12L2.75 7v3.847l5.383 3.077z"/></symbol>`;
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path fill="currentColor" d="M16.884 8.923v6.154l-5.383 3.077V22l8.75-5V7l-3.367 1.923z"/><path fill="currentColor" d="M11.5 5.847l5.384 3.076L20.25 7 11.5 2 2.75 7l3.366 1.923 5.385-3.076z"/><path fill="currentColor" d="M8.133 13.924v6.154L11.501 22V12L2.75 7v3.847l5.383 3.077z"/></g></symbol>`;
 };
-
 export const carbon = null;

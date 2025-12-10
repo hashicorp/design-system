@@ -1,8 +1,4 @@
-/**
- * Generated Icon: boundary-color-24
- */
 export const flight = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M6.586 22v-1.55H9.8v-.958H8.241v-1.56h7.356L12.18 12l3.417-5.934H8.058v8.229H4V2h13.964l2.33 4.046L16.866 12l3.498 6.074L18.103 22H6.586z"/><path d="M7.21 17.932H5.656v1.56H7.21v-1.56zM5.556 20.438H4v1.56h1.556v-1.56z"/></g></symbol>`;
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><g fill="currentColor"><path d="M6.586 22v-1.55H9.8v-.958H8.241v-1.56h7.356L12.18 12l3.417-5.934H8.058v8.229H4V2h13.964l2.33 4.046L16.866 12l3.498 6.074L18.103 22H6.586z"/><path d="M7.21 17.932H5.656v1.56H7.21v-1.56zM5.556 20.438H4v1.56h1.556v-1.56z"/></g></g></symbol>`;
 };
-
 export const carbon = null;

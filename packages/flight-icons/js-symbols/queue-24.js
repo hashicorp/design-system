@@ -1,8 +1,4 @@
-/**
- * Generated Icon: queue-24
- */
 export const flight = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M3.19 3.892a.75.75 0 10-.88 1.216L5.97 7.75l-3.66 2.642a.75.75 0 00.88 1.216l4.5-3.25a.75.75 0 000-1.216l-4.5-3.25zM11.75 7a.75.75 0 000 1.5h9.5a.75.75 0 000-1.5h-9.5zM8 12.75a.75.75 0 01.75-.75h12.5a.75.75 0 010 1.5H8.75a.75.75 0 01-.75-.75zM8.75 17a.75.75 0 000 1.5h12.5a.75.75 0 000-1.5H8.75z"/></g></symbol>`;
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><g fill="currentColor"><path d="M3.19 3.892a.75.75 0 10-.88 1.216L5.97 7.75l-3.66 2.642a.75.75 0 00.88 1.216l4.5-3.25a.75.75 0 000-1.216l-4.5-3.25zM11.75 7a.75.75 0 000 1.5h9.5a.75.75 0 000-1.5h-9.5zM8 12.75a.75.75 0 01.75-.75h12.5a.75.75 0 010 1.5H8.75a.75.75 0 01-.75-.75zM8.75 17a.75.75 0 000 1.5h12.5a.75.75 0 000-1.5H8.75z"/></g></g></symbol>`;
 };
-
 export const carbon = null;

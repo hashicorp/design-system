@@ -1,8 +1,4 @@
-/**
- * Generated Icon: chevrons-left-24
- */
 export const flight = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M11.768 16.707a.75.75 0 01-1.036 1.085l-5.5-5.25a.75.75 0 010-1.085l5.5-5.25a.75.75 0 011.036 1.086L6.836 12l4.932 4.707z"/><path d="M18.768 16.707a.75.75 0 01-1.036 1.085l-5.5-5.25a.75.75 0 010-1.085l5.5-5.25a.75.75 0 011.036 1.086L13.836 12l4.932 4.707z"/></g></symbol>`;
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><g fill="currentColor"><path d="M11.768 16.707a.75.75 0 01-1.036 1.085l-5.5-5.25a.75.75 0 010-1.085l5.5-5.25a.75.75 0 011.036 1.086L6.836 12l4.932 4.707z"/><path d="M18.768 16.707a.75.75 0 01-1.036 1.085l-5.5-5.25a.75.75 0 010-1.085l5.5-5.25a.75.75 0 011.036 1.086L13.836 12l4.932 4.707z"/></g></g></symbol>`;
 };
-
 export const carbon = null;

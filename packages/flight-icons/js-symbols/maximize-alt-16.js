@@ -1,10 +1,6 @@
-/**
- * Generated Icon: maximize-alt-16
- */
 export const flight = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M1 3.25A2.25 2.25 0 013.25 1h2.047a.75.75 0 010 1.5H3.25a.75.75 0 00-.75.75v2.047a.75.75 0 01-1.5 0V3.25zm8.953-1.5a.75.75 0 01.75-.75h2.047A2.25 2.25 0 0115 3.25v2.047a.75.75 0 01-1.5 0V3.25a.75.75 0 00-.75-.75h-2.047a.75.75 0 01-.75-.75zM1.75 9.953a.75.75 0 01.75.75v2.047c0 .414.336.75.75.75h2.047a.75.75 0 010 1.5H3.25A2.25 2.25 0 011 12.75v-2.047a.75.75 0 01.75-.75zm12.5 0a.75.75 0 01.75.75v2.047A2.25 2.25 0 0112.75 15h-2.047a.75.75 0 010-1.5h2.047a.75.75 0 00.75-.75v-2.047a.75.75 0 01.75-.75z" clip-rule="evenodd"/></symbol>`;
+    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path fill="currentColor" fill-rule="evenodd" d="M1 3.25A2.25 2.25 0 013.25 1h2.047a.75.75 0 010 1.5H3.25a.75.75 0 00-.75.75v2.047a.75.75 0 01-1.5 0V3.25zm8.953-1.5a.75.75 0 01.75-.75h2.047A2.25 2.25 0 0115 3.25v2.047a.75.75 0 01-1.5 0V3.25a.75.75 0 00-.75-.75h-2.047a.75.75 0 01-.75-.75zM1.75 9.953a.75.75 0 01.75.75v2.047c0 .414.336.75.75.75h2.047a.75.75 0 010 1.5H3.25A2.25 2.25 0 011 12.75v-2.047a.75.75 0 01.75-.75zm12.5 0a.75.75 0 01.75.75v2.047A2.25 2.25 0 0112.75 15h-2.047a.75.75 0 010-1.5h2.047a.75.75 0 00.75-.75v-2.047a.75.75 0 01.75-.75z" clip-rule="evenodd"/></g></symbol>`;
 };
-
 export const carbon = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 15L6 14 2.7 14 7 9.7 6.3 9 2 13.3 2 10 1 10 1 15zM10 1L10 2 13.3 2 9 6.3 9.7 7 14 2.7 14 6 15 6 15 1z"/></symbol>`;
+    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M6 15L6 14 2.7 14 7 9.7 6.3 9 2 13.3 2 10 1 10 1 15zM10 1L10 2 13.3 2 9 6.3 9.7 7 14 2.7 14 6 15 6 15 1z"/></g></symbol>`;
 };

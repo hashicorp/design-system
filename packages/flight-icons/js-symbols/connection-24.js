@@ -1,8 +1,4 @@
-/**
- * Generated Icon: connection-24
- */
 export const flight = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" fill-rule="evenodd" d="M1 11.75A3.5 3.5 0 017.92 11h8.16a3.501 3.501 0 016.92.75 3.5 3.5 0 01-6.92.75H7.92A3.501 3.501 0 011 11.75zm3.5-2a2 2 0 100 4 2 2 0 000-4zm15 0a2 2 0 100 4 2 2 0 000-4z" clip-rule="evenodd"/></symbol>`;
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path fill="currentColor" fill-rule="evenodd" d="M1 11.75A3.5 3.5 0 017.92 11h8.16a3.501 3.501 0 016.92.75 3.5 3.5 0 01-6.92.75H7.92A3.501 3.501 0 011 11.75zm3.5-2a2 2 0 100 4 2 2 0 000-4zm15 0a2 2 0 100 4 2 2 0 000-4z" clip-rule="evenodd"/></g></symbol>`;
 };
-
 export const carbon = null;

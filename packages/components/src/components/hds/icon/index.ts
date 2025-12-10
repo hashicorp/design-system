@@ -4,16 +4,30 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
+import { htmlSafe } from '@ember/template';
 import { iconNames } from '@hashicorp/flight-icons/svg';
+import { IconRegistry } from '@hashicorp/flight-icons/js-symbols/registry';
+import { task } from 'ember-concurrency';
+import { modifier } from 'ember-modifier';
 import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
-import type { HdsIconSizes, HdsIconColors } from './types';
+
+import type { SafeString } from '@ember/template';
 import type { IconName } from '@hashicorp/flight-icons/svg';
-import type Owner from '@ember/owner';
+import type { IconModuleName } from '@hashicorp/flight-icons/js-symbols/registry.ts';
+import type { HdsIconSizes, HdsIconColors } from './types';
+import type HdsCarbonService from '../../../services/hds-carbon.ts';
 
 export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
 export const NAMES = iconNames;
+
+interface IconModule {
+  flight: (symbolId: string) => string;
+  carbon: ((symbolId: string) => string) | null;
+}
 
 export interface HdsIconSignature {
   Args: {
@@ -29,19 +43,58 @@ export interface HdsIconSignature {
 }
 
 export default class HdsIcon extends Component<HdsIconSignature> {
+  @service declare readonly hdsCarbon: HdsCarbonService;
+
+  @tracked iconModule: IconModule | null = null;
+
   private _iconId = 'icon-' + guidFor(this);
   private _titleId = 'title-' + guidFor(this);
 
-  constructor(owner: Owner, args: HdsIconSignature['Args']) {
-    super(owner, args);
+  loadIconModule = modifier(
+    (
+      _element: SVGElement,
 
-    if (!this.args.name) {
-      assert('Please provide to <Hds::Icon> a value for @name');
-    } else if (!iconNames.includes(this.args.name)) {
-      assert(
-        `The icon @name "${this.args.name}" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`
-      );
+      _positional: [],
+      {
+        name,
+        size,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        carbonModeEnabled,
+      }: { name: IconName; size: HdsIconSizes; carbonModeEnabled: boolean }
+    ) => {
+      void this.loadIconModuleTask.perform(name, size);
     }
+  );
+
+  get name(): HdsIconSignature['Args']['name'] {
+    const { name } = this.args;
+
+    if (name === undefined) {
+      assert('Please provide to <Hds::Icon> a value for @name');
+    }
+
+    return name;
+  }
+
+  get iconHtml(): SafeString | undefined {
+    const module = this.iconModule;
+
+    if (module == null) {
+      return undefined;
+    }
+
+    const generator =
+      this.hdsCarbon.carbonModeEnabled && module.carbon !== null
+        ? module.carbon
+        : module.flight;
+
+    const iconHtml = htmlSafe(generator(this.uniqueSymbolId));
+
+    return iconHtml;
+  }
+
+  get uniqueSymbolId(): string {
+    return `${this._iconId}-symbol`;
   }
 
   get isInline(): boolean {
@@ -66,7 +119,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     }
   }
 
-  get size(): string {
+  get size(): HdsIconSizes {
     return this.args.size ?? HdsIconSizeValues.Sixteen;
   }
 
@@ -112,4 +165,19 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
     return classes.join(' ');
   }
+
+  loadIconModuleTask = task(
+    async (name: IconName, size: HdsIconSizes): Promise<void> => {
+      const iconModuleName: IconModuleName = `${name}-${size}`;
+      const importFn = IconRegistry[iconModuleName];
+
+      if (importFn === undefined) {
+        assert(
+          `The icon @name "${this.args.name}" or @size "${this.args.size}" provided to <Hds::Icon> is not correct. Please verify the icon exists on https://helios.hashicorp.design/icons/library`
+        );
+      } else {
+        this.iconModule = await importFn();
+      }
+    }
+  );
 }

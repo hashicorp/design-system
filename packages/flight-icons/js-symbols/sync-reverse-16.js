@@ -1,10 +1,4 @@
-/**
- * Generated Icon: sync-reverse-16
- */
 export const flight = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M8 1.5A6.5 6.5 0 0114.5 8 .75.75 0 0016 8 8 8 0 002.5 2.19v-.94a.75.75 0 00-1.5 0v3c0 .414.336.75.75.75h3a.75.75 0 000-1.5H3.31A6.479 6.479 0 018 1.5zM.75 7.25A.75.75 0 000 8a8 8 0 0013.5 5.81v.94a.75.75 0 001.5 0v-3a.75.75 0 00-.75-.75h-3a.75.75 0 000 1.5h1.44A6.5 6.5 0 011.5 8a.75.75 0 00-.75-.75z"/></g></symbol>`;
+    return `<symbol id="${id}" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><g fill="currentColor"><path d="M8 1.5A6.5 6.5 0 0114.5 8 .75.75 0 0016 8 8 8 0 002.5 2.19v-.94a.75.75 0 00-1.5 0v3c0 .414.336.75.75.75h3a.75.75 0 000-1.5H3.31A6.479 6.479 0 018 1.5zM.75 7.25A.75.75 0 000 8a8 8 0 0013.5 5.81v.94a.75.75 0 001.5 0v-3a.75.75 0 00-.75-.75h-3a.75.75 0 000 1.5h1.44A6.5 6.5 0 011.5 8a.75.75 0 00-.75-.75z"/></g></g></symbol>`;
 };
-
-export const carbon = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 10H6.78A11 11 0 0127 16h2A13 13 0 006 7.68V4H4v8h8zM20 22h5.22A11 11 0 015 16H3a13 13 0 0023 8.32V28h2V20H20z"/></symbol>`;
-};
+export const carbon = null;

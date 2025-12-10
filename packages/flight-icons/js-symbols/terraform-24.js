@@ -1,8 +1,4 @@
-/**
- * Generated Icon: terraform-24
- */
 export const flight = function (id) {
-    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><path d="M2 .6v7.197l6.212 3.6V4.199L2 .6zM15.107 8.215L8.893 4.617v7.198l6.214 3.6v-7.2zM15.788 15.414V8.215L22 4.617v7.198l-6.212 3.6zM15.105 23.4l-6.212-3.6v-7.197l6.212 3.6V23.4z"/></g></symbol>`;
+    return `<symbol id="${id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><g fill="currentColor"><path d="M2 .6v7.197l6.212 3.6V4.199L2 .6zM15.107 8.215L8.893 4.617v7.198l6.214 3.6v-7.2zM15.788 15.414V8.215L22 4.617v7.198l-6.212 3.6zM15.105 23.4l-6.212-3.6v-7.197l6.212 3.6V23.4z"/></g></g></symbol>`;
 };
-
 export const carbon = null;
