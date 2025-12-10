@@ -267,6 +267,15 @@ module('Unit | Service | hds-theming', function (hooks) {
       'currentMode reflects new light theme',
     );
 
+    assert.ok(
+      document.documentElement.classList.contains('hds-theme-light'),
+      'hds-theme-light class is applied',
+    );
+    assert.ok(
+      document.documentElement.classList.contains(`hds-mode-cds-g10`),
+      'hds-mode-cds-g10 class is applied',
+    );
+
     // Check localStorage after setting light theme with custom options
     let storedData = JSON.parse(
       window.localStorage.getItem(HDS_THEMING_LOCALSTORAGE_DATA),
@@ -288,6 +297,15 @@ module('Unit | Service | hds-theming', function (hooks) {
       this.service.currentMode,
       HdsModesDarkValues.CdsG90,
       'currentMode reflects new dark theme',
+    );
+
+    assert.ok(
+      document.documentElement.classList.contains('hds-theme-dark'),
+      'hds-theme-dark class is applied',
+    );
+    assert.ok(
+      document.documentElement.classList.contains(`hds-mode-cds-g90`),
+      'hds-mode-cds-g90 class is applied',
     );
 
     // Check localStorage after switching to dark theme
