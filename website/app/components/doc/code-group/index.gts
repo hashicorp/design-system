@@ -9,6 +9,7 @@ import { on } from '@ember/modifier';
 import { notEq, eq } from 'ember-truth-helpers';
 import { guidFor } from '@ember/object/internals';
 import type Owner from '@ember/owner';
+import { modifier } from 'ember-modifier';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
@@ -42,8 +43,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @tracked copyTimer: ReturnType<typeof setTimeout> | undefined;
   @tracked copyIconName: HdsIconSignature['Args']['name'] = 'clipboard-copy';
   @tracked expandIconName: HdsIconSignature['Args']['name'] = 'unfold-open';
+  @tracked hasScrollbar = false;
 
   componentId = guidFor(this);
+  codeSnippetWrapperElement!: HTMLDivElement;
 
   constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
     super(owner, args);
@@ -51,6 +54,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       this.currentView = 'js';
     }
   }
+
+  registerCodeSnippetWrapper = modifier((element: HTMLDivElement) => {
+    this.codeSnippetWrapperElement = element;
+  });
 
   get unescapedHbsSnippet() {
     return unescapeCode(this.args.hbsSnippet ?? '');
@@ -89,7 +96,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   get toggleButtonLabel() {
-    return this.isExpanded ? 'Collapse code' : 'Expand code';
+    return this.isExpanded ? 'Collapse .gts snippet' : 'Expand .gts snippet';
   }
 
   get language() {
@@ -142,6 +149,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   handleGtsExpandClick = () => {
     this.isExpanded = !this.isExpanded;
     this.expandIconName = this.isExpanded ? 'unfold-close' : 'unfold-open';
+    this.checkHorizontalScrollbar();
   };
 
   handleLanguageChange = (event: Event) => {
@@ -149,6 +157,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     if (input.checked) {
       this.currentView = input.value;
     }
+    this.checkHorizontalScrollbar();
   };
 
   onSuccess = () => {
@@ -170,6 +179,20 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       this.copyStatus = 'idle';
       this.copyIconName = 'clipboard-copy';
     }, 2000);
+  }
+
+  checkHorizontalScrollbar() {
+    const codeElement = this.codeSnippetWrapperElement.querySelector(
+      'code',
+    ) as HTMLElement;
+
+    console.log(codeElement);
+
+    if (codeElement.scrollHeight != codeElement.clientHeight) {
+      this.hasScrollbar = true;
+    } else {
+      this.hasScrollbar = false;
+    }
   }
 
   <template>
@@ -218,17 +241,24 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
           />
         </div>
       {{/if}}
-      <div class="doc-code-block__code-snippet-wrapper">
+      <div
+        class="doc-code-block__code-snippet-wrapper"
+        {{this.registerCodeSnippetWrapper}}
+      >
         {{#if (eq this.currentView "gts")}}
-          <button
-            type="button"
-            class="doc-code-group__expand-button"
-            {{on "click" this.handleGtsExpandClick}}
-            aria-label={{this.toggleButtonLabel}}
-            aria-expanded={{this.isExpanded}}
-          >
-            <HdsIcon @name={{this.expandIconName}} />
-          </button>
+          <div class="doc-code-group__expand-button-container">
+            <button
+              type="button"
+              class="doc-code-group__expand-button"
+              {{on "click" this.handleGtsExpandClick}}
+              aria-expanded={{this.isExpanded}}
+            >
+              <HdsIcon @name={{this.expandIconName}} />
+              <span>
+                {{this.toggleButtonLabel}}
+              </span>
+            </button>
+          </div>
         {{/if}}
         <CodeBlock
           @code={{this.currentViewSnippet}}
