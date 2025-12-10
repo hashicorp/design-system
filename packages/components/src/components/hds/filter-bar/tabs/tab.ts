@@ -27,7 +27,6 @@ export interface HdsFilterBarTabsTabSignature {
 
 export default class HdsFilterBarTabsTab extends Component<HdsFilterBarTabsTabSignature> {
   private _tabId = 'tab-' + guidFor(this);
-  private _elementId?: string;
 
   private _setUpTab = modifier(
     (
@@ -66,11 +65,10 @@ export default class HdsFilterBarTabsTab extends Component<HdsFilterBarTabsTabSi
   }
 
   @action
-  didInsertNode(element: HTMLButtonElement): void {
+  didInsertNode(): void {
     const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
-      this._elementId = element.id;
       didInsertNode();
     }
   }
@@ -85,13 +83,11 @@ export default class HdsFilterBarTabsTab extends Component<HdsFilterBarTabsTabSi
   }
 
   @action
-  onClick(event: MouseEvent): false | undefined {
+  onClick(event: MouseEvent): void {
     const { onClick } = this.args;
 
     if (this.nodeIndex !== undefined && typeof onClick === 'function') {
       onClick(event, this.nodeIndex);
-    } else {
-      return false;
     }
   }
 

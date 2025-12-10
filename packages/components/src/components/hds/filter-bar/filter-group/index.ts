@@ -137,7 +137,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
         this.internalFilters = newFilter;
       } else {
         if (Array.isArray(this.internalFilters)) {
-          this.internalFilters.push(newFilter);
+          this.internalFilters = [...this.internalFilters, newFilter];
         } else {
           this.internalFilters = [newFilter];
         }

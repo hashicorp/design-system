@@ -20,7 +20,6 @@ import type {
   HdsFilterBarData,
   HdsFilterBarGenericFilterData,
 } from './types.ts';
-// import HdsDropdown from '../dropdown/index.ts';
 import HdsYield from '../yield/index.ts';
 import HdsFilterBarActionsDropdown from './actions-dropdown.ts';
 import HdsFilterBarDropdown from './dropdown.ts';
@@ -59,16 +58,14 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
   @tracked _isExpanded: boolean = this.hasActiveFilters;
 
-  private _dropdownToggleElemenet!: HTMLDivElement;
+  private _dropdownToggleElement!: HTMLDivElement;
   private _appliedFiltersButtonId = 'applied-filters-button-' + guidFor(this);
   private _appliedFiltersContentId = 'applied-filters-content-' + guidFor(this);
 
   private _setUpFilterBar = modifier((element: HTMLDivElement) => {
-    this._dropdownToggleElemenet = element.querySelector(
+    this._dropdownToggleElement = element.querySelector(
       '.hds-filter-bar__dropdown .hds-dropdown-toggle-button'
     ) as HTMLDivElement;
-
-    return () => {};
   });
 
   get searchValue(): string {
@@ -113,7 +110,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
       onFilter({});
       this._isExpanded = false;
     }
-    this._dropdownToggleElemenet?.focus();
+    this._dropdownToggleElement?.focus();
   }
 
   @action
@@ -181,7 +178,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
       this.onFilter({ ...newFilters });
     }
-    this._dropdownToggleElemenet?.focus();
+    this._dropdownToggleElement?.focus();
   };
 
   private _filterData = (
