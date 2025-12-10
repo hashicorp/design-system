@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 import type { HdsFilterBarFilter } from '../types.ts';
 
@@ -22,6 +23,8 @@ export interface HdsFilterBarFilterGroupRadioSignature {
 }
 
 export default class HdsFilterBarFilterGroupRadio extends Component<HdsFilterBarFilterGroupRadioSignature> {
+  private _elementId = 'radio' + guidFor(this);
+
   @action
   onChange(event: Event): void {
     const { onChange, label } = this.args;
