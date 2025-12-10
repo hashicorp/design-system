@@ -117,7 +117,9 @@ module(
       });
     });
 
-    test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a boundary is provided', function (assert) {
+    // BOUNDARY OPTIONS TESTS
+
+    test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a "clippingAncestors" boundary is provided', function (assert) {
       const floatingUIOptions = getFloatingUIOptions({
         enableCollisionDetection: true,
         flipOptions: { padding: 1234 },
@@ -131,6 +133,44 @@ module(
       assert.deepEqual(floatingUIOptions.middleware[2]?.options, {
         padding: 9876,
         boundary: 'clippingAncestors',
+      });
+    });
+
+    test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a DOM element is provided as boundary', function (assert) {
+      const testElement = document.createElement('div');
+      const floatingUIOptions = getFloatingUIOptions({
+        enableCollisionDetection: true,
+        flipOptions: { padding: 1234 },
+        shiftOptions: { padding: 9876 },
+        boundary: testElement,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[1]?.options, {
+        padding: 1234,
+        boundary: testElement,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[2]?.options, {
+        padding: 9876,
+        boundary: testElement,
+      });
+    });
+
+    test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a CSS selector is provided as boundary', function (assert) {
+      const testElement = document.createElement('div');
+      testElement.id = 'test-selector';
+      document.body.appendChild(testElement);
+      const floatingUIOptions = getFloatingUIOptions({
+        enableCollisionDetection: true,
+        flipOptions: { padding: 1234 },
+        shiftOptions: { padding: 9876 },
+        boundary: '#test-selector',
+      });
+      assert.deepEqual(floatingUIOptions.middleware[1]?.options, {
+        padding: 1234,
+        boundary: testElement,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[2]?.options, {
+        padding: 9876,
+        boundary: testElement,
       });
     });
 
