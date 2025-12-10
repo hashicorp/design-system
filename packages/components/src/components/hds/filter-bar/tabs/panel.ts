@@ -24,7 +24,6 @@ export interface HdsFilterBarTabsPanelSignature {
 
 export default class HdsFilterBarTabsPanel extends Component<HdsFilterBarTabsPanelSignature> {
   private _panelId = 'panel-' + guidFor(this);
-  private _elementId?: string;
 
   private _setUpPanel = modifier(
     (
@@ -60,11 +59,10 @@ export default class HdsFilterBarTabsPanel extends Component<HdsFilterBarTabsPan
   }
 
   @action
-  didInsertNode(element: HTMLElement): void {
+  didInsertNode(): void {
     const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
-      this._elementId = element.id;
       didInsertNode();
     }
   }
