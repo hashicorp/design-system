@@ -43,7 +43,7 @@
     "lodash-es": "^4.17.21",
     "path": "^0.12.7",
     "prettier": "^3.4.2",
-    "style-dictionary": "file:/Users/cristianorastelli/src/github/style-dictionary-didoo",
+    "style-dictionary": "^5.0.4",
     "tinycolor2": "^1.6.0",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",

@@ -124,7 +124,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             files: [
               {
                 destination: `themed-tokens/with-root-selector/${mode}/common-tokens.css`,
-                format: 'css/variables',
+                format: 'css/theming-variables/common-tokens',
                 options: {
                   // TODO understand if is better to output references or not for the "common" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
                   // outputReferences: false,
@@ -134,15 +134,15 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                   //   // return true or false
                   // },
                   // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
-                    outputReferences: outputReferencesCustomFunction,
-                  },
-                  filter: (token: DesignToken) => {
-                  return !token.private && !(token.attributes && token.attributes.themeable);
+                  outputReferences: outputReferencesCustomFunction,
                 },
+                // filter: (token: DesignToken) => {
+                // return !token.private && !(token.attributes && token.attributes.themeable);
+                filter: excludePrivateTokens,
               },
               {
                 destination: `themed-tokens/with-root-selector/${mode}/themed-tokens.css`,
-                format: 'css/variables',
+                format: 'css/theming-variables/themed-tokens',
                 options: {
                   // TODO understand if is better to output references or not for the "themed" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
                   // outputReferences: false,
@@ -154,9 +154,10 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                   // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
                   outputReferences: outputReferencesCustomFunction,
                 },
-                filter: (token: DesignToken) => {
-                  return !token.private && (token.attributes && token.attributes.themeable);
-                },
+                // filter: (token: DesignToken) => {
+                //   return !token.private && (token.attributes && token.attributes.themeable);
+                // },
+                filter: excludePrivateTokens,
               }
             ],
             // this has been registered in the `build` file
