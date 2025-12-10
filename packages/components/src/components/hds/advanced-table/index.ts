@@ -270,10 +270,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   get isEmpty(): boolean {
     const { isEmpty } = this.args;
-    if (isEmpty !== undefined) {
-      return isEmpty;
-    }
-    return false;
+
+    return isEmpty ?? false;
   }
 
   get identityKey(): string | undefined {

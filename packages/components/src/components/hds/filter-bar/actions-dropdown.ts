@@ -28,7 +28,7 @@ export default class HdsFilterBarActionsDropdown extends Component<
 
   get toggleButtonText(): string {
     return (
-      this.args.toggleButtonText ||
+      this.args.toggleButtonText ??
       this.hdsIntl.t(
         'hds.components.filter-bar.actions-dropdown.toggle-button',
         {
