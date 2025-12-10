@@ -4,8 +4,13 @@
  */
 
 import StyleDictionary from 'style-dictionary';
+// Access built-in formatters via the StyleDictionary runtime (ESM/CJS compatibility)
+// const formats = (StyleDictionary as any).formats || (StyleDictionary as any).format;
 // import { getReferences, usesReferences } from "style-dictionary/utils";
-import type { DesignToken, PlatformConfig } from 'style-dictionary/types';
+import type { DesignToken, PlatformConfig, Dictionary, Config, LocalOptions } from 'style-dictionary/types';
+import { formattedVariables } from 'style-dictionary/utils';
+
+// Access built-in formatters via the named export `formats` from Style Dictionary
 
 import tinycolor from 'tinycolor2';
 import chalk from 'chalk';
@@ -47,12 +52,12 @@ for (const mode of modes) {
           if (mode in slice.$modes) {
             // extra validation to catch instances where the `default` mode value is different from the `$value`
             if (mode === 'default' && slice.$modes[mode] !== slice.$value) {
-              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${path.join('.')}}' with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
+              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${tokenPath.join('.')}}' with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
             }
             slice.$value = slice.$modes[mode];
           } else {
             // we want to interrupt the execution of the script if one of the expected modes is missing
-            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${path.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${path.join('.')} - ${JSON.stringify(slice, null, 2)}`);
+            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${tokenPath.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${tokenPath.join('.')} - ${JSON.stringify(slice, null, 2)}`);
           }
         } else {
             Object.entries(slice).forEach(([key, value]) => {
@@ -273,6 +278,57 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
   transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+});
+
+// CUSTOM FORMATS
+
+// TODO! look into this: https://styledictionary.com/reference/hooks/formats/#custom-format-with-output-references
+
+const cssVariablesCustomFormatter = async function ({ dictionary, options = {} }: { dictionary: Dictionary, options: Config & LocalOptions }) {
+  const { outputReferences, outputReferenceFallbacks, usesDtcg, formatting } = options;
+  const selector = ':root';
+  const indent = '  ';
+  const variables = formattedVariables({
+    format: 'css',
+    dictionary,
+    // TODO!
+    outputReferences,
+    // TODO!
+    outputReferenceFallbacks,
+    formatting: {
+      indentation: indent,
+    },
+    usesDtcg,
+  });
+  return `${selector} {\n${variables}\n}`;
+};
+
+StyleDictionary.registerFormat({
+  name: 'css/theming-variables/common-tokens',
+  format: function ({ dictionary, options }: { dictionary: Dictionary, options: Config & LocalOptions }) {
+    // filter out tokens that have a `themeable` attribute
+    const filteredTokens = dictionary.allTokens.filter(token => !(token.attributes && token.attributes.themeable));
+    // create a shallow copy of the dictionary with the filtered allTokens
+    const filteredDictionary = {
+      ...dictionary,
+      allTokens: filteredTokens
+    };
+    return cssVariablesCustomFormatter({ dictionary: filteredDictionary, options });
+  }
+});
+
+StyleDictionary.registerFormat({
+  name: 'css/theming-variables/themed-tokens',
+  format: function ({ dictionary, options }: { dictionary: Dictionary, options: Config & LocalOptions }) {
+    // filter out tokens that don't have a `themeable` attribute
+    const filteredTokens = dictionary.allTokens.filter(token => (token.attributes && token.attributes.themeable));
+    // create a shallow copy of the dictionary with the filtered allTokens
+    const filteredDictionary = {
+      ...dictionary,
+      allTokens: filteredTokens
+    };
+    return cssVariablesCustomFormatter({ dictionary: filteredDictionary, options });
+  }
 });
 
 StyleDictionary.registerFormat({
