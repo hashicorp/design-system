@@ -95,8 +95,6 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
               if (fs.existsSync(jsFilePath)) {
                 jsCode = fs.readFileSync(jsFilePath, 'utf8');
                 dependencies.push(jsFilePath);
-              } else {
-                jsCode = `// Unable to load file: ${jsFileName}, path: ${jsFilePath}`;
               }
               escapedJsCode = escapeCode(jsCode);
             }

@@ -1,3 +1,4 @@
+// This is needed for ember-shiki to work in fastboot: https://ember-shiki.pages.dev/#fastboot
 module.exports = function () {
   return {
     buildSandboxGlobals(defaultGlobals) {
