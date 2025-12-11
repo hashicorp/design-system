@@ -273,23 +273,24 @@ const outputReferencesCustomFunction = (token: TransformedToken, options: { dict
   // derived from by `outputReferencesTransformed` - https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesTransformed.js
 
   // double check if this is a string, technically speaking the token could also be an object and pass the usesReferences check
-  let hasBeenTransformed;
-  if (typeof originalValue === 'string') {
-    // Check if the token's value is the same as if we were resolve references on the original value
-    // This checks whether the token's value has been transformed e.g. transitive transforms.
-    // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
-    hasBeenTransformed = (
-      value !==
-      resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
-        usesDtcg,
-        warnImmediately: false,
-      })
-    );
-  } else {
-    hasBeenTransformed = true;
-  }
+  // let hasBeenTransformed;
+  // if (typeof originalValue === 'string') {
+  //   // Check if the token's value is the same as if we were resolve references on the original value
+  //   // This checks whether the token's value has been transformed e.g. transitive transforms.
+  //   // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
+  //   hasBeenTransformed = (
+  //     value !==
+  //     resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
+  //       usesDtcg,
+  //       warnImmediately: false,
+  //     })
+  //   );
+  // } else {
+  //   hasBeenTransformed = true;
+  // }
 
-  return !hasPrivateReferences && !hasBeenTransformed;
+  // return !hasPrivateReferences && !hasBeenTransformed;
+  return !hasPrivateReferences;
 }
 
 for (const target of ['common', 'themed']) {
