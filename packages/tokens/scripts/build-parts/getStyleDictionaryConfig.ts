@@ -5,9 +5,6 @@
 
 import type { Config, DesignToken } from 'style-dictionary/types';
 
-// import GroupMessages from 'style-dictionary/utils/groupMessages.js';
-// const FILTER_WARNINGS = GroupMessages.GROUP.FilteredOutputReferences;
-
 export const targets = ['products', 'devdot', 'marketing', 'cloud-email'];
 export const modes = ['default', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100'];
 
@@ -60,13 +57,13 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             files: [
               {
                 destination: `themed-tokens/with-root-selector/${mode}/common-tokens.css`,
+                // IMPORTANT: filtering, formatting, outputReferences, etc. are done directly in the custom format function
                 format: 'css/themed-tokens/with-root-selector/common',
-                filter: excludePrivateTokens,
               },
               {
                 destination: `themed-tokens/with-root-selector/${mode}/themed-tokens.css`,
+                // IMPORTANT: filtering, formatting, outputReferences, etc. are done directly in the custom format function
                 format: 'css/themed-tokens/with-root-selector/themed',
-                filter: excludePrivateTokens,
               }
             ],
             // this has been registered in the `build` file
