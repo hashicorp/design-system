@@ -24,6 +24,7 @@ export interface HdsRichTooltipBubbleSignature {
     isOpen?: boolean;
     popoverId: string;
     arrowId: string;
+    boundary?: HdsAnchoredPositionOptions['boundary'];
     setupPrimitivePopover: ModifierLike<SetupPrimitivePopoverModifier>;
   };
   Blocks: {
@@ -82,6 +83,7 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
     enableCollisionDetection: HdsAnchoredPositionOptions['enableCollisionDetection'];
     arrowSelector: string;
     arrowPadding: HdsAnchoredPositionOptions['arrowPadding'];
+    boundary: HdsAnchoredPositionOptions['boundary'];
   } {
     // custom options specific for the `RichTooltip` component
     // for details see the `hds-anchored-position` modifier
@@ -91,6 +93,7 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
       enableCollisionDetection: this.args.enableCollisionDetection ?? true,
       arrowSelector: `#${this.args.arrowId}`,
       arrowPadding: 12,
+      boundary: this.args.boundary,
     };
   }
 }

@@ -11,11 +11,12 @@ import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwAutoscrollable from 'showcase/components/shw/autoscrollable';
+import ModalWithTrigger from 'showcase/components/page-components/modal/code-fragments/with-trigger';
 
 import CodeFragmentWithSimpleActions from 'showcase/components/page-components/dropdown/code-fragments/with-simple-actions';
 
 const SubSectionCollisionDetection: TemplateOnlyComponent = <template>
-  <ShwTextH2>Collision detection</ShwTextH2>
+  <ShwTextH2>Collision detection using custom boundary element</ShwTextH2>
 
   <ShwTextBody>Scroll within the boxes to see the collision detection in action</ShwTextBody>
 
@@ -26,11 +27,18 @@ const SubSectionCollisionDetection: TemplateOnlyComponent = <template>
           @forceMinWidth={{true}}
           @label={{concat "enableCollisionDetection=" detection}}
         >
-          <ShwAutoscrollable @verticalShift={{30}}>
+          <ShwAutoscrollable
+            @verticalShift={{30}}
+            id={{concat "shw-example-collision-detection-" detection}}
+          >
             <div class="shw-component-dropdown-collision-detection-wrapper">
               <CodeFragmentWithSimpleActions
                 @isOpen={{true}}
                 @enableCollisionDetection={{detection}}
+                @boundary={{concat
+                  "#shw-example-collision-detection-"
+                  detection
+                }}
               />
             </div>
           </ShwAutoscrollable>
@@ -39,6 +47,29 @@ const SubSectionCollisionDetection: TemplateOnlyComponent = <template>
     {{/let}}
     <SF.Item />
   </ShwGrid>
+
+  <ShwTextBody>Dropdown w/ enableCollisionDetection=true within a Modal</ShwTextBody>
+
+  <ModalWithTrigger
+    @triggerText="Open modal"
+    id="shw-modal-with-dropdown-example"
+  >
+    <:modal as |M|>
+      <M.Header>
+        Modal title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">
+          Modal content
+        </p>
+        <br />
+        <CodeFragmentWithSimpleActions
+          @enableCollisionDetection={{true}}
+          @boundary="#shw-modal-with-dropdown-example"
+        />
+      </M.Body>
+    </:modal>
+  </ModalWithTrigger>
 
   <ShwDivider />
 </template>;

@@ -4,7 +4,7 @@
  */
 import { module, test } from 'qunit';
 import { modifier } from 'ember-modifier';
-import { render, find } from '@ember/test-helpers';
+import { render, find, setupOnerror, resetOnerror } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 import type { MiddlewareState, MiddlewareReturn } from '@floating-ui/dom';
 
@@ -116,6 +116,82 @@ module(
         padding: 9876,
       });
     });
+
+    // BOUNDARY OPTIONS TESTS
+
+    test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a "clippingAncestors" boundary is provided', function (assert) {
+      const floatingUIOptions = getFloatingUIOptions({
+        enableCollisionDetection: true,
+        flipOptions: { padding: 1234 },
+        shiftOptions: { padding: 9876 },
+        boundary: 'clippingAncestors',
+      });
+      assert.deepEqual(floatingUIOptions.middleware[1]?.options, {
+        padding: 1234,
+        boundary: 'clippingAncestors',
+      });
+      assert.deepEqual(floatingUIOptions.middleware[2]?.options, {
+        padding: 9876,
+        boundary: 'clippingAncestors',
+      });
+    });
+
+    test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a DOM element is provided as boundary', function (assert) {
+      const testElement = document.createElement('div');
+      const floatingUIOptions = getFloatingUIOptions({
+        enableCollisionDetection: true,
+        flipOptions: { padding: 1234 },
+        shiftOptions: { padding: 9876 },
+        boundary: testElement,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[1]?.options, {
+        padding: 1234,
+        boundary: testElement,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[2]?.options, {
+        padding: 9876,
+        boundary: testElement,
+      });
+    });
+
+    test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a CSS selector is provided as boundary', function (assert) {
+      const testElement = document.createElement('div');
+      testElement.id = 'test-selector';
+      document.body.appendChild(testElement);
+      const floatingUIOptions = getFloatingUIOptions({
+        enableCollisionDetection: true,
+        flipOptions: { padding: 1234 },
+        shiftOptions: { padding: 9876 },
+        boundary: '#test-selector',
+      });
+      assert.deepEqual(floatingUIOptions.middleware[1]?.options, {
+        padding: 1234,
+        boundary: testElement,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[2]?.options, {
+        padding: 9876,
+        boundary: testElement,
+      });
+    });
+
+    test('returns the boundary options for the flip/shift middleware functions if the `enableCollisionDetection` is set to `true` and a bounding box is provided as boundary', function (assert) {
+      const testBoundary = { x: 0, y: 0, width: 100, height: 100 };
+      const floatingUIOptions = getFloatingUIOptions({
+        enableCollisionDetection: true,
+        flipOptions: { padding: 1234 },
+        shiftOptions: { padding: 9876 },
+        boundary: testBoundary,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[1]?.options, {
+        padding: 1234,
+        boundary: testBoundary,
+      });
+      assert.deepEqual(floatingUIOptions.middleware[2]?.options, {
+        padding: 9876,
+        boundary: testBoundary,
+      });
+    });
+
     test('returns the offset options for the `flip` middleware functions if the `enableCollisionDetection` is set to `flip`', function (assert) {
       let floatingUIOptions;
       floatingUIOptions = getFloatingUIOptions({
@@ -216,6 +292,10 @@ module(
 
 module('Integration | Modifier | hds-anchored-position', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.afterEach(() => {
+    resetOnerror();
+  });
 
   test('render "anchor/floating/arrow" elements with default `options`', async function (assert) {
     const styleElement = handleStyles();
@@ -360,5 +440,41 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     }
 
     styleElement.remove();
+  });
+
+  // ASSERTIONS
+
+  test('An assertion is thrown if the boundary selector does not resolve to an element', async function (assert) {
+    const errorMessage =
+      '`hds-anchored-position` modifier - the `boundary` selector `#test-non-existant-element` did not resolve to an element';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+
+    const context = new TrackedObject({
+      // setting the default value to make sure anchor is always defined
+      anchor: document.body,
+    });
+
+    await render(
+      <template>
+        <div
+          id="floating"
+          {{hdsAnchoredPosition
+            context.anchor
+            placement="bottom-start"
+            strategy="fixed"
+            offsetOptions=20
+            arrowSelector="#arrow"
+            boundary="#test-non-existant-element"
+          }}
+        ><div id="arrow"></div>floating</div>
+      </template>,
+    );
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });

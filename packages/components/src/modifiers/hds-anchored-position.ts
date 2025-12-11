@@ -32,7 +32,10 @@ import type {
   AutoPlacementOptions,
   ArrowOptions,
   Middleware,
+  Boundary,
 } from '@floating-ui/dom';
+
+type BoundaryExtended = Boundary | (string & {});
 
 export enum HdsEnableCollisionDetectionOptions {
   Shift = 'shift',
@@ -79,10 +82,31 @@ export type FloatingUIOptions = {
   arrowElement?: ArrowOptions['element'];
   arrowPadding?: ArrowOptions['padding'];
   matchToggleWidth?: boolean;
+  boundary?: BoundaryExtended;
 };
 
 export type HdsAnchoredPositionOptions = FloatingUIOptions & {
   arrowSelector?: string;
+};
+
+// resolve boundary selector/values to Floating UI Boundary
+const resolveBoundary = (boundary?: BoundaryExtended): Boundary | undefined => {
+  if (typeof boundary === 'string') {
+    // this is necessary to satisfy TypeScript
+    if (boundary === 'clippingAncestors') {
+      return 'clippingAncestors';
+    }
+    const el = document.querySelector(boundary);
+    assert(
+      '`hds-anchored-position` modifier - the `boundary` selector `' +
+        boundary +
+        '` did not resolve to an element',
+      el !== null && el.nodeType === Node.ELEMENT_NODE
+    );
+    return el;
+  } else {
+    return boundary;
+  }
 };
 
 // we use this function to process all the options provided to the modifier in a single place,
@@ -106,7 +130,27 @@ export const getFloatingUIOptions = (
     arrowElement,
     arrowPadding,
     matchToggleWidth,
+    boundary,
   } = options;
+
+  const resolvedBoundary = resolveBoundary(boundary);
+
+  // build options for each type of collision detection, adding the `boundary` if defined
+
+  const flipOptsExtended: FlipOptions = {
+    ...flipOptions,
+    ...(resolvedBoundary ? { boundary: resolvedBoundary } : {}),
+  };
+
+  const autoPlacementOptsExtended: AutoPlacementOptions = {
+    ...autoPlacementOptions,
+    ...(resolvedBoundary ? { boundary: resolvedBoundary } : {}),
+  };
+
+  const shiftOptsExtended: ShiftOptions = {
+    ...shiftOptions,
+    ...(resolvedBoundary ? { boundary: resolvedBoundary } : {}),
+  };
 
   // we build dynamically the list of middleware functions to invoke, depending on the options provided
 
@@ -122,16 +166,16 @@ export const getFloatingUIOptions = (
     enableCollisionDetection === true ||
     enableCollisionDetection === 'flip'
   ) {
-    middleware.push(flip(flipOptions));
+    middleware.push(flip(flipOptsExtended));
   }
   if (
     enableCollisionDetection === true ||
     enableCollisionDetection === 'shift'
   ) {
-    middleware.push(shift(shiftOptions));
+    middleware.push(shift(shiftOptsExtended));
   }
   if (enableCollisionDetection === 'auto') {
-    middleware.push(autoPlacement(autoPlacementOptions));
+    middleware.push(autoPlacement(autoPlacementOptsExtended));
   }
 
   // https://floating-ui.com/docs/arrow

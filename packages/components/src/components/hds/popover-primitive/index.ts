@@ -23,6 +23,7 @@ export interface HdsPopoverPrimitiveSignature {
     isOpen?: boolean;
     enableSoftEvents?: boolean;
     enableClickEvents?: boolean;
+    boundary?: HdsAnchoredPositionOptions['boundary'];
     onOpen?: () => void;
     onClose?: () => void;
   };
@@ -38,6 +39,7 @@ export interface HdsPopoverPrimitiveSignature {
         showPopover: () => void;
         hidePopover: (event?: Event) => void;
         togglePopover: () => void;
+        boundary?: HdsAnchoredPositionOptions['boundary'];
       },
     ];
   };

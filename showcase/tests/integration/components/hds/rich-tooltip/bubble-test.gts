@@ -124,6 +124,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
         />
       </template>,
     );
+
     assert.deepEqual(anchoredPositionOptions, {
       anchoredPositionOptions: {
         arrowPadding: 12,
@@ -131,6 +132,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
         enableCollisionDetection: true,
         offsetOptions: 12,
         placement: 'bottom',
+        boundary: undefined,
       },
     });
   });
@@ -151,6 +153,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
           @offset={{123}}
           @enableCollisionDetection={{false}}
           @setupPrimitivePopover={{fakeSetupPrimitivePopover}}
+          @boundary={{"#test-boundary-id"}}
         />
       </template>,
     );
@@ -161,6 +164,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
         enableCollisionDetection: false,
         offsetOptions: 123,
         placement: 'top-start',
+        boundary: '#test-boundary-id',
       },
     });
   });
