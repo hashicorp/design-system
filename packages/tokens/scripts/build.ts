@@ -4,10 +4,8 @@
  */
 
 import StyleDictionary from 'style-dictionary';
-import { formattedVariables, getReferences, resolveReferences, outputReferencesFilter, outputReferencesTransformed } from 'style-dictionary/utils';
+import { formattedVariables, getReferences, resolveReferences } from 'style-dictionary/utils';
 import type { DesignToken, TransformedToken, PlatformConfig, Dictionary, Config, LocalOptions } from 'style-dictionary/types';
-
-// Access built-in formatters via the named export `formats` from Style Dictionary
 
 import tinycolor from 'tinycolor2';
 import chalk from 'chalk';
@@ -255,8 +253,6 @@ StyleDictionary.registerTransformGroup({
 const outputReferencesCustomFunction = (token: TransformedToken, options: { dictionary: Dictionary, usesDtcg?: boolean }) => {
   const { dictionary, usesDtcg } = options;
 
-  console.log('\n\n--------\n\n🚧 PROCESSING', token.name)
-
   const value = usesDtcg ? token.$value : token.value;
   const originalValue = usesDtcg ? token.original.$value : token.original.value;
 
@@ -270,16 +266,8 @@ const outputReferencesCustomFunction = (token: TransformedToken, options: { dict
     warnImmediately: false,
   });
 
-  const hasNoPrivateReferences = refs.every((ref: DesignToken) => {
-    // check whether every ref can be found in the filtered set of tokens
-    const isPrivate = ref.private;
-    if (!isPrivate) {
-      // remove the warning about this ref being filtered out, since we now prevent it from outputting it as a ref
-      // TODO! we don't have access to the `GroupMessages`, we'll open an issue on StyleDictionary
-      // GroupMessages.remove(FILTER_WARNINGS, ref.path.join('.'));
-    }
-    return !isPrivate;
-  });
+  // check whether every ref can be found in the filtered set of tokens
+  const hasPrivateReferences = refs.some((ref: DesignToken) => ref.private);
 
   // decide if output reference for the token, based on the fact that it's been transformed or not
   // derived from by `outputReferencesTransformed` - https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesTransformed.js
@@ -291,20 +279,17 @@ const outputReferencesCustomFunction = (token: TransformedToken, options: { dict
     // This checks whether the token's value has been transformed e.g. transitive transforms.
     // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
     hasBeenTransformed = (
-      value ===
+      value !==
       resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
         usesDtcg,
         warnImmediately: false,
       })
     );
   } else {
-    hasBeenTransformed = false;
+    hasBeenTransformed = true;
   }
 
-
-  console.log('DONE 🙂', token.name, originalValue, `hasNoPrivateReferences=${hasNoPrivateReferences}`, `hasBeenTransformed=${hasBeenTransformed}`);
-
-  return hasNoPrivateReferences && hasBeenTransformed;
+  return !hasPrivateReferences && !hasBeenTransformed;
 }
 
 for (const target of ['common', 'themed']) {
@@ -314,8 +299,9 @@ for (const target of ['common', 'themed']) {
 
       // filter out tokens that have/don't have `$modes` (based on the `target`)
       const filteredTokens = dictionary.allTokens.filter(token => {
-        const hasModes = ('$modes' in token);
-        return target === 'themed' ? hasModes : !hasModes;
+        const isPrivate = token.private;
+        const isThemed = ('$modes' in token);
+        return !isPrivate && (target === 'themed' ? isThemed : !isThemed);
       });
 
       // create a shallow copy of the dictionary with the filtered allTokens
