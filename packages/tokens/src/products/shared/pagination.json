@@ -1,0 +1,56 @@
+{
+  "pagination": {
+    "nav": {
+      "control": {
+        "height": {
+          "$type": "dimension",
+          "$value": "36",
+          "unit": "px"
+        },
+        "padding": {
+          "horizontal": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          }
+        },
+        "focus-inset": {
+          "$type": "dimension",
+          "$value": "4",
+          "unit": "px"
+        },
+        "icon-spacing": {
+          "$type": "dimension",
+          "$value": "6",
+          "unit": "px"
+        }
+      },
+      "indicator": {
+        "height": {
+          "$type": "dimension",
+          "$value": "2",
+          "unit": "px"
+        },
+        "spacing": {
+          "$type": "dimension",
+          "$value": "6",
+          "unit": "px"
+        }
+      }
+    },
+    "child": {
+      "spacing": {
+        "vertical": {
+          "$type": "dimension",
+          "$value": "8",
+          "unit": "px"
+        },
+        "horizontal": {
+          "$type": "dimension",
+          "$value": "20",
+          "unit": "px"
+        }
+      }
+    }
+  }
+}

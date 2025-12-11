@@ -1,0 +1,46 @@
+{
+  "form": {
+    "label": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.foreground.strong}",
+        "group": "components"
+      }
+    },
+    "legend": {
+      "color": {
+        "$type": "color",
+        "$value": "{form.label.color}",
+        "group": "components"
+      }
+    },
+    "helper-text": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.foreground.faint}",
+        "group": "components"
+      }
+    },
+    "indicator": {
+      "optional": {
+        "color": {
+          "$type": "color",
+          "$value": "{color.foreground.faint}",
+          "group": "components"
+        }
+      }
+    },
+    "error": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.palette.red-300}",
+        "group": "components"
+      },
+      "icon-size": {
+        "$type": "dimension",
+        "$value": "14",
+        "unit": "px"
+      }
+    }
+  }
+}

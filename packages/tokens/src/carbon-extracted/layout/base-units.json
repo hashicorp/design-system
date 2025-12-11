@@ -1,0 +1,22 @@
+{
+  "carbon": {
+    "layout": {
+      "base-unit": {
+        "baseFontSize": {
+          "$type": "number",
+          "$value": 16,
+          "group": "cds-layout",
+          "private": true,
+          "cds-original-value": 16
+        },
+        "miniUnit": {
+          "$type": "number",
+          "$value": 8,
+          "group": "cds-layout",
+          "private": true,
+          "cds-original-value": 8
+        }
+      }
+    }
+  }
+}

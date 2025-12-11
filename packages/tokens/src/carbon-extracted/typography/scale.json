@@ -1,0 +1,169 @@
+{
+  "carbon": {
+    "typography": {
+      "scale": {
+        "12": {
+          "$type": "number",
+          "$value": 12,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 12
+        },
+        "14": {
+          "$type": "number",
+          "$value": 14,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 14
+        },
+        "16": {
+          "$type": "number",
+          "$value": 16,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 16
+        },
+        "18": {
+          "$type": "number",
+          "$value": 18,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 18
+        },
+        "20": {
+          "$type": "number",
+          "$value": 20,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 20
+        },
+        "24": {
+          "$type": "number",
+          "$value": 24,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 24
+        },
+        "28": {
+          "$type": "number",
+          "$value": 28,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 28
+        },
+        "32": {
+          "$type": "number",
+          "$value": 32,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 32
+        },
+        "36": {
+          "$type": "number",
+          "$value": 36,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 36
+        },
+        "42": {
+          "$type": "number",
+          "$value": 42,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 42
+        },
+        "48": {
+          "$type": "number",
+          "$value": 48,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 48
+        },
+        "54": {
+          "$type": "number",
+          "$value": 54,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 54
+        },
+        "60": {
+          "$type": "number",
+          "$value": 60,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 60
+        },
+        "68": {
+          "$type": "number",
+          "$value": 68,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 68
+        },
+        "76": {
+          "$type": "number",
+          "$value": 76,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 76
+        },
+        "84": {
+          "$type": "number",
+          "$value": 84,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 84
+        },
+        "92": {
+          "$type": "number",
+          "$value": 92,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 92
+        },
+        "102": {
+          "$type": "number",
+          "$value": 102,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 102
+        },
+        "112": {
+          "$type": "number",
+          "$value": 112,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 112
+        },
+        "122": {
+          "$type": "number",
+          "$value": 122,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 122
+        },
+        "132": {
+          "$type": "number",
+          "$value": 132,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 132
+        },
+        "144": {
+          "$type": "number",
+          "$value": 144,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 144
+        },
+        "156": {
+          "$type": "number",
+          "$value": 156,
+          "group": "cds-typography",
+          "private": true,
+          "cds-original-value": 156
+        }
+      }
+    }
+  }
+}
