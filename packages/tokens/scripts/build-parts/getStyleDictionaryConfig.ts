@@ -3,8 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { Config, DesignToken, Dictionary } from 'style-dictionary/types';
-import { getReferences, resolveReferences, outputReferencesFilter, outputReferencesTransformed } from 'style-dictionary/utils';
+import type { Config, DesignToken } from 'style-dictionary/types';
 
 // import GroupMessages from 'style-dictionary/utils/groupMessages.js';
 // const FILTER_WARNINGS = GroupMessages.GROUP.FilteredOutputReferences;
@@ -28,69 +27,6 @@ const baseConfig: Config = {
 
 const excludePrivateTokens = (token: DesignToken) => {
   return !token.private;
-}
-
-const outputReferencesStandardFunction = (token: DesignToken, options: { dictionary: Dictionary, usesDtcg?: boolean }) => {
-  const isFiltered = outputReferencesFilter(token, options);
-  const isTransformed = outputReferencesTransformed(token, options);
-  return isFiltered && isTransformed;
-}
-
-const outputReferencesCustomFunction = (token: DesignToken, options: { dictionary: Dictionary, usesDtcg?: boolean }) => {
-  // const isFiltered = outputReferencesFilter(token, options);
-  // const isTransformed = outputReferencesTransformed(token, options);
-
-  const { dictionary, usesDtcg } = options;
-
-  console.log('\n\n--------\n\n🚧 PROCESSING', token.name)
-
-  const value = usesDtcg ? token.$value : token.value;
-  const originalValue = usesDtcg ? token.original.$value : token.original.value;
-
-  // derived from by `outputReferencesFilter` - see: https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesFilter.js
-
-  // get refs, pass unfilteredTokens to ensure we find the refs even if they are filtered out
-  const refs = getReferences(originalValue, dictionary.tokens, {
-    unfilteredTokens: dictionary.unfilteredTokens,
-    usesDtcg,
-    warnImmediately: false,
-  });
-
-  const hasNoPrivateReferences = refs.every((ref: DesignToken) => {
-    // check whether every ref can be found in the filtered set of tokens
-    const isPrivate = ref.private;
-    if (!isPrivate) {
-      // remove the warning about this ref being filtered out, since we now prevent it from outputting it as a ref
-      // TODO!
-      // GroupMessages.remove(FILTER_WARNINGS, ref.path.join('.'));
-    }
-    return !isPrivate;
-  });
-
-  // derived from by `outputReferencesTransformed` - https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesTransformed.js
-
-  // double check if this is a string, technically speaking the token could also be an object
-  // and pass the usesReferences check
-  let hasBeenTransformed;
-  if (typeof originalValue === 'string') {
-    // Check if the token's value is the same as if we were resolve references on the original value
-    // This checks whether the token's value has been transformed e.g. transitive transforms.
-    // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
-    hasBeenTransformed = (
-      value ===
-      resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
-        usesDtcg,
-        warnImmediately: false,
-      })
-    );
-  } else {
-    hasBeenTransformed = false;
-  }
-
-
-  console.log('DONE 🙂', token.name, originalValue, `hasNoPrivateReferences=${hasNoPrivateReferences}`, `hasBeenTransformed=${hasBeenTransformed}`);
-
-  return hasNoPrivateReferences && hasBeenTransformed;
 }
 
 export function getStyleDictionaryConfig({ target, mode }: { target: Target, mode?: Mode }): Config {
@@ -124,39 +60,12 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             files: [
               {
                 destination: `themed-tokens/with-root-selector/${mode}/common-tokens.css`,
-                format: 'css/theming-variables/common-tokens',
-                options: {
-                  // TODO understand if is better to output references or not for the "common" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
-                  // outputReferences: false,
-                  // outputReferences: (token, { dictionary, usesDtcg }) => {
-                  //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
-                  //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
-                  //   // return true or false
-                  // },
-                  // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
-                  outputReferences: outputReferencesCustomFunction,
-                },
-                // filter: (token: DesignToken) => {
-                // return !token.private && !(token.attributes && token.attributes.themeable);
+                format: 'css/themed-tokens/with-root-selector/common',
                 filter: excludePrivateTokens,
               },
               {
                 destination: `themed-tokens/with-root-selector/${mode}/themed-tokens.css`,
-                format: 'css/theming-variables/themed-tokens',
-                options: {
-                  // TODO understand if is better to output references or not for the "themed" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
-                  // outputReferences: false,
-                  // outputReferences: (token, { dictionary, usesDtcg }) => {
-                  //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
-                  //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
-                  //   // return true or false
-                  // },
-                  // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
-                  outputReferences: outputReferencesCustomFunction,
-                },
-                // filter: (token: DesignToken) => {
-                //   return !token.private && (token.attributes && token.attributes.themeable);
-                // },
+                format: 'css/themed-tokens/with-root-selector/themed',
                 filter: excludePrivateTokens,
               }
             ],

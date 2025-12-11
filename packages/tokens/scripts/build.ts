@@ -4,11 +4,8 @@
  */
 
 import StyleDictionary from 'style-dictionary';
-// Access built-in formatters via the StyleDictionary runtime (ESM/CJS compatibility)
-// const formats = (StyleDictionary as any).formats || (StyleDictionary as any).format;
-// import { getReferences, usesReferences } from "style-dictionary/utils";
-import type { DesignToken, PlatformConfig, Dictionary, Config, LocalOptions } from 'style-dictionary/types';
-import { formattedVariables } from 'style-dictionary/utils';
+import { formattedVariables, getReferences, resolveReferences, outputReferencesFilter, outputReferencesTransformed } from 'style-dictionary/utils';
+import type { DesignToken, TransformedToken, PlatformConfig, Dictionary, Config, LocalOptions } from 'style-dictionary/types';
 
 // Access built-in formatters via the named export `formats` from Style Dictionary
 
@@ -74,33 +71,6 @@ for (const mode of modes) {
 }
 
 // CUSTOM TRANSFORMS
-
-StyleDictionary.registerTransform({
-  name: 'attributes/themeable',
-  type: 'attribute',
-  transform: (token: DesignToken) => {
-    let isThemeable = false;
-
-    if ('$modes' in token) {
-      isThemeable = true;
-    }
-
-    // TODO! understand how we can make this themeable using `usesReferences`/`getReferences` - see: https://hashicorp.atlassian.net/browse/HDS-5667
-    // if (token.key === "{typography.display-500.font-family}") {
-      //   console.log('usesReferences', usesReferences(token.original.$value));
-      //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
-      //   console.log('refs', refs);
-      // }
-
-      // TODO understand if we really need this to split themeable vs non-themeable tokens - see: https://hashicorp.atlassian.net/browse/HDS-5667
-    // if (usesReferences(token.original.$value)) {
-    //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
-    //   isThemeable = refs.some((ref) => '$modes' in ref);
-    // }
-
-    return isThemeable ? { themeable: true } : { };
-  },
-});
 
 StyleDictionary.registerTransform({
   // the CTI convention is not outdated, but we still need to use the top-level path as `category` for the token
@@ -266,7 +236,7 @@ StyleDictionary.registerTransformGroup({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web/themed',
-  transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
@@ -282,54 +252,95 @@ StyleDictionary.registerTransformGroup({
 
 // CUSTOM FORMATS
 
-// TODO! look into this: https://styledictionary.com/reference/hooks/formats/#custom-format-with-output-references
+const outputReferencesCustomFunction = (token: TransformedToken, options: { dictionary: Dictionary, usesDtcg?: boolean }) => {
+  const { dictionary, usesDtcg } = options;
 
-const cssVariablesCustomFormatter = async function ({ dictionary, options = {} }: { dictionary: Dictionary, options: Config & LocalOptions }) {
-  const { outputReferences, outputReferenceFallbacks, usesDtcg, formatting } = options;
-  const selector = ':root';
-  const indent = '  ';
-  const variables = formattedVariables({
-    format: 'css',
-    dictionary,
-    // TODO!
-    outputReferences,
-    // TODO!
-    outputReferenceFallbacks,
-    formatting: {
-      indentation: indent,
-    },
+  console.log('\n\n--------\n\n🚧 PROCESSING', token.name)
+
+  const value = usesDtcg ? token.$value : token.value;
+  const originalValue = usesDtcg ? token.original.$value : token.original.value;
+
+  // decide if output reference for the token, based on its ancestors being private or not
+  // note: derived from by `outputReferencesFilter` - see: https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesFilter.js
+
+  // get refs, pass unfilteredTokens to ensure we find the refs even if they are filtered out
+  const refs = getReferences(originalValue, dictionary.tokens, {
+    unfilteredTokens: dictionary.unfilteredTokens,
     usesDtcg,
+    warnImmediately: false,
   });
-  return `${selector} {\n${variables}\n}`;
-};
 
-StyleDictionary.registerFormat({
-  name: 'css/theming-variables/common-tokens',
-  format: function ({ dictionary, options }: { dictionary: Dictionary, options: Config & LocalOptions }) {
-    // filter out tokens that have a `themeable` attribute
-    const filteredTokens = dictionary.allTokens.filter(token => !(token.attributes && token.attributes.themeable));
-    // create a shallow copy of the dictionary with the filtered allTokens
-    const filteredDictionary = {
-      ...dictionary,
-      allTokens: filteredTokens
-    };
-    return cssVariablesCustomFormatter({ dictionary: filteredDictionary, options });
-  }
-});
+  const hasNoPrivateReferences = refs.every((ref: DesignToken) => {
+    // check whether every ref can be found in the filtered set of tokens
+    const isPrivate = ref.private;
+    if (!isPrivate) {
+      // remove the warning about this ref being filtered out, since we now prevent it from outputting it as a ref
+      // TODO! we don't have access to the `GroupMessages`, we'll open an issue on StyleDictionary
+      // GroupMessages.remove(FILTER_WARNINGS, ref.path.join('.'));
+    }
+    return !isPrivate;
+  });
 
-StyleDictionary.registerFormat({
-  name: 'css/theming-variables/themed-tokens',
-  format: function ({ dictionary, options }: { dictionary: Dictionary, options: Config & LocalOptions }) {
-    // filter out tokens that don't have a `themeable` attribute
-    const filteredTokens = dictionary.allTokens.filter(token => (token.attributes && token.attributes.themeable));
-    // create a shallow copy of the dictionary with the filtered allTokens
-    const filteredDictionary = {
-      ...dictionary,
-      allTokens: filteredTokens
-    };
-    return cssVariablesCustomFormatter({ dictionary: filteredDictionary, options });
+  // decide if output reference for the token, based on the fact that it's been transformed or not
+  // derived from by `outputReferencesTransformed` - https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesTransformed.js
+
+  // double check if this is a string, technically speaking the token could also be an object and pass the usesReferences check
+  let hasBeenTransformed;
+  if (typeof originalValue === 'string') {
+    // Check if the token's value is the same as if we were resolve references on the original value
+    // This checks whether the token's value has been transformed e.g. transitive transforms.
+    // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
+    hasBeenTransformed = (
+      value ===
+      resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
+        usesDtcg,
+        warnImmediately: false,
+      })
+    );
+  } else {
+    hasBeenTransformed = false;
   }
-});
+
+
+  console.log('DONE 🙂', token.name, originalValue, `hasNoPrivateReferences=${hasNoPrivateReferences}`, `hasBeenTransformed=${hasBeenTransformed}`);
+
+  return hasNoPrivateReferences && hasBeenTransformed;
+}
+
+for (const target of ['common', 'themed']) {
+  StyleDictionary.registerFormat({
+    name: `css/themed-tokens/with-root-selector/${target}`,
+    format: function ({ dictionary, options }: { dictionary: Dictionary, options: Config & LocalOptions }) {
+
+      // filter out tokens that have/don't have `$modes` (based on the `target`)
+      const filteredTokens = dictionary.allTokens.filter(token => {
+        const hasModes = ('$modes' in token);
+        return target === 'themed' ? hasModes : !hasModes;
+      });
+
+      // create a shallow copy of the dictionary with the filtered allTokens
+      const filteredDictionary = {
+        ...dictionary,
+        allTokens: filteredTokens
+      };
+
+      // use a custom formatter for the CSS variables
+      const variables = formattedVariables({
+        format: 'css',
+        dictionary: filteredDictionary,
+        // TODO!
+        // TODO look into this: https://styledictionary.com/reference/hooks/formats/#custom-format-with-output-references
+        // outputReferences: outputReferencesStandardFunction,
+        outputReferences: outputReferencesCustomFunction,
+        formatting: { indentation: '  ' },
+        usesDtcg: options.usesDtcg,
+      });
+
+      // return the content
+      return `:root {\n${variables}\n}`;
+    }
+  });
+}
 
 StyleDictionary.registerFormat({
   name: 'docs/json',
@@ -393,10 +404,10 @@ for (const mode of modes) {
 }
 
 // generate standard tokens
-// for (const target of targets) {
-//   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
-//   console.log(`\n---\n\nProcessing target "${target}"...`);
-//   await StyleDictionaryInstance.hasInitialized;
-//   await StyleDictionaryInstance.buildAllPlatforms()
-//   console.log('\nEnd processing');
-// }
+for (const target of targets) {
+  const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
+  console.log(`\n---\n\nProcessing target "${target}"...`);
+  await StyleDictionaryInstance.hasInitialized;
+  await StyleDictionaryInstance.buildAllPlatforms()
+  console.log('\nEnd processing');
+}
