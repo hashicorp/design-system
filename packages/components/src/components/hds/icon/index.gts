@@ -128,14 +128,14 @@ export default class HdsIcon extends Component<HdsIconSignature> {
       viewBox="0 0 {{this.size}} {{this.size}}"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {{#if @title}}
+      {{~#if @title~}}
         <title id={{this._titleId}}>{{@title}}</title>
         <g role="presentation">
           <use href="#flight-{{@name}}-{{this.size}}" />
         </g>
-      {{else}}
+      {{~else~}}
         <use href="#flight-{{@name}}-{{this.size}}" />
-      {{/if}}
+      {{~/if~}}
     </svg>
   </template>
 }
