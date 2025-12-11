@@ -251,7 +251,7 @@ StyleDictionary.registerTransformGroup({
 // CUSTOM FORMATS
 
 // derived from `outputReferencesTransformed` - https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesTransformed.js
-  const checkIfHasBeenTransformed = (token: TransformedToken, dictionary: Dictionary, usesDtcg?: boolean ) => {
+const checkIfHasBeenTransformed = (token: TransformedToken, dictionary: Dictionary, usesDtcg?: boolean ) => {
 
   const value = usesDtcg ? token.$value : token.value;
   const originalValue = usesDtcg ? token.original.$value : token.original.value;
@@ -262,16 +262,17 @@ StyleDictionary.registerTransformGroup({
     // Check if the token's value is the same as if we were resolve references on the original value
     // This checks whether the token's value has been transformed e.g. transitive transforms.
     // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
+    // see: https://styledictionary.com/reference/utils/references/#resolvereferences
+    const transformedValue = resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
+      usesDtcg,
+      warnImmediately: false,
+    })
+
     isTransformed = (
       // this `value` could be the original one (eg. `#FF0000`, no transformations)
       // or the transformed one (eg. `#FF0000`→`#FF0000CC` if an `alpha` attribute was applied at token level,
       // which triggered the `color/with-alpha` transformation)
-      value !==
-      // see: https://styledictionary.com/reference/utils/references/#resolvereferences
-      resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
-        usesDtcg,
-        warnImmediately: false,
-      })
+      value !== transformedValue
     );
   } else {
     isTransformed = true;
