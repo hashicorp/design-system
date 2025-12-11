@@ -86,7 +86,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'typography/font-family',
   type: 'value',
-  transitive: true,
+  transitive: true, // see: https://styledictionary.com/reference/hooks/transforms/#transitive-transforms
   filter: function (token: DesignToken) {
     // notice: we don't use `fontFamily` as `$type` because is handled internally in Style Dictionary
     // and currently the typographic transforms (and general handling) is still a bit unstable (due also to the fact the DTCG specifications are also preliminary)
@@ -94,6 +94,7 @@ StyleDictionary.registerTransform({
     return token.$type === 'font-family';
   },
   transform: (token: DesignToken) => {
+    console.log('🔀', token.name);
     // inspired by the `processFamily()` method in Style Dictionary - see: https://github.com/style-dictionary/style-dictionary/blob/main/lib/common/transforms.js#L157
     const val = token.$value;
     if (typeof val === 'string') {
@@ -199,6 +200,7 @@ StyleDictionary.registerTransform({
     return token.$type === 'color' && token.alpha;
   },
   transform: function (token: DesignToken) {
+    console.log('🔀', token.name);
     const color = tinycolor(token.$value);
     if (!color.isValid) {
       console.error(`🚨 Invalid Color: '${token.name}: ${token.$value}' is not a valid color.\n`);
