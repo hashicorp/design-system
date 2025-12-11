@@ -10,7 +10,7 @@ import type IntlService from 'ember-intl/services/intl';
 export default class ApplicationRoute extends Route {
   @service declare readonly intl: IntlService;
 
-  beforeModel() {
+  beforeModel(): void {
     this.intl.setLocale(['en-us']);
   }
 }
