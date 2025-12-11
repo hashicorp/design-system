@@ -93,5 +93,50 @@
         "cds-g100": "{base.simple}"
       }
     }
+  },
+  "chained": {
+    "a": {
+      "$value": "aaa"
+    },
+    "b→a": {
+      "$value": "{chained.a}"
+    },
+    "c→b": {
+      "$value": "{chained.b→a}",
+      "private": true
+    },
+    "d→b": {
+      "$value": "{chained.d→b}"
+    },
+    "d→c*": {
+      "$value": "{chained.c→b}"
+    }
+  },
+  "transformed": {
+    "x": {
+      "$value": "xxx"
+    },
+    "y": {
+      "$value": "yyy"
+    },
+    "z": {
+      "$value": "zzz"
+    },
+    "k-themed": {
+      "$value": "kkk",
+      "$modes": {
+        "default": "default",
+        "cds-g0": "cds-g0",
+        "cds-g10": "cds-g10",
+        "cds-g90": "cds-g90",
+        "cds-g100": "cds-g100"
+      }
+    },
+    "xyz": {
+      "$value": "{transformed.x} {transformed.y} {transformed.z}"
+    },
+    "xk(t)": {
+      "$value": "{transformed.x} {transformed.k-themed}"
+    }
   }
 }
