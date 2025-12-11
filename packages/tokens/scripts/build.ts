@@ -253,7 +253,7 @@ StyleDictionary.registerTransformGroup({
 const outputReferencesCustomFunction = (token: TransformedToken, options: { dictionary: Dictionary, usesDtcg?: boolean }) => {
   const { dictionary, usesDtcg } = options;
 
-  const value = usesDtcg ? token.$value : token.value;
+  // const value = usesDtcg ? token.$value : token.value;
   const originalValue = usesDtcg ? token.original.$value : token.original.value;
 
   // decide if output reference for the token, based on its ancestors being private or not
@@ -266,6 +266,7 @@ const outputReferencesCustomFunction = (token: TransformedToken, options: { dict
     warnImmediately: false,
   });
 
+  // TODO should we check only for the direct, first ("parent") one?
   // check whether every ref can be found in the filtered set of tokens
   const hasPrivateReferences = refs.some((ref: DesignToken) => ref.private);
 
@@ -323,8 +324,11 @@ for (const target of ['common', 'themed']) {
         usesDtcg: options.usesDtcg,
       });
 
+      // sort the CSS variables (easier to read and compare)
+      const sortedVariables = variables.split('\n').sort().join('\n');
+
       // return the content
-      return `:root {\n${variables}\n}`;
+      return `:root {\n${sortedVariables}\n}`;
     }
   });
 }
