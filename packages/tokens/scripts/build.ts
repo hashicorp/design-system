@@ -4,8 +4,7 @@
  */
 
 import StyleDictionary from 'style-dictionary';
-import { formattedVariables, getReferences, resolveReferences } from 'style-dictionary/utils';
-import type { DesignToken, TransformedToken, PlatformConfig, Dictionary, Config, LocalOptions } from 'style-dictionary/types';
+import type { DesignToken, PlatformConfig } from 'style-dictionary/types';
 
 import tinycolor from 'tinycolor2';
 import chalk from 'chalk';
@@ -14,9 +13,10 @@ import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { cloneDeep } from 'lodash-es';
 
 import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
+import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
+import { customFormatDocsJsonFunction } from './build-parts/customFormatDocsJson.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
 import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
 import { generateThemingDocsFiles } from './build-parts/generateThemingDocsFiles.ts';
@@ -67,6 +67,7 @@ for (const mode of modes) {
     },
   });
 }
+
 
 // CUSTOM TRANSFORMS
 
@@ -248,158 +249,25 @@ StyleDictionary.registerTransformGroup({
   transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
+
 // CUSTOM FORMATS
 
-// derived from `outputReferencesTransformed` - https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesTransformed.js
-const checkIfHasBeenTransformed = (token: TransformedToken, dictionary: Dictionary, usesDtcg?: boolean ) => {
-
-  const value = usesDtcg ? token.$value : token.value;
-  const originalValue = usesDtcg ? token.original.$value : token.original.value;
-
-  // double check if this is a string, technically speaking the token could also be an object and pass the usesReferences check
-  let isTransformed;
-  if (typeof originalValue === 'string') {
-    // Check if the token's value is the same as if we were resolve references on the original value
-    // This checks whether the token's value has been transformed e.g. transitive transforms.
-    // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
-    // see: https://styledictionary.com/reference/utils/references/#resolvereferences
-    const transformedValue = resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
-      usesDtcg,
-      warnImmediately: false,
-    })
-
-    isTransformed = (
-      // this `value` could be the original one (eg. `#FF0000`, no transformations)
-      // or the transformed one (eg. `#FF0000`→`#FF0000CC` if an `alpha` attribute was applied at token level,
-      // which triggered the `color/with-alpha` transformation)
-      value !== transformedValue
-    );
-  } else {
-    isTransformed = true;
-  }
-
-  return isTransformed;
-}
-
-const outputReferencesCustomFunction = (token: TransformedToken, options: { dictionary: Dictionary, usesDtcg?: boolean }) => {
-  const { dictionary, usesDtcg } = options;
-
-  // const value = usesDtcg ? token.$value : token.value;
-  const originalValue = usesDtcg ? token.original.$value : token.original.value;
-
-  // decide if output reference for the token, based on its ancestors being private or not
-  // note: derived from `outputReferencesFilter` - see: https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesFilter.js
-
-  // get all the token refs (aliases) that are referenced in its `$value`
-  // e.g. `"$value": "{foo.bar} {baz}"` has two references (`foo.bar` and `baz`)
-  // note: pass unfilteredTokens to ensure we find the refs even if they are filtered out
-  const refs = getReferences(originalValue, dictionary.tokens, {
-    unfilteredTokens: dictionary.unfilteredTokens,
-    usesDtcg,
-    warnImmediately: false,
-  });
-
-  // check whether any of the refs if private
-  const hasPrivateReferences = refs.some((ref: DesignToken) => ref.private);
-
-  // decide if output reference for the token, based on the fact that it's been transformed or not
-  const hasBeenTransformed = checkIfHasBeenTransformed(token, dictionary, usesDtcg);
-
-  // double check if this is a string, technically speaking the token could also be an object and pass the usesReferences check
-  // let hasBeenTransformed;
-  // if (typeof originalValue === 'string') {
-  //   // Check if the token's value is the same as if we were resolve references on the original value
-  //   // This checks whether the token's value has been transformed e.g. transitive transforms.
-  //   // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
-  //   hasBeenTransformed = (
-  //     // this `value` could be the original one (eg. `#FF0000`, no transformations)
-  //     // or the transformed one (eg. `#FF0000`→`#FF0000CC` if an `alpha` attribute was applied at token level,
-  //     // which triggered the `color/with-alpha` transformation)
-  //     value !==
-  //     // see: https://styledictionary.com/reference/utils/references/#resolvereferences
-  //     resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
-  //       usesDtcg,
-  //       warnImmediately: false,
-  //     })
-  //   );
-  // } else {
-  //   hasBeenTransformed = true;
-  // }
-
-  return !hasPrivateReferences && !hasBeenTransformed;
-  // return !hasPrivateReferences;
-}
-
 for (const target of ['common', 'themed']) {
+  // note: customFormatCssThemedTokensFunction is a higher-order function, that takes `target` as argument and return a function of type `FormatFn`
+  const customFormatCssThemedTokensFunction = customFormatCssThemedTokensFunctionForTarget(target);
   StyleDictionary.registerFormat({
     name: `css/themed-tokens/with-root-selector/${target}`,
-    format: function ({ dictionary, options }: { dictionary: Dictionary, options: Config & LocalOptions }) {
-
-      // filter out tokens based on kind of `target` and `$modes` existence
-      const filteredTokens = dictionary.allTokens.filter(token => {
-        const isPrivate = token.private;
-        const isThemed = ('$modes' in token);
-        const originalValue = options.usesDtcg ? token.original.$value : token.original.value;
-        const refs = getReferences(originalValue, dictionary.tokens, {
-          unfilteredTokens: dictionary.unfilteredTokens,
-          usesDtcg: options.usesDtcg,
-          warnImmediately: false,
-        });
-        const hasMultipleReferences = refs.length > 1;
-
-        const isTransformed = checkIfHasBeenTransformed(token, dictionary, options.usesDtcg);
-        if (target === 'common') {
-          return !isPrivate && !isThemed && !isTransformed && !hasMultipleReferences;
-        } else {
-          return !isPrivate && (isThemed || (!isThemed && (isTransformed || hasMultipleReferences)));
-        }
-      });
-
-      // create a shallow copy of the dictionary with the filtered allTokens
-      const filteredDictionary = {
-        ...dictionary,
-        allTokens: filteredTokens
-      };
-
-      // use a custom formatter for the CSS variables
-      const variables = formattedVariables({
-        format: 'css',
-        dictionary: filteredDictionary,
-        // TODO!
-        // TODO look into this: https://styledictionary.com/reference/hooks/formats/#custom-format-with-output-references
-        // outputReferences: outputReferencesStandardFunction,
-        outputReferences: outputReferencesCustomFunction,
-        formatting: { indentation: '  ' },
-        usesDtcg: options.usesDtcg,
-      });
-
-      // sort the CSS variables (easier to read and compare)
-      const sortedVariables = variables.split('\n').sort().join('\n');
-
-      // return the content
-      return `:root {\n${sortedVariables}\n}`;
-    }
+    format: customFormatCssThemedTokensFunction,
   });
 }
 
 StyleDictionary.registerFormat({
   name: 'docs/json',
-  format: function (dictionary: any) {
-    // console.log(dictionary.allTokens);
-    // Notice: this object shape is used also in the documentation so any updates
-    // to this format should be reflected in the corresponding type definition.
-    const output: {}[] = [];
-    dictionary.allTokens.forEach((token: any) => {
-      // we remove the "filePath" prop from the token because the orginal file path is irrelevant for us
-      // (plus its value is an absolute path, so it causes useless diffs in git)
-      const outputToken = cloneDeep(token);
-      delete outputToken.filePath;
-      delete outputToken.isSource;
-      output.push(outputToken);
-    });
-    return JSON.stringify(output, null, 2);
-  },
+  format: customFormatDocsJsonFunction,
 });
+
+
+// CUSTOM ACTIONS
 
 StyleDictionary.registerAction({
   name: 'generate-css-helpers',
