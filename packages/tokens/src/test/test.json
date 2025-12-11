@@ -47,5 +47,51 @@
         "cds-g100": "{themed.simple}"
       }
     }
+  },
+  "alpha": {
+    "simple": {
+      "$type": "color",
+      "$value": "{base.simple}",
+      "alpha": "0.4",
+      "group": "palette"
+    },
+    "aliased": {
+      "$type": "color",
+      "$value": "{base.aliased}",
+      "alpha": "0.2",
+      "group": "palette"
+    },
+    "themed": {
+      "$type": "color",
+      "$value": "#FF0000",
+      "alpha": "0.1",
+      "group": "palette",
+      "$modes": {
+        "default": "#00FF00",
+        "cds-g0": "#0000FF",
+        "cds-g10": "#FFFF00",
+        "cds-g90": "#FF00FF",
+        "cds-g100": "#00FFFF"
+      }
+    },
+    "aliased-to-themed": {
+      "$type": "color",
+      "$value": "{themed.simple}",
+      "alpha": "0.2",
+      "group": "palette"
+    },
+    "themed-aliases": {
+      "$type": "color",
+      "$value": "{base.aliased}",
+      "alpha": "0.1",
+      "group": "palette",
+      "$modes": {
+        "default": "{base.aliased}",
+        "cds-g0": "{base.simple}",
+        "cds-g10": "{base.simple}",
+        "cds-g90": "{base.simple}",
+        "cds-g100": "{base.simple}"
+      }
+    }
   }
 }
