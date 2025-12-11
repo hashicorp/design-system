@@ -1,4 +1,255 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
 :root {
-  --token-themed-simple: #ffffff;
-  --token-themed-mixed: var(--token-themed-aliased);
+  --token-border-radius-x-small: 0px;
+  --token-border-radius-small: 0px;
+  --token-border-radius-medium: 0px;
+  --token-border-radius-large: 0px;
+  --token-color-palette-blue-500: #001141;
+  --token-color-palette-blue-400: #002d9c;
+  --token-color-palette-blue-300: #0043ce;
+  --token-color-palette-blue-200: #0f62fe;
+  --token-color-palette-blue-100: #d0e2ff;
+  --token-color-palette-blue-50: #edf5ff;
+  --token-color-palette-purple-500: #31135e;
+  --token-color-palette-purple-400: #6929c4;
+  --token-color-palette-purple-300: #8a3ffc;
+  --token-color-palette-purple-200: #a56eff;
+  --token-color-palette-purple-100: #e8daff;
+  --token-color-palette-purple-50: #f6f2ff;
+  --token-color-palette-green-500: #044317;
+  --token-color-palette-green-400: #0e6027;
+  --token-color-palette-green-300: #198038;
+  --token-color-palette-green-200: #24a148;
+  --token-color-palette-green-100: #a7f0ba;
+  --token-color-palette-green-50: #defbe6;
+  --token-color-palette-amber-500: #302400;
+  --token-color-palette-amber-400: #483700;
+  --token-color-palette-amber-300: #8e6a00;
+  --token-color-palette-amber-200: #d2a106;
+  --token-color-palette-amber-100: #fddc69;
+  --token-color-palette-amber-50: #fcf4d6;
+  --token-color-palette-red-500: #520408;
+  --token-color-palette-red-400: #750e13;
+  --token-color-palette-red-300: #a2191f;
+  --token-color-palette-red-200: #da1e28;
+  --token-color-palette-red-100: #ffd7d9;
+  --token-color-palette-red-50: #fff1f1;
+  --token-color-palette-neutral-700: #161616;
+  --token-color-palette-neutral-600: #393939;
+  --token-color-palette-neutral-500: #525252;
+  --token-color-palette-neutral-400: #8d8d8d;
+  --token-color-palette-neutral-300: #a8a8a8;
+  --token-color-palette-neutral-200: #c6c6c6;
+  --token-color-palette-neutral-100: #e0e0e0;
+  --token-color-palette-neutral-50: #f4f4f4;
+  --token-color-palette-neutral-0: #ffffff;
+  --token-color-border-primary: #c6c6c6;
+  --token-color-border-faint: #e0e0e0;
+  --token-color-border-strong: #8d8d8d;
+  --token-color-border-action: #0f62fe;
+  --token-color-border-highlight: #be95ff;
+  --token-color-border-success: #42be65;
+  --token-color-border-warning: #ff832b;
+  --token-color-border-critical: #ff8389;
+  --token-color-focus-action-internal: #ffffff;
+  --token-color-focus-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-focus-critical-internal: #ffffff;
+  --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-foreground-strong: #161616;
+  --token-color-foreground-primary: #161616;
+  --token-color-foreground-faint: #161616;
+  --token-color-foreground-high-contrast: #ffffff;
+  --token-color-foreground-disabled: rgba(22, 22, 22, 0.25);
+  --token-color-foreground-action: #0f62fe;
+  --token-color-foreground-action-hover: #0043ce;
+  --token-color-foreground-action-active: #0043ce;
+  --token-color-foreground-highlight: #8a3ffc;
+  --token-color-foreground-highlight-on-surface: #6929c4;
+  --token-color-foreground-highlight-high-contrast: #491d8b;
+  --token-color-foreground-success: #198038;
+  --token-color-foreground-success-on-surface: #0e6027;
+  --token-color-foreground-success-high-contrast: #044317;
+  --token-color-foreground-warning: #ba4e00;
+  --token-color-foreground-warning-on-surface: #8a3800;
+  --token-color-foreground-warning-high-contrast: #5e2900;
+  --token-color-foreground-critical: #da1e28;
+  --token-color-foreground-critical-on-surface: #a2191f;
+  --token-color-foreground-critical-high-contrast: #750e13;
+  --token-color-page-primary: #ffffff;
+  --token-color-page-faint: #ffffff;
+  --token-color-surface-primary: #f4f4f4;
+  --token-color-surface-faint: #f4f4f4;
+  --token-color-surface-strong: #f4f4f4;
+  --token-color-surface-interactive: #f4f4f4;
+  --token-color-surface-interactive-hover: #e8e8e8;
+  --token-color-surface-interactive-active: #c6c6c6;
+  --token-color-surface-interactive-disabled: #c6c6c6;
+  --token-color-surface-action: #d0e2ff;
+  --token-color-surface-highlight: #e8daff;
+  --token-color-surface-success: #a7f0ba;
+  --token-color-surface-warning: #ffd9be;
+  --token-color-surface-critical: #ffd7d9;
+  --token-badge-count-padding-horizontal-small: 8px;
+  --token-badge-count-padding-horizontal-medium: 8px;
+  --token-badge-count-padding-horizontal-large: 12px;
+  --token-badge-padding-horizontal-small: 8px;
+  --token-badge-padding-horizontal-medium: 8px;
+  --token-badge-padding-horizontal-large: 12px;
+  --token-badge-gap-small: 4px;
+  --token-badge-gap-medium: 4px;
+  --token-badge-gap-large: 4px;
+  --token-badge-typography-font-size-small: 0.75rem;
+  --token-badge-typography-font-size-medium: 0.75rem;
+  --token-badge-typography-font-size-large: 0.75rem;
+  --token-badge-typography-line-height-large: 1; /** 24px = 1.5 */
+  --token-badge-foreground-color-neutral-filled: #161616;
+  --token-badge-foreground-color-neutral-inverted: #ffffff; /** TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?) */
+  --token-badge-foreground-color-neutral-outlined: #161616;
+  --token-badge-foreground-color-neutral-dark-mode-inverted: #161616;
+  --token-badge-foreground-color-neutral-dark-mode-outlined: #ffffff;
+  --token-badge-foreground-color-highlight-filled: #6929c4; /** we don't use `highlight-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-highlight-inverted: #ffffff;
+  --token-badge-foreground-color-highlight-outlined: #6929c4;
+  --token-badge-foreground-color-success-filled: #0e6027; /** we don't use `success-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-success-inverted: #ffffff;
+  --token-badge-foreground-color-success-outlined: #0e6027;
+  --token-badge-foreground-color-warning-filled: #684e00; /** we don't use `warning-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-warning-inverted: #ffffff;
+  --token-badge-foreground-color-warning-outlined: #684e00;
+  --token-badge-foreground-color-critical-filled: #a2191f; /** we don't use `critical-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-critical-inverted: #ffffff;
+  --token-badge-foreground-color-critical-outlined: #a2191f;
+  --token-badge-surface-color-neutral-filled: #e0e0e0;
+  --token-badge-surface-color-neutral-dark-mode-inverted: #e0e0e0;
+  --token-badge-surface-color-highlight-filled: #e8daff; /** we don't use `surface-highlight` for accessibility (better contrast) */
+  --token-badge-surface-color-highlight-inverted: #6929c4;
+  --token-badge-surface-color-success-filled: #a7f0ba; /** we don't use `surface-success` for accessibility (better contrast) */
+  --token-badge-surface-color-success-inverted: #0e6027;
+  --token-badge-surface-color-warning-filled: #fddc69; /** we don't use `surface-warning` for accessibility (better contrast) */
+  --token-badge-surface-color-warning-inverted: #684e00;
+  --token-badge-surface-color-critical-filled: #ffd7d9; /** we don't use `surface-critical` for accessibility (better contrast) */
+  --token-badge-surface-color-critical-inverted: #a2191f;
+  --token-badge-border-radius-small: 8px;
+  --token-badge-border-radius-medium: 12px;
+  --token-badge-border-radius-large: 16px;
+  --token-button-height-small: 32px;
+  --token-button-height-medium: 40px;
+  --token-button-height-large: 48px;
+  --token-button-padding-horizontal-small: 15px; /** here we're taking into account the 1px border */
+  --token-button-padding-horizontal-medium: 15px; /** here we're taking into account the 1px border */
+  --token-button-padding-horizontal-large: 15px; /** here we're taking into account the 1px border */
+  --token-button-padding-vertical-small: 6px; /** here we're taking into account the 1px border */
+  --token-button-padding-vertical-medium: 10px; /** here we're taking into account the 1px border */
+  --token-button-padding-vertical-large: 14px; /** here we're taking into account the 1px border */
+  --token-button-gap: 32px;
+  --token-button-typography-font-size-small: 0.875rem;
+  --token-button-typography-font-size-medium: 0.875rem;
+  --token-button-typography-font-size-large: 0.875rem;
+  --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
+  --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
+  --token-button-foreground-color-primary-default: #ffffff;
+  --token-button-foreground-color-primary-hover: #ffffff;
+  --token-button-foreground-color-primary-focus: #ffffff;
+  --token-button-foreground-color-primary-active: #ffffff;
+  --token-button-foreground-color-secondary-default: #ffffff;
+  --token-button-foreground-color-secondary-hover: #ffffff;
+  --token-button-foreground-color-secondary-focus: #ffffff;
+  --token-button-foreground-color-secondary-active: #ffffff;
+  --token-button-foreground-color-tertiary-default: #0f62fe;
+  --token-button-foreground-color-tertiary-hover: #ffffff;
+  --token-button-foreground-color-tertiary-focus: #ffffff;
+  --token-button-foreground-color-tertiary-active: #ffffff;
+  --token-button-foreground-color-critical-default: #ffffff;
+  --token-button-foreground-color-critical-hover: #ffffff;
+  --token-button-foreground-color-critical-focus: #ffffff;
+  --token-button-foreground-color-critical-active: #ffffff;
+  --token-button-foreground-color-disabled: #8d8d8d;
+  --token-button-surface-color-primary-default: #0f62fe;
+  --token-button-surface-color-primary-hover: #0050e6;
+  --token-button-surface-color-primary-focus: #0f62fe;
+  --token-button-surface-color-primary-active: #002d9c;
+  --token-button-surface-color-secondary-default: #393939;
+  --token-button-surface-color-secondary-hover: #474747;
+  --token-button-surface-color-secondary-focus: #393939;
+  --token-button-surface-color-secondary-active: #6f6f6f;
+  --token-button-surface-color-tertiary-hover: #0050e6;
+  --token-button-surface-color-tertiary-focus: #0050e6;
+  --token-button-surface-color-tertiary-active: #002d9c;
+  --token-button-surface-color-critical-default: #da1e28;
+  --token-button-surface-color-critical-hover: #b81921;
+  --token-button-surface-color-critical-focus: #da1e28;
+  --token-button-surface-color-critical-active: #750e13;
+  --token-button-surface-color-disabled: #c6c6c6;
+  --token-button-border-radius: 0px;
+  --token-button-border-color-primary-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-primary-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-primary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-primary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
+  --token-button-border-color-primary-active: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
+  --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
+  --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-critical-hover: rgba(0, 0, 0, 0);
+  --token-button-border-color-critical-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
+  --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
+  --token-button-icon-size-small: 16px;
+  --token-button-icon-size-medium: 16px;
+  --token-button-icon-size-large: 16px;
+  --token-form-radiocard-border-radius: 0px;
+  --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
+  --token-form-radiocard-border-color-focus: #ffc0cb;
+  --token-form-radiocard-border-color-default-checked: #ffc0cb;
+  --token-typography-font-stack-display: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-font-stack-text: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-font-stack-code: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 400;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 600;
+  --token-typography-display-500-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-display-500-font-size: 2rem; /** 30px/1.875rem */
+  --token-typography-display-500-line-height: 1.25; /** 38px */
+  --token-typography-display-500-letter-spacing: 0px; /** this is `tracking` */
+  --token-typography-display-400-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-display-400-font-size: 1.75rem; /** 24px/1.5rem */
+  --token-typography-display-400-line-height: 1.28572; /** 32px */
+  --token-typography-display-400-letter-spacing: 0px; /** this is `tracking` */
+  --token-typography-display-300-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-display-300-font-size: 1.25rem; /** 18px/1.125rem */
+  --token-typography-display-300-line-height: 1.4; /** 24px */
+  --token-typography-display-300-letter-spacing: 0px; /** this is `tracking` */
+  --token-typography-display-200-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-display-200-font-size: 1rem; /** 16px/1rem */
+  --token-typography-display-200-line-height: 1.5; /** 24px */
+  --token-typography-display-200-letter-spacing: 0px; /** this is `tracking` */
+  --token-typography-display-100-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-display-100-font-size: 0.875rem; /** 13px/0.8125rem */
+  --token-typography-display-100-line-height: 1.42857; /** 18px */
+  --token-typography-display-100-letter-spacing: 0.16px; /** this is `tracking` */
+  --token-typography-body-300-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-body-300-font-size: 1rem; /** 16px/1rem */
+  --token-typography-body-300-line-height: 1.5; /** 24px */
+  --token-typography-body-200-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-body-200-font-size: 0.875rem; /** 14px/0.875rem */
+  --token-typography-body-200-line-height: 1.42857; /** 20px */
+  --token-typography-body-100-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
+  --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
+  --token-typography-body-100-line-height: 1.28572; /** 18px */
+  --token-typography-code-300-font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  --token-typography-code-300-font-size: 0.875rem; /** 16px/1rem */
+  --token-typography-code-300-line-height: 1.42857; /** 20px */
+  --token-typography-code-200-font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  --token-typography-code-200-font-size: 0.875rem; /** 14px/0.875rem */
+  --token-typography-code-200-line-height: 1.42857; /** 18px */
+  --token-typography-code-100-font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  --token-typography-code-100-font-size: 0.875rem; /** 13px/0.8125rem */
+  --token-typography-code-100-line-height: 1.33333; /** 16px */
 }

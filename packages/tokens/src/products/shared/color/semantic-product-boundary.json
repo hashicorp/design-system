@@ -1,0 +1,53 @@
+{
+  "color": {
+    "boundary": {
+      "brand": {
+        "$type": "color",
+        "$value": "{color.palette.boundary-brand}",
+        "group": "branding"
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "{color.palette.boundary-500}",
+        "group": "branding"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{color.palette.boundary-50}",
+        "group": "branding"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{color.palette.boundary-100}",
+        "group": "branding"
+      },
+      "gradient": {
+        "primary": {
+          "start": {
+            "$type": "color",
+            "$value": "{color.palette.boundary-300}",
+            "group": "branding"
+          },
+          "stop": {
+            "$type": "color",
+            "$value": "{color.palette.boundary-400}",
+            "group": "branding"
+          }
+        },
+        "faint": {
+          "start": {
+            "$type": "color",
+            "$value": "#fffafa",
+            "group": "branding",
+            "comment": "this is the 'boundary-50' value at 25% opacity on white"
+          },
+          "stop": {
+            "$type": "color",
+            "$value": "{color.palette.boundary-50}",
+            "group": "branding"
+          }
+        }
+      }
+    }
+  }
+}

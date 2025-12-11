@@ -1,0 +1,84 @@
+{
+  "form": {
+    "radiocard-group": {
+      "gap": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px"
+      }
+    },
+    "radiocard": {
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "1",
+          "unit": "px"
+        },
+        "radius": {
+          "$type": "dimension",
+          "$value": "6",
+          "unit": "px",
+          "$modes": {
+            "default": "6",
+            "cds-g0": "0",
+            "cds-g10": "0",
+            "cds-g90": "0",
+            "cds-g100": "0"
+          }
+        },
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.surface.primary}",
+            "$modes": {
+              "default": "{color.surface.primary}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          },
+          "focus": {
+            "$type": "color",
+            "$value": "{color.focus.action.internal}",
+            "$modes": {
+              "default": "{color.focus.action.internal}",
+              "cds-g0": "pink",
+              "cds-g10": "pink",
+              "cds-g90": "pink",
+              "cds-g100": "pink"
+            }
+          },
+          "default-checked": {
+            "$type": "color",
+            "$value": "{color.palette.blue-300}",
+            "$modes": {
+              "default": "{color.palette.blue-300}",
+              "cds-g0": "pink",
+              "cds-g10": "pink",
+              "cds-g90": "pink",
+              "cds-g100": "pink"
+            }
+          }
+        }
+      },
+      "content-padding": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px"
+      },
+      "control-padding": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px"
+      },
+      "transition": {
+        "duration": {
+          "$type": "duration",
+          "$value": "0.2",
+          "unit": "s"
+        }
+      }
+    }
+  }
+}

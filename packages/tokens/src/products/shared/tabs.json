@@ -1,0 +1,77 @@
+{
+  "tabs": {
+    "tab": {
+      "height": {
+        "medium": {
+          "$type": "dimension",
+          "$value": "36",
+          "unit": "px"
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "48",
+          "unit": "px"
+        }
+      },
+      "padding": {
+        "horizontal": {
+          "medium": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          },
+          "large": {
+            "$type": "dimension",
+            "$value": "20",
+            "unit": "px"
+          }
+        },
+        "vertical": {
+          "$type": "dimension",
+          "$value": "0",
+          "unit": "px"
+        }
+      },
+      "border-radius": {
+        "$type": "dimension",
+        "$value": "5",
+        "unit": "px"
+      },
+      "focus-inset": {
+        "$type": "dimension",
+        "$value": "6",
+        "unit": "px"
+      },
+      "gutter": {
+        "$type": "dimension",
+        "$value": "6",
+        "unit": "px"
+      }
+    },
+    "indicator": {
+      "height": {
+        "$type": "dimension",
+        "$value": "3",
+        "unit": "px"
+      },
+      "transition": {
+        "function": {
+          "$type": "cubicBezier",
+          "$value": [0.5, 1, 0.89, 1]
+        },
+        "duration": {
+          "$type": "duration",
+          "$value": "0.6",
+          "unit": "s"
+        }
+      }
+    },
+    "divider": {
+      "height": {
+        "$type": "dimension",
+        "$value": "1",
+        "unit": "px"
+      }
+    }
+  }
+}
