@@ -150,25 +150,47 @@
     }
   },
   "hds": {
-    "alpha-300": {
-      "$type": "color",
-      "$value": "{hds.palette.neutral-600}",
-      "alpha": "0.4",
-      "group": "palette"
-    },
-    "alpha-200": {
-      "$type": "color",
-      "$value": "{hds.palette.neutral-500}",
-      "alpha": "0.2",
-      "group": "palette"
-    },
-    "alpha-100": {
-      "$type": "color",
-      "$value": "{hds.palette.neutral-500}",
-      "alpha": "0.1",
-      "group": "palette"
+    "alpha": {
+      "300": {
+        "$type": "color",
+        "$value": "{hds.palette.neutral-600}",
+        "alpha": "0.4",
+        "group": "palette"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "{hds.palette.neutral-500}",
+        "alpha": "0.2",
+        "group": "palette"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "{hds.palette.neutral-500}",
+        "alpha": "0.1",
+        "group": "palette"
+      }
     },
     "elevation": {
+      "base": {
+        "border": {
+          "width": {
+            "$type": "dimension",
+            "$value": "1",
+            "unit": "px",
+            "private": true
+          },
+          "color": {
+            "$type": "color",
+            "$value": "{hds.elevation.color.base}",
+            "alpha": "0.20",
+            "private": true
+          }
+        },
+        "box-shadow-border": {
+          "$value": "0 0 0 {hds.elevation.base.border.width} {hds.elevation.base.border.color}",
+          "private": true
+        }
+      },
       "color": {
         "base": {
           "$type": "color",
@@ -265,6 +287,13 @@
         },
         "box-shadow": {
           "$value": "{hds.elevation.high.box-shadow-01}, {hds.elevation.high.box-shadow-02}"
+        }
+      }
+    },
+    "surface": {
+      "base": {
+        "box-shadow": {
+          "$value": "{hds.elevation.base.box-shadow-border}"
         }
       }
     },
