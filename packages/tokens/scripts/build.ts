@@ -259,15 +259,16 @@ const outputReferencesCustomFunction = (token: TransformedToken, options: { dict
   // decide if output reference for the token, based on its ancestors being private or not
   // note: derived from by `outputReferencesFilter` - see: https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesFilter.js
 
-  // get refs, pass unfilteredTokens to ensure we find the refs even if they are filtered out
+  // get all the token refs (aliases) that are referenced in its `$value`
+  // e.g. `"$value": "{foo.bar} {baz}"` has two references (`foo.bar` and `baz`)
+  // note: pass unfilteredTokens to ensure we find the refs even if they are filtered out
   const refs = getReferences(originalValue, dictionary.tokens, {
     unfilteredTokens: dictionary.unfilteredTokens,
     usesDtcg,
     warnImmediately: false,
   });
 
-  // TODO should we check only for the direct, first ("parent") one?
-  // check whether every ref can be found in the filtered set of tokens
+  // check whether any of the refs if private
   const hasPrivateReferences = refs.some((ref: DesignToken) => ref.private);
 
   // decide if output reference for the token, based on the fact that it's been transformed or not

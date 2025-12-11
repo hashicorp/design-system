@@ -106,10 +106,13 @@
       "private": true
     },
     "d→b": {
-      "$value": "{chained.d→b}"
+      "$value": "{chained.b→a}"
     },
-    "d→c*": {
+    "d→c_p": {
       "$value": "{chained.c→b}"
+    },
+    "e→d→c_p": {
+      "$value": "{chained.d→c_p}"
     }
   },
   "transformed": {
