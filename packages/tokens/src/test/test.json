@@ -125,6 +125,10 @@
     "z": {
       "$value": "zzz"
     },
+    "q": {
+      "$value": "zzz",
+      "private": true
+    },
     "k-themed": {
       "$value": "kkk",
       "$modes": {
@@ -138,53 +142,156 @@
     "xyz": {
       "$value": "{transformed.x} {transformed.y} {transformed.z}"
     },
-    "xk(t)": {
+    "xyq_p": {
+      "$value": "{transformed.x} {transformed.y} {transformed.q}"
+    },
+    "xk_t": {
       "$value": "{transformed.x} {transformed.k-themed}"
     }
   },
   "hds": {
     "alpha-300": {
       "$type": "color",
-      "$value": "{palette.neutral-600}",
+      "$value": "{hds.palette.neutral-600}",
       "alpha": "0.4",
       "group": "palette"
     },
     "alpha-200": {
       "$type": "color",
-      "$value": "{palette.neutral-500}",
+      "$value": "{hds.palette.neutral-500}",
       "alpha": "0.2",
       "group": "palette"
     },
     "alpha-100": {
       "$type": "color",
-      "$value": "{palette.neutral-500}",
+      "$value": "{hds.palette.neutral-500}",
       "alpha": "0.1",
       "group": "palette"
-    }
-  },
-  "palette": {
-    "neutral-600": {
-      "$type": "color",
-      "$value": "#3b3d45",
-      "group": "palette",
-      "$modes": {
-        "default": "#3b3d45",
-        "cds-g0": "{carbon.color.gray.80}",
-        "cds-g10": "{carbon.color.gray.80}",
-        "cds-g90": "{carbon.color.gray.80}",
-        "cds-g100": "{carbon.color.gray.80}"
+    },
+    "elevation": {
+      "color": {
+        "base": {
+          "$type": "color",
+          "$value": "{hds.palette.neutral-500}",
+          "private": true
+        }
+      },
+      "high": {
+        "shadow-01": {
+          "x": {
+            "$type": "dimension",
+            "$value": "0",
+            "unit": "px",
+            "private": true
+          },
+          "y": {
+            "$type": "dimension",
+            "$value": "2",
+            "unit": "px",
+            "private": true
+          },
+          "blur": {
+            "$type": "dimension",
+            "$value": "3",
+            "unit": "px",
+            "private": true
+          },
+          "spread": {
+            "$type": "dimension",
+            "$value": "0",
+            "unit": "px",
+            "private": true
+          },
+          "color": {
+            "$type": "color",
+            "$value": "{hds.elevation.color.base}",
+            "alpha": "0.15",
+            "private": true
+          }
+        },
+        "shadow-02": {
+          "x": {
+            "$type": "dimension",
+            "$value": "0",
+            "unit": "px",
+            "private": true
+          },
+          "y": {
+            "$type": "dimension",
+            "$value": "16",
+            "unit": "px",
+            "private": true
+          },
+          "blur": {
+            "$type": "dimension",
+            "$value": "16",
+            "unit": "px",
+            "private": true
+          },
+          "spread": {
+            "$type": "dimension",
+            "$value": "-10",
+            "unit": "px",
+            "private": true
+          },
+          "color": {
+            "$type": "color",
+            "$value": "{hds.elevation.color.base}",
+            "alpha": "0.20",
+            "private": true
+          }
+        },
+        "border": {
+          "width": {
+            "$type": "dimension",
+            "$value": "1",
+            "unit": "px",
+            "private": true
+          },
+          "color": {
+            "$type": "color",
+            "$value": "{hds.elevation.color.base}",
+            "alpha": "0.25",
+            "private": true
+          }
+        },
+        "box-shadow-01": {
+          "$value": "{hds.elevation.high.shadow-01.x} {hds.elevation.high.shadow-01.y} {hds.elevation.high.shadow-01.blur} {hds.elevation.high.shadow-01.spread} {hds.elevation.high.shadow-01.color}",
+          "private": true
+        },
+        "box-shadow-02": {
+          "$value": "{hds.elevation.high.shadow-02.x} {hds.elevation.high.shadow-02.y} {hds.elevation.high.shadow-02.blur} {hds.elevation.high.shadow-02.spread} {hds.elevation.high.shadow-02.color}",
+          "private": true
+        },
+        "box-shadow": {
+          "$value": "{hds.elevation.high.box-shadow-01}, {hds.elevation.high.box-shadow-02}"
+        }
       }
     },
-    "neutral-500": {
-      "$type": "color",
-      "$value": "#656a76",
-      "group": "palette",
-      "$modes": {
-        "default": "#656a76",
-        "cds-g0": "{carbon.color.gray.70}",
-        "cds-g10": "{carbon.color.gray.70}",
-        "cds-g90": "{carbon.color.gray.70}",
-        "cds-g100": "{carbon.color.gray.70}"
+    "palette": {
+      "neutral-600": {
+        "$type": "color",
+        "$value": "#3b3d45",
+        "group": "palette",
+        "$modes": {
+          "default": "#3b3d45",
+          "cds-g0": "{carbon.color.gray.80}",
+          "cds-g10": "{carbon.color.gray.80}",
+          "cds-g90": "{carbon.color.gray.80}",
+          "cds-g100": "{carbon.color.gray.80}"
+        }
+      },
+      "neutral-500": {
+        "$type": "color",
+        "$value": "#656a76",
+        "group": "palette",
+        "$modes": {
+          "default": "#656a76",
+          "cds-g0": "{carbon.color.gray.70}",
+          "cds-g10": "{carbon.color.gray.70}",
+          "cds-g90": "{carbon.color.gray.70}",
+          "cds-g100": "{carbon.color.gray.70}"
+        }
       }
     }
   },
