@@ -13,6 +13,7 @@ export function customFormatCssThemedTokensFunctionForTarget(target: string): Fo
     // filter out tokens based on kind of `target` and `$modes` existence
     const filteredTokens = dictionary.allTokens.filter(token => {
       const isPrivate = token.private;
+
       const isThemed = ('$modes' in token);
       const originalValue = options.usesDtcg ? token.original.$value : token.original.value;
       const refs = getReferences(originalValue, dictionary.tokens, {
@@ -20,9 +21,70 @@ export function customFormatCssThemedTokensFunctionForTarget(target: string): Fo
         usesDtcg: options.usesDtcg,
         warnImmediately: false,
       });
+
       const hasMultipleReferences = refs.length > 1;
 
+      // TODO! add logic to handle `hds-surface-base-box-shadow`
+
+      // hds-surface-base-box-shadow = "{hds.elevation.base.box-shadow-border}"
+      // elevation.base.box-shadow-border = "0 0 0 {hds.elevation.base.border.width} {hds.elevation.base.border.color}",
+      // elevation.base.border.width = 1px
+      // elevation.base.border.color = {elevation.color.base} + alpha (0.2)
+
+      // token-color-palette-alpha-100
+      // token-color-palette-alpha-200
+      // token-color-palette-alpha-300
+
+      // token-elevation-base-border-color
+      // token-elevation-high-border-color
+      // token-elevation-high-shadow-01-color
+      // token-elevation-high-shadow-02-color
+      // token-elevation-higher-border-color
+      // token-elevation-higher-shadow-01-color
+      // token-elevation-higher-shadow-02-color
+      // token-elevation-inset-border-color
+      // token-elevation-inset-shadow-01-color
+      // token-elevation-low-border-color
+      // token-elevation-low-shadow-01-color
+      // token-elevation-low-shadow-02-color
+      // token-elevation-mid-border-color
+      // token-elevation-mid-shadow-01-color
+      // token-elevation-mid-shadow-02-color
+      // token-elevation-overlay-border-color
+      // token-elevation-overlay-shadow-01-color
+      // token - elevation - overlay - shadow-02 - color
+
+      // {
+      //   key: "{hds.elevation.base.box-shadow-border}",
+      //   $value: "0 0 0 1px #656a7633",
+      //   private: true,
+      //   filePath: "src/test/test.json",
+      //   isSource: true,
+      //   original: {
+      //     $value: "0 0 0 {hds.elevation.base.border.width} {hds.elevation.base.border.color}",
+      //     private: true,
+      //     key: "{hds.elevation.base.box-shadow-border}",
+      //   },
+      //   name: "token-hds-elevation-base-box-shadow-border",
+      //   attributes: {
+      //     category: "hds",
+      //   },
+      //   path: [
+      //     "hds",
+      //     "elevation",
+      //     "base",
+      //     "box-shadow-border",
+      //   ],
+      //   ref: [
+      //     "hds",
+      //     "elevation",
+      //     "base",
+      //     "box-shadow-border",
+      //   ],
+      // }
+
       const isTransformed = checkIfHasBeenTransformed(token, dictionary, options.usesDtcg);
+
       if (target === 'common') {
         return !isPrivate && !isThemed && !isTransformed && !hasMultipleReferences;
       } else {
@@ -37,6 +99,7 @@ export function customFormatCssThemedTokensFunctionForTarget(target: string): Fo
     };
 
     // use a custom formatter for the CSS variables
+    // TODO: would make sense to use `StyleDictionary.hooks.formats['css/variables']` somehow?
     const variables = formattedVariables({
       format: 'css',
       dictionary: filteredDictionary,

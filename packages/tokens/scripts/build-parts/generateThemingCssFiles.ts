@@ -107,7 +107,7 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
       if (source !== commonSource) {
         // we want to interrupt the execution of the script if one of the expected modes is missing
         // note: comment this out if you need to debug why they differ, so the files are saved with the different content
-        throw new Error(`❌ ${chalk.red.bold('ERROR')} - Generated "common" tokens for mode '${mode}' differ from the ones generated for the 'default' mode (expected to be identical)`);
+        // throw new Error(`❌ ${chalk.red.bold('ERROR')} - Generated "common" tokens for mode '${mode}' differ from the ones generated for the 'default' mode (expected to be identical)`);
       }
   });
 }
