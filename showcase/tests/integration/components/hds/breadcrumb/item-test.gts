@@ -7,6 +7,8 @@ import { module, test } from 'qunit';
 import { render, setupOnerror } from '@ember/test-helpers';
 
 import { HdsBreadcrumbItem } from '@hashicorp/design-system-components/components';
+import { LinkTo } from '@ember/routing';
+import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
@@ -89,5 +91,48 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     assert.throws(function () {
       throw new Error(errorMessage);
     });
+  });
+
+  // EXTERNAL LINK
+
+  test('it should error if @isRouteExternal is true and no component has been configured on the HdsBreadcrumbItem class', async function (assert) {
+    const errorMessage = `HdsBreadcrumbItem: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
+
+import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
+setLinkToExternal(LinkToExternalComponent);`;
+
+    assert.expect(1);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+
+    await render(
+      <template>
+        <HdsBreadcrumbItem
+          @route="index"
+          @text="a route"
+          @isRouteExternal={{true}}
+          id="test-interactive"
+        />
+      </template>,
+    );
+  });
+
+  test('it should render configured link component when @isRouteExternal is true', async function (assert) {
+    setLinkToExternal(LinkTo);
+    assert.expect(1);
+
+    await render(
+      <template>
+        <HdsBreadcrumbItem
+          @route="index"
+          @text="a route"
+          @isRouteExternal={{true}}
+          id="test-interactive"
+        />
+      </template>,
+    );
+    assert.dom('#test-breadcrumb-item > a').doesNotExist();
+    setLinkToExternal(null);
   });
 });
