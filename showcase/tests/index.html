@@ -21,6 +21,18 @@
     <!-- this is the "standard" (non-themed) CSS file for the HDS components, which contains both the default HDS tokens as well as the HDS components' styles  -->
     <link rel="stylesheet" href="{{rootURL}}assets/styles/@hashicorp/design-system-components.css">
 
+    <!-- these are the design tokens (CSS variables) for theming [NOTE: they are disabled by default and toggled on/off via JS by the `ShwThemeSwitcher` selector] -->
+    <link id="hds-tokens-with-css-selectors" rel="stylesheet" integrity="" disabled="true"
+      href="{{rootURL}}assets/styles/@hashicorp/themed-tokens/with-css-selectors/tokens.css">
+    <link id="hds-tokens-with-css-selectors--migration" rel="stylesheet" integrity="" disabled="true"
+      href="{{rootURL}}assets/styles/@hashicorp/themed-tokens/with-css-selectors--migration/tokens.css">
+    <link id="hds-tokens-with-css-selectors--advanced" rel="stylesheet" integrity="" disabled="true"
+      href="{{rootURL}}assets/styles/@hashicorp/themed-tokens/with-css-selectors--advanced/tokens.css">
+
+    <!-- this is the "components-only" CSS file for the HDS components, which needs to be associated with a themed CSS tokens file to work  -->
+    <link id="hds-components-stylesheet-common" rel="stylesheet" integrity="" disabled="true"
+      href="{{rootURL}}assets/styles/@hashicorp/design-system-components-common.css">
+
     <!-- these are the overriding styles for the Ember PowerSelect component -->
     <link rel="stylesheet" href="{{rootURL}}assets/styles/@hashicorp/design-system-power-select-overrides.css">
 
