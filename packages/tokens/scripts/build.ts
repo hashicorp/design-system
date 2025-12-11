@@ -338,11 +338,19 @@ for (const target of ['common', 'themed']) {
       const filteredTokens = dictionary.allTokens.filter(token => {
         const isPrivate = token.private;
         const isThemed = ('$modes' in token);
+        const originalValue = options.usesDtcg ? token.original.$value : token.original.value;
+        const refs = getReferences(originalValue, dictionary.tokens, {
+          unfilteredTokens: dictionary.unfilteredTokens,
+          usesDtcg: options.usesDtcg,
+          warnImmediately: false,
+        });
+        const hasMultipleReferences = refs.length > 1;
+
         const isTransformed = checkIfHasBeenTransformed(token, dictionary, options.usesDtcg);
         if (target === 'common') {
-          return !isPrivate && !isThemed && !isTransformed;
+          return !isPrivate && !isThemed && !isTransformed && !hasMultipleReferences;
         } else {
-          return !isPrivate && isThemed;
+          return !isPrivate && (isThemed || (!isThemed && (isTransformed || hasMultipleReferences)));
         }
       });
 
