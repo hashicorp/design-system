@@ -5,6 +5,7 @@
 
 import fs from 'fs-extra';
 import prettier from 'prettier';
+import chalk from 'chalk';
 
 import type { Dictionary, PlatformConfig }  from 'style-dictionary';
 import { fileHeader } from 'style-dictionary/utils';
@@ -90,6 +91,25 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
     await fs.ensureDir(outputFolder);
     await fs.writeFile(`${outputFolder}tokens.css`, outputTokensCss);
   }
+
+  // extra validation check to make sure that all the common files have actually the same content
+  const commonSourceCdsG0 = await getSourceFromFileWithRootSelector(config, 'cds-g0', 'common-tokens.css');
+  const commonSourceCdsG10 = await getSourceFromFileWithRootSelector(config, 'cds-g10', 'common-tokens.css');
+  const commonSourceCdsG90 = await getSourceFromFileWithRootSelector(config, 'cds-g90', 'common-tokens.css');
+  const commonSourceCdsG100 = await getSourceFromFileWithRootSelector(config, 'cds-g100', 'common-tokens.css');
+
+  Object.entries({
+    'csd-g0': commonSourceCdsG0,
+    'csd-g10': commonSourceCdsG10,
+    'csd-g90': commonSourceCdsG90,
+    'csd-g100': commonSourceCdsG100
+  }).forEach(([mode, source]: [string, string]) => {
+      if (source !== commonSource) {
+        // we want to interrupt the execution of the script if one of the expected modes is missing
+        // note: comment this out if you need to debug why they differ, so the files are saved with the different content
+        throw new Error(`❌ ${chalk.red.bold('ERROR')} - Generated "common" tokens for mode '${mode}' differ from the ones generated for the 'default' mode (expected to be identical)`);
+      }
+  });
 }
 
 async function getSourceFromFileWithRootSelector(config: PlatformConfig, theme: string, path: string): Promise<string> {
