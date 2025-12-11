@@ -41,7 +41,7 @@ export default class DocPlaceholder extends Component<DocPlaceholderSignature> {
   }
 
   get style() {
-    let styles = [];
+    const styles = [];
     if (this.width) {
       styles.push(`width: ${this.width}`);
     }

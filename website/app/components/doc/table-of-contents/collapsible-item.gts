@@ -16,7 +16,7 @@ interface DocTocCollapsibleItemSignature {
     name: string;
     item: {
       isOpen?: boolean;
-      children: Record<string, any>;
+      children: Record<string, unknown>;
     };
     depth: number;
   };

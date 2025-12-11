@@ -22,7 +22,7 @@ interface DocTokenPreviewSignature {
 
 export default class DocTokenPreview extends Component<DocTokenPreviewSignature> {
   get token() {
-    let { token } = this.args;
+    const { token } = this.args;
     return {
       name: token.name,
       // note: we prefix `type` and `value` with `$` because we're using the DTCG format

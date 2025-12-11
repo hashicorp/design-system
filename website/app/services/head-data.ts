@@ -3,11 +3,12 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+// @ts-expect-error: No types available for ember-meta
 import HeadDataService from 'ember-meta/services/head-data';
 import { service } from '@ember/service';
 import type { Registry as Services } from '@ember/service';
 
-import config from 'website/config/environment';
+import config from '../../config/environment';
 
 export default class CustomHeadDataService extends HeadDataService {
   @service declare router: Services['router'];

@@ -15,10 +15,9 @@ import DocTableOfContentsCollapsibleItem from 'website/components/doc/table-of-c
 
 interface DocTableOfContentsSignature {
   Args: {
-    structuredPageTree: Record<string, any>;
+    structuredPageTree: Record<string, unknown>;
     depth: number;
   };
-  Blocks: {};
   Element: HTMLUListElement;
 }
 

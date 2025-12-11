@@ -60,7 +60,7 @@ export const htmlTemplatesItemBody = ({ item, html, components }) => {
       });
       // description (snippeted)
       if (item.content) {
-        var snippetedParts = parseAlgoliaHitHighlight({
+        const snippetedParts = parseAlgoliaHitHighlight({
           hit: item,
           attribute: ['content'],
         });

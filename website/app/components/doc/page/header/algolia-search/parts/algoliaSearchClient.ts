@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import ENV from 'website/config/environment';
+import ENV from '../../../../../../../config/environment';
 
 import algoliasearch from 'algoliasearch/lite';
 

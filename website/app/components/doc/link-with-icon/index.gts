@@ -43,7 +43,7 @@ export default class DocLinkWithIcon extends Component<DocLinkWithIconSignature>
   }
 
   get classNames() {
-    let classes = ['doc-link-with-icon'];
+    const classes = ['doc-link-with-icon'];
 
     if (this.args.isAnimated) {
       classes.push(`doc-link-with-icon--is-animated`);

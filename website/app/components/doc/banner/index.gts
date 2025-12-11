@@ -69,7 +69,7 @@ export default class DocBanner extends Component<DocBannerComponentSignature> {
   }
 
   get classNames() {
-    let classes = ['doc-banner'];
+    const classes = ['doc-banner'];
 
     // add a class based on the @type argument
     classes.push(`doc-banner--type-${this.args.type}`);

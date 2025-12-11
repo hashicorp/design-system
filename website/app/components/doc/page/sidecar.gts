@@ -18,7 +18,6 @@ interface DocPageSidecarSignature {
       }>;
     }>;
   };
-  Blocks: {};
   Element: HTMLDivElement;
 }
 

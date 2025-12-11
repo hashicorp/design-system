@@ -38,7 +38,7 @@ interface DocPageCoverSignature {
 
 export default class DocPageCover extends Component<DocPageCoverSignature> {
   get links() {
-    let { extra } = this.args;
+    const { extra } = this.args;
 
     if (extra?.links) {
       return extra?.links;

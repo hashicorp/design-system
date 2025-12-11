@@ -46,7 +46,7 @@ const getTocSectionsBundle = (section) => {
 };
 
 const getSidebarStructuredTree = (subTree, filterQuery, currentURL) => {
-  let sidebarStructuredTree = {};
+  const sidebarStructuredTree = {};
   const isFiltered = filterQuery !== '';
   Object.keys(subTree).forEach((key) => {
     const item = subTree[key];

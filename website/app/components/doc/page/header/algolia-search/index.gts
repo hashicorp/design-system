@@ -274,4 +274,11 @@ export default class DocAlgoliaSearchComponent extends Component {
       true,
     );
   }
+
+  <template>
+    <div
+      class="doc-algolia-search__autocomplete-container"
+      {{did-insert this.didInsertSearchContainer}}
+    ></div>
+  </template>
 }

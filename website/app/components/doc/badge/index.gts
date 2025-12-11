@@ -53,7 +53,7 @@ export default class DocBadge extends Component<DocBadgeSignature> {
   }
 
   get classNames() {
-    let classes = ['doc-badge'];
+    const classes = ['doc-badge'];
 
     classes.push(`doc-badge--type-${this.type}`);
     classes.push(`doc-badge--size-${this.size}`);

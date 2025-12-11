@@ -32,7 +32,7 @@ export default class DocDoDont extends Component<DocDoDontSignature> {
   }
 
   get classNames() {
-    let classes = ['doc-do-dont'];
+    const classes = ['doc-do-dont'];
 
     classes.push(`doc-do-dont--type-${this.args.type}`);
 

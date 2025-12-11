@@ -14,11 +14,25 @@ import { HdsIcon } from '@hashicorp/design-system-components/components';
 import DocMetaRow from 'website/components/doc/meta-row';
 import DocTokenPreview from 'website/components/doc/token-preview';
 
+type NormalizedToken = {
+  name: string;
+  $type: string;
+  $value: string;
+  aliases?: string[];
+  category: string;
+  original_value: string;
+  deprecated?: boolean;
+  documentation?: {
+    comment?: string;
+  };
+  comment?: string;
+};
+
 export interface DocTokensListItemSignature {
   Args: {
     token: {
       name: string;
-      $type?: string;
+      $type: string;
       $value: string;
       aliases?: string[];
       attributes: {
@@ -34,15 +48,14 @@ export interface DocTokensListItemSignature {
       comment?: string;
     };
   };
-  Blocks: {};
   Element: HTMLLIElement;
 }
 
 export default class DocTokensListItem extends Component<DocTokensListItemSignature> {
   @tracked isExpanded = false;
 
-  get token() {
-    let { token } = this.args;
+  get token(): NormalizedToken {
+    const { token } = this.args;
     return {
       name: token.name,
       // note: we prefix `type` and `value` with `$` because we're using the DTCG format

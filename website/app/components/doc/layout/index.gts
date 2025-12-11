@@ -14,7 +14,6 @@ export const ALIGNMENTS = ['left', 'right', 'center', 'justify'];
 type Alignment = (typeof ALIGNMENTS)[number];
 
 export const CSS_UNITS = ['px', 'rem', 'em', '%'];
-type CssUnit = (typeof CSS_UNITS)[number];
 
 // sanitize & validate custom spacing value:
 const regExStr =
@@ -35,7 +34,7 @@ interface DocLayoutSignature {
 
 export default class DocLayout extends Component<DocLayoutSignature> {
   get direction() {
-    let { direction = 'horizontal' } = this.args;
+    const { direction = 'horizontal' } = this.args;
 
     assert(
       '@direction for "Doc::Layout" must have a valid value',
@@ -46,7 +45,7 @@ export default class DocLayout extends Component<DocLayoutSignature> {
   }
 
   get spacing() {
-    let { spacing } = this.args;
+    const { spacing } = this.args;
 
     assert(
       `@spacing for "Doc::Layout" must include a number and one of the following CSS units: ${CSS_UNITS.join(
@@ -63,7 +62,7 @@ export default class DocLayout extends Component<DocLayoutSignature> {
   }
 
   get align() {
-    let { align = 'left' } = this.args;
+    const { align = 'left' } = this.args;
 
     assert(
       '@align for "Doc::Layout" must have a valid value',
@@ -74,7 +73,7 @@ export default class DocLayout extends Component<DocLayoutSignature> {
   }
 
   get classNames() {
-    let classes = ['doc-layout'];
+    const classes = ['doc-layout'];
 
     classes.push(`doc-layout--direction-${this.direction}`);
     classes.push(`doc-layout--align-${this.align}`);

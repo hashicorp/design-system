@@ -2,6 +2,7 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 
@@ -13,9 +14,6 @@ interface ColorCardSignature {
       cssHelper?: string;
       value: string;
     };
-  };
-  Blocks: {
-    default: [];
   };
   Element: HTMLDivElement;
 }

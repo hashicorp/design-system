@@ -18,7 +18,6 @@ interface DocTokensListSignature {
       Array<DocTokensListItemSignature['Args']['token']>
     >;
   };
-  Blocks: {};
   Element: HTMLDivElement;
 }
 

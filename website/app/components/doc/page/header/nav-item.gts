@@ -13,7 +13,6 @@ interface DocPageHeaderNavItemSignature {
     model?: unknown;
     currentTopRoute: string;
   };
-  Blocks: {};
   Element: HTMLLIElement;
 }
 
