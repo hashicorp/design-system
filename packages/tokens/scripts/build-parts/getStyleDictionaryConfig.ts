@@ -13,13 +13,13 @@ export type Mode = typeof modes[number];
 
 // uncomment this to enable debugging
 const baseConfig: Config = {
-  // log: {
-  //   warnings: 'warn', // options: warn | error | disabled
-  //   verbosity: 'verbose', // options: default | silent | verbose
-  //   errors: {
-  //     brokenReferences: 'console', // options: throw | console
-  //   },
-  // }
+  log: {
+    warnings: 'warn', // options: warn | error | disabled
+    verbosity: 'verbose', // options: default | silent | verbose
+    errors: {
+      brokenReferences: 'console', // options: throw | console
+    },
+  }
 };
 
 const excludePrivateTokens = (token: DesignToken) => {
@@ -44,7 +44,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
         ...baseConfig,
         source: [
           `src/test/**/*.json`,
-          // `src/carbon-extracted/**/*.json`,
+          `src/carbon-extracted/**/*.json`,
           // `src/global/**/*.json`,
           // `src/products/shared/**/*.json`
         ],
@@ -82,7 +82,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
         ...baseConfig,
         source: [
           `src/test/**/*.json`,
-          // `src/carbon-extracted/**/*.json`,
+          `src/carbon-extracted/**/*.json`,
           // `src/global/**/*.json`,
           // `src/products/shared/**/*.json`
         ],
