@@ -25,6 +25,11 @@ The Filter Bar component is a successor to the [Filter patterns](/patterns/filte
 
 ## Type
 
+!!! Callout
+
+The `type` property is available in Figma only. The Ember component can be passed to the [Advanced Table](#add-a-link-when-ready) as a contextual component, or used on it's own in which case the styling will adjust accordingly.
+!!!
+
 The Filter Bar supports two visual presentations, `attached` and `standalone`, to be used in different contexts and with different types of data sets.
 
 ### Attached
@@ -87,13 +92,13 @@ The text rendered within the Tag uses a standardized format depending on the typ
 
 For a full list of supported operators visit the [specifications](/components/filter-bar?tab=specifications#value-input-operators) page.
 
+Text within the Tag component will truncate at roughly 20 characters, about which more details can be found in the [Tag documentation](/components/tag?tab=code#truncation).
+
 ### Custom applied filter text
 
 If necessary, the default formatting within the Tag can be overidden with custom text. This can be useful if the label of the parameter is an irregular plural, if the parameter reads more naturally with certain punctuation or grammar, or for product-specific reasons.
 
 <!-- @dylan could you help me out a bit with this? -->
-
-<!-- Should something be included about truncation? -->
 
 ## Filter dropdown
 
