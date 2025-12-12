@@ -133,6 +133,7 @@ export * from './components/hds/dropdown/types.ts';
 // FilterBar
 export { default as HdsFilterBar } from './components/hds/filter-bar/index.ts';
 export { default as HdsFilterBarActionsDropdown } from './components/hds/filter-bar/actions-dropdown.ts';
+export { default as HdsFilterBarAppliedFilters } from './components/hds/filter-bar/applied-filters.ts';
 export { default as HdsFilterBarDropdown } from './components/hds/filter-bar/dropdown.ts';
 export { default as HdsFilterBarFilterGroup } from './components/hds/filter-bar/filter-group/index.ts';
 export { default as HdsFilterBarFilterGroupCheckbox } from './components/hds/filter-bar/filter-group/checkbox.ts';
