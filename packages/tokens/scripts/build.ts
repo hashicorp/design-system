@@ -18,6 +18,7 @@ import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyle
 import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
 import { customFormatDocsJsonFunction } from './build-parts/customFormatDocsJson.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
+import { validateThemingCssFiles } from './build-parts/validateThemingCssFiles.ts';
 import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
 import { generateThemingDocsFiles } from './build-parts/generateThemingDocsFiles.ts';
 
@@ -278,6 +279,12 @@ StyleDictionary.registerAction({
 StyleDictionary.registerAction({
     name: 'generate-theming-css-files',
     do: generateThemingCssFiles,
+    undo: () => {}
+});
+
+StyleDictionary.registerAction({
+    name: 'validate-theming-css-files',
+    do: validateThemingCssFiles,
     undo: () => {}
 });
 

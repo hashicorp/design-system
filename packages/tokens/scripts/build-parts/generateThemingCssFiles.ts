@@ -10,6 +10,8 @@ import chalk from 'chalk';
 import type { Dictionary, PlatformConfig }  from 'style-dictionary';
 import { fileHeader } from 'style-dictionary/utils';
 
+import { getSourceFromFileWithRootSelector } from './getSourceFromFileWithRootSelector.ts';
+
 export async function generateThemingCssFiles(_dictionary: Dictionary, config: PlatformConfig): Promise<void> {
 
   const commonSource = await getSourceFromFileWithRootSelector(config, 'default', 'common-tokens.css');
@@ -91,31 +93,6 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
     await fs.ensureDir(outputFolder);
     await fs.writeFile(`${outputFolder}tokens.css`, outputTokensCss);
   }
-
-  // extra validation check to make sure that all the common files have actually the same content
-  const commonSourceCdsG0 = await getSourceFromFileWithRootSelector(config, 'cds-g0', 'common-tokens.css');
-  const commonSourceCdsG10 = await getSourceFromFileWithRootSelector(config, 'cds-g10', 'common-tokens.css');
-  const commonSourceCdsG90 = await getSourceFromFileWithRootSelector(config, 'cds-g90', 'common-tokens.css');
-  const commonSourceCdsG100 = await getSourceFromFileWithRootSelector(config, 'cds-g100', 'common-tokens.css');
-
-  Object.entries({
-    'cds-g0': commonSourceCdsG0,
-    'cds-g10': commonSourceCdsG10,
-    'cds-g90': commonSourceCdsG90,
-    'cds-g100': commonSourceCdsG100
-  }).forEach(([mode, source]: [string, string]) => {
-      if (source !== commonSource) {
-        // we want to interrupt the execution of the script if one of the generated "common" files is different from the others
-        // note: comment this out if you need to debug why they differ, so the files are saved with the different content
-        throw new Error(`❌ ${chalk.red.bold('ERROR')} - Generated "common" tokens for mode '${mode}' differ from the ones generated for the 'default' mode (expected to be identical)`);
-      }
-  });
-}
-
-async function getSourceFromFileWithRootSelector(config: PlatformConfig, theme: string, path: string): Promise<string> {
-  const rawSource = await fs.readFile(`${config.buildPath}themed-tokens/with-root-selector/${theme}/${path}`, 'utf8');
-  const header = await fileHeader({});
-  return rawSource.replace(header, '');
 }
 
 function getCssVariablesStalenessComment(): string {
