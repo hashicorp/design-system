@@ -29,7 +29,6 @@ const DocRelatedComponents: TemplateOnlyComponent<DocRelatedComponentsSignature>
 
     <h2 class="doc-text-h2">Related</h2>
 
-    {{! @glint-expect-error - component not typed yet }}
     <DocCardsDeck @cols="2">
       {{#each @cards as |card|}}
         <DocCardsCard
