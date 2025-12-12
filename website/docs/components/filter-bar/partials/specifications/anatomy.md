@@ -30,6 +30,7 @@ The Filter Dropdown anatomy is dependent on the filter method and is dependent o
 | Filter value(s) | Required; Displays available values within a parameter for selection, or allows the input of custom values. |
 | Apply Filters action | Required if the filtering method is "per-filter". Applies the filters selected in either the values list or the values input. |
 | Clear all filters action | Required; Clears the selection of filters across all parameters. |
+| Selected filters count | Displays the number of values selected in a parameter. |
 
 #### Filter value selection
 
