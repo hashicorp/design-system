@@ -4,7 +4,6 @@
  */
 
 import StyleDictionary from 'style-dictionary';
-// import { getReferences, usesReferences } from "style-dictionary/utils";
 import type { DesignToken, PlatformConfig } from 'style-dictionary/types';
 
 import tinycolor from 'tinycolor2';
@@ -14,10 +13,12 @@ import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { cloneDeep } from 'lodash-es';
 
 import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
+import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
+import { customFormatDocsJsonFunction } from './build-parts/customFormatDocsJson.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
+import { validateThemingCssFiles } from './build-parts/validateThemingCssFiles.ts';
 import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
 import { generateThemingDocsFiles } from './build-parts/generateThemingDocsFiles.ts';
 
@@ -47,12 +48,12 @@ for (const mode of modes) {
           if (mode in slice.$modes) {
             // extra validation to catch instances where the `default` mode value is different from the `$value`
             if (mode === 'default' && slice.$modes[mode] !== slice.$value) {
-              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${path.join('.')}}' with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
+              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${tokenPath.join('.')}}' with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
             }
             slice.$value = slice.$modes[mode];
           } else {
             // we want to interrupt the execution of the script if one of the expected modes is missing
-            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${path.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${path.join('.')} - ${JSON.stringify(slice, null, 2)}`);
+            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${tokenPath.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${tokenPath.join('.')} - ${JSON.stringify(slice, null, 2)}`);
           }
         } else {
             Object.entries(slice).forEach(([key, value]) => {
@@ -68,34 +69,8 @@ for (const mode of modes) {
   });
 }
 
+
 // CUSTOM TRANSFORMS
-
-StyleDictionary.registerTransform({
-  name: 'attributes/themeable',
-  type: 'attribute',
-  transform: (token: DesignToken) => {
-    let isThemeable = false;
-
-    if ('$modes' in token) {
-      isThemeable = true;
-    }
-
-    // TODO! understand how we can make this themeable using `usesReferences`/`getReferences` - see: https://hashicorp.atlassian.net/browse/HDS-5667
-    // if (token.key === "{typography.display-500.font-family}") {
-      //   console.log('usesReferences', usesReferences(token.original.$value));
-      //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
-      //   console.log('refs', refs);
-      // }
-
-      // TODO understand if we really need this to split themeable vs non-themeable tokens - see: https://hashicorp.atlassian.net/browse/HDS-5667
-    // if (usesReferences(token.original.$value)) {
-    //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
-    //   isThemeable = refs.some((ref) => '$modes' in ref);
-    // }
-
-    return isThemeable ? { themeable: true } : { };
-  },
-});
 
 StyleDictionary.registerTransform({
   // the CTI convention is not outdated, but we still need to use the top-level path as `category` for the token
@@ -112,7 +87,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'typography/font-family',
   type: 'value',
-  transitive: true,
+  transitive: true, // see: https://styledictionary.com/reference/hooks/transforms/#transitive-transforms
   filter: function (token: DesignToken) {
     // notice: we don't use `fontFamily` as `$type` because is handled internally in Style Dictionary
     // and currently the typographic transforms (and general handling) is still a bit unstable (due also to the fact the DTCG specifications are also preliminary)
@@ -261,7 +236,7 @@ StyleDictionary.registerTransformGroup({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web/themed',
-  transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
@@ -275,24 +250,25 @@ StyleDictionary.registerTransformGroup({
   transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
+
+// CUSTOM FORMATS
+
+for (const target of ['common', 'themed']) {
+  // note: customFormatCssThemedTokensFunction is a higher-order function, that takes `target` as argument and returns a "format" function
+  const customFormatCssThemedTokensFunction = await customFormatCssThemedTokensFunctionForTarget(target);
+  StyleDictionary.registerFormat({
+    name: `css/themed-tokens/with-root-selector/${target}`,
+    format: customFormatCssThemedTokensFunction,
+  });
+}
+
 StyleDictionary.registerFormat({
   name: 'docs/json',
-  format: function (dictionary: any) {
-    // console.log(dictionary.allTokens);
-    // Notice: this object shape is used also in the documentation so any updates
-    // to this format should be reflected in the corresponding type definition.
-    const output: {}[] = [];
-    dictionary.allTokens.forEach((token: any) => {
-      // we remove the "filePath" prop from the token because the orginal file path is irrelevant for us
-      // (plus its value is an absolute path, so it causes useless diffs in git)
-      const outputToken = cloneDeep(token);
-      delete outputToken.filePath;
-      delete outputToken.isSource;
-      output.push(outputToken);
-    });
-    return JSON.stringify(output, null, 2);
-  },
+  format: customFormatDocsJsonFunction,
 });
+
+
+// CUSTOM ACTIONS
 
 StyleDictionary.registerAction({
   name: 'generate-css-helpers',
@@ -303,6 +279,12 @@ StyleDictionary.registerAction({
 StyleDictionary.registerAction({
     name: 'generate-theming-css-files',
     do: generateThemingCssFiles,
+    undo: () => {}
+});
+
+StyleDictionary.registerAction({
+    name: 'validate-theming-css-files',
+    do: validateThemingCssFiles,
     undo: () => {}
 });
 
