@@ -99,13 +99,13 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
   const commonSourceCdsG100 = await getSourceFromFileWithRootSelector(config, 'cds-g100', 'common-tokens.css');
 
   Object.entries({
-    'csd-g0': commonSourceCdsG0,
-    'csd-g10': commonSourceCdsG10,
-    'csd-g90': commonSourceCdsG90,
-    'csd-g100': commonSourceCdsG100
+    'cds-g0': commonSourceCdsG0,
+    'cds-g10': commonSourceCdsG10,
+    'cds-g90': commonSourceCdsG90,
+    'cds-g100': commonSourceCdsG100
   }).forEach(([mode, source]: [string, string]) => {
       if (source !== commonSource) {
-        // we want to interrupt the execution of the script if one of the expected modes is missing
+        // we want to interrupt the execution of the script if one of the generated "common" files is different from the others
         // note: comment this out if you need to debug why they differ, so the files are saved with the different content
         throw new Error(`❌ ${chalk.red.bold('ERROR')} - Generated "common" tokens for mode '${mode}' differ from the ones generated for the 'default' mode (expected to be identical)`);
       }
