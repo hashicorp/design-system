@@ -59,7 +59,7 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     class="shw-layout-grid-example-tint-flex-items"
     as |SG|
   >
-    <SG.Item @label="33.33% width columns">
+    <SG.Item @label="33.33% width columns w/ 4 items">
       <CodeFragmentWithPlaceholderItems @columnWidth="33.33%" />
     </SG.Item>
 
@@ -74,6 +74,40 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
       <CodeFragmentWithPlaceholderItems
         @columnCount={{1}}
         @columnWidth="33.33%"
+      />
+    </SG.Item>
+
+    <SG.Item @label="50% width columns w/ 4 items">
+      <CodeFragmentWithPlaceholderItems @columnCount={{4}} @columnWidth="50%" />
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Responsive column width</ShwTextH3>
+
+  <ShwGrid
+    @columns={{1}}
+    @gap="1.5rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
+    <SG.Item
+      @label="sm view = 1 column, md view = 2 columns, lg view = 3 columns"
+    >
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{4}}
+        @columnWidthSm="100%"
+        @columnWidthMd="50%"
+        @columnWidthLg="33.33%"
+      />
+    </SG.Item>
+
+    <SG.Item @label="sm view = 1 column, all other views = 3 columns">
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{4}}
+        @columnWidth="33.33%"
+        @columnWidthSm="100%"
       />
     </SG.Item>
   </ShwGrid>
