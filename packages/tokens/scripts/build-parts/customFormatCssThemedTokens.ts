@@ -22,7 +22,10 @@ export function customFormatCssThemedTokensFunctionForTarget(target: string): Fo
         warnImmediately: false,
       });
 
-      const hasMultipleReferences = refs.length > 1;
+      // TODO is it really needed?
+      // const hasMultipleReferences = refs.length > 1;
+      const hasPrivateReferencesWithThemedDescendants = checkIfHasPrivateReferencesWithThemedDescendants(token, dictionary, options.usesDtcg)
+
 
       // TODO! add logic to handle `hds-surface-base-box-shadow`
 
@@ -32,6 +35,113 @@ export function customFormatCssThemedTokensFunctionForTarget(target: string): Fo
       // elevation.base.border.color = {elevation.color.base} + alpha (0.2)
       // elevation.color.base = {color.palette.neutral-500} (private)
       // color.palette.neutral-500 = #hex + $modes(#hex, {carbon.color.gray.70})
+
+
+      // ⚠️ the issue is likely having a private token that points to a child which has modes
+      // ⚠️ probably any ref children that has modes (children of a private)
+
+      // [
+      //   {
+      //     key: '{elevation.base.box-shadow-border}',
+      //     '$value': '0 0 0 1px #656a7633',
+      //     private: true,
+      //     filePath: 'src/global/elevation/values/base-level.json',
+      //     isSource: true,
+      //     original: {
+      //       '$value': '0 0 0 {elevation.base.border.width} {elevation.base.border.color}',
+      //       private: true,
+      //       key: '{elevation.base.box-shadow-border}'
+      //     },
+      //     name: 'token-elevation-base-box-shadow-border',
+      //     attributes: { category: 'elevation' },
+      //     path: [ 'elevation', 'base', 'box-shadow-border' ],
+      //     ref: [ 'elevation', 'base', 'box-shadow-border' ]
+      //   },
+      //   {
+      //     key: '{elevation.base.border.width}',
+      //     '$type': 'dimension',
+      //     '$value': '1px',
+      //     unit: 'px',
+      //     private: true,
+      //     filePath: 'src/global/elevation/values/base-level.json',
+      //     isSource: true,
+      //     original: {
+      //       '$type': 'dimension',
+      //       '$value': '1',
+      //       unit: 'px',
+      //       private: true,
+      //       key: '{elevation.base.border.width}'
+      //     },
+      //     name: 'token-elevation-base-border-width',
+      //     attributes: { category: 'elevation' },
+      //     path: [ 'elevation', 'base', 'border', 'width' ],
+      //     ref: [ 'elevation', 'base', 'border', 'width' ]
+      //   },
+      //   {
+      //     key: '{elevation.base.border.color}',
+      //     '$type': 'color',
+      //     '$value': '#656a7633',
+      //     alpha: '0.20',
+      //     private: true,
+      //     filePath: 'src/global/elevation/values/base-level.json',
+      //     isSource: true,
+      //     original: {
+      //       '$type': 'color',
+      //       '$value': '{elevation.color.base}',
+      //       alpha: '0.20',
+      //       private: true,
+      //       key: '{elevation.base.border.color}'
+      //     },
+      //     name: 'token-elevation-base-border-color',
+      //     attributes: { category: 'elevation' },
+      //     path: [ 'elevation', 'base', 'border', 'color' ],
+      //     ref: [ 'elevation', 'base', 'border', 'color' ]
+      //   },
+      //   {
+      //     key: '{elevation.color.base}',
+      //     '$type': 'color',
+      //     '$value': '#656a76',
+      //     private: true,
+      //     filePath: 'src/global/elevation/values/colors.json',
+      //     isSource: true,
+      //     original: {
+      //       '$type': 'color',
+      //       '$value': '{color.palette.neutral-500}',
+      //       private: true,
+      //       key: '{elevation.color.base}'
+      //     },
+      //     name: 'token-elevation-color-base',
+      //     attributes: { category: 'elevation' },
+      //     path: [ 'elevation', 'color', 'base' ],
+      //     ref: [ 'elevation', 'color', 'base' ]
+      //   },
+      //   {
+      //     key: '{color.palette.neutral-500}',
+      //     '$type': 'color',
+      //     '$value': '#656a76',
+      //     group: 'palette',
+      //     '$modes': {
+      //       default: '#656a76',
+      //       'cds-g0': '#525252',
+      //       'cds-g10': '#525252',
+      //       'cds-g90': '#525252',
+      //       'cds-g100': '#525252'
+      //     },
+      //     filePath: 'src/global/color/palette-neutrals.json',
+      //     isSource: true,
+      //     original: {
+      //       '$type': 'color',
+      //       '$value': '#656a76',
+      //       group: 'palette',
+      //       '$modes': [Object],
+      //       key: '{color.palette.neutral-500}'
+      //     },
+      //     name: 'token-color-palette-neutral-500',
+      //     attributes: { category: 'color' },
+      //     path: [ 'color', 'palette', 'neutral-500' ],
+      //     ref: [ 'color', 'palette', 'neutral-500' ]
+      //   }
+      // ]
 
       // token-color-palette-alpha-100
       // token-color-palette-alpha-200
@@ -88,9 +198,11 @@ export function customFormatCssThemedTokensFunctionForTarget(target: string): Fo
       const isTransformed = checkIfHasBeenTransformed(token, dictionary, options.usesDtcg);
 
       if (target === 'common') {
-        return !isPrivate && !isThemed && !isTransformed && !hasMultipleReferences;
+        // return !isPrivate && !isThemed && !isTransformed && !hasMultipleReferences;
+        return !isPrivate && !isThemed && !isTransformed && !hasPrivateReferencesWithThemedDescendants;
       } else {
-        return !isPrivate && (isThemed || (!isThemed && (isTransformed || hasMultipleReferences)));
+        // return !isPrivate && (isThemed || (!isThemed && (isTransformed || hasMultipleReferences)));
+        return !isPrivate && (isThemed || (!isThemed && (isTransformed || hasPrivateReferencesWithThemedDescendants)));
       }
     });
 
@@ -139,7 +251,7 @@ const outputReferencesCustomFunction = (token: TransformedToken, options: { dict
     warnImmediately: false,
   });
 
-  if (token.name === 'token-transformed-xyq-p') {
+  if (token.name === 'token-elevation-inset-box-shadow' || token.name === 'token-surface-base-box-shadow') {
     const allRefs = getAllReferencesRecursively(originalValue, dictionary, options.usesDtcg);
     console.log('👉 👉 👉 ALL REFERENCES', token.name, allRefs);
   }
@@ -205,6 +317,49 @@ const checkIfHasBeenTransformed = (token: TransformedToken, dictionary: Dictiona
 
   return isTransformed;
 }
+
+/**
+ * Checks if a token has any private references that themselves reference themed tokens (tokens with $modes)
+ * @param token - The token to check
+ * @param dictionary - The dictionary object containing tokens
+ * @param usesDtcg - Whether DTCG format is used
+ * @returns True if the token has private references that reference themed tokens
+ */
+const checkIfHasPrivateReferencesWithThemedDescendants = (
+  token: TransformedToken,
+  dictionary: Dictionary,
+  usesDtcg?: boolean
+): boolean => {
+  const originalValue = usesDtcg ? token.original.$value : token.original.value;
+
+  // Get direct references for this token
+  const refs = getReferences(originalValue, dictionary.tokens, {
+    unfilteredTokens: dictionary.unfilteredTokens,
+    usesDtcg,
+    warnImmediately: false,
+  });
+
+  // Check each direct reference
+  for (const ref of refs) {
+    // If this reference is private
+    if (ref.private) {
+      // Get all nested references for this private token
+      const refValue = usesDtcg ? ref.original?.$value : ref.original?.value;
+      if (refValue) {
+        const nestedRefs = getAllReferencesRecursively(refValue, dictionary, usesDtcg);
+
+        // Check if any nested reference has $modes
+        const hasThemedDescendant = nestedRefs.some((nestedRef: DesignToken) => '$modes' in nestedRef);
+
+        if (hasThemedDescendant) {
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
+};
 
 // Recursively gets all references (direct and nested) for a given token value
 const getAllReferencesRecursively = (
