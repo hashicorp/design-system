@@ -24,12 +24,12 @@ export async function customFormatCssThemedTokensFunctionForTarget(target: strin
       } else {
         // we have to consider different conditions to decide this should be output in "common" or in "themed"
         const isThemed = ('$modes' in token);
-        const isTransformed = checkIfHasBeenTransformed(token, dictionary, options.usesDtcg);
+        const hasReferencesAndHasBeenTransformed = checkIfHasReferencesAndHasBeenTransformed(token, dictionary, options.usesDtcg);
         const hasPrivateReferencesWithThemedDescendants = checkIfHasPrivateReferencesWithThemedDescendants(token, dictionary, options.usesDtcg);
         if (target === 'common') {
-          return !isThemed && !isTransformed && !hasPrivateReferencesWithThemedDescendants;
+          return !isThemed && !hasReferencesAndHasBeenTransformed && !hasPrivateReferencesWithThemedDescendants;
         } else {
-          return isThemed || (!isThemed && (isTransformed || hasPrivateReferencesWithThemedDescendants));
+          return isThemed || (!isThemed && (hasReferencesAndHasBeenTransformed || hasPrivateReferencesWithThemedDescendants));
         }
       }
     });
@@ -76,43 +76,46 @@ const shouldOutputReferences = (token: TransformedToken, options: { dictionary: 
   // check whether any of the refs is private
   const hasPrivateReferences = refs.some((ref: DesignToken) => ref.private);
 
-  // check if the token has been transformed (its value has been transformed along the way)
-  const hasBeenTransformed = checkIfHasBeenTransformed(token, dictionary, usesDtcg);
+  // check if the token has references and at the same time its value has been transformed along the way
+  const hasReferencesAndHasBeenTransformed = checkIfHasReferencesAndHasBeenTransformed(token, dictionary, usesDtcg);
 
-  // we output the reference for the token only if it doesn't have private references in its value, and it has not been transformed
-  return !hasPrivateReferences && !hasBeenTransformed;
+  // we output the reference only if none of the conditions above are true
+  return !hasPrivateReferences && !hasReferencesAndHasBeenTransformed;
 }
 
-// derived from `outputReferencesTransformed` - https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesTransformed.js
-const checkIfHasBeenTransformed = (token: TransformedToken, dictionary: Dictionary, usesDtcg?: boolean) => {
+// inspired by `outputReferencesTransformed` - https://github.com/style-dictionary/style-dictionary/blob/main/lib/utils/references/outputReferencesTransformed.js
+const checkIfHasReferencesAndHasBeenTransformed = (token: TransformedToken, dictionary: Dictionary, usesDtcg?: boolean) => {
 
   const value = usesDtcg ? token.$value : token.value;
   const originalValue = usesDtcg ? token.original.$value : token.original.value;
 
+  const refs = getReferences(originalValue, dictionary.tokens, {
+    // note: we pass `unfilteredTokens` to ensure we find the refs even if they are filtered out
+    unfilteredTokens: dictionary.unfilteredTokens,
+    usesDtcg,
+    warnImmediately: false,
+  });
+  const hasReferences = refs && refs.length > 0;
+
   let isTransformed;
 
-  // we check if this is a string because technically speaking the token could also be an object and pass the usesReferences check
+  // references can live only in strings (we ignore arrays and objects, for now)
   if (typeof originalValue === 'string') {
     // Check if the token's value is the same as if we were resolve references on the original value
+      const transformedValue = resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
+        usesDtcg,
+        warnImmediately: false,
+      })
     // This checks whether the token's value has been transformed e.g. transitive transforms.
-    // If it has been, that means we should not be outputting refs because this would undo the work of those transforms.
     // see: https://styledictionary.com/reference/utils/references/#resolvereferences
-    const transformedValue = resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
-      usesDtcg,
-      warnImmediately: false,
-    })
-
     isTransformed = (
       // this `value` could be the original one (eg. `#FF0000`, no transformations)
       // or the transformed one (eg. `#FF0000`→`#FF0000CC` if an `alpha` attribute was applied at token level,
       // which triggered the `color/with-alpha` transformation)
       value !== transformedValue
     );
-  } else {
-    isTransformed = true;
   }
-
-  return isTransformed;
+  return hasReferences && isTransformed;
 }
 
 // checks if a token has any private references that themselves reference themed tokens (they have `$modes`)
