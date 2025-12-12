@@ -1,14 +1,56 @@
 # @hashicorp/design-system-components
 
+## 5.2.0
+
+### Minor Changes
+
+Added Floating UI `boundary` option to `hds-anchored-position` modifier
+
+<!-- START components/popover-primitive -->
+
+`PopoverPrimitive` - Added Floating UI `boundary` option
+
+<!-- END -->
+
+<!-- START components/dropdown -->
+
+`Dropdown` - Added Floating UI `boundary` option
+
+<!-- END -->
+
+<!-- START components/rich-tooltip -->
+
+`RichTooltip` - Added Floating UI `boundary` option
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3406](https://github.com/hashicorp/design-system/pull/3406)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+<!-- START components/table/advanced-table -->
+
+`AdvancedTable` - Guard against accessing `hdsIntl` service after component destruction
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3195](https://github.com/hashicorp/design-system/pull/3195)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@4.1.1
+
 ## 5.1.0
 
 [5.1.0 documentation](https://hds-website-5-1-0.vercel.app/)
 
 ### Minor Changes
 
-
 `CodeEditor` - Added a new `@customExtensions` argument which allows consumers to provide their own custom CodeMirror extensions.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3372](https://github.com/hashicorp/design-system/pull/3372)</small>
 
@@ -16,9 +58,7 @@
 
 ### Patch Changes
 
-
 `Dropdown` - Updated component signature for `ListItemCheckbox` and `ListItemRadio` to have an optional `@id` argument.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3371](https://github.com/hashicorp/design-system/pull/3371)</small>
 
@@ -30,31 +70,22 @@ Fix mixed sass declaration syntax to silence warnings
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Fixed a bug in the cleanup logic of selectable rows where data updates caused the internal selection state to be incorrectly reset.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3373](https://github.com/hashicorp/design-system/pull/3373)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Button` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
 
-
-
 `Dropdown` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
-
-
 
 `SideNav`: - Made CSS updates including:
 
 - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
-- Removed deprecated ".hds-side-nav__dropdown" class name which is redundant to the HDS Dropdown class name referenced in styles
-
+- Removed deprecated ".hds-side-nav\_\_dropdown" class name which is redundant to the HDS Dropdown class name referenced in styles
 
 `AppHeader` - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
-
 
 <small class="doc-whats-new-changelog-metadata">[#3356](https://github.com/hashicorp/design-system/pull/3356)</small>
 
