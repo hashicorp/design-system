@@ -109,7 +109,7 @@ The Filter Dropdown is responsible for the selection and application of filters 
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-open.png)
 
-Which filtering method to use depends on the data type and context. In the Figma component, select the `type` from the nested FilterValue component. In Ember, pass the filter type and method to in the configuration.
+Which filtering method to use depends on the data type and context. In the Figma component, select the `type` from the nested FilterValue component. In Ember, pass the filter type and method into the configuration.
 
 ### Multi-selection
 
@@ -123,15 +123,17 @@ Single selection supports a _mutually exclusive_ selection using radio buttons; 
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-single-selection.png)
 
-### Numbers, dates, and times
+### Numbers, dates, times, and datetimes
 
-Filtering by numerical values, dates, and times is handled through the combination of an operator (greater than, less than, before, etc.) and an input field or grouping of input fields. This filtering method is best suited for range-based filtering; e.g., filtering by results relationally compared to the value or range of values.
+Filtering by numerical values, dates, times, and datetimes is handled through the combination of an operator (greater than, less than, before, etc.) and an input field or grouping of input fields. This filtering method is best suited for range-based filtering; e.g., filtering by results relationally compared to the value or range of values.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-numerical-filter.png)
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-date-filter.png)
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-time-filter.png)
+
+![](/assets/components/filter-bar/filter-bar-dropdown-datetime-filter.png)
 
 For a full list of supported operators visit the [specifications](/components/filter-bar?tab=specifications#value-input-operators) page.
 
