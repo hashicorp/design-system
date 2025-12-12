@@ -65,6 +65,7 @@
         }
 
         &:active {
+          color: #0033B0;
           background-color: #A7C5FF;
         }
       }
@@ -84,6 +85,7 @@
 
     .doc-code-group__copy-button {
       padding: 8px;
+      color: var(--doc-color-gray-200);
       background-color: transparent;
       border: none;
       border-radius: 4px;
