@@ -141,5 +141,69 @@
     "xk(t)": {
       "$value": "{transformed.x} {transformed.k-themed}"
     }
+  },
+  "hds": {
+    "alpha-300": {
+      "$type": "color",
+      "$value": "{palette.neutral-600}",
+      "alpha": "0.4",
+      "group": "palette"
+    },
+    "alpha-200": {
+      "$type": "color",
+      "$value": "{palette.neutral-500}",
+      "alpha": "0.2",
+      "group": "palette"
+    },
+    "alpha-100": {
+      "$type": "color",
+      "$value": "{palette.neutral-500}",
+      "alpha": "0.1",
+      "group": "palette"
+    }
+  },
+  "palette": {
+    "neutral-600": {
+      "$type": "color",
+      "$value": "#3b3d45",
+      "group": "palette",
+      "$modes": {
+        "default": "#3b3d45",
+        "cds-g0": "{carbon.color.gray.80}",
+        "cds-g10": "{carbon.color.gray.80}",
+        "cds-g90": "{carbon.color.gray.80}",
+        "cds-g100": "{carbon.color.gray.80}"
+      }
+    },
+    "neutral-500": {
+      "$type": "color",
+      "$value": "#656a76",
+      "group": "palette",
+      "$modes": {
+        "default": "#656a76",
+        "cds-g0": "{carbon.color.gray.70}",
+        "cds-g10": "{carbon.color.gray.70}",
+        "cds-g90": "{carbon.color.gray.70}",
+        "cds-g100": "{carbon.color.gray.70}"
+      }
+    }
+  },
+  "carbon": {
+    "color": {
+      "gray": {
+        "70": {
+          "$type": "color",
+          "$value": "#525252",
+          "group": "cds-colors",
+          "private": true
+        },
+        "80": {
+          "$type": "color",
+          "$value": "#393939",
+          "group": "cds-colors",
+          "private": true
+        }
+      }
+    }
   }
 }
