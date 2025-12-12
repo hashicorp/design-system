@@ -135,20 +135,24 @@ Filtering by numerical values, dates, and times is handled through the combinati
 
 For a full list of supported operators visit the [specifications](/components/filter-bar?tab=specifications#value-input-operators) page.
 
+### Custom filtering
+
+If your filtering requirements extend beyond the methods supported directly by the component, the Filter Dropdown supports passing HDS components and custom elements to the values panel.
+
+![](/assets/components/filter-bar/filter-bar-dropdown-custom-filter-example.png)
+
 ### Search across filter values
 
-Use the integrated search (`hasSearch`) in the values panel to allow users to search by string across all values within a selected parameter. This can be useful if there are many filter values or if a unique naming convention is used to artificially group results together.
+Use the integrated search (`hasSearch`) in the values panel to allow users to search by string across all values within a selected parameter. While only relevant for single/multi selection, search can be useful if there are many filter values or if a unique naming convention is used to artificially group results together.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-search-values.png)
 
 ## Applying Filters
 
-Depending on how the data set is fetched and updated, the Filter Bar supports different methods of applying filters:
+Depending on how consumers would prefer to trigger the filtering on their data sets, the Filter Bar supports different methods of applying filters:
 
-- **Per-filter:** selected filters are applied when the user confirms their selection with the "Apply filters" submit button. This is the most common method and generally requires a database or API call to update the data set with the corresponding filter parameters.
+- **Per-filter:** selected filters are applied when the user confirms their selection with the "Apply filters" submit button in the Filters Dropdown. This is the most common method and generally requires a database or API call to update the data set with the corresponding filter parameters.
 - **Live filtering:** filters are applied immediately upon selection. This method generally requires updating the data set on the client.
-
-<!-- @dylan I think I have a reasonable outline for this section, but could you double check it? -->
 
 ## Clearing filters
 
@@ -177,12 +181,4 @@ Deselect all filter values within a parameter with the "Clear selection" Button,
 Clear filter input fields with the "Clear filter" Button, then apply the changes with the "Apply filters" Button in the footer.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-clear-filter-input.png)
-
-## Empty state
-
-An empty state occurs if the filters applied don't match any results in the data set. This is supported out of the box in the [Advanced Table](/components/table/advanced-table/) and will display an informative message about the empty state and prompt users to either adjust the applied filters or clear all of them.
-
-![](/assets/components/filter-bar/filter-bar-empty-state.png)
-
-If the data set is being rendered in a list or method outside of what is directly supported by HDS, use the [Application State](/components/application-state) to communicate the empty state result from the applied filters.
 
