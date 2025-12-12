@@ -30,6 +30,8 @@ export function customFormatCssThemedTokensFunctionForTarget(target: string): Fo
       // elevation.base.box-shadow-border = "0 0 0 {hds.elevation.base.border.width} {hds.elevation.base.border.color}",
       // elevation.base.border.width = 1px
       // elevation.base.border.color = {elevation.color.base} + alpha (0.2)
+      // elevation.color.base = {color.palette.neutral-500} (private)
+      // color.palette.neutral-500 = #hex + $modes(#hex, {carbon.color.gray.70})
 
       // token-color-palette-alpha-100
       // token-color-palette-alpha-200
@@ -137,6 +139,11 @@ const outputReferencesCustomFunction = (token: TransformedToken, options: { dict
     warnImmediately: false,
   });
 
+  if (token.name === 'token-transformed-xyq-p') {
+    const allRefs = getAllReferencesRecursively(originalValue, dictionary, options.usesDtcg);
+    console.log('👉 👉 👉 ALL REFERENCES', token.name, allRefs);
+  }
+
   // check whether any of the refs if private
   const hasPrivateReferences = refs.some((ref: DesignToken) => ref.private);
 
@@ -198,3 +205,41 @@ const checkIfHasBeenTransformed = (token: TransformedToken, dictionary: Dictiona
 
   return isTransformed;
 }
+
+// Recursively gets all references (direct and nested) for a given token value
+const getAllReferencesRecursively = (
+  originalValue: any,
+  dictionary: Dictionary,
+  usesDtcg?: boolean
+): DesignToken[] => {
+  const allRefs: DesignToken[] = [];
+  const visited = new Set<string>();
+
+  const collectRefs = (value: any) => {
+    const refs = getReferences(value, dictionary.tokens, {
+      unfilteredTokens: dictionary.unfilteredTokens,
+      usesDtcg,
+      warnImmediately: false,
+    });
+
+    refs.forEach((ref: DesignToken) => {
+      // Use the token path as a unique identifier to avoid circular references
+      const refKey = ref.path?.join('.') || ref.name;
+
+      if (!visited.has(refKey)) {
+        visited.add(refKey);
+        allRefs.push(ref);
+
+        // Recursively collect references from this token's value
+        const refValue = usesDtcg ? ref.original.$value : ref.original.value;
+        if (refValue) {
+          collectRefs(refValue);
+        }
+      }
+    });
+  };
+
+  collectRefs(originalValue);
+
+  return allRefs;
+};
