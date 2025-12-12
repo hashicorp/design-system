@@ -64,6 +64,12 @@ When applying a filter value via an input, if `Between` is selected in the opera
 | Value range input | Required; Allows the user to input a start and end value to filter upon. |
 | Clear filter fields action | Required; Clears the filter input field. |
 
+#### Custom filtering
+
+The Filter Dropdown supports custom filtering by passing elements to a generic yielded block.
+
+![](/assets/components/filter-bar/filter-bar-dropdown-custom-filter.png)
+
 ##### Value input operators
 
 Available operators are dependent on the type of data being filtered upon, but are generally either numerical, or date/time based.
