@@ -46,6 +46,17 @@ const SubSectionContent: TemplateOnlyComponent = <template>
         @hasActionsGeneric={{true}}
       />
     </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With applied filters</SFI.Label>
+      <CodeFragmentWithGenericContent @hasFilters={{true}} />
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With applied filters on multiple rows</SFI.Label>
+      <CodeFragmentWithGenericContent
+        @hasFilters={{true}}
+        @filtersLength="long"
+      />
+    </SF.Item>
   </ShwFlex>
   <ShwDivider />
 </template>;

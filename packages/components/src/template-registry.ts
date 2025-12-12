@@ -100,6 +100,7 @@ import type HdsDropdownToggleIconComponent from './components/hds/dropdown/toggl
 
 import type HdsFilterBarComponent from './components/hds/filter-bar';
 import type HdsFilterBarActionsDropdownComponent from './components/hds/filter-bar/actions-dropdown';
+import type HdsFilterBarAppliedFiltersComponent from './components/hds/filter-bar/applied-filters';
 import type HdsFilterBarDropdownComponent from './components/hds/filter-bar/dropdown';
 import type HdsFilterBarFilterGroupComponent from './components/hds/filter-bar/filter-group/index.ts';
 import type HdsFilterBarFilterGroupCheckboxComponent from './components/hds/filter-bar/filter-group/checkbox';
@@ -572,6 +573,8 @@ export default interface HdsComponentsRegistry {
   'hds/filter-bar': typeof HdsFilterBarComponent;
   'Hds::FilterBar::ActionsDropdown': typeof HdsFilterBarActionsDropdownComponent;
   'hds/filter-bar/actions-dropdown': typeof HdsFilterBarActionsDropdownComponent;
+  'Hds::FilterBar::AppliedFilters': typeof HdsFilterBarAppliedFiltersComponent;
+  'hds/filter-bar/applied-filters': typeof HdsFilterBarAppliedFiltersComponent;
   'Hds::FilterBar::Dropdown': typeof HdsFilterBarDropdownComponent;
   'hds/filter-bar/dropdown': typeof HdsFilterBarDropdownComponent;
   'Hds::FilterBar::FilterGroup': typeof HdsFilterBarFilterGroupComponent;
