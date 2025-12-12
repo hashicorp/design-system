@@ -14,6 +14,7 @@ import HdsAdvancedTableTableModel from './models/table.ts';
 
 import type Owner from '@ember/owner';
 import type { WithBoundArgs } from '@glint/template';
+import type { ComponentLike } from '@glint/template';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableVerticalAlignmentValues,
@@ -30,6 +31,7 @@ import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
+import type { HdsFilterBarSignature } from '../filter-bar/index.ts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
@@ -149,6 +151,7 @@ export interface HdsAdvancedTableSignature {
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    isEmpty?: boolean;
     onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
     onSelectionChange?: (
@@ -157,6 +160,11 @@ export interface HdsAdvancedTableSignature {
     onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
   };
   Blocks: {
+    actions?: [
+      {
+        FilterBar?: ComponentLike<HdsFilterBarSignature>;
+      },
+    ];
     body?: [
       {
         Td?: WithBoundArgs<typeof HdsAdvancedTableTd, 'align'>;
@@ -192,6 +200,7 @@ export interface HdsAdvancedTableSignature {
         isOpen?: HdsAdvancedTableExpandState;
       },
     ];
+    emptyState?: [];
   };
   Element: HTMLDivElement;
 }
@@ -257,6 +266,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     if (hasStickyFirstColumn) {
       this.hasPinnedFirstColumn = true;
     }
+  }
+
+  get isEmpty(): boolean {
+    const { isEmpty } = this.args;
+
+    return isEmpty ?? false;
   }
 
   get identityKey(): string | undefined {
