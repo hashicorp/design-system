@@ -15,17 +15,18 @@ export function customFormatCssThemedTokensFunctionForTarget(target: string): Fo
       const isPrivate = token.private;
 
       const isThemed = ('$modes' in token);
-      const originalValue = options.usesDtcg ? token.original.$value : token.original.value;
-      const refs = getReferences(originalValue, dictionary.tokens, {
-        unfilteredTokens: dictionary.unfilteredTokens,
-        usesDtcg: options.usesDtcg,
-        warnImmediately: false,
-      });
+      // const originalValue = options.usesDtcg ? token.original.$value : token.original.value;
+
+      // const refs = getReferences(originalValue, dictionary.tokens, {
+      //   unfilteredTokens: dictionary.unfilteredTokens,
+      //   usesDtcg: options.usesDtcg,
+      //   warnImmediately: false,
+      // });
 
       // TODO is it really needed?
       // const hasMultipleReferences = refs.length > 1;
-      const hasPrivateReferencesWithThemedDescendants = checkIfHasPrivateReferencesWithThemedDescendants(token, dictionary, options.usesDtcg)
 
+      const hasPrivateReferencesWithThemedDescendants = checkIfHasPrivateReferencesWithThemedDescendants(token, dictionary, options.usesDtcg)
 
       // TODO! add logic to handle `hds-surface-base-box-shadow`
 
@@ -251,10 +252,10 @@ const outputReferencesCustomFunction = (token: TransformedToken, options: { dict
     warnImmediately: false,
   });
 
-  if (token.name === 'token-elevation-inset-box-shadow' || token.name === 'token-surface-base-box-shadow') {
-    const allRefs = getAllReferencesRecursively(originalValue, dictionary, options.usesDtcg);
-    console.log('👉 👉 👉 ALL REFERENCES', token.name, allRefs);
-  }
+  // if (token.name === 'token-elevation-inset-box-shadow' || token.name === 'token-surface-base-box-shadow') {
+  //   const allRefs = getAllReferencesRecursively(originalValue, dictionary, options.usesDtcg);
+  //   console.log('👉 👉 👉 ALL REFERENCES', token.name, allRefs);
+  // }
 
   // check whether any of the refs if private
   const hasPrivateReferences = refs.some((ref: DesignToken) => ref.private);
@@ -318,6 +319,49 @@ const checkIfHasBeenTransformed = (token: TransformedToken, dictionary: Dictiona
   return isTransformed;
 }
 
+// Checks if a token has any private references that themselves reference themed tokens (they have `$modes`)
+const checkIfHasPrivateReferencesWithThemedDescendants = (
+  token: DesignToken,
+  dictionary: Dictionary,
+  usesDtcg?: boolean
+): boolean => {
+  const visited = new Set<string>();
+
+  const checkReferences = (currentToken: DesignToken, hasPrivateAncestor = false): boolean => {
+    const originalValue = usesDtcg ? currentToken.original?.$value : currentToken.original?.value;
+
+    const refs = getReferences(originalValue, dictionary.tokens, {
+      unfilteredTokens: dictionary.unfilteredTokens,
+      usesDtcg,
+      warnImmediately: false,
+    });
+
+    return refs.some((ref: DesignToken) => {
+      const refKey = ref.path?.join('.') || ref.name;
+
+      // skip if already visited (avoid circular references) otherwise store it
+      if (visited.has(refKey)) {
+        return false;
+      } else {
+        visited.add(refKey);
+      }
+
+      // if we're already in a private chain this token is themed...
+      if (hasPrivateAncestor && '$modes' in ref) {
+        return true;
+      }
+
+      // add the current ref to the private reference logical `OR` chain
+      const isInPrivateChain = ref.private || hasPrivateAncestor;
+
+      // Recursively check descendants, passing along the private chain status
+      return checkReferences(ref, isInPrivateChain);
+    });
+  };
+
+  return checkReferences(token);
+};
+
 /**
  * Checks if a token has any private references that themselves reference themed tokens (tokens with $modes)
  * @param token - The token to check
@@ -325,76 +369,72 @@ const checkIfHasBeenTransformed = (token: TransformedToken, dictionary: Dictiona
  * @param usesDtcg - Whether DTCG format is used
  * @returns True if the token has private references that reference themed tokens
  */
-const checkIfHasPrivateReferencesWithThemedDescendants = (
-  token: TransformedToken,
-  dictionary: Dictionary,
-  usesDtcg?: boolean
-): boolean => {
-  const originalValue = usesDtcg ? token.original.$value : token.original.value;
+// const checkIfHasPrivateReferencesWithThemedDescendantsOld = (
+//   token: TransformedToken,
+//   dictionary: Dictionary,
+//   usesDtcg?: boolean
+// ): boolean => {
+//   const originalValue = usesDtcg ? token.original.$value : token.original.value;
 
-  // Get direct references for this token
-  const refs = getReferences(originalValue, dictionary.tokens, {
-    unfilteredTokens: dictionary.unfilteredTokens,
-    usesDtcg,
-    warnImmediately: false,
-  });
+//   // Get all references (direct and nested) for this token
+//   const allRefs = getAllReferencesRecursively(originalValue, dictionary, usesDtcg);
 
-  // Check each direct reference
-  for (const ref of refs) {
-    // If this reference is private
-    if (ref.private) {
-      // Get all nested references for this private token
-      const refValue = usesDtcg ? ref.original?.$value : ref.original?.value;
-      if (refValue) {
-        const nestedRefs = getAllReferencesRecursively(refValue, dictionary, usesDtcg);
+//   // Check if any reference is private AND has themed descendants
+//   return allRefs.some((ref: DesignToken) => {
+//     if (!ref.private) {
+//       return false;
+//     }
 
-        // Check if any nested reference has $modes
-        const hasThemedDescendant = nestedRefs.some((nestedRef: DesignToken) => '$modes' in nestedRef);
+//     // For this private reference, check if it or any of its descendants have $modes
+//     if ('$modes' in ref) {
+//       return true;
+//     }
 
-        if (hasThemedDescendant) {
-          return true;
-        }
-      }
-    }
-  }
+//     // Check the private token's descendants
+//     const refValue = usesDtcg ? ref.original?.$value : ref.original?.value;
+//     if (refValue) {
+//       const nestedRefs = getAllReferencesRecursively(refValue, dictionary, usesDtcg);
+//       return nestedRefs.some((nestedRef: DesignToken) => '$modes' in nestedRef);
+//     }
 
-  return false;
-};
+//     return false;
+//   });
+// };
 
-// Recursively gets all references (direct and nested) for a given token value
-const getAllReferencesRecursively = (
-  originalValue: any,
-  dictionary: Dictionary,
-  usesDtcg?: boolean
-): DesignToken[] => {
-  const allRefs: DesignToken[] = [];
-  const visited = new Set<string>();
+// recursively gets all references (direct and nested) for a given token value
+// const getAllReferencesRecursively = (
+//   originalValue: any,
+//   dictionary: Dictionary,
+//   usesDtcg?: boolean
+// ): DesignToken[] => {
+//   const allRefs: DesignToken[] = [];
+//   const visited = new Set<string>();
 
-  const collectRefs = (value: any) => {
-    const refs = getReferences(value, dictionary.tokens, {
-      unfilteredTokens: dictionary.unfilteredTokens,
-      usesDtcg,
-      warnImmediately: false,
-    });
+//   const collectRefs = (value: any) => {
+//     const refs = getReferences(value, dictionary.tokens, {
+//       unfilteredTokens: dictionary.unfilteredTokens,
+//       usesDtcg,
+//       warnImmediately: false,
+//     });
 
-    refs.forEach((ref: DesignToken) => {
-      // Use the token path as a unique identifier to avoid circular references
-      const refKey = ref.path?.join('.') || ref.name;
+//     refs.forEach((ref: DesignToken) => {
+//       // Use the token path as a unique identifier to avoid circular references
+//       const refKey = ref.path?.join('.') || ref.name;
 
-      if (!visited.has(refKey)) {
-        visited.add(refKey);
-        allRefs.push(ref);
+//       if (!visited.has(refKey)) {
+//         visited.add(refKey);
+//         allRefs.push(ref);
 
-        // Recursively collect references from this token's value
-        const refValue = usesDtcg ? ref.original.$value : ref.original.value;
-        if (refValue) {
-          collectRefs(refValue);
-        }
-      }
-    });
-  };
+//         // Recursively collect references from this token's value
+//         const refValue = usesDtcg ? ref.original.$value : ref.original.value;
+//         if (refValue) {
+//           collectRefs(refValue);
+//         }
+//       }
+//     });
+//   };
 
-  collectRefs(originalValue);
+//   collectRefs(originalValue);
 
-  return allRefs;
-};
+//   return allRefs;
+// };
