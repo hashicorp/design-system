@@ -43,10 +43,10 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       return {
         ...baseConfig,
         source: [
-          `src/test/**/*.json`,
-          // `src/carbon-extracted/**/*.json`,
-          // `src/global/**/*.json`,
-          // `src/products/shared/**/*.json`
+          // `src/test/**/*.json`,
+          `src/carbon-extracted/**/*.json`,
+          `src/global/**/*.json`,
+          `src/products/shared/**/*.json`
         ],
         platforms: {
           [`web/themed-css-variables--mode-${mode}`]: {
@@ -81,10 +81,10 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       return {
         ...baseConfig,
         source: [
-          `src/test/**/*.json`,
-          // `src/carbon-extracted/**/*.json`,
-          // `src/global/**/*.json`,
-          // `src/products/shared/**/*.json`
+          // `src/test/**/*.json`,
+          `src/carbon-extracted/**/*.json`,
+          `src/global/**/*.json`,
+          `src/products/shared/**/*.json`
         ],
         platforms: {
           'web/css-variables': {
