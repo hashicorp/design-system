@@ -19,7 +19,7 @@ While the Filter Bar underwent rigorous research and testing, this component is 
 
 - For complex query builder features.
 
-## Overlap with the Filter pattern guidance <!--Consider a different headline -->
+## Overlap with the Filter patterns guidance <!--Consider a different headline -->
 
 The Filter Bar component is a successor to the [Filter patterns](/patterns/filter-patterns) guidance and supports the vast majority of filtering experiences within HashiCorp applications out of the box. New experiences should use the Filter Bar by default instead of the adhering to the pattern guidance, while already delivered features should consider migrating to the Filter Bar component.
 
