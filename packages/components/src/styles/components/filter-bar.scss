@@ -18,7 +18,8 @@
   border-radius: var(--token-border-radius-medium);
 }
 
-.hds-filter-bar__applied-filters-list {
+.hds-filter-bar__applied-filters-list,
+.hds-filter-bar__applied-filters {
   display: contents;
 }
 

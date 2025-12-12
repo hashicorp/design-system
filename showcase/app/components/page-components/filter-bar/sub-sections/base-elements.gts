@@ -17,6 +17,8 @@ import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 import NOOP from 'showcase/utils/noop';
 
+import CodeFragmentWithAppliedFilters from 'showcase/components/page-components/filter-bar/code-fragments/with-applied-filters';
+
 import {
   HdsFilterBarActionsDropdown,
   HdsFilterBarDropdown,
@@ -100,6 +102,17 @@ const NUMERICAL_BETWEEN_FILTER = {
   },
 } as HdsFilterBarNumericalFilter;
 
+const APPLIED_FILTER_TYPES = [
+  'single-select',
+  'multi-select',
+  'numerical',
+  'date',
+  'time',
+  'datetime',
+  'generic',
+  'search',
+];
+
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
 
@@ -139,6 +152,21 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         <D.Interactive @icon="trash" @color="critical">Delete</D.Interactive>
       </HdsFilterBarActionsDropdown>
     </SF.Item>
+  </ShwFlex>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>AppliedFilters</ShwTextH3>
+
+  <ShwTextH4>Type</ShwTextH4>
+
+  <ShwFlex @direction="column" as |SF|>
+    {{#each APPLIED_FILTER_TYPES as |type|}}
+      <SF.Item as |SFI|>
+        <SFI.Label>{{type}}</SFI.Label>
+        <CodeFragmentWithAppliedFilters @appliedFiltersType={{type}} />
+      </SF.Item>
+    {{/each}}
   </ShwFlex>
 
   <ShwDivider @level={{2}} />
