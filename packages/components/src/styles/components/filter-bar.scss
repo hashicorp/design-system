@@ -98,19 +98,39 @@
 }
 
 .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button {
+  position: relative;
   color: var(--token-color-foreground-action);
   background-color: var(--token-color-surface-strong);
 
+  &::before {
+    position: absolute;
+    top: 6px;
+    left: 4px;
+    width: 2px;
+    height: 24px;
+    background-color: var(--token-color-foreground-action);
+    border-radius: 1px;
+    content: "";
+  }
+
   &.mock-hover,
   &:hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--token-color-palette-blue-400);
     background-color: var(--token-color-palette-neutral-200);
+
+    &::before {
+      background-color: var(--token-color-palette-blue-400);
+    }
   }
 
   &.mock-active,
   &:active {
-    color: var(--token-color-foreground-action-active);
+    color: var(--token-color-palette-blue-500);
     background-color: var(--token-color-palette-neutral-300);
+
+    &::before {
+      background-color: var(--token-color-palette-blue-500);
+    }
   }
 }
 
