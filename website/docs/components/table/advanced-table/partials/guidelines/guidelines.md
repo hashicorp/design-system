@@ -320,3 +320,9 @@ Individual checkboxes added to each row allow for the selection of that row.
 ![Example of multi-select within table cells](/assets/components/table/advanced-table/table-multi-select-cells.png)
 
 For more details, see the [Multi-Select Table Pattern](https://helios.hashicorp.design/patterns/table-multi-select).
+
+## Empty state
+
+The Advanced Table supports displaying an empty state using the [Application State](/components/application-state) component to display an informative message and prompt user action. There are a number of reasons that will cause an empty state to occur; the data set is empty, applying filters did not return any results, there is an error fetching the data, etc.
+
+![An example of an empty state in the Advanced Table using the Filter Bar component.](/assets/components/table/advanced-table/filter-bar-empty-state.png)
