@@ -3,12 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { Dictionary, FormatFn }  from 'style-dictionary/types';
+import type { Dictionary }  from 'style-dictionary/types';
 
 import { cloneDeep } from 'lodash-es';
 
-export function customFormatDocsJsonFunction({ dictionary }: { dictionary: Dictionary}): FormatFn {
-  // console.log(dictionary.allTokens);
+export function customFormatDocsJsonFunction({ dictionary }: { dictionary: Dictionary}): string {
   // Notice: this object shape is used also in the documentation so any updates
   // to this format should be reflected in the corresponding type definition.
   const output: {}[] = [];

@@ -83,33 +83,6 @@ StyleDictionary.registerTransform({
   }
 });
 
-// StyleDictionary.registerTransform({
-//   name: 'attributes/themeable',
-//   type: 'attribute',
-//   transform: (token: DesignToken) => {
-//     let isThemeable = false;
-
-//     if ('$modes' in token) {
-//       isThemeable = true;
-//     }
-
-//     // TODO! understand how we can make this themeable using `usesReferences`/`getReferences` - see: https://hashicorp.atlassian.net/browse/HDS-5667
-//     // if (token.key === "{typography.display-500.font-family}") {
-//       //   console.log('usesReferences', usesReferences(token.original.$value));
-//       //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
-//       //   console.log('refs', refs);
-//       // }
-
-//       // TODO understand if we really need this to split themeable vs non-themeable tokens - see: https://hashicorp.atlassian.net/browse/HDS-5667
-//     // if (usesReferences(token.original.$value)) {
-//     //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
-//     //   isThemeable = refs.some((ref) => '$modes' in ref);
-//     // }
-
-//     return isThemeable ? { themeable: true } : { };
-//   },
-// });
-
 StyleDictionary.registerTransform({
   name: 'typography/font-family',
   type: 'value',
@@ -280,7 +253,7 @@ StyleDictionary.registerTransformGroup({
 // CUSTOM FORMATS
 
 for (const target of ['common', 'themed']) {
-  // note: customFormatCssThemedTokensFunction is a higher-order function, that takes `target` as argument and return a function of type `FormatFn`
+  // note: customFormatCssThemedTokensFunction is a higher-order function, that takes `target` as argument and returns a "format" function
   const customFormatCssThemedTokensFunction = customFormatCssThemedTokensFunctionForTarget(target);
   StyleDictionary.registerFormat({
     name: `css/themed-tokens/with-root-selector/${target}`,
@@ -330,7 +303,6 @@ fs.emptyDirSync(distFolder);
 
 // generate themed tokens
 for (const mode of modes) {
-// for (const mode of ['default']) {
   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target: 'products', mode }));
   console.log(`\n---\n\nProcessing mode "${mode}"...`);
   await StyleDictionaryInstance.hasInitialized;
