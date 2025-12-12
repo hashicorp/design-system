@@ -3,12 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { fileHeader, formattedVariables, getReferences, resolveReferences } from 'style-dictionary/utils';
 import type { DesignToken, TransformedToken, Dictionary, Config, LocalOptions, FormatFn }  from 'style-dictionary/types';
-import { formattedVariables, getReferences, resolveReferences } from 'style-dictionary/utils';
 
 // since we need to differentiate the internal logic depending on the `target`, we need to use
 // a high-order/curried function that takes `target` as argument and return a function of type `FormatFn`
-export function customFormatCssThemedTokensFunctionForTarget(target: string): FormatFn {
+export async function customFormatCssThemedTokensFunctionForTarget(target: string): Promise<FormatFn> {
+
+  // get the "do not edit directly" header (to use it later inside the curried function)
+  const header = await fileHeader({});
 
   // this is where we return the "format" function, that depending on the `target` filters the tokens to be written in the "common" file or in the "themed" file
   return function ({ dictionary, options }: { dictionary: Dictionary, options: Config & LocalOptions }): string {
@@ -51,8 +54,8 @@ export function customFormatCssThemedTokensFunctionForTarget(target: string): Fo
     // sort the CSS variables (easier to read and compare)
     const sortedVariables = variables.split('\n').sort().join('\n');
 
-    // return the content
-    return `:root {\n${sortedVariables}\n}`;
+    // return the content (with the header)
+    return `${header}:root {\n${sortedVariables}\n}`;
   }
 }
 

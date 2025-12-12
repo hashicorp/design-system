@@ -254,7 +254,7 @@ StyleDictionary.registerTransformGroup({
 
 for (const target of ['common', 'themed']) {
   // note: customFormatCssThemedTokensFunction is a higher-order function, that takes `target` as argument and returns a "format" function
-  const customFormatCssThemedTokensFunction = customFormatCssThemedTokensFunctionForTarget(target);
+  const customFormatCssThemedTokensFunction = await customFormatCssThemedTokensFunctionForTarget(target);
   StyleDictionary.registerFormat({
     name: `css/themed-tokens/with-root-selector/${target}`,
     format: customFormatCssThemedTokensFunction,
