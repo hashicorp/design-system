@@ -7,6 +7,8 @@ import ShwDivider from 'showcase/components/shw/divider';
 
 import CodeFragmentWithPlaceholderItems from '../code-fragments/with-placeholder-items';
 
+import { array, hash } from '@ember/helper';
+
 const SubSectionWidthManagement: TemplateOnlyComponent = <template>
   <ShwTextH2>Column width management </ShwTextH2>
 
@@ -97,17 +99,14 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     >
       <CodeFragmentWithPlaceholderItems
         @columnCount={{4}}
-        @columnWidthSm="100%"
-        @columnWidthMd="50%"
-        @columnWidthLg="33.33%"
+        @columnWidth={{hash sm="100%" md="50%" lg="33.33%"}}
       />
     </SG.Item>
 
     <SG.Item @label="sm view = 1 column, all other views = 3 columns">
       <CodeFragmentWithPlaceholderItems
         @columnCount={{4}}
-        @columnWidth="33.33%"
-        @columnWidthSm="100%"
+        @columnWidth={{(array "33.33%" (hash sm="100%"))}}
       />
     </SG.Item>
   </ShwGrid>

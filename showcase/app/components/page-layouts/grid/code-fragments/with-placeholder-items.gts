@@ -12,10 +12,6 @@ interface CodeFragmentWithPlaceholderItemsSignature {
     columnCount?: number;
     columnMinWidth?: HdsLayoutGridSignature['Args']['columnMinWidth'];
     columnWidth?: HdsLayoutGridSignature['Args']['columnWidth'];
-    // TEMP (relace with individual arg once ready)
-    columnWidthSm?: string;
-    columnWidthMd?: string;
-    columnWidthLg?: string;
   };
 }
 
@@ -34,9 +30,6 @@ export default class CodeFragmentWithPlaceholderItems extends Component<CodeFrag
         @gap="24"
         @columnMinWidth={{@columnMinWidth}}
         @columnWidth={{@columnWidth}}
-        @columnWidthSm={{@columnWidthSm}}
-        @columnWidthMd={{@columnWidthMd}}
-        @columnWidthLg={{@columnWidthLg}}
       >
         {{#each this.columnArray as |column|}}
           <ShwPlaceholder @text="#{{column}}" @height="40" />
