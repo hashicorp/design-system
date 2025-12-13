@@ -7,6 +7,8 @@ import ShwDivider from 'showcase/components/shw/divider';
 
 import CodeFragmentWithPlaceholderItems from '../code-fragments/with-placeholder-items';
 
+import { array, hash } from '@ember/helper';
+
 const SubSectionWidthManagement: TemplateOnlyComponent = <template>
   <ShwTextH2>Column width management </ShwTextH2>
 
@@ -59,7 +61,7 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     class="shw-layout-grid-example-tint-flex-items"
     as |SG|
   >
-    <SG.Item @label="33.33% width columns">
+    <SG.Item @label="33.33% width columns w/ 4 items">
       <CodeFragmentWithPlaceholderItems @columnWidth="33.33%" />
     </SG.Item>
 
@@ -74,6 +76,37 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
       <CodeFragmentWithPlaceholderItems
         @columnCount={{1}}
         @columnWidth="33.33%"
+      />
+    </SG.Item>
+
+    <SG.Item @label="50% width columns w/ 4 items">
+      <CodeFragmentWithPlaceholderItems @columnCount={{4}} @columnWidth="50%" />
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Responsive column width</ShwTextH3>
+
+  <ShwGrid
+    @columns={{1}}
+    @gap="1.5rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
+    <SG.Item
+      @label="sm view = 1 column, md view = 2 columns, lg view = 3 columns"
+    >
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{4}}
+        @columnWidth={{hash sm="100%" md="50%" lg="33.33%"}}
+      />
+    </SG.Item>
+
+    <SG.Item @label="sm view = 1 column, all other views = 3 columns">
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{4}}
+        @columnWidth={{(array "33.33%" (hash sm="100%"))}}
       />
     </SG.Item>
   </ShwGrid>

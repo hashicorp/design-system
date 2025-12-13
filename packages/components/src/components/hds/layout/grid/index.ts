@@ -24,11 +24,20 @@ export const ALIGNS: HdsLayoutGridAligns[] = Object.values(
 export const DEFAULT_GAP = HdsLayoutGridGapValues.Zero;
 export const GAPS: HdsLayoutGridGaps[] = Object.values(HdsLayoutGridGapValues);
 
+type ResponsiveColumnWidths = {
+  sm?: string;
+  md?: string;
+  lg?: string;
+};
+
 export interface HdsLayoutGridSignature {
   Args: {
     tag?: AvailableTagNames;
     columnMinWidth?: string;
-    columnWidth?: string;
+    columnWidth?:
+      | string
+      | ResponsiveColumnWidths
+      | [string, ResponsiveColumnWidths];
     align?: HdsLayoutGridAligns;
     gap?: HdsLayoutGridGaps | [HdsLayoutGridGaps, HdsLayoutGridGaps];
   };
@@ -104,6 +113,15 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     const inlineStyles: {
       '--hds-layout-grid-column-min-width'?: string;
       '--hds-layout-grid-column-fill-type'?: string;
+
+      // responsize
+      '--hds-layout-grid-column-width-sm'?: string;
+      '--hds-layout-grid-column-width-md'?: string;
+      '--hds-layout-grid-column-width-lg'?: string;
+
+      '--hds-layout-grid-column-fill-type-sm'?: string;
+      '--hds-layout-grid-column-fill-type-md'?: string;
+      '--hds-layout-grid-column-fill-type-lg'?: string;
     } = {};
 
     // if both columnMinWidth and columnWidth are passed in, we throw an error
@@ -116,9 +134,44 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       inlineStyles['--hds-layout-grid-column-min-width'] =
         this.args.columnMinWidth;
     } else if (this.args.columnWidth) {
-      inlineStyles['--hds-layout-grid-column-min-width'] =
-        this.args.columnWidth;
+      if (typeof this.args.columnWidth === 'string') {
+        inlineStyles['--hds-layout-grid-column-min-width'] =
+          this.args.columnWidth;
+      }
       inlineStyles['--hds-layout-grid-column-fill-type'] = 'auto-fill';
+    }
+
+    // Responsize column widths
+
+    if (typeof this.args.columnWidth === 'object') {
+      // if columnWidth is an array object, the first item is the default width, the second item is the responsive widths object
+      // else it's just an object with responsive widths and no default width
+      const defaultWidth = Array.isArray(this.args.columnWidth)
+        ? this.args.columnWidth[0]
+        : undefined;
+
+      const responsiveWidths = Array.isArray(this.args.columnWidth)
+        ? this.args.columnWidth[1]
+        : this.args.columnWidth;
+
+      // Set the default width if it exists
+      if (defaultWidth) {
+        inlineStyles['--hds-layout-grid-column-min-width'] = defaultWidth;
+      }
+
+      // Set the responsive widths
+      if (responsiveWidths.sm) {
+        inlineStyles['--hds-layout-grid-column-width-sm'] = responsiveWidths.sm;
+        inlineStyles['--hds-layout-grid-column-fill-type-sm'] = 'auto-fill';
+      }
+      if (responsiveWidths.md) {
+        inlineStyles['--hds-layout-grid-column-width-md'] = responsiveWidths.md;
+        inlineStyles['--hds-layout-grid-column-fill-type-md'] = 'auto-fill';
+      }
+      if (responsiveWidths.lg) {
+        inlineStyles['--hds-layout-grid-column-width-lg'] = responsiveWidths.lg;
+        inlineStyles['--hds-layout-grid-column-fill-type-lg'] = 'auto-fill';
+      }
     }
 
     return inlineStyles;
@@ -140,6 +193,24 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       } else if (this.gap.length === 1) {
         classes.push(`hds-layout-grid--row-gap-${this.gap[0]}`);
         classes.push(`hds-layout-grid--column-gap-${this.gap[0]}`);
+      }
+    }
+
+    // add classes based on responsive width arguments
+    // If an array or object is passed in for the columnWidth arg, set the respective CSS classes
+    if (typeof this.args.columnWidth === 'object') {
+      const responsiveWidths = Array.isArray(this.args.columnWidth)
+        ? this.args.columnWidth[1]
+        : this.args.columnWidth;
+
+      if (responsiveWidths.sm) {
+        classes.push('hds-layout-grid--column-width-sm');
+      }
+      if (responsiveWidths.md) {
+        classes.push('hds-layout-grid--column-width-md');
+      }
+      if (responsiveWidths.lg) {
+        classes.push('hds-layout-grid--column-width-lg');
       }
     }
 
