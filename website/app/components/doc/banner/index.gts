@@ -5,6 +5,10 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import type Owner from '@ember/owner';
+
+import { HdsIcon } from '@hashicorp/design-system-components/components';
+import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 export const TYPES = [
   'info',
@@ -16,9 +20,21 @@ export const TYPES = [
   'callout',
 ];
 
-export default class DocBannerComponent extends Component {
-  constructor() {
-    super(...arguments);
+type BannerTypes = (typeof TYPES)[number];
+
+interface DocBannerComponentSignature {
+  Args: {
+    type: BannerTypes;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class DocBanner extends Component<DocBannerComponentSignature> {
+  constructor(owner: Owner, args: DocBannerComponentSignature['Args']) {
+    super(owner, args);
     assert(
       `@type for "Doc::Banner" must be one of the following: ${TYPES.join(
         ', ',
@@ -28,7 +44,7 @@ export default class DocBannerComponent extends Component {
   }
 
   get icon() {
-    let icon;
+    let icon: HdsIconSignature['Args']['name'] | undefined;
     switch (this.args.type) {
       case 'info':
       case 'information':
@@ -53,11 +69,22 @@ export default class DocBannerComponent extends Component {
   }
 
   get classNames() {
-    let classes = ['doc-banner'];
+    const classes = ['doc-banner'];
 
     // add a class based on the @type argument
     classes.push(`doc-banner--type-${this.args.type}`);
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      {{#if this.icon}}
+        <HdsIcon class="doc-banner__icon" @name={{this.icon}} @size="24" />
+      {{/if}}
+      <div class="doc-banner__content">
+        {{yield}}
+      </div>
+    </div>
+  </template>
 }
