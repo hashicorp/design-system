@@ -180,10 +180,9 @@ const SubSectionSingleBaseElement: TemplateOnlyComponent = <template>
       <ShwOutliner>
         <div class="hds-form-super-select hds-form-super-select-single">
           <div class="ember-basic-dropdown">
-            <ul role="listbox" class="ember-power-select-options">
+            <ul class="ember-power-select-options">
               <li
                 class="ember-power-select-option ember-power-select-option--loading-message"
-                role="option"
               >Loading options...</li>
             </ul>
           </div>
@@ -194,10 +193,9 @@ const SubSectionSingleBaseElement: TemplateOnlyComponent = <template>
       <ShwOutliner>
         <div class="hds-form-super-select hds-form-super-select-single">
           <div class="ember-basic-dropdown">
-            <ul role="listbox" class="ember-power-select-options">
+            <ul class="ember-power-select-options">
               <li
                 class="ember-power-select-option ember-power-select-option--no-matches-message"
-                role="option"
               >
                 No results found
               </li>
