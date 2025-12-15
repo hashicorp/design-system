@@ -35,13 +35,7 @@
     {{else if (eq @type "time")}}
       <Hds::FilterBar::FilterGroup::Date @keyFilter={{this.keyFilter}} @onChange={{this.onDateChange}} @type="time" />
     {{else if (eq @type "generic")}}
-      {{yield
-        (hash
-          Generic=(component
-            "hds/filter-bar/filter-group/generic" keyFilter=this.keyFilter onChange=this.onGenericChange
-          )
-        )
-      }}
+      {{yield (hash Generic=(component "hds/filter-bar/filter-group/generic" onChange=this.onGenericChange))}}
     {{else}}
       <div class="hds-filter-bar__filter-group__values-list">
         <div class="hds-filter-bar__filter-group__clear">

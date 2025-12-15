@@ -6,6 +6,7 @@
   class="hds-filter-bar__filter-group__generic hds-filter-bar__filter-group__fields"
   @direction="column"
   @gap="16"
+  ...attributes
 >
   {{yield (hash updateFilter=this.updateFilter)}}
   <div class="hds-filter-bar__filter-group__clear">
