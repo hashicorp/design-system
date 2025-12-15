@@ -6,14 +6,20 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 
-export default class DocPlaceholderIndexComponent extends Component {
-  /**
-   * Sets the width for the placeholder
-   *
-   * @param width
-   * @type {string}
-   * @default '100%'
-   */
+interface DocPlaceholderSignature {
+  Args: {
+    width?: string;
+    height?: string;
+    background?: string;
+    text?: string;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class DocPlaceholder extends Component<DocPlaceholderSignature> {
   get width() {
     let { width = '100%' } = this.args;
 
@@ -24,13 +30,6 @@ export default class DocPlaceholderIndexComponent extends Component {
     return width;
   }
 
-  /**
-   * Sets the height for the placeholder
-   *
-   * @param height
-   * @type {string}
-   * @default '100%'
-   */
   get height() {
     let { height = '100%' } = this.args;
 
@@ -41,12 +40,8 @@ export default class DocPlaceholderIndexComponent extends Component {
     return height;
   }
 
-  /**
-   * Get a style attribute to apply to the placeholder based on the other properties argument.
-   * @return {string} The style attribute to apply to the placeholder
-   */
   get style() {
-    let styles = [];
+    const styles = [];
     if (this.width) {
       styles.push(`width: ${this.width}`);
     }
@@ -59,4 +54,14 @@ export default class DocPlaceholderIndexComponent extends Component {
 
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
+
+  <template>
+    <div class="doc-placeholder" style={{this.style}} ...attributes>
+      {{#if @text}}
+        {{@text}}
+      {{else}}
+        {{yield}}
+      {{/if}}
+    </div>
+  </template>
 }
