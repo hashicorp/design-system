@@ -46,10 +46,7 @@ export interface HdsFilterBarFilterGroupSignature {
   Blocks: {
     default: [
       {
-        Generic?: WithBoundArgs<
-          typeof HdsFilterBarFilterGroupGeneric,
-          'keyFilter'
-        >;
+        Generic?: WithBoundArgs<typeof HdsFilterBarFilterGroupGeneric, never>;
         Checkbox?: WithBoundArgs<
           typeof HdsFilterBarFilterGroupCheckbox,
           'keyFilter' | 'onChange'
@@ -249,14 +246,6 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
     if (onChange && typeof onChange === 'function') {
       onChange(this.args.key, this.formattedFilters);
     }
-  }
-
-  get classNames(): string {
-    const classes = ['hds-filter-bar__filter-group'];
-
-    classes.push(`hds-filter-bar__dropdown--type-${this.type}`);
-
-    return classes.join(' ');
   }
 
   private onSearch = (event: Event) => {

@@ -1,0 +1,226 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'showcase/tests/helpers';
+import { render, click, focus, triggerKeyEvent } from '@ember/test-helpers';
+
+import { HdsFilterBarTabs } from '@hashicorp/design-system-components/components';
+
+const createTabs = async (options: { selectedTabIndex?: number }) => {
+  return await render(
+    <template>
+      <HdsFilterBarTabs
+        @ariaLabel="Test tabs"
+        @selectedTabIndex={{options.selectedTabIndex}}
+        as |T|
+      >
+        <T.Tab>Tab 1</T.Tab>
+        <T.Tab>Tab 2</T.Tab>
+        <T.Panel />
+        <T.Panel />
+      </HdsFilterBarTabs>
+    </template>,
+  );
+};
+
+module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
+  setupRenderingTest(hooks);
+
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
+    await render(
+      <template>
+        <HdsFilterBarTabs @ariaLabel="Test tabs" id="test-tabs" />
+      </template>,
+    );
+    assert.dom('#test-tabs').hasClass('hds-filter-bar__tabs');
+  });
+
+  // ARIA LABEL
+
+  test('it sets the aria-label attribute on the tabs container when the @ariaLabel argument is provided', async function (assert) {
+    await render(
+      <template><HdsFilterBarTabs @ariaLabel="Test tabs" /></template>,
+    );
+    assert
+      .dom('.hds-filter-bar__tabs .hds-filter-bar__tabs__list')
+      .hasAttribute('aria-label', 'Test tabs');
+  });
+
+  // SELECTED TAB
+
+  test('it sets the first tab to selected by default', async function (assert) {
+    await createTabs({});
+    assert
+      .dom('.hds-filter-bar__tabs .hds-filter-bar__tabs__tab')
+      .hasClass('hds-filter-bar__tabs__tab--is-selected');
+  });
+
+  test('it sets the tab number provided to the @selectedTabIndex argument as selected', async function (assert) {
+    await createTabs({ selectedTabIndex: 1 });
+    assert
+      .dom('.hds-filter-bar__tabs .hds-filter-bar__tabs__tab:nth-of-type(2)')
+      .hasClass('hds-filter-bar__tabs__tab--is-selected');
+  });
+
+  // TAB SELECTION
+
+  test('it should select the focused tab when clicked', async function (assert) {
+    await createTabs({});
+
+    await click(
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+    );
+    assert
+      .dom('.hds-filter-bar__tabs .hds-filter-bar__tabs__tab:nth-of-type(2)')
+      .hasClass('hds-filter-bar__tabs__tab--is-selected');
+  });
+
+  // KEYBOARD CONTROLS
+
+  test('it should select the focused tab when triggered with the enter key', async function (assert) {
+    const enterKey = 13;
+    await createTabs({});
+
+    // focus 2nd step:
+    assert
+      .dom(
+        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      )
+      .exists();
+    await focus(
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+    );
+
+    // select 2nd step:
+    await triggerKeyEvent(
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      'keyup',
+      enterKey,
+    );
+
+    assert
+      .dom('.hds-filter-bar__tabs .hds-filter-bar__tabs__tab:nth-of-type(2)')
+      .hasClass('hds-filter-bar__tabs__tab--is-selected');
+  });
+
+  test('it should select the focused tab when triggered with the spacebar', async function (assert) {
+    const spacebarKey = 32;
+    await createTabs({});
+
+    // focus 2nd step:
+    assert
+      .dom(
+        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      )
+      .exists();
+    await focus(
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+    );
+
+    // select 2nd step:
+    await triggerKeyEvent(
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      'keyup',
+      spacebarKey,
+    );
+
+    assert
+      .dom('.hds-filter-bar__tabs .hds-filter-bar__tabs__tab:nth-of-type(2)')
+      .hasClass('hds-filter-bar__tabs__tab--is-selected');
+  });
+
+  test('it should focus interactive steps and navigate through them using left and right arrow keys', async function (assert) {
+    const leftArrowKey = 37;
+    const rightArrowKey = 39;
+    await createTabs({});
+
+    // focus 2nd step:
+    assert
+      .dom(
+        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      )
+      .exists();
+    await focus(
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+    );
+    // test that the navigated to step is now focused:
+    assert
+      .dom(
+        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      )
+      .isFocused();
+
+    // navigate to the previous (1st) step using right arrow key:
+    await triggerKeyEvent(
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      'keyup',
+      rightArrowKey,
+    );
+    // test that the navigated to step is now focused:
+    assert
+      .dom('.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button')
+      .isFocused();
+
+    // navigate back to the next (2nd) step using left arrow key:
+    await triggerKeyEvent(
+      '.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button',
+      'keyup',
+      leftArrowKey,
+    );
+    // test that the navigated to step is now focused:
+    assert
+      .dom(
+        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      )
+      .isFocused();
+  });
+
+  test('it should focus interactive steps and navigate through them using up and down arrow keys', async function (assert) {
+    const upArrowKey = 38;
+    const downArrowKey = 40;
+    await createTabs({});
+
+    // focus 2nd step:
+    assert
+      .dom(
+        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      )
+      .exists();
+    await focus(
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+    );
+    // test that the navigated to step is now focused:
+    assert
+      .dom(
+        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      )
+      .isFocused();
+
+    // navigate to the previous (1st) step using right arrow key:
+    await triggerKeyEvent(
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      'keyup',
+      downArrowKey,
+    );
+    // test that the navigated to step is now focused:
+    assert
+      .dom('.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button')
+      .isFocused();
+
+    // navigate back to the next (2nd) step using left arrow key:
+    await triggerKeyEvent(
+      '.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button',
+      'keyup',
+      upArrowKey,
+    );
+    // test that the navigated to step is now focused:
+    assert
+      .dom(
+        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
+      )
+      .isFocused();
+  });
+});
