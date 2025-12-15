@@ -19,7 +19,6 @@ export interface HdsFilterBarTabsSignature {
   Args: {
     selectedTabIndex?: number;
     ariaLabel: string;
-    onClickTab?: (event: MouseEvent, tabIndex: number) => void;
   };
   Blocks: {
     default: [
@@ -112,11 +111,6 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   @action
   onClick(event: MouseEvent, tabIndex: number): void {
     this._selectedTabIndex = tabIndex;
-
-    // invoke the callback function if it's provided as argument
-    if (typeof this.args.onClickTab === 'function') {
-      this.args.onClickTab(event, tabIndex);
-    }
   }
 
   @action

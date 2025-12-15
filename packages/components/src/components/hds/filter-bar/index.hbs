@@ -23,6 +23,7 @@
       id={{this._appliedFiltersButtonId}}
       aria-controls={{this._appliedFiltersContentId}}
       aria-expanded={{if this._isExpanded "true" "false"}}
+      class="hds-filter-bar__applied-filters-toggle-button"
       {{on "click" this.toggleExpand}}
     />
     {{yield
