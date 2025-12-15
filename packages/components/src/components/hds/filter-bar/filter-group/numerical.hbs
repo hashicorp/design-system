@@ -6,6 +6,7 @@
   class="hds-filter-bar__filter-group__numerical hds-filter-bar__filter-group__fields"
   @direction="column"
   @gap="16"
+  ...attributes
 >
   <Hds::Form::Select::Field
     @id={{this._selectorInputId}}
@@ -39,7 +40,7 @@
           default="Number start value"
         }}
         placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.start.placeholder" default="Start"}}
-        class="hds-filter-bar__filter-group__field"
+        class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
         {{on "change" this.onBetweenValueStartChange}}
       />
       <Hds::Form::TextInput::Base
@@ -48,7 +49,7 @@
         @value={{this.stringBetweenValueEnd}}
         aria-label={{hds-t "hds.components.filter-bar.between-value-inputs.end.aria-label" default="Number end value"}}
         placeholder={{hds-t "hds.components.filter-bar.between-value-inputs.end.placeholder" default="End"}}
-        class="hds-filter-bar__filter-group__field"
+        class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
         {{on "change" this.onBetweenValueEndChange}}
       />
     </Hds::Layout::Flex>

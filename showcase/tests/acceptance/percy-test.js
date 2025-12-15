@@ -100,6 +100,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/dropdown');
     await percySnapshot('Dropdown');
 
+    await visit('/components/filter-bar');
+    await percySnapshot('FilterBar');
+
     await visit('/components/flyout');
     await percySnapshot('Flyout');
 

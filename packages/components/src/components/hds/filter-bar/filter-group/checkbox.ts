@@ -11,15 +11,15 @@ import type { HdsFilterBarFilter } from '../types.ts';
 
 export interface HdsFilterBarFilterGroupCheckboxSignature {
   Args: {
-    value?: string;
-    label?: string;
+    value: string;
+    label: string;
     keyFilter?: HdsFilterBarFilter;
     onChange?: (event: Event, label?: string) => void;
   };
   Blocks: {
     default: [];
   };
-  Element: HTMLDivElement;
+  Element: HTMLLIElement;
 }
 
 export default class HdsFilterBarFilterGroupCheckbox extends Component<HdsFilterBarFilterGroupCheckboxSignature> {

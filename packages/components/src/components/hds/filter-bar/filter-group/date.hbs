@@ -6,6 +6,7 @@
   class="hds-filter-bar__filter-group__date hds-filter-bar__filter-group__fields"
   @direction="column"
   @gap="16"
+  ...attributes
 >
   <Hds::Form::Select::Field
     @id={{this._selectorInputId}}
@@ -70,10 +71,6 @@
         "hds.components.filter-bar.filter-group.date.value-input.aria-label"
         type=this.type
         default="Date value"
-      }}
-      placeholder={{hds-t
-        "hds.components.filter-bar.filter-group.date.value-input.placeholder"
-        default="Enter a value"
       }}
       class="hds-filter-bar__filter-group__field"
       {{on "change" this.onValueChange}}

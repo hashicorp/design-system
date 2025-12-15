@@ -234,21 +234,25 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   {{#each (array "Unselected" "Selected") as |selection|}}
     <ShwGrid @columns={{2}} @label={{selection}} as |SG|>
       <SG.Item @label="Base (default)">
-        <HdsFilterBarTabsTab
-          class={{if
-            (eq selection "Selected")
-            "hds-filter-bar__tabs__tab--is-selected"
-          }}
-        >Tab 1</HdsFilterBarTabsTab>
+        <ul class="shw-component-filter-bar-sample-ul-wrapper" role="tablist">
+          <HdsFilterBarTabsTab
+            class={{if
+              (eq selection "Selected")
+              "hds-filter-bar__tabs__tab--is-selected"
+            }}
+          >Tab 1</HdsFilterBarTabsTab>
+        </ul>
       </SG.Item>
       <SG.Item @label="With filter count">
-        <HdsFilterBarTabsTab
-          @numFilters={{1}}
-          class={{if
-            (eq selection "Selected")
-            "hds-filter-bar__tabs__tab--is-selected"
-          }}
-        >Tab 1</HdsFilterBarTabsTab>
+        <ul class="shw-component-filter-bar-sample-ul-wrapper" role="tablist">
+          <HdsFilterBarTabsTab
+            @numFilters={{1}}
+            class={{if
+              (eq selection "Selected")
+              "hds-filter-bar__tabs__tab--is-selected"
+            }}
+          >Tab 1</HdsFilterBarTabsTab>
+        </ul>
       </SG.Item>
     </ShwGrid>
   {{/each}}
@@ -259,15 +263,17 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     <ShwGrid @columns={{4}} @label={{selection}} as |SG|>
       {{#each STATES as |state|}}
         <SG.Item @label={{state}}>
-          <HdsFilterBarTabsTab
-            @numFilters={{1}}
-            class={{if
-              (eq selection "Selected")
-              "hds-filter-bar__tabs__tab--is-selected"
-            }}
-            mock-state-value={{state}}
-            mock-state-selector="button"
-          >Tab 1</HdsFilterBarTabsTab>
+          <ul class="shw-component-filter-bar-sample-ul-wrapper" role="tablist">
+            <HdsFilterBarTabsTab
+              @numFilters={{1}}
+              class={{if
+                (eq selection "Selected")
+                "hds-filter-bar__tabs__tab--is-selected"
+              }}
+              mock-state-value={{state}}
+              mock-state-selector="button"
+            >Tab 1</HdsFilterBarTabsTab>
+          </ul>
         </SG.Item>
       {{/each}}
     </ShwGrid>
@@ -457,10 +463,14 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       </HdsFilterBarFilterGroupGeneric>
     </SG.Item>
     <SG.Item @label="Checkbox">
-      <HdsFilterBarFilterGroupCheckbox @label="Label" @value="value" />
+      <ul class="shw-component-filter-bar-sample-ul-wrapper">
+        <HdsFilterBarFilterGroupCheckbox @label="Label" @value="value" />
+      </ul>
     </SG.Item>
     <SG.Item @label="Radio">
-      <HdsFilterBarFilterGroupRadio @label="Label" @value="value" />
+      <ul class="shw-component-filter-bar-sample-ul-wrapper">
+        <HdsFilterBarFilterGroupRadio @label="Label" @value="value" />
+      </ul>
     </SG.Item>
   </ShwGrid>
 

@@ -18,6 +18,7 @@ import {
   HdsBadge,
   HdsButton,
   HdsFilterBar,
+  HdsLinkInline,
   HdsTable,
   type HdsFilterBarNumericalFilter,
   type HdsFilterBarDateFilter,
@@ -376,12 +377,16 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
         <:body as |B|>
           <B.Tr>
             <B.Th>
-              {{! @glint-expect-error }}
-              {{get B.data "name"}}
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "name"}}
+              </HdsLinkInline>
             </B.Th>
             <B.Td>
-              {{! @glint-expect-error }}
-              {{get B.data "project-name"}}
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "project-name"}}
+              </HdsLinkInline>
             </B.Td>
             <B.Td>
               {{! @glint-expect-error }}
