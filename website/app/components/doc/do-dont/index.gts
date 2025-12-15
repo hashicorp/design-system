@@ -5,7 +5,17 @@
 
 import Component from '@glimmer/component';
 
-export default class DocDoDontComponent extends Component {
+interface DocDoDontSignature {
+  Args: {
+    type: 'do' | 'dont';
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class DocDoDont extends Component<DocDoDontSignature> {
   get label() {
     let label;
     switch (this.args.type) {
@@ -22,11 +32,19 @@ export default class DocDoDontComponent extends Component {
   }
 
   get classNames() {
-    let classes = ['doc-do-dont'];
+    const classes = ['doc-do-dont'];
 
-    // add a class based on the @type argument
     classes.push(`doc-do-dont--type-${this.args.type}`);
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      <div class="doc-do-dont__badge">{{this.label}}</div>
+      <div class="doc-do-dont__content">
+        {{yield}}
+      </div>
+    </div>
+  </template>
 }
