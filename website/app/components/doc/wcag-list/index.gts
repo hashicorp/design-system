@@ -887,19 +887,31 @@ const CRITERIA = [
     description: '',
   },
 ];
-export default class DocWcagListIndexComponent extends Component {
+
+interface DocWcagListArgs {
+  criteriaList: string[];
+}
+
+export default class DocWcagList extends Component<DocWcagListArgs> {
   get filteredCriteria() {
     return CRITERIA.filter((criterion) =>
       this.args.criteriaList.includes(criterion.number),
     );
   }
 
-  get classNames() {
-    let classes = ['doc-wcag-list'];
-
-    // add a class based on the @xxx argument
-    // classes.push(`doc-wcag-list--xxx-${this.xxx}`);
-
-    return classes.join(' ');
-  }
+  <template>
+    <div class="doc-wcag-list">
+      <ul class="doc-list-generic doc-text-body">
+        {{#each this.filteredCriteria as |criterion|}}
+          <li>
+            <a href={{criterion.url}} class="doc-link-generic">
+              {{criterion.number}}
+              {{criterion.title}}:</a>
+            <br />
+            {{criterion.description}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </template>
 }
