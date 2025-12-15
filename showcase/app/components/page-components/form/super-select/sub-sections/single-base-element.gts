@@ -13,6 +13,7 @@ import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwDivider from 'showcase/components/shw/divider';
+import ShwOutliner from 'showcase/components/shw/outliner';
 
 import CodeFragmentWithSingleBaseElement from 'showcase/components/page-components/form/super-select/code-fragments/with-single-base-element';
 
@@ -169,6 +170,41 @@ const SubSectionSingleBaseElement: TemplateOnlyComponent = <template>
         @verticalPosition="below"
         @dropdownMaxWidth="30em"
       />
+    </SF.Item>
+  </ShwFlex>
+
+  <ShwTextH4>List search results messages</ShwTextH4>
+
+  <ShwFlex as |SF|>
+    <SF.Item {{style min-width="10em"}} @label="Loading options message">
+      <ShwOutliner>
+        <div class="hds-form-super-select hds-form-super-select-single">
+          <div class="ember-basic-dropdown">
+            <ul role="listbox" class="ember-power-select-options">
+              <li
+                class="ember-power-select-option ember-power-select-option--loading-message"
+                role="option"
+              >Loading options...</li>
+            </ul>
+          </div>
+        </div>
+      </ShwOutliner>
+    </SF.Item>
+    <SF.Item {{style min-width="22em"}} @label="No results found message">
+      <ShwOutliner>
+        <div class="hds-form-super-select hds-form-super-select-single">
+          <div class="ember-basic-dropdown">
+            <ul role="listbox" class="ember-power-select-options">
+              <li
+                class="ember-power-select-option ember-power-select-option--no-matches-message"
+                role="option"
+              >
+                No results found
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ShwOutliner>
     </SF.Item>
   </ShwFlex>
 
