@@ -21,19 +21,31 @@ export const TYPES = [
   'outlined-inverted',
 ];
 
-export default class DocBadgeComponent extends Component {
-  constructor() {
-    super(...arguments);
+type BadgeType = (typeof TYPES)[number];
+
+interface DocBadgeSignature {
+  Args: {
+    type?: BadgeType;
+    size?: 'large' | 'medium';
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class DocBadge extends Component<DocBadgeSignature> {
+  get type() {
+    const type = this.args.type ?? 'neutral';
+
     assert(
       `@type for "Doc::Badge" must be one of the following: ${TYPES.join(
         ', ',
       )}; received: ${this.args.type}`,
-      TYPES.includes(this.args.type),
+      TYPES.includes(type),
     );
-  }
 
-  get type() {
-    return this.args.type ?? 'neutral';
+    return type;
   }
 
   get size() {
@@ -41,14 +53,17 @@ export default class DocBadgeComponent extends Component {
   }
 
   get classNames() {
-    let classes = ['doc-badge'];
+    const classes = ['doc-badge'];
 
-    // add a class based on the @type argument
     classes.push(`doc-badge--type-${this.type}`);
-
-    // add a class based on the @size argument
     classes.push(`doc-badge--size-${this.size}`);
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      {{yield}}
+    </div>
+  </template>
 }
