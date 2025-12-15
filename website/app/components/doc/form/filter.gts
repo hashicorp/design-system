@@ -6,6 +6,7 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { on } from '@ember/modifier';
 import perform from 'ember-concurrency/helpers/perform';
+import type { Task } from 'ember-concurrency';
 
 import DocFormLabel from 'website/components/doc/form/label';
 
@@ -14,7 +15,7 @@ interface DocFormFilterSignature {
     label?: string;
     placeholder?: string;
     filterQuery?: string;
-    onInput: (query: string) => void;
+    onInput: Task<void, [string]>;
     isCompact?: boolean;
   };
   Element: HTMLInputElement;
@@ -36,7 +37,6 @@ export default class DocFormFilter extends Component<DocFormFilterSignature> {
         placeholder={{@placeholder}}
         aria-label={{@placeholder}}
         value={{@filterQuery}}
-        {{! @glint-expect-error - TODO: fix this }}
         {{on "input" (perform @onInput value="target.value")}}
         ...attributes
       />

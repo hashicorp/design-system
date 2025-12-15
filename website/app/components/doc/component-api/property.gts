@@ -40,11 +40,9 @@ const DocComponentApiProperty: TemplateOnlyComponent<DocComponentApiPropertySign
             <code class="doc-component-api__property-type">{{@type}}</code>
           {{/if}}
           {{#if @required}}
-            {{! @glint-expect-error - component not typed yet }}
             <DocBadge @type="critical-inverted">Required</DocBadge>
           {{/if}}
           {{#if @deprecated}}
-            {{! @glint-expect-error - component not typed yet }}
             <DocBadge @type="warning">Deprecated</DocBadge>
           {{/if}}
         </div>
