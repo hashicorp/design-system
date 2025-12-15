@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-export default class DocBadgeComponent extends Component {
+export default class DocContentHdsPrinciples extends Component {
   principles = [
     {
       number: '01',
@@ -50,4 +50,25 @@ export default class DocBadgeComponent extends Component {
       image: '/assets/illustrations/principles/invite-feedback.jpg',
     },
   ];
+
+  <template>
+    <ul class="doc-content-principles" role="list">
+      {{#each this.principles as |principle|}}
+        <li>
+          <img
+            class="doc-content-principles__image"
+            src="{{principle.image}}"
+            alt=""
+            role="presentation"
+          />
+          <p class="doc-content-principles__number">{{principle.number}}</p>
+          <p class="doc-content-principles__title"><strong
+            >{{principle.title}}</strong></p>
+          <p
+            class="doc-content-principles__description"
+          >{{principle.description}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </template>
 }
