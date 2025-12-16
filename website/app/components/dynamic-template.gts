@@ -1,16 +1,26 @@
-import { setComponentTemplate } from '@ember/component';
-import { getOwner } from '@ember/application';
-import { compileTemplate } from '@ember/template-compilation';
-import { importSync } from '@embroider/macros';
 import Component from '@glimmer/component';
+import { compileTemplate } from '@ember/template-compilation';
+import { getOwner } from '@ember/owner';
+import { importSync } from '@embroider/macros';
+import { setComponentTemplate } from '@ember/component';
+import { ensureSafeComponent } from '@embroider/util';
+import type Owner from '@ember/owner';
 
-let templateOwnerMap = new Map();
+import DynamicTemplateError from 'website/components/dynamic-template-error';
 
-export default class DynamicTemplate extends Component {
-  constructor() {
-    super(...arguments);
+const templateOwnerMap = new Map();
 
-    let owner = getOwner(this);
+interface DynamicTemplateSignature {
+  Args: {
+    templateString: string;
+    componentId: string;
+  };
+}
+
+export default class DynamicTemplate extends Component<DynamicTemplateSignature> {
+  constructor(owner: Owner, args: DynamicTemplateSignature['Args']) {
+    super(owner, args);
+
     let templateMap = templateOwnerMap.get(owner);
     if (templateMap === undefined) {
       templateMap = templateOwnerMap.set(owner, new Map());
@@ -19,9 +29,9 @@ export default class DynamicTemplate extends Component {
   }
 
   get component() {
-    let owner = getOwner(this);
+    const owner = getOwner(this);
 
-    let { templateString } = this.args;
+    const { templateString } = this.args;
     if (!templateString) {
       return null;
     }
@@ -37,7 +47,7 @@ export default class DynamicTemplate extends Component {
         compiledTemplate = compileTemplate(`<DynamicTemplateError />`);
       }
 
-      component = owner.factoryFor(`component:${this.args.componentId}`);
+      component = owner?.factoryFor(`component:${this.args.componentId}`);
 
       if (component) {
         component = class extends component.class {};
@@ -63,6 +73,12 @@ export default class DynamicTemplate extends Component {
       this.templateMap.set(templateString, component);
     }
 
-    return component;
+    return ensureSafeComponent(component, this);
   }
+
+  <template>
+    {{#let (component this.component) as |Component|}}
+      <Component />
+    {{/let}}
+  </template>
 }

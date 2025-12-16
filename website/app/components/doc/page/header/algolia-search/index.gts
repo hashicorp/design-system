@@ -4,11 +4,11 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
-import { service } from '@ember/service';
-
 import { autocomplete } from '@algolia/autocomplete-js';
+import { modifier } from 'ember-modifier';
+import { service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+import type { Registry as Services } from '@ember/service';
 
 import { getItemsFunction } from './parts/getItemsFunction';
 import { templatesHeaderFunction } from './parts/templatesHeaderFunction';
@@ -20,12 +20,11 @@ import { htmlPanelNoResults } from './parts/htmlPanelNoResults';
 export default class DocAlgoliaSearchComponent extends Component {
   @tracked isModalOpen = false;
 
-  @service router;
+  @service router!: Services['router'];
 
-  @action
-  didInsertSearchContainer(element) {
+  didInsertSearchContainer = modifier((element: HTMLElement) => {
     // define the function to execute to transition to a search result `itemUrl` value
-    const emberRouterTransitionTo = (itemUrl) => {
+    const emberRouterTransitionTo = (itemUrl: string) => {
       // TODO leaving it here for some time until we test more thoroughly that simply using the URL works in every condition
       // itemUrl = itemUrl.replace(/#.*/, '');
       // const parts = itemUrl.split('?');
@@ -63,7 +62,7 @@ export default class DocAlgoliaSearchComponent extends Component {
         // used to reset the query to an empty state/string when the modal is closed (via "click" or "esc" key)
         if (!state.isOpen && prevState.isOpen) {
           autocompleteInstance.setQuery('');
-          document.getElementById('search-button').focus();
+          document.getElementById('search-button')?.focus();
         }
       },
       // onSubmit: ({ state, setQuery, setIsOpen, refresh }) => {
@@ -97,7 +96,10 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchFilters: { facetFilters: ['type:-icon', 'type:-token'] },
               }),
               getItemUrl: ({ item }) => {
-                return item.searchResultURL;
+                if (item['searchResultURL']) {
+                  return item['searchResultURL'] as string;
+                }
+                return undefined;
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'generic' }),
@@ -117,7 +119,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchFilters: { facetFilters: ['type:icon'] },
               }),
               getItemUrl: ({ item }) => {
-                return item.searchResultURL;
+                return item['searchResultURL'];
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'icons' }),
@@ -141,7 +143,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 searchFilters: { facetFilters: ['type:token'] },
               }),
               getItemUrl: ({ item }) => {
-                return item.searchResultURL;
+                return item['searchResultURL'];
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'tokens' }),
@@ -180,7 +182,7 @@ export default class DocAlgoliaSearchComponent extends Component {
                 ];
               },
               getItemUrl({ item }) {
-                return item.searchResultURL;
+                return item['searchResultURL'];
               },
               templates: {
                 header: templatesHeaderFunction({ group: 'suggestions' }),
@@ -254,18 +256,22 @@ export default class DocAlgoliaSearchComponent extends Component {
     document.addEventListener(
       'click',
       (event) => {
-        const parentItemLink = event.target.closest('.aa-ItemLinkWrapper');
-        const parentSourceFooterLink = event.target.closest(
-          '.aa-SourceFooterLink',
-        );
+        const target = event.target as HTMLElement;
+        const parentItemLink = target.closest('.aa-ItemLinkWrapper');
+        const parentSourceFooterLink = target.closest('.aa-SourceFooterLink');
+
         if (parentItemLink) {
           event.preventDefault();
           const itemUrl = parentItemLink.getAttribute('href');
-          emberRouterTransitionTo(itemUrl);
+          if (itemUrl) {
+            emberRouterTransitionTo(itemUrl);
+          }
         } else if (parentSourceFooterLink) {
           event.preventDefault();
           const itemUrl = parentSourceFooterLink.getAttribute('href');
-          emberRouterTransitionTo(itemUrl);
+          if (itemUrl) {
+            emberRouterTransitionTo(itemUrl);
+          }
           // not sure wht I need to do this and not for the other links (maybe they already have some event attached to them?)
           autocompleteInstance.setIsOpen(false);
           autocompleteInstance.setQuery('');
@@ -273,5 +279,12 @@ export default class DocAlgoliaSearchComponent extends Component {
       },
       true,
     );
-  }
+  });
+
+  <template>
+    <div
+      class="doc-algolia-search__autocomplete-container"
+      {{this.didInsertSearchContainer}}
+    ></div>
+  </template>
 }
