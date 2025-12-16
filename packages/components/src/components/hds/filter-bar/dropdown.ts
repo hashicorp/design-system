@@ -107,10 +107,7 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
     keyFilter?: HdsFilterBarFilter
   ): HdsFilterBarFilters {
     const newFilters = this._copyFilters(this.internalFilters);
-    if (
-      keyFilter === undefined ||
-      (Array.isArray(keyFilter) && keyFilter.length === 0)
-    ) {
+    if (keyFilter === undefined) {
       delete newFilters[key];
     } else {
       Object.assign(newFilters, { [key]: keyFilter });
