@@ -18,7 +18,7 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
     "build": "rollup --config",
-    "postbuild": "cp -R dist/styles/@hashicorp/design-system-components.css ../../showcase/public/assets/styles/@hashicorp/ && cp -R dist/styles/@hashicorp/design-system-components-common.css ../../showcase/public/assets/styles/@hashicorp/ && cp -R dist/styles/@hashicorp/design-system-power-select-overrides.css ../../showcase/public/assets/styles/@hashicorp/",
+    
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",

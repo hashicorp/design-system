@@ -144,6 +144,17 @@ const plugins = [
     copyOnce: true,
     // verbose: true,
   }),
+
+  // After bundle is written, copy built CSS to Showcase app
+  copy({
+    hook: 'writeBundle',
+    targets: [
+      {
+        src: 'dist/styles/@hashicorp/*.css',
+        dest: '../../showcase/public/assets/styles/@hashicorp',
+      },
+    ],
+  }),
 ];
 
 if (!process.env.development) {
