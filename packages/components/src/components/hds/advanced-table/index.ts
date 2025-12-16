@@ -151,7 +151,6 @@ export interface HdsAdvancedTableSignature {
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
-    isEmpty?: boolean;
     onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
     onSelectionChange?: (
@@ -269,9 +268,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get isEmpty(): boolean {
-    const { isEmpty } = this.args;
-
-    return isEmpty ?? false;
+    return this._tableModel.rows.length === 0;
   }
 
   get identityKey(): string | undefined {
