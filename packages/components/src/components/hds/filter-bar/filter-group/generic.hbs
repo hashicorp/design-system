@@ -2,12 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::Layout::Flex
-  class="hds-filter-bar__filter-group__generic hds-filter-bar__filter-group__fields"
-  @direction="column"
-  @gap="16"
-  ...attributes
->
+<div class="hds-filter-bar__filter-group__generic hds-filter-bar__filter-group__fields" ...attributes>
   {{yield (hash updateFilter=this.updateFilter)}}
   <div class="hds-filter-bar__filter-group__clear">
     <Hds::Button
@@ -19,4 +14,4 @@
       {{on "click" this.onClear}}
     />
   </div>
-</Hds::Layout::Flex>
+</div>

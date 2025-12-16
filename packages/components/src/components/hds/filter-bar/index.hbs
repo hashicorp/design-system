@@ -11,11 +11,7 @@
   {{/if}}
   <Hds::Layout::Flex @align="end" @gap="8" class="hds-filter-bar__actions">
     <Hds::Button
-      @text={{if
-        this._isExpanded
-        (hds-t "hds.components.filter-bar.applied-filters.toggle-button.collapse" default="Collapse applied filters")
-        (hds-t "hds.components.filter-bar.applied-filters.toggle-button.expand" default="Expand applied filters")
-      }}
+      @text={{hds-t "hds.components.filter-bar.applied-filters.toggle-button" default="View applied filters"}}
       @color="secondary"
       @size="small"
       @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
