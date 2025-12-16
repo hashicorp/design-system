@@ -463,14 +463,10 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       </HdsFilterBarFilterGroupGeneric>
     </SG.Item>
     <SG.Item @label="Checkbox">
-      <ul class="shw-component-filter-bar-sample-ul-wrapper">
-        <HdsFilterBarFilterGroupCheckbox @label="Label" @value="value" />
-      </ul>
+      <HdsFilterBarFilterGroupCheckbox @label="Label" @value="value" />
     </SG.Item>
     <SG.Item @label="Radio">
-      <ul class="shw-component-filter-bar-sample-ul-wrapper">
-        <HdsFilterBarFilterGroupRadio @label="Label" @value="value" />
-      </ul>
+      <HdsFilterBarFilterGroupRadio @label="Label" @value="value" />
     </SG.Item>
   </ShwGrid>
 

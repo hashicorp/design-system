@@ -1,3 +1,4 @@
+legend: "Filter by {text}"
 label: Number is
 selector-input:
   default-value: Pick a selector

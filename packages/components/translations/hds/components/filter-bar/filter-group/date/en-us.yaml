@@ -1,3 +1,4 @@
+legend: "Filter by {text}"
 date:
   label: Date is
 datetime:

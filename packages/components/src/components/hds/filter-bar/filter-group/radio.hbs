@@ -2,20 +2,18 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<li class={{this.classNames}} ...attributes>
-  <label class="hds-filter-bar__filter-group__selection-option__label hds-typography-body-200" for={{this._elementId}}>
-    <Hds::Form::Radio::Base
-      class="hds-filter-bar__filter-group__selection-option__control"
-      id={{this._elementId}}
-      checked={{this.isChecked}}
-      @value={{@value}}
-      {{on "change" this.onChange}}
-    />
-    <Hds::Text::Body
-      @tag="span"
-      @size="200"
-      @weight="medium"
-      class="hds-filter-bar__filter-group__selection-option__text-content"
-    >{{@label}}</Hds::Text::Body>
-  </label>
-</li>
+<label class={{this.classNames}} ...attributes for={{this._elementId}}>
+  <Hds::Form::Radio::Base
+    class="hds-filter-bar__filter-group__selection-option__control"
+    id={{this._elementId}}
+    checked={{this.isChecked}}
+    @value={{@value}}
+    {{on "change" this.onChange}}
+  />
+  <Hds::Text::Body
+    @tag="span"
+    @size="200"
+    @weight="medium"
+    class="hds-filter-bar__filter-group__selection-option__text-content"
+  >{{@label}}</Hds::Text::Body>
+</label>
