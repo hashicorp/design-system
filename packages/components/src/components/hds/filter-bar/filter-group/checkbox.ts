@@ -13,6 +13,7 @@ export interface HdsFilterBarFilterGroupCheckboxSignature {
   Args: {
     value: string;
     label: string;
+    searchValue?: string;
     keyFilter?: HdsFilterBarFilter;
     onChange?: (event: Event, label?: string) => void;
   };
@@ -39,5 +40,26 @@ export default class HdsFilterBarFilterGroupCheckbox extends Component<HdsFilter
       return keyFilter.data.some((filter) => filter.value === value);
     }
     return false;
+  }
+
+  get isHidden(): boolean {
+    const { searchValue, label } = this.args;
+    if (searchValue && searchValue.length > 0) {
+      return !label.toLowerCase().includes(searchValue.toLowerCase());
+    }
+    return false;
+  }
+
+  get classNames(): string {
+    const classes = [
+      'hds-filter-bar__filter-group__checkbox',
+      'hds-filter-bar__filter-group__selection-option',
+    ];
+
+    if (this.isHidden) {
+      classes.push(`hds-filter-bar__filter-group__selection-option--hidden`);
+    }
+
+    return classes.join(' ');
   }
 }
