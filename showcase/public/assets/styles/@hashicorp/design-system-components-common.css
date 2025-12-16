@@ -359,20 +359,48 @@
   padding: 0;
 }
 
+#ember-a11y-refocus-nav-message {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
+.ember-a11y-refocus-skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.25rem;
+  color: #fff;
+  font-size: 0.75rem;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.75);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.ember-a11y-refocus-skip-link:focus {
+  transform: translateY(0);
+}
+
 /**
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-accordion {
@@ -593,11 +621,11 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-advanced-table__container {
@@ -1258,7 +1286,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-alert {
@@ -1427,7 +1455,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-app-footer {
@@ -1554,7 +1582,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-app-frame {
@@ -1620,15 +1648,15 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-app-header {
@@ -1694,18 +1722,8 @@
   gap: inherit;
   align-items: center;
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *) {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
   --token-focus-ring-action-box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
   border: 1px solid transparent;
   cursor: pointer;
@@ -1714,87 +1732,24 @@
   background-color: var(--token-color-palette-neutral-700);
   border-radius: var(--token-button-border-radius);
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover {
   border-color: var(--token-color-palette-neutral-500);
   color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-neutral-600);
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
   position: relative;
   outline-style: solid;
   outline-color: transparent;
   isolation: isolate;
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
-  border-color: #bcc7fd;
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
   position: absolute;
   top: -1px;
   right: -1px;
@@ -1804,317 +1759,64 @@
   border-radius: 5px;
   content: "";
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before {
   box-shadow: var(--token-focus-ring-action-box-shadow);
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before {
   box-shadow: none;
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus-visible::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus-visible::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before {
   box-shadow: var(--token-focus-ring-action-box-shadow);
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:active::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:active::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:active::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before {
   box-shadow: none;
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
+  color: var(--token-color-foreground-high-contrast);
+  background-color: var(--token-color-palette-neutral-700);
+  border-color: #bcc7fd;
+}
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
   color: var(--token-color-foreground-high-contrast);
   border: none;
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before {
   box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active {
   color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-neutral-500);
   border-color: var(--token-color-palette-neutral-400);
 }
-.hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled], .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover, .hds-app-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-app-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-app-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover {
+.hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled], .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:focus, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover, .hds-app-header .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled],
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:focus,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:focus,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:focus,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover,
+.hds-app-header button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover {
   color: var(--token-color-foreground-disabled);
   background-color: var(--token-color-palette-neutral-600);
   border-color: var(--token-color-palette-neutral-500);
@@ -2157,8 +1859,6 @@
   outline-style: solid;
   outline-color: transparent;
   isolation: isolate;
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
 }
 .hds-app-header__home-link:focus::before, .hds-app-header__home-link.mock-focus::before {
   position: absolute;
@@ -2181,6 +1881,10 @@
 }
 .hds-app-header__home-link:focus:focus:active::before, .hds-app-header__home-link:focus.mock-focus.mock-active::before, .hds-app-header__home-link.mock-focus:focus:active::before, .hds-app-header__home-link.mock-focus.mock-focus.mock-active::before {
   box-shadow: none;
+}
+.hds-app-header__home-link:focus, .hds-app-header__home-link.mock-focus {
+  color: var(--token-color-foreground-high-contrast);
+  background-color: var(--token-color-palette-neutral-700);
 }
 .hds-app-header__home-link:focus::before, .hds-app-header__home-link.mock-focus::before {
   color: var(--token-color-foreground-high-contrast);
@@ -2211,11 +1915,11 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 :root {
@@ -2234,7 +1938,7 @@
   }
 }
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-app-side-nav {
@@ -2313,7 +2017,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-app-side-nav__content {
@@ -2470,7 +2174,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-app-side-nav__toggle-button {
@@ -2547,7 +2251,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-application-state {
@@ -2555,7 +2259,6 @@
   flex-direction: column;
   align-items: start;
   width: fit-content;
-  margin: 0 auto;
 }
 .hds-application-state.hds-application-state--align-center {
   align-items: center;
@@ -2565,6 +2268,9 @@
 .hds-application-state.hds-application-state--align-center .hds-application-state__body,
 .hds-application-state.hds-application-state--align-center .hds-application-state__footer {
   width: auto;
+}
+.hds-application-state.hds-application-state--is-auto-centered {
+  margin: 0 auto;
 }
 
 .hds-application-state__media {
@@ -2624,7 +2330,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-badge {
@@ -2789,7 +2495,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-badge-count {
@@ -2859,7 +2565,7 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-breadcrumb {
@@ -3039,11 +2745,11 @@
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
@@ -3321,7 +3027,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-button-set {
@@ -3330,11 +3036,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-card__container {
@@ -3444,11 +3150,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-code-block--theme-dark {
@@ -3940,11 +3646,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-code-editor--theme-dark {
@@ -4049,11 +3755,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-copy-button {
@@ -4076,7 +3782,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-copy-snippet {
@@ -4216,7 +3922,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 :where(.hds-dialog-primitive__wrapper) {
@@ -4316,7 +4022,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-disclosure-primitive {
@@ -4324,7 +4030,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-dismiss-button {
@@ -4373,11 +4079,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-dropdown--is-inline {
@@ -5063,7 +4769,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-flyout {
@@ -5100,15 +4806,15 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form {
@@ -5164,7 +4870,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-label {
@@ -5178,7 +4884,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-helper-text {
@@ -5187,7 +4893,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-character-count {
@@ -5195,7 +4901,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-error {
@@ -5221,7 +4927,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-field--layout-vertical {
@@ -5282,11 +4988,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-file-input {
@@ -5357,7 +5063,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-legend {
@@ -5369,7 +5075,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-group {
@@ -5415,7 +5121,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-indicator--optional {
@@ -5423,7 +5129,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-checkbox {
@@ -5489,7 +5195,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-masked-input {
@@ -5527,7 +5233,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-radio {
@@ -5580,7 +5286,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-group--radio-cards .hds-form-group__control-fields-wrapper {
@@ -5711,7 +5417,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-select {
@@ -5780,7 +5486,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-super-select {
@@ -6071,34 +5777,48 @@ button.hds-button[href]::after {
   display: block;
 }
 
-.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
+.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message) {
   background-repeat: no-repeat;
   background-position: 15px 10px;
   background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
 }
-.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]) {
+.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]) {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
 }
-.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]).mock-hover {
+.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]).mock-hover {
   color: var(--token-color-foreground-action-hover);
 }
-.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]):active, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]).mock-active {
+.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]):active, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true]).mock-active {
   color: var(--token-color-foreground-action-active);
 }
-.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-current=true], .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message).mock-hover {
+.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-current=true], .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message).mock-hover {
   color: var(--token-color-foreground-action-hover);
 }
-.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message):active, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message).mock-active {
+.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message):active, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message).mock-active {
   color: var(--token-color-foreground-action-active);
 }
-.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true][aria-disabled=true] {
+.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true][aria-disabled=true] {
   background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.7803 4.28033C15.0732 3.98744 15.0732 3.51256 14.7803 3.21967C14.4874 2.92678 14.0126 2.92678 13.7197 3.21967L5.75 11.1893L2.28033 7.71967C1.98744 7.42678 1.51256 7.42678 1.21967 7.71967C0.926777 8.01256 0.926777 8.48744 1.21967 8.78033L5.21967 12.7803C5.51256 13.0732 5.98744 13.0732 6.28033 12.7803L14.7803 4.28033Z' fill='%238C909C'/%3E%3C/svg%3E");
 }
 
-.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message) {
   position: relative;
 }
-.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)::before {
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)::before {
   position: absolute;
   top: 9px;
   left: 15px;
@@ -6113,31 +5833,41 @@ button.hds-button[href]::after {
   cursor: pointer;
   content: "";
 }
-.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message):not([aria-selected=true])::before {
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message):not([aria-selected=true])::before {
   background-color: var(--token-form-control-base-surface-color-default);
   border-color: var(--token-form-control-base-border-color-default);
   box-shadow: var(--token-elevation-inset-box-shadow);
 }
-.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message):hover:not([aria-selected=true])::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message).mock-hover:not([aria-selected=true])::before {
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message):hover:not([aria-selected=true])::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message).mock-hover:not([aria-selected=true])::before {
   background-color: var(--token-form-control-base-surface-color-hover);
   border-color: var(--token-form-control-base-border-color-hover);
 }
-.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-disabled=true]:not([aria-selected=true])::before {
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-disabled=true]:not([aria-selected=true])::before {
   background-color: var(--token-form-control-disabled-surface-color);
   border-color: var(--token-form-control-disabled-border-color);
   box-shadow: none;
   cursor: not-allowed;
 }
-.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true])::before {
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:not([aria-disabled=true])::before {
   background-color: var(--token-form-control-checked-surface-color-default);
   background-image: var(--token-form-checkbox-background-image-data-url);
   border-color: var(--token-form-control-checked-border-color-default);
 }
-.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true][aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:hover[aria-selected=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true].mock-hover[aria-selected=true]::before {
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true][aria-current=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true]:hover[aria-selected=true]::before, .hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true].mock-hover[aria-selected=true]::before {
   background-color: var(--token-form-control-checked-border-color-default);
   border-color: var(--token-form-control-checked-border-color-hover);
 }
-.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true][aria-disabled=true]::before {
+.hds-form-super-select-multiple .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message,
+.ember-power-select-option--loading-message)[aria-selected=true][aria-disabled=true]::before {
   background-color: var(--token-form-control-disabled-surface-color);
   background-image: var(--token-form-checkbox-background-image-data-url-disabled);
   border-color: var(--token-form-control-disabled-border-color);
@@ -6145,11 +5875,13 @@ button.hds-button[href]::after {
   cursor: not-allowed;
 }
 
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message,
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message {
   padding-left: 12px;
   cursor: inherit;
 }
-.hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message::after {
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option--no-matches-message::after,
+.hds-form-super-select .ember-basic-dropdown .ember-power-select-option--loading-message::after {
   display: none;
 }
 
@@ -6177,7 +5909,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-text-input {
@@ -6280,7 +6012,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-textarea {
@@ -6331,7 +6063,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-toggle {
@@ -6441,7 +6173,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-visibility-toggle {
@@ -6455,19 +6187,19 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-form-key-value-inputs {
@@ -6579,7 +6311,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-icon {
@@ -6619,7 +6351,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-icon-tile {
@@ -6775,11 +6507,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-layout-flex {
@@ -6936,7 +6668,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-layout-grid {
@@ -7034,11 +6766,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-link-inline {
@@ -7084,7 +6816,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-link-standalone {
@@ -7212,16 +6944,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
- * SPDX-License-Identifier: MPL-2.0
- */
-.hds-menu-primitive {
-  position: relative;
-  width: fit-content;
-}
-
-/**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-modal {
@@ -7272,7 +6995,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-page-header {
@@ -7364,11 +7087,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-pagination {
@@ -7546,7 +7269,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-reveal {
@@ -7572,7 +7295,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-rich-tooltip {
@@ -7766,7 +7489,7 @@ button.hds-button[href]::after {
 
 /* clean-css ignore:end */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-segmented-group {
@@ -7853,7 +7576,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-separator {
@@ -7870,19 +7593,19 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 :root {
@@ -7905,7 +7628,7 @@ button.hds-button[href]::after {
   }
 }
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-side-nav {
@@ -8011,11 +7734,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-side-nav-header {
@@ -8059,8 +7782,6 @@ button.hds-button[href]::after {
   outline-style: solid;
   outline-color: transparent;
   isolation: isolate;
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
 }
 .hds-side-nav__home-link:focus::before, .hds-side-nav__home-link.mock-focus::before {
   position: absolute;
@@ -8084,6 +7805,10 @@ button.hds-button[href]::after {
 .hds-side-nav__home-link:focus:focus:active::before, .hds-side-nav__home-link:focus.mock-focus.mock-active::before, .hds-side-nav__home-link.mock-focus:focus:active::before, .hds-side-nav__home-link.mock-focus.mock-focus.mock-active::before {
   box-shadow: none;
 }
+.hds-side-nav__home-link:focus, .hds-side-nav__home-link.mock-focus {
+  color: var(--token-color-foreground-high-contrast);
+  background-color: var(--token-color-palette-neutral-700);
+}
 .hds-side-nav__home-link:focus::before, .hds-side-nav__home-link.mock-focus::before {
   color: var(--token-color-foreground-high-contrast);
   border: none;
@@ -8106,42 +7831,8 @@ button.hds-button[href]::after {
   gap: var(--token-side-nav-header-actions-spacing);
 }
 
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *),
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *) {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
   --token-focus-ring-action-box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
   border: 1px solid transparent;
   cursor: pointer;
@@ -8150,231 +7841,24 @@ button.hds-button[href]::after {
   background-color: var(--token-color-palette-neutral-700);
   border-radius: var(--token-button-border-radius);
 }
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):hover,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-hover {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover {
   border-color: var(--token-color-palette-neutral-500);
   color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-neutral-600);
 }
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
   position: relative;
   outline-style: solid;
   outline-color: transparent;
   isolation: isolate;
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
-  border-color: #bcc7fd;
 }
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
   position: absolute;
   top: -1px;
   right: -1px;
@@ -8384,1017 +7868,71 @@ button.hds-button[href]::after {
   border-radius: 5px;
   content: "";
 }
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before {
   box-shadow: var(--token-focus-ring-action-box-shadow);
 }
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before {
   box-shadow: none;
 }
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus-visible::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus-visible::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before {
   box-shadow: var(--token-focus-ring-action-box-shadow);
 }
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:active::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:active::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:active::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before {
   box-shadow: none;
 }
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-focus::before {
-  color: var(--token-color-foreground-high-contrast);
-  border: none;
-}
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before {
-  box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
-}
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):active,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-active {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-500);
-  border-color: var(--token-color-palette-neutral-400);
-}
-.hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled], .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover, .hds-side-nav__dropdown .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-side-nav__dropdown .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-side-nav .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-side-nav .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-side-nav .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-side-nav-header .hds-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-side-nav-header .hds-dropdown-toggle-button:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled],
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-side-nav-header .hds-dropdown-toggle-icon:not(.hds-dropdown * *,
-.ember-basic-dropdown-trigger * *,
-.ember-basic-dropdown-content * *,
-.hds-dialog-primitive__wrapper *).mock-disabled:hover {
-  color: var(--token-color-foreground-disabled);
-  background-color: var(--token-color-palette-neutral-600);
-  border-color: var(--token-color-palette-neutral-500);
-}
-
-.hds-side-nav__icon-button {
-  --token-focus-ring-action-box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
-  border: 1px solid transparent;
-  cursor: pointer;
-  border-color: var(--token-color-palette-neutral-500);
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
-  border-radius: var(--token-button-border-radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  padding: 5px;
-}
-.hds-side-nav__icon-button:hover, .hds-side-nav__icon-button.mock-hover {
-  border-color: var(--token-color-palette-neutral-500);
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-600);
-}
-.hds-side-nav__icon-button:focus, .hds-side-nav__icon-button.mock-focus {
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
   color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-neutral-700);
   border-color: #bcc7fd;
 }
-.hds-side-nav__icon-button:focus::before, .hds-side-nav__icon-button.mock-focus::before {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
-  z-index: -1;
-  border-radius: 5px;
-  content: "";
-}
-.hds-side-nav__icon-button:focus:focus::before, .hds-side-nav__icon-button:focus.mock-focus::before, .hds-side-nav__icon-button.mock-focus:focus::before, .hds-side-nav__icon-button.mock-focus.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-side-nav__icon-button:focus:focus:not(:focus-visible)::before, .hds-side-nav__icon-button.mock-focus:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-side-nav__icon-button:focus:focus-visible::before, .hds-side-nav__icon-button.mock-focus:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-side-nav__icon-button:focus:focus:active::before, .hds-side-nav__icon-button:focus.mock-focus.mock-active::before, .hds-side-nav__icon-button.mock-focus:focus:active::before, .hds-side-nav__icon-button.mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-side-nav__icon-button:focus::before, .hds-side-nav__icon-button.mock-focus::before {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
   color: var(--token-color-foreground-high-contrast);
   border: none;
 }
-.hds-side-nav__icon-button:focus:focus:not(:focus-visible)::before {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before {
   box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
 }
-.hds-side-nav__icon-button:active, .hds-side-nav__icon-button.mock-active {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active {
   color: var(--token-color-foreground-high-contrast);
   background-color: var(--token-color-palette-neutral-500);
   border-color: var(--token-color-palette-neutral-400);
 }
-.hds-side-nav__icon-button:disabled, .hds-side-nav__icon-button[disabled], .hds-side-nav__icon-button.mock-disabled, .hds-side-nav__icon-button:disabled:focus, .hds-side-nav__icon-button[disabled]:focus, .hds-side-nav__icon-button.mock-disabled:focus, .hds-side-nav__icon-button:disabled:hover, .hds-side-nav__icon-button[disabled]:hover, .hds-side-nav__icon-button.mock-disabled:hover {
+.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled], .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled],
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:focus,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:focus,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:focus,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover,
+.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover {
   color: var(--token-color-foreground-disabled);
   background-color: var(--token-color-palette-neutral-600);
   border-color: var(--token-color-palette-neutral-500);
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-side-nav__content {
@@ -9549,7 +8087,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-side-nav__toggle-button {
@@ -9634,7 +8172,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-side-nav .ember-a11y-refocus-skip-link {
@@ -9657,11 +8195,11 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-stepper-list {
@@ -9737,15 +8275,15 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-stepper-indicator-step {
@@ -10322,11 +8860,11 @@ button.hds-button[href]::after {
   }
 }
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-stepper-indicator-task {
@@ -10385,7 +8923,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-table {
@@ -10579,7 +9117,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-tabs__tablist-wrapper {
@@ -10715,7 +9253,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-tag {
@@ -10863,7 +9401,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-text--align-left {
@@ -10887,7 +9425,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-time--range {
@@ -10902,7 +9440,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-toast {
@@ -10913,7 +9451,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-tooltip-button {
@@ -11029,7 +9567,7 @@ button.hds-button[href]::after {
 }
 
 /**
- * Copyright (c) HashiCorp, Inc.
+ * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
 .sr-only {
