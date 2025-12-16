@@ -47,7 +47,7 @@
             {{on "click" this.onClear}}
           />
         </div>
-        <ul class="hds-filter-bar__filter-group__list">
+        <ul class="hds-filter-bar__filter-group__list" {{this._setUpListItems}}>
           {{yield
             (hash
               Checkbox=(component

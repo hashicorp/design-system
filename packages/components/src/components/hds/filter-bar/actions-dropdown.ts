@@ -11,7 +11,7 @@ import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button
 import type HdsIntlService from '../../../services/hds-intl';
 
 export interface HdsFilterBarActionsDropdownSignature {
-  Args: HdsDropdownSignature['Args'] & {
+  Args: {
     toggleButtonText?: HdsDropdownToggleButtonSignature['Args']['text'];
     toggleButtonIcon?: HdsDropdownToggleButtonSignature['Args']['icon'];
   };
@@ -21,9 +21,7 @@ export interface HdsFilterBarActionsDropdownSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFilterBarActionsDropdown extends Component<
-  HdsDropdownSignature & HdsFilterBarActionsDropdownSignature
-> {
+export default class HdsFilterBarActionsDropdown extends Component<HdsFilterBarActionsDropdownSignature> {
   @service hdsIntl!: HdsIntlService;
 
   get toggleButtonText(): string {
