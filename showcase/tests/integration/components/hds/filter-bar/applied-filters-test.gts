@@ -319,19 +319,19 @@ module(
       assert.dom('.hds-tag').exists({ count: 4 });
       assert
         .dom('.hds-tag .hds-tag__dismiss')
-        .hasAttribute('aria-label', 'Clear filter Date before 12/31/24');
+        .hasAttribute('aria-label', 'Clear filter Date before 1/1/25');
       assert
         .dom('.hds-tag:nth-of-type(1) .hds-tag__text')
-        .hasText('Date before 12/31/24');
+        .hasText('Date before 1/1/25');
       assert
         .dom('.hds-tag:nth-of-type(2) .hds-tag__text')
-        .hasText('Date exactly 12/31/24');
+        .hasText('Date exactly 1/1/25');
       assert
         .dom('.hds-tag:nth-of-type(3) .hds-tag__text')
-        .hasText('Date after 12/31/24');
+        .hasText('Date after 1/1/25');
       assert
         .dom('.hds-tag:nth-of-type(4) .hds-tag__text')
-        .hasText('Date between 12/31/23 and 12/31/24');
+        .hasText('Date between 1/1/24 and 1/1/25');
     });
 
     test('it should render applied filters for the time filter type from the @filters argument', async function (assert) {
