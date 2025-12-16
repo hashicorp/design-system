@@ -76,6 +76,42 @@ module(
         .hasValue('test-value');
     });
 
+    // SEARCH VALUE
+
+    test('it should show the checkbox option when the searchValue matches the label', async function (assert) {
+      await render(
+        <template>
+          <HdsFilterBarFilterGroupCheckbox
+            id="test-checkbox"
+            @label="Test label"
+            @value="test-value"
+            @searchValue="Test"
+          />
+        </template>,
+      );
+      assert
+        .dom('#test-checkbox')
+        .doesNotHaveClass(
+          'hds-filter-bar__filter-group__selection-option--hidden',
+        );
+    });
+
+    test('it should hide the checkbox option when the searchValue does not match the label', async function (assert) {
+      await render(
+        <template>
+          <HdsFilterBarFilterGroupCheckbox
+            id="test-checkbox"
+            @label="Test label"
+            @value="test-value"
+            @searchValue="non-matching-search"
+          />
+        </template>,
+      );
+      assert
+        .dom('#test-checkbox')
+        .hasClass('hds-filter-bar__filter-group__selection-option--hidden');
+    });
+
     // CALLBACKS: ONCHANGE
 
     test('it should call the onChange callback when the checkbox change event occurs', async function (assert) {
