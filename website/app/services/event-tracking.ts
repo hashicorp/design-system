@@ -30,5 +30,5 @@ export default class EventService extends Service {
       // https://usefathom.com/docs/features/events
       window.fathom?.trackEvent(eventName);
     }
-  }
+  };
 }

@@ -15,7 +15,7 @@ module.exports = function (defaults) {
     // Add options here
     babel: {
       plugins: [
-        require.resolve("ember-concurrency/async-arrow-task-transform"),
+        require.resolve('ember-concurrency/async-arrow-task-transform'),
       ],
     },
     sassOptions: {
