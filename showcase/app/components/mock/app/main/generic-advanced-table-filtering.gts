@@ -220,10 +220,6 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
     return filteredData as unknown as Record<string, unknown>[];
   }
 
-  get noFilterData() {
-    return this.filteredData.length === 0;
-  }
-
   isNumericalFilterMatch(
     itemValue: unknown,
     filter: HdsFilterBarNumericalFilter,
@@ -498,7 +494,6 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
       @maxHeight="600px"
       @isStriped={{true}}
       @hasStickyFirstColumn={{true}}
-      @isEmpty={{this.noFilterData}}
     >
       <:actions as |A|>
         {{#unless this.isSeparatedFilterBar}}
@@ -680,21 +675,16 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
         </B.Tr>
       </:body>
       <:emptyState>
-        {{#if this.noFilterData}}
-          <HdsLayoutFlex @direction="column" @gap="12">
-            <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
-            <HdsTextBody>
-              No results were found with the selected filters. Please clear or
-              update the filters.
-            </HdsTextBody>
-            <div>
-              <HdsButton
-                @text="Clear filters"
-                {{on "click" this.clearFilters}}
-              />
-            </div>
-          </HdsLayoutFlex>
-        {{/if}}
+        <HdsLayoutFlex @direction="column" @gap="12">
+          <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
+          <HdsTextBody>
+            No results were found with the selected filters. Please clear or
+            update the filters.
+          </HdsTextBody>
+          <div>
+            <HdsButton @text="Clear filters" {{on "click" this.clearFilters}} />
+          </div>
+        </HdsLayoutFlex>
       </:emptyState>
     </HdsAdvancedTable>
   </template>

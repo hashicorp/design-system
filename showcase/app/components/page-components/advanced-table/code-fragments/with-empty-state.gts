@@ -3,11 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
+import type { FolkMusic } from 'showcase/mocks/folk-music-data';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
-
-import USERS from 'showcase/mocks/user-data';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 
@@ -25,17 +24,16 @@ export interface CodeFragmentWithEmptyStateSignature {
   Element: HTMLDivElement;
 }
 
-export default class CodeFragmentWithEmptyState extends Component<CodeFragmentWithEmptyStateSignature> {
-  model = USERS.slice(0, 4);
+const EMPTY_MODEL: FolkMusic[] = [];
 
+const CodeFragmentWithEmptyState: TemplateOnlyComponent<CodeFragmentWithEmptyStateSignature> =
   <template>
     {{#if @customEmptyState}}
       <HdsAdvancedTable
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @model={{this.model}}
+        @model={{EMPTY_MODEL}}
         @columns={{DEFAULT_COLUMNS}}
         @maxHeight="400px"
-        @isEmpty={{true}}
       >
         <:emptyState>
           <ShwPlaceholder
@@ -48,11 +46,11 @@ export default class CodeFragmentWithEmptyState extends Component<CodeFragmentWi
     {{else}}
       <HdsAdvancedTable
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @model={{this.model}}
+        @model={{EMPTY_MODEL}}
         @columns={{DEFAULT_COLUMNS}}
         @maxHeight="400px"
-        @isEmpty={{true}}
       />
     {{/if}}
-  </template>
-}
+  </template>;
+
+export default CodeFragmentWithEmptyState;

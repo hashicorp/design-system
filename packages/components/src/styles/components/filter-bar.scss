@@ -190,18 +190,13 @@
 }
 
 .hds-filter-bar__filter-group__selection-option {
-  display: block;
+  display: flex;
+  align-items: self-start;
   padding: 8px 16px;
 
   &--hidden {
     display: none;
   }
-}
-
-.hds-filter-bar__filter-group__selection-option {
-  display: flex;
-  align-items: self-start;
-  padding: 8px 16px;
 
   .hds-filter-bar__filter-group__selection-option__control {
     flex-shrink: 0;

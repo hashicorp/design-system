@@ -64,19 +64,21 @@ export interface HdsFilterBarFilterGroupSignature {
 export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilterGroupSignature> {
   @tracked internalFilters: HdsFilterBarData | undefined = [];
 
-  private _panelElement!: HdsTabsPanelSignature['Element'];
+  private _searchListItemElements: HTMLLIElement[] = [];
 
-  private _setUpFilterPanel = modifier(
-    (element: HdsTabsPanelSignature['Element']) => {
-      this._panelElement = element;
-
-      if (this.keyFilter) {
-        this.internalFilters = JSON.parse(
-          JSON.stringify(this.keyFilter.data)
-        ) as HdsFilterBarData;
-      }
+  private _setUpFilterPanel = modifier(() => {
+    if (this.keyFilter) {
+      this.internalFilters = JSON.parse(
+        JSON.stringify(this.keyFilter.data)
+      ) as HdsFilterBarData;
     }
-  );
+  });
+
+  private _setUpListItems = modifier((element: HTMLUListElement) => {
+    this._searchListItemElements = element.querySelectorAll(
+      '.hds-filter-bar__filter-group__selection-option'
+    ) as unknown as HTMLLIElement[];
+  });
 
   get type(): HdsFilterBarFilterType {
     const { type } = this.args;
@@ -249,11 +251,8 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   }
 
   private onSearch = (event: Event) => {
-    const listItems = this._panelElement.querySelectorAll(
-      '.hds-filter-bar__filter-group__selection-option'
-    );
     const input = event.target as HTMLInputElement;
-    listItems.forEach((item) => {
+    this._searchListItemElements.forEach((item) => {
       if (item.textContent) {
         const text = item.textContent.toLowerCase();
         const searchText = input.value.toLowerCase();

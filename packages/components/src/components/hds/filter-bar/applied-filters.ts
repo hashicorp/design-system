@@ -177,8 +177,13 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
       options = { dateStyle: 'short', timeStyle: 'short' };
     }
 
-    const newDate = new Intl.DateTimeFormat(undefined, options);
-    return newDate.format(date);
+    // Use the intl service if available for consistent localization, and fall back to the native Intl API
+    if (this.hdsIntl.intl) {
+      return this.hdsIntl.intl.formatDate(date, options);
+    } else {
+      const newDate = new Intl.DateTimeFormat(undefined, options);
+      return newDate.format(date);
+    }
   };
 
   private _genericFilterValueText = (filter: HdsFilterBarFilter): string => {
