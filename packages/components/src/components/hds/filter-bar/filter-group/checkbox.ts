@@ -20,7 +20,7 @@ export interface HdsFilterBarFilterGroupCheckboxSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLLIElement;
+  Element: HTMLLabelElement;
 }
 
 export default class HdsFilterBarFilterGroupCheckbox extends Component<HdsFilterBarFilterGroupCheckboxSignature> {
@@ -54,6 +54,7 @@ export default class HdsFilterBarFilterGroupCheckbox extends Component<HdsFilter
     const classes = [
       'hds-filter-bar__filter-group__checkbox',
       'hds-filter-bar__filter-group__selection-option',
+      'hds-typography-body-200',
     ];
 
     if (this.isHidden) {

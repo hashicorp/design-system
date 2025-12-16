@@ -3,9 +3,7 @@ search:
   aria-label: Search
   placeholder: Search
 applied-filters:
-  toggle-button:
-    expand: Expand applied filters
-    collapse: Collapse applied filters
+  toggle-button: View applied filters
   tag:
     aria-label: Clear filter
     numerical-filter:

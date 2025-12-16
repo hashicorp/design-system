@@ -55,6 +55,7 @@ export interface HdsFilterBarFilterGroupDateSignature {
   Args: {
     keyFilter?: HdsFilterBarFilter;
     type?: HdsFilterBarFilterGroupDateType;
+    text?: string;
     onChange?: (
       selector?: HdsFilterBarDateFilterSelector,
       value?: HdsFilterBarDateFilterValue
