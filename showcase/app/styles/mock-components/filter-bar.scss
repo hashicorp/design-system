@@ -1,0 +1,41 @@
+// Mock Filter Bar
+.mock-app-main-generic-filter-bar {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 16px;
+
+  .filters {
+    display: flex;
+    gap: 12px 0;
+    align-items: end;
+
+    .filter__super-select {
+      width: 100%;
+
+      &__footer {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 12px;
+        background-color: var(--token-color-surface-strong);
+        border-top: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+      }
+    }
+
+    .hds-form-text-input {
+      width: auto;
+    }
+  }
+
+  .filter-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+.filters__toggle {
+  margin-bottom: 16px;
+}
