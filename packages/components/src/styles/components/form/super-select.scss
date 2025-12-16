@@ -392,7 +392,10 @@ $hds-super-select-item-height: 36px;
 // SINGLE
 .hds-form-super-select-single .ember-basic-dropdown {
   // Options Item
-  .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
+  .ember-power-select-option:not(
+    .ember-power-select-option--no-matches-message,
+    .ember-power-select-option--loading-message
+  ) {
     background-repeat: no-repeat;
     background-position: 15px 10px;
     background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
@@ -434,7 +437,11 @@ $hds-super-select-item-height: 36px;
 // MULTIPLE SELECT
 .hds-form-super-select-multiple .ember-basic-dropdown {
   // Options Item
-  .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
+  // We add a pesudo checkbox to each option except those that are for messages (no matches/loading)
+  .ember-power-select-option:not(
+    .ember-power-select-option--no-matches-message,
+    .ember-power-select-option--loading-message
+  ) {
     position: relative;
 
     // pseudo checkbox
@@ -517,10 +524,11 @@ $hds-super-select-item-height: 36px;
   }
 }
 
-// NO MATCHES MESSAGE
+// NO MATCHES MESSAGE & LOADING MESSAGE
 
 .hds-form-super-select .ember-basic-dropdown {
-  .ember-power-select-option--no-matches-message {
+  .ember-power-select-option--no-matches-message,
+  .ember-power-select-option--loading-message {
     padding-left: 12px;
     cursor: inherit;
     // hide the hover indicator on messages
