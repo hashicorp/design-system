@@ -74,6 +74,42 @@ module(
         .hasValue('test-value');
     });
 
+    // SEARCH VALUE
+
+    test('it should show the radio when the search value matches the label', async function (assert) {
+      await render(
+        <template>
+          <HdsFilterBarFilterGroupRadio
+            id="test-radio"
+            @label="Test label"
+            @value="test-value"
+            @searchValue="Test"
+          />
+        </template>,
+      );
+      assert
+        .dom('#test-radio.hds-filter-bar__filter-group__selection-option')
+        .doesNotHaveClass(
+          'hds-filter-bar__filter-group__selection-option--hidden',
+        );
+    });
+
+    test('it should hide the radio when the search value does not match the label', async function (assert) {
+      await render(
+        <template>
+          <HdsFilterBarFilterGroupRadio
+            id="test-radio"
+            @label="Test label"
+            @value="test-value"
+            @searchValue="non-matching-search"
+          />
+        </template>,
+      );
+      assert
+        .dom('#test-radio.hds-filter-bar__filter-group__selection-option')
+        .hasClass('hds-filter-bar__filter-group__selection-option--hidden');
+    });
+
     // CALLBACKS: ONCHANGE
 
     test('it should call the onChange callback when the radio change event occurs', async function (assert) {
