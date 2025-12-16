@@ -34,6 +34,9 @@
       {{#if @tooltip}}
         <Hds::AdvancedTable::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this._labelId}} />
       {{/if}}
+      {{#if (gt this.numFilters 0)}}
+        <Hds::BadgeCount @text={{this.numFilters}} @type="outlined" @size="small" />
+      {{/if}}
     </div>
 
     <Hds::Layout::Flex class="hds-advanced-table__th-actions" @align="center" @gap="8">
@@ -44,6 +47,15 @@
       />
 
       {{#if @column}}
+        {{#if @column.filterOptions}}
+          <Hds::AdvancedTable::ThFilterMenu
+            @column={{@column}}
+            @filters={{@filters}}
+            @isLiveFilter={{@isLiveFilter}}
+            @onFilter={{@onFilter}}
+          />
+        {{/if}}
+
         <Hds::AdvancedTable::ThContextMenu
           @column={{@column}}
           @hasReorderableColumns={{@hasReorderableColumns}}

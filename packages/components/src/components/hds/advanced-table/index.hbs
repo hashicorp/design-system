@@ -3,6 +3,16 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
+{{#if this.hasActiveFilters}}
+  <Hds::Button
+    @text="Clear all filters"
+    @color="tertiary"
+    @icon="x"
+    @size="small"
+    class="hds-advanced-table__clear-filters-button"
+    {{on "click" this.clearFilters}}
+  />
+{{/if}}
 <div
   class="hds-advanced-table__container
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
@@ -63,11 +73,14 @@
               @isStickyColumn={{this._isStickyColumn column}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @tableHeight={{this._tableHeight}}
+              @filters={{this.filters}}
+              @isLiveFilter={{@isLiveFilter}}
               @onColumnResize={{@onColumnResize}}
               @onPinFirstColumn={{this._onPinFirstColumn}}
               @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
               @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
               @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
+              @onFilter={{this.onFilter}}
               {{this._registerThElement column}}
             >
               {{column.label}}
