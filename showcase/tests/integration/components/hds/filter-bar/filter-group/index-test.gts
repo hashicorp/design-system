@@ -92,6 +92,9 @@ module(
         </template>,
       );
       assert.dom('.hds-filter-bar__filter-group__values-list').exists();
+      assert
+        .dom('.hds-filter-bar__filter-group__list legend')
+        .hasText('Filter by Name');
     });
 
     test('it should render the apporpriate content if the @type argument is single-select', async function (assert) {
@@ -111,6 +114,9 @@ module(
         </template>,
       );
       assert.dom('.hds-filter-bar__filter-group__values-list').exists();
+      assert
+        .dom('.hds-filter-bar__filter-group__list legend')
+        .hasText('Filter by Name');
     });
 
     test('it should render the apporpriate content if the @type argument is numerical', async function (assert) {
@@ -130,6 +136,9 @@ module(
         </template>,
       );
       assert.dom('.hds-filter-bar__filter-group__numerical').exists();
+      assert
+        .dom('.hds-filter-bar__filter-group__numerical legend')
+        .hasText('Filter by Name');
     });
 
     test('it should render the apporpriate content if the @type argument is date', async function (assert) {
@@ -149,6 +158,9 @@ module(
         </template>,
       );
       assert.dom('.hds-filter-bar__filter-group__date').exists();
+      assert
+        .dom('.hds-filter-bar__filter-group__date legend')
+        .hasText('Filter by Name');
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-field__label')
         .hasText('Date is');
@@ -172,6 +184,9 @@ module(
       );
       assert.dom('.hds-filter-bar__filter-group__date').exists();
       assert
+        .dom('.hds-filter-bar__filter-group__date legend')
+        .hasText('Filter by Name');
+      assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-field__label')
         .hasText('Datetime is');
     });
@@ -193,6 +208,9 @@ module(
         </template>,
       );
       assert.dom('.hds-filter-bar__filter-group__date').exists();
+      assert
+        .dom('.hds-filter-bar__filter-group__date legend')
+        .hasText('Filter by Name');
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-field__label')
         .hasText('Time is');

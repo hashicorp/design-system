@@ -154,6 +154,17 @@ module(
         .hasAria('label', 'datetime end value');
     });
 
+    // TEXT
+
+    test('it should render the text provided in the @text argument in the legend', async function (assert) {
+      await render(
+        <template><HdsFilterBarFilterGroupDate @text="Name" /></template>,
+      );
+      assert
+        .dom('.hds-filter-bar__filter-group__date legend')
+        .hasText('Filter by Name');
+    });
+
     // KEYFILTER
 
     test('it should render the content from the filter data provided in the @keyFilter argument', async function (assert) {

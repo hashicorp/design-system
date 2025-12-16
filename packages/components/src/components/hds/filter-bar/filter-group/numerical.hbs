@@ -2,12 +2,10 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::Layout::Flex
-  class="hds-filter-bar__filter-group__numerical hds-filter-bar__filter-group__fields"
-  @direction="column"
-  @gap="16"
-  ...attributes
->
+<fieldset class="hds-filter-bar__filter-group__numerical hds-filter-bar__filter-group__fields" ...attributes>
+  <legend class="sr-only">
+    {{hds-t "hds.components.filter-bar.filter-group.numerical.legend" text=@text default="Filter by number"}}
+  </legend>
   <Hds::Form::Select::Field
     @id={{this._selectorInputId}}
     class="hds-filter-bar__filter-group__field"
@@ -80,4 +78,4 @@
       {{on "click" this.onClear}}
     />
   </div>
-</Hds::Layout::Flex>
+</fieldset>

@@ -88,6 +88,17 @@ module(
         .hasValue('20');
     });
 
+    // TEXT
+
+    test('it should render the text provided in the @text argument in the legend', async function (assert) {
+      await render(
+        <template><HdsFilterBarFilterGroupNumerical @text="Name" /></template>,
+      );
+      assert
+        .dom('.hds-filter-bar__filter-group__numerical legend')
+        .hasText('Filter by Name');
+    });
+
     // CALLBACKS: ONCHANHE
 
     test('it should call the onChange callback when the selector input changes', async function (assert) {

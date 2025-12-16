@@ -1,4 +1,6 @@
-clear: Clear selection
+values-list:
+  legend: Filter by {text}
+  clear: Clear selection
 search-input:
   aria-label: Search filter options
   placeholder: Search

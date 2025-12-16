@@ -163,12 +163,17 @@
   margin: 0;
   padding: 0;
   overflow-y: auto;
-  list-style: none;
+  border: none;
   overscroll-behavior: contain;
 }
 
 .hds-filter-bar__filter-group__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
   padding: 0 16px;
+  border: none;
 
   .hds-filter-bar__filter-group__field,
   .hds-filter-bar__filter-group__field[type="date"],
@@ -182,17 +187,11 @@
   }
 }
 
-.hds-filter-bar__filter-group__numerical,
-.hds-filter-bar__filter-group__date {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .hds-filter-bar__filter-group__selection-option {
   display: flex;
   align-items: self-start;
   padding: 8px 16px;
+  color: var(--token-color-foreground-primary);
 
   &--hidden {
     display: none;
@@ -204,12 +203,12 @@
     margin-right: 8px;
   }
 
-  .hds-filter-bar__filter-group__selection-option__label {
-    display: flex;
-    flex-grow: 1;
-    align-items: flex-start;
-    color: var(--token-color-foreground-primary);
-  }
+  // .hds-filter-bar__filter-group__selection-option__label {
+  //   display: flex;
+  //   flex-grow: 1;
+  //   align-items: flex-start;
+  //   color: var(--token-color-foreground-primary);
+  // }
 }
 
 .hds-filter-bar__filter-group__clear:has(~ .hds-filter-bar__filter-group__list) {

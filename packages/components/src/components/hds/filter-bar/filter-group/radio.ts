@@ -20,7 +20,7 @@ export interface HdsFilterBarFilterGroupRadioSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLLIElement;
+  Element: HTMLLabelElement;
 }
 
 export default class HdsFilterBarFilterGroupRadio extends Component<HdsFilterBarFilterGroupRadioSignature> {
@@ -59,6 +59,7 @@ export default class HdsFilterBarFilterGroupRadio extends Component<HdsFilterBar
     const classes = [
       'hds-filter-bar__filter-group__radio',
       'hds-filter-bar__filter-group__selection-option',
+      'hds-typography-body-200',
     ];
 
     if (this.isHidden) {

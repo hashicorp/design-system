@@ -23,31 +23,49 @@
       </div>
     {{/if}}
     {{#if (eq @type "numerical")}}
-      <Hds::FilterBar::FilterGroup::Numerical @keyFilter={{this.keyFilter}} @onChange={{this.onNumericalChange}} />
+      <Hds::FilterBar::FilterGroup::Numerical
+        @keyFilter={{this.keyFilter}}
+        @text={{@text}}
+        @onChange={{this.onNumericalChange}}
+      />
     {{else if (eq @type "date")}}
-      <Hds::FilterBar::FilterGroup::Date @keyFilter={{this.keyFilter}} @onChange={{this.onDateChange}} @type="date" />
+      <Hds::FilterBar::FilterGroup::Date
+        @keyFilter={{this.keyFilter}}
+        @text={{@text}}
+        @onChange={{this.onDateChange}}
+        @type="date"
+      />
     {{else if (eq @type "datetime")}}
       <Hds::FilterBar::FilterGroup::Date
         @keyFilter={{this.keyFilter}}
+        @text={{@text}}
         @onChange={{this.onDateChange}}
         @type="datetime"
       />
     {{else if (eq @type "time")}}
-      <Hds::FilterBar::FilterGroup::Date @keyFilter={{this.keyFilter}} @onChange={{this.onDateChange}} @type="time" />
+      <Hds::FilterBar::FilterGroup::Date
+        @keyFilter={{this.keyFilter}}
+        @text={{@text}}
+        @onChange={{this.onDateChange}}
+        @type="time"
+      />
     {{else if (eq @type "generic")}}
       {{yield (hash Generic=(component "hds/filter-bar/filter-group/generic" onChange=this.onGenericChange))}}
     {{else}}
       <div class="hds-filter-bar__filter-group__values-list">
         <div class="hds-filter-bar__filter-group__clear">
           <Hds::Button
-            @text={{hds-t "hds.components.filter-bar.filter-group.clear" default="Clear selection"}}
+            @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear" default="Clear selection"}}
             @color="tertiary"
             @size="small"
             @icon="rotate-ccw"
             {{on "click" this.onClear}}
           />
         </div>
-        <ul class="hds-filter-bar__filter-group__list">
+        <fieldset class="hds-filter-bar__filter-group__list">
+          <legend class="sr-only">
+            {{hds-t "hds.components.filter-bar.filter-group.values-list.legend" text=@text default="Filter by options"}}
+          </legend>
           {{yield
             (hash
               Checkbox=(component
@@ -64,7 +82,7 @@
               )
             )
           }}
-        </ul>
+        </fieldset>
       </div>
     {{/if}}
   </Panel>

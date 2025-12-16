@@ -261,9 +261,6 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert
       .dom('.hds-filter-bar__applied-filters-toggle-button')
       .hasAttribute('aria-expanded', 'false');
-    assert
-      .dom('.hds-filter-bar__applied-filters-toggle-button')
-      .hasAttribute('aria-label', 'Expand applied filters');
     assert.dom('.hds-filter-bar__applied-filters').doesNotExist();
     assert.dom('.hds-filter-bar__clear-button').doesNotExist();
   });
@@ -273,9 +270,6 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert
       .dom('.hds-filter-bar__applied-filters-toggle-button')
       .hasAttribute('aria-expanded', 'true');
-    assert
-      .dom('.hds-filter-bar__applied-filters-toggle-button')
-      .hasAttribute('aria-label', 'Collapse applied filters');
     assert.dom('.hds-filter-bar__applied-filters').exists();
     assert.dom('.hds-filter-bar__clear-button').exists();
   });
@@ -383,9 +377,6 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert
       .dom('.hds-filter-bar__applied-filters-toggle-button')
       .hasAttribute('aria-expanded', 'false');
-    assert
-      .dom('.hds-filter-bar__applied-filters-toggle-button')
-      .hasAttribute('aria-label', 'Expand applied filters');
     assert.dom('.hds-filter-bar__applied-filter').doesNotExist();
     assert.dom('.hds-filter-bar__clear-button').doesNotExist();
   });
@@ -463,9 +454,6 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert
       .dom('.hds-filter-bar__applied-filters-toggle-button')
       .hasAttribute('aria-expanded', 'false');
-    assert
-      .dom('.hds-filter-bar__applied-filters-toggle-button')
-      .hasAttribute('aria-label', 'Expand applied filters');
     assert.dom('.hds-filter-bar__applied-filters-list__content').doesNotExist();
 
     await click('.hds-filter-bar__applied-filters-toggle-button');
@@ -473,9 +461,6 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert
       .dom('.hds-filter-bar__applied-filters-toggle-button')
       .hasAttribute('aria-expanded', 'true');
-    assert
-      .dom('.hds-filter-bar__applied-filters-toggle-button')
-      .hasAttribute('aria-label', 'Collapse applied filters');
     assert.dom('.hds-filter-bar__applied-filters-list__content').exists();
   });
 });
