@@ -164,6 +164,17 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
     let date;
     if (filterType === 'time') {
       date = new Date(`1970-01-01T${dateString}`);
+    } else if (filterType === 'date') {
+      // Parse YYYY-MM-DD as a local date to avoid timezone shifts
+      const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(dateString);
+      if (m) {
+        const year = Number(m[1]);
+        const month = Number(m[2]) - 1;
+        const day = Number(m[3]);
+        date = new Date(year, month, day);
+      } else {
+        date = new Date(dateString);
+      }
     } else {
       date = new Date(dateString);
     }
