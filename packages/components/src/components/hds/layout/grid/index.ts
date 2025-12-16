@@ -114,7 +114,7 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       '--hds-layout-grid-column-min-width'?: string;
       '--hds-layout-grid-column-fill-type'?: string;
 
-      // responsize
+      // responsive
       '--hds-layout-grid-column-width-sm'?: string;
       '--hds-layout-grid-column-width-md'?: string;
       '--hds-layout-grid-column-width-lg'?: string;
@@ -144,7 +144,7 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     // Responsize column widths
 
     if (typeof this.args.columnWidth === 'object') {
-      // if columnWidth is an array object, the first item is the default width, the second item is the responsive widths object
+      // if columnWidth is an array plus an object, the first item is the default width, the second item is the responsive widths object
       // else it's just an object with responsive widths and no default width
       const defaultWidth = Array.isArray(this.args.columnWidth)
         ? this.args.columnWidth[0]
