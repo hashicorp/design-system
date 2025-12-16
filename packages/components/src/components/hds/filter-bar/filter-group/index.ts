@@ -49,11 +49,11 @@ export interface HdsFilterBarFilterGroupSignature {
         Generic?: WithBoundArgs<typeof HdsFilterBarFilterGroupGeneric, never>;
         Checkbox?: WithBoundArgs<
           typeof HdsFilterBarFilterGroupCheckbox,
-          'keyFilter' | 'onChange'
+          'keyFilter' | 'searchValue' | 'onChange'
         >;
         Radio?: WithBoundArgs<
           typeof HdsFilterBarFilterGroupRadio,
-          'keyFilter' | 'onChange'
+          'keyFilter' | 'searchValue' | 'onChange'
         >;
       },
     ];
@@ -63,8 +63,7 @@ export interface HdsFilterBarFilterGroupSignature {
 
 export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilterGroupSignature> {
   @tracked internalFilters: HdsFilterBarData | undefined = [];
-
-  private _searchListItemElements: HTMLLIElement[] = [];
+  @tracked searchValue: string | undefined = undefined;
 
   private _setUpFilterPanel = modifier(() => {
     if (this.keyFilter) {
@@ -72,12 +71,6 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
         JSON.stringify(this.keyFilter.data)
       ) as HdsFilterBarData;
     }
-  });
-
-  private _setUpListItems = modifier((element: HTMLUListElement) => {
-    this._searchListItemElements = element.querySelectorAll(
-      '.hds-filter-bar__filter-group__selection-option'
-    ) as unknown as HTMLLIElement[];
   });
 
   get type(): HdsFilterBarFilterType {
@@ -252,20 +245,6 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
 
   private onSearch = (event: Event) => {
     const input = event.target as HTMLInputElement;
-    this._searchListItemElements.forEach((item) => {
-      if (item.textContent) {
-        const text = item.textContent.toLowerCase();
-        const searchText = input.value.toLowerCase();
-        if (text.includes(searchText)) {
-          item.classList.remove(
-            'hds-filter-bar__filter-group__selection-option--hidden'
-          );
-        } else {
-          item.classList.add(
-            'hds-filter-bar__filter-group__selection-option--hidden'
-          );
-        }
-      }
-    });
+    this.searchValue = input.value;
   };
 }
