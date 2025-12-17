@@ -11,6 +11,6 @@
 <!-- END -->
 
 <!-- START components/table/advanced-table -->
-`AdvancedTable` - Added argument `isEmpty` and named block `emptyState` for setting an empty state for the table
+`AdvancedTable` - Added a named block `emptyState` and suport for displaying content in the table when the model length is 0
 <!-- END -->
 
