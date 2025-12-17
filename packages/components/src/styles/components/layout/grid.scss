@@ -36,7 +36,7 @@
 // Note: We repeat the calculation using the view specific variables as
 // resetting just the variable values themselves doesn't work as the inline styles take precedence
 
-// "sm" view, 0–768px (mobile devices)
+// "sm" view (mobile devices)
 .hds-layout-grid--column-width-sm {
   grid-template-columns: repeat(
     var(--hds-layout-grid-column-fill-type-sm),
@@ -44,7 +44,7 @@
   );
 }
 
-// "md" view, 768px–1088px (tablets and small laptops)
+// "md" view, 768px and above (tablets and small laptops)
 .hds-layout-grid--column-width-md {
   @include hds-breakpoint-above("md") {
     grid-template-columns: repeat(
@@ -54,7 +54,7 @@
   }
 }
 
-// "lg" view, 1088px–above (large laptops and desktops)
+// "lg" view, 1088px and above (large laptops and desktops)
 .hds-layout-grid--column-width-lg {
   @include hds-breakpoint-above("lg") {
     grid-template-columns: repeat(
@@ -64,7 +64,7 @@
   }
 }
 
-// "xl" view, 1440px–1919px (extra large desktops)
+// "xl" view, 1440px and above (extra large desktops)
 .hds-layout-grid--column-width-xl {
   @include hds-breakpoint-above("xl") {
     grid-template-columns: repeat(
@@ -74,7 +74,7 @@
   }
 }
 
-// "xxl" view, 1920px–above (extra extra large desktops)
+// "xxl" view, 1920px and above (extra extra large desktops)
 .hds-layout-grid--column-width-xxl {
   @include hds-breakpoint-above("xxl") {
     grid-template-columns: repeat(
