@@ -38,17 +38,15 @@
 
 // "sm" view, 0–768px (mobile devices)
 .hds-layout-grid--column-width-sm {
-  @include hds-breakpoint-below("md") {
-    grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type-sm),
-      minmax(calc(var(--hds-layout-grid-column-width-sm) - var(--hds-layout-grid-column-gap)), 1fr)
-    );
-  }
+  grid-template-columns: repeat(
+    var(--hds-layout-grid-column-fill-type-sm),
+    minmax(calc(var(--hds-layout-grid-column-width-sm) - var(--hds-layout-grid-column-gap)), 1fr)
+  );
 }
 
 // "md" view, 768px–1088px (tablets and small laptops)
 .hds-layout-grid--column-width-md {
-  @include hds-breakpoint-between("md", "lg") {
+  @include hds-breakpoint-above("md") {
     grid-template-columns: repeat(
       var(--hds-layout-grid-column-fill-type-md),
       minmax(calc(var(--hds-layout-grid-column-width-md) - var(--hds-layout-grid-column-gap)), 1fr)
@@ -58,7 +56,7 @@
 
 // "lg" view, 1088px–above (large laptops and desktops)
 .hds-layout-grid--column-width-lg {
-  @include hds-breakpoint-between("lg", "xl") {
+  @include hds-breakpoint-above("lg") {
     grid-template-columns: repeat(
       var(--hds-layout-grid-column-fill-type-lg),
       minmax(calc(var(--hds-layout-grid-column-width-lg) - var(--hds-layout-grid-column-gap)), 1fr)
@@ -68,7 +66,7 @@
 
 // "xl" view, 1440px–1919px (extra large desktops)
 .hds-layout-grid--column-width-xl {
-  @include hds-breakpoint-between("xl", "xxl") {
+  @include hds-breakpoint-above("xl") {
     grid-template-columns: repeat(
       var(--hds-layout-grid-column-fill-type-xl),
       minmax(calc(var(--hds-layout-grid-column-width-xl) - var(--hds-layout-grid-column-gap)), 1fr)

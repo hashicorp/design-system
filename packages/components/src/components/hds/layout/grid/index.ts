@@ -36,10 +36,7 @@ export interface HdsLayoutGridSignature {
   Args: {
     tag?: AvailableTagNames;
     columnMinWidth?: string;
-    columnWidth?:
-      | string
-      | ResponsiveColumnWidths
-      | [string, ResponsiveColumnWidths];
+    columnWidth?: string | ResponsiveColumnWidths;
     align?: HdsLayoutGridAligns;
     gap?: HdsLayoutGridGaps | [HdsLayoutGridGaps, HdsLayoutGridGaps];
   };
@@ -148,43 +145,30 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     }
 
     // Responsize column widths
-
     if (typeof this.args.columnWidth === 'object') {
-      // if columnWidth is an array plus an object, the first item is the default width, the second item is the responsive widths object
-      // else it's just an object with responsive widths and no default width
-      const defaultWidth = Array.isArray(this.args.columnWidth)
-        ? this.args.columnWidth[0]
-        : undefined;
-
-      const responsiveWidths = Array.isArray(this.args.columnWidth)
-        ? this.args.columnWidth[1]
-        : this.args.columnWidth;
-
-      // Set the default width if it exists
-      if (defaultWidth) {
-        inlineStyles['--hds-layout-grid-column-min-width'] = defaultWidth;
-      }
-
-      // Set the responsive widths
-      if (responsiveWidths.sm) {
-        inlineStyles['--hds-layout-grid-column-width-sm'] = responsiveWidths.sm;
+      if (this.args.columnWidth.sm) {
+        inlineStyles['--hds-layout-grid-column-width-sm'] =
+          this.args.columnWidth.sm;
         inlineStyles['--hds-layout-grid-column-fill-type-sm'] = 'auto-fill';
       }
-      if (responsiveWidths.md) {
-        inlineStyles['--hds-layout-grid-column-width-md'] = responsiveWidths.md;
+      if (this.args.columnWidth.md) {
+        inlineStyles['--hds-layout-grid-column-width-md'] =
+          this.args.columnWidth.md;
         inlineStyles['--hds-layout-grid-column-fill-type-md'] = 'auto-fill';
       }
-      if (responsiveWidths.lg) {
-        inlineStyles['--hds-layout-grid-column-width-lg'] = responsiveWidths.lg;
+      if (this.args.columnWidth.lg) {
+        inlineStyles['--hds-layout-grid-column-width-lg'] =
+          this.args.columnWidth.lg;
         inlineStyles['--hds-layout-grid-column-fill-type-lg'] = 'auto-fill';
       }
-      if (responsiveWidths.xl) {
-        inlineStyles['--hds-layout-grid-column-width-xl'] = responsiveWidths.xl;
+      if (this.args.columnWidth.xl) {
+        inlineStyles['--hds-layout-grid-column-width-xl'] =
+          this.args.columnWidth.xl;
         inlineStyles['--hds-layout-grid-column-fill-type-xl'] = 'auto-fill';
       }
-      if (responsiveWidths.xxl) {
+      if (this.args.columnWidth.xxl) {
         inlineStyles['--hds-layout-grid-column-width-xxl'] =
-          responsiveWidths.xxl;
+          this.args.columnWidth.xxl;
         inlineStyles['--hds-layout-grid-column-fill-type-xxl'] = 'auto-fill';
       }
     }
@@ -212,25 +196,21 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     }
 
     // add classes based on responsive width arguments
-    // If an array or object is passed in for the columnWidth arg, set the respective CSS classes
+    // If an object is passed in for the columnWidth arg, set the respective CSS classes
     if (typeof this.args.columnWidth === 'object') {
-      const responsiveWidths = Array.isArray(this.args.columnWidth)
-        ? this.args.columnWidth[1]
-        : this.args.columnWidth;
-
-      if (responsiveWidths.sm) {
+      if (this.args.columnWidth.sm) {
         classes.push('hds-layout-grid--column-width-sm');
       }
-      if (responsiveWidths.md) {
+      if (this.args.columnWidth.md) {
         classes.push('hds-layout-grid--column-width-md');
       }
-      if (responsiveWidths.lg) {
+      if (this.args.columnWidth.lg) {
         classes.push('hds-layout-grid--column-width-lg');
       }
-      if (responsiveWidths.xl) {
+      if (this.args.columnWidth.xl) {
         classes.push('hds-layout-grid--column-width-xl');
       }
-      if (responsiveWidths.xxl) {
+      if (this.args.columnWidth.xxl) {
         classes.push('hds-layout-grid--column-width-xxl');
       }
     }
