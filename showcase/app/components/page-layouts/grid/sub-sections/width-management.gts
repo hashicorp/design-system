@@ -95,17 +95,17 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     as |SG|
   >
     <SG.Item
-      @label="sm view = 1 column, md view = 2 columns, lg view = 3 columns"
+      @label="sm view = 1 column, md view = 2 columns, lg view = 3 columns, xl view = 4 columns, xxl view = 5 columns"
     >
       <CodeFragmentWithPlaceholderItems
-        @columnCount={{4}}
-        @columnWidth={{hash sm="100%" md="50%" lg="33.33%"}}
+        @columnCount={{5}}
+        @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}}
       />
     </SG.Item>
 
     <SG.Item @label="sm view = 1 column, all other views = 3 columns">
       <CodeFragmentWithPlaceholderItems
-        @columnCount={{4}}
+        @columnCount={{5}}
         @columnWidth={{(array "33.33%" (hash sm="100%"))}}
       />
     </SG.Item>
