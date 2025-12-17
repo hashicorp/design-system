@@ -58,10 +58,30 @@
 
 // "lg" view, 1088px–above (large laptops and desktops)
 .hds-layout-grid--column-width-lg {
-  @include hds-breakpoint-above("lg") {
+  @include hds-breakpoint-between("lg", "xl") {
     grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type-lg),
-      minmax(calc(var(--hds-layout-grid-column-width-lg) - var(--hds-layout-grid-column-gap)), 1fr)
+      var(--hds-layout-grid-column-fill-type-md),
+      minmax(calc(var(--hds-layout-grid-column-width-md) - var(--hds-layout-grid-column-gap)), 1fr)
+    );
+  }
+}
+
+// "xl" view, 1440px–1919px (extra large desktops)
+.hds-layout-grid--column-width-xl {
+  @include hds-breakpoint-between("xl", "xxl") {
+    grid-template-columns: repeat(
+      var(--hds-layout-grid-column-fill-type-xl),
+      minmax(calc(var(--hds-layout-grid-column-width-xl) - var(--hds-layout-grid-column-gap)), 1fr)
+    );
+  }
+}
+
+// "xxl" view, 1920px–above (extra extra large desktops)
+.hds-layout-grid--column-width-xxl {
+  @include hds-breakpoint-above("xxl") {
+    grid-template-columns: repeat(
+      var(--hds-layout-grid-column-fill-type-xxl),
+      minmax(calc(var(--hds-layout-grid-column-width-xxl) - var(--hds-layout-grid-column-gap)), 1fr)
     );
   }
 }

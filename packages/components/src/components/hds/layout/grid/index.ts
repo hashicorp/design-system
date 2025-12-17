@@ -28,6 +28,8 @@ type ResponsiveColumnWidths = {
   sm?: string;
   md?: string;
   lg?: string;
+  xl?: string;
+  xxl?: string;
 };
 
 export interface HdsLayoutGridSignature {
@@ -118,10 +120,14 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       '--hds-layout-grid-column-width-sm'?: string;
       '--hds-layout-grid-column-width-md'?: string;
       '--hds-layout-grid-column-width-lg'?: string;
+      '--hds-layout-grid-column-width-xl'?: string;
+      '--hds-layout-grid-column-width-xxl'?: string;
 
       '--hds-layout-grid-column-fill-type-sm'?: string;
       '--hds-layout-grid-column-fill-type-md'?: string;
       '--hds-layout-grid-column-fill-type-lg'?: string;
+      '--hds-layout-grid-column-fill-type-xl'?: string;
+      '--hds-layout-grid-column-fill-type-xxl'?: string;
     } = {};
 
     // if both columnMinWidth and columnWidth are passed in, we throw an error
@@ -172,6 +178,15 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
         inlineStyles['--hds-layout-grid-column-width-lg'] = responsiveWidths.lg;
         inlineStyles['--hds-layout-grid-column-fill-type-lg'] = 'auto-fill';
       }
+      if (responsiveWidths.xl) {
+        inlineStyles['--hds-layout-grid-column-width-xl'] = responsiveWidths.xl;
+        inlineStyles['--hds-layout-grid-column-fill-type-xl'] = 'auto-fill';
+      }
+      if (responsiveWidths.xxl) {
+        inlineStyles['--hds-layout-grid-column-width-xxl'] =
+          responsiveWidths.xxl;
+        inlineStyles['--hds-layout-grid-column-fill-type-xxl'] = 'auto-fill';
+      }
     }
 
     return inlineStyles;
@@ -211,6 +226,12 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       }
       if (responsiveWidths.lg) {
         classes.push('hds-layout-grid--column-width-lg');
+      }
+      if (responsiveWidths.xl) {
+        classes.push('hds-layout-grid--column-width-xl');
+      }
+      if (responsiveWidths.xxl) {
+        classes.push('hds-layout-grid--column-width-xxl');
       }
     }
 
