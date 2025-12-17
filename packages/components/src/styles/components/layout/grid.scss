@@ -60,8 +60,8 @@
 .hds-layout-grid--column-width-lg {
   @include hds-breakpoint-between("lg", "xl") {
     grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type-md),
-      minmax(calc(var(--hds-layout-grid-column-width-md) - var(--hds-layout-grid-column-gap)), 1fr)
+      var(--hds-layout-grid-column-fill-type-lg),
+      minmax(calc(var(--hds-layout-grid-column-width-lg) - var(--hds-layout-grid-column-gap)), 1fr)
     );
   }
 }
