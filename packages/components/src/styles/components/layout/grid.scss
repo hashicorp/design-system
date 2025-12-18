@@ -15,7 +15,10 @@
 
   // We initialize the variables here to prevent inheritance issues in nested grids
   --hds-layout-grid-column-min-width: 0px;
-  --hds-layout-grid-column-fill-type: auto-fit;
+  // Auto-fit vs Auto-fill:
+  // * auto-fit = fluid layout, stretches child items to fill available space in a row (collapses any empty column tracks)
+  // * auto-fill = fixed layout, preserves empty column tracks in a row (does not stretch child items to fill empty space)
+  --hds-layout-grid-column-fill-type: auto-fill;
 
   display: grid;
 
@@ -39,7 +42,7 @@
 // "sm" view (mobile devices)
 .hds-layout-grid--column-width-sm {
   grid-template-columns: repeat(
-    var(--hds-layout-grid-column-fill-type-sm),
+    var(--hds-layout-grid-column-fill-type),
     minmax(calc(var(--hds-layout-grid-column-width-sm) - var(--hds-layout-grid-column-gap)), 1fr)
   );
 }
@@ -48,7 +51,7 @@
 .hds-layout-grid--column-width-md {
   @include hds-breakpoint-above("md") {
     grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type-md),
+      var(--hds-layout-grid-column-fill-type),
       minmax(calc(var(--hds-layout-grid-column-width-md) - var(--hds-layout-grid-column-gap)), 1fr)
     );
   }
@@ -58,7 +61,7 @@
 .hds-layout-grid--column-width-lg {
   @include hds-breakpoint-above("lg") {
     grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type-lg),
+      var(--hds-layout-grid-column-fill-type),
       minmax(calc(var(--hds-layout-grid-column-width-lg) - var(--hds-layout-grid-column-gap)), 1fr)
     );
   }
@@ -68,7 +71,7 @@
 .hds-layout-grid--column-width-xl {
   @include hds-breakpoint-above("xl") {
     grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type-xl),
+      var(--hds-layout-grid-column-fill-type),
       minmax(calc(var(--hds-layout-grid-column-width-xl) - var(--hds-layout-grid-column-gap)), 1fr)
     );
   }
@@ -78,7 +81,7 @@
 .hds-layout-grid--column-width-xxl {
   @include hds-breakpoint-above("xxl") {
     grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type-xxl),
+      var(--hds-layout-grid-column-fill-type),
       minmax(calc(var(--hds-layout-grid-column-width-xxl) - var(--hds-layout-grid-column-gap)), 1fr)
     );
   }
