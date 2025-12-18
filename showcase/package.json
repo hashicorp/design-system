@@ -102,6 +102,7 @@
     "ember-style-modifier": "^4.4.0",
     "ember-template-imports": "^4.3.0",
     "ember-template-lint": "^7.7.0",
+    "ember-template-lint-plugin-prettier": "^5.0.0",
     "ember-truth-helpers": "^4.0.3",
     "ember-try": "^4.0.0",
     "eslint": "^9.27.0",

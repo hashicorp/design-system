@@ -15,4 +15,14 @@ module.exports = {
     'no-builtin-form-components': false,
     'no-bare-strings': true,
   },
+  overrides: [
+    // temporary fix until the prettier plugin works with `.gts/gjs` files
+    // https://github.com/ember-template-lint/ember-template-lint-plugin-prettier/issues/268
+    {
+      files: ['**/*.{gjs,gts}'],
+      rules: {
+        prettier: false,
+      },
+    },
+  ],
 };
