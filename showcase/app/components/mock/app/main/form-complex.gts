@@ -6,6 +6,8 @@
 import Component from '@glimmer/component';
 import style from 'ember-style-modifier/modifiers/style';
 
+import type Owner from '@ember/owner';
+
 // HDS components
 import {
   HdsButton,
@@ -122,7 +124,7 @@ export default class MockAppMainFormComplex extends Component<MockAppMainFormCom
   _showButtons;
   _showErrors;
 
-  constructor(owner: unknown, args: MockAppMainFormComplexSignature['Args']) {
+  constructor(owner: Owner, args: MockAppMainFormComplexSignature['Args']) {
     super(owner, args);
     this._showIntro = this.args.showIntro ?? this.args.showAll ?? false;
     this._showCheckbox = this.args.showCheckbox ?? this.args.showAll ?? false;
