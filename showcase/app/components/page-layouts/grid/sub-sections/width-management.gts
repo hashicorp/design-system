@@ -2,6 +2,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
+import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwDivider from 'showcase/components/shw/divider';
 
@@ -10,9 +12,9 @@ import CodeFragmentWithPlaceholderItems from '../code-fragments/with-placeholder
 import { hash } from '@ember/helper';
 
 const SubSectionWidthManagement: TemplateOnlyComponent = <template>
-  <ShwTextH2>Column width management </ShwTextH2>
+  <ShwTextH2>Column width management</ShwTextH2>
 
-  <ShwTextH3>Column min width</ShwTextH3>
+  <ShwTextH3>No column min width or column width set (fluid grid layout)</ShwTextH3>
 
   <ShwGrid
     @columns={{1}}
@@ -20,10 +22,23 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     class="shw-layout-grid-example-tint-flex-items"
     as |SG|
   >
-    <SG.Item @label="No min width columns (min-width defaults to 0px)">
+    <SG.Item @label="min-width defaults to 0px">
       <CodeFragmentWithPlaceholderItems />
     </SG.Item>
+  </ShwGrid>
 
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Column min width (fluid grid layout)</ShwTextH3>
+
+  <ShwTextH4>With same number of items or more than column tracks</ShwTextH4>
+
+  <ShwGrid
+    @columns={{1}}
+    @gap="1.5rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
     <SG.Item @label="250px min width columns">
       <CodeFragmentWithPlaceholderItems @columnMinWidth="250px" />
     </SG.Item>
@@ -35,7 +50,16 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     <SG.Item @label="33.33% min width columns w/ 4 items">
       <CodeFragmentWithPlaceholderItems @columnMinWidth="33.33%" />
     </SG.Item>
+  </ShwGrid>
 
+  <ShwTextH4>With fewer items than column tracks</ShwTextH4>
+
+  <ShwGrid
+    @columns={{1}}
+    @gap="1.5rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
     <SG.Item @label="33.33% min width columns w/ 2 items">
       <CodeFragmentWithPlaceholderItems
         @columnCount={{2}}
@@ -53,7 +77,9 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH3>Column width</ShwTextH3>
+  <ShwTextH3>Column width (fixed grid layout)</ShwTextH3>
+
+  <ShwTextH4>With same number of items or more than column tracks</ShwTextH4>
 
   <ShwGrid
     @columns={{1}}
@@ -61,10 +87,23 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     class="shw-layout-grid-example-tint-flex-items"
     as |SG|
   >
+    <SG.Item @label="25% width columns w/ 4 items">
+      <CodeFragmentWithPlaceholderItems @columnWidth="25%" />
+    </SG.Item>
+
     <SG.Item @label="33.33% width columns w/ 4 items">
       <CodeFragmentWithPlaceholderItems @columnWidth="33.33%" />
     </SG.Item>
+  </ShwGrid>
 
+  <ShwTextH4>With fewer items than column tracks</ShwTextH4>
+
+  <ShwGrid
+    @columns={{1}}
+    @gap="1.5rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
     <SG.Item @label="33.33% width columns w/ 2 items">
       <CodeFragmentWithPlaceholderItems
         @columnCount={{2}}
@@ -86,7 +125,9 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH3>Responsive column width</ShwTextH3>
+  <ShwTextH4>With responsive column widths</ShwTextH4>
+
+  <ShwTextBody>With same number of items or more than column tracks</ShwTextBody>
 
   <ShwGrid
     @columns={{1}}
@@ -125,6 +166,28 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
       <CodeFragmentWithPlaceholderItems
         @columnCount={{5}}
         @columnWidth={{hash sm="50%" xxl="20%"}}
+      />
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwTextBody>With fewer items than column tracks</ShwTextBody>
+
+  <ShwGrid
+    @columns={{1}}
+    @gap="1.5rem"
+    class="shw-layout-grid-example-tint-flex-items"
+    as |SG|
+  >
+    <SG.Item @label="sm=50% md=33.33% lg=25% xl=20% xxl=16.67%">
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{1}}
+        @columnWidth={{hash
+          sm="50%"
+          md="33.33%"
+          lg="25%"
+          xl="20%"
+          xxl="16.67%"
+        }}
       />
     </SG.Item>
   </ShwGrid>
