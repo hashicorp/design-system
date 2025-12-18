@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = {
-  extends: 'recommended',
+  plugins: ['ember-template-lint-plugin-prettier'],
+  extends: ['recommended', 'ember-template-lint-plugin-prettier:recommended'],
   rules: {
     'no-html-comments': false,
     'no-trailing-spaces': true,
@@ -14,4 +15,14 @@ module.exports = {
     'no-builtin-form-components': false,
   },
   ignore: ['tests/**'],
+  overrides: [
+    // temporary fix until the prettier plugin works with `.gts/gjs` files
+    // https://github.com/ember-template-lint/ember-template-lint-plugin-prettier/issues/268
+    {
+      files: ['**/*.{gjs,gts}'],
+      rules: {
+        prettier: false,
+      },
+    },
+  ],
 };
