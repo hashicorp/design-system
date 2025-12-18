@@ -6,14 +6,12 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
+import HdsIcon from '../icon/index.gts';
 import {
   HdsBadgeColorValues,
   HdsBadgeSizeValues,
   HdsBadgeTypeValues,
 } from './types.ts';
-
-import HdsIcon from '../icon/index.gts';
-
 import type { HdsBadgeColors, HdsBadgeSizes, HdsBadgeTypes } from './types.ts';
 import type { HdsIconSignature } from '../icon';
 
