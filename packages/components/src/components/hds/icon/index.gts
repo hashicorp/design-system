@@ -44,11 +44,11 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     }
   }
 
-  get isInline(): boolean {
+  get isInline() {
     return this.args.isInline ?? false;
   }
 
-  get predefinedColor(): HdsIconColors | undefined {
+  get predefinedColor() {
     const { color } = this.args;
 
     if (color && COLORS.includes(color as HdsIconColors)) {
@@ -58,7 +58,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     }
   }
 
-  get fillColor(): string {
+  get fillColor() {
     if (this.predefinedColor !== undefined) {
       return 'currentColor';
     } else {
@@ -66,7 +66,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     }
   }
 
-  get size(): string {
+  get size() {
     return this.args.size ?? HdsIconSizeValues.Sixteen;
   }
 
@@ -77,15 +77,15 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     };
   }
 
-  get title(): string | null {
+  get title() {
     return this.args.title ?? null;
   }
 
-  get role(): string | null {
+  get role() {
     return this.args.title ? 'img' : null;
   }
 
-  get ariaLabelledby(): string | null {
+  get ariaLabelledby() {
     return this.args.title ? this._titleId : null;
   }
 
@@ -112,4 +112,30 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <svg
+      class={{this.classNames}}
+      ...attributes
+      aria-hidden={{if @title "false" "true"}}
+      aria-labelledby={{this.ariaLabelledby}}
+      data-test-icon={{@name}}
+      fill={{this.fillColor}}
+      id={{this._iconId}}
+      role={{this.role}}
+      width={{this.svgSize.width}}
+      height={{this.svgSize.height}}
+      viewBox="0 0 {{this.size}} {{this.size}}"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {{#if @title}}
+        <title id={{this._titleId}}>{{@title}}</title>
+        <g role="presentation">
+          <use href="#flight-{{@name}}-{{this.size}}" />
+        </g>
+      {{else}}
+        <use href="#flight-{{@name}}-{{this.size}}" />
+      {{/if}}
+    </svg>
+  </template>
 }
