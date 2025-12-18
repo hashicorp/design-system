@@ -18,7 +18,6 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
     "build": "rollup --config",
-    
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
