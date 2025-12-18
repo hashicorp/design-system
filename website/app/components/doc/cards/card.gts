@@ -42,6 +42,28 @@ export default class DocCardsCard extends Component<DocCardsCardSignature> {
     return classes.join(' ');
   }
 
+  get badgeType() {
+    if (this.args.status?.deprecated) {
+      return 'warning-inverted';
+    } else if (this.args.status?.updated) {
+      return 'neutral-inverted';
+    } else if (this.args.status?.added) {
+      return 'information-inverted';
+    }
+    return undefined;
+  }
+
+  get badgeLabel() {
+    if (this.args.status?.deprecated) {
+      return 'Deprecated';
+    } else if (this.args.status?.updated) {
+      return 'Updated';
+    } else if (this.args.status?.added) {
+      return 'Added';
+    }
+    return undefined;
+  }
+
   <template>
     <li class={{this.classNames}} ...attributes>
       {{#if @route}}
@@ -58,24 +80,12 @@ export default class DocCardsCard extends Component<DocCardsCardSignature> {
           />
           <div class="doc-cards-card__details">
             <p class="doc-cards-card__title">{{@title}}</p>
-            {{#if @status.deprecated}}
+            {{#if this.badgeLabel}}
               <DocBadge
                 class="doc-cards-card__badge"
-                @type="warning-inverted"
+                @type={{this.badgeType}}
                 @size="medium"
-              >Deprecated</DocBadge>
-            {{else if @status.updated}}
-              <DocBadge
-                class="doc-cards-card__badge"
-                @type="neutral-inverted"
-                @size="medium"
-              >Updated</DocBadge>
-            {{else if @status.added}}
-              <DocBadge
-                class="doc-cards-card__badge"
-                @type="information-inverted"
-                @size="medium"
-              >Added</DocBadge>
+              >{{this.badgeLabel}}</DocBadge>
             {{/if}}
             <p class="doc-cards-card_description">{{@caption}}</p>
           </div>
@@ -91,24 +101,12 @@ export default class DocCardsCard extends Component<DocCardsCardSignature> {
           />
           <div class="doc-cards-card__details">
             <p class="doc-cards-card__title">{{@title}}</p>
-            {{#if @status.deprecated}}
+            {{#if this.badgeLabel}}
               <DocBadge
                 class="doc-cards-card__badge"
-                @type="warning-inverted"
+                @type={{this.badgeType}}
                 @size="medium"
-              >Deprecated</DocBadge>
-            {{else if @status.updated}}
-              <DocBadge
-                class="doc-cards-card__badge"
-                @type="neutral-inverted"
-                @size="medium"
-              >Updated</DocBadge>
-            {{else if @status.added}}
-              <DocBadge
-                class="doc-cards-card__badge"
-                @type="information-inverted"
-                @size="medium"
-              >Added</DocBadge>
+              >{{this.badgeLabel}}</DocBadge>
             {{/if}}
             <p class="doc-cards-card_description">{{@caption}}</p>
           </div>
