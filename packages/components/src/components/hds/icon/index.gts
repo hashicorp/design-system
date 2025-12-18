@@ -4,13 +4,14 @@
  */
 
 import Component from '@glimmer/component';
-import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
+import { guidFor } from '@ember/object/internals';
 import { iconNames } from '@hashicorp/flight-icons/svg';
-import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
-import type { HdsIconSizes, HdsIconColors } from './types';
 import type { IconName } from '@hashicorp/flight-icons/svg';
 import type Owner from '@ember/owner';
+
+import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
+import type { HdsIconSizes, HdsIconColors } from './types';
 
 export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
 export const NAMES = iconNames;
