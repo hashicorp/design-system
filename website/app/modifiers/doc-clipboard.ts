@@ -34,7 +34,7 @@ export const getTextToCopy = (text: TextToCopy): string => {
     textToCopy = text.toString();
   } else {
     assert(
-      `\`hds-clipboard\` modifier - \`text\` argument must be a string or number - provided: ${typeof text}`,
+      `\`doc-clipboard\` modifier - \`text\` argument must be a string or number - provided: ${typeof text}`,
     );
   }
 
