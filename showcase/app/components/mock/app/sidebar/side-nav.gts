@@ -27,6 +27,10 @@ export interface MockAppSidebarOldSideNavSignature {
     showHeader?: boolean;
     showFooter?: boolean;
   };
+  Blocks: {
+    extraBodyAfter: [];
+    extraFooterBefore: [];
+  };
   Element: HdsSideNavSignature['Element'];
 }
 
@@ -153,9 +157,11 @@ export default class MockAppSidebarOldSideNav extends Component<MockAppSidebarOl
             @text="Documentation"
           />
         </HdsSideNavList>
+        {{yield to="extraBodyAfter"}}
       </:body>
       <:footer>
         {{#if this.showFooter}}
+          {{yield to="extraFooterBefore"}}
           <HdsDropdown
             class="hds-side-nav-hide-when-minimized shw-layout-app-frame-full-width-elem"
             @enableCollisionDetection={{true}}

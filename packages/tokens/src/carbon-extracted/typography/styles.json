@@ -4,8 +4,8 @@
       "body01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -36,8 +36,8 @@
       "body02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1,
-          "unit": "rem",
+          "$value": 16,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -68,8 +68,8 @@
       "bodyCompact01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -100,8 +100,8 @@
       "bodyCompact02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1,
-          "unit": "rem",
+          "$value": 16,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -132,8 +132,8 @@
       "bodyLong01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -164,8 +164,8 @@
       "bodyLong02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1,
-          "unit": "rem",
+          "$value": 16,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -196,8 +196,8 @@
       "bodyShort01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -228,8 +228,8 @@
       "bodyShort02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1,
-          "unit": "rem",
+          "$value": 16,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -260,8 +260,8 @@
       "caption01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.75,
-          "unit": "rem",
+          "$value": 12,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -292,8 +292,8 @@
       "caption02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -331,8 +331,8 @@
         },
         "font-size": {
           "$type": "font-size",
-          "$value": 0.75,
-          "unit": "rem",
+          "$value": 12,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -370,8 +370,8 @@
         },
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -402,8 +402,8 @@
       "display01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -434,8 +434,8 @@
       "display02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -466,8 +466,8 @@
       "display03": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -498,8 +498,8 @@
       "display04": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -530,8 +530,8 @@
       "expressiveHeading01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -562,8 +562,8 @@
       "expressiveHeading02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1,
-          "unit": "rem",
+          "$value": 16,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -594,8 +594,8 @@
       "expressiveHeading03": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.25,
-          "unit": "rem",
+          "$value": 20,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -626,8 +626,8 @@
       "expressiveHeading04": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.75,
-          "unit": "rem",
+          "$value": 28,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.75rem"
@@ -658,8 +658,8 @@
       "expressiveHeading05": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2,
-          "unit": "rem",
+          "$value": 32,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -690,8 +690,8 @@
       "expressiveHeading06": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2,
-          "unit": "rem",
+          "$value": 32,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -722,8 +722,8 @@
       "expressiveParagraph01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.5,
-          "unit": "rem",
+          "$value": 24,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.5rem"
@@ -754,8 +754,8 @@
       "fluidDisplay01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -786,8 +786,8 @@
       "fluidDisplay02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -818,8 +818,8 @@
       "fluidDisplay03": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -850,8 +850,8 @@
       "fluidDisplay04": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -882,8 +882,8 @@
       "fluidHeading03": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.25,
-          "unit": "rem",
+          "$value": 20,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -914,8 +914,8 @@
       "fluidHeading04": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.75,
-          "unit": "rem",
+          "$value": 28,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.75rem"
@@ -946,8 +946,8 @@
       "fluidHeading05": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2,
-          "unit": "rem",
+          "$value": 32,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -978,8 +978,8 @@
       "fluidHeading06": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2,
-          "unit": "rem",
+          "$value": 32,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -1010,8 +1010,8 @@
       "fluidParagraph01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.5,
-          "unit": "rem",
+          "$value": 24,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.5rem"
@@ -1049,8 +1049,8 @@
         },
         "font-size": {
           "$type": "font-size",
-          "$value": 1.25,
-          "unit": "rem",
+          "$value": 20,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -1088,8 +1088,8 @@
         },
         "font-size": {
           "$type": "font-size",
-          "$value": 2,
-          "unit": "rem",
+          "$value": 32,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -1120,8 +1120,8 @@
       "heading01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1152,8 +1152,8 @@
       "heading02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1,
-          "unit": "rem",
+          "$value": 16,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -1184,8 +1184,8 @@
       "heading03": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.25,
-          "unit": "rem",
+          "$value": 20,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -1216,8 +1216,8 @@
       "heading04": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.75,
-          "unit": "rem",
+          "$value": 28,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.75rem"
@@ -1248,8 +1248,8 @@
       "heading05": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2,
-          "unit": "rem",
+          "$value": 32,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -1280,8 +1280,8 @@
       "heading06": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -1312,8 +1312,8 @@
       "heading07": {
         "font-size": {
           "$type": "font-size",
-          "$value": 3.375,
-          "unit": "rem",
+          "$value": 54,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "3.375rem"
@@ -1344,8 +1344,8 @@
       "headingCompact01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1376,8 +1376,8 @@
       "headingCompact02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1,
-          "unit": "rem",
+          "$value": 16,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -1408,8 +1408,8 @@
       "helperText01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.75,
-          "unit": "rem",
+          "$value": 12,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -1433,8 +1433,8 @@
       "helperText02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1458,8 +1458,8 @@
       "label01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.75,
-          "unit": "rem",
+          "$value": 12,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -1490,8 +1490,8 @@
       "label02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1522,8 +1522,8 @@
       "legal01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.75,
-          "unit": "rem",
+          "$value": 12,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.75rem"
@@ -1554,8 +1554,8 @@
       "legal02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1586,8 +1586,8 @@
       "productiveHeading01": {
         "font-size": {
           "$type": "font-size",
-          "$value": 0.875,
-          "unit": "rem",
+          "$value": 14,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "0.875rem"
@@ -1618,8 +1618,8 @@
       "productiveHeading02": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1,
-          "unit": "rem",
+          "$value": 16,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1rem"
@@ -1650,8 +1650,8 @@
       "productiveHeading03": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.25,
-          "unit": "rem",
+          "$value": 20,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -1682,8 +1682,8 @@
       "productiveHeading04": {
         "font-size": {
           "$type": "font-size",
-          "$value": 1.75,
-          "unit": "rem",
+          "$value": 28,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.75rem"
@@ -1714,8 +1714,8 @@
       "productiveHeading05": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2,
-          "unit": "rem",
+          "$value": 32,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
@@ -1746,8 +1746,8 @@
       "productiveHeading06": {
         "font-size": {
           "$type": "font-size",
-          "$value": 2.625,
-          "unit": "rem",
+          "$value": 42,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2.625rem"
@@ -1778,8 +1778,8 @@
       "productiveHeading07": {
         "font-size": {
           "$type": "font-size",
-          "$value": 3.375,
-          "unit": "rem",
+          "$value": 54,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "3.375rem"
@@ -1817,8 +1817,8 @@
         },
         "font-size": {
           "$type": "font-size",
-          "$value": 1.25,
-          "unit": "rem",
+          "$value": 20,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "1.25rem"
@@ -1856,8 +1856,8 @@
         },
         "font-size": {
           "$type": "font-size",
-          "$value": 2,
-          "unit": "rem",
+          "$value": 32,
+          "unit": "px",
           "group": "cds-typography",
           "private": true,
           "cds-original-value": "2rem"
