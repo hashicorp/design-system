@@ -22,7 +22,7 @@ export async function customFormatCssThemedTokensFunctionForTarget(target: strin
       if (token.private) {
         return false;
       } else {
-        // we have to consider different conditions to decide this should be output in "common" or in "themed"
+        // we have to consider different conditions to decide if this should be output in "common" or in "themed"
         const isThemed = ('$modes' in token);
         const hasReferencesAndHasBeenTransformed = checkIfHasReferencesAndHasBeenTransformed(token, dictionary, options.usesDtcg);
         const hasPrivateReferencesWithThemedDescendants = checkIfHasPrivateReferencesWithThemedDescendants(token, dictionary, options.usesDtcg);
@@ -101,7 +101,7 @@ const checkIfHasReferencesAndHasBeenTransformed = (token: TransformedToken, dict
 
   // references can live only in strings (we ignore arrays and objects, for now)
   if (typeof originalValue === 'string') {
-    // Check if the token's value is the same as if we were resolve references on the original value
+    // Check if the token's value is the same as if we were resolving references on the original value
       const transformedValue = resolveReferences(originalValue, dictionary.unfilteredTokens ?? dictionary.tokens, {
         usesDtcg,
         warnImmediately: false,
@@ -139,7 +139,7 @@ const checkIfHasPrivateReferencesWithThemedDescendants = (
     return refs.some((ref: DesignToken) => {
       const refKey = ref.path?.join('.') || ref.name;
 
-      // skip if already visited (avoid circular references) otherwise store it
+      // skip if already visited (avoid circular references), otherwise store it
       if (visited.has(refKey)) {
         return false;
       } else {

@@ -31,7 +31,7 @@ export async function validateThemingCssFiles(_dictionary: Dictionary, config: P
     }
   });
 
-  // second validation: make sure there are no orphans CSS variables when "common" and "themed" files are used together
+  // second validation: make sure there are no orphan CSS variables when "common" and "themed" files are used together
   for (const mode of modes) {
     const { partialDefinitions: commonDefinitions, partialUsages: commonUsages } = extractAllCssVariables(allSources[mode].commonSource);
     const { partialDefinitions: themedDefinitions, partialUsages: themedUsages } = extractAllCssVariables(allSources[mode].themedSource);
