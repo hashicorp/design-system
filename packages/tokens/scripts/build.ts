@@ -70,34 +70,8 @@ for (const mode of modes) {
   });
 }
 
+
 // CUSTOM TRANSFORMS
-
-StyleDictionary.registerTransform({
-  name: 'attributes/themeable',
-  type: 'attribute',
-  transform: (token: DesignToken) => {
-    let isThemeable = false;
-
-    if ('$modes' in token) {
-      isThemeable = true;
-    }
-
-    // TODO! understand how we can make this themeable using `usesReferences`/`getReferences` - see: https://hashicorp.atlassian.net/browse/HDS-5667
-    // if (token.key === "{typography.display-500.font-family}") {
-      //   console.log('usesReferences', usesReferences(token.original.$value));
-      //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
-      //   console.log('refs', refs);
-      // }
-
-      // TODO understand if we really need this to split themeable vs non-themeable tokens - see: https://hashicorp.atlassian.net/browse/HDS-5667
-    // if (usesReferences(token.original.$value)) {
-    //   const refs = getReferences(token.original.$value, StyleDictionaryInstance.tokenMap);
-    //   isThemeable = refs.some((ref) => '$modes' in ref);
-    // }
-
-    return isThemeable ? { themeable: true } : { };
-  },
-});
 
 StyleDictionary.registerTransform({
   // the CTI convention is not outdated, but we still need to use the top-level path as `category` for the token
@@ -263,7 +237,7 @@ StyleDictionary.registerTransformGroup({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web/themed',
-  transforms: ['attributes/themeable', 'attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
