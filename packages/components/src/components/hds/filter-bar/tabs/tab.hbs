@@ -14,7 +14,7 @@
     aria-selected={{if this.isSelected "true" "false"}}
     tabindex={{unless this.isSelected "-1"}}
     {{on "click" this.onClick}}
-    {{on "keyup" this.onKeyUp}}
+    {{on "keydown" this.onKeydown}}
     {{this._setUpTab this.didInsertNode this.willDestroyNode}}
   >
     <Hds::Text::Body @size="200" @weight="medium" class="hds-filter-bar__tabs__tab__text">{{yield}}</Hds::Text::Body>

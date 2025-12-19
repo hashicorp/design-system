@@ -31,7 +31,7 @@ export interface HdsFilterBarTabsSignature {
           | 'didInsertNode'
           | 'willDestroyNode'
           | 'onClick'
-          | 'onKeyUp'
+          | 'onKeydown'
         >;
         Panel?: WithBoundArgs<
           typeof HdsFilterBarTabsPanelComponent,
@@ -114,13 +114,15 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   }
 
   @action
-  onKeyUp(event: KeyboardEvent, tabIndex: number): void {
+  onKeydown(event: KeyboardEvent, tabIndex: number): void {
     const leftArrow = 'ArrowLeft';
     const rightArrow = 'ArrowRight';
     const upArrow = 'ArrowUp';
     const downArrow = 'ArrowDown';
     const enterKey = 'Enter';
     const spaceKey = ' ';
+
+    event.preventDefault();
 
     if (event.key === rightArrow || event.key === downArrow) {
       const nextTabIndex = (tabIndex + 1) % this._tabIds.length;

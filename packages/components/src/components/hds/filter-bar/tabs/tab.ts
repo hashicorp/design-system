@@ -17,7 +17,7 @@ export interface HdsFilterBarTabsTabSignature {
     didInsertNode?: () => void;
     willDestroyNode?: (element: HTMLButtonElement) => void;
     onClick?: (event: MouseEvent, nodeIndex: number) => void;
-    onKeyUp?: (event: KeyboardEvent, nodeIndex: number) => void;
+    onKeydown?: (event: KeyboardEvent, nodeIndex: number) => void;
   };
   Blocks: {
     default: [];
@@ -92,11 +92,11 @@ export default class HdsFilterBarTabsTab extends Component<HdsFilterBarTabsTabSi
   }
 
   @action
-  onKeyUp(event: KeyboardEvent): void {
-    const { onKeyUp } = this.args;
+  onKeydown(event: KeyboardEvent): void {
+    const { onKeydown } = this.args;
 
-    if (this.nodeIndex !== undefined && typeof onKeyUp === 'function') {
-      onKeyUp(event, this.nodeIndex);
+    if (this.nodeIndex !== undefined && typeof onKeydown === 'function') {
+      onKeydown(event, this.nodeIndex);
     }
   }
 
