@@ -43,6 +43,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       return {
         ...baseConfig,
         source: [
+          // `src/test/**/*.json`,
           `src/carbon-extracted/**/*.json`,
           `src/global/**/*.json`,
           `src/products/shared/**/*.json`
@@ -95,6 +96,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       return {
         ...baseConfig,
         source: [
+          // `src/test/**/*.json`,
           `src/carbon-extracted/**/*.json`,
           `src/global/**/*.json`,
           `src/products/shared/**/*.json`
