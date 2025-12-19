@@ -1,0 +1,3 @@
+export default function (id) {
+    return `<symbol id="${id}" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 1.5v13a6.5 6.5 0 100-13z" clip-rule="evenodd"/></symbol>`;
+}
