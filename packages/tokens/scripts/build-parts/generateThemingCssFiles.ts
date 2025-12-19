@@ -9,6 +9,8 @@ import prettier from 'prettier';
 import type { Dictionary, PlatformConfig }  from 'style-dictionary';
 import { fileHeader } from 'style-dictionary/utils';
 
+import { getSourceFromFileWithRootSelector } from './getSourceFromFileWithRootSelector.ts';
+
 export async function generateThemingCssFiles(_dictionary: Dictionary, config: PlatformConfig): Promise<void> {
 
   const commonSource = await getSourceFromFileWithRootSelector(config, 'default', 'common-tokens.css');
@@ -90,12 +92,6 @@ export async function generateThemingCssFiles(_dictionary: Dictionary, config: P
     await fs.ensureDir(outputFolder);
     await fs.writeFile(`${outputFolder}tokens.css`, outputTokensCss);
   }
-}
-
-async function getSourceFromFileWithRootSelector(config: PlatformConfig, theme: string, path: string): Promise<string> {
-  const rawSource = await fs.readFile(`${config.buildPath}themed-tokens/with-root-selector/${theme}/${path}`, 'utf8');
-  const header = await fileHeader({});
-  return rawSource.replace(header, '');
 }
 
 function getCssVariablesStalenessComment(): string {
