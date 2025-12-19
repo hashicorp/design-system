@@ -17,6 +17,7 @@ import { dirname } from 'path';
 import { cloneDeep } from 'lodash-es';
 
 import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
+import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
 import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
 import { generateThemingDocsFiles } from './build-parts/generateThemingDocsFiles.ts';
@@ -274,6 +275,18 @@ StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
   transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
+
+
+// CUSTOM FORMATS
+
+for (const target of ['common', 'themed']) {
+  // note: customFormatCssThemedTokensFunction is a higher-order function, that takes `target` as argument and returns a "format" function
+  const customFormatCssThemedTokensFunction = await customFormatCssThemedTokensFunctionForTarget(target);
+  StyleDictionary.registerFormat({
+    name: `css/themed-tokens/with-root-selector/${target}`,
+    format: customFormatCssThemedTokensFunction,
+  });
+}
 
 StyleDictionary.registerFormat({
   name: 'docs/json',
