@@ -34,7 +34,14 @@
   gap: var(--hds-layout-grid-row-gap) var(--hds-layout-grid-column-gap);
 }
 
-// responsive column widths (sm, md, lg)
+// Fluid column fill type (auto-fit)
+// If neither columnMinWidth nor columnWidth are passed in -OR- only columnMinWidth is passed in:
+// * We set it to use "auto-fit" for a more fluid layout
+.hds-layout-grid--column-fill-type-auto-fit {
+  --hds-layout-grid-column-fill-type: auto-fit;
+}
+
+// Responsive column widths (sm, md, lg, xl, xxl)
 
 // Note: We repeat the calculation using the view specific variables as
 // resetting just the variable values themselves doesn't work as the inline styles take precedence
@@ -105,11 +112,11 @@
   align-items: stretch;
 }
 
-// gap
+// Gap
 
 // We set the values of the gap custom properties overriding the default value of 0
 
-// row
+// row gap
 .hds-layout-grid--row-gap-0 {
   --hds-layout-grid-row-gap: 0px;
 }
@@ -142,7 +149,7 @@
   --hds-layout-grid-row-gap: 48px;
 }
 
-// column
+// column gap
 .hds-layout-grid--column-gap-0 {
   --hds-layout-grid-column-gap: 0px;
 }
