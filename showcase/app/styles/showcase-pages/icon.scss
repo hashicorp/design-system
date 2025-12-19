@@ -4,22 +4,23 @@
  */
 
 // ICON
-// The icon page is currently displayed in 2 places,
-// foundations for FlightIcon and components for Hds::icon
+
+@use "../typography" as *;
+
 body.page-components-icon {
-  .shw-foundation-outline-icons {
+  .shw-component-outline-icons {
     .hds-icon {
       outline: 1px dotted #CCC;
     }
   }
 
-  .shw-foundation-icon-container-flex {
+  .shw-component-icon-container-flex {
     display: flex;
     gap: 4px;
     align-items: center;
   }
 
-  .shw-foundation-icon-container-grid {
+  .shw-component-icon-container-grid {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 4px;
@@ -30,5 +31,71 @@ body.page-components-icon {
     width: fit-content;
     background: #0c0c0e;
     outline: 2px solid #0c0c0e;
+  }
+
+  // LIBRARY
+
+  .shw-component-icon-library-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .shw-component-icon-library-filter {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .shw-component-icon-library-filter-label {
+    @include shw-font-family('gilmer');
+
+    margin: 0;
+    color: var(--shw-color-black);
+    font-size: 0.9rem;
+    line-height: 20px;
+  }
+
+  .shw-component-icon-library-filter-control {
+    @include shw-font-family('gilmer');
+
+    height: 24px;
+    padding: 2px 24px 2px 8px;
+    color: var(--shw-color-gray-100);
+    font-size: 0.8rem;
+    background-color: var(--shw-color-gray-600);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.34572 7H20.6543C21.8517 7 22.4504 8.4463 21.6028 9.29391L12.9519 17.9515C12.4272 18.4763 11.5728 18.4763 11.0481 17.9515L2.39722 9.29391C1.54961 8.4463 2.14832 7 3.34572 7Z' fill='%23808080'/%3E%3C/svg%3E"); // notice: the 'caret' color is hardcoded here!
+    background-repeat: no-repeat;
+    background-position: right 6px top 4px;
+    background-size: 12px 12px;
+    border: 1px solid var(--shw-color-gray-400);
+    border-radius: 3px;
+    appearance: none;
+
+    &:hover {
+      background-color: var(--shw-color-gray-500);
+    }
+
+    &:where(:focus-visible) {
+      outline: 2px dashed var(--shw-color-action-active-foreground);
+    }
+  }
+
+  .shw-component-icon-library-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .shw-component-icon-library-filter-carbonized {
+    .shw-component-icon-library-item:has(.hds-icon:not([data-has-carbon-equivalent])) {
+      opacity: 0.1;
+    }
+  }
+
+  .shw-component-icon-library-filter-non-carbonized {
+    .shw-component-icon-library-item:has(.hds-icon[data-has-carbon-equivalent]) {
+      opacity: 0.1;
+    }
   }
 }
