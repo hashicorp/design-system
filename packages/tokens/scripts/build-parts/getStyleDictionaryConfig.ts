@@ -11,15 +11,15 @@ export const modes = ['default', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100'];
 export type Target = typeof targets[number];
 export type Mode = typeof modes[number];
 
-// uncomment this to enable debugging
+// comment/uncomment this to disable/enable debugging
 const baseConfig: Config = {
-  // log: {
-  //   warnings: 'warn', // options: warn | error | disabled
-  //   verbosity: 'verbose', // options: default | silent | verbose
-  //   errors: {
-  //     brokenReferences: 'console', // options: throw | console
-  //   },
-  // }
+  log: {
+    warnings: 'warn', // options: warn | error | disabled
+    verbosity: 'verbose', // options: default | silent | verbose
+    errors: {
+      brokenReferences: 'console', // options: throw | console
+    },
+  }
 };
 
 const excludePrivateTokens = (token: DesignToken) => {
