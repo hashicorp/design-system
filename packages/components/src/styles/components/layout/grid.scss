@@ -15,10 +15,11 @@
 
   // We initialize the variables here to prevent inheritance issues in nested grids
   --hds-layout-grid-column-min-width: 0px;
+
   // Auto-fit vs Auto-fill:
   // * auto-fit = fluid layout, stretches child items to fill available space in a row (collapses any empty column tracks)
   // * auto-fill = fixed layout, preserves empty column tracks in a row (does not stretch child items to fill empty space)
-  --hds-layout-grid-column-fill-type: auto-fill;
+  --hds-layout-grid-column-fill-type: auto-fit; // (fluid layout by default)
 
   display: grid;
 
@@ -34,20 +35,19 @@
   gap: var(--hds-layout-grid-row-gap) var(--hds-layout-grid-column-gap);
 }
 
-// Fluid column fill type (auto-fit)
-// If neither columnMinWidth nor columnWidth are passed in -OR- only columnMinWidth is passed in:
-// * We set it to use "auto-fit" for a more fluid layout
-.hds-layout-grid--column-fill-type-auto-fit {
-  --hds-layout-grid-column-fill-type: auto-fit;
-}
-
+// ColumnWidth
 // Responsive column widths (sm, md, lg, xl, xxl)
 
 // Note: We repeat the calculation using the view specific variables as
 // resetting just the variable values themselves doesn't work as the inline styles take precedence
 
+// Note: We use a mobile-first layout approach, so the "sm" styles are defined outside of any breakpoint mixin and are
+// inherited if not overridden by larger view styles
+
 // "sm" view (mobile devices)
 .hds-layout-grid--column-width-sm {
+  --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+
   grid-template-columns: repeat(
     var(--hds-layout-grid-column-fill-type),
     minmax(calc(var(--hds-layout-grid-column-width-sm) - var(--hds-layout-grid-column-gap)), 1fr)
@@ -57,6 +57,8 @@
 // "md" view, 768px and above (tablets and small laptops)
 .hds-layout-grid--column-width-md {
   @include hds-breakpoint-above("md") {
+    --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+
     grid-template-columns: repeat(
       var(--hds-layout-grid-column-fill-type),
       minmax(calc(var(--hds-layout-grid-column-width-md) - var(--hds-layout-grid-column-gap)), 1fr)
@@ -67,6 +69,8 @@
 // "lg" view, 1088px and above (large laptops and desktops)
 .hds-layout-grid--column-width-lg {
   @include hds-breakpoint-above("lg") {
+    --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+
     grid-template-columns: repeat(
       var(--hds-layout-grid-column-fill-type),
       minmax(calc(var(--hds-layout-grid-column-width-lg) - var(--hds-layout-grid-column-gap)), 1fr)
@@ -77,6 +81,8 @@
 // "xl" view, 1440px and above (extra large desktops)
 .hds-layout-grid--column-width-xl {
   @include hds-breakpoint-above("xl") {
+    --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+
     grid-template-columns: repeat(
       var(--hds-layout-grid-column-fill-type),
       minmax(calc(var(--hds-layout-grid-column-width-xl) - var(--hds-layout-grid-column-gap)), 1fr)
@@ -87,6 +93,8 @@
 // "xxl" view, 1920px and above (extra extra large desktops)
 .hds-layout-grid--column-width-xxl {
   @include hds-breakpoint-above("xxl") {
+    --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+
     grid-template-columns: repeat(
       var(--hds-layout-grid-column-fill-type),
       minmax(calc(var(--hds-layout-grid-column-width-xxl) - var(--hds-layout-grid-column-gap)), 1fr)

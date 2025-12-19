@@ -136,7 +136,7 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     as |SG|
   >
     <SG.Item
-      @label="sm view = 1 column, md view = 2 columns, lg view = 3 columns, xl view = 4 columns, xxl view = 5 columns"
+      @label="All views defined, sm view = 1 column, md view = 2 columns, lg view = 3 columns, xl view = 4 columns, xxl view = 5 columns"
     >
       <CodeFragmentWithPlaceholderItems
         @columnCount={{5}}
@@ -144,7 +144,9 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
       />
     </SG.Item>
 
-    <SG.Item @label="sm view = 1 column, md & all other views = 3 columns">
+    <SG.Item
+      @label="Only sm & md defined, sm view = 1 column, md & other views = 3 columns"
+    >
       <CodeFragmentWithPlaceholderItems
         @columnCount={{5}}
         @columnWidth={{hash sm="100%" md="33.33%"}}
@@ -152,7 +154,7 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     </SG.Item>
 
     <SG.Item
-      @label="sm view = 1 column, md & all other views except xxl = 3 columns, xxl = 5 columns"
+      @label="Only sm, md, & xxl defined, sm view = 1 column, other views except xxl = 3 columns, xxl = 5 columns"
     >
       <CodeFragmentWithPlaceholderItems
         @columnCount={{5}}
@@ -161,11 +163,20 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     </SG.Item>
 
     <SG.Item
-      @label="sm view & all other views except xxl = 2 columns, xxl = 5 columns"
+      @label="Only sm & xxl defined, other views except xxl = 2 columns, xxl = 5 columns"
     >
       <CodeFragmentWithPlaceholderItems
         @columnCount={{5}}
         @columnWidth={{hash sm="50%" xxl="20%"}}
+      />
+    </SG.Item>
+
+    <SG.Item
+      @label="sm & md are undefined, lg = 3 columns, xl = 4 columns, xxl = 5 columns"
+    >
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{5}}
+        @columnWidth={{hash lg="33.33%" xl="25%" xxl="20%"}}
       />
     </SG.Item>
   </ShwGrid>
@@ -178,7 +189,9 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
     class="shw-layout-grid-example-tint-flex-items"
     as |SG|
   >
-    <SG.Item @label="sm=50% md=33.33% lg=25% xl=20% xxl=16.67%">
+    <SG.Item
+      @label="All views defined, sm = 2 columns, md = 3 columns, lg = 4 columns, xl = 5 columns, xxl = 6 columns"
+    >
       <CodeFragmentWithPlaceholderItems
         @columnCount={{1}}
         @columnWidth={{hash
@@ -188,6 +201,22 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
           xl="20%"
           xxl="16.67%"
         }}
+      />
+    </SG.Item>
+
+    <SG.Item
+      @label="sm & md are undefined, lg = 3 columns, xl = 4 columns, xxl = 5 columns"
+    >
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{2}}
+        @columnWidth={{hash lg="33.33%" xl="25%" xxl="20%"}}
+      />
+    </SG.Item>
+
+    <SG.Item @label="Only sm is defined, sm = 2 columns">
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{1}}
+        @columnWidth={{hash sm="50%"}}
       />
     </SG.Item>
   </ShwGrid>

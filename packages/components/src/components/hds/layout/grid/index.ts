@@ -97,17 +97,18 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
   /*
     LOGIC:
 
+     Default layout behavior:
+     --hds-layout-grid-column-fill-type is set to auto-fit (fluid layout)
+
     If neither columnMinWidth nor columnWidth are passed in:
-    1) We do not set --hds-layout-grid-column-min-width (defaults to 0px)
-    2) In the CSS, we use "auto-fit" for --hds-layout-grid-column-fill-type (fluid layout)
+    * We do not set --hds-layout-grid-column-min-width (defaults to 0px)
     
     If columnMinWidth is passed in:
-    1) We set --hds-layout-grid-column-min-width to the passed in value
-    2) In the CSS, we use "auto-fit" for --hds-layout-grid-column-fill-type (fluid layout)
+    * We set --hds-layout-grid-column-min-width to the passed in value
 
-    If columnWidth is passed in:
-    1) we set --hds-layout-grid-column-min-width to the passed in value
-    2) In the CSS, we use "auto-fill" for --hds-layout-grid-column-fill-type (fixed layout)
+    If a columnWidth value is passed in:
+    1) we set --hds-layout-grid-column-min-width to the passed in value for the view
+    2) In the CSS, we use "auto-fill" for --hds-layout-grid-column-fill-type for the view (fixed layout)
 
     If both columnMinWidth & columnWidth are passed in:
     * We throw an error, as it doesn't make sense in the context of a CSS grid layout (too complex to determine which to use & desired behavior)
@@ -185,15 +186,6 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
         classes.push(`hds-layout-grid--row-gap-${this.gap[0]}`);
         classes.push(`hds-layout-grid--column-gap-${this.gap[0]}`);
       }
-    }
-
-    // Add class to set column-fill-type to "auto-fit" if neither columnWidth nor columnMinWidth are passed in
-    // OR only columnMinWidth is passed in (for a more fluid layout)
-    if (
-      (!this.args.columnMinWidth && !this.args.columnWidth) ||
-      (this.args.columnMinWidth && !this.args.columnWidth)
-    ) {
-      classes.push('hds-layout-grid--column-fill-type-auto-fit');
     }
 
     // add classes based on responsive width arguments
