@@ -36,6 +36,11 @@
 }
 
 // ColumnWidth
+// Non-responsive column width
+.hds-layout-grid--column-width-non-responsive {
+  --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+}
+
 // Responsive column widths (sm, md, lg, xl, xxl)
 
 // Note: We repeat the calculation using the view specific variables as
