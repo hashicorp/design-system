@@ -18,6 +18,7 @@ import { cloneDeep } from 'lodash-es';
 
 import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
 import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
+import { customFormatDocsJsonFunction } from './build-parts/customFormatDocsJson.ts';
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
 import { generateThemingCssFiles } from './build-parts/generateThemingCssFiles.ts';
 import { generateThemingDocsFiles } from './build-parts/generateThemingDocsFiles.ts';
@@ -290,21 +291,7 @@ for (const target of ['common', 'themed']) {
 
 StyleDictionary.registerFormat({
   name: 'docs/json',
-  format: function (dictionary: any) {
-    // console.log(dictionary.allTokens);
-    // Notice: this object shape is used also in the documentation so any updates
-    // to this format should be reflected in the corresponding type definition.
-    const output: {}[] = [];
-    dictionary.allTokens.forEach((token: any) => {
-      // we remove the "filePath" prop from the token because the orginal file path is irrelevant for us
-      // (plus its value is an absolute path, so it causes useless diffs in git)
-      const outputToken = cloneDeep(token);
-      delete outputToken.filePath;
-      delete outputToken.isSource;
-      output.push(outputToken);
-    });
-    return JSON.stringify(output, null, 2);
-  },
+  format: customFormatDocsJsonFunction,
 });
 
 StyleDictionary.registerAction({
