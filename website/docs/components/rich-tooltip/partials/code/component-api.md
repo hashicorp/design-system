@@ -122,6 +122,12 @@ Most of the arguments are forwarded as `anchoredPositionOptions` to the underlyi
   <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
     By default, the bubble adapts to its content size. If an `@height` parameter is provided, then the bubble will have a fixed height.
   </C.Property>
+  <C.Property @name="boundary" @type="Boundary | string">
+    Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a `Boundary` type as specified in the [Floating UI library documentation](https://floating-ui.com/docs/detectoverflow#options) or an id string for the boundary container element.
+    <br />
+    <br />
+    Must be used in conjunction with setting `enableCollisionDetection` to `true`.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
