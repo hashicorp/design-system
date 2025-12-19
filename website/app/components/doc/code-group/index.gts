@@ -8,7 +8,6 @@ import { tracked } from '@glimmer/tracking';
 import { notEq, eq } from 'ember-truth-helpers';
 import { guidFor } from '@ember/object/internals';
 import type Owner from '@ember/owner';
-import { modifier } from 'ember-modifier';
 
 import DynamicTemplate from 'website/components/dynamic-template';
 import DocCodeGroupCopyButton from 'website/components/doc/code-group/copy-button';
@@ -40,7 +39,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @tracked isExpanded = false;
 
   componentId = guidFor(this);
-  codeSnippetWrapperElement!: HTMLDivElement;
 
   constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
     super(owner, args);
@@ -48,10 +46,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       this.currentView = 'js';
     }
   }
-
-  registerCodeSnippetWrapper = modifier((element: HTMLDivElement) => {
-    this.codeSnippetWrapperElement = element;
-  });
 
   get unescapedHbsSnippet() {
     return unescapeCode(this.args.hbsSnippet ?? '');
@@ -189,10 +183,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
           />
         </div>
       {{/if}}
-      <div
-        class="doc-code-group__code-snippet-wrapper"
-        {{this.registerCodeSnippetWrapper}}
-      >
+      <div class="doc-code-group__code-snippet-wrapper">
         {{#if (eq this.currentView "gts")}}
           <div class="doc-code-group__expand-button-container">
             <DocCodeGroupExpandButton
