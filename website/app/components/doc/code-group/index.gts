@@ -115,15 +115,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return options;
   }
 
-  get gtsSnippet() {
-    if (this.isExpanded) {
-      return this.unescapedGtsSnippet;
-    }
-
-    // When not expanded, show just the content inside the <template> tags
-    return this.shortenedGtsSnippet;
-  }
-
   get language() {
     if (this.currentView === 'gts' && this.isExpanded) {
       return 'gts';
@@ -140,9 +131,16 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     if (this.currentView === 'js') {
       return this.unescapedJsSnippet;
     }
-    return this.currentView === 'hbs'
-      ? this.unescapedHbsSnippet
-      : this.gtsSnippet;
+
+    if (this.currentView === 'gts') {
+      if (this.isExpanded) {
+        return this.unescapedGtsSnippet;
+      }
+      // When not expanded, show just the content inside the <template> tags
+      return this.shortenedGtsSnippet;
+    }
+
+    return this.unescapedHbsSnippet;
   }
 
   handleLanguageChange = (event: Event) => {
