@@ -14,19 +14,6 @@ import type HdsThemingService from '@hashicorp/design-system-components/services
 module('Integration | Component | hds/theme-switcher/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  let themingService: HdsThemingService;
-
-  hooks.beforeEach(function () {
-    themingService = this.owner.lookup(
-      'service:hds-theming',
-    ) as HdsThemingService;
-  });
-
-  hooks.afterEach(function () {
-    // Reset the theme after each test
-    themingService.setTheme({ theme: undefined });
-  });
-
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       <template><HdsThemeSwitcher id="test-theme-switcher" /></template>,
@@ -93,37 +80,62 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
   });
 
   test('it should display "System" label when system theme is set', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
     themingService.setTheme({ theme: 'system' });
+
     await render(
       <template><HdsThemeSwitcher id="test-theme-switcher" /></template>,
     );
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('System');
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 
   test('it should display "Light" label when light theme is set', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
     themingService.setTheme({ theme: 'light' });
+
     await render(
       <template><HdsThemeSwitcher id="test-theme-switcher" /></template>,
     );
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('Light');
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 
   test('it should display "Dark" label when dark theme is set', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
     themingService.setTheme({ theme: 'dark' });
+
     await render(
       <template><HdsThemeSwitcher id="test-theme-switcher" /></template>,
     );
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('Dark');
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 
   test('it should display "Default" label when default theme is set and hasDefaultOption is true', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
     themingService.setTheme({ theme: 'default' });
+
     await render(
       <template>
         <HdsThemeSwitcher @hasDefaultOption={{true}} id="test-theme-switcher" />
@@ -132,20 +144,36 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('Default');
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 
   // HAS DEFAULT OPTION
 
   test('it should not include the "Default" option by default', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+    themingService.setTheme({ theme: 'default' });
+
     await render(
       <template><HdsThemeSwitcher id="test-theme-switcher" /></template>,
     );
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').exists({ count: 3 });
     assert.dom('.hds-dropdown-list-item').doesNotContainText('Default');
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 
   test('it should include the "Default" option when `@hasDefaultOption` is `true`', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+    themingService.setTheme({ theme: 'default' });
+
     await render(
       <template>
         <HdsThemeSwitcher @hasDefaultOption={{true}} id="test-theme-switcher" />
@@ -154,19 +182,35 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').exists({ count: 4 });
     assert.dom('.hds-dropdown-list-item').containsText('Default');
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 
   // HAS SYSTEM OPTION
 
   test('it should include the "System" option by default', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+    themingService.setTheme({ theme: 'default' });
+
     await render(
       <template><HdsThemeSwitcher id="test-theme-switcher" /></template>,
     );
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').containsText('System');
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 
   test('it should not include the "System" option when `@hasSystemOption` is `false`', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+    themingService.setTheme({ theme: 'default' });
+
     await render(
       <template>
         <HdsThemeSwitcher @hasSystemOption={{false}} id="test-theme-switcher" />
@@ -175,11 +219,19 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').exists({ count: 2 });
     assert.dom('.hds-dropdown-list-item').doesNotContainText('System');
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 
   // THEME SELECTION
 
   test('it should update the theme in the service and the label in the toggle when a dropdown option is selected', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+    themingService.setTheme({ theme: 'default' });
+
     await render(
       <template>
         <HdsThemeSwitcher
@@ -236,11 +288,19 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('Default');
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 
   // CALLBACKS
 
   test('it should call @onSetTheme callback when provided', async function (assert) {
+    const themingService = this.owner.lookup(
+      'service:hds-theming',
+    ) as HdsThemingService;
+    themingService.setTheme({ theme: 'default' });
+
     const onSetTheme = sinon.spy();
 
     await render(
@@ -254,5 +314,8 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     await click('.hds-dropdown-list-item:nth-of-type(3) button');
 
     assert.true(onSetTheme.calledOnce);
+
+    // we need to reset the theme after each test
+    themingService.setTheme({ theme: undefined });
   });
 });
