@@ -75,4 +75,4 @@ Set `isStatic` to `true` on an `Accordion::Item` to remove the ability to intera
 
 By default, the `containsInteractive` property of the `Accordion::Item` is set to `false`, meaning that the entire `Accordion::Item` toggle block can be clicked to hide and show the associated content. If set to `true`, only the chevron button of the `Accordion::Item` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
 
-[[demo: code-snippets/accordion-contains-interactive-2.hbs]]
+[[demo: code-snippets/accordion-contains-interactive-complex.hbs]]
