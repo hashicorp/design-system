@@ -7,13 +7,9 @@ import FastBootService from 'ember-cli-fastboot/services/fastboot';
 import { HdsAccordion } from '@hashicorp/design-system-components/components';
 import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
 
-interface AccordionPersistStateSignature {
-  Element: HdsAccordionSignature['Element'];
-}
-
 const STORAGE_KEY = 'website:accordion:item-2-state';
 
-export default class AccordionPersistState extends Component<AccordionPersistStateSignature> {
+export default class AccordionPersistState extends Component {
   @tracked itemState: HdsAccordionSignature['Args']['forceState'];
   @service declare fastboot: FastBootService;
 

@@ -1,14 +1,9 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import { HdsAccordion } from '@hashicorp/design-system-components/components';
-import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
 
-interface AccordionOpenSignature {
-  Element: HdsAccordionSignature['Element'];
-}
-
-const AccordionOpen: TemplateOnlyComponent<AccordionOpenSignature> = <template>
-  <HdsAccordion ...attributes as |A|>
+const AccordionOpen: TemplateOnlyComponent = <template>
+  <HdsAccordion as |A|>
     <A.Item @isOpen={{true}}>
       <:toggle>Item one</:toggle>
       <:content>

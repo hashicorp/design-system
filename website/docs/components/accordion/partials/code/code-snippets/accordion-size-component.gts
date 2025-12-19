@@ -1,14 +1,9 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import { HdsAccordion } from '@hashicorp/design-system-components/components';
-import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
 
-interface AccordionSizeSignature {
-  Element: HdsAccordionSignature['Element'];
-}
-
-const AccordionSize: TemplateOnlyComponent<AccordionSizeSignature> = <template>
-  <HdsAccordion @size="large" ...attributes as |A|>
+const AccordionSize: TemplateOnlyComponent = <template>
+  <HdsAccordion @size="large" as |A|>
     <A.Item>
       <:toggle>Item one</:toggle>
       <:content>
