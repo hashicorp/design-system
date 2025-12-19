@@ -39,7 +39,7 @@ export async function validateThemingCssFiles(_dictionary: Dictionary, config: P
     const allUsages = new Set([...commonUsages, ...themedUsages]);
     const undefinedVariables = [...allUsages].filter(usage => !allDefinitions.has(usage));
     if (undefinedVariables.length > 0) {
-      throw new Error(`❌ ${chalk.red.bold('ERROR')} - Generated "common/themed" token files for mode '${mode} contain CSS variables that not defined in any of the generated files: ${undefinedVariables.map((variable: string) => `\`--token-${variable}\``).join(', ')}`);
+      throw new Error(`❌ ${chalk.red.bold('ERROR')} - Generated "common/themed" token files for mode '${mode}' contain CSS variables that are not defined in any of the generated files: ${undefinedVariables.map((variable: string) => `\`--token-${variable}\``).join(', ')}`);
     }
   }
 }
