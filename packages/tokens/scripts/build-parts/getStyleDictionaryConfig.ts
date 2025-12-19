@@ -56,39 +56,13 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             files: [
               {
                 destination: `themed-tokens/with-root-selector/${mode}/common-tokens.css`,
-                format: 'css/variables',
-                options: {
-                  // TODO understand if is better to output references or not for the "common" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
-                  outputReferences: false,
-                  // outputReferences: (token, { dictionary, usesDtcg }) => {
-                  //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
-                  //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
-                  //   // return true or false
-                  // },
-                  // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
-                  // outputReferences: (token, options) => outputReferencesFilter(token, options) && outputReferencesTransformed(token, options),
-                },
-                filter: (token: DesignToken) => {
-                  return !token.private && !(token.attributes && token.attributes.themeable);
-                },
+                // IMPORTANT: filtering, formatting, outputReferences, etc. are done directly in the custom format function
+                format: 'css/themed-tokens/with-root-selector/common',
               },
               {
                 destination: `themed-tokens/with-root-selector/${mode}/themed-tokens.css`,
-                format: 'css/variables',
-                options: {
-                  // TODO understand if is better to output references or not for the "themed" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
-                  outputReferences: false,
-                  // outputReferences: (token, { dictionary, usesDtcg }) => {
-                  //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
-                  //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
-                  //   // return true or false
-                  // },
-                  // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
-                  // outputReferences: (token, options) => outputReferencesFilter(token, options) && outputReferencesTransformed(token, options),
-                },
-                filter: (token: DesignToken) => {
-                  return !token.private && (token.attributes && token.attributes.themeable);
-                },
+                // IMPORTANT: filtering, formatting, outputReferences, etc. are done directly in the custom format function
+                format: 'css/themed-tokens/with-root-selector/themed',
               }
             ],
             // this has been registered in the `build` file
