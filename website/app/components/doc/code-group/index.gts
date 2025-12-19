@@ -5,7 +5,6 @@
 import Component from '@glimmer/component';
 import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
-import { on } from '@ember/modifier';
 import { notEq, eq } from 'ember-truth-helpers';
 import { guidFor } from '@ember/object/internals';
 import type Owner from '@ember/owner';
@@ -14,6 +13,7 @@ import { modifier } from 'ember-modifier';
 import DynamicTemplate from 'website/components/dynamic-template';
 import DocCodeGroupCopyButton from 'website/components/doc/code-group/copy-button';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
+import DocCodeGroupLanguagePicker from 'website/components/doc/code-group/language-picker';
 
 interface DocCodeGroupSignature {
   Args: {
@@ -167,24 +167,11 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   <template>
     <div class="doc-code-group">
       <div class="doc-code-group__action-bar">
-        <fieldset
-          class="doc-code-group__language-picker"
-          aria-label="Code language"
-        >
-          {{#each this.languageOptions as |option|}}
-            <label class="doc-code-group__language-picker-option">
-              <span>{{option.label}}</span>
-              <input
-                type="radio"
-                class="sr-only"
-                name="language-picker-{{this.componentId}}"
-                value="{{option.value}}"
-                checked={{eq this.currentView option.value}}
-                {{on "change" this.handleLanguageChange}}
-              />
-            </label>
-          {{/each}}
-        </fieldset>
+        <DocCodeGroupLanguagePicker
+          @currentLanguage={{this.currentView}}
+          @options={{this.languageOptions}}
+          @onLanguageChange={{this.handleLanguageChange}}
+        />
         <div class="doc-code-group__secondary-actions">
           <div class="doc-code-group__copy-button-container">
             <DocCodeGroupCopyButton @textToCopy={{this.currentViewSnippet}} />
