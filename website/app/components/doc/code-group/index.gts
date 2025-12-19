@@ -11,11 +11,9 @@ import { guidFor } from '@ember/object/internals';
 import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
 
-import { HdsIcon } from '@hashicorp/design-system-components/components';
-import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
-
 import DynamicTemplate from 'website/components/dynamic-template';
 import DocCodeGroupCopyButton from 'website/components/doc/code-group/copy-button';
+import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
 
 interface DocCodeGroupSignature {
   Args: {
@@ -39,7 +37,6 @@ const unescapeCode = (code: string) => {
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
-  @tracked expandIconName: HdsIconSignature['Args']['name'] = 'unfold-open';
 
   componentId = guidFor(this);
   codeSnippetWrapperElement!: HTMLDivElement;
@@ -135,10 +132,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return this.shortenedGtsSnippet;
   }
 
-  get toggleButtonLabel() {
-    return this.isExpanded ? 'Collapse .gts snippet' : 'Expand .gts snippet';
-  }
-
   get language() {
     if (this.currentView === 'gts' && this.isExpanded) {
       return 'gts';
@@ -160,16 +153,15 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       : this.gtsSnippet;
   }
 
-  handleGtsExpandClick = () => {
-    this.isExpanded = !this.isExpanded;
-    this.expandIconName = this.isExpanded ? 'unfold-close' : 'unfold-open';
-  };
-
   handleLanguageChange = (event: Event) => {
     const input = event.target as HTMLInputElement;
     if (input.checked) {
       this.currentView = input.value;
     }
+  };
+
+  handleExpandClick = () => {
+    this.isExpanded = !this.isExpanded;
   };
 
   <template>
@@ -213,17 +205,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       >
         {{#if (eq this.currentView "gts")}}
           <div class="doc-code-group__expand-button-container">
-            <button
-              type="button"
-              class="doc-code-group__expand-button"
-              {{on "click" this.handleGtsExpandClick}}
-              aria-expanded={{this.isExpanded}}
-            >
-              <HdsIcon @name={{this.expandIconName}} />
-              <span>
-                {{this.toggleButtonLabel}}
-              </span>
-            </button>
+            <DocCodeGroupExpandButton
+              @isExpanded={{this.isExpanded}}
+              @onToggleExpand={{this.handleExpandClick}}
+            />
           </div>
         {{/if}}
         <CodeBlock
