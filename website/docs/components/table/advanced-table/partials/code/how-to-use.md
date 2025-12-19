@@ -446,6 +446,52 @@ customOnSort(_sortBy, sortOrder) {
 }
 ```
 
+### Filtering
+
+The Advanced Table supports filtering through the `actions` named block and the `FilterBar` contextual component. The `FilterBar` contextual component utilizes the HDS Filter Bar component. You can read more about how the component works, and the features supported within it in the [Filter Bar component docs](/components/filter-bar).
+
+The Filter Bar component doesn't handle filtering the data, that must still be handled by the consumer, but it provides a way for users to submit filters and for those filters applied to be shown.
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.demoFilteredData}}
+  @columns={{array
+    (hash key="artist" label="Artist")
+    (hash key="album" label="Album")
+    (hash key="year" label="Release Year")
+  }}
+>
+  <:actions as |A|>
+    <A.FilterBar @filters={{this.demoFilters}} @hasSearch={{true}} as |F|>
+      <F.Dropdown as |D|>
+        <D.FilterGroup
+          @key="artist"
+          @text="Artist"
+          @type="multi-select"
+          as |F|
+        >
+          <F.Checkbox @value="nick-drake" @label="Nick Drake" />
+          <F.Checkbox @value="beatles" @label="The Beatles" />
+          <F.Checkbox @value="melanie" @label="Melanie" />
+        </D.FilterGroup>
+        <D.FilterGroup
+          @key="release-year"
+          @text="Release year"
+          @type="date"
+        />
+      </F.Dropdown>
+    </A.FilterBar>
+  </:actions>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+```
+
 ### Density
 
 To create a condensed or spacious Advanced Table, add `@density` to the Advanced Table’s invocation. Note that it only affects the table body, not the table header.
@@ -651,6 +697,64 @@ If `@hasStickyFirstColumn` is set to `false`, the column will not be sticky, but
   </:body>
 </Hds::AdvancedTable>
 ```
+
+### Empty state
+
+When the data model for the Advanced Table contains no entries, an empty state is shown with a default message stating that the table has no data available.
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.demoEmptyModel}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year")
+  }}
+  @density="short"
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+```
+
+The message displayed when the data model is empty can be customized using the `<:emptyState>` named block. Content passed into this block will be shown when the model is empty instead of the default messaging.
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.demoEmptyModel}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year")
+  }}
+  @density="short"
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+  <:emptyState>
+    <Hds::Layout::Flex @direction="column" @gap="12">
+      <Hds::Text::Display @tag="h3" @size="300">No data to display</Hds::Text::Display>
+      <Hds::Text::Body>
+        No results were found. Please clear or update the filters.
+      </Hds::Text::Body>
+      <div>
+        <Hds::Button @text="Clear filters" />
+      </div>
+    </Hds::Layout::Flex>
+  </:emptyState>
+</Hds::AdvancedTable>
+```
+
 
 ### Multi-select Advanced Table
 
