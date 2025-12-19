@@ -6,14 +6,13 @@ import Component from '@glimmer/component';
 import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
 import { notEq, eq } from 'ember-truth-helpers';
-import { guidFor } from '@ember/object/internals';
 import type Owner from '@ember/owner';
 
-import DynamicTemplate from 'website/components/dynamic-template';
-import DocCopyButton from 'website/components/doc/copy-button';
+import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
 import DocCodeGroupLanguagePicker from 'website/components/doc/code-group/language-picker';
-import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
+import DocCopyButton from 'website/components/doc/copy-button';
+import DynamicTemplate from 'website/components/dynamic-template';
 
 interface DocCodeGroupSignature {
   Args: {
@@ -37,8 +36,6 @@ const unescapeCode = (code: string) => {
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
-
-  componentId = guidFor(this);
 
   constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
     super(owner, args);
