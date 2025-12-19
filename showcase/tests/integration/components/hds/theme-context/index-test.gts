@@ -23,7 +23,9 @@ module('Integration | Component | hds/theme-context/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      <template><HdsThemeContext @context="light" id="test-theme-context" /></template>,
+      <template>
+        <HdsThemeContext @context="light" id="test-theme-context" />
+      </template>,
     );
     assert.dom('#test-theme-context').hasClass('hds-theme-context');
   });
@@ -34,10 +36,7 @@ module('Integration | Component | hds/theme-context/index', function (hooks) {
     test(`it should render the correct CSS "theme" class for "${context}" context`, async function (assert) {
       await render(
         <template>
-          <HdsThemeContext
-            @context={{context}}
-            id="test-theme-context"
-          />
+          <HdsThemeContext @context={{context}} id="test-theme-context" />
         </template>,
       );
       assert.dom('#test-theme-context').hasClass(`hds-theme-${context}`);
@@ -50,10 +49,7 @@ module('Integration | Component | hds/theme-context/index', function (hooks) {
     test(`it should render the correct CSS "mode" class for "${context}" context`, async function (assert) {
       await render(
         <template>
-          <HdsThemeContext
-            @context={{context}}
-            id="test-theme-context"
-          />
+          <HdsThemeContext @context={{context}} id="test-theme-context" />
         </template>,
       );
       assert.dom('#test-theme-context').hasClass(`hds-mode-${context}`);
