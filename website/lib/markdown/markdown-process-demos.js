@@ -24,7 +24,8 @@ function escapeCode(code) {
     .replace(/>/g, '&gt;')
     .replace(/\{\{/g, '&#123;&#123;')
     .replace(/\}\}/g, '&#125;&#125;')
-    .replace(/\n/g, '\\n');
+    .replace(/\n/g, '\\n')
+    .replace(/\\n$/, ''); // Remove trailing newline
 }
 
 class MarkdownReplaceDemoBlocks extends Multifilter {
