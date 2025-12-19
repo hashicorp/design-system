@@ -188,6 +188,11 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       }
     }
 
+    // If a single columnWidth string is passed in, set the respective CSS class (non-responsive view case)
+    if (typeof this.args.columnWidth === 'string') {
+      classes.push('hds-layout-grid--column-width-non-responsive');
+    }
+
     // add classes based on responsive width arguments
     // If an object is passed in for the columnWidth arg, set the respective CSS classes
     if (typeof this.args.columnWidth === 'object') {
