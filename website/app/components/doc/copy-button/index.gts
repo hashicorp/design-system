@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { eq } from 'ember-truth-helpers';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
@@ -13,7 +14,7 @@ import docClipboard from 'website/modifiers/doc-clipboard';
 
 interface DocCopyButtonCodeSignature {
   Args: {
-    type?: 'solid' | 'ghost';
+    type?: 'solid' | 'ghost' | 'icon-only';
     textToCopy: string;
     textToShow?: string;
     encoded?: boolean;
@@ -37,7 +38,7 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
 
   get label() {
     let label;
-    if (this.type === 'solid') {
+    if (this.type === 'solid' || this.type === 'icon-only') {
       switch (this.status) {
         case 'success':
           label = 'Copied';
@@ -98,6 +99,13 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
     if (this.isFullWidth) {
       classes.push(`doc-copy-button--width-full`);
     }
+
+    if (this.status === 'success') {
+      classes.push('doc-copy-button--status-success');
+    } else if (this.status === 'error') {
+      classes.push('doc-copy-button--status-error');
+    }
+
     return classes.join(' ');
   }
 
@@ -110,6 +118,7 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
         onSuccess=this.onSuccess
         onError=this.onError
       }}
+      ...attributes
     >
       {{#if this.textToShow}}
         <span class="doc-copy-button__visible-value">{{this.textToShow}}</span>
@@ -117,7 +126,8 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
       {{#if this.label}}
         <span
           id="copy-label-{{@id}}"
-          class="doc-copy-button__label"
+          class="doc-copy-button__label
+            {{if (eq this.type 'icon-only') 'sr-only'}}"
         >{{this.label}}</span>
       {{/if}}
       <HdsIcon
