@@ -14,6 +14,7 @@ import DynamicTemplate from 'website/components/dynamic-template';
 import DocCodeGroupCopyButton from 'website/components/doc/code-group/copy-button';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
 import DocCodeGroupLanguagePicker from 'website/components/doc/code-group/language-picker';
+import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
 
 interface DocCodeGroupSignature {
   Args: {
@@ -166,18 +167,20 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   <template>
     <div class="doc-code-group">
-      <div class="doc-code-group__action-bar">
-        <DocCodeGroupLanguagePicker
-          @currentLanguage={{this.currentView}}
-          @options={{this.languageOptions}}
-          @onLanguageChange={{this.handleLanguageChange}}
-        />
-        <div class="doc-code-group__secondary-actions">
+      <DocCodeGroupActionBar>
+        <:primary>
+          <DocCodeGroupLanguagePicker
+            @currentLanguage={{this.currentView}}
+            @options={{this.languageOptions}}
+            @onLanguageChange={{this.handleLanguageChange}}
+          />
+        </:primary>
+        <:secondary>
           <div class="doc-code-group__copy-button-container">
             <DocCodeGroupCopyButton @textToCopy={{this.currentViewSnippet}} />
           </div>
-        </div>
-      </div>
+        </:secondary>
+      </DocCodeGroupActionBar>
       {{#if (notEq @hidePreview "true")}}
         <div class="doc-code-group__preview">
           <DynamicTemplate
