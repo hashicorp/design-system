@@ -112,7 +112,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 filter: excludePrivateTokens,
               }
             ],
-            actions: ['generate-css-helpers', 'generate-theming-css-files'],
+            actions: ['generate-css-helpers', 'validate-theming-css-files', 'generate-theming-css-files'],
           },
           'docs/json': {
             buildPath: 'dist/docs/products/',
