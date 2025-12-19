@@ -10,7 +10,7 @@ import { guidFor } from '@ember/object/internals';
 import type Owner from '@ember/owner';
 
 import DynamicTemplate from 'website/components/dynamic-template';
-import DocCodeGroupCopyButton from 'website/components/doc/code-group/copy-button';
+import DocCopyButton from 'website/components/doc/copy-button';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
 import DocCodeGroupLanguagePicker from 'website/components/doc/code-group/language-picker';
 import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
@@ -171,7 +171,11 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
         </:primary>
         <:secondary>
           <div class="doc-code-group__copy-button-container">
-            <DocCodeGroupCopyButton @textToCopy={{this.currentViewSnippet}} />
+            <DocCopyButton
+              @textToCopy={{this.currentViewSnippet}}
+              @type="icon-only"
+              class="doc-code-group__copy-button"
+            />
           </div>
         </:secondary>
       </DocCodeGroupActionBar>
