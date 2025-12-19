@@ -97,7 +97,7 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
     // select 2nd step:
     await triggerKeyEvent(
       '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      'keyup',
+      'keydown',
       enterKey,
     );
 
@@ -123,7 +123,7 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
     // select 2nd step:
     await triggerKeyEvent(
       '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      'keyup',
+      'keydown',
       spacebarKey,
     );
 
@@ -156,7 +156,7 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
     // navigate to the previous (1st) step using right arrow key:
     await triggerKeyEvent(
       '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      'keyup',
+      'keydown',
       rightArrowKey,
     );
     // test that the navigated to step is now focused:
@@ -167,7 +167,7 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
     // navigate back to the next (2nd) step using left arrow key:
     await triggerKeyEvent(
       '.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button',
-      'keyup',
+      'keydown',
       leftArrowKey,
     );
     // test that the navigated to step is now focused:
@@ -202,7 +202,7 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
     // navigate to the previous (1st) step using right arrow key:
     await triggerKeyEvent(
       '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      'keyup',
+      'keydown',
       downArrowKey,
     );
     // test that the navigated to step is now focused:
@@ -213,7 +213,7 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
     // navigate back to the next (2nd) step using left arrow key:
     await triggerKeyEvent(
       '.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button',
-      'keyup',
+      'keydown',
       upArrowKey,
     );
     // test that the navigated to step is now focused:
