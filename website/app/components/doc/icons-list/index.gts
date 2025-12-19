@@ -9,15 +9,16 @@ import DocFormFilter from 'website/components/doc/form/filter';
 import DocFormSelect from 'website/components/doc/form/select';
 import DocFormSelectGroupType from 'website/components/doc/form/select-group-type';
 import type { CategoryIcon } from 'website/components/doc/icons-list/grid';
+import type { Task } from 'ember-concurrency';
 
 interface DocIconsListSignature {
   Args: {
     searchQuery: string;
     onSelectGroupType: (event: Event) => void;
-    selectedGroupType: string;
+    selectedGroupType: 'alphabetical' | 'category';
     onSelectIconSize: (event: Event) => void;
     selectedIconSize: string;
-    searchIcons: (query: string) => void;
+    searchIcons: Task<void, [string]>;
     groupedIcons: Record<string, CategoryIcon[]>;
   };
 }

@@ -20,7 +20,6 @@ const DocFooter: TemplateOnlyComponent<DocFooterSignature> = <template>
           <LinkTo
             @route="show"
             @model="about/accessibility-statement"
-            {{! @glint-expect-error - modifier not typed yet }}
             {{docTrackEvent eventName="Footer - Accessibility"}}
           >
             Accessibility
@@ -31,7 +30,6 @@ const DocFooter: TemplateOnlyComponent<DocFooterSignature> = <template>
             href="https://hashicorp.com/careers"
             target="_blank"
             rel="noopener noreferrer"
-            {{! @glint-expect-error - modifier not typed yet }}
             {{docTrackEvent eventName="Footer - Careers"}}
           >
             Careers
@@ -63,7 +61,6 @@ const DocFooter: TemplateOnlyComponent<DocFooterSignature> = <template>
             href="https://go.hashi.co/hds-feedback"
             target="_blank"
             rel="noopener noreferrer"
-            {{! @glint-expect-error - modifier not typed yet }}
             {{docTrackEvent eventName="Footer - Feedback"}}
           >
             Share Feedback

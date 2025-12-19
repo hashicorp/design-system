@@ -17,11 +17,10 @@ interface DocPageContentSignature {
   Element: HTMLDivElement;
 }
 
-export default class DocPageContentComponent extends Component<DocPageContentSignature> {
+export default class DocPageContent extends Component<DocPageContentSignature> {
   get classNames() {
     const classes = ['doc-page-content'];
 
-    // add a class based on the @breakthrough argument
     if (this.args.breakthrough) {
       classes.push(`doc-page-content--breakthrough`);
     }
