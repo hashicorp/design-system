@@ -66,6 +66,11 @@
   height: 12px;
 }
 
+.doc-copy-button--type-icon-only .doc-copy-button__icon {
+  width: 16px;
+  height: 16px;
+}
+
 .doc-copy-button__label {
   @include doc-font-style-body-small();
   margin-right: 8px;

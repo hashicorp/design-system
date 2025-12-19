@@ -15,7 +15,7 @@ import { HdsIcon } from '@hashicorp/design-system-components/components';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import DynamicTemplate from 'website/components/dynamic-template';
-import docClipboard from 'website/modifiers/doc-clipboard';
+import DocCodeGroupCopyButton from 'website/components/doc/code-group/copy-button';
 
 interface DocCodeGroupSignature {
   Args: {
@@ -39,9 +39,6 @@ const unescapeCode = (code: string) => {
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
-  @tracked copyStatus = 'idle';
-  @tracked copyTimer: ReturnType<typeof setTimeout> | undefined;
-  @tracked copyIconName: HdsIconSignature['Args']['name'] = 'clipboard-copy';
   @tracked expandIconName: HdsIconSignature['Args']['name'] = 'unfold-open';
 
   componentId = guidFor(this);
@@ -163,32 +160,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       : this.gtsSnippet;
   }
 
-  get copyButtonLabel() {
-    let label;
-    switch (this.copyStatus) {
-      case 'success':
-        label = 'Copied';
-        break;
-      case 'error':
-        label = 'Error';
-        break;
-      default:
-        label = 'Copy';
-        break;
-    }
-    return label;
-  }
-
-  get copyButtonClassNames() {
-    const classNames = ['doc-code-group__copy-button'];
-    if (this.copyStatus === 'success') {
-      classNames.push('doc-code-group__copy-button--status-success');
-    } else if (this.copyStatus === 'error') {
-      classNames.push('doc-code-group__copy-button--status-error');
-    }
-    return classNames.join(' ');
-  }
-
   handleGtsExpandClick = () => {
     this.isExpanded = !this.isExpanded;
     this.expandIconName = this.isExpanded ? 'unfold-close' : 'unfold-open';
@@ -200,27 +171,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       this.currentView = input.value;
     }
   };
-
-  onSuccess = () => {
-    this.copyStatus = 'success';
-    this.copyIconName = 'clipboard-checked';
-    this.resetStatusDelayed();
-  };
-
-  onError = () => {
-    this.copyStatus = 'error';
-    this.copyIconName = 'alert-triangle';
-    this.resetStatusDelayed();
-  };
-
-  resetStatusDelayed() {
-    clearTimeout(this.copyTimer);
-    // make it fade back to the default state
-    this.copyTimer = setTimeout(() => {
-      this.copyStatus = 'idle';
-      this.copyIconName = 'clipboard-copy';
-    }, 2000);
-  }
 
   <template>
     <div class="doc-code-group">
@@ -245,18 +195,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
         </fieldset>
         <div class="doc-code-group__secondary-actions">
           <div class="doc-code-group__copy-button-container">
-            <button
-              type="button"
-              aria-label={{this.copyButtonLabel}}
-              class={{this.copyButtonClassNames}}
-              {{docClipboard
-                text=this.currentViewSnippet
-                onSuccess=this.onSuccess
-                onError=this.onError
-              }}
-            >
-              <HdsIcon @name={{this.copyIconName}} />
-            </button>
+            <DocCodeGroupCopyButton @textToCopy={{this.currentViewSnippet}} />
           </div>
         </div>
       </div>
