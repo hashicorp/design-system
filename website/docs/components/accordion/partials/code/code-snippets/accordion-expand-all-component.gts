@@ -10,11 +10,7 @@ import {
 } from '@hashicorp/design-system-components/components';
 import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
 
-interface AccordionExpandAllSignature {
-  Element: HdsAccordionSignature['Element'];
-}
-
-export default class AccordionExpandAll extends Component<AccordionExpandAllSignature> {
+export default class AccordionExpandAll extends Component {
   @tracked accordionState: HdsAccordionSignature['Args']['forceState'] =
     'close';
 
@@ -37,7 +33,7 @@ export default class AccordionExpandAll extends Component<AccordionExpandAllSign
         {{on "click" this.toggleAccordionState}}
       />
     </div>
-    <HdsAccordion @forceState={{this.accordionState}} ...attributes as |A|>
+    <HdsAccordion @forceState={{this.accordionState}} as |A|>
       <A.Item>
         <:toggle>Exam experience</:toggle>
         <:content>
