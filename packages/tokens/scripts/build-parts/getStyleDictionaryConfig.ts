@@ -5,8 +5,8 @@
 
 import type { Config, DesignToken } from 'style-dictionary/types';
 
-export const targets = ['products', 'devdot', 'marketing', 'cloud-email'];
-export const modes = ['default', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100'];
+export const targets = ['products', 'devdot', 'marketing', 'cloud-email'] as const;
+export const modes = ['default', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100'] as const;
 
 export type Target = typeof targets[number];
 export type Mode = typeof modes[number];
@@ -242,4 +242,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       }
     }
   };
+
+  // if we reach here, the target is invalid (added to satisfy TypeScript)
+  throw new Error(`Invalid target: ${target}. Expected one of: ${targets.join(',')}`);
 };

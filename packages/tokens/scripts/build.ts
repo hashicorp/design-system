@@ -4,7 +4,6 @@
  */
 
 import StyleDictionary from 'style-dictionary';
-// import { getReferences, usesReferences } from "style-dictionary/utils";
 import type { DesignToken, PlatformConfig } from 'style-dictionary/types';
 
 import tinycolor from 'tinycolor2';
@@ -14,7 +13,6 @@ import fs from 'fs-extra';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import { cloneDeep } from 'lodash-es';
 
 import { targets, modes, getStyleDictionaryConfig } from './build-parts/getStyleDictionaryConfig.ts';
 import { customFormatCssThemedTokensFunctionForTarget } from './build-parts/customFormatCssThemedTokens.ts';
@@ -50,12 +48,12 @@ for (const mode of modes) {
           if (mode in slice.$modes) {
             // extra validation to catch instances where the `default` mode value is different from the `$value`
             if (mode === 'default' && slice.$modes[mode] !== slice.$value) {
-              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${path.join('.')}}' with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
+              console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${tokenPath.join('.')}}' with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
             }
             slice.$value = slice.$modes[mode];
           } else {
             // we want to interrupt the execution of the script if one of the expected modes is missing
-            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${path.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${path.join('.')} - ${JSON.stringify(slice, null, 2)}`);
+            throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${tokenPath.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${tokenPath.join('.')} - ${JSON.stringify(slice, null, 2)}`);
           }
         } else {
             Object.entries(slice).forEach(([key, value]) => {
@@ -89,7 +87,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'typography/font-family',
   type: 'value',
-  transitive: true,
+  transitive: true, // see: https://styledictionary.com/reference/hooks/transforms/#transitive-transforms
   filter: function (token: DesignToken) {
     // notice: we don't use `fontFamily` as `$type` because is handled internally in Style Dictionary
     // and currently the typographic transforms (and general handling) is still a bit unstable (due also to the fact the DTCG specifications are also preliminary)
