@@ -32,16 +32,6 @@ export interface DocCardsCardSignature {
 }
 
 export default class DocCardsCard extends Component<DocCardsCardSignature> {
-  get classNames() {
-    const classes = ['doc-cards-card'];
-    const layout = this.args.layout ?? 'vertical';
-
-    // add a class based on the @layout argument, default = 'vertical'
-    classes.push(`doc-cards-card--layout-${layout}`);
-
-    return classes.join(' ');
-  }
-
   get badgeType() {
     if (this.args.status?.deprecated) {
       return 'warning-inverted';
@@ -62,6 +52,16 @@ export default class DocCardsCard extends Component<DocCardsCardSignature> {
       return 'Added';
     }
     return undefined;
+  }
+
+  get classNames() {
+    const classes = ['doc-cards-card'];
+    const layout = this.args.layout ?? 'vertical';
+
+    // add a class based on the @layout argument, default = 'vertical'
+    classes.push(`doc-cards-card--layout-${layout}`);
+
+    return classes.join(' ');
   }
 
   <template>
