@@ -99,8 +99,27 @@ export default class Index extends Component {
   @tracked demoSortBySelectedControlledSortBy = 'isSelected';
   @tracked demoSortBySelectedControlledSortOrder = 'asc';
 
+  @tracked demoFilters = {
+    artist: {
+      type: 'multi-select',
+      text: 'Artist',
+      data: [
+        { value: 'nick-drake', label: 'Nick Drake' },
+        { value: 'beatles', label: 'The Beatles' },
+      ],
+    },
+  };
+
   get model() {
     return { myDemoData: this.demoSourceData };
+  }
+
+  get demoFilteredData() {
+    return this.demoSourceData.slice(0, 2);
+  }
+
+  get demoEmptyModel() {
+    return [];
   }
 
   get myDataItems() {
