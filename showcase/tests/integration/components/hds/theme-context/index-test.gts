@@ -6,7 +6,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+
+import { HdsThemeContext } from '@hashicorp/design-system-components/components';
 
 import {
   CONTEXTUAL_THEMES,
@@ -22,7 +23,7 @@ module('Integration | Component | hds/theme-context/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::ThemeContext @context="light" id="test-theme-context" />`,
+      <template><HdsThemeContext @context="light" id="test-theme-context" /></template>,
     );
     assert.dom('#test-theme-context').hasClass('hds-theme-context');
   });
@@ -31,9 +32,13 @@ module('Integration | Component | hds/theme-context/index', function (hooks) {
 
   CONTEXTUAL_THEMES.forEach((context) => {
     test(`it should render the correct CSS "theme" class for "${context}" context`, async function (assert) {
-      this.set('context', context);
       await render(
-        hbs`<Hds::ThemeContext @context={{this.context}} id="test-theme-context" />`,
+        <template>
+          <HdsThemeContext
+            @context={{context}}
+            id="test-theme-context"
+          />
+        </template>,
       );
       assert.dom('#test-theme-context').hasClass(`hds-theme-${context}`);
     });
@@ -43,9 +48,13 @@ module('Integration | Component | hds/theme-context/index', function (hooks) {
 
   CONTEXTUAL_MODES.forEach((context) => {
     test(`it should render the correct CSS "mode" class for "${context}" context`, async function (assert) {
-      this.set('context', context);
       await render(
-        hbs`<Hds::ThemeContext @context={{this.context}} id="test-theme-context" />`,
+        <template>
+          <HdsThemeContext
+            @context={{context}}
+            id="test-theme-context"
+          />
+        </template>,
       );
       assert.dom('#test-theme-context').hasClass(`hds-mode-${context}`);
     });
@@ -54,11 +63,13 @@ module('Integration | Component | hds/theme-context/index', function (hooks) {
   // YIELDED CONTENT
 
   test('it correctly yields content passed in the default block', async function (assert) {
-    await render(hbs`
-      <Hds::ThemeContext @context="light" id="test-theme-context">
-        <p id="test-content">This is yielded content</p>
-      </Hds::ThemeContext>
-    `);
+    await render(
+      <template>
+        <HdsThemeContext @context="light" id="test-theme-context">
+          <p id="test-content">This is yielded content</p>
+        </HdsThemeContext>
+      </template>,
+    );
     assert.dom('#test-content').exists();
     assert.dom('#test-content').hasText('This is yielded content');
     assert.dom('#test-theme-context #test-content').exists();
@@ -73,7 +84,12 @@ module('Integration | Component | hds/theme-context/index', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::ThemeContext @context="foo" />`);
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsThemeContext @context="foo" />
+      </template>,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
