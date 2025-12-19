@@ -6,10 +6,6 @@
 @use "../breakpoints" as breakpoint;
 @use "../typography/mixins" as *;
 
-:root {
-  --ember-shiki-border-radius: 0px;
-}
-
 .doc-code-group {
   overflow: hidden;
   border-radius: 4px;
@@ -199,6 +195,10 @@
   &:focus {
     box-shadow: 0 0 0 2px #FFF;
   }
+}
+
+.doc-code-group__code-snippet-wrapper {
+  --ember-shiki-border-radius: 0px;
 }
 
 .shiki-code-block__code code {
