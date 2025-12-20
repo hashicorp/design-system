@@ -130,51 +130,6 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             }
           });
 
-          // const demoFilePath = path.join(fullParentFolder, fileName.trim());
-
-          // let code = '';
-          // if (fs.existsSync(demoFilePath)) {
-          //   code = fs.readFileSync(demoFilePath, 'utf8');
-          //   dependencies.push(demoFilePath);
-          // } else {
-          //   code = `// Unable to load file: ${fileName}, path: ${demoFilePath}`;
-          // }
-          // const escapedCode = escapeCode(code);
-          // let escapedHbsCode = '';
-          // let escapedGtsCode = '';
-          // let escapedJsCode = '';
-
-          // const isJsFile = fileName.trim().endsWith('.js');
-
-          // if (isJsFile) {
-          //   escapedJsCode = escapedCode;
-          // } else {
-          //   escapedHbsCode = escapedCode;
-          //   const gtsFileName = fileName
-          //     .trim()
-          //     .replace(/\.hbs$/, '-component.gts');
-          //   const gtsFilePath = path.join(fullParentFolder, gtsFileName);
-          //   let gtsCode = '';
-          //   if (fs.existsSync(gtsFilePath)) {
-          //     gtsCode = fs.readFileSync(gtsFilePath, 'utf8');
-          //     dependencies.push(gtsFilePath);
-          //   } else {
-          //     gtsCode = `// Unable to load file: ${gtsFileName}, path: ${gtsFilePath}`;
-          //   }
-          //   escapedGtsCode = escapeCode(gtsCode);
-
-          //   if (shouldIncludeBackingClass !== 'false') {
-          //     const jsFileName = fileName.trim().replace(/\.hbs$/, '.js');
-          //     const jsFilePath = path.join(fullParentFolder, jsFileName);
-          //     let jsCode = '';
-          //     if (fs.existsSync(jsFilePath)) {
-          //       jsCode = fs.readFileSync(jsFilePath, 'utf8');
-          //       dependencies.push(jsFilePath);
-          //     }
-          //     escapedJsCode = escapeCode(jsCode);
-          //   }
-          // }
-
           return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" gts="${codeSnippets.gts}" shortenedGts="${codeSnippets.shortenedGts}" hidePreview="${shouldHidePreview}" js="${codeSnippets.js}" ?><?php end="demo-block" ?>\n`;
         },
       );
