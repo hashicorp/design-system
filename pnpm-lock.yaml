@@ -317,6 +317,9 @@ importers:
 
   packages/flight-icons:
     devDependencies:
+      '@carbon/icons':
+        specifier: ^11.71.0
+        version: 11.71.0
       '@figma-export/cli':
         specifier: ^6.0.2
         version: 6.2.2
@@ -551,6 +554,9 @@ importers:
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
+      '@hashicorp/flight-icons':
+        specifier: workspace:*
+        version: link:../packages/flight-icons
       '@nullvoxpopuli/ember-composable-helpers':
         specifier: ^5.2.11
         version: 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -1922,6 +1928,9 @@ packages:
 
   '@carbon/grid@11.42.0':
     resolution: {integrity: sha512-l91wFV7uMhaf2PX89cW1zS5iMnzrFVY2d81Xf7U9OdNu8sBTQWxUPtj1RnZyep4F7v/HG8U4DOzfa+nO5GgZeA==}
+
+  '@carbon/icons@11.71.0':
+    resolution: {integrity: sha512-PwOJ7C2MNQbHvaOsPhiKHNikJ9flGtyVeGIsOHIkyNndcxAUOleppHcGofOo4NvCeIUZwnr+EN8fMaU+ZdsH9w==}
 
   '@carbon/layout@11.40.0':
     resolution: {integrity: sha512-2wIOPJZFjt5Y+TZ7NwPTf0l3zif14hBiPwv/nQo76J2Wr1i/NJrYNfBTpUnKxoq6IZEsVd0e6Ab4RLGGIP2eVA==}
@@ -12910,6 +12919,10 @@ snapshots:
   '@carbon/grid@11.42.0':
     dependencies:
       '@carbon/layout': 11.40.0
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/icons@11.71.0':
+    dependencies:
       '@ibm/telemetry-js': 1.10.1
 
   '@carbon/layout@11.40.0':

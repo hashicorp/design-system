@@ -10,6 +10,7 @@ import chalk from 'chalk';
 
 import { optimizeAssetsSVG } from './build-parts/optimizeAssetsSVG';
 import { generateBundleSVG } from './build-parts/generateBundleSVG';
+import { generateBundleSymbolJS } from './build-parts/generateBundleSymbolJS';
 import { generateBundleSVGSprite } from './build-parts/generateBundleSVGSprite';
 import { generateBundleSVGReact } from './build-parts/generateBundleSVGReact';
 import { generatePublicZIPFile } from './build-parts/generatePublicZIPFile';
@@ -59,6 +60,10 @@ async function build() {
     // generate the bundle for the standalone SVGs
     console.log('Generating bundle for standalone SVG files');
     await generateBundleSVG({ config, catalog });
+
+    // generate the bundle for the SVG JS files
+    console.log('Generating bundle for SVG JS files');
+    await generateBundleSymbolJS({ config, catalog });
 
     // generate the bundle for the SVG sprite
     console.log('Generating bundle for SVG sprite');

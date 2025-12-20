@@ -13,6 +13,7 @@ export enum TextTagValues {
   P = 'p',
   Span = 'span',
   Div = 'div',
+  Label = 'label',
 }
 
 export type TextTags = `${TextTagValues}`;
