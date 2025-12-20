@@ -9,56 +9,56 @@ Due to differences in text rendering between Figma and web browsers, the `Button
 
 The basic invocation requires text to be passed:
 
-[[demo: code-snippets/basic-button.hbs]]
+[[demo: code-snippets/basic-button]]
 
 ### Add an icon
 
 To add an icon to your Button, give the `@icon` any [icon](/icons/library) name:
 
-[[demo: code-snippets/button-icon.hbs]]
+[[demo: code-snippets/button-icon]]
 
 ### Icon position
 
 By default, if you define an icon, it is placed in the leading position (before the text). If you need to position the icon in the trailing position (after the text), define `@iconPosition`:
 
-[[demo: code-snippets/button-icon-position.hbs]]
+[[demo: code-snippets/button-icon-position]]
 
 ### Icon-only Button
 
 
 If you would like to create an icon-only Button, set `@isIconOnly` to `true`. Note that you still have to define the `@text` value; it will be used as the `aria-label` attribute value on the `Button` element.
 
-[[demo: code-snippets/button-icon-only.hbs]]
+[[demo: code-snippets/button-icon-only]]
 
 ### Color
 
 There are four available colors for the Button: `primary`, `secondary`, `tertiary`, and `critical`. The default is `primary`. To use a different color, declare another value for `@color`:
 
-[[demo: code-snippets/button-color.hbs]]
+[[demo: code-snippets/button-color]]
 
 ### Size
 
 There are three sizes available for the Button: `small`, `medium`, and `large`. The default is `medium`. To use a different size, declare a value for `@size`:
 
-[[demo: code-snippets/button-size.hbs]]
+[[demo: code-snippets/button-size]]
 
 ### Full-width
 
 This indicates that the Button should take up the full-width of the parent container. It’s set to `false` by default.
 
-[[demo: code-snippets/button-full-width.hbs]]
+[[demo: code-snippets/button-full-width]]
 
 ### Layout
 
 To change the default `block` layout to `inline`, set `@isInline` to `true`. This can be useful in contexts where the Button needs to be <em>inline</em>, for example to inherit the alignment from a parent.
 
-[[demo: code-snippets/button-layout.hbs]]
+[[demo: code-snippets/button-layout]]
 
 ### Type
 
 This is the native HTML button attribute, `type`. There are three possible values: `button`, `submit`, and `reset`. The default `type` for the Button is `button`. To submit form data to the server, set `type` to `submit`.
 
-[[demo: code-snippets/button-type.hbs]]
+[[demo: code-snippets/button-type]]
 
 ### Actions
 
@@ -66,7 +66,7 @@ Define the action in your route or controller, and add it to the component invoc
 
 Read the Ember.js guides for more information: [Patterns for Actions](https://guides.emberjs.com/release/in-depth-topics/patterns-for-actions/) .
 
-[[demo: code-snippets/button-action.hbs]]
+[[demo: code-snippets/button-action]]
 
 ### Links
 
@@ -88,7 +88,7 @@ If you pass an `@href` argument, an `<a>` link will be generated.
 
 By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
-[[demo: code-snippets/button-with-href.hbs]]
+[[demo: code-snippets/button-with-href]]
 
 If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" or "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
@@ -98,13 +98,13 @@ If you pass a `@route` argument, an `<a>` link will be generated using a `<LinkT
 
 If the route is external to your current engine, you have to pass `@isRouteExternal={{true}}` so it will use `<LinkToExternal>` instead of `<LinkTo>` for the `@route`. For more details, see the [Hds::Interactive component](/utilities/interactive).
 
-[[demo: code-snippets/button-with-route.hbs]]
+[[demo: code-snippets/button-with-route]]
 
 ### Loading state
 
 If the button needs to toggle between an "idle" and a "loading" state, we suggest applying a width to it (via inline style or CSS class) to prevent the button from resizing on click (and potentially causing layout shifts).
 
-[[demo: code-snippets/button-loading.hbs]]
+[[demo: code-snippets/button-loading]]
 
 We suggest limiting the application of this override only to this specific use case and letting the button resize accordingly to its content.
 
@@ -119,4 +119,4 @@ Links cannot use the `disabled` attribute (per HTML specification); even if you 
 
 To disable a Button, manually add the native `disabled` attribute:
 
-[[demo: code-snippets/button-disabled.hbs]]
+[[demo: code-snippets/button-disabled]]

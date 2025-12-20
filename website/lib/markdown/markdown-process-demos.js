@@ -12,8 +12,11 @@ const path = require('path');
 const walkSync = require('walk-sync');
 
 const demoBlockRegex =
-  /\[\[demo:\s*([^\]\s]+\.(?:hbs|gts|js))(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?\s*\]\]/g;
+  /\[\[demo:\s*([^\]\s]+)(?:(?:\s+(?:execute=(true|false)|includeBackingClass=(true|false))))*\s*\]\]/g;
+
 const fileNameRegex = /(components\/.*?)\.(?:hbs|gts|js)$/;
+
+const SUPPORTED_FILE_EXTENSIONS = ['.hbs', '-component.gts', '.js'];
 
 // Helper to escape code for attribute usage
 function escapeCode(code) {
@@ -26,6 +29,46 @@ function escapeCode(code) {
     .replace(/\}\}/g, '&#125;&#125;')
     .replace(/\n/g, '\\n')
     .replace(/\\n$/, ''); // Remove trailing newline
+}
+
+function getShortenedGtsSnippet(code) {
+  // find the content within the <template> tags
+  const templateRegex = /<template>([\s\S]*?)<\/template>/;
+  const match = code.match(templateRegex);
+
+  if (!match?.[1]) {
+    return '';
+  }
+
+  let snippet = match[1];
+
+  // Remove leading and trailing blank lines
+  snippet = snippet.replace(/^\s*\n/, '').replace(/\n\s*$/, '');
+
+  // Find the minimum indentation level (excluding empty lines)
+  const lines = snippet.split('\n');
+  const nonEmptyLines = lines.filter((line) => line.trim().length > 0);
+
+  if (nonEmptyLines.length === 0) {
+    return '';
+  }
+
+  const minIndent = Math.min(
+    ...nonEmptyLines.map((line) => {
+      const match = line.match(/^(\s*)/);
+      return match?.[1]?.length ?? 0;
+    }),
+  );
+
+  // Remove the minimum indentation from all lines
+  const dedentedLines = lines.map((line) => {
+    if (line.trim().length === 0) {
+      return ''; // Keep empty lines empty
+    }
+    return line.slice(minIndent);
+  });
+
+  return dedentedLines.join('\n');
 }
 
 class MarkdownReplaceDemoBlocks extends Multifilter {
@@ -48,54 +91,91 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
       markdownFileContent = markdownFileContent.replace(
         demoBlockRegex,
         (_match, fileName, shouldExecute, shouldIncludeBackingClass) => {
-          const demoFilePath = path.join(fullParentFolder, fileName.trim());
-          const fileNameToForward = demoFilePath.match(fileNameRegex)?.[1];
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
 
-          let code = '';
-          if (fs.existsSync(demoFilePath)) {
-            code = fs.readFileSync(demoFilePath, 'utf8');
-            dependencies.push(demoFilePath);
-          } else {
-            code = `// Unable to load file: ${fileName}, path: ${demoFilePath}`;
-          }
-          const escapedCode = escapeCode(code);
-          let escapedHbsCode = '';
-          let escapedGtsCode = '';
-          let escapedJsCode = '';
+          const codeSnippets = {
+            hbs: '',
+            gts: '',
+            js: '',
+            shortenedGts: '',
+          };
 
-          const isJsFile = fileName.trim().endsWith('.js');
+          let fileNameToForward = '';
 
-          if (isJsFile) {
-            escapedJsCode = escapedCode;
-          } else {
-            escapedHbsCode = escapedCode;
-            const gtsFileName = fileName
-              .trim()
-              .replace(/\.hbs$/, '-component.gts');
-            const gtsFilePath = path.join(fullParentFolder, gtsFileName);
-            let gtsCode = '';
-            if (fs.existsSync(gtsFilePath)) {
-              gtsCode = fs.readFileSync(gtsFilePath, 'utf8');
-              dependencies.push(gtsFilePath);
-            } else {
-              gtsCode = `// Unable to load file: ${gtsFileName}, path: ${gtsFilePath}`;
-            }
-            escapedGtsCode = escapeCode(gtsCode);
+          SUPPORTED_FILE_EXTENSIONS.forEach((ext) => {
+            const fileToCheck = `${fileName.trim()}${ext}`;
+            const filePath = path.join(fullParentFolder, fileToCheck);
 
-            if (shouldIncludeBackingClass !== 'false') {
-              const jsFileName = fileName.trim().replace(/\.hbs$/, '.js');
-              const jsFilePath = path.join(fullParentFolder, jsFileName);
-              let jsCode = '';
-              if (fs.existsSync(jsFilePath)) {
-                jsCode = fs.readFileSync(jsFilePath, 'utf8');
-                dependencies.push(jsFilePath);
+            fileNameToForward = filePath.match(fileNameRegex)?.[1];
+
+            const shouldIgnoreFile =
+              shouldIncludeBackingClass === 'true' && ext === '.js';
+
+            if (!shouldIgnoreFile && fs.existsSync(filePath)) {
+              const code = fs.readFileSync(filePath, 'utf8');
+              dependencies.push(filePath);
+
+              if (ext === '.hbs') {
+                codeSnippets.hbs = escapeCode(code);
               }
-              escapedJsCode = escapeCode(jsCode);
+              if (ext === '-component.gts') {
+                codeSnippets.gts = escapeCode(code);
+                codeSnippets.shortenedGts = escapeCode(
+                  getShortenedGtsSnippet(code),
+                );
+              }
+              if (ext === '.js') {
+                codeSnippets.js = escapeCode(code);
+              }
             }
-          }
+          });
 
-          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${escapedHbsCode}" gts="${escapedGtsCode}" hidePreview="${shouldHidePreview}" js="${escapedJsCode}" ?><?php end="demo-block" ?>\n`;
+          // const demoFilePath = path.join(fullParentFolder, fileName.trim());
+
+          // let code = '';
+          // if (fs.existsSync(demoFilePath)) {
+          //   code = fs.readFileSync(demoFilePath, 'utf8');
+          //   dependencies.push(demoFilePath);
+          // } else {
+          //   code = `// Unable to load file: ${fileName}, path: ${demoFilePath}`;
+          // }
+          // const escapedCode = escapeCode(code);
+          // let escapedHbsCode = '';
+          // let escapedGtsCode = '';
+          // let escapedJsCode = '';
+
+          // const isJsFile = fileName.trim().endsWith('.js');
+
+          // if (isJsFile) {
+          //   escapedJsCode = escapedCode;
+          // } else {
+          //   escapedHbsCode = escapedCode;
+          //   const gtsFileName = fileName
+          //     .trim()
+          //     .replace(/\.hbs$/, '-component.gts');
+          //   const gtsFilePath = path.join(fullParentFolder, gtsFileName);
+          //   let gtsCode = '';
+          //   if (fs.existsSync(gtsFilePath)) {
+          //     gtsCode = fs.readFileSync(gtsFilePath, 'utf8');
+          //     dependencies.push(gtsFilePath);
+          //   } else {
+          //     gtsCode = `// Unable to load file: ${gtsFileName}, path: ${gtsFilePath}`;
+          //   }
+          //   escapedGtsCode = escapeCode(gtsCode);
+
+          //   if (shouldIncludeBackingClass !== 'false') {
+          //     const jsFileName = fileName.trim().replace(/\.hbs$/, '.js');
+          //     const jsFilePath = path.join(fullParentFolder, jsFileName);
+          //     let jsCode = '';
+          //     if (fs.existsSync(jsFilePath)) {
+          //       jsCode = fs.readFileSync(jsFilePath, 'utf8');
+          //       dependencies.push(jsFilePath);
+          //     }
+          //     escapedJsCode = escapeCode(jsCode);
+          //   }
+          // }
+
+          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" gts="${codeSnippets.gts}" shortenedGts="${codeSnippets.shortenedGts}" hidePreview="${shouldHidePreview}" js="${codeSnippets.js}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
