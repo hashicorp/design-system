@@ -21,6 +21,7 @@ interface DocCodeGroupSignature {
     gtsSnippet?: string;
     jsSnippet?: string;
     hidePreview?: boolean;
+    shortenedGtsSnippet?: string;
   };
   Blocks: {
     default: [];
@@ -56,48 +57,8 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return unescapeCode(this.args.jsSnippet ?? '');
   }
 
-  get shortenedGtsSnippet() {
-    if (!this.args.gtsSnippet) {
-      return '';
-    }
-
-    // find the content within the <template> tags
-    const templateRegex = /<template>([\s\S]*?)<\/template>/;
-    const match = this.unescapedGtsSnippet.match(templateRegex);
-
-    if (!match?.[1]) {
-      return '';
-    }
-
-    let snippet = match[1];
-
-    // Remove leading and trailing blank lines
-    snippet = snippet.replace(/^\s*\n/, '').replace(/\n\s*$/, '');
-
-    // Find the minimum indentation level (excluding empty lines)
-    const lines = snippet.split('\n');
-    const nonEmptyLines = lines.filter((line) => line.trim().length > 0);
-
-    if (nonEmptyLines.length === 0) {
-      return '';
-    }
-
-    const minIndent = Math.min(
-      ...nonEmptyLines.map((line) => {
-        const match = line.match(/^(\s*)/);
-        return match?.[1]?.length ?? 0;
-      }),
-    );
-
-    // Remove the minimum indentation from all lines
-    const dedentedLines = lines.map((line) => {
-      if (line.trim().length === 0) {
-        return ''; // Keep empty lines empty
-      }
-      return line.slice(minIndent);
-    });
-
-    return dedentedLines.join('\n');
+  get unescapedShortenedGtsSnippet() {
+    return unescapeCode(this.args.shortenedGtsSnippet ?? '');
   }
 
   get languageOptions() {
@@ -136,8 +97,8 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       if (this.isExpanded) {
         return this.unescapedGtsSnippet;
       }
-      // When not expanded, show just the content inside the <template> tags
-      return this.shortenedGtsSnippet;
+
+      return this.unescapedShortenedGtsSnippet;
     }
 
     return this.unescapedHbsSnippet;
