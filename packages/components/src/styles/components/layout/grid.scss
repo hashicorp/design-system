@@ -17,8 +17,8 @@
   --hds-layout-grid-column-min-width: 0px;
 
   // Auto-fit vs Auto-fill:
-  // * auto-fit = fluid layout, stretches child items to fill available space in a row (collapses any empty column tracks)
-  // * auto-fill = fixed layout, preserves empty column tracks in a row (does not stretch child items to fill empty space)
+  // - auto-fit = fluid layout, stretches child items to fill available space in a row (collapses any empty column tracks)
+  // - auto-fill = fixed layout, preserves empty column tracks in a row (does not stretch child items to fill empty space)
   --hds-layout-grid-column-fill-type: auto-fit; // (fluid layout by default)
 
   display: grid;
