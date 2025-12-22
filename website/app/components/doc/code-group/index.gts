@@ -45,19 +45,19 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
   }
 
-  get unescapedHbsSnippet() {
+  get hbsSnippet() {
     return unescapeCode(this.args.hbsSnippet ?? '');
   }
 
-  get unescapedGtsSnippet() {
+  get gtsSnippet() {
     return unescapeCode(this.args.gtsSnippet ?? '');
   }
 
-  get unescapedJsSnippet() {
+  get jsSnippet() {
     return unescapeCode(this.args.jsSnippet ?? '');
   }
 
-  get unescapedShortenedGtsSnippet() {
+  get compactGtsSnippet() {
     return unescapeCode(this.args.compactGtsSnippet ?? '');
   }
 
@@ -76,7 +76,8 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return options;
   }
 
-  get language() {
+  get syntaxHighlightLanguage() {
+    // to display the compact gts snippet correctly, need to use hbs syntax highlighting
     if (this.currentView === 'gts' && this.isExpanded) {
       return 'gts';
     }
@@ -90,18 +91,18 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   get currentViewSnippet() {
     if (this.currentView === 'js') {
-      return this.unescapedJsSnippet;
+      return this.jsSnippet;
     }
 
     if (this.currentView === 'gts') {
       if (this.isExpanded) {
-        return this.unescapedGtsSnippet;
+        return this.gtsSnippet;
       }
 
-      return this.unescapedShortenedGtsSnippet;
+      return this.compactGtsSnippet;
     }
 
-    return this.unescapedHbsSnippet;
+    return this.hbsSnippet;
   }
 
   handleLanguageChange = (event: Event) => {
@@ -138,26 +139,33 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       {{#if (notEq @hidePreview "true")}}
         <div class="doc-code-group__preview">
           <DynamicTemplate
-            @templateString={{this.unescapedHbsSnippet}}
+            @templateString={{this.hbsSnippet}}
             @componentId={{@filename}}
           />
         </div>
       {{/if}}
-      <div class="doc-code-group__code-snippet-wrapper">
+      <div
+        class="doc-code-group__code-snippet-wrapper
+          {{if
+            (eq this.currentView 'gts')
+            'doc-code-group__code-snippet--has-footer'
+            ''
+          }}"
+      >
+        <CodeBlock
+          @code={{this.currentViewSnippet}}
+          @language={{this.syntaxHighlightLanguage}}
+          @theme="github-dark"
+          @showCopyButton={{false}}
+        />
         {{#if (eq this.currentView "gts")}}
-          <div class="doc-code-group__expand-button-container">
+          <div class="doc-code-group__code-snippet-footer">
             <DocCodeGroupExpandButton
               @isExpanded={{this.isExpanded}}
               @onToggleExpand={{this.handleExpandClick}}
             />
           </div>
         {{/if}}
-        <CodeBlock
-          @code={{this.currentViewSnippet}}
-          @language={{this.language}}
-          @theme="github-dark"
-          @showCopyButton={{false}}
-        />
       </div>
     </div>
   </template>
