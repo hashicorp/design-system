@@ -5,7 +5,7 @@
 
 import { LinkTo } from '@ember/routing';
 import { hash } from '@ember/helper';
-import { humanize } from '@ember/string';
+import { humanize } from 'ember-cli-string-helpers';
 import { add } from 'ember-math-helpers';
 import { eq } from 'ember-truth-helpers';
 
