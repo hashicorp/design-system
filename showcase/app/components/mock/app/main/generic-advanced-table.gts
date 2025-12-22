@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { deepTracked } from 'ember-deep-tracked';
 import { get } from '@ember/helper';
 
@@ -500,13 +499,16 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     ...SAMPLE_MODEL,
   ];
 
-  @action onSelectionChange({
+  onSelectionChange = ({
     selectionKey,
     selectionCheckboxElement,
     selectableRowsStates,
-  }: HdsAdvancedTableOnSelectionChangeSignature) {
-    // eslint-disable-next-line prefer-rest-params
-    console.log(...arguments);
+  }: HdsAdvancedTableOnSelectionChangeSignature) => {
+    console.group('onSelectionChange');
+    console.log('Selection Key:', selectionKey);
+    console.log('Checkbox Element:', selectionCheckboxElement);
+    console.log('Selectable Rows States:', selectableRowsStates);
+    console.groupEnd();
 
     if (selectionKey === 'all' && this.demoModel) {
       const state = selectionCheckboxElement
@@ -517,7 +519,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     } else {
       updateModelWithSelectableRowsStates(this.demoModel, selectableRowsStates);
     }
-  }
+  };
 
   <template>
     <HdsAdvancedTable

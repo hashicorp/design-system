@@ -1,8 +1,9 @@
+import Component from '@glimmer/component';
+import { ensureSafeComponent } from '@embroider/util';
 import { setComponentTemplate } from '@ember/component';
-import { getOwner } from '@ember/application';
+import { getOwner } from '@ember/owner';
 import { compileTemplate } from '@ember/template-compilation';
 import { importSync } from '@embroider/macros';
-import Component from '@glimmer/component';
 
 let templateOwnerMap = new Map();
 
@@ -65,4 +66,6 @@ export default class DynamicTemplate extends Component {
 
     return component;
   }
+
+  <template>{{component (ensureSafeComponent this.component)}}</template>
 }
