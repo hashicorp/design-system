@@ -16,12 +16,12 @@ import DynamicTemplate from 'website/components/dynamic-template';
 
 interface DocCodeGroupSignature {
   Args: {
+    compactGtsSnippet?: string;
     filename?: string;
-    hbsSnippet?: string;
     gtsSnippet?: string;
-    jsSnippet?: string;
+    hbsSnippet?: string;
     hidePreview?: boolean;
-    shortenedGtsSnippet?: string;
+    jsSnippet?: string;
   };
   Blocks: {
     default: [];
@@ -58,7 +58,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   }
 
   get unescapedShortenedGtsSnippet() {
-    return unescapeCode(this.args.shortenedGtsSnippet ?? '');
+    return unescapeCode(this.args.compactGtsSnippet ?? '');
   }
 
   get languageOptions() {
