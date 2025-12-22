@@ -19,61 +19,61 @@
   border-bottom: none;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+}
 
-  .doc-code-group__language-picker {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin: 0;
-    padding: 6px;
-    border: none;
-    border-right: 1px solid var(--doc-color-gray-400);
+.doc-code-group__language-picker {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 6px;
+  border: none;
+  border-right: 1px solid var(--doc-color-gray-400);
+}
 
-    .doc-code-group__language-picker-option {
-      @include doc-font-style-code();
+.doc-code-group__language-picker-option {
+  @include doc-font-style-code();
 
-      color: var(--doc-color-gray-200);
-      border: 1px solid transparent;
-      border-radius: 4px;
-      cursor: pointer;
-      padding-block: 4px;
-      padding-inline: 12px;
+  color: var(--doc-color-gray-200);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  padding-block: 4px;
+  padding-inline: 12px;
 
-      &:hover {
-        background-color: var(--doc-color-gray-600);
-      }
+  &:hover {
+    background-color: var(--doc-color-gray-600);
+  }
 
-      &:active {
-        background-color: var(--doc-color-gray-500);
-      }
+  &:active {
+    background-color: var(--doc-color-gray-500);
+  }
 
-      &:focus-within {
-        box-shadow: 0 0 0 2px #6BA1FF;
-      }
+  &:focus-within {
+    box-shadow: 0 0 0 2px #6BA1FF;
+  }
 
-      &:has(input:checked) {
-        color: var(--doc-color-feedback-information-100);
-        background-color: var(--doc-color-feedback-information-400);
-        border-color:var(--doc-color-feedback-information-100);
+  &:has(input:checked) {
+    color: var(--doc-color-feedback-information-100);
+    background-color: var(--doc-color-feedback-information-400);
+    border-color:var(--doc-color-feedback-information-100);
 
-        &:hover {
-          background-color: var(--doc-color-feedback-information-300);
-        }
+    &:hover {
+      background-color: var(--doc-color-feedback-information-300);
+    }
 
-        &:active {
-          color: #0033B0;
-          background-color: #A7C5FF;
-        }
-      }
+    &:active {
+      color: #0033B0;
+      background-color: #A7C5FF;
     }
   }
+}
 
-  .doc-code-group__secondary-actions {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    justify-content: flex-end;
-  }
+.doc-code-group__secondary-actions {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
 .doc-code-group__copy-button-container {
@@ -159,13 +159,24 @@
   position: relative;
 }
 
-.doc-code-group__expand-button-container {
+.doc-code-group__code-snippet-footer {
   position: absolute;
   bottom: 16px;
-  z-index: 1;
+  z-index: 1; // fix issue where footer was behind the code block
   display: flex;
   justify-content: center;
   width: 100%;
+  pointer-events: none; // fix issue with scrolling when hovering over the footer
+
+  // re-enable pointer events for the button (or any content inside the footer)
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.doc-code-group__code-snippet--has-footer code {
+  // account for the footer at the bottom of the code snippet
+  padding-bottom: 54px;
 }
 
 .doc-code-group__expand-button {
