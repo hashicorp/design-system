@@ -1,0 +1,6 @@
+<Hds::Button
+  {{style width="7.5rem"}}
+  @icon={{if this.isLoading "loading"}}
+  @text={{if this.isLoading "Loading" "Save"}}
+  {{on "click" this.toggleIsLoading}}
+/>
