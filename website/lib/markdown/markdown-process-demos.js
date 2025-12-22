@@ -16,7 +16,7 @@ const demoBlockRegex =
 
 const fileNameRegex = /(components\/.*?)\.(?:hbs|gts|js)$/;
 
-const SUPPORTED_FILE_EXTENSIONS = ['.hbs', '-component.gts', '.js'];
+const SUPPORTED_FILE_EXTENSIONS = ['.classic.hbs', '.gts', '.classic.js'];
 
 // Helper to escape code for attribute usage
 function escapeCode(code) {
@@ -31,7 +31,7 @@ function escapeCode(code) {
     .replace(/\\n$/, ''); // Remove trailing newline
 }
 
-function getShortenedGtsSnippet(code) {
+function getCompactGtsSnippet(code) {
   // find the content within the <template> tags
   const templateRegex = /<template>([\s\S]*?)<\/template>/;
   const match = code.match(templateRegex);
@@ -97,7 +97,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             hbs: '',
             gts: '',
             js: '',
-            shortenedGts: '',
+            compactGts: '',
           };
 
           let fileNameToForward = '';
@@ -109,28 +109,28 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             fileNameToForward = filePath.match(fileNameRegex)?.[1];
 
             const shouldIgnoreFile =
-              shouldIncludeBackingClass === 'true' && ext === '.js';
+              shouldIncludeBackingClass === 'true' && ext === '.classic.js';
 
             if (!shouldIgnoreFile && fs.existsSync(filePath)) {
               const code = fs.readFileSync(filePath, 'utf8');
               dependencies.push(filePath);
 
-              if (ext === '.hbs') {
+              if (ext === '.classic.hbs') {
                 codeSnippets.hbs = escapeCode(code);
               }
-              if (ext === '-component.gts') {
+              if (ext === '.gts') {
                 codeSnippets.gts = escapeCode(code);
-                codeSnippets.shortenedGts = escapeCode(
-                  getShortenedGtsSnippet(code),
+                codeSnippets.compactGts = escapeCode(
+                  getCompactGtsSnippet(code),
                 );
               }
-              if (ext === '.js') {
+              if (ext === '.classic.js') {
                 codeSnippets.js = escapeCode(code);
               }
             }
           });
 
-          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" gts="${codeSnippets.gts}" shortenedGts="${codeSnippets.shortenedGts}" hidePreview="${shouldHidePreview}" js="${codeSnippets.js}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" hidePreview="${shouldHidePreview}" js="${codeSnippets.js}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
