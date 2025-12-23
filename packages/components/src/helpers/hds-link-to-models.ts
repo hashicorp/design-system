@@ -13,7 +13,7 @@ import { assert } from '@ember/debug';
  * The result of this helper should be passed into the `@models` argument of the `<LinkTo>` component:
  *
  * ```hbs
- * <LinkTo @models={{hds-link-to-models @model @models}} />
+ * <LinkTo @models={{hds-link-to-models (array @model @models)}} />
  * ```
  */
 
