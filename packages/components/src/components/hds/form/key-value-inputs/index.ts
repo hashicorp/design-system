@@ -17,7 +17,7 @@ import {
 } from '../../../../utils/hds-aria-described-by.ts';
 import { guidFor } from '@ember/object/internals';
 
-import HdsAlertComponent from '../../alert/index.ts';
+import HdsAlertComponent from '../../alert/index.gts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormKeyValueInputsDeleteRowButtonComponent from './delete-row-button.ts';
