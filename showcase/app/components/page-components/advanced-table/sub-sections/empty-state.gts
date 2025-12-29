@@ -21,7 +21,15 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
     <code>:emptyState</code>
     block</ShwTextH4>
 
-  <CodeFragmentWithEmptyState @customEmptyState={{true}} />
+  <CodeFragmentWithEmptyState @emptyState="named-block" />
+
+  <ShwTextH4 @tag="h3">With
+    <code>:emptyState</code>
+    block +
+    <code>ApplicationState</code>
+    contextual component</ShwTextH4>
+
+  <CodeFragmentWithEmptyState @emptyState="application-state" />
 
   <ShwDivider />
 </template>;

@@ -31,6 +31,7 @@ import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
+import type HdsApplicationState from '../application-state/index.ts';
 import type { HdsFilterBarSignature } from '../filter-bar/index.ts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
@@ -199,7 +200,11 @@ export interface HdsAdvancedTableSignature {
         isOpen?: HdsAdvancedTableExpandState;
       },
     ];
-    emptyState?: [];
+    emptyState?: [
+      {
+        ApplicationState?: WithBoundArgs<typeof HdsApplicationState, never>;
+      },
+    ];
   };
   Element: HTMLDivElement;
 }
