@@ -207,20 +207,19 @@
       <div class="hds-advanced-table__empty-state">
         <div class="hds-advanced-table__empty-state__content">
           {{#if (has-block "emptyState")}}
-            {{yield to="emptyState"}}
+            {{yield (hash ApplicationState=(component "hds/application-state")) to="emptyState"}}
           {{else}}
-            <Hds::Layout::Flex @direction="column" @gap="8">
-              <Hds::Text::Display @tag="h3" @size="300">{{hds-t
-                  "hds.components.advanced-table.empty-state.title"
-                  default="No data available"
-                }}</Hds::Text::Display>
-              <Hds::Text::Body>
-                {{hds-t
+            <Hds::ApplicationState as |A|>
+              <A.Header
+                @title={{hds-t "hds.components.advanced-table.empty-state.title" default="No data available"}}
+              />
+              <A.Body
+                @text={{hds-t
                   "hds.components.advanced-table.empty-state.description"
                   default="There is currently no data to display in the table."
                 }}
-              </Hds::Text::Body>
-            </Hds::Layout::Flex>
+              />
+            </Hds::ApplicationState>
           {{/if}}
         </div>
       </div>
