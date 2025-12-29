@@ -18,12 +18,9 @@ import {
   HdsAdvancedTable,
   HdsButton,
   HdsFilterBar,
-  HdsLayoutFlex,
   HdsLinkInline,
   HdsBadge,
   HdsFormToggleField,
-  HdsTextBody,
-  HdsTextDisplay,
   type HdsFilterBarNumericalFilter,
   type HdsFilterBarDateFilter,
   type HdsFilterBarSingleSelectFilter,
@@ -576,20 +573,20 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
             </B.Td>
           </B.Tr>
         </:body>
-        <:emptyState>
-          <HdsLayoutFlex @direction="column" @gap="12">
-            <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
-            <HdsTextBody>
-              No results were found with the selected filters. Please clear or
-              update the filters.
-            </HdsTextBody>
-            <div>
-              <HdsButton
+        <:emptyState as |E|>
+          <E.ApplicationState as |A|>
+            <A.Header @title="No data to display" />
+            <A.Body
+              @text="No results were found with the selected filters. Please clear or
+              update the filters."
+            />
+            <A.Footer as |F|>
+              <F.Button
                 @text="Clear filters"
                 {{on "click" this.clearFilters}}
               />
-            </div>
-          </HdsLayoutFlex>
+            </A.Footer>
+          </E.ApplicationState>
         </:emptyState>
       </HdsAdvancedTable>
     {{else}}
@@ -788,20 +785,20 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
             </B.Td>
           </B.Tr>
         </:body>
-        <:emptyState>
-          <HdsLayoutFlex @direction="column" @gap="12">
-            <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
-            <HdsTextBody>
-              No results were found with the selected filters. Please clear or
-              update the filters.
-            </HdsTextBody>
-            <div>
-              <HdsButton
+        <:emptyState as |E|>
+          <E.ApplicationState as |A|>
+            <A.Header @title="No data to display" />
+            <A.Body
+              @text="No results were found with the selected filters. Please clear or
+              update the filters."
+            />
+            <A.Footer as |F|>
+              <F.Button
                 @text="Clear filters"
                 {{on "click" this.clearFilters}}
               />
-            </div>
-          </HdsLayoutFlex>
+            </A.Footer>
+          </E.ApplicationState>
         </:emptyState>
       </HdsAdvancedTable>
     {{/if}}

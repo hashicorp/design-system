@@ -12,13 +12,9 @@ import { on } from '@ember/modifier';
 // HDS components
 import {
   HdsAdvancedTable,
-  HdsButton,
-  HdsLayoutFlex,
   HdsLinkInline,
   HdsBadge,
   HdsBadgeColorValues,
-  HdsTextBody,
-  HdsTextDisplay,
   type HdsAdvancedTableOnSelectionChangeSignature,
   type HdsFilterBarSingleSelectFilter,
   type HdsFilterBarMultiSelectFilter,
@@ -775,17 +771,17 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           </B.Td>
         </B.Tr>
       </:body>
-      <:emptyState>
-        <HdsLayoutFlex @direction="column" @gap="12">
-          <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
-          <HdsTextBody>
-            No results were found with the selected filters. Please clear or
-            update the filters.
-          </HdsTextBody>
-          <div>
-            <HdsButton @text="Clear filters" {{on "click" this.clearFilters}} />
-          </div>
-        </HdsLayoutFlex>
+      <:emptyState as |E|>
+        <E.ApplicationState as |A|>
+          <A.Header @title="No data to display" />
+          <A.Body
+            @text="No results were found with the selected filters. Please clear or
+            update the filters."
+          />
+          <A.Footer as |F|>
+            <F.Button @text="Clear filters" {{on "click" this.clearFilters}} />
+          </A.Footer>
+        </E.ApplicationState>
       </:emptyState>
     </HdsAdvancedTable>
   </template>
