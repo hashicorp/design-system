@@ -59,7 +59,7 @@ export interface HdsFilterBarFilterGroupNumericalSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLElement;
+  Element: HTMLFieldSetElement;
 }
 
 export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilterBarFilterGroupNumericalSignature> {

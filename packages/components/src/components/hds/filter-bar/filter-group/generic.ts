@@ -19,7 +19,7 @@ export interface HdsFilterBarFilterGroupGenericSignature {
       },
     ];
   };
-  Element: HTMLElement;
+  Element: HTMLDivElement;
 }
 
 export default class HdsFilterBarFilterGroupGeneric extends Component<HdsFilterBarFilterGroupGenericSignature> {
