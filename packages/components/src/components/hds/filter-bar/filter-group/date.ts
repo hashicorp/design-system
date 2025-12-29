@@ -64,7 +64,7 @@ export interface HdsFilterBarFilterGroupDateSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLElement;
+  Element: HTMLFieldSetElement;
 }
 
 export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarFilterGroupDateSignature> {

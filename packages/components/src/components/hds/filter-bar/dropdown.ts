@@ -32,7 +32,7 @@ export interface HdsFilterBarDropdownSignature {
       },
     ];
   };
-  Element: HTMLDivElement;
+  Element: HdsDropdownSignature['Element'];
 }
 
 export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdownSignature> {

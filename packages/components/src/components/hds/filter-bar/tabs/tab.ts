@@ -22,7 +22,7 @@ export interface HdsFilterBarTabsTabSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLElement;
+  Element: HTMLLIElement;
 }
 
 export default class HdsFilterBarTabsTab extends Component<HdsFilterBarTabsTabSignature> {

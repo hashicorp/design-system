@@ -12,6 +12,7 @@ import type { WithBoundArgs } from '@glint/template';
 import HdsFilterBarTabsTab from '../tabs/tab.ts';
 import HdsFilterBarTabsPanel from '../tabs/panel.ts';
 import type { HdsTabsPanelSignature } from '../../tabs/panel.ts';
+import type { HdsTabsTabSignature } from '../../tabs/tab.ts';
 
 import HdsFilterBarFilterGroupGeneric from './generic.ts';
 import HdsFilterBarFilterGroupCheckbox from './checkbox.ts';
@@ -58,7 +59,7 @@ export interface HdsFilterBarFilterGroupSignature {
       },
     ];
   };
-  Element: HdsTabsPanelSignature['Element'];
+  Element: HdsTabsTabSignature['Element'] | HdsTabsPanelSignature['Element'];
 }
 
 export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilterGroupSignature> {

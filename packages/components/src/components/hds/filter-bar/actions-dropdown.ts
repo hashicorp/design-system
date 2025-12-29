@@ -11,14 +11,21 @@ import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button
 import type HdsIntlService from '../../../services/hds-intl';
 
 export interface HdsFilterBarActionsDropdownSignature {
-  Args: {
+  Args: Pick<
+    HdsDropdownSignature['Args'],
+    | 'enableCollisionDetection'
+    | 'width'
+    | 'height'
+    | 'preserveContentInDom'
+    | 'onClose'
+  > & {
     toggleButtonText?: HdsDropdownToggleButtonSignature['Args']['text'];
     toggleButtonIcon?: HdsDropdownToggleButtonSignature['Args']['icon'];
   };
   Blocks: {
     default: [HdsDropdownSignature['Blocks']['default'][0]];
   };
-  Element: HTMLDivElement;
+  Element: HdsDropdownSignature['Element'];
 }
 
 export default class HdsFilterBarActionsDropdown extends Component<HdsFilterBarActionsDropdownSignature> {

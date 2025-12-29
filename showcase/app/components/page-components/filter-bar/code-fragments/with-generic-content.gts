@@ -76,7 +76,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
         </F.ActionsGeneric>
       {{/if}}
       {{#if @hasActionsDropdown}}
-        <F.ActionsDropdown as |D|>
+        <F.ActionsDropdown @width="100px" @height="200px" as |D|>
           <D.Title @text="Title Text" />
           <D.Description @text="Descriptive text goes here." />
           <D.Interactive @href="#">Add</D.Interactive>
