@@ -486,206 +486,324 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
           </D.FilterGroup>
         </F.Dropdown>
       </HdsFilterBar>
-    {{/if}}
 
-    <HdsAdvancedTable
-      @columns={{SAMPLE_COLUMNS}}
-      @model={{this.filteredData}}
-      @maxHeight="600px"
-      @isStriped={{true}}
-      @hasStickyFirstColumn={{true}}
-    >
-      <:actions as |A|>
-        {{#unless this.isSeparatedFilterBar}}
-          <A.FilterBar
-            @hasSearch={{true}}
-            @isLiveFilter={{this.isLiveFilter}}
-            @filters={{this.filters}}
-            @onFilter={{this.onFilter}}
-            as |F|
-          >
-            <F.ActionsGeneric>
-              <ShwPlaceholder @text="generic content" @height="24" />
-            </F.ActionsGeneric>
-            <F.ActionsDropdown as |D|>
-              <D.Checkbox>access</D.Checkbox>
-              <D.Checkbox>homework</D.Checkbox>
-              <D.Checkbox>discovery</D.Checkbox>
-              <D.Checkbox>memories</D.Checkbox>
-            </F.ActionsDropdown>
-            <F.Dropdown as |D|>
-              <D.FilterGroup
-                @key="name"
-                @text="Name"
-                @type="multi-select"
-                @searchEnabled={{true}}
-                as |F|
-              >
-                {{#each (get RUNS_VALUES "name") as |option|}}
-                  <F.Checkbox @value={{option.value}} @label={{option.label}} />
-                {{/each}}
-              </D.FilterGroup>
-              <D.FilterGroup
-                @key="project-name"
-                @text="Project name"
-                @type="multi-select"
-                @searchEnabled={{true}}
-                as |F|
-              >
-                {{#each (get RUNS_VALUES "project-name") as |option|}}
-                  <F.Checkbox @value={{option.value}} @label={{option.label}} />
-                {{/each}}
-              </D.FilterGroup>
-              <D.FilterGroup
-                @key="run-status"
-                @text="Run status"
-                @type="multi-select"
-                as |F|
-              >
-                {{#each (get RUNS_VALUES "run-status") as |option|}}
-                  <F.Checkbox @value={{option.value}} @label={{option.label}} />
-                {{/each}}
-              </D.FilterGroup>
-              <D.FilterGroup
-                @key="terraform-version"
-                @text="Terraform version"
-                @type="single-select"
-                as |F|
-              >
-                {{#each (get RUNS_VALUES "terraform-version") as |option|}}
-                  <F.Radio @value={{option.value}} @label={{option.label}} />
-                {{/each}}
-              </D.FilterGroup>
-              <D.FilterGroup
-                @key="current-run-applied"
-                @text="Current run applied"
-                @type="datetime"
+      <HdsAdvancedTable
+        @columns={{SAMPLE_COLUMNS}}
+        @model={{this.filteredData}}
+        @maxHeight="600px"
+        @isStriped={{true}}
+        @hasStickyFirstColumn={{true}}
+      >
+        <:body as |B|>
+          {{! @glint-expect-error }}
+          <B.Tr @selectionKey={{get B.data "name"}}>
+            <B.Th>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "name"}}
+              </HdsLinkInline>
+            </B.Th>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "project-name"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "current-run-id"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
+              <HdsBadge
+                @type="outlined"
+                {{! @glint-expect-error }}
+                @text={{get B.data "run-status"}}
+                {{! @glint-expect-error }}
+                @color={{get B.data "run-status-color"}}
               />
-              <D.FilterGroup
-                @key="creation-time"
-                @text="Creation time"
-                @type="time"
+            </B.Td>
+            <B.Td>
+              {{! @glint-expect-error }}
+              {{get B.data "current-run-applied"}}
+            </B.Td>
+            <B.Td>
+              {{! @glint-expect-error }}
+              {{get B.data "creation-time"}}
+            </B.Td>
+            <B.Td>
+              {{! @glint-expect-error }}
+              {{get B.data "vcs-repo"}}
+            </B.Td>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "module-count"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
+              {{! @glint-expect-error }}
+              {{get B.data "modules"}}
+            </B.Td>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "provider-count"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
+              {{! @glint-expect-error }}
+              {{get B.data "providers"}}
+            </B.Td>
+            <B.Td>
+              {{! @glint-expect-error }}
+              {{get B.data "terraform-version"}}
+            </B.Td>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "state-terraform-version"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
+              {{! @glint-expect-error }}
+              {{get B.data "created"}}
+            </B.Td>
+            <B.Td>
+              {{! @glint-expect-error }}
+              {{get B.data "updated"}}
+            </B.Td>
+          </B.Tr>
+        </:body>
+        <:emptyState>
+          <HdsLayoutFlex @direction="column" @gap="12">
+            <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
+            <HdsTextBody>
+              No results were found with the selected filters. Please clear or
+              update the filters.
+            </HdsTextBody>
+            <div>
+              <HdsButton
+                @text="Clear filters"
+                {{on "click" this.clearFilters}}
               />
-              <D.FilterGroup
-                @key="module-count"
-                @text="Module count"
-                @type="numerical"
+            </div>
+          </HdsLayoutFlex>
+        </:emptyState>
+      </HdsAdvancedTable>
+    {{else}}
+      <HdsAdvancedTable
+        @columns={{SAMPLE_COLUMNS}}
+        @model={{this.filteredData}}
+        @maxHeight="600px"
+        @isStriped={{true}}
+        @hasStickyFirstColumn={{true}}
+      >
+        <:actions as |A|>
+          {{#unless this.isSeparatedFilterBar}}
+            <A.FilterBar
+              @hasSearch={{true}}
+              @isLiveFilter={{this.isLiveFilter}}
+              @filters={{this.filters}}
+              @onFilter={{this.onFilter}}
+              as |F|
+            >
+              <F.ActionsGeneric>
+                <ShwPlaceholder @text="generic content" @height="24" />
+              </F.ActionsGeneric>
+              <F.ActionsDropdown as |D|>
+                <D.Checkbox>access</D.Checkbox>
+                <D.Checkbox>homework</D.Checkbox>
+                <D.Checkbox>discovery</D.Checkbox>
+                <D.Checkbox>memories</D.Checkbox>
+              </F.ActionsDropdown>
+              <F.Dropdown as |D|>
+                <D.FilterGroup
+                  @key="name"
+                  @text="Name"
+                  @type="multi-select"
+                  @searchEnabled={{true}}
+                  as |F|
+                >
+                  {{#each (get RUNS_VALUES "name") as |option|}}
+                    <F.Checkbox
+                      @value={{option.value}}
+                      @label={{option.label}}
+                    />
+                  {{/each}}
+                </D.FilterGroup>
+                <D.FilterGroup
+                  @key="project-name"
+                  @text="Project name"
+                  @type="multi-select"
+                  @searchEnabled={{true}}
+                  as |F|
+                >
+                  {{#each (get RUNS_VALUES "project-name") as |option|}}
+                    <F.Checkbox
+                      @value={{option.value}}
+                      @label={{option.label}}
+                    />
+                  {{/each}}
+                </D.FilterGroup>
+                <D.FilterGroup
+                  @key="run-status"
+                  @text="Run status"
+                  @type="multi-select"
+                  as |F|
+                >
+                  {{#each (get RUNS_VALUES "run-status") as |option|}}
+                    <F.Checkbox
+                      @value={{option.value}}
+                      @label={{option.label}}
+                    />
+                  {{/each}}
+                </D.FilterGroup>
+                <D.FilterGroup
+                  @key="terraform-version"
+                  @text="Terraform version"
+                  @type="single-select"
+                  as |F|
+                >
+                  {{#each (get RUNS_VALUES "terraform-version") as |option|}}
+                    <F.Radio @value={{option.value}} @label={{option.label}} />
+                  {{/each}}
+                </D.FilterGroup>
+                <D.FilterGroup
+                  @key="current-run-applied"
+                  @text="Current run applied"
+                  @type="datetime"
+                />
+                <D.FilterGroup
+                  @key="creation-time"
+                  @text="Creation time"
+                  @type="time"
+                />
+                <D.FilterGroup
+                  @key="module-count"
+                  @text="Module count"
+                  @type="numerical"
+                />
+                <D.FilterGroup @key="created" @text="Created" @type="date" />
+                <D.FilterGroup
+                  @key="vcs-repo"
+                  @text="VCS repo"
+                  @type="generic"
+                  as |F|
+                >
+                  <F.Generic as |G|>
+                    <ShwPlaceholder @text="generic content" @height="100" />
+                    <HdsButton
+                      @text="Add custom filter"
+                      @color="secondary"
+                      @size="small"
+                      {{on "click" (fn G.updateFilter CUSTOM_FILTER)}}
+                    />
+                  </F.Generic>
+                </D.FilterGroup>
+              </F.Dropdown>
+            </A.FilterBar>
+          {{/unless}}
+        </:actions>
+        <:body as |B|>
+          {{! @glint-expect-error }}
+          <B.Tr @selectionKey={{get B.data "name"}}>
+            <B.Th>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "name"}}
+              </HdsLinkInline>
+            </B.Th>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "project-name"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "current-run-id"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
+              <HdsBadge
+                @type="outlined"
+                {{! @glint-expect-error }}
+                @text={{get B.data "run-status"}}
+                {{! @glint-expect-error }}
+                @color={{get B.data "run-status-color"}}
               />
-              <D.FilterGroup @key="created" @text="Created" @type="date" />
-              <D.FilterGroup
-                @key="vcs-repo"
-                @text="VCS repo"
-                @type="generic"
-                as |F|
-              >
-                <F.Generic as |G|>
-                  <ShwPlaceholder @text="generic content" @height="100" />
-                  <HdsButton
-                    @text="Add custom filter"
-                    @color="secondary"
-                    @size="small"
-                    {{on "click" (fn G.updateFilter CUSTOM_FILTER)}}
-                  />
-                </F.Generic>
-              </D.FilterGroup>
-            </F.Dropdown>
-          </A.FilterBar>
-        {{/unless}}
-      </:actions>
-      <:body as |B|>
-        {{! @glint-expect-error }}
-        <B.Tr @selectionKey={{get B.data "name"}}>
-          <B.Th>
-            <HdsLinkInline @href="www.google.com">
+            </B.Td>
+            <B.Td>
               {{! @glint-expect-error }}
-              {{get B.data "name"}}
-            </HdsLinkInline>
-          </B.Th>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
+              {{get B.data "current-run-applied"}}
+            </B.Td>
+            <B.Td>
               {{! @glint-expect-error }}
-              {{get B.data "project-name"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
+              {{get B.data "creation-time"}}
+            </B.Td>
+            <B.Td>
               {{! @glint-expect-error }}
-              {{get B.data "current-run-id"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            <HdsBadge
-              @type="outlined"
+              {{get B.data "vcs-repo"}}
+            </B.Td>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "module-count"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
               {{! @glint-expect-error }}
-              @text={{get B.data "run-status"}}
+              {{get B.data "modules"}}
+            </B.Td>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "provider-count"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
               {{! @glint-expect-error }}
-              @color={{get B.data "run-status-color"}}
-            />
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "current-run-applied"}}
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "creation-time"}}
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "vcs-repo"}}
-          </B.Td>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
+              {{get B.data "providers"}}
+            </B.Td>
+            <B.Td>
               {{! @glint-expect-error }}
-              {{get B.data "module-count"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "modules"}}
-          </B.Td>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
+              {{get B.data "terraform-version"}}
+            </B.Td>
+            <B.Td>
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "state-terraform-version"}}
+              </HdsLinkInline>
+            </B.Td>
+            <B.Td>
               {{! @glint-expect-error }}
-              {{get B.data "provider-count"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "providers"}}
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "terraform-version"}}
-          </B.Td>
-          <B.Td>
-            <HdsLinkInline @href="www.google.com">
+              {{get B.data "created"}}
+            </B.Td>
+            <B.Td>
               {{! @glint-expect-error }}
-              {{get B.data "state-terraform-version"}}
-            </HdsLinkInline>
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "created"}}
-          </B.Td>
-          <B.Td>
-            {{! @glint-expect-error }}
-            {{get B.data "updated"}}
-          </B.Td>
-        </B.Tr>
-      </:body>
-      <:emptyState>
-        <HdsLayoutFlex @direction="column" @gap="12">
-          <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
-          <HdsTextBody>
-            No results were found with the selected filters. Please clear or
-            update the filters.
-          </HdsTextBody>
-          <div>
-            <HdsButton @text="Clear filters" {{on "click" this.clearFilters}} />
-          </div>
-        </HdsLayoutFlex>
-      </:emptyState>
-    </HdsAdvancedTable>
+              {{get B.data "updated"}}
+            </B.Td>
+          </B.Tr>
+        </:body>
+        <:emptyState>
+          <HdsLayoutFlex @direction="column" @gap="12">
+            <HdsTextDisplay @tag="h3" @size="300">No data to display</HdsTextDisplay>
+            <HdsTextBody>
+              No results were found with the selected filters. Please clear or
+              update the filters.
+            </HdsTextBody>
+            <div>
+              <HdsButton
+                @text="Clear filters"
+                {{on "click" this.clearFilters}}
+              />
+            </div>
+          </HdsLayoutFlex>
+        </:emptyState>
+      </HdsAdvancedTable>
+    {{/if}}
   </template>
 }
