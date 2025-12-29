@@ -774,7 +774,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   border-radius: $hds-advanced-table-border-radius $hds-advanced-table-border-radius 0 0;
 }
 
-.hds-advanced-table__actions + .hds-advanced-table__container {
+.hds-advanced-table__actions-container-wrapper .hds-advanced-table__actions + .hds-advanced-table__container {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 
