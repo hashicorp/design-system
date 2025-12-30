@@ -18,7 +18,7 @@ export default class Index extends Component {
     { id: 3, os: 'windows' },
   ];
 
-  @tracked showUpatingRowsExampleDeleteButtons = true
+  @tracked showUpdatingRowsExampleDeleteButtons = true
   @tracked showMaxRowsExampleDeleteButtons = true;
 
   @action
@@ -29,7 +29,7 @@ export default class Index extends Component {
     ];
 
     if (this.updatingRowsExampleData.length > 1) {
-      this.showUpatingRowsExampleDeleteButtons = true;
+      this.showUpdatingRowsExampleDeleteButtons = true;
     }
   }
 
@@ -39,7 +39,7 @@ export default class Index extends Component {
       this.updatingRowsExampleData = [
         { id: 1, name: '', email: '' },
       ];
-      this.showUpatingRowsExampleDeleteButtons = false;
+      this.showUpdatingRowsExampleDeleteButtons = false;
     } else {
       this.updatingRowsExampleData = this.updatingRowsExampleData.filter(
         (item) => item.id !== rowToDelete.id,

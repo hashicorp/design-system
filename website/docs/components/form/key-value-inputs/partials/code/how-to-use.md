@@ -362,7 +362,7 @@ Consumers are responsible for handling the logic to add or remove a row. To do t
       </F.Label>
       <F.TextInput @value={{R.rowData.name}} />
     </R.Field>
-    {{#if this.showUpatingRowsExampleDeleteButtons}}
+    {{#if this.showUpdatingRowsExampleDeleteButtons}}
       <R.DeleteRowButton
         @onClick={{this.updatingRowsExampleOnDeleteRow}}
       />
