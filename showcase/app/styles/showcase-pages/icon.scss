@@ -8,13 +8,6 @@
 @use "../typography" as *;
 
 body.page-components-icon {
-  .shw-component-icon-theme-toggle-container {
-    position: sticky;
-    top: 0;
-    padding: 16px 0;
-    background-color: rgba(255, 255, 255, 90%);
-  }
-
   .shw-component-outline-icons {
     .hds-icon {
       outline: 1px dotted #CCC;

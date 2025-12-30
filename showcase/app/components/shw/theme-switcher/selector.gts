@@ -86,6 +86,8 @@ export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcher
 
     // we set the `currentStylesheet` in the `shwTheming` service
     this.shwTheming.setStylesheet(selectedStylesheet);
+    console.log({ theme: selectedTheme });
+
     // we set the `currentTheme` in the `hdsTheming` service
     this.hdsTheming.setTheme({
       theme: selectedTheme === '' ? undefined : selectedTheme,
