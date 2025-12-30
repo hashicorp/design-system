@@ -18,19 +18,33 @@ export default class Index extends Component {
     { id: 3, os: 'windows' },
   ];
 
+  @tracked showUpatingRowsExampleDeleteButtons = true
+  @tracked showMaxRowsExampleDeleteButtons = true;
+
   @action
   updatingRowsExampleOnAddRow() {
     this.updatingRowsExampleData = [
       ...this.updatingRowsExampleData,
       { name: '', email: '', id: this.updatingRowsExampleData.length + 1 },
     ];
+
+    if (this.updatingRowsExampleData.length > 1) {
+      this.showUpatingRowsExampleDeleteButtons = true;
+    }
   }
 
   @action
   updatingRowsExampleOnDeleteRow(rowToDelete) {
-    this.updatingRowsExampleData = this.updatingRowsExampleData.filter(
-      (item) => item.id !== rowToDelete.id,
-    );
+    if (this.updatingRowsExampleData.length === 1) {
+      this.updatingRowsExampleData = [
+        { id: 1, name: '', email: '' },
+      ];
+      this.showUpatingRowsExampleDeleteButtons = false;
+    } else {
+      this.updatingRowsExampleData = this.updatingRowsExampleData.filter(
+        (item) => item.id !== rowToDelete.id,
+      );
+    }
   }
 
   @action
@@ -39,12 +53,24 @@ export default class Index extends Component {
       ...this.maxRowsExampleData,
       { name: '', email: '', id: this.maxRowsExampleData.length + 1 },
     ];
+
+    if (this.maxRowsExampleData.length > 1) {
+      this.showMaxRowsExampleDeleteButtons = true;
+    }
   }
 
   @action
   maxRowsExampleOnDeleteRow(rowToDelete) {
+    if (this.maxRowsExampleData.length === 1) {
+      this.maxRowsExampleData = [
+        { id: 1, os: '' },
+      ];
+      this.showMaxRowsExampleDeleteButtons = false;
+    }
+    else {
     this.maxRowsExampleData = this.maxRowsExampleData.filter(
       (item) => item.id !== rowToDelete.id,
     );
+  }
   }
 }
