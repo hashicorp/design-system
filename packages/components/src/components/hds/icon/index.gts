@@ -178,14 +178,6 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     return classes.join(' ');
   }
 
-  get viewBox(): string {
-    if (this.isCarbon) {
-      return '0 0 32 32';
-    }
-
-    return `0 0 ${this.size} ${this.size}`;
-  }
-
   loadIconModuleTask = task(
     async (name: IconName, size: HdsIconSizes): Promise<void> => {
       let loader = this.registryEntry?.flight[size];
@@ -216,7 +208,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
       role={{this.role}}
       width="{{this.svgSize.width}}"
       height="{{this.svgSize.height}}"
-      viewBox={{this.viewBox}}
+      viewBox="0 0 {{this.size}} {{this.size}}"
       xmlns="http://www.w3.org/2000/svg"
       {{this.loadIconModule
         name=this.name
@@ -224,8 +216,6 @@ export default class HdsIcon extends Component<HdsIconSignature> {
         carbonModeEnabled=this.hdsCarbon.carbonModeEnabled
       }}
     >
-      {{this.svgSymbol}}
-
       {{#if @title}}
         <title id={{this._titleId}}>{{@title}}</title>
         <g role="presentation">
@@ -234,6 +224,8 @@ export default class HdsIcon extends Component<HdsIconSignature> {
       {{else}}
         <use href="#{{this.uniqueSymbolId}}"></use>
       {{/if}}
+
+      {{this.svgSymbol}}
     </svg>
   </template>
 }
