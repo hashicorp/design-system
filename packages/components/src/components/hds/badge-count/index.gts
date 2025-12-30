@@ -41,15 +41,7 @@ export interface HdsBadgeCountSignature {
 }
 
 export default class HdsBadgeCount extends Component<HdsBadgeCountSignature> {
-  /**
-   * Sets the size for the component
-   * Accepted sizes: small, medium, large
-   *
-   * @param size
-   * @type {string}
-   * @default 'medium'
-   */
-  get size(): HdsBadgeCountSizes {
+  get size() {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -62,15 +54,7 @@ export default class HdsBadgeCount extends Component<HdsBadgeCountSignature> {
     return size;
   }
 
-  /**
-   * Sets the type of the component
-   * Accepted values: filled, inverted, outlined
-   *
-   * @param type
-   * @type {string}
-   * @default 'filled'
-   */
-  get type(): HdsBadgeCountTypes {
+  get type() {
     const { type = DEFAULT_TYPE } = this.args;
 
     assert(
@@ -83,15 +67,7 @@ export default class HdsBadgeCount extends Component<HdsBadgeCountSignature> {
     return type;
   }
 
-  /**
-   * Sets the color scheme for the component
-   * Accepted colors: neutral, neutral-dark-mode
-   *
-   * @param color
-   * @type {string}
-   * @default 'neutral'
-   */
-  get color(): HdsBadgeCountColors {
+  get color() {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -104,23 +80,21 @@ export default class HdsBadgeCount extends Component<HdsBadgeCountSignature> {
     return color;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method BadgeCount#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames(): string {
+  get classNames() {
     const classes = ['hds-badge-count'];
 
-    // add a class based on the @size argument
     classes.push(`hds-badge-count--size-${this.size}`);
 
-    // add a class based on the @type argument
     classes.push(`hds-badge-count--type-${this.type}`);
 
-    // add a class based on the @color argument
     classes.push(`hds-badge-count--color-${this.color}`);
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      {{@text}}
+    </div>
+  </template>
 }
