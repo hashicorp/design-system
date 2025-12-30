@@ -11,6 +11,7 @@ overrides:
   js-yaml@3: 3.14.2
   js-yaml@4: 4.1.1
   mdast-util-to-hast: 13.2.1
+  systeminformation: 5.27.14
 
 patchedDependencies:
   broccoli-asset-rewrite:
@@ -317,6 +318,9 @@ importers:
 
   packages/flight-icons:
     devDependencies:
+      '@carbon/icons':
+        specifier: ^11.71.0
+        version: 11.71.0
       '@figma-export/cli':
         specifier: ^6.0.2
         version: 6.2.2
@@ -572,6 +576,9 @@ importers:
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
+      '@hashicorp/flight-icons':
+        specifier: workspace:*
+        version: link:../packages/flight-icons
       '@ibm/plex':
         specifier: ^6.4.1
         version: 6.4.1
@@ -854,6 +861,9 @@ importers:
       '@tsconfig/ember':
         specifier: ^3.0.10
         version: 3.0.11
+      '@types/ember-cli-fastboot':
+        specifier: ^2.2.6
+        version: 2.2.6
       '@types/qunit':
         specifier: ^2.19.12
         version: 2.19.12
@@ -995,6 +1005,9 @@ importers:
       ember-source:
         specifier: ~6.4.0
         version: 6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
+      ember-style-modifier:
+        specifier: ^4.4.0
+        version: 4.4.0(@babel/core@7.28.0)(@ember/string@4.0.1)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-template-imports:
         specifier: ^4.3.0
         version: 4.3.0
@@ -1943,6 +1956,9 @@ packages:
 
   '@carbon/grid@11.45.0':
     resolution: {integrity: sha512-J8hh5li0Q0RRS6IGg+MVPQVfjp1ePxzQsyMyjQOHLux8i8HwiWJmKLQ+4lKMzRXorLG2RtEoPVl00EaKlQEgKQ==}
+
+  '@carbon/icons@11.71.0':
+    resolution: {integrity: sha512-PwOJ7C2MNQbHvaOsPhiKHNikJ9flGtyVeGIsOHIkyNndcxAUOleppHcGofOo4NvCeIUZwnr+EN8fMaU+ZdsH9w==}
 
   '@carbon/layout@11.43.0':
     resolution: {integrity: sha512-aOUNqVv/5TGhNTn1HV+620ZlqhE7+Chs0TJoxwe/CCsLOdziCX9st3c5inyINPZDyvDK46mas1RmqvZwNYe/mA==}
@@ -3669,6 +3685,9 @@ packages:
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
+
+  '@types/ember-cli-fastboot@2.2.6':
+    resolution: {integrity: sha512-zyXMLlIoC28rAlIof9e71RUxb/Ka5JTdlKqGd0QnNF2W3GgPRUQZzr1hK3CJLNJr9N2ecFEM4ew2qduxDynhGg==}
 
   '@types/ember@3.16.14':
     resolution: {integrity: sha512-m3fM87W1J75ri9Uu79hzKimiAhxdAF3dZyzmwGrf4OPPQp3yt2L9uHAkwmMIxstk4F1rBWG/SHJOnvlqif23Rw==}
@@ -11060,8 +11079,8 @@ packages:
     resolution: {integrity: sha512-MeQTA1r0litLUf0Rp/iisCaL8761lKAZHaimlbGK4j0HysC4PLfqygQj9srcs0m2RdtDYnF8UuYyKpbjHYp7Jw==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  systeminformation@5.27.7:
-    resolution: {integrity: sha512-saaqOoVEEFaux4v0K8Q7caiauRwjXC4XbD2eH60dxHXbpKxQ8kH9Rf7Jh+nryKpOUSEFxtCdBlSUx0/lO6rwRg==}
+  systeminformation@5.27.14:
+    resolution: {integrity: sha512-3DoNDYSZBLxBwaJtQGWNpq0fonga/VZ47HY1+7/G3YoIPaPz93Df6egSzzTKbEMmlzUpy3eQ0nR9REuYIycXGg==}
     engines: {node: '>=8.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
@@ -12997,6 +13016,10 @@ snapshots:
   '@carbon/grid@11.45.0':
     dependencies:
       '@carbon/layout': 11.43.0
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/icons@11.71.0':
+    dependencies:
       '@ibm/telemetry-js': 1.10.1
 
   '@carbon/layout@11.43.0':
@@ -15055,7 +15078,7 @@ snapshots:
       '@percy/config': 1.31.1(typescript@5.9.2)
       '@percy/logger': 1.31.1
       '@percy/sdk-utils': 1.31.1
-      systeminformation: 5.27.7
+      systeminformation: 5.27.14
     transitivePeerDependencies:
       - typescript
 
@@ -15350,6 +15373,10 @@ snapshots:
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 0.7.34
+
+  '@types/ember-cli-fastboot@2.2.6':
+    dependencies:
+      '@types/ember__service': 3.16.9
 
   '@types/ember@3.16.14':
     dependencies:
@@ -25787,7 +25814,7 @@ snapshots:
     dependencies:
       '@pkgr/core': 0.2.9
 
-  systeminformation@5.27.7: {}
+  systeminformation@5.27.14: {}
 
   tabbable@5.3.3: {}
 
