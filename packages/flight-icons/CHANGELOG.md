@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 4.1.1
+
+### Patch Changes
+
+Added "aap" to Ansible icon keywords for easier search.
+
+<small class="doc-whats-new-changelog-metadata">[#3430](https://github.com/hashicorp/design-system/pull/3430)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.1.0
 
 ### Minor Changes
