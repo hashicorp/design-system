@@ -49,6 +49,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   private _iconId = 'icon-' + guidFor(this);
   private _titleId = 'title-' + guidFor(this);
 
+  // reacts to changes to the name and size arguments to reload the icon
   loadIconModule = modifier(
     (
       _element: SVGElement,

@@ -15,11 +15,21 @@
   },
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
+  "files": [
+    "scripts",
+    "svg",
+    "svg-original",
+    "svg-react",
+    "svg-sprite",
+    "symbol-js"
+  ],
   "scripts": {
     "typecheck": "pnpm tsc --noEmit",
     "lint": "pnpm eslint --quiet --ext .js,.ts,.tsx",
     "sync": "ts-node --transpile-only ./scripts/sync.ts",
-    "build": "ts-node --transpile-only ./scripts/build.ts"
+    "build": "ts-node --transpile-only ./scripts/build.ts",
+    "prepublishOnly": "pnpm run build",
+    "prepare": "pnpm run build"
   },
   "devDependencies": {
     "@carbon/icons": "^11.71.0",
