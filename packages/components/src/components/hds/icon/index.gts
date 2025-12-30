@@ -14,6 +14,7 @@ import { IconRegistry } from '@hashicorp/flight-icons/symbol-js/registry';
 import { task } from 'ember-concurrency';
 import { modifier } from 'ember-modifier';
 import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
+import { HdsThemeValues } from '@hashicorp/design-system-components/services/hds-theming';
 
 import type { SafeString } from '@ember/template';
 import type { IconName } from '@hashicorp/flight-icons/svg';
@@ -21,7 +22,7 @@ import type {
   HdsIconModule,
   HdsIconRegistryEntry,
 } from '@hashicorp/flight-icons/symbol-js/registry.ts';
-import type HdsCarbonService from '../../../services/hds-carbon.ts';
+import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import type { HdsIconSizes, HdsIconColors } from './types';
 
 export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
@@ -41,7 +42,7 @@ export interface HdsIconSignature {
 }
 
 export default class HdsIcon extends Component<HdsIconSignature> {
-  @service declare readonly hdsCarbon: HdsCarbonService;
+  @service declare readonly hdsTheming: HdsThemingService;
 
   @tracked iconModule: HdsIconModule | null = null;
 
@@ -91,8 +92,16 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     return this.registryEntry?.carbon !== null;
   }
 
+  get carbonThemeEnabled(): boolean {
+    return [
+      HdsThemeValues.System,
+      HdsThemeValues.Light,
+      HdsThemeValues.Dark,
+    ].includes(this.hdsTheming.currentTheme as HdsThemeValues);
+  }
+
   get isCarbon(): boolean {
-    return this.hdsCarbon.carbonModeEnabled && this.hasCarbonEquivalent;
+    return this.carbonThemeEnabled && this.hasCarbonEquivalent;
   }
 
   get svgSymbol(): SafeString | undefined {
@@ -213,7 +222,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
       {{this.loadIconModule
         name=this.name
         size=this.size
-        carbonModeEnabled=this.hdsCarbon.carbonModeEnabled
+        carbonModeEnabled=this.carbonThemeEnabled
       }}
     >
       {{#if @title}}
