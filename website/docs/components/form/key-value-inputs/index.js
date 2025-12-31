@@ -18,8 +18,13 @@ export default class Index extends Component {
     { id: 3, os: 'windows' },
   ];
 
-  @tracked showUpdatingRowsExampleDeleteButtons = true
-  @tracked showMaxRowsExampleDeleteButtons = true;
+  get showUpdatingRowsExampleDeleteButtons() {
+    return this.updatingRowsExampleData.length > 1;
+  }
+
+  get showMaxRowsExampleDeleteButtons() {
+    return this.maxRowsExampleData.length > 1;
+  }
 
   @action
   updatingRowsExampleOnAddRow() {
@@ -27,10 +32,6 @@ export default class Index extends Component {
       ...this.updatingRowsExampleData,
       { name: '', email: '', id: this.updatingRowsExampleData.length + 1 },
     ];
-
-    if (this.updatingRowsExampleData.length > 1) {
-      this.showUpdatingRowsExampleDeleteButtons = true;
-    }
   }
 
   @action
@@ -39,7 +40,6 @@ export default class Index extends Component {
       this.updatingRowsExampleData = [
         { id: 1, name: '', email: '' },
       ];
-      this.showUpdatingRowsExampleDeleteButtons = false;
     } else {
       this.updatingRowsExampleData = this.updatingRowsExampleData.filter(
         (item) => item.id !== rowToDelete.id,
@@ -53,10 +53,6 @@ export default class Index extends Component {
       ...this.maxRowsExampleData,
       { name: '', email: '', id: this.maxRowsExampleData.length + 1 },
     ];
-
-    if (this.maxRowsExampleData.length > 1) {
-      this.showMaxRowsExampleDeleteButtons = true;
-    }
   }
 
   @action
@@ -65,7 +61,6 @@ export default class Index extends Component {
       this.maxRowsExampleData = [
         { id: 1, os: '' },
       ];
-      this.showMaxRowsExampleDeleteButtons = false;
     }
     else {
     this.maxRowsExampleData = this.maxRowsExampleData.filter(
