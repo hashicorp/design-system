@@ -17,7 +17,7 @@ const EMPTY_FILTERS = {};
 
 const FILTERS = {
   'single-select': {
-    'single-select': {
+    'single-select-1': {
       type: 'single-select',
       text: 'Single-select',
       data: {
@@ -25,14 +25,29 @@ const FILTERS = {
         label: 'Option 1',
       },
     },
+    'single-select-2': {
+      type: 'single-select',
+      text: 'Single-select',
+      data: {
+        value: 'value-without-label',
+      },
+    },
   },
   'multi-select': {
-    'multi-select': {
+    'multi-select-1': {
       type: 'multi-select',
       text: 'Multi-select',
       data: [
         { value: '1', label: 'Option 1' },
         { value: '2', label: 'Option 2' },
+      ],
+    },
+    'multi-select-2': {
+      type: 'multi-select',
+      text: 'Multi-select',
+      data: [
+        { value: 'value-without-label-1' },
+        { value: 'value-without-label-2' },
       ],
     },
   },
@@ -201,12 +216,27 @@ const FILTERS = {
     },
   },
   generic: {
-    generic: {
+    'generic-1': {
       type: 'generic',
       text: 'Generic',
       dismissTagText: 'lorem ipsum',
       data: {
-        value: 'lorem ipsum',
+        value: 'with dismissTagText',
+      },
+    },
+    'generic-2': {
+      type: 'generic',
+      text: 'Generic',
+      data: {
+        value: 'value-without-dismissTagText',
+        label: 'no dismissTagText',
+      },
+    },
+    'generic-3': {
+      type: 'generic',
+      text: 'Generic',
+      data: {
+        value: 'value-without-dismissTagText-and-label',
       },
     },
   },
@@ -263,29 +293,39 @@ module(
       await createFilterBarAppliedFilters({
         appliedFiltersType: 'single-select',
       });
-      assert.dom('.hds-tag').exists({ count: 1 });
+      assert.dom('.hds-tag').exists({ count: 2 });
     });
 
     test('it should render applied filters for the single-select filter type from the @filters argument', async function (assert) {
       await createFilterBarAppliedFilters({
         appliedFiltersType: 'single-select',
       });
-      assert.dom('.hds-tag').exists({ count: 1 });
+      assert.dom('.hds-tag').exists({ count: 2 });
       assert
-        .dom('.hds-tag .hds-tag__dismiss')
+        .dom('.hds-tag:nth-of-type(1) .hds-tag__dismiss')
         .hasAttribute('aria-label', 'Clear filter Single-select: Option 1');
-      assert.dom('.hds-tag .hds-tag__text').hasText('Single-select: Option 1');
+      assert
+        .dom('.hds-tag:nth-of-type(1) .hds-tag__text')
+        .hasText('Single-select: Option 1');
+      assert
+        .dom('.hds-tag:nth-of-type(2) .hds-tag__text')
+        .hasText('Single-select: value-without-label');
     });
 
     test('it should render applied filters for the multi-select filter type from the @filters argument', async function (assert) {
       await createFilterBarAppliedFilters({
         appliedFiltersType: 'multi-select',
       });
-      assert.dom('.hds-tag').exists({ count: 2 });
+      assert.dom('.hds-tag').exists({ count: 4 });
       assert
-        .dom('.hds-tag .hds-tag__dismiss')
+        .dom('.hds-tag:nth-of-type(1) .hds-tag__dismiss')
         .hasAttribute('aria-label', 'Clear filter Multi-select: Option 1');
-      assert.dom('.hds-tag .hds-tag__text').hasText('Multi-select: Option 1');
+      assert
+        .dom('.hds-tag:nth-of-type(1) .hds-tag__text')
+        .hasText('Multi-select: Option 1');
+      assert
+        .dom('.hds-tag:nth-of-type(3) .hds-tag__text')
+        .hasText('Multi-select: value-without-label-1');
     });
 
     test('it should render applied filters for the numerical filter type from the @filters argument', async function (assert) {
@@ -379,11 +419,19 @@ module(
 
     test('it should render applied filters for the generic filter type from the @filters argument', async function (assert) {
       await createFilterBarAppliedFilters({ appliedFiltersType: 'generic' });
-      assert.dom('.hds-tag').exists({ count: 1 });
+      assert.dom('.hds-tag').exists({ count: 3 });
       assert
-        .dom('.hds-tag .hds-tag__dismiss')
+        .dom('.hds-tag:nth-of-type(1) .hds-tag__dismiss')
         .hasAttribute('aria-label', 'Clear filter Generic lorem ipsum');
-      assert.dom('.hds-tag .hds-tag__text').hasText('Generic lorem ipsum');
+      assert
+        .dom('.hds-tag:nth-of-type(1) .hds-tag__text')
+        .hasText('Generic lorem ipsum');
+      assert
+        .dom('.hds-tag:nth-of-type(2) .hds-tag__text')
+        .hasText('Generic: no dismissTagText');
+      assert
+        .dom('.hds-tag:nth-of-type(3) .hds-tag__text')
+        .hasText('Generic: value-without-dismissTagText-and-label');
     });
 
     test('it should render applied filters for the search filter type from the @filters argument', async function (assert) {
@@ -416,7 +464,7 @@ module(
 
       await click('.hds-tag .hds-tag__dismiss');
       assert.ok(context.isClicked);
-      assert.equal(context.key, 'single-select');
+      assert.equal(context.key, 'single-select-1');
     });
 
     test('it should trigged the onFilterDismiss callback when applied filters are dismissed for a mult-select-filter', async function (assert) {
@@ -444,7 +492,7 @@ module(
 
       await click('.hds-tag .hds-tag__dismiss');
       assert.ok(context.isClicked);
-      assert.equal(context.key, 'multi-select');
+      assert.equal(context.key, 'multi-select-1');
       assert.equal(context.value, '1');
     });
   },

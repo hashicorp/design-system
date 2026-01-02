@@ -201,7 +201,10 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
     if ('dismissTagText' in filter) {
       return filter.dismissTagText ?? '';
     } else {
-      return '';
+      const result = this._filterData(filter.data);
+      const resultLabel = result?.label as string;
+      const resultValue = result?.value as string;
+      return resultLabel ?? resultValue;
     }
   };
 
@@ -217,7 +220,8 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
   private _filterSeparatorText = (filter: HdsFilterBarFilter): string => {
     return filter.type === 'single-select' ||
       filter.type === 'multi-select' ||
-      filter.type === 'search'
+      filter.type === 'search' ||
+      (filter.type === 'generic' && !filter.dismissTagText)
       ? ':'
       : '';
   };
