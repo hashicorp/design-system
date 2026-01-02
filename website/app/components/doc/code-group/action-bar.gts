@@ -10,7 +10,6 @@ interface DocCodeGroupActionBarSignature {
     primary?: [];
     secondary?: [];
   };
-  Element: HTMLDivElement;
 }
 
 const DocCodeGroupActionBar: TemplateOnlyComponent<DocCodeGroupActionBarSignature> =

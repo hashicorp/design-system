@@ -6,7 +6,6 @@ import Component from '@glimmer/component';
 import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
 import { notEq, eq } from 'ember-truth-helpers';
-import type Owner from '@ember/owner';
 
 import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
@@ -26,7 +25,6 @@ interface DocCodeGroupSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLDivElement;
 }
 
 // Helper to undo code escaping for display
@@ -37,13 +35,6 @@ const unescapeCode = (code: string) => {
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
-
-  constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
-    super(owner, args);
-    if (this.args.gtsSnippet === '' && this.args.hbsSnippet === '') {
-      this.currentView = 'js';
-    }
-  }
 
   get hbsSnippet() {
     return unescapeCode(this.args.hbsSnippet ?? '');
