@@ -365,6 +365,12 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
     this.isLiveFilter = target.checked;
   };
 
+  onGenericFilterUpdate = (
+    updateFilter: (filter: HdsFilterBarGenericFilter) => void,
+  ) => {
+    updateFilter(CUSTOM_FILTER);
+  };
+
   <template>
     <div class="filters__toggle" {{style marginBottom="24px"}}>
       <HdsFormToggleField
@@ -477,7 +483,7 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
                 @text="Add custom filter"
                 @color="secondary"
                 @size="small"
-                {{on "click" (fn G.updateFilter CUSTOM_FILTER)}}
+                {{on "click" (fn this.onGenericFilterUpdate G.updateFilter)}}
               />
             </F.Generic>
           </D.FilterGroup>
@@ -695,7 +701,10 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
                       @text="Add custom filter"
                       @color="secondary"
                       @size="small"
-                      {{on "click" (fn G.updateFilter CUSTOM_FILTER)}}
+                      {{on
+                        "click"
+                        (fn this.onGenericFilterUpdate G.updateFilter)
+                      }}
                     />
                   </F.Generic>
                 </D.FilterGroup>
