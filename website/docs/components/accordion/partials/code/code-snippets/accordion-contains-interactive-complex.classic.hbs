@@ -1,0 +1,32 @@
+<Hds::Accordion as |A|>
+  <A.Item @containsInteractive={{true}}>
+    <:toggle>
+      <div class="doc-accordion-item-toggle-content-flex-layout">
+        <Hds::Alert @type="compact" @color="success" as |A|>
+          <A.Title>Title</A.Title>
+          <A.Description>Plan finished <small>22 days ago</small></A.Description>
+        </Hds::Alert>
+        <Hds::Button @text="Details" @color="secondary" @size="small" />
+      </div>
+    </:toggle>
+    <:content>
+      Additional content for item one
+    </:content>
+  </A.Item>
+  <A.Item @containsInteractive={{true}}>
+    <:toggle>
+      <div class="doc-accordion-item-toggle-content-flex-layout">
+        <span>Peering connection log results</span>
+        <Hds::Link::Standalone
+          @icon="external-link"
+          @iconPosition="trailing"
+          @text="Details"
+          @href="https://www.hashicorp.com/"
+        />
+      </div>
+    </:toggle>
+    <:content>
+      Additional content for item two
+    </:content>
+  </A.Item>
+</Hds::Accordion>
