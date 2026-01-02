@@ -212,6 +212,8 @@ The `single-select` and `multi-select` filter types are used for filtering a lis
 
 If the `@searchEnabled` argument in the `FilterGroup` is set to `true`, the list of options can be searched through using a provided search input.
 
+The dismiss filter tag will display the `label` for a given filter, and if the `label` is not provided it will display the `value`.
+
 ```handlebars
 <Hds::FilterBar
   @filters={{this.demoSelectionFilters}}
@@ -397,9 +399,16 @@ Dates and and times are formatted in the applied filter tags using the [ember-in
 
 #### Custom filtering
 
-**Todo: Still in progress. Need to add more context and information**
+!!! Warning
 
-For filtering support outside of the filter types supported above, an option for more customized filtering is available through the `generic` filter type, and the `Generic` contextual component inside the `FilterGroup`. The `Generic` provides a `updateFilter` argument function that can be used to listen for updates to the filter.
+**Consumer responsibility**
+
+The accessibility compliance of any content used for a custom filter is the responsibility of the consumer. If a custom filter requires multiple form elements, it is recommended to use a `<fieldset>` element to group them.
+!!!
+
+For filtering support outside of the filter types supported above, an option for more customized filtering is available through the `generic` filter type, and the `Generic` contextual component inside the `FilterGroup`. The `Generic` contextual component provides an `updateFilter` argument function that can be used to trigger updates to the filter inside the filter dropdown.
+
+The dismiss filter tag can be customized by setting `dismissTagText` on the filter. If this is not provided, the dismiss tag text will function similar to the `single-select` and `multi-select` filter types where the `value` or `label` is displayed.
 
 ```handlebars
 <Hds::FilterBar
@@ -419,7 +428,7 @@ For filtering support outside of the filter types supported above, an option for
           @text="Add custom filter"
           @color="secondary"
           @size="small"
-          {{on "click" (fn G.updateFilter this.customFilter)}}
+          {{on "click" (fn this.onGenericFilterUpdate G.updateFilter)}}
         />
       </F.Generic>
     </D.FilterGroup>
@@ -427,13 +436,12 @@ For filtering support outside of the filter types supported above, an option for
 </Hds::FilterBar>
 ```
 
-When providing data for applied filters that come from a `generic` filter, it is also required to pass in the `dismissTagText`, which is the text that will be displayed next to the filter text in the applied filters tag.
-
 ```javascript
 // example of filter data
 {
   'demo-generic': {
     type: 'generic',
+    text: 'Generic',
     dismissTagText: 'equals lorem ipsum',
     data: {
       value: 'lorem ipsum',

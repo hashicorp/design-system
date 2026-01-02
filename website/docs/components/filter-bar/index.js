@@ -9,9 +9,9 @@ import { tracked } from '@glimmer/tracking';
 
 const CUSTOM_FILTER = {
   type: 'generic',
-  dismissTagText: 'equals example/a))!hzfpKcBl0',
+  dismissTagText: 'equals lorem ipsum',
   data: {
-    value: 'example/a))!hzfpKcBl0',
+    value: 'lorem ipsum',
   },
 }
 
@@ -117,9 +117,10 @@ export default class Index extends Component {
   @tracked demoGenericFilters = {
     'demo-generic': {
       type: 'generic',
-      dismissTagText: 'equals example/a))!hzfpKcBl0',
+      text: 'Generic',
+      dismissTagText: 'equals lorem ipsum',
       data: {
-        value: 'example/a))!hzfpKcBl0',
+        value: 'lorem ipsum',
       },
     }
   }
@@ -166,6 +167,10 @@ export default class Index extends Component {
 
   @action demoUpdateGenericFilters(newFilters) {
     this.demoGenericFilters = newFilters;
+  }
+
+  @action onGenericFilterUpdate(updateFilter) {
+    updateFilter(CUSTOM_FILTER);
   }
 
   @action demoUpdateSearchFilters(newFilters) {
