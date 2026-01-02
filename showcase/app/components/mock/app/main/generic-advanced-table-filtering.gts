@@ -147,7 +147,6 @@ const SAMPLE_COLUMNS = [
 
 const CUSTOM_FILTER = {
   type: 'generic',
-  dismissTagText: 'equals example/a))!hzfpKcBl0',
   data: {
     value: 'example/a))!hzfpKcBl0',
   },

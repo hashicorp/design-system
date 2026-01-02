@@ -6,12 +6,15 @@
 import Component from '@glimmer/component';
 import { get } from '@ember/object';
 
-import { HdsFilterBarAppliedFilters } from '@hashicorp/design-system-components/components';
+import {
+  HdsFilterBarAppliedFilters,
+  type HdsFilterBarFilters,
+} from '@hashicorp/design-system-components/components';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 const FILTERS = {
   'single-select': {
-    'single-select': {
+    'single-select-1': {
       type: 'single-select',
       text: 'Single-select',
       data: {
@@ -19,14 +22,29 @@ const FILTERS = {
         label: 'Option 1',
       },
     },
+    'single-select-2': {
+      type: 'single-select',
+      text: 'Single-select',
+      data: {
+        value: 'value-without-label',
+      },
+    },
   },
   'multi-select': {
-    'multi-select': {
+    'multi-select-1': {
       type: 'multi-select',
       text: 'Multi-select',
       data: [
         { value: '1', label: 'Option 1' },
         { value: '2', label: 'Option 2' },
+      ],
+    },
+    'multi-select-2': {
+      type: 'multi-select',
+      text: 'Multi-select',
+      data: [
+        { value: 'value-without-label-1' },
+        { value: 'value-without-label-2' },
       ],
     },
   },
@@ -69,6 +87,17 @@ const FILTERS = {
       data: {
         selector: 'greater-than-or-equal-to',
         value: 10,
+      },
+    },
+    'numerical-6': {
+      type: 'numerical',
+      text: 'Numerical',
+      data: {
+        selector: 'between',
+        value: {
+          start: 10,
+          end: 20,
+        },
       },
     },
   },
@@ -184,12 +213,27 @@ const FILTERS = {
     },
   },
   generic: {
-    generic: {
+    'generic-1': {
       type: 'generic',
       text: 'Generic',
       dismissTagText: 'lorem ipsum',
       data: {
-        value: 'lorem ipsum',
+        value: 'with dismissTagText',
+      },
+    },
+    'generic-2': {
+      type: 'generic',
+      text: 'Generic',
+      data: {
+        value: 'value-without-dismissTagText',
+        label: 'no dismissTagText',
+      },
+    },
+    'generic-3': {
+      type: 'generic',
+      text: 'Generic',
+      data: {
+        value: 'value-without-dismissTagText-and-label',
       },
     },
   },
@@ -202,7 +246,7 @@ const FILTERS = {
       },
     },
   },
-};
+} as Record<string, HdsFilterBarFilters>;
 
 export interface CodeFragmentWithAppliedFiltersSignature {
   Args: {
