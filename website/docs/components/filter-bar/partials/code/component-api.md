@@ -32,7 +32,7 @@
   </C.Property>
 </Doc::ComponentApi>
 
-### Filter Types
+### Filter types
 
 The shape of the object for the `@filters` argument. The shape differs depending on the `type` provided.
 
@@ -193,8 +193,6 @@ The required structure of the `data` property when `type` is equal to `datetime`
 
 #### Generic
 
-**Todo: Check how the `label` property can be used in the filter type and determine if this info is correct**
-
 The required structure of the `data` property when `type` is equal to `generic`.
 
 <Doc::ComponentApi as |C|>
@@ -205,7 +203,7 @@ The required structure of the `data` property when `type` is equal to `generic`.
         The value of the filter.
       </C.Property>
       <C.Property @name="label" @type="string">
-        The label of the applied filter, used in the applied filters tag. If empty, the `value` text will be used.
+        The label of the applied filter, used in the applied filters tag only if `dismissTagText` is not provided. If empty, the `value` text will be used.
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
