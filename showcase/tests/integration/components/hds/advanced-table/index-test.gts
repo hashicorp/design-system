@@ -50,6 +50,8 @@ const DEFAULT_BASIC_MODEL = [
   { id: '3', name: 'Charlie', age: 30, country: 'Canada' },
 ];
 
+const DEFAULT_EMPTY_MODEL: Array<never> = [];
+
 const DEFAULT_BASIC_COLUMNS = [
   { key: 'name', label: 'Name' },
   { key: 'age', label: 'Age' },
@@ -374,5 +376,97 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       ['Alice', '25', 'UK'],
       ['Charlie', '30', 'Canada'],
     ]);
+  });
+
+  test('it should show the empty state with the default content if no data is present in the model', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTable
+          id="data-test-advanced-table"
+          @model={{DEFAULT_EMPTY_MODEL}}
+          @columns={{DEFAULT_BASIC_COLUMNS}}
+          aria-label="data test table"
+        />
+      </template>,
+    );
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__empty-state')
+      .exists();
+    assert
+      .dom(
+        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-text',
+      )
+      .hasText('No data available');
+  });
+
+  test('it should show empty state with the emptyState named block content if no data is present in the model', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTable
+          id="data-test-advanced-table"
+          @model={{DEFAULT_EMPTY_MODEL}}
+          @columns={{DEFAULT_BASIC_COLUMNS}}
+          aria-label="data test table"
+        >
+          <:emptyState>
+            <div id="data-test-empty-state">
+              <span>Custom empty state content</span>
+            </div>
+          </:emptyState>
+        </HdsAdvancedTable>
+      </template>,
+    );
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__empty-state')
+      .exists();
+    assert
+      .dom(
+        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-text',
+      )
+      .doesNotExist();
+    assert
+      .dom(
+        '#data-test-advanced-table .hds-advanced-table__empty-state #data-test-empty-state',
+      )
+      .exists()
+      .hasText('Custom empty state content');
+  });
+
+  test('it should show empty state with the emptyState ApplicationState contextual component if no data is present in the model', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTable
+          id="data-test-advanced-table"
+          @model={{DEFAULT_EMPTY_MODEL}}
+          @columns={{DEFAULT_BASIC_COLUMNS}}
+          aria-label="data test table"
+        >
+          <:emptyState as |E|>
+            <E.ApplicationState as |A|>
+              <A.Body>
+                <span id="data-test-empty-state">Custom empty state content</span>
+              </A.Body>
+            </E.ApplicationState>
+          </:emptyState>
+        </HdsAdvancedTable>
+      </template>,
+    );
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__empty-state')
+      .exists();
+    assert
+      .dom(
+        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-text',
+      )
+      .doesNotExist();
+    assert
+      .dom(
+        '#data-test-advanced-table .hds-advanced-table__empty-state #data-test-empty-state',
+      )
+      .exists()
+      .hasText('Custom empty state content');
   });
 });

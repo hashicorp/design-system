@@ -50,6 +50,7 @@ Router.map(function () {
     this.route('code-block');
     this.route('code-editor');
     this.route('dropdown');
+    this.route('filter-bar');
     this.route('flyout');
     this.route('form', function (): void {
       this.route('frameless', function (): void {
@@ -128,6 +129,7 @@ Router.map(function () {
         this.route('demo-full-app-frame-with-app-header-and-app-side-nav');
         this.route('demo-full-app-frame-with-side-nav');
         this.route('demo-full-app-frame-with-advanced-table');
+        this.route('demo-full-app-frame-with-advanced-table-filtering');
       });
     });
     this.route('flex');
