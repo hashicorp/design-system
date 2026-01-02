@@ -12,7 +12,7 @@ const path = require('path');
 const walkSync = require('walk-sync');
 
 const demoBlockRegex =
-  /\[\[demo:\s*([^\]\s]+)(?:(?:\s+(?:execute=(true|false)|includeBackingClass=(true|false))))*\s*\]\]/g;
+  /\[\[demo:\s*([^\]\s]+)(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?\s*\]\]/g;
 
 const fileNameRegex = /(components\/.*?)\.(?:hbs|gts|js)$/;
 
@@ -28,7 +28,7 @@ function escapeCode(code) {
     .replace(/\{\{/g, '&#123;&#123;')
     .replace(/\}\}/g, '&#125;&#125;')
     .replace(/\n/g, '\\n')
-    .replace(/\\n$/, ''); // Remove trailing newline
+    .replace(/\\n$/, ''); // Remove trailing escaped newline
 }
 
 function getCompactGtsSnippet(code) {
@@ -109,7 +109,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             fileNameToForward = filePath.match(fileNameRegex)?.[1];
 
             const shouldIgnoreFile =
-              shouldIncludeBackingClass === 'true' && ext === '.classic.js';
+              shouldIncludeBackingClass === 'false' && ext === '.classic.js';
 
             if (!shouldIgnoreFile && fs.existsSync(filePath)) {
               const code = fs.readFileSync(filePath, 'utf8');

@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class Index extends Component {
+export default class ButtonLoading extends Component {
   @tracked isLoading = false;
   @tracked timer;
 
