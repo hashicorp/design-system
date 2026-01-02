@@ -57,7 +57,9 @@
   flex-direction: column;
   gap: 4px;
   width: 50%;
+  max-height: 555px;
   padding: 8px;
+  overflow-y: auto;
   list-style: none;
   background-color: var(--token-color-surface-faint);
   border-right: 1px solid var(--token-color-border-primary);
@@ -140,7 +142,9 @@
   flex-direction: column;
   gap: 8px;
   width: 50%;
+  max-height: 555px;
   padding: 16px 0;
+  overflow-y: auto;
   background-color: var(--token-color-surface-primary);
   border-top-right-radius: var(--token-border-radius-medium);
 }
@@ -202,13 +206,6 @@
     margin-top: 2px;
     margin-right: 8px;
   }
-
-  // .hds-filter-bar__filter-group__selection-option__label {
-  //   display: flex;
-  //   flex-grow: 1;
-  //   align-items: flex-start;
-  //   color: var(--token-color-foreground-primary);
-  // }
 }
 
 .hds-filter-bar__filter-group__clear:has(~ .hds-filter-bar__filter-group__list) {
