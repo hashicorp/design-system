@@ -67,16 +67,6 @@ Filtering options are passed to the Filter Bar through the `Dropdown` and `Filte
       <F.Radio @value="option-3" @label="Option 3" />
     </D.FilterGroup>
     <D.FilterGroup
-      @key="demo-datetime"
-      @text="Datetime"
-      @type="datetime"
-    />
-    <D.FilterGroup
-      @key="demo-time"
-      @text="Time"
-      @type="time"
-    />
-    <D.FilterGroup
       @key="demo-number"
       @text="Number"
       @type="numerical"
@@ -86,13 +76,23 @@ Filtering options are passed to the Filter Bar through the `Dropdown` and `Filte
       @text="Date"
       @type="date"
     />
+    <D.FilterGroup
+      @key="demo-time"
+      @text="Time"
+      @type="time"
+    />
+    <D.FilterGroup
+      @key="demo-datetime"
+      @text="Datetime"
+      @type="datetime"
+    />
   </F.Dropdown>
 </Hds::FilterBar>
 ```
 
 ### Applying filters
 
-A user can apply, update, or clear filters within the filters dropdown. The `@onFilter` callback is used to listen for changes to the filters.
+A user can apply, update, or clear filters within the filter dropdown. The `@onFilter` callback is used to listen for changes to the filters.
 
 The callback provides a data object of applied filters which come from a user's filter selections. This object can be used to run any filtering operations on a data set, and then passed back into the `@filters` argument of the Filter Bar to show the applied filters.
 
@@ -323,7 +323,7 @@ The `numerical` filter type is used for any data numerical in nature. It provide
 
 There are filter types available for various date and time data through the `date`, `time`, and `datetime` filter types. All three types also support the `between` selector.
 
-Dates and and times are formatted in the applied filter tags using the [ember-intl](getting-started/for-engineers#internationalization) service.
+Dates and times are formatted in the applied filter tags using the [ember-intl](getting-started/for-engineers#internationalization) service.
 
 ```handlebars
 <Hds::FilterBar
@@ -537,7 +537,7 @@ The search input's placeholder text is "Search" by default, but can be customize
 
 ### Bulk actions
 
-The Filter Bar provides an `ActionsDropdown` contextual component that can be used for bulk actions to be performed on a data set, or for other purposes. The dropdown can be customized with any of the options available in the [Dropdown](/components/dropdown).
+The Filter Bar provides an `ActionsDropdown` contextual component that can be used for bulk actions to be performed on a data set, or for other purposes. All contextual components from the [Dropdown](/components/dropdown) are yielded to the consumer except for the `ToggleButton`.
 
 ```handlebars
 <Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
