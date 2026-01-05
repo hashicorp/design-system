@@ -189,20 +189,6 @@
       {{/unless}}
     </div>
 
-    {{#if this.showScrollIndicatorLeft}}
-      <div
-        class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
-        {{style height=this.scrollIndicatorDimensions.height left=this.scrollIndicatorDimensions.left}}
-      />
-    {{/if}}
-
-    {{#if this.showScrollIndicatorRight}}
-      <div
-        class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
-        {{style height=this.scrollIndicatorDimensions.height right=this.scrollIndicatorDimensions.right}}
-      />
-    {{/if}}
-
     {{#if this.isEmpty}}
       <div class="hds-advanced-table__empty-state">
         <div class="hds-advanced-table__empty-state__content">
@@ -227,6 +213,20 @@
       <div
         class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-bottom"
         {{style bottom=this.scrollIndicatorDimensions.bottom width=this.scrollIndicatorDimensions.width}}
+      />
+    {{/if}}
+
+    {{#if this.showScrollIndicatorLeft}}
+      <div
+        class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
+        {{style height=this.scrollIndicatorDimensions.height left=this.scrollIndicatorDimensions.left}}
+      />
+    {{/if}}
+
+    {{#if this.showScrollIndicatorRight}}
+      <div
+        class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
+        {{style height=this.scrollIndicatorDimensions.height right=this.scrollIndicatorDimensions.right}}
       />
     {{/if}}
   </div>
