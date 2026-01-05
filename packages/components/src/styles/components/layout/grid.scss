@@ -49,7 +49,7 @@
 // Note: We use a mobile-first layout approach, so the "sm" styles are defined outside of any breakpoint mixin and are
 // inherited if not overridden by larger view styles
 
-// "sm" view (mobile devices)
+// "sm" view, mobile-first (mobile devices)
 .hds-layout-grid--column-width-sm {
   --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
 
