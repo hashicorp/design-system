@@ -41,7 +41,7 @@ The shape of the object for the `@filters` argument. The shape differs depending
     The type of data being filtered.
   </C.Property>
   <C.Property @name="text" @type="string">
-    Text of the filter group used in the dropdown tabs, and any applied filter tag labels.
+    The text of the filter group used in any applied filter tag labels.
   </C.Property>
   <C.Property @name="data" @type="object | array" @required={{true}}>
     The data of the applied filter. Each `type` requires its own shape of the `data` property. See below for details.
