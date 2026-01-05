@@ -5,7 +5,8 @@
 import Component from '@glimmer/component';
 import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
-import { notEq, eq } from 'ember-truth-helpers';
+import { notEq } from 'ember-truth-helpers';
+import type Owner from '@ember/owner';
 
 import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
 import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-button';
@@ -15,12 +16,12 @@ import DynamicTemplate from 'website/components/dynamic-template';
 
 interface DocCodeGroupSignature {
   Args: {
-    compactGtsSnippet?: string;
     filename?: string;
-    gtsSnippet?: string;
     hbsSnippet?: string;
-    hidePreview?: boolean;
     jsSnippet?: string;
+    gtsSnippet?: string;
+    compactGtsSnippet?: string;
+    hidePreview?: boolean;
   };
   Blocks: {
     default: [];
@@ -36,39 +37,58 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
 
+  constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
+    super(owner, args);
+
+    if (!args.hbsSnippet || args.hbsSnippet === '') {
+      this.currentView = 'gts';
+    } else if (!args.gtsSnippet || args.gtsSnippet === '') {
+      this.currentView = 'js';
+    }
+  }
+
   get hbsSnippet() {
-    return unescapeCode(this.args.hbsSnippet ?? '');
+    const { hbsSnippet } = this.args;
+    return hbsSnippet ? unescapeCode(hbsSnippet) : '';
   }
 
   get gtsSnippet() {
-    return unescapeCode(this.args.gtsSnippet ?? '');
+    const { gtsSnippet } = this.args;
+    return gtsSnippet ? unescapeCode(gtsSnippet) : '';
   }
 
   get jsSnippet() {
-    return unescapeCode(this.args.jsSnippet ?? '');
+    const { jsSnippet } = this.args;
+    return jsSnippet ? unescapeCode(jsSnippet) : '';
   }
 
   get compactGtsSnippet() {
-    return unescapeCode(this.args.compactGtsSnippet ?? '');
+    const { compactGtsSnippet } = this.args;
+    return compactGtsSnippet ? unescapeCode(compactGtsSnippet) : '';
   }
 
   get languageOptions() {
+    const { hbsSnippet, jsSnippet, gtsSnippet } = this.args;
+
     const options = [];
 
-    if (this.args.hbsSnippet !== '') {
+    if (hbsSnippet !== '') {
       options.push({ label: '.hbs', value: 'hbs' });
     }
-    if (this.args.jsSnippet !== '') {
+
+    if (jsSnippet !== '') {
       options.push({ label: '.js', value: 'js' });
     }
-    if (this.args.gtsSnippet !== '') {
+
+    if (gtsSnippet !== '') {
       options.push({ label: '.gts', value: 'gts' });
     }
+
     return options;
   }
 
   get syntaxHighlightLanguage() {
-    // to display the compact gts snippet correctly, need to use hbs syntax highlighting
+    // to display the compact gts snippet correctly, need to use hbs syntax highlighting instead of gts
     if (this.currentView === 'gts' && this.isExpanded) {
       return 'gts';
     }
@@ -94,6 +114,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
 
     return this.hbsSnippet;
+  }
+
+  get hasFooter() {
+    return this.currentView === 'gts';
   }
 
   handleLanguageChange = (event: Event) => {
@@ -137,11 +161,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       {{/if}}
       <div
         class="doc-code-group__code-snippet-wrapper
-          {{if
-            (eq this.currentView 'gts')
-            'doc-code-group__code-snippet--has-footer'
-            ''
-          }}"
+          {{if this.hasFooter 'doc-code-group__code-snippet--has-footer' ''}}"
       >
         <CodeBlock
           @code={{this.currentViewSnippet}}
@@ -149,7 +169,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
           @theme="github-dark"
           @showCopyButton={{false}}
         />
-        {{#if (eq this.currentView "gts")}}
+        {{#if this.hasFooter}}
           <div class="doc-code-group__code-snippet-footer">
             <DocCodeGroupExpandButton
               @isExpanded={{this.isExpanded}}

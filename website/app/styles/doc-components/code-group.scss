@@ -7,7 +7,7 @@
 @use "../typography/mixins" as *;
 
 .doc-code-group {
-  overflow: hidden;
+  // overflow: hidden;
   border-radius: 4px;
 }
 
@@ -33,13 +33,11 @@
 
 .doc-code-group__language-picker-option {
   @include doc-font-style-code();
-
+  padding: 4px 12px;
   color: var(--doc-color-gray-200);
   border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
-  padding-block: 4px;
-  padding-inline: 12px;
 
   &:hover {
     background-color: var(--doc-color-gray-600);
@@ -186,14 +184,13 @@
   flex-direction: row;
   gap: 8px;
   align-items: center;
+  padding: 4px 12px;
   color: white;
   background-color: #313A5C;
   border: 1px solid #4D5475;
   border-radius: 4px;
   box-shadow: 0 2px 4px 2px #1C202B50;
   cursor: pointer;
-  padding-inline: 8px;
-  padding-block: 2px;
 
   &:hover {
     background-color: #3e4661;

@@ -14,9 +14,9 @@ const walkSync = require('walk-sync');
 const demoBlockRegex =
   /\[\[demo:\s*([^\]\s]+)(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?\s*\]\]/g;
 
-const fileNameRegex = /(components\/.*?)\.(?:hbs|gts|js)$/;
+const fileNameRegex = /(components\/.*?)\.(?:hbs|js|gts)$/;
 
-const SUPPORTED_FILE_EXTENSIONS = ['.classic.hbs', '.gts', '.classic.js'];
+const SUPPORTED_FILE_EXTENSIONS = ['.classic.hbs', '.classic.js', '.gts'];
 
 // Helper to escape code for attribute usage
 function escapeCode(code) {
@@ -95,8 +95,8 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
 
           const codeSnippets = {
             hbs: '',
-            gts: '',
             js: '',
+            gts: '',
             compactGts: '',
           };
 
@@ -106,31 +106,35 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             const fileToCheck = `${fileName.trim()}${ext}`;
             const filePath = path.join(fullParentFolder, fileToCheck);
 
-            fileNameToForward = filePath.match(fileNameRegex)?.[1];
-
-            const shouldIgnoreFile =
-              shouldIncludeBackingClass === 'false' && ext === '.classic.js';
-
-            if (!shouldIgnoreFile && fs.existsSync(filePath)) {
+            if (fs.existsSync(filePath)) {
               const code = fs.readFileSync(filePath, 'utf8');
               dependencies.push(filePath);
 
               if (ext === '.classic.hbs') {
                 codeSnippets.hbs = escapeCode(code);
+
+                // need to use the classic.hbs file path for forwarding because the DynamicTemplate relies on the hbs/js files to render the preview - so the fileName must include the .classic extension
+                fileNameToForward = filePath.match(fileNameRegex)?.[1];
               }
+
+              if (
+                ext === '.classic.js' &&
+                shouldIncludeBackingClass !== 'false'
+              ) {
+                codeSnippets.js = escapeCode(code);
+              }
+
               if (ext === '.gts') {
                 codeSnippets.gts = escapeCode(code);
                 codeSnippets.compactGts = escapeCode(
                   getCompactGtsSnippet(code),
                 );
               }
-              if (ext === '.classic.js') {
-                codeSnippets.js = escapeCode(code);
-              }
             }
           });
 
-          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" hidePreview="${shouldHidePreview}" js="${codeSnippets.js}" ?><?php end="demo-block" ?>\n`;
+          // NOTE: if change this, also need to change the regex in content-blocks.js
+          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" js="${codeSnippets.js}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" hidePreview="${shouldHidePreview}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
@@ -154,7 +158,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
 
 module.exports = function (folder) {
   const sourceMarkdownFunnel = new Funnel(folder, {
-    include: ['**/*.md', '**/*.hbs', '**/*.gts', '**/*.js'],
+    include: ['**/*.md', '**/*.hbs', '**/*.js', '**/*.gts'],
   });
 
   const processedTree = new MarkdownReplaceDemoBlocks([sourceMarkdownFunnel]);

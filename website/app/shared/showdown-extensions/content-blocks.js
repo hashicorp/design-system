@@ -51,15 +51,16 @@ export const contentBlocks = function () {
         },
       );
 
+      // NOTE: this regex must match the output created in markdown-process-demos.js
       const demoRegex = new RegExp(
-        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" gts="(.*?)" compactGts="(.*?)" hidePreview="(.*?)" js="(.*?)" \?>\n?/,
+        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" js="(.*?)" gts="(.*?)" compactGts="(.*?)" hidePreview="(.*?)" \?>\n?/,
         'g',
       );
 
       text = text.replace(
         demoRegex,
-        function (_match, filename, hbs, gts, compactGts, hidePreview, js) {
-          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @gtsSnippet="${gts}" @compactGtsSnippet="${compactGts}" @hidePreview="${hidePreview}" @jsSnippet="${js}">\n`;
+        function (_match, filename, hbs, js, gts, compactGts, hidePreview) {
+          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @jsSnippet="${js}" @gtsSnippet="${gts}" @compactGtsSnippet="${compactGts}" @hidePreview="${hidePreview}">\n`;
         },
       );
 
