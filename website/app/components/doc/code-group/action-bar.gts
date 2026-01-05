@@ -15,10 +15,10 @@ interface DocCodeGroupActionBarSignature {
 const DocCodeGroupActionBar: TemplateOnlyComponent<DocCodeGroupActionBarSignature> =
   <template>
     <div class="doc-code-group__action-bar">
-      <div class="doc-code-group__action-bar-primary-actions">
+      <div>
         {{yield to="primary"}}
       </div>
-      <div class="doc-code-group__action-bar-secondary-actions">
+      <div>
         {{yield to="secondary"}}
       </div>
     </div>

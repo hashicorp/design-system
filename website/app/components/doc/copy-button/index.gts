@@ -95,7 +95,9 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
 
   get classNames() {
     const classes = ['doc-copy-button'];
+
     classes.push(`doc-copy-button--type-${this.type}`);
+
     if (this.isFullWidth) {
       classes.push(`doc-copy-button--width-full`);
     }
