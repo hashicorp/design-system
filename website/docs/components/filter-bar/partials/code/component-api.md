@@ -213,13 +213,30 @@ The required structure of the `data` property when `type` is equal to `generic`.
 
 !!! Info
 
-Note: This component is an extension of the [Dropdown](/components/dropdown) component. View the [Dropdown component API](/components/dropdown?tab=code#component-api) for more details on available properties. All properties available in the Dropdown are available in this component, expect for those related to the ToggleButton. The only ToggleButton properties supported are those listed below.
+Note: This component is an extension of the [Dropdown](/components/dropdown) component. All contextual components from the Dropdown are yielded to this component, except for the `ToggleButton`. View the [Dropdown component API](/components/dropdown?tab=code#contextual-components) for more details on available contextual components. All properties are available on yielded contextual components. However, only the properties below are available for the Dropdown.
 
 !!!
 
 The `FilterBar::ActionsDropdown` is yielded as the `[F].ActionsDropdown` contextual component.
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false" @values={{array "true" "false"}}>
+    Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.
+  </C.Property>
+  <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
+    By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.
+    <br/><br/>We discourage the use of percentage values for this argument. The Dropdown list is [a `popover` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover), so relative units use `document` as a reference (not the parent element), meaning percentage values act similar to `vw`.
+    If `@matchToggleWidth` is set, `@width` is overridden.
+  </C.Property>
+  <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
+    If a `@height` parameter is provided then the list will have a max-height.
+  </C.Property>
+  <C.Property @name="preserveContentInDom" @type="boolean" @default="false">
+    Controls if the content is always rendered in the DOM, even when the Dropdown is closed.
+  </C.Property>
+  <C.Property @name="onClose" @type="function">
+    Callback function invoked when the Dropdown is closed, if provided.
+  </C.Property>
   <C.Property @name="toggleButtonText" @type="text" @default="&quot;Actions&quot;">
     The text of the dropdown toggle button.
   </C.Property>
