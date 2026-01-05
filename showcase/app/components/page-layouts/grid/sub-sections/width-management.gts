@@ -148,31 +148,13 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
       @label="Only sm & md defined, sm view = 1 column, md & other views = 3 columns"
     >
       <CodeFragmentWithPlaceholderItems
-        @columnCount={{5}}
+        @columnCount={{3}}
         @columnWidth={{hash sm="100%" md="33.33%"}}
       />
     </SG.Item>
 
     <SG.Item
-      @label="Only sm, md, & xxl defined, sm view = 1 column, other views except xxl = 3 columns, xxl = 5 columns"
-    >
-      <CodeFragmentWithPlaceholderItems
-        @columnCount={{5}}
-        @columnWidth={{hash sm="100%" md="33.33%" xxl="20%"}}
-      />
-    </SG.Item>
-
-    <SG.Item
-      @label="Only sm & xxl defined, other views except xxl = 2 columns, xxl = 5 columns"
-    >
-      <CodeFragmentWithPlaceholderItems
-        @columnCount={{5}}
-        @columnWidth={{hash sm="50%" xxl="20%"}}
-      />
-    </SG.Item>
-
-    <SG.Item
-      @label="sm & md are undefined, lg = 3 columns, xl = 4 columns, xxl = 5 columns"
+      @label="Sm & md are undefined, lg = 3 columns, xl = 4 columns, xxl = 5 columns"
     >
       <CodeFragmentWithPlaceholderItems
         @columnCount={{5}}
@@ -204,19 +186,19 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
       />
     </SG.Item>
 
+    <SG.Item @label="Only sm is defined, sm & other views = 2 columns">
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{1}}
+        @columnWidth={{hash sm="50%"}}
+      />
+    </SG.Item>
+
     <SG.Item
-      @label="sm & md are undefined, lg = 3 columns, xl = 4 columns, xxl = 5 columns"
+      @label="Sm & md are undefined, lg = 3 columns, xl = 4 columns, xxl = 5 columns"
     >
       <CodeFragmentWithPlaceholderItems
         @columnCount={{2}}
         @columnWidth={{hash lg="33.33%" xl="25%" xxl="20%"}}
-      />
-    </SG.Item>
-
-    <SG.Item @label="Only sm is defined, sm = 2 columns">
-      <CodeFragmentWithPlaceholderItems
-        @columnCount={{1}}
-        @columnWidth={{hash sm="50%"}}
       />
     </SG.Item>
   </ShwGrid>

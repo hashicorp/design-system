@@ -13,6 +13,7 @@ import ShwDivider from 'showcase/components/shw/divider';
 import SubSectionWidthManagement from './sub-sections/width-management';
 import SubSectionAlign from './sub-sections/align';
 import SubSectionGap from './sub-sections/gap';
+import SubSectionDemo from './sub-sections/demo';
 import SubSectionBaseElements from './sub-sections/base-elements';
 import SubSectionExamples from './sub-sections/examples';
 
@@ -25,6 +26,12 @@ const GridIndex: TemplateOnlyComponent = <template>
     <SubSectionWidthManagement />
     <SubSectionAlign />
     <SubSectionGap />
+  </section>
+
+  <ShwDivider />
+
+  <section data-test-percy>
+    <SubSectionDemo />
   </section>
 
   <ShwDivider />

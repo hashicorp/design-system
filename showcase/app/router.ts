@@ -128,6 +128,7 @@ Router.map(function () {
         this.route('demo-full-app-frame-with-app-header-and-app-side-nav');
         this.route('demo-full-app-frame-with-side-nav');
         this.route('demo-full-app-frame-with-advanced-table');
+        this.route('demo-full-app-frame-with-grid-responsive');
       });
     });
     this.route('flex');
