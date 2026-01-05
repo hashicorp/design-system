@@ -29,7 +29,7 @@
     "sync": "ts-node --transpile-only ./scripts/sync.ts",
     "build": "ts-node --transpile-only ./scripts/build.ts",
     "prepublishOnly": "pnpm run build",
-    "prepare": "ts-node --transpile-only ./scripts/build.ts --symbol-js-only"
+    "prepare": "pnpm run build"
   },
   "devDependencies": {
     "@carbon/icons": "^11.71.0",

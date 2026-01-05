@@ -21,8 +21,6 @@ dotenv.config();
 // read our custom config
 import { config } from './config';
 
-const IS_SYMBOL_JS_ONLY_BUILD = process.argv.includes('--symbol-js-only');
-
 (async () => {
     try {
         console.log(`\n==========\n${chalk.cyan('Build started...')}\n==========\n`);
@@ -59,27 +57,25 @@ async function build() {
     console.log('Optimizing the SVG files');
     await optimizeAssetsSVG({ config, catalog });
 
-    // generate the bundle for the SVG JS files
-    console.log('Generating bundle for SVG JS files');
-    await generateBundleSymbolJS({ config, catalog });
-    
     // generate the bundle for the standalone SVGs
     console.log('Generating bundle for standalone SVG files');
     await generateBundleSVG({ config, catalog });
 
-    if (!IS_SYMBOL_JS_ONLY_BUILD) {
-        // generate the bundle for the SVG sprite
-        console.log('Generating bundle for SVG sprite');
-        await generateBundleSVGSprite({ config, catalog });
+    // generate the bundle for the SVG JS files
+    console.log('Generating bundle for SVG JS files');
+    await generateBundleSymbolJS({ config, catalog });
 
-        // generate the bundle for the SVGs in React
-        console.log('Generating bundle for SVG React');
-        await generateBundleSVGReact({ config, catalog });
+    // generate the bundle for the SVG sprite
+    console.log('Generating bundle for SVG sprite');
+    await generateBundleSVGSprite({ config, catalog });
 
-        // zip the standalone SVG bundle and save it in the dummy app public folder
-        console.log('Generating ZIP file with standalone SVG files');
-        await generatePublicZIPFile({ config });
-    }
+    // generate the bundle for the SVGs in React
+    console.log('Generating bundle for SVG React');
+    await generateBundleSVGReact({ config, catalog });
+
+    // zip the standalone SVG bundle and save it in the dummy app public folder
+    console.log('Generating ZIP file with standalone SVG files');
+    await generatePublicZIPFile({ config });
 
     // remove temporary folder
     // notice: comment this if you need to debug the assets initial SVG processing
