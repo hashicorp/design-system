@@ -181,7 +181,7 @@ Optionally, the `@onColumnReorder` attribute accepts a callback function that re
 </Hds::AdvancedTable>
 ```
 
-### Resizing Columns
+### Resizing columns
 
 !!! Info
 
@@ -722,7 +722,7 @@ When the data model for the Advanced Table contains no entries, an empty state i
 </Hds::AdvancedTable>
 ```
 
-The message displayed when the data model is empty can be customized using the `<:emptyState>` named block. Content passed into this block will be shown when the model is empty instead of the default messaging.
+The message displayed when the data model is empty can be customized using the `ApplicationState` contextual component inside the `<:emptyState>` named block. This contextual component leverages the [ApplicationState](/components/application-state) component. Content passed into this block will be shown when the model is empty instead of the default messaging.
 
 ```handlebars
 <Hds::AdvancedTable
@@ -741,16 +741,16 @@ The message displayed when the data model is empty can be customized using the `
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-  <:emptyState>
-    <Hds::Layout::Flex @direction="column" @gap="12">
-      <Hds::Text::Display @tag="h3" @size="300">No data to display</Hds::Text::Display>
-      <Hds::Text::Body>
-        No results were found. Please clear or update the filters.
-      </Hds::Text::Body>
-      <div>
-        <Hds::Button @text="Clear filters" />
-      </div>
-    </Hds::Layout::Flex>
+  <:emptyState as |E|>
+    <E.ApplicationState as |A|>
+      <A.Header @title="No data to display" />
+      <A.Body
+        @text="No results were found with the selected filters. Please clear or update the filters."
+      />
+      <A.Footer as |F|>
+        <F.Button @text="Clear filters" />
+      </A.Footer>
+    </E.ApplicationState>
   </:emptyState>
 </Hds::AdvancedTable>
 ```
