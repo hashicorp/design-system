@@ -16,9 +16,9 @@ export default class AccordionPersistState extends Component {
     }
   }
 
-    @action
-    onItemToggle() {
-      this.itemState = this.itemState === 'open' ? 'close' : 'open';
-      sessionStorage.setItem(STORAGE_KEY, this.itemState);
-    }
+  @action
+  onItemToggle() {
+    this.itemState = this.itemState === 'open' ? 'close' : 'open';
+    sessionStorage.setItem(STORAGE_KEY, this.itemState);
+  }
 }
