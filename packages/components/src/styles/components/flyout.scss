@@ -7,7 +7,7 @@
 // FLYOUT
 //
 
-$hds-flyout-max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2);
+$hds-flyout-max-width: calc(100vw - var(--hds-app-side-nav-width-minimized) / 2);
 
 @mixin hds-flyout-position($size) {
   width: min(#{$size}, #{$hds-flyout-max-width});
