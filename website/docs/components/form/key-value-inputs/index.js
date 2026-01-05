@@ -18,11 +18,11 @@ export default class Index extends Component {
     { id: 3, os: 'windows' },
   ];
 
-  get showUpdatingRowsExampleDeleteButtons() {
+  get canDeleteRowUpdatingRowsExample() {
     return this.updatingRowsExampleData.length > 1;
   }
 
-  get showMaxRowsExampleDeleteButtons() {
+  get canDeleteRowMaxRowsExample() {
     return this.maxRowsExampleData.length > 1;
   }
 
