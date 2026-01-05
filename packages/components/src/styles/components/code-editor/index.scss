@@ -32,6 +32,11 @@
     }
   }
 
+  .ͼ1 .cm-scroller {
+    font-size: 0.8125rem;
+    font-family: var(--token-typography-code-200-font-family);
+  }
+
   .hds-code-editor__header {
     display: flex;
     gap: 12px;
