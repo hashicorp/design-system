@@ -5,21 +5,21 @@
 
 import type { Config, DesignToken } from 'style-dictionary/types';
 
-export const targets = ['products', 'devdot', 'marketing', 'cloud-email'];
-export const modes = ['default', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100'];
+export const targets = ['products', 'devdot', 'marketing', 'cloud-email'] as const;
+export const modes = ['default', 'cds-g0', 'cds-g10', 'cds-g90', 'cds-g100'] as const;
 
 export type Target = typeof targets[number];
 export type Mode = typeof modes[number];
 
-// uncomment this to enable debugging
+// comment/uncomment this to disable/enable debugging
 const baseConfig: Config = {
-  // log: {
-  //   warnings: 'warn', // options: warn | error | disabled
-  //   verbosity: 'verbose', // options: default | silent | verbose
-  //   errors: {
-  //     brokenReferences: 'console', // options: throw | console
-  //   },
-  // }
+  log: {
+    warnings: 'warn', // options: warn | error | disabled
+    verbosity: 'verbose', // options: default | silent | verbose
+    errors: {
+      brokenReferences: 'console', // options: throw | console
+    },
+  }
 };
 
 const excludePrivateTokens = (token: DesignToken) => {
@@ -56,39 +56,13 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
             files: [
               {
                 destination: `themed-tokens/with-root-selector/${mode}/common-tokens.css`,
-                format: 'css/variables',
-                options: {
-                  // TODO understand if is better to output references or not for the "common" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
-                  outputReferences: false,
-                  // outputReferences: (token, { dictionary, usesDtcg }) => {
-                  //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
-                  //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
-                  //   // return true or false
-                  // },
-                  // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
-                  // outputReferences: (token, options) => outputReferencesFilter(token, options) && outputReferencesTransformed(token, options),
-                },
-                filter: (token: DesignToken) => {
-                  return !token.private && !(token.attributes && token.attributes.themeable);
-                },
+                // IMPORTANT: filtering, formatting, outputReferences, etc. are done directly in the custom format function
+                format: 'css/themed-tokens/with-root-selector/common',
               },
               {
                 destination: `themed-tokens/with-root-selector/${mode}/themed-tokens.css`,
-                format: 'css/variables',
-                options: {
-                  // TODO understand if is better to output references or not for the "themed" definitions (almost certainly no) - see: https://hashicorp.atlassian.net/browse/HDS-5669
-                  outputReferences: false,
-                  // outputReferences: (token, { dictionary, usesDtcg }) => {
-                  //   // `dictionary` contains `allTokens`, `tokens`, `tokenMap`, `unfilteredTokens`, `unfilteredAllTokens` and `unfilteredTokenMap` props
-                  //   // `usesDtcg` tells you whether the Design Token Community Group spec is used with $ prefixes ($value, $type etc.)
-                  //   // return true or false
-                  // },
-                  // see: https://styledictionary.com/reference/utils/references/#combining-multiple-outputreference-utility-functions
-                  // outputReferences: (token, options) => outputReferencesFilter(token, options) && outputReferencesTransformed(token, options),
-                },
-                filter: (token: DesignToken) => {
-                  return !token.private && (token.attributes && token.attributes.themeable);
-                },
+                // IMPORTANT: filtering, formatting, outputReferences, etc. are done directly in the custom format function
+                format: 'css/themed-tokens/with-root-selector/themed',
               }
             ],
             // this has been registered in the `build` file
@@ -138,7 +112,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
                 filter: excludePrivateTokens,
               }
             ],
-            actions: ['generate-css-helpers', 'generate-theming-css-files'],
+            actions: ['generate-css-helpers', 'validate-theming-css-files', 'generate-theming-css-files'],
           },
           'docs/json': {
             buildPath: 'dist/docs/products/',
@@ -268,4 +242,7 @@ export function getStyleDictionaryConfig({ target, mode }: { target: Target, mod
       }
     }
   };
+
+  // if we reach here, the target is invalid (added to satisfy TypeScript)
+  throw new Error(`Invalid target: ${target}. Expected one of: ${targets.join(',')}`);
 };
