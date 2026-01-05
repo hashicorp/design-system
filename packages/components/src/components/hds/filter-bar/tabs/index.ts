@@ -12,9 +12,6 @@ import type { WithBoundArgs } from '@glint/template';
 import HdsFilterBarTabsTabComponent from './tab.ts';
 import HdsFilterBarTabsPanelComponent from './panel.ts';
 
-const TAB_ELEMENT_SELECTOR = '.hds-filter-bar__tabs__tab__button';
-const PANEL_ELEMENT_SELECTOR = '.hds-filter-bar__tabs__panel';
-
 export interface HdsFilterBarTabsSignature {
   Args: {
     selectedTabIndex?: number;
@@ -67,10 +64,11 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   });
 
   @action
-  didInsertTab(): void {
+  didInsertTab(element: HTMLElement, tabId: string): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
-      this._updateTabs();
+      this._tabIds = [...this._tabIds, tabId];
+      this._tabNodes = [...this._tabNodes, element];
     });
   }
 
@@ -88,10 +86,11 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   }
 
   @action
-  didInsertPanel(): void {
+  didInsertPanel(element: HTMLElement, panelId: string): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
-      this._updatePanels();
+      this._panelIds = [...this._panelIds, panelId];
+      this._panelNodes = [...this._panelNodes, element];
     });
   }
 
@@ -149,25 +148,5 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
   private _focusTab(tabIndex: number, event: KeyboardEvent): void {
     event.preventDefault();
     this._tabNodes[tabIndex]?.focus();
-  }
-
-  // Update the tab arrays based on how they are ordered in the DOM
-  private _updateTabs(): void {
-    const tabs = this._element.querySelectorAll(TAB_ELEMENT_SELECTOR);
-    this._tabIds = Array.from(tabs).map((t) => t.id);
-    this._tabNodes = Array.from(tabs) as HTMLElement[];
-  }
-
-  // Update the panel arrays based on how they are ordered in the DOM
-  private _updatePanels(): void {
-    const panels = this._element.querySelectorAll(PANEL_ELEMENT_SELECTOR);
-    let newPanelIds: string[] = [];
-    let newPanelNodes: HTMLElement[] = [];
-    panels.forEach((panel) => {
-      newPanelIds = [...newPanelIds, panel.id];
-      newPanelNodes = [...newPanelNodes, panel as HTMLElement];
-    });
-    this._panelIds = newPanelIds;
-    this._panelNodes = newPanelNodes;
   }
 }

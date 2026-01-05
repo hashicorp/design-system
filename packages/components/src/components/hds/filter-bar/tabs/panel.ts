@@ -13,7 +13,7 @@ export interface HdsFilterBarTabsPanelSignature {
     selectedTabIndex?: number;
     tabIds?: string[];
     panelIds?: string[];
-    didInsertNode?: () => void;
+    didInsertNode?: (element: HTMLElement, panelId: string) => void;
     willDestroyNode?: (element: HTMLElement) => void;
   };
   Blocks: {
@@ -59,11 +59,11 @@ export default class HdsFilterBarTabsPanel extends Component<HdsFilterBarTabsPan
   }
 
   @action
-  didInsertNode(): void {
+  didInsertNode(element: HTMLElement): void {
     const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
-      didInsertNode();
+      didInsertNode(element, this._panelId);
     }
   }
 
