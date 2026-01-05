@@ -362,9 +362,11 @@ Consumers are responsible for handling the logic to add or remove a row. To do t
       </F.Label>
       <F.TextInput @value={{R.rowData.name}} />
     </R.Field>
-    <R.DeleteRowButton
-      @onClick={{this.updatingRowsExampleOnDeleteRow}}
-    />
+    {{#if this.canDeleteRowUpdatingRowsExample}}
+      <R.DeleteRowButton
+        @onClick={{this.updatingRowsExampleOnDeleteRow}}
+      />
+    {{/if}}
   </:row>
   <:footer as |F|>
     <F.AddRowButton
@@ -405,7 +407,9 @@ Consumers are responsible for implementing the logic for the maximum number of r
       </F.Label>
       <F.FileInput />
     </R.Field>
-    <R.DeleteRowButton @onClick={{this.maxRowsExampleOnDeleteRow}} />
+    {{#if this.canDeleteRowMaxRowsExample}}
+      <R.DeleteRowButton @onClick={{this.maxRowsExampleOnDeleteRow}} />
+    {{/if}}
   </:row>
   <:footer as |F|>
     {{#if (lt this.maxRowsExampleData.length 3)}}

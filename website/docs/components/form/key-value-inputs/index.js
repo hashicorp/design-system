@@ -18,6 +18,14 @@ export default class Index extends Component {
     { id: 3, os: 'windows' },
   ];
 
+  get canDeleteRowUpdatingRowsExample() {
+    return this.updatingRowsExampleData.length > 1;
+  }
+
+  get canDeleteRowMaxRowsExample() {
+    return this.maxRowsExampleData.length > 1;
+  }
+
   @action
   updatingRowsExampleOnAddRow() {
     this.updatingRowsExampleData = [
@@ -28,9 +36,15 @@ export default class Index extends Component {
 
   @action
   updatingRowsExampleOnDeleteRow(rowToDelete) {
-    this.updatingRowsExampleData = this.updatingRowsExampleData.filter(
-      (item) => item.id !== rowToDelete.id,
-    );
+    if (this.updatingRowsExampleData.length === 1) {
+      this.updatingRowsExampleData = [
+        { id: 1, name: '', email: '' },
+      ];
+    } else {
+      this.updatingRowsExampleData = this.updatingRowsExampleData.filter(
+        (item) => item.id !== rowToDelete.id,
+      );
+    }
   }
 
   @action
@@ -43,8 +57,15 @@ export default class Index extends Component {
 
   @action
   maxRowsExampleOnDeleteRow(rowToDelete) {
+    if (this.maxRowsExampleData.length === 1) {
+      this.maxRowsExampleData = [
+        { id: 1, os: '' },
+      ];
+    }
+    else {
     this.maxRowsExampleData = this.maxRowsExampleData.filter(
       (item) => item.id !== rowToDelete.id,
     );
+  }
   }
 }
