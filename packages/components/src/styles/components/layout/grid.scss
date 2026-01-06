@@ -14,6 +14,10 @@
   // https://drafts.csswg.org/css-values/#calc-type-checking
 
   // We initialize the variables here to prevent inheritance issues in nested grids
+
+  // Note: Setting a column min-width of "0" allows grid tracks to shrink down to be as small as possible
+  // (preventing column item content from stretching column width) which is key to making columns equal width by default
+  // https://stackoverflow.com/questions/47601564/equal-width-columns-in-css-grid/61240964#61240964
   --hds-layout-grid-column-min-width: 0px;
 
   // Auto-fit vs Auto-fill:
@@ -24,6 +28,11 @@
   display: grid;
 
   // The column gap value is subtracted from the column-min-width to prevent overflow & simplify API for consumers
+  // Note: If a calc() expression inside minmax() yields a negative result, it is treated as 0px (the min in minmax acts as a floor)
+  // Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/calc#resulting_values
+  // "The resulting value of calc() must be compatible in the context in which it is used."
+  // Therefore as negative values are not valid in the context of mixmax(), they are clamped to 0px.
+  // (the min value must be a non-negative size because CSS layout sizes cannot be negative)
   grid-template-columns: repeat(
     var(--hds-layout-grid-column-fill-type),
     minmax(calc(var(--hds-layout-grid-column-min-width) - var(--hds-layout-grid-column-gap)), 1fr)
