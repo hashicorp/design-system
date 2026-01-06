@@ -30,7 +30,8 @@ const GridIndex: TemplateOnlyComponent = <template>
 
   <ShwDivider />
 
-  <section data-test-percy>
+  {{! For some reason, Ember tests don't play well with iframes (URL not found) so we can't take snapshots of these examples in Percy }}
+  <section>
     <SubSectionDemo />
   </section>
 
