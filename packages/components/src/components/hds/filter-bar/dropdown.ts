@@ -121,13 +121,4 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
       closeDropdown();
     }
   };
-
-  private _onClose = (): void => {
-    const { filters } = this.args;
-    if (filters) {
-      this.internalFilters = this._copyFilters(filters);
-    } else {
-      this.internalFilters = {};
-    }
-  };
 }
