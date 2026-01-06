@@ -31,7 +31,7 @@ export default class DocCodeGroupExpandButton extends Component<DocCodeGroupExpa
       type="button"
       class="doc-code-group__expand-button"
       {{on "click" @onToggleExpand}}
-      aria-expanded={{@isExpanded}}
+      aria-expanded={{if @isExpanded "true" "false"}}
       ...attributes
     >
       <HdsIcon @name={{this.icon}} />
