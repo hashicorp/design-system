@@ -7,10 +7,8 @@ import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
-import type { LinkTo } from '@ember/routing';
 import type { SafeString } from '@ember/template';
 import type { HdsIconSignature } from '../icon/index';
-import { getLinkToExternal } from '../../../utils/hds-link-to-external.ts';
 
 export interface HdsBreadcrumbItemSignature {
   Args: {
@@ -30,25 +28,6 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
-  /**
-   *
-   * @param linkToExternal
-   * @type LinkTo | null
-   * @default null
-   */
-  get linkToExternal(): LinkTo | null {
-    const component = getLinkToExternal();
-    if (component === null) {
-      assert(
-        `HdsBreadcrumbItem: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
-
-import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
-setLinkToExternal(LinkToExternalComponent);`
-      );
-    }
-    return component;
-  }
-
   /**
    * @param maxWidth
    * @type {string}
