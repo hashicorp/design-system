@@ -2,7 +2,7 @@
 
 The most basic invocation requires the `@text` argument to be passed, resulting in a medium neutral Badge.
 
-[[demo: code-snippets/basic-badge]]
+[[demo: code-snippets/badge-basic]]
 
 ### Color
 
