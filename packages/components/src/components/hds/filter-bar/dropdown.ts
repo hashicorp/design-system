@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
-import type Owner from '@ember/owner';
 import type { WithBoundArgs } from '@glint/template';
 
 import HdsFilterBarFilterGroup from './filter-group/index.ts';
@@ -39,23 +38,14 @@ export interface HdsFilterBarDropdownSignature {
 export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdownSignature> {
   @tracked internalFilters: HdsFilterBarFilters = {};
 
-  constructor(owner: Owner, args: HdsFilterBarDropdownSignature['Args']) {
-    super(owner, args);
-
+  private _syncFilters = modifier(() => {
     const { filters } = this.args;
-
     if (filters) {
-      this.internalFilters = { ...filters };
+      this.internalFilters = this._copyFilters(filters);
+    } else {
+      this.internalFilters = {};
     }
-  }
-
-  private _syncFilters = modifier(
-    (_element, [_filters]: [HdsFilterBarFilters | undefined]) => {
-      if (_filters) {
-        this.internalFilters = _filters;
-      }
-    }
-  );
+  });
 
   get isLiveFilter(): boolean {
     return this.args.isLiveFilter || false;
