@@ -16,7 +16,7 @@ const demoBlockRegex =
 
 // NOTE: if need to add a code snippet to another section of the site, need to update this regex
 const fileNameRegex =
-  /((?:components|utilities|layout|getting-started|patterns|foundations).*?)\.(?:hbs|js|gts)$$/;
+  /((?:components|utilities|layout|getting-started|patterns|foundations).*?)\.(?:hbs|js|gts)/;
 
 const SUPPORTED_FILE_EXTENSIONS = ['.classic.hbs', '.classic.js', '.gts'];
 

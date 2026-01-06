@@ -9,7 +9,7 @@ Due to differences in text rendering between Figma and web browsers, the `Button
 
 The basic invocation requires text to be passed:
 
-[[demo: code-snippets/basic-button]]
+[[demo: code-snippets/button-basic]]
 
 ### Add an icon
 
