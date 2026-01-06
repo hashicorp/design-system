@@ -47,6 +47,16 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
   }
 
+  // NOTE: the dynamic template component can only render "classic" components, so if there is no hbs snippet, we hide the preview. This can be removed when implement: https://hashicorp.atlassian.net/browse/HDS-5833
+  get shouldHidePreview() {
+    const { hbsSnippet, hidePreview } = this.args;
+    if (hbsSnippet === '') {
+      return true;
+    }
+
+    return hidePreview === true;
+  }
+
   get hbsSnippet() {
     const { hbsSnippet } = this.args;
     return hbsSnippet ? unescapeCode(hbsSnippet) : '';
@@ -151,7 +161,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
           </div>
         </:secondary>
       </DocCodeGroupActionBar>
-      {{#if (notEq @hidePreview "true")}}
+      {{#if (notEq this.shouldHidePreview true)}}
         <div class="doc-code-group__preview">
           <DynamicTemplate
             @templateString={{this.hbsSnippet}}
