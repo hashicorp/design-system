@@ -91,9 +91,6 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('System');
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 
   test('it should display "Light" label when light theme is set', async function (assert) {
@@ -108,9 +105,6 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('Light');
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 
   test('it should display "Dark" label when dark theme is set', async function (assert) {
@@ -125,9 +119,6 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('Dark');
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 
   test('it should display "Default" label when default theme is set and hasDefaultOption is true', async function (assert) {
@@ -144,9 +135,6 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('Default');
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 
   // HAS DEFAULT OPTION
@@ -163,9 +151,6 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').exists({ count: 3 });
     assert.dom('.hds-dropdown-list-item').doesNotContainText('Default');
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 
   test('it should include the "Default" option when `@hasDefaultOption` is `true`', async function (assert) {
@@ -182,9 +167,6 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').exists({ count: 4 });
     assert.dom('.hds-dropdown-list-item').containsText('Default');
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 
   // HAS SYSTEM OPTION
@@ -200,9 +182,6 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     );
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').containsText('System');
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 
   test('it should not include the "System" option when `@hasSystemOption` is `false`', async function (assert) {
@@ -219,9 +198,6 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     await click('#test-theme-switcher button');
     assert.dom('.hds-dropdown-list-item').exists({ count: 2 });
     assert.dom('.hds-dropdown-list-item').doesNotContainText('System');
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 
   // THEME SELECTION
@@ -288,9 +264,6 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     assert
       .dom('#test-theme-switcher .hds-dropdown-toggle-button')
       .containsText('Default');
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 
   // CALLBACKS
@@ -314,8 +287,5 @@ module('Integration | Component | hds/theme-switcher/index', function (hooks) {
     await click('.hds-dropdown-list-item:nth-of-type(3) button');
 
     assert.true(onSetTheme.calledOnce);
-
-    // we need to reset the theme after each test
-    themingService.setTheme({ theme: undefined });
   });
 });
