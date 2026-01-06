@@ -14,7 +14,9 @@ const walkSync = require('walk-sync');
 const demoBlockRegex =
   /\[\[demo:\s*([^\]\s]+)(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?\s*\]\]/g;
 
-const fileNameRegex = /(components\/.*?)\.(?:hbs|js|gts)$/;
+// NOTE: if need to add a code snippet to another section of the site, need to update this regex
+const fileNameRegex =
+  /((?:components|utilities|layout|getting-started|patterns|foundations).*?)\.(?:hbs|js|gts)$$/;
 
 const SUPPORTED_FILE_EXTENSIONS = ['.classic.hbs', '.classic.js', '.gts'];
 
