@@ -40,15 +40,24 @@ const SubSectionTruncationOptions: TemplateOnlyComponent = <template>
         @itemsCanWrap={{false}}
         aria-label="breadcrumb with max-widh set example"
       >
-        <HdsBreadcrumbItem @text="Level one" @icon="org" />
-        <HdsBreadcrumbItem @text="Level two" @icon="folder" />
-        <HdsBreadcrumbItem @text="Level three" />
+        <HdsBreadcrumbItem @route="catch-all" @text="Level one" @icon="org" />
         <HdsBreadcrumbItem
+          @route="catch-all"
+          @text="Level two"
+          @icon="folder"
+        />
+        <HdsBreadcrumbItem @route="catch-all" @text="Level three" />
+        <HdsBreadcrumbItem
+          @route="catch-all"
           @text="Level four with a very long string"
           @maxWidth="180px"
         />
-        <HdsBreadcrumbItem @text="Level five" />
-        <HdsBreadcrumbItem @text="Current" @current={{true}} />
+        <HdsBreadcrumbItem @route="catch-all" @text="Level five" />
+        <HdsBreadcrumbItem
+          @route="catch-all"
+          @text="Current"
+          @current={{true}}
+        />
       </HdsBreadcrumb>
     </SF.Item>
   </ShwFlex>
@@ -56,19 +65,32 @@ const SubSectionTruncationOptions: TemplateOnlyComponent = <template>
   <ShwFlex @label="With 'truncation' element" as |SF|>
     <SF.Item class="shw-component-breadcrumb-sample-truncation-dropdown">
       <HdsBreadcrumb aria-label="breadcrumb with truncation element example">
-        <HdsBreadcrumbItem @text="Level one" />
-        <HdsBreadcrumbItem @text="Level two" />
+        <HdsBreadcrumbItem @route="catch-all" @text="Level one" />
+        <HdsBreadcrumbItem @route="catch-all" @text="Level two" />
         <HdsBreadcrumbTruncation>
-          <HdsBreadcrumbItem @text="Level three" />
+          <HdsBreadcrumbItem @route="catch-all" @text="Level three" />
           <HdsBreadcrumbItem
+            @route="catch-all"
             @text="Level four with a long string that can span multiple lines"
           />
-          <HdsBreadcrumbItem @text="Level five with icon" @icon="dashboard" />
-          <HdsBreadcrumbItem @text="Level six with icon" @icon="database" />
+          <HdsBreadcrumbItem
+            @route="catch-all"
+            @text="Level five with icon"
+            @icon="dashboard"
+          />
+          <HdsBreadcrumbItem
+            @route="catch-all"
+            @text="Level six with icon"
+            @icon="database"
+          />
         </HdsBreadcrumbTruncation>
-        <HdsBreadcrumbItem @text="Level seven" />
-        <HdsBreadcrumbItem @text="Level eight" />
-        <HdsBreadcrumbItem @text="Current" @current={{true}} />
+        <HdsBreadcrumbItem @route="catch-all" @text="Level seven" />
+        <HdsBreadcrumbItem @route="catch-all" @text="Level eight" />
+        <HdsBreadcrumbItem
+          @route="catch-all"
+          @text="Current"
+          @current={{true}}
+        />
       </HdsBreadcrumb>
     </SF.Item>
   </ShwFlex>

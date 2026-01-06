@@ -150,4 +150,5 @@ Router.map(function () {
       this.route('translation');
     },
   );
+  this.route('catch-all');
 });

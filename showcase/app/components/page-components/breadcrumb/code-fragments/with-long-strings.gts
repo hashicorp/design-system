@@ -28,17 +28,29 @@ const CodeFragmentWithLongString: TemplateOnlyComponent<CodeFragmentWithLongStri
       }} example"
     >
       <HdsBreadcrumbItem
+        @route="catch-all"
         @text="Level one with a very long string"
         @icon="org"
       />
       <HdsBreadcrumbItem
+        @route="catch-all"
         @text="Level two with a very long string"
         @icon="folder"
       />
-      <HdsBreadcrumbItem @text="Level three with a very long string" />
-      <HdsBreadcrumbItem @text="Level four with a very long string" />
-      <HdsBreadcrumbItem @text="Level five with a very long string" />
       <HdsBreadcrumbItem
+        @route="catch-all"
+        @text="Level three with a very long string"
+      />
+      <HdsBreadcrumbItem
+        @route="catch-all"
+        @text="Level four with a very long string"
+      />
+      <HdsBreadcrumbItem
+        @route="catch-all"
+        @text="Level five with a very long string"
+      />
+      <HdsBreadcrumbItem
+        @route="catch-all"
         @text="Current with a very long string"
         @current={{true}}
       />
