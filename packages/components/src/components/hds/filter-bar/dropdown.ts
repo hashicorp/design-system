@@ -19,6 +19,7 @@ export interface HdsFilterBarDropdownSignature {
   Args: {
     filters: HdsFilterBarFilters;
     isLiveFilter?: boolean;
+    height?: string;
     onFilter?: (filters: HdsFilterBarFilters) => void;
   };
   Blocks: {
@@ -58,6 +59,10 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
 
   get isLiveFilter(): boolean {
     return this.args.isLiveFilter || false;
+  }
+
+  get height(): string {
+    return this.args.height || '600px';
   }
 
   @action

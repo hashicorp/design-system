@@ -8,6 +8,7 @@
   @onClose={{this._onClose}}
   ...attributes
   class="hds-filter-bar__dropdown"
+  {{style --filter-bar-dropdown-height=this.height}}
   {{this._syncFilters @filters}}
   as |D|
 >
