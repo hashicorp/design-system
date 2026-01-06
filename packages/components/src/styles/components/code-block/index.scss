@@ -137,8 +137,6 @@ $hds-code-block-code-footer-height: 48px;
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--token-color-palette-neutral-400) var(--token-color-palette-neutral-500);
-  font-size: 0.8125rem;
-  font-family: var(--token-typography-code-200-font-family);
   border-radius: inherit;
 
   ::selection {
@@ -150,6 +148,8 @@ $hds-code-block-code-footer-height: 48px;
     position: relative;
     display: inline-block;
     padding-right: $hds-code-block-code-padding;
+    font-size: 0.8125rem;
+    font-family: var(--token-typography-code-200-font-family);
   }
 }
 
