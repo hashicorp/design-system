@@ -120,8 +120,11 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
     const downArrow = 'ArrowDown';
     const enterKey = 'Enter';
     const spaceKey = ' ';
+    const tabKey = 'Tab';
 
-    event.preventDefault();
+    if (event.key !== tabKey) {
+      event.preventDefault();
+    }
 
     if (event.key === rightArrow || event.key === downArrow) {
       const nextTabIndex = (tabIndex + 1) % this._tabIds.length;
