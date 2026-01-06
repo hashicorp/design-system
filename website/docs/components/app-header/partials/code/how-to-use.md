@@ -10,7 +10,7 @@ At this time, we do not recommend adoption on your own. Please [contact the Desi
 
 ## How to use this component
 
-The `AppHeader` provides persistent global navigation controls and utility links such as help and user menus. It is meant to be paired with the `AppSideNav` which should be used to provide local or page-level navigation. Both these components are intended to be used within the [`Hds::AppFrame`](/layouts/app-frame) component. The `AppHeader` specifically should be used within the `App Frame’s` Frame.Header contextual component.
+The `AppHeader` provides persistent global navigation controls and utility links such as help and user menus. It is meant to be paired with the `AppSideNav` which should be used to provide local or page-level navigation. Both these components are intended to be used within the [`Hds::AppFrame`](/layouts/app-frame) component. The `AppHeader` specifically should be used within the `AppFrame`'s `Frame.Header` contextual component.
 
 ### Layout
 
@@ -45,7 +45,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
 
 !!! Info
 
-When adding Dropdown components within the App Header, be sure to set `enableCollisionDetection` to `true` for each Dropdown.
+When adding [Dropdown](/components/dropdown) components within the App Header, be sure to set `enableCollisionDetection` to `true` for each Dropdown.
 
 !!!
 
@@ -66,17 +66,17 @@ probably need to be set to `true` (or omitted to rely on defaults)
 --}}
 <Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="hashicorp" 
+    <Hds::AppHeader::HomeLink
+      @icon="hashicorp"
       @text="HashiCorp home menu"
       @href="/"
     />
   </:logo>
-  
+
   <:globalActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
   </:globalActions>
-  
+
   <:utilityActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
@@ -89,8 +89,8 @@ When `@isIconOnly` is set to `false`, the `@text` argument displays text inline 
 ```handlebars
 <Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="terraform" 
+    <Hds::AppHeader::HomeLink
+      @icon="terraform"
       @text="Admin Console"
       @isIconOnly={{false}}
       @href="/"
@@ -113,14 +113,14 @@ probably need to be set to `true` (or omitted to rely on defaults)
 --}}
 <Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="terraform" 
+    <Hds::AppHeader::HomeLink
+      @icon="terraform"
       @text="Terraform home menu"
       @color="var(--token-color-terraform-brand)"
       @href="/"
     />
   </:logo>
-  
+
   <:globalActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
   </:globalActions>
@@ -134,6 +134,14 @@ probably need to be set to `true` (or omitted to rely on defaults)
 
 #### Global actions
 
+!!! Info
+
+Only use the [Dropdown](/components/dropdown) component inside the `<:globalActions>` block.
+
+When used in conjunction with the `AppSideNav` and `AppFrame`, global actions are disabled when the side nav is open on small viewports. The disabled state styles for the action items will not be applied if other components are used.
+
+!!!
+
 Consumers should provide their own “context switcher” (e.g., “org switcher” or “project switcher”) control yielded within the `<:globalActions>` block. HDS does not currently provide this component.
 
 ```handlebars
@@ -143,13 +151,13 @@ probably need to be set to `true` (or omitted to rely on defaults)
 --}}
 <Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="hashicorp" 
+    <Hds::AppHeader::HomeLink
+      @icon="hashicorp"
       @text="HashiCorp home menu"
       @href="/"
     />
   </:logo>
-  
+
   <:globalActions>
     <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
       <dd.ToggleButton @text="Choose an organization" @icon="org" />
@@ -168,6 +176,14 @@ probably need to be set to `true` (or omitted to rely on defaults)
 
 #### Utility actions
 
+!!! Info
+
+Only use the [Button](/components/button) or [Dropdown](/components/dropdown) components inside the `<:utilityActions>` block.
+
+When used in conjunction with the `AppSideNav` and `AppFrame`, utility actions are disabled when the side nav is open on small viewports. The disabled state styles for the action items will not be applied if other components are used.
+
+!!!
+
 Consumers should provide their own utility action controls yielded within the `<:utilityActions>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
 
 ```handlebars
@@ -177,13 +193,13 @@ probably need to be set to `true` (or omitted to rely on defaults)
 --}}
 <Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="hashicorp" 
+    <Hds::AppHeader::HomeLink
+      @icon="hashicorp"
       @text="HashiCorp home menu"
       @href="/"
     />
   </:logo>
-  
+
   <:globalActions>
     <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
       <dd.ToggleButton @text="Choose an organization" @icon="org" />
@@ -194,6 +210,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
   </:globalActions>
 
   <:utilityActions>
+    <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
     <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
       <dd.ToggleIcon @icon="help" @text="help menu" />
       <dd.Title @text="Help & Support" />
