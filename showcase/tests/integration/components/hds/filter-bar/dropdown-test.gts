@@ -67,6 +67,30 @@ module('Integration | Component | hds/filter-bar/dropdown', function (hooks) {
       .hasText('Apply filters');
   });
 
+  // HEIGHT
+
+  test('it should set the height of the dropdown content to the value provided by the @height argument', async function (assert) {
+    await render(
+      <template>
+        <HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} @height="400px" />
+      </template>,
+    );
+    await click('.hds-dropdown-toggle-button');
+    assert
+      .dom('.hds-dropdown__content')
+      .hasStyle({ '--filter-bar-dropdown-height': '400px' });
+  });
+
+  test('it should set the height of the dropdown content to the default value', async function (assert) {
+    await render(
+      <template><HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} /></template>,
+    );
+    await click('.hds-dropdown-toggle-button');
+    assert
+      .dom('.hds-dropdown__content')
+      .hasStyle({ '--filter-bar-dropdown-height': '600px' });
+  });
+
   // CONTEXTIAL COMPONENTS
 
   test('it should render the FilterGroup contextual component', async function (assert) {

@@ -41,6 +41,10 @@
 
 // FILTER BAR > DROPDOWN
 
+.hds-filter-bar__dropdown {
+  --filter-bar-dropdown-footer-height: 45px;
+}
+
 .hds-filter-bar__dropdown .hds-dropdown__list,
 .hds-filter-bar__dropdown .hds-dropdown-list-item {
   padding: 0;
@@ -57,7 +61,7 @@
   flex-direction: column;
   gap: 4px;
   width: 50%;
-  max-height: 555px;
+  max-height: calc(var(--filter-bar-dropdown-height) - var(--filter-bar-dropdown-footer-height));
   padding: 8px;
   overflow-y: auto;
   list-style: none;
@@ -142,7 +146,7 @@
   flex-direction: column;
   gap: 8px;
   width: 50%;
-  max-height: 555px;
+  max-height: calc(var(--filter-bar-dropdown-height) - var(--filter-bar-dropdown-footer-height));
   padding: 16px 0;
   overflow-y: auto;
   background-color: var(--token-color-surface-primary);
