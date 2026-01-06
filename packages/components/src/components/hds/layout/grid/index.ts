@@ -101,17 +101,17 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
      --hds-layout-grid-column-fill-type is set to auto-fit (fluid layout)
 
     If neither columnMinWidth nor columnWidth are passed in:
-    * We do not set --hds-layout-grid-column-min-width (defaults to 0px)
+    - We do not set --hds-layout-grid-column-min-width (defaults to 0px)
     
     If columnMinWidth is passed in:
-    * We set --hds-layout-grid-column-min-width to the passed in value
+    - We set --hds-layout-grid-column-min-width to the passed in value
 
     If a columnWidth value is passed in:
     1) we set --hds-layout-grid-column-min-width to the passed in value for the view
     2) In the CSS, we use "auto-fill" for --hds-layout-grid-column-fill-type for the view (fixed layout)
 
     If both columnMinWidth & columnWidth are passed in:
-    * We throw an error, as it doesn't make sense in the context of a CSS grid layout (too complex to determine which to use & desired behavior)
+    - We throw an error, as it doesn't make sense in the context of a CSS grid layout (too complex to determine which to use & desired behavior)
   */
   get inlineStyles(): Record<string, unknown> {
     const inlineStyles: {
