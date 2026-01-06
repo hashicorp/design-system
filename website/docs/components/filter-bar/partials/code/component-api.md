@@ -269,6 +269,9 @@ The `FilterBar::Dropdown` is yielded as the `[F].Dropdown` contextual component.
   <C.Property @name="<[F].FilterGroup>" @type="yielded component">
     `FilterBar::FilterGroup` yielded as contextual component (see below).
   </C.Property>
+  <C.Property @name="height" @type="string" @default="600px">
+    If a `@height` parameter is provided then the tabs and tab panels will have a max-height. Can be any valid CSS height (px, rem, etc).
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
