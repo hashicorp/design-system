@@ -1,7 +1,7 @@
-{{!--
+{{!
   Copyright IBM Corp. 2021, 2025
   SPDX-License-Identifier: MPL-2.0
---}}
+}}
 <li class="hds-breadcrumb__item" style={{this.itemStyle}} ...attributes>
   {{#if @current}}
     <div class="hds-breadcrumb__current">
@@ -13,7 +13,15 @@
       <span class="hds-breadcrumb__text">{{@text}}</span>
     </div>
   {{else}}
-    <Hds::Interactive class="hds-breadcrumb__link" @current-when={{@current-when}} @models={{hds-link-to-models @model @models}} @query={{hds-link-to-query @query}} @replace={{@replace}} @route={{@route}} @isRouteExternal={{@isRouteExternal}}>
+    <Hds::Interactive
+      class="hds-breadcrumb__link"
+      @current-when={{@current-when}}
+      @models={{hds-link-to-models @model @models}}
+      @query={{hds-link-to-query @query}}
+      @replace={{@replace}}
+      @route={{@route}}
+      @isRouteExternal={{@isRouteExternal}}
+    >
       {{#if @icon}}
         <div class="hds-breadcrumb__icon">
           <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
