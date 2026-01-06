@@ -12,13 +12,24 @@ import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
+import Route from '@ember/routing/route';
+
+class RouteStub extends Route {}
+
 module('Integration | Component | hds/breadcrumb/item', function (hooks) {
   setupRenderingTest(hooks);
+  hooks.beforeEach(function () {
+    this.owner.register('route:catch-all', RouteStub);
+  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       <template>
-        <HdsBreadcrumbItem id="test-breadcrumb-item" @text="test" />
+        <HdsBreadcrumbItem
+          id="test-breadcrumb-item"
+          @text="test"
+          @route="catch-all"
+        />
       </template>,
     );
     assert.dom('#test-breadcrumb-item').hasClass('hds-breadcrumb__item');
@@ -28,6 +39,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     await render(
       <template>
         <HdsBreadcrumbItem
+          @route="catch-all"
           @maxWidth="200px"
           @text="test"
           id="test-breadcrumb-item"
@@ -42,7 +54,11 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
   test('it should render a link by default', async function (assert) {
     await render(
       <template>
-        <HdsBreadcrumbItem id="test-breadcrumb-item" @text="text renders" />
+        <HdsBreadcrumbItem
+          id="test-breadcrumb-item"
+          @route="catch-all"
+          @text="text renders"
+        />
       </template>,
     );
     assert.dom('#test-breadcrumb-item > a').exists();
@@ -52,6 +68,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       <template>
         <HdsBreadcrumbItem
           id="test-breadcrumb-item"
+          @route="catch-all"
           @text="text renders"
           @current={{true}}
         />
@@ -65,6 +82,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       <template>
         <HdsBreadcrumbItem
           id="test-breadcrumb-item"
+          @route="catch-all"
           @text="text renders"
           @icon="activity"
         />
@@ -85,7 +103,11 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     await render(
       <template>
         {{! @glint-expect-error - assertion testing invalid value }}
-        <HdsBreadcrumbItem @maxWidth="123" id="test-breadcrumb-item" />
+        <HdsBreadcrumbItem
+          @route="catch-all"
+          @maxWidth="123"
+          id="test-breadcrumb-item"
+        />
       </template>,
     );
     assert.throws(function () {
@@ -95,8 +117,8 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
 
   // EXTERNAL LINK
 
-  test('it should error if @isRouteExternal is true and no component has been configured on the HdsBreadcrumbItem class', async function (assert) {
-    const errorMessage = `HdsBreadcrumbItem: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
+  test('it should error if @isRouteExternal is true and no component has been configured as an external link', async function (assert) {
+    const errorMessage = `HdsInteractive: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
 
 import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
 setLinkToExternal(LinkToExternalComponent);`;
@@ -109,7 +131,7 @@ setLinkToExternal(LinkToExternalComponent);`;
     await render(
       <template>
         <HdsBreadcrumbItem
-          @route="index"
+          @route="catch-all"
           @text="a route"
           @isRouteExternal={{true}}
           id="test-interactive"
@@ -125,7 +147,7 @@ setLinkToExternal(LinkToExternalComponent);`;
     await render(
       <template>
         <HdsBreadcrumbItem
-          @route="index"
+          @route="catch-all"
           @text="a route"
           @isRouteExternal={{true}}
           id="test-interactive"
