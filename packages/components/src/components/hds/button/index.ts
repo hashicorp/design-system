@@ -5,18 +5,12 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { eq } from 'ember-truth-helpers';
-import { array } from '@ember/helper';
 
 import {
   HdsButtonSizeValues,
   HdsButtonColorValues,
   HdsButtonIconPositionValues,
 } from './types.ts';
-import HdsIcon from '../icon/index.gts';
-import HdsInteractive from '../interactive/index.gts';
-import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
-import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 
 import type {
   HdsButtonSizes,
@@ -50,7 +44,12 @@ export interface HdsButtonSignature {
 }
 
 export default class HdsButton extends Component<HdsButtonSignature> {
-  get text() {
+  /**
+   * @param text
+   * @type {string}
+   * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
+   */
+  get text(): string {
     const { text } = this.args;
 
     assert(
@@ -61,7 +60,13 @@ export default class HdsButton extends Component<HdsButtonSignature> {
     return text;
   }
 
-  get size() {
+  /**
+   * @param size
+   * @type {string}
+   * @default medium
+   * @description The size of the button; acceptable values are `small`, `medium`, and `large`
+   */
+  get size(): HdsButtonSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -74,7 +79,13 @@ export default class HdsButton extends Component<HdsButtonSignature> {
     return size;
   }
 
-  get color() {
+  /**
+   * @param color
+   * @type {string}
+   * @default primary
+   * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, and `critical`
+   */
+  get color(): HdsButtonColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -96,14 +107,26 @@ export default class HdsButton extends Component<HdsButtonSignature> {
     return this.args.icon ?? undefined;
   }
 
-  get isIconOnly() {
+  /**
+   * @param isIconOnly
+   * @type {boolean}
+   * @default false
+   * @description Indicates if the button will only contain an icon; component will also ensure that accessible text is still applied to the component.
+   */
+  get isIconOnly(): boolean {
     if (this.icon) {
       return this.args.isIconOnly ?? false;
     }
     return false;
   }
 
-  get iconPosition() {
+  /**
+   * @param iconPosition
+   * @type {string}
+   * @default leading
+   * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
+   */
+  get iconPosition(): HdsButtonIconPositions {
     const { iconPosition = DEFAULT_ICON_POSITION } = this.args;
 
     assert(
@@ -116,6 +139,12 @@ export default class HdsButton extends Component<HdsButtonSignature> {
     return iconPosition;
   }
 
+  /**
+   * @param iconSize
+   * @type {string}
+   * @default 16
+   * @description ensures that the correct icon size is used. Automatically calculated.
+   */
   get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.size === 'large') {
       return '24';
@@ -124,11 +153,22 @@ export default class HdsButton extends Component<HdsButtonSignature> {
     }
   }
 
-  get isFullWidth() {
+  /**
+   * @param isFullWidth
+   * @type {boolean}
+   * @default false
+   * @description Indicates that a button should take up the full width of the parent container. The default is false.
+   */
+  get isFullWidth(): boolean {
     return this.args.isFullWidth ?? false;
   }
 
-  get classNames() {
+  /**
+   * Get the class names to apply to the component.
+   * @method Button#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames(): string {
     const classes = ['hds-button'];
 
     // add a class based on the @color argument
@@ -154,62 +194,4 @@ export default class HdsButton extends Component<HdsButtonSignature> {
 
     return classes.join(' ');
   }
-
-  <template>
-    <HdsInteractive
-      class={{this.classNames}}
-      @current-when={{@current-when}}
-      @models={{hdsLinkToModels (array @model @models)}}
-      @query={{hdsLinkToQuery (array @query)}}
-      @replace={{@replace}}
-      @route={{@route}}
-      @isRouteExternal={{@isRouteExternal}}
-      @href={{@href}}
-      @isHrefExternal={{@isHrefExternal}}
-      ...attributes
-      aria-label={{if this.isIconOnly this.text null}}
-    >
-      {{#if this.isIconOnly}}
-        {{#if this.icon}}
-          <span class="hds-button__icon">
-            <HdsIcon
-              @name={{this.icon}}
-              @size={{this.iconSize}}
-              @stretched={{true}}
-            />
-          </span>
-        {{/if}}
-      {{else}}
-        {{#if this.icon}}
-          {{#if (eq this.iconPosition "leading")}}
-            <span class="hds-button__icon">
-              <HdsIcon
-                @name={{this.icon}}
-                @size={{this.iconSize}}
-                @stretched={{true}}
-              />
-            </span>
-            <span class="hds-button__text">
-              {{this.text}}
-            </span>
-          {{else}}
-            <span class="hds-button__text">
-              {{this.text}}
-            </span>
-            <span class="hds-button__icon">
-              <HdsIcon
-                @name={{this.icon}}
-                @size={{this.iconSize}}
-                @stretched={{true}}
-              />
-            </span>
-          {{/if}}
-        {{else}}
-          <span class="hds-button__text">
-            {{this.text}}
-          </span>
-        {{/if}}
-      {{/if}}
-    </HdsInteractive>
-  </template>
 }

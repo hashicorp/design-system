@@ -12,7 +12,7 @@ import { helper } from '@ember/component/helper';
  * The result of this helper should be passed into the `@query` argument of the `<LinkTo>` component:
  *
  * ```hbs
- * <LinkTo @query={{hds-link-to-query (array @query)}} />
+ * <LinkTo @query={{hds-link-to-query @query}} />
  * ```
  */
 

@@ -5,14 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { eq } from 'ember-truth-helpers';
-import { array } from '@ember/helper';
-
 import { HdsLinkColorValues, HdsLinkIconPositionValues } from './types.ts';
-import HdsIcon from '../icon/index.gts';
-import HdsInteractive from '../interactive/index.gts';
-import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
-import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 
 import type { HdsInteractiveSignature } from '../interactive/';
 import type { HdsLinkColors, HdsLinkIconPositions } from './types.ts';
@@ -46,7 +39,13 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
     }
   }
 
-  get color() {
+  /**
+   * @param color
+   * @type {string}
+   * @default primary
+   * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
+   */
+  get color(): HdsLinkColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -59,7 +58,13 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
     return color;
   }
 
-  get iconPosition() {
+  /**
+   * @param iconPosition
+   * @type {HdsLinkIconPositions}
+   * @default leading
+   * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
+   */
+  get iconPosition(): HdsLinkIconPositions {
     const { iconPosition = DEFAULT_ICON_POSITION } = this.args;
 
     assert(
@@ -72,7 +77,12 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
     return iconPosition;
   }
 
-  get classNames() {
+  /**
+   * Get the class names to apply to the component.
+   * @method LinkInline#classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
+  get classNames(): string {
     const classes = ['hds-link-inline'];
 
     // add a class based on the @color argument
@@ -83,34 +93,4 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
 
     return classes.join(' ');
   }
-
-  <template>
-    {{! IMPORTANT: we removed the newlines before/after the yield to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/231#issuecomment-1123502499) }}
-    {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the link (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
-    <HdsInteractive
-      class={{this.classNames}}
-      @current-when={{@current-when}}
-      @models={{hdsLinkToModels (array @model @models)}}
-      @query={{hdsLinkToQuery (array @query)}}
-      @replace={{@replace}}
-      @route={{@route}}
-      @isRouteExternal={{@isRouteExternal}}
-      @href={{@href}}
-      @isHrefExternal={{@isHrefExternal}}
-      ...attributes
-    >{{#if (eq this.iconPosition "leading")~}}
-        {{#if @icon~}}<span
-            class="hds-link-inline__icon hds-link-inline__icon--leading"
-          >
-            <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
-          </span>{{~/if}}
-      {{~/if~}}{{yield}}{{~#if (eq this.iconPosition "trailing")~}}
-        {{#if @icon~}}<span
-            class="hds-link-inline__icon hds-link-inline__icon--trailing"
-          >
-            <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
-          </span>{{~/if}}
-      {{~/if}}
-    </HdsInteractive>
-  </template>
 }

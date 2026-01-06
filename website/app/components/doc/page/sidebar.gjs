@@ -5,9 +5,13 @@
 
 import Component from '@glimmer/component';
 import { restartableTask, timeout } from 'ember-concurrency';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
+import { LinkTo } from '@ember/routing';
+import { or } from 'ember-truth-helpers';
+
+import DocFormFilter from 'website/components/doc/form/filter';
+import DocTableOfContents from 'website/components/doc/table-of-contents';
 
 const DEBOUNCE_MS = 250;
 
@@ -161,11 +165,115 @@ export default class DocPageSidebarComponent extends Component {
     this.filterQuery = filterQuery.trim();
   }
 
-  @action
-  onRouteDidChange() {
+  onRouteDidChange = () => {
     if (this._currentTopRoute !== this.args.currentTopRoute) {
       this.filterQuery = '';
     }
     this._currentTopRoute = this.args.currentTopRoute;
-  }
+  };
+
+  <template>
+    <aside class="doc-page-sidebar" ...attributes>
+      <div class="doc-page-sidebar__inner-wrapper">
+        <nav
+          class="doc-page-sidebar__top-routes"
+          aria-label="primary page navigation"
+        >
+          <ul class="doc-table-of-contents">
+            <li
+              class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
+            >
+              <div class="doc-table-of-contents__heading">Main categories</div>
+            </li>
+            <li
+              class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
+            >
+              <LinkTo
+                class="doc-table-of-contents__link"
+                @route="about"
+              >About</LinkTo>
+            </li>
+            <li
+              class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
+            >
+              <LinkTo
+                class="doc-table-of-contents__link"
+                @route="foundations"
+              >Foundations</LinkTo>
+            </li>
+            <li
+              class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
+            >
+              <LinkTo
+                class="doc-table-of-contents__link"
+                @route="content"
+              >Content</LinkTo>
+            </li>
+            <li
+              class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
+            >
+              <LinkTo
+                class="doc-table-of-contents__link"
+                @route="components"
+              >Components</LinkTo>
+            </li>
+            <li
+              class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
+            >
+              <LinkTo
+                class="doc-table-of-contents__link"
+                @route="patterns"
+              >Patterns</LinkTo>
+            </li>
+            <li
+              class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
+            >
+              <LinkTo
+                class="doc-table-of-contents__link"
+                @route="show"
+                @model="about/support"
+              >Support</LinkTo>
+            </li>
+            <li
+              class="doc-table-of-contents__item doc-table-of-contents__item--depth-2"
+            >
+              <a
+                class="doc-table-of-contents__link"
+                href="https://github.com/hashicorp/design-system"
+                target="_blank"
+                rel="noopener noreferrer"
+              >GitHub</a>
+            </li>
+          </ul>
+        </nav>
+        {{#if (or this.structuredPageTree this.isFiltered)}}
+          <div class="doc-page-sidebar__filter">
+            <DocFormFilter
+              @isCompact={{true}}
+              @filterQuery={{this.filterQuery}}
+              @placeholder="Filter sidebar"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="none"
+              spellcheck="false"
+              @onInput={{this.filterPageTree}}
+            />
+          </div>
+          <nav
+            class="doc-page-sidebar__table-of-contents"
+            aria-label="secondary page navigation"
+          >
+            {{#if this.hasTableOfContents}}
+              <DocTableOfContents
+                @structuredPageTree={{this.structuredPageTree}}
+                @depth={{1}}
+              />
+            {{else}}
+              <p class="doc-text-body-small">No results found</p>
+            {{/if}}
+          </nav>
+        {{/if}}
+      </div>
+    </aside>
+  </template>
 }

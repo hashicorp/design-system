@@ -1,0 +1,28 @@
+<Hds::Interactive
+  class={{this.classNames}}
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{@route}}
+  @isRouteExternal={{@isRouteExternal}}
+  @href={{@href}}
+  @isHrefExternal={{@isHrefExternal}}
+  ...attributes
+>
+  {{#if (eq this.iconPosition "leading")}}
+    <span class="hds-link-standalone__icon">
+      <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+    </span>
+    <span class="hds-link-standalone__text">
+      {{this.text}}
+    </span>
+  {{else}}
+    <span class="hds-link-standalone__text">
+      {{this.text}}
+    </span>
+    <span class="hds-link-standalone__icon">
+      <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+    </span>
+  {{/if}}
+</Hds::Interactive>

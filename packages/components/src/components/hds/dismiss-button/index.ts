@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { service } from '@ember/service';
 
 import type HdsIntlService from '../../../services/hds-intl';
-import HdsIcon from '../icon/index.gts';
 
 export interface HdsDismissButtonSignature {
   Args: {
@@ -27,15 +26,4 @@ export default class HdsDismissButton extends Component<HdsDismissButtonSignatur
       })
     );
   }
-
-  <template>
-    <button
-      class="hds-dismiss-button"
-      type="button"
-      aria-label={{this.ariaLabel}}
-      ...attributes
-    >
-      <HdsIcon @name="x" @size="16" />
-    </button>
-  </template>
 }

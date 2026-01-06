@@ -28,9 +28,9 @@ export { default as HdsAdvancedTableExpandableTrGroup } from './components/hds/a
 export * from './components/hds/advanced-table/types.ts';
 
 // Alert
-export { default as HdsAlert } from './components/hds/alert/index.gts';
-export { default as HdsAlertDescription } from './components/hds/alert/description.gts';
-export { default as HdsAlertTitle } from './components/hds/alert/title.gts';
+export { default as HdsAlert } from './components/hds/alert/index.ts';
+export { default as HdsAlertDescription } from './components/hds/alert/description.ts';
+export { default as HdsAlertTitle } from './components/hds/alert/title.ts';
 export * from './components/hds/alert/types.ts';
 
 // AppFooter
@@ -80,7 +80,7 @@ export { default as HdsBreadcrumbItem } from './components/hds/breadcrumb/item.t
 export { default as HdsBreadcrumbTruncation } from './components/hds/breadcrumb/truncation.ts';
 
 // Button
-export { default as HdsButton } from './components/hds/button/index.gts';
+export { default as HdsButton } from './components/hds/button/index.ts';
 export * from './components/hds/button/types.ts';
 
 // ButtonSet
@@ -231,8 +231,8 @@ export { default as HdsIconTile } from './components/hds/icon-tile/index.ts';
 export * from './components/hds/icon-tile/types.ts';
 
 // Link
-export { default as HdsLinkInline } from './components/hds/link/inline.gts';
-export { default as HdsLinkStandalone } from './components/hds/link/standalone.gts';
+export { default as HdsLinkInline } from './components/hds/link/inline.ts';
+export { default as HdsLinkStandalone } from './components/hds/link/standalone.ts';
 export * from './components/hds/link/types.ts';
 
 // Modal
@@ -384,10 +384,10 @@ export * from './components/hds/dialog-primitive/types.ts';
 export { default as HdsDisclosurePrimitive } from './components/hds/disclosure-primitive/index.ts';
 
 // DismissButton
-export { default as HdsDismissButton } from './components/hds/dismiss-button/index.gts';
+export { default as HdsDismissButton } from './components/hds/dismiss-button/index.ts';
 
 // Interactive
-export { default as HdsInteractive } from './components/hds/interactive/index.gts';
+export { default as HdsInteractive } from './components/hds/interactive/index.ts';
 
 // PopoverPrimitive
 export { default as HdsPopoverPrimitive } from './components/hds/popover-primitive/index.ts';

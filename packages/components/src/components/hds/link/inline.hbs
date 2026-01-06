@@ -1,0 +1,22 @@
+{{! IMPORTANT: we removed the newlines before/after the yield to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/231#issuecomment-1123502499) }}
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the link (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+<Hds::Interactive
+  class={{this.classNames}}
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{@route}}
+  @isRouteExternal={{@isRouteExternal}}
+  @href={{@href}}
+  @isHrefExternal={{@isHrefExternal}}
+  ...attributes
+>{{#if (eq this.iconPosition "leading")~}}
+    {{#if @icon~}}<span class="hds-link-inline__icon hds-link-inline__icon--leading">
+        <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
+      </span>{{~/if}}
+  {{~/if~}}{{yield}}{{~#if (eq this.iconPosition "trailing")~}}
+    {{#if @icon~}}<span class="hds-link-inline__icon hds-link-inline__icon--trailing">
+        <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
+      </span>{{~/if}}
+  {{~/if}}</Hds::Interactive>
