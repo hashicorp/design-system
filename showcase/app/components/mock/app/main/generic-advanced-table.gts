@@ -11,6 +11,7 @@ import { on } from '@ember/modifier';
 // HDS components
 import {
   HdsAdvancedTable,
+  HdsApplicationState,
   HdsLinkInline,
   HdsBadge,
   HdsBadgeColorValues,
@@ -770,8 +771,8 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           </B.Td>
         </B.Tr>
       </:body>
-      <:emptyState as |E|>
-        <E.ApplicationState as |A|>
+      <:emptyState>
+        <HdsApplicationState as |A|>
           <A.Header @title="No data to display" />
           <A.Body
             @text="No results were found with the selected filters. Please clear or
@@ -780,7 +781,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           <A.Footer as |F|>
             <F.Button @text="Clear filters" {{on "click" this.clearFilters}} />
           </A.Footer>
-        </E.ApplicationState>
+        </HdsApplicationState>
       </:emptyState>
     </HdsAdvancedTable>
   </template>
