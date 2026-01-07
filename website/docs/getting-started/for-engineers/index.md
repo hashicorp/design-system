@@ -25,9 +25,9 @@ You can chose between importing styles as Sass or CSS.
 
 [[demo: code-snippets/install-ember-cli-sass]]
 
-1. Use the `scss` extension to ensure the styles are being preprocessed. For example, you may need to change `app/styles/app.css` to `app/styles/app.scss`.
+2. Use the `scss` extension to ensure the styles are being preprocessed. For example, you may need to change `app/styles/app.css` to `app/styles/app.scss`.
 
-2. Add the following configuration in `ember-cli-build.js` to set the number of decimal places and enable access to the design system tokens:
+3. Add the following configuration in `ember-cli-build.js` to set the number of decimal places and enable access to the design system tokens:
 
 ```js
 sassOptions: {
