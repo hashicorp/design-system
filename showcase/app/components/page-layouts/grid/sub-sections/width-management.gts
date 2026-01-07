@@ -5,9 +5,12 @@ import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwTextBody from 'showcase/components/shw/text/body';
 import ShwGrid from 'showcase/components/shw/grid';
+import ShwFlex from 'showcase/components/shw/flex';
 import ShwDivider from 'showcase/components/shw/divider';
 
 import CodeFragmentWithPlaceholderItems from '../code-fragments/with-placeholder-items';
+
+import { HdsLayoutGrid } from '@hashicorp/design-system-components/components';
 
 import { hash } from '@ember/helper';
 
@@ -202,6 +205,155 @@ const SubSectionWidthManagement: TemplateOnlyComponent = <template>
       />
     </SG.Item>
   </ShwGrid>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH4>Nested layouts (responsive & non-responsive)</ShwTextH4>
+
+  <ShwFlex
+    @gap="2rem"
+    @direction="column"
+    class="shw-layout-grid-example-nested-layouts"
+    as |SF|
+  >
+    <SF.Item @label="Responsive parent Grid with responsive nested Grid">
+      <HdsLayoutGrid
+        @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}}
+        @gap="24"
+      >
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+      </HdsLayoutGrid>
+    </SF.Item>
+
+    <SF.Item @label="Responsive parent Grid with non-responsive nested Grid">
+      <HdsLayoutGrid
+        @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}}
+        @gap="16"
+      >
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+      </HdsLayoutGrid>
+    </SF.Item>
+
+    <SF.Item @label="Non-responsive parent Grid with responsive nested Grid">
+      <HdsLayoutGrid @columnWidth="33.33%" @gap="16">
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+        <CodeFragmentWithPlaceholderItems
+          @columnCount={{5}}
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+      </HdsLayoutGrid>
+    </SF.Item>
+
+    <SF.Item
+      @label="Non-responsive parent Grid with non-responsive nested Grid"
+    >
+      <HdsLayoutGrid @columnWidth="33.33%" @gap="16">
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+        <CodeFragmentWithPlaceholderItems @columnWidth="50%" />
+      </HdsLayoutGrid>
+    </SF.Item>
+  </ShwFlex>
 
   <ShwDivider @level={{2}} />
 </template>;
