@@ -191,8 +191,6 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
 }
 
 .doc-code-group__expand-button {
-  @include doc-font-style-code();
-
   display: flex;
   align-items: center;
   justify-content: center;

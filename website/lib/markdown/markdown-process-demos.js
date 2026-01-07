@@ -20,7 +20,7 @@ const demoBlockRegex =
  * Example input path: "var/folders/68/g3fv_h7538xcqf6nd48jm8m40000gn/T/broccoli-59163KsQiVU7Es4GZ/out-158-funnel/components/accordion/partials/code/code-snippets/accordion-expand-all.classic"
  */
 const fileNameRegex =
-  /((?:components|utilities|layout|getting-started|patterns|foundations).*?)\.(?:hbs|js|gts)/;
+  /((?:getting-started|foundations|components|layouts|utilities|overrides|patterns).*?)\.(?:hbs|js|gts)/;
 
 const SUPPORTED_FILE_EXTENSIONS = [
   '.classic.hbs',

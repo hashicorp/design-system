@@ -59,14 +59,9 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
   }
 
-  // NOTE: the dynamic template component can only render "classic" components, so if there is no hbs snippet, we hide the preview. This can be removed when implement: https://hashicorp.atlassian.net/browse/HDS-5833
+  // NOTE: the dynamic template component can only render "classic" components, so if there is no hbs snippet, we hide the preview.
   get hidePreview() {
-    const { hbsSnippet, hidePreview } = this.args;
-    if (hbsSnippet === '') {
-      return true;
-    }
-
-    return hidePreview === 'true';
+    return this.args.hbsSnippet === '' || this.args.hidePreview === 'true';
   }
 
   get hbsSnippet() {
@@ -119,41 +114,28 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return options;
   }
 
-  get syntaxHighlightLanguage() {
-    // to display the compact gts snippet correctly, need to use hbs syntax highlighting instead of gts
-    if (this.currentView === 'gts' && this.isExpanded) {
-      return 'gts';
-    }
-
+  get currentSnippet() {
     if (this.currentView === 'js') {
-      return 'js';
-    }
-
-    if (this.currentView === 'custom') {
-      return this.args.customLang || 'text';
-    }
-
-    return 'hbs';
-  }
-
-  get currentViewSnippet() {
-    if (this.currentView === 'js') {
-      return this.jsSnippet;
+      return { snippet: this.jsSnippet, language: 'js' };
     }
 
     if (this.currentView === 'gts') {
       if (this.isExpanded) {
-        return this.gtsSnippet;
+        return { snippet: this.gtsSnippet, language: 'gts' };
       }
 
-      return this.compactGtsSnippet;
+      // to display the compact gts snippet correctly, need to use hbs syntax highlighting instead of gts
+      return { snippet: this.compactGtsSnippet, language: 'hbs' };
     }
 
     if (this.currentView === 'custom') {
-      return this.customSnippet;
+      return {
+        snippet: this.customSnippet,
+        language: this.args.customLang || 'text',
+      };
     }
 
-    return this.hbsSnippet;
+    return { snippet: this.hbsSnippet, language: 'hbs' };
   }
 
   get hasFooter() {
@@ -197,7 +179,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
         <:secondary>
           <div class="doc-code-group__copy-button-container">
             <DocCopyButton
-              @textToCopy={{this.currentViewSnippet}}
+              @textToCopy={{this.currentSnippet.snippet}}
               @type="icon-only"
               class="doc-code-group__copy-button"
             />
@@ -210,8 +192,8 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
         {{this.setCodeElementTabIndex}}
       >
         <CodeBlock
-          @code={{this.currentViewSnippet}}
-          @language={{this.syntaxHighlightLanguage}}
+          @code={{this.currentSnippet.snippet}}
+          @language={{this.currentSnippet.language}}
           @theme="github-dark"
           @showCopyButton={{false}}
         />

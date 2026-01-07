@@ -64,11 +64,11 @@
   flex: none;
   width: 12px;
   height: 12px;
-}
 
-.doc-copy-button--type-icon-only .doc-copy-button__icon {
-  width: 16px;
-  height: 16px;
+  .doc-copy-button--type-icon-only & {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .doc-copy-button__label {
