@@ -18,4 +18,3 @@ between-value-inputs:
   end:
     aria-label: Number end value
     placeholder: End
-clear: Clear filter

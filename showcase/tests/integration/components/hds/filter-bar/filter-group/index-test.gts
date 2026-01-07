@@ -36,7 +36,7 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" id="test-tabs" as |T|>
+          <HdsFilterBarTabs id="test-tabs" as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -59,7 +59,7 @@ module(
     test('it should render the name of the filter group provided to the @text argument', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -79,7 +79,7 @@ module(
     test('it should render the apporpriate content if the @type argument is multi-select', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -100,7 +100,7 @@ module(
     test('it should render the apporpriate content if the @type argument is single-select', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -122,7 +122,7 @@ module(
     test('it should render the apporpriate content if the @type argument is numerical', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -144,7 +144,7 @@ module(
     test('it should render the apporpriate content if the @type argument is date', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -169,7 +169,7 @@ module(
     test('it should render the apporpriate content if the @type argument is datetime', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -194,7 +194,7 @@ module(
     test('it should render the apporpriate content if the @type argument is time', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -221,7 +221,7 @@ module(
     test('it should not render the search input by default', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -239,7 +239,7 @@ module(
     test('it should render the search input if the @searchEnabled argument is true', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -258,7 +258,7 @@ module(
     test('it should filter the list of options by the search term provided', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -313,7 +313,7 @@ module(
     test('it should render the Checkbox contextual component', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -340,7 +340,7 @@ module(
     test('it should render the Radio contextual component', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -367,7 +367,7 @@ module(
     test('it should render the Generic contextual component', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -407,7 +407,7 @@ module(
 
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -461,7 +461,7 @@ module(
 
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -523,7 +523,7 @@ module(
 
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -577,7 +577,7 @@ module(
 
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
@@ -615,7 +615,7 @@ module(
     test('it should display the correct number of applied filters', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarTabs @ariaLabel="Test tabs" as |T|>
+          <HdsFilterBarTabs as |T|>
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"

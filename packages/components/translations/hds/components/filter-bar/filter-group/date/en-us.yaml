@@ -21,4 +21,3 @@ between-value-inputs:
   end:
     aria-label: "{type} end value"
     placeholder: End
-clear: Clear filter

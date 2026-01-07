@@ -12,11 +12,7 @@ import { HdsFilterBarTabs } from '@hashicorp/design-system-components/components
 const createTabs = async (options: { selectedTabIndex?: number }) => {
   return await render(
     <template>
-      <HdsFilterBarTabs
-        @ariaLabel="Test tabs"
-        @selectedTabIndex={{options.selectedTabIndex}}
-        as |T|
-      >
+      <HdsFilterBarTabs @selectedTabIndex={{options.selectedTabIndex}} as |T|>
         <T.Tab>Tab 1</T.Tab>
         <T.Tab>Tab 2</T.Tab>
         <T.Panel />
@@ -30,23 +26,8 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(
-      <template>
-        <HdsFilterBarTabs @ariaLabel="Test tabs" id="test-tabs" />
-      </template>,
-    );
+    await render(<template><HdsFilterBarTabs id="test-tabs" /></template>);
     assert.dom('#test-tabs').hasClass('hds-filter-bar__tabs');
-  });
-
-  // ARIA LABEL
-
-  test('it sets the aria-label attribute on the tabs container when the @ariaLabel argument is provided', async function (assert) {
-    await render(
-      <template><HdsFilterBarTabs @ariaLabel="Test tabs" /></template>,
-    );
-    assert
-      .dom('.hds-filter-bar__tabs .hds-filter-bar__tabs__list')
-      .hasAttribute('aria-label', 'Test tabs');
   });
 
   // SELECTED TAB

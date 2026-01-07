@@ -241,7 +241,10 @@ const createBasicFilterBar = async (options: {
         @searchPlaceholder={{options.searchPlaceholder}}
         @isLiveFilter={{options.isLiveFilter}}
         @onFilter={{options.onFilter}}
-      />
+        as |F|
+      >
+        <F.Dropdown />
+      </HdsFilterBar>
     </template>,
   );
 };
@@ -276,17 +279,17 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
 
   // LIVE FILTERING
 
+  test('it should render the appropriate content if the @isLiveFilter argument is false by default', async function (assert) {
+    await createBasicFilterBar({});
+    assert.dom('.hds-filter-bar .sr-only').doesNotExist();
+  });
+
   test('it should render the appropriate content if the @isLiveFilter argument is true', async function (assert) {
     await createBasicFilterBar({ isLiveFilter: true });
     assert
       .dom('.hds-filter-bar .sr-only')
       .exists()
       .hasText('Filters will be applied automatically as selections are made');
-  });
-
-  test('it should render the appropriate content if the @isLiveFilter argument is false', async function (assert) {
-    await createBasicFilterBar({});
-    assert.dom('.hds-filter-bar .sr-only').doesNotExist();
   });
 
   // HASSEARCH
@@ -347,7 +350,39 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     await click('.hds-filter-bar__applied-filters .hds-tag .hds-tag__dismiss');
     assert.ok(context.isClicked);
     assert.true(Object.keys(context.filters).length === 0);
-    assert.dom('.hds-filter-bar__applied-filters .hds-tag').doesNotExist();
+    assert
+      .dom('.hds-filter-bar__dropdown .hds-dropdown-toggle-button')
+      .isFocused();
+  });
+
+  test('it should call the onFilter callback when applied filters are dismissed for a multi-select filter type', async function (assert) {
+    const context = new TrackedObject<{
+      isClicked: boolean;
+      filters: HdsFilterBarFilters;
+    }>({
+      isClicked: false,
+      filters: FILTERS['multi-select'] ?? EMPTY_FILTERS,
+    });
+
+    const onFilter = (filters: HdsFilterBarFilters) => {
+      context.isClicked = true;
+      context.filters = filters;
+    };
+
+    await createBasicFilterBar({
+      appliedFiltersType: 'multi-select',
+      onFilter: onFilter,
+    });
+    assert
+      .dom('.hds-filter-bar__applied-filters .hds-tag')
+      .exists({ count: 2 });
+
+    await click('.hds-filter-bar__applied-filters .hds-tag .hds-tag__dismiss');
+    assert.ok(context.isClicked);
+    assert.true(Object.keys(context.filters).length === 1);
+    assert
+      .dom('.hds-filter-bar__dropdown .hds-dropdown-toggle-button')
+      .isFocused();
   });
 
   test('it should call the onFilter callback when the clear filters button is clicked', async function (assert) {
@@ -377,8 +412,9 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert
       .dom('.hds-filter-bar__applied-filters-toggle-button')
       .hasAttribute('aria-expanded', 'false');
-    assert.dom('.hds-filter-bar__applied-filter').doesNotExist();
-    assert.dom('.hds-filter-bar__clear-button').doesNotExist();
+    assert
+      .dom('.hds-filter-bar__dropdown .hds-dropdown-toggle-button')
+      .isFocused();
   });
 
   test('it should call the onFilter callback if a search is executed', async function (assert) {

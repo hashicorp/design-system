@@ -19,11 +19,7 @@ import {
 const createTabPanel = async (options: { selectedTabIndex?: number }) => {
   return await render(
     <template>
-      <HdsFilterBarTabs
-        @ariaLabel="Test tabs"
-        @selectedTabIndex={{options.selectedTabIndex}}
-        as |T|
-      >
+      <HdsFilterBarTabs @selectedTabIndex={{options.selectedTabIndex}} as |T|>
         <T.Tab />
         <T.Panel>
           <div id="test-panel-content">Test</div>

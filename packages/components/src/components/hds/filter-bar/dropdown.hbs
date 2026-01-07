@@ -7,7 +7,7 @@
   @width="600px"
   ...attributes
   class="hds-filter-bar__dropdown"
-  {{style --filter-bar-dropdown-height=this.height}}
+  {{style this.dropdownHeightStyle}}
   {{this._syncFilters}}
   as |D|
 >
@@ -18,10 +18,7 @@
     @size="small"
   />
   <D.Generic>
-    <Hds::FilterBar::Tabs
-      @ariaLabel={{hds-t "hds.components.filter-bar.dropdown.tabs.aria-label" default="Filter bar tabs"}}
-      as |T|
-    >
+    <Hds::FilterBar::Tabs as |T|>
       {{yield
         (hash
           FilterGroup=(component

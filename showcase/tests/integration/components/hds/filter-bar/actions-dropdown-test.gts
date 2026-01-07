@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 
 import { HdsFilterBarActionsDropdown } from '@hashicorp/design-system-components/components';
 
@@ -27,6 +27,11 @@ module(
 
     // TOGGLE BUTTON TEXT
 
+    test('it should render the default toggle button text if the @toggleButtonText argument is not provided', async function (assert) {
+      await render(<template><HdsFilterBarActionsDropdown /></template>);
+      assert.dom('.hds-dropdown-toggle-button__text').hasText('Actions');
+    });
+
     test('it should render the toggle button text set in the @toggleButtonText argument', async function (assert) {
       await render(
         <template>
@@ -36,12 +41,12 @@ module(
       assert.dom('.hds-dropdown-toggle-button__text').hasText('Lorem ipsum');
     });
 
-    test('it should render the default toggle button text if the @toggleButtonText argument is not provided', async function (assert) {
-      await render(<template><HdsFilterBarActionsDropdown /></template>);
-      assert.dom('.hds-dropdown-toggle-button__text').hasText('Actions');
-    });
-
     // TOGGLE BUTTON ICON
+
+    test('it should render no toggle button icon if the @toggleButtonIcon argument is not provided', async function (assert) {
+      await render(<template><HdsFilterBarActionsDropdown /></template>);
+      assert.dom('.hds-dropdown-toggle-button__icon').doesNotExist();
+    });
 
     test('it should render the toggle button icon set in the @toggleButtonIcon argument', async function (assert) {
       await render(
@@ -52,9 +57,20 @@ module(
       assert.dom('.hds-dropdown-toggle-button__icon').exists();
     });
 
-    test('it should render no toggle button icon if the @toggleButtonIcon argument is not provided', async function (assert) {
-      await render(<template><HdsFilterBarActionsDropdown /></template>);
-      assert.dom('.hds-dropdown-toggle-button__icon').doesNotExist();
+    // CONTENT
+    test('it should yield the appropriate Dropdown contextual components', async function (assert) {
+      await render(
+        <template>
+          <HdsFilterBarActionsDropdown as |D|>
+            <D.Interactive>Lorem ipsum</D.Interactive>
+          </HdsFilterBarActionsDropdown>
+        </template>,
+      );
+      await click('.hds-dropdown-toggle-button');
+      assert
+        .dom('.hds-dropdown-list-item--variant-interactive')
+        .exists()
+        .hasText('Lorem ipsum');
     });
   },
 );

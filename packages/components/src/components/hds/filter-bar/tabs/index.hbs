@@ -3,7 +3,11 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-filter-bar__tabs" ...attributes {{this._setUpFilterBarTabs}}>
-  <ol class="hds-filter-bar__tabs__list" aria-label={{@ariaLabel}} role="tablist">
+  <ol
+    class="hds-filter-bar__tabs__list"
+    aria-label={{hds-t "hds.components.filter-bar.tabs.aria-label" default="Filter bar tabs"}}
+    role="tablist"
+  >
     {{yield
       (hash
         Tab=(component

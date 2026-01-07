@@ -48,11 +48,17 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
   });
 
   get isLiveFilter(): boolean {
-    return this.args.isLiveFilter || false;
+    return this.args.isLiveFilter ?? false;
   }
 
   get height(): string {
-    return this.args.height || '600px';
+    return this.args.height ?? '600px';
+  }
+
+  get dropdownHeightStyle(): Record<string, string> {
+    const heightStyle: { [key: string]: string } = {};
+    heightStyle['--filter-bar-dropdown-height'] = this.height;
+    return heightStyle;
   }
 
   @action
@@ -65,12 +71,12 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
   }
 
   @action
-  onApply(closeDropdown?: () => void): void {
+  onApply(closeDropdown: () => void): void {
     this._applyFilters(closeDropdown);
   }
 
   @action
-  onClear(closeDropdown?: () => void): void {
+  onClear(closeDropdown: () => void): void {
     const { onFilter } = this.args;
     this.internalFilters = {};
 
@@ -88,6 +94,7 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
   ): HdsFilterBarFilters => {
     const newFilters = {} as HdsFilterBarFilters;
 
+    // Note: Due to the filters being an Ember object, structuredClone cannot be used here.
     Object.keys(filters).forEach((k) => {
       newFilters[k] = JSON.parse(
         JSON.stringify(filters[k])

@@ -445,7 +445,7 @@ module(
 
     // CALLBACK: ONFILTERDISMISS
 
-    test('it should trigged the onFilterDismiss callback when applied filters are dismissed', async function (assert) {
+    test('it should trigger the onFilterDismiss callback when applied filters are dismissed', async function (assert) {
       const context = new TrackedObject({
         isClicked: false,
         key: '',
@@ -467,7 +467,7 @@ module(
       assert.equal(context.key, 'single-select-1');
     });
 
-    test('it should trigged the onFilterDismiss callback when applied filters are dismissed for a mult-select-filter', async function (assert) {
+    test('it should trigger the onFilterDismiss callback when applied filters are dismissed for a mult-select-filter', async function (assert) {
       const context = new TrackedObject<{
         isClicked: boolean;
         key: string;

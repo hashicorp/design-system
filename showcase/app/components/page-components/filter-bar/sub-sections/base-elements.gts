@@ -265,7 +265,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwFlex @direction="column" as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>Base (default)</SFI.Label>
-      <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+      <HdsFilterBarTabs as |T|>
         <T.Tab>Tab 1</T.Tab>
         <T.Tab>Tab 2</T.Tab>
         <T.Tab>Tab 3</T.Tab>
@@ -282,11 +282,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With pre-selected tab</SFI.Label>
-      <HdsFilterBarTabs
-        @ariaLabel="Filter bar tabs"
-        @selectedTabIndex={{1}}
-        as |T|
-      >
+      <HdsFilterBarTabs @selectedTabIndex={{1}} as |T|>
         <T.Tab>Tab 1</T.Tab>
         <T.Tab>Tab 2</T.Tab>
         <T.Tab>Tab 3</T.Tab>
@@ -372,7 +368,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwFlex @direction="column" as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>Default</SFI.Label>
-      <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+      <HdsFilterBarTabs as |T|>
         <HdsFilterBarFilterGroup
           @key="name"
           @text="Name"
@@ -391,7 +387,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With search</SFI.Label>
-      <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+      <HdsFilterBarTabs as |T|>
         <HdsFilterBarFilterGroup
           @key="name"
           @text="Name"
@@ -416,7 +412,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwFlex @direction="column" as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>Default</SFI.Label>
-      <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+      <HdsFilterBarTabs as |T|>
         <HdsFilterBarFilterGroup
           @key="name"
           @text="Name"
@@ -435,7 +431,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With search</SFI.Label>
-      <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+      <HdsFilterBarTabs as |T|>
         <HdsFilterBarFilterGroup
           @key="name"
           @text="Name"
@@ -457,7 +453,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextBody>Numerical</ShwTextBody>
 
-  <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+  <HdsFilterBarTabs as |T|>
     <HdsFilterBarFilterGroup
       @key="name"
       @text="Name"
@@ -471,7 +467,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextBody>Date</ShwTextBody>
 
-  <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+  <HdsFilterBarTabs as |T|>
     <HdsFilterBarFilterGroup
       @key="name"
       @text="Name"
@@ -485,7 +481,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextBody>Time</ShwTextBody>
 
-  <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+  <HdsFilterBarTabs as |T|>
     <HdsFilterBarFilterGroup
       @key="name"
       @text="Name"
@@ -499,7 +495,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextBody>Datetime</ShwTextBody>
 
-  <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+  <HdsFilterBarTabs as |T|>
     <HdsFilterBarFilterGroup
       @key="name"
       @text="Name"
@@ -513,7 +509,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextBody>Generic</ShwTextBody>
 
-  <HdsFilterBarTabs @ariaLabel="Filter bar tabs" as |T|>
+  <HdsFilterBarTabs as |T|>
     <HdsFilterBarFilterGroup
       @key="name"
       @text="Name"
