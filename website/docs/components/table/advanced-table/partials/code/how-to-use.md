@@ -700,7 +700,7 @@ If `@hasStickyFirstColumn` is set to `false`, the column will not be sticky, but
 
 ### Empty state
 
-When the data model for the Advanced Table contains no entries, an empty state is shown with a default message stating that the table has no data available.
+When the data model for the Advanced Table contains no entries, an empty state is shown with a message stating that the table has no data available.
 
 ```handlebars
 <Hds::AdvancedTable
@@ -722,7 +722,7 @@ When the data model for the Advanced Table contains no entries, an empty state i
 </Hds::AdvancedTable>
 ```
 
-The message displayed when the data model is empty can be customized using the `ApplicationState` contextual component inside the `<:emptyState>` named block. This contextual component leverages the [ApplicationState](/components/application-state) component. Content passed into this block will be shown when the model is empty instead of the default messaging.
+The content shown when the model is empty can be customized using the `<:emptyState>` named block. Any content inside the block will be shown instead of the default message. It is recommended to use the [Application State](/components/application-state) component inside this block.
 
 ```handlebars
 <Hds::AdvancedTable
@@ -741,8 +741,8 @@ The message displayed when the data model is empty can be customized using the `
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-  <:emptyState as |E|>
-    <E.ApplicationState as |A|>
+  <:emptyState>
+    <Hds::ApplicationState as |A|>
       <A.Header @title="No data to display" />
       <A.Body
         @text="No results were found with the selected filters. Please clear or update the filters."
@@ -750,7 +750,7 @@ The message displayed when the data model is empty can be customized using the `
       <A.Footer as |F|>
         <F.Button @text="Clear filters" />
       </A.Footer>
-    </E.ApplicationState>
+    </Hds::ApplicationState>
   </:emptyState>
 </Hds::AdvancedTable>
 ```

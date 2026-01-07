@@ -32,11 +32,6 @@ The Advanced Table component itself is where most of the options will be applied
   </C.Property>
   <C.Property @name="<:emptyState>" @type="named block">
     This is a named block for content that is rendered in the Advanced Table if the data model is empty.
-    <Doc::ComponentApi as |C|>
-      <C.Property @name="<[E].ApplicationState>" @type="yielded component">
-        `Hds::ApplicationState` yielded as contextual component (see [ApplicationState component API](/components/application-state?tab=code#component-api)).
-      </C.Property>
-    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="model" @type="array">
     The data model to be used by the Advanced Table. **This array should be treated as immutable. Any updates must be made by passing a new array.** The model can have any shape, but for nested rows there are two expected keys.
