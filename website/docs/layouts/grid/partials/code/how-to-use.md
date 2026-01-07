@@ -259,30 +259,6 @@ To create column layouts that are more “fixed” vs. fluid, use `columnWidth` 
 </Hds::Layout::Grid>
 ```
 
-<!-- Copied from Grid component code for reference:
-  columnWidth?: string | ResponsiveColumnWidths;
-
-  type ResponsiveColumnWidths = {
-    sm?: string;
-    md?: string;
-    lg?: string;
-    xl?: string;
-    xxl?: string;
-  };
-
-  // Responsive column widths (sm, md, lg, xl, xxl)
-
-
-  <SG.Item
-      @label="All views defined, sm view = 1 column, md view = 2 columns, lg view = 3 columns, xl view = 4 columns, xxl view = 5 columns"
-    >
-      <CodeFragmentWithPlaceholderItems
-        @columnCount={{5}}
-        @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}}
-      />
-    </SG.Item>
--->
-
 ### Responsive columns
 
 Optionally, you can pass in an object to the `columnWidth` argument defining responsive column widths for each of five supported views.
