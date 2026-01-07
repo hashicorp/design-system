@@ -53,14 +53,25 @@ export const contentBlocks = function () {
 
       // NOTE: this regex must match the output created in markdown-process-demos.js
       const demoRegex = new RegExp(
-        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" js="(.*?)" gts="(.*?)" compactGts="(.*?)" hidePreview="(.*?)" \?>\n?/,
+        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" js="(.*?)" gts="(.*?)" compactGts="(.*?)" custom="(.*?)" customLang="(.*?)" hidePreview="(.*?)" expanded="(.*?)" \?>\n?/,
         'g',
       );
 
       text = text.replace(
         demoRegex,
-        function (_match, filename, hbs, js, gts, compactGts, hidePreview) {
-          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @jsSnippet="${js}" @gtsSnippet="${gts}" @compactGtsSnippet="${compactGts}" @hidePreview="${hidePreview}">\n`;
+        function (
+          _match,
+          filename,
+          hbs,
+          js,
+          gts,
+          compactGts,
+          custom,
+          customLang,
+          hidePreview,
+          expanded,
+        ) {
+          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @jsSnippet="${js}" @gtsSnippet="${gts}" @compactGtsSnippet="${compactGts}" @customSnippet="${custom}" @customLang="${customLang}" @hidePreview="${hidePreview}" @isExpanded="${expanded}">\n`;
         },
       );
 

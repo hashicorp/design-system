@@ -21,7 +21,10 @@ interface DocCodeGroupSignature {
     jsSnippet?: string;
     gtsSnippet?: string;
     compactGtsSnippet?: string;
-    hidePreview?: boolean;
+    customSnippet?: string;
+    customLang?: string;
+    hidePreview?: 'true' | 'false';
+    isExpanded?: 'true' | 'false';
   };
   Blocks: {
     default: [];
@@ -40,21 +43,29 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
     super(owner, args);
 
-    if (!args.hbsSnippet || args.hbsSnippet === '') {
-      this.currentView = 'gts';
-    } else if (!args.gtsSnippet || args.gtsSnippet === '') {
+    if (args.hbsSnippet !== '') {
+      this.currentView = 'hbs';
+    } else if (args.jsSnippet !== '') {
       this.currentView = 'js';
+    } else if (args.gtsSnippet !== '') {
+      this.currentView = 'gts';
+    } else if (args.customSnippet !== '') {
+      this.currentView = 'custom';
+    }
+
+    if (args.isExpanded === 'true') {
+      this.isExpanded = true;
     }
   }
 
   // NOTE: the dynamic template component can only render "classic" components, so if there is no hbs snippet, we hide the preview. This can be removed when implement: https://hashicorp.atlassian.net/browse/HDS-5833
-  get shouldHidePreview() {
+  get hidePreview() {
     const { hbsSnippet, hidePreview } = this.args;
     if (hbsSnippet === '') {
       return true;
     }
 
-    return hidePreview === true;
+    return hidePreview === 'true';
   }
 
   get hbsSnippet() {
@@ -77,8 +88,14 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     return compactGtsSnippet ? unescapeCode(compactGtsSnippet) : '';
   }
 
+  get customSnippet() {
+    const { customSnippet } = this.args;
+    return customSnippet ? unescapeCode(customSnippet) : '';
+  }
+
   get languageOptions() {
-    const { hbsSnippet, jsSnippet, gtsSnippet } = this.args;
+    const { hbsSnippet, jsSnippet, gtsSnippet, customLang, customSnippet } =
+      this.args;
 
     const options = [];
 
@@ -94,6 +111,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       options.push({ label: '.gts', value: 'gts' });
     }
 
+    if (customLang && customSnippet !== '') {
+      options.push({ label: `.${customLang}`, value: 'custom' });
+    }
+
     return options;
   }
 
@@ -105,6 +126,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
     if (this.currentView === 'js') {
       return 'js';
+    }
+
+    if (this.currentView === 'custom') {
+      return this.args.customLang || 'text';
     }
 
     return 'hbs';
@@ -121,6 +146,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       }
 
       return this.compactGtsSnippet;
+    }
+
+    if (this.currentView === 'custom') {
+      return this.customSnippet;
     }
 
     return this.hbsSnippet;
@@ -143,6 +172,14 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
 
   <template>
     <div class="doc-code-group">
+      {{#if (notEq this.hidePreview true)}}
+        <div class="doc-code-group__preview">
+          <DynamicTemplate
+            @templateString={{this.hbsSnippet}}
+            @componentId={{@filename}}
+          />
+        </div>
+      {{/if}}
       <DocCodeGroupActionBar>
         <:primary>
           <DocCodeGroupLanguagePicker
@@ -161,14 +198,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
           </div>
         </:secondary>
       </DocCodeGroupActionBar>
-      {{#if (notEq this.shouldHidePreview true)}}
-        <div class="doc-code-group__preview">
-          <DynamicTemplate
-            @templateString={{this.hbsSnippet}}
-            @componentId={{@filename}}
-          />
-        </div>
-      {{/if}}
       <div
         class="doc-code-group__code-snippet-wrapper
           {{if this.hasFooter 'doc-code-group__code-snippet--has-footer' ''}}"

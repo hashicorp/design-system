@@ -12,13 +12,26 @@ const path = require('path');
 const walkSync = require('walk-sync');
 
 const demoBlockRegex =
-  /\[\[demo:\s*([^\]\s]+)(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?\s*\]\]/g;
+  /\[\[demo:\s*([^\]\s]+)(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?(?:\s+expanded=(true|false))?\s*\]\]/g;
 
-// NOTE: if need to add a code snippet to another section of the site, need to update this regex
+/*
+ * NOTE: if need to add a code snippet to another section of the site, you need to update this regex
+ * The reason we need to have the first directory explicitly listed is that there are a bunch of other folders that are included in the inputPath
+ * Example input path: "var/folders/68/g3fv_h7538xcqf6nd48jm8m40000gn/T/broccoli-59163KsQiVU7Es4GZ/out-158-funnel/components/accordion/partials/code/code-snippets/accordion-expand-all.classic"
+ */
 const fileNameRegex =
   /((?:components|utilities|layout|getting-started|patterns|foundations).*?)\.(?:hbs|js|gts)/;
 
-const SUPPORTED_FILE_EXTENSIONS = ['.classic.hbs', '.classic.js', '.gts'];
+// files that will need to support: scss, bash, yaml
+const SUPPORTED_FILE_EXTENSIONS = [
+  '.classic.hbs',
+  '.classic.js',
+  '.gts',
+  '.scss',
+  '.yaml',
+  '.bash',
+  '.ts',
+];
 
 // Helper to escape code for attribute usage
 function escapeCode(code) {
@@ -92,7 +105,13 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
       let dependencies = [fullInputPath];
       markdownFileContent = markdownFileContent.replace(
         demoBlockRegex,
-        (_match, fileName, shouldExecute, shouldIncludeBackingClass) => {
+        (
+          _match,
+          fileName,
+          shouldExecute,
+          shouldIncludeBackingClass,
+          isExpanded,
+        ) => {
           const shouldHidePreview = shouldExecute === 'false' ? true : false;
 
           const codeSnippets = {
@@ -100,6 +119,8 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
             js: '',
             gts: '',
             compactGts: '',
+            custom: '',
+            customLang: '',
           };
 
           let fileNameToForward = '';
@@ -132,11 +153,21 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                   getCompactGtsSnippet(code),
                 );
               }
+
+              if (
+                ext === '.scss' ||
+                ext === '.yaml' ||
+                ext === '.bash' ||
+                ext === '.ts'
+              ) {
+                codeSnippets.custom = escapeCode(code);
+                codeSnippets.customLang = ext.substring(1); // remove the dot from the extension
+              }
             }
           });
 
           // NOTE: if change this, also need to change the regex in content-blocks.js
-          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" js="${codeSnippets.js}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" hidePreview="${shouldHidePreview}" ?><?php end="demo-block" ?>\n`;
+          return `\n<?php start="demo-block" filename="${fileNameToForward}" hbs="${codeSnippets.hbs}" js="${codeSnippets.js}" gts="${codeSnippets.gts}" compactGts="${codeSnippets.compactGts}" custom="${codeSnippets.custom}" customLang="${codeSnippets.customLang}" hidePreview="${shouldHidePreview}" expanded="${isExpanded}" ?><?php end="demo-block" ?>\n`;
         },
       );
 
@@ -160,7 +191,16 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
 
 module.exports = function (folder) {
   const sourceMarkdownFunnel = new Funnel(folder, {
-    include: ['**/*.md', '**/*.hbs', '**/*.js', '**/*.gts'],
+    include: [
+      '**/*.md',
+      '**/*.hbs',
+      '**/*.js',
+      '**/*.gts',
+      '**/*.scss',
+      '**/*.yaml',
+      '**/*.bash',
+      '**/*.ts',
+    ],
   });
 
   const processedTree = new MarkdownReplaceDemoBlocks([sourceMarkdownFunnel]);

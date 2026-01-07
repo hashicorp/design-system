@@ -1,0 +1,23 @@
+// for product applications (Ember apps)
+@use "@hashicorp/design-system-tokens/dist/products/css/helpers/colors.css";
+@use "@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css";
+@use "@hashicorp/design-system-tokens/dist/products/css/helpers/typography.css";
+@use "@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css";
+
+// for Cloud UI email templating
+@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/colors.css";
+@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/elevation.css";
+@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/typography.css";
+@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/focus-ring.css";
+
+// for HashiCorp developer platform
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/colors.css";
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/elevation.css";
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/typography.css";
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/focus-ring.css";
+
+// for HashiCorp web/marketing websites
+@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/color.css";
+@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/elevation.css";
+@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/focus-ring.css";
+@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/typography.css";

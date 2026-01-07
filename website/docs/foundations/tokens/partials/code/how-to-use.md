@@ -4,32 +4,16 @@
 
 Use the design tokens in your style declarations as CSS custom properties.
 
-```css
-.your-selector {
-  color: var(--token-color-foreground-highlight);
-  background: var(--token-color-background-highlight);
-  border: 1px solid var(--token-color-border-highlight);
-  font-family: var(--token-typography-body-base-font-family);
-  font-size: var(--token-typography-body-base-font-size);
-  line-height: var(--token-typography-body-base-line-height);
-}
-```
+[[demo: code-snippets/tokens-in-styles]]
 
 ### Use tokens in components
 
 1. Ensure you’ve imported the relevant CSS file.
 
-```scss
-// for product applications
-@import "~@hashicorp/design-system-tokens/dist/products/css/tokens.css";
-// for hashicorp developer platform
-@import "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
-```
+[[demo: code-snippets/token-import]]
 
 2. If a component accepts a color parameter you can use a design token too.
 
-```handlebars
-<Hds::Icon @name="alert-circle" @color="var(--token-color-foreground-success)" />
-```
+[[demo: code-snippets/token-as-component-argument]]
 
 For more details on how the design tokens pipeline is implemented, and how the design tokens are generated and distributed, see the repository [@hashicorp/design-system-tokens](https://github.com/hashicorp/design-system/tree/main/packages/tokens).
