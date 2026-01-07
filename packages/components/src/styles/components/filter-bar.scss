@@ -34,8 +34,9 @@
   margin-left: auto;
 }
 
-.hds-filter-bar__search {
+.hds-filter-bar__search.hds-form-text-input {
   --token-form-control-padding: 3px;
+  max-width: 320px;
   font-size: var(--token-typography-body-100-font-size);
 }
 
