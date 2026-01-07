@@ -59,8 +59,6 @@
 
 // Responsive column widths (sm, md, lg, xl, xxl)
 
-// Note: We repeat the calculation using the view specific variables as
-// resetting just the variable values themselves doesn't work as the inline styles take precedence
 
 // Note: We use a mobile-first layout approach, so the "sm" styles are defined outside of any breakpoint mixin and are
 // inherited if not overridden by larger view styles
