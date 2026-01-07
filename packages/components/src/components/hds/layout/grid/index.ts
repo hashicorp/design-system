@@ -140,29 +140,29 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
         inlineStyles['--hds-layout-grid-column-min-width'] =
           this.args.columnWidth;
       }
-    }
 
-    // Responsize column widths
-    if (typeof this.args.columnWidth === 'object') {
-      if (this.args.columnWidth.sm) {
-        inlineStyles['--hds-layout-grid-column-width-sm'] =
-          this.args.columnWidth.sm;
-      }
-      if (this.args.columnWidth.md) {
-        inlineStyles['--hds-layout-grid-column-width-md'] =
-          this.args.columnWidth.md;
-      }
-      if (this.args.columnWidth.lg) {
-        inlineStyles['--hds-layout-grid-column-width-lg'] =
-          this.args.columnWidth.lg;
-      }
-      if (this.args.columnWidth.xl) {
-        inlineStyles['--hds-layout-grid-column-width-xl'] =
-          this.args.columnWidth.xl;
-      }
-      if (this.args.columnWidth.xxl) {
-        inlineStyles['--hds-layout-grid-column-width-xxl'] =
-          this.args.columnWidth.xxl;
+      // Responsize column widths
+      if (typeof this.args.columnWidth === 'object') {
+        if (this.args.columnWidth.sm) {
+          inlineStyles['--hds-layout-grid-column-width-sm'] =
+            this.args.columnWidth.sm;
+        }
+        if (this.args.columnWidth.md) {
+          inlineStyles['--hds-layout-grid-column-width-md'] =
+            this.args.columnWidth.md;
+        }
+        if (this.args.columnWidth.lg) {
+          inlineStyles['--hds-layout-grid-column-width-lg'] =
+            this.args.columnWidth.lg;
+        }
+        if (this.args.columnWidth.xl) {
+          inlineStyles['--hds-layout-grid-column-width-xl'] =
+            this.args.columnWidth.xl;
+        }
+        if (this.args.columnWidth.xxl) {
+          inlineStyles['--hds-layout-grid-column-width-xxl'] =
+            this.args.columnWidth.xxl;
+        }
       }
     }
 
