@@ -407,7 +407,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .dom(
         '#data-test-advanced-table .hds-advanced-table__empty-state .hds-application-state .hds-application-state__body-text',
       )
-      .hasText('There is no data to display in the table at this time.');
+      .hasText('There is currently no data to display in the table.');
   });
 
   test('it should show empty state with the emptyState named block content if no data is present in the model', async function (assert) {
