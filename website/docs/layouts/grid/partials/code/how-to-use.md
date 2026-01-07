@@ -297,7 +297,6 @@ Note: We use a mobile-first layout approach, so widths defined for smaller views
 </Hds::Layout::Grid>
 ```
 
-
 ### Align
 
 Use the `@align` argument to align grid items to the "start", "end", "center" or "stretch" them within the grid parent.
