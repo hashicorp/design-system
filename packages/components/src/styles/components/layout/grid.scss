@@ -68,22 +68,14 @@
 // "sm" view, mobile-first (mobile devices)
 .hds-layout-grid--column-width-sm {
   --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-
-  grid-template-columns: repeat(
-    var(--hds-layout-grid-column-fill-type),
-    minmax(calc(var(--hds-layout-grid-column-width-sm) - var(--hds-layout-grid-column-gap)), 1fr)
-  );
+  --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-sm);
 }
 
 // "md" view, 768px and above (tablets and small laptops)
 .hds-layout-grid--column-width-md {
   @include hds-breakpoint-above("md") {
     --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-
-    grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type),
-      minmax(calc(var(--hds-layout-grid-column-width-md) - var(--hds-layout-grid-column-gap)), 1fr)
-    );
+    --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-md);
   }
 }
 
@@ -91,11 +83,7 @@
 .hds-layout-grid--column-width-lg {
   @include hds-breakpoint-above("lg") {
     --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-
-    grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type),
-      minmax(calc(var(--hds-layout-grid-column-width-lg) - var(--hds-layout-grid-column-gap)), 1fr)
-    );
+    --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-lg);
   }
 }
 
@@ -103,11 +91,7 @@
 .hds-layout-grid--column-width-xl {
   @include hds-breakpoint-above("xl") {
     --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-
-    grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type),
-      minmax(calc(var(--hds-layout-grid-column-width-xl) - var(--hds-layout-grid-column-gap)), 1fr)
-    );
+    --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-xl);
   }
 }
 
@@ -115,11 +99,7 @@
 .hds-layout-grid--column-width-xxl {
   @include hds-breakpoint-above("xxl") {
     --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-
-    grid-template-columns: repeat(
-      var(--hds-layout-grid-column-fill-type),
-      minmax(calc(var(--hds-layout-grid-column-width-xxl) - var(--hds-layout-grid-column-gap)), 1fr)
-    );
+    --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-xxl);
   }
 }
 
