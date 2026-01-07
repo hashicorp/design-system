@@ -194,7 +194,7 @@
       <div class="hds-advanced-table__empty-state">
         <div class="hds-advanced-table__empty-state__content">
           {{#if (has-block "emptyState")}}
-            {{yield (hash ApplicationState=(component "hds/application-state")) to="emptyState"}}
+            {{yield to="emptyState"}}
           {{else}}
             <Hds::ApplicationState as |A|>
               <A.Header

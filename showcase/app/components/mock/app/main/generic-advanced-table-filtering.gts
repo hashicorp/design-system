@@ -16,6 +16,7 @@ import type { Run } from 'showcase/mocks/run-data';
 // HDS components
 import {
   HdsAdvancedTable,
+  HdsApplicationState,
   HdsButton,
   HdsFilterBar,
   HdsLinkInline,
@@ -578,8 +579,8 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
             </B.Td>
           </B.Tr>
         </:body>
-        <:emptyState as |E|>
-          <E.ApplicationState as |A|>
+        <:emptyState>
+          <HdsApplicationState as |A|>
             <A.Header @title="No data to display" />
             <A.Body
               @text="No results were found with the selected filters. Please clear or
@@ -591,7 +592,7 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
                 {{on "click" this.clearFilters}}
               />
             </A.Footer>
-          </E.ApplicationState>
+          </HdsApplicationState>
         </:emptyState>
       </HdsAdvancedTable>
     {{else}}
@@ -793,8 +794,8 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
             </B.Td>
           </B.Tr>
         </:body>
-        <:emptyState as |E|>
-          <E.ApplicationState as |A|>
+        <:emptyState>
+          <HdsApplicationState as |A|>
             <A.Header @title="No data to display" />
             <A.Body
               @text="No results were found with the selected filters. Please clear or
@@ -806,7 +807,7 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
                 {{on "click" this.clearFilters}}
               />
             </A.Footer>
-          </E.ApplicationState>
+          </HdsApplicationState>
         </:emptyState>
       </HdsAdvancedTable>
     {{/if}}

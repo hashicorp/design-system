@@ -27,7 +27,7 @@ const SubSectionEmptyState: TemplateOnlyComponent = <template>
     <code>:emptyState</code>
     block +
     <code>ApplicationState</code>
-    contextual component</ShwTextH4>
+  </ShwTextH4>
 
   <CodeFragmentWithEmptyState @emptyState="application-state" />
 
