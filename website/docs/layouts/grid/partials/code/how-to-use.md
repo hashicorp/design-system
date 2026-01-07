@@ -259,6 +259,69 @@ To create column layouts that are more “fixed” vs. fluid, use `columnWidth` 
 </Hds::Layout::Grid>
 ```
 
+<!-- Copied from Grid component code for reference:
+  columnWidth?: string | ResponsiveColumnWidths;
+
+  type ResponsiveColumnWidths = {
+    sm?: string;
+    md?: string;
+    lg?: string;
+    xl?: string;
+    xxl?: string;
+  };
+
+  // Responsive column widths (sm, md, lg, xl, xxl)
+
+
+  <SG.Item
+      @label="All views defined, sm view = 1 column, md view = 2 columns, lg view = 3 columns, xl view = 4 columns, xxl view = 5 columns"
+    >
+      <CodeFragmentWithPlaceholderItems
+        @columnCount={{5}}
+        @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}}
+      />
+    </SG.Item>
+-->
+
+### Responsive columns
+
+Optionally, you can pass in an object to the `columnWidth` argument defining responsive column widths for each of five supported views.
+
+#### Supported responsive views
+
+* "sm" view = mobile first approach (mobile devices)
+* "md" view = 768px and above (tablets and small laptops)
+* "lg" view = 1088px and above (large laptops and desktops)
+* "xl" = 1440px and above (extra large desktops)
+* "xxl" = 1920px and above (extra extra large desktops)
+
+Note: We use a mobile-first layout approach, so widths defined for smaller views are inherited if not overridden by larger views. This means that it is not necessary to pass in values for all the supported responsive views. However, if you do not pass in a value for the "sm" view, columns in this view and views inheriting from it will be equal-sized and will never wrap as demonstrated in the [Basic usage example](/layouts/grid#basic-usage).
+
+#### With all views defined
+
+```handlebars
+<Hds::Layout::Grid @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}} @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
+  <Doc::Placeholder @height="40px" @text="Item 5" @background="#f3d9c5" />
+</Hds::Layout::Grid>
+```
+
+#### With only “sm” & “lg” views defined
+
+```handlebars
+<Hds::Layout::Grid @columnWidth={{hash sm="50%" lg="33.33%"}} @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
+  <Doc::Placeholder @height="40px" @text="Item 5" @background="#f3d9c5" />
+</Hds::Layout::Grid>
+```
+
+
 ### Align
 
 Use the `@align` argument to align grid items to the "start", "end", "center" or "stretch" them within the grid parent.
