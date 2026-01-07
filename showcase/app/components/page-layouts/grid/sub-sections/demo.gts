@@ -8,7 +8,7 @@ const SubSectionDemo: TemplateOnlyComponent = <template>
 
   <ShwFrame
     @id="demo-full-app-frame-with-grid-responsive"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-grid-responsive"
+    @src="/layouts/grid/frameless/demo-full-app-frame-with-grid-responsive"
     @height="780"
     @label="Responsive column widths, all views defined"
   />

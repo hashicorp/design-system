@@ -128,11 +128,14 @@ Router.map(function () {
         this.route('demo-full-app-frame-with-app-header-and-app-side-nav');
         this.route('demo-full-app-frame-with-side-nav');
         this.route('demo-full-app-frame-with-advanced-table');
-        this.route('demo-full-app-frame-with-grid-responsive');
       });
     });
     this.route('flex');
-    this.route('grid');
+    this.route('grid', function (): void {
+      this.route('frameless', function (): void {
+        this.route('demo-full-app-frame-with-grid-responsive');
+      });
+    });
   });
   this.route('page-utilities', { path: 'utilities' }, function () {
     this.route('dialog-primitive');
