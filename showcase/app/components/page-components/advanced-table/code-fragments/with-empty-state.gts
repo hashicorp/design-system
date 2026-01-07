@@ -9,7 +9,10 @@ import { eq } from 'ember-truth-helpers';
 import type { FolkMusic } from 'showcase/mocks/folk-music-data';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
-import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
+import {
+  HdsAdvancedTable,
+  HdsApplicationState,
+} from '@hashicorp/design-system-components/components';
 
 export const DEFAULT_COLUMNS = [
   { key: 'id', label: 'ID' },
@@ -51,8 +54,8 @@ const CodeFragmentWithEmptyState: TemplateOnlyComponent<CodeFragmentWithEmptySta
         @columns={{DEFAULT_COLUMNS}}
         @maxHeight="400px"
       >
-        <:emptyState as |E|>
-          <E.ApplicationState as |A|>
+        <:emptyState>
+          <HdsApplicationState as |A|>
             <A.Header
               @title="An error has occurred"
               @icon="help"
@@ -71,7 +74,7 @@ const CodeFragmentWithEmptyState: TemplateOnlyComponent<CodeFragmentWithEmptySta
                 @iconPosition="trailing"
               />
             </A.Footer>
-          </E.ApplicationState>
+          </HdsApplicationState>
         </:emptyState>
       </HdsAdvancedTable>
     {{else}}
