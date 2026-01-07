@@ -13,10 +13,16 @@
     <br /><br />
     <em>Note: With the default min-width of 0px, the columns will never wrap.</em>
   </C.Property>
-  <C.Property @name="columnWidth" @type="string" @default="0px">
+  <C.Property @name="columnWidth" @type="string | ResponsiveColumnWidths" @default="0px">
     Set any valid CSS dimension as a width for the grid columns. If the total width of columns in a row exceeds 100% of the parent, columns will wrap to the next row as necessary to fit.
     <br /><br />
     If there are fewer items than will fit in a row, they will maintain the specified column width instead of stretching unlike the `columnMinWidth` option. The column gap size is automatically subtracted from the width.
+    <br /><br />
+    <strong>Responsive column widths</strong>:
+    <br />
+    Pass in an object to define the column widths for responsive views. It is not necessary to pass in values for all views as passed in values for smaller views will be used for undefined larger views.
+    <br /><br />
+    Responsive views: "sm", "md", "lg", "xl", "xxl"
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "start" "center" "end" "stretch"}}>
     The value of the CSS `align-items` property, which controls the alignment of the grid items on the block axis within their grid areas (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)).
