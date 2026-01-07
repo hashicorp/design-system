@@ -4,6 +4,4 @@ expand-collapse-button:
   expand: Expand filters
   collapse: Collapse filters
 selected-filters: Filters selected
-tabs:
-  aria-label: Filter bar tabs
 toggle-button: Filters

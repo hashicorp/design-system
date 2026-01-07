@@ -40,6 +40,20 @@ module('Integration | Component | hds/filter-bar/dropdown', function (hooks) {
 
   // LIVE FILTERING
 
+  test('it should show the appropriate content if the argument @isLiveFilter is false by default', async function (assert) {
+    await render(
+      <template><HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} /></template>,
+    );
+    await click('.hds-dropdown-toggle-button');
+    assert.dom('.hds-filter-bar__dropdown .hds-button').exists({ count: 2 });
+    assert
+      .dom('.hds-filter-bar__dropdown .hds-button:nth-of-type(1)')
+      .hasText('Apply filters');
+    assert
+      .dom('.hds-filter-bar__dropdown .hds-button:nth-of-type(2)')
+      .hasText('Clear all filters');
+  });
+
   test('it should show the appropriate content if the argument @isLiveFilter is true', async function (assert) {
     await render(
       <template>
@@ -56,18 +70,17 @@ module('Integration | Component | hds/filter-bar/dropdown', function (hooks) {
       .hasText('Clear all filters');
   });
 
-  test('it should show the appropriate content if the argument @isLiveFilter is false', async function (assert) {
+  // HEIGHT
+
+  test('it should set the height of the dropdown content to the default value', async function (assert) {
     await render(
       <template><HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} /></template>,
     );
     await click('.hds-dropdown-toggle-button');
-    assert.dom('.hds-filter-bar__dropdown .hds-button').exists({ count: 2 });
     assert
-      .dom('.hds-filter-bar__dropdown .hds-button')
-      .hasText('Apply filters');
+      .dom('.hds-dropdown__content')
+      .hasStyle({ '--filter-bar-dropdown-height': '600px' });
   });
-
-  // HEIGHT
 
   test('it should set the height of the dropdown content to the value provided by the @height argument', async function (assert) {
     await render(
@@ -81,17 +94,7 @@ module('Integration | Component | hds/filter-bar/dropdown', function (hooks) {
       .hasStyle({ '--filter-bar-dropdown-height': '400px' });
   });
 
-  test('it should set the height of the dropdown content to the default value', async function (assert) {
-    await render(
-      <template><HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} /></template>,
-    );
-    await click('.hds-dropdown-toggle-button');
-    assert
-      .dom('.hds-dropdown__content')
-      .hasStyle({ '--filter-bar-dropdown-height': '600px' });
-  });
-
-  // CONTEXTIAL COMPONENTS
+  // CONTEXTUAL COMPONENTS
 
   test('it should render the FilterGroup contextual component', async function (assert) {
     await render(
@@ -126,8 +129,8 @@ module('Integration | Component | hds/filter-bar/dropdown', function (hooks) {
       </template>,
     );
     await click('.hds-dropdown-toggle-button');
-    assert.dom('.hds-button').exists();
-    await click('.hds-button');
+    assert.dom('.hds-button:nth-of-type(1)').exists().hasText('Apply filters');
+    await click('.hds-button:nth-of-type(1)');
 
     assert.ok(context.isClicked);
   });
@@ -156,7 +159,10 @@ module('Integration | Component | hds/filter-bar/dropdown', function (hooks) {
       </template>,
     );
     await click('.hds-dropdown-toggle-button');
-    assert.dom('.hds-button:nth-of-type(2)').exists();
+    assert
+      .dom('.hds-button:nth-of-type(2)')
+      .exists()
+      .hasText('Clear all filters');
     await click('.hds-button:nth-of-type(2)');
 
     assert.ok(context.isClicked);
