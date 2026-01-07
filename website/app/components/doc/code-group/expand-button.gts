@@ -16,12 +16,6 @@ interface DocCodeGroupExpandButtonSignature {
 }
 
 export default class DocCodeGroupExpandButton extends Component<DocCodeGroupExpandButtonSignature> {
-  get label() {
-    return this.args.isExpanded
-      ? 'Collapse .gts snippet'
-      : 'Expand .gts snippet';
-  }
-
   get icon() {
     return this.args.isExpanded ? 'unfold-close' : 'unfold-open';
   }
@@ -32,12 +26,10 @@ export default class DocCodeGroupExpandButton extends Component<DocCodeGroupExpa
       class="doc-code-group__expand-button"
       {{on "click" @onToggleExpand}}
       aria-expanded={{if @isExpanded "true" "false"}}
+      aria-label="Expand .gts snippet"
       ...attributes
     >
       <HdsIcon @name={{this.icon}} />
-      <span>
-        {{this.label}}
-      </span>
     </button>
   </template>
 }

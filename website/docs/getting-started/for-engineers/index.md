@@ -13,9 +13,7 @@ We provide components as an [Ember](https://emberjs.com/) addon with associated 
 
 ### Install components package
 
-```bash
-pnpm add @hashicorp/design-system-components
-```
+[[demo: code-snippets/install]]
 
 ### Import component styles
 
@@ -25,13 +23,11 @@ You can chose between importing styles as Sass or CSS.
 
 1. Install and configure Sass to preprocess styles, handle source maps, and include paths in your application.
 
-```bash
-ember install ember-cli-sass
-```
+[[demo: code-snippets/install-ember-cli-sass]]
 
-2. Use the `scss` extension to ensure the styles are being preprocessed. For example, you may need to change `app/styles/app.css` to `app/styles/app.scss`.
+1. Use the `scss` extension to ensure the styles are being preprocessed. For example, you may need to change `app/styles/app.css` to `app/styles/app.scss`.
 
-3. Add the following configuration in `ember-cli-build.js` to set the number of decimal places and enable access to the design system tokens:
+2. Add the following configuration in `ember-cli-build.js` to set the number of decimal places and enable access to the design system tokens:
 
 ```js
 sassOptions: {
@@ -55,9 +51,7 @@ minifyCSS: {
 
 5. Add the following line to the main Sass file in your application (for example, in `app.scss`):
 
-```scss
-@use "@hashicorp/design-system-components";
-```
+[[demo: code-snippets/use-helios-styles]]
 
 #### CSS
 
@@ -80,44 +74,11 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 If you are are using single file components (i.e., `.gts` or `.gjs` files), the components need to be individually imported into the file for them to render. All components can be imported from the `@hashicorp/design-system-components/components` path. To use a component's signature, you must import it from the definition file.
 
-```typescript
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { 
-  HdsButton, 
-  HdsFormTextInputField
-} from '@hashicorp/design-system-components/components';
-
-import type {
-  HdsButtonSignature
-} from '@hashicorp/design-system-components/components/hds/button';
-import type {
-  HdsFormTextInputFieldSignature
-} from '@hashicorp/design-system-components/components/hds/form/text-input/field';
-
-interface MyComponentSignature {
-  Args: {
-    fieldLabel: string;
-    buttonSize?: HdsButtonSignature['Args']['size']
-  };
-  Element: HdsFormTextInputFieldSignature['Element'];
-}
-
-const MyComponent: TemplateOnlyComponent<MyComponentSignature> = <template>
-  <HdsFormTextInputField ...attributes as |F|>
-    <F.Label>{{@fieldLabel}}</F.Label>
-  </HdsFormTextInputField>
-  <HdsButton @size={{@size}} @text="Save" type="submit" />
-</template>;
-
-export default MyComponent;
-```
+[[demo: code-snippets/sample-component expanded=true]]
 
 In the rare cases where you need to use an HDS modifier, they are only exported from their definition file
 
-```typescript
-import hdsTooltip from '@hashicorp/design-system-components/modifiers/hds-tooltip';
-import hdsCodeEditor from '@hashicorp/design-system-components/modifiers/hds-code-editor';
-```
+[[demo: code-snippets/sample-imports expanded=true]]
 
 For more information on single file components, see the Ember docs:
 * [Intro to components](https://guides.emberjs.com/release/components/introducing-components/)
@@ -136,15 +97,11 @@ There are two ways to use icons in your codebase. We provide icons:
 
 Because the `Hds::Icon` component is part of the HDS components, you have to install the corresponding package:
 
-```bash
-pnpm add @hashicorp/design-system-components
-```
+[[demo: code-snippets/install]]
 
 and then use the component in your code like this:
 
-```handlebars{data-execute=false}
-<Hds::Icon @name="info" />
-```
+[[demo: code-snippets/sample-icon execute=false]]
 
 For details about how this component should be used and its API, see [the component documentation page](/components/icon).
 
@@ -176,9 +133,7 @@ You can copy the code for the `Hds::Icon` into your codebase, or you can [take i
 
 To add icons to a React application, you need to install the `@hashicorp/flight-icons` package:
 
-```bash
-pnpm add @hashicorp/flight-icons
-```
+[[demo: code-snippets/install-flight-icons]]
 
 This package can be consumed in React applications via direct import of the SVG file or as a standalone React/SVG icon component.
 
@@ -219,10 +174,7 @@ import { IconArrowRight24 } from '@hashicorp/flight-icons/svg-react/arrow-right-
 
 To use the icons which are meant to be animated ([loading](/icons/library?searchQuery=icon%3Aloading) and [running](/icons/library?searchQuery=icon%3Arunning)), import the CSS that controls the icons’ animation:
 
-```scss
-// the path here depends if you’re using 'svg-react' or 'svg' icons
-@use ~@hashicorp/flight-icons/svg-react/animation.css';
-```
+[[demo: code-snippets/use-animated-icons]]
 
 Then declare them the same way you would with any other icon.
 
@@ -244,57 +196,19 @@ If the Ember components are not an option for your project, you can still use th
 
 ### Install tokens package
 
-```bash
-pnpm add @hashicorp/design-system-tokens
-```
+[[demo: code-snippets/install-tokens]]
 
 ### Import styles as CSS variables
 
 Import design tokens as CSS variables by adding one of the following lines to the main Sass file in your application (for example, in `app.scss`):
 
-```scss
-// for product applications (Ember apps)
-@use "@hashicorp/design-system-tokens/dist/products/css/tokens.css";
-
-// for Cloud UI email templating
-@use "@hashicorp/design-system-tokens/dist/cloud-email/tokens.scss";
-
-// for HashiCorp developer platform
-@use "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
-
-// for HashiCorp web/marketing websites
-@use '@hashicorp/design-system-tokens/dist/marketing/css/tokens.css';
-```
+[[demo: code-snippets/use-helios-product-tokens]]
 
 ### Import styles as CSS helper classes
 
 Import CSS helper classes by adding any of the following lines to the main Sass file in your application (for example, in `app.scss`).
 
-```scss
-// for product applications (Ember apps)
-@use "@hashicorp/design-system-tokens/dist/products/css/helpers/colors.css";
-@use "@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css";
-@use "@hashicorp/design-system-tokens/dist/products/css/helpers/typography.css";
-@use "@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css";
-
-// for Cloud UI email templating
-@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/colors.css";
-@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/elevation.css";
-@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/typography.css";
-@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/focus-ring.css";
-
-// for HashiCorp developer platform
-@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/colors.css";
-@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/elevation.css";
-@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/typography.css";
-@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/focus-ring.css";
-
-// for HashiCorp web/marketing websites
-@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/color.css";
-@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/elevation.css";
-@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/focus-ring.css";
-@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/typography.css";
-```
+[[demo: code-snippets/use-helios-helpers]]
 
 For more examples and guidelines read [the tokens documentation](/foundations/tokens).
 
@@ -321,9 +235,9 @@ By default, HDS components display text in English when `ember-intl` is not inst
 
 To enable internationalization in your application:
 1. Install `ember-intl` as a dependency in your application:
-```bash
-pnpm add ember-intl
-```
+
+[[demo: code-snippets/install-ember-intl]]
+
 2. Configure your application to use one of the supported HDS translation locales.
 For detailed setup instructions, refer to the [ember-intl quickstart guide](https://ember-intl.github.io/ember-intl/docs/quickstart).
 
@@ -348,13 +262,7 @@ For example, to translate the "Error" text used in components:
 1. Create a translation key that matches the HDS path: `hds.components.common.error`
 2. Provide your translation value in the desired locale file
 
-```yaml
-# translations/fr-fr.yaml
-hds:
-  components:
-    common:
-      error: Erreur
-```
+[[demo: code-snippets/custom-translations]]
 
 When your application uses the `fr-fr` locale, components will display "Erreur" instead of the default English "Error".
 

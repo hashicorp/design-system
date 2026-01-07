@@ -1,0 +1,11 @@
+// for product applications (Ember apps)
+@use "@hashicorp/design-system-tokens/dist/products/css/tokens.css";
+
+// for Cloud UI email templating
+@use "@hashicorp/design-system-tokens/dist/cloud-email/tokens";
+
+// for HashiCorp developer platform
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
+
+// for HashiCorp web/marketing websites
+@use '@hashicorp/design-system-tokens/dist/marketing/css/tokens.css';
