@@ -15,7 +15,6 @@ import HdsFilterBarTabsPanelComponent from './panel.ts';
 export interface HdsFilterBarTabsSignature {
   Args: {
     selectedTabIndex?: number;
-    ariaLabel: string;
   };
   Blocks: {
     default: [

@@ -144,6 +144,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
   ): HdsFilterBarFilters => {
     const newFilters = {} as HdsFilterBarFilters;
 
+    // Note: Due to the filters being an Ember object, structuredClone cannot be used here.
     Object.keys(filters).forEach((k) => {
       newFilters[k] = JSON.parse(
         JSON.stringify(filters[k])

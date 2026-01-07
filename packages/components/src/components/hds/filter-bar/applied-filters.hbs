@@ -1,37 +1,7 @@
 <div class="hds-filter-bar__applied-filters" ...attributes>
   {{#each-in @filters as |key filter|}}
     {{#if filter.data}}
-      {{#if (eq filter.type "single-select")}}
-        <Hds::Tag
-          @text={{this._filterText key filter}}
-          @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
-          @onDismiss={{fn this._onFilterDismiss key}}
-        />
-      {{else if (eq filter.type "numerical")}}
-        <Hds::Tag
-          @text={{this._filterText key filter}}
-          @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
-          @onDismiss={{fn this._onFilterDismiss key}}
-        />
-      {{else if (or (eq filter.type "date") (eq filter.type "datetime") (eq filter.type "time"))}}
-        <Hds::Tag
-          @text={{this._filterText key filter}}
-          @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
-          @onDismiss={{fn this._onFilterDismiss key}}
-        />
-      {{else if (eq filter.type "search")}}
-        <Hds::Tag
-          @text={{this._filterText key filter}}
-          @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
-          @onDismiss={{fn this._onFilterDismiss key}}
-        />
-      {{else if (eq filter.type "generic")}}
-        <Hds::Tag
-          @text={{this._filterText key filter}}
-          @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
-          @onDismiss={{fn this._onFilterDismiss key}}
-        />
-      {{else if (eq filter.type "multi-select")}}
+      {{#if (eq filter.type "multi-select")}}
         {{#each (this._multiSelectFilterData filter.data) as |item|}}
           <Hds::Tag
             @text="{{this._filterKeyText key filter}}: {{if item.label item.label item.value}}"
@@ -39,6 +9,12 @@
             @onDismiss={{fn this._onFilterDismiss key item.value}}
           />
         {{/each}}
+      {{else}}
+        <Hds::Tag
+          @text={{this._filterText key filter}}
+          @ariaLabel={{hds-t "hds.components.filter-bar.applied-filters.tag.aria-label" default="Clear filter"}}
+          @onDismiss={{fn this._onFilterDismiss key}}
+        />
       {{/if}}
     {{/if}}
   {{/each-in}}
