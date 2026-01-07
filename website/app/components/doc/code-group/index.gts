@@ -6,6 +6,7 @@ import Component from '@glimmer/component';
 import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
 import { notEq } from 'ember-truth-helpers';
+import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
 
 import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
@@ -170,6 +171,11 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     this.isExpanded = !this.isExpanded;
   };
 
+  // NOTE: we don't have access to the code element inside the CodeBlock component, so we need to set the tabindex using query selectors (need to set tabindex because the code element can be scrollable and it needs to be focusable for keyboard users)
+  setCodeElementTabIndex = modifier((element: HTMLDivElement) => {
+    element.querySelector('code')?.setAttribute('tabindex', '0');
+  });
+
   <template>
     <div class="doc-code-group">
       {{#if (notEq this.hidePreview true)}}
@@ -201,6 +207,7 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
       <div
         class="doc-code-group__code-snippet-wrapper
           {{if this.hasFooter 'doc-code-group__code-snippet--has-footer' ''}}"
+        {{this.setCodeElementTabIndex}}
       >
         <CodeBlock
           @code={{this.currentViewSnippet}}
