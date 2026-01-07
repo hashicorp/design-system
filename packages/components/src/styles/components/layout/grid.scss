@@ -29,10 +29,17 @@
 
   // The column gap value is subtracted from the column-min-width to prevent overflow & simplify API for consumers
   // Note: If a calc() expression inside minmax() yields a negative result, it is treated as 0px (the min in minmax acts as a floor)
-  // Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/calc#resulting_values
-  // "The resulting value of calc() must be compatible in the context in which it is used."
-  // Therefore as negative values are not valid in the context of mixmax(), they are clamped to 0px.
+  // As negative values are not valid in the context of mixmax(), they are clamped to 0px.
   // (the min value must be a non-negative size because CSS layout sizes cannot be negative)
+  // References:
+  // * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/calc#resulting_values
+  //  "The resulting value of calc() must be compatible in the context in which it is used."
+  // * https://www.w3tutorials.net/blog/how-do-i-debug-css-calc-value/#negative-values-for-non-negative-properties
+  //  "Some CSS properties (e.g., width, padding, border-width) do not accept negative values.
+  //  If calc() returns a negative result for these, the browser will clamp it to 0 or ignore the rule."
+  // * https://www.w3.org/TR/css-values-3/#calc-range
+  //  "Clamping is performed on computed values to the extent possible, and also on used values if computation was
+  //  unable to sufficiently simplify the expression to allow range-checking."
   grid-template-columns: repeat(
     var(--hds-layout-grid-column-fill-type),
     minmax(calc(var(--hds-layout-grid-column-min-width) - var(--hds-layout-grid-column-gap)), 1fr)
