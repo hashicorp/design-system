@@ -22,7 +22,6 @@ const demoBlockRegex =
 const fileNameRegex =
   /((?:components|utilities|layout|getting-started|patterns|foundations).*?)\.(?:hbs|js|gts)/;
 
-// files that will need to support: scss, bash, yaml
 const SUPPORTED_FILE_EXTENSIONS = [
   '.classic.hbs',
   '.classic.js',
@@ -30,7 +29,6 @@ const SUPPORTED_FILE_EXTENSIONS = [
   '.scss',
   '.yaml',
   '.bash',
-  '.ts',
 ];
 
 // Helper to escape code for attribute usage
@@ -154,12 +152,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
                 );
               }
 
-              if (
-                ext === '.scss' ||
-                ext === '.yaml' ||
-                ext === '.bash' ||
-                ext === '.ts'
-              ) {
+              if (ext === '.scss' || ext === '.yaml' || ext === '.bash') {
                 codeSnippets.custom = escapeCode(code);
                 codeSnippets.customLang = ext.substring(1); // remove the dot from the extension
               }
@@ -199,7 +192,6 @@ module.exports = function (folder) {
       '**/*.scss',
       '**/*.yaml',
       '**/*.bash',
-      '**/*.ts',
     ],
   });
 
