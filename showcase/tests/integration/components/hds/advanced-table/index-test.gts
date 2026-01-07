@@ -395,9 +395,19 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .exists();
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-text',
+        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-application-state',
+      )
+      .exists();
+    assert
+      .dom(
+        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-application-state .hds-application-state__title',
       )
       .hasText('No data available');
+    assert
+      .dom(
+        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-application-state .hds-application-state__body-text',
+      )
+      .hasText('There is no data to display in the table at this time.');
   });
 
   test('it should show empty state with the emptyState named block content if no data is present in the model', async function (assert) {
@@ -423,7 +433,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .exists();
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-text',
+        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-application-state',
       )
       .doesNotExist();
     assert
@@ -457,11 +467,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__empty-state')
       .exists();
-    assert
-      .dom(
-        '#data-test-advanced-table .hds-advanced-table__empty-state .hds-text',
-      )
-      .doesNotExist();
     assert
       .dom(
         '#data-test-advanced-table .hds-advanced-table__empty-state #data-test-empty-state',
