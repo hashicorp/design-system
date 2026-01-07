@@ -84,7 +84,6 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
   });
 
-  // TODO: add tests for new responsive columnWidth value
   test('it should set responsive column widths if passed in', async function (assert) {
     await render(
       <template>
