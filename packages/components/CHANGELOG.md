@@ -18,7 +18,7 @@
 
 Added Floating UI `boundary` option to `hds-anchored-position` modifier
 
-<!-- START components/popover-primitive -->
+<!-- START utilities/popover-primitive -->
 
 `PopoverPrimitive` - Added Floating UI `boundary` option
 
