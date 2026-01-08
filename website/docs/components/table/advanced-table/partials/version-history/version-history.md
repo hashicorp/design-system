@@ -1,3 +1,8 @@
+## 5.2.0
+
+Guard against accessing `hdsIntl` service after component destruction
+
+
 ## 5.1.0
 
 Fixed a bug in the cleanup logic of selectable rows where data updates caused the internal selection state to be incorrectly reset.

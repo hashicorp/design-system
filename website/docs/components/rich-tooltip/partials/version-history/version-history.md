@@ -1,3 +1,8 @@
+## 5.2.0
+
+Added Floating UI `boundary` option
+
+
 ## 4.23.0
 
 Updated the type of the `close` callback to allow an optional event to be passed.

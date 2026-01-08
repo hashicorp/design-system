@@ -20,7 +20,7 @@ navigation:
     - action menu
     - list
 status:
-  updated: 5.1.0
+  updated: 5.2.0
 ---
 
 <section data-tab="Guidelines">

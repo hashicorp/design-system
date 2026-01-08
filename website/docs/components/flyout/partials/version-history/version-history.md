@@ -1,3 +1,8 @@
+## 5.2.0
+
+Updated variable controlling the `Flyout` max-width to align with the `AppSideNav` minimized width
+
+
 ## 5.0.0
 
 Removed deprecated `HdsFlyoutHeader`, `HdsFlyoutBody`, `HdsFlyoutDescription`, and `HdsFlyoutFooter` subcomponents.

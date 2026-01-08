@@ -1,3 +1,8 @@
+## 5.2.0
+
+Converted component to `.gts` format
+
+
 ## 5.0.0
 
 Renamed the `volume-2` icon to `volume-up`

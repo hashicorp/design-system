@@ -6,11 +6,9 @@
 
 ### Minor Changes
 
-<!-- START components/icon -->
 
 `Icon` - Converted component to `.gts` format
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3444](https://github.com/hashicorp/design-system/pull/3444)</small>
 
@@ -18,23 +16,17 @@
 
 Added Floating UI `boundary` option to `hds-anchored-position` modifier
 
-<!-- START utilities/popover-primitive -->
 
 `PopoverPrimitive` - Added Floating UI `boundary` option
 
-<!-- END -->
 
-<!-- START components/dropdown -->
 
 `Dropdown` - Added Floating UI `boundary` option
 
-<!-- END -->
 
-<!-- START components/rich-tooltip -->
 
 `RichTooltip` - Added Floating UI `boundary` option
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3406](https://github.com/hashicorp/design-system/pull/3406)</small>
 
@@ -42,47 +34,37 @@ Added Floating UI `boundary` option to `hds-anchored-position` modifier
 
 ### Patch Changes
 
-<!-- START components/form/super-select -->
 
 `SuperSelect` - Removed styling incorrectly adding a checkbox next to the "Loading options..." message for search results
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3439](https://github.com/hashicorp/design-system/pull/3439)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Guard against accessing `hdsIntl` service after component destruction
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3195](https://github.com/hashicorp/design-system/pull/3195)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/code-block -->
 
 `CodeBlock` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
 
-<!-- END -->
 
-<!-- START components/code-editor -->
 
 `CodeEditor` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3455](https://github.com/hashicorp/design-system/pull/3455)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/flyout -->
 
 `Flyout` - Updated variable controlling the `Flyout` max-width to align with the `AppSideNav` minimized width
 
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3456](https://github.com/hashicorp/design-system/pull/3456)</small>
 

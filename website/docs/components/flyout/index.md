@@ -23,6 +23,8 @@ navigation:
     - panel
     - side
     - modal
+status:
+  updated: 5.2.0
 ---
 
 <section data-tab="Guidelines">

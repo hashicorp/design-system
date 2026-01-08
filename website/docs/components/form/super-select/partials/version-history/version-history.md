@@ -1,3 +1,8 @@
+## 5.2.0
+
+Removed styling incorrectly adding a checkbox next to the "Loading options..." message for search results
+
+
 ## 5.0.0
 
 
