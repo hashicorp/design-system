@@ -12,7 +12,7 @@ const path = require('path');
 const walkSync = require('walk-sync');
 
 const demoBlockRegex =
-  /\[\[demo:\s*([^\]\s]+)(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?(?:\s+expanded=(true|false))?\s*\]\]/g;
+  /\[\[(code-snippets\/[^\]\s]+)(?:\s+execute=(true|false))?(?:\s+includeBackingClass=(true|false))?(?:\s+expanded=(true|false))?\s*\]\]/g;
 
 /*
  * NOTE: if need to add a code snippet to another section of the site, you need to update this regex
