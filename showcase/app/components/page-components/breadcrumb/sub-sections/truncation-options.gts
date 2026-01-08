@@ -41,11 +41,7 @@ const SubSectionTruncationOptions: TemplateOnlyComponent = <template>
         aria-label="breadcrumb with max-widh set example"
       >
         <HdsBreadcrumbItem @href="index" @text="Level one" @icon="org" />
-        <HdsBreadcrumbItem
-          @href="index"
-          @text="Level two"
-          @icon="folder"
-        />
+        <HdsBreadcrumbItem @href="index" @text="Level two" @icon="folder" />
         <HdsBreadcrumbItem @href="index" @text="Level three" />
         <HdsBreadcrumbItem
           @href="index"
@@ -53,11 +49,7 @@ const SubSectionTruncationOptions: TemplateOnlyComponent = <template>
           @maxWidth="180px"
         />
         <HdsBreadcrumbItem @href="index" @text="Level five" />
-        <HdsBreadcrumbItem
-          @href="index"
-          @text="Current"
-          @current={{true}}
-        />
+        <HdsBreadcrumbItem @href="index" @text="Current" @current={{true}} />
       </HdsBreadcrumb>
     </SF.Item>
   </ShwFlex>
@@ -86,11 +78,7 @@ const SubSectionTruncationOptions: TemplateOnlyComponent = <template>
         </HdsBreadcrumbTruncation>
         <HdsBreadcrumbItem @href="index" @text="Level seven" />
         <HdsBreadcrumbItem @href="index" @text="Level eight" />
-        <HdsBreadcrumbItem
-          @href="index"
-          @text="Current"
-          @current={{true}}
-        />
+        <HdsBreadcrumbItem @href="index" @text="Current" @current={{true}} />
       </HdsBreadcrumb>
     </SF.Item>
   </ShwFlex>

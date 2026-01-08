@@ -31,7 +31,6 @@ export interface HdsInteractiveSignature {
 }
 
 export default class HdsInteractive extends Component<HdsInteractiveSignature> {
-
   get linkToExternal(): LinkTo | null {
     const component = getLinkToExternal();
     if (component === null) {

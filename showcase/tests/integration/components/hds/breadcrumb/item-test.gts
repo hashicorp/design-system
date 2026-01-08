@@ -16,11 +16,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       <template>
-        <HdsBreadcrumbItem
-          id="test-breadcrumb-item"
-          @text="test"
-          @href="#"
-        />
+        <HdsBreadcrumbItem id="test-breadcrumb-item" @text="test" @href="#" />
       </template>,
     );
     assert.dom('#test-breadcrumb-item').hasClass('hds-breadcrumb__item');
