@@ -3,10 +3,6 @@
 Removed styling incorrectly adding a checkbox next to the "Loading options..." message for search results
 
 
-## 5.0.0
-
-
-
 ## 4.24.1
 
 Fixed issue with tabbing to `SuperSelectMultiple` with search enabled by adding tabindex of "0"
