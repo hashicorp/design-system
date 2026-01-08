@@ -26,7 +26,7 @@ export const contentBlocks = function () {
   };
   var outputExtension = {
     type: 'output',
-    filter: (text) => {
+    filter: function (text) {
       // https://regex101.com/r/DebuYI/1
       const outputRegex = new RegExp(
         /<\?php start="content-block" type="(.*?)" \?>\n?/,
