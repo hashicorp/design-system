@@ -113,7 +113,7 @@ Fix mixed sass declaration syntax to silence warnings
 `SideNav`: - Made CSS updates including:
 
 - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
-- Removed deprecated ".hds-side-nav\_\_dropdown" class name which is redundant to the HDS Dropdown class name referenced in styles
+- Removed deprecated `.hds-side-nav__dropdown` class name which is redundant to the HDS Dropdown class name referenced in styles
 
 `AppHeader` - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
 
