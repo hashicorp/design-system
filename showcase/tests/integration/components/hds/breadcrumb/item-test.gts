@@ -7,20 +7,11 @@ import { module, test } from 'qunit';
 import { render, setupOnerror } from '@ember/test-helpers';
 
 import { HdsBreadcrumbItem } from '@hashicorp/design-system-components/components';
-import { LinkTo } from '@ember/routing';
-import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
 
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
-import Route from '@ember/routing/route';
-
-class RouteStub extends Route {}
-
 module('Integration | Component | hds/breadcrumb/item', function (hooks) {
   setupRenderingTest(hooks);
-  hooks.beforeEach(function () {
-    this.owner.register('route:catch-all', RouteStub);
-  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
@@ -28,7 +19,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
         <HdsBreadcrumbItem
           id="test-breadcrumb-item"
           @text="test"
-          @route="catch-all"
+          @href="#"
         />
       </template>,
     );
@@ -39,7 +30,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     await render(
       <template>
         <HdsBreadcrumbItem
-          @route="catch-all"
+          @href="#"
           @maxWidth="200px"
           @text="test"
           id="test-breadcrumb-item"
@@ -56,7 +47,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       <template>
         <HdsBreadcrumbItem
           id="test-breadcrumb-item"
-          @route="catch-all"
+          @href="#"
           @text="text renders"
         />
       </template>,
@@ -68,7 +59,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       <template>
         <HdsBreadcrumbItem
           id="test-breadcrumb-item"
-          @route="catch-all"
+          @href="#"
           @text="text renders"
           @current={{true}}
         />
@@ -82,7 +73,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       <template>
         <HdsBreadcrumbItem
           id="test-breadcrumb-item"
-          @route="catch-all"
+          @href="#"
           @text="text renders"
           @icon="activity"
         />
@@ -104,7 +95,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       <template>
         {{! @glint-expect-error - assertion testing invalid value }}
         <HdsBreadcrumbItem
-          @route="catch-all"
+          @href="#"
           @maxWidth="123"
           id="test-breadcrumb-item"
         />
@@ -113,48 +104,5 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     assert.throws(function () {
       throw new Error(errorMessage);
     });
-  });
-
-  // EXTERNAL LINK
-
-  test('it should error if @isRouteExternal is true and no component has been configured as an external link', async function (assert) {
-    const errorMessage = `HdsInteractive: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
-
-import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
-setLinkToExternal(LinkToExternalComponent);`;
-
-    assert.expect(1);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-
-    await render(
-      <template>
-        <HdsBreadcrumbItem
-          @route="catch-all"
-          @text="a route"
-          @isRouteExternal={{true}}
-          id="test-interactive"
-        />
-      </template>,
-    );
-  });
-
-  test('it should render configured link component when @isRouteExternal is true', async function (assert) {
-    setLinkToExternal(LinkTo);
-    assert.expect(1);
-
-    await render(
-      <template>
-        <HdsBreadcrumbItem
-          @route="catch-all"
-          @text="a route"
-          @isRouteExternal={{true}}
-          id="test-interactive"
-        />
-      </template>,
-    );
-    assert.dom('#test-breadcrumb-item > a').doesNotExist();
-    setLinkToExternal(null);
   });
 });
