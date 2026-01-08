@@ -1,4 +1,4 @@
-The Filter Bar is used to apply and display filters to a data set. It is most often used in conjunction with the [Advanced Table](/components/table/advanced-table), but is flexible enough to support different data sets and rendering methods such as in a list or grid of cards.
+The Filter Bar is used to apply and display filters to a data set. It is most often used in conjunction with the [Advanced Table](/components/table/advanced-table?tab=code#filtering), but is flexible enough to support different data sets and rendering methods such as in a list or grid of cards.
 
 The Filter Bar comes paired with a complex dropdown menu that displays available filter parameters (a parameter is often the equivalent of a column in a table), values within each parameter, support for numerical/date/time values, ranges of values, and actions to apply and clear filters from the data set.
 
@@ -58,23 +58,12 @@ When one or more filters are applied the Filter Bar is expanded by default.
 
 ![An example of the expanded Filter Bar with several filters applied](/assets/components/filter-bar/filter-bar-expanded-with-filters.png)
 
-## Search
+## Applying Filters
 
-Use the search input in the Filter Bar to apply a broad text/string-based filter across the entire data set.
+Depending on how consumers would prefer to trigger the filtering on their data sets, the Filter Bar supports different methods of applying filters:
 
-![An example of the term "errored" searched for across the entire data set](/assets/components/filter-bar/filter-bar-search-filled.png)
-
-## Bulk actions
-
-The Filter Bar supports bulk actions corresponding with our recommendations for [multi-select](/patterns/table-multi-select) within a table, and can be used to perform actions across multiple results such as edit, delete, and different selection methods across the data set.
-
-![Example of bulk actions](/assets/components/filter-bar/filter-bar-bulk-actions.png)
-
-## Generic content
-
-If custom functionality is needed for manipulating the view or contents of the data set, a generic block is grouped with the bulk actions in the Filter Bar. We aren't prescriptive about what can be passed to this generic block, but it should generally be limited to additional actions (as [Buttons](/components/button)) and [Dropdowns](/components/dropdown) with multiple grouped actions.
-
-![Example of generic content](/assets/components/filter-bar/filter-bar-generic-content.png)
+- **Per-filter:** selected filters are applied when the user confirms their selection with the "Apply filters" submit button in the Filters Dropdown. This is the most common method and generally requires a database or API call to update the data set with the corresponding filter parameters.
+- **Live filtering:** filters are applied immediately upon selection. This method generally requires updating the data set on the client.
 
 ## Applied filters
 
@@ -98,7 +87,51 @@ Text within the Tag component will truncate at roughly 20 characters, about whic
 
 If necessary, the default formatting within the Tag can be overidden with custom text. This can be useful if the label of the parameter is an irregular plural, if the parameter reads more naturally with certain punctuation or grammar, or for product-specific reasons.
 
-<!-- @dylan could you help me out a bit with this? -->
+## Clearing filters
+
+Filters can be cleared either in bulk or individually from the Filter Bar or Dropdown.
+
+### Filter Bar
+
+Clear all filters with the Button in the Filter Bar.
+
+![](/assets/components/filter-bar/filter-bar-clear-all-filters.png)
+
+Clear filters individually via the dismiss button of the Tag.
+
+![](/assets/components/filter-bar/filter-bar-clear-individual-filter.png)
+
+### Filter Dropdown
+
+Clear all filters via the Button in the footer of the Dropdown.
+
+![](/assets/components/filter-bar/filter-bar-dropdown-clear-all-filters.png)
+
+Deselect all filter values within a parameter with the "Clear selection" Button, then confirm the changes with the "Apply filters" Button in the footer.
+
+![](/assets/components/filter-bar/filter-bar-dropdown-clear-selection-filter.png)
+
+Clear filter input fields with the "Clear filter" Button, then apply the changes with the "Apply filters" Button in the footer.
+
+![](/assets/components/filter-bar/filter-bar-dropdown-clear-filter-input.png)
+
+## Search
+
+Use the search input in the Filter Bar to apply a broad text/string-based filter across the entire data set.
+
+![An example of the term "errored" searched for across the entire data set](/assets/components/filter-bar/filter-bar-search-filled.png)
+
+## Bulk actions
+
+The Filter Bar supports bulk actions corresponding with our recommendations for [multi-select](/patterns/table-multi-select) within a table, and can be used to perform actions across multiple results such as edit, delete, and different selection methods across the data set.
+
+![Example of bulk actions](/assets/components/filter-bar/filter-bar-bulk-actions.png)
+
+## Generic content
+
+If custom functionality is needed for manipulating the view or contents of the data set, a generic block is grouped with the bulk actions in the Filter Bar. We aren't prescriptive about what can be passed to this generic block, but it should generally be limited to additional actions (as [Buttons](/components/button)) and [Dropdowns](/components/dropdown) with multiple grouped actions.
+
+![Example of generic content](/assets/components/filter-bar/filter-bar-generic-content.png)
 
 ## Filter dropdown
 
@@ -148,39 +181,4 @@ If your filtering requirements extend beyond the methods supported directly by t
 Use the integrated search (`hasSearch`) in the values panel to allow users to search by string across all values within a selected parameter. While only relevant for single/multi selection, search can be useful if there are many filter values or if a unique naming convention is used to artificially group results together.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-search-values.png)
-
-## Applying Filters
-
-Depending on how consumers would prefer to trigger the filtering on their data sets, the Filter Bar supports different methods of applying filters:
-
-- **Per-filter:** selected filters are applied when the user confirms their selection with the "Apply filters" submit button in the Filters Dropdown. This is the most common method and generally requires a database or API call to update the data set with the corresponding filter parameters.
-- **Live filtering:** filters are applied immediately upon selection. This method generally requires updating the data set on the client.
-
-## Clearing filters
-
-Filters can be cleared either in bulk or individually from the Filter Bar or Dropdown.
-
-### Filter Bar
-
-Clear all filters with the Button in the Filter Bar.
-
-![](/assets/components/filter-bar/filter-bar-clear-all-filters.png)
-
-Clear filters individually via the dismiss button of the Tag.
-
-![](/assets/components/filter-bar/filter-bar-clear-individual-filter.png)
-
-### Filter Dropdown
-
-Clear all filters via the Button in the footer of the Dropdown.
-
-![](/assets/components/filter-bar/filter-bar-dropdown-clear-all-filters.png)
-
-Deselect all filter values within a parameter with the "Clear selection" Button, then confirm the changes with the "Apply filters" Button in the footer.
-
-![](/assets/components/filter-bar/filter-bar-dropdown-clear-selection-filter.png)
-
-Clear filter input fields with the "Clear filter" Button, then apply the changes with the "Apply filters" Button in the footer.
-
-![](/assets/components/filter-bar/filter-bar-dropdown-clear-filter-input.png)
 
