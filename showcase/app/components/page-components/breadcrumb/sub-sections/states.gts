@@ -29,14 +29,14 @@ const SubSectionStates: TemplateOnlyComponent = <template>
           <HdsBreadcrumbItem
             @text="Level one"
             @icon="org"
-            @route="catch-all"
+            @href="index"
             mock-state-value={{unless (eq state "default") state}}
             mock-state-selector="a"
           />
           <HdsBreadcrumbItem
             @text="Level two"
             @icon="folder"
-            @route="catch-all"
+            @href="index"
             mock-state-value={{unless (eq state "default") state}}
             mock-state-selector="a"
           />
@@ -44,36 +44,36 @@ const SubSectionStates: TemplateOnlyComponent = <template>
             mock-state-value={{unless (eq state "default") state}}
             mock-state-selector="button"
           >
-            <HdsBreadcrumbItem @route="catch-all" @text="Sub-level one" />
+            <HdsBreadcrumbItem @href="index" @text="Sub-level one" />
             <HdsBreadcrumbItem
-              @route="catch-all"
+              @href="index"
               @text="Sub-level two with a very long string that we may want to trim somehow"
             />
             <HdsBreadcrumbItem
-              @route="catch-all"
+              @href="index"
               @text="Sub-level with icon"
               @icon="org"
             />
             <HdsBreadcrumbItem
-              @route="catch-all"
+              @href="index"
               @text="Another sub-level with icon"
               @icon="folder"
             />
           </HdsBreadcrumbTruncation>
           <HdsBreadcrumbItem
-            @route="catch-all"
+            @href="index"
             @text="Level four"
             mock-state-value={{unless (eq state "default") state}}
             mock-state-selector="a"
           />
           <HdsBreadcrumbItem
-            @route="catch-all"
+            @href="index"
             @text="Level five"
             mock-state-value={{unless (eq state "default") state}}
             mock-state-selector="a"
           />
           <HdsBreadcrumbItem
-            @route="catch-all"
+            @href="index"
             @text="Current"
             @current={{true}}
             mock-state-value={{unless (eq state "default") state}}

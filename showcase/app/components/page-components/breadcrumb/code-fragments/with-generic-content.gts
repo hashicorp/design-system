@@ -27,39 +27,39 @@ const CodeFragmentWithGenericContent: TemplateOnlyComponent<CodeFragmentWithGene
       }} example"
     >
       <HdsBreadcrumbItem
-        @route="catch-all"
+        @href="index"
         @text="Level one"
         @icon={{if @hasIcons "org"}}
       />
       <HdsBreadcrumbItem
-        @route="catch-all"
+        @href="index"
         @text="Level two"
         @icon={{if @hasIcons "folder"}}
       />
       {{#if @hasTruncation}}
         <HdsBreadcrumbTruncation>
-          <HdsBreadcrumbItem @route="catch-all" @text="Sub-level one" />
+          <HdsBreadcrumbItem @href="index" @text="Sub-level one" />
           <HdsBreadcrumbItem
-            @route="catch-all"
+            @href="index"
             @text="Sub-level two with a very long string that we may want to trim somehow"
           />
           <HdsBreadcrumbItem
-            @route="catch-all"
+            @href="index"
             @text="Sub-level with icon"
             @icon="org"
           />
           <HdsBreadcrumbItem
-            @route="catch-all"
+            @href="index"
             @text="Another sub-level with icon"
             @icon="folder"
           />
         </HdsBreadcrumbTruncation>
       {{else}}
-        <HdsBreadcrumbItem @route="catch-all" @text="Level three" />
+        <HdsBreadcrumbItem @href="index" @text="Level three" />
       {{/if}}
-      <HdsBreadcrumbItem @route="catch-all" @text="Level four" />
-      <HdsBreadcrumbItem @route="catch-all" @text="Level five" />
-      <HdsBreadcrumbItem @route="catch-all" @text="Current" @current={{true}} />
+      <HdsBreadcrumbItem @href="index" @text="Level four" />
+      <HdsBreadcrumbItem @href="index" @text="Level five" />
+      <HdsBreadcrumbItem @href="index" @text="Current" @current={{true}} />
     </HdsBreadcrumb>
   </template>;
 
