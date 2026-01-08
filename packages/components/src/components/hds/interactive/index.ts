@@ -31,13 +31,7 @@ export interface HdsInteractiveSignature {
 }
 
 export default class HdsInteractive extends Component<HdsInteractiveSignature> {
-  /**
-   * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
-   *
-   * @param linkToExternal
-   * @type LinkTo | null
-   * @default null
-   */
+
   get linkToExternal(): LinkTo | null {
     const component = getLinkToExternal();
     if (component === null) {
@@ -51,24 +45,10 @@ setLinkToExternal(LinkToExternalComponent);`
     return component;
   }
 
-  /**
-   * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
-   *
-   * @param isHrefExternal
-   * @type boolean
-   * @default true
-   */
   get isHrefExternal(): boolean {
     return this.args.isHrefExternal ?? true;
   }
 
-  /**
-   * Determines if a @route value is "external" (uses the LinkToExternal component instead of LinkTo)
-   *
-   * @param isRouteExternal
-   * @type boolean
-   * @default false
-   */
   get isRouteExternal(): boolean {
     return this.args.isRouteExternal ?? false;
   }
