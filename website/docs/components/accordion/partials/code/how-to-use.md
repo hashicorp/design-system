@@ -6,45 +6,45 @@ The `Accordion` component is used to wrap and group one or more `Accordion::Item
 
 A different size of Accordion can be invoked using the `@size` argument.
 
-[[demo: code-snippets/accordion-size]]
+[[code-snippets/accordion-size]]
 
 ### Type
 
 Use the `@type` argument to render a `flush` Accordion.
 
-[[demo: code-snippets/accordion-type]]
+[[code-snippets/accordion-type]]
 
 ### Complex HTML content
 
 With an Alert component in the toggle block and an HTML table in the content block.
 
-[[demo: code-snippets/accordion-html-content]]
+[[code-snippets/accordion-html-content]]
 
 With a link in the toggle block and a form in the content.
 
-[[demo: code-snippets/accordion-contains-interactive]]
+[[code-snippets/accordion-contains-interactive]]
 
 With an Accordion in the content block.
 
-[[demo: code-snippets/accordion-nested]]
+[[code-snippets/accordion-nested]]
 
 ### Expand and collapse all
 
 The `@forceState` argument enables you to implement expand/collapse all functionality by programmatically controlling the states of all items within a group. The `@forceState` argument may also be used at item level if further granularity is required.
 
-[[demo: code-snippets/accordion-expand-all]]
+[[code-snippets/accordion-expand-all]]
 
 ### Persist Item state
 
 The `@forceState` argument can be used to programmatically control individual Accordion Items. For example, use `@onClickToggle` to respond to the user’s click, save the open/close state, then use `@forceState` to persist the state if the screen refreshes.
 
-[[demo: code-snippets/accordion-persist-state]]
+[[code-snippets/accordion-persist-state]]
 
 ### Accessible name
 
 The `ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. The default value is "Toggle display" but you can set a custom value useful for translated text for example.
 
-[[demo: code-snippets/accordion-a11y-name]]
+[[code-snippets/accordion-a11y-name]]
 
 ### Title tag
 
@@ -57,22 +57,22 @@ The default `@titleTag` is `"div"` because the correct value is dependent on the
 
 The `@titleTag` argument changes the HTML element that wraps the title block of each `Accordion::Item`. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if an Accordion is within a subsection of the page below a heading level 2, the value should be `"h3"`.
 
-[[demo: code-snippets/accordion-title-tag]]
+[[code-snippets/accordion-title-tag]]
 
 ### Open
 
 Set `isOpen` to `true` on an `Accordion::Item` to display its associated content on page load instead of initially hiding it.
 
-[[demo: code-snippets/accordion-open]]
+[[code-snippets/accordion-open]]
 
 ### Static
 
 Set `isStatic` to `true` on an `Accordion::Item` to remove the ability to interact with the toggle.
 
-[[demo: code-snippets/accordion-static]]
+[[code-snippets/accordion-static]]
 
 ### Contains interactive
 
 By default, the `containsInteractive` property of the `Accordion::Item` is set to `false`, meaning that the entire `Accordion::Item` toggle block can be clicked to hide and show the associated content. If set to `true`, only the chevron button of the `Accordion::Item` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
 
-[[demo: code-snippets/accordion-contains-interactive-complex]]
+[[code-snippets/accordion-contains-interactive-complex]]

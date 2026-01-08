@@ -4,16 +4,16 @@
 
 Use the design tokens in your style declarations as CSS custom properties.
 
-[[demo: code-snippets/tokens-in-styles]]
+[[code-snippets/tokens-in-styles]]
 
 ### Use tokens in components
 
 1. Ensure you’ve imported the relevant CSS file.
 
-[[demo: code-snippets/token-import]]
+[[code-snippets/token-import]]
 
 2. If a component accepts a color parameter you can use a design token too.
 
-[[demo: code-snippets/token-as-component-argument]]
+[[code-snippets/token-as-component-argument]]
 
 For more details on how the design tokens pipeline is implemented, and how the design tokens are generated and distributed, see the repository [@hashicorp/design-system-tokens](https://github.com/hashicorp/design-system/tree/main/packages/tokens).
