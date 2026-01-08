@@ -14,6 +14,8 @@
 
 ## 5.2.0
 
+[5.2.0 documentation](https://hds-website-5-2-0.vercel.app/)
+
 **Minor changes**
 
 <!-- START components/icon -->
