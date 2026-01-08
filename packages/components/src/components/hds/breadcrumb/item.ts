@@ -18,6 +18,7 @@ export interface HdsBreadcrumbItemSignature {
     isRouteExternal?: boolean;
     icon?: HdsIconSignature['Args']['name'];
     route?: string;
+    href?: string;
     models?: Array<string | number>;
     model?: string | number;
     query?: Record<string, string>;
