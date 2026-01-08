@@ -141,7 +141,7 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
           this.args.columnWidth;
       }
 
-      // Responsize column widths
+      // Responsive column widths
       if (typeof this.args.columnWidth === 'object') {
         if (this.args.columnWidth.sm) {
           inlineStyles['--hds-layout-grid-column-width-sm'] =
