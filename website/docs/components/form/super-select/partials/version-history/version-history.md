@@ -1,7 +1,3 @@
-## 5.0.0
-
-
-
 ## 4.24.1
 
 Fixed issue with tabbing to `SuperSelectMultiple` with search enabled by adding tabindex of "0"
