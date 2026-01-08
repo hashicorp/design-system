@@ -40,19 +40,31 @@ const unescapeCode = (code: string) => {
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
+  @tracked languageOptions: Array<{ label: string; value: string }> = [];
 
   constructor(owner: Owner, args: DocCodeGroupSignature['Args']) {
     super(owner, args);
 
+    const options = [];
+
     if (args.hbsSnippet !== '') {
-      this.currentView = 'hbs';
-    } else if (args.jsSnippet !== '') {
-      this.currentView = 'js';
-    } else if (args.gtsSnippet !== '') {
-      this.currentView = 'gts';
-    } else if (args.customSnippet !== '') {
-      this.currentView = 'custom';
+      options.push({ label: '.hbs', value: 'hbs' });
     }
+
+    if (args.jsSnippet !== '') {
+      options.push({ label: '.js', value: 'js' });
+    }
+
+    if (args.gtsSnippet !== '') {
+      options.push({ label: '.gts', value: 'gts' });
+    }
+
+    if (args.customLang && args.customSnippet !== '') {
+      options.push({ label: `.${args.customLang}`, value: 'custom' });
+    }
+
+    this.languageOptions = options;
+    this.currentView = options[0]?.value || 'hbs';
 
     if (args.isExpanded === 'true') {
       this.isExpanded = true;
@@ -87,31 +99,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
   get customSnippet() {
     const { customSnippet } = this.args;
     return customSnippet ? unescapeCode(customSnippet) : '';
-  }
-
-  get languageOptions() {
-    const { hbsSnippet, jsSnippet, gtsSnippet, customLang, customSnippet } =
-      this.args;
-
-    const options = [];
-
-    if (hbsSnippet !== '') {
-      options.push({ label: '.hbs', value: 'hbs' });
-    }
-
-    if (jsSnippet !== '') {
-      options.push({ label: '.js', value: 'js' });
-    }
-
-    if (gtsSnippet !== '') {
-      options.push({ label: '.gts', value: 'gts' });
-    }
-
-    if (customLang && customSnippet !== '') {
-      options.push({ label: `.${customLang}`, value: 'custom' });
-    }
-
-    return options;
   }
 
   get currentSnippet() {
