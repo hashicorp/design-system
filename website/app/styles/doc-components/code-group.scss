@@ -230,13 +230,13 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   }
 
   .shiki-code-block {
-    border-bottom-right-radius:inherit;
+    border-bottom-right-radius: inherit;
     border-bottom-left-radius: inherit;
 
     .shiki-code-block__code {
       --ember-shiki-border-radius: 0px;
 
-      border-bottom-right-radius:inherit;
+      border-bottom-right-radius: inherit;
       border-bottom-left-radius: inherit;
 
       code {
