@@ -1,14 +1,86 @@
 # @hashicorp/design-system-components
 
+## 5.2.0
+
+[5.2.0 documentation](https://hds-website-5-2-0.vercel.app/)
+
+### Minor Changes
+
+
+`Icon` - Converted component to `.gts` format
+
+
+<small class="doc-whats-new-changelog-metadata">[#3444](https://github.com/hashicorp/design-system/pull/3444)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added Floating UI `boundary` option to `hds-anchored-position` modifier
+
+
+`PopoverPrimitive` - Added Floating UI `boundary` option
+
+
+
+`Dropdown` - Added Floating UI `boundary` option
+
+
+
+`RichTooltip` - Added Floating UI `boundary` option
+
+
+<small class="doc-whats-new-changelog-metadata">[#3406](https://github.com/hashicorp/design-system/pull/3406)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+
+`SuperSelect` - Removed styling incorrectly adding a checkbox next to the "Loading options..." message for search results
+
+
+<small class="doc-whats-new-changelog-metadata">[#3439](https://github.com/hashicorp/design-system/pull/3439)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable` - Added a guard against accessing `hdsIntl` service after component destruction
+
+
+<small class="doc-whats-new-changelog-metadata">[#3195](https://github.com/hashicorp/design-system/pull/3195)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`CodeBlock` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
+
+
+
+`CodeEditor` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
+
+
+<small class="doc-whats-new-changelog-metadata">[#3455](https://github.com/hashicorp/design-system/pull/3455)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Flyout` - Updated variable controlling the `Flyout` max-width to align with the `AppSideNav` minimized width
+
+
+<small class="doc-whats-new-changelog-metadata">[#3456](https://github.com/hashicorp/design-system/pull/3456)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@4.1.1
+
 ## 5.1.0
 
 [5.1.0 documentation](https://hds-website-5-1-0.vercel.app/)
 
 ### Minor Changes
 
-
 `CodeEditor` - Added a new `@customExtensions` argument which allows consumers to provide their own custom CodeMirror extensions.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3372](https://github.com/hashicorp/design-system/pull/3372)</small>
 
@@ -16,9 +88,7 @@
 
 ### Patch Changes
 
-
 `Dropdown` - Updated component signature for `ListItemCheckbox` and `ListItemRadio` to have an optional `@id` argument.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3371](https://github.com/hashicorp/design-system/pull/3371)</small>
 
@@ -30,31 +100,22 @@ Fix mixed sass declaration syntax to silence warnings
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Fixed a bug in the cleanup logic of selectable rows where data updates caused the internal selection state to be incorrectly reset.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3373](https://github.com/hashicorp/design-system/pull/3373)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Button` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
 
-
-
 `Dropdown` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
-
-
 
 `SideNav`: - Made CSS updates including:
 
 - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
-- Removed deprecated ".hds-side-nav__dropdown" class name which is redundant to the HDS Dropdown class name referenced in styles
-
+- Removed deprecated `.hds-side-nav__dropdown` class name which is redundant to the HDS Dropdown class name referenced in styles
 
 `AppHeader` - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
-
 
 <small class="doc-whats-new-changelog-metadata">[#3356](https://github.com/hashicorp/design-system/pull/3356)</small>
 

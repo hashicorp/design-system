@@ -1,3 +1,8 @@
+## 5.2.0
+
+Added Floating UI `boundary` option
+
+
 ## 4.24.0
 
 Added support for dynamic swap/injection of the toggle element.

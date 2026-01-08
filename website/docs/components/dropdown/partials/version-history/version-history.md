@@ -1,3 +1,8 @@
+## 5.2.0
+
+Added Floating UI `boundary` option
+
+
 ## 5.1.0
 
 Updated component signature for `ListItemCheckbox` and `ListItemRadio` to have an optional `@id` argument.

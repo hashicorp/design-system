@@ -1,3 +1,8 @@
+## 5.2.0
+
+Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
+
+
 ## 5.1.0
 
 Added a new `@customExtensions` argument which allows consumers to provide their own custom CodeMirror extensions.

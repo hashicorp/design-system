@@ -12,15 +12,87 @@
   </a>
 </p>
 
+## 5.2.0
+
+[5.2.0 documentation](https://hds-website-5-2-0.vercel.app/)
+
+**Minor changes**
+
+
+`Icon` - Converted component to `.gts` format
+
+
+<small class="doc-whats-new-changelog-metadata">[#3444](https://github.com/hashicorp/design-system/pull/3444)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added Floating UI `boundary` option to `hds-anchored-position` modifier
+
+
+`PopoverPrimitive` - Added Floating UI `boundary` option
+
+
+
+`Dropdown` - Added Floating UI `boundary` option
+
+
+
+`RichTooltip` - Added Floating UI `boundary` option
+
+
+<small class="doc-whats-new-changelog-metadata">[#3406](https://github.com/hashicorp/design-system/pull/3406)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+
+`SuperSelect` - Removed styling incorrectly adding a checkbox next to the "Loading options..." message for search results
+
+
+<small class="doc-whats-new-changelog-metadata">[#3439](https://github.com/hashicorp/design-system/pull/3439)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`AdvancedTable` - Added a guard against accessing `hdsIntl` service after component destruction
+
+
+<small class="doc-whats-new-changelog-metadata">[#3195](https://github.com/hashicorp/design-system/pull/3195)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`CodeBlock` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
+
+
+
+`CodeEditor` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
+
+
+<small class="doc-whats-new-changelog-metadata">[#3455](https://github.com/hashicorp/design-system/pull/3455)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+
+`Flyout` - Updated variable controlling the `Flyout` max-width to align with the `AppSideNav` minimized width
+
+
+<small class="doc-whats-new-changelog-metadata">[#3456](https://github.com/hashicorp/design-system/pull/3456)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@4.1.1
+
 ## 5.1.0
 
 [5.1.0 documentation](https://hds-website-5-1-0.vercel.app/)
 
 **Minor changes**
 
-
 `CodeEditor` - Added a new `@customExtensions` argument which allows consumers to provide their own custom CodeMirror extensions.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3372](https://github.com/hashicorp/design-system/pull/3372)</small>
 
@@ -28,9 +100,7 @@
 
 **Patch changes**
 
-
 `Dropdown` - Updated component signature for `ListItemCheckbox` and `ListItemRadio` to have an optional `@id` argument.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3371](https://github.com/hashicorp/design-system/pull/3371)</small>
 
@@ -42,31 +112,22 @@ Fix mixed sass declaration syntax to silence warnings
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Fixed a bug in the cleanup logic of selectable rows where data updates caused the internal selection state to be incorrectly reset.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3373](https://github.com/hashicorp/design-system/pull/3373)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Button` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
-
-
 
 `Dropdown` - Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`
 
-
-
-`SideNav`:
+`SideNav`: - Made CSS updates including:
 
 - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
-- Removed deprecated ".hds-side-nav__dropdown" class name which is redundant to the HDS Dropdown class name referenced in styles
-
+- Removed deprecated `.hds-side-nav__dropdown` class name which is redundant to the HDS Dropdown class name referenced in styles
 
 `AppHeader` - Optimized CSS used to apply dark theme styles to Buttons & Dropdowns
-
 
 <small class="doc-whats-new-changelog-metadata">[#3356](https://github.com/hashicorp/design-system/pull/3356)</small>
 
@@ -1413,62 +1474,6 @@ Aligned private class properties to follow a standardized notation
 
 - @hashicorp/design-system-tokens@2.2.2
 - @hashicorp/flight-icons@3.8.0
-
-## 4.14.0
-
-[4.14.0 documentation](https://hds-website-4-14-0.vercel.app/)
-
-**Minor changes**
-
-`Dropdown` - Added `@matchToggleWidth` argument
-
-<small class="doc-whats-new-changelog-metadata">[#2530](https://github.com/hashicorp/design-system/pull/2530)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-clipboard` - Added `clipboard-polyfill` to support product usage in non-secure environments; this impacts `Copy::Button`, `Copy::Snippet`, `CodeBlock`, and `MaskedInput`
-
-<small class="doc-whats-new-changelog-metadata">[#2525](https://github.com/hashicorp/design-system/pull/2525)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`SideNav` - Made a11y related improvements including:
-
-- Changed `List::Title` to h3 & added visually hidden h2 to AppSideNav
-- Replaced aria-label for `ToggleButton` with aria-labelledby and aria-expanded
-
-<small class="doc-whats-new-changelog-metadata">[#2536](https://github.com/hashicorp/design-system/pull/2536)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Fixed instances where arguments are passed into tracked properties at declaration:
-
-- `MaskedInput`
-- `TextInput`
-- `Pagination::Compact`
-- `Pagination::Numbered`
-- `SideNav`
-- `Table`
-- `Table::ThSelectable`
-- `Tabs`
-
-<small class="doc-whats-new-changelog-metadata">[#2488](https://github.com/hashicorp/design-system/pull/2488)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SideNav` - Fixed bug with hidden panels sometimes causing unnecessary overflow scrolling
-
-<small class="doc-whats-new-changelog-metadata">[#2535](https://github.com/hashicorp/design-system/pull/2535)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown` - Fixed the height of the chevron in `ToggleButton`
-
-<small class="doc-whats-new-changelog-metadata">[#2522](https://github.com/hashicorp/design-system/pull/2522)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---

@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.1.1
+
+**Patch changes**
+
+Added "aap" to Ansible icon keywords for easier search.
+
+<small class="doc-whats-new-changelog-metadata">[#3430](https://github.com/hashicorp/design-system/pull/3430)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.1.0
 
 **Minor changes**
@@ -233,16 +243,6 @@ Added "category" to the icons' metadata in the `catalog.json` file.
 `vault-radar` icons added. `vault-secrets` icons updated per Brand guidance.
 
 <small class="doc-whats-new-changelog-metadata">[#1901](https://github.com/hashicorp/design-system/pull/1901)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 2.24.0
-
-**Minor changes**
-
-`rabbitmq`, `openid`, `jwt`, `meetup`, and `transform-data` icons added.
-
-<small class="doc-whats-new-changelog-metadata">[#1873](https://github.com/hashicorp/design-system/pull/1873)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 

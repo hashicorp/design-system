@@ -1,3 +1,8 @@
+## 5.2.0
+
+Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
+
+
 ## 4.24.1
 
 Fixed a11y issue with its `CopyButton` by adding `copySuccessMessageText` parameter to an aria-live region to announce to screen readers when content has been copied
