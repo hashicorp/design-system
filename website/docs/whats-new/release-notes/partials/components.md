@@ -55,7 +55,7 @@ Added Floating UI `boundary` option to `hds-anchored-position` modifier
 <div class="doc-whats-new-changelog-separator"></div>
 
 
-`AdvancedTable` - Guard against accessing `hdsIntl` service after component destruction
+`AdvancedTable` - Added a guard against accessing `hdsIntl` service after component destruction
 
 
 <small class="doc-whats-new-changelog-metadata">[#3195](https://github.com/hashicorp/design-system/pull/3195)</small>

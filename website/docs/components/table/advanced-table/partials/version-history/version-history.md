@@ -1,6 +1,6 @@
 ## 5.2.0
 
-Guard against accessing `hdsIntl` service after component destruction
+Added a guard against accessing `hdsIntl` service after component destruction
 
 
 ## 5.1.0
