@@ -285,7 +285,7 @@ Note: We use a mobile-first layout approach, so widths defined for smaller views
 </Hds::Layout::Grid>
 ```
 
-#### With only “sm” & “lg” views defined
+#### With only `sm` & `lg` views defined
 
 ```handlebars
 <Hds::Layout::Grid @columnWidth={{hash sm="50%" lg="33.33%"}} @gap="16">
