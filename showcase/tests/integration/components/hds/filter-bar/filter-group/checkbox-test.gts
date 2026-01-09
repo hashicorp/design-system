@@ -30,6 +30,7 @@ module(
             id="test-checkbox"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
           />
         </template>,
       );
@@ -47,6 +48,7 @@ module(
             id="test-checkbox"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
           />
         </template>,
       );
@@ -55,6 +57,26 @@ module(
           '#test-checkbox .hds-filter-bar__filter-group__selection-option__text-content',
         )
         .hasText('Test label');
+    });
+
+    // NAME
+
+    test('it should render the name attribute when provided', async function (assert) {
+      await render(
+        <template>
+          <HdsFilterBarFilterGroupCheckbox
+            id="test-checkbox"
+            @label="Test label"
+            @value="test-value"
+            @name="test-name"
+          />
+        </template>,
+      );
+      assert
+        .dom(
+          '#test-checkbox .hds-filter-bar__filter-group__selection-option__control',
+        )
+        .hasAttribute('name', 'test-name');
     });
 
     // VALUE
@@ -66,6 +88,7 @@ module(
             id="test-checkbox"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
           />
         </template>,
       );
@@ -85,6 +108,7 @@ module(
             id="test-checkbox"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
             @searchValue="Test"
           />
         </template>,
@@ -103,6 +127,7 @@ module(
             id="test-checkbox"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
             @searchValue="non-matching-search"
           />
         </template>,
@@ -135,6 +160,7 @@ module(
             id="test-checkbox"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
             @onChange={{onChange}}
           />
         </template>,
@@ -158,6 +184,7 @@ module(
             id="test-checkbox"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
           />
         </template>,
       );
@@ -173,6 +200,7 @@ module(
             id="test-checkbox"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
             @keyFilter={{SAMPLE_FILTER}}
           />
         </template>,

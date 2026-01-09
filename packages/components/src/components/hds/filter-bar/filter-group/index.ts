@@ -43,11 +43,11 @@ export interface HdsFilterBarFilterGroupSignature {
         Generic?: WithBoundArgs<typeof HdsFilterBarFilterGroupGeneric, never>;
         Checkbox?: WithBoundArgs<
           typeof HdsFilterBarFilterGroupCheckbox,
-          'keyFilter' | 'searchValue' | 'onChange'
+          'keyFilter' | 'name' | 'searchValue' | 'onChange'
         >;
         Radio?: WithBoundArgs<
           typeof HdsFilterBarFilterGroupRadio,
-          'keyFilter' | 'searchValue' | 'onChange'
+          'keyFilter' | 'name' | 'searchValue' | 'onChange'
         >;
       },
     ];

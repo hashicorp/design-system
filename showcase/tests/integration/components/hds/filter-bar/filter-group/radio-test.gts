@@ -30,6 +30,7 @@ module(
             id="test-radio"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
           />
         </template>,
       );
@@ -45,6 +46,7 @@ module(
             id="test-radio"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
           />
         </template>,
       );
@@ -53,6 +55,26 @@ module(
           '#test-radio .hds-filter-bar__filter-group__selection-option__text-content',
         )
         .hasText('Test label');
+    });
+
+    // NAME
+
+    test('it should render the name attribute on the radio input when provided', async function (assert) {
+      await render(
+        <template>
+          <HdsFilterBarFilterGroupRadio
+            id="test-radio"
+            @label="Test label"
+            @value="test-value"
+            @name="test-name"
+          />
+        </template>,
+      );
+      assert
+        .dom(
+          '#test-radio .hds-filter-bar__filter-group__selection-option__control',
+        )
+        .hasAttribute('name', 'test-name');
     });
 
     // VALUE
@@ -64,6 +86,7 @@ module(
             id="test-radio"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
           />
         </template>,
       );
@@ -83,6 +106,7 @@ module(
             id="test-radio"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
             @searchValue="Test"
           />
         </template>,
@@ -101,6 +125,7 @@ module(
             id="test-radio"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
             @searchValue="non-matching-search"
           />
         </template>,
@@ -131,6 +156,7 @@ module(
             id="test-radio"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
             @onChange={{onChange}}
           />
         </template>,
@@ -154,6 +180,7 @@ module(
             id="test-radio"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
           />
         </template>,
       );
@@ -169,6 +196,7 @@ module(
             id="test-radio"
             @label="Test label"
             @value="test-value"
+            @name="test-name"
             @keyFilter={{SAMPLE_FILTER}}
           />
         </template>,

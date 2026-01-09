@@ -49,6 +49,7 @@ export const NUMERICAL_SELECTORS_INPUT_TEXT: Record<
 
 export interface HdsFilterBarFilterGroupNumericalSignature {
   Args: {
+    key: string;
     keyFilter?: HdsFilterBarFilter;
     text?: string;
     onChange?: (filter?: HdsFilterBarFilter) => void;
