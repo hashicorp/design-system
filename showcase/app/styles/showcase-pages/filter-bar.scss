@@ -1,0 +1,17 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FILTER BAR
+
+body.page-components-filter-bar {
+  .shw-component-table-scrollable-wrapper {
+    overflow-x: auto;
+  }
+
+  .shw-component-filter-bar-sample-ul-wrapper {
+    display: contents;
+    list-style: none;
+  }
+}
