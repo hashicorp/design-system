@@ -12,19 +12,19 @@
     if there are fewer items than would fit in a row, columns will stretch so that the combined widths add up to 100%. The column gap size is automatically subtracted from this minimum width.
   </C.Property>
   <C.Property @name="columnWidth" @type="string | object">
-    <strong>Fixed column widths</strong>:
-    <br />
-    Set any valid CSS dimension as a width for the grid columns. If the total width of columns in a row exceeds 100% of the parent, columns will wrap to the next row as necessary to fit.
-    <br /><br />
-    If there are fewer items than will fit in a row, they will maintain the specified column width instead of stretching unlike the `columnMinWidth` option. The column gap size is automatically subtracted from the width.
-    <br /><br />
-    <strong>Responsive column widths</strong>:
-    <br />
-    Pass in an object to define the column widths for responsive views. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views.
-    <br /><br />
-    The expected shape of the object is:
-    <br />
-    `{ sm?: string, md?: string, lg?: string, xl?: string, xxl?: string }`
+    The width to use for grid columns. Widths can be any valid CSS dimension although percentage values often work best. If the total width of columns in a row exceeds 100% of the parent, columns will wrap to the next row as necessary to fit.
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="Fixed column widths" @type="string">
+        Set any valid CSS dimension as a width for the grid columns.
+      </C.Property>
+      <C.Property @name="Responsive column widths" @type="object">
+        Pass in an object to define the column widths for responsive views. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views.
+        <br /><br />
+        The expected shape of the object is:
+        <br />
+        `{ sm?: string, md?: string, lg?: string, xl?: string, xxl?: string }`
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "start" "center" "end" "stretch"}}>
     The value of the CSS `align-items` property, which controls the alignment of the grid items on the block axis within their grid areas (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)).
