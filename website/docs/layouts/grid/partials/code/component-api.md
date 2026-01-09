@@ -6,12 +6,10 @@
   <C.Property @name="tag" @type="HTMLElementTagName" @default="div">
     A valid HTML tag name to be used to render the grid element.
   </C.Property>
-  <C.Property @name="columnMinWidth" @type="string" @default="0px">
+  <C.Property @name="columnMinWidth" @type="string">
     Set any valid CSS dimension as a minimum width for the grid columns. If the total width of columns in a row exceeds 100% of the parent, columns will wrap to the next row as necessary to fit.
     <br /><br />
     if there are fewer items than would fit in a row, columns will stretch so that the combined widths add up to 100%. The column gap size is automatically subtracted from this minimum width.
-    <br /><br />
-    <em>Note: With the default min-width of 0px, the columns will never wrap.</em>
   </C.Property>
   <C.Property @name="columnWidth" @type="string | object">
     <strong>Fixed column widths</strong>:
