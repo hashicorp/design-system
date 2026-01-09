@@ -82,8 +82,8 @@ If you are are using single file components (i.e., `.gts` or `.gjs` files), the 
 
 ```typescript
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { 
-  HdsButton, 
+import {
+  HdsButton,
   HdsFormTextInputField
 } from '@hashicorp/design-system-components/components';
 
@@ -357,6 +357,24 @@ hds:
 ```
 
 When your application uses the `fr-fr` locale, components will display "Erreur" instead of the default English "Error".
+
+## Ember engines
+
+If your application uses Ember engines, you have to add a small extra configuration in your `app.js` file:
+
+```js
+import { HdsInteractive } from '@hashicorp/design-system-components/components';
+import LinkToExternal from 'ember-engines/components/link-to-external';
+
+HdsInteractive.linkToExternal = LinkToExternal;
+```
+
+```js
+import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
+setLinkToExternal(LinkToExternalComponent);`
+```
+
+This allows the [`Hds::Interactive`](/utilities/interactive) utility component, used in multiple HDS components, to access the `<LinkToExternal>` component to generate cross-engines links. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
 
 ## Code editor setup
 
