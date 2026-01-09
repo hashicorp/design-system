@@ -67,11 +67,11 @@ export { default as HdsApplicationStateMedia } from './components/hds/applicatio
 export * from './components/hds/application-state/types.ts';
 
 // Badge
-export { default as HdsBadge } from './components/hds/badge/index.ts';
+export { default as HdsBadge } from './components/hds/badge/index.gts';
 export * from './components/hds/badge/types.ts';
 
 // BadgeCount
-export { default as HdsBadgeCount } from './components/hds/badge-count/index.ts';
+export { default as HdsBadgeCount } from './components/hds/badge-count/index.gts';
 export * from './components/hds/badge-count/types.ts';
 
 // Breadcrumb
