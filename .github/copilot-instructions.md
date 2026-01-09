@@ -119,7 +119,6 @@ description: "Instructions for how components should be displayed in the showcas
 
 ### Required files
 - `components/page-components/<component-name>/index.gts` - Main component for component's showcase page which contains references to sub-section components.
-- `routes/page-components/<component-name>.ts` - Route for the component's showcase page.
 - `templates/page-components/<component-name>.gts` - Page template which contains a component's index component.
 
 Compare a component's showcase against its corresponding component in the `packages/components/src/components/hds` folder.
@@ -154,21 +153,6 @@ onClickToggleSingle = () => {
 onClickToggleSingle {
 
 };
-```
-
-### Routes
-Each component should have a route file under the `routes/page-components/<component-name>.ts` path. This file should define the route for the component's showcase page.
-
-Example file:
-```ts
-import Route from '@ember/routing/route';
-
-import type { ModelFrom } from 'showcase/utils/model-from-route';
-
-export type PageComponentsAccordionModel =
-  ModelFrom<PageComponentsAccordionRoute>;
-
-export default class PageComponentsAccordionRoute extends Route {}
 ```
 
 ### Templates
