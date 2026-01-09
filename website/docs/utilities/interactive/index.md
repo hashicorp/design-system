@@ -7,6 +7,7 @@ caption: >-
   An internal utility component used to provide interactivity to other
   components.
 related:
+  - components/breadcrumn
   - components/button
   - components/dropdown
   - components/link/standalone
