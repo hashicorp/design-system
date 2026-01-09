@@ -176,13 +176,15 @@
   overscroll-behavior: contain;
 }
 
-.hds-filter-bar__filter-group__fields {
+.hds-filter-bar__filter-group__generic {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin: 0;
   padding: 0 16px;
-  border: none;
+
+  .hds-filter-bar__filter-group__fieldset {
+    display: contents;
+  }
 
   .hds-filter-bar__filter-group__field,
   .hds-filter-bar__filter-group__field[type="date"],

@@ -22,7 +22,7 @@
             default="Search will be performed automatically as you type"
           }}
           placeholder={{hds-t "hds.components.filter-bar.filter-group.search-input.placeholder" default="Search"}}
-          {{on "input" this.onSearch}}
+          {{on "input" this._onSearch}}
         />
       </div>
     {{/if}}
@@ -30,27 +30,27 @@
       <Hds::FilterBar::FilterGroup::Numerical
         @keyFilter={{this.keyFilter}}
         @text={{@text}}
-        @onChange={{this.onNumericalChange}}
+        @onChange={{this.onGenericChange}}
       />
     {{else if (eq @type "date")}}
       <Hds::FilterBar::FilterGroup::Date
         @keyFilter={{this.keyFilter}}
         @text={{@text}}
-        @onChange={{this.onDateChange}}
+        @onChange={{this.onGenericChange}}
         @type="date"
       />
     {{else if (eq @type "datetime")}}
       <Hds::FilterBar::FilterGroup::Date
         @keyFilter={{this.keyFilter}}
         @text={{@text}}
-        @onChange={{this.onDateChange}}
+        @onChange={{this.onGenericChange}}
         @type="datetime"
       />
     {{else if (eq @type "time")}}
       <Hds::FilterBar::FilterGroup::Date
         @keyFilter={{this.keyFilter}}
         @text={{@text}}
-        @onChange={{this.onDateChange}}
+        @onChange={{this.onGenericChange}}
         @type="time"
       />
     {{else if (eq @type "generic")}}

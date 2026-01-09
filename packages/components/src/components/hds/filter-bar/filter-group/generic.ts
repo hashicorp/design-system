@@ -6,16 +6,16 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-import type { HdsFilterBarGenericFilter } from '../types.ts';
+import type { HdsFilterBarFilter } from '../types.ts';
 
 export interface HdsFilterBarFilterGroupGenericSignature {
   Args: {
-    onChange?: (filter?: HdsFilterBarGenericFilter) => void;
+    onChange?: (filter?: HdsFilterBarFilter) => void;
   };
   Blocks: {
     default: [
       {
-        updateFilter: (filter: HdsFilterBarGenericFilter) => void;
+        updateFilter: (filter: HdsFilterBarFilter) => void;
       },
     ];
   };
@@ -24,7 +24,7 @@ export interface HdsFilterBarFilterGroupGenericSignature {
 
 export default class HdsFilterBarFilterGroupGeneric extends Component<HdsFilterBarFilterGroupGenericSignature> {
   @action
-  updateFilter(filter: HdsFilterBarGenericFilter): void {
+  updateFilter(filter: HdsFilterBarFilter): void {
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(filter);

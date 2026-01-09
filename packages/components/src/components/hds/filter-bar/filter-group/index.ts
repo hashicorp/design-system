@@ -23,14 +23,7 @@ import type {
   HdsFilterBarFilters,
   HdsFilterBarFilterType,
   HdsFilterBarData,
-  HdsFilterBarGenericFilter,
   HdsFilterBarGenericFilterData,
-  HdsFilterBarNumericalFilterData,
-  HdsFilterBarNumericalFilterSelector,
-  HdsFilterBarNumericalFilterValue,
-  HdsFilterBarDateFilterData,
-  HdsFilterBarDateFilterSelector,
-  HdsFilterBarDateFilterValue,
 } from '../types.ts';
 
 export interface HdsFilterBarFilterGroupSignature {
@@ -170,57 +163,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   }
 
   @action
-  onNumericalChange(
-    selector?: HdsFilterBarNumericalFilterSelector,
-    value?: HdsFilterBarNumericalFilterValue
-  ): void {
-    const addFilter = (): HdsFilterBarData => {
-      const newFilter = {
-        selector: selector,
-        value: value,
-      } as HdsFilterBarNumericalFilterData;
-      return newFilter;
-    };
-
-    if (selector && value) {
-      this.internalFilters = addFilter();
-    } else {
-      this.internalFilters = undefined;
-    }
-
-    const { onChange } = this.args;
-    if (onChange && typeof onChange === 'function') {
-      onChange(this.args.key, this.formattedFilters);
-    }
-  }
-
-  @action
-  onDateChange(
-    selector?: HdsFilterBarDateFilterSelector,
-    value?: HdsFilterBarDateFilterValue
-  ): void {
-    const addFilter = (): HdsFilterBarData => {
-      const newFilter = {
-        selector: selector,
-        value: value,
-      } as HdsFilterBarDateFilterData;
-      return newFilter;
-    };
-
-    if (selector && value) {
-      this.internalFilters = addFilter();
-    } else {
-      this.internalFilters = undefined;
-    }
-
-    const { onChange } = this.args;
-    if (onChange && typeof onChange === 'function') {
-      onChange(this.args.key, this.formattedFilters);
-    }
-  }
-
-  @action
-  onGenericChange(filter?: HdsFilterBarGenericFilter): void {
+  onGenericChange(filter?: HdsFilterBarFilter): void {
     if (filter) {
       this.internalFilters = filter.data;
       filter.text = this.args.text;
@@ -244,7 +187,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
     }
   }
 
-  private onSearch = (event: Event) => {
+  private _onSearch = (event: Event) => {
     const input = event.target as HTMLInputElement;
     this.searchValue = input.value;
   };
