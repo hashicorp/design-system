@@ -13,7 +13,7 @@
     <br /><br />
     <em>Note: With the default min-width of 0px, the columns will never wrap.</em>
   </C.Property>
-  <C.Property @name="columnWidth" @type="string | ResponsiveColumnWidths" @default="0px">
+  <C.Property @name="columnWidth" @type="string | object">
     Set any valid CSS dimension as a width for the grid columns. If the total width of columns in a row exceeds 100% of the parent, columns will wrap to the next row as necessary to fit.
     <br /><br />
     If there are fewer items than will fit in a row, they will maintain the specified column width instead of stretching unlike the `columnMinWidth` option. The column gap size is automatically subtracted from the width.
