@@ -85,7 +85,7 @@ Text within the Tag component will truncate at roughly 20 characters, about whic
 
 ### Custom applied filter text
 
-If necessary, the default formatting within the Tag can be overidden with custom text. This can be useful if the label of the parameter is an irregular plural, if the parameter reads more naturally with certain punctuation or grammar, or for product-specific reasons.
+If necessary, the default formatting within the Tag can be overridden with custom text. This can be useful if the label of the parameter is an irregular plural, if the parameter reads more naturally with certain punctuation or grammar, or for product-specific reasons.
 
 ## Clearing filters
 
