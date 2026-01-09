@@ -16,7 +16,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
       <template>
-        <HdsBreadcrumbItem id="test-breadcrumb-item" @text="test" @href="#" />
+        <HdsBreadcrumbItem id="test-breadcrumb-item" @text="test" />
       </template>,
     );
     assert.dom('#test-breadcrumb-item').hasClass('hds-breadcrumb__item');
@@ -26,7 +26,6 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     await render(
       <template>
         <HdsBreadcrumbItem
-          @href="#"
           @maxWidth="200px"
           @text="test"
           id="test-breadcrumb-item"
@@ -38,30 +37,50 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
 
   // CONTENT
 
-  test('it should render a link by default', async function (assert) {
+  test('it should render a `<button>` by default', async function (assert) {
+    await render(
+      <template>
+        <HdsBreadcrumbItem id="test-breadcrumb-item" @text="text renders" />
+      </template>,
+    );
+    assert.dom('#test-breadcrumb-item > button').exists();
+  });
+  test('it should render an `<a>` anchor if `@href` if provided', async function (assert) {
     await render(
       <template>
         <HdsBreadcrumbItem
           id="test-breadcrumb-item"
-          @href="#"
           @text="text renders"
+          @href="#"
         />
       </template>,
     );
     assert.dom('#test-breadcrumb-item > a').exists();
   });
-  test('it should not render a if @current is true', async function (assert) {
+  test('it should render an `<a>` anchor if `@route` if provided', async function (assert) {
     await render(
       <template>
         <HdsBreadcrumbItem
           id="test-breadcrumb-item"
-          @href="#"
+          @text="text renders"
+          @route="index"
+        />
+      </template>,
+    );
+    assert.dom('#test-breadcrumb-item > a').exists();
+  });
+  test('it should not render `<a>/<button>` elements if @current is true', async function (assert) {
+    await render(
+      <template>
+        <HdsBreadcrumbItem
+          id="test-breadcrumb-item"
           @text="text renders"
           @current={{true}}
         />
       </template>,
     );
     assert.dom('#test-breadcrumb-item > a').doesNotExist();
+    assert.dom('#test-breadcrumb-item > button').doesNotExist();
     assert.dom('#test-breadcrumb-item .hds-breadcrumb__current').exists();
   });
   test('it should render the item with icon and text if @icon and @text are provided', async function (assert) {
@@ -69,7 +88,6 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       <template>
         <HdsBreadcrumbItem
           id="test-breadcrumb-item"
-          @href="#"
           @text="text renders"
           @icon="activity"
         />
@@ -90,11 +108,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
     await render(
       <template>
         {{! @glint-expect-error - assertion testing invalid value }}
-        <HdsBreadcrumbItem
-          @href="#"
-          @maxWidth="123"
-          id="test-breadcrumb-item"
-        />
+        <HdsBreadcrumbItem @maxWidth="123" id="test-breadcrumb-item" />
       </template>,
     );
     assert.throws(function () {
