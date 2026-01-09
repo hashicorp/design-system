@@ -5,12 +5,14 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, click, fillIn, select } from '@ember/test-helpers';
+import { render, fillIn, select } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 
 import {
   HdsFilterBarFilterGroupNumerical,
+  type HdsFilterBarFilter,
   type HdsFilterBarNumericalFilter,
+  type HdsFilterBarNumericalFilterData,
   type HdsFilterBarNumericalFilterSelector,
   type HdsFilterBarNumericalFilterValue,
 } from '@hashicorp/design-system-components/components';
@@ -99,9 +101,9 @@ module(
         .hasText('Filter by Name');
     });
 
-    // CALLBACKS: ONCHANHE
+    // CALLBACKS: ONCHANGE
 
-    test('it should call the onChange callback when the selector input changes', async function (assert) {
+    test('it should call the onChange callback when the filter inputs are changed', async function (assert) {
       const context = new TrackedObject<{
         isChanged: boolean;
         selector: HdsFilterBarNumericalFilterSelector | undefined;
@@ -112,13 +114,14 @@ module(
         value: undefined,
       });
 
-      const onChange = (
-        selector?: HdsFilterBarNumericalFilterSelector,
-        value?: HdsFilterBarNumericalFilterValue,
-      ) => {
+      const onChange = (filter?: HdsFilterBarFilter) => {
         context.isChanged = true;
-        context.selector = selector ?? undefined;
-        context.value = value ?? undefined;
+        context.selector = filter
+          ? (filter.data as HdsFilterBarNumericalFilterData).selector
+          : undefined;
+        context.value = filter
+          ? (filter.data as HdsFilterBarNumericalFilterData).value
+          : undefined;
       };
 
       await render(
@@ -131,45 +134,16 @@ module(
         '.hds-filter-bar__filter-group__numerical .hds-form-select',
         'less-than',
       );
-      assert.ok(context.isChanged);
-      assert.equal(context.selector, 'less-than');
-    });
-
-    test('it should call the onChange callback when the value input changes', async function (assert) {
-      const context = new TrackedObject<{
-        isChanged: boolean;
-        selector: HdsFilterBarNumericalFilterSelector | undefined;
-        value: HdsFilterBarNumericalFilterValue | undefined;
-      }>({
-        isChanged: false,
-        selector: undefined,
-        value: undefined,
-      });
-
-      const onChange = (
-        selector?: HdsFilterBarNumericalFilterSelector,
-        value?: HdsFilterBarNumericalFilterValue,
-      ) => {
-        context.isChanged = true;
-        context.selector = selector ?? undefined;
-        context.value = value ?? undefined;
-      };
-
-      await render(
-        <template>
-          <HdsFilterBarFilterGroupNumerical @onChange={{onChange}} />
-        </template>,
-      );
-
       await fillIn(
         '.hds-filter-bar__filter-group__numerical .hds-form-text-input',
         '10',
       );
       assert.ok(context.isChanged);
+      assert.equal(context.selector, 'less-than');
       assert.equal(context.value, '10');
     });
 
-    test('it should call the onChange callback when the start and end inputs change', async function (assert) {
+    test('it should call the onChange callback when the between selector inputs change', async function (assert) {
       const context = new TrackedObject<{
         isChanged: boolean;
         selector: HdsFilterBarNumericalFilterSelector | undefined;
@@ -182,12 +156,14 @@ module(
         valueEnd: undefined,
       });
 
-      const onChange = (
-        selector?: HdsFilterBarNumericalFilterSelector,
-        value?: HdsFilterBarNumericalFilterValue,
-      ) => {
+      const onChange = (filter?: HdsFilterBarFilter) => {
         context.isChanged = true;
-        context.selector = selector ?? undefined;
+        context.selector = filter
+          ? (filter.data as HdsFilterBarNumericalFilterData).selector
+          : undefined;
+        const value = filter
+          ? (filter.data as HdsFilterBarNumericalFilterData).value
+          : undefined;
         if (
           value &&
           typeof value === 'object' &&
@@ -212,7 +188,6 @@ module(
         '.hds-filter-bar__filter-group__numerical .hds-form-select',
         'between',
       );
-      assert.equal(context.selector, 'between');
       assert
         .dom('.hds-filter-bar__filter-group__field--between')
         .exists({ count: 2 });
@@ -226,53 +201,9 @@ module(
         '20',
       );
       assert.ok(context.isChanged);
+      assert.equal(context.selector, 'between');
       assert.equal(context.valueStart, '10');
       assert.equal(context.valueEnd, '20');
-    });
-
-    test('it should call the onChange callback when the clear button is clicked', async function (assert) {
-      const context = new TrackedObject<{
-        isChanged: boolean;
-        selector: HdsFilterBarNumericalFilterSelector | undefined;
-        value: HdsFilterBarNumericalFilterValue | undefined;
-      }>({
-        isChanged: false,
-        selector: undefined,
-        value: undefined,
-      });
-
-      const onChange = (
-        selector?: HdsFilterBarNumericalFilterSelector,
-        value?: HdsFilterBarNumericalFilterValue,
-      ) => {
-        context.isChanged = true;
-        context.selector = selector ?? undefined;
-        context.value = value ?? undefined;
-      };
-
-      await render(
-        <template>
-          <HdsFilterBarFilterGroupNumerical @onChange={{onChange}} />
-        </template>,
-      );
-
-      await select(
-        '.hds-filter-bar__filter-group__numerical .hds-form-select',
-        'less-than',
-      );
-      await fillIn(
-        '.hds-filter-bar__filter-group__numerical .hds-form-text-input',
-        '20',
-      );
-      assert.ok(context.isChanged);
-      assert.equal(context.selector, 'less-than');
-      assert.equal(context.value, '20');
-
-      await click(
-        '.hds-filter-bar__filter-group__numerical .hds-filter-bar__filter-group__clear .hds-button',
-      );
-      assert.equal(context.selector, undefined);
-      assert.equal(context.value, undefined);
     });
   },
 );

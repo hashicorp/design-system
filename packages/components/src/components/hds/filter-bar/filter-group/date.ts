@@ -10,13 +10,13 @@ import type Owner from '@ember/owner';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 
+import type { HdsFilterBarFilterGroupGenericSignature } from './generic.ts';
 import type HdsIntlService from '../../../../services/hds-intl';
 import type { HdsFormTextInputTypes } from '../../form/text-input/types.ts';
 
 import type {
   HdsFilterBarFilter,
   HdsFilterBarDateFilterSelector,
-  HdsFilterBarDateFilterValue,
   HdsFilterBarFilterGroupDateType,
 } from '../types.ts';
 import {
@@ -56,15 +56,12 @@ export interface HdsFilterBarFilterGroupDateSignature {
     keyFilter?: HdsFilterBarFilter;
     type?: HdsFilterBarFilterGroupDateType;
     text?: string;
-    onChange?: (
-      selector?: HdsFilterBarDateFilterSelector,
-      value?: HdsFilterBarDateFilterValue
-    ) => void;
+    onChange?: (filter?: HdsFilterBarFilter) => void;
   };
   Blocks: {
     default: [];
   };
-  Element: HTMLFieldSetElement;
+  Element: HdsFilterBarFilterGroupGenericSignature['Element'];
 }
 
 export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarFilterGroupDateSignature> {
@@ -134,7 +131,10 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
   }
 
   @action
-  onSelectorChange(event: Event): void {
+  onSelectorChange(
+    updateFilter: (filter: HdsFilterBarFilter) => void,
+    event: Event
+  ): void {
     const select = event.target as HTMLSelectElement;
     this._selector = select.value as HdsFilterBarDateFilterSelector;
     if (this._selector === 'between') {
@@ -143,51 +143,85 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
       this._betweenValueStart = undefined;
       this._betweenValueEnd = undefined;
     }
-    this._onChange();
+    this._updateFilter(updateFilter);
   }
 
   @action
-  onValueChange(event: Event): void {
+  onValueChange(
+    updateFilter: (filter: HdsFilterBarFilter) => void,
+    event: Event
+  ): void {
     const input = event.target as HTMLInputElement;
     this._value = input.value;
-    this._onChange();
+    this._updateFilter(updateFilter);
   }
 
   @action
-  onBetweenValueStartChange(event: Event): void {
+  onBetweenValueStartChange(
+    updateFilter: (filter: HdsFilterBarFilter) => void,
+    event: Event
+  ): void {
     const input = event.target as HTMLInputElement;
     this._betweenValueStart = input.value;
-    this._onChange();
+    this._updateFilter(updateFilter);
   }
 
   @action
-  onBetweenValueEndChange(event: Event): void {
+  onBetweenValueEndChange(
+    updateFilter: (filter: HdsFilterBarFilter) => void,
+    event: Event
+  ): void {
     const input = event.target as HTMLInputElement;
     this._betweenValueEnd = input.value;
-    this._onChange();
+    this._updateFilter(updateFilter);
   }
 
   @action
-  onClear(): void {
-    this._resetInputValues();
-    this._onChange();
+  onChange(filter?: HdsFilterBarFilter): void {
+    const { onChange } = this.args;
+    if (!filter) {
+      this._resetInputValues();
+    }
+    if (onChange && typeof onChange === 'function') {
+      onChange(filter);
+    }
   }
 
-  private _onChange(): void {
-    const { onChange } = this.args;
-    if (onChange && typeof onChange === 'function') {
-      if (
-        this._selector === 'between' &&
+  private _updateFilter(
+    updateFilter: (filter: HdsFilterBarFilter) => void
+  ): void {
+    const addFilter = (): HdsFilterBarFilter => {
+      const value =
+        this._selector === 'between'
+          ? {
+              start: this._betweenValueStart,
+              end: this._betweenValueEnd,
+            }
+          : this._value;
+      const newFilter = {
+        type: this.type,
+        text: this.args.text,
+        data: {
+          selector: this._selector,
+          value: value,
+        },
+      } as HdsFilterBarFilter;
+      return newFilter;
+    };
+
+    if (this._isFormCompleted()) {
+      updateFilter(addFilter());
+    }
+  }
+
+  private _isFormCompleted(): boolean {
+    if (this._selector === 'between') {
+      return (
         this._betweenValueStart !== undefined &&
         this._betweenValueEnd !== undefined
-      ) {
-        onChange(this._selector, {
-          start: this._betweenValueStart,
-          end: this._betweenValueEnd,
-        });
-      } else {
-        onChange(this._selector, this._value);
-      }
+      );
+    } else {
+      return this._selector !== undefined && this._value !== undefined;
     }
   }
 

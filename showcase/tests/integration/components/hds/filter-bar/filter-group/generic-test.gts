@@ -12,6 +12,7 @@ import { fn } from '@ember/helper';
 
 import {
   HdsFilterBarFilterGroupGeneric,
+  type HdsFilterBarFilter,
   type HdsFilterBarGenericFilter,
 } from '@hashicorp/design-system-components/components';
 
@@ -44,13 +45,13 @@ module(
     test('it should trigger the @onChange callback through the provided UpdateFilter function', async function (assert) {
       const context = new TrackedObject<{
         isChanged: boolean;
-        filter: HdsFilterBarGenericFilter | undefined;
+        filter: HdsFilterBarFilter | undefined;
       }>({
         isChanged: false,
         filter: undefined,
       });
 
-      const onChange = (filter?: HdsFilterBarGenericFilter) => {
+      const onChange = (filter?: HdsFilterBarFilter) => {
         context.isChanged = true;
         if (filter) {
           context.filter = filter;
@@ -84,13 +85,13 @@ module(
     test('it should trigger the @onChange callback with cleared filters if the clear button is clicked', async function (assert) {
       const context = new TrackedObject<{
         isChanged: boolean;
-        filter: HdsFilterBarGenericFilter | undefined;
+        filter: HdsFilterBarFilter | undefined;
       }>({
         isChanged: false,
         filter: SAMPLE_FILTER,
       });
 
-      const onChange = (filter?: HdsFilterBarGenericFilter) => {
+      const onChange = (filter?: HdsFilterBarFilter) => {
         context.isChanged = true;
         context.filter = filter ?? undefined;
       };

@@ -5,12 +5,14 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, click, fillIn, select } from '@ember/test-helpers';
+import { render, fillIn, select } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 
 import {
   HdsFilterBarFilterGroupDate,
+  type HdsFilterBarFilter,
   type HdsFilterBarDateFilter,
+  type HdsFilterBarDateFilterData,
   type HdsFilterBarDateFilterSelector,
   type HdsFilterBarDateFilterValue,
 } from '@hashicorp/design-system-components/components';
@@ -201,9 +203,9 @@ module(
         .hasValue('2025-11-04');
     });
 
-    // CALLBACKS: ONCHANHE
+    // CALLBACKS: ONCHANGE
 
-    test('it should call the onChange callback when the selector input changes', async function (assert) {
+    test('it should call the onChange callback when the filter inputs are changed', async function (assert) {
       const context = new TrackedObject<{
         isChanged: boolean;
         selector: HdsFilterBarDateFilterSelector | undefined;
@@ -214,13 +216,14 @@ module(
         value: undefined,
       });
 
-      const onChange = (
-        selector?: HdsFilterBarDateFilterSelector,
-        value?: HdsFilterBarDateFilterValue,
-      ) => {
+      const onChange = (filter?: HdsFilterBarFilter) => {
         context.isChanged = true;
-        context.selector = selector ?? undefined;
-        context.value = value ?? undefined;
+        context.selector = filter
+          ? (filter.data as HdsFilterBarDateFilterData).selector
+          : undefined;
+        context.value = filter
+          ? (filter.data as HdsFilterBarDateFilterData).value
+          : undefined;
       };
 
       await render(
@@ -233,45 +236,16 @@ module(
         '.hds-filter-bar__filter-group__date .hds-form-select',
         'before',
       );
-      assert.ok(context.isChanged);
-      assert.equal(context.selector, 'before');
-    });
-
-    test('it should call the onChange callback when the value input changes', async function (assert) {
-      const context = new TrackedObject<{
-        isChanged: boolean;
-        selector: HdsFilterBarDateFilterSelector | undefined;
-        value: HdsFilterBarDateFilterValue | undefined;
-      }>({
-        isChanged: false,
-        selector: undefined,
-        value: undefined,
-      });
-
-      const onChange = (
-        selector?: HdsFilterBarDateFilterSelector,
-        value?: HdsFilterBarDateFilterValue,
-      ) => {
-        context.isChanged = true;
-        context.selector = selector ?? context.selector;
-        context.value = value ?? context.value;
-      };
-
-      await render(
-        <template>
-          <HdsFilterBarFilterGroupDate @onChange={{onChange}} />
-        </template>,
-      );
-
       await fillIn(
         '.hds-filter-bar__filter-group__date .hds-form-text-input',
         '2025-11-04',
       );
       assert.ok(context.isChanged);
+      assert.equal(context.selector, 'before');
       assert.equal(context.value, '2025-11-04');
     });
 
-    test('it should call the onChange callback when the start and end inputs change', async function (assert) {
+    test('it should call the onChange callback when the the between selector inputs change', async function (assert) {
       const context = new TrackedObject<{
         isChanged: boolean;
         selector: HdsFilterBarDateFilterSelector | undefined;
@@ -284,12 +258,14 @@ module(
         valueEnd: undefined,
       });
 
-      const onChange = (
-        selector?: HdsFilterBarDateFilterSelector,
-        value?: HdsFilterBarDateFilterValue,
-      ) => {
+      const onChange = (filter?: HdsFilterBarFilter) => {
         context.isChanged = true;
-        context.selector = selector ?? undefined;
+        context.selector = filter
+          ? (filter.data as HdsFilterBarDateFilterData).selector
+          : undefined;
+        const value = filter
+          ? (filter.data as HdsFilterBarDateFilterData).value
+          : undefined;
         if (
           value &&
           typeof value === 'object' &&
@@ -298,6 +274,9 @@ module(
         ) {
           context.valueStart = value.start;
           context.valueEnd = value.end;
+        } else {
+          context.valueStart = undefined;
+          context.valueEnd = undefined;
         }
       };
 
@@ -311,7 +290,6 @@ module(
         '.hds-filter-bar__filter-group__date .hds-form-select',
         'between',
       );
-      assert.equal(context.selector, 'between');
       assert
         .dom('.hds-filter-bar__filter-group__field--between')
         .exists({ count: 2 });
@@ -325,53 +303,9 @@ module(
         '2025-11-04',
       );
       assert.ok(context.isChanged);
+      assert.equal(context.selector, 'between');
       assert.equal(context.valueStart, '2024-11-04');
       assert.equal(context.valueEnd, '2025-11-04');
-    });
-
-    test('it should call the onChange callback when the clear button is clicked', async function (assert) {
-      const context = new TrackedObject<{
-        isChanged: boolean;
-        selector: HdsFilterBarDateFilterSelector | undefined;
-        value: HdsFilterBarDateFilterValue | undefined;
-      }>({
-        isChanged: false,
-        selector: undefined,
-        value: undefined,
-      });
-
-      const onChange = (
-        selector?: HdsFilterBarDateFilterSelector,
-        value?: HdsFilterBarDateFilterValue,
-      ) => {
-        context.isChanged = true;
-        context.selector = selector ?? undefined;
-        context.value = value ?? undefined;
-      };
-
-      await render(
-        <template>
-          <HdsFilterBarFilterGroupDate @onChange={{onChange}} />
-        </template>,
-      );
-
-      await select(
-        '.hds-filter-bar__filter-group__date .hds-form-select',
-        'before',
-      );
-      await fillIn(
-        '.hds-filter-bar__filter-group__date .hds-form-text-input',
-        '2025-11-04',
-      );
-      assert.ok(context.isChanged);
-      assert.equal(context.selector, 'before');
-      assert.equal(context.value, '2025-11-04');
-
-      await click(
-        '.hds-filter-bar__filter-group__date .hds-filter-bar__filter-group__clear .hds-button',
-      );
-      assert.equal(context.selector, undefined);
-      assert.equal(context.value, undefined);
     });
   },
 );
