@@ -139,11 +139,9 @@
 // Note: ".hds-side-nav--BLAH" references the old SideNav. Delete once SideNav code is fully removed.
 .hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized),
 .hds-app-frame:has(.hds-side-nav--is-mobile.hds-side-nav--is-not-minimized) {
-  .hds-button,
-  .hds-dropdown-toggle-button,
-  .hds-dropdown-toggle-icon,
-  .hds-app-header__home-link {
-    @include hds-interactive-dark-theme-state-disabled(); // emulate disabled state
+  // visually disable all nested elements within the AppHeader when SideNav is open in mobile view
+  .hds-app-header > * {
+    filter: contrast(0.5) brightness(0.7);
     pointer-events: none;
   }
 }
