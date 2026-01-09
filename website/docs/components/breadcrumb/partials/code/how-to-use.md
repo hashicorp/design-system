@@ -10,7 +10,7 @@ A few parameters were omitted for clarity.
 
 ### With routing parameters
 
-Add the correct `@route/@models/@model/@query` parameter to each Breadcrumb Item.
+Add the correct `@route/@models/@model/@query` or `@href` arguments to each Breadcrumb Item.
 
 [[code-snippets/breadcrumb-routing]]
 
@@ -22,7 +22,7 @@ By default, the Breadcrumb allows items to wrap on multiple lines if the contain
 
 ### Truncation
 
-#### With dropdown 
+#### With dropdown
 
 It’s possible to hide part of the Breadcrumb tree under a "truncated" item that shows the elements on "toggle".
 
@@ -30,7 +30,7 @@ It’s possible to hide part of the Breadcrumb tree under a "truncated" item tha
 
 #### Width-based truncation
 
-By setting `@itemsCanWrap` to `false`, it is possible to constrain the text to one-line and truncate it if it does not fit the available space. 
+By setting `@itemsCanWrap` to `false`, it is possible to constrain the text to one-line and truncate it if it does not fit the available space.
 
 !!! Warning
 
