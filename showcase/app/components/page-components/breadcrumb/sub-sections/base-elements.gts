@@ -7,7 +7,6 @@ import { eq } from 'ember-truth-helpers';
 
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwFlex from 'showcase/components/shw/flex';
-import ShwGrid from 'showcase/components/shw/grid';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwTextH4 from 'showcase/components/shw/text/h4';
