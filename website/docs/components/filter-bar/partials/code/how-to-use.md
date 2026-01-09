@@ -39,9 +39,15 @@ The Filter Bar is also available as a contextual component of the [Advanced Tabl
 
 ### Filter dropdown
 
-All filtering options are available through a dropdown in the Filter Bar. Inside the dropdown, each filter group is represented with its own tab. When a tab is selected, the filtering options available are visible, and users can add filters for that group. By clicking the "Apply filters" or "Clear all filters" buttons present in the dropdown footer, the user can apply the filters selected, or clear all that have been previously set.
+All filtering options are available via a dropdown in the Filter Bar. Inside the dropdown, each filter group is represented with its own tab. When a tab is selected, the filtering options available are visible and users can add filters for that group. By clicking the "Apply filters" or "Clear all filters" buttons in the dropdown footer, the user can apply the selected filters, or clear all that have been previously set.
 
-Filtering options are passed to the Filter Bar through the `Dropdown` and `FilterGroup` contextual components. In the `FilterGroup`, the `@key` and `@text` arguments are required. The `@key` argument sets the key for that filter group in the data object of the `onFilter` callback. The `@text` argument sets the text for tab label. The `@type` argument specifies the type of filtering available for the group, with a default value is `single-select`. View more details on [available filter types](#filter-types) below.
+Filtering options are passed to the Filter Bar through the Dropdown and FilterGroup contextual components. In the FilterGroup, the `@key` and `@text` arguments are required.
+
+- The `@key` argument sets the key for that filter group in the data object of the `onFilter` callback.
+- The `@text` argument sets the text for tab label.
+- The `@type` argument specifies the type of filtering available for the group, with a default value is `single-select`.
+
+View more details on [available filter types](#filter-types) below.
 
 ```handlebars
 <Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
@@ -96,7 +102,7 @@ A user can apply, update, or clear filters within the filter dropdown. The `@onF
 
 The callback provides a data object of applied filters which come from a user's filter selections. This object can be used to run any filtering operations on a data set, and then passed back into the `@filters` argument of the Filter Bar to show the applied filters.
 
-Based on the applied filters passed to the `@filters` argument, dismissible tags will be shown for each applied filter. When these tags are dismissed, the `@onFilter` callback will be triggered, and that filter will be removed from the object.
+Based on the applied filters passed to the `@filters` argument, dismissible [Tags](/components/tab) will be shown for each applied filter. When a Tag is dismissed, the `@onFilter` callback will be triggered, and that filter will be removed from the object.
 
 ```handlebars
 <Hds::FilterBar
@@ -166,9 +172,9 @@ export default class DemoFilterBar extends Component {
 
 #### Live filtering
 
-By default, when filter selections are made in the dropdown, they are not applied automatically. They are only applied, and the callback triggered, once the user confirms their selections with the "Apply filters" button, or clears them with the "Clear all filters" button.
+By default, the `@onFilter` callback is not triggered when a selection is made in the dropdown. Instead, the callback is triggered when the user confirms their selection with the "Apply filters" button, or clears them with the "Clear all filters" button.
 
-However, if the `@isLiveFilter` argument is set to `true`, then the `@onFilter` callback will be triggered as soon as a user makes a selection in the dropdown.
+However, if the `@isLiveFilter` argument is set to `true`, the `@onFilter` callback will be triggered as soon as a user makes a selection in the dropdown. This can be used if you would like filtering of your data occur immediately after selection instead of requiring user confirmation.
 
 ```handlebars
 <Hds::FilterBar
@@ -204,13 +210,13 @@ However, if the `@isLiveFilter` argument is set to `true`, then the `@onFilter` 
 
 ### Filter types
 
-The Filter Bar supports various different types of filter groups, to support a variety of data types.
+The Filter Bar supports various different types of filter groups to support a variety of data types.
 
 #### Single-select and Multi-select
 
-The `single-select` and `multi-select` filter types are used for filtering a list of items by one or multiple values. The options available for selection can be set using the `Radio` and `Checkbox` contextual components inside the `FilterGroup`.
+The `single-select` and `multi-select` filter types are used for filtering a list of items by one or multiple values. The options available for selection can be set using the Radio and Checkbox contextual components inside the FilterGroup.
 
-If the `@searchEnabled` argument in the `FilterGroup` is set to `true`, the list of options can be searched through using a provided search input.
+If the `@searchEnabled` argument in the FilterGroup is set to `true`, the list of options can be searched through using a provided search input.
 
 The dismiss filter tag will display the `label` for a given filter, and if the `label` is not provided it will display the `value`.
 
@@ -406,7 +412,7 @@ Dates and times are formatted in the applied filter tags using the [ember-intl](
 The accessibility compliance of any content used for a custom filter is the responsibility of the consumer. If a custom filter requires multiple form elements, it is recommended to use a `<fieldset>` element to group them.
 !!!
 
-For filtering support outside of the filter types supported above, an option for more customized filtering is available through the `generic` filter type, and the `Generic` contextual component inside the `FilterGroup`. The `Generic` contextual component provides an `updateFilter` argument function that can be used to trigger updates to the filter inside the filter dropdown.
+For filtering support outside of the filter types supported above, an option for more customized filtering is available through the `generic` filter type, and the Generic contextual component inside the FilterGroup. The Generic contextual component provides an `updateFilter` argument function that can be used to trigger updates to the filter inside the filter dropdown.
 
 The dismiss filter tag can be customized by setting `dismissTagText` on the filter. If this is not provided, the dismiss tag text will function similar to the `single-select` and `multi-select` filter types where the `value` or `label` is displayed.
 
@@ -537,7 +543,7 @@ The search input's placeholder text is "Search" by default, but can be customize
 
 ### Bulk actions
 
-The Filter Bar provides an `ActionsDropdown` contextual component that can be used for bulk actions to be performed on a data set, or for other purposes. All contextual components from the [Dropdown](/components/dropdown) are yielded to the consumer except for the `ToggleButton`.
+The Filter Bar provides an ActionsDropdown contextual component that can be used for bulk actions to perform on a data set, or for other purposes. All contextual components from the [Dropdown](/components/dropdown) are yielded to the consumer except for the ToggleButton.
 
 ```handlebars
 <Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
@@ -573,7 +579,7 @@ The Filter Bar provides an `ActionsDropdown` contextual component that can be us
 </Hds::FilterBar>
 ```
 
-The toggle button text of the dropdown defaults to "Actions", but can be customized with the `@toggleButtonText` argument. An icon can also be added with the `@toggleButtonIcon` argument.
+The text of the Dropdown defaults to "Actions", but can be customized with the `@toggleButtonText` argument. An icon can also be added with the `@toggleButtonIcon` argument.
 
 ```handlebars
 <Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
@@ -615,7 +621,7 @@ The toggle button text of the dropdown defaults to "Actions", but can be customi
 
 ### Generic content
 
-For more customization of the functionality in the Filter Bar, an `ActionsGeneric` contextual component is provided that can be used to pass in any other content.
+For more customization of the functionality in the Filter Bar, an ActionsGeneric contextual component is provided that can be used to pass in any other content.
 
 ```handlebars
 <Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
