@@ -84,6 +84,17 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
   });
 
+  test('it should set the correct class if a non-responsive @columnWidth prop is declared', async function (assert) {
+    await render(
+      <template>
+        <HdsLayoutGrid id="test-layout-grid" @columnWidth="200px" />
+      </template>,
+    );
+    assert
+      .dom('#test-layout-grid')
+      .hasClass('hds-layout-grid--column-width-non-responsive');
+  });
+
   test('it should set responsive column widths if passed in', async function (assert) {
     await render(
       <template>
@@ -110,7 +121,8 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .hasClass('hds-layout-grid--column-width-md')
       .hasClass('hds-layout-grid--column-width-lg')
       .hasClass('hds-layout-grid--column-width-xl')
-      .hasClass('hds-layout-grid--column-width-xxl');
+      .hasClass('hds-layout-grid--column-width-xxl')
+      .doesNotHaveClass('hds-layout-grid--column-width-non-responsive');
   });
 
   // TAG
