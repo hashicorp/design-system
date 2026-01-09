@@ -49,7 +49,7 @@ The Filter Dropdown anatomy is dependent on the filter method and is dependent o
 
 | Element          | Usage                  |
 |------------------|------------------------|
-| Operator selection | Requried; Allows the user to select how the filter is applied. |
+| Operator selection | Required; Allows the user to select how the filter is applied. |
 | Value input | Required; Allows the user to input a value to filter upon such as a number, string, date, or time. |
 | Clear filter | Required; Clears the filter operator and input fields. |
 
