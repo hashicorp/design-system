@@ -3997,8 +3997,6 @@ button.hds-button[href]::after {
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--token-color-palette-neutral-400) var(--token-color-palette-neutral-500);
-  font-size: 0.8125rem;
-  font-family: var(--token-typography-code-200-font-family);
   border-radius: inherit;
 }
 .hds-code-block__code:focus, .hds-code-block__code.mock-focus {
@@ -4021,6 +4019,8 @@ button.hds-button[href]::after {
   position: relative;
   display: inline-block;
   padding-right: 16px;
+  font-size: 0.8125rem;
+  font-family: var(--token-typography-code-200-font-family);
 }
 
 .hds-code-block__height-toggle-button,
@@ -4221,6 +4221,10 @@ button.hds-button[href]::after {
 }
 .hds-code-editor.hds-code-editor--is-full-screen .hds-code-editor__editor {
   max-height: unset;
+}
+.hds-code-editor .cm-editor .cm-scroller {
+  font-size: 0.8125rem;
+  font-family: var(--token-typography-code-200-font-family);
 }
 .hds-code-editor .hds-code-editor__header {
   display: flex;
@@ -5326,19 +5330,19 @@ button.hds-button[href]::after {
 }
 
 .hds-flyout--size-medium {
-  width: min(480px, calc(100vw - var(--hds-app-sidenav-width-minimized) / 2));
-  max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2);
+  width: min(480px, calc(100vw - var(--hds-app-side-nav-width-minimized) / 2));
+  max-width: calc(100vw - var(--hds-app-side-nav-width-minimized) / 2);
 }
 .hds-flyout--size-medium[open] {
-  margin-left: calc(100% - min(480px, calc(100vw - var(--hds-app-sidenav-width-minimized) / 2)));
+  margin-left: calc(100% - min(480px, calc(100vw - var(--hds-app-side-nav-width-minimized) / 2)));
 }
 
 .hds-flyout--size-large {
-  width: min(720px, calc(100vw - var(--hds-app-sidenav-width-minimized) / 2));
-  max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2);
+  width: min(720px, calc(100vw - var(--hds-app-side-nav-width-minimized) / 2));
+  max-width: calc(100vw - var(--hds-app-side-nav-width-minimized) / 2);
 }
 .hds-flyout--size-large[open] {
-  margin-left: calc(100% - min(720px, calc(100vw - var(--hds-app-sidenav-width-minimized) / 2)));
+  margin-left: calc(100% - min(720px, calc(100vw - var(--hds-app-side-nav-width-minimized) / 2)));
 }
 
 /**
