@@ -2,6 +2,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwGrid from 'showcase/components/shw/grid';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwDivider from 'showcase/components/shw/divider';
@@ -13,7 +14,9 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
-  <ShwTextH2>GridItem</ShwTextH2>
+  <ShwTextH2>Base elements</ShwTextH2>
+
+  <ShwTextH3>GridItem</ShwTextH3>
 
   <ShwGrid @columns={{1}} as |SG|>
     <SG.Item @label="used directly or via yielded component">
@@ -45,7 +48,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH3>colspan</ShwTextH3>
+  <ShwTextH4>colspan</ShwTextH4>
 
   <ShwGrid @columns={{1}} @gap="1.5rem" as |SG|>
     <SG.Item @label="1st item w/ colspan=2">
@@ -108,7 +111,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH3>rowspan</ShwTextH3>
+  <ShwTextH4>rowspan</ShwTextH4>
 
   <ShwGrid @columns={{1}} @gap="1.5rem" as |SG|>
     <SG.Item @label="1st item w/ rowspan=2">
@@ -152,7 +155,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH3>colspan & rowspan</ShwTextH3>
+  <ShwTextH4>colspan & rowspan</ShwTextH4>
 
   <ShwGrid @columns={{1}} @gap="1.5rem" as |SG|>
     <SG.Item @label="1st item w/ colspan=2 & rowspan=3">
