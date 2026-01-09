@@ -90,13 +90,15 @@ const plugins = [
     targets: [
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
+      { src: 'src/styles/**/*.scss', dest: 'dist' },
     ],
+    flatten: false,
   }),
 ];
 
 if (!process.env.development) {
   // Remove leftover build artifacts when starting a new build.
-  plugins.push(addon.clean());
+  // plugins.push(addon.clean());
 }
 
 export default {
