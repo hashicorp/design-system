@@ -1,0 +1,5 @@
+# translations/fr-fr.yaml
+hds:
+  components:
+    common:
+      error: Erreur
