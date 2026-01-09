@@ -31,14 +31,14 @@ const SubSectionStates: TemplateOnlyComponent = <template>
             @icon="org"
             @href="index"
             mock-state-value={{unless (eq state "default") state}}
-            mock-state-selector="a"
+            mock-state-selector="a,button"
           />
           <HdsBreadcrumbItem
             @text="Level two"
             @icon="folder"
             @href="index"
             mock-state-value={{unless (eq state "default") state}}
-            mock-state-selector="a"
+            mock-state-selector="a,button"
           />
           <HdsBreadcrumbTruncation
             mock-state-value={{unless (eq state "default") state}}
@@ -64,20 +64,20 @@ const SubSectionStates: TemplateOnlyComponent = <template>
             @href="index"
             @text="Level four"
             mock-state-value={{unless (eq state "default") state}}
-            mock-state-selector="a"
+            mock-state-selector="a,button"
           />
           <HdsBreadcrumbItem
             @href="index"
             @text="Level five"
             mock-state-value={{unless (eq state "default") state}}
-            mock-state-selector="a"
+            mock-state-selector="a,button"
           />
           <HdsBreadcrumbItem
             @href="index"
             @text="Current"
             @current={{true}}
             mock-state-value={{unless (eq state "default") state}}
-            mock-state-selector="a"
+            mock-state-selector="a,button"
           />
         </HdsBreadcrumb>
       </SF.Item>
