@@ -28,12 +28,14 @@
     {{/if}}
     {{#if (eq @type "numerical")}}
       <Hds::FilterBar::FilterGroup::Numerical
+        @key={{@key}}
         @keyFilter={{this.keyFilter}}
         @text={{@text}}
         @onChange={{this.onGenericChange}}
       />
     {{else if (eq @type "date")}}
       <Hds::FilterBar::FilterGroup::Date
+        @key={{@key}}
         @keyFilter={{this.keyFilter}}
         @text={{@text}}
         @onChange={{this.onGenericChange}}
@@ -41,6 +43,7 @@
       />
     {{else if (eq @type "datetime")}}
       <Hds::FilterBar::FilterGroup::Date
+        @key={{@key}}
         @keyFilter={{this.keyFilter}}
         @text={{@text}}
         @onChange={{this.onGenericChange}}
@@ -48,6 +51,7 @@
       />
     {{else if (eq @type "time")}}
       <Hds::FilterBar::FilterGroup::Date
+        @key={{@key}}
         @keyFilter={{this.keyFilter}}
         @text={{@text}}
         @onChange={{this.onGenericChange}}
@@ -78,12 +82,14 @@
               Checkbox=(component
                 "hds/filter-bar/filter-group/checkbox"
                 keyFilter=this.keyFilter
+                name=@key
                 searchValue=this.searchValue
                 onChange=this.onSelectionChange
               )
               Radio=(component
                 "hds/filter-bar/filter-group/radio"
                 keyFilter=this.keyFilter
+                name=@key
                 searchValue=this.searchValue
                 onChange=this.onSelectionChange
               )

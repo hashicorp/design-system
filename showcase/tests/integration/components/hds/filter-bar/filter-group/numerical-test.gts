@@ -44,7 +44,10 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarFilterGroupNumerical id="test-numerical" />
+          <HdsFilterBarFilterGroupNumerical
+            @key="test-key"
+            id="test-numerical"
+          />
         </template>,
       );
       assert
@@ -52,12 +55,45 @@ module(
         .exists();
     });
 
+    // KEY
+
+    test('it should set the name of the inputs correctly based on the @key argument', async function (assert) {
+      await render(
+        <template>
+          <HdsFilterBarFilterGroupNumerical @key="test-key" />
+        </template>,
+      );
+      assert
+        .dom('.hds-filter-bar__filter-group__numerical .hds-form-select')
+        .hasAttribute('name', 'test-key-selector');
+      assert
+        .dom('.hds-filter-bar__filter-group__numerical .hds-form-text-input')
+        .hasAttribute('name', 'test-key-value');
+      await select(
+        '.hds-filter-bar__filter-group__numerical .hds-form-select',
+        'between',
+      );
+      assert
+        .dom(
+          '.hds-filter-bar__filter-group__numerical .hds-filter-bar__filter-group__field--between:nth-of-type(1)',
+        )
+        .hasAttribute('name', 'test-key-between-start');
+      assert
+        .dom(
+          '.hds-filter-bar__filter-group__numerical .hds-filter-bar__filter-group__field--between:nth-of-type(2)',
+        )
+        .hasAttribute('name', 'test-key-between-end');
+    });
+
     // KEYFILTER
 
     test('it should render the content from the filter data provided in the @keyFilter argument', async function (assert) {
       await render(
         <template>
-          <HdsFilterBarFilterGroupNumerical @keyFilter={{SAMPLE_FILTER}} />
+          <HdsFilterBarFilterGroupNumerical
+            @key="test-key"
+            @keyFilter={{SAMPLE_FILTER}}
+          />
         </template>,
       );
       assert
@@ -72,6 +108,7 @@ module(
       await render(
         <template>
           <HdsFilterBarFilterGroupNumerical
+            @key="test-key"
             @keyFilter={{SAMPLE_BETWEEN_FILTER}}
           />
         </template>,
@@ -94,7 +131,9 @@ module(
 
     test('it should render the text provided in the @text argument in the legend', async function (assert) {
       await render(
-        <template><HdsFilterBarFilterGroupNumerical @text="Name" /></template>,
+        <template>
+          <HdsFilterBarFilterGroupNumerical @key="test-key" @text="Name" />
+        </template>,
       );
       assert
         .dom('.hds-filter-bar__filter-group__numerical legend')
@@ -126,7 +165,10 @@ module(
 
       await render(
         <template>
-          <HdsFilterBarFilterGroupNumerical @onChange={{onChange}} />
+          <HdsFilterBarFilterGroupNumerical
+            @key="test-key"
+            @onChange={{onChange}}
+          />
         </template>,
       );
 
@@ -180,7 +222,10 @@ module(
 
       await render(
         <template>
-          <HdsFilterBarFilterGroupNumerical @onChange={{onChange}} />
+          <HdsFilterBarFilterGroupNumerical
+            @key="test-key"
+            @onChange={{onChange}}
+          />
         </template>,
       );
 

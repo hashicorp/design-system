@@ -139,6 +139,12 @@ module(
       assert
         .dom('.hds-filter-bar__filter-group__numerical legend')
         .hasText('Filter by Name');
+      assert
+        .dom('.hds-filter-bar__filter-group__numerical .hds-form-select')
+        .hasAttribute('name', 'name-selector');
+      assert
+        .dom('.hds-filter-bar__filter-group__numerical .hds-form-text-input')
+        .hasAttribute('name', 'name-value');
     });
 
     test('it should render the apporpriate content if the @type argument is date', async function (assert) {
@@ -164,6 +170,12 @@ module(
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-field__label')
         .hasText('Date is');
+      assert
+        .dom('.hds-filter-bar__filter-group__date .hds-form-select')
+        .hasAttribute('name', 'name-selector');
+      assert
+        .dom('.hds-filter-bar__filter-group__date .hds-form-text-input')
+        .hasAttribute('name', 'name-value');
     });
 
     test('it should render the apporpriate content if the @type argument is datetime', async function (assert) {
@@ -189,6 +201,12 @@ module(
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-field__label')
         .hasText('Datetime is');
+      assert
+        .dom('.hds-filter-bar__filter-group__date .hds-form-select')
+        .hasAttribute('name', 'name-selector');
+      assert
+        .dom('.hds-filter-bar__filter-group__date .hds-form-text-input')
+        .hasAttribute('name', 'name-value');
     });
 
     test('it should render the apporpriate content if the @type argument is time', async function (assert) {
@@ -214,6 +232,12 @@ module(
       assert
         .dom('.hds-filter-bar__filter-group__date .hds-form-field__label')
         .hasText('Time is');
+      assert
+        .dom('.hds-filter-bar__filter-group__date .hds-form-select')
+        .hasAttribute('name', 'name-selector');
+      assert
+        .dom('.hds-filter-bar__filter-group__date .hds-form-text-input')
+        .hasAttribute('name', 'name-value');
     });
 
     // SEARCH
@@ -334,7 +358,8 @@ module(
         .hasText('Option 1');
       assert
         .dom('.hds-filter-bar__filter-group__selection-option__control')
-        .hasValue('option-1');
+        .hasValue('option-1')
+        .hasAttribute('name', 'name');
     });
 
     test('it should render the Radio contextual component', async function (assert) {
@@ -361,7 +386,8 @@ module(
         .hasText('Option 1');
       assert
         .dom('.hds-filter-bar__filter-group__selection-option__control')
-        .hasValue('option-1');
+        .hasValue('option-1')
+        .hasAttribute('name', 'name');
     });
 
     test('it should render the Generic contextual component', async function (assert) {

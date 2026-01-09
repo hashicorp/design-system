@@ -4,7 +4,7 @@
  */
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { array, get } from '@ember/helper';
+import { array, concat, get } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 
 import ShwDivider from 'showcase/components/shw/divider';
@@ -535,26 +535,39 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       </HdsFilterBarFilterGroupGeneric>
     </SG.Item>
     <SG.Item @label="Checkbox">
-      <HdsFilterBarFilterGroupCheckbox @label="Label" @value="value" />
+      <HdsFilterBarFilterGroupCheckbox
+        @name="checkbox"
+        @label="Label"
+        @value="value"
+      />
     </SG.Item>
     <SG.Item @label="Radio">
-      <HdsFilterBarFilterGroupRadio @label="Label" @value="value" />
+      <HdsFilterBarFilterGroupRadio
+        @name="radio"
+        @label="Label"
+        @value="value"
+      />
     </SG.Item>
   </ShwGrid>
 
   {{#each DATE_FILTER_GROUP_TYPES as |type|}}
     <ShwGrid @columns={{3}} @label="Date, type: {{type}}" as |SG|>
       <SG.Item @label="Base (default)">
-        <HdsFilterBarFilterGroupDate @type={{type}} />
+        <HdsFilterBarFilterGroupDate
+          @key={{concat type "-base"}}
+          @type={{type}}
+        />
       </SG.Item>
       <SG.Item @label="Selector + value">
         <HdsFilterBarFilterGroupDate
+          @key={{concat type "-selector-value"}}
           @type={{type}}
           @keyFilter={{get DATE_FILTERS type}}
         />
       </SG.Item>
       <SG.Item @label="Selector: between">
         <HdsFilterBarFilterGroupDate
+          @key={{concat type "-selector-between"}}
           @type={{type}}
           @keyFilter={{get DATE_BETWEEN_FILTERS type}}
         />
@@ -564,13 +577,17 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwGrid @columns={{3}} @label="Numerical" as |SG|>
     <SG.Item @label="Base (default)">
-      <HdsFilterBarFilterGroupNumerical />
+      <HdsFilterBarFilterGroupNumerical @key="numerical-base" />
     </SG.Item>
     <SG.Item @label="Selector + value">
-      <HdsFilterBarFilterGroupNumerical @keyFilter={{NUMERICAL_FILTER}} />
+      <HdsFilterBarFilterGroupNumerical
+        @key="numerical-selector-value"
+        @keyFilter={{NUMERICAL_FILTER}}
+      />
     </SG.Item>
     <SG.Item @label="Selector: between">
       <HdsFilterBarFilterGroupNumerical
+        @key="numerical-selector-between"
         @keyFilter={{NUMERICAL_BETWEEN_FILTER}}
       />
     </SG.Item>

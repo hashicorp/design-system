@@ -8,12 +8,13 @@
   ...attributes
   as |G|
 >
-  <fieldset>
+  <fieldset class="hds-filter-bar__filter-group__fieldset">
     <legend class="sr-only">
       {{hds-t "hds.components.filter-bar.filter-group.numerical.legend" text=@text default="Filter by number"}}
     </legend>
     <Hds::Form::Select::Field
       @id={{this._selectorInputId}}
+      name={{concat @key "-selector"}}
       class="hds-filter-bar__filter-group__field"
       {{on "change" (fn this.onSelectorChange G.updateFilter)}}
       as |F|
@@ -39,6 +40,7 @@
           @id={{this._betweenValueStartInputId}}
           @type="text"
           @value={{this.stringBetweenValueStart}}
+          name={{concat @key "-between-start"}}
           aria-label={{hds-t
             "hds.components.filter-bar.between-value-inputs.start.aria-label"
             default="Number start value"
@@ -51,6 +53,7 @@
           @id={{this._betweenValueEndInputId}}
           @type="text"
           @value={{this.stringBetweenValueEnd}}
+          name={{concat @key "-between-end"}}
           aria-label={{hds-t
             "hds.components.filter-bar.between-value-inputs.end.aria-label"
             default="Number end value"
@@ -65,6 +68,7 @@
         @id={{this._valueInputId}}
         @type="text"
         @value={{this.stringValue}}
+        name={{concat @key "-value"}}
         aria-label={{hds-t
           "hds.components.filter-bar.filter-group.numerical.value-input.aria-label"
           default="Number value"

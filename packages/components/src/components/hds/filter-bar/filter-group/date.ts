@@ -53,6 +53,7 @@ export const DATE_FILTER_GROUP_TYPES: HdsFilterBarFilterGroupDateType[] =
 
 export interface HdsFilterBarFilterGroupDateSignature {
   Args: {
+    key: string;
     keyFilter?: HdsFilterBarFilter;
     type?: HdsFilterBarFilterGroupDateType;
     text?: string;

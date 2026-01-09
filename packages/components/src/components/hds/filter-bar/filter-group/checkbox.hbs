@@ -6,6 +6,7 @@
   <Hds::Form::Checkbox::Base
     class="hds-filter-bar__filter-group__selection-option__control"
     id={{this._elementId}}
+    name={{@name}}
     checked={{this.isChecked}}
     @value={{@value}}
     {{on "change" this.onChange}}
