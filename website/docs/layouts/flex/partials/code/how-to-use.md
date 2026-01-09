@@ -298,7 +298,7 @@ In the `Flex::Layout`, these properties translate to the `@basis`, `@grow`, and 
   ...
   <LF.Item @basis="200px" @grow={{1}} @shrink={{0}}>
     {{! the flex item content here }}
-  </HLF.Item>
+  </LF.Item>
   ...
 </Hds::Layout::Flex>
 ```
