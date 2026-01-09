@@ -28,11 +28,15 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwFlex @gap="2rem" as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>Default ⇒ <code>&lt;button&gt;</code></SFI.Label>
-      <HdsBreadcrumbItem @text="Level with icon" @icon="folder" />
+      <ol class="hds-breadcrumb__list">
+        <HdsBreadcrumbItem @text="Level with icon" @icon="folder" />
+      </ol>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With <code>@href</code> ⇒ <code>&lt;a&gt;</code></SFI.Label>
-      <HdsBreadcrumbItem @href="#" @text="Level with icon" @icon="folder" />
+      <ol class="hds-breadcrumb__list">
+        <HdsBreadcrumbItem @href="#" @text="Level with icon" @icon="folder" />
+      </ol>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>With<code>@route</code>
@@ -40,17 +44,21 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         <code>&lt;LinkTo&gt;</code>
         ⇒
         <code>&lt;a&gt;</code></SFI.Label>
-      <HdsBreadcrumbItem
-        @route="index"
-        @text="Level with icon"
-        @icon="folder"
-      />
+      <ol class="hds-breadcrumb__list">
+        <HdsBreadcrumbItem
+          @route="index"
+          @text="Level with icon"
+          @icon="folder"
+        />
+      </ol>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label><code>@current</code>
         ⇒
         <code>&lt;div&gt;</code></SFI.Label>
-      <HdsBreadcrumbItem @current={{true}} @text="Current" @icon="folder" />
+      <ol class="hds-breadcrumb__list">
+        <HdsBreadcrumbItem @current={{true}} @text="Current" @icon="folder" />
+      </ol>
     </SF.Item>
   </ShwFlex>
 
@@ -61,30 +69,36 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
       <SF.Item @label={{state}}>
         <ShwFlex @direction="column" @gap="1rem" as |SF2|>
           <SF2.Item>
-            <HdsBreadcrumbItem
-              @text="Default (button)"
-              @icon="folder"
-              mock-state-value={{unless (eq state "default") state}}
-              mock-state-selector="button"
-            />
+            <ol class="hds-breadcrumb__list">
+              <HdsBreadcrumbItem
+                @text="Default (button)"
+                @icon="folder"
+                mock-state-value={{unless (eq state "default") state}}
+                mock-state-selector="button"
+              />
+            </ol>
           </SF2.Item>
           <SF2.Item>
-            <HdsBreadcrumbItem
-              @text="With @href (a)"
-              @icon="folder"
-              @href="#"
-              mock-state-value={{unless (eq state "default") state}}
-              mock-state-selector="a"
-            />
+            <ol class="hds-breadcrumb__list">
+              <HdsBreadcrumbItem
+                @text="With @href (a)"
+                @icon="folder"
+                @href="#"
+                mock-state-value={{unless (eq state "default") state}}
+                mock-state-selector="a"
+              />
+            </ol>
           </SF2.Item>
           <SF2.Item>
-            <HdsBreadcrumbItem
-              @text="With @route (a)"
-              @icon="folder"
-              @route="index"
-              mock-state-value={{unless (eq state "default") state}}
-              mock-state-selector="a"
-            />
+            <ol class="hds-breadcrumb__list">
+              <HdsBreadcrumbItem
+                @text="With @route (a)"
+                @icon="folder"
+                @route="index"
+                mock-state-value={{unless (eq state "default") state}}
+                mock-state-selector="a"
+              />
+            </ol>
           </SF2.Item>
         </ShwFlex>
       </SF.Item>
@@ -95,17 +109,21 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwTextH3>BreadcrumbTruncation</ShwTextH3>
 
-  <HdsBreadcrumbTruncation />
+  <ol class="hds-breadcrumb__list">
+    <HdsBreadcrumbTruncation />
+  </ol>
 
   <ShwTextH4>States</ShwTextH4>
 
   <ShwFlex as |SF|>
     {{#each STATES as |state|}}
       <SF.Item @label={{state}}>
-        <HdsBreadcrumbTruncation
-          mock-state-value={{unless (eq state "default") state}}
-          mock-state-selector="button"
-        />
+        <ol class="hds-breadcrumb__list">
+          <HdsBreadcrumbTruncation
+            mock-state-value={{unless (eq state "default") state}}
+            mock-state-selector="button"
+          />
+        </ol>
       </SF.Item>
     {{/each}}
   </ShwFlex>
