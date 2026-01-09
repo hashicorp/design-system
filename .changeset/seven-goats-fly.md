@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/app-header -->
-`AppHeader` - Fixed issue with disabled styles for nested elements in AppHeader not applying to non-HDS components when AppSidenav is open in mobile view
+`AppHeader` - Fixed issue with disabled styles for nested elements in AppHeader not applying to non-HDS components when AppSideNav is open in mobile view
 <!-- END -->
