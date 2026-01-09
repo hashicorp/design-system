@@ -6,7 +6,7 @@ import SubSectionWidthManagement from '../../../../components/page-layouts/grid/
 
 const PageLayoutsAppFrameFramelessDemoFullAppFrameWithGridResponsive: TemplateOnlyComponent =
   <template>
-    {{pageTitle "AppFrame Component - Frameless"}}
+    {{pageTitle "AppFrame with Grid Responsive - Frameless"}}
     <MockApp>
       <:main as |M|>
         <M.PageHeader />
