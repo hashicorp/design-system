@@ -12,7 +12,7 @@ While the Filter Bar underwent rigorous research and testing, this component is 
 ### When to use
 
 - When displaying relevant filters and filters that have been applied to a data set.
-- For common filter methods like multi-selection, single selection, numbers, dates, and times.
+- For common filter methods like multi-selection, single-selection, numbers, dates, and times.
 - As a direct replacement for the HDS [Filter patterns](/patterns/filter-patterns) guidance.
 
 ### When not to use
@@ -85,7 +85,7 @@ Text within the Tag component will truncate at roughly 20 characters, about whic
 
 ### Custom applied filter text
 
-If necessary, the default formatting within the Tag can be overidden with custom text. This can be useful if the label of the parameter is an irregular plural, if the parameter reads more naturally with certain punctuation or grammar, or for product-specific reasons.
+If necessary, the default formatting within the Tag can be overridden with custom text. This can be useful if the label of the parameter is an irregular plural, if the parameter reads more naturally with certain punctuation or grammar, or for product-specific reasons.
 
 ## Clearing filters
 
