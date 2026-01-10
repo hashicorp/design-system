@@ -13,12 +13,12 @@ The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to
 
 ### Basic usage
 
-
 !!! Info
 
 **Code consideration**
 
 There is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of an individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
+
 !!!
 
 The simplest way to implement a grid layout is by using the `Layout::Grid` component to wrap content directly. A grid layout of equal width “columns” is created by default.
@@ -261,17 +261,21 @@ To create column layouts that are more “fixed” vs. fluid, use `columnWidth` 
 
 ### Responsive columns
 
-Optionally, you can pass in an object to the `columnWidth` argument defining responsive column widths for each of five supported views.
+!!! Info
+
+We use a mobile-first layout approach, so widths defined for smaller views are inherited if not overridden by larger views. Therefore, it is not necessary to pass in values for all supported responsive views. However, if you do not pass in a value for the `sm` view, columns in this view and views inheriting from it will _never wrap_ as demonstrated in the [Basic usage example](/layouts/grid#basic-usage).
+
+!!!
+
+Optionally, you can pass in an object to the `columnWidth` argument defining responsive column widths for each of five supported views which are based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
 
 #### Supported responsive views
 
-* "sm" view = mobile first approach (mobile devices)
-* "md" view = 768px and above (tablets and small laptops)
-* "lg" view = 1088px and above (large laptops and desktops)
-* "xl" = 1440px and above (extra large desktops)
-* "xxl" = 1920px and above (extra extra large desktops)
-
-Note: We use a mobile-first layout approach, so widths defined for smaller views are inherited if not overridden by larger views. This means that it is not necessary to pass in values for all the supported responsive views. However, if you do not pass in a value for the "sm" view, columns in this view and views inheriting from it will be equal-sized and will never wrap as demonstrated in the [Basic usage example](/layouts/grid#basic-usage).
+* `sm` view = mobile first approach (mobile devices)
+* `md` view = 768px and above (tablets and small laptops)
+* `lg` view = 1088px and above (large laptops and desktops)
+* `xl` = 1440px and above (extra large desktops)
+* `xxl` = 1920px and above (extra extra large desktops)
 
 #### With all views defined
 
