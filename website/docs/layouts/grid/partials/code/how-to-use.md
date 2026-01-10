@@ -13,12 +13,12 @@ The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to
 
 ### Basic usage
 
-
 !!! Info
 
 **Code consideration**
 
 There is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of an individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
+
 !!!
 
 The simplest way to implement a grid layout is by using the `Layout::Grid` component to wrap content directly. A grid layout of equal width “columns” is created by default.
@@ -256,6 +256,48 @@ To create column layouts that are more “fixed” vs. fluid, use `columnWidth` 
 <Hds::Text::Display>With 1 item</Hds::Text::Display>
 <Hds::Layout::Grid @columnWidth="33.33%" @gap="16">
   <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+</Hds::Layout::Grid>
+```
+
+### Responsive columns
+
+!!! Info
+
+We use a mobile-first layout approach, so widths defined for smaller views are inherited if not overridden by larger views. Therefore, it is not necessary to pass in values for all supported responsive views. However, if you do not pass in a value for the `sm` view, columns in this view and views inheriting from it will _never wrap_ as demonstrated in the [Basic usage example](/layouts/grid#basic-usage).
+
+!!!
+
+Optionally, you can pass in an object to the `columnWidth` argument defining responsive column widths for each of five supported views which are based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
+
+#### Supported responsive views
+
+* `sm` view = mobile first approach (mobile devices)
+* `md` view = 768px and above (tablets and small laptops)
+* `lg` view = 1088px and above (large laptops and desktops)
+* `xl` = 1440px and above (extra large desktops)
+* `xxl` = 1920px and above (extra extra large desktops)
+
+#### With all views defined
+
+```handlebars
+<Hds::Layout::Grid @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}} @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
+  <Doc::Placeholder @height="40px" @text="Item 5" @background="#f3d9c5" />
+</Hds::Layout::Grid>
+```
+
+#### With only `sm` & `lg` views defined
+
+```handlebars
+<Hds::Layout::Grid @columnWidth={{hash sm="50%" lg="33.33%"}} @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
+  <Doc::Placeholder @height="40px" @text="Item 5" @background="#f3d9c5" />
 </Hds::Layout::Grid>
 ```
 
