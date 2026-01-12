@@ -423,6 +423,10 @@ A responsive layout is used so that the cards stack in the smallest view while b
 
 Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
 
+##### How this layout works
+
+We first establish an underlying grid structure of three columns by setting the `columnWidth` of the `Grid` parent to `33.33%`. The `@colspan` option of the `GridItem` children is then used to make some of them span two of the underlying grid columns creating a more complex layout.
+
 ```handlebars
 <Hds::Layout::Grid @columnWidth="33.33%" @gap="24" as |LG|>
   <LG.Item @colspan={{2}}>
