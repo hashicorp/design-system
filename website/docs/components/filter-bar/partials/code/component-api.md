@@ -220,7 +220,7 @@ Note: This component is an extension of the [Dropdown](/components/dropdown) com
 The `FilterBar::ActionsDropdown` is yielded as the `[F].ActionsDropdown` contextual component.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false" @values={{array "true" "false"}}>
+  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false">
     Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.
   </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
