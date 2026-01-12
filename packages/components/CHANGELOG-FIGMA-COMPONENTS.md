@@ -1,5 +1,9 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+## January 12th, 2026
+
+`SuperSelect` - Fixed a bug where the nested ListItems weren't being published.
+
 ## December 4th, 2025
 
 `Breadcrumb` - Fixed a bug that caused the text styles in the default state of the Breadcrumb Item to detach.
