@@ -325,6 +325,6 @@ For more details, see the [Multi-Select Table Pattern](https://helios.hashicorp.
 
 The Advanced Table supports displaying an empty state using the [Application State](/components/application-state) component to display an informative message and prompt user action. There are a number of reasons that will cause an empty state to occur; the data set is empty, applying filters did not return any results, there is an error fetching the data, etc.
 
-![An example of an empty state in the Advanced Table using the Filter Bar component.](/assets/components/table/advanced-table/filter-bar-empty-state.png)
+![An Advanced Table with filters applied and no results. The empty state explains that there are no results from the filters applied and has a button to clear the filters.](/assets/components/table/advanced-table/filter-bar-empty-state.png)
 
 Displaying the empty state in the Ember component is handled automatically when the data model contains no entries. In Figma we provide a [template](#jory-update-link-when-published) component that can be inserted in a design, while also including it in the [Advanced Table](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=72039-7258&t=TyzLB01NVzEN2lsz-1) template components.
