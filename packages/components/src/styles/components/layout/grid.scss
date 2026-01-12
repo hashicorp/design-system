@@ -193,6 +193,81 @@
 .hds-layout-grid-item {
   --hds-layout-grid-row-span: 1;
   --hds-layout-grid-column-span: 1;
+
   grid-row-start: span var(--hds-layout-grid-row-span);
   grid-column-start: span var(--hds-layout-grid-column-span);
+}
+
+// Responsive col-span & row-span
+// Note: We use a mobile-first layout approach, so the "sm" styles are defined outside of any breakpoint mixin and are
+// inherited if not overridden by larger view styles
+
+// col-span
+
+// "sm" view, mobile-first (mobile devices)
+.hds-layout-grid--col-span-view-sm {
+  --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-sm);
+}
+
+// "md" view, 768px and above (tablets and small laptops)
+.hds-layout-grid--col-span-view-md {
+  @include hds-breakpoint-above("md") {
+    --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-md);
+  }
+}
+
+// "lg" view, 1088px and above (large laptops and desktops)
+.hds-layout-grid--col-span-view-lg {
+  @include hds-breakpoint-above("lg") {
+    --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-lg);
+  }
+}
+
+// "xl" view, 1440px and above (extra large desktops)
+.hds-layout-grid--col-span-view-xl {
+  @include hds-breakpoint-above("xl") {
+    --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-xl);
+  }
+}
+
+// "xxl" view, 1920px and above (extra extra large desktops)
+.hds-layout-grid--col-span-view-xxl {
+  @include hds-breakpoint-above("xxl") {
+    --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-xxl);
+  }
+}
+
+// row-span
+
+// "sm" view, mobile-first (mobile devices)
+.hds-layout-grid--row-span-view-sm {
+  --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-sm);
+}
+
+// "md" view, 768px and above (tablets and small laptops)
+.hds-layout-grid--row-span-view-md {
+  @include hds-breakpoint-above("md") {
+    --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-md);
+  }
+}
+
+// "lg" view, 1088px and above (large laptops and desktops)
+.hds-layout-grid--row-span-view-lg {
+  @include hds-breakpoint-above("lg") {
+    --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-lg);
+  }
+}
+
+// "xl" view, 1440px and above (extra large desktops)
+.hds-layout-grid--row-span-view-xl {
+  @include hds-breakpoint-above("xl") {
+    --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-xl);
+  }
+}
+
+// "xxl" view, 1920px and above (extra extra large desktops)
+.hds-layout-grid--row-span-view-xxl {
+  @include hds-breakpoint-above("xxl") {
+    --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-xxl);
+  }
 }

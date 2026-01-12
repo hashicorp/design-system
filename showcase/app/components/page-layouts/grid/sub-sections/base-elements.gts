@@ -13,6 +13,9 @@ import {
   HdsLayoutGridItem,
 } from '@hashicorp/design-system-components/components';
 
+import { hash } from '@ember/helper';
+import style from 'ember-style-modifier';
+
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
 
@@ -178,6 +181,90 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
           </HLG.Item>
           <HLG.Item>
             <ShwPlaceholder @text="#6" @height="40" @background="#fee1ec" />
+          </HLG.Item>
+        </HdsLayoutGrid>
+      </ShwOutliner>
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH4>With responsive colspan & rowspan</ShwTextH4>
+
+  <ShwGrid @columns={{1}} @gap="1.5rem" as |SG|>
+    <SG.Item @label="Responsive colspan & rowspan">
+      <ShwOutliner>
+        <HdsLayoutGrid @columnWidth="20%" @gap="12" as |HLG|>
+          <HLG.Item
+            @colspan={{hash sm=1 md=2 lg=3 xl=4 xxl=5}}
+            @rowspan={{hash sm=5 md=4 lg=3 xl=2 xxl=1}}
+          >
+            <ShwPlaceholder
+              @text="#1"
+              @height="100%"
+              {{style minHeight="40px"}}
+              @background="#e4c5f3"
+            />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#2" @height="40" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#5" @height="40" @background="#f3d9c5" />
+          </HLG.Item>
+
+          <HLG.Item>
+            <ShwPlaceholder @text="#1" @height="40" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#2" @height="40" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#5" @height="40" @background="#f3d9c5" />
+          </HLG.Item>
+
+          <HLG.Item>
+            <ShwPlaceholder @text="#1" @height="40" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#2" @height="40" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#5" @height="40" @background="#f3d9c5" />
+          </HLG.Item>
+
+          <HLG.Item>
+            <ShwPlaceholder @text="#1" @height="40" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#2" @height="40" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+          <HLG.Item>
+            <ShwPlaceholder @text="#5" @height="40" @background="#f3d9c5" />
           </HLG.Item>
         </HdsLayoutGrid>
       </ShwOutliner>
