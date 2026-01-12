@@ -119,7 +119,7 @@ export function initialize(/* application */) {
         selfExecutingBlock += '  </div>';
         selfExecutingBlock +=
           '  <div class="doc-code-block__code-snippet-wrapper">';
-        selfExecutingBlock += `    <Doc::CopyButton @id='${blockUniqueId}' @type="solid" @textToCopy='${codeblockEncoded}' @encoded={{true}} aria-labelledby="copy-label-${blockUniqueId} pre-block-${blockUniqueId}"/>`;
+        selfExecutingBlock += `    <Doc::CopyButton @id='${blockUniqueId}' @type="solid" @color="primary" @textToCopy='${codeblockEncoded}' @encoded={{true}} aria-labelledby="copy-label-${blockUniqueId} pre-block-${blockUniqueId}"/>`;
         selfExecutingBlock += `    ${preBlock}`;
         selfExecutingBlock += '  </div>';
         selfExecutingBlock += '</div>';
