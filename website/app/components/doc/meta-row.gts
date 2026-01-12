@@ -26,10 +26,10 @@ const DocMetaRow: TemplateOnlyComponent<DocMetaRowSignature> = <template>
       {{! when we pass a single value, we have two different use cases to support }}
       {{#if @copyable}}
         <DocCopyButton
+          @type="code"
           {{! @glint-expect-error }}
           @textToCopy={{@valueToCopy}}
           @textToShow={{(or @valueToShow @valueToCopy)}}
-          @type="ghost"
         />
       {{/if}}
       {{#if @valueToShow}}
