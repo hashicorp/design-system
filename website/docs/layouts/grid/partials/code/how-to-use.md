@@ -369,12 +369,17 @@ Below are examples of common layout patterns that can be achieved using the `Lay
 
 ### Card layouts
 
-Note: The following example makes use of nested `Grid` and [Flex](/layouts/flex) components to achieve its layout. This may be overkill in actual practice but demonstrates the possibilities for achieving layouts with just these layout components alone.
+The following example makes use of nested `Grid` and [Flex](/layouts/flex) components to achieve its layout. This may be overkill in actual practice but demonstrates the possibilities for achieving layouts with just these layout components alone.
+
+A responsive layout is used so that the cards stack in the smallest view while being laid out into three columns in all other views.
 
 #### Basic 3-column layout
 
 ```handlebars
-<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="32">
+<Hds::Layout::Grid
+  @columnWidth={{hash sm="100%" md="33.33%"}}
+  @gap="32"
+>
   <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
     <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
       <Hds::Layout::Flex @align="center" @gap="8">
@@ -419,10 +424,10 @@ Note: The following example makes use of nested `Grid` and [Flex](/layouts/flex)
 Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
 
 ```handlebars
-<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="24" as |LG|>
+<Hds::Layout::Grid @columnWidth="33.33%" @gap="24" as |LG|>
   <LG.Item @colspan={{2}}>
     <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}} {{style background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)" }}>
-      <Hds::Layout::Grid @columnMinWidth="100%" @gap="16" as |LG|>
+      <Hds::Layout::Grid @columnWidth="100%" @gap="16" as |LG|>
         <LG.Item>
           <Hds::Badge @text="In Preview" @type="outlined" @color="highlight" />
         </LG.Item>
