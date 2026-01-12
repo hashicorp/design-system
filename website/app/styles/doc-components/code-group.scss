@@ -17,8 +17,9 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   --doc-code-group-border-primary: #4D5475;
   --doc-code-group-shadow-primary: #1C202B50;
   --doc-code-group-shadow-interactive-focus: #FFF;
+  --doc-code-group-border-radius: 3px;
 
-  border-radius: 4px;
+  border-radius: var(--doc-code-group-border-radius);
 
   > :first-child {
     border-top-left-radius: inherit;
@@ -49,7 +50,7 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   padding: 4px 12px;
   color: var(--doc-color-gray-200);
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: var(--doc-code-group-border-radius);
   cursor: pointer;
 
   &:hover {
@@ -67,7 +68,7 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   &:has(input:checked) {
     color: var(--doc-color-feedback-information-100);
     background-color: var(--doc-color-feedback-information-400);
-    border-color:var(--doc-color-feedback-information-100);
+    border-color: var(--doc-color-feedback-information-100);
 
     &:hover {
       background-color: var(--doc-color-feedback-information-300);
@@ -97,7 +98,7 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   color: var(--doc-color-gray-200);
   background-color: transparent;
   border: none;
-  border-radius: 4px;
+  border-radius: var(--doc-code-group-border-radius);
   cursor: pointer;
 
   &:hover {
@@ -199,7 +200,7 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   color: var(--doc-code-group-foreground-primary);
   background-color: var(--doc-code-group-surface-primary);
   border: 1px solid var(--doc-code-group-border-primary);
-  border-radius: 4px;
+  border-radius: var(--doc-code-group-border-radius);
   box-shadow: 0 2px 4px 2px var(--doc-code-group-shadow-primary);
   cursor: pointer;
 
