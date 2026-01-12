@@ -318,6 +318,9 @@ importers:
 
   packages/flight-icons:
     devDependencies:
+      '@carbon/icons':
+        specifier: ^11.71.0
+        version: 11.72.0
       '@figma-export/cli':
         specifier: ^6.0.2
         version: 6.2.2
@@ -1950,6 +1953,9 @@ packages:
 
   '@carbon/grid@11.45.0':
     resolution: {integrity: sha512-J8hh5li0Q0RRS6IGg+MVPQVfjp1ePxzQsyMyjQOHLux8i8HwiWJmKLQ+4lKMzRXorLG2RtEoPVl00EaKlQEgKQ==}
+
+  '@carbon/icons@11.72.0':
+    resolution: {integrity: sha512-fzBsegHdMlTd2Qf/ZIOB6DPTvZePv/vUSQvOapPbpKd/qGcSAU50xeZLK6um0fEXbRFnSqMUXubJtlBAjnlNSg==}
 
   '@carbon/layout@11.43.0':
     resolution: {integrity: sha512-aOUNqVv/5TGhNTn1HV+620ZlqhE7+Chs0TJoxwe/CCsLOdziCX9st3c5inyINPZDyvDK46mas1RmqvZwNYe/mA==}
@@ -13055,6 +13061,10 @@ snapshots:
   '@carbon/grid@11.45.0':
     dependencies:
       '@carbon/layout': 11.43.0
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/icons@11.72.0':
+    dependencies:
       '@ibm/telemetry-js': 1.10.1
 
   '@carbon/layout@11.43.0':
