@@ -71,8 +71,9 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     }
   }
 
-  // NOTE: the dynamic template component can only render "classic" components, so if there is no hbs snippet, we hide the preview.
+  // NOTE: the dynamic template requires a component to render a preview. If there is not a component (ex. only a sass/yaml/bash snippet), we hide the preview by default.
   get hidePreview() {
+    // TODO: refactor dynamic template to support gts components: https://hashicorp.atlassian.net/browse/HDS-5833
     return this.args.hbsSnippet === '' || this.args.hidePreview === 'true';
   }
 

@@ -171,13 +171,8 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   }
 }
 
-.doc-code-group__code-snippet-wrapper {
-  position: relative;
-}
-
 .doc-code-group__code-snippet-footer {
   position: absolute;
-  right: 12px;
   bottom: 16px;
   z-index: 1; // fix issue where footer was behind the code block
   display: flex;
@@ -222,6 +217,7 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
 }
 
 .doc-code-group__code-snippet-wrapper {
+  position: relative;
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 
