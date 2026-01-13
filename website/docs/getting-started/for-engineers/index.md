@@ -268,18 +268,11 @@ When your application uses the `fr-fr` locale, components will display "Erreur" 
 
 ## Ember engines
 
-If your application uses Ember engines, you have to add a small extra configuration in your `app.js` file:
-
-```js
-import { HdsInteractive } from '@hashicorp/design-system-components/components';
-import LinkToExternal from 'ember-engines/components/link-to-external';
-
-HdsInteractive.linkToExternal = LinkToExternal;
-```
+If your application uses Ember engines, you have to add a small extra configuration to your `app.js` file:
 
 ```js
 import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
-setLinkToExternal(LinkToExternalComponent);`
+setLinkToExternal(LinkToExternalComponent);
 ```
 
 This allows the [`Hds::Interactive`](/utilities/interactive) utility component, used in multiple HDS components, to access the `<LinkToExternal>` component to generate cross-engines links. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
