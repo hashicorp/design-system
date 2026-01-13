@@ -9,6 +9,18 @@
 
 @use "../../mixins/breakpoints" as *;
 
+$hds-layout-grid-views: (sm, md, lg, xl, xxl);
+$hds-layout-grid-gap-sizes: (
+  0: 0px,
+  4: 4px,
+  8: 8px,
+  12: 12px,
+  16: 16px,
+  24: 24px,
+  32: 32px,
+  48: 48px,
+);
+
 .hds-layout-grid {
   // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a default value within calc()
   // https://drafts.csswg.org/css-values/#calc-type-checking
@@ -52,55 +64,37 @@
 }
 
 // ColumnWidth
+
 // Non-responsive column width
 .hds-layout-grid--column-width-non-responsive {
   --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
 }
 
-// Responsive column widths (sm, md, lg, xl, xxl)
+// Responsive column widths:
+// * "sm" view, mobile-first (mobile devices)
+// * "md" view, 768px and above (tablets and small laptops)
+// * "lg" view, 1088px and above (large laptops and desktops)
+// * "xl" view, 1440px and above (extra large desktops)
+// * "xxl" view, 1920px and above (extra extra large desktops
 
 // Note: We use a mobile-first layout approach, so the "sm" styles are defined outside of any breakpoint mixin and are
 // inherited if not overridden by larger view styles
 
-// "sm" view, mobile-first (mobile devices)
-.hds-layout-grid--column-width-sm {
-  --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-  --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-sm);
-}
-
-// "md" view, 768px and above (tablets and small laptops)
-.hds-layout-grid--column-width-md {
-  @include hds-breakpoint-above("md") {
-    --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-    --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-md);
+@each $view in $hds-layout-grid-views {
+  .hds-layout-grid--column-width-#{$view} {
+    @if $view == sm {
+      --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+      --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-#{$view});
+    } @else {
+      @include hds-breakpoint-above($view) {
+        --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+        --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-#{$view});
+      }
+    }
   }
 }
 
-// "lg" view, 1088px and above (large laptops and desktops)
-.hds-layout-grid--column-width-lg {
-  @include hds-breakpoint-above("lg") {
-    --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-    --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-lg);
-  }
-}
-
-// "xl" view, 1440px and above (extra large desktops)
-.hds-layout-grid--column-width-xl {
-  @include hds-breakpoint-above("xl") {
-    --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-    --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-xl);
-  }
-}
-
-// "xxl" view, 1920px and above (extra extra large desktops)
-.hds-layout-grid--column-width-xxl {
-  @include hds-breakpoint-above("xxl") {
-    --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
-    --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-xxl);
-  }
-}
-
-// align
+// Align
 
 .hds-layout-grid--align-items-start {
   align-items: start;
@@ -122,75 +116,22 @@
 
 // We set the values of the gap custom properties overriding the default value of 0
 
-// row gap
-.hds-layout-grid--row-gap-0 {
-  --hds-layout-grid-row-gap: 0px;
-}
+@each $key, $size in $hds-layout-grid-gap-sizes {
+  // row gap
+  .hds-layout-grid--row-gap-#{$key} {
+    --hds-layout-grid-row-gap: #{$size};
+  }
 
-.hds-layout-grid--row-gap-4 {
-  --hds-layout-grid-row-gap: 4px;
-}
-
-.hds-layout-grid--row-gap-8 {
-  --hds-layout-grid-row-gap: 8px;
-}
-
-.hds-layout-grid--row-gap-12 {
-  --hds-layout-grid-row-gap: 12px;
-}
-
-.hds-layout-grid--row-gap-16 {
-  --hds-layout-grid-row-gap: 16px;
-}
-
-.hds-layout-grid--row-gap-24 {
-  --hds-layout-grid-row-gap: 24px;
-}
-
-.hds-layout-grid--row-gap-32 {
-  --hds-layout-grid-row-gap: 32px;
-}
-
-.hds-layout-grid--row-gap-48 {
-  --hds-layout-grid-row-gap: 48px;
-}
-
-// column gap
-.hds-layout-grid--column-gap-0 {
-  --hds-layout-grid-column-gap: 0px;
-}
-
-.hds-layout-grid--column-gap-4 {
-  --hds-layout-grid-column-gap: 4px;
-}
-
-.hds-layout-grid--column-gap-8 {
-  --hds-layout-grid-column-gap: 8px;
-}
-
-.hds-layout-grid--column-gap-12 {
-  --hds-layout-grid-column-gap: 12px;
-}
-
-.hds-layout-grid--column-gap-16 {
-  --hds-layout-grid-column-gap: 16px;
-}
-
-.hds-layout-grid--column-gap-24 {
-  --hds-layout-grid-column-gap: 24px;
-}
-
-.hds-layout-grid--column-gap-32 {
-  --hds-layout-grid-column-gap: 32px;
-}
-
-.hds-layout-grid--column-gap-48 {
-  --hds-layout-grid-column-gap: 48px;
+  // column gap
+  .hds-layout-grid--column-gap-#{$key} {
+    --hds-layout-grid-column-gap: #{$size};
+  }
 }
 
 // LAYOUT > GRID > ITEM
 
 .hds-layout-grid-item {
+  // We initialize the variables here to prevent inheritance issues in nested grids
   --hds-layout-grid-row-span: 1;
   --hds-layout-grid-column-span: 1;
 
@@ -202,72 +143,26 @@
 // Note: We use a mobile-first layout approach, so the "sm" styles are defined outside of any breakpoint mixin and are
 // inherited if not overridden by larger view styles
 
-// col-span
-
-// "sm" view, mobile-first (mobile devices)
-.hds-layout-grid--col-span-view-sm {
-  --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-sm);
-}
-
-// "md" view, 768px and above (tablets and small laptops)
-.hds-layout-grid--col-span-view-md {
-  @include hds-breakpoint-above("md") {
-    --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-md);
+@each $view in $hds-layout-grid-views {
+  // col-span
+  .hds-layout-grid--col-span-view-#{$view} {
+    @if $view == sm {
+      --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-#{$view});
+    } @else {
+      @include hds-breakpoint-above($view) {
+        --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-#{$view});
+      }
+    }
   }
-}
 
-// "lg" view, 1088px and above (large laptops and desktops)
-.hds-layout-grid--col-span-view-lg {
-  @include hds-breakpoint-above("lg") {
-    --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-lg);
-  }
-}
-
-// "xl" view, 1440px and above (extra large desktops)
-.hds-layout-grid--col-span-view-xl {
-  @include hds-breakpoint-above("xl") {
-    --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-xl);
-  }
-}
-
-// "xxl" view, 1920px and above (extra extra large desktops)
-.hds-layout-grid--col-span-view-xxl {
-  @include hds-breakpoint-above("xxl") {
-    --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-xxl);
-  }
-}
-
-// row-span
-
-// "sm" view, mobile-first (mobile devices)
-.hds-layout-grid--row-span-view-sm {
-  --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-sm);
-}
-
-// "md" view, 768px and above (tablets and small laptops)
-.hds-layout-grid--row-span-view-md {
-  @include hds-breakpoint-above("md") {
-    --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-md);
-  }
-}
-
-// "lg" view, 1088px and above (large laptops and desktops)
-.hds-layout-grid--row-span-view-lg {
-  @include hds-breakpoint-above("lg") {
-    --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-lg);
-  }
-}
-
-// "xl" view, 1440px and above (extra large desktops)
-.hds-layout-grid--row-span-view-xl {
-  @include hds-breakpoint-above("xl") {
-    --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-xl);
-  }
-}
-
-// "xxl" view, 1920px and above (extra extra large desktops)
-.hds-layout-grid--row-span-view-xxl {
-  @include hds-breakpoint-above("xxl") {
-    --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-xxl);
+  // row-span
+  .hds-layout-grid--row-span-view-#{$view} {
+    @if $view == sm {
+      --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-#{$view});
+    } @else {
+      @include hds-breakpoint-above($view) {
+        --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-#{$view});
+      }
+    }
   }
 }
