@@ -2,7 +2,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import { HdsAccordion } from '@hashicorp/design-system-components/components';
 
-const AccordionType: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <HdsAccordion @type="flush" as |A|>
     <A.Item>
       <:toggle>Item one</:toggle>
@@ -19,4 +19,4 @@ const AccordionType: TemplateOnlyComponent = <template>
   </HdsAccordion>
 </template>;
 
-export default AccordionType;
+export default LocalComponent;

@@ -2,7 +2,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import { HdsAccordion } from '@hashicorp/design-system-components/components';
 
-const AccordionSize: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <HdsAccordion @size="large" as |A|>
     <A.Item>
       <:toggle>Item one</:toggle>
@@ -19,4 +19,4 @@ const AccordionSize: TemplateOnlyComponent = <template>
   </HdsAccordion>
 </template>;
 
-export default AccordionSize;
+export default LocalComponent;

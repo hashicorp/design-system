@@ -2,7 +2,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import { HdsButton } from '@hashicorp/design-system-components/components';
 
-const ButtonWithHref: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <HdsButton
     @text="Visit website"
     @icon="external-link"
@@ -11,4 +11,4 @@ const ButtonWithHref: TemplateOnlyComponent = <template>
   />
 </template>;
 
-export default ButtonWithHref;
+export default LocalComponent;

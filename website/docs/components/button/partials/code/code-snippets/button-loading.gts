@@ -5,7 +5,7 @@ import style from 'ember-style-modifier';
 
 import { HdsButton } from '@hashicorp/design-system-components/components';
 
-export default class ButtonLoading extends Component {
+export default class LocalComponent extends Component {
   @tracked isLoading = false;
   @tracked timer: ReturnType<typeof setTimeout> | undefined;
 

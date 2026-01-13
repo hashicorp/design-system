@@ -3,7 +3,7 @@ import { on } from '@ember/modifier';
 
 import { HdsButton } from '@hashicorp/design-system-components/components';
 
-export default class ButtonAction extends Component {
+export default class LocalComponent extends Component {
   alertOnClick = () => {
     alert('Hello from Helios!');
   };

@@ -5,7 +5,7 @@ import { service } from '@ember/service';
 
 const STORAGE_KEY = 'website:accordion:item-2-state';
 
-export default class AccordionPersistState extends Component {
+export default class LocalComponent extends Component {
   @tracked itemState;
   @service fastboot;
 

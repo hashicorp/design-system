@@ -7,7 +7,7 @@ import {
   HdsLinkStandalone,
 } from '@hashicorp/design-system-components/components';
 
-const AccordionContainsInteractiveComplex: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <HdsAccordion as |A|>
     <A.Item @containsInteractive={{true}}>
       <:toggle>
@@ -43,4 +43,4 @@ const AccordionContainsInteractiveComplex: TemplateOnlyComponent = <template>
   </HdsAccordion>
 </template>;
 
-export default AccordionContainsInteractiveComplex;
+export default LocalComponent;

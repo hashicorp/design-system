@@ -5,7 +5,7 @@ import {
   HdsLayoutFlex,
 } from '@hashicorp/design-system-components/components';
 
-const ButtonColor: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <HdsLayoutFlex @gap="24">
     <HdsButton @text="Secondary" @color="secondary" />
     <HdsButton @text="Tertiary" @color="tertiary" @icon="bulb" />
@@ -13,4 +13,4 @@ const ButtonColor: TemplateOnlyComponent = <template>
   </HdsLayoutFlex>
 </template>;
 
-export default ButtonColor;
+export default LocalComponent;

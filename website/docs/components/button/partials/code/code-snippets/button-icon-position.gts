@@ -2,8 +2,8 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import { HdsButton } from '@hashicorp/design-system-components/components';
 
-const ButtonIconPosition: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <HdsButton @text="Next step" @icon="arrow-right" @iconPosition="trailing" />
 </template>;
 
-export default ButtonIconPosition;
+export default LocalComponent;
