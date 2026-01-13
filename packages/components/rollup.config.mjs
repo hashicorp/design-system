@@ -6,24 +6,25 @@
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy';
-import scss from 'rollup-plugin-scss';
 import process from 'process';
 import path from 'node:path';
+
+import { buildStylesPlugin } from './scripts/rollup-plugin-build-styles.mjs';
 
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
 });
 
+const STYLE_ENTRIES = [
+  '@hashicorp/design-system-components.scss',
+  '@hashicorp/design-system-power-select-overrides.scss',
+];
+
 const plugins = [
   // These are the modules that users should be able to import from your
   // addon. Anything not listed here may get optimized away.
-  addon.publicEntrypoints([
-    '**/*.{js,ts}',
-    'index.js',
-    'template-registry.js',
-    'styles/@hashicorp/design-system-components.scss',
-  ]),
+  addon.publicEntrypoints(['**/*.{js,ts}', 'index.js', 'template-registry.js']),
 
   // These are the modules that should get reexported into the traditional
   // "app" tree. Things in here should also be in publicEntrypoints above, but
@@ -49,17 +50,6 @@ const plugins = [
   // `dependencies` and `peerDependencies` as well as standard Ember-provided
   // package names.
   addon.dependencies(),
-
-  scss({
-    fileName: 'styles/@hashicorp/design-system-components.css',
-    includePaths: [
-      'node_modules/@hashicorp/design-system-tokens/dist/products/css',
-    ],
-  }),
-
-  scss({
-    fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
-  }),
 
   // Ensure that standalone .hbs files are properly integrated as Javascript.
   addon.hbs(),
@@ -92,6 +82,18 @@ const plugins = [
       { src: 'LICENSE.md', dest: 'dist' },
     ],
   }),
+
+  // Compile SCSS entrypoints -> CSS alongside the copied SCSS in dist/styles/**
+  buildStylesPlugin({
+    srcRoot: 'src/styles',
+    distRoot: 'dist/styles',
+    entries: STYLE_ENTRIES,
+    includePathsByEntry: {
+      '@hashicorp/design-system-components.scss': [
+        'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+      ],
+    },
+  }),
 ];
 
 if (!process.env.development) {
@@ -103,6 +105,6 @@ export default {
   // This provides defaults that work well alongside `publicEntrypoints` below.
   // You can augment this if you need to.
   output: addon.output(),
-  plugins: plugins,
+  plugins,
   external: ['ember-modifier', 'prismjs'],
 };
