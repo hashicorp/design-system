@@ -5,6 +5,8 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+
+import HdsText from './index.gts';
 import { HdsTextSizeValues, HdsTextWeightValues } from './types.ts';
 import type {
   HdsTextAligns,
@@ -115,4 +117,16 @@ export default class HdsTextDisplay extends Component<HdsTextDisplaySignature> {
 
     return weight;
   }
+
+  <template>
+    <HdsText
+      @group="display"
+      @size={{this.size}}
+      @weight={{this.weight}}
+      @align={{@align}}
+      @color={{@color}}
+      @tag={{@tag}}
+      ...attributes
+    >{{yield}}</HdsText>
+  </template>
 }
