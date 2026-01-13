@@ -71,7 +71,7 @@ export { default as HdsBadge } from './components/hds/badge/index.ts';
 export * from './components/hds/badge/types.ts';
 
 // BadgeCount
-export { default as HdsBadgeCount } from './components/hds/badge-count/index.ts';
+export { default as HdsBadgeCount } from './components/hds/badge-count/index.gts';
 export * from './components/hds/badge-count/types.ts';
 
 // Breadcrumb
