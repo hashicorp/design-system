@@ -7,7 +7,7 @@ import {
   HdsFormTextInputField,
 } from '@hashicorp/design-system-components/components';
 
-const AccordionContainsInteractive: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <HdsAccordion as |A|>
     <A.Item @containsInteractive={{true}} @isOpen={{true}}>
       <:toggle>
@@ -33,4 +33,4 @@ const AccordionContainsInteractive: TemplateOnlyComponent = <template>
   </HdsAccordion>
 </template>;
 
-export default AccordionContainsInteractive;
+export default LocalComponent;

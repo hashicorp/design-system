@@ -10,7 +10,7 @@ import {
 } from '@hashicorp/design-system-components/components';
 import type { HdsAccordionSignature } from '@hashicorp/design-system-components/components/hds/accordion/index';
 
-export default class AccordionExpandAll extends Component {
+export default class LocalComponent extends Component {
   @tracked accordionState: HdsAccordionSignature['Args']['forceState'] =
     'close';
 

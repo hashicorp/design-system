@@ -5,7 +5,7 @@ import {
   HdsLayoutFlex,
 } from '@hashicorp/design-system-components/components';
 
-const ButtonSize: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <HdsLayoutFlex @gap="24" as |LF|>
     <LF.Item>
       <HdsButton @text="Small button" @size="small" />
@@ -16,4 +16,4 @@ const ButtonSize: TemplateOnlyComponent = <template>
   </HdsLayoutFlex>
 </template>;
 
-export default ButtonSize;
+export default LocalComponent;

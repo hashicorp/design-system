@@ -6,7 +6,7 @@ import {
   HdsTable,
 } from '@hashicorp/design-system-components/components';
 
-const AccordionHtmlContent: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <HdsAccordion as |A|>
     <A.Item @isOpen={{true}}>
       <:toggle>
@@ -49,4 +49,4 @@ const AccordionHtmlContent: TemplateOnlyComponent = <template>
   </HdsAccordion>
 </template>;
 
-export default AccordionHtmlContent;
+export default LocalComponent;

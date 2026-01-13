@@ -5,7 +5,7 @@ import {
   HdsTextDisplay,
 } from '@hashicorp/design-system-components/components';
 
-const AccordionTitleTag: TemplateOnlyComponent = <template>
+const LocalComponent: TemplateOnlyComponent = <template>
   <div class="doc-accordion-demo-heading">
     <HdsTextDisplay @tag="h2" @size="300">Examination period</HdsTextDisplay>
   </div>
@@ -45,4 +45,4 @@ const AccordionTitleTag: TemplateOnlyComponent = <template>
   </HdsAccordion>
 </template>;
 
-export default AccordionTitleTag;
+export default LocalComponent;
