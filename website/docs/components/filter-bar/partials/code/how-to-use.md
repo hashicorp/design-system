@@ -100,7 +100,7 @@ View more details on [available filter types](#filter-types) below.
 
 A user can apply, update, or clear filters within the filter dropdown. The `@onFilter` callback is used to listen for changes to the filters.
 
-The callback provides a data object of applied filters which come from a user's filter selections. This object can be used to run any filtering operations on a data set, and then passed back into the `@filters` argument of the Filter Bar to show the applied filters.
+The callback provides a data object of applied filters which come from a user's filter selections. This object can be used to run any filtering operations on a data set, and then be passed back into the `@filters` argument of the Filter Bar to show the applied filters.
 
 Based on the applied filters passed to the `@filters` argument, dismissible [Tags](/components/tab) will be shown for each applied filter. When a Tag is dismissed, the `@onFilter` callback will be triggered, and that filter will be removed from the object.
 
@@ -174,7 +174,7 @@ export default class DemoFilterBar extends Component {
 
 By default, the `@onFilter` callback is not triggered when a selection is made in the dropdown. Instead, the callback is triggered when the user confirms their selection with the "Apply filters" button, or clears them with the "Clear all filters" button.
 
-However, if the `@isLiveFilter` argument is set to `true`, the `@onFilter` callback will be triggered as soon as a user makes a selection in the dropdown. This can be used if you would like filtering of your data occur immediately after selection instead of requiring user confirmation.
+However, if the `@isLiveFilter` argument is set to `true`, the `@onFilter` callback will be triggered as soon as a user makes a selection in the dropdown. This can be used if you would like filtering of your data to occur immediately after selection instead of requiring user confirmation.
 
 ```handlebars
 <Hds::FilterBar
@@ -210,7 +210,7 @@ However, if the `@isLiveFilter` argument is set to `true`, the `@onFilter` callb
 
 ### Filter types
 
-The Filter Bar supports various different types of filter groups to support a variety of data types.
+The Filter Bar includes distinct filter groups to accommodate various data types.
 
 #### Single-select and Multi-select
 
