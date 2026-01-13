@@ -8,53 +8,18 @@ import { babel } from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy';
 import process from 'process';
 import path from 'node:path';
-import * as sass from 'sass';
+
+import { buildStylesPlugin } from './scripts/rollup-plugin-build-styles.mjs';
 
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
 });
 
-// Custom SCSS compilation plugin for Rollup
-function addScssCompilationPlugins(options) {
-  return options.map(({ inputFile, outputFile }) => ({
-    name: `rollup custom plugin to generate ${outputFile}`,
-    generateBundle() {
-      try {
-        const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
-        const outputFileFullPath = `styles/@hashicorp/${outputFile}`;
-
-        const result = sass.compile(inputFileFullPath, {
-          sourceMap: true,
-          loadPaths: [
-            'node_modules/@hashicorp/design-system-tokens/dist',
-            'node_modules/@ibm',
-          ],
-        });
-
-        // Emit the compiled CSS
-        this.emitFile({
-          type: 'asset',
-          fileName: outputFileFullPath,
-          source: result.css,
-        });
-
-        // Emit the source map
-        if (result.sourceMap) {
-          this.emitFile({
-            type: 'asset',
-            fileName: `${outputFileFullPath}.map`,
-            source: JSON.stringify(result.sourceMap),
-          });
-        }
-      } catch (error) {
-        this.error(
-          `Failed to compile SCSS file "${inputFile}": ${error.message}`
-        );
-      }
-    },
-  }));
-}
+const STYLE_ENTRIES = [
+  '@hashicorp/design-system-components.scss',
+  '@hashicorp/design-system-power-select-overrides.scss',
+];
 
 const plugins = [
   // These are the modules that users should be able to import from your
@@ -85,27 +50,6 @@ const plugins = [
   // `dependencies` and `peerDependencies` as well as standard Ember-provided
   // package names.
   addon.dependencies(),
-
-  // We use a custom plugin for the Sass/SCSS compilation
-  // so we can have multiple input and multiple outputs
-  ...addScssCompilationPlugins([
-    {
-      inputFile: 'design-system-components.scss',
-      outputFile: 'design-system-components.css',
-    },
-    {
-      inputFile: 'design-system-components-common.scss',
-      outputFile: 'design-system-components-common.css',
-    },
-    {
-      inputFile: 'design-system-power-select-overrides.scss',
-      outputFile: 'design-system-power-select-overrides.css',
-    },
-    {
-      inputFile: 'design-system-plex-fonts.scss',
-      outputFile: 'design-system-plex-fonts.css',
-    },
-  ]),
 
   // Ensure that standalone .hbs files are properly integrated as Javascript.
   addon.hbs(),
@@ -174,15 +118,16 @@ const plugins = [
     // verbose: true,
   }),
 
-  // After bundle is written, copy built CSS to Showcase app
-  copy({
-    hook: 'writeBundle',
-    targets: [
-      {
-        src: 'dist/styles/@hashicorp/*.css',
-        dest: '../../showcase/public/assets/styles/@hashicorp',
-      },
-    ],
+  // Compile SCSS entrypoints -> CSS alongside the copied SCSS in dist/styles/**
+  buildStylesPlugin({
+    srcRoot: 'src/styles',
+    distRoot: 'dist/styles',
+    entries: STYLE_ENTRIES,
+    includePathsByEntry: {
+      '@hashicorp/design-system-components.scss': [
+        'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+      ],
+    },
   }),
 ];
 
@@ -195,6 +140,6 @@ export default {
   // This provides defaults that work well alongside `publicEntrypoints` below.
   // You can augment this if you need to.
   output: addon.output(),
-  plugins: plugins,
+  plugins,
   external: ['ember-modifier', 'prismjs'],
 };
