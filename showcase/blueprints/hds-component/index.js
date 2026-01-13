@@ -66,13 +66,13 @@ const updateHDSComponentsCSS = (options) => {
 };
 
 const moveHDSComponentToPackage = (options) => {
-  fs.copy(
+  fs.copySync(
     `${options.project.root}/src/components/hds/${options.entity.name}`,
     `${options.project.root}/../packages/components/src/components/hds/${options.entity.name}`,
   );
-  fs.copy(
+  fs.copySync(
     `${options.project.root}/src/styles/components/${options.entity.name}.scss`,
     `${options.project.root}/../packages/components/src/styles/components/${options.entity.name}.scss`,
   );
-  fs.remove(`${options.project.root}/src`);
+  fs.removeSync(`${options.project.root}/src`);
 };
