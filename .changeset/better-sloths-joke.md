@@ -3,5 +3,5 @@
 ---
 
 <!-- START component -->
-`Breadcrumb` - Refactored `Breadcrumb::Item` to use `Interactive` internally.
+`Breadcrumb` - Added `@href` argument to `Breadcrumb::Item`.
 <!-- END -->
