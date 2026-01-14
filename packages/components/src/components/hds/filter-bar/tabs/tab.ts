@@ -6,7 +6,15 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
-import { modifier } from 'ember-modifier';
+import { modifier, type PositionalArgs } from 'ember-modifier';
+
+export interface HdsFilterBarTabsTabModifierSignature {
+  Args: {
+    insertCallbackFunction?: (element: HTMLButtonElement) => void;
+    destroyCallbackFunction?: (element: HTMLButtonElement) => void;
+  };
+  Element: HTMLButtonElement;
+}
 
 export interface HdsFilterBarTabsTabSignature {
   Args: {
@@ -30,18 +38,17 @@ export default class HdsFilterBarTabsTab extends Component<HdsFilterBarTabsTabSi
 
   private _setUpTab = modifier(
     (
-      element: HTMLElement,
-      [insertCallbackFunction, destroyCallbackFunction]
+      element: HTMLButtonElement,
+      positional: PositionalArgs<HdsFilterBarTabsTabModifierSignature>,
+      named: HdsFilterBarTabsTabModifierSignature['Args']
     ) => {
-      if (typeof insertCallbackFunction === 'function') {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-        insertCallbackFunction(element);
+      if (typeof named.insertCallbackFunction === 'function') {
+        named.insertCallbackFunction(element);
       }
 
       return () => {
-        if (typeof destroyCallbackFunction === 'function') {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-          destroyCallbackFunction(element);
+        if (typeof named.destroyCallbackFunction === 'function') {
+          named.destroyCallbackFunction(element);
         }
       };
     }

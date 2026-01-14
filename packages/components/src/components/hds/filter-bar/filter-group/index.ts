@@ -89,6 +89,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   }
 
   get formattedFilters(): HdsFilterBarFilter | undefined {
+    const { type, text } = this.args;
     if (
       this.internalFilters === undefined ||
       (Array.isArray(this.internalFilters) && this.internalFilters.length === 0)
@@ -96,8 +97,8 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
       return undefined;
     }
     return {
-      type: this.args.type,
-      text: this.args.text,
+      type: type,
+      text: text,
       data: this.internalFilters,
     } as HdsFilterBarFilter;
   }

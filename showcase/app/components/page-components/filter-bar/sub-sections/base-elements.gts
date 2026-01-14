@@ -305,7 +305,7 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextBody>Content</ShwTextBody>
 
   {{#each (array "Unselected" "Selected") as |selection|}}
-    <ShwGrid @columns={{2}} @label={{selection}} as |SG|>
+    <ShwGrid @columns={{3}} @label={{selection}} as |SG|>
       <SG.Item @label="Base (default)">
         <ul class="shw-component-filter-bar-sample-ul-wrapper" role="tablist">
           <HdsFilterBarTabsTab
@@ -325,6 +325,17 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
               "hds-filter-bar__tabs__tab--is-selected"
             }}
           >Tab 1</HdsFilterBarTabsTab>
+        </ul>
+      </SG.Item>
+      <SG.Item @label="With long text + filter count">
+        <ul class="shw-component-filter-bar-sample-ul-wrapper" role="tablist">
+          <HdsFilterBarTabsTab
+            @numFilters={{1}}
+            class={{if
+              (eq selection "Selected")
+              "hds-filter-bar__tabs__tab--is-selected"
+            }}
+          >This is a very long text that should go on multiple lines</HdsFilterBarTabsTab>
         </ul>
       </SG.Item>
     </ShwGrid>

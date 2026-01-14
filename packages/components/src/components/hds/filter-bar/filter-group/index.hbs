@@ -66,11 +66,11 @@
         {{on "click" this.onClear}}
       />
     {{else if (or (eq @type "single-select") (eq @type "multi-select"))}}
-      <Hds::FilterBar::FilterGroup::ClearButton
-        @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear-selection" default="Clear selection"}}
-        {{on "click" this.onClear}}
-      />
       <div class="hds-filter-bar__filter-group__values-list">
+        <Hds::FilterBar::FilterGroup::ClearButton
+          @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear-selection" default="Clear selection"}}
+          {{on "click" this.onClear}}
+        />
         <fieldset class="hds-filter-bar__filter-group__list">
           <legend class="sr-only">
             {{hds-t "hds.components.filter-bar.filter-group.values-list.legend" text=@text default="Filter by options"}}

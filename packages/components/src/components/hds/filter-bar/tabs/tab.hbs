@@ -15,7 +15,7 @@
     tabindex={{unless this.isSelected "-1"}}
     {{on "click" this.onClick}}
     {{on "keydown" this.onKeydown}}
-    {{this._setUpTab this.didInsertNode this.willDestroyNode}}
+    {{this._setUpTab insertCallbackFunction=this.didInsertNode destroyCallbackFunction=this.willDestroyNode}}
   >
     <Hds::Text::Body @size="200" @weight="medium" class="hds-filter-bar__tabs__tab__text">{{yield}}</Hds::Text::Body>
     {{#if (gt @numFilters 0)}}
@@ -27,7 +27,7 @@
         {{@numFilters}}
       </Hds::Text::Body>
     {{/if}}
-    <Hds::Icon @name="chevron-right" @color="primary" />
+    <Hds::Icon @name="chevron-right" @color="primary" class="hds-filter-bar__tabs__tab__icon" />
   </button>
 </li>
 {{! template-lint-enable require-presentational-children }}
