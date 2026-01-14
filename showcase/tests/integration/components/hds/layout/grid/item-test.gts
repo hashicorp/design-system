@@ -4,6 +4,7 @@
  */
 
 import { module, test } from 'qunit';
+import { hash } from '@ember/helper';
 import { render } from '@ember/test-helpers';
 
 import {
@@ -93,6 +94,29 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
       .hasStyle({ '--hds-layout-grid-column-span': '2' });
   });
 
+  test('it should set responsive colspan values if passed in', async function (assert) {
+    await render(
+      <template>
+        <HdsLayoutGridItem
+          id="test-layout-grid"
+          @colspan={{hash sm=1 md=2 lg=3 xl=4 xxl=5}}
+        />
+      </template>,
+    );
+    assert
+      .dom('#test-layout-grid')
+      .hasStyle({ '--hds-layout-grid-column-span-sm': '1' })
+      .hasStyle({ '--hds-layout-grid-column-span-md': '2' })
+      .hasStyle({ '--hds-layout-grid-column-span-lg': '3' })
+      .hasStyle({ '--hds-layout-grid-column-span-xl': '4' })
+      .hasStyle({ '--hds-layout-grid-column-span-xxl': '5' })
+      .hasClass('hds-layout-grid--col-span-view-sm')
+      .hasClass('hds-layout-grid--col-span-view-md')
+      .hasClass('hds-layout-grid--col-span-view-lg')
+      .hasClass('hds-layout-grid--col-span-view-xl')
+      .hasClass('hds-layout-grid--col-span-view-xxl');
+  });
+
   // ROW SPAN
 
   // Note: A fallback value of 1 is set in the CSS for the `--hds-layout-grid-row-span` custom property
@@ -114,5 +138,28 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
     assert
       .dom('#test-layout-grid')
       .hasStyle({ '--hds-layout-grid-row-span': '2' });
+  });
+
+  test('it should set responsive rowspan values if passed in', async function (assert) {
+    await render(
+      <template>
+        <HdsLayoutGridItem
+          id="test-layout-grid"
+          @rowspan={{hash sm=1 md=2 lg=3 xl=4 xxl=5}}
+        />
+      </template>,
+    );
+    assert
+      .dom('#test-layout-grid')
+      .hasStyle({ '--hds-layout-grid-row-span-sm': '1' })
+      .hasStyle({ '--hds-layout-grid-row-span-md': '2' })
+      .hasStyle({ '--hds-layout-grid-row-span-lg': '3' })
+      .hasStyle({ '--hds-layout-grid-row-span-xl': '4' })
+      .hasStyle({ '--hds-layout-grid-row-span-xxl': '5' })
+      .hasClass('hds-layout-grid--row-span-view-sm')
+      .hasClass('hds-layout-grid--row-span-view-md')
+      .hasClass('hds-layout-grid--row-span-view-lg')
+      .hasClass('hds-layout-grid--row-span-view-xl')
+      .hasClass('hds-layout-grid--row-span-view-xxl');
   });
 });

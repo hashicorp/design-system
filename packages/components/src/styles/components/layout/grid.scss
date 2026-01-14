@@ -7,17 +7,53 @@
 // LAYOUT > GRID
 //
 
+@use "../../mixins/breakpoints" as *;
+
+$hds-layout-grid-views: (sm, md, lg, xl, xxl);
+$hds-layout-grid-gap-sizes: (
+  0: 0px,
+  4: 4px,
+  8: 8px,
+  12: 12px,
+  16: 16px,
+  24: 24px,
+  32: 32px,
+  48: 48px,
+);
+
 .hds-layout-grid {
   // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a default value within calc()
   // https://drafts.csswg.org/css-values/#calc-type-checking
-  // We initialize the variable here to prevent inheritance issues in nested grids
+
+  // We initialize the variables here to prevent inheritance issues in nested grids
+
+  // Note: Setting a column min-width of "0" allows grid tracks to shrink down to be as small as possible
+  // (preventing column item content from stretching column width) which is key to making columns equal width by default
+  // https://stackoverflow.com/questions/47601564/equal-width-columns-in-css-grid/61240964#61240964
   --hds-layout-grid-column-min-width: 0px;
+
+  // Auto-fit vs Auto-fill:
+  // - auto-fit = fluid layout, stretches child items to fill available space in a row (collapses any empty column tracks)
+  // - auto-fill = fixed layout, preserves empty column tracks in a row (does not stretch child items to fill empty space)
+  --hds-layout-grid-column-fill-type: auto-fit; // (fluid layout by default)
 
   display: grid;
 
   // The column gap value is subtracted from the column-min-width to prevent overflow & simplify API for consumers
+  // Note: If a calc() expression inside minmax() yields a negative result, it is treated as 0px (the min in minmax acts as a floor)
+  // As negative values are not valid in the context of mixmax(), they are clamped to 0px.
+  // (the min value must be a non-negative size because CSS layout sizes cannot be negative)
+  // References:
+  // * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/calc#resulting_values
+  //  "The resulting value of calc() must be compatible in the context in which it is used."
+  // * https://www.w3tutorials.net/blog/how-do-i-debug-css-calc-value/#negative-values-for-non-negative-properties
+  //  "Some CSS properties (e.g., width, padding, border-width) do not accept negative values.
+  //  If calc() returns a negative result for these, the browser will clamp it to 0 or ignore the rule."
+  // * https://www.w3.org/TR/css-values-3/#calc-range
+  //  "Clamping is performed on computed values to the extent possible, and also on used values if computation was
+  //  unable to sufficiently simplify the expression to allow range-checking."
   grid-template-columns: repeat(
-    var(--hds-layout-grid-column-fill-type, auto-fit),
+    var(--hds-layout-grid-column-fill-type),
     minmax(calc(var(--hds-layout-grid-column-min-width) - var(--hds-layout-grid-column-gap)), 1fr)
   );
 
@@ -27,7 +63,38 @@
   gap: var(--hds-layout-grid-row-gap) var(--hds-layout-grid-column-gap);
 }
 
-// align
+// ColumnWidth
+
+// Non-responsive column width
+.hds-layout-grid--column-width-non-responsive {
+  --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+}
+
+// Responsive column widths:
+// * "sm" view, mobile-first (mobile devices)
+// * "md" view, 768px and above (tablets and small laptops)
+// * "lg" view, 1088px and above (large laptops and desktops)
+// * "xl" view, 1440px and above (extra large desktops)
+// * "xxl" view, 1920px and above (extra extra large desktops
+
+// Note: We use a mobile-first layout approach, so the "sm" styles are defined outside of any breakpoint mixin and are
+// inherited if not overridden by larger view styles
+
+@each $view in $hds-layout-grid-views {
+  .hds-layout-grid--column-width-#{$view} {
+    @if $view == sm {
+      --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+      --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-#{$view});
+    } @else {
+      @include hds-breakpoint-above($view) {
+        --hds-layout-grid-column-fill-type: auto-fill; // (fixed layout)
+        --hds-layout-grid-column-min-width: var(--hds-layout-grid-column-width-#{$view});
+      }
+    }
+  }
+}
+
+// Align
 
 .hds-layout-grid--align-items-start {
   align-items: start;
@@ -45,81 +112,57 @@
   align-items: stretch;
 }
 
-// gap
+// Gap
 
 // We set the values of the gap custom properties overriding the default value of 0
 
-// row
-.hds-layout-grid--row-gap-0 {
-  --hds-layout-grid-row-gap: 0px;
-}
+@each $key, $size in $hds-layout-grid-gap-sizes {
+  // row gap
+  .hds-layout-grid--row-gap-#{$key} {
+    --hds-layout-grid-row-gap: #{$size};
+  }
 
-.hds-layout-grid--row-gap-4 {
-  --hds-layout-grid-row-gap: 4px;
-}
-
-.hds-layout-grid--row-gap-8 {
-  --hds-layout-grid-row-gap: 8px;
-}
-
-.hds-layout-grid--row-gap-12 {
-  --hds-layout-grid-row-gap: 12px;
-}
-
-.hds-layout-grid--row-gap-16 {
-  --hds-layout-grid-row-gap: 16px;
-}
-
-.hds-layout-grid--row-gap-24 {
-  --hds-layout-grid-row-gap: 24px;
-}
-
-.hds-layout-grid--row-gap-32 {
-  --hds-layout-grid-row-gap: 32px;
-}
-
-.hds-layout-grid--row-gap-48 {
-  --hds-layout-grid-row-gap: 48px;
-}
-
-// column
-.hds-layout-grid--column-gap-0 {
-  --hds-layout-grid-column-gap: 0px;
-}
-
-.hds-layout-grid--column-gap-4 {
-  --hds-layout-grid-column-gap: 4px;
-}
-
-.hds-layout-grid--column-gap-8 {
-  --hds-layout-grid-column-gap: 8px;
-}
-
-.hds-layout-grid--column-gap-12 {
-  --hds-layout-grid-column-gap: 12px;
-}
-
-.hds-layout-grid--column-gap-16 {
-  --hds-layout-grid-column-gap: 16px;
-}
-
-.hds-layout-grid--column-gap-24 {
-  --hds-layout-grid-column-gap: 24px;
-}
-
-.hds-layout-grid--column-gap-32 {
-  --hds-layout-grid-column-gap: 32px;
-}
-
-.hds-layout-grid--column-gap-48 {
-  --hds-layout-grid-column-gap: 48px;
+  // column gap
+  .hds-layout-grid--column-gap-#{$key} {
+    --hds-layout-grid-column-gap: #{$size};
+  }
 }
 
 // LAYOUT > GRID > ITEM
 
 .hds-layout-grid-item {
+  // We initialize the variables here to prevent inheritance issues in nested grids
   --hds-layout-grid-row-span: 1;
   --hds-layout-grid-column-span: 1;
+
   grid-row-start: span var(--hds-layout-grid-row-span);
   grid-column-start: span var(--hds-layout-grid-column-span);
+}
+
+// Responsive col-span & row-span
+// Note: We use a mobile-first layout approach, so the "sm" styles are defined outside of any breakpoint mixin and are
+// inherited if not overridden by larger view styles
+
+@each $view in $hds-layout-grid-views {
+  // col-span
+  .hds-layout-grid--col-span-view-#{$view} {
+    @if $view == sm {
+      --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-#{$view});
+    } @else {
+      @include hds-breakpoint-above($view) {
+        --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-#{$view});
+      }
+    }
+  }
+
+  // row-span
+  .hds-layout-grid--row-span-view-#{$view} {
+    @if $view == sm {
+      --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-#{$view});
+    } @else {
+      @include hds-breakpoint-above($view) {
+        --hds-layout-grid-row-span: var(--hds-layout-grid-row-span-#{$view});
+      }
+    }
+  }
 }
