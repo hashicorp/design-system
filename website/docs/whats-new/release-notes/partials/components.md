@@ -12,15 +12,23 @@
   </a>
 </p>
 
+## 5.3.0
+
+**Minor changes**
+
+Updated `ember-intl` to version `8.0.0` and changed the peer dependency requirement from `^7.3.0` to `^8.0.0 || ^7.3.0`"
+
+<small class="doc-whats-new-changelog-metadata">[#3460](https://github.com/hashicorp/design-system/pull/3460)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.2.0
 
 [5.2.0 documentation](https://hds-website-5-2-0.vercel.app/)
 
 **Minor changes**
 
-
 `Icon` - Converted component to `.gts` format
-
 
 <small class="doc-whats-new-changelog-metadata">[#3444](https://github.com/hashicorp/design-system/pull/3444)</small>
 
@@ -28,17 +36,11 @@
 
 Added Floating UI `boundary` option to `hds-anchored-position` modifier
 
-
 `PopoverPrimitive` - Added Floating UI `boundary` option
-
-
 
 `Dropdown` - Added Floating UI `boundary` option
 
-
-
 `RichTooltip` - Added Floating UI `boundary` option
-
 
 <small class="doc-whats-new-changelog-metadata">[#3406](https://github.com/hashicorp/design-system/pull/3406)</small>
 
@@ -46,37 +48,27 @@ Added Floating UI `boundary` option to `hds-anchored-position` modifier
 
 **Patch changes**
 
-
 `SuperSelect` - Removed styling incorrectly adding a checkbox next to the "Loading options..." message for search results
-
 
 <small class="doc-whats-new-changelog-metadata">[#3439](https://github.com/hashicorp/design-system/pull/3439)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Added a guard against accessing `hdsIntl` service after component destruction
-
 
 <small class="doc-whats-new-changelog-metadata">[#3195](https://github.com/hashicorp/design-system/pull/3195)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CodeBlock` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
 
-
-
 `CodeEditor` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
-
 
 <small class="doc-whats-new-changelog-metadata">[#3455](https://github.com/hashicorp/design-system/pull/3455)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Flyout` - Updated variable controlling the `Flyout` max-width to align with the `AppSideNav` minimized width
-
 
 <small class="doc-whats-new-changelog-metadata">[#3456](https://github.com/hashicorp/design-system/pull/3456)</small>
 
@@ -1373,107 +1365,6 @@ Shifted our supported version of Node.js from `16* || >= 18` to `>=18`
 
 - @hashicorp/design-system-tokens@2.3.0
 - @hashicorp/flight-icons@3.9.0
-
-## 4.15.0
-
-[4.15.0 documentation](https://hds-website-4-15-0.vercel.app/)
-
-**Minor changes**
-
-`Time` - Added Time component, Time service, and related libraries (`luxon` 2.x or 3.x and `ember-concurrency`)
-
-<small class="doc-whats-new-changelog-metadata">[#2515](https://github.com/hashicorp/design-system/pull/2515)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Table` - Exposed the index of the `@each` loop over the `@model` as `rowIndex`
-
-<small class="doc-whats-new-changelog-metadata">[#2554](https://github.com/hashicorp/design-system/pull/2554)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Dropdown` - Fixed an issue with the `ToggleIcon` to make the focus ring visible on mouse click
-
-<small class="doc-whats-new-changelog-metadata">[#2574](https://github.com/hashicorp/design-system/pull/2574)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`PageHeader` - Fixed issue with extra space below title when no metadata is present
-
-<small class="doc-whats-new-changelog-metadata">[#2581](https://github.com/hashicorp/design-system/pull/2581)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Alert` - Removed default color applied to the `hds-alert__text` container (text color is applied via `@color` argument)
-
-<small class="doc-whats-new-changelog-metadata">[#2598](https://github.com/hashicorp/design-system/pull/2598)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown` - Fixed `ResizeObserver`-related errors in tests
-`RichTooltip` - Fixed `ResizeObserver`-related errors in tests
-
-Upgraded `@floating-ui/dom` to `1.6.12`
-
-<small class="doc-whats-new-changelog-metadata">[#2550](https://github.com/hashicorp/design-system/pull/2550)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Fixed deprecated Sass syntax (`map-get` replaced with `map.get` and `@import` with `@use`)
-
-<small class="doc-whats-new-changelog-metadata">[#2594](https://github.com/hashicorp/design-system/pull/2594)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`IconTile` - Updated visual design of `IconTile` to make it distinguishable from secondary `IconButton`.
-
-<small class="doc-whats-new-changelog-metadata">[#2555](https://github.com/hashicorp/design-system/pull/2555)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Aligned private properties of the HDS modifiers to follow a standardized notation
-
-- `hds-anchored-position`
-- `hds-register-event`
-- `hds-tooltip`
-
-<small class="doc-whats-new-changelog-metadata">[#2583](https://github.com/hashicorp/design-system/pull/2583)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Aligned private class properties to follow a standardized notation
-
-- `Accordion`
-- `Alert`
-- `AppHeader`
-- `AppSideNav`
-- `CodeBlock`
-- `Copy::Button`
-- `Copy::Snippet`
-- `DisclosurePrimitive`
-- `Dropdown`
-- `Flyout`
-- `Form::SuperSelect`
-- `Form::TextInput`
-- `Icon`
-- `Modal`
-- `Pagination::Compact`
-- `Pagination::Numbered`
-- `PopoverPrimitive`
-- `Reveal`
-- `Table`
-- `Tabs`
-
-<small class="doc-whats-new-changelog-metadata">[#2562](https://github.com/hashicorp/design-system/pull/2562)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/design-system-tokens@2.2.2
-- @hashicorp/flight-icons@3.8.0
 
 
 ---
