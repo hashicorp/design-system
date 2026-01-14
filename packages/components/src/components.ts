@@ -384,7 +384,7 @@ export * from './components/hds/dialog-primitive/types.ts';
 export { default as HdsDisclosurePrimitive } from './components/hds/disclosure-primitive/index.ts';
 
 // DismissButton
-export { default as HdsDismissButton } from './components/hds/dismiss-button/index.ts';
+export { default as HdsDismissButton } from './components/hds/dismiss-button/index.gts';
 
 // Interactive
 export { default as HdsInteractive } from './components/hds/interactive/index.ts';
