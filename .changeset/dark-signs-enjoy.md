@@ -3,7 +3,7 @@
 ---
 
 <!-- START components/filter-bar -->
-`FilterBar` - Added new Filter Bar component
+`FilterBar` - Added `FilterBar` component and related sub-components
 <!-- END -->
 
 <!-- START components/table/advanced-table -->
