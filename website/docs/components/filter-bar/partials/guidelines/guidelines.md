@@ -1,33 +1,30 @@
-The Filter Bar is used to apply and display filters to a data set. It is most often used in conjunction with the [Advanced Table](/components/table/advanced-table?tab=code#filtering), but is flexible enough to support different data sets and rendering methods such as in a list or grid of cards.
-
-The Filter Bar comes paired with a complex dropdown menu that displays available filter parameters (a parameter is often the equivalent of a column in a table), values within each parameter, support for numerical/date/time values, ranges of values, and actions to apply and clear filters from the data set.
+The Filter Bar is used to apply and display filters to a data set. It is most often used with the [Advanced Table](/components/table/advanced-table?tab=code#filtering), but is flexible enough to support lists or a grid of cards.
 
 !!! Callout
 
-While the Filter Bar underwent rigorous research and testing, this component is relatively complex. If specific functionality or the filtering methods don't meet your needs, please [contact the Design Systems Team](/about/support) so we can provide support.
+The Filter Bar is a successor to the [Filter pattern](/patterns/filter-patterns) and supports the vast majority of filtering experiences within HashiCorp applications out of the box. New experiences should use the Filter Bar directly, while already delivered features should consider migrating to the component.
+
+If specific functionality or filtering methods don't meet your needs, please [contact the Design Systems Team](/about/support) so we can help.
 !!!
 
 ## Usage
 
 ### When to use
 
-- When displaying relevant filters and filters that have been applied to a data set.
-- For common filter methods like multi-selection, single-selection, numbers, dates, and times.
-- As a direct replacement for the HDS [Filter patterns](/patterns/filter-patterns) guidance.
+- When displaying filters for a data set.
+- As a replacement for the HDS [Filter pattern](/patterns/filter-patterns).
 
 ### When not to use
 
 - For complex query builder features.
 
-## Overlap with the Filter patterns guidance <!--Consider a different headline -->
-
-The Filter Bar component is a successor to the [Filter patterns](/patterns/filter-patterns) guidance and supports the vast majority of filtering experiences within HashiCorp applications out of the box. New experiences should use the Filter Bar by default instead of the adhering to the pattern guidance, while already delivered features should consider migrating to the Filter Bar component.
-
 ## Type
 
-!!! Callout
+!!! Info
 
-The `type` property is available in Figma only. The Ember component can be passed to the [Advanced Table](#add-a-link-when-ready) as a contextual component, or used on it's own in which case the styling will adjust accordingly.
+**Differences between Figma and code**
+
+The `type` property is only available in Figma. The Ember component can be passed to the [Advanced Table](/components/table/advanced-table?tab=code#filtering) as a contextual component, or used on it's own in which case the styling will adjust accordingly.
 !!!
 
 The Filter Bar supports two visual presentations, `attached` and `standalone`, to be used in different contexts and with different types of data sets.
@@ -44,26 +41,12 @@ Use the `standalone` variant when a data set is rendered in formats other than a
 
 ![Example of a standalone Filter Bar paired with a data set rendered in cards](/assets/components/filter-bar/filter-bar-type-standalone.png)
 
-## Expand & collapse
-
-The Filter Bar supports expanding and collapsing the applied filters section to help simplify the UI around the data set and bring focus to the data or content. This is especially helpful when many filters are applied or the data set is very complex.
-
-![An example of the collapsed state of the Filter Bar](/assets/components/filter-bar/filter-bar-collapsed.png)
-
-When no filters are applied, the Filter Bar is collapsed by default and displays an empty state message when expanded.
-
-![An example of the expanded Filter Bar with no filters applied and an empty state](/assets/components/filter-bar/filter-bar-expanded-empty-state.png)
-
-When one or more filters are applied the Filter Bar is expanded by default.
-
-![An example of the expanded Filter Bar with several filters applied](/assets/components/filter-bar/filter-bar-expanded-with-filters.png)
-
 ## Applying Filters
 
-Depending on how consumers would prefer to trigger the filtering on their data sets, the Filter Bar supports different methods of applying filters:
+Filters can be applied on a per-filter basis or via live filtering.
 
-- **Per-filter:** selected filters are applied when the user confirms their selection with the "Apply filters" submit button in the Filters Dropdown. This is the most common method and generally requires a database or API call to update the data set with the corresponding filter parameters.
-- **Live filtering:** filters are applied immediately upon selection. This method generally requires updating the data set on the client.
+- **Per-filter:** filters are applied when the user confirms their selection with the "Apply filters" button in the dropdown. This is the most common method.
+- **Live filtering:** filters are applied immediately upon selection.
 
 ## Applied filters
 
@@ -75,13 +58,27 @@ The text rendered within the Tag uses a standardized format depending on the typ
 
 - Single and multiple selection filters group the parameter and value using a colon; e.g., "Region: AWS (us-east)".
 - Numerical filters group the parameter and value with an operator symbol; e.g., "Modules > 50".
-- Date and time filters group the parameter and value with natural language; e.g., "Creation time before 12:00 PM".
+- Date and time filters group the parameter and value with natural language; e.g., "Created before 12:00 PM".
 
 ![](/assets/components/filter-bar/filter-bar-tag-filter-methods.png)
 
-For a full list of supported operators visit the [specifications](/components/filter-bar?tab=specifications#value-input-operators) page.
+For a full list of supported operators, visit the [specifications](/components/filter-bar?tab=specifications#value-input-operators) page.
 
-Text within the Tag component will truncate at roughly 20 characters, about which more details can be found in the [Tag documentation](/components/tag?tab=code#truncation).
+The [Tag](/components/tag?tab=code#truncation) component truncates at roughly 20 characters.
+
+### Expand & collapse
+
+The Applied filters section can be expanded or collapsed to simplify the UI and bring focus to the data. This is especially helpful when many filters are applied or when the data set is complex.
+
+![An example of the collapsed state of the Filter Bar](/assets/components/filter-bar/filter-bar-collapsed.png)
+
+When no filters are applied, the applied filters section is collapsed by default and will display an empty state message when expanded.
+
+![An example of the expanded Filter Bar with no filters applied and an empty state](/assets/components/filter-bar/filter-bar-expanded-empty-state.png)
+
+When one or more filters are applied the Filter Bar is expanded by default.
+
+![An example of the expanded Filter Bar with several filters applied](/assets/components/filter-bar/filter-bar-expanded-with-filters.png)
 
 ### Custom applied filter text
 
@@ -89,76 +86,66 @@ If necessary, the default formatting within the Tag can be overridden with custo
 
 ## Clearing filters
 
-Filters can be cleared either in bulk or individually from the Filter Bar or Dropdown.
-
-### Filter Bar
-
-Clear all filters with the Button in the Filter Bar.
+All filters can be cleared in bulk using the "Clear All" button near the applied filters or in the dropdown footer. 
 
 ![](/assets/components/filter-bar/filter-bar-clear-all-filters.png)
 
-Clear filters individually via the dismiss button of the Tag.
+![](/assets/components/filter-bar/filter-bar-dropdown-clear-all-filters.png)
+
+Filters can also be cleared individually via the Tag's dismiss button.
 
 ![](/assets/components/filter-bar/filter-bar-clear-individual-filter.png)
 
-### Filter Dropdown
-
-Clear all filters via the Button in the footer of the Dropdown.
-
-![](/assets/components/filter-bar/filter-bar-dropdown-clear-all-filters.png)
-
-Deselect all filter values within a parameter with the "Clear selection" Button, then confirm the changes with the "Apply filters" Button in the footer.
+When multiple filter values are selected for a single parameter or input fields define the filter, the "Clear selection" button in the dropdown deselects all values for that parameter. 
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-clear-selection-filter.png)
-
-Clear filter input fields with the "Clear filter" Button, then apply the changes with the "Apply filters" Button in the footer.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-clear-filter-input.png)
 
 ## Search
 
-Use the search input in the Filter Bar to apply a broad text/string-based filter across the entire data set.
+Use the search input to apply a broad text filter across the entire data set.
 
 ![An example of the term "errored" searched for across the entire data set](/assets/components/filter-bar/filter-bar-search-filled.png)
 
 ## Bulk actions
 
-The Filter Bar supports bulk actions corresponding with our recommendations for [multi-select](/patterns/table-multi-select) within a table, and can be used to perform actions across multiple results such as edit, delete, and different selection methods across the data set.
+Bulk actions, corresponding to our recommendations for [multi-select](/patterns/table-multi-select), can be used to perform actions across multiple results, such as editing, deleting, and selecting subsets of the data set.
 
 ![Example of bulk actions](/assets/components/filter-bar/filter-bar-bulk-actions.png)
 
 ## Generic content
 
-If custom functionality is needed for manipulating the view or contents of the data set, a generic block is grouped with the bulk actions in the Filter Bar. We aren't prescriptive about what can be passed to this generic block, but it should generally be limited to additional actions (as [Buttons](/components/button)) and [Dropdowns](/components/dropdown) with multiple grouped actions.
+Custom functionality can be added to or replace the Bulk action dropdown. We recommend limiting this to actions or information that directly tie back to the data set.
 
 ![Example of generic content](/assets/components/filter-bar/filter-bar-generic-content.png)
 
 ## Filter dropdown
 
-The Filter Dropdown is responsible for the selection and application of filters and is broken two "panels":
+The Filter Bar includes a complex dropdown menu that displays available filter parameters, the values within each parameter, support for numerical/date/time values, value ranges, and actions to apply and clear filters.
+
+The Filter Dropdown is responsible for the selection and application of filters and is broken into two "panels":
 
 - The left panel displays the list of parameters (categories) that can be filtered upon.
-- The right panel conditionally displays either a list of options, or a grouping of input fields when filtering by a numerical, date, or time value.
+- The right panel displays a list of options or a grouping of input fields (for numerical, date, or time values).
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-open.png)
 
-Which filtering method to use depends on the data type and context. In the Figma component, select the `type` from the nested FilterValue component. In Ember, pass the filter type and method into the configuration.
-
 ### Multi-selection
 
-Multi-selection supports the selection of multiple values in a list of options and is the most common method of filtering. It is suited for categorical data like statuses and IDs, but can also be used more generally to filter by a handful of similar values.
+Multi-selection allows selecting multiple values from a list of options and is the most common filtering method. It's best suited for categorical data like statuses, but can also be used more generally to filter by a handful of text or string values.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-multi-selection.png)
 
 ### Single-selection
 
-Single selection supports a _mutually exclusive_ selection using radio buttons; e.g., the selection of a value where more than one selection will logically result in an empty state, therefore, only value can be selected.
+Single-selection is _mutually exclusive_ and uses radio buttons. It's best suited for filter values that cannot be selected simultaneously, helping prevent an empty state.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-single-selection.png)
 
 ### Numbers, dates, times, and datetimes
 
-Filtering by numerical values, dates, times, and datetimes is handled through the combination of an operator (greater than, less than, before, etc.) and an input field or grouping of input fields. This filtering method is best suited for range-based filtering; e.g., filtering by results relationally compared to the value or range of values.
+Filtering by numerical values, dates, times, and datetimes is handled by combining an operator (greater than, less than, before, etc.) with an input field or group of input fields. This filtering method is best suited for range-based filtering, i.e., filtering based on a comparison of a value or a range of values.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-numerical-filter.png)
 
@@ -168,17 +155,17 @@ Filtering by numerical values, dates, times, and datetimes is handled through th
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-datetime-filter.png)
 
-For a full list of supported operators visit the [specifications](/components/filter-bar?tab=specifications#value-input-operators) page.
+For a full list of supported operators, visit the [specifications](/components/filter-bar?tab=specifications#value-input-operators) page.
 
 ### Custom filtering
 
-If your filtering requirements extend beyond the methods supported directly by the component, the Filter Dropdown supports passing HDS components and custom elements to the values panel.
+For filtering requirements that extend beyond the out-of-the-box methods, HDS components and custom features can be used in the right panel.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-custom-filter-example.png)
 
 ### Search across filter values
 
-Use the integrated search (`hasSearch`) in the values panel to allow users to search by string across all values within a selected parameter. While only relevant for single/multi selection, search can be useful if there are many filter values or if a unique naming convention is used to artificially group results together.
+Users can search across all values within a selected parameter. While relevant only for single- or multi-selection, search can be useful when there are many values or when a unique naming convention is used.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-search-values.png)
 
