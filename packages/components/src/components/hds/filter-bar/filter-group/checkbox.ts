@@ -27,14 +27,6 @@ export interface HdsFilterBarFilterGroupCheckboxSignature {
 export default class HdsFilterBarFilterGroupCheckbox extends Component<HdsFilterBarFilterGroupCheckboxSignature> {
   private _elementId = 'checkbox' + guidFor(this);
 
-  @action
-  onChange(event: Event): void {
-    const { onChange, label } = this.args;
-    if (onChange && typeof onChange === 'function') {
-      onChange(event, label);
-    }
-  }
-
   get isChecked(): boolean {
     const { keyFilter, value } = this.args;
     if (keyFilter && Array.isArray(keyFilter.data)) {
@@ -63,5 +55,13 @@ export default class HdsFilterBarFilterGroupCheckbox extends Component<HdsFilter
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  onChange(event: Event): void {
+    const { onChange, label } = this.args;
+    if (onChange && typeof onChange === 'function') {
+      onChange(event, label);
+    }
   }
 }

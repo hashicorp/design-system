@@ -14,6 +14,8 @@ import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
 
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
+export const DEFAULT_DROPDOWN_HEIGHT = '600px';
+
 export interface HdsFilterBarDropdownSignature {
   Args: {
     filters: HdsFilterBarFilters;
@@ -51,13 +53,10 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
     return this.args.isLiveFilter ?? false;
   }
 
-  get height(): string {
-    return this.args.height ?? '600px';
-  }
-
   get dropdownHeightStyle(): Record<string, string> {
     const heightStyle: { [key: string]: string } = {};
-    heightStyle['--filter-bar-dropdown-height'] = this.height;
+    heightStyle['--filter-bar-dropdown-height'] =
+      this.args.height ?? DEFAULT_DROPDOWN_HEIGHT;
     return heightStyle;
   }
 
@@ -95,6 +94,7 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
     const newFilters = {} as HdsFilterBarFilters;
 
     // Note: Due to the filters being an Ember object, structuredClone cannot be used here.
+    // Further investigation will be done in a follow-up task: https://hashicorp.atlassian.net/browse/HDS-5907
     Object.keys(filters).forEach((k) => {
       newFilters[k] = JSON.parse(
         JSON.stringify(filters[k])

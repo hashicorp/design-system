@@ -10,7 +10,8 @@
 @use "../mixins/focus-ring" as *;
 
 .hds-filter-bar {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   padding: 8px;
   background-color: var(--token-color-surface-faint);
@@ -102,7 +103,11 @@
 }
 
 .hds-filter-bar__tabs__tab__text {
-  width: 100%;
+  flex: 1;
+}
+
+.hds-filter-bar__tabs__tab__icon {
+  flex-shrink: 0;
 }
 
 .hds-filter-bar__tabs__tab--is-selected .hds-filter-bar__tabs__tab__button {
@@ -115,7 +120,7 @@
     top: 6px;
     left: 4px;
     width: 2px;
-    height: 24px;
+    height: calc(100% - 12px);
     background-color: var(--token-color-foreground-action);
     border-radius: 1px;
     content: "";
@@ -204,7 +209,7 @@
   padding: 8px 16px;
   color: var(--token-color-foreground-primary);
 
-  &--hidden {
+  .hds-filter-bar__filter-group__selection-option--hidden {
     display: none;
   }
 
@@ -215,10 +220,16 @@
   }
 }
 
-.hds-filter-bar__filter-group__clear:has(~ .hds-filter-bar__filter-group__list) {
-  padding: 4px;
-}
-
 .hds-filter-bar__filter-group__clear-button {
   align-self: flex-start;
+}
+
+// Note: Specific margin adjustments for Clear Button with single-select and multi-select types
+.hds-filter-bar__filter-group__values-list .hds-filter-bar__filter-group__clear-button {
+  margin: 0 0 4px 4px;
+}
+
+// Note: Specific margin adjustments for Clear Button with date, number, and generic types
+.hds-filter-bar__filter-group__generic ~ .hds-filter-bar__filter-group__clear-button {
+  margin: 8px 16px 0 16px;
 }
