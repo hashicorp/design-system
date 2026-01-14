@@ -65,7 +65,7 @@
         @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear-filter" default="Clear filter"}}
         {{on "click" this.onClear}}
       />
-    {{else}}
+    {{else if (or (eq @type "single-select") (eq @type "multi-select"))}}
       <Hds::FilterBar::FilterGroup::ClearButton
         @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear-selection" default="Clear selection"}}
         {{on "click" this.onClear}}
@@ -75,24 +75,31 @@
           <legend class="sr-only">
             {{hds-t "hds.components.filter-bar.filter-group.values-list.legend" text=@text default="Filter by options"}}
           </legend>
-          {{yield
-            (hash
-              Checkbox=(component
-                "hds/filter-bar/filter-group/checkbox"
-                keyFilter=this.keyFilter
-                name=@key
-                searchValue=this.searchValue
-                onChange=this.onSelectionChange
+          {{#if (eq @type "single-select")}}
+            {{yield
+              (hash
+                Radio=(component
+                  "hds/filter-bar/filter-group/radio"
+                  keyFilter=this.keyFilter
+                  name=@key
+                  searchValue=this.searchValue
+                  onChange=this.onSelectionChange
+                )
               )
-              Radio=(component
-                "hds/filter-bar/filter-group/radio"
-                keyFilter=this.keyFilter
-                name=@key
-                searchValue=this.searchValue
-                onChange=this.onSelectionChange
+            }}
+          {{else if (eq @type "multi-select")}}
+            {{yield
+              (hash
+                Checkbox=(component
+                  "hds/filter-bar/filter-group/checkbox"
+                  keyFilter=this.keyFilter
+                  name=@key
+                  searchValue=this.searchValue
+                  onChange=this.onSelectionChange
+                )
               )
-            )
-          }}
+            }}
+          {{/if}}
         </fieldset>
       </div>
     {{/if}}
