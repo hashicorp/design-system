@@ -7,9 +7,9 @@
   a plain HTML element requires less computing cycles for Ember (you will notice it doesn't add the `ember-view` class to it).
 }}
 {{#if (eq this.componentTag "div")}}
-  <div class="hds-layout-grid-item" {{style this.inlineStyles}} ...attributes>{{yield}}</div>
+  <div class={{this.classNames}} {{style this.inlineStyles}} ...attributes>{{yield}}</div>
 {{else}}
   {{#let (element this.componentTag) as |Tag|}}
-    <Tag class="hds-layout-grid-item" {{style this.inlineStyles}} ...attributes>{{yield}}</Tag>
+    <Tag class={{this.classNames}} {{style this.inlineStyles}} ...attributes>{{yield}}</Tag>
   {{/let}}
 {{/if}}
