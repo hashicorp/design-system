@@ -13,7 +13,7 @@
   justify-content: center;
   width: fit-content;
   max-width: 100%;
-  height: var(--doc-copy-button-height);
+  min-height: var(--doc-copy-button-height);
   background-color: var(--doc-copy-button-background-color-default);
   border: 1px solid transparent;
   border-radius: 4px;
