@@ -20,7 +20,7 @@ import type { IconName } from '@hashicorp/flight-icons/svg';
 import type {
   HdsIconModule,
   HdsIconRegistryEntry,
-} from '@hashicorp/flight-icons/symbol-js/registry.ts';
+} from '@hashicorp/flight-icons/symbol-js/registry';
 import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import type { HdsIconSizes, HdsIconColors } from './types';
 
