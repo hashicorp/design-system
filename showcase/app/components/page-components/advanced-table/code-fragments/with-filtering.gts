@@ -145,10 +145,10 @@ export default class CodeFragmentWithFiltering extends Component<CodeFragmentWit
               @text="Artist"
               @type="multi-select"
               @searchEnabled={{true}}
-              as |F|
+              as |FG|
             >
               {{#each (get MUSIC_VALUES "artist") as |option|}}
-                <F.Checkbox @value={{option.value}} @label={{option.label}} />
+                <FG.Checkbox @value={{option.value}} @label={{option.label}} />
               {{/each}}
             </D.FilterGroup>
             <D.FilterGroup
@@ -156,10 +156,10 @@ export default class CodeFragmentWithFiltering extends Component<CodeFragmentWit
               @text="Album"
               @type="single-select"
               @searchEnabled={{true}}
-              as |F|
+              as |FG|
             >
               {{#each (get MUSIC_VALUES "album") as |option|}}
-                <F.Radio @value={{option.value}} @label={{option.label}} />
+                <FG.Radio @value={{option.value}} @label={{option.label}} />
               {{/each}}
             </D.FilterGroup>
           </F.Dropdown>

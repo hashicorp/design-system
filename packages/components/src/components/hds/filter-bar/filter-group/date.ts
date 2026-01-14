@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import type Owner from '@ember/owner';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 
@@ -16,6 +15,7 @@ import type { HdsFormTextInputTypes } from '../../form/text-input/types.ts';
 
 import type {
   HdsFilterBarFilter,
+  HdsFilterBarDateFilterData,
   HdsFilterBarDateFilterSelector,
   HdsFilterBarFilterGroupDateType,
 } from '../types.ts';
@@ -57,7 +57,7 @@ export interface HdsFilterBarFilterGroupDateSignature {
     keyFilter?: HdsFilterBarFilter;
     type?: HdsFilterBarFilterGroupDateType;
     text?: string;
-    onChange?: (filter?: HdsFilterBarFilter) => void;
+    onChange?: (filter: HdsFilterBarFilter) => void;
   };
   Blocks: {
     default: [];
@@ -68,10 +68,12 @@ export interface HdsFilterBarFilterGroupDateSignature {
 export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarFilterGroupDateSignature> {
   @service hdsIntl!: HdsIntlService;
 
-  @tracked private _selector: HdsFilterBarDateFilterSelector | undefined;
-  @tracked private _value: string | undefined;
-  @tracked private _betweenValueStart: string | undefined;
-  @tracked private _betweenValueEnd: string | undefined;
+  @tracked private _selectorInputValue:
+    | HdsFilterBarDateFilterSelector
+    | undefined;
+  @tracked private _valueInputValue: string | undefined;
+  @tracked private _betweenValueStartInputValue: string | undefined;
+  @tracked private _betweenValueEndInputValue: string | undefined;
 
   private _selectorValues = DATE_SELECTORS;
   private _selectorInputId = 'selector-input-' + guidFor(this);
@@ -79,37 +81,6 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
   private _betweenValueStartInputId =
     'between-value-start-input-' + guidFor(this);
   private _betweenValueEndInputId = 'between-value-end-input-' + guidFor(this);
-
-  constructor(
-    owner: Owner,
-    args: HdsFilterBarFilterGroupDateSignature['Args']
-  ) {
-    super(owner, args);
-
-    const { keyFilter } = this.args;
-    if (
-      keyFilter &&
-      (keyFilter.type === 'date' ||
-        keyFilter.type === 'time' ||
-        keyFilter.type === 'datetime')
-    ) {
-      const data = keyFilter.data;
-      this._selector = data.selector;
-      if (data.selector === 'between') {
-        if (
-          data.value &&
-          typeof data.value === 'object' &&
-          'start' in data.value &&
-          'end' in data.value
-        ) {
-          this._betweenValueStart = data.value.start;
-          this._betweenValueEnd = data.value.end;
-        }
-      } else {
-        this._value = data.value as string;
-      }
-    }
-  }
 
   get type(): 'date' | 'time' | 'datetime' {
     return this.args.type || 'date';
@@ -131,18 +102,75 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     );
   }
 
+  get keyFilterData(): HdsFilterBarDateFilterData | undefined {
+    const { keyFilter } = this.args;
+    if (
+      keyFilter &&
+      (keyFilter.type === 'date' ||
+        keyFilter.type === 'time' ||
+        keyFilter.type === 'datetime')
+    ) {
+      return keyFilter.data;
+    }
+    return undefined;
+  }
+
+  get selector(): HdsFilterBarDateFilterSelector | undefined {
+    if (this._selectorInputValue !== undefined) {
+      return this._selectorInputValue;
+    } else if (this.keyFilterData) {
+      return this.keyFilterData.selector;
+    }
+  }
+
+  get value(): string | undefined {
+    if (this._valueInputValue !== undefined) {
+      return this._valueInputValue;
+    } else if (this.keyFilterData) {
+      if (this.keyFilterData.selector !== 'between') {
+        return this.keyFilterData.value as string;
+      }
+    }
+  }
+
+  get betweenValueStart(): string | undefined {
+    if (this._betweenValueStartInputValue !== undefined) {
+      return this._betweenValueStartInputValue;
+    } else if (this.keyFilterData) {
+      if (
+        this.keyFilterData.selector === 'between' &&
+        typeof this.keyFilterData.value === 'object'
+      ) {
+        return this.keyFilterData.value.start;
+      }
+    }
+  }
+
+  get betweenValueEnd(): string | undefined {
+    if (this._betweenValueEndInputValue !== undefined) {
+      return this._betweenValueEndInputValue;
+    } else if (this.keyFilterData) {
+      if (
+        this.keyFilterData.selector === 'between' &&
+        typeof this.keyFilterData.value === 'object'
+      ) {
+        return this.keyFilterData.value.end;
+      }
+    }
+  }
+
   @action
   onSelectorChange(
     updateFilter: (filter: HdsFilterBarFilter) => void,
     event: Event
   ): void {
     const select = event.target as HTMLSelectElement;
-    this._selector = select.value as HdsFilterBarDateFilterSelector;
-    if (this._selector === 'between') {
-      this._value = undefined;
+    this._selectorInputValue = select.value as HdsFilterBarDateFilterSelector;
+    if (this._selectorInputValue === 'between') {
+      this._valueInputValue = undefined;
     } else {
-      this._betweenValueStart = undefined;
-      this._betweenValueEnd = undefined;
+      this._betweenValueStartInputValue = undefined;
+      this._betweenValueEndInputValue = undefined;
     }
     this._updateFilter(updateFilter);
   }
@@ -153,7 +181,7 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     event: Event
   ): void {
     const input = event.target as HTMLInputElement;
-    this._value = input.value;
+    this._valueInputValue = input.value;
     this._updateFilter(updateFilter);
   }
 
@@ -163,7 +191,7 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     event: Event
   ): void {
     const input = event.target as HTMLInputElement;
-    this._betweenValueStart = input.value;
+    this._betweenValueStartInputValue = input.value;
     this._updateFilter(updateFilter);
   }
 
@@ -173,16 +201,13 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     event: Event
   ): void {
     const input = event.target as HTMLInputElement;
-    this._betweenValueEnd = input.value;
+    this._betweenValueEndInputValue = input.value;
     this._updateFilter(updateFilter);
   }
 
   @action
-  onChange(filter?: HdsFilterBarFilter): void {
+  onChange(filter: HdsFilterBarFilter): void {
     const { onChange } = this.args;
-    if (!filter) {
-      this._resetInputValues();
-    }
     if (onChange && typeof onChange === 'function') {
       onChange(filter);
     }
@@ -193,17 +218,17 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
   ): void {
     const addFilter = (): HdsFilterBarFilter => {
       const value =
-        this._selector === 'between'
+        this._selectorInputValue === 'between'
           ? {
-              start: this._betweenValueStart,
-              end: this._betweenValueEnd,
+              start: this._betweenValueStartInputValue,
+              end: this._betweenValueEndInputValue,
             }
-          : this._value;
+          : this._valueInputValue;
       const newFilter = {
         type: this.type,
         text: this.args.text,
         data: {
-          selector: this._selector,
+          selector: this._selectorInputValue,
           value: value,
         },
       } as HdsFilterBarFilter;
@@ -216,13 +241,16 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
   }
 
   private _isFormCompleted(): boolean {
-    if (this._selector === 'between') {
+    if (this._selectorInputValue === 'between') {
       return (
-        this._betweenValueStart !== undefined &&
-        this._betweenValueEnd !== undefined
+        this._betweenValueStartInputValue !== undefined &&
+        this._betweenValueEndInputValue !== undefined
       );
     } else {
-      return this._selector !== undefined && this._value !== undefined;
+      return (
+        this._selectorInputValue !== undefined &&
+        this._valueInputValue !== undefined
+      );
     }
   }
 
@@ -235,12 +263,5 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
         default: DATE_SELECTORS_INPUT_TEXT[selector],
       }
     );
-  };
-
-  private _resetInputValues = (): void => {
-    this._selector = undefined;
-    this._value = undefined;
-    this._betweenValueStart = undefined;
-    this._betweenValueEnd = undefined;
   };
 }

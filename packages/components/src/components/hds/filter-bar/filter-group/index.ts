@@ -160,13 +160,9 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   }
 
   @action
-  onGenericChange(filter?: HdsFilterBarFilter): void {
-    if (filter) {
-      this.internalFilters = filter.data;
-      filter.text = this.args.text;
-    } else {
-      this.internalFilters = undefined;
-    }
+  onGenericChange(filter: HdsFilterBarFilter): void {
+    this.internalFilters = filter.data;
+    filter.text = this.args.text;
 
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {

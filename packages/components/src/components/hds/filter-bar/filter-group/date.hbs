@@ -26,18 +26,18 @@
             default="Pick a selector"
           }}</option>
         {{#each this._selectorValues as |selectorValue|}}
-          <option value={{selectorValue}} selected={{eq selectorValue this._selector}}>{{this._getSelectorText
+          <option value={{selectorValue}} selected={{eq selectorValue this.selector}}>{{this._getSelectorText
               selectorValue
             }}</option>
         {{/each}}
       </F.Options>
     </Hds::Form::Select::Field>
-    {{#if (eq this._selector "between")}}
+    {{#if (eq this.selector "between")}}
       <Hds::Layout::Flex @gap="8" @direction={{if (eq @type "datetime") "column" "row"}}>
         <Hds::Form::TextInput::Base
           @id={{this._betweenValueStartInputId}}
           @type={{this.inputType}}
-          @value={{this._betweenValueStart}}
+          @value={{this.betweenValueStart}}
           name={{concat @key "-between-start"}}
           aria-label={{hds-t
             "hds.components.filter-bar.filter-group.date.between-value-inputs.start.aria-label"
@@ -54,7 +54,7 @@
         <Hds::Form::TextInput::Base
           @id={{this._betweenValueEndInputId}}
           @type={{this.inputType}}
-          @value={{this._betweenValueEnd}}
+          @value={{this.betweenValueEnd}}
           name={{concat @key "-between-end"}}
           aria-label={{hds-t
             "hds.components.filter-bar.filter-group.date.between-value-inputs.end.aria-label"
@@ -73,7 +73,7 @@
       <Hds::Form::TextInput::Base
         @id={{this._valueInputId}}
         @type={{this.inputType}}
-        @value={{this._value}}
+        @value={{this.value}}
         name={{concat @key "-value"}}
         aria-label={{hds-t
           "hds.components.filter-bar.filter-group.date.value-input.aria-label"

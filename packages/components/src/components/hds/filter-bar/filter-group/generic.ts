@@ -10,7 +10,7 @@ import type { HdsFilterBarFilter } from '../types.ts';
 
 export interface HdsFilterBarFilterGroupGenericSignature {
   Args: {
-    onChange?: (filter?: HdsFilterBarFilter) => void;
+    onChange?: (filter: HdsFilterBarFilter) => void;
   };
   Blocks: {
     default: [
@@ -28,14 +28,6 @@ export default class HdsFilterBarFilterGroupGeneric extends Component<HdsFilterB
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(filter);
-    }
-  }
-
-  @action
-  onClear(): void {
-    const { onChange } = this.args;
-    if (onChange && typeof onChange === 'function') {
-      onChange();
     }
   }
 }

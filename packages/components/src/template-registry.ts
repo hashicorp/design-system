@@ -104,6 +104,7 @@ import type HdsFilterBarAppliedFiltersComponent from './components/hds/filter-ba
 import type HdsFilterBarDropdownComponent from './components/hds/filter-bar/dropdown';
 import type HdsFilterBarFilterGroupComponent from './components/hds/filter-bar/filter-group/index.ts';
 import type HdsFilterBarFilterGroupCheckboxComponent from './components/hds/filter-bar/filter-group/checkbox';
+import type HdsFilterBarFilterGroupClearButtonComponent from './components/hds/filter-bar/filter-group/clear-button';
 import type HdsFilterBarFilterGroupDateComponent from './components/hds/filter-bar/filter-group/date';
 import type HdsFilterBarFilterGroupGenericComponent from './components/hds/filter-bar/filter-group/generic';
 import type HdsFilterBarFilterGroupRadioComponent from './components/hds/filter-bar/filter-group/radio';
@@ -581,6 +582,8 @@ export default interface HdsComponentsRegistry {
   'hds/filter-bar/filter-group': typeof HdsFilterBarFilterGroupComponent;
   'Hds::FilterBar::FilterGroup::Checkbox': typeof HdsFilterBarFilterGroupCheckboxComponent;
   'hds/filter-bar/filter-group/checkbox': typeof HdsFilterBarFilterGroupCheckboxComponent;
+  'Hds::FilterBar::FilterGroup::ClearButton': typeof HdsFilterBarFilterGroupClearButtonComponent;
+  'hds/filter-bar/filter-group/clear-button': typeof HdsFilterBarFilterGroupClearButtonComponent;
   'Hds::FilterBar::FilterGroup::Date': typeof HdsFilterBarFilterGroupDateComponent;
   'hds/filter-bar/filter-group/date': typeof HdsFilterBarFilterGroupDateComponent;
   'Hds::FilterBar::FilterGroup::Generic': typeof HdsFilterBarFilterGroupGenericComponent;

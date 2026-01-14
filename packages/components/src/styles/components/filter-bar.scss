@@ -218,3 +218,7 @@
 .hds-filter-bar__filter-group__clear:has(~ .hds-filter-bar__filter-group__list) {
   padding: 4px;
 }
+
+.hds-filter-bar__filter-group__clear-button {
+  align-self: flex-start;
+}

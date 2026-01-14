@@ -235,6 +235,7 @@
       "./components/hds/filter-bar/applied-filters.js": "./dist/_app_/components/hds/filter-bar/applied-filters.js",
       "./components/hds/filter-bar/dropdown.js": "./dist/_app_/components/hds/filter-bar/dropdown.js",
       "./components/hds/filter-bar/filter-group/checkbox.js": "./dist/_app_/components/hds/filter-bar/filter-group/checkbox.js",
+      "./components/hds/filter-bar/filter-group/clear-button.js": "./dist/_app_/components/hds/filter-bar/filter-group/clear-button.js",
       "./components/hds/filter-bar/filter-group/date.js": "./dist/_app_/components/hds/filter-bar/filter-group/date.js",
       "./components/hds/filter-bar/filter-group/generic.js": "./dist/_app_/components/hds/filter-bar/filter-group/generic.js",
       "./components/hds/filter-bar/filter-group.js": "./dist/_app_/components/hds/filter-bar/filter-group.js",
