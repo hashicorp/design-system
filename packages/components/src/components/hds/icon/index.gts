@@ -83,7 +83,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     const registryEntry = IconRegistry[this.name];
 
     assert(
-      `The icon @name "${name}" or @size "${size}" provided to <Hds::Icon> is not correct.`,
+      `The icon @name "${name}" or @size "${size}" provided to <Hds::Icon> is not correct.  Please verify it exists on https://helios.hashicorp.design/icons/library`,
       registryEntry !== undefined
     );
 
@@ -187,10 +187,16 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
       if (this.isCarbon) {
         loader = this.registryEntry?.carbon ?? undefined;
-        assert(`Carbon icon not available for "${name}".`, loader !== undefined);
+        assert(
+          `Carbon icon not available for "${name}".`,
+          loader !== undefined
+        );
       } else {
         loader = this.registryEntry?.flight[size] ?? undefined;
-        assert(`Flight icon not available for "${name}" with size "${size}".`, loader !== undefined);
+        assert(
+          `Flight icon not available for "${name}" with size "${size}".`,
+          loader !== undefined
+        );
       }
 
       this.iconModule = await loader();

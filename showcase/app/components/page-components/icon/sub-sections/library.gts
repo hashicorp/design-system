@@ -16,6 +16,8 @@ import ShwDivider from 'showcase/components/shw/divider';
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 import catalog from '@hashicorp/flight-icons/catalog.json';
 
+import type { IconName } from '@hashicorp/flight-icons/svg';
+
 export default class SubSectionIconLibrary extends Component {
   @tracked filterBy = '';
 
@@ -31,7 +33,7 @@ export default class SubSectionIconLibrary extends Component {
   }
 
   get groupedIcons() {
-    const groupedIcons: Record<string, string[]> = {}; // icons grouped by category
+    const groupedIcons: Record<string, IconName[]> = {}; // icons grouped by category
 
     catalog.assets
       .filter(({ size }) => size === '24')
@@ -40,15 +42,15 @@ export default class SubSectionIconLibrary extends Component {
         if (!groupedIcons[category]) {
           groupedIcons[category] = [];
         }
-        groupedIcons[category].push(icon.iconName);
+        groupedIcons[category].push(icon.iconName as IconName);
       });
 
     // Sort the categories alphabetically
-    const sortedGroupedIcons: Record<string, string[]> = {};
+    const sortedGroupedIcons: Record<string, IconName[]> = {};
     Object.keys(groupedIcons)
       .sort()
       .forEach((category) => {
-        sortedGroupedIcons[category] = groupedIcons[category];
+        sortedGroupedIcons[category] = groupedIcons[category] as IconName[];
       });
 
     return sortedGroupedIcons;

@@ -576,6 +576,9 @@ importers:
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
+      '@hashicorp/flight-icons':
+        specifier: workspace:*
+        version: link:../packages/flight-icons
       '@ibm/plex':
         specifier: ^6.4.1
         version: 6.4.1
