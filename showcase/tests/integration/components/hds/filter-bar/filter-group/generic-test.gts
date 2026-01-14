@@ -79,37 +79,5 @@ module(
       assert.ok(context.isChanged);
       assert.deepEqual(context.filter, SAMPLE_FILTER);
     });
-
-    // CLEAR
-
-    test('it should trigger the @onChange callback with cleared filters if the clear button is clicked', async function (assert) {
-      const context = new TrackedObject<{
-        isChanged: boolean;
-        filter: HdsFilterBarFilter | undefined;
-      }>({
-        isChanged: false,
-        filter: SAMPLE_FILTER,
-      });
-
-      const onChange = (filter?: HdsFilterBarFilter) => {
-        context.isChanged = true;
-        context.filter = filter ?? undefined;
-      };
-
-      await render(
-        <template>
-          <HdsFilterBarFilterGroupGeneric
-            id="test-generic"
-            @onChange={{onChange}}
-          />
-        </template>,
-      );
-
-      await click(
-        '.hds-filter-bar__filter-group__generic .hds-filter-bar__filter-group__clear .hds-button',
-      );
-      assert.ok(context.isChanged);
-      assert.deepEqual(context.filter, undefined);
-    });
   },
 );

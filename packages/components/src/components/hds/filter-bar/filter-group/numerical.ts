@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import type Owner from '@ember/owner';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 
@@ -14,6 +13,7 @@ import type { HdsFilterBarFilterGroupGenericSignature } from './generic.ts';
 import type HdsIntlService from '../../../../services/hds-intl';
 import type {
   HdsFilterBarFilter,
+  HdsFilterBarNumericalFilterData,
   HdsFilterBarNumericalFilterSelector,
 } from '../types.ts';
 import { HdsFilterBarNumericalFilterSelectorValues } from '../types.ts';
@@ -52,7 +52,7 @@ export interface HdsFilterBarFilterGroupNumericalSignature {
     key: string;
     keyFilter?: HdsFilterBarFilter;
     text?: string;
-    onChange?: (filter?: HdsFilterBarFilter) => void;
+    onChange?: (filter: HdsFilterBarFilter) => void;
   };
   Blocks: {
     default: [];
@@ -63,10 +63,12 @@ export interface HdsFilterBarFilterGroupNumericalSignature {
 export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilterBarFilterGroupNumericalSignature> {
   @service hdsIntl!: HdsIntlService;
 
-  @tracked private _selector: HdsFilterBarNumericalFilterSelector | undefined;
-  @tracked private _value: number | undefined;
-  @tracked private _betweenValueStart: number | undefined;
-  @tracked private _betweenValueEnd: number | undefined;
+  @tracked private _selectorInputValue:
+    | HdsFilterBarNumericalFilterSelector
+    | undefined;
+  @tracked private _valueInputValue: number | undefined;
+  @tracked private _betweenValueStartInputValue: number | undefined;
+  @tracked private _betweenValueEndInputValue: number | undefined;
 
   private _selectorValues = NUMERICAL_SELECTORS;
   private _selectorInputId = 'selector-input-' + guidFor(this);
@@ -75,40 +77,71 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
     'between-value-start-input-' + guidFor(this);
   private _betweenValueEndInputId = 'between-value-end-input-' + guidFor(this);
 
-  constructor(
-    owner: Owner,
-    args: HdsFilterBarFilterGroupNumericalSignature['Args']
-  ) {
-    super(owner, args);
-
+  get keyFilterData(): HdsFilterBarNumericalFilterData | undefined {
     const { keyFilter } = this.args;
     if (keyFilter && keyFilter.type === 'numerical') {
-      const data = keyFilter.data;
-      this._selector = data?.selector;
-      if (data.selector === 'between') {
-        if (data.value && typeof data.value === 'object') {
-          this._betweenValueStart = Number(data.value.start);
-          this._betweenValueEnd = Number(data.value.end);
-        }
-      } else {
-        this._value = Number(data.value);
+      return keyFilter.data;
+    }
+    return undefined;
+  }
+
+  get selector(): HdsFilterBarNumericalFilterSelector | undefined {
+    if (this._selectorInputValue !== undefined) {
+      return this._selectorInputValue;
+    } else if (this.keyFilterData) {
+      return this.keyFilterData.selector;
+    }
+  }
+
+  get value(): number | undefined {
+    if (this._valueInputValue !== undefined) {
+      return this._valueInputValue;
+    } else if (this.keyFilterData) {
+      if (this.keyFilterData.selector !== 'between') {
+        return Number(this.keyFilterData.value);
+      }
+    }
+  }
+
+  get betweenValueStart(): number | undefined {
+    if (this._betweenValueStartInputValue !== undefined) {
+      return this._betweenValueStartInputValue;
+    } else if (this.keyFilterData) {
+      if (
+        this.keyFilterData.selector === 'between' &&
+        typeof this.keyFilterData.value === 'object'
+      ) {
+        return Number(this.keyFilterData.value.start);
+      }
+    }
+  }
+
+  get betweenValueEnd(): number | undefined {
+    if (this._betweenValueEndInputValue !== undefined) {
+      return this._betweenValueEndInputValue;
+    } else if (this.keyFilterData) {
+      if (
+        this.keyFilterData.selector === 'between' &&
+        typeof this.keyFilterData.value === 'object'
+      ) {
+        return Number(this.keyFilterData.value.end);
       }
     }
   }
 
   get stringValue(): string | undefined {
-    return this._value !== undefined ? this._value.toString() : undefined;
+    return this.value !== undefined ? this.value.toString() : undefined;
   }
 
   get stringBetweenValueStart(): string | undefined {
-    return this._betweenValueStart !== undefined
-      ? this._betweenValueStart.toString()
+    return this.betweenValueStart !== undefined
+      ? this.betweenValueStart.toString()
       : undefined;
   }
 
   get stringBetweenValueEnd(): string | undefined {
-    return this._betweenValueEnd !== undefined
-      ? this._betweenValueEnd.toString()
+    return this.betweenValueEnd !== undefined
+      ? this.betweenValueEnd.toString()
       : undefined;
   }
 
@@ -118,12 +151,13 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
     event: Event
   ): void {
     const select = event.target as HTMLSelectElement;
-    this._selector = select.value as HdsFilterBarNumericalFilterSelector;
-    if (this._selector === 'between') {
-      this._value = undefined;
+    this._selectorInputValue =
+      select.value as HdsFilterBarNumericalFilterSelector;
+    if (this._selectorInputValue === 'between') {
+      this._valueInputValue = undefined;
     } else {
-      this._betweenValueStart = undefined;
-      this._betweenValueEnd = undefined;
+      this._betweenValueStartInputValue = undefined;
+      this._betweenValueEndInputValue = undefined;
     }
     this._updateFilter(updateFilter);
   }
@@ -134,7 +168,7 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
     event: Event
   ): void {
     const input = event.target as HTMLInputElement;
-    this._value = parseFloat(input.value);
+    this._valueInputValue = parseFloat(input.value);
     this._updateFilter(updateFilter);
   }
 
@@ -144,7 +178,7 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
     event: Event
   ): void {
     const input = event.target as HTMLInputElement;
-    this._betweenValueStart = parseFloat(input.value);
+    this._betweenValueStartInputValue = parseFloat(input.value);
     this._updateFilter(updateFilter);
   }
 
@@ -154,16 +188,13 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
     event: Event
   ): void {
     const input = event.target as HTMLInputElement;
-    this._betweenValueEnd = parseFloat(input.value);
+    this._betweenValueEndInputValue = parseFloat(input.value);
     this._updateFilter(updateFilter);
   }
 
   @action
-  onChange(filter?: HdsFilterBarFilter): void {
+  onChange(filter: HdsFilterBarFilter): void {
     const { onChange } = this.args;
-    if (!filter) {
-      this._resetInputValues();
-    }
     if (onChange && typeof onChange === 'function') {
       onChange(filter);
     }
@@ -174,17 +205,17 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
   ): void {
     const addFilter = (): HdsFilterBarFilter => {
       const value =
-        this._selector === 'between'
+        this._selectorInputValue === 'between'
           ? {
-              start: this._betweenValueStart,
-              end: this._betweenValueEnd,
+              start: this._betweenValueStartInputValue,
+              end: this._betweenValueEndInputValue,
             }
-          : this._value;
+          : this._valueInputValue;
       const newFilter = {
         type: 'numerical',
         text: this.args.text,
         data: {
-          selector: this._selector,
+          selector: this._selectorInputValue,
           value: value,
         },
       } as HdsFilterBarFilter;
@@ -197,13 +228,16 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
   }
 
   private _isFormCompleted(): boolean {
-    if (this._selector === 'between') {
+    if (this._selectorInputValue === 'between') {
       return (
-        this._betweenValueStart !== undefined &&
-        this._betweenValueEnd !== undefined
+        this._betweenValueStartInputValue !== undefined &&
+        this._betweenValueEndInputValue !== undefined
       );
     } else {
-      return this._selector !== undefined && this._value !== undefined;
+      return (
+        this._selectorInputValue !== undefined &&
+        this._valueInputValue !== undefined
+      );
     }
   }
 
@@ -216,12 +250,5 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
         default: NUMERICAL_SELECTORS_INPUT_TEXT[selector],
       }
     );
-  };
-
-  private _resetInputValues = (): void => {
-    this._selector = undefined;
-    this._value = undefined;
-    this._betweenValueStart = undefined;
-    this._betweenValueEnd = undefined;
   };
 }

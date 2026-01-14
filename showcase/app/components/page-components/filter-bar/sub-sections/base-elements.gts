@@ -27,6 +27,7 @@ import {
   HdsFilterBarTabsPanel,
   HdsFilterBarFilterGroup,
   HdsFilterBarFilterGroupCheckbox,
+  HdsFilterBarFilterGroupClearButton,
   HdsFilterBarFilterGroupDate,
   HdsFilterBarFilterGroupGeneric,
   HdsFilterBarFilterGroupNumerical,
@@ -590,6 +591,12 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         @key="numerical-selector-between"
         @keyFilter={{NUMERICAL_BETWEEN_FILTER}}
       />
+    </SG.Item>
+  </ShwGrid>
+
+  <ShwGrid @columns={{1}} @label="ClearButton" as |SG|>
+    <SG.Item>
+      <HdsFilterBarFilterGroupClearButton @text="Clear filter" />
     </SG.Item>
   </ShwGrid>
 </template>;

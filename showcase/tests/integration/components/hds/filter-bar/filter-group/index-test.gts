@@ -7,12 +7,15 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, click, fillIn, select } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
+import { on } from '@ember/modifier';
+import { fn } from '@ember/helper';
 import NOOP from 'showcase/utils/noop';
 
 import {
   HdsFilterBarTabs,
   HdsFilterBarFilterGroup,
   type HdsFilterBarFilter,
+  type HdsFilterBarGenericFilter,
 } from '@hashicorp/design-system-components/components';
 
 const EMPTY_FILTERS = {};
@@ -27,6 +30,14 @@ const SAMPLE_FILTERS = {
     ],
   },
 } as Record<string, HdsFilterBarFilter>;
+
+const SAMPLE_GENERIC_FILTER = {
+  type: 'generic',
+  dismissTagText: 'test',
+  data: {
+    value: 'test-value',
+  },
+} as HdsFilterBarGenericFilter;
 
 module(
   'Integration | Component | hds/filter-bar/filter-group/index',
@@ -402,9 +413,9 @@ module(
               @panel={{T.Panel}}
               @filters={{EMPTY_FILTERS}}
               @onChange={{NOOP}}
-              as |F|
+              as |FG|
             >
-              <F.Generic />
+              <FG.Generic />
             </HdsFilterBarFilterGroup>
           </HdsFilterBarTabs>
         </template>,
@@ -463,7 +474,7 @@ module(
         },
       });
 
-      await click('.hds-filter-bar__filter-group__clear button');
+      await click('.hds-filter-bar__filter-group__clear-button');
 
       assert.equal(context.keyFilter, undefined);
     });
@@ -523,7 +534,7 @@ module(
         ],
       });
 
-      await click('.hds-filter-bar__filter-group__clear button');
+      await click('.hds-filter-bar__filter-group__clear-button');
 
       assert.equal(context.keyFilter, undefined);
     });
@@ -577,7 +588,7 @@ module(
         },
       });
 
-      await click('.hds-filter-bar__filter-group__clear button');
+      await click('.hds-filter-bar__filter-group__clear-button');
 
       assert.equal(context.keyFilter, undefined);
     });
@@ -631,7 +642,63 @@ module(
         },
       });
 
-      await click('.hds-filter-bar__filter-group__clear button');
+      await click('.hds-filter-bar__filter-group__clear-button');
+
+      assert.equal(context.keyFilter, undefined);
+    });
+
+    // ONCHANGE - GENERIC
+
+    test('it should call the onChange callback when a generic filter is added and removed', async function (assert) {
+      const context = new TrackedObject<{
+        isTriggered: boolean;
+        key: string;
+        keyFilter: HdsFilterBarFilter | undefined;
+      }>({
+        isTriggered: false,
+        key: '',
+        keyFilter: undefined,
+      });
+
+      const onChange = (key: string, keyFilter?: HdsFilterBarFilter) => {
+        context.isTriggered = true;
+        context.key = key;
+        context.keyFilter = keyFilter ?? undefined;
+      };
+
+      await render(
+        <template>
+          <HdsFilterBarTabs as |T|>
+            <HdsFilterBarFilterGroup
+              @key="name"
+              @text="Name"
+              @type="generic"
+              @tab={{T.Tab}}
+              @panel={{T.Panel}}
+              @filters={{EMPTY_FILTERS}}
+              @onChange={{onChange}}
+              as |FG|
+            >
+              <FG.Generic as |G|>
+                <button
+                  id="update-filter-button"
+                  {{on "click" (fn G.updateFilter SAMPLE_GENERIC_FILTER)}}
+                >
+                  Update Filter
+                </button>
+              </FG.Generic>
+            </HdsFilterBarFilterGroup>
+          </HdsFilterBarTabs>
+        </template>,
+      );
+
+      await click('#update-filter-button');
+
+      assert.ok(context.isTriggered);
+      assert.equal(context.key, 'name');
+      assert.deepEqual(context.keyFilter, SAMPLE_GENERIC_FILTER);
+
+      await click('.hds-filter-bar__filter-group__clear-button');
 
       assert.equal(context.keyFilter, undefined);
     });

@@ -4,14 +4,4 @@
 }}
 <div class="hds-filter-bar__filter-group__generic" ...attributes>
   {{yield (hash updateFilter=this.updateFilter)}}
-  <div class="hds-filter-bar__filter-group__clear">
-    <Hds::Button
-      @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear-filter" default="Clear filter"}}
-      @color="tertiary"
-      @size="small"
-      @icon="rotate-ccw"
-      @isInline={{true}}
-      {{on "click" this.onClear}}
-    />
-  </div>
 </div>

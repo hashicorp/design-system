@@ -26,53 +26,51 @@
         />
       </div>
     {{/if}}
-    {{#if (eq @type "numerical")}}
-      <Hds::FilterBar::FilterGroup::Numerical
-        @key={{@key}}
-        @keyFilter={{this.keyFilter}}
-        @text={{@text}}
-        @onChange={{this.onGenericChange}}
+    {{#if (or (eq @type "numerical") (eq @type "date") (eq @type "datetime") (eq @type "time") (eq @type "generic"))}}
+      {{#if (eq @type "numerical")}}
+        <Hds::FilterBar::FilterGroup::Numerical
+          @key={{@key}}
+          @keyFilter={{this.keyFilter}}
+          @text={{@text}}
+          @onChange={{this.onGenericChange}}
+        />
+      {{else if (eq @type "date")}}
+        <Hds::FilterBar::FilterGroup::Date
+          @key={{@key}}
+          @keyFilter={{this.keyFilter}}
+          @text={{@text}}
+          @onChange={{this.onGenericChange}}
+          @type="date"
+        />
+      {{else if (eq @type "datetime")}}
+        <Hds::FilterBar::FilterGroup::Date
+          @key={{@key}}
+          @keyFilter={{this.keyFilter}}
+          @text={{@text}}
+          @onChange={{this.onGenericChange}}
+          @type="datetime"
+        />
+      {{else if (eq @type "time")}}
+        <Hds::FilterBar::FilterGroup::Date
+          @key={{@key}}
+          @keyFilter={{this.keyFilter}}
+          @text={{@text}}
+          @onChange={{this.onGenericChange}}
+          @type="time"
+        />
+      {{else if (eq @type "generic")}}
+        {{yield (hash Generic=(component "hds/filter-bar/filter-group/generic" onChange=this.onGenericChange))}}
+      {{/if}}
+      <Hds::FilterBar::FilterGroup::ClearButton
+        @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear-filter" default="Clear filter"}}
+        {{on "click" this.onClear}}
       />
-    {{else if (eq @type "date")}}
-      <Hds::FilterBar::FilterGroup::Date
-        @key={{@key}}
-        @keyFilter={{this.keyFilter}}
-        @text={{@text}}
-        @onChange={{this.onGenericChange}}
-        @type="date"
-      />
-    {{else if (eq @type "datetime")}}
-      <Hds::FilterBar::FilterGroup::Date
-        @key={{@key}}
-        @keyFilter={{this.keyFilter}}
-        @text={{@text}}
-        @onChange={{this.onGenericChange}}
-        @type="datetime"
-      />
-    {{else if (eq @type "time")}}
-      <Hds::FilterBar::FilterGroup::Date
-        @key={{@key}}
-        @keyFilter={{this.keyFilter}}
-        @text={{@text}}
-        @onChange={{this.onGenericChange}}
-        @type="time"
-      />
-    {{else if (eq @type "generic")}}
-      {{yield (hash Generic=(component "hds/filter-bar/filter-group/generic" onChange=this.onGenericChange))}}
     {{else}}
+      <Hds::FilterBar::FilterGroup::ClearButton
+        @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear-selection" default="Clear selection"}}
+        {{on "click" this.onClear}}
+      />
       <div class="hds-filter-bar__filter-group__values-list">
-        <div class="hds-filter-bar__filter-group__clear">
-          <Hds::Button
-            @text={{hds-t
-              "hds.components.filter-bar.filter-group.values-list.clear-selection"
-              default="Clear selection"
-            }}
-            @color="tertiary"
-            @size="small"
-            @icon="rotate-ccw"
-            {{on "click" this.onClear}}
-          />
-        </div>
         <fieldset class="hds-filter-bar__filter-group__list">
           <legend class="sr-only">
             {{hds-t "hds.components.filter-bar.filter-group.values-list.legend" text=@text default="Filter by options"}}
