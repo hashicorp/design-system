@@ -1,0 +1,23 @@
+<Hds::Accordion as |A|>
+  <A.Item @containsInteractive={{true}} @isOpen={{true}}>
+    <:toggle>
+      <div class="hds-typography-body-300">
+        Text inside a nested div with
+        <a href="https://www.hashicorp.com/">a link</a>.
+      </div>
+    </:toggle>
+    <:content>
+      <Hds::Form as |FORM|>
+        <FORM.Section>
+          <Hds::Form::TextInput::Field @type="email" as |F|>
+            <F.Label>Email</F.Label>
+          </Hds::Form::TextInput::Field>
+        </FORM.Section>
+
+        <FORM.Footer>
+          <Hds::Button @text="Submit" />
+        </FORM.Footer>
+      </Hds::Form>
+    </:content>
+  </A.Item>
+</Hds::Accordion>
