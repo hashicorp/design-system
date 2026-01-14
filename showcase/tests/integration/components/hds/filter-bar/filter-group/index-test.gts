@@ -51,6 +51,7 @@ module(
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
+              @type="multi-select"
               @tab={{T.Tab}}
               @panel={{T.Panel}}
               @filters={{EMPTY_FILTERS}}
@@ -74,6 +75,7 @@ module(
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
+              @type="multi-select"
               @tab={{T.Tab}}
               @panel={{T.Panel}}
               @filters={{EMPTY_FILTERS}}
@@ -94,6 +96,7 @@ module(
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
+              @type="multi-select"
               @tab={{T.Tab}}
               @panel={{T.Panel}}
               @filters={{EMPTY_FILTERS}}
@@ -260,6 +263,7 @@ module(
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
+              @type="multi-select"
               @tab={{T.Tab}}
               @panel={{T.Panel}}
               @filters={{EMPTY_FILTERS}}
@@ -278,6 +282,7 @@ module(
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
+              @type="multi-select"
               @tab={{T.Tab}}
               @panel={{T.Panel}}
               @filters={{EMPTY_FILTERS}}
@@ -297,6 +302,7 @@ module(
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
+              @type="multi-select"
               @tab={{T.Tab}}
               @panel={{T.Panel}}
               @filters={{EMPTY_FILTERS}}
@@ -352,6 +358,7 @@ module(
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
+              @type="multi-select"
               @tab={{T.Tab}}
               @panel={{T.Panel}}
               @filters={{EMPTY_FILTERS}}
@@ -380,6 +387,7 @@ module(
             <HdsFilterBarFilterGroup
               @key="name"
               @text="Name"
+              @type="single-select"
               @tab={{T.Tab}}
               @panel={{T.Panel}}
               @filters={{EMPTY_FILTERS}}

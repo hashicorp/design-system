@@ -30,7 +30,7 @@ export interface HdsFilterBarFilterGroupSignature {
     panel?: WithBoundArgs<typeof HdsFilterBarTabsPanel, never>;
     key: string;
     text: string;
-    type?: HdsFilterBarFilterType;
+    type: HdsFilterBarFilterType;
     filters: HdsFilterBarFilters;
     searchEnabled?: boolean;
     onChange: (key: string, keyFilter?: HdsFilterBarFilter) => void;
@@ -53,25 +53,18 @@ export interface HdsFilterBarFilterGroupSignature {
 }
 
 export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilterGroupSignature> {
-  @tracked internalFilters: HdsFilterBarData | undefined = [];
+  @tracked internalFilters: HdsFilterBarData | undefined = undefined;
   @tracked searchValue: string | undefined = undefined;
 
   private _setUpFilterPanel = modifier(() => {
+    // Note: Due to the filters being an Ember object, structuredClone cannot be used here.
+    // Further investigation will be done in a follow-up task: https://hashicorp.atlassian.net/browse/HDS-5907
     if (this.keyFilter) {
       this.internalFilters = JSON.parse(
         JSON.stringify(this.keyFilter.data)
       ) as HdsFilterBarData;
     }
   });
-
-  get type(): HdsFilterBarFilterType {
-    const { type } = this.args;
-
-    if (!type) {
-      return 'multi-select';
-    }
-    return type;
-  }
 
   get keyFilter(): HdsFilterBarFilter | undefined {
     const { filters, key } = this.args;
@@ -103,7 +96,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
       return undefined;
     }
     return {
-      type: this.type,
+      type: this.args.type,
       text: this.args.text,
       data: this.internalFilters,
     } as HdsFilterBarFilter;
@@ -111,14 +104,16 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
 
   @action
   onSelectionChange(event: Event, label?: string): void {
+    const { type } = this.args;
+
     const addFilter = (value: unknown): void => {
       const newFilter = {
         value: value,
         label: label,
       } as HdsFilterBarGenericFilterData;
-      if (this.type === 'single-select') {
+      if (this.args.type === 'single-select') {
         this.internalFilters = newFilter;
-      } else {
+      } else if (type === 'multi-select') {
         if (Array.isArray(this.internalFilters)) {
           this.internalFilters = [...this.internalFilters, newFilter];
         } else {
@@ -128,9 +123,9 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
     };
 
     const removeFilter = (value: string): void => {
-      if (this.type === 'single-select') {
+      if (this.args.type === 'single-select') {
         this.internalFilters = undefined;
-      } else {
+      } else if (type === 'multi-select') {
         if (Array.isArray(this.internalFilters)) {
           const newFilter = [] as HdsFilterBarGenericFilterData[];
           this.internalFilters.forEach((filter) => {
@@ -140,7 +135,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
           });
           this.internalFilters = newFilter;
         } else {
-          this.internalFilters = [];
+          this.internalFilters = undefined;
         }
       }
     };
@@ -176,7 +171,7 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
 
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
-      onChange(this.args.key, this.formattedFilters);
+      onChange(this.args.key);
     }
   }
 

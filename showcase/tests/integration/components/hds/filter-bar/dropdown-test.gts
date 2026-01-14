@@ -100,7 +100,7 @@ module('Integration | Component | hds/filter-bar/dropdown', function (hooks) {
     await render(
       <template>
         <HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} as |D|>
-          <D.FilterGroup @key="test" @text="Test" />
+          <D.FilterGroup @key="test" @text="Test" @type="multi-select" />
         </HdsFilterBarDropdown>
       </template>,
     );
