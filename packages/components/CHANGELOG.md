@@ -1,14 +1,22 @@
 # @hashicorp/design-system-components
 
+## 5.3.0
+
+### Minor Changes
+
+Updated `ember-intl` to version `8.0.0` and changed the peer dependency requirement from `^7.3.0` to `^8.0.0 || ^7.3.0`"
+
+<small class="doc-whats-new-changelog-metadata">[#3460](https://github.com/hashicorp/design-system/pull/3460)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 5.2.0
 
 [5.2.0 documentation](https://hds-website-5-2-0.vercel.app/)
 
 ### Minor Changes
 
-
 `Icon` - Converted component to `.gts` format
-
 
 <small class="doc-whats-new-changelog-metadata">[#3444](https://github.com/hashicorp/design-system/pull/3444)</small>
 
@@ -16,17 +24,11 @@
 
 Added Floating UI `boundary` option to `hds-anchored-position` modifier
 
-
 `PopoverPrimitive` - Added Floating UI `boundary` option
-
-
 
 `Dropdown` - Added Floating UI `boundary` option
 
-
-
 `RichTooltip` - Added Floating UI `boundary` option
-
 
 <small class="doc-whats-new-changelog-metadata">[#3406](https://github.com/hashicorp/design-system/pull/3406)</small>
 
@@ -34,37 +36,27 @@ Added Floating UI `boundary` option to `hds-anchored-position` modifier
 
 ### Patch Changes
 
-
 `SuperSelect` - Removed styling incorrectly adding a checkbox next to the "Loading options..." message for search results
-
 
 <small class="doc-whats-new-changelog-metadata">[#3439](https://github.com/hashicorp/design-system/pull/3439)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Added a guard against accessing `hdsIntl` service after component destruction
-
 
 <small class="doc-whats-new-changelog-metadata">[#3195](https://github.com/hashicorp/design-system/pull/3195)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CodeBlock` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
 
-
-
 `CodeEditor` - Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content
-
 
 <small class="doc-whats-new-changelog-metadata">[#3455](https://github.com/hashicorp/design-system/pull/3455)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Flyout` - Updated variable controlling the `Flyout` max-width to align with the `AppSideNav` minimized width
-
 
 <small class="doc-whats-new-changelog-metadata">[#3456](https://github.com/hashicorp/design-system/pull/3456)</small>
 
