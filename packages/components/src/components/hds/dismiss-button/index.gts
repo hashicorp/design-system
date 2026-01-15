@@ -18,7 +18,7 @@ export interface HdsDismissButtonSignature {
 }
 
 export default class HdsDismissButton extends Component<HdsDismissButtonSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   get ariaLabel(): string {
     return (
