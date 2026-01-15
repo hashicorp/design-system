@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { guidFor } from '@ember/object/internals';
+import { notEq, eq } from 'ember-truth-helpers';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
@@ -20,7 +20,6 @@ interface DocCopyButtonCodeSignature {
     textToShow?: string;
     encoded?: boolean;
     isIconOnly?: boolean;
-    id?: string;
   };
   Blocks: {
     default: [];
@@ -61,11 +60,6 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
     return this.args.encoded
       ? decodeURI(this.args.textToCopy)
       : this.args.textToCopy;
-  }
-
-  get labelId() {
-    const uuid = this.args.id ?? guidFor(this);
-    return 'copy-label-' + uuid;
   }
 
   get labelClassName() {
@@ -137,17 +131,19 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
         onSuccess=this.onSuccess
         onError=this.onError
       }}
-      aria-labelledby={{this.labelId}}
       ...attributes
     >
-      <span
-        id={{this.labelId}}
-        class={{this.labelClassName}}
-      >{{this.labelText}}</span>
+      <span class={{this.labelClassName}}>{{this.labelText}}</span>
+      {{! to ensure the accessible name is unique, we include the text to copy  if it is not the code variant (code variant should be unique because it will either use @textToShow or @textToCopy as the visible label) }}
+      {{#if (notEq @type "code")}}
+        <span class="sr-only">{{this.textToCopy}}</span>
+      {{/if}}
       <HdsIcon
         class="doc-copy-button__icon"
         @name={{this.iconName}}
         @stretched={{true}}
+        {{! for the code variant, we include the icon title to let users know they will copy text when clicking the button. }}
+        @title={{if (eq @type "code") "copy"}}
       />
     </button>
   </template>

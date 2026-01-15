@@ -137,20 +137,20 @@
 // states
 
 .doc-copy-button--status-success {
-  --doc-copy-button-text-color-default: var(--doc-color-feedback-success-200);
-  --doc-copy-button-icon-color-default: var(--doc-color-feedback-success-200);
+  --doc-copy-button-text-color-default: var(--doc-color-feedback-success-100);
+  --doc-copy-button-icon-color-default: var(--doc-color-feedback-success-100);
   --doc-copy-button-background-color-default: var(--doc-color-feedback-success-400);
 
   &:hover {
     --doc-copy-button-text-color-hover: var(--doc-color-feedback-success-100);
     --doc-copy-button-icon-color-hover: var(--doc-color-feedback-success-100);
-    --doc-copy-button-background-color-hover: var(--doc-color-feedback-success-400);
+    --doc-copy-button-background-color-hover: var(--doc-color-feedback-success-300);
   }
 
   &:active {
     --doc-copy-button-text-color-active: var(--doc-color-feedback-success-100);
     --doc-copy-button-icon-color-active: var(--doc-color-feedback-success-100);
-    --doc-copy-button-background-color-active: var(--doc-color-feedback-success-300);
+    --doc-copy-button-background-color-active: var(--doc-color-feedback-success-250);
   }
 }
 
