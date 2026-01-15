@@ -28,7 +28,7 @@ export interface HdsTableThButtonSortSignature {
 const NOOP = () => {};
 
 export default class HdsTableThButtonSort extends Component<HdsTableThButtonSortSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   // Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
   private _prefixLabelId = 'prefix-' + guidFor(this);

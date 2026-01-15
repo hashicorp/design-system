@@ -21,7 +21,7 @@ export interface HdsPaginationInfoSignature {
 }
 
 export default class HdsPaginationInfo extends Component<HdsPaginationInfoSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   get showTotalItems(): boolean {
     return this.args.showTotalItems ?? true;

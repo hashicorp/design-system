@@ -40,7 +40,7 @@ export interface HdsAdvancedTableThContextMenuSignature {
 }
 
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked private _element!: HdsDropdownSignature['Element'];
 

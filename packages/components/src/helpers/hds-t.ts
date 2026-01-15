@@ -20,7 +20,7 @@ interface HdsTHelperSignature {
 }
 
 export default class HdsTHelper extends Helper<HdsTHelperSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   compute(
     positional: HdsTHelperSignature['Args']['Positional'],

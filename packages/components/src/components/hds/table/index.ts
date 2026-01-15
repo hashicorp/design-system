@@ -93,7 +93,7 @@ export interface HdsTableSignature<T = HdsTableModel> {
 export default class HdsTable<T = HdsTableModel> extends Component<
   HdsTableSignature<T>
 > {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked sortBy;
   @tracked sortOrder;
