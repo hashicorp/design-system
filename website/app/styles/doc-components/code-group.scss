@@ -93,67 +93,6 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   border-left: 1px solid var(--doc-color-gray-400);
 }
 
-.doc-code-group__copy-button {
-  padding: 8px;
-  color: var(--doc-color-gray-200);
-  background-color: transparent;
-  border: none;
-  border-radius: var(--doc-code-group-border-radius);
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--doc-color-gray-600);
-  }
-
-  &:active {
-    background-color: var(--doc-color-gray-500);
-  }
-
-  &:focus-visible {
-    outline: none;
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px #2264D6;
-  }
-
-  &.doc-copy-button--status-success {
-    color: var(--doc-color-feedback-success-200);
-
-    &:hover {
-      color: var(--doc-color-feedback-success-100);
-      background-color: var(--doc-color-feedback-success-400);
-    }
-
-    &:active {
-      color: var(--doc-color-feedback-success-100);
-      background-color: var(--doc-color-feedback-success-300);
-    }
-
-    &:focus {
-      color: var(--doc-color-feedback-success-100);
-    }
-  }
-
-  &.doc-copy-button--status-error {
-    color: var(--doc-color-feedback-critical-200);
-
-    &:hover {
-      color: var(--doc-color-feedback-critical-100);
-      background-color: var(--doc-color-feedback-critical-400);
-    }
-
-    &:active {
-      color: var(--doc-color-feedback-critical-100);
-      background-color: var(--doc-color-feedback-critical-300);
-    }
-
-    &:focus {
-      color: var(--doc-color-feedback-critical-100);
-    }
-  }
-}
-
 .doc-code-group__preview {
   padding: 16px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2 2'%3E%3Cpath d='M1 2V0h1v1H0v1z' fill-opacity='.05'/%3E%3C/svg%3E");

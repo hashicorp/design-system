@@ -167,9 +167,10 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
         <:secondary>
           <div class="doc-code-group__copy-button-container">
             <DocCopyButton
+              @type="solid"
+              @color="secondary"
               @textToCopy={{this.currentSnippet.snippet}}
-              @type="icon-only"
-              class="doc-code-group__copy-button"
+              @isIconOnly={{true}}
             />
           </div>
         </:secondary>
