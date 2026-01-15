@@ -48,7 +48,7 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
 
   // TAB SELECTION
 
-  test('it should select the focused tab when clicked', async function (assert) {
+  test('it should select a tab when clicked', async function (assert) {
     await createTabs({});
 
     await click(
@@ -65,22 +65,15 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
     const enterKey = 13;
     await createTabs({});
 
-    // focus 2nd step:
-    assert
-      .dom(
-        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      )
-      .exists();
-    await focus(
-      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-    );
+    const secondTabButtonSelector =
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button';
 
-    // select 2nd step:
-    await triggerKeyEvent(
-      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      'keydown',
-      enterKey,
-    );
+    // focus 2nd tab:
+    assert.dom(secondTabButtonSelector).exists();
+    await focus(secondTabButtonSelector);
+
+    // select 2nd tab:
+    await triggerKeyEvent(secondTabButtonSelector, 'keydown', enterKey);
 
     assert
       .dom('.hds-filter-bar__tabs .hds-filter-bar__tabs__tab:nth-of-type(2)')
@@ -91,117 +84,80 @@ module('Integration | Component | hds/filter-bar/tabs/index', function (hooks) {
     const spacebarKey = 32;
     await createTabs({});
 
-    // focus 2nd step:
-    assert
-      .dom(
-        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      )
-      .exists();
-    await focus(
-      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-    );
+    const secondTabButtonSelector =
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button';
 
-    // select 2nd step:
-    await triggerKeyEvent(
-      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      'keydown',
-      spacebarKey,
-    );
+    // focus 2nd tab:
+    assert.dom(secondTabButtonSelector).exists();
+    await focus(secondTabButtonSelector);
+
+    // select 2nd tab:
+    await triggerKeyEvent(secondTabButtonSelector, 'keydown', spacebarKey);
 
     assert
       .dom('.hds-filter-bar__tabs .hds-filter-bar__tabs__tab:nth-of-type(2)')
       .hasClass('hds-filter-bar__tabs__tab--is-selected');
   });
 
-  test('it should focus interactive steps and navigate through them using left and right arrow keys', async function (assert) {
+  test('it should focus interactive tabs and navigate through them using left and right arrow keys', async function (assert) {
     const leftArrowKey = 37;
     const rightArrowKey = 39;
     await createTabs({});
 
-    // focus 2nd step:
-    assert
-      .dom(
-        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      )
-      .exists();
-    await focus(
-      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-    );
-    // test that the navigated to step is now focused:
-    assert
-      .dom(
-        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      )
-      .isFocused();
+    const secondTabButtonSelector =
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button';
 
-    // navigate to the previous (1st) step using right arrow key:
-    await triggerKeyEvent(
-      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      'keydown',
-      rightArrowKey,
-    );
-    // test that the navigated to step is now focused:
+    // focus 2nd tab:
+    assert.dom(secondTabButtonSelector).exists();
+    await focus(secondTabButtonSelector);
+    // test that the navigated to tab is now focused:
+    assert.dom(secondTabButtonSelector).isFocused();
+
+    // navigate to the previous (1st) tab using right arrow key:
+    await triggerKeyEvent(secondTabButtonSelector, 'keydown', rightArrowKey);
+    // test that the navigated to tab is now focused:
     assert
       .dom('.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button')
       .isFocused();
 
-    // navigate back to the next (2nd) step using left arrow key:
+    // navigate back to the next (2nd) tab using left arrow key:
     await triggerKeyEvent(
       '.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button',
       'keydown',
       leftArrowKey,
     );
-    // test that the navigated to step is now focused:
-    assert
-      .dom(
-        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      )
-      .isFocused();
+    // test that the navigated to tab is now focused:
+    assert.dom(secondTabButtonSelector).isFocused();
   });
 
-  test('it should focus interactive steps and navigate through them using up and down arrow keys', async function (assert) {
+  test('it should focus interactive tabs and navigate through them using up and down arrow keys', async function (assert) {
     const upArrowKey = 38;
     const downArrowKey = 40;
     await createTabs({});
 
-    // focus 2nd step:
-    assert
-      .dom(
-        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      )
-      .exists();
-    await focus(
-      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-    );
-    // test that the navigated to step is now focused:
-    assert
-      .dom(
-        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      )
-      .isFocused();
+    const secondTabButtonSelector =
+      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button';
 
-    // navigate to the previous (1st) step using right arrow key:
-    await triggerKeyEvent(
-      '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      'keydown',
-      downArrowKey,
-    );
-    // test that the navigated to step is now focused:
+    // focus 2nd tab:
+    assert.dom(secondTabButtonSelector).exists();
+    await focus(secondTabButtonSelector);
+    // test that the navigated to tab is now focused:
+    assert.dom(secondTabButtonSelector).isFocused();
+
+    // navigate to the previous (1st) tab using right arrow key:
+    await triggerKeyEvent(secondTabButtonSelector, 'keydown', downArrowKey);
+    // test that the navigated to tab is now focused:
     assert
       .dom('.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button')
       .isFocused();
 
-    // navigate back to the next (2nd) step using left arrow key:
+    // navigate back to the next (2nd) tab using left arrow key:
     await triggerKeyEvent(
       '.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__button',
       'keydown',
       upArrowKey,
     );
-    // test that the navigated to step is now focused:
-    assert
-      .dom(
-        '.hds-filter-bar__tabs__tab:nth-of-type(2) .hds-filter-bar__tabs__tab__button',
-      )
-      .isFocused();
+    // test that the navigated to tab is now focused:
+    assert.dom(secondTabButtonSelector).isFocused();
   });
 });

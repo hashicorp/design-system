@@ -443,4 +443,27 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .exists()
       .hasText('Custom empty state content');
   });
+
+  test('it should not show empty state with the emptyState named block content if data is present in the model', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTable
+          id="data-test-advanced-table"
+          @model={{DEFAULT_BASIC_MODEL}}
+          @columns={{DEFAULT_BASIC_COLUMNS}}
+          aria-label="data test table"
+        >
+          <:emptyState>
+            <div id="data-test-empty-state">
+              <span>Custom empty state content</span>
+            </div>
+          </:emptyState>
+        </HdsAdvancedTable>
+      </template>,
+    );
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__empty-state')
+      .doesNotExist();
+  });
 });
