@@ -49,11 +49,35 @@ The `Layout::Grid::Item` component, yielded as contextual component, to be used 
   <C.Property @name="tag" @type="string" @default="div">
     HTML tag to be used to render the grid item element.
   </C.Property>
-  <C.Property @name="colspan" @type="number">
+  <C.Property @name="colspan" @type="number | object">
     The number of columns an item should span.
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="Fixed colspan" @type="number">
+        Set a fixed number for how many columns an item should span.
+      </C.Property>
+      <C.Property @name="Responsive colspan" @type="object">
+        Pass in an object to define how many columns should be spanned in each responsive view. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views.
+        <br /><br />
+        The expected shape of the object is:
+        <br />
+        `{ sm?: number, md?: number, lg?: number, xl?: number, xxl?: number }`
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
-  <C.Property @name="rowspan" @type="number">
+  <C.Property @name="rowspan" @type="number | object">
     The number of rows an item should span.
+    <Doc::ComponentApi as |C|>
+      <C.Property @name="Fixed rowspan" @type="number">
+        Set a fixed number for how many rows the item should span.
+      </C.Property>
+      <C.Property @name="Responsive rowspan" @type="object">
+        Pass in an object to define how many rows should be spanned in each responsive view. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views.
+        <br /><br />
+        The expected shape of the object is:
+        <br />
+        `{ sm?: number, md?: number, lg?: number, xl?: number, xxl?: number }`
+      </C.Property>
+    </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of the element.
