@@ -18,6 +18,7 @@ const addon = new Addon({
 
 const STYLE_ENTRIES = [
   '@hashicorp/design-system-components.scss',
+  '@hashicorp/design-system-components-common.scss',
   '@hashicorp/design-system-power-select-overrides.scss',
 ];
 
@@ -125,7 +126,10 @@ const plugins = [
     entries: STYLE_ENTRIES,
     includePathsByEntry: {
       '@hashicorp/design-system-components.scss': [
-        'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        'node_modules/@hashicorp/design-system-tokens/dist',
+      ],
+      '@hashicorp/design-system-components-common.scss': [
+        'node_modules/@hashicorp/design-system-tokens/dist',
       ],
     },
   }),
