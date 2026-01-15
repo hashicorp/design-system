@@ -17,11 +17,13 @@ A few parameters were omitted for clarity.
 
 ### With routing parameters
 
-Add the correct `@route/@models/@model/@query` parameter to each Breadcrumb Item.
+Add the correct `@route/@models/@model/@query` or `@href` arguments to each Breadcrumb Item.
 
 ```handlebars
 <Hds::Breadcrumb>
   <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="components" />
+  <Hds::Breadcrumb::Item @text="Projects" @icon="collections" @href="#" />
+  <Hds::Breadcrumb::Item @text="Production" @icon="file-text" @route="components" />
   <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="components" />
   <Hds::Breadcrumb::Item
     @text="my-consul-cluster"
@@ -38,9 +40,9 @@ By default, the Breadcrumb allows items to wrap on multiple lines if the contain
 
 ```handlebars
 <Hds::Breadcrumb @itemsCanWrap={{false}}>
-  <Hds::Breadcrumb::Item @text="My org" @icon="org" />
-  <Hds::Breadcrumb::Item @text="Consul" @icon="consul" />
-  <Hds::Breadcrumb::Item @text="my-consul-cluster" />
+  <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="components" />
+  <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="components" />
+  <Hds::Breadcrumb::Item @text="my-consul-cluster" @route="components" />
   <Hds::Breadcrumb::Item @text="Overview" @current={{true}} />
 </Hds::Breadcrumb>
 ```
@@ -75,11 +77,11 @@ The text will automatically truncate and be replaced with an ellipsis to fit wit
 
 ```handlebars
 <Hds::Breadcrumb @itemsCanWrap={{false}}>
-  <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />
-  <Hds::Breadcrumb::Item @text="Level two with a very long string" @icon="folder" />
-  <Hds::Breadcrumb::Item @text="Level three with a very long string" />
-  <Hds::Breadcrumb::Item @text="Level four with a very long string" />
-  <Hds::Breadcrumb::Item @text="Level five with a very long string" />
+  <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" @route="components" />
+  <Hds::Breadcrumb::Item @text="Level two with a very long string" @icon="folder" @route="components" />
+  <Hds::Breadcrumb::Item @text="Level three with a very long string" @route="components" />
+  <Hds::Breadcrumb::Item @text="Level four with a very long string" @route="components" />
+  <Hds::Breadcrumb::Item @text="Level five with a very long string" @route="components" />
   <Hds::Breadcrumb::Item @text="Current with a very long string" @current={{true}} />
 </Hds::Breadcrumb>
 ```
