@@ -4,13 +4,11 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { assert } from '@ember/debug';
 
-import { hdsResolveLinkToExternal } from '../../../utils/hds-resolve-link-to-external.ts';
-
-import type Owner from '@ember/owner';
 import type { LinkTo } from '@ember/routing';
+import { getLinkToExternal } from '../../../utils/hds-link-to-external.ts';
 
 export interface HdsInteractiveSignature {
   Args: {
@@ -33,40 +31,23 @@ export interface HdsInteractiveSignature {
 }
 
 export default class HdsInteractive extends Component<HdsInteractiveSignature> {
-  @tracked linkToExternal: LinkTo | null = null;
+  get linkToExternal(): LinkTo | null {
+    const component = getLinkToExternal();
+    if (component === null) {
+      assert(
+        `HdsInteractive: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
 
-  constructor(owner: Owner, args: HdsInteractiveSignature['Args']) {
-    super(owner, args);
-
-    // we want to avoid resolving the component if it's not needed
-    if (args.isRouteExternal) {
-      void this.resolveLinkToExternal();
+import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
+setLinkToExternal(LinkToExternalComponent);`
+      );
     }
+    return component;
   }
 
-  async resolveLinkToExternal() {
-    this.linkToExternal = await hdsResolveLinkToExternal(
-      this.args.isRouteExternal
-    );
-  }
-  /**
-   * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
-   *
-   * @param isHrefExternal
-   * @type boolean
-   * @default true
-   */
   get isHrefExternal(): boolean {
     return this.args.isHrefExternal ?? true;
   }
 
-  /**
-   * Determines if a @route value is "external" (uses the LinkToExternal component instead of LinkTo)
-   *
-   * @param isRouteExternal
-   * @type boolean
-   * @default false
-   */
   get isRouteExternal(): boolean {
     return this.args.isRouteExternal ?? false;
   }
