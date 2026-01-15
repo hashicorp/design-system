@@ -2,6 +2,6 @@
 "@hashicorp/design-system-components": minor
 ---
 
-<!-- START component -->
+<!-- START components/breadcrumb -->
 `Breadcrumb` - Added `@href` argument to `Breadcrumb::Item`.
 <!-- END -->
