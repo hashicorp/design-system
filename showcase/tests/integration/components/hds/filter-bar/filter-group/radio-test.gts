@@ -37,9 +37,9 @@ module(
       assert.dom('#test-radio.hds-filter-bar__filter-group__radio').exists();
     });
 
-    // LABEL
+    // LABEL, NAME, VALUE
 
-    test('it should render the label when provided', async function (assert) {
+    test('it should render the label, name, and value when provided', async function (assert) {
       await render(
         <template>
           <HdsFilterBarFilterGroupRadio
@@ -55,41 +55,11 @@ module(
           '#test-radio .hds-filter-bar__filter-group__selection-option__text-content',
         )
         .hasText('Test label');
-    });
-
-    // NAME
-
-    test('it should render the name attribute on the radio input when provided', async function (assert) {
-      await render(
-        <template>
-          <HdsFilterBarFilterGroupRadio
-            id="test-radio"
-            @label="Test label"
-            @value="test-value"
-            @name="test-name"
-          />
-        </template>,
-      );
       assert
         .dom(
           '#test-radio .hds-filter-bar__filter-group__selection-option__control',
         )
         .hasAttribute('name', 'test-name');
-    });
-
-    // VALUE
-
-    test('it should render the value when provided', async function (assert) {
-      await render(
-        <template>
-          <HdsFilterBarFilterGroupRadio
-            id="test-radio"
-            @label="Test label"
-            @value="test-value"
-            @name="test-name"
-          />
-        </template>,
-      );
       assert
         .dom(
           '#test-radio .hds-filter-bar__filter-group__selection-option__control',
@@ -104,10 +74,10 @@ module(
         <template>
           <HdsFilterBarFilterGroupRadio
             id="test-radio"
-            @label="Test label"
+            @label="Foo test label"
             @value="test-value"
             @name="test-name"
-            @searchValue="Test"
+            @searchValue="Foo"
           />
         </template>,
       );
@@ -126,7 +96,7 @@ module(
             @label="Test label"
             @value="test-value"
             @name="test-name"
-            @searchValue="non-matching-search"
+            @searchValue="Bar"
           />
         </template>,
       );

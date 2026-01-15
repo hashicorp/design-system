@@ -324,7 +324,6 @@ module(
       assert
         .dom('.hds-filter-bar__filter-group__selection-option--hidden')
         .doesNotExist();
-      assert.dom('.hds-filter-bar__filter-group__search').exists();
 
       await fillIn(
         '.hds-filter-bar__filter-group__search .hds-form-text-input',

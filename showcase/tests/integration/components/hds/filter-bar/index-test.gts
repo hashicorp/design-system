@@ -446,7 +446,7 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert.equal(context.filtersSearch, 'lorem ipsum');
   });
 
-  // CONTEXTIAL COMPONENTS
+  // CONTEXTUAL COMPONENTS
 
   test('it should render the ActionsDropdown contextual component', async function (assert) {
     await render(
