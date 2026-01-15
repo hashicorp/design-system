@@ -83,7 +83,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     const registryEntry = IconRegistry[this.name];
 
     assert(
-      `The icon @name "${name}" or @size "${size}" provided to <Hds::Icon> is not correct.  Please verify it exists on https://helios.hashicorp.design/icons/library`,
+      `The icon @name "${name}" or @size "${size}" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`,
       registryEntry !== undefined
     );
 
