@@ -165,7 +165,10 @@ export default class SubSectionFunctionalExamples extends Component {
     <ShwTextH2>Functional examples</ShwTextH2>
 
     <ShwTextH3>With dynamic focusable content in cells</ShwTextH3>
+
     <CodeFragmentWithDynamicCellContent />
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>With inline filter</ShwTextH3>
 
@@ -187,16 +190,25 @@ export default class SubSectionFunctionalExamples extends Component {
       </:topbarAction>
     </CodeFragmentWithDebugSelect>
 
+    <ShwDivider @level={{2}} />
+
     <ShwTextH3>With FilterBar filtering</ShwTextH3>
 
     <CodeFragmentWithFiltering />
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>With FilterBar live filtering</ShwTextH3>
 
     <CodeFragmentWithFiltering @isLiveFilter={{true}} />
 
+    <ShwDivider @level={{2}} />
+
     <ShwTextH3>With pagination</ShwTextH3>
+
     <CodeFragmentWithDebugSelect @hasPagination={{true}} />
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Delete selected rows</ShwTextH3>
 
@@ -214,6 +226,8 @@ export default class SubSectionFunctionalExamples extends Component {
       </:topbarAction>
     </CodeFragmentWithDebugSelect>
 
+    <ShwDivider @level={{2}} />
+
     <ShwTextH3>Execute action on selected rows</ShwTextH3>
 
     <ShwTextBody>This demo emulates, for example, when a user needs to download
@@ -229,6 +243,8 @@ export default class SubSectionFunctionalExamples extends Component {
         />
       </:topbarAction>
     </CodeFragmentWithDebugSelect>
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Toggle columns</ShwTextH3>
 
@@ -249,6 +265,8 @@ export default class SubSectionFunctionalExamples extends Component {
     </div>
 
     <CodeFragmentWithSimpleData @columns={{this.toggleColumnsColumns}} />
+
+    <ShwDivider @level={{2}} />
 
     <ShwTextH3>Toggle reorderable columns</ShwTextH3>
 

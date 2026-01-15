@@ -18,10 +18,10 @@ import ShwGrid from 'showcase/components/shw/grid';
 import NOOP from 'showcase/utils/noop';
 
 import CodeFragmentWithAppliedFilters from 'showcase/components/page-components/filter-bar/code-fragments/with-applied-filters';
+import CodeFragmentWithDropdown from 'showcase/components/page-components/filter-bar/code-fragments/with-dropdown';
 
 import {
   HdsFilterBarActionsDropdown,
-  HdsFilterBarDropdown,
   HdsFilterBarTabs,
   HdsFilterBarTabsTab,
   HdsFilterBarTabsPanel,
@@ -176,86 +176,13 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
 
   <ShwFlex @gap="2rem" as |SF|>
     <SF.Item @label="Base (default)">
-      <HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} as |D|>
-        <D.FilterGroup
-          @key="multi-select"
-          @text="Multi-select"
-          @type="multi-select"
-          as |F|
-        >
-          <F.Checkbox @value="1" @label="Option 1" />
-          <F.Checkbox @value="2" @label="Option 2" />
-          <F.Checkbox @value="3" @label="Option 3" />
-          <F.Checkbox @value="4" @label="Option 4" />
-          <F.Checkbox @value="5" @label="Option 5" />
-          <F.Checkbox @value="6" @label="Option 6" />
-          <F.Checkbox @value="7" @label="Option 7" />
-          <F.Checkbox @value="8" @label="Option 8" />
-          <F.Checkbox @value="9" @label="Option 9" />
-          <F.Checkbox @value="10" @label="Option 10" />
-          <F.Checkbox @value="11" @label="Option 11" />
-          <F.Checkbox @value="12" @label="Option 12" />
-          <F.Checkbox @value="13" @label="Option 13" />
-          <F.Checkbox @value="14" @label="Option 14" />
-          <F.Checkbox @value="15" @label="Option 15" />
-        </D.FilterGroup>
-      </HdsFilterBarDropdown>
+      <CodeFragmentWithDropdown />
     </SF.Item>
     <SF.Item @label="With live filtering">
-      <HdsFilterBarDropdown
-        @filters={{EMPTY_FILTERS}}
-        @isLiveFilter={{true}}
-        as |D|
-      >
-        <D.FilterGroup
-          @key="multi-select"
-          @text="Multi-select"
-          @type="multi-select"
-          as |F|
-        >
-          <F.Checkbox @value="1" @label="Option 1" />
-          <F.Checkbox @value="2" @label="Option 2" />
-          <F.Checkbox @value="3" @label="Option 3" />
-          <F.Checkbox @value="4" @label="Option 4" />
-          <F.Checkbox @value="5" @label="Option 5" />
-          <F.Checkbox @value="6" @label="Option 6" />
-          <F.Checkbox @value="7" @label="Option 7" />
-          <F.Checkbox @value="8" @label="Option 8" />
-          <F.Checkbox @value="9" @label="Option 9" />
-          <F.Checkbox @value="10" @label="Option 10" />
-          <F.Checkbox @value="11" @label="Option 11" />
-          <F.Checkbox @value="12" @label="Option 12" />
-          <F.Checkbox @value="13" @label="Option 13" />
-          <F.Checkbox @value="14" @label="Option 14" />
-          <F.Checkbox @value="15" @label="Option 15" />
-        </D.FilterGroup>
-      </HdsFilterBarDropdown>
+      <CodeFragmentWithDropdown @isLiveFilter={{true}} />
     </SF.Item>
     <SF.Item @label="With custom menu height">
-      <HdsFilterBarDropdown @filters={{EMPTY_FILTERS}} @height="400px" as |D|>
-        <D.FilterGroup
-          @key="multi-select"
-          @text="Multi-select"
-          @type="multi-select"
-          as |F|
-        >
-          <F.Checkbox @value="1" @label="Option 1" />
-          <F.Checkbox @value="2" @label="Option 2" />
-          <F.Checkbox @value="3" @label="Option 3" />
-          <F.Checkbox @value="4" @label="Option 4" />
-          <F.Checkbox @value="5" @label="Option 5" />
-          <F.Checkbox @value="6" @label="Option 6" />
-          <F.Checkbox @value="7" @label="Option 7" />
-          <F.Checkbox @value="8" @label="Option 8" />
-          <F.Checkbox @value="9" @label="Option 9" />
-          <F.Checkbox @value="10" @label="Option 10" />
-          <F.Checkbox @value="11" @label="Option 11" />
-          <F.Checkbox @value="12" @label="Option 12" />
-          <F.Checkbox @value="13" @label="Option 13" />
-          <F.Checkbox @value="14" @label="Option 14" />
-          <F.Checkbox @value="15" @label="Option 15" />
-        </D.FilterGroup>
-      </HdsFilterBarDropdown>
+      <CodeFragmentWithDropdown @height="400px" />
     </SF.Item>
   </ShwFlex>
 

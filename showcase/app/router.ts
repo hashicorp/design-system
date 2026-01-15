@@ -26,7 +26,11 @@ Router.map(function () {
   });
   this.route('page-components', { path: 'components' }, function () {
     this.route('accordion');
-    this.route('advanced-table');
+    this.route('advanced-table', function () {
+      this.route('frameless', function () {
+        this.route('demo-filtering');
+      });
+    });
     this.route('alert');
     this.route('app-footer');
     this.route('app-header', function () {

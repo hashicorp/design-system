@@ -19,8 +19,8 @@ const SubSectionDemos: TemplateOnlyComponent = <template>
   />
 
   <ShwFrame
-    @id="demo-full-app-frame-with-advanced-table-filtering"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-advanced-table-filtering"
+    @id="demo-filtering"
+    @src="/components/advanced-table/frameless/demo-filtering"
     @height="780"
     @label="AdvancedTable with FilterBar in the context of a full App Frame"
   />
