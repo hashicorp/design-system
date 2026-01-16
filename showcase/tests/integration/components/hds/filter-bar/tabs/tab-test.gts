@@ -5,29 +5,16 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render } from '@ember/test-helpers';
-
+import { TrackedObject } from 'tracked-built-ins';
 import {
-  HdsFilterBarTabs,
-  HdsFilterBarTabsTab,
-} from '@hashicorp/design-system-components/components';
+  render,
+  settled,
+  click,
+  focus,
+  triggerKeyEvent,
+} from '@ember/test-helpers';
 
-// NOTICE
-// Because of how the `tab` subcomponent is built,
-// it's practically impossible to test in isolation, so in our tests
-// in this file it will be wrapped inside its parent component.
-const createTab = async (options: { selectedTabIndex?: number }) => {
-  return await render(
-    <template>
-      <HdsFilterBarTabs @selectedTabIndex={{options.selectedTabIndex}} as |T|>
-        <T.Tab />
-        <T.Panel>
-          <div id="test-panel-content">Test</div>
-        </T.Panel>
-      </HdsFilterBarTabs>
-    </template>,
-  );
-};
+import { HdsFilterBarTabsTab } from '@hashicorp/design-system-components/components';
 
 module('Integration | Component | hds/filter-bar/tabs/tab', function (hooks) {
   setupRenderingTest(hooks);
@@ -39,10 +26,142 @@ module('Integration | Component | hds/filter-bar/tabs/tab', function (hooks) {
     assert.dom('[data-test="tab-1"]').hasClass('hds-filter-bar__tabs__tab');
   });
 
+  // DIDINSERTNODE
+
+  test('it passes the correct content from the tab in the @didInsertNode action', async function (assert) {
+    const context = new TrackedObject<{
+      isTriggered: boolean;
+      element: HTMLElement | undefined;
+      tabId: string;
+    }>({
+      isTriggered: false,
+      element: undefined,
+      tabId: '',
+    });
+
+    const didInsertNode = (element: HTMLElement, tabId: string) => {
+      context.isTriggered = true;
+      context.element = element;
+      context.tabId = tabId;
+    };
+
+    await render(
+      <template>
+        <HdsFilterBarTabsTab
+          data-test="tab-1"
+          @didInsertNode={{didInsertNode}}
+        />
+      </template>,
+    );
+
+    const tabElement = document.querySelector(
+      '[data-test="tab-1"] .hds-filter-bar__tabs__tab__button',
+    ) as HTMLElement;
+
+    assert.ok(context.isTriggered);
+    assert.strictEqual(context.element, tabElement);
+    assert.equal(context.tabId, context.element?.getAttribute('id'));
+  });
+
+  // WILLDESTROYNODE
+
+  test('it passes the correct content from the tab in the @willDestroyNode action', async function (assert) {
+    const context = new TrackedObject<{
+      isVisible: boolean;
+      isTriggered: boolean;
+      element: HTMLElement | undefined;
+    }>({
+      isVisible: true,
+      isTriggered: false,
+      element: undefined,
+    });
+
+    const willDestroyNode = (element: HTMLElement) => {
+      context.isTriggered = true;
+      context.element = element;
+    };
+
+    await render(
+      <template>
+        {{#if context.isVisible}}
+          <HdsFilterBarTabsTab
+            data-test="tab-1"
+            @willDestroyNode={{willDestroyNode}}
+          />
+        {{/if}}
+      </template>,
+    );
+
+    const tabElement = document.querySelector(
+      '[data-test="tab-1"] .hds-filter-bar__tabs__tab__button',
+    ) as HTMLElement;
+
+    context.isVisible = false;
+    await settled();
+
+    assert.ok(context.isTriggered);
+    assert.strictEqual(context.element, tabElement);
+  });
+
+  // TABIDS, PANELIDS
+
+  test('it sets the correct tab and panel IDs based on the @tabIds and @panelIds arguments', async function (assert) {
+    const context = new TrackedObject<{
+      tabIds: string[];
+      panelIds: string[];
+    }>({
+      tabIds: ['tab-1'],
+      panelIds: ['panel-1'],
+    });
+
+    // For testing purposes we use @didInsertNode to align the tabIds with the generated tab ID
+    const didInsertNode = (element: HTMLElement, tabId: string) => {
+      context.tabIds = [tabId];
+    };
+
+    await render(
+      <template>
+        <HdsFilterBarTabsTab
+          @tabIds={{context.tabIds}}
+          @panelIds={{context.panelIds}}
+          @didInsertNode={{didInsertNode}}
+          @selectedTabIndex={{0}}
+        />
+      </template>,
+    );
+
+    assert
+      .dom('.hds-filter-bar__tabs__tab__button')
+      .hasAttribute('aria-controls', 'panel-1');
+  });
+
   // SELECTION
 
   test('it sets the tab to not selected when the @selectedTabIndex argument does not match the tab index in the @tabIds argument', async function (assert) {
-    await createTab({ selectedTabIndex: 1 });
+    const context = new TrackedObject<{
+      tabIds: string[];
+      panelIds: string[];
+    }>({
+      tabIds: ['tab-1'],
+      panelIds: ['panel-1'],
+    });
+
+    // For testing purposes we use @didInsertNode to align the tabIds with the generated tab ID
+    const didInsertNode = (element: HTMLElement, tabId: string) => {
+      context.tabIds = [tabId];
+    };
+
+    await render(
+      <template>
+        <HdsFilterBarTabsTab
+          @tabIds={{context.tabIds}}
+          @panelIds={{context.panelIds}}
+          @didInsertNode={{didInsertNode}}
+          @selectedTabIndex={{1}}
+        />
+      </template>,
+    );
+
     assert
       .dom('.hds-filter-bar__tabs__tab')
       .doesNotHaveClass('hds-filter-bar__tabs__tab--is-selected');
@@ -54,8 +173,31 @@ module('Integration | Component | hds/filter-bar/tabs/tab', function (hooks) {
       .hasAttribute('tabindex', '-1');
   });
 
-  test('it sets the tab to selected when the @selectedTabIndex argument matches the panel index in the @tabIds argument', async function (assert) {
-    await createTab({ selectedTabIndex: 0 });
+  test('it sets the tab to selected when the @selectedTabIndex argument does match the tab index in the @tabIds argument', async function (assert) {
+    const context = new TrackedObject<{
+      tabIds: string[];
+      panelIds: string[];
+    }>({
+      tabIds: ['tab-1'],
+      panelIds: ['panel-1'],
+    });
+
+    // For testing purposes we use @didInsertNode to align the tabIds with the generated tab ID
+    const didInsertNode = (element: HTMLElement, tabId: string) => {
+      context.tabIds = [tabId];
+    };
+
+    await render(
+      <template>
+        <HdsFilterBarTabsTab
+          @tabIds={{context.tabIds}}
+          @panelIds={{context.panelIds}}
+          @didInsertNode={{didInsertNode}}
+          @selectedTabIndex={{0}}
+        />
+      </template>,
+    );
+
     assert
       .dom('.hds-filter-bar__tabs__tab')
       .hasClass('hds-filter-bar__tabs__tab--is-selected');
@@ -108,5 +250,92 @@ module('Integration | Component | hds/filter-bar/tabs/tab', function (hooks) {
     assert
       .dom('.hds-filter-bar__tabs__tab .hds-filter-bar__tabs__tab__text')
       .hasText('Tab label');
+  });
+
+  // CALLBACKS: ONCLICK
+
+  test('it calls the @onClick callback when the tab is clicked', async function (assert) {
+    const context = new TrackedObject<{
+      tabIds: string[];
+      panelIds: string[];
+      isTriggered: boolean;
+      nodeIndex: number | undefined;
+    }>({
+      tabIds: ['tab-1'],
+      panelIds: ['panel-1'],
+      isTriggered: false,
+      nodeIndex: undefined,
+    });
+
+    const onClick = (event: MouseEvent, nodeIndex: number) => {
+      context.isTriggered = true;
+      context.nodeIndex = nodeIndex;
+    };
+
+    // For testing purposes we use @didInsertNode to align the tabIds with the generated tab ID
+    const didInsertNode = (element: HTMLElement, tabId: string) => {
+      context.tabIds = [tabId];
+    };
+
+    await render(
+      <template>
+        <HdsFilterBarTabsTab
+          @tabIds={{context.tabIds}}
+          @panelIds={{context.panelIds}}
+          @didInsertNode={{didInsertNode}}
+          @onClick={{onClick}}
+        />
+      </template>,
+    );
+
+    await click('.hds-filter-bar__tabs__tab__button');
+    assert.ok(context.isTriggered);
+    assert.equal(context.nodeIndex, 0);
+  });
+
+  // CALLBACKS: ONKEYDOWN
+
+  test('it calls the @onKeyDown callback when the tab is focused and a key is pressed', async function (assert) {
+    const context = new TrackedObject<{
+      tabIds: string[];
+      panelIds: string[];
+      isTriggered: boolean;
+      nodeIndex: number | undefined;
+    }>({
+      tabIds: ['tab-1'],
+      panelIds: ['panel-1'],
+      isTriggered: false,
+      nodeIndex: undefined,
+    });
+
+    const onKeydown = (event: KeyboardEvent, nodeIndex: number) => {
+      context.isTriggered = true;
+      context.nodeIndex = nodeIndex;
+    };
+
+    // For testing purposes we use @didInsertNode to align the tabIds with the generated tab ID
+    const didInsertNode = (element: HTMLElement, tabId: string) => {
+      context.tabIds = [tabId];
+    };
+
+    await render(
+      <template>
+        <HdsFilterBarTabsTab
+          @tabIds={{context.tabIds}}
+          @panelIds={{context.panelIds}}
+          @didInsertNode={{didInsertNode}}
+          @onKeydown={{onKeydown}}
+        />
+      </template>,
+    );
+
+    await focus('.hds-filter-bar__tabs__tab__button');
+    await triggerKeyEvent(
+      '.hds-filter-bar__tabs__tab__button',
+      'keydown',
+      'Enter',
+    );
+    assert.ok(context.isTriggered);
+    assert.equal(context.nodeIndex, 0);
   });
 });

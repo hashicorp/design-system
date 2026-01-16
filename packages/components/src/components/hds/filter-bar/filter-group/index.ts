@@ -112,32 +112,28 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
         value: value,
         label: label,
       } as HdsFilterBarGenericFilterData;
-      if (this.args.type === 'single-select') {
-        this.internalFilters = newFilter;
-      } else if (type === 'multi-select') {
+      if (type === 'multi-select') {
         if (Array.isArray(this.internalFilters)) {
           this.internalFilters = [...this.internalFilters, newFilter];
         } else {
           this.internalFilters = [newFilter];
         }
+      } else {
+        this.internalFilters = newFilter;
       }
     };
 
     const removeFilter = (value: string): void => {
-      if (this.args.type === 'single-select') {
+      if (type === 'multi-select' && Array.isArray(this.internalFilters)) {
+        const newFilter = [] as HdsFilterBarGenericFilterData[];
+        this.internalFilters.forEach((filter) => {
+          if (filter.value != value) {
+            newFilter.push(filter);
+          }
+        });
+        this.internalFilters = newFilter;
+      } else {
         this.internalFilters = undefined;
-      } else if (type === 'multi-select') {
-        if (Array.isArray(this.internalFilters)) {
-          const newFilter = [] as HdsFilterBarGenericFilterData[];
-          this.internalFilters.forEach((filter) => {
-            if (filter.value != value) {
-              newFilter.push(filter);
-            }
-          });
-          this.internalFilters = newFilter;
-        } else {
-          this.internalFilters = undefined;
-        }
       }
     };
 
