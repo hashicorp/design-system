@@ -102,7 +102,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     return this.args.isCollapsible ?? false;
   }
 
-  get isMobileCollapsable(): boolean {
+  get isMobileCollapsible(): boolean {
     return this.isResponsive && !this._isDesktop;
   }
 
