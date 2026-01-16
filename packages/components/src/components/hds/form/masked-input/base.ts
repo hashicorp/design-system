@@ -33,7 +33,7 @@ export interface HdsFormMaskedInputBaseSignature {
 }
 
 export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInputBaseSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked _isContentMasked = true;
   @tracked private _isControlled = this.args.isContentMasked !== undefined;

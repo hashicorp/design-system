@@ -21,7 +21,7 @@ export interface HdsSideNavPortalTargetSignature {
 }
 
 export default class HdsSideNavPortalTarget extends Component<HdsSideNavPortalTargetSignature> {
-  @service router!: Services['router'];
+  @service declare readonly router: Services['router'];
 
   @tracked numSubnavs = 0;
   @tracked lastPanelEl: Element | undefined;
