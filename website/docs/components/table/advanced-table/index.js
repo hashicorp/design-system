@@ -104,18 +104,14 @@ export default class Index extends Component {
       type: 'multi-select',
       text: 'Artist',
       data: [
-        { value: 'nick-drake', label: 'Nick Drake' },
-        { value: 'beatles', label: 'The Beatles' },
+        { value: 'Nick Drake', label: 'Nick Drake' },
+        { value: 'The Beatles', label: 'The Beatles' },
       ],
     },
   };
 
   get model() {
     return { myDemoData: this.demoSourceData };
-  }
-
-  get demoFilteredData() {
-    return this.demoSourceData.slice(0, 2);
   }
 
   get demoEmptyModel() {
@@ -444,6 +440,82 @@ export default class Index extends Component {
     return clonedData;
   }
 
+  get demoFilteredData() {
+    const filterItem = (item) => {
+      if (Object.keys(this.demoFilters).length === 0) return true;
+      let match = true;
+      Object.keys(this.demoFilters).forEach((key) => {
+        const filter = this.demoFilters[key];
+        if (filter) {
+          switch (filter.type) {
+            case 'single-select':
+              if (
+                !this.isSingleSelectFilterMatch(
+                  item[key],
+                  filter,
+                )
+              ) {
+                match = false;
+              }
+              break;
+            case 'search':
+              if (!this.isSearchFilterMatch(item, filter)) {
+                match = false;
+              }
+              break;
+            case 'multi-select':
+              if (
+                !this.isMultiSelectFilterMatch(
+                  item[key],
+                  filter,
+                )
+              ) {
+                match = false;
+              }
+          }
+        }
+      });
+      return match;
+    };
+
+    const filteredData = this.demoSourceData.filter(filterItem);
+    return filteredData;
+  }
+
+  isSingleSelectFilterMatch(
+    itemValue,
+    filter,
+  ) {
+    return itemValue === filter.data.value;
+  }
+
+  isMultiSelectFilterMatch(
+    itemValue,
+    filter,
+  ) {
+    const filterValues = filter.data.map((d) => d.value);
+    return filterValues.includes(itemValue);
+  }
+
+  isSearchFilterMatch(
+    item,
+    filter,
+  ) {
+    let match = false;
+    Object.keys(item).forEach((key) => {
+      const itemValue = item[key];
+      const filterValue = filter.data.value;
+      if (
+        typeof itemValue === 'string' &&
+        typeof filterValue === 'string' &&
+        itemValue.toLowerCase().includes(filterValue.toLowerCase())
+      ) {
+        match = true;
+      }
+    });
+    return match;
+  }
+
   @action
   demoOnPageChange(page, pageSize) {
     this.demoCurrentPage = page;
@@ -510,5 +582,9 @@ export default class Index extends Component {
   demoSortBySelectedControlledOnSort(sortBy, sortOrder) {
     this.demoSortBySelectedControlledSortBy = sortBy;
     this.demoSortBySelectedControlledSortOrder = sortOrder;
+  }
+
+  @action demoUpdateFilters(newFilters) {
+    this.demoFilters = newFilters;
   }
 }

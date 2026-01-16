@@ -462,7 +462,12 @@ The Filter Bar component doesn't handle filtering the data, that must still be h
   }}
 >
   <:actions as |A|>
-    <A.FilterBar @filters={{this.demoFilters}} @hasSearch={{true}} as |F|>
+    <A.FilterBar
+      @filters={{this.demoFilters}}
+      @hasSearch={{true}}
+      @onFilter={{this.demoUpdateFilters}}
+      as |F|
+    >
       <F.Dropdown as |D|>
         <D.FilterGroup
           @key="artist"
@@ -470,15 +475,25 @@ The Filter Bar component doesn't handle filtering the data, that must still be h
           @type="multi-select"
           as |F|
         >
-          <F.Checkbox @value="nick-drake" @label="Nick Drake" />
-          <F.Checkbox @value="beatles" @label="The Beatles" />
-          <F.Checkbox @value="melanie" @label="Melanie" />
+          <F.Checkbox @value="Nick Drake" @label="Nick Drake" />
+          <F.Checkbox @value="The Beatles" @label="The Beatles" />
+          <F.Checkbox @value="Melanie" @label="Melanie" />
+          <F.Checkbox @value="Bob Dylan" @label="Bob Dylan" />
+          <F.Checkbox @value="James Taylor" @label="James Taylor" />
+          <F.Checkbox @value="Simon and Garfunkel" @label="Simon and Garfunkel" />
         </D.FilterGroup>
         <D.FilterGroup
-          @key="release-year"
+          @key="year"
           @text="Release year"
-          @type="date"
-        />
+          @type="single-select"
+          as |F|
+        >
+          <F.Radio @value="1965" @label="1965" />
+          <F.Radio @value="1969" @label="1969" />
+          <F.Radio @value="1970" @label="1970" />
+          <F.Radio @value="1971" @label="1971" />
+          <F.Radio @value="1972" @label="1972" />
+        </D.FilterGroup>
       </F.Dropdown>
     </A.FilterBar>
   </:actions>
