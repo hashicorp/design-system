@@ -128,6 +128,12 @@ importers:
       '@hashicorp/flight-icons':
         specifier: workspace:^4.1.1
         version: link:../flight-icons
+      '@ibm/plex-mono':
+        specifier: ^1.1.0
+        version: 1.1.0
+      '@ibm/plex-sans':
+        specifier: ^1.1.0
+        version: 1.1.0
       '@lezer/highlight':
         specifier: ^1.2.1
         version: 1.2.1
@@ -225,12 +231,6 @@ importers:
       '@glint/template':
         specifier: ^1.5.2
         version: 1.5.2
-      '@ibm/plex-mono':
-        specifier: ^1.1.0
-        version: 1.1.0
-      '@ibm/plex-sans':
-        specifier: ^1.1.0
-        version: 1.1.0
       '@rollup/plugin-babel':
         specifier: ^6.0.4
         version: 6.0.4(@babel/core@7.28.0)(@types/babel__core@7.20.5)(rollup@4.46.2)
@@ -14451,6 +14451,8 @@ snapshots:
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
+      '@ibm/plex-mono': 1.1.0
+      '@ibm/plex-sans': 1.1.0
       '@lezer/highlight': 1.2.1
       '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       clipboard-polyfill: 4.1.1
@@ -14505,6 +14507,8 @@ snapshots:
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
+      '@ibm/plex-mono': 1.1.0
+      '@ibm/plex-sans': 1.1.0
       '@lezer/highlight': 1.2.1
       '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       clipboard-polyfill: 4.1.1
