@@ -164,7 +164,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert.dom('.hds-app-side-nav__toggle-button').exists();
   });
 
-  test('it does not show a toggle button on narrow viewports if `isResponsive` is false', async function (assert) {
+  test('it does not show a toggle button, or treat the side nav as a dialog on narrow viewports if `isResponsive` is false', async function (assert) {
     await render(
       <template>
         <HdsAppSideNav
@@ -175,6 +175,12 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
       </template>,
     );
     assert.dom('.hds-app-side-nav__toggle-button').doesNotExist();
+    assert
+      .dom('#test-app-side-nav')
+      .doesNotHaveClass('hds-app-side-nav--is-minimized')
+      .doesNotHaveAttribute('role')
+      .doesNotHaveAttribute('aria-modal')
+      .doesNotHaveAttribute('aria-labelledby');
   });
 
   test('it expands/collapses when the toggle button is pressed on narrow viewports', async function (assert) {
@@ -183,7 +189,12 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
         <HdsAppSideNav id="test-app-side-nav" @breakpoint="10000px" />
       </template>,
     );
-    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
+    assert
+      .dom('#test-app-side-nav')
+      .hasClass('hds-app-side-nav--is-minimized')
+      .hasAttribute('role', 'dialog')
+      .hasAttribute('aria-modal', 'true')
+      .hasAttribute('aria-labelledby', 'hds-app-side-nav-header');
     assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
 
     await click('.hds-app-side-nav__toggle-button');
