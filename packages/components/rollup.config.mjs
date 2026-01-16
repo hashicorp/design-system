@@ -6,24 +6,60 @@
 import { Addon } from '@embroider/addon-dev/rollup';
 import { babel } from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy';
-import scss from 'rollup-plugin-scss';
 import process from 'process';
 import path from 'node:path';
+import * as sass from 'sass';
 
 const addon = new Addon({
   srcDir: 'src',
   destDir: 'dist',
 });
 
+// Custom SCSS compilation plugin for Rollup
+function addScssCompilationPlugins(options) {
+  return options.map(({ inputFile, outputFile }) => ({
+    name: `rollup custom plugin to generate ${outputFile}`,
+    generateBundle() {
+      try {
+        const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
+        const outputFileFullPath = `styles/@hashicorp/${outputFile}`;
+
+        const result = sass.compile(inputFileFullPath, {
+          sourceMap: true,
+          loadPaths: [
+            'node_modules/@hashicorp/design-system-tokens/dist',
+            'node_modules/@ibm',
+          ],
+        });
+
+        // Emit the compiled CSS
+        this.emitFile({
+          type: 'asset',
+          fileName: outputFileFullPath,
+          source: result.css,
+        });
+
+        // Emit the source map
+        if (result.sourceMap) {
+          this.emitFile({
+            type: 'asset',
+            fileName: `${outputFileFullPath}.map`,
+            source: JSON.stringify(result.sourceMap),
+          });
+        }
+      } catch (error) {
+        this.error(
+          `Failed to compile SCSS file "${inputFile}": ${error.message}`
+        );
+      }
+    },
+  }));
+}
+
 const plugins = [
   // These are the modules that users should be able to import from your
   // addon. Anything not listed here may get optimized away.
-  addon.publicEntrypoints([
-    '**/*.{js,ts}',
-    'index.js',
-    'template-registry.js',
-    'styles/@hashicorp/design-system-components.scss',
-  ]),
+  addon.publicEntrypoints(['**/*.{js,ts}', 'index.js', 'template-registry.js']),
 
   // These are the modules that should get reexported into the traditional
   // "app" tree. Things in here should also be in publicEntrypoints above, but
@@ -50,16 +86,26 @@ const plugins = [
   // package names.
   addon.dependencies(),
 
-  scss({
-    fileName: 'styles/@hashicorp/design-system-components.css',
-    includePaths: [
-      'node_modules/@hashicorp/design-system-tokens/dist/products/css',
-    ],
-  }),
-
-  scss({
-    fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
-  }),
+  // We use a custom plugin for the Sass/SCSS compilation
+  // so we can have multiple input and multiple outputs
+  ...addScssCompilationPlugins([
+    {
+      inputFile: 'design-system-components.scss',
+      outputFile: 'design-system-components.css',
+    },
+    {
+      inputFile: 'design-system-components-common.scss',
+      outputFile: 'design-system-components-common.css',
+    },
+    {
+      inputFile: 'design-system-power-select-overrides.scss',
+      outputFile: 'design-system-power-select-overrides.css',
+    },
+    {
+      inputFile: 'design-system-plex-fonts.scss',
+      outputFile: 'design-system-plex-fonts.css',
+    },
+  ]),
 
   // Ensure that standalone .hbs files are properly integrated as Javascript.
   addon.hbs(),
@@ -85,11 +131,57 @@ const plugins = [
   // to leave alone and keep in the published output.
   addon.keepAssets(['**/*.css', '**/*.scss']),
 
-  // Copy readme and license files into published package
   copy({
     targets: [
+      // Copy readme and license files into published package
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
+      // Copy the IBM Plex fonts from the @ibm packages to the public folder
+      {
+        src: 'node_modules/@ibm/plex-sans/LICENSE.txt',
+        dest: 'dist/public/assets/fonts',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Italic.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Regular.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBold.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBoldItalic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Italic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Regular.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBold.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBoldItalic.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/complete/woff2',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Regular-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Italic-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBoldItalic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Regular-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Italic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBoldItalic-*.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/split/woff2',
+      },
+    ],
+    hook: 'writeBundle',
+    copySync: true,
+    copyOnce: true,
+    // verbose: true,
+  }),
+
+  // After bundle is written, copy built CSS to Showcase app
+  copy({
+    hook: 'writeBundle',
+    targets: [
+      {
+        src: 'dist/styles/@hashicorp/*.css',
+        dest: '../../showcase/public/assets/styles/@hashicorp',
+      },
     ],
   }),
 ];

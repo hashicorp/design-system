@@ -7,7 +7,7 @@
 
 body.page-foundations-typography {
   .shw-label {
-    color: #999;
+    color: var(--shw-color-gray-300);
   }
 
   p[class^="hds-"] {
