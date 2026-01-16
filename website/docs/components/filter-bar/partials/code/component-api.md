@@ -294,7 +294,7 @@ The `FilterBar::FilterGroup` is yielded as the `[D].FilterGroup` contextual comp
   <C.Property @name="text" @type="string" @required={{true}}>
     The text used for the given `FilterGroup` in the tabs of the `Dropdown`, and in any applied filter tags for the group.
   </C.Property>
-  <C.Property @name="type" @type="enum" @values={{array "single-select" "multi-select" "numerical" "date" "time" "datetime" "generic"}} @default="single-select">
+  <C.Property @name="type" @type="enum" @values={{array "single-select" "multi-select" "numerical" "date" "time" "datetime" "generic"}} @required={{true}}>
     The type of data being filtered.
   </C.Property>
   <C.Property @name="searchEnabled" @type="boolean" @default="false">

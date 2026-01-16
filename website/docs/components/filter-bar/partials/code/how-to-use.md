@@ -41,11 +41,11 @@ The Filter Bar is also available as a contextual component of the [Advanced Tabl
 
 All filtering options are available via a dropdown in the Filter Bar. Inside the dropdown, each filter group is represented with its own tab. When a tab is selected, the filtering options available are visible and users can add filters for that group. By clicking the "Apply filters" or "Clear all filters" buttons in the dropdown footer, the user can apply the selected filters, or clear all that have been previously set.
 
-Filtering options are passed to the Filter Bar through the Dropdown and FilterGroup contextual components. In the FilterGroup, the `@key` and `@text` arguments are required.
+Filtering options are passed to the Filter Bar through the Dropdown and FilterGroup contextual components. In the FilterGroup, the `@key`, `@text`, and `@type` arguments are required.
 
 - The `@key` argument sets the key for that filter group in the data object of the `onFilter` callback.
 - The `@text` argument sets the text for tab label.
-- The `@type` argument specifies the type of filtering available for the group, with a default value is `single-select`.
+- The `@type` argument specifies the type of filtering available for the group.
 
 View more details on [available filter types](#filter-types) below.
 
