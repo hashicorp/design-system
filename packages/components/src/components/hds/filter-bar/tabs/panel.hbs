@@ -1,0 +1,17 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<section
+  class="hds-filter-bar__tabs__panel"
+  ...attributes
+  role="tabpanel"
+  id={{this._panelId}}
+  hidden={{not this.isVisible}}
+  aria-labelledby={{this.coupledTabId}}
+  {{this._setUpPanel insertCallbackFunction=this.didInsertNode destroyCallbackFunction=this.willDestroyNode}}
+>
+  {{#if this.isVisible}}
+    {{yield}}
+  {{/if}}
+</section>

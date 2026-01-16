@@ -1,0 +1,8 @@
+values-list:
+  legend: Filter by {text}
+  clear-filter: Clear filter
+  clear-selection: Clear selection
+search-input:
+  aria-description: Search will be performed automatically as you type
+  aria-label: Search filter options
+  placeholder: Search
