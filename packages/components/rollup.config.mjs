@@ -26,7 +26,10 @@ function addScssCompilationPlugins(options) {
 
         const result = sass.compile(inputFileFullPath, {
           sourceMap: true,
-          loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
+          loadPaths: [
+            'node_modules/@hashicorp/design-system-tokens/dist',
+            'node_modules/@ibm',
+          ],
         });
 
         // Emit the compiled CSS
@@ -98,6 +101,10 @@ const plugins = [
       inputFile: 'design-system-power-select-overrides.scss',
       outputFile: 'design-system-power-select-overrides.css',
     },
+    {
+      inputFile: 'design-system-plex-fonts.scss',
+      outputFile: 'design-system-plex-fonts.css',
+    },
   ]),
 
   // Ensure that standalone .hbs files are properly integrated as Javascript.
@@ -124,12 +131,47 @@ const plugins = [
   // to leave alone and keep in the published output.
   addon.keepAssets(['**/*.css', '**/*.scss']),
 
-  // Copy readme and license files into published package
   copy({
     targets: [
+      // Copy readme and license files into published package
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
+      // Copy the IBM Plex fonts from the @ibm packages to the public folder
+      {
+        src: 'node_modules/@ibm/plex-sans/LICENSE.txt',
+        dest: 'dist/public/assets/fonts',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Italic.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Regular.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBold.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBoldItalic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Italic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Regular.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBold.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBoldItalic.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/complete/woff2',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Regular-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Italic-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBoldItalic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Regular-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Italic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBoldItalic-*.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/split/woff2',
+      },
     ],
+    hook: 'writeBundle',
+    copySync: true,
+    copyOnce: true,
+    // verbose: true,
   }),
 
   // After bundle is written, copy built CSS to Showcase app
