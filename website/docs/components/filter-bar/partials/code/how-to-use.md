@@ -98,7 +98,7 @@ View more details on [available filter types](#filter-types) below.
 
 ### Applying filters
 
-A user can apply, update, or clear filters within the filter dropdown. The `@onFilter` callback is used to listen for changes to the filters.
+A user can apply, update, or clear filters within the filter dropdown. The `@onFilter` callback is used to listen for and respond to changes to the filters.
 
 The callback provides a data object of applied filters which come from a user's filter selections. This object can be used to run any filtering operations on a data set, and then be passed back into the `@filters` argument of the Filter Bar to show the applied filters.
 
@@ -172,9 +172,9 @@ export default class DemoFilterBar extends Component {
 
 #### Live filtering
 
-By default, the `@onFilter` callback is not triggered when a selection is made in the dropdown. Instead, the callback is triggered when the user confirms their selection with the "Apply filters" button, or clears them with the "Clear all filters" button.
+By default, the `@onFilter` callback is not triggered when a filter is added in the dropdown. Instead, the callback is triggered when the user confirms their filters with the "Apply filters" button, or clears them with the "Clear all filters" button.
 
-However, if the `@isLiveFilter` argument is set to `true`, the `@onFilter` callback will be triggered as soon as a user makes a selection in the dropdown. This can be used if you would like filtering of your data to occur immediately after selection instead of requiring user confirmation.
+If the `@isLiveFilter` argument is set to `true`, the `@onFilter` callback will be triggered as soon as a user adds a filter in the dropdown. If it is a selection-based filter, like a checkbox or radio button, the filtering would occur on selection. If it is an input-based filter, like a date or number, the filter would be applied when both inputs are correctly filled out.
 
 ```handlebars
 <Hds::FilterBar
@@ -204,6 +204,11 @@ However, if the `@isLiveFilter` argument is set to `true`, the `@onFilter` callb
       <F.Radio @value="2.0" @label="2.0" />
       <F.Radio @value="3.0" @label="3.0" />
     </D.FilterGroup>
+    <D.FilterGroup
+      @key="creation-date"
+      @text="Creation date"
+      @type="date"
+    />
   </F.Dropdown>
 </Hds::FilterBar>
 ```

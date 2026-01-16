@@ -13,7 +13,7 @@
     `FilterBar::Dropdown` yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="filters" @type="object" @required={{true}}>
-    Object representing the currently applied filters. The shape is dependent upon the filter type ([see below](#filter-types-1)). It is required to set a `string` filter key for each entry. Ex: `{ 'filter-key': {...}}`.
+    Object representing the currently applied filters. The shape is dependent upon the filter type ([see below](#filter-types-1)). It is required to set a `string` filter key for each entry. Ex: `{ 'my-filter-key': {...}}`.
   </C.Property>
   <C.Property @name="isLiveFilter" @type="boolean" @default="false">
     When `true`, the `@onFilter` callback is invoked immediately as selections are made in the dropdown (live updates). When `false`, changes in the dropdown are applied only when the user confirms via the "Apply filters" button, or clears with the "Clear all filters" button.

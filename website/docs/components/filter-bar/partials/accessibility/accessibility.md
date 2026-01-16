@@ -6,6 +6,8 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 ## Keyboard navigation
 
+### Accessing the dropdown menu
+
 <Doc::Badge @type="neutral">Tab</Doc::Badge>
 
 Focus on the dropdown toggle button.
@@ -52,6 +54,26 @@ Move to the selected tab content.
 Close the dropdown.
 
 ![Filter bar with the dropdown closed and focus on the dropdown toggle button](/assets/components/filter-bar/filter-bar-a11y-default.png)
+
+### Executing a search
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+Focus the search input.
+
+![Filter bar with focus on the search input](/assets/components/filter-bar/filter-bar-a11y-search-focused.png)
+
+<Doc::Badge @type="neutral">\[a-z\]</Doc::Badge>
+
+Enter a search term into the input.
+
+![Filter bar with search input containing "lorem ipsum" value](/assets/components/filter-bar/filter-bar-a11y-search-input.png)
+
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
+
+Execute the search.
+
+![Filter bar with a new filter added for "Search: lorem ipsum"](/assets/components/filter-bar/filter-bar-a11y-search-execute.png)
 
 ## Applicable WCAG Success Criteria
 
