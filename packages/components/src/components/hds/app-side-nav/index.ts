@@ -102,6 +102,10 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     return this.args.isCollapsible ?? false;
   }
 
+  get isMobileCollapsable(): boolean {
+    return this.isResponsive && !this._isDesktop;
+  }
+
   // traps focus if isResponsive is enabled and it's in mobile view with side nav expanded (overlaying content)
   get shouldTrapFocus(): boolean {
     return this.isResponsive && !this._isDesktop && !this._isMinimized;

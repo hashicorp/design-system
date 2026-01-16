@@ -6,6 +6,9 @@
 <div
   class={{this.classNames}}
   ...attributes
+  role={{if this.isMobileCollapsable "dialog"}}
+  aria-labelledby={{if this.isMobileCollapsable "hds-app-side-nav-header"}}
+  aria-modal={{if this.isMobileCollapsable "true"}}
   {{on "transitionstart" (fn this.setTransition "start")}}
   {{on "transitionend" (fn this.setTransition "end")}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
