@@ -786,13 +786,10 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  min-height: 400px;
+  padding: 16px;
   background-color: var(--token-color-surface-primary);
   border: 1px solid var(--token-color-border-primary);
   border-bottom-right-radius: $hds-advanced-table-border-radius;
   border-bottom-left-radius: $hds-advanced-table-border-radius;
-}
-
-.hds-advanced-table__empty-state__content {
-  max-width: 450px;
 }
