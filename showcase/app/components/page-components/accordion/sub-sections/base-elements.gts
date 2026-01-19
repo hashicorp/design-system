@@ -27,7 +27,7 @@ import {
 
 const STATES = ['default', 'active', 'hover', 'focus'] as const;
 
-function getMockStateSelector(
+export function getMockStateSelector(
   type: (typeof TYPES)[number],
   state: (typeof STATES)[number],
   containsInteractive: boolean,
