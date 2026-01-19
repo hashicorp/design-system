@@ -172,6 +172,7 @@ Router.map(function () {
       this.route('focus-ring');
     });
     this.route('components', function () {
+      this.route('accordion');
       this.route('badge');
       this.route('badge-count');
       this.route('button');
