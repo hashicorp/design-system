@@ -16,7 +16,9 @@
     Object representing the currently applied filters. The shape is dependent upon the filter type ([see below](#filter-types-1)). It is required to set a `string` filter key for each entry. Ex: `{ 'my-filter-key': {...}}`.
   </C.Property>
   <C.Property @name="isLiveFilter" @type="boolean" @default="false">
-    When `true`, the `@onFilter` callback is invoked immediately as selections are made in the dropdown (live updates). When `false`, changes in the dropdown are applied only when the user confirms via the "Apply filters" button, or clears with the "Clear all filters" button.
+    If `true`, the `@onFilter` callback is invoked immediately as filters are added in the dropdown (live updates). If `false`, changes in the dropdown are applied only when the user confirms via the "Apply filters" button, or clears with the "Clear all filters" button.
+    <br/><br/>
+    **Note:** The behavior of the search input is unaffected by this argument. The search filter is always applied after user submission via the `change` event.
   </C.Property>
   <C.Property @name="hasSearch" @type="boolean" @default="false">
     When `true`, a search input is shown in the Filter Bar. Search input values are reported to the `@onFilter` callback as a filter with the key `search`.
