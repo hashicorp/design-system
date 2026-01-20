@@ -148,13 +148,13 @@ If the grid items are wrapping on multiple lines, you have to overwrite both the
 
 There are two options for controlling `Grid` column widths: `@columnMinWidth` and `@columnWidth`.
 
-- `@columnMinWidth` creates a semi-fluid layout. If there are fewer items than fit in a row, columns will automatically adjust so that their combined widths add up to 100%.
+- `@columnMinWidth` creates a semi-fluid layout. If there are fewer items than fit in a row, columns will automatically adjust so that their combined widths add up to 100%.  If the combined widths of columns in a row add up to more than 100%, they will automatically wrap to the next row as needed to fit.
 
 - `@columnWidth` creates a more “fixed” layout. The column widths will remain consistent no matter how few items are in a row. It supports optional breakpoints to define responsive views.
 
 ### Column min width
 
-Specify a `columnMinWidth` to create a more fluid, “semi-responsive“ layout. If the combined widths of columns in a row add up to more than 100%, they will automatically wrap to the next row as needed to fit.
+Specify a `columnMinWidth` to create a more fluid, “semi-responsive“ layout.
 
 Note: The `gap` size will be automatically subtracted from the `columnMinWidth`. Take this into account when specifying a min width value.
 
