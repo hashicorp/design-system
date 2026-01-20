@@ -13,18 +13,21 @@
   </C.Property>
   <C.Property @name="columnWidth" @type="string | object">
     The width to use for grid columns. Widths can be any valid CSS dimension although percentage values often work best. If the total width of columns in a row exceeds 100% of the parent, columns will wrap to the next row as necessary to fit.
-    <Doc::ComponentApi as |C|>
-      <C.Property @name="Fixed column widths" @type="string">
-        Set any valid CSS dimension as a width for the grid columns.
-      </C.Property>
-      <C.Property @name="Responsive column widths" @type="object">
-        Pass in an object to define the column widths for responsive views. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views.
-        <br /><br />
-        The expected shape of the object is:
-        <br />
-        `{ sm?: string, md?: string, lg?: string, xl?: string, xxl?: string }`
-      </C.Property>
-    </Doc::ComponentApi>
+    <br/>
+    <br/>
+    **Fixed column widths** (when <code>string</code>)
+    <br/>
+    Set any valid CSS dimension as a width for the grid columns.
+    <br/>
+    <br/>
+    **Responsive column widths** (when <code>object</code>)
+    <br/>
+    Pass in an object to define the column widths for responsive views. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views.
+    <br />
+    The expected shape of the object is:
+    <br />
+    `{ sm?: string, md?: string, lg?: string, xl?: string, xxl?: string }`
+  </C.Property>
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "start" "center" "end" "stretch"}}>
     The value of the CSS `align-items` property, which controls the alignment of the grid items on the block axis within their grid areas (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)).
@@ -52,31 +55,31 @@ The `Layout::Grid::Item` component, yielded as contextual component, to be used 
   <C.Property @name="colspan" @type="number | object">
     The number of columns an item should span.
     <Doc::ComponentApi as |C|>
-      <C.Property @name="Fixed colspan" @type="number">
-        Set a fixed number for how many columns an item should span.
-      </C.Property>
-      <C.Property @name="Responsive colspan" @type="object">
-        Pass in an object to define how many columns should be spanned in each responsive view. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views.
-        <br /><br />
-        The expected shape of the object is:
-        <br />
-        `{ sm?: number, md?: number, lg?: number, xl?: number, xxl?: number }`
-      </C.Property>
+      **Fixed colspan** (when <code>number</code>)
+      <br />
+      Set a fixed number for how many columns an item should span.
+      <br />
+      <br />
+      **Responsive colspan** (when <code>object</code>)
+      <br />
+      Pass in an object to define how many columns should be spanned in each responsive view. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views. The expected shape of the object is:
+      <br />
+      `{ sm?: number, md?: number, lg?: number, xl?: number, xxl?: number }`
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="rowspan" @type="number | object">
     The number of rows an item should span.
     <Doc::ComponentApi as |C|>
-      <C.Property @name="Fixed rowspan" @type="number">
-        Set a fixed number for how many rows the item should span.
-      </C.Property>
-      <C.Property @name="Responsive rowspan" @type="object">
-        Pass in an object to define how many rows should be spanned in each responsive view. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views.
-        <br /><br />
-        The expected shape of the object is:
-        <br />
-        `{ sm?: number, md?: number, lg?: number, xl?: number, xxl?: number }`
-      </C.Property>
+      **Fixed rowspan** (when <code>number</code>)
+      <br />
+      Set a fixed number for how many rows the item should span.
+      <br />
+      <br />
+      **Responsive rowspan** (when <code>object</code>)
+      <br />
+      Pass in an object to define how many rows should be spanned in each responsive view. It is not necessary to pass in values for all breakpoints as passed in values for smaller views will be used for undefined larger views. The expected shape of the object is:
+      <br />
+      `{ sm?: number, md?: number, lg?: number, xl?: number, xxl?: number }`
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="yield">
