@@ -4,7 +4,6 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { capitalize } from '@ember/string';
-import { eq, and, or, not, notEq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
 import style from 'ember-style-modifier';
 import { array } from '@ember/helper';
@@ -26,7 +25,27 @@ import {
   TYPES,
 } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
-const STATES = ['default', 'active', 'hover', 'focus'];
+const STATES = ['default', 'active', 'hover', 'focus'] as const;
+
+function getMockStateSelector(
+  type: (typeof TYPES)[number],
+  state: (typeof STATES)[number],
+  containsInteractive: boolean,
+): string {
+  if (containsInteractive) {
+    return '.hds-accordion-item__button';
+  } else {
+    if (type === 'card') {
+      return state === 'focus' ? '.hds-accordion-item__button' : '';
+    } else if (type === 'flush') {
+      return state === 'focus'
+        ? '.hds-accordion-item__button'
+        : '.hds-disclosure-primitive__toggle';
+    }
+  }
+
+  return '';
+}
 
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
@@ -176,14 +195,11 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
                       @isOpen={{isOpen}}
                       @type={{type}}
                       mock-state-value={{state}}
-                      mock-state-selector="{{if
-                        (and
-                          (or (eq state 'active') (eq state 'hover'))
-                          (not containsInteractive)
-                        )
-                        '.hds-disclosure-primitive__toggle'
-                        (if (notEq state 'hover') '.hds-accordion-item__button')
-                      }}"
+                      mock-state-selector={{getMockStateSelector
+                        type
+                        state
+                        containsInteractive
+                      }}
                     >
                       <:toggle>Item</:toggle>
                       <:content>
