@@ -152,13 +152,13 @@ There are two options for controlling `Grid` column widths: `@columnMinWidth` an
 
 - `@columnWidth` creates a more “fixed” layout. The column widths will remain consistent no matter how few items are in a row. It supports optional breakpoints to define responsive views.
 
-### Column min width
+#### Column min width
 
 Specify a `columnMinWidth` to create a more fluid, “semi-responsive“ layout.
 
 Note: The `gap` size will be automatically subtracted from the `columnMinWidth`. Take this into account when specifying a min width value.
 
-#### Semi-fluid layout behavior
+##### Semi-fluid layout behavior
 
 The column widths in a single row automatically adjust to maintain a total width of 100%.
 
@@ -186,11 +186,11 @@ The column widths in a single row automatically adjust to maintain a total width
 </Hds::Layout::Grid>
 ```
 
-#### Semi-responsive layout using fixed unit values
+##### Semi-responsive layout using fixed unit values
 
 Specifying column min-widths using fixed units such as pixels, allows you to create layouts which are “automatically” responsive. To create fully responsive layouts using defined break points, see [`columnWidth`](/layouts/grid#column-width).
 
-##### Grid within a wider view
+###### Grid within a wider view
 
 Narrow your browser window to see the responsive behavior.
 
@@ -203,7 +203,7 @@ Narrow your browser window to see the responsive behavior.
 </Hds::Layout::Grid>
 ```
 
-##### The same grid within a narrower view
+###### The same grid within a narrower view
 
 At the specified column min width, columns are forced to stack in this narrower view.
 
@@ -218,13 +218,13 @@ At the specified column min width, columns are forced to stack in this narrower 
 </div>
 ```
 
-### Column width
+#### Column width
 
 To create column layouts that are more “fixed” vs. fluid, use `columnWidth` to specify a width for the columns. Items will respect the defined width instead of stretching to fill out a single column row.
 
 Note: The `gap` size will be automatically subtracted from the `columnWidth`. Take this into account when specifying width values.
 
-#### Non-responsive columns
+##### Non-responsive columns
 
 Pass in a single value specifying the column width to create a non-responsive column layout.
 
@@ -253,13 +253,13 @@ Pass in a single value specifying the column width to create a non-responsive co
 </Hds::Layout::Grid>
 ```
 
-#### Responsive columns
+##### Responsive columns
 
 Optionally, instead of a single value, you can pass in an object to the `columnWidth` argument to define responsive column widths for up to five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
 
 See the [“Responsive layouts” section](/layouts/grid#responsive-layouts) for more details on responsive layout break points and behavior.
 
-#### With all views defined
+##### With all views defined
 
 ```handlebars
 <Hds::Layout::Grid @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}} @gap="16">
@@ -271,7 +271,7 @@ See the [“Responsive layouts” section](/layouts/grid#responsive-layouts) for
 </Hds::Layout::Grid>
 ```
 
-#### With only `sm` & `lg` views defined
+##### With only `sm` & `lg` views defined
 
 !!! Info
 
@@ -310,13 +310,9 @@ Note: The `Grid` parent will need a height set for the effect to be visible.
 
 ### Colspan & rowspan
 
-!!! Info
-
-By default, if a height is set on the `Grid` parent, grid row heights will stretch proportionally to fill the `Grid`. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
-
-!!!
-
 Use the `colspan` and `rowspan` arguments of the `Grid::Item` component to set the number of columns or rows an item should occupy. They both support optional breakpoints to define responsive views.
+
+Note: By default, if a height is set on the `Grid` parent, grid row heights will stretch proportionally to fill the `Grid`. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
 
 #### Non-responsive example
 
