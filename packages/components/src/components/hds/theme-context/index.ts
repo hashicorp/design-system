@@ -13,7 +13,10 @@ import {
 } from './types.ts';
 import type { HdsThemeContexts } from './types.ts';
 
-import type { HdsThemes, HdsModes } from '../../../services/hds-theming.ts';
+import type {
+  HdsThemes,
+  HdsModes,
+} from '../../../services/hds-theming-types.ts';
 
 export interface HdsThemeContextSignature {
   Args: {

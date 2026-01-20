@@ -13,12 +13,12 @@ import { action } from '@ember/object';
 
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
-import type { HdsIconSignature } from '../icon/index.ts';
+import type { HdsIconSignature } from '../icon/index.gts';
 import type HdsThemingService from '../../../services/hds-theming.ts';
 import type {
   HdsThemes,
   HdsOnSetThemeCallback,
-} from '../../../services/hds-theming.ts';
+} from '../../../services/hds-theming-types.ts';
 
 interface ThemeOption {
   theme: HdsThemes | undefined;
