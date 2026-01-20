@@ -471,6 +471,8 @@ Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
 
 We first establish an underlying grid structure of three columns by setting the `columnWidth` of the `Grid` parent to `33.33%`. The `@colspan` option of the `GridItem` children is then used to make some of them span two of the underlying grid columns creating a more complex layout.
 
+It uses a responsive layout so the content items will stack in the smallest view.
+
 ```handlebars
 <Hds::Layout::Grid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="24" as |LG|>
   <LG.Item @colspan={{hash sm=1 md=2}}>
