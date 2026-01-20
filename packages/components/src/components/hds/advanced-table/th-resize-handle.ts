@@ -11,6 +11,7 @@ import { requestAnimationFrameWaiter } from './utils.ts';
 import { BORDER_WIDTH } from './index.ts';
 import type Owner from '@ember/owner';
 
+import { hdsKeyboardKey } from '../../../utils/hds-keyboard-key.ts';
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
@@ -142,7 +143,10 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
   @action
   handleKeydown(event: KeyboardEvent): void {
-    const validKeys = ['ArrowLeft', 'ArrowRight'];
+    const validKeys = [
+      hdsKeyboardKey['arrowLeft'],
+      hdsKeyboardKey['arrowRight'],
+    ];
 
     if (!validKeys.includes(event.key)) {
       return;
@@ -163,7 +167,9 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const startColumnPxWidth = Math.round(column.pxAppliedWidth ?? 0);
     const startNextColumnPxWidth = Math.round(nextColumn.pxAppliedWidth ?? 0);
     const deltaX =
-      event.key === 'ArrowRight' ? KEYBOARD_RESIZE_STEP : -KEYBOARD_RESIZE_STEP;
+      event.key === hdsKeyboardKey['arrowRight']
+        ? KEYBOARD_RESIZE_STEP
+        : -KEYBOARD_RESIZE_STEP;
 
     this._applyResizeDelta(
       deltaX,

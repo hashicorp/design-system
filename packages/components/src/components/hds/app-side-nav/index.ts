@@ -11,6 +11,7 @@ import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
 
 import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
+import { hdsKeyboardKey } from '../../../utils/hds-keyboard-key.ts';
 
 export interface HdsAppSideNavSignature {
   Args: {
@@ -169,7 +170,11 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
 
   @action
   escapePress(event: KeyboardEvent): void {
-    if (event.key === 'Escape' && !this._isMinimized && !this._isDesktop) {
+    if (
+      event.key === hdsKeyboardKey['escape'] &&
+      !this._isMinimized &&
+      !this._isDesktop
+    ) {
       this._isMinimized = true;
       this.synchronizeInert();
       this.unlockBodyScroll();

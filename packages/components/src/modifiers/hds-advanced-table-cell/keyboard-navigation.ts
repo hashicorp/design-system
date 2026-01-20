@@ -4,6 +4,7 @@
  */
 
 import { focusable } from 'tabbable';
+import { hdsKeyboardKey } from '../../utils/hds-keyboard-key.ts';
 
 export const handleGridCellKeyPress = (
   event: KeyboardEvent,
@@ -22,10 +23,7 @@ export const handleGridCellKeyPress = (
     newCell.focus({ preventScroll: true });
   };
 
-  const findNewRow = (
-    currentRow: HTMLElement,
-    direction: 'ArrowDown' | 'ArrowUp'
-  ) => {
+  const findNewRow = (currentRow: HTMLElement, direction: string) => {
     const grid = currentRow.parentElement?.closest('[role="grid"]');
     const allVisibleRows = grid?.querySelectorAll(
       '[role="row"]:not(.hds-advanced-table__tr--hidden)'
@@ -33,8 +31,9 @@ export const handleGridCellKeyPress = (
 
     if (allVisibleRows) {
       const currentRowIndex = Array.from(allVisibleRows).indexOf(currentRow);
-      if (direction === 'ArrowDown') return allVisibleRows[currentRowIndex + 1];
-      else if (direction === 'ArrowUp')
+      if (direction === hdsKeyboardKey['arrowDown'])
+        return allVisibleRows[currentRowIndex + 1];
+      else if (direction === hdsKeyboardKey['arrowUp'])
         return allVisibleRows[currentRowIndex - 1];
     }
   };
@@ -57,17 +56,23 @@ export const handleGridCellKeyPress = (
         target.setAttribute('tabindex', '-1');
         enableFocusTrap();
       }
-    } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+    } else if (
+      event.key === hdsKeyboardKey['arrowRight'] ||
+      event.key === hdsKeyboardKey['arrowLeft']
+    ) {
       event.preventDefault();
       const nextElement =
-        key === 'ArrowRight'
+        key === hdsKeyboardKey['arrowRight']
           ? target.nextElementSibling
           : target.previousElementSibling;
 
       if (nextElement !== null && nextElement instanceof HTMLElement) {
         changeActiveCell(target, nextElement);
       }
-    } else if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+    } else if (
+      event.key === hdsKeyboardKey['arrowDown'] ||
+      event.key === hdsKeyboardKey['arrowUp']
+    ) {
       event.preventDefault();
       const currentRow = target.parentElement;
 
@@ -84,7 +89,10 @@ export const handleGridCellKeyPress = (
           }
         }
       }
-    } else if (event.key === 'Home' || event.key === 'End') {
+    } else if (
+      event.key === hdsKeyboardKey['home'] ||
+      event.key === hdsKeyboardKey['end']
+    ) {
       event.preventDefault();
       if (event.ctrlKey) {
         const table = target.parentElement?.closest('[role="grid"]');
@@ -94,14 +102,14 @@ export const handleGridCellKeyPress = (
 
         if (allVisibleRows) {
           const nextRow =
-            key === 'Home'
+            key === hdsKeyboardKey['home']
               ? allVisibleRows[0]
               : allVisibleRows[allVisibleRows.length - 1];
 
           if (nextRow) {
             const cellsInNextRow = nextRow.children;
             const nextElement =
-              key === 'Home'
+              key === hdsKeyboardKey['home']
                 ? cellsInNextRow[0]
                 : cellsInNextRow[cellsInNextRow.length - 1];
 
@@ -116,14 +124,19 @@ export const handleGridCellKeyPress = (
         if (currentRow) {
           const allCells = currentRow.children;
           const nextElement =
-            key === 'Home' ? allCells[0] : allCells[allCells.length - 1];
+            key === hdsKeyboardKey['home']
+              ? allCells[0]
+              : allCells[allCells.length - 1];
 
           if (nextElement && nextElement instanceof HTMLElement) {
             changeActiveCell(target, nextElement);
           }
         }
       }
-    } else if (event.key === 'PageUp' || event.key === 'PageDown') {
+    } else if (
+      event.key === hdsKeyboardKey['pageUp'] ||
+      event.key === hdsKeyboardKey['pageDown']
+    ) {
       event.preventDefault();
       const currentRow = target.parentElement;
 
@@ -139,7 +152,7 @@ export const handleGridCellKeyPress = (
 
         if (allVisibleRows) {
           const nextRow =
-            event.key === 'PageUp'
+            event.key === hdsKeyboardKey['pageUp']
               ? allVisibleRows[0]
               : allVisibleRows[allVisibleRows.length - 1];
 

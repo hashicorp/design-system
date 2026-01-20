@@ -22,6 +22,8 @@ import type {
 
 import type Owner from '@ember/owner';
 
+import { hdsKeyboardKey } from '../utils/hds-keyboard-key.ts';
+
 export interface HdsTooltipModifierSignature {
   Args: {
     Positional: [string];
@@ -75,7 +77,7 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     defaultValue: true,
     fn({ hide }: { hide: TippyHideAll }) {
       function onKeyDown(event: KeyboardEvent): void {
-        if (event.key === 'Escape') {
+        if (event.key === hdsKeyboardKey['escape']) {
           hide();
         }
       }

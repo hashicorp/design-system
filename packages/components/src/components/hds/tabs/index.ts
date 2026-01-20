@@ -9,6 +9,7 @@ import { action } from '@ember/object';
 import { assert, warn } from '@ember/debug';
 import { next, schedule } from '@ember/runloop';
 import { HdsTabsSizeValues } from './types.ts';
+import { hdsKeyboardKey } from '../../../utils/hds-keyboard-key.ts';
 import type { ComponentLike } from '@glint/template';
 import type { HdsTabsTabSignature } from './tab';
 import type { HdsTabsPanelSignature } from './panel';
@@ -204,19 +205,17 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
 
   @action
   onKeyUp(tabIndex: number, event: KeyboardEvent): void {
-    const leftArrow = 'ArrowLeft';
-    const rightArrow = 'ArrowRight';
-    const enterKey = 'Enter';
-    const spaceKey = ' ';
-
-    if (event.key === rightArrow) {
+    if (event.key === hdsKeyboardKey['arrowRight']) {
       const nextTabIndex = (tabIndex + 1) % this._tabIds.length;
       this.focusTab(nextTabIndex, event);
-    } else if (event.key === leftArrow) {
+    } else if (event.key === hdsKeyboardKey['arrowLeft']) {
       const prevTabIndex =
         (tabIndex + this._tabIds.length - 1) % this._tabIds.length;
       this.focusTab(prevTabIndex, event);
-    } else if (event.key === enterKey || event.key === spaceKey) {
+    } else if (
+      event.key === hdsKeyboardKey['enter'] ||
+      event.key === hdsKeyboardKey['space']
+    ) {
       this.selectedTabIndex = tabIndex;
     }
     // scroll selected tab into view (it may be out of view when activated using a keyboard with `prev/next`)

@@ -8,13 +8,13 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import { guidFor } from '@ember/object/internals';
+import type Owner from '@ember/owner';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
 
 import HdsCodeEditorDescription from './description.ts';
 import HdsCodeEditorTitle from './title.ts';
+import { hdsKeyboardKey } from '../../../utils/hds-keyboard-key.ts';
 
-import type { WithBoundArgs } from '@glint/template';
-import type Owner from '@ember/owner';
-import type { ComponentLike } from '@glint/template';
 import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '../../../modifiers/hds-code-editor.ts';
 import type { HdsCodeEditorDescriptionSignature } from './description';
 import type { HdsCodeEditorTitleSignature } from './title';
@@ -58,7 +58,7 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
 
   private _handleEscape = modifier(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape' || !this._isFullScreen) {
+      if (event.key !== hdsKeyboardKey['escape'] || !this._isFullScreen) {
         return;
       }
 
@@ -145,7 +145,7 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
 
   @action
   onKeyDown(event: KeyboardEvent): void {
-    if (event.key === 'Escape' && this._isFullScreen) {
+    if (event.key === hdsKeyboardKey['escape'] && this._isFullScreen) {
       this.toggleFullScreen();
     }
   }
