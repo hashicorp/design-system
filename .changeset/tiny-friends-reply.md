@@ -2,4 +2,6 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`SegmentedGroup` - Converted component to gts
+<!-- START components/segmented-group -->
+`SegmentedGroup` - Converted component to gts format
+<!-- END -->
