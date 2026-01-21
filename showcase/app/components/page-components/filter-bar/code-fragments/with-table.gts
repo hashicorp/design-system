@@ -133,7 +133,7 @@ export default class CodeFragmentWithTable extends Component<CodeFragmentWithTab
       {{style marginBottom="24px"}}
       as |F|
     >
-      <F.Dropdown as |D|>
+      <F.FiltersDropdown as |D|>
         <D.FilterGroup
           @key="artist"
           @text="Artist"
@@ -156,7 +156,7 @@ export default class CodeFragmentWithTable extends Component<CodeFragmentWithTab
             <F.Radio @value={{option.value}} @label={{option.label}} />
           {{/each}}
         </D.FilterGroup>
-      </F.Dropdown>
+      </F.FiltersDropdown>
     </HdsFilterBar>
     <HdsTable
       @model={{this.filteredData}}

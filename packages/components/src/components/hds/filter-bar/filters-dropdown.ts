@@ -16,7 +16,7 @@ import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
 export const DEFAULT_DROPDOWN_HEIGHT = '600px';
 
-export interface HdsFilterBarDropdownSignature {
+export interface HdsFilterBarFiltersDropdownSignature {
   Args: {
     filters: HdsFilterBarFilters;
     isLiveFilter?: boolean;
@@ -37,7 +37,7 @@ export interface HdsFilterBarDropdownSignature {
   Element: HdsDropdownSignature['Element'];
 }
 
-export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdownSignature> {
+export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarFiltersDropdownSignature> {
   @tracked internalFilters: HdsFilterBarFilters = {};
 
   private _syncFilters = modifier(() => {
@@ -55,7 +55,7 @@ export default class HdsFilterBarDropdown extends Component<HdsFilterBarDropdown
 
   get dropdownHeightStyle(): Record<string, string> {
     const heightStyle: { [key: string]: string } = {};
-    heightStyle['--filter-bar-dropdown-height'] =
+    heightStyle['--filter-bar-filters-dropdown-height'] =
       this.args.height ?? DEFAULT_DROPDOWN_HEIGHT;
     return heightStyle;
   }

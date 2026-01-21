@@ -322,7 +322,7 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
       {{style marginBottom="24px"}}
       as |F|
     >
-      <F.Dropdown as |D|>
+      <F.FiltersDropdown as |D|>
         <D.FilterGroup
           @key="run-status"
           @text="Run status"
@@ -370,7 +370,7 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
             />
           </F.Generic>
         </D.FilterGroup>
-      </F.Dropdown>
+      </F.FiltersDropdown>
     </HdsFilterBar>
     <div class="shw-component-table-scrollable-wrapper">
       <HdsTable @model={{this.filteredData}} @columns={{COLUMNS}}>

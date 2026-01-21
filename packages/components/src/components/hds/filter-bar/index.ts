@@ -22,7 +22,7 @@ import type {
 } from './types.ts';
 import HdsYield from '../yield/index.ts';
 import HdsFilterBarActionsDropdown from './actions-dropdown.ts';
-import HdsFilterBarDropdown from './dropdown.ts';
+import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
 
 import { NUMERICAL_SELECTORS_TEXT } from './filter-group/numerical.ts';
 import { DATE_SELECTORS_TEXT } from './filter-group/date.ts';
@@ -38,15 +38,15 @@ export interface HdsFilterBarSignature {
   Blocks: {
     default?: [
       {
+        FiltersDropdown?: WithBoundArgs<
+          typeof HdsFilterBarFiltersDropdown,
+          'filters' | 'isLiveFilter' | 'onFilter'
+        >;
         ActionsDropdown?: WithBoundArgs<
           typeof HdsFilterBarActionsDropdown,
           never
         >;
         ActionsGeneric?: WithBoundArgs<typeof HdsYield, never>;
-        Dropdown?: WithBoundArgs<
-          typeof HdsFilterBarDropdown,
-          'filters' | 'isLiveFilter' | 'onFilter'
-        >;
       },
     ];
   };
@@ -64,7 +64,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
 
   private _setUpFilterBar = modifier((element: HTMLDivElement) => {
     this._dropdownToggleElement = element.querySelector(
-      '.hds-filter-bar__dropdown .hds-dropdown-toggle-button'
+      '.hds-filter-bar__filters-dropdown .hds-dropdown-toggle-button'
     ) as HTMLDivElement;
   });
 

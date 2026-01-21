@@ -81,7 +81,7 @@ const SubSectionFilterBar: TemplateOnlyComponent = <template>
   >
     <:actions as |A|>
       <A.FilterBar @filters={{EMPTY_FILTERS}} as |F|>
-        <F.Dropdown as |D|>
+        <F.FiltersDropdown as |D|>
           <D.FilterGroup
             @key="artist"
             @text="Artist"
@@ -104,7 +104,7 @@ const SubSectionFilterBar: TemplateOnlyComponent = <template>
               <F.Radio @value={{option.value}} @label={{option.label}} />
             {{/each}}
           </D.FilterGroup>
-        </F.Dropdown>
+        </F.FiltersDropdown>
       </A.FilterBar>
     </:actions>
     <:body as |B|>
@@ -143,7 +143,7 @@ const SubSectionFilterBar: TemplateOnlyComponent = <template>
   >
     <:actions as |A|>
       <A.FilterBar @filters={{APPLIED_FILTERS}} as |F|>
-        <F.Dropdown as |D|>
+        <F.FiltersDropdown as |D|>
           <D.FilterGroup
             @key="artist"
             @text="Artist"
@@ -166,7 +166,7 @@ const SubSectionFilterBar: TemplateOnlyComponent = <template>
               <F.Radio @value={{option.value}} @label={{option.label}} />
             {{/each}}
           </D.FilterGroup>
-        </F.Dropdown>
+        </F.FiltersDropdown>
       </A.FilterBar>
     </:actions>
     <:body as |B|>

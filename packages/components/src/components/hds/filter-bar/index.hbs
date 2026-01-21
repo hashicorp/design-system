@@ -24,8 +24,8 @@
     />
     {{yield
       (hash
-        Dropdown=(component
-          "hds/filter-bar/dropdown" filters=@filters isLiveFilter=@isLiveFilter onFilter=this.onFilter
+        FiltersDropdown=(component
+          "hds/filter-bar/filters-dropdown" filters=@filters isLiveFilter=@isLiveFilter onFilter=this.onFilter
         )
       )
     }}

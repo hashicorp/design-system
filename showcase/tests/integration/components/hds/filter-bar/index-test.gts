@@ -243,7 +243,7 @@ const createBasicFilterBar = async (options: {
         @onFilter={{options.onFilter}}
         as |F|
       >
-        <F.Dropdown />
+        <F.FiltersDropdown />
       </HdsFilterBar>
     </template>,
   );
@@ -351,7 +351,7 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert.ok(context.isClicked);
     assert.true(Object.keys(context.filters).length === 0);
     assert
-      .dom('.hds-filter-bar__dropdown .hds-dropdown-toggle-button')
+      .dom('.hds-filter-bar__filters-dropdown .hds-dropdown-toggle-button')
       .isFocused();
   });
 
@@ -381,7 +381,7 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
     assert.ok(context.isClicked);
     assert.true(Object.keys(context.filters).length === 1);
     assert
-      .dom('.hds-filter-bar__dropdown .hds-dropdown-toggle-button')
+      .dom('.hds-filter-bar__filters-dropdown .hds-dropdown-toggle-button')
       .isFocused();
   });
 
@@ -413,7 +413,7 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
       .dom('.hds-filter-bar__applied-filters-toggle-button')
       .hasAttribute('aria-expanded', 'false');
     assert
-      .dom('.hds-filter-bar__dropdown .hds-dropdown-toggle-button')
+      .dom('.hds-filter-bar__filters-dropdown .hds-dropdown-toggle-button')
       .isFocused();
   });
 
@@ -448,6 +448,17 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
 
   // CONTEXTUAL COMPONENTS
 
+  test('it should render the FiltersDropdown contextual component', async function (assert) {
+    await render(
+      <template>
+        <HdsFilterBar @filters={{EMPTY_FILTERS}} as |F|>
+          <F.FiltersDropdown />
+        </HdsFilterBar>
+      </template>,
+    );
+    assert.dom('.hds-filter-bar__filters-dropdown').exists();
+  });
+
   test('it should render the ActionsDropdown contextual component', async function (assert) {
     await render(
       <template>
@@ -470,17 +481,6 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
       </template>,
     );
     assert.dom('#hds-filter-bar-generic-test').exists();
-  });
-
-  test('it should render the Dropdown contextual component', async function (assert) {
-    await render(
-      <template>
-        <HdsFilterBar @filters={{EMPTY_FILTERS}} as |F|>
-          <F.Dropdown />
-        </HdsFilterBar>
-      </template>,
-    );
-    assert.dom('.hds-filter-bar__dropdown').exists();
   });
 
   // EXPAND / COLLAPSE

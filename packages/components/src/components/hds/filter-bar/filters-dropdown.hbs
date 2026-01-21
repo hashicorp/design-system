@@ -6,14 +6,14 @@
   @listPosition="bottom-left"
   @width="600px"
   ...attributes
-  class="hds-filter-bar__dropdown"
+  class="hds-filter-bar__filters-dropdown"
   {{style this.dropdownHeightStyle}}
   {{this._syncFilters}}
   as |D|
 >
   <D.ToggleButton
     @icon="filter"
-    @text={{hds-t "hds.components.filter-bar.dropdown.toggle-button" default="Filters"}}
+    @text={{hds-t "hds.components.filter-bar.filters-dropdown.toggle-button" default="Filters"}}
     @color="secondary"
     @size="small"
   />
@@ -33,13 +33,13 @@
     <Hds::ButtonSet>
       {{#unless this.isLiveFilter}}
         <Hds::Button
-          @text={{hds-t "hds.components.filter-bar.dropdown.apply" default="Apply filters"}}
+          @text={{hds-t "hds.components.filter-bar.filters-dropdown.apply" default="Apply filters"}}
           @size="small"
           {{on "click" (fn this.onApply D.close)}}
         />
       {{/unless}}
       <Hds::Button
-        @text={{hds-t "hds.components.filter-bar.dropdown.clear" default="Clear all filters"}}
+        @text={{hds-t "hds.components.filter-bar.filters-dropdown.clear" default="Clear all filters"}}
         @color="secondary"
         @size="small"
         {{on "click" (fn this.onClear D.close)}}

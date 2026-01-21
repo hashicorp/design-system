@@ -86,7 +86,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
           <D.Interactive @icon="trash" @color="critical">Delete</D.Interactive>
         </F.ActionsDropdown>
       {{/if}}
-      <F.Dropdown as |D|>
+      <F.FiltersDropdown as |D|>
         <D.FilterGroup
           @key="multi-select"
           @text="Multi-select"
@@ -112,7 +112,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
         <D.FilterGroup @key="datetime" @text="Datetime" @type="datetime" />
         <D.FilterGroup @key="time" @text="Time" @type="time" />
         <D.FilterGroup @key="generic" @text="Generic" @type="generic" />
-      </F.Dropdown>
+      </F.FiltersDropdown>
     </HdsFilterBar>
   </template>
 }

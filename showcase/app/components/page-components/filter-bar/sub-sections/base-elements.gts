@@ -18,7 +18,7 @@ import ShwGrid from 'showcase/components/shw/grid';
 import NOOP from 'showcase/utils/noop';
 
 import CodeFragmentWithAppliedFilters from 'showcase/components/page-components/filter-bar/code-fragments/with-applied-filters';
-import CodeFragmentWithDropdown from 'showcase/components/page-components/filter-bar/code-fragments/with-dropdown';
+import CodeFragmentWithFiltersDropdown from 'showcase/components/page-components/filter-bar/code-fragments/with-filters-dropdown';
 
 import {
   HdsFilterBarActionsDropdown,
@@ -117,6 +117,22 @@ const APPLIED_FILTER_TYPES = [
 const SubSectionBaseElements: TemplateOnlyComponent = <template>
   <ShwTextH2>Base elements</ShwTextH2>
 
+  <ShwTextH3>FiltersDropdown</ShwTextH3>
+
+  <ShwFlex @gap="2rem" as |SF|>
+    <SF.Item @label="Base (default)">
+      <CodeFragmentWithFiltersDropdown />
+    </SF.Item>
+    <SF.Item @label="With live filtering">
+      <CodeFragmentWithFiltersDropdown @isLiveFilter={{true}} />
+    </SF.Item>
+    <SF.Item @label="With custom menu height">
+      <CodeFragmentWithFiltersDropdown @height="400px" />
+    </SF.Item>
+  </ShwFlex>
+
+  <ShwDivider @level={{2}} />
+
   <ShwTextH3>ActionsDropdown</ShwTextH3>
 
   <ShwFlex @gap="2rem" as |SF|>
@@ -168,22 +184,6 @@ const SubSectionBaseElements: TemplateOnlyComponent = <template>
         <CodeFragmentWithAppliedFilters @appliedFiltersType={{type}} />
       </SF.Item>
     {{/each}}
-  </ShwFlex>
-
-  <ShwDivider @level={{2}} />
-
-  <ShwTextH3>Dropdown</ShwTextH3>
-
-  <ShwFlex @gap="2rem" as |SF|>
-    <SF.Item @label="Base (default)">
-      <CodeFragmentWithDropdown />
-    </SF.Item>
-    <SF.Item @label="With live filtering">
-      <CodeFragmentWithDropdown @isLiveFilter={{true}} />
-    </SF.Item>
-    <SF.Item @label="With custom menu height">
-      <CodeFragmentWithDropdown @height="400px" />
-    </SF.Item>
   </ShwFlex>
 
   <ShwDivider @level={{2}} />

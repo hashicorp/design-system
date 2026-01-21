@@ -662,7 +662,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
           @onFilter={{this.onFilter}}
           as |F|
         >
-          <F.Dropdown as |D|>
+          <F.FiltersDropdown as |D|>
             <D.FilterGroup
               @key="run-status"
               @text="Run status"
@@ -686,7 +686,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
                 <F.Radio @value={{option.value}} @label={{option.label}} />
               {{/each}}
             </D.FilterGroup>
-          </F.Dropdown>
+          </F.FiltersDropdown>
         </A.FilterBar>
       </:actions>
       <:body as |B|>

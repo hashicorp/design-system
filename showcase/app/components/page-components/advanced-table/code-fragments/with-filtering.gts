@@ -139,7 +139,7 @@ export default class CodeFragmentWithFiltering extends Component<CodeFragmentWit
           @onFilter={{this.onFilter}}
           as |F|
         >
-          <F.Dropdown as |D|>
+          <F.FiltersDropdown as |D|>
             <D.FilterGroup
               @key="artist"
               @text="Artist"
@@ -162,7 +162,7 @@ export default class CodeFragmentWithFiltering extends Component<CodeFragmentWit
                 <FG.Radio @value={{option.value}} @label={{option.label}} />
               {{/each}}
             </D.FilterGroup>
-          </F.Dropdown>
+          </F.FiltersDropdown>
         </A.FilterBar>
       </:actions>
       <:body as |B|>

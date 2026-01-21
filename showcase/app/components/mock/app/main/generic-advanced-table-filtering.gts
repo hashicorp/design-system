@@ -412,7 +412,7 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
           <D.Checkbox>discovery</D.Checkbox>
           <D.Checkbox>memories</D.Checkbox>
         </F.ActionsDropdown>
-        <F.Dropdown as |D|>
+        <F.FiltersDropdown as |D|>
           <D.FilterGroup
             @key="name"
             @text="Name"
@@ -487,7 +487,7 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
               />
             </F.Generic>
           </D.FilterGroup>
-        </F.Dropdown>
+        </F.FiltersDropdown>
       </HdsFilterBar>
 
       <HdsAdvancedTable
@@ -621,7 +621,7 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
                 <D.Checkbox>discovery</D.Checkbox>
                 <D.Checkbox>memories</D.Checkbox>
               </F.ActionsDropdown>
-              <F.Dropdown as |D|>
+              <F.FiltersDropdown as |D|>
                 <D.FilterGroup
                   @key="name"
                   @text="Name"
@@ -708,7 +708,7 @@ export default class MockAppMainGenericAdvancedTableFiltering extends Component<
                     />
                   </F.Generic>
                 </D.FilterGroup>
-              </F.Dropdown>
+              </F.FiltersDropdown>
             </A.FilterBar>
           {{/unless}}
         </:actions>

@@ -6,24 +6,24 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import {
-  HdsFilterBarDropdown,
+  HdsFilterBarFiltersDropdown,
   type HdsFilterBarFilters,
 } from '@hashicorp/design-system-components/components';
-import type { HdsFilterBarDropdownSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/dropdown';
+import type { HdsFilterBarFiltersDropdownSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/filters-dropdown';
 
 const EMPTY_FILTERS = {} as HdsFilterBarFilters;
 
-export interface CodeFragmentWithDropdownSignature {
+export interface CodeFragmentWithFiltersDropdownSignature {
   Args: {
     isLiveFilter?: boolean;
     height?: string;
   };
-  Element: HdsFilterBarDropdownSignature['Element'];
+  Element: HdsFilterBarFiltersDropdownSignature['Element'];
 }
 
-const CodeFragmentWithDropdown: TemplateOnlyComponent<CodeFragmentWithDropdownSignature> =
+const CodeFragmentWithFiltersDropdown: TemplateOnlyComponent<CodeFragmentWithFiltersDropdownSignature> =
   <template>
-    <HdsFilterBarDropdown
+    <HdsFilterBarFiltersDropdown
       @filters={{EMPTY_FILTERS}}
       @isLiveFilter={{@isLiveFilter}}
       @height={{@height}}
@@ -51,7 +51,7 @@ const CodeFragmentWithDropdown: TemplateOnlyComponent<CodeFragmentWithDropdownSi
         <F.Checkbox @value="14" @label="Option 14" />
         <F.Checkbox @value="15" @label="Option 15" />
       </D.FilterGroup>
-    </HdsFilterBarDropdown>
+    </HdsFilterBarFiltersDropdown>
   </template>;
 
-export default CodeFragmentWithDropdown;
+export default CodeFragmentWithFiltersDropdown;
