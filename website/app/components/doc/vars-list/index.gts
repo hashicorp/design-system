@@ -16,7 +16,7 @@ const DocVarsList: TemplateOnlyComponent<DocVarsListSignature> = <template>
   <ul class="doc-vars-list" role="list">
     {{#each @items as |item|}}
       <li class="doc-vars-list__item">
-        <DocCopyButton @textToCopy={{item}} @type="ghost" />
+        <DocCopyButton @type="code" @textToCopy={{item}} />
       </li>
     {{/each}}
   </ul>

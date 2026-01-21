@@ -32,7 +32,7 @@ module('Acceptance | Icon Search', function (hooks) {
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
     assert.dom('.hds-icon-cpu').exists({ count: 1 });
-    assert.dom('.doc-copy-button__visible-value').hasText('cpu');
+    assert.dom('.doc-copy-button__text').hasText('cpu');
   });
 
   test('should load content based on category in query param, with case-insensitive results', async function (assert) {
@@ -61,7 +61,7 @@ module('Acceptance | Icon Search', function (hooks) {
 
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
     assert.dom('.hds-icon-youtube').exists({ count: 1 });
-    assert.dom('.doc-copy-button__visible-value ').hasText('youtube');
+    assert.dom('.doc-copy-button__text ').hasText('youtube');
   });
 
   test('should clear search results if input is cleared', async function (assert) {
@@ -106,6 +106,6 @@ module('Acceptance | Icon Search', function (hooks) {
       .hasValue('icon:loading');
     assert.dom('.doc-icons-list-grid-item').exists({ count: 1 });
     assert.dom('.hds-icon-loading').exists({ count: 1 });
-    assert.dom('.doc-copy-button__visible-value ').hasText('loading');
+    assert.dom('.doc-copy-button__text ').hasText('loading');
   });
 });

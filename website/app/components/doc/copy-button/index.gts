@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { eq } from 'ember-truth-helpers';
+import { notEq, eq } from 'ember-truth-helpers';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 import type { HdsIconSignature } from '@hashicorp/design-system-components/components/hds/icon/index';
@@ -14,12 +14,12 @@ import docClipboard from 'website/modifiers/doc-clipboard';
 
 interface DocCopyButtonCodeSignature {
   Args: {
-    type?: 'solid' | 'ghost' | 'icon-only';
+    type?: 'solid' | 'code';
+    color?: 'primary' | 'secondary';
     textToCopy: string;
     textToShow?: string;
     encoded?: boolean;
-    isFullWidth?: boolean;
-    id?: string;
+    isIconOnly?: boolean;
   };
   Blocks: {
     default: [];
@@ -33,23 +33,25 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
   @tracked timer: ReturnType<typeof setTimeout> | undefined;
 
   get type() {
-    return this.args.type ?? 'solid'; // options are `solid` or `ghost`
+    return this.args.type ?? 'solid';
   }
 
-  get label() {
+  get color() {
+    return this.args.color ?? 'primary';
+  }
+
+  get textGenericDynamic() {
     let label;
-    if (this.type === 'solid' || this.type === 'icon-only') {
-      switch (this.status) {
-        case 'success':
-          label = 'Copied';
-          break;
-        case 'error':
-          label = 'Error';
-          break;
-        default:
-          label = 'Copy';
-          break;
-      }
+    switch (this.status) {
+      case 'success':
+        label = 'Copied';
+        break;
+      case 'error':
+        label = 'Error';
+        break;
+      default:
+        label = 'Copy';
+        break;
     }
     return label;
   }
@@ -60,16 +62,43 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
       : this.args.textToCopy;
   }
 
-  get textToShow() {
-    let textToShow;
-    if (this.type === 'ghost') {
-      textToShow = this.args.textToShow ?? this.args.textToCopy;
+  get labelClassName() {
+    if (this.args.isIconOnly) {
+      return 'sr-only';
+    } else {
+      return 'doc-copy-button__text';
     }
-    return textToShow;
   }
 
-  get isFullWidth() {
-    return this.args.isFullWidth ?? false;
+  get labelText() {
+    let labelText;
+    if (this.args.isIconOnly) {
+      labelText = this.textGenericDynamic;
+    } else if (this.args.type === 'code') {
+      labelText = this.args.textToShow ?? this.textToCopy;
+    } else {
+      labelText = this.args.textToShow ?? this.textGenericDynamic;
+    }
+    return labelText;
+  }
+
+  get classNames() {
+    const classes = ['doc-copy-button'];
+
+    classes.push(`doc-copy-button--type-${this.type}`);
+    classes.push(`doc-copy-button--color-${this.color}`);
+
+    if (this.args.isIconOnly) {
+      classes.push(`doc-copy-button--icon-only`);
+    }
+
+    if (this.status === 'success') {
+      classes.push('doc-copy-button--status-success');
+    } else if (this.status === 'error') {
+      classes.push('doc-copy-button--status-error');
+    }
+
+    return classes.join(' ');
   }
 
   onSuccess = () => {
@@ -93,49 +122,28 @@ export default class DocCopyButton extends Component<DocCopyButtonCodeSignature>
     }, 2000);
   }
 
-  get classNames() {
-    const classes = ['doc-copy-button'];
-
-    classes.push(`doc-copy-button--type-${this.type}`);
-
-    if (this.isFullWidth) {
-      classes.push(`doc-copy-button--width-full`);
-    }
-
-    if (this.status === 'success') {
-      classes.push('doc-copy-button--status-success');
-    } else if (this.status === 'error') {
-      classes.push('doc-copy-button--status-error');
-    }
-
-    return classes.join(' ');
-  }
-
   <template>
     <button
       class={{this.classNames}}
       type="button"
       {{docClipboard
-        text=@textToCopy
+        text=this.textToCopy
         onSuccess=this.onSuccess
         onError=this.onError
       }}
       ...attributes
     >
-      {{#if this.textToShow}}
-        <span class="doc-copy-button__visible-value">{{this.textToShow}}</span>
-      {{/if}}
-      {{#if this.label}}
-        <span
-          id="copy-label-{{@id}}"
-          class="doc-copy-button__label
-            {{if (eq this.type 'icon-only') 'sr-only'}}"
-        >{{this.label}}</span>
+      <span class={{this.labelClassName}}>{{this.labelText}}</span>
+      {{! to ensure the accessible name is unique, we include the text to copy  if it is not the code variant (code variant should be unique because it will either use @textToShow or @textToCopy as the visible label) }}
+      {{#if (notEq @type "code")}}
+        <span class="sr-only">{{this.textToCopy}}</span>
       {{/if}}
       <HdsIcon
         class="doc-copy-button__icon"
         @name={{this.iconName}}
         @stretched={{true}}
+        {{! for the code variant, we include the icon title to let users know they will copy text when clicking the button. }}
+        @title={{if (eq @type "code") "copy"}}
       />
     </button>
   </template>
