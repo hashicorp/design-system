@@ -2,9 +2,8 @@
 "@hashicorp/design-system-components": patch
 ---
 
-Updated service declarations to align how they are declared
 
-<!-- START components/advanced-table -->
+<!-- START components/table/advanced-table -->
 Updated HdsIntlService service declarations to align how services are declared
 <!-- END -->
 
@@ -16,7 +15,7 @@ Updated router service declaration to align how services are declared
 Updated HdsIntlService service declaration to align how services are declared
 <!-- END -->
 
-<!-- START components/dismiss-button -->
+<!-- START utilities/dismiss-button -->
 Updated HdsIntlService service declaration to align how services are declared
 <!-- END -->
 
@@ -32,10 +31,7 @@ Updated HdsIntlService service declaration for `PaginationInfo` to align how ser
 Updated router service declaration for `Portal` to align how services are declared
 <!-- END -->
 
-<!-- START components/table -->
+<!-- START components/table/table -->
 Updated HdsIntlService service declarations to align how services are declared
 <!-- END -->
 
-<!-- START components/helpers -->
-Updated HdsIntlService service declaration to align how services are declared
-<!-- END -->
