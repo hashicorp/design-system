@@ -39,7 +39,7 @@ export interface HdsCopyButtonSignature {
 }
 
 export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked private _status = DEFAULT_STATUS;
   @tracked private _timer: ReturnType<typeof setTimeout> | undefined;

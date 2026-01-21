@@ -197,7 +197,7 @@ export interface HdsAdvancedTableSignature {
 }
 
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =

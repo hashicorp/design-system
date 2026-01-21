@@ -164,7 +164,7 @@ const LANGUAGES: Record<
 } as const;
 
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
-  @service declare hdsIntl: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   editor!: EditorViewType;
   element!: HTMLElementWithEditor;

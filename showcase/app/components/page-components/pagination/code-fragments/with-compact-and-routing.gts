@@ -27,7 +27,7 @@ interface CodeFragmentWithCompactAndRoutingSignature {
 }
 
 export default class CodeFragmentWithCompactAndRouting extends Component<CodeFragmentWithCompactAndRoutingSignature> {
-  @service declare router: RouterService;
+  @service declare readonly router: RouterService;
 
   get paginatedData() {
     const { prevCursor, nextCursor, pageSize } = this.args;
