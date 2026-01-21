@@ -268,7 +268,7 @@ export { default as HdsRichTooltipToggle } from './components/hds/rich-tooltip/t
 export * from './components/hds/rich-tooltip/types.ts';
 
 // SegmentedGroup
-export { default as HdsSegmentedGroup } from './components/hds/segmented-group/index.ts';
+export { default as HdsSegmentedGroup } from './components/hds/segmented-group/index.gts';
 
 // Separator
 export { default as HdsSeparator } from './components/hds/separator/index.gts';
