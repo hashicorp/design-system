@@ -8,6 +8,7 @@ import { assert } from '@ember/debug';
 
 import type { Props as TippyProps } from 'tippy.js';
 
+import hdsTooltip from '../../../modifiers/hds-tooltip.ts';
 import { HdsTooltipPlacementValues } from './types.ts';
 import type { HdsTooltipPlacements } from './types.ts';
 
@@ -30,11 +31,6 @@ export interface HdsTooltipSignature {
 }
 
 export default class HdsTooltip extends Component<HdsTooltipSignature> {
-  /**
-   * @param text
-   * @type {string}
-   * @description text content for tooltip
-   */
   get text(): string {
     const { text } = this.args;
 
@@ -63,22 +59,11 @@ export default class HdsTooltip extends Component<HdsTooltipSignature> {
     };
   }
 
-  /**
-   * @param isInline
-   * @type {boolean}
-   * @default true
-   * @description sets display for the button
-   */
   get isInline(): boolean {
     const { isInline = true } = this.args;
     return isInline;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-tooltip-button'];
 
@@ -91,4 +76,13 @@ export default class HdsTooltip extends Component<HdsTooltipSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <button
+      type="button"
+      class={{this.classNames}}
+      {{hdsTooltip this.text options=this.options}}
+      ...attributes
+    >{{~yield~}}</button>
+  </template>
 }
