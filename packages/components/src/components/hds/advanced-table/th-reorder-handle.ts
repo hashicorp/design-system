@@ -8,6 +8,7 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import { scheduleOnce } from '@ember/runloop';
 
+import { hdsKeyboardKey } from '../../../utils/hds-keyboard-key.ts';
 import type HdsAdvancedTableColumn from './models/column.ts';
 
 export interface HdsAdvancedTableThReorderHandleSignature {
@@ -89,12 +90,12 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
   @action
   handleKeydown(event: KeyboardEvent): void {
     switch (event.key) {
-      case 'ArrowLeft':
-      case 'ArrowRight': {
+      case hdsKeyboardKey['arrowLeft']:
+      case hdsKeyboardKey['arrowRight']: {
         event.preventDefault();
 
         const { column } = this.args;
-        const direction = event.key === 'ArrowLeft' ? -1 : 1;
+        const direction = event.key === hdsKeyboardKey['arrowLeft'] ? -1 : 1;
         column.table.stepColumn(column, direction);
 
         // we need to wait for the next run loop to ensure that the element has been registered with the column after moving

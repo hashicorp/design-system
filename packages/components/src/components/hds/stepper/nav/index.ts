@@ -10,7 +10,9 @@ import { schedule } from '@ember/runloop';
 import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
+
 import { HdsStepperTitleTagValues } from '../types.ts';
+import { hdsKeyboardKey } from '../../../../utils/hds-keyboard-key.ts';
 import type {
   HdsStepperTitleTags,
   HdsStepperNavStepIds,
@@ -180,16 +182,13 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
 
   @action
   onKeyUp(currentStepIndex: number, event: KeyboardEvent): void {
-    const leftArrow = 'ArrowLeft';
-    const rightArrow = 'ArrowRight';
-
-    if (event.key === rightArrow) {
+    if (event.key === hdsKeyboardKey['arrowRight']) {
       const nextStepIndex = this.findNextInteractiveStepIndex(
         currentStepIndex,
         1
       );
       this.focusStep(nextStepIndex, event);
-    } else if (event.key === leftArrow) {
+    } else if (event.key === hdsKeyboardKey['arrowLeft']) {
       const prevStepIndex = this.findNextInteractiveStepIndex(
         currentStepIndex,
         this._stepIds.length - 1

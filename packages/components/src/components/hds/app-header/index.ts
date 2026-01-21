@@ -12,6 +12,7 @@ import type Owner from '@ember/owner';
 import type { NavigationNarratorSignature } from 'ember-a11y-refocus/components/navigation-narrator';
 
 import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
+import { hdsKeyboardKey } from '../../../utils/hds-keyboard-key.ts';
 
 export interface HdsAppHeaderSignature {
   Args: {
@@ -122,7 +123,12 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
 
   @action
   escapePress(event: KeyboardEvent): void {
-    if (event.key === 'Escape' && this._isOpen && !this._isDesktop) {
+    if (
+      event.key === hdsKeyboardKey['escape'] &&
+      this._isOpen &&
+      !this._isDesktop
+    ) {
+      console.log('Escape key pressed - closing menu');
       this._isOpen = false;
     }
   }

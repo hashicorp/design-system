@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
+import { hdsKeyboardKey } from '../../../utils/hds-keyboard-key.ts';
 import { hdsResolveLinkToExternal } from '../../../utils/hds-resolve-link-to-external.ts';
 
 import type Owner from '@ember/owner';
@@ -73,7 +74,7 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
 
   @action
   onKeyUp(event: KeyboardEvent): void {
-    if (event.key === ' ' || event.code === 'Space') {
+    if (event.key === hdsKeyboardKey['space'] || event.code === 'Space') {
       (event.target as HTMLElement).click();
     }
   }
