@@ -2,6 +2,6 @@
 "@hashicorp/design-system-components": patch
 ---
 
-<!-- START components/tooltip-button -->
+<!-- START components/tooltip -->
 `TooltipButton` - Converted component to gts format
 <!-- END -->
