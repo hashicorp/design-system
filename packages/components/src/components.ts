@@ -84,7 +84,7 @@ export { default as HdsButton } from './components/hds/button/index.ts';
 export * from './components/hds/button/types.ts';
 
 // ButtonSet
-export { default as HdsButtonSet } from './components/hds/button-set/index.ts';
+export { default as HdsButtonSet } from './components/hds/button-set/index.gts';
 
 // Card
 export { default as HdsCardContainer } from './components/hds/card/container.ts';
