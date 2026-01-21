@@ -22,14 +22,6 @@ export interface HdsSeparatorSignature {
 }
 
 export default class HdsSeparator extends Component<HdsSeparatorSignature> {
-  /**
-   * Sets the margin for the separator
-   * Accepted values: 24, 0
-   *
-   * @param spacing
-   * @type {HdsSeparatorSpacing}
-   * @default 24
-   */
   get spacing(): HdsSeparatorSpacing {
     const { spacing = DEFAULT_SPACING } = this.args;
 
@@ -43,11 +35,6 @@ export default class HdsSeparator extends Component<HdsSeparatorSignature> {
     return spacing;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-separator'];
 
@@ -56,4 +43,6 @@ export default class HdsSeparator extends Component<HdsSeparatorSignature> {
 
     return classes.join(' ');
   }
+
+  <template><hr class={{this.classNames}} ...attributes /></template>
 }
