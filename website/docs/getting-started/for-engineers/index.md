@@ -273,6 +273,7 @@ If your application uses Ember engines, you have to add a small extra configurat
 ```js
 import LinkToExternal from 'ember-engines/components/link-to-external';
 import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
+
 setLinkToExternal(LinkToExternal);
 ```
 
