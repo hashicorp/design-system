@@ -336,7 +336,7 @@ export * from './services/hds-time-types.ts';
 export { default as HdsToast } from './components/hds/toast/index.ts';
 
 // TooltipButton
-export { default as HdsTooltipButton } from './components/hds/tooltip-button/index.ts';
+export { default as HdsTooltipButton } from './components/hds/tooltip-button/index.gts';
 export * from './components/hds/tooltip-button/types.ts';
 
 // -----------------------------------------------------------
