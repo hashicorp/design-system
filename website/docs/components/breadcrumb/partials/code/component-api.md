@@ -25,12 +25,17 @@ The Breadcrumb component is composed of three different parts, each with their o
 
 ### Breadcrumb::Item
 
+It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @type="string" @required={{true}}>
     The text displayed within the item.
   </C.Property>
   <C.Property @name="icon" @type="string">
     Use to show an icon. Any [icon](/icons/library) name is acceptable.
+  </C.Property>
+  <C.Property @name="href">
+    Pass a custom href for the link. (URL parameter that’s passed down to the `<a>` element.)
   </C.Property>
   <C.Property @name="route/models/model/query/current-when/replace">
     Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
