@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { array } from '@ember/helper';
+import { array, hash } from '@ember/helper';
 import { render, setupOnerror } from '@ember/test-helpers';
 
 import { HdsLayoutGrid } from '@hashicorp/design-system-components/components';
@@ -82,6 +82,47 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .dom('#test-layout-grid')
       .hasStyle({ '--hds-layout-grid-column-fill-type': 'auto-fill' })
       .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
+  });
+
+  test('it should set the correct class if a non-responsive @columnWidth prop is declared', async function (assert) {
+    await render(
+      <template>
+        <HdsLayoutGrid id="test-layout-grid" @columnWidth="200px" />
+      </template>,
+    );
+    assert
+      .dom('#test-layout-grid')
+      .hasClass('hds-layout-grid--column-width-non-responsive');
+  });
+
+  test('it should set responsive column widths if passed in', async function (assert) {
+    await render(
+      <template>
+        <HdsLayoutGrid
+          id="test-layout-grid"
+          @columnWidth={{hash
+            sm="100%"
+            md="50%"
+            lg="33.33%"
+            xl="25%"
+            xxl="20%"
+          }}
+        />
+      </template>,
+    );
+    assert
+      .dom('#test-layout-grid')
+      .hasStyle({ '--hds-layout-grid-column-width-sm': '100%' })
+      .hasStyle({ '--hds-layout-grid-column-width-md': '50%' })
+      .hasStyle({ '--hds-layout-grid-column-width-lg': '33.33%' })
+      .hasStyle({ '--hds-layout-grid-column-width-xl': '25%' })
+      .hasStyle({ '--hds-layout-grid-column-width-xxl': '20%' })
+      .hasClass('hds-layout-grid--column-width-sm')
+      .hasClass('hds-layout-grid--column-width-md')
+      .hasClass('hds-layout-grid--column-width-lg')
+      .hasClass('hds-layout-grid--column-width-xl')
+      .hasClass('hds-layout-grid--column-width-xxl')
+      .doesNotHaveClass('hds-layout-grid--column-width-non-responsive');
   });
 
   // TAG

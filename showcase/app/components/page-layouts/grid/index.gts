@@ -13,6 +13,7 @@ import ShwDivider from 'showcase/components/shw/divider';
 import SubSectionWidthManagement from './sub-sections/width-management';
 import SubSectionAlign from './sub-sections/align';
 import SubSectionGap from './sub-sections/gap';
+import SubSectionDemo from './sub-sections/demo';
 import SubSectionBaseElements from './sub-sections/base-elements';
 import SubSectionExamples from './sub-sections/examples';
 
@@ -25,6 +26,13 @@ const GridIndex: TemplateOnlyComponent = <template>
     <SubSectionWidthManagement />
     <SubSectionAlign />
     <SubSectionGap />
+  </section>
+
+  <ShwDivider />
+
+  {{! For some reason, Ember tests don't play well with iframes (URL not found) so we can't take snapshots of these examples in Percy }}
+  <section>
+    <SubSectionDemo />
   </section>
 
   <ShwDivider />
