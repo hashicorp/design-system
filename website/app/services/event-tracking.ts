@@ -18,7 +18,7 @@ declare global {
 }
 
 export default class EventService extends Service {
-  @service declare fastboot: FastbootService;
+  @service declare readonly fastboot: FastbootService;
 
   get isEnabled() {
     // Only attempt to do something if we are in the right environment
