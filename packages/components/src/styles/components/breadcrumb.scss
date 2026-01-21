@@ -75,9 +75,12 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
   color: var(--token-color-foreground-faint);
+  background: none;
+  border: none;
   border-radius: $hds-breadcrumb-item-border-radius;
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
+  cursor: pointer;
 
   &:hover,
   &.mock-hover {
