@@ -11,6 +11,10 @@ Updated HdsIntlService service declarations to align how services are declared
 Updated router service declaration to align how services are declared
 <!-- END -->
 
+<!-- START components/code-editor -->
+Updated HdsIntlService service declaration in `CodeEditor` modifier to align how services are declared
+<!-- END -->
+
 <!-- START components/copy/button -->
 Updated HdsIntlService service declaration to align how services are declared
 <!-- END -->
