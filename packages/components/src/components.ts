@@ -271,7 +271,7 @@ export * from './components/hds/rich-tooltip/types.ts';
 export { default as HdsSegmentedGroup } from './components/hds/segmented-group/index.ts';
 
 // Separator
-export { default as HdsSeparator } from './components/hds/separator/index.ts';
+export { default as HdsSeparator } from './components/hds/separator/index.gts';
 export * from './components/hds/separator/types.ts';
 
 // SideNav
