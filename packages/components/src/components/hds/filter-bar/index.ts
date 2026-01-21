@@ -20,7 +20,7 @@ import type {
   HdsFilterBarData,
   HdsFilterBarGenericFilterData,
 } from './types.ts';
-import HdsYield from '../yield/index.ts';
+import HdsYield from '../yield/index.gts';
 import HdsFilterBarActionsDropdown from './actions-dropdown.ts';
 import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
 
