@@ -468,7 +468,7 @@ The Filter Bar component doesn't handle filtering the data, that must still be h
       @onFilter={{this.demoUpdateFilters}}
       as |F|
     >
-      <F.Dropdown as |D|>
+      <F.FiltersDropdown as |D|>
         <D.FilterGroup
           @key="artist"
           @text="Artist"
@@ -494,7 +494,7 @@ The Filter Bar component doesn't handle filtering the data, that must still be h
           <F.Radio @value="1971" @label="1971" />
           <F.Radio @value="1972" @label="1972" />
         </D.FilterGroup>
-      </F.Dropdown>
+      </F.FiltersDropdown>
     </A.FilterBar>
   </:actions>
   <:body as |B|>

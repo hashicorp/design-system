@@ -3,8 +3,8 @@
 ### FilterBar
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[F].Dropdown>" @type="yielded component">
-    `FilterBar::Dropdown` yielded as contextual component (see below).
+  <C.Property @name="<[F].FiltersDropdown>" @type="yielded component">
+    `FilterBar::FiltersDropdown` yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="<[F].ActionsGeneric>" @type="yielded component">
     `FilterBar::ActionsGeneric` yielded as contextual component (see below).
@@ -211,9 +211,9 @@ The required structure of the `data` property when `type` is equal to `generic`.
   </C.Property>
 </Doc::ComponentApi>
 
-### FilterBar::Dropdown
+### FilterBar::FiltersDropdown
 
-The `FilterBar::Dropdown` is yielded as the `[F].Dropdown` contextual component.
+The `FilterBar::FiltersDropdown` is yielded as the `[F].FiltersDropdown` contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].FilterGroup>" @type="yielded component">
@@ -229,7 +229,7 @@ The `FilterBar::Dropdown` is yielded as the `[F].Dropdown` contextual component.
 
 ### FilterBar::FilterGroup
 
-The `FilterBar::FilterGroup` is yielded as the `[D].FilterGroup` contextual component in the `FilterBar::Dropdown`.
+The `FilterBar::FilterGroup` is yielded as the `[D].FilterGroup` contextual component in the `FilterBar::FiltersDropdown`.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[F].Checkbox>" @type="yielded component">
@@ -242,7 +242,7 @@ The `FilterBar::FilterGroup` is yielded as the `[D].FilterGroup` contextual comp
     The key value used in the applied filters object for filters that are emitted for the given `FilterGroup`.
   </C.Property>
   <C.Property @name="text" @type="string" @required={{true}}>
-    The text used for the given `FilterGroup` in the tabs of the `Dropdown`, and in any applied filter tags for the group.
+    The text used for the given `FilterGroup` in the tabs of the `FiltersDropdown`, and in any applied filter tags for the group.
   </C.Property>
   <C.Property @name="type" @type="enum" @values={{array "single-select" "multi-select" "numerical" "date" "time" "datetime" "generic"}} @required={{true}}>
     The type of data being filtered.

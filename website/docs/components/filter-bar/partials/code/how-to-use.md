@@ -2,7 +2,7 @@
 
 The Filter Bar component is used to apply and display filters to a data set. The component does not handle any filtering of the data itself, but provides a way for a user to apply filters, and a means for displaying any filters that have been applied.
 
-To use this component, set the filter options available for a data set using the `Dropdown` and `FilterGroup` contextual components. When filters are applied, the `@onFilter` callback provides a data object of the applied filters. To show which filters have been applied, pass a data object of the same structure to the `@filters` argument.
+To use this component, set the filter options available for a data set using the `FiltersDropdown` and `FilterGroup` contextual components. When filters are applied, the `@onFilter` callback provides a data object of the applied filters. To show which filters have been applied, pass a data object of the same structure to the `@filters` argument.
 
 The Filter Bar is also available as a contextual component of the [Advanced Table](/components/table/advanced-table?tab=code#filtering).
 
@@ -12,7 +12,7 @@ The Filter Bar is also available as a contextual component of the [Advanced Tabl
   @onFilter={{this.demoUpdateFilters}}
   as |F|
 >
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="project"
       @text="Project"
@@ -33,15 +33,15 @@ The Filter Bar is also available as a contextual component of the [Advanced Tabl
       <F.Radio @value="2.0" @label="2.0" />
       <F.Radio @value="3.0" @label="3.0" />
     </D.FilterGroup>
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
-### Filter dropdown
+### Filters Dropdown
 
 All filtering options are available via a dropdown in the Filter Bar. Inside the dropdown, each filter group is represented with its own tab. When a tab is selected, the filtering options available are visible and users can add filters for that group. By clicking the "Apply filters" or "Clear all filters" buttons in the dropdown footer, the user can apply the selected filters, or clear all that have been previously set.
 
-Filtering options are passed to the Filter Bar through the Dropdown and FilterGroup contextual components. In the FilterGroup, the `@key`, `@text`, and `@type` arguments are required.
+Filtering options are passed to the Filter Bar through the FiltersDropdown and FilterGroup contextual components. In the FilterGroup, the `@key`, `@text`, and `@type` arguments are required.
 
 - The `@key` argument sets the key for that filter group in the data object of the `onFilter` callback.
 - The `@text` argument sets the text for tab label.
@@ -51,7 +51,7 @@ View more details on [available filter types](#filter-types) below.
 
 ```handlebars
 <Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="demo-multi-select"
       @text="Multi-select"
@@ -92,13 +92,13 @@ View more details on [available filter types](#filter-types) below.
       @text="Datetime"
       @type="datetime"
     />
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
 ### Applying filters
 
-A user can apply, update, or clear filters within the filter dropdown. The `@onFilter` callback is used to listen for and respond to changes to the filters.
+A user can apply, update, or clear filters within the dropdown. The `@onFilter` callback is used to listen for and respond to changes to the filters.
 
 The callback provides a data object of applied filters which come from a user's filter selections. This object can be used to run any filtering operations on a data set, and then be passed back into the `@filters` argument of the Filter Bar to show the applied filters.
 
@@ -110,7 +110,7 @@ Based on the applied filters passed to the `@filters` argument, dismissible [Tag
   @onFilter={{this.demoUpdateFilters}}
   as |F|
 >
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="project"
       @text="Project"
@@ -131,7 +131,7 @@ Based on the applied filters passed to the `@filters` argument, dismissible [Tag
       <F.Radio @value="2.0" @label="2.0" />
       <F.Radio @value="3.0" @label="3.0" />
     </D.FilterGroup>
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
@@ -183,7 +183,7 @@ If the `@isLiveFilter` argument is set to `true`, the `@onFilter` callback will 
   @onFilter={{this.demoUpdateLiveFilters}}
   as |F|
 >
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="project"
       @text="Project"
@@ -209,7 +209,7 @@ If the `@isLiveFilter` argument is set to `true`, the `@onFilter` callback will 
       @text="Creation date"
       @type="date"
     />
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
@@ -231,7 +231,7 @@ The dismiss filter tag will display the `label` for a given filter, and if the `
   @onFilter={{this.demoUpdateSelectionFilters}}
   as |F|
 >
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="demo-single-select"
       @text="Single-select"
@@ -254,7 +254,7 @@ The dismiss filter tag will display the `label` for a given filter, and if the `
       <F.Checkbox @value="option-2" @label="Option 2" />
       <F.Checkbox @value="option-3" @label="Option 3" />
     </D.FilterGroup>
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
@@ -290,7 +290,7 @@ The `numerical` filter type is used for any data numerical in nature. It provide
   @onFilter={{this.demoUpdateNumericalFilters}}
   as |F|
 >
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="demo-numerical-a"
       @text="Numerical A"
@@ -301,7 +301,7 @@ The `numerical` filter type is used for any data numerical in nature. It provide
       @text="Numerical B"
       @type="numerical"
     />
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
@@ -342,7 +342,7 @@ Dates and times are formatted in the applied filter tags using the [ember-intl](
   @onFilter={{this.demoUpdateDateTimeFilters}}
   as |F|
 >
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="demo-date"
       @text="Date"
@@ -363,7 +363,7 @@ Dates and times are formatted in the applied filter tags using the [ember-intl](
       @text="Date range"
       @type="date"
     />
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
@@ -417,7 +417,7 @@ Dates and times are formatted in the applied filter tags using the [ember-intl](
 The accessibility compliance of any content used for a custom filter is the responsibility of the consumer. If a custom filter requires multiple form elements, it is recommended to use a `<fieldset>` element to group them.
 !!!
 
-For filtering support outside of the filter types supported above, an option for more customized filtering is available through the `generic` filter type, and the Generic contextual component inside the FilterGroup. The Generic contextual component provides an `updateFilter` argument function that can be used to trigger updates to the filter inside the filter dropdown.
+For filtering support outside of the filter types supported above, an option for more customized filtering is available through the `generic` filter type, and the Generic contextual component inside the FilterGroup. The Generic contextual component provides an `updateFilter` argument function that can be used to trigger updates to the filter inside the dropdown.
 
 The dismiss filter tag can be customized by setting `dismissTagText` on the filter. If this is not provided, the dismiss tag text will function similar to the `single-select` and `multi-select` filter types where the `value` or `label` is displayed.
 
@@ -427,7 +427,7 @@ The dismiss filter tag can be customized by setting `dismissTagText` on the filt
   @onFilter={{this.demoUpdateGenericFilters}}
   as |F|
 >
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="demo-generic"
       @text="Generic"
@@ -443,7 +443,7 @@ The dismiss filter tag can be customized by setting `dismissTagText` on the filt
         />
       </F.Generic>
     </D.FilterGroup>
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
@@ -474,7 +474,7 @@ On search input, a filter of type `search` will be included in the data object i
   @hasSearch={{true}}
   as |F|
 >
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="project"
       @text="Project"
@@ -495,7 +495,7 @@ On search input, a filter of type `search` will be included in the data object i
       <F.Radio @value="2.0" @label="2.0" />
       <F.Radio @value="3.0" @label="3.0" />
     </D.FilterGroup>
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
@@ -521,7 +521,7 @@ The search input's placeholder text is "Search" by default, but can be customize
   @searchPlaceholder="Search projects"
   as |F|
 >
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="project"
       @text="Project"
@@ -542,7 +542,7 @@ The search input's placeholder text is "Search" by default, but can be customize
       <F.Radio @value="2.0" @label="2.0" />
       <F.Radio @value="3.0" @label="3.0" />
     </D.FilterGroup>
-  </F.Dropdown>
+  </F.FiltersDropdown>
 </Hds::FilterBar>
 ```
 
@@ -552,7 +552,7 @@ The Filter Bar provides an ActionsDropdown contextual component that can be used
 
 ```handlebars
 <Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="project"
       @text="Project"
@@ -573,7 +573,7 @@ The Filter Bar provides an ActionsDropdown contextual component that can be used
       <F.Radio @value="2.0" @label="2.0" />
       <F.Radio @value="3.0" @label="3.0" />
     </D.FilterGroup>
-  </F.Dropdown>
+  </F.FiltersDropdown>
   <F.ActionsDropdown as |D|>
     <D.Interactive @icon="edit">Edit items</D.Interactive>
     <D.Interactive @icon="trash" @color="critical">Delete items</D.Interactive>
@@ -584,11 +584,11 @@ The Filter Bar provides an ActionsDropdown contextual component that can be used
 </Hds::FilterBar>
 ```
 
-The text of the Dropdown defaults to "Actions", but can be customized with the `@toggleButtonText` argument. An icon can also be added with the `@toggleButtonIcon` argument.
+The text of the ActionsDropdown defaults to "Actions", but can be customized with the `@toggleButtonText` argument. An icon can also be added with the `@toggleButtonIcon` argument.
 
 ```handlebars
 <Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="project"
       @text="Project"
@@ -609,7 +609,7 @@ The text of the Dropdown defaults to "Actions", but can be customized with the `
       <F.Radio @value="2.0" @label="2.0" />
       <F.Radio @value="3.0" @label="3.0" />
     </D.FilterGroup>
-  </F.Dropdown>
+  </F.FiltersDropdown>
   <F.ActionsDropdown
     @toggleButtonText="Item actions"
     @toggleButtonIcon="outline"
@@ -630,7 +630,7 @@ For more customization of the functionality in the Filter Bar, an ActionsGeneric
 
 ```handlebars
 <Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
-  <F.Dropdown as |D|>
+  <F.FiltersDropdown as |D|>
     <D.FilterGroup
       @key="project"
       @text="Project"
@@ -651,7 +651,7 @@ For more customization of the functionality in the Filter Bar, an ActionsGeneric
       <F.Radio @value="2.0" @label="2.0" />
       <F.Radio @value="3.0" @label="3.0" />
     </D.FilterGroup>
-  </F.Dropdown>
+  </F.FiltersDropdown>
   <F.ActionsGeneric>
     <Doc::Placeholder @height="24" @width="auto" @text="Generic content" @background="#e4e4e4" />
   </F.ActionsGeneric>
