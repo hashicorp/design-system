@@ -112,11 +112,9 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
 
 .doc-code-group__code-snippet-footer {
   position: absolute;
+  right: 12px;
   bottom: 16px;
   z-index: 1; // fix issue where footer was behind the code block
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
   pointer-events: none; // fix issue with scrolling when hovering over the footer
 
   // re-enable pointer events for the button (or any content inside the footer)
