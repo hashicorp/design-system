@@ -19,6 +19,7 @@ export const contentBlocks = function () {
         // see: https://github.com/showdownjs/showdown/blob/master/src/subParsers/makehtml/hashHTMLBlocks.js#L93-L95
         return `\n<?php start="content-block" type="${type.toLowerCase()}" ?>\n${content}\n<?php end="content-block" type="${type.toLowerCase()}" ?>\n`;
       });
+
       // console.log('langExtension2 text', '\n', text, '\n\n');
       return text;
     },
@@ -26,7 +27,6 @@ export const contentBlocks = function () {
   var outputExtension = {
     type: 'output',
     filter: function (text) {
-      // console.log('outputExtension1 text', '\n', text, '\n\n');
       // https://regex101.com/r/DebuYI/1
       const outputRegex = new RegExp(
         /<\?php start="content-block" type="(.*?)" \?>\n?/,
@@ -39,6 +39,7 @@ export const contentBlocks = function () {
           return `<Doc::Banner @type="${type}">\n`;
         }
       });
+
       text = text.replace(
         /\n?<\?php end="content-block" type="(.*?)" \?>/g,
         function (_match, type) {
@@ -49,6 +50,35 @@ export const contentBlocks = function () {
           }
         },
       );
+
+      // NOTE: this regex must match the output created in markdown-process-demos.js
+      const demoRegex = new RegExp(
+        /<\?php start="demo-block" filename="(.*?)" hbs="(.*?)" js="(.*?)" gts="(.*?)" compactGts="(.*?)" custom="(.*?)" customLang="(.*?)" hidePreview="(.*?)" expanded="(.*?)" \?>\n?/,
+        'g',
+      );
+
+      text = text.replace(
+        demoRegex,
+        function (
+          _match,
+          filename,
+          hbs,
+          js,
+          gts,
+          compactGts,
+          custom,
+          customLang,
+          hidePreview,
+          expanded,
+        ) {
+          return `<Doc::CodeGroup @filename="${filename}" @hbsSnippet="${hbs}" @jsSnippet="${js}" @gtsSnippet="${gts}" @compactGtsSnippet="${compactGts}" @customSnippet="${custom}" @customLang="${customLang}" @hidePreview="${hidePreview}" @isExpanded="${expanded}">\n`;
+        },
+      );
+
+      text = text.replace(/\n?<\?php end="demo-block"\s*\?>/g, function () {
+        return '</Doc::CodeGroup>\n';
+      });
+
       // console.log('outputExtension2 text', '\n', text, '\n\n');
       return text;
     },

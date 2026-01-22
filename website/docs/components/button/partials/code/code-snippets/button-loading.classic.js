@@ -1,13 +1,8 @@
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class Index extends Component {
+export default class LocalComponent extends Component {
   @tracked isLoading = false;
   @tracked timer;
 
@@ -20,10 +15,5 @@ export default class Index extends Component {
     this.timer = setTimeout(() => {
       this.isLoading = false;
     }, 4000);
-  }
-
-  @action
-  alertOnClick() {
-    alert('Hello from Helios!');
   }
 }

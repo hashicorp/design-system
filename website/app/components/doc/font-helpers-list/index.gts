@@ -29,9 +29,9 @@ const DocFontHelpersList: TemplateOnlyComponent<DocFontHelpersListSignature> =
           <div class="doc-font-helpers-list__content">
             {{#if item.copyText}}
               <DocCopyButton
+                @type="code"
                 @textToShow=".{{item.copyText}}"
                 @textToCopy={{item.copyText}}
-                @type="ghost"
               />
             {{/if}}
             {{#if item.otherText}}
