@@ -2,7 +2,9 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
 import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
@@ -10,6 +12,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import SubSectionSize from 'showcase/components/page-components/icon/sub-sections/size';
 import SubSectionColor from 'showcase/components/page-components/icon/sub-sections/color';
 import SubSectionDisplay from 'showcase/components/page-components/icon/sub-sections/display';
+import SubSectionLibrary from 'showcase/components/page-components/icon/sub-sections/library';
 
 const IconIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Icon Component"}}
@@ -20,6 +23,7 @@ const IconIndex: TemplateOnlyComponent = <template>
     <SubSectionSize />
     <SubSectionColor />
     <SubSectionDisplay />
+    <SubSectionLibrary />
   </section>
 </template>;
 
