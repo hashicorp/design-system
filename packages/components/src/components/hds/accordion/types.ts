@@ -33,3 +33,8 @@ export enum HdsAccordionItemTitleTagValues {
 }
 
 export type HdsAccordionItemTitleTags = `${HdsAccordionItemTitleTagValues}`;
+
+// Constant arrays for consumers
+export const TYPES = Object.values(HdsAccordionTypeValues);
+export const SIZES = Object.values(HdsAccordionSizeValues);
+export const TITLE_TAGS = Object.values(HdsAccordionItemTitleTagValues);

@@ -21,7 +21,7 @@ import {
   HdsFormTextInputField,
   HdsTable,
 } from '@hashicorp/design-system-components/components';
-import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
+import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/types';
 
 import CodeFragmentWithExternalControl from '../code-fragments/with-external-control';
 import CodeFragmentWithPlaceholderContent from '../code-fragments/with-placeholder-content';

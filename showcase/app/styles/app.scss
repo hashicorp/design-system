@@ -3,6 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+// Carbon Design System theme - provides CSS custom properties (--cds-*) for web components
+@use "@carbon/styles/scss/themes";
+@use "@carbon/styles/scss/theme" with (
+  $theme: themes.$white
+);
+
+// HashiCorp Design System Components and overrides
+
 @use "@hashicorp/design-system-components";
 @use "@hashicorp/design-system-power-select-overrides";
 
@@ -83,3 +91,8 @@
 @use "./showcase-pages/tooltip" as showcase-tooltip;
 @use "./showcase-pages/typography" as showcase-typography;
 // END COMPONENT PAGES IMPORTS
+
+// Apply Carbon theme tokens to :root
+:root {
+  @include theme.theme();
+}
