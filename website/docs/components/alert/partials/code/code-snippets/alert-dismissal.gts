@@ -3,9 +3,9 @@ import Component from '@glimmer/component';
 import { HdsAlert } from '@hashicorp/design-system-components/components';
 
 export default class LocalComponent extends Component {
-  noop() {
+  noop = () => {
     //
-  }
+  };
 
   <template>
     <HdsAlert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
