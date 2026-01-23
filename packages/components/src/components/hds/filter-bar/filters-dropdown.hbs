@@ -1,0 +1,49 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Dropdown
+  @listPosition="bottom-left"
+  @width="600px"
+  ...attributes
+  class="hds-filter-bar__filters-dropdown"
+  {{style this.dropdownHeightStyle}}
+  {{this._syncFilters}}
+  as |D|
+>
+  <D.ToggleButton
+    @icon="filter"
+    @text={{hds-t "hds.components.filter-bar.filters-dropdown.toggle-button" default="Filters"}}
+    @color="secondary"
+    @size="small"
+  />
+  <D.Generic>
+    <Hds::FilterBar::Tabs as |T|>
+      {{yield
+        (hash
+          FilterGroup=(component
+            "hds/filter-bar/filter-group" tab=T.Tab panel=T.Panel onChange=this.onFilter filters=this.internalFilters
+          )
+          close=D.close
+        )
+      }}
+    </Hds::FilterBar::Tabs>
+  </D.Generic>
+  <D.Footer @hasDivider={{true}}>
+    <Hds::ButtonSet>
+      {{#unless this.isLiveFilter}}
+        <Hds::Button
+          @text={{hds-t "hds.components.filter-bar.filters-dropdown.apply" default="Apply filters"}}
+          @size="small"
+          {{on "click" (fn this.onApply D.close)}}
+        />
+      {{/unless}}
+      <Hds::Button
+        @text={{hds-t "hds.components.filter-bar.filters-dropdown.clear" default="Clear all filters"}}
+        @color="secondary"
+        @size="small"
+        {{on "click" (fn this.onClear D.close)}}
+      />
+    </Hds::ButtonSet>
+  </D.Footer>
+</Hds::Dropdown>

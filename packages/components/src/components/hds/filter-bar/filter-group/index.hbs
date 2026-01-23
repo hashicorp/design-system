@@ -1,0 +1,107 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{#let @tab as |Tab|}}
+  <Tab @numFilters={{this.numFilters}}>
+    {{@text}}
+  </Tab>
+{{/let}}
+{{#let @panel as |Panel|}}
+  <Panel {{this._setUpFilterPanel}}>
+    {{#if @searchEnabled}}
+      <div class="hds-filter-bar__filter-group__search">
+        <Hds::Form::TextInput::Base
+          @type="search"
+          aria-label={{hds-t
+            "components.filter-bar.filter-group.search-input.aria-label"
+            default="Search filter options"
+          }}
+          aria-description={{hds-t
+            "hds.components.filter-bar.filter-group.search-input.aria-description"
+            default="Search will be performed automatically as you type"
+          }}
+          placeholder={{hds-t "hds.components.filter-bar.filter-group.search-input.placeholder" default="Search"}}
+          {{on "input" this._onSearch}}
+        />
+      </div>
+    {{/if}}
+    {{#if (or (eq @type "numerical") (eq @type "date") (eq @type "datetime") (eq @type "time") (eq @type "generic"))}}
+      {{#if (eq @type "numerical")}}
+        <Hds::FilterBar::FilterGroup::Numerical
+          @key={{@key}}
+          @keyFilter={{this.keyFilter}}
+          @text={{@text}}
+          @onChange={{this.onGenericChange}}
+        />
+      {{else if (eq @type "date")}}
+        <Hds::FilterBar::FilterGroup::Date
+          @key={{@key}}
+          @keyFilter={{this.keyFilter}}
+          @text={{@text}}
+          @onChange={{this.onGenericChange}}
+          @type="date"
+        />
+      {{else if (eq @type "datetime")}}
+        <Hds::FilterBar::FilterGroup::Date
+          @key={{@key}}
+          @keyFilter={{this.keyFilter}}
+          @text={{@text}}
+          @onChange={{this.onGenericChange}}
+          @type="datetime"
+        />
+      {{else if (eq @type "time")}}
+        <Hds::FilterBar::FilterGroup::Date
+          @key={{@key}}
+          @keyFilter={{this.keyFilter}}
+          @text={{@text}}
+          @onChange={{this.onGenericChange}}
+          @type="time"
+        />
+      {{else if (eq @type "generic")}}
+        {{yield (hash Generic=(component "hds/filter-bar/filter-group/generic" onChange=this.onGenericChange))}}
+      {{/if}}
+      <Hds::FilterBar::FilterGroup::ClearButton
+        @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear-filter" default="Clear filter"}}
+        {{on "click" this.onClear}}
+      />
+    {{else if (or (eq @type "single-select") (eq @type "multi-select"))}}
+      <div class="hds-filter-bar__filter-group__values-list">
+        <Hds::FilterBar::FilterGroup::ClearButton
+          @text={{hds-t "hds.components.filter-bar.filter-group.values-list.clear-selection" default="Clear selection"}}
+          {{on "click" this.onClear}}
+        />
+        <fieldset class="hds-filter-bar__filter-group__list">
+          <legend class="sr-only">
+            {{hds-t "hds.components.filter-bar.filter-group.values-list.legend" text=@text default="Filter by options"}}
+          </legend>
+          {{#if (eq @type "single-select")}}
+            {{yield
+              (hash
+                Radio=(component
+                  "hds/filter-bar/filter-group/radio"
+                  keyFilter=this.keyFilter
+                  name=@key
+                  searchValue=this.searchValue
+                  onChange=this.onSelectionChange
+                )
+              )
+            }}
+          {{else if (eq @type "multi-select")}}
+            {{yield
+              (hash
+                Checkbox=(component
+                  "hds/filter-bar/filter-group/checkbox"
+                  keyFilter=this.keyFilter
+                  name=@key
+                  searchValue=this.searchValue
+                  onChange=this.onSelectionChange
+                )
+              )
+            }}
+          {{/if}}
+        </fieldset>
+      </div>
+    {{/if}}
+  </Panel>
+{{/let}}
