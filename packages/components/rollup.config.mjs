@@ -20,6 +20,7 @@ const STYLE_ENTRIES = [
   '@hashicorp/design-system-components.scss',
   '@hashicorp/design-system-components-common.scss',
   '@hashicorp/design-system-power-select-overrides.scss',
+  '@hashicorp/design-system-plex-fonts.scss',
 ];
 
 const plugins = [
