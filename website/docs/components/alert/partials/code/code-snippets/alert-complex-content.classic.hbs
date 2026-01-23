@@ -1,0 +1,13 @@
+<Hds::Alert @type="inline" @color="success" as |A|>
+  <A.Title>Title here</A.Title>
+  <A.Description>
+    The description can contain
+    {{#if true}}conditional logic{{/if}}, Ember components, and HTML tags, like
+    <strong>strong text</strong>,
+    <em>emphasized text</em>,
+    <code>code</code>,
+    <pre>pre</pre>,
+    <Hds::Link::Inline @color="secondary" @href="#">inline</Hds::Link::Inline>
+    <LinkTo @route="index">links</LinkTo>.
+  </A.Description>
+</Hds::Alert>

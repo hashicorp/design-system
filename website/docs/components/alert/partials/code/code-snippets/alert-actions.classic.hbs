@@ -1,0 +1,6 @@
+<Hds::Alert @type="inline" as |A|>
+  <A.Title>Title here</A.Title>
+  <A.Description>Description here</A.Description>
+  <A.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
+  <A.LinkStandalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
+</Hds::Alert>
