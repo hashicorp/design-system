@@ -1,0 +1,277 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import Component from '@glimmer/component';
+import { hash } from '@ember/helper';
+import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
+import { TrackedMap } from 'tracked-built-ins';
+import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
+import { getColumnByKey } from './utils.ts';
+
+import type {
+  HdsAdvancedTableColumn,
+  HdsAdvancedTableColumnReorderCallback,
+  HdsAdvancedTableColumnReorderSide,
+} from './types';
+import type { HdsAdvancedTableSignature } from './index.ts';
+import type Owner from '@ember/owner';
+
+export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
+export const DEFAULT_MIN_WIDTH = '150px';
+export const DEFAULT_MAX_WIDTH = '800px';
+
+class HdsAdvancedTableColumnWidthConfig {
+  @tracked width: string = DEFAULT_WIDTH;
+  @tracked originalWidth: string = this.width; // used to restore the width when resetting
+
+  @tracked minWidth: `${number}px` = DEFAULT_MIN_WIDTH;
+  @tracked maxWidth: `${number}px` = DEFAULT_MAX_WIDTH;
+
+  @tracked transientWidth: `${number}px` | null = null; // used for transient width changes
+  @tracked widthDebts: Record<string, number> = {}; // used to track width changes imposed by other columns
+
+  constructor({
+    width = DEFAULT_WIDTH,
+    minWidth = DEFAULT_MIN_WIDTH,
+    maxWidth = DEFAULT_MAX_WIDTH,
+  }: {
+    width?: string;
+    minWidth?: `${number}px`;
+    maxWidth?: `${number}px`;
+  } = {}) {
+    this.width = width;
+    this.originalWidth = width;
+    this.minWidth = minWidth;
+    this.maxWidth = maxWidth;
+  }
+}
+
+export interface HdsAdvancedTableColumnManagerSignature {
+  Args: {
+    columns: HdsAdvancedTableColumn[];
+    columnOrder: HdsAdvancedTableSignature['Args']['columnOrder'];
+    hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
+    isSelectable?: HdsAdvancedTableSignature['Args']['isSelectable'];
+    onColumnReorder: HdsAdvancedTableSignature['Args']['onColumnReorder'];
+  };
+  Blocks: {
+    default: [
+      {
+        columns: HdsAdvancedTableColumn[];
+        columnOrder: HdsAdvancedTableSignature['Args']['columnOrder'];
+        orderedColumns: HdsAdvancedTableColumn[];
+        moveColumnToTarget: (
+          columnKey: string,
+          targetColumnKey: string,
+          side: HdsAdvancedTableColumnReorderSide
+        ) => void;
+        moveColumnToTerminalPosition: (
+          columnKey: string,
+          position: 'start' | 'end'
+        ) => void;
+        stepColumn: (columnKey: string, step: number) => void;
+      },
+    ];
+  };
+}
+
+export default class HdsAdvancedTableColumnManager extends Component<HdsAdvancedTableColumnManagerSignature> {
+  @tracked _columnOrder: string[] = [];
+
+  constructor(
+    owner: Owner,
+    args: HdsAdvancedTableColumnManagerSignature['Args']
+  ) {
+    super(owner, args);
+
+    const { columnOrder, columns, hasReorderableColumns } = args;
+
+    if (hasReorderableColumns) {
+      assert(
+        'All columns must have a key when reordering is enabled',
+        columns.every((column) => column.key !== undefined)
+      );
+
+      if (columnOrder === undefined || columnOrder.length === 0) {
+        this._columnOrder = columns.map((column) => column.key!);
+      } else {
+        this._columnOrder = columnOrder;
+      }
+    }
+  }
+
+  get columnOrder(): string[] {
+    return this.args.columnOrder ?? this._columnOrder;
+  }
+  set columnOrder(value: string[]) {
+    this._columnOrder = value;
+  }
+
+  get orderedColumns(): HdsAdvancedTableColumn[] {
+    const { columns, hasReorderableColumns, columnOrder } = this.args;
+
+    if (hasReorderableColumns && columnOrder !== undefined) {
+      return columnOrder.reduce<HdsAdvancedTableColumn[]>((acc, key) => {
+        const column = getColumnByKey(columns, key);
+
+        if (column !== undefined) {
+          acc.push(column);
+        }
+
+        return acc;
+      }, []);
+    } else {
+      return columns;
+    }
+  }
+
+  get gridTemplateColumns(): string {
+    const { isSelectable } = this.args;
+
+    // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
+    let style = isSelectable ? 'min-content ' : '';
+
+    for (let i = 0; i < this.orderedColumns.length; i++) {
+      style += ` ${this.orderedColumns[i]!.appliedWidth}`;
+    }
+
+    return style;
+  }
+
+  moveColumnToTerminalPosition = (
+    columnKey: string,
+    position: 'start' | 'end'
+  ): void => {
+    let targetColumnKey: string;
+    let side: HdsAdvancedTableColumnReorderSide;
+
+    const firstColumn = this.orderedColumns[0];
+    const lastColumn = this.orderedColumns[this.orderedColumns.length - 1];
+
+    if (firstColumn === undefined || lastColumn === undefined) {
+      return;
+    }
+
+    if (position === 'start') {
+      targetColumnKey = firstColumn.key!;
+      side = HdsAdvancedTableColumnReorderSideValues.Left;
+    } else {
+      targetColumnKey = lastColumn.key!;
+      side = HdsAdvancedTableColumnReorderSideValues.Right;
+    }
+
+    if (targetColumnKey === undefined) {
+      return;
+    }
+
+    // Move the column to the target position
+    this.moveColumnToTarget(columnKey, targetColumnKey, side);
+  };
+
+  stepColumn = (columnKey: string, step: number): void => {
+    const oldIndex = this.columnOrder.indexOf(columnKey);
+    const newIndex = oldIndex + step;
+
+    // Check if the new position is within the array bounds.
+    if (newIndex < 0 || newIndex >= this.columnOrder.length) {
+      return;
+    }
+
+    const targetColumnKey = this.columnOrder[newIndex];
+
+    if (targetColumnKey === undefined) {
+      return;
+    }
+
+    // Determine the side based on the step direction.
+    const side: HdsAdvancedTableColumnReorderSide =
+      step > 0
+        ? HdsAdvancedTableColumnReorderSideValues.Right
+        : HdsAdvancedTableColumnReorderSideValues.Left;
+
+    this.moveColumnToTarget(columnKey, targetColumnKey, side);
+  };
+
+  moveColumnToTarget = (
+    sourceColumnKey: string,
+    targetColumnKey: string,
+    side: HdsAdvancedTableColumnReorderSide
+  ): void => {
+    const oldIndex = this.columnOrder.indexOf(sourceColumnKey);
+    const newIndex = this.columnOrder.indexOf(targetColumnKey);
+
+    if (oldIndex !== -1 && newIndex !== -1) {
+      const updated = [...this.columnOrder];
+
+      updated.splice(oldIndex, 1); // Remove from old position
+
+      // Calculate the insertion index based on the side
+      // If dropping to the right of the target, insert after the target
+      // If dropping to the left of the target, insert before the target
+      // Adjust for the shift in indices caused by removing the source column
+      const adjustedIndex =
+        side === HdsAdvancedTableColumnReorderSideValues.Right
+          ? newIndex > oldIndex
+            ? newIndex
+            : newIndex + 1
+          : newIndex > oldIndex
+            ? newIndex - 1
+            : newIndex;
+
+      updated.splice(adjustedIndex, 0, sourceColumnKey); // Insert at new position
+
+      this.columnOrder = updated;
+
+      // we need to wait until the reposition has finished
+      requestAnimationFrame(() => {
+        // TODO
+        // sourceColumn.thElement?.scrollIntoView({
+        //   behavior: 'smooth',
+        //   block: 'nearest',
+        //   inline: 'center',
+        // });
+
+        // TODO
+        // sourceColumn.isBeingDragged = false;
+
+        const column = getColumnByKey(this.args.columns, sourceColumnKey);
+
+        assert('No column found with that key', column !== undefined);
+
+        this.setColumnOrder({
+          column,
+          newOrder: updated,
+          insertedAt: updated.indexOf(sourceColumnKey),
+        });
+      });
+    }
+  };
+
+  setColumnOrder: HdsAdvancedTableColumnReorderCallback = ({
+    column,
+    newOrder,
+    insertedAt,
+  }) => {
+    const { onColumnReorder } = this.args;
+
+    this.columnOrder = newOrder;
+
+    onColumnReorder?.({ column, newOrder, insertedAt });
+  };
+
+  <template>
+    {{yield
+      (hash
+        columns=@columns
+        columnOrder=this.columnOrder
+        orderedColumns=this.orderedColumns
+        moveColumnToTarget=this.moveColumnToTarget
+        moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
+        stepColumn=this.stepColumn
+      )
+    }}
+  </template>
+}

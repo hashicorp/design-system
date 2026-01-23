@@ -122,6 +122,7 @@ export default class HdsAdvancedTableTableModel {
     });
   }
 
+  // slated for removal
   get orderedColumns(): HdsAdvancedTableColumn[] {
     if (this.hasReorderableColumns) {
       return this.columnOrder.reduce<HdsAdvancedTableColumn[]>((acc, key) => {

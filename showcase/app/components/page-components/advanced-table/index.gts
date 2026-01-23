@@ -28,20 +28,20 @@ const AdvancedTableIndex: TemplateOnlyComponent = <template>
   <ShwTextH1>AdvancedTable</ShwTextH1>
 
   <section data-test-percy>
-    <SubSectionBasic />
+    {{! <SubSectionBasic />
     <SubSectionNestedRows />
     <SubSectionOverflow />
     <SubSectionSorting />
     <SubSectionTooltip />
-    <SubSectionMultiSelect />
+    <SubSectionMultiSelect /> }}
     <SubSectionReorderableColumns />
-    <SubSectionResizableColumns />
+    {{! <SubSectionResizableColumns />
     <SubSectionPinnableColumns />
     <SubSectionFunctionalExamples />
     <SubSectionCustomization />
     <SubSectionLayout />
     <SubSectionDemos />
-    <SubSectionBaseElements />
+    <SubSectionBaseElements /> }}
   </section>
 </template>;
 
