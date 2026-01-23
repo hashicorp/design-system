@@ -1,4 +1,9 @@
 /**
+ * TODOs
+ * - Make sure that updating @columns updates this.columnOrder
+ */
+
+/**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
@@ -7,6 +12,7 @@ import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
 import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
 import { getColumnByKey } from './utils.ts';
@@ -23,30 +29,26 @@ export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
 export const DEFAULT_MIN_WIDTH = '150px';
 export const DEFAULT_MAX_WIDTH = '800px';
 
-class HdsAdvancedTableColumnWidthConfig {
-  @tracked width: string = DEFAULT_WIDTH;
-  @tracked originalWidth: string = this.width; // used to restore the width when resetting
+type HdsAdvancedTableColumnWidth = HdsAdvancedTableColumn['width'];
 
-  @tracked minWidth: `${number}px` = DEFAULT_MIN_WIDTH;
-  @tracked maxWidth: `${number}px` = DEFAULT_MAX_WIDTH;
+class HdsAdvancedTableColumnWidthState {
+  @tracked transientWidth: HdsAdvancedTableColumnWidth | null = null;
+  @tracked originalWidth: HdsAdvancedTableColumnWidth;
 
-  @tracked transientWidth: `${number}px` | null = null; // used for transient width changes
-  @tracked widthDebts: Record<string, number> = {}; // used to track width changes imposed by other columns
-
-  constructor({
-    width = DEFAULT_WIDTH,
-    minWidth = DEFAULT_MIN_WIDTH,
-    maxWidth = DEFAULT_MAX_WIDTH,
-  }: {
-    width?: string;
-    minWidth?: `${number}px`;
-    maxWidth?: `${number}px`;
-  } = {}) {
-    this.width = width;
-    this.originalWidth = width;
-    this.minWidth = minWidth;
-    this.maxWidth = maxWidth;
+  constructor(initialWidth: HdsAdvancedTableColumnWidth = DEFAULT_WIDTH) {
+    this.originalWidth = initialWidth;
   }
+
+  get appliedWidth(): HdsAdvancedTableColumnWidth {
+    return this.transientWidth ?? this.originalWidth;
+  }
+}
+
+export interface HdsAdvancedTableSyncWidthRegistrySignature {
+  Element: HTMLDivElement;
+  Args: {
+    Positional: [HdsAdvancedTableColumnManagerSignature['Args']['columns']];
+  };
 }
 
 export interface HdsAdvancedTableColumnManagerSignature {
@@ -80,6 +82,11 @@ export interface HdsAdvancedTableColumnManagerSignature {
 
 export default class HdsAdvancedTableColumnManager extends Component<HdsAdvancedTableColumnManagerSignature> {
   @tracked _columnOrder: string[] = [];
+
+  widthStateRegistry = new TrackedMap<
+    string,
+    HdsAdvancedTableColumnWidthState
+  >();
 
   constructor(
     owner: Owner,
@@ -130,12 +137,18 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
 
   get gridTemplateColumns(): string {
     const { isSelectable } = this.args;
-
-    // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    for (let i = 0; i < this.orderedColumns.length; i++) {
-      style += ` ${this.orderedColumns[i]!.appliedWidth}`;
+    for (const col of this.args.columns) {
+      if (col.key === undefined) {
+        continue;
+      }
+
+      const config = this.widthStateRegistry.get(col.key);
+
+      if (config) {
+        style += ` ${config.appliedWidth}`;
+      }
     }
 
     return style;
@@ -262,16 +275,31 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     onColumnReorder?.({ column, newOrder, insertedAt });
   };
 
+  syncWithRegistry = modifier<HdsAdvancedTableSyncWidthRegistrySignature>(
+    (_element, [columns]) => {
+      for (const column of columns) {
+        if (column.key !== undefined) {
+          this.widthStateRegistry.set(
+            column.key,
+            new HdsAdvancedTableColumnWidthState(column.width)
+          );
+        }
+      }
+    }
+  );
+
   <template>
-    {{yield
-      (hash
-        columns=@columns
-        columnOrder=this.columnOrder
-        orderedColumns=this.orderedColumns
-        moveColumnToTarget=this.moveColumnToTarget
-        moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
-        stepColumn=this.stepColumn
-      )
-    }}
+    <div {{this.syncWithRegistry @columns}}>
+      {{yield
+        (hash
+          columns=@columns
+          columnOrder=this.columnOrder
+          orderedColumns=this.orderedColumns
+          moveColumnToTarget=this.moveColumnToTarget
+          moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
+          stepColumn=this.stepColumn
+        )
+      }}
+    </div>
   </template>
 }
