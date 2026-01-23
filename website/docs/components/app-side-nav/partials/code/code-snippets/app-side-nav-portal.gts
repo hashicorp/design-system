@@ -7,9 +7,24 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 const LocalComponent: TemplateOnlyComponent = <template>
+  {{! for demo purposes we set @isResponsive to false
+  but in your app it will probably need to be set to true
+  (or omitted to rely on defaults)
+  }}
   <HdsAppSideNav @isResponsive={{false}}>
+    {{!
+    this portal "target" needs to be added in the position where you want
+    the content declared in the "portal(s)" to be injected
+    (typically the :body of the HdsAppSideNav)
+    }}
     <HdsAppSideNavPortalTarget />
   </HdsAppSideNav>
+  {{!
+  this "portal" can be declared in any part of the application, and its content
+  will be injected automatically in the "target" portal declared above;
+  if multiple portals are declared, multiple "panels" will be rendered
+  based on the nesting of the page route within the application’s global routing
+  }}
   <HdsAppSideNavPortal @ariaLabel="Primary" as |Nav|>
     <Nav.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
     <Nav.Title>Services</Nav.Title>
