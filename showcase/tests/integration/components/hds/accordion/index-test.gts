@@ -228,7 +228,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       .hasAttribute('aria-expanded', 'true');
   });
 
-  test('the AccordionItem toggle button has an aria-controls attribute with a value matching the DisclosurePrimitive content id', async function (assert) {
+  test('the AccordionItem toggle button has an aria-controls attribute with a value matching the content id', async function (assert) {
     await render(
       <template>
         <HdsAccordion as |A|>
@@ -243,7 +243,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('.hds-accordion-item__button').hasAttribute('aria-controls');
 
     const accordionButton = find('.hds-accordion-item__button');
-    const accordionContent = find('.hds-disclosure-primitive__content');
+    const accordionContent = find('.hds-accordion-item__content');
 
     assert.strictEqual(
       accordionButton?.getAttribute('aria-controls'),

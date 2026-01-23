@@ -4,9 +4,8 @@
  */
 
 // components
-import type HdsAccordionComponent from './components/hds/accordion';
-import type HdsAccordionItemComponent from './components/hds/accordion/item';
-import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
+import type HdsAccordionComponent from './components/hds/accordion/index.gts';
+import type HdsAccordionItemComponent from './components/hds/accordion/item.gts';
 import type HdsAdvancedTableComponent from './components/hds/advanced-table';
 import type HdsAdvancedTableTdComponent from './components/hds/advanced-table/td';
 import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advanced-table/th-button-expand';
@@ -252,9 +251,6 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Accordion::Item': typeof HdsAccordionItemComponent;
   'hds/accordion/item': typeof HdsAccordionItemComponent;
-
-  'Hds::Accordion::Item::Button': typeof HdsAccordionItemButtonComponent;
-  'hds/accordion/item/button': typeof HdsAccordionItemButtonComponent;
 
   // Advanced Table
   'Hds::AdvancedTable': typeof HdsAdvancedTableComponent;
