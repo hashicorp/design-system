@@ -17,7 +17,7 @@
 
 ### Filter Dropdown
 
-The Filter Dropdown anatomy is dependent on the filter method and is dependent on the filtering method:
+The Filter Dropdown anatomy is dependent on the filter method:
 
 - Selection: multi-selection using checkboxes or single selection using radios.
 - Input: numerical, date, time, datetime values, or a range between a start and end value.

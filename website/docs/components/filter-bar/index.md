@@ -4,7 +4,7 @@ description: A composition of HDS components to support filtering.
 caption: A composition of HDS components to support filtering.
 links:
   figma: >-
-    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67385-76599&t=w8xQlWxzH7bwXLe2-1
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=93090-8276&t=ipkemvfVsBE5ALhw-1
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/filter-bar
 related:
