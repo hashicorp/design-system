@@ -132,9 +132,7 @@ const plugins = [
       '@hashicorp/design-system-components-common.scss': [
         'node_modules/@hashicorp/design-system-tokens/dist',
       ],
-      '@hashicorp/design-system-plex-fonts.scss' : [
-        'node_modules/@ibm',
-      ]
+      '@hashicorp/design-system-plex-fonts.scss': ['node_modules/@ibm'],
     },
   }),
 ];
