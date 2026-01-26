@@ -2,37 +2,32 @@
   Copyright IBM Corp. 2021, 2025
   SPDX-License-Identifier: MPL-2.0
 }}
-<div
-  class={{this.classNames}}
-  role={{this._role}}
-  aria-live={{if this._role "polite"}}
-  aria-labelledby={{this._ariaLabelledBy}}
-  {{did-insert this.didInsert}}
-  ...attributes
->
-  {{#if this.icon}}
-    <div class="hds-alert__icon">
-      <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-    </div>
-  {{/if}}
+<div role={{this._role}} aria-live={{if this._role "polite"}}>
+  <div class={{this.classNames}} aria-labelledby={{this._ariaLabelledBy}} {{did-insert this.didInsert}} ...attributes>
+    {{#if this.icon}}
+      <div class="hds-alert__icon">
+        <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </div>
+    {{/if}}
 
-  <div class="hds-alert__content">
-    <div class="hds-alert__text {{if (eq @type 'compact') 'hds-typography-body-100' 'hds-typography-body-200'}}">
-      {{yield (hash Title=(component "hds/alert/title"))}}
-      {{yield (hash Description=(component "hds/alert/description"))}}
+    <div class="hds-alert__content">
+      <div class="hds-alert__text {{if (eq @type 'compact') 'hds-typography-body-100' 'hds-typography-body-200'}}">
+        {{yield (hash Title=(component "hds/alert/title"))}}
+        {{yield (hash Description=(component "hds/alert/description"))}}
+      </div>
+
+      <div class="hds-alert__actions">
+        {{yield
+          (hash
+            Button=(component "hds/button" size="small") LinkStandalone=(component "hds/link/standalone" size="small")
+          )
+        }}
+      </div>
+      {{yield (hash Generic=(component "hds/yield"))}}
     </div>
 
-    <div class="hds-alert__actions">
-      {{yield
-        (hash
-          Button=(component "hds/button" size="small") LinkStandalone=(component "hds/link/standalone" size="small")
-        )
-      }}
-    </div>
-    {{yield (hash Generic=(component "hds/yield"))}}
+    {{#if this.onDismiss}}
+      <Hds::DismissButton class="hds-alert__dismiss" {{on "click" this.onDismiss}} />
+    {{/if}}
   </div>
-
-  {{#if this.onDismiss}}
-    <Hds::DismissButton class="hds-alert__dismiss" {{on "click" this.onDismiss}} />
-  {{/if}}
 </div>
