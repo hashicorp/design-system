@@ -10,15 +10,14 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
 import { modifier } from 'ember-modifier';
-import HdsAdvancedTableColumn from './models/column.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
 
-import type Owner from '@ember/owner';
 import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableScope,
   HdsAdvancedTableExpandState,
+  HdsAdvancedTableColumn,
   HdsAdvancedTableColumnReorderSide,
 } from './types.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
@@ -34,16 +33,19 @@ export interface HdsAdvancedTableThSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     column?: HdsAdvancedTableColumn;
+    orderedColumns?: HdsAdvancedTableColumn[];
     colspan?: number;
     depth?: number;
+    firstColumnKey?: HdsAdvancedTableColumn['key'];
     hasExpandAllButton?: boolean;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
+    hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
-    isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
+    lastColumnKey?: HdsAdvancedTableColumn['key'];
     newLabel?: string;
     parentId?: string;
     rowspan?: number;
@@ -53,6 +55,10 @@ export interface HdsAdvancedTableThSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onMoveColumnToTerminalPosition?: (
+      columnKey: HdsAdvancedTableColumn['key'],
+      position: 'start' | 'end'
+    ) => void;
     onPinFirstColumn?: () => void;
     onReorderDragEnd?: () => void;
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
@@ -78,10 +84,31 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @tracked
   private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
 
-  constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
-    super(owner, args);
+  get isFirstColumn(): boolean {
+    const { column, firstColumnKey } = this.args;
 
-    const { rowspan, colspan, isStickyColumn } = args;
+    return (
+      firstColumnKey !== undefined &&
+      column !== undefined &&
+      firstColumnKey === column.key
+    );
+  }
+
+  get isLastColumn(): boolean {
+    const { column, lastColumnKey } = this.args;
+
+    return (
+      lastColumnKey !== undefined &&
+      column !== undefined &&
+      lastColumnKey === column.key
+    );
+  }
+
+  get isStickyColumn(): boolean {
+    const { rowspan, colspan, hasStickyFirstColumn } = this.args;
+
+    const isStickyColumn =
+      this.isFirstColumn && hasStickyFirstColumn !== undefined;
 
     if (isStickyColumn) {
       assert(
@@ -89,6 +116,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
         rowspan === undefined || colspan === undefined
       );
     }
+
+    return isStickyColumn;
   }
 
   get scope(): HdsAdvancedTableScope {
@@ -143,19 +172,45 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       classes.push(`hds-advanced-table__th--align-${this.align}`);
     }
 
-    if (this.args.isStickyColumn) {
+    if (this.isStickyColumn) {
       classes.push('hds-advanced-table__th--is-sticky-column');
     }
 
-    if (this.args.isStickyColumn && this.args.isStickyColumnPinned) {
+    if (this.isStickyColumn && this.args.isStickyColumnPinned) {
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
-    if (this.args.column?.isBeingDragged) {
-      classes.push('hds-advanced-table__th--is-being-dragged');
-    }
+    // TODO
+    // if (this.args.column?.isBeingDragged) {
+    //   classes.push('hds-advanced-table__th--is-being-dragged');
+    // }
 
     return classes.join(' ');
+  }
+
+  get showDropTarget(): boolean {
+    // TODO
+    // const { hasColumnBeingDragged } = this.args;
+
+    // TODO
+    // return hasColumnBeingDragged === true && !this.isStickyColumn;
+    return !this.isStickyColumn;
+  }
+
+  get showResizeHandle(): boolean {
+    // TODO
+    // const { column, hasColumnBeingDragged, hasResizableColumns, lastColumnKey } = this.args;
+    const { column, hasResizableColumns, lastColumnKey } = this.args;
+
+    if (column === undefined || lastColumnKey === undefined) {
+      return false;
+    }
+
+    const isLastColumn = column.key === lastColumnKey;
+
+    // TODO
+    // return hasResizableColumns === true && !isLastColumn && !hasColumnBeingDragged;
+    return hasResizableColumns === true && !isLastColumn;
   }
 
   @action
@@ -175,14 +230,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @action getInitialFocus(): FocusableElement | undefined {
     const cellFocusableElements = focusable(this._element);
     return cellFocusableElements[0];
-  }
-
-  @action setElement(element: HTMLDivElement): void {
-    this._element = element;
-
-    if (this.args.column !== undefined) {
-      this.args.column.thElement = element;
-    }
   }
 
   private _registerReorderHandleElement = modifier(

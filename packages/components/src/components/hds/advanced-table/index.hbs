@@ -30,7 +30,7 @@
       role="grid"
       aria-describedby={{this._captionId}}
       {{style
-        grid-template-columns=this.gridTemplateColumns
+        grid-template-columns=CM.gridTemplateColumns
         --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
         max-height=@maxHeight
       }}
@@ -60,6 +60,7 @@
             {{#if column.isSortable}}
               <Hds::AdvancedTable::ThSort
                 @column={{column}}
+                @orderedColumns={{CM.orderedColumns}}
                 @sortOrder={{if (eq column.key this._tableModel.sortBy) this._tableModel.sortOrder}}
                 @onClickSort={{if column.key (fn this._tableModel.setSortBy column.key)}}
                 @align={{column.align}}
@@ -67,6 +68,7 @@
                 @hasReorderableColumns={{@hasReorderableColumns}}
                 @hasResizableColumns={{@hasResizableColumns}}
                 @hasSelectableRows={{this.isSelectable}}
+                @hasStickyFirstColumn={{@hasStickyFirstColumn}}
                 @isStickyColumn={{this._isStickyColumn column}}
                 @isStickyColumnPinned={{this.isStickyColumnPinned}}
                 @tableHeight={{this._tableHeight}}
@@ -75,7 +77,7 @@
                 @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
                 @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
                 @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
-                {{this._registerThElement column}}
+                {{CM.syncThElementRegistry column.key}}
               >
                 {{column.label}}
               </Hds::AdvancedTable::ThSort>
@@ -83,23 +85,27 @@
               <Hds::AdvancedTable::Th
                 @align={{column.align}}
                 @column={{column}}
+                @orderedColumns={{CM.orderedColumns}}
+                @firstColumnKey={{CM.firstColumnKey}}
                 @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
                 @hasReorderableColumns={{@hasReorderableColumns}}
                 @hasResizableColumns={{@hasResizableColumns}}
                 @hasSelectableRows={{this.isSelectable}}
+                @hasStickyFirstColumn={{@hasStickyFirstColumn}}
                 @isExpanded={{this._tableModel.expandState}}
                 @isExpandable={{column.isExpandable}}
-                @isStickyColumn={{this._isStickyColumn column}}
                 @isStickyColumnPinned={{this.isStickyColumnPinned}}
+                @lastColumnKey={{CM.lastColumnKey}}
                 @tableHeight={{this._tableHeight}}
                 @tooltip={{column.tooltip}}
                 @onClickToggle={{this._tableModel.toggleAll}}
                 @onColumnResize={{@onColumnResize}}
+                @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
                 @onPinFirstColumn={{this._onPinFirstColumn}}
                 @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
                 @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
                 @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
-                {{this._registerThElement column}}
+                {{CM.syncThElementRegistry column.key}}
               >
                 {{column.label}}
               </Hds::AdvancedTable::Th>

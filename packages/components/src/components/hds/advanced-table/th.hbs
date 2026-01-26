@@ -9,11 +9,7 @@
   aria-colspan={{@colspan}}
   aria-describedby={{@parentId}}
   {{style grid-row=this.rowspan grid-column=this.colspan padding-left=this.paddingLeft}}
-  {{hds-advanced-table-cell
-    handleEnableFocusTrap=this.enableFocusTrap
-    shouldTrapFocus=this._shouldTrapFocus
-    setCellElement=this.setElement
-  }}
+  {{hds-advanced-table-cell handleEnableFocusTrap=this.enableFocusTrap shouldTrapFocus=this._shouldTrapFocus}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap
     isActive=this._shouldTrapFocus
@@ -70,14 +66,16 @@
         @column={{@column}}
         @hasReorderableColumns={{@hasReorderableColumns}}
         @hasResizableColumns={{@hasResizableColumns}}
-        @isStickyColumn={{@isStickyColumn}}
+        @isFirstColumn={{this.isFirstColumn}}
+        @isLastColumn={{this.isLastColumn}}
+        @isStickyColumn={{this.isStickyColumn}}
         @reorderHandleElement={{this._reorderHandleElement}}
         @resizeHandleElement={{this._resizeHandleElement}}
         @onColumnResize={{@onColumnResize}}
         @onPinFirstColumn={{@onPinFirstColumn}}
       />
 
-      {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
+      {{#if (and @hasReorderableColumns (not this.isStickyColumn))}}
         <Hds::AdvancedTable::ThReorderHandle
           @column={{@column}}
           @tableHeight={{@tableHeight}}
@@ -87,7 +85,7 @@
         />
       {{/if}}
 
-      {{#if (and @hasResizableColumns (not @column.isLast) (not @column.table.hasColumnBeingDragged))}}
+      {{#if this.showResizeHandle}}
         <Hds::AdvancedTable::ThResizeHandle
           @column={{@column}}
           @tableHeight={{@tableHeight}}
@@ -98,14 +96,12 @@
     {{/if}}
   </Hds::Layout::Flex>
 
-  {{#if @column}}
-    {{#if (and @column.table.hasColumnBeingDragged (not @isStickyColumn))}}
-      <Hds::AdvancedTable::ThReorderDropTarget
-        @column={{@column}}
-        @hasSelectableRows={{@hasSelectableRows}}
-        @tableHeight={{@tableHeight}}
-        @onReorderDrop={{@onReorderDrop}}
-      />
-    {{/if}}
+  {{#if this.showDropTarget}}
+    <Hds::AdvancedTable::ThReorderDropTarget
+      @column={{@column}}
+      @hasSelectableRows={{@hasSelectableRows}}
+      @tableHeight={{@tableHeight}}
+      @onReorderDrop={{@onReorderDrop}}
+    />
   {{/if}}
 </div>

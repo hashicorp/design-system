@@ -24,6 +24,7 @@ import type {
 } from './types';
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type Owner from '@ember/owner';
+import type { ModifierLike } from '@glint/template';
 
 export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
 export const DEFAULT_MIN_WIDTH = '150px';
@@ -42,6 +43,13 @@ class HdsAdvancedTableColumnWidthState {
   get appliedWidth(): HdsAdvancedTableColumnWidth {
     return this.transientWidth ?? this.originalWidth;
   }
+}
+
+export interface HdsAdvancedTableSyncThElementRegistrySignature {
+  Element: HTMLDivElement;
+  Args: {
+    Positional: [HdsAdvancedTableColumn['key']];
+  };
 }
 
 export interface HdsAdvancedTableSyncWidthRegistrySignature {
@@ -64,17 +72,24 @@ export interface HdsAdvancedTableColumnManagerSignature {
       {
         columns: HdsAdvancedTableColumn[];
         columnOrder: HdsAdvancedTableSignature['Args']['columnOrder'];
+        firstColumnKey: HdsAdvancedTableColumn['key'] | undefined;
+        gridTemplateColumns: string;
+        lastColumnKey: HdsAdvancedTableColumn['key'] | undefined;
         orderedColumns: HdsAdvancedTableColumn[];
+        syncThElementRegistry: ModifierLike<HdsAdvancedTableSyncThElementRegistrySignature>;
         moveColumnToTarget: (
-          columnKey: string,
-          targetColumnKey: string,
+          columnKey: HdsAdvancedTableColumn['key'],
+          targetColumnKey: HdsAdvancedTableColumn['key'],
           side: HdsAdvancedTableColumnReorderSide
         ) => void;
         moveColumnToTerminalPosition: (
-          columnKey: string,
+          columnKey: HdsAdvancedTableColumn['key'],
           position: 'start' | 'end'
         ) => void;
-        stepColumn: (columnKey: string, step: number) => void;
+        stepColumn: (
+          columnKey: HdsAdvancedTableColumn['key'],
+          step: number
+        ) => void;
       },
     ];
   };
@@ -83,6 +98,7 @@ export interface HdsAdvancedTableColumnManagerSignature {
 export default class HdsAdvancedTableColumnManager extends Component<HdsAdvancedTableColumnManagerSignature> {
   @tracked _columnOrder: string[] = [];
 
+  thElementRegistry = new TrackedMap<string, HTMLDivElement>();
   widthStateRegistry = new TrackedMap<
     string,
     HdsAdvancedTableColumnWidthState
@@ -135,6 +151,18 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     }
   }
 
+  get firstColumnKey(): HdsAdvancedTableColumn['key'] | undefined {
+    const firstColumn = this.orderedColumns[0];
+
+    return firstColumn?.key;
+  }
+
+  get lastColumnKey(): HdsAdvancedTableColumn['key'] | undefined {
+    const lastColumn = this.orderedColumns[this.orderedColumns.length - 1];
+
+    return lastColumn?.key;
+  }
+
   get gridTemplateColumns(): string {
     const { isSelectable } = this.args;
     let style = isSelectable ? 'min-content ' : '';
@@ -155,10 +183,14 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
   }
 
   moveColumnToTerminalPosition = (
-    columnKey: string,
+    columnKey: HdsAdvancedTableColumn['key'],
     position: 'start' | 'end'
   ): void => {
-    let targetColumnKey: string;
+    if (columnKey === undefined) {
+      return;
+    }
+
+    let targetColumnKey: HdsAdvancedTableColumn['key'];
     let side: HdsAdvancedTableColumnReorderSide;
 
     const firstColumn = this.orderedColumns[0];
@@ -184,7 +216,14 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     this.moveColumnToTarget(columnKey, targetColumnKey, side);
   };
 
-  stepColumn = (columnKey: string, step: number): void => {
+  stepColumn = (
+    columnKey: HdsAdvancedTableColumn['key'],
+    step: number
+  ): void => {
+    if (columnKey === undefined) {
+      return;
+    }
+
     const oldIndex = this.columnOrder.indexOf(columnKey);
     const newIndex = oldIndex + step;
 
@@ -209,10 +248,14 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
   };
 
   moveColumnToTarget = (
-    sourceColumnKey: string,
-    targetColumnKey: string,
+    sourceColumnKey: HdsAdvancedTableColumn['key'],
+    targetColumnKey: HdsAdvancedTableColumn['key'],
     side: HdsAdvancedTableColumnReorderSide
   ): void => {
+    if (sourceColumnKey === undefined || targetColumnKey === undefined) {
+      return;
+    }
+
     const oldIndex = this.columnOrder.indexOf(sourceColumnKey);
     const newIndex = this.columnOrder.indexOf(targetColumnKey);
 
@@ -275,7 +318,16 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     onColumnReorder?.({ column, newOrder, insertedAt });
   };
 
-  syncWithRegistry = modifier<HdsAdvancedTableSyncWidthRegistrySignature>(
+  syncThElementRegistry =
+    modifier<HdsAdvancedTableSyncThElementRegistrySignature>(
+      (element, [key]) => {
+        if (key !== undefined) {
+          this.thElementRegistry.set(key, element);
+        }
+      }
+    );
+
+  syncWidthRegistry = modifier<HdsAdvancedTableSyncWidthRegistrySignature>(
     (_element, [columns]) => {
       for (const column of columns) {
         if (column.key !== undefined) {
@@ -289,12 +341,16 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
   );
 
   <template>
-    <div {{this.syncWithRegistry @columns}}>
+    <div {{this.syncWidthRegistry @columns}}>
       {{yield
         (hash
           columns=@columns
           columnOrder=this.columnOrder
+          firstColumnKey=this.firstColumnKey
+          gridTemplateColumns=this.gridTemplateColumns
+          lastColumnKey=this.lastColumnKey
           orderedColumns=this.orderedColumns
+          syncThElementRegistry=this.syncThElementRegistry
           moveColumnToTarget=this.moveColumnToTarget
           moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
           stepColumn=this.stepColumn

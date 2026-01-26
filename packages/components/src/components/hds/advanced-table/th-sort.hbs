@@ -8,11 +8,7 @@
   role="columnheader"
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
-  {{hds-advanced-table-cell
-    handleEnableFocusTrap=this.enableFocusTrap
-    shouldTrapFocus=this._shouldTrapFocus
-    setCellElement=this.setElement
-  }}
+  {{hds-advanced-table-cell handleEnableFocusTrap=this.enableFocusTrap shouldTrapFocus=this._shouldTrapFocus}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap
     isActive=this._shouldTrapFocus
