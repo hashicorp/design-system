@@ -9,7 +9,11 @@
   aria-colspan={{@colspan}}
   aria-describedby={{@parentId}}
   {{style grid-row=this.rowspan grid-column=this.colspan padding-left=this.paddingLeft}}
-  {{hds-advanced-table-cell handleEnableFocusTrap=this.enableFocusTrap shouldTrapFocus=this._shouldTrapFocus}}
+  {{hds-advanced-table-cell
+    handleEnableFocusTrap=this.enableFocusTrap
+    shouldTrapFocus=this._shouldTrapFocus
+    setCellElement=(fn (mut this._element))
+  }}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap
     isActive=this._shouldTrapFocus
@@ -79,8 +83,10 @@
         <Hds::AdvancedTable::ThReorderHandle
           @column={{@column}}
           @tableHeight={{@tableHeight}}
-          @onReorderDragStart={{this.handleDragStart}}
-          @onReorderDragEnd={{@onReorderDragEnd}}
+          @thElement={{this._element}}
+          @onFocusReorderHandle={{this.focusReorderHandle}}
+          @onSetDraggedColumnKey={{@onSetDraggedColumnKey}}
+          @onStepColumn={{@onStepColumn}}
           {{this._registerReorderHandleElement}}
         />
       {{/if}}

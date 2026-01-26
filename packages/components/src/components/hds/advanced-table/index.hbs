@@ -103,9 +103,9 @@
                 @onColumnResize={{@onColumnResize}}
                 @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
                 @onPinFirstColumn={{this._onPinFirstColumn}}
-                @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
-                @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
                 @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
+                @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
+                @onStepColumn={{CM.stepColumn}}
                 {{CM.syncThElementRegistry column.key}}
               >
                 {{column.label}}

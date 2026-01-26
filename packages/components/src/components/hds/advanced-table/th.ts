@@ -61,11 +61,14 @@ export interface HdsAdvancedTableThSignature {
       position: 'start' | 'end'
     ) => void;
     onPinFirstColumn?: () => void;
-    onReorderDragEnd?: () => void;
-    onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
       side: HdsAdvancedTableColumnReorderSide
+    ) => void;
+    onSetDraggedColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
+    onStepColumn: (
+      columnKey: HdsAdvancedTableColumn['key'],
+      step: number
     ) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
@@ -218,11 +221,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     );
   }
 
-  @action
-  handleDragStart(column: HdsAdvancedTableColumn): void {
-    this.args.onReorderDragStart?.(column);
-  }
-
   @action onFocusTrapDeactivate(): void {
     this._shouldTrapFocus = false;
     onFocusTrapDeactivate(this._element);
@@ -235,6 +233,22 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @action getInitialFocus(): FocusableElement | undefined {
     const cellFocusableElements = focusable(this._element);
     return cellFocusableElements[0];
+  }
+
+  @action focusReorderHandle(): void {
+    if (this._element === undefined) {
+      return;
+    }
+
+    // focus the th element first (parent) to ensure the handle is visible
+    this._element.focus({ preventScroll: true });
+
+    if (this._reorderHandleElement === undefined) {
+      return;
+    }
+
+    // then focus the reorder handle element
+    this._reorderHandleElement.focus();
   }
 
   private _registerReorderHandleElement = modifier(
