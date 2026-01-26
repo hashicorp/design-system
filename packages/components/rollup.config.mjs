@@ -136,6 +136,8 @@ const plugins = [
       // Copy readme and license files into published package
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
+      // Copy sass mixins for consumers to use directly
+      { src: 'src/styles/mixins', dest: 'dist/styles' },
       // Copy the IBM Plex fonts from the @ibm packages to the public folder
       {
         src: 'node_modules/@ibm/plex-sans/LICENSE.txt',
