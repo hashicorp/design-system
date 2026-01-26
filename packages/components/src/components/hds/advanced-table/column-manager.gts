@@ -9,7 +9,7 @@
  */
 
 import Component from '@glimmer/component';
-import { hash } from '@ember/helper';
+import { fn, hash } from '@ember/helper';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
@@ -72,6 +72,7 @@ export interface HdsAdvancedTableColumnManagerSignature {
       {
         columns: HdsAdvancedTableColumn[];
         columnOrder: HdsAdvancedTableSignature['Args']['columnOrder'];
+        draggedColumnKey: HdsAdvancedTableColumn['key'] | undefined;
         firstColumnKey: HdsAdvancedTableColumn['key'] | undefined;
         gridTemplateColumns: string;
         lastColumnKey: HdsAdvancedTableColumn['key'] | undefined;
@@ -86,6 +87,7 @@ export interface HdsAdvancedTableColumnManagerSignature {
           columnKey: HdsAdvancedTableColumn['key'],
           position: 'start' | 'end'
         ) => void;
+        setDraggedColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
         stepColumn: (
           columnKey: HdsAdvancedTableColumn['key'],
           step: number
@@ -97,6 +99,7 @@ export interface HdsAdvancedTableColumnManagerSignature {
 
 export default class HdsAdvancedTableColumnManager extends Component<HdsAdvancedTableColumnManagerSignature> {
   @tracked _columnOrder: string[] = [];
+  @tracked draggedColumnKey: HdsAdvancedTableColumn['key'];
 
   thElementRegistry = new TrackedMap<string, HTMLDivElement>();
   widthStateRegistry = new TrackedMap<
@@ -346,6 +349,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
         (hash
           columns=@columns
           columnOrder=this.columnOrder
+          draggedColumnKey=this.draggedColumnKey
           firstColumnKey=this.firstColumnKey
           gridTemplateColumns=this.gridTemplateColumns
           lastColumnKey=this.lastColumnKey
@@ -354,6 +358,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
           moveColumnToTarget=this.moveColumnToTarget
           moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
           stepColumn=this.stepColumn
+          setDraggedColumnKey=(fn (mut this.draggedColumnKey))
         )
       }}
     </div>

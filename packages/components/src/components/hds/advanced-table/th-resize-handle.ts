@@ -11,7 +11,7 @@ import { requestAnimationFrameWaiter } from './utils.ts';
 import { BORDER_WIDTH } from './index.ts';
 import type Owner from '@ember/owner';
 
-import type HdsAdvancedTableColumn from './models/column.ts';
+import type { HdsAdvancedTableColumn } from './types';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
 const KEYBOARD_RESIZE_STEP = 10;

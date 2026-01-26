@@ -36,6 +36,7 @@ export interface HdsAdvancedTableThSignature {
     orderedColumns?: HdsAdvancedTableColumn[];
     colspan?: number;
     depth?: number;
+    draggedColumnKey?: HdsAdvancedTableColumn['key'];
     firstColumnKey?: HdsAdvancedTableColumn['key'];
     hasExpandAllButton?: boolean;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
@@ -101,6 +102,22 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       lastColumnKey !== undefined &&
       column !== undefined &&
       lastColumnKey === column.key
+    );
+  }
+
+  get tableHasColumnBeingDragged(): boolean {
+    const { draggedColumnKey } = this.args;
+
+    return draggedColumnKey !== undefined;
+  }
+
+  get isColumnBeingDragged(): boolean {
+    const { column, draggedColumnKey } = this.args;
+
+    return (
+      draggedColumnKey !== undefined &&
+      column !== undefined &&
+      draggedColumnKey === column.key
     );
   }
 
@@ -180,37 +197,25 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
-    // TODO
-    // if (this.args.column?.isBeingDragged) {
-    //   classes.push('hds-advanced-table__th--is-being-dragged');
-    // }
+    if (this.isColumnBeingDragged) {
+      classes.push('hds-advanced-table__th--is-being-dragged');
+    }
 
     return classes.join(' ');
   }
 
   get showDropTarget(): boolean {
-    // TODO
-    // const { hasColumnBeingDragged } = this.args;
-
-    // TODO
-    // return hasColumnBeingDragged === true && !this.isStickyColumn;
-    return !this.isStickyColumn;
+    return this.tableHasColumnBeingDragged === true && !this.isStickyColumn;
   }
 
   get showResizeHandle(): boolean {
-    // TODO
-    // const { column, hasColumnBeingDragged, hasResizableColumns, lastColumnKey } = this.args;
-    const { column, hasResizableColumns, lastColumnKey } = this.args;
+    const { hasResizableColumns } = this.args;
 
-    if (column === undefined || lastColumnKey === undefined) {
-      return false;
-    }
-
-    const isLastColumn = column.key === lastColumnKey;
-
-    // TODO
-    // return hasResizableColumns === true && !isLastColumn && !hasColumnBeingDragged;
-    return hasResizableColumns === true && !isLastColumn;
+    return (
+      hasResizableColumns === true &&
+      !this.isLastColumn &&
+      !this.tableHasColumnBeingDragged
+    );
   }
 
   @action

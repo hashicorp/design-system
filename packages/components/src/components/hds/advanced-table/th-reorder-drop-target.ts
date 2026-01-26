@@ -11,13 +11,15 @@ import { BORDER_WIDTH } from './index.ts';
 import { requestAnimationFrameWaiter } from './utils.ts';
 import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
 
-import type HdsAdvancedTableColumn from './models/column.ts';
-import type { HdsAdvancedTableColumnReorderSide } from './types.ts';
+import type {
+  HdsAdvancedTableColumn,
+  HdsAdvancedTableColumnReorderSide,
+} from './types.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
 export interface HdsAdvancedTableThReorderDropTargetSignature {
   Args: {
-    column: HdsAdvancedTableColumn;
+    column?: HdsAdvancedTableColumn;
     hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
     tableHeight?: number;
     onReorderDrop?: (

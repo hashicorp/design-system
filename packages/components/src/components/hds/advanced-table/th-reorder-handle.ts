@@ -8,7 +8,7 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import { scheduleOnce } from '@ember/runloop';
 
-import type HdsAdvancedTableColumn from './models/column.ts';
+import type { HdsAdvancedTableColumn } from './types';
 
 export interface HdsAdvancedTableThReorderHandleSignature {
   Args: {
