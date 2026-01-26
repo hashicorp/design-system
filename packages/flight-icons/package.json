@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@figma-export/cli": "^6.0.2",
-    "@figma-export/core": "^6.2.0",
+    "@figma-export/core": "^6.3.0",
     "@figma-export/output-components-as-svg": "^6.0.1",
     "@figma-export/transform-svg-with-svgo": "^6.0.2",
     "@figma-export/types": "^6.0.0",

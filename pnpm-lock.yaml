@@ -322,8 +322,8 @@ importers:
         specifier: ^6.0.2
         version: 6.2.2
       '@figma-export/core':
-        specifier: ^6.2.0
-        version: 6.2.2
+        specifier: ^6.3.0
+        version: 6.3.0
       '@figma-export/output-components-as-svg':
         specifier: ^6.0.1
         version: 6.2.2
@@ -2651,8 +2651,8 @@ packages:
     engines: {node: '>= 18.18'}
     hasBin: true
 
-  '@figma-export/core@6.2.2':
-    resolution: {integrity: sha512-j46FnJTlWEiYgDUZBtE0h9gtXXkPEY1BCKfO5Adj9zdwyVZVBZ0t4KfSPNSjNXi3RZ87pFcvqcHJTyEaeIWbmw==}
+  '@figma-export/core@6.3.0':
+    resolution: {integrity: sha512-zcwUp5kX99w/Cs0wE4mlb6h8h7fvMj0O9LKrKaOXPShEY7GxHoZ+NnzN0QCxa8tvKQ5jZ+umWr0ZjQbrMSkpLQ==}
     engines: {node: '>= 18.18'}
 
   '@figma-export/output-components-as-svg@6.2.2':
@@ -2667,6 +2667,10 @@ packages:
     resolution: {integrity: sha512-/pa4apebkKrPdm2tJCy1kXVEBUVMOHauusJROUq4kBQgN/fNUuNRAoHRbPBKTyL+GJLDbaMw3DTf3DWZ5XybFA==}
     engines: {node: '>= 18.18'}
 
+  '@figma-export/types@6.2.4':
+    resolution: {integrity: sha512-mIe/TZDuKNP08tqWlaNm3Zi6VHu709acQR5ohTj1q1si0wXsCJTA2AoiZOTTE4uhbA39cQelIdoi4phDvNJGpw==}
+    engines: {node: '>= 18.18'}
+
   '@figma/rest-api-spec@0.22.0':
     resolution: {integrity: sha512-8XEdN41ahdUXMTR+E3CMmtXqlJYzuHun4VYUCElrkGsd6g1BFEYTiNCwIHy34Ooct2O8/zwpysnkw52EzVKdtQ==}
 
@@ -2675,6 +2679,9 @@ packages:
 
   '@figma/rest-api-spec@0.31.0':
     resolution: {integrity: sha512-Mk9hAZjA71etfnydoj6J3f6VL1nYWII50547o0ybz3YqMT61Q/GWsPmZNulPtR6+EYngiZ+Jq2LvJuB5MSaYPA==}
+
+  '@figma/rest-api-spec@0.34.0':
+    resolution: {integrity: sha512-eyKqo1S1e2dzpfF6WGNgMT1XPciUwH6MeZDi3qfrSAp4kqNauHwuGHOMTnZFTydF93FYpdg0T6Hp9lsJu8bDcg==}
 
   '@floating-ui/core@1.7.3':
     resolution: {integrity: sha512-sGnvb5dmrJaKEZ+LDIpguvdX3bDlEllmv4/ClQ9awcmCZrlx5jQyyMWFM5kBI+EyNOCDDiKk8il0zeuX3Zlg/w==}
@@ -2907,11 +2914,8 @@ packages:
     peerDependencies:
       '@ember/string': ^3.1.1 || ^4.0.0
       ember-basic-dropdown: ^7.3.0 || ^8.6.1
-      ember-engines: '>= 0.11.0'
       ember-intl: ^8.0.0 || ^7.3.0
     peerDependenciesMeta:
-      ember-engines:
-        optional: true
       ember-intl:
         optional: true
 
@@ -3817,9 +3821,6 @@ packages:
 
   '@types/responselike@1.0.3':
     resolution: {integrity: sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==}
-
-  '@types/retry@0.12.2':
-    resolution: {integrity: sha512-XISRgDJ2Tc5q4TRqvgJtzsRkFYNJzZrhTdtMoGVBttwzzQJkPnS3WWTFc7kuDRoPtPakl+T+OfdEUjYJj7Jbow==}
 
   '@types/rimraf@2.0.5':
     resolution: {integrity: sha512-YyP+VfeaqAyFmXoTh3HChxOQMyjByRMsHU7kc5KOJkSlXudhMhQIALbYV7rHh/l8d2lX3VUQzprrcAgWdRuU8g==}
@@ -8031,8 +8032,8 @@ packages:
     resolution: {integrity: sha512-5KoIu2Ngpyek75jXodFvnafB6DJgr3u8uuK0LEZJjrU19DrMD3EVERaR8sjz8CCGgpZvxPl9SuE1GMVPFHx1mw==}
     engines: {node: '>= 0.4'}
 
-  is-network-error@1.1.0:
-    resolution: {integrity: sha512-tUdRRAnhT+OtCZR/LxZelH/C7QtjtFrTu5tXCA8pl55eTUElUHT+GPYV8MBMBvea/j+NxQqVt3LbWMRir7Gx9g==}
+  is-network-error@1.3.0:
+    resolution: {integrity: sha512-6oIwpsgRfnDiyEDLMay/GqCl3HoAtH5+RUKW29gYkL0QA+ipzpDLA16yQs7/RHCSu+BwgbJaOUqa4A99qNVQVw==}
     engines: {node: '>=16'}
 
   is-number-object@1.1.1:
@@ -9415,9 +9416,9 @@ packages:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
     engines: {node: '>=10'}
 
-  p-limit@6.2.0:
-    resolution: {integrity: sha512-kuUqqHNUqoIWp/c467RI4X6mmyuojY5jGutNU0wVTmEOOfcuwLqyMVoAi9MKi2Ak+5i9+nhmrK4ufZE8069kHA==}
-    engines: {node: '>=18'}
+  p-limit@7.2.0:
+    resolution: {integrity: sha512-ATHLtwoTNDloHRFFxFJdHnG6n2WUeFjaR8XQMFdKIv0xkXjrER8/iG9iu265jOM95zXHAfv9oTkqhrfbIzosrQ==}
+    engines: {node: '>=20'}
 
   p-locate@2.0.0:
     resolution: {integrity: sha512-nQja7m7gSKuewoVRen45CtVfODR3crN3goVQ0DDZ9N3yHxgpkuBhZqsaiotSQRrADUrne346peY7kT3TSACykg==}
@@ -9443,9 +9444,9 @@ packages:
     resolution: {integrity: sha512-VkndIv2fIB99swvQoA65bm+fsmt6UNdGeIB0oxBs+WhAhdh08QA04JXpI7rbB9r08/nkbysKoya9rtDERYOYMA==}
     engines: {node: '>=18'}
 
-  p-retry@6.2.1:
-    resolution: {integrity: sha512-hEt02O4hUct5wtwg4H4KcWgDdm+l1bOaEy/hWzd8xtXB9BqxTWBBhb+2ImAtH4Cv4rPjV76xN3Zumqk3k3AhhQ==}
-    engines: {node: '>=16.17'}
+  p-retry@7.1.1:
+    resolution: {integrity: sha512-J5ApzjyRkkf601HpEeykoiCvzHQjWxPAHhyjFcEUP2SWq0+35NKh8TLhpLw+Dkq5TZBFvUM6UigdE9hIVYTl5w==}
+    engines: {node: '>=20'}
 
   p-try@1.0.0:
     resolution: {integrity: sha512-U1etNYuMJoIz3ZXSrrySFjsXQTWOx2/jdi86L+2pRvph/qMKL6sbcCYdH23fqsbm8TH2Gn0OybpT4eSFlCVHww==}
@@ -10269,10 +10270,6 @@ packages:
 
   retry@0.12.0:
     resolution: {integrity: sha512-9LkiTwjUh6rT555DtE9rTX+BKByPfrMzEAtnlEtdEwr3Nkffwiihqe2bWADg+OQRjt9gl6ICdmB/ZFDCGAtSow==}
-    engines: {node: '>= 4'}
-
-  retry@0.13.1:
-    resolution: {integrity: sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==}
     engines: {node: '>= 4'}
 
   reusify@1.0.4:
@@ -11375,8 +11372,8 @@ packages:
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
-  undici@6.21.2:
-    resolution: {integrity: sha512-uROZWze0R0itiAKVPsYhFov9LxrPMHLMEQFszeI2gCN6bnIIZ8twzBCJcN2LJrBBLfrP0t1FW0g+JmKVl8Vk1g==}
+  undici@6.23.0:
+    resolution: {integrity: sha512-VfQPToRA5FZs/qJxLIinmU59u0r7LXqoJkCzinq3ckNJp3vKEh7jTWN589YQ5+aoAC/TGRLyJLCPKcLQbM8r9g==}
     engines: {node: '>=18.17'}
 
   unherit@1.1.3:
@@ -11900,8 +11897,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  yocto-queue@1.1.1:
-    resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
+  yocto-queue@1.2.2:
+    resolution: {integrity: sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ==}
     engines: {node: '>=12.20'}
 
   yoctocolors-cjs@2.1.2:
@@ -13931,18 +13928,18 @@ snapshots:
 
   '@figma-export/cli@6.2.2':
     dependencies:
-      '@figma-export/core': 6.2.2
+      '@figma-export/core': 6.3.0
       '@figma-export/types': 6.2.2
       ora: 8.2.0
       sade: 1.8.1
 
-  '@figma-export/core@6.2.2':
+  '@figma-export/core@6.3.0':
     dependencies:
-      '@figma-export/types': 6.2.2
-      '@figma/rest-api-spec': 0.31.0
-      p-limit: 6.2.0
-      p-retry: 6.2.1
-      undici: 6.21.2
+      '@figma-export/types': 6.2.4
+      '@figma/rest-api-spec': 0.34.0
+      p-limit: 7.2.0
+      p-retry: 7.1.1
+      undici: 6.23.0
 
   '@figma-export/output-components-as-svg@6.2.2':
     dependencies:
@@ -13957,11 +13954,17 @@ snapshots:
     dependencies:
       '@figma/rest-api-spec': 0.31.0
 
+  '@figma-export/types@6.2.4':
+    dependencies:
+      '@figma/rest-api-spec': 0.34.0
+
   '@figma/rest-api-spec@0.22.0': {}
 
   '@figma/rest-api-spec@0.27.0': {}
 
   '@figma/rest-api-spec@0.31.0': {}
+
+  '@figma/rest-api-spec@0.34.0': {}
 
   '@floating-ui/core@1.7.3':
     dependencies:
@@ -15520,8 +15523,6 @@ snapshots:
   '@types/responselike@1.0.3':
     dependencies:
       '@types/node': 22.17.0
-
-  '@types/retry@0.12.2': {}
 
   '@types/rimraf@2.0.5':
     dependencies:
@@ -21970,7 +21971,7 @@ snapshots:
 
   is-negative-zero@2.0.3: {}
 
-  is-network-error@1.1.0: {}
+  is-network-error@1.3.0: {}
 
   is-number-object@1.1.1:
     dependencies:
@@ -23769,9 +23770,9 @@ snapshots:
     dependencies:
       yocto-queue: 0.1.0
 
-  p-limit@6.2.0:
+  p-limit@7.2.0:
     dependencies:
-      yocto-queue: 1.1.1
+      yocto-queue: 1.2.2
 
   p-locate@2.0.0:
     dependencies:
@@ -23793,11 +23794,9 @@ snapshots:
 
   p-map@7.0.3: {}
 
-  p-retry@6.2.1:
+  p-retry@7.1.1:
     dependencies:
-      '@types/retry': 0.12.2
-      is-network-error: 1.1.0
-      retry: 0.13.1
+      is-network-error: 1.3.0
 
   p-try@1.0.0: {}
 
@@ -24691,8 +24690,6 @@ snapshots:
   ret@0.1.15: {}
 
   retry@0.12.0: {}
-
-  retry@0.13.1: {}
 
   reusify@1.0.4: {}
 
@@ -26155,7 +26152,7 @@ snapshots:
 
   undici-types@6.21.0: {}
 
-  undici@6.21.2: {}
+  undici@6.23.0: {}
 
   unherit@1.1.3:
     dependencies:
@@ -26749,7 +26746,7 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  yocto-queue@1.1.1: {}
+  yocto-queue@1.2.2: {}
 
   yoctocolors-cjs@2.1.2: {}
 
