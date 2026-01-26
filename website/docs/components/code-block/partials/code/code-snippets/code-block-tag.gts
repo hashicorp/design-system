@@ -26,7 +26,7 @@ func main() {
     as |CB|
   >
     <CB.Title @tag="h3">
-      convertObjectToArray.js
+      Example function
     </CB.Title>
   </HdsCodeBlock>
 </template>;
