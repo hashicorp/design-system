@@ -1,0 +1,9 @@
+<Hds::ButtonSet {{style width="15rem"}}>
+  <Hds::Button
+    @icon={{if this.isLoading "loading"}}
+    @text={{if this.isLoading "Loading" "Save"}}
+    @isFullWidth={{true}}
+    {{on "click" this.toggleIsLoading}}
+  />
+  <Hds::Button @text="Cancel" @color="secondary" @isFullWidth={{true}} {{on "click" this.cancelLoading}} />
+</Hds::ButtonSet>
