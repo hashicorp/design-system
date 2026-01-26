@@ -1,0 +1,14 @@
+<Hds::FilterBar @filters={{this.demoSelectionFilters}} @onFilter={{this.demoUpdateSelectionFilters}} as |F|>
+  <F.FiltersDropdown as |D|>
+    <D.FilterGroup @key="demo-single-select" @text="Single-select" @type="single-select" @searchEnabled={{true}} as |F|>
+      <F.Radio @value="option-1" @label="Option 1" />
+      <F.Radio @value="option-2" @label="Option 2" />
+      <F.Radio @value="option-3" @label="Option 3" />
+    </D.FilterGroup>
+    <D.FilterGroup @key="demo-multi-select" @text="Multi-select" @type="multi-select" @searchEnabled={{true}} as |F|>
+      <F.Checkbox @value="option-1" @label="Option 1" />
+      <F.Checkbox @value="option-2" @label="Option 2" />
+      <F.Checkbox @value="option-3" @label="Option 3" />
+    </D.FilterGroup>
+  </F.FiltersDropdown>
+</Hds::FilterBar>

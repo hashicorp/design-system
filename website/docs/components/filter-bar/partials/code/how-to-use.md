@@ -6,36 +6,7 @@ To use this component, set the filter options available for a data set using the
 
 The Filter Bar is also available as a contextual component of the [Advanced Table](/components/table/advanced-table?tab=code#filtering).
 
-```handlebars
-<Hds::FilterBar
-  @filters={{this.demoFilters}}
-  @onFilter={{this.demoUpdateFilters}}
-  as |F|
->
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="project"
-      @text="Project"
-      @type="multi-select"
-      as |F|
-    >
-      <F.Checkbox @value="project-1" @label="Project 1" />
-      <F.Checkbox @value="project-2" @label="Project 2" />
-      <F.Checkbox @value="project-3" @label="Project 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="version"
-      @text="Version"
-      @type="single-select"
-      as |F|
-    >
-      <F.Radio @value="1.0" @label="1.0" />
-      <F.Radio @value="2.0" @label="2.0" />
-      <F.Radio @value="3.0" @label="3.0" />
-    </D.FilterGroup>
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-basic]]
 
 ### Filters Dropdown
 
@@ -49,52 +20,7 @@ Filtering options are passed to the Filter Bar through the FiltersDropdown and F
 
 View more details on [available filter types](#filter-types) below.
 
-```handlebars
-<Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="demo-multi-select"
-      @text="Multi-select"
-      @type="multi-select"
-      as |F|
-    >
-      <F.Checkbox @value="option-1" @label="Option 1" />
-      <F.Checkbox @value="option-2" @label="Option 2" />
-      <F.Checkbox @value="option-3" @label="Option 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="demo-single-select"
-      @text="Single-select"
-      @type="single-select"
-      as |F|
-    >
-      <F.Radio @value="option-1" @label="Option 1" />
-      <F.Radio @value="option-2" @label="Option 2" />
-      <F.Radio @value="option-3" @label="Option 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="demo-number"
-      @text="Number"
-      @type="numerical"
-    />
-    <D.FilterGroup
-      @key="date"
-      @text="Date"
-      @type="date"
-    />
-    <D.FilterGroup
-      @key="demo-time"
-      @text="Time"
-      @type="time"
-    />
-    <D.FilterGroup
-      @key="demo-datetime"
-      @text="Datetime"
-      @type="datetime"
-    />
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-filters-dropdown]]
 
 ### Applying filters
 
@@ -104,71 +30,7 @@ The callback provides a data object of applied filters which come from a user's 
 
 Based on the applied filters passed to the `@filters` argument, dismissible [Tags](/components/tab) will be shown for each applied filter. When a Tag is dismissed, the `@onFilter` callback will be triggered, and that filter will be removed from the object.
 
-```handlebars
-<Hds::FilterBar
-  @filters={{this.demoFilters}}
-  @onFilter={{this.demoUpdateFilters}}
-  as |F|
->
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="project"
-      @text="Project"
-      @type="multi-select"
-      as |F|
-    >
-      <F.Checkbox @value="project-1" @label="Project 1" />
-      <F.Checkbox @value="project-2" @label="Project 2" />
-      <F.Checkbox @value="project-3" @label="Project 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="version"
-      @text="Version"
-      @type="single-select"
-      as |F|
-    >
-      <F.Radio @value="1.0" @label="1.0" />
-      <F.Radio @value="2.0" @label="2.0" />
-      <F.Radio @value="3.0" @label="3.0" />
-    </D.FilterGroup>
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
-
-```javascript
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
-
-export default class DemoFilterBar extends Component {
-  @tracked demoFilters = {
-    project: {
-      type: 'multi-select',
-      text: 'Project',
-      data: [
-        { value: 'project-1', label: 'Project 1' },
-        { value: 'project-2', label: 'Project 2' },
-      ],
-    },
-    version: {
-      type: 'single-select',
-      text: 'Version',
-      data: {
-        value: '1.0',
-        label: '1.0',
-      },
-    }
-  };
-
-  @action
-  demoUpdateFilters(newFilters) {
-    // 1. Filter your data set based on the filters
-
-    // 2. Update the filters object which is passed to the Filter Bar
-    this.demoFilters = newFilters;
-  }
-}
-```
+[[code-snippets/filter-bar-basic]]
 
 #### Live filtering
 
@@ -176,42 +38,7 @@ By default, the `@onFilter` callback is not triggered when a filter is added in 
 
 If the `@isLiveFilter` argument is set to `true`, the `@onFilter` callback will be triggered as soon as a user adds a filter in the dropdown. If it is a selection-based filter, like a checkbox or radio button, the filtering would occur on selection. If it is an input-based filter, like a date or number, the filter would be applied when both inputs are correctly filled out.
 
-```handlebars
-<Hds::FilterBar
-  @filters={{this.demoLiveFilters}}
-  @isLiveFilter={{true}}
-  @onFilter={{this.demoUpdateLiveFilters}}
-  as |F|
->
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="project"
-      @text="Project"
-      @type="multi-select"
-      as |F|
-    >
-      <F.Checkbox @value="project-1" @label="Project 1" />
-      <F.Checkbox @value="project-2" @label="Project 2" />
-      <F.Checkbox @value="project-3" @label="Project 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="version"
-      @text="Version"
-      @type="single-select"
-      as |F|
-    >
-      <F.Radio @value="1.0" @label="1.0" />
-      <F.Radio @value="2.0" @label="2.0" />
-      <F.Radio @value="3.0" @label="3.0" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="creation-date"
-      @text="Creation date"
-      @type="date"
-    />
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-live]]
 
 ### Filter types
 
@@ -225,110 +52,17 @@ If the `@searchEnabled` argument in the FilterGroup is set to `true`, the list o
 
 The dismiss filter tag will display the `label` for a given filter, and if the `label` is not provided it will display the `value`.
 
-```handlebars
-<Hds::FilterBar
-  @filters={{this.demoSelectionFilters}}
-  @onFilter={{this.demoUpdateSelectionFilters}}
-  as |F|
->
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="demo-single-select"
-      @text="Single-select"
-      @type="single-select"
-      @searchEnabled={{true}}
-      as |F|
-    >
-      <F.Radio @value="option-1" @label="Option 1" />
-      <F.Radio @value="option-2" @label="Option 2" />
-      <F.Radio @value="option-3" @label="Option 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="demo-multi-select"
-      @text="Multi-select"
-      @type="multi-select"
-      @searchEnabled={{true}}
-      as |F|
-    >
-      <F.Checkbox @value="option-1" @label="Option 1" />
-      <F.Checkbox @value="option-2" @label="Option 2" />
-      <F.Checkbox @value="option-3" @label="Option 3" />
-    </D.FilterGroup>
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-type-selection]]
 
-```javascript
-// example of filter data
-{
-  'demo-single-select': {
-    type: 'single-select',
-    text: 'Single-select',
-    data: {
-      value: 'option-1',
-      label: 'Option 1',
-    },
-  },
-  'demo-multi-select': {
-    type: 'multi-select',
-    text: 'Multi-select',
-    data: [
-      { value: 'option-1', label: 'Option 1' },
-      { value: 'option-2', label: 'Option 2' },
-    ],
-  }
-}
-```
+[[code-snippets/filter-bar-type-selection-data execute=false]]
 
 #### Numerical
 
 The `numerical` filter type is used for any data numerical in nature. It provides options for all comparison operators including a `between` selector.
 
-```handlebars
-<Hds::FilterBar
-  @filters={{this.demoNumericalFilters}}
-  @onFilter={{this.demoUpdateNumericalFilters}}
-  as |F|
->
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="demo-numerical-a"
-      @text="Numerical A"
-      @type="numerical"
-    />
-    <D.FilterGroup
-      @key="demo-numerical-b"
-      @text="Numerical B"
-      @type="numerical"
-    />
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-type-numerical]]
 
-```javascript
-// example of filter data
-{
-  'demo-numerical-a': {
-    type: 'numerical',
-    text: 'Numerical A',
-    data: {
-      selector: 'less-than',
-      value: 10,
-    },
-  },
-  'demo-numerical-b': {
-    type: 'numerical',
-    text: 'Numerical B',
-    data: {
-      selector: 'between',
-      value: {
-        start: 10,
-        end: 20,
-      }
-    },
-  },
-}
-```
+[[code-snippets/filter-bar-type-numerical-data execute=false]]
 
 #### Date & time
 
@@ -336,77 +70,9 @@ There are filter types available for various date and time data through the `dat
 
 Dates and times are formatted in the applied filter tags using the [ember-intl](getting-started/for-engineers#internationalization) service.
 
-```handlebars
-<Hds::FilterBar
-  @filters={{this.demoDateTimeFilters}}
-  @onFilter={{this.demoUpdateDateTimeFilters}}
-  as |F|
->
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="demo-date"
-      @text="Date"
-      @type="date"
-    />
-    <D.FilterGroup
-      @key="demo-time"
-      @text="Time"
-      @type="time"
-    />
-    <D.FilterGroup
-      @key="demo-datetime"
-      @text="Datetime"
-      @type="datetime"
-    />
-    <D.FilterGroup
-      @key="demo-date-range"
-      @text="Date range"
-      @type="date"
-    />
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-type-date]]
 
-```javascript
-// example of filter data
-{
-  'demo-date': {
-    type: 'date',
-    text: 'Date',
-    data: {
-      selector: 'before',
-      value: '2025-01-01',
-    },
-  },
-  'demo-time': {
-    type: 'time',
-    text: 'Time',
-    data: {
-      selector: 'before',
-      value: '12:00',
-    },
-  },
-  'demo-datetime': {
-    type: 'datetime',
-    text: 'Datetime',
-    data: {
-      selector: 'before',
-      value: '2025-01-01T12:00',
-    },
-  },
-  'demo-date-range': {
-    type: 'date',
-    text: 'Date range',
-    data: {
-      selector: 'between',
-      value: {
-        start: '2024-01-01',
-        end: '2025-01-01',
-      }
-    },
-  }
-}
-```
+[[code-snippets/filter-bar-type-date-data execute=false]]
 
 #### Custom filtering
 
@@ -421,45 +87,9 @@ For filtering support outside of the filter types supported above, an option for
 
 The dismiss filter tag can be customized by setting `dismissTagText` on the filter. If this is not provided, the dismiss tag text will function similar to the `single-select` and `multi-select` filter types where the `value` or `label` is displayed.
 
-```handlebars
-<Hds::FilterBar
-  @filters={{this.demoGenericFilters}}
-  @onFilter={{this.demoUpdateGenericFilters}}
-  as |F|
->
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="demo-generic"
-      @text="Generic"
-      @type="generic"
-      as |F|
-    >
-      <F.Generic as |G|>
-        <Hds::Button
-          @text="Add custom filter"
-          @color="secondary"
-          @size="small"
-          {{on "click" (fn this.onGenericFilterUpdate G.updateFilter)}}
-        />
-      </F.Generic>
-    </D.FilterGroup>
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-type-generic]]
 
-```javascript
-// example of filter data
-{
-  'demo-generic': {
-    type: 'generic',
-    text: 'Generic',
-    dismissTagText: 'equals lorem ipsum',
-    data: {
-      value: 'lorem ipsum',
-    },
-  }
-}
-```
+[[code-snippets/filter-bar-type-generic-data execute=false]]
 
 ### Search
 
@@ -467,194 +97,27 @@ The Filter Bar provides a search input, which can be used for searching across m
 
 On search input, a filter of type `search` will be included in the data object in the `@onFilter` callback.
 
-```handlebars
-<Hds::FilterBar
-  @filters={{this.demoSearchFilters}}
-  @onFilter={{this.demoUpdateSearchFilters}}
-  @hasSearch={{true}}
-  as |F|
->
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="project"
-      @text="Project"
-      @type="multi-select"
-      as |F|
-    >
-      <F.Checkbox @value="project-1" @label="Project 1" />
-      <F.Checkbox @value="project-2" @label="Project 2" />
-      <F.Checkbox @value="project-3" @label="Project 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="version"
-      @text="Version"
-      @type="single-select"
-      as |F|
-    >
-      <F.Radio @value="1.0" @label="1.0" />
-      <F.Radio @value="2.0" @label="2.0" />
-      <F.Radio @value="3.0" @label="3.0" />
-    </D.FilterGroup>
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-search]]
 
-```javascript
-// example of filter data
-{
-  'search': {
-    type: 'search',
-    text: 'Search',
-    data: {
-      value: 'Lorem ipsum',
-    },
-  }
-}
-```
+[[code-snippets/filter-bar-search-data execute=false]]
 
 The search input's placeholder text is "Search" by default, but can be customized with the `@searchPlaceholder` argument.
 
-```handlebars
-<Hds::FilterBar
-  @filters={{this.demoEmptyFilters}}
-  @hasSearch={{true}}
-  @searchPlaceholder="Search projects"
-  as |F|
->
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="project"
-      @text="Project"
-      @type="multi-select"
-      as |F|
-    >
-      <F.Checkbox @value="project-1" @label="Project 1" />
-      <F.Checkbox @value="project-2" @label="Project 2" />
-      <F.Checkbox @value="project-3" @label="Project 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="version"
-      @text="Version"
-      @type="single-select"
-      as |F|
-    >
-      <F.Radio @value="1.0" @label="1.0" />
-      <F.Radio @value="2.0" @label="2.0" />
-      <F.Radio @value="3.0" @label="3.0" />
-    </D.FilterGroup>
-  </F.FiltersDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-search-placeholder]]
 
 ### Bulk actions
 
 The Filter Bar provides an ActionsDropdown contextual component that can be used for bulk actions to perform on a data set, or for other purposes. All contextual components from the [Dropdown](/components/dropdown) are yielded to the consumer except for the ToggleButton.
 
-```handlebars
-<Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="project"
-      @text="Project"
-      @type="multi-select"
-      as |F|
-    >
-      <F.Checkbox @value="project-1" @label="Project 1" />
-      <F.Checkbox @value="project-2" @label="Project 2" />
-      <F.Checkbox @value="project-3" @label="Project 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="version"
-      @text="Version"
-      @type="single-select"
-      as |F|
-    >
-      <F.Radio @value="1.0" @label="1.0" />
-      <F.Radio @value="2.0" @label="2.0" />
-      <F.Radio @value="3.0" @label="3.0" />
-    </D.FilterGroup>
-  </F.FiltersDropdown>
-  <F.ActionsDropdown as |D|>
-    <D.Interactive @icon="edit">Edit items</D.Interactive>
-    <D.Interactive @icon="trash" @color="critical">Delete items</D.Interactive>
-    <D.Separator />
-    <D.Interactive @icon="check-circle">Select entire data set</D.Interactive>
-    <D.Interactive @icon="rotate-ccw">Reset selection</D.Interactive>
-  </F.ActionsDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-actions-dropdown]]
 
 The text of the ActionsDropdown defaults to "Actions", but can be customized with the `@toggleButtonText` argument. An icon can also be added with the `@toggleButtonIcon` argument.
 
-```handlebars
-<Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="project"
-      @text="Project"
-      @type="multi-select"
-      as |F|
-    >
-      <F.Checkbox @value="project-1" @label="Project 1" />
-      <F.Checkbox @value="project-2" @label="Project 2" />
-      <F.Checkbox @value="project-3" @label="Project 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="version"
-      @text="Version"
-      @type="single-select"
-      as |F|
-    >
-      <F.Radio @value="1.0" @label="1.0" />
-      <F.Radio @value="2.0" @label="2.0" />
-      <F.Radio @value="3.0" @label="3.0" />
-    </D.FilterGroup>
-  </F.FiltersDropdown>
-  <F.ActionsDropdown
-    @toggleButtonText="Item actions"
-    @toggleButtonIcon="outline"
-    as |D|
-  >
-    <D.Interactive @icon="edit">Edit items</D.Interactive>
-    <D.Interactive @icon="trash" @color="critical">Delete items</D.Interactive>
-    <D.Separator />
-    <D.Interactive @icon="check-circle">Select entire data set</D.Interactive>
-    <D.Interactive @icon="rotate-ccw">Reset selection</D.Interactive>
-  </F.ActionsDropdown>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-actions-dropdown-custom]]
 
 ### Generic content
 
 For more customization of the functionality in the Filter Bar, an ActionsGeneric contextual component is provided that can be used to pass in any other content.
 
-```handlebars
-<Hds::FilterBar @filters={{this.demoEmptyFilters}} as |F|>
-  <F.FiltersDropdown as |D|>
-    <D.FilterGroup
-      @key="project"
-      @text="Project"
-      @type="multi-select"
-      as |F|
-    >
-      <F.Checkbox @value="project-1" @label="Project 1" />
-      <F.Checkbox @value="project-2" @label="Project 2" />
-      <F.Checkbox @value="project-3" @label="Project 3" />
-    </D.FilterGroup>
-    <D.FilterGroup
-      @key="version"
-      @text="Version"
-      @type="single-select"
-      as |F|
-    >
-      <F.Radio @value="1.0" @label="1.0" />
-      <F.Radio @value="2.0" @label="2.0" />
-      <F.Radio @value="3.0" @label="3.0" />
-    </D.FilterGroup>
-  </F.FiltersDropdown>
-  <F.ActionsGeneric>
-    <Doc::Placeholder @height="24" @width="auto" @text="Generic content" @background="#e4e4e4" />
-  </F.ActionsGeneric>
-</Hds::FilterBar>
-```
+[[code-snippets/filter-bar-generic-content]]
 

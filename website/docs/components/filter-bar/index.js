@@ -35,6 +35,8 @@ export default class Index extends Component {
     }
   };
 
+  @tracked demoEmptyFilters = {};
+
   @tracked demoSelectionFilters = {
     'demo-single-select': {
       type: 'single-select',
@@ -137,16 +139,12 @@ export default class Index extends Component {
 
   @tracked demoLiveFilters = {};
 
-  demoEmptyFilters = {};
-
-  customFilter = CUSTOM_FILTER;
-
-  @action demoNOOP() {
-    // NOOP
-  }
-
   @action demoUpdateFilters(newFilters) {
     this.demoFilters = newFilters;
+  }
+
+  @action demoUpdateEmptyFilters(newFilters) {
+    this.demoEmptyFilters = newFilters;
   }
 
   @action demoUpdateLiveFilters(newFilters) {
