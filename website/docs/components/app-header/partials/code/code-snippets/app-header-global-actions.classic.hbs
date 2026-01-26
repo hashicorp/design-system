@@ -1,0 +1,22 @@
+{{! for demo purposes, we set @hasA11yRefocus to false but in your app it will
+probably need to be set to true (or omitted to rely on defaults) }}<Hds::AppHeader
+  @hasA11yRefocus={{false}}
+>
+  <:logo>
+    <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @href="/" />
+  </:logo>
+
+  <:globalActions>
+    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+      <dd.ToggleButton @text="Choose an organization" @icon="org" />
+      <dd.Checkmark>
+        organizationName
+      </dd.Checkmark>
+    </Hds::Dropdown>
+  </:globalActions>
+
+  <:utilityActions>
+    <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
+    <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
+  </:utilityActions>
+</Hds::AppHeader>
