@@ -4,7 +4,7 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import style from 'ember-style-modifier';
-import PowerSelectMultiple from 'ember-power-select/components/power-select-multiple';
+import PowerSelect from 'ember-power-select/components/power-select';
 
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
@@ -32,19 +32,21 @@ const SubSectionMultiSelect: TemplateOnlyComponent = <template>
   <ShwFlex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="Default">
       <div class="hds-power-select">
-        <PowerSelectMultiple
+        <PowerSelect
+          @multiple={{true}}
           @options={{OPTIONS}}
           @onChange={{NOOP}}
           @renderInPlace={{true}}
           as |option|
         >
           {{option}}
-        </PowerSelectMultiple>
+        </PowerSelect>
       </div>
     </SF.Item>
     <SF.Item @label="Selected">
       <div class="hds-power-select">
-        <PowerSelectMultiple
+        <PowerSelect
+          @multiple={{true}}
           @options={{OPTIONS}}
           @selected={{SELECTEDMULTIPLE}}
           @onChange={{NOOP}}
@@ -52,12 +54,13 @@ const SubSectionMultiSelect: TemplateOnlyComponent = <template>
           as |option|
         >
           {{option}}
-        </PowerSelectMultiple>
+        </PowerSelect>
       </div>
     </SF.Item>
     <SF.Item @label="Search enabled">
       <div class="hds-power-select">
-        <PowerSelectMultiple
+        <PowerSelect
+          @multiple={{true}}
           @options={{OPTIONS}}
           @selected={{SELECTEDMULTIPLE}}
           @onChange={{NOOP}}
@@ -67,7 +70,7 @@ const SubSectionMultiSelect: TemplateOnlyComponent = <template>
           as |option|
         >
           {{option}}
-        </PowerSelectMultiple>
+        </PowerSelect>
       </div>
     </SF.Item>
   </ShwFlex>
@@ -77,7 +80,8 @@ const SubSectionMultiSelect: TemplateOnlyComponent = <template>
   <ShwFlex {{style max-width="50%"}} @direction="column" as |SF|>
     <SF.Item @label="Default">
       <div class="hds-power-select">
-        <PowerSelectMultiple
+        <PowerSelect
+          @multiple={{true}}
           @options={{OPTIONS}}
           @selected={{SELECTEDMULTIPLE}}
           @onChange={{NOOP}}
@@ -86,13 +90,14 @@ const SubSectionMultiSelect: TemplateOnlyComponent = <template>
           as |option|
         >
           {{option}}
-        </PowerSelectMultiple>
+        </PowerSelect>
       </div>
     </SF.Item>
     <SF.Item @label="Focus">
       <div class="hds-power-select">
-        <PowerSelectMultiple
+        <PowerSelect
           class="mock-focus"
+          @multiple={{true}}
           @options={{OPTIONS}}
           @selected={{SELECTEDMULTIPLE}}
           @onChange={{NOOP}}
@@ -100,12 +105,13 @@ const SubSectionMultiSelect: TemplateOnlyComponent = <template>
           as |option|
         >
           {{option}}
-        </PowerSelectMultiple>
+        </PowerSelect>
       </div>
     </SF.Item>
     <SF.Item @label="Disabled">
       <div class="hds-power-select">
-        <PowerSelectMultiple
+        <PowerSelect
+          @multiple={{true}}
           @options={{OPTIONS}}
           @selected={{SELECTEDMULTIPLE}}
           @onChange={{NOOP}}
@@ -114,7 +120,7 @@ const SubSectionMultiSelect: TemplateOnlyComponent = <template>
           as |option|
         >
           {{option}}
-        </PowerSelectMultiple>
+        </PowerSelect>
       </div>
     </SF.Item>
   </ShwFlex>
