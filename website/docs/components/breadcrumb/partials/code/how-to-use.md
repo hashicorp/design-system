@@ -12,18 +12,7 @@ A few parameters were omitted for clarity.
 
 Add the correct `@route/@models/@model/@query` parameter to each Breadcrumb Item.
 
-```handlebars
-<Hds::Breadcrumb>
-  <Hds::Breadcrumb::Item @text="My org" @icon="org" @route="components" />
-  <Hds::Breadcrumb::Item @text="Consul" @icon="consul" @route="components" />
-  <Hds::Breadcrumb::Item
-    @text="my-consul-cluster"
-    @route="components"
-    @model={{@cluster.id}}
-  />
-  <Hds::Breadcrumb::Item @text="Overview" @current={{true}} />
-</Hds::Breadcrumb>
-```
+[[code-snippets/breadcrumb-routing]]
 
 ### No wrapping
 
