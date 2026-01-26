@@ -1,0 +1,14 @@
+.doc-card-interactive-demo {
+  .hds-card__container {
+    a {
+      display: block;
+      padding: 16px;
+      border-radius: inherit;
+
+      &:focus {
+        outline: none;
+        box-shadow: var(--token-focus-ring-action-box-shadow);
+      }
+    }
+  }
+}
