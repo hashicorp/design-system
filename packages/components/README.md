@@ -1,4 +1,4 @@
-design-system-components
+design-system-components - 6.0.0 SMOKE TEST
 ==============================================================================
 
 A package containing the components for the Helios Design System.
