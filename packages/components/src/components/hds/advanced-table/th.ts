@@ -86,6 +86,10 @@ export interface HdsAdvancedTableThSignature {
       columnKey: HdsAdvancedTableColumn['key'],
       step: number
     ) => void;
+    onUpdateResizeDebt: (
+      columnKey: HdsAdvancedTableColumn['key'],
+      delta: number
+    ) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
   Blocks: {

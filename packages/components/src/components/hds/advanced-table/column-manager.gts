@@ -1,6 +1,7 @@
 /**
  * TODOs
  * - Make sure that updating @columns updates this.columnOrder
+ * - Make sure that removed keys are no longer tracked
  */
 
 /**
@@ -65,6 +66,7 @@ export interface HdsAdvancedTableColumnManagerSignature {
         gridTemplateColumns: string;
         lastColumnKey: HdsAdvancedTableColumn['key'] | undefined;
         orderedColumns: HdsAdvancedTableColumn[];
+        restoreColumnWidth: (columnKey: HdsAdvancedTableColumn['key']) => void;
         syncThElements: ModifierLike<HdsAdvancedTableSyncThElementsSignature>;
         applyTransientWidth: (columnKey: HdsAdvancedTableColumn['key']) => void;
         getAppliedWidth: (
@@ -98,6 +100,10 @@ export interface HdsAdvancedTableColumnManagerSignature {
           columnKey: HdsAdvancedTableColumn['key'],
           step: number
         ) => void;
+        updateResizeDebt: (
+          columnKey: HdsAdvancedTableColumn['key'],
+          delta: number
+        ) => void;
       },
     ];
   };
@@ -107,12 +113,16 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
   @tracked _columnOrder: string[] = [];
   @tracked draggedColumnKey: HdsAdvancedTableColumn['key'];
 
+  // tracking th elements by column key
   thElements = new TrackedMap<string, HTMLDivElement>();
 
   // width tracking
   columnWidths = new TrackedMap<string, HdsAdvancedTableColumnWidth>();
   originalColumnWidths = new TrackedMap<string, HdsAdvancedTableColumnWidth>();
   transientColumnWidths = new TrackedMap<string, HdsAdvancedTablePixelString>();
+
+  // debt tracking: key -> { lenderKey -> amount }
+  columnDebts = new TrackedMap<string, Record<string, number>>();
 
   constructor(
     owner: Owner,
@@ -341,6 +351,226 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     onColumnReorder?.({ column, newOrder, insertedAt });
   };
 
+  // width debt management
+
+  // // utils
+  private _getPxWidth(key: string): number {
+    const width = this.columnWidths.get(key);
+
+    if (width !== undefined && isPixelSize(width)) {
+      return pixelToNumber(width as `${number}px`);
+    } else {
+      return this.thElements.get(key)?.offsetWidth ?? 0;
+    }
+  }
+
+  private _getPxMinWidth(key: string): number {
+    const column = this.getColumnByKey(key);
+    const minWidth = column?.minWidth ?? DEFAULT_MIN_WIDTH;
+
+    return isPixelSize(minWidth) ? pixelToNumber(minWidth) : 0;
+  }
+
+  updateResizeDebt = (
+    columnKey: HdsAdvancedTableColumn['key'],
+    delta: number
+  ): void => {
+    if (delta === 0 || columnKey === undefined) {
+      return;
+    }
+
+    const { next: nextColumnKey } = this.getSiblingColumnKeys(columnKey);
+
+    if (nextColumnKey === undefined) {
+      return;
+    }
+
+    // determine borrower and lender
+    const borrowerKey = delta > 0 ? columnKey : nextColumnKey;
+    const lenderKey = delta > 0 ? nextColumnKey : columnKey;
+    let amount = Math.abs(delta);
+
+    // check if lender has existing debt to borrower
+    const lenderDebts = this.columnDebts.get(lenderKey) ?? {};
+    const existingDebt = lenderDebts[borrowerKey] ?? 0;
+
+    if (existingDebt > 0) {
+      const paymentAmount = Math.min(amount, existingDebt);
+      const newDebt = existingDebt - paymentAmount;
+
+      const updatedDebts = { ...lenderDebts };
+
+      if (newDebt <= 0) {
+        delete updatedDebts[borrowerKey];
+      } else {
+        updatedDebts[borrowerKey] = newDebt;
+      }
+
+      this.columnDebts.set(lenderKey, updatedDebts);
+
+      amount = amount - paymentAmount;
+    }
+
+    // if amount remains, create new debt
+    if (amount > 0) {
+      const borrowerDebts = this.columnDebts.get(borrowerKey) ?? {};
+
+      this.columnDebts.set(borrowerKey, {
+        ...borrowerDebts,
+        [lenderKey]: (borrowerDebts[lenderKey] ?? 0) + amount,
+      });
+    }
+  };
+
+  // restores a column to its original width, settling all debts first
+  restoreColumnWidth = (columnKey: HdsAdvancedTableColumn['key']): void => {
+    if (columnKey === undefined) {
+      return;
+    }
+
+    // settle debts (collect from debtors, pay lenders)
+    this._settleWidthDebts(columnKey);
+
+    // restore original width
+    const originalWidth = this.originalColumnWidths.get(columnKey);
+
+    if (originalWidth) {
+      this.columnWidths.set(columnKey, originalWidth);
+      this.transientColumnWidths.delete(columnKey);
+    }
+  };
+
+  private _settleWidthDebts(key: string): void {
+    this._collectWidthDebts(key);
+    this._payWidthDebts(key);
+  }
+
+  private _collectWidthDebts(collectorKey: string): void {
+    // iterate over all known columns to see if they owe the collector
+    this.columnOrder.forEach((debtorKey) => {
+      if (debtorKey === collectorKey) {
+        return;
+      }
+
+      const debtorDebts = this.columnDebts.get(debtorKey);
+      const debtToCollect = debtorDebts?.[collectorKey] ?? 0;
+
+      if (debtToCollect <= 0) {
+        return;
+      }
+
+      // attempt to source funds from the debtor
+      const amountPaid = this._sourceFundsForPayment(debtorKey, debtToCollect);
+
+      if (amountPaid > 0) {
+        // add funds to collector
+        const currentCollectorWidth = this._getPxWidth(collectorKey);
+
+        this.columnWidths.set(
+          collectorKey,
+          `${currentCollectorWidth + amountPaid}px`
+        );
+        this.transientColumnWidths.delete(collectorKey);
+
+        // update debtors ledger
+        const remainingDebt = debtToCollect - amountPaid;
+        const currentDebts = this.columnDebts.get(debtorKey) ?? {};
+        const updatedDebts = { ...currentDebts };
+
+        if (remainingDebt > 0) {
+          updatedDebts[collectorKey] = remainingDebt;
+        } else {
+          delete updatedDebts[collectorKey];
+        }
+
+        this.columnDebts.set(debtorKey, updatedDebts);
+      }
+    });
+  }
+
+  private _payWidthDebts(payerKey: string): void {
+    const debts = this.columnDebts.get(payerKey);
+
+    if (debts === undefined) {
+      return;
+    }
+
+    Object.entries(debts).forEach(([lenderKey, amount]) => {
+      // give width back to lender
+      const currentLenderWidth = this._getPxWidth(lenderKey);
+
+      this.columnWidths.set(lenderKey, `${currentLenderWidth + amount}px`);
+      this.transientColumnWidths.delete(lenderKey);
+    });
+
+    // lear payers debts
+    this.columnDebts.delete(payerKey);
+  }
+
+  private _sourceFundsForPayment(key: string, amountNeeded: number): number {
+    let fundsSourced = 0;
+
+    // preferentially source width from our own surplus first
+    const currentWidth = this._getPxWidth(key);
+    const minWidth = this._getPxMinWidth(key);
+    const surplus = Math.max(0, currentWidth - minWidth);
+    const paymentFromSurplus = Math.min(amountNeeded, surplus);
+
+    if (paymentFromSurplus > 0) {
+      this.columnWidths.set(key, `${currentWidth - paymentFromSurplus}px`);
+      this.transientColumnWidths.delete(key);
+
+      fundsSourced = fundsSourced + paymentFromSurplus;
+    }
+
+    // if shortfall, source from our debtors (recursive)
+    const shortfall = amountNeeded - fundsSourced;
+
+    if (shortfall > 0) {
+      // find who owes this column (key)
+      const ourDebtors = this.columnOrder.filter((debtorKey) => {
+        const debtorDebts = this.columnDebts.get(debtorKey);
+
+        return debtorDebts && debtorDebts[key] && debtorDebts[key] > 0;
+      });
+
+      for (const subDebtorKey of ourDebtors) {
+        const amountStillNeeded = amountNeeded - fundsSourced;
+
+        if (amountStillNeeded <= 0) {
+          break;
+        }
+
+        const subDebtorDebts = this.columnDebts.get(subDebtorKey)!;
+        const subDebtOwed = subDebtorDebts[key] ?? 0;
+        const amountToRequest = Math.min(amountStillNeeded, subDebtOwed);
+
+        const collectedFromSubDebtor = this._sourceFundsForPayment(
+          subDebtorKey,
+          amountToRequest
+        );
+
+        if (collectedFromSubDebtor > 0) {
+          fundsSourced = fundsSourced + collectedFromSubDebtor;
+
+          // update sub-debtor ledger
+          const remaining = subDebtOwed - collectedFromSubDebtor;
+          const updatedSubDebts = { ...subDebtorDebts };
+
+          if (remaining > 0) {
+            updatedSubDebts[key] = remaining;
+          } else {
+            delete updatedSubDebts[key];
+          }
+
+          this.columnDebts.set(subDebtorKey, updatedSubDebts);
+        }
+      }
+    }
+
+    return fundsSourced;
+  }
+
   // pure width functions
   applyTransientWidth = (columnKey: HdsAdvancedTableColumn['key']) => {
     if (columnKey == undefined) {
@@ -485,6 +715,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
           getAppliedWidth=this.getAppliedWidth
           getColumnByKey=this.getColumnByKey
           getSiblingColumnKeys=this.getSiblingColumnKeys
+          restoreColumnWidth=this.restoreColumnWidth
           moveColumnToTarget=this.moveColumnToTarget
           moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
           setTransientColumnWidths=this.setTransientColumnWidths
@@ -492,6 +723,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
           resetTransientColumnWidths=this.resetTransientColumnWidths
           stepColumn=this.stepColumn
           setDraggedColumnKey=(fn (mut this.draggedColumnKey))
+          updateResizeDebt=this.updateResizeDebt
         )
       }}
     </div>

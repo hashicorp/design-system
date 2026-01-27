@@ -83,6 +83,10 @@ export interface HdsAdvancedTableThResizeHandleSignature {
     ) => void;
     onSetTransientColumnWidths: (options: { roundValues?: boolean }) => void;
     onResetTransientColumnWidths: () => void;
+    onUpdateResizeDebt: (
+      columnKey: HdsAdvancedTableColumn['key'],
+      delta: number
+    ) => void;
   };
   Blocks: {
     default?: [];
@@ -180,13 +184,19 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const {
       column,
       siblingColumnKeys,
+      onApplyTransientWidth,
       onGetAppliedWidth,
       onSetTransientColumnWidths,
       onResetTransientColumnWidths,
+      onUpdateResizeDebt,
     } = this.args;
     const { next: nextColumnKey } = siblingColumnKeys ?? {};
 
-    if (nextColumnKey === undefined || onGetAppliedWidth === undefined) {
+    if (
+      nextColumnKey === undefined ||
+      onApplyTransientWidth === undefined ||
+      onGetAppliedWidth === undefined
+    ) {
       return;
     }
 
@@ -221,9 +231,13 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     // use a microtask to commit the final state after the render pass.
     queueMicrotask(() => {
+      if (this._transientDelta !== 0) {
+        onUpdateResizeDebt(column.key, this._transientDelta);
+      }
       // reset transient values
-      this._setWidthDebts();
-      this._applyTransientWidths();
+      onApplyTransientWidth(column.key);
+      onApplyTransientWidth(nextColumnKey);
+
       onResetTransientColumnWidths();
       this._transientDelta = 0;
 
@@ -276,11 +290,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   private _setColumnWidth(column: HdsAdvancedTableColumn, width: number): void {
-    if (width > column.pxMaxWidth || width < column.pxMinWidth) {
-      column.pxTransientWidth = width;
-    } else {
-      column.setPxTransientWidth(width);
-    }
+    this.args.onSetTransientColumnWidth(column.key, `${width}px`);
   }
 
   private _applyResizeDelta(
@@ -381,13 +391,19 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   private _stopResize(): void {
-    const { column, onGetAppliedWidth, onResetTransientColumnWidths } =
-      this.args;
+    const {
+      column,
+      onGetAppliedWidth,
+      onResetTransientColumnWidths,
+      onUpdateResizeDebt,
+    } = this.args;
 
     window.removeEventListener('pointermove', this._boundResize);
     window.removeEventListener('pointerup', this._boundStopResize);
 
-    this._setWidthDebts();
+    if (this._transientDelta !== 0) {
+      onUpdateResizeDebt(column.key, this._transientDelta);
+    }
 
     this._applyTransientWidths();
 
@@ -401,63 +417,5 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const appliedWidth = onGetAppliedWidth?.(column.key);
 
     this.onColumnResize(column.key, appliedWidth);
-  }
-
-  private _addDebt(
-    borrower: HdsAdvancedTableColumn,
-    lenderKey: string,
-    amount: number
-  ): void {
-    borrower.widthDebts = {
-      ...borrower.widthDebts,
-      [lenderKey]: (borrower.widthDebts[lenderKey] ?? 0) + amount,
-    };
-  }
-
-  private _setWidthDebts(): void {
-    const { column } = this.args;
-    const { next: nextColumn } = column.siblings;
-    const delta = this._transientDelta;
-
-    if (
-      delta === 0 ||
-      nextColumn === undefined ||
-      nextColumn.key === undefined ||
-      column.key === undefined
-    ) {
-      return;
-    }
-
-    // Determine the borrower, lender, and the amount of width transferred
-    const borrower = delta > 0 ? column : nextColumn;
-    const lender = delta > 0 ? nextColumn : column;
-    let amount = Math.abs(delta);
-
-    if (borrower.key === undefined || lender.key === undefined) {
-      return;
-    }
-
-    // Check if the lender already has a debt to the borrower.
-    // If so, this transaction is a "payment" against that existing debt.
-    const existingDebt = lender.widthDebts[borrower.key] ?? 0;
-
-    if (existingDebt > 0) {
-      const paymentAmount = Math.min(amount, existingDebt);
-
-      // Reduce the lender's debt by the payment amount
-      lender.widthDebts[borrower.key] = existingDebt - paymentAmount;
-
-      if (lender.widthDebts[borrower.key]! <= 0) {
-        delete lender.widthDebts[borrower.key];
-      }
-
-      // The amount of the new debt is reduced by the amount paid
-      amount = amount - paymentAmount;
-    }
-
-    // If there is still a remaining amount, create a new debt for the borrower.
-    if (amount > 0) {
-      this._addDebt(borrower, lender.key, amount);
-    }
   }
 }
