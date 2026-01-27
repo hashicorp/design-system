@@ -10,5 +10,5 @@ export default class LocalComponent extends Component {
     return fmt.Sprintf("%v", arr[i]) < fmt.Sprintf("%v", arr[j])
   })
   return arr
-  }`;
+}`;
 }

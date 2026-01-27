@@ -6,7 +6,7 @@ const LocalComponent: TemplateOnlyComponent = <template>
   <HdsCodeEditor
     @ariaLabel="line wrapping example"
     @hasLineWrapping={{true}}
-    @value="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    @value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   />
 </template>;
 
