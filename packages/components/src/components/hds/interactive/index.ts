@@ -39,7 +39,7 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
 
 import LinkToExternal from 'ember-engines/components/link-to-external';
 import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
-setLinkToExternal(LinkToExternalComponent);`
+setLinkToExternal(LinkToExternal);`
       );
     }
     return component;
