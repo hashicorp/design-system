@@ -16,8 +16,8 @@ const addon = new Addon({
 });
 
 // Custom SCSS compilation plugin for Rollup
-function addScssCompilationPlugins(options, loadPaths) {
-  return options.map(({ inputFile, outputFile }) => ({
+function addScssCompilationPlugins(options) {
+  return options.map(({ inputFile, outputFile, loadPaths }) => ({
     name: `rollup custom plugin to generate ${outputFile}`,
     generateBundle() {
       try {
@@ -91,14 +91,14 @@ const plugins = [
       {
         inputFile: 'design-system-components.scss',
         outputFile: 'design-system-components.css',
+        loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
       },
       {
         inputFile: 'design-system-power-select-overrides.scss',
         outputFile: 'design-system-power-select-overrides.css',
+        loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
       },
-    ],
-    // paths to include during compilation
-    ['node_modules/@hashicorp/design-system-tokens/dist']
+    ]
   ),
 
   // Ensure that standalone .hbs files are properly integrated as Javascript.
