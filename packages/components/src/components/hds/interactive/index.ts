@@ -37,7 +37,7 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
       assert(
         `HdsInteractive: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
 
-import LinkToExternalComponent from 'ember-engines/components/link-to-external';
+import LinkToExternal from 'ember-engines/components/link-to-external';
 import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
 setLinkToExternal(LinkToExternalComponent);`
       );
