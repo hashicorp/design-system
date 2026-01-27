@@ -138,7 +138,7 @@ const plugins = [
       { src: 'LICENSE.md', dest: 'dist' },
       // Copy sass mixins for consumers to use directly
       { src: 'src/styles/mixins', dest: 'dist/styles' },
-      // Copy sass components for consumers to use directly (should be deprecated in future)
+      // Copy sass components for consumers to use directly
       { src: 'src/styles/components', dest: 'dist/styles' },
       // Copy the IBM Plex fonts from the @ibm packages to the public folder
       {
