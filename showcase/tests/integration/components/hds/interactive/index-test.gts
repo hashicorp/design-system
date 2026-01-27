@@ -161,8 +161,9 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
   test('it should error if @isRouteExternal is true and no component has been configured on the HdsInteractive class', async function (assert) {
     const errorMessage = `HdsInteractive: You attempted to use an external link without configuring HDS with an external component. Please add this in your app.js file:
 
+import LinkToExternal from 'ember-engines/components/link-to-external';
 import { setLinkToExternal } from '@hashicorp/design-system-components/utils/hds-link-to-external';
-setLinkToExternal(LinkToExternalComponent);`;
+setLinkToExternal(LinkToExternal);`;
 
     assert.expect(1);
     setupOnerror(function (error) {
