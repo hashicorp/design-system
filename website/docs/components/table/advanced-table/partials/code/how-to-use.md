@@ -450,7 +450,7 @@ customOnSort(_sortBy, sortOrder) {
 
 The Advanced Table supports filtering through the `actions` named block and the `FilterBar` contextual component. The `FilterBar` contextual component utilizes the HDS Filter Bar component. You can read more about how the component works, and the features supported within it in the [Filter Bar component docs](/components/filter-bar).
 
-The Filter Bar component doesn't handle filtering the data, that must still be handled by the consumer, but it provides a way for users to submit filters and for those filters applied to be shown.
+The Filter Bar component doesn't handle filtering the data, that must still be done by the consumer, but it provides a way for users to submit filters and for the applied filters to be displayed.
 
 ```handlebars
 <Hds::AdvancedTable

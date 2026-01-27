@@ -12,7 +12,7 @@ The Filter Bar is also available as a contextual component of the [Advanced Tabl
 
 All filtering options are available via a dropdown in the Filter Bar. Inside the dropdown, each filter group is represented with its own tab. When a tab is selected, the filtering options available are visible and users can add filters for that group. By clicking the "Apply filters" or "Clear all filters" buttons in the dropdown footer, the user can apply the selected filters, or clear all that have been previously set.
 
-Filtering options are passed to the Filter Bar through the FiltersDropdown and FilterGroup contextual components. In the FilterGroup, the `@key`, `@text`, and `@type` arguments are required.
+Filtering options are passed to the Filter Bar through the `FiltersDropdown` and `FilterGroup` contextual components. In the `FilterGroup`, the `@key`, `@text`, and `@type` arguments are required.
 
 - The `@key` argument sets the key for that filter group in the data object of the `onFilter` callback.
 - The `@text` argument sets the text for tab label.
@@ -46,11 +46,11 @@ The Filter Bar includes distinct filter groups to accommodate various data types
 
 #### Single-select and Multi-select
 
-The `single-select` and `multi-select` filter types are used for filtering a list of items by one or multiple values. The options available for selection can be set using the Radio and Checkbox contextual components inside the FilterGroup.
+The `single-select` and `multi-select` filter types are used for filtering a list of items by one or multiple values. The options available for selection can be set using the `Radio` and `Checkbox` contextual components inside the `FilterGroup`.
 
-If the `@searchEnabled` argument in the FilterGroup is set to `true`, the list of options can be searched through using a provided search input.
+If the `@searchEnabled` argument in the `FilterGroup` is set to `true`, the list of options can be searched through using a provided search input.
 
-The dismiss filter tag will display the `label` for a given filter, and if the `label` is not provided it will display the `value`.
+The dismissible filter tag will display the `label` for a given filter, and if the `label` is not provided it will display the `value`.
 
 [[code-snippets/filter-bar-type-selection]]
 
@@ -58,7 +58,7 @@ The dismiss filter tag will display the `label` for a given filter, and if the `
 
 #### Numerical
 
-The `numerical` filter type is used for any data numerical in nature. It provides options for all comparison operators including a `between` selector.
+The `numerical` filter type is used for any data which is numerical in nature. It provides options for all comparison operators including a `between` selector.
 
 [[code-snippets/filter-bar-type-numerical]]
 
@@ -83,9 +83,9 @@ Dates and times are formatted in the applied filter tags using the [ember-intl](
 The accessibility compliance of any content used for a custom filter is the responsibility of the consumer. If a custom filter requires multiple form elements, it is recommended to use a `<fieldset>` element to group them.
 !!!
 
-For filtering support outside of the filter types supported above, an option for more customized filtering is available through the `generic` filter type, and the Generic contextual component inside the FilterGroup. The Generic contextual component provides an `updateFilter` argument function that can be used to trigger updates to the filter inside the dropdown.
+For filtering support outside of the filter types supported above, an option for more customized filtering is available through the `generic` filter type, and the Generic contextual component inside the `FilterGroup`. The Generic contextual component provides an `updateFilter` argument function that can be used to trigger updates to the filter inside the dropdown.
 
-The dismiss filter tag can be customized by setting `dismissTagText` on the filter. If this is not provided, the dismiss tag text will function similar to the `single-select` and `multi-select` filter types where the `value` or `label` is displayed.
+The dismissible filter tag can be customized by setting `dismissTagText` on the filter. If this is not provided, the dismissible filter tag's text will function similarly to the `single-select` and `multi-select` filter types, where the `value` or `label` is displayed.
 
 [[code-snippets/filter-bar-type-generic]]
 
@@ -95,7 +95,7 @@ The dismiss filter tag can be customized by setting `dismissTagText` on the filt
 
 The Filter Bar provides a search input, which can be used for searching across multiple areas of a data set. If the `@hasSearch` argument is set to `true`, a search input will be shown next to the dropdown.
 
-On search input, a filter of type `search` will be included in the data object in the `@onFilter` callback.
+When the search input's `input` event is triggered, a filter of type `search` will be included in the data object in the `@onFilter` callback.
 
 [[code-snippets/filter-bar-search]]
 
