@@ -77,7 +77,7 @@
                 @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
                 @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
                 @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
-                {{CM.syncThElementRegistry column.key}}
+                {{CM.syncThElements column.key}}
               >
                 {{column.label}}
               </Hds::AdvancedTable::ThSort>
@@ -85,7 +85,6 @@
               <Hds::AdvancedTable::Th
                 @align={{column.align}}
                 @column={{column}}
-                @orderedColumns={{CM.orderedColumns}}
                 @draggedColumnKey={{CM.draggedColumnKey}}
                 @firstColumnKey={{CM.firstColumnKey}}
                 @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
@@ -97,16 +96,23 @@
                 @isExpandable={{column.isExpandable}}
                 @isStickyColumnPinned={{this.isStickyColumnPinned}}
                 @lastColumnKey={{CM.lastColumnKey}}
+                @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
                 @tableHeight={{this._tableHeight}}
                 @tooltip={{column.tooltip}}
+                @onApplyTransientWidth={{CM.applyTransientWidth}}
                 @onClickToggle={{this._tableModel.toggleAll}}
                 @onColumnResize={{@onColumnResize}}
+                @onGetAppliedWidth={{CM.getAppliedWidth}}
+                @onGetColumnByKey={{CM.getColumnByKey}}
                 @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
                 @onPinFirstColumn={{this._onPinFirstColumn}}
                 @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
                 @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
+                @onSetTransientColumnWidth={{CM.setTransientColumnWidth}}
+                @onSetTransientColumnWidths={{CM.setTransientColumnWidths}}
+                @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
                 @onStepColumn={{CM.stepColumn}}
-                {{CM.syncThElementRegistry column.key}}
+                {{CM.syncThElements column.key}}
               >
                 {{column.label}}
               </Hds::AdvancedTable::Th>

@@ -15,12 +15,13 @@ import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
 import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
-import { getColumnByKey } from './utils.ts';
+import { isPixelSize, pixelToNumber } from './utils.ts';
 
 import type {
   HdsAdvancedTableColumn,
   HdsAdvancedTableColumnReorderCallback,
   HdsAdvancedTableColumnReorderSide,
+  HdsAdvancedTablePixelString,
 } from './types';
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type Owner from '@ember/owner';
@@ -32,27 +33,14 @@ export const DEFAULT_MAX_WIDTH = '800px';
 
 type HdsAdvancedTableColumnWidth = HdsAdvancedTableColumn['width'];
 
-class HdsAdvancedTableColumnWidthState {
-  @tracked transientWidth: HdsAdvancedTableColumnWidth | null = null;
-  @tracked originalWidth: HdsAdvancedTableColumnWidth;
-
-  constructor(initialWidth: HdsAdvancedTableColumnWidth = DEFAULT_WIDTH) {
-    this.originalWidth = initialWidth;
-  }
-
-  get appliedWidth(): HdsAdvancedTableColumnWidth {
-    return this.transientWidth ?? this.originalWidth;
-  }
-}
-
-export interface HdsAdvancedTableSyncThElementRegistrySignature {
+export interface HdsAdvancedTableSyncThElementsSignature {
   Element: HTMLDivElement;
   Args: {
     Positional: [HdsAdvancedTableColumn['key']];
   };
 }
 
-export interface HdsAdvancedTableSyncWidthRegistrySignature {
+export interface HdsAdvancedTableSyncWidthValuesSignature {
   Element: HTMLDivElement;
   Args: {
     Positional: [HdsAdvancedTableColumnManagerSignature['Args']['columns']];
@@ -77,7 +65,18 @@ export interface HdsAdvancedTableColumnManagerSignature {
         gridTemplateColumns: string;
         lastColumnKey: HdsAdvancedTableColumn['key'] | undefined;
         orderedColumns: HdsAdvancedTableColumn[];
-        syncThElementRegistry: ModifierLike<HdsAdvancedTableSyncThElementRegistrySignature>;
+        syncThElements: ModifierLike<HdsAdvancedTableSyncThElementsSignature>;
+        applyTransientWidth: (columnKey: HdsAdvancedTableColumn['key']) => void;
+        getAppliedWidth: (
+          columnKey: HdsAdvancedTableColumn['key']
+        ) => HdsAdvancedTableColumn['width'];
+        getColumnByKey: (
+          columnKey: HdsAdvancedTableColumn['key']
+        ) => HdsAdvancedTableColumn | undefined;
+        getSiblingColumnKeys: (columnKey: HdsAdvancedTableColumn['key']) => {
+          previous?: HdsAdvancedTableColumn['key'];
+          next?: HdsAdvancedTableColumn['key'];
+        };
         moveColumnToTarget: (
           columnKey: HdsAdvancedTableColumn['key'],
           targetColumnKey: HdsAdvancedTableColumn['key'],
@@ -87,7 +86,14 @@ export interface HdsAdvancedTableColumnManagerSignature {
           columnKey: HdsAdvancedTableColumn['key'],
           position: 'start' | 'end'
         ) => void;
-        setDraggedColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
+        setDraggedColumnKey: (columnKey: HdsAdvancedTableColumn['key']) => void;
+        setTransientColumnWidths: (options: { roundValues?: boolean }) => void;
+        setTransientColumnWidth: (
+          columnKey: HdsAdvancedTableColumn['key'],
+          width: `${number}px`,
+          clamped?: boolean
+        ) => void;
+        resetTransientColumnWidths: () => void;
         stepColumn: (
           columnKey: HdsAdvancedTableColumn['key'],
           step: number
@@ -101,11 +107,12 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
   @tracked _columnOrder: string[] = [];
   @tracked draggedColumnKey: HdsAdvancedTableColumn['key'];
 
-  thElementRegistry = new TrackedMap<string, HTMLDivElement>();
-  widthStateRegistry = new TrackedMap<
-    string,
-    HdsAdvancedTableColumnWidthState
-  >();
+  thElements = new TrackedMap<string, HTMLDivElement>();
+
+  // width tracking
+  columnWidths = new TrackedMap<string, HdsAdvancedTableColumnWidth>();
+  originalColumnWidths = new TrackedMap<string, HdsAdvancedTableColumnWidth>();
+  transientColumnWidths = new TrackedMap<string, HdsAdvancedTablePixelString>();
 
   constructor(
     owner: Owner,
@@ -141,7 +148,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
 
     if (hasReorderableColumns && columnOrder !== undefined) {
       return columnOrder.reduce<HdsAdvancedTableColumn[]>((acc, key) => {
-        const column = getColumnByKey(columns, key);
+        const column = this.getColumnByKey(key);
 
         if (column !== undefined) {
           acc.push(column);
@@ -175,14 +182,27 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
         continue;
       }
 
-      const config = this.widthStateRegistry.get(col.key);
+      const width = this.columnWidths.get(col.key);
+      const transientWidth = this.transientColumnWidths.get(col.key);
 
-      if (config) {
-        style += ` ${config.appliedWidth}`;
+      const appliedWidth = transientWidth ?? width;
+
+      if (appliedWidth) {
+        style += ` ${appliedWidth}`;
       }
     }
 
     return style;
+  }
+
+  getColumnByKey(
+    key: HdsAdvancedTableColumn['key']
+  ): HdsAdvancedTableColumn | undefined {
+    if (key === undefined) {
+      return;
+    }
+
+    return this.args.columns.find((column) => column.key === key);
   }
 
   moveColumnToTerminalPosition = (
@@ -296,7 +316,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
         // TODO
         // sourceColumn.isBeingDragged = false;
 
-        const column = getColumnByKey(this.args.columns, sourceColumnKey);
+        const column = this.getColumnByKey(sourceColumnKey);
 
         assert('No column found with that key', column !== undefined);
 
@@ -321,30 +341,136 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     onColumnReorder?.({ column, newOrder, insertedAt });
   };
 
-  syncThElementRegistry =
-    modifier<HdsAdvancedTableSyncThElementRegistrySignature>(
-      (element, [key]) => {
-        if (key !== undefined) {
-          this.thElementRegistry.set(key, element);
-        }
-      }
-    );
+  // pure width functions
+  applyTransientWidth = (columnKey: HdsAdvancedTableColumn['key']) => {
+    if (columnKey == undefined) {
+      return;
+    }
 
-  syncWidthRegistry = modifier<HdsAdvancedTableSyncWidthRegistrySignature>(
+    const transientWidth = this.transientColumnWidths.get(columnKey);
+
+    this.columnWidths.set(columnKey, transientWidth);
+  };
+
+  setTransientColumnWidths(options: { roundValues?: boolean } = {}): void {
+    const roundValues = options.roundValues ?? false;
+
+    this.columnWidths.forEach((width, key) => {
+      let _width: number;
+
+      if (width !== undefined && isPixelSize(width)) {
+        _width = pixelToNumber(width as `${number}px`);
+      } else {
+        _width = this.thElements.get(key)?.offsetWidth ?? 0;
+      }
+
+      this.transientColumnWidths.set(
+        key,
+        `${roundValues ? Math.round(_width) : _width}px`
+      );
+    });
+  }
+
+  resetTransientColumnWidths(): void {
+    this.transientColumnWidths.clear();
+  }
+
+  setTransientColumnWidth(
+    columnKey: HdsAdvancedTableColumn['key'],
+    width: `${number}px`,
+    clamped: boolean = true
+  ): void {
+    if (columnKey === undefined) {
+      return;
+    }
+
+    const column = this.getColumnByKey(columnKey);
+
+    if (column === undefined) {
+      return;
+    }
+
+    if (clamped) {
+      const { minWidth, maxWidth } = column;
+
+      const minWidthInPixels =
+        minWidth === undefined ? 1 : pixelToNumber(minWidth);
+      const maxWidthInPixels =
+        maxWidth === undefined ? Infinity : pixelToNumber(maxWidth);
+
+      const transientColumnWidthInPixels = Math.min(
+        Math.max(pixelToNumber(width), minWidthInPixels),
+        maxWidthInPixels
+      );
+
+      this.transientColumnWidths.set(
+        columnKey,
+        `${transientColumnWidthInPixels}px`
+      );
+    } else {
+      this.transientColumnWidths.set(columnKey, width);
+    }
+  }
+
+  getSiblingColumnKeys(columnKey: HdsAdvancedTableColumn['key']): {
+    previous?: HdsAdvancedTableColumn['key'];
+    next?: HdsAdvancedTableColumn['key'];
+  } {
+    if (columnKey === undefined) {
+      return {};
+    }
+
+    const columnIndex = this.columnOrder.indexOf(columnKey);
+
+    if (columnIndex === -1) {
+      return {};
+    }
+
+    return {
+      previous:
+        columnIndex === 0 ? undefined : this.columnOrder[columnIndex - 1],
+      next:
+        columnIndex === this.columnOrder.length - 1
+          ? undefined
+          : this.columnOrder[columnIndex + 1],
+    };
+  }
+
+  getAppliedWidth(
+    columnKey: HdsAdvancedTableColumn['key']
+  ): HdsAdvancedTableColumn['width'] {
+    if (columnKey === undefined) {
+      return '0px';
+    }
+
+    const width = this.columnWidths.get(columnKey);
+    const transientWidth = this.transientColumnWidths.get(columnKey);
+
+    return transientWidth ?? width ?? '0px';
+  }
+  // end width functions
+
+  syncThElements = modifier<HdsAdvancedTableSyncThElementsSignature>(
+    (element, [key]) => {
+      if (key !== undefined) {
+        this.thElements.set(key, element);
+      }
+    }
+  );
+
+  syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(
     (_element, [columns]) => {
       for (const column of columns) {
         if (column.key !== undefined) {
-          this.widthStateRegistry.set(
-            column.key,
-            new HdsAdvancedTableColumnWidthState(column.width)
-          );
+          this.columnWidths.set(column.key, column.width);
+          this.originalColumnWidths.set(column.key, column.width);
         }
       }
     }
   );
 
   <template>
-    <div {{this.syncWidthRegistry @columns}}>
+    <div {{this.syncWidthValues @columns}}>
       {{yield
         (hash
           columns=@columns
@@ -354,9 +480,16 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
           gridTemplateColumns=this.gridTemplateColumns
           lastColumnKey=this.lastColumnKey
           orderedColumns=this.orderedColumns
-          syncThElementRegistry=this.syncThElementRegistry
+          syncThElements=this.syncThElements
+          applyTransientWidth=this.applyTransientWidth
+          getAppliedWidth=this.getAppliedWidth
+          getColumnByKey=this.getColumnByKey
+          getSiblingColumnKeys=this.getSiblingColumnKeys
           moveColumnToTarget=this.moveColumnToTarget
           moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
+          setTransientColumnWidths=this.setTransientColumnWidths
+          setTransientColumnWidth=this.setTransientColumnWidth
+          resetTransientColumnWidths=this.resetTransientColumnWidths
           stepColumn=this.stepColumn
           setDraggedColumnKey=(fn (mut this.draggedColumnKey))
         )

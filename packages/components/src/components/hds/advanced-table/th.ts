@@ -33,7 +33,6 @@ export interface HdsAdvancedTableThSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     column?: HdsAdvancedTableColumn;
-    orderedColumns?: HdsAdvancedTableColumn[];
     colspan?: number;
     depth?: number;
     draggedColumnKey?: HdsAdvancedTableColumn['key'];
@@ -47,6 +46,10 @@ export interface HdsAdvancedTableThSignature {
     isExpandable?: boolean;
     isStickyColumnPinned?: boolean;
     lastColumnKey?: HdsAdvancedTableColumn['key'];
+    siblingColumnKeys?: {
+      previous?: HdsAdvancedTableColumn['key'];
+      next?: HdsAdvancedTableColumn['key'];
+    };
     newLabel?: string;
     parentId?: string;
     rowspan?: number;
@@ -54,8 +57,15 @@ export interface HdsAdvancedTableThSignature {
     tooltip?: string;
     tableHeight?: number;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
+    onApplyTransientWidth?: (columnKey: HdsAdvancedTableColumn['key']) => void;
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onGetAppliedWidth?: (
+      columnKey: HdsAdvancedTableColumn['key']
+    ) => HdsAdvancedTableColumn['width'];
+    onGetColumnByKey?: (
+      columnKey: HdsAdvancedTableColumn['key']
+    ) => HdsAdvancedTableColumn | undefined;
     onMoveColumnToTerminalPosition?: (
       columnKey: HdsAdvancedTableColumn['key'],
       position: 'start' | 'end'
@@ -66,6 +76,12 @@ export interface HdsAdvancedTableThSignature {
       side: HdsAdvancedTableColumnReorderSide
     ) => void;
     onSetDraggedColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
+    onSetTransientColumnWidth: (
+      columnKey: HdsAdvancedTableColumn['key'],
+      width: `${number}px`
+    ) => void;
+    onSetTransientColumnWidths: (options: { roundValues?: boolean }) => void;
+    onResetTransientColumnWidths: () => void;
     onStepColumn: (
       columnKey: HdsAdvancedTableColumn['key'],
       step: number

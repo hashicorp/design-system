@@ -141,3 +141,5 @@ export enum HdsAdvancedTableColumnReorderSideValues {
 
 export type HdsAdvancedTableColumnReorderSide =
   `${HdsAdvancedTableColumnReorderSideValues}`;
+
+export type HdsAdvancedTablePixelString = `${number}px`;

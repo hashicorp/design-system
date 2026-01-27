@@ -94,8 +94,15 @@
       {{#if this.showResizeHandle}}
         <Hds::AdvancedTable::ThResizeHandle
           @column={{@column}}
+          @siblingColumnKeys={{@siblingColumnKeys}}
           @tableHeight={{@tableHeight}}
+          @onApplyTransientWidth={{@onApplyTransientWidth}}
           @onColumnResize={{@onColumnResize}}
+          @onGetAppliedWidth={{@onGetAppliedWidth}}
+          @onGetColumnByKey={{@onGetColumnByKey}}
+          @onSetTransientColumnWidth={{@onSetTransientColumnWidth}}
+          @onSetTransientColumnWidths={{@onSetTransientColumnWidths}}
+          @onResetTransientColumnWidths={{@onResetTransientColumnWidths}}
           {{this._registerResizeHandleElement}}
         />
       {{/if}}

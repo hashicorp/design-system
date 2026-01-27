@@ -6,6 +6,7 @@
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { isPixelSize } from '../utils.ts';
 
 import type { HdsAdvancedTableThReorderHandleSignature } from '../th-reorder-handle.ts';
 import type HdsAdvancedTableModel from './table.ts';
@@ -19,14 +20,6 @@ import type {
 export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width
 export const DEFAULT_MIN_WIDTH = '150px';
 export const DEFAULT_MAX_WIDTH = '800px';
-
-function isPxSize(value?: string): boolean {
-  if (value === undefined) {
-    return false;
-  }
-
-  return /^-?\d+(\.\d+)?px$/.test(value);
-}
 
 function pxToNumber(pxString: string): number {
   return parseFloat(pxString.slice(0, -2));
@@ -74,7 +67,7 @@ export default class HdsAdvancedTableColumn {
     return this.transientWidth ?? this.width;
   }
   get pxAppliedWidth(): number | undefined {
-    if (isPxSize(this.appliedWidth)) {
+    if (isPixelSize(this.appliedWidth)) {
       return pxToNumber(this.appliedWidth);
     }
   }
@@ -93,7 +86,7 @@ export default class HdsAdvancedTableColumn {
   }
 
   get pxWidth(): number {
-    if (isPxSize(this.width)) {
+    if (isPixelSize(this.width)) {
       return pxToNumber(this.width);
     } else {
       return this.thElement?.offsetWidth ?? 0;
@@ -104,11 +97,11 @@ export default class HdsAdvancedTableColumn {
   }
 
   get pxMinWidth(): number {
-    return isPxSize(this.minWidth) ? pxToNumber(this.minWidth) : 0;
+    return isPixelSize(this.minWidth) ? pxToNumber(this.minWidth) : 0;
   }
 
   get pxMaxWidth(): number {
-    return isPxSize(this.maxWidth) ? pxToNumber(this.maxWidth) : Infinity;
+    return isPixelSize(this.maxWidth) ? pxToNumber(this.maxWidth) : Infinity;
   }
 
   get index(): number {
@@ -304,10 +297,6 @@ export default class HdsAdvancedTableColumn {
       this.pxMaxWidth !== undefined
         ? Math.min(minLimitedPxWidth, this.pxMaxWidth)
         : minLimitedPxWidth;
-
-    if (this.key === undefined) {
-      return;
-    }
   }
 
   @action

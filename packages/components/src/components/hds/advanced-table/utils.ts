@@ -5,8 +5,6 @@
 
 import { buildWaiter } from '@ember/test-waiters';
 
-import type { HdsAdvancedTableColumn } from './types';
-
 const waiter = buildWaiter('raf-waiter');
 
 // a utility that wraps requestAnimationFrame and integrates with Ember's test waiters
@@ -22,9 +20,26 @@ export function requestAnimationFrameWaiter(callback: () => void) {
   });
 }
 
-export function getColumnByKey(
-  columns: HdsAdvancedTableColumn[],
-  key: string
-): HdsAdvancedTableColumn | undefined {
-  return columns.find((column) => column.key === key);
+export function pixelToNumber(px: `${number}px`): number {
+  return Number(px.replace('px', ''));
+}
+
+export function isPixelSize(value?: string): boolean {
+  if (value === undefined) {
+    return false;
+  }
+
+  return /^-?\d+(\.\d+)?px$/.test(value);
+}
+
+export function parsePixel(value?: string): number | undefined {
+  if (value === undefined) {
+    return undefined;
+  }
+
+  if (!isPixelSize(value)) {
+    return undefined;
+  }
+
+  return pixelToNumber(value as `${number}px`);
 }
