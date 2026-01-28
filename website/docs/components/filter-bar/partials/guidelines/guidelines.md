@@ -31,7 +31,7 @@ The Filter Bar supports two visual presentations, `attached` and `standalone`, t
 
 ### Attached
 
-Use the `attached` variant with the [Advanced Table](/components/table/advanced-table) and standard [Table](/components/table/table).
+Use the `attached` variant with the [Advanced Table](/components/table/advanced-table) to clearly associate the Filter Bar with the rendered data set and the table.
 
 ![Example of an attached Filter Bar paired with a data set rendered in an Advanced Table](/assets/components/filter-bar/filter-bar-type-attached.png)
 
