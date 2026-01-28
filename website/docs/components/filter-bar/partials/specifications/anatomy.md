@@ -6,14 +6,14 @@
 
 | Element          | Usage                  |
 |------------------|------------------------|
-| Collapse/expand | Required; Toggles open and closed the applied filters. |
+| Collapse/expand | Required; Toggles display of the applied filters. |
 | Filter toggle button | Required; Toggles open and closed the Filter Dropdown. |
 | Search | Optional; Searches based on string matching across the entire data set. |
 | Generic content | Optional |
 | Bulk actions | Optional; Supports performing bulk actions on the data set. |
-| Applied Filters List | Required; Displays the filters that have been applied to the data set, or an empty state. |
+| Applied Filters List | Required; Displays either the filters that have been applied to the data set, or an empty state if there are none. |
 | Applied Filter Tag | Required; Displays the filter as `Parameter: Value` within an HDS [Tag](/components/tag). |
-| Clear All Filters | Required; Clears all of the applied filters, sets the Filter Bar and the data set back to their default state. |
+| Clear All Filters | Required; Clears all of the applied filters and sets the Filter Bar and the data set back to their default state. |
 
 ### Filter Dropdown
 
@@ -55,14 +55,14 @@ The Filter Dropdown anatomy is dependent on the filter method:
 
 #### Filter value range input
 
-When applying a filter value via an input, if `Between` is selected in the operator list, the input fields will be broken into a `start` value and `end` value.
+When applying a filter value via an input, if `Between` is selected in the operator list, the input fields will be broken into a `start` value and an `end` value.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-anatomy-input-range.png)
 
 | Element          | Usage                  |
 |------------------|------------------------|
 | Operator selection | Required; Allows the user to select how the filter is applied. |
-| Value range input | Required; Allows the user to input a start and end value to filter upon. |
+| Value range input | Required; Allows the user to input start and end values to filter upon. |
 | Clear filter fields action | Required; Clears the filter input field. |
 
 #### Custom filtering
