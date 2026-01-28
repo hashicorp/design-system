@@ -404,7 +404,7 @@ export { default as HdsDisclosurePrimitive } from './components/hds/disclosure-p
 export { default as HdsDismissButton } from './components/hds/dismiss-button/index.gts';
 
 // Interactive
-export { default as HdsInteractive } from './components/hds/interactive/index.ts';
+export { default as HdsInteractive } from './components/hds/interactive/index.gts';
 
 // PopoverPrimitive
 export { default as HdsPopoverPrimitive } from './components/hds/popover-primitive/index.ts';
