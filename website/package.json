@@ -127,7 +127,7 @@
     "gray-matter": "^4.0.3",
     "jsonapi-serializer": "^3.6.9",
     "loader.js": "^4.7.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "mdast-util-from-markdown": "^2.0.2",
     "mdast-util-to-string": "^4.0.0",
     "object-hash": "^3.0.0",
