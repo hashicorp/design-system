@@ -1,4 +1,4 @@
-The Filter Bar is used to apply and display filters to a data set. It is most often used with the [Advanced Table](/components/table/advanced-table?tab=code#filtering), but is flexible enough to support lists or a grid of cards.
+The Filter Bar is used to apply and display filters to a data set. It is most often used with the [Advanced Table](/components/table/advanced-table?tab=code#filtering), but is flexible enough to support the standard [Table](/components/table/table), lists, or a grid of cards.
 
 !!! Callout
 
@@ -24,7 +24,7 @@ If specific functionality or filtering methods don't meet your needs, please [co
 
 **Differences between Figma and code**
 
-The `type` property is only available in Figma. The Ember component can be passed to the [Advanced Table](/components/table/advanced-table?tab=code#filtering) as a contextual component, or used on it's own in which case the styling will adjust accordingly.
+The `type` property is only available in Figma. The Ember component can be passed to the [Advanced Table](/components/table/advanced-table?tab=code#filtering) as a contextual component, or used on its own in which case the styling will adjust accordingly.
 !!!
 
 The Filter Bar supports two visual presentations, `attached` and `standalone`, to be used in different contexts and with different types of data sets.
@@ -37,7 +37,7 @@ Use the `attached` variant with the [Advanced Table](/components/table/advanced-
 
 ### Standalone
 
-Use the `standalone` variant when a data set is rendered in formats other than a table, e.g., a list or array of cards.
+Use the `standalone` variant when a data set is rendered in formats other than the Advanced Table, e.g., a standard Table, list, or grid of cards.
 
 ![Example of a standalone Filter Bar paired with a data set rendered in cards](/assets/components/filter-bar/filter-bar-type-standalone.png)
 
@@ -76,7 +76,7 @@ When no filters are applied, the applied filters section is collapsed by default
 
 ![An example of the expanded Filter Bar with no filters applied and an empty state](/assets/components/filter-bar/filter-bar-expanded-empty-state.png)
 
-When one or more filters are applied the Filter Bar is expanded by default.
+When one or more filters are applied, the Filter Bar is expanded by default.
 
 ![An example of the expanded Filter Bar with several filters applied](/assets/components/filter-bar/filter-bar-expanded-with-filters.png)
 
@@ -127,25 +127,25 @@ The Filter Bar includes a complex dropdown menu that displays available filter p
 The Filter Dropdown is responsible for the selection and application of filters and is broken into two "panels":
 
 - The left panel displays the list of parameters (categories) that can be filtered upon.
-- The right panel displays a list of options or a grouping of input fields (for numerical, date, or time values).
+- The right panel displays a list of options or a group of input fields (for numerical, date, or time values).
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-open.png)
 
 ### Multi-selection
 
-Multi-selection allows selecting multiple values from a list of options and is the most common filtering method. It's best suited for categorical data like statuses, but can also be used more generally to filter by a handful of text or string values.
+Selecting multiple values from a list of options is one of the most common filtering methods. It's best suited for categorical data like statuses, but can also be used more generally to filter by a handful of text or string values.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-multi-selection.png)
 
 ### Single-selection
 
-Single-selection is _mutually exclusive_ and uses radio buttons. It's best suited for filter values that cannot be selected simultaneously, helping prevent an empty state.
+Selecting one value from a list of options is best suited for filter values that cannot be selected simultaneously, helping prevent an empty state.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-single-selection.png)
 
 ### Numbers, dates, times, and datetimes
 
-Filtering by numerical values, dates, times, and datetimes is handled by combining an operator (greater than, less than, before, etc.) with an input field or group of input fields. This filtering method is best suited for range-based filtering, i.e., filtering based on a comparison of a value or a range of values.
+By combining an operator (greater than, less than, before, etc.) with input fields, filtering by numerical values, dates, times, and datetimes can be handled. This filtering method is best suited for range-based filtering, i.e., filtering based on comparisons of values or ranges of values.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-numerical-filter.png)
 
@@ -159,13 +159,13 @@ For a full list of supported operators, visit the [specifications](/components/f
 
 ### Custom filtering
 
-For filtering requirements that extend beyond the out-of-the-box methods, HDS components and custom features can be used in the right panel.
+While the left panel should always display the list of parameters, the right panel can be customized to meet filtering requirements beyond the out-of-the-box methods.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-custom-filter-example.png)
 
 ### Search across filter values
 
-Users can search across all values within a selected parameter. While relevant only for single- or multi-selection, search can be useful when there are many values or when a unique naming convention is used.
+Users can search across all values within a selected parameter. While search is relevant only for single- or multi-selection, it can be especially useful when there are many values or when a unique naming convention is used.
 
 ![](/assets/components/filter-bar/filter-bar-dropdown-search-values.png)
 
