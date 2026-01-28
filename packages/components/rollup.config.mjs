@@ -102,6 +102,11 @@ const plugins = [
         inputFile: 'design-system-power-select-overrides.scss',
         outputFile: 'design-system-power-select-overrides.css',
       },
+      {
+        inputFile: 'design-system-plex-fonts.scss',
+        outputFile: 'design-system-plex-fonts.css',
+        loadPaths: ['node_modules/@ibm'],
+      },
     ]
   ),
 
@@ -138,6 +143,37 @@ const plugins = [
       { src: 'src/styles/mixins', dest: 'dist/styles' },
       // Copy sass components for consumers to use directly
       { src: 'src/styles/components', dest: 'dist/styles' },
+      // Copy the IBM Plex fonts from the @ibm packages to the public folder
+      {
+        src: 'node_modules/@ibm/plex-sans/LICENSE.txt',
+        dest: 'dist/public/assets/fonts',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Italic.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Regular.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBold.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBoldItalic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Italic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Regular.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBold.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBoldItalic.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/complete/woff2',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Regular-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Italic-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBoldItalic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Regular-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Italic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBoldItalic-*.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/split/woff2',
+      },
     ],
     hook: 'writeBundle',
     copySync: true,
