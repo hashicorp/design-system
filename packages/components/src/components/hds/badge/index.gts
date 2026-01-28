@@ -115,13 +115,13 @@ export default class HdsBadge extends Component<HdsBadgeSignature> {
           <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
         </div>
       {{/if}}
-      {{~#if this.isIconOnly~}}
+      {{#if this.isIconOnly}}
         <span class="sr-only">{{this.text}}</span>
-      {{~else~}}
+      {{else}}
         <div class="hds-badge__text">
           {{this.text}}
         </div>
-      {{~/if~}}
+      {{/if}}
     </div>
   </template>
 }
