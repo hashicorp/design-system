@@ -30,7 +30,6 @@ import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
-import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
@@ -183,7 +182,6 @@ export interface HdsAdvancedTableSignature {
           | 'newLabel'
           | 'parentId'
           | 'scope'
-          | 'isStickyColumn'
           | 'isStickyColumnPinned'
           | 'onClickToggle'
         >;
@@ -429,16 +427,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _registerGridElement = modifier((element: HTMLDivElement) => {
     this._tableModel.gridElement = element;
   });
-
-  private _registerThElement = modifier(
-    (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
-      if (column === undefined) {
-        return;
-      }
-
-      column.thElement = element;
-    }
-  );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollWrapperElement = element;
@@ -770,14 +758,5 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this.hasPinnedFirstColumn = this.hasPinnedFirstColumn ? false : true;
     // we need to retrigger the scroll indicator updates if the pinned state is changed when the table is already scrolled
     this._updateScrollIndicators(this._scrollWrapperElement);
-  };
-
-  private _isStickyColumn = (
-    column: HdsAdvancedTableColumnType
-  ): boolean | undefined => {
-    if (column.isFirst && this.hasStickyFirstColumn !== undefined) {
-      return this.hasStickyFirstColumn;
-    }
-    return undefined;
   };
 }

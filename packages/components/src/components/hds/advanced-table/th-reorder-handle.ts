@@ -15,11 +15,8 @@ export interface HdsAdvancedTableThReorderHandleSignature {
     tableHeight?: number;
     thElement?: HTMLDivElement;
     onFocusReorderHandle: () => void;
-    onSetDraggedColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
-    onStepColumn: (
-      columnKey: HdsAdvancedTableColumn['key'],
-      step: number
-    ) => void;
+    onSetDraggedColumnKey: () => void;
+    onStepColumn: (step: number) => void;
   };
   Blocks: {
     default?: [];
@@ -53,7 +50,7 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
       return;
     }
 
-    onSetDraggedColumnKey(key);
+    onSetDraggedColumnKey();
 
     const thElementWidth = thElement.offsetWidth;
 
@@ -80,9 +77,9 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
       case 'ArrowRight': {
         event.preventDefault();
 
-        const { column, onStepColumn } = this.args;
+        const { onStepColumn } = this.args;
         const direction = event.key === 'ArrowLeft' ? -1 : 1;
-        onStepColumn(column.key, direction);
+        onStepColumn(direction);
 
         // we need to wait for the next run loop to ensure that the element has been registered with the column after moving
         // eslint-disable-next-line ember/no-runloop

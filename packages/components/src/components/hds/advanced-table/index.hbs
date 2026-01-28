@@ -21,6 +21,7 @@
     @columns={{@columns}}
     @columnOrder={{@columnOrder}}
     @hasReorderableColumns={{@hasReorderableColumns}}
+    @hasStickyFirstColumn={{@hasStickyFirstColumn}}
     @onColumnReorder={{@onColumnReorder}}
     as |CM|
   >
@@ -60,23 +61,36 @@
             {{#if column.isSortable}}
               <Hds::AdvancedTable::ThSort
                 @column={{column}}
-                @orderedColumns={{CM.orderedColumns}}
+                @draggedColumnKey={{CM.draggedColumnKey}}
+                @firstColumnKey={{CM.firstColumnKey}}
                 @sortOrder={{if (eq column.key this._tableModel.sortBy) this._tableModel.sortOrder}}
                 @onClickSort={{if column.key (fn this._tableModel.setSortBy column.key)}}
                 @align={{column.align}}
-                @tooltip={{column.tooltip}}
                 @hasReorderableColumns={{@hasReorderableColumns}}
                 @hasResizableColumns={{@hasResizableColumns}}
                 @hasSelectableRows={{this.isSelectable}}
                 @hasStickyFirstColumn={{@hasStickyFirstColumn}}
-                @isStickyColumn={{this._isStickyColumn column}}
+                @isStickyColumn={{CM.getIsStickyColumn column.key}}
                 @isStickyColumnPinned={{this.isStickyColumnPinned}}
+                @lastColumnKey={{CM.lastColumnKey}}
+                @reorderHoveredColumnKey={{CM.reorderHoveredColumnKey}}
+                @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
                 @tableHeight={{this._tableHeight}}
+                @tooltip={{column.tooltip}}
+                @onApplyTransientWidth={{CM.applyTransientWidth}}
                 @onColumnResize={{@onColumnResize}}
+                @onGetAppliedWidth={{CM.getAppliedWidth}}
+                @onGetColumnByKey={{CM.getColumnByKey}}
+                @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
                 @onPinFirstColumn={{this._onPinFirstColumn}}
-                @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
-                @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
-                @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
+                @onReorderDrop={{CM.moveColumnToDropTarget}}
+                @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
+                @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
+                @onSetReorderHoveredColumnKey={{CM.setReorderHoveredColumnKey}}
+                @onSetTransientColumnWidth={{CM.setTransientColumnWidth}}
+                @onSetTransientColumnWidths={{CM.setTransientColumnWidths}}
+                @onStepColumn={{CM.stepColumn}}
+                @onUpdateResizeDebt={{CM.updateResizeDebt}}
                 {{CM.syncThElements column.key}}
               >
                 {{column.label}}
@@ -94,8 +108,10 @@
                 @hasStickyFirstColumn={{@hasStickyFirstColumn}}
                 @isExpanded={{this._tableModel.expandState}}
                 @isExpandable={{column.isExpandable}}
+                @isStickyColumn={{CM.getIsStickyColumn column.key}}
                 @isStickyColumnPinned={{this.isStickyColumnPinned}}
                 @lastColumnKey={{CM.lastColumnKey}}
+                @reorderHoveredColumnKey={{CM.reorderHoveredColumnKey}}
                 @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
                 @tableHeight={{this._tableHeight}}
                 @tooltip={{column.tooltip}}
@@ -106,11 +122,12 @@
                 @onGetColumnByKey={{CM.getColumnByKey}}
                 @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
                 @onPinFirstColumn={{this._onPinFirstColumn}}
-                @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
+                @onReorderDrop={{CM.moveColumnToDropTarget}}
+                @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
                 @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
+                @onSetReorderHoveredColumnKey={{CM.setReorderHoveredColumnKey}}
                 @onSetTransientColumnWidth={{CM.setTransientColumnWidth}}
                 @onSetTransientColumnWidths={{CM.setTransientColumnWidths}}
-                @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
                 @onStepColumn={{CM.stepColumn}}
                 @onUpdateResizeDebt={{CM.updateResizeDebt}}
                 {{CM.syncThElements column.key}}

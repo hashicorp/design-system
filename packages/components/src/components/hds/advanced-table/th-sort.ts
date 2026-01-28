@@ -9,27 +9,26 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
-import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
-
 import {
   HdsAdvancedTableHorizontalAlignmentValues,
   HdsAdvancedTableThSortOrderValues,
   HdsAdvancedTableThSortOrderLabelValues,
 } from './types.ts';
+
 import type {
+  HdsAdvancedTableColumn,
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableThSortOrderLabels,
   HdsAdvancedTableColumnReorderSide,
-} from './types.ts';
+} from './types';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
-import type HdsAdvancedTableColumn from './models/column.ts';
 
 export const ALIGNMENTS: HdsAdvancedTableHorizontalAlignment[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -38,28 +37,60 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
 export interface HdsAdvancedTableThSortSignature {
   Args: {
-    column?: HdsAdvancedTableThSignature['Args']['column'];
-    orderedColumns?: HdsAdvancedTableThSignature['Args']['orderedColumns'];
     align?: HdsAdvancedTableHorizontalAlignment;
+    column?: HdsAdvancedTableThSignature['Args']['column'];
+    colspan?: number;
+    draggedColumnKey?: HdsAdvancedTableColumn['key'];
+    firstColumnKey?: HdsAdvancedTableColumn['key'];
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
     hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
-    onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
-    sortOrder?: HdsAdvancedTableThSortOrder;
-    tooltip?: string;
     rowspan?: number;
-    colspan?: number;
+    sortOrder?: HdsAdvancedTableThSortOrder;
     tableHeight?: number;
+    tooltip?: string;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
+    lastColumnKey?: HdsAdvancedTableColumn['key'];
+    reorderHoveredColumnKey?: HdsAdvancedTableColumn['key'];
+    siblingColumnKeys?: {
+      previous?: HdsAdvancedTableColumn['key'];
+      next?: HdsAdvancedTableColumn['key'];
+    };
+    onApplyTransientWidth?: (columnKey: HdsAdvancedTableColumn['key']) => void;
+    onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onGetAppliedWidth?: (
+      columnKey: HdsAdvancedTableColumn['key']
+    ) => HdsAdvancedTableColumn['width'];
+    onGetColumnByKey?: (
+      columnKey: HdsAdvancedTableColumn['key']
+    ) => HdsAdvancedTableColumn | undefined;
+    onMoveColumnToTerminalPosition?: (
+      columnKey: HdsAdvancedTableColumn['key'],
+      position: 'start' | 'end'
+    ) => void;
     onPinFirstColumn?: () => void;
-    onReorderDragEnd?: () => void;
-    onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
-      column: HdsAdvancedTableColumn,
+      columnKey: HdsAdvancedTableColumn['key'],
       side: HdsAdvancedTableColumnReorderSide
+    ) => void;
+    onSetDraggedColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
+    onSetReorderHoveredColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
+    onSetTransientColumnWidth: (
+      columnKey: HdsAdvancedTableColumn['key'],
+      width: `${number}px`
+    ) => void;
+    onSetTransientColumnWidths: (options: { roundValues?: boolean }) => void;
+    onResetTransientColumnWidths: () => void;
+    onStepColumn: (
+      columnKey: HdsAdvancedTableColumn['key'],
+      step: number
+    ) => void;
+    onUpdateResizeDebt: (
+      columnKey: HdsAdvancedTableColumn['key'],
+      delta: number
     ) => void;
   };
   Blocks: {
@@ -78,17 +109,40 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   @tracked
   private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
 
-  constructor(owner: Owner, args: HdsAdvancedTableThSortSignature['Args']) {
-    super(owner, args);
+  get isFirstColumn(): boolean {
+    const { column, firstColumnKey } = this.args;
 
-    const { rowspan, colspan, isStickyColumn } = args;
+    return (
+      firstColumnKey !== undefined &&
+      column !== undefined &&
+      firstColumnKey === column.key
+    );
+  }
 
-    if (isStickyColumn) {
-      assert(
-        'Cannot have custom rowspan or colspan if there are nested rows.',
-        rowspan === undefined || colspan === undefined
-      );
-    }
+  get isLastColumn(): boolean {
+    const { column, lastColumnKey } = this.args;
+
+    return (
+      lastColumnKey !== undefined &&
+      column !== undefined &&
+      lastColumnKey === column.key
+    );
+  }
+
+  get tableHasColumnBeingDragged(): boolean {
+    const { draggedColumnKey } = this.args;
+
+    return draggedColumnKey !== undefined;
+  }
+
+  get isColumnBeingDragged(): boolean {
+    const { column, draggedColumnKey } = this.args;
+
+    return (
+      draggedColumnKey !== undefined &&
+      column !== undefined &&
+      draggedColumnKey === column.key
+    );
   }
 
   get ariaSort(): HdsAdvancedTableThSortOrderLabels {
@@ -116,6 +170,8 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   }
 
   get classNames(): string {
+    const { isStickyColumn, isStickyColumnPinned } = this.args;
+
     const classes = ['hds-advanced-table__th', 'hds-advanced-table__th--sort'];
 
     // add a class based on the @align argument
@@ -123,24 +179,35 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
       classes.push(`hds-advanced-table__th--align-${this.align}`);
     }
 
-    if (this.args.isStickyColumn) {
+    if (isStickyColumn) {
       classes.push('hds-advanced-table__th--is-sticky-column');
     }
 
-    if (this.args.isStickyColumn && this.args.isStickyColumnPinned) {
+    if (isStickyColumn && isStickyColumnPinned) {
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
-    if (this.args.column?.isBeingDragged) {
+    if (this.isColumnBeingDragged) {
       classes.push('hds-advanced-table__th--is-being-dragged');
     }
 
     return classes.join(' ');
   }
 
-  @action
-  handleDragStart(column: HdsAdvancedTableColumn): void {
-    this.args.onReorderDragStart?.(column);
+  get showDropTarget(): boolean {
+    const { isStickyColumn } = this.args;
+
+    return this.tableHasColumnBeingDragged === true && !isStickyColumn;
+  }
+
+  get showResizeHandle(): boolean {
+    const { hasResizableColumns } = this.args;
+
+    return (
+      hasResizableColumns === true &&
+      !this.isLastColumn &&
+      !this.tableHasColumnBeingDragged
+    );
   }
 
   @action onFocusTrapDeactivate(): void {
@@ -157,11 +224,99 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     return cellFocusableElements[0];
   }
 
-  @action setElement(element: HTMLDivElement): void {
-    this._element = element;
+  @action focusReorderHandle(): void {
+    if (this._element === undefined) {
+      return;
+    }
 
-    if (this.args.column !== undefined) {
-      this.args.column.thElement = element;
+    // focus the th element first (parent) to ensure the handle is visible
+    this._element.focus({ preventScroll: true });
+
+    if (this._reorderHandleElement === undefined) {
+      return;
+    }
+
+    // then focus the reorder handle element
+    this._reorderHandleElement.focus();
+  }
+
+  @action applyTransientWidth(columnKey: HdsAdvancedTableColumn['key']): void {
+    const { onApplyTransientWidth } = this.args;
+
+    if (columnKey !== undefined && onApplyTransientWidth !== undefined) {
+      onApplyTransientWidth(columnKey);
+    }
+  }
+
+  @action resetTransientColumnWidths(): void {
+    const { onResetTransientColumnWidths } = this.args;
+
+    if (onResetTransientColumnWidths !== undefined) {
+      onResetTransientColumnWidths();
+    }
+  }
+
+  @action getAppliedWidth(
+    columnKey: HdsAdvancedTableColumn['key']
+  ): HdsAdvancedTableColumn['width'] | undefined {
+    const { onGetAppliedWidth } = this.args;
+
+    if (columnKey === undefined || onGetAppliedWidth === undefined) {
+      return undefined;
+    }
+
+    return onGetAppliedWidth(columnKey);
+  }
+
+  @action getColumnByKey(
+    columnKey: HdsAdvancedTableColumn['key']
+  ): HdsAdvancedTableColumn | undefined {
+    const { onGetColumnByKey } = this.args;
+
+    if (columnKey === undefined || onGetColumnByKey === undefined) {
+      return undefined;
+    }
+
+    return onGetColumnByKey(columnKey);
+  }
+
+  @action setDraggedColumnKey(): void {
+    const { column, onSetDraggedColumnKey } = this.args;
+
+    if (column?.key !== undefined && onSetDraggedColumnKey !== undefined) {
+      onSetDraggedColumnKey(column.key);
+    }
+  }
+
+  @action setTransientColumnWidth(width: `${number}px`) {
+    const { column, onSetTransientColumnWidth } = this.args;
+
+    if (column?.key !== undefined && onSetTransientColumnWidth !== undefined) {
+      onSetTransientColumnWidth(column.key, width);
+    }
+  }
+
+  @action setTransientColumnWidths(options: { roundValues?: boolean }) {
+    const { onSetTransientColumnWidths } = this.args;
+
+    if (onSetTransientColumnWidths !== undefined) {
+      onSetTransientColumnWidths(options);
+    }
+  }
+
+  @action stepColumn(step: number): void {
+    const { column, onStepColumn } = this.args;
+
+    if (column?.key !== undefined && onStepColumn !== undefined) {
+      onStepColumn(column.key, step);
+    }
+  }
+
+  @action updateResizeDebt(delta: number): void {
+    const { column, onUpdateResizeDebt } = this.args;
+
+    if (column?.key !== undefined && onUpdateResizeDebt !== undefined) {
+      onUpdateResizeDebt(column.key, delta);
     }
   }
 

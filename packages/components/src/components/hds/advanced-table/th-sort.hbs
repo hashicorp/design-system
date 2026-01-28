@@ -44,6 +44,8 @@
           @column={{@column}}
           @hasReorderableColumns={{@hasReorderableColumns}}
           @hasResizableColumns={{@hasResizableColumns}}
+          @isFirstColumn={{this.isFirstColumn}}
+          @isLastColumn={{this.isLastColumn}}
           @isStickyColumn={{@isStickyColumn}}
           @reorderHandleElement={{this._reorderHandleElement}}
           @resizeHandleElement={{this._resizeHandleElement}}
@@ -55,17 +57,27 @@
           <Hds::AdvancedTable::ThReorderHandle
             @column={{@column}}
             @tableHeight={{@tableHeight}}
-            @onReorderDragStart={{this.handleDragStart}}
-            @onReorderDragEnd={{@onReorderDragEnd}}
+            @thElement={{this._element}}
+            @onFocusReorderHandle={{this.focusReorderHandle}}
+            @onSetDraggedColumnKey={{this.setDraggedColumnKey}}
+            @onStepColumn={{this.stepColumn}}
             {{this._registerReorderHandleElement}}
           />
         {{/if}}
 
-        {{#if (and @hasResizableColumns (not @column.isLast) (not @column.table.hasColumnBeingDragged))}}
+        {{#if this.showResizeHandle}}
           <Hds::AdvancedTable::ThResizeHandle
             @column={{@column}}
+            @siblingColumnKeys={{@siblingColumnKeys}}
             @tableHeight={{@tableHeight}}
+            @onApplyTransientWidth={{this.applyTransientWidth}}
             @onColumnResize={{@onColumnResize}}
+            @onGetAppliedWidth={{this.getAppliedWidth}}
+            @onGetColumnByKey={{this.getColumnByKey}}
+            @onSetTransientColumnWidth={{this.setTransientColumnWidth}}
+            @onSetTransientColumnWidths={{this.setTransientColumnWidths}}
+            @onResetTransientColumnWidths={{this.resetTransientColumnWidths}}
+            @onUpdateResizeDebt={{this.updateResizeDebt}}
             {{this._registerResizeHandleElement}}
           />
         {{/if}}
@@ -73,14 +85,18 @@
     </Hds::Layout::Flex>
   </Hds::Layout::Flex>
 
-  {{#if @column}}
-    {{#if (and @column.table.hasColumnBeingDragged (not @isStickyColumn))}}
-      <Hds::AdvancedTable::ThReorderDropTarget
-        @column={{@column}}
-        @hasSelectableRows={{@hasSelectableRows}}
-        @tableHeight={{@tableHeight}}
-        @onReorderDrop={{@onReorderDrop}}
-      />
-    {{/if}}
+  {{#if this.showDropTarget}}
+    <Hds::AdvancedTable::ThReorderDropTarget
+      @column={{@column}}
+      @draggedColumnKey={{@draggedColumnKey}}
+      @hasSelectableRows={{@hasSelectableRows}}
+      @isFirstColumn={{this.isFirstColumn}}
+      @isLastColumn={{this.isLastColumn}}
+      @reorderHoveredColumnKey={{@reorderHoveredColumnKey}}
+      @siblingColumnKeys={{@siblingColumnKeys}}
+      @tableHeight={{@tableHeight}}
+      @onReorderDrop={{@onReorderDrop}}
+      @onSetReorderHoveredColumnKey={{@onSetReorderHoveredColumnKey}}
+    />
   {{/if}}
 </div>

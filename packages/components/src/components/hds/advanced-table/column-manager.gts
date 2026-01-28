@@ -53,6 +53,7 @@ export interface HdsAdvancedTableColumnManagerSignature {
     columns: HdsAdvancedTableColumn[];
     columnOrder: HdsAdvancedTableSignature['Args']['columnOrder'];
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
+    hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     isSelectable?: HdsAdvancedTableSignature['Args']['isSelectable'];
     onColumnReorder: HdsAdvancedTableSignature['Args']['onColumnReorder'];
   };
@@ -66,6 +67,7 @@ export interface HdsAdvancedTableColumnManagerSignature {
         gridTemplateColumns: string;
         lastColumnKey: HdsAdvancedTableColumn['key'] | undefined;
         orderedColumns: HdsAdvancedTableColumn[];
+        reorderHoveredColumnKey: HdsAdvancedTableColumn['key'] | undefined;
         restoreColumnWidth: (columnKey: HdsAdvancedTableColumn['key']) => void;
         syncThElements: ModifierLike<HdsAdvancedTableSyncThElementsSignature>;
         applyTransientWidth: (columnKey: HdsAdvancedTableColumn['key']) => void;
@@ -75,10 +77,17 @@ export interface HdsAdvancedTableColumnManagerSignature {
         getColumnByKey: (
           columnKey: HdsAdvancedTableColumn['key']
         ) => HdsAdvancedTableColumn | undefined;
+        getIsStickyColumn: (
+          columnKey: HdsAdvancedTableColumn['key']
+        ) => boolean | undefined;
         getSiblingColumnKeys: (columnKey: HdsAdvancedTableColumn['key']) => {
           previous?: HdsAdvancedTableColumn['key'];
           next?: HdsAdvancedTableColumn['key'];
         };
+        moveColumnToDropTarget: (
+          columnKey: HdsAdvancedTableColumn['key'],
+          side: HdsAdvancedTableColumnReorderSide
+        ) => void;
         moveColumnToTarget: (
           columnKey: HdsAdvancedTableColumn['key'],
           targetColumnKey: HdsAdvancedTableColumn['key'],
@@ -89,6 +98,9 @@ export interface HdsAdvancedTableColumnManagerSignature {
           position: 'start' | 'end'
         ) => void;
         setDraggedColumnKey: (columnKey: HdsAdvancedTableColumn['key']) => void;
+        setReorderHoveredColumnKey: (
+          key: HdsAdvancedTableColumn['key']
+        ) => void;
         setTransientColumnWidths: (options: { roundValues?: boolean }) => void;
         setTransientColumnWidth: (
           columnKey: HdsAdvancedTableColumn['key'],
@@ -111,7 +123,9 @@ export interface HdsAdvancedTableColumnManagerSignature {
 
 export default class HdsAdvancedTableColumnManager extends Component<HdsAdvancedTableColumnManagerSignature> {
   @tracked _columnOrder: string[] = [];
-  @tracked draggedColumnKey: HdsAdvancedTableColumn['key'];
+
+  @tracked draggedColumnKey?: HdsAdvancedTableColumn['key'];
+  @tracked reorderHoveredColumnKey?: HdsAdvancedTableColumn['key'];
 
   // tracking th elements by column key
   thElements = new TrackedMap<string, HTMLDivElement>();
@@ -278,6 +292,23 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
         : HdsAdvancedTableColumnReorderSideValues.Left;
 
     this.moveColumnToTarget(columnKey, targetColumnKey, side);
+  };
+
+  moveColumnToDropTarget = (
+    targetColumnKey: HdsAdvancedTableColumn['key'],
+    side: HdsAdvancedTableColumnReorderSide
+  ): void => {
+    const sourceColumnKey = this.draggedColumnKey;
+
+    if (
+      sourceColumnKey === undefined ||
+      targetColumnKey === undefined ||
+      sourceColumnKey === targetColumnKey
+    ) {
+      return;
+    }
+
+    this.moveColumnToTarget(sourceColumnKey, targetColumnKey, side);
   };
 
   moveColumnToTarget = (
@@ -678,6 +709,22 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
 
     return transientWidth ?? width ?? '0px';
   }
+
+  getIsStickyColumn = (
+    columnKey: HdsAdvancedTableColumn['key']
+  ): boolean | undefined => {
+    const { hasStickyFirstColumn } = this.args;
+
+    if (
+      columnKey !== undefined &&
+      columnKey === this.firstColumnKey &&
+      hasStickyFirstColumn !== undefined
+    ) {
+      return hasStickyFirstColumn;
+    }
+
+    return undefined;
+  };
   // end width functions
 
   syncThElements = modifier<HdsAdvancedTableSyncThElementsSignature>(
@@ -715,7 +762,10 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
           getAppliedWidth=this.getAppliedWidth
           getColumnByKey=this.getColumnByKey
           getSiblingColumnKeys=this.getSiblingColumnKeys
+          getIsStickyColumn=this.getIsStickyColumn
+          reorderHoveredColumnKey=this.reorderHoveredColumnKey
           restoreColumnWidth=this.restoreColumnWidth
+          moveColumnToDropTarget=this.moveColumnToDropTarget
           moveColumnToTarget=this.moveColumnToTarget
           moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
           setTransientColumnWidths=this.setTransientColumnWidths
@@ -723,6 +773,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
           resetTransientColumnWidths=this.resetTransientColumnWidths
           stepColumn=this.stepColumn
           setDraggedColumnKey=(fn (mut this.draggedColumnKey))
+          setReorderHoveredColumnKey=(fn (mut this.reorderHoveredColumnKey))
           updateResizeDebt=this.updateResizeDebt
         )
       }}

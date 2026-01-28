@@ -72,21 +72,21 @@
         @hasResizableColumns={{@hasResizableColumns}}
         @isFirstColumn={{this.isFirstColumn}}
         @isLastColumn={{this.isLastColumn}}
-        @isStickyColumn={{this.isStickyColumn}}
+        @isStickyColumn={{@isStickyColumn}}
         @reorderHandleElement={{this._reorderHandleElement}}
         @resizeHandleElement={{this._resizeHandleElement}}
         @onColumnResize={{@onColumnResize}}
         @onPinFirstColumn={{@onPinFirstColumn}}
       />
 
-      {{#if (and @hasReorderableColumns (not this.isStickyColumn))}}
+      {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
         <Hds::AdvancedTable::ThReorderHandle
           @column={{@column}}
           @tableHeight={{@tableHeight}}
           @thElement={{this._element}}
           @onFocusReorderHandle={{this.focusReorderHandle}}
-          @onSetDraggedColumnKey={{@onSetDraggedColumnKey}}
-          @onStepColumn={{@onStepColumn}}
+          @onSetDraggedColumnKey={{this.setDraggedColumnKey}}
+          @onStepColumn={{this.stepColumn}}
           {{this._registerReorderHandleElement}}
         />
       {{/if}}
@@ -96,14 +96,14 @@
           @column={{@column}}
           @siblingColumnKeys={{@siblingColumnKeys}}
           @tableHeight={{@tableHeight}}
-          @onApplyTransientWidth={{@onApplyTransientWidth}}
+          @onApplyTransientWidth={{this.applyTransientWidth}}
           @onColumnResize={{@onColumnResize}}
-          @onGetAppliedWidth={{@onGetAppliedWidth}}
-          @onGetColumnByKey={{@onGetColumnByKey}}
-          @onSetTransientColumnWidth={{@onSetTransientColumnWidth}}
-          @onSetTransientColumnWidths={{@onSetTransientColumnWidths}}
-          @onResetTransientColumnWidths={{@onResetTransientColumnWidths}}
-          @onUpdateResizeDebt={{@onUpdateResizeDebt}}
+          @onGetAppliedWidth={{this.getAppliedWidth}}
+          @onGetColumnByKey={{this.getColumnByKey}}
+          @onSetTransientColumnWidth={{this.setTransientColumnWidth}}
+          @onSetTransientColumnWidths={{this.setTransientColumnWidths}}
+          @onResetTransientColumnWidths={{this.resetTransientColumnWidths}}
+          @onUpdateResizeDebt={{this.updateResizeDebt}}
           {{this._registerResizeHandleElement}}
         />
       {{/if}}
@@ -113,9 +113,15 @@
   {{#if this.showDropTarget}}
     <Hds::AdvancedTable::ThReorderDropTarget
       @column={{@column}}
+      @draggedColumnKey={{@draggedColumnKey}}
       @hasSelectableRows={{@hasSelectableRows}}
+      @isFirstColumn={{this.isFirstColumn}}
+      @isLastColumn={{this.isLastColumn}}
+      @reorderHoveredColumnKey={{@reorderHoveredColumnKey}}
+      @siblingColumnKeys={{@siblingColumnKeys}}
       @tableHeight={{@tableHeight}}
       @onReorderDrop={{@onReorderDrop}}
+      @onSetReorderHoveredColumnKey={{@onSetReorderHoveredColumnKey}}
     />
   {{/if}}
 </div>

@@ -44,18 +44,20 @@ export interface HdsAdvancedTableThSignature {
     hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
+    isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     lastColumnKey?: HdsAdvancedTableColumn['key'];
+    newLabel?: string;
+    parentId?: string;
+    reorderHoveredColumnKey?: HdsAdvancedTableColumn['key'];
+    rowspan?: number;
     siblingColumnKeys?: {
       previous?: HdsAdvancedTableColumn['key'];
       next?: HdsAdvancedTableColumn['key'];
     };
-    newLabel?: string;
-    parentId?: string;
-    rowspan?: number;
     scope?: HdsAdvancedTableScope;
-    tooltip?: string;
     tableHeight?: number;
+    tooltip?: string;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onApplyTransientWidth?: (columnKey: HdsAdvancedTableColumn['key']) => void;
     onClickToggle?: () => void;
@@ -72,21 +74,22 @@ export interface HdsAdvancedTableThSignature {
     ) => void;
     onPinFirstColumn?: () => void;
     onReorderDrop?: (
-      column: HdsAdvancedTableColumn,
+      columnKey: HdsAdvancedTableColumn['key'],
       side: HdsAdvancedTableColumnReorderSide
     ) => void;
-    onSetDraggedColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
-    onSetTransientColumnWidth: (
+    onSetDraggedColumnKey?: (key: HdsAdvancedTableColumn['key']) => void;
+    onSetReorderHoveredColumnKey?: (key: HdsAdvancedTableColumn['key']) => void;
+    onSetTransientColumnWidth?: (
       columnKey: HdsAdvancedTableColumn['key'],
       width: `${number}px`
     ) => void;
-    onSetTransientColumnWidths: (options: { roundValues?: boolean }) => void;
-    onResetTransientColumnWidths: () => void;
-    onStepColumn: (
+    onSetTransientColumnWidths?: (options: { roundValues?: boolean }) => void;
+    onResetTransientColumnWidths?: () => void;
+    onStepColumn?: (
       columnKey: HdsAdvancedTableColumn['key'],
       step: number
     ) => void;
-    onUpdateResizeDebt: (
+    onUpdateResizeDebt?: (
       columnKey: HdsAdvancedTableColumn['key'],
       delta: number
     ) => void;
@@ -144,22 +147,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     );
   }
 
-  get isStickyColumn(): boolean {
-    const { rowspan, colspan, hasStickyFirstColumn } = this.args;
-
-    const isStickyColumn =
-      this.isFirstColumn && hasStickyFirstColumn !== undefined;
-
-    if (isStickyColumn) {
-      assert(
-        'Cannot have custom rowspan or colspan if there are nested rows.',
-        rowspan === undefined || colspan === undefined
-      );
-    }
-
-    return isStickyColumn;
-  }
-
   get scope(): HdsAdvancedTableScope {
     const { scope = 'col' } = this.args;
     return scope;
@@ -205,6 +192,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get classNames(): string {
+    const { isStickyColumn, isStickyColumnPinned } = this.args;
+
     const classes = ['hds-advanced-table__th'];
 
     // add a class based on the @align argument
@@ -212,11 +201,11 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       classes.push(`hds-advanced-table__th--align-${this.align}`);
     }
 
-    if (this.isStickyColumn) {
+    if (isStickyColumn) {
       classes.push('hds-advanced-table__th--is-sticky-column');
     }
 
-    if (this.isStickyColumn && this.args.isStickyColumnPinned) {
+    if (isStickyColumn && isStickyColumnPinned) {
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
@@ -228,7 +217,9 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get showDropTarget(): boolean {
-    return this.tableHasColumnBeingDragged === true && !this.isStickyColumn;
+    const { isStickyColumn } = this.args;
+
+    return this.tableHasColumnBeingDragged === true && !isStickyColumn;
   }
 
   get showResizeHandle(): boolean {
@@ -269,6 +260,86 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
     // then focus the reorder handle element
     this._reorderHandleElement.focus();
+  }
+
+  @action applyTransientWidth(columnKey: HdsAdvancedTableColumn['key']): void {
+    const { onApplyTransientWidth } = this.args;
+
+    if (columnKey !== undefined && onApplyTransientWidth !== undefined) {
+      onApplyTransientWidth(columnKey);
+    }
+  }
+
+  @action resetTransientColumnWidths(): void {
+    const { onResetTransientColumnWidths } = this.args;
+
+    if (onResetTransientColumnWidths !== undefined) {
+      onResetTransientColumnWidths();
+    }
+  }
+
+  @action getAppliedWidth(
+    columnKey: HdsAdvancedTableColumn['key']
+  ): HdsAdvancedTableColumn['width'] | undefined {
+    const { onGetAppliedWidth } = this.args;
+
+    if (columnKey === undefined || onGetAppliedWidth === undefined) {
+      return undefined;
+    }
+
+    return onGetAppliedWidth(columnKey);
+  }
+
+  @action getColumnByKey(
+    columnKey: HdsAdvancedTableColumn['key']
+  ): HdsAdvancedTableColumn | undefined {
+    const { onGetColumnByKey } = this.args;
+
+    if (columnKey === undefined || onGetColumnByKey === undefined) {
+      return undefined;
+    }
+
+    return onGetColumnByKey(columnKey);
+  }
+
+  @action setDraggedColumnKey(): void {
+    const { column, onSetDraggedColumnKey } = this.args;
+
+    if (column?.key !== undefined && onSetDraggedColumnKey !== undefined) {
+      onSetDraggedColumnKey(column.key);
+    }
+  }
+
+  @action setTransientColumnWidth(width: `${number}px`) {
+    const { column, onSetTransientColumnWidth } = this.args;
+
+    if (column?.key !== undefined && onSetTransientColumnWidth !== undefined) {
+      onSetTransientColumnWidth(column.key, width);
+    }
+  }
+
+  @action setTransientColumnWidths(options: { roundValues?: boolean }) {
+    const { onSetTransientColumnWidths } = this.args;
+
+    if (onSetTransientColumnWidths !== undefined) {
+      onSetTransientColumnWidths(options);
+    }
+  }
+
+  @action stepColumn(step: number): void {
+    const { column, onStepColumn } = this.args;
+
+    if (column?.key !== undefined && onStepColumn !== undefined) {
+      onStepColumn(column.key, step);
+    }
+  }
+
+  @action updateResizeDebt(delta: number): void {
+    const { column, onUpdateResizeDebt } = this.args;
+
+    if (column?.key !== undefined && onUpdateResizeDebt !== undefined) {
+      onUpdateResizeDebt(column.key, delta);
+    }
   }
 
   private _registerReorderHandleElement = modifier(
