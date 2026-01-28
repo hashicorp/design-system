@@ -12,6 +12,10 @@
 </p>
 
 
+### February 4th, 2026
+
+`FilterBar` - New component added.
+
 ### January 12th, 2026
 
 `SuperSelect` - Fixed a bug where the nested ListItems weren't being published.
@@ -108,12 +112,6 @@ This changelog corresponds with the [4.19](/whats-new/release-notes#4190) releas
 `Dropdown` - Radio and Checkbox list items updated to match font weight.
 
 `SideNav` - **Deprecated** the component. Use the `AppHeader` and `AppSideNav` instead.
-
-### April 24th, 2025
-
-`Button`, `StandaloneLink`, `Breadcrumb`, `Table Primitives` - Removed interactive component variants
-
-Unpublished all local variables for component-level tokens.
 
 
 ---
