@@ -120,11 +120,12 @@ export default class HdsText extends Component<HdsTextSignature> {
   }
 
   <template>
-    {{! IMPORTANT: we removed any extra newlines before/after the let to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/1652) }}
-    {{#let (element this.componentTag) as |Tag|}}<Tag
+    {{#let (element this.componentTag) as |Tag|}}
+      <Tag
         class={{this.classNames}}
         {{style color=this.customColor}}
         ...attributes
-      >{{yield}}</Tag>{{/let}}
+      >{{yield}}</Tag>
+    {{/let}}
   </template>
 }
