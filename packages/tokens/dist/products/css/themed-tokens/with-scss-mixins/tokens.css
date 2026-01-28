@@ -4,6 +4,9 @@
 
 @mixin hds-theme-default() {
   :root {
+    --token-accordion-gap-large: 12px;
+    --token-accordion-gap-medium: 8px;
+    --token-accordion-gap-small: 4px;
     --token-badge-border-radius-large: var(--token-border-radius-small);
     --token-badge-border-radius-medium: var(--token-border-radius-small);
     --token-badge-border-radius-small: var(--token-border-radius-small);
@@ -496,6 +499,9 @@
 
 @mixin hds-theme-light() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-badge-border-radius-large: 16px;
     --token-badge-border-radius-medium: 12px;
     --token-badge-border-radius-small: 8px;
@@ -813,6 +819,9 @@
 
 @mixin hds-theme-dark() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-badge-border-radius-large: 16px;
     --token-badge-border-radius-medium: 12px;
     --token-badge-border-radius-small: 8px;
@@ -1130,6 +1139,9 @@
 
 @mixin hds-mode-cds0() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-badge-border-radius-large: 16px;
     --token-badge-border-radius-medium: 12px;
     --token-badge-border-radius-small: 8px;
@@ -1447,6 +1459,9 @@
 
 @mixin hds-mode-cds10() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-badge-border-radius-large: 16px;
     --token-badge-border-radius-medium: 12px;
     --token-badge-border-radius-small: 8px;
@@ -1764,6 +1779,9 @@
 
 @mixin hds-mode-cds90() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-badge-border-radius-large: 16px;
     --token-badge-border-radius-medium: 12px;
     --token-badge-border-radius-small: 8px;
@@ -2081,6 +2099,9 @@
 
 @mixin hds-mode-cds100() {
   :root {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-badge-border-radius-large: 16px;
     --token-badge-border-radius-medium: 12px;
     --token-badge-border-radius-small: 8px;
@@ -2410,9 +2431,6 @@
     --token-accordion-content-padding-top-large: 4px;
     --token-accordion-content-padding-top-medium: 4px;
     --token-accordion-content-padding-top-small: 4px;
-    --token-accordion-gap-large: 12px;
-    --token-accordion-gap-medium: 8px;
-    --token-accordion-gap-small: 4px;
     --token-accordion-item-toggle-gap-large: 12px;
     --token-accordion-item-toggle-gap-medium: 12px;
     --token-accordion-item-toggle-gap-small: 8px;
