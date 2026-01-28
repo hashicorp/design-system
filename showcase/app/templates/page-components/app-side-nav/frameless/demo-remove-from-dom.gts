@@ -22,7 +22,7 @@ export default class PageComponentsAppSideNavFramelessDemoRemoveFromDom extends 
     <MockApp>
       <:sidebar as |S|>
         {{#if this.isRendered}}
-          <S.SideNav
+          <S.AppSideNav
             @showDevToggle={{true}}
             @onToggleMinimizedStatus={{this.removeSideNavFromDOM}}
           />
