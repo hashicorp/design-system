@@ -4,6 +4,9 @@
 
 :root,
 .hds-theme-default {
+  --token-accordion-gap-large: 12px;
+  --token-accordion-gap-medium: 8px;
+  --token-accordion-gap-small: 4px;
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
   --token-badge-count-padding-horizontal-medium: 12px;
@@ -554,6 +557,9 @@
 
 @media (prefers-color-scheme: light) {
   .hds-theme-system {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -932,6 +938,9 @@
 
 @media (prefers-color-scheme: dark) {
   .hds-theme-system {
+    --token-accordion-gap-large: 0px;
+    --token-accordion-gap-medium: 0px;
+    --token-accordion-gap-small: 0px;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1310,6 +1319,9 @@
 
 .hds-theme-light,
 .hds-mode-cds-g0 {
+  --token-accordion-gap-large: 0px;
+  --token-accordion-gap-medium: 0px;
+  --token-accordion-gap-small: 0px;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -1684,6 +1696,9 @@
 
 .hds-theme-dark,
 .hds-mode-cds-g100 {
+  --token-accordion-gap-large: 0px;
+  --token-accordion-gap-medium: 0px;
+  --token-accordion-gap-small: 0px;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -2057,6 +2072,9 @@
 }
 
 .hds-mode-cds-g10 {
+  --token-accordion-gap-large: 0px;
+  --token-accordion-gap-medium: 0px;
+  --token-accordion-gap-small: 0px;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -2430,6 +2448,9 @@
 }
 
 .hds-mode-cds-g90 {
+  --token-accordion-gap-large: 0px;
+  --token-accordion-gap-medium: 0px;
+  --token-accordion-gap-small: 0px;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -2842,9 +2863,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-accordion-content-padding-top-large: 4px;
   --token-accordion-content-padding-top-medium: 4px;
   --token-accordion-content-padding-top-small: 4px;
-  --token-accordion-gap-large: 12px;
-  --token-accordion-gap-medium: 8px;
-  --token-accordion-gap-small: 4px;
   --token-accordion-item-toggle-gap-large: 12px;
   --token-accordion-item-toggle-gap-medium: 12px;
   --token-accordion-item-toggle-gap-small: 8px;

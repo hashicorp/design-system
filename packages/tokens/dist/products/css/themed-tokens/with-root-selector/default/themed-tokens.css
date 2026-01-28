@@ -3,6 +3,9 @@
  */
 
 :root {
+  --token-accordion-gap-large: 12px;
+  --token-accordion-gap-medium: 8px;
+  --token-accordion-gap-small: 4px;
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
   --token-badge-count-padding-horizontal-medium: 12px;
