@@ -12,7 +12,7 @@
   {{hds-advanced-table-cell
     handleEnableFocusTrap=this.enableFocusTrap
     shouldTrapFocus=this._shouldTrapFocus
-    setCellElement=(fn (mut this._element))
+    setCellElement=this.setElement
   }}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap

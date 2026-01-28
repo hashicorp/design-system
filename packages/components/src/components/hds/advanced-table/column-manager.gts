@@ -199,6 +199,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
 
   get gridTemplateColumns(): string {
     const { isSelectable } = this.args;
+
     let style = isSelectable ? 'min-content ' : '';
 
     for (const col of this.args.columns) {
@@ -206,14 +207,9 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
         continue;
       }
 
-      const width = this.columnWidths.get(col.key);
-      const transientWidth = this.transientColumnWidths.get(col.key);
+      const appliedWidth = this.getAppliedWidth(col.key);
 
-      const appliedWidth = transientWidth ?? width;
-
-      if (appliedWidth) {
-        style += ` ${appliedWidth}`;
-      }
+      style += ` ${appliedWidth}`;
     }
 
     return style;
@@ -613,7 +609,9 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     this.columnWidths.set(columnKey, transientWidth);
   };
 
-  setTransientColumnWidths(options: { roundValues?: boolean } = {}): void {
+  setTransientColumnWidths = (
+    options: { roundValues?: boolean } = {}
+  ): void => {
     const roundValues = options.roundValues ?? false;
 
     this.columnWidths.forEach((width, key) => {
@@ -630,17 +628,17 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
         `${roundValues ? Math.round(_width) : _width}px`
       );
     });
-  }
+  };
 
-  resetTransientColumnWidths(): void {
+  resetTransientColumnWidths = (): void => {
     this.transientColumnWidths.clear();
-  }
+  };
 
-  setTransientColumnWidth(
+  setTransientColumnWidth = (
     columnKey: HdsAdvancedTableColumn['key'],
     width: `${number}px`,
     clamped: boolean = true
-  ): void {
+  ): void => {
     if (columnKey === undefined) {
       return;
     }
@@ -671,12 +669,14 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     } else {
       this.transientColumnWidths.set(columnKey, width);
     }
-  }
+  };
 
-  getSiblingColumnKeys(columnKey: HdsAdvancedTableColumn['key']): {
+  getSiblingColumnKeys = (
+    columnKey: HdsAdvancedTableColumn['key']
+  ): {
     previous?: HdsAdvancedTableColumn['key'];
     next?: HdsAdvancedTableColumn['key'];
-  } {
+  } => {
     if (columnKey === undefined) {
       return {};
     }
@@ -695,11 +695,11 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
           ? undefined
           : this.columnOrder[columnIndex + 1],
     };
-  }
+  };
 
-  getAppliedWidth(
+  getAppliedWidth = (
     columnKey: HdsAdvancedTableColumn['key']
-  ): HdsAdvancedTableColumn['width'] {
+  ): HdsAdvancedTableColumn['width'] => {
     if (columnKey === undefined) {
       return '0px';
     }
@@ -708,7 +708,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     const transientWidth = this.transientColumnWidths.get(columnKey);
 
     return transientWidth ?? width ?? '0px';
-  }
+  };
 
   getIsStickyColumn = (
     columnKey: HdsAdvancedTableColumn['key']
@@ -739,7 +739,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     (_element, [columns]) => {
       for (const column of columns) {
         if (column.key !== undefined) {
-          this.columnWidths.set(column.key, column.width);
+          this.columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
           this.originalColumnWidths.set(column.key, column.width);
         }
       }
