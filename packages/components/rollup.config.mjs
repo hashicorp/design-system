@@ -96,7 +96,6 @@ const plugins = [
       {
         inputFile: 'design-system-power-select-overrides.scss',
         outputFile: 'design-system-power-select-overrides.css',
-        loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
       },
     ]
   ),
