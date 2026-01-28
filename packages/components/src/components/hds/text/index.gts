@@ -5,6 +5,9 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import style from 'ember-style-modifier';
+import { element } from 'ember-element-helper';
+
 import { HdsTextAlignValues, HdsTextColorValues } from './types.ts';
 import type {
   HdsTextAligns,
@@ -115,4 +118,13 @@ export default class HdsText extends Component<HdsTextSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    {{! IMPORTANT: we removed any extra newline/whitespace between the 'let' and the '<Tag>' to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/1652) }}
+    {{#let (element this.componentTag) as |Tag|}}<Tag
+        class={{this.classNames}}
+        {{style color=this.customColor}}
+        ...attributes
+      >{{yield}}</Tag>{{/let}}
+  </template>
 }

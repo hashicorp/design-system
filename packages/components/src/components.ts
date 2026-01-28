@@ -337,10 +337,10 @@ export { default as HdsTag } from './components/hds/tag/index.ts';
 export * from './components/hds/tag/types.ts';
 
 // Text
-export { default as HdsText } from './components/hds/text/index.ts';
-export { default as HdsTextBody } from './components/hds/text/body.ts';
-export { default as HdsTextCode } from './components/hds/text/code.ts';
-export { default as HdsTextDisplay } from './components/hds/text/display.ts';
+export { default as HdsText } from './components/hds/text/index.gts';
+export { default as HdsTextBody } from './components/hds/text/body.gts';
+export { default as HdsTextCode } from './components/hds/text/code.gts';
+export { default as HdsTextDisplay } from './components/hds/text/display.gts';
 export * from './components/hds/text/types.ts';
 
 // Time
