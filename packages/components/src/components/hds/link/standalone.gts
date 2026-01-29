@@ -5,11 +5,20 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { eq } from 'ember-truth-helpers';
+import { array } from '@ember/helper';
+
+import type Owner from '@ember/owner';
+
 import {
   HdsLinkIconPositionValues,
   HdsLinkColorValues,
   HdsLinkStandaloneSizeValues,
 } from './types.ts';
+import HdsInteractive from '../interactive/index.gts';
+import HdsIcon from '../icon/index.gts';
+import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
+import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 
 import type { HdsInteractiveSignature } from '../interactive/';
 import type {
@@ -18,7 +27,6 @@ import type {
   HdsLinkStandaloneSizes,
 } from './types.ts';
 import type { HdsIconSignature } from '../icon';
-import type Owner from '@ember/owner';
 
 export interface HdsLinkStandaloneSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -50,11 +58,6 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
     }
   }
 
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the link. If no text value is defined an error will be thrown.
-   */
   get text(): string {
     const { text } = this.args;
 
@@ -66,12 +69,6 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
     return text;
   }
 
-  /**
-   * @param color
-   * @type {string}
-   * @default primary
-   * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
-   */
   get color(): HdsLinkColors {
     const { color = DEFAULT_COLOR } = this.args;
 
@@ -85,12 +82,6 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
     return color;
   }
 
-  /**
-   * @param icon
-   * @type {string|null}
-   * @default null
-   * @description The name of the icon to be used. An icon name must be defined.
-   */
   get icon(): HdsIconSignature['Args']['name'] {
     const { icon } = this.args;
 
@@ -102,12 +93,6 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
     return icon;
   }
 
-  /**
-   * @param iconPosition
-   * @type {HdsLinkIconPositions}
-   * @default leading
-   * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
-   */
   get iconPosition(): HdsLinkIconPositions {
     const { iconPosition = DEFAULT_ICON_POSITION } = this.args;
 
@@ -121,12 +106,6 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
     return iconPosition;
   }
 
-  /**
-   * @param size
-   * @type {HdsLinkStandaloneSizes}
-   * @default medium
-   * @description The size of the standalone link; acceptable values are `small`, `medium`, and `large`
-   */
   get size(): HdsLinkStandaloneSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -140,12 +119,6 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
     return size;
   }
 
-  /**
-   * @param iconSize
-   * @type {string}
-   * @default 16
-   * @description ensures that the correct icon size is used. Automatically calculated.
-   */
   get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.size === 'large') {
       return '24';
@@ -154,11 +127,6 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
     }
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method LinkStandalone#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-link-standalone'];
 
@@ -173,4 +141,43 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
 
     return classes.join(' ');
   }
+
+  <template>
+    <HdsInteractive
+      class={{this.classNames}}
+      @current-when={{@current-when}}
+      @models={{hdsLinkToModels (array @model @models)}}
+      @query={{hdsLinkToQuery (array @query)}}
+      @replace={{@replace}}
+      @route={{@route}}
+      @isRouteExternal={{@isRouteExternal}}
+      @href={{@href}}
+      @isHrefExternal={{@isHrefExternal}}
+      ...attributes
+    >
+      {{#if (eq this.iconPosition "leading")}}
+        <span class="hds-link-standalone__icon">
+          <HdsIcon
+            @name={{this.icon}}
+            @size={{this.iconSize}}
+            @stretched={{true}}
+          />
+        </span>
+        <span class="hds-link-standalone__text">
+          {{this.text}}
+        </span>
+      {{else}}
+        <span class="hds-link-standalone__text">
+          {{this.text}}
+        </span>
+        <span class="hds-link-standalone__icon">
+          <HdsIcon
+            @name={{this.icon}}
+            @size={{this.iconSize}}
+            @stretched={{true}}
+          />
+        </span>
+      {{/if}}
+    </HdsInteractive>
+  </template>
 }

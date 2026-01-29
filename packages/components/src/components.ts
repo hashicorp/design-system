@@ -248,8 +248,8 @@ export { default as HdsIconTile } from './components/hds/icon-tile/index.ts';
 export * from './components/hds/icon-tile/types.ts';
 
 // Link
-export { default as HdsLinkInline } from './components/hds/link/inline.ts';
-export { default as HdsLinkStandalone } from './components/hds/link/standalone.ts';
+export { default as HdsLinkInline } from './components/hds/link/inline.gts';
+export { default as HdsLinkStandalone } from './components/hds/link/standalone.gts';
 export * from './components/hds/link/types.ts';
 
 // Modal

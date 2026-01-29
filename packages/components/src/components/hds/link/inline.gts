@@ -5,12 +5,20 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { eq } from 'ember-truth-helpers';
+import { array } from '@ember/helper';
+
+import type Owner from '@ember/owner';
+
 import { HdsLinkColorValues, HdsLinkIconPositionValues } from './types.ts';
+import HdsInteractive from '../interactive/index.gts';
+import HdsIcon from '../icon/index.gts';
+import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
+import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 
 import type { HdsInteractiveSignature } from '../interactive/';
-import type { HdsLinkColors, HdsLinkIconPositions } from './types.ts';
 import type { HdsIconSignature } from '../icon';
-import type Owner from '@ember/owner';
+import type { HdsLinkColors, HdsLinkIconPositions } from './types.ts';
 
 export const DEFAULT_ICON_POSITION = HdsLinkIconPositionValues.Trailing;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
@@ -39,12 +47,6 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
     }
   }
 
-  /**
-   * @param color
-   * @type {string}
-   * @default primary
-   * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
-   */
   get color(): HdsLinkColors {
     const { color = DEFAULT_COLOR } = this.args;
 
@@ -58,12 +60,6 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
     return color;
   }
 
-  /**
-   * @param iconPosition
-   * @type {HdsLinkIconPositions}
-   * @default leading
-   * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
-   */
   get iconPosition(): HdsLinkIconPositions {
     const { iconPosition = DEFAULT_ICON_POSITION } = this.args;
 
@@ -77,11 +73,6 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
     return iconPosition;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method LinkInline#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-link-inline'];
 
@@ -93,4 +84,36 @@ export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the link (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+    <HdsInteractive
+      class={{this.classNames}}
+      @current-when={{@current-when}}
+      @models={{hdsLinkToModels (array @model @models)}}
+      @query={{hdsLinkToQuery (array @query)}}
+      @replace={{@replace}}
+      @route={{@route}}
+      @isRouteExternal={{@isRouteExternal}}
+      @href={{@href}}
+      @isHrefExternal={{@isHrefExternal}}
+      ...attributes
+    >
+      {{~#if (eq this.iconPosition "leading")~}}
+        {{~#if @icon~}}
+          <span class="hds-link-inline__icon hds-link-inline__icon--leading">
+            <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+          </span>
+        {{~/if~}}
+      {{~/if~}}
+      {{yield}}
+      {{~#if (eq this.iconPosition "trailing")~}}
+        {{~#if @icon~}}
+          <span class="hds-link-inline__icon hds-link-inline__icon--trailing">
+            <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+          </span>
+        {{~/if~}}
+      {{~/if~}}
+    </HdsInteractive>
+  </template>
 }
