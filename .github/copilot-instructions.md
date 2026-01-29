@@ -95,7 +95,7 @@ description: "Instructions for how components should be exported and registered 
 - Export all component classes and types defined under `packages/components/src/components/hds/**` in the `packages/components/src/components.ts` file.
   - Example: The `HdsButton` component should be exported as follows:
     ```ts
-    export { default as HdsButton } from './components/hds/button/index.ts';
+    export { default as HdsButton } from './components/hds/button/index.gts';
     export * from './components/hds/button/types.ts';
     ```
 - Import all components defined under `packages/components/src/components/hds/**` in the `packages/components/src/template-registry.ts` file, and add their registration to the `HdsComponentsRegistry` interface.
