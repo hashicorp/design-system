@@ -65,8 +65,8 @@ setLinkToExternal(LinkToExternal);`
   <template>
     {{! IMPORTANT: we removed the newlines before/after the yield to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/231#issuecomment-1123502499) }}
     {{! NOTICE: we can't support the direct use of the "href" HTML attribute via ...attributes in the <a> elements, because we need to rely on the "@href" Ember argument to differentiate between different types of generated output }}
-    {{#if @route}}
-      {{#if this.isRouteExternal}}
+    {{~#if @route~}}
+      {{~#if this.isRouteExternal~}}
         <this.linkToExternal
           @current-when={{@current-when}}
           @models={{hdsLinkToModels (array @model @models)}}
@@ -75,7 +75,7 @@ setLinkToExternal(LinkToExternal);`
           @route={{@route}}
           ...attributes
         >{{yield}}</this.linkToExternal>
-      {{else}}
+      {{~else~}}
         <LinkTo
           @current-when={{@current-when}}
           @models={{hdsLinkToModels (array @model @models)}}
@@ -84,9 +84,9 @@ setLinkToExternal(LinkToExternal);`
           @route={{@route}}
           ...attributes
         >{{yield}}</LinkTo>
-      {{/if}}
-    {{else if @href}}
-      {{#if this.isHrefExternal}}
+      {{~/if~}}
+    {{~else if @href~}}
+      {{~#if this.isHrefExternal~}}
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -94,15 +94,15 @@ setLinkToExternal(LinkToExternal);`
           href={{@href}}
           {{on "keyup" this.onKeyUp}}
         >{{yield}}</a>
-      {{else}}
+      {{~else~}}
         <a
           ...attributes
           href={{@href}}
           {{on "keyup" this.onKeyUp}}
         >{{yield}}</a>
-      {{/if}}
-    {{else}}
+      {{~/if~}}
+    {{~else~}}
       <button type="button" ...attributes>{{yield}}</button>
-    {{/if}}
+    {{~/if~}}
   </template>
 }
