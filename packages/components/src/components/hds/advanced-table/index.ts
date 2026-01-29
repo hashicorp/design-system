@@ -11,6 +11,7 @@ import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
 import HdsAdvancedTableTableModel from './models/table.ts';
+import { HdsAdvancedTableThSortOrderValues } from './types.ts';
 
 import type Owner from '@ember/owner';
 import type { WithBoundArgs } from '@glint/template';
@@ -24,6 +25,7 @@ import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableOnSelectionChangeSignature,
   HdsAdvancedTableSelectableRow,
+  HdsAdvancedTableSortingFunction,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
@@ -60,7 +62,6 @@ const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
   hasStickyFirstColumn: boolean,
-  hasFirstColumnPxWidth: boolean,
   isStickyColumnPinned: boolean
 ) => {
   const horizontalScrollBarHeight =
@@ -83,7 +84,7 @@ const getScrollIndicatorDimensions = (
     });
 
     // offsets the left: -1px position if there are multiple sticky columns or the first column has a fixed pixel width
-    if (stickyColumnHeaders.length > 1 || hasFirstColumnPxWidth) {
+    if (stickyColumnHeaders.length > 1) {
       leftOffset -= 1;
     }
 
@@ -221,6 +222,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorBottom = false;
   @tracked stickyColumnOffset = '0px';
 
+  // sorting properties
+  @tracked sortBy?: string;
+  @tracked sortOrder?: HdsAdvancedTableThSortOrder;
+
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
@@ -228,25 +233,39 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       model,
       columns,
       childrenKey,
+      hasStickyFirstColumn,
       sortBy,
       sortOrder,
-      hasStickyFirstColumn,
-      onSort,
     } = args;
+
+    this.sortBy = sortBy;
+    this.sortOrder = sortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
 
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
       columns,
       childrenKey,
-      sortBy,
-      sortOrder,
-      onSort,
     });
 
     this._runAssertions();
 
     if (hasStickyFirstColumn) {
       this.hasPinnedFirstColumn = true;
+    }
+  }
+
+  get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
+    const { columns, sortBy, sortOrder } = this.args;
+
+    const currentColumn = columns.find((column) => column.key === sortBy);
+
+    if (
+      currentColumn?.sortingFunction &&
+      typeof currentColumn.sortingFunction === 'function'
+    ) {
+      return currentColumn.sortingFunction;
+    } else {
+      return `${sortBy}:${sortOrder}`;
     }
   }
 
@@ -277,8 +296,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get sortedMessageText(): string {
-    const { sortedMessageText } = this.args;
-    const { sortBy, sortOrder } = this._tableModel;
+    const { sortedMessageText, sortBy, sortOrder } = this.args;
 
     if (sortedMessageText !== undefined) {
       return sortedMessageText;
@@ -413,14 +431,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const updateMeasurements = () => {
       this._tableHeight = element.offsetHeight;
 
-      const hasFirstColumnPxWidth =
-        this._tableModel.columns[0]?.pxWidth !== undefined;
-
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,
         this.hasStickyFirstColumn ? true : false,
-        hasFirstColumnPxWidth,
         this.isStickyColumnPinned
       );
 
@@ -575,13 +589,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setupTableModelData(): void {
-    const { columns, model, sortBy, sortOrder } = this.args;
+    const { columns, model } = this.args;
 
     this._tableModel.setupData({
       columns,
       model,
-      sortBy,
-      sortOrder,
     });
   }
 
@@ -659,6 +671,31 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this._selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
+    }
+  }
+
+  @action
+  setSortBy(columnKey: HdsAdvancedTableColumn['key']): void {
+    const { onSort } = this.args;
+
+    if (columnKey === undefined) {
+      return;
+    }
+
+    if (this.sortBy === columnKey) {
+      // check to see if the column is already sorted and invert the sort order if so
+      this.sortOrder =
+        this.sortOrder === HdsAdvancedTableThSortOrderValues.Asc
+          ? HdsAdvancedTableThSortOrderValues.Desc
+          : HdsAdvancedTableThSortOrderValues.Asc;
+    } else {
+      // otherwise, set the sort order to ascending
+      this.sortBy = columnKey;
+      this.sortOrder = HdsAdvancedTableThSortOrderValues.Asc;
+    }
+
+    if (typeof onSort === 'function') {
+      onSort(this.sortBy, this.sortOrder);
     }
   }
 
