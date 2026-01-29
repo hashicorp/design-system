@@ -168,10 +168,10 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
   }
 
   get orderedColumns(): HdsAdvancedTableColumn[] {
-    const { columns, hasReorderableColumns, columnOrder } = this.args;
+    const { columns, hasReorderableColumns } = this.args;
 
-    if (hasReorderableColumns && columnOrder !== undefined) {
-      return columnOrder.reduce<HdsAdvancedTableColumn[]>((acc, key) => {
+    if (hasReorderableColumns && this.columnOrder !== undefined) {
+      return this.columnOrder.reduce<HdsAdvancedTableColumn[]>((acc, key) => {
         const column = this.getColumnByKey(key);
 
         if (column !== undefined) {
@@ -343,15 +343,19 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
 
       // we need to wait until the reposition has finished
       requestAnimationFrame(() => {
-        // TODO
-        // sourceColumn.thElement?.scrollIntoView({
-        //   behavior: 'smooth',
-        //   block: 'nearest',
-        //   inline: 'center',
-        // });
+        const thElement = this.thElements.get(sourceColumnKey);
 
-        // TODO
-        // sourceColumn.isBeingDragged = false;
+        if (thElement === undefined) {
+          return;
+        }
+
+        thElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center',
+        });
+
+        this.draggedColumnKey = undefined;
 
         const column = this.getColumnByKey(sourceColumnKey);
 

@@ -15,7 +15,7 @@ export interface HdsAdvancedTableThReorderHandleSignature {
     tableHeight?: number;
     thElement?: HTMLDivElement;
     onFocusReorderHandle: () => void;
-    onSetDraggedColumnKey: () => void;
+    onSetDraggedColumnKey: (columnKey: HdsAdvancedTableColumn['key']) => void;
     onStepColumn: (step: number) => void;
   };
   Blocks: {
@@ -50,7 +50,7 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
       return;
     }
 
-    onSetDraggedColumnKey();
+    onSetDraggedColumnKey(key);
 
     const thElementWidth = thElement.offsetWidth;
 

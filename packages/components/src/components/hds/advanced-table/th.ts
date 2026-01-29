@@ -303,11 +303,11 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return onGetColumnByKey(columnKey);
   }
 
-  @action setDraggedColumnKey(): void {
-    const { column, onSetDraggedColumnKey } = this.args;
+  @action setDraggedColumnKey(columnKey: HdsAdvancedTableColumn['key']): void {
+    const { onSetDraggedColumnKey } = this.args;
 
-    if (column?.key !== undefined && onSetDraggedColumnKey !== undefined) {
-      onSetDraggedColumnKey(column.key);
+    if (columnKey !== undefined && onSetDraggedColumnKey !== undefined) {
+      onSetDraggedColumnKey(columnKey);
     }
   }
 
