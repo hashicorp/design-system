@@ -80,7 +80,7 @@ export { default as HdsBreadcrumbItem } from './components/hds/breadcrumb/item.t
 export { default as HdsBreadcrumbTruncation } from './components/hds/breadcrumb/truncation.ts';
 
 // Button
-export { default as HdsButton } from './components/hds/button/index.ts';
+export { default as HdsButton } from './components/hds/button/index.gts';
 export * from './components/hds/button/types.ts';
 
 // ButtonSet
