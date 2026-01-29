@@ -16,8 +16,8 @@ import HdsIcon from '../icon/index.gts';
 import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
 import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 
-import type { HdsInteractiveSignature } from '../interactive/';
-import type { HdsIconSignature } from '../icon';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
+import type { HdsIconSignature } from '../icon/index.gts';
 import type { HdsLinkColors, HdsLinkIconPositions } from './types.ts';
 
 export const DEFAULT_ICON_POSITION = HdsLinkIconPositionValues.Trailing;

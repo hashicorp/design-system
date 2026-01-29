@@ -23,8 +23,8 @@ import type {
   HdsButtonColors,
   HdsButtonIconPositions,
 } from './types.ts';
-import type { HdsInteractiveSignature } from '../interactive/';
-import type { HdsIconSignature } from '../icon';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
+import type { HdsIconSignature } from '../icon/index.gts';
 
 export const SIZES: HdsButtonSizes[] = Object.values(HdsButtonSizeValues);
 export const COLORS: HdsButtonColors[] = Object.values(HdsButtonColorValues);
