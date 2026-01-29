@@ -64,6 +64,7 @@ setLinkToExternal(LinkToExternal);`
 
   <template>
     {{! IMPORTANT: we removed the newlines before/after the yield to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/231#issuecomment-1123502499) }}
+    {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the link (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
     {{! NOTICE: we can't support the direct use of the "href" HTML attribute via ...attributes in the <a> elements, because we need to rely on the "@href" Ember argument to differentiate between different types of generated output }}
     {{~#if @route~}}
       {{~#if this.isRouteExternal~}}
