@@ -13,7 +13,7 @@ import {
   HdsBadgeTypeValues,
 } from './types.ts';
 import type { HdsBadgeColors, HdsBadgeSizes, HdsBadgeTypes } from './types.ts';
-import type { HdsIconSignature } from '../icon';
+import type { HdsIconSignature } from '../icon/index.gts';
 
 export const SIZES: HdsBadgeSizes[] = Object.values(HdsBadgeSizeValues);
 export const TYPES: HdsBadgeTypes[] = Object.values(HdsBadgeTypeValues);

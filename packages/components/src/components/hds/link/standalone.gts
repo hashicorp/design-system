@@ -20,13 +20,13 @@ import HdsIcon from '../icon/index.gts';
 import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
 import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 
-import type { HdsInteractiveSignature } from '../interactive/';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
 import type {
   HdsLinkColors,
   HdsLinkIconPositions,
   HdsLinkStandaloneSizes,
 } from './types.ts';
-import type { HdsIconSignature } from '../icon';
+import type { HdsIconSignature } from '../icon/index.gts';
 
 export interface HdsLinkStandaloneSignature {
   Args: HdsInteractiveSignature['Args'] & {
