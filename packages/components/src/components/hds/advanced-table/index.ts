@@ -227,10 +227,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const {
       model,
       columns,
-      columnOrder,
       childrenKey,
-      hasReorderableColumns,
-      hasResizableColumns,
       sortBy,
       sortOrder,
       hasStickyFirstColumn,
@@ -240,13 +237,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
       columns,
-      columnOrder,
       childrenKey,
-      hasReorderableColumns,
-      hasResizableColumns,
       sortBy,
       sortOrder,
-      onColumnReorder: this._onColumnReorder.bind(this),
       onSort,
     });
 
@@ -385,6 +378,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get theadClassNames(): string {
+    const { hasResizableColumns } = this.args;
+
     const classes = ['hds-advanced-table__thead'];
 
     if (this.hasStickyHeader) {
@@ -395,16 +390,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       classes.push('hds-advanced-table__thead--is-pinned');
     }
 
-    if (this._tableModel.hasResizableColumns) {
+    if (hasResizableColumns) {
       classes.push('hds-advanced-table__thead--has-resizable-columns');
     }
 
     return classes.join(' ');
   }
-
-  private _registerGridElement = modifier((element: HTMLDivElement) => {
-    this._tableModel.gridElement = element;
-  });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollWrapperElement = element;
@@ -592,15 +583,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       sortBy,
       sortOrder,
     });
-  }
-
-  @action
-  updateTableModelColumnOrder(): void {
-    if (this.args.columnOrder === undefined) {
-      return;
-    }
-
-    this._tableModel.columnOrder = this.args.columnOrder;
   }
 
   @action

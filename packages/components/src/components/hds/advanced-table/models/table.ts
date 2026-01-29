@@ -6,7 +6,6 @@
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import HdsAdvancedTableColumn from './column.ts';
 import { HdsAdvancedTableThSortOrderValues } from '../types.ts';
 
 import type { HdsAdvancedTableSignature } from '../index.ts';
@@ -17,14 +16,7 @@ import type {
 
 type HdsAdvancedTableTableArgs = Pick<
   HdsAdvancedTableSignature['Args'],
-  | 'model'
-  | 'columns'
-  | 'childrenKey'
-  | 'sortBy'
-  | 'sortOrder'
-  | 'onSort'
-  | 'onColumnReorder'
-  | 'onColumnResize'
+  'model' | 'columns' | 'childrenKey' | 'sortBy' | 'sortOrder' | 'onSort'
 >;
 
 function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
@@ -47,7 +39,6 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 }
 
 export default class HdsAdvancedTableTableModel {
-  @tracked columns: HdsAdvancedTableColumn[] = [];
   @tracked rows: HdsAdvancedTableRow[] = [];
   @tracked sortBy: HdsAdvancedTableTableArgs['sortBy'] = undefined;
   @tracked sortOrder: HdsAdvancedTableTableArgs['sortOrder'] =
@@ -157,14 +148,6 @@ export default class HdsAdvancedTableTableModel {
 
     this.sortBy = sortBy;
     this.sortOrder = sortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
-
-    this.columns = columns.map(
-      (column) =>
-        new HdsAdvancedTableColumn({
-          column,
-          table: this,
-        })
-    );
 
     this.rows = model.map((row) => {
       return new HdsAdvancedTableRow({

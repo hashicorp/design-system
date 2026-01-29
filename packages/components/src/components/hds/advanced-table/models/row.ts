@@ -7,7 +7,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
-import type { HdsAdvancedTableColumn, HdsAdvancedTableCell } from '../types';
+import type { HdsAdvancedTableColumn } from '../types';
 import type HdsAdvancedTableTableModel from './table';
 
 interface HdsAdvancedTableRowArgs {
@@ -25,7 +25,6 @@ export default class HdsAdvancedTableRow {
   [key: string]: unknown;
 
   @tracked isOpen: boolean = false;
-  @tracked cells: HdsAdvancedTableCell[] = [];
 
   children: HdsAdvancedTableRow[] = [];
   childrenKey: string;
@@ -39,37 +38,10 @@ export default class HdsAdvancedTableRow {
     return this.isOpen && this.hasChildren;
   }
 
-  get orderedCells(): HdsAdvancedTableCell[] {
-    const { columnOrder, hasReorderableColumns } = this.table;
-
-    if (hasReorderableColumns) {
-      return columnOrder.reduce<HdsAdvancedTableCell[]>((acc, key) => {
-        const cell = this.cells.find((cell) => cell.columnKey === key);
-
-        if (cell !== undefined) {
-          acc.push(cell);
-        }
-
-        return acc;
-      }, []);
-    } else {
-      return this.cells;
-    }
-  }
-
   constructor(args: HdsAdvancedTableRowArgs) {
-    const { columns, table } = args;
+    const { table } = args;
 
     this.table = table;
-
-    this.cells = columns.map((column) => {
-      const cell = args[column.key ?? ''];
-
-      return {
-        columnKey: column.key ?? '',
-        content: cell,
-      };
-    });
 
     // set row data
     Object.assign(this, args);

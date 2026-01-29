@@ -18,11 +18,13 @@ import type HdsAdvancedTableRow from './models/row.ts';
 
 export interface BaseHdsAdvancedTableTrSignature {
   Args: {
+    columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
     isLastRow?: boolean;
     isSelectable?: boolean;
     isSelected?: boolean;
     isParentRow?: boolean;
+    hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     data?: HdsAdvancedTableRow;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
@@ -73,6 +75,11 @@ export interface BaseHdsAdvancedTableTrSignature {
 export type HdsAdvancedTableTrSignature = BaseHdsAdvancedTableTrSignature;
 // | SelectableHdsAdvancedTableTrArgs;
 
+interface HdsAdvancedTableCell {
+  columnKey: string;
+  content: unknown;
+}
+
 export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSignature> {
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
@@ -106,5 +113,43 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
     }
 
     return classes.join(' ');
+  }
+
+  get cells(): HdsAdvancedTableCell[] {
+    const { columnOrder, data } = this.args;
+
+    if (columnOrder === undefined || data === undefined) {
+      return [];
+    }
+
+    return columnOrder.map((columnKey) => ({
+      columnKey,
+      content: data[columnKey],
+    }));
+  }
+
+  get orderedCells(): HdsAdvancedTableCell[] | undefined {
+    const { columnOrder, data, hasReorderableColumns } = this.args;
+
+    if (columnOrder === undefined || data === undefined) {
+      return this.cells;
+    }
+
+    if (hasReorderableColumns) {
+      return columnOrder.reduce<{ columnKey: string; content: unknown }[]>(
+        (acc, key) => {
+          const cell = this.cells.find((cell) => cell.columnKey === key);
+
+          if (cell !== undefined) {
+            acc.push(cell);
+          }
+
+          return acc;
+        },
+        []
+      );
+    } else {
+      return this.cells;
+    }
   }
 }

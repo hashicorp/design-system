@@ -7,7 +7,6 @@
   class="hds-advanced-table__container
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
   {{did-update this.setupTableModelData @columns @model @sortBy @sortOrder}}
-  {{did-update this.updateTableModelColumnOrder @columnOrder}}
   ...attributes
 >
   {{! Caption }}
@@ -35,7 +34,6 @@
         --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
         max-height=@maxHeight
       }}
-      {{this._registerGridElement}}
       {{this._setUpScrollWrapper}}
     >
       {{! Header }}
@@ -43,7 +41,7 @@
         class={{this.theadClassNames}}
         role="rowgroup"
         {{this._setUpThead}}
-        {{on "dragleave" (fn (mut this._tableModel.reorderHoveredColumn) null)}}
+        {{on "dragleave" (fn CM.setReorderHoveredColumnKey undefined)}}
       >
         <Hds::AdvancedTable::Tr
           @selectionScope="col"
@@ -162,6 +160,7 @@
                 (hash
                   Tr=(component
                     "hds/advanced-table/tr"
+                    columnOrder=CM.columnOrder
                     isLastRow=(eq this._tableModel.lastVisibleRow.id T.data.id)
                     isParentRow=T.isExpandable
                     depth=T.depth
@@ -191,6 +190,7 @@
               (hash
                 Tr=(component
                   "hds/advanced-table/tr"
+                  columnOrder=CM.columnOrder
                   selectionScope="row"
                   isLastRow=(eq this._tableModel.lastVisibleRow.id record.id)
                   isSelectable=this.isSelectable
