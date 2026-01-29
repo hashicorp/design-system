@@ -283,14 +283,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return undefined;
   }
 
-  get hasScrollIndicator(): boolean {
-    if (this.hasStickyFirstColumn) {
-      return true;
-    }
-
-    return false;
-  }
-
   get sortedMessageText(): string {
     const { sortedMessageText } = this.args;
     const { sortBy, sortOrder } = this._tableModel;
@@ -370,20 +362,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   // returns the grid-template-columns CSS attribute for the grid
-  get gridTemplateColumns(): string {
-    const { isSelectable } = this.args;
-    const { orderedColumns } = this._tableModel;
-
-    // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
-    let style = isSelectable ? 'min-content ' : '';
-
-    for (let i = 0; i < orderedColumns.length; i++) {
-      style += ` ${orderedColumns[i]!.appliedWidth}`;
-    }
-
-    return style;
-  }
-
   get classNames(): string {
     const classes = ['hds-advanced-table'];
 

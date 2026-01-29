@@ -6,19 +6,12 @@
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { isEmpty } from '@ember/utils';
 import HdsAdvancedTableColumn from './column.ts';
-import {
-  HdsAdvancedTableColumnReorderSideValues,
-  HdsAdvancedTableThSortOrderValues,
-} from '../types.ts';
+import { HdsAdvancedTableThSortOrderValues } from '../types.ts';
 
 import type { HdsAdvancedTableSignature } from '../index.ts';
 import type {
   HdsAdvancedTableExpandState,
-  HdsAdvancedTableCell,
-  HdsAdvancedTableColumnReorderCallback,
-  HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableSortingFunction,
 } from '../types';
 
@@ -26,10 +19,7 @@ type HdsAdvancedTableTableArgs = Pick<
   HdsAdvancedTableSignature['Args'],
   | 'model'
   | 'columns'
-  | 'columnOrder'
   | 'childrenKey'
-  | 'hasReorderableColumns'
-  | 'hasResizableColumns'
   | 'sortBy'
   | 'sortOrder'
   | 'onSort'
@@ -58,85 +48,21 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 
 export default class HdsAdvancedTableTableModel {
   @tracked columns: HdsAdvancedTableColumn[] = [];
-  @tracked columnOrder: string[] = [];
-  @tracked reorderDraggedColumn: HdsAdvancedTableColumn | null = null;
-  @tracked reorderHoveredColumn: HdsAdvancedTableColumn | null = null;
   @tracked rows: HdsAdvancedTableRow[] = [];
   @tracked sortBy: HdsAdvancedTableTableArgs['sortBy'] = undefined;
   @tracked sortOrder: HdsAdvancedTableTableArgs['sortOrder'] =
     HdsAdvancedTableThSortOrderValues.Asc;
-  @tracked gridElement?: HTMLDivElement = undefined;
 
   childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
-  hasReorderableColumns?: HdsAdvancedTableTableArgs['hasReorderableColumns'];
-  hasResizableColumns?: HdsAdvancedTableTableArgs['hasResizableColumns'];
-  onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
   onSort?: HdsAdvancedTableSignature['Args']['onSort'];
 
   constructor(args: HdsAdvancedTableTableArgs) {
-    const {
-      model,
-      columns,
-      columnOrder,
-      childrenKey,
-      hasReorderableColumns,
-      hasResizableColumns,
-      sortBy,
-      sortOrder,
-      onColumnReorder,
-      onSort,
-    } = args;
+    const { model, columns, childrenKey, sortBy, sortOrder, onSort } = args;
 
     this.childrenKey = childrenKey;
-    this.hasReorderableColumns = hasReorderableColumns;
-    this.hasResizableColumns = hasResizableColumns;
     this.onSort = onSort;
 
     this.setupData({ model, columns, sortBy, sortOrder });
-
-    // set initial column order
-    if (this.hasReorderableColumns) {
-      this.columnOrder = isEmpty(columnOrder)
-        ? this.columns.map((column) => column.key)
-        : columnOrder!; // ensured non-empty
-
-      this.onColumnReorder = onColumnReorder;
-    }
-  }
-
-  get hasColumnBeingDragged(): boolean {
-    return this.reorderDraggedColumn !== null;
-  }
-
-  get reorderDraggedColumnCells(): HdsAdvancedTableCell[] {
-    if (this.reorderDraggedColumn === null) {
-      return [];
-    }
-
-    const { key } = this.reorderDraggedColumn;
-
-    return this.flattenedVisibleRows.map((row) => {
-      const cell = row.cells.find((cell) => cell.columnKey === key);
-
-      return cell!;
-    });
-  }
-
-  // slated for removal
-  get orderedColumns(): HdsAdvancedTableColumn[] {
-    if (this.hasReorderableColumns) {
-      return this.columnOrder.reduce<HdsAdvancedTableColumn[]>((acc, key) => {
-        const column = this.columns.find((column) => column.key === key);
-
-        if (column !== undefined) {
-          acc.push(column);
-        }
-
-        return acc;
-      }, []);
-    } else {
-      return this.columns;
-    }
   }
 
   get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
@@ -220,26 +146,6 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
-  setTransientColumnWidths(options: { roundValues?: boolean } = {}): void {
-    const roundValues = options.roundValues ?? false;
-
-    this.columns.forEach((column) => {
-      column.pxTransientWidth = roundValues
-        ? Math.round(column.pxWidth)
-        : column.pxWidth;
-    });
-  }
-
-  resetTransientColumnWidths(): void {
-    this.columns.forEach((column) => {
-      column.pxTransientWidth = undefined;
-    });
-  }
-
-  getColumnByKey(key: string): HdsAdvancedTableColumn | undefined {
-    return this.columns.find((column) => column.key === key);
-  }
-
   @action
   setupData(
     args: Pick<
@@ -267,13 +173,6 @@ export default class HdsAdvancedTableTableModel {
         columns,
         table: this,
       });
-    });
-  }
-
-  @action
-  restoreColumnWidths(): void {
-    this.columns.forEach((column) => {
-      column.width = column.originalWidth;
     });
   }
 
@@ -313,130 +212,5 @@ export default class HdsAdvancedTableTableModel {
     } else {
       this.openAll();
     }
-  }
-
-  @action
-  stepColumn(column: HdsAdvancedTableColumn, step: number): void {
-    const { table } = column;
-    const oldIndex = table.orderedColumns.indexOf(column);
-    const newIndex = oldIndex + step;
-
-    // Check if the new position is within the array bounds.
-    if (newIndex < 0 || newIndex >= table.orderedColumns.length) {
-      return;
-    }
-
-    const targetColumn = table.orderedColumns[newIndex];
-
-    if (targetColumn === undefined) {
-      return;
-    }
-
-    // Determine the side based on the step direction.
-    const side: HdsAdvancedTableColumnReorderSide =
-      step > 0
-        ? HdsAdvancedTableColumnReorderSideValues.Right
-        : HdsAdvancedTableColumnReorderSideValues.Left;
-
-    table.moveColumnToTarget(column, targetColumn, side);
-  }
-
-  @action
-  moveColumnToTerminalPosition(
-    column: HdsAdvancedTableColumn,
-    position: 'start' | 'end'
-  ): void {
-    const firstColumn = this.orderedColumns.find((column) => column.isFirst);
-
-    const {
-      targetColumn,
-      side,
-    }: {
-      targetColumn?: HdsAdvancedTableColumn;
-      side: HdsAdvancedTableColumnReorderSide;
-    } =
-      position === 'start'
-        ? {
-            targetColumn: firstColumn,
-            side: HdsAdvancedTableColumnReorderSideValues.Left,
-          }
-        : {
-            targetColumn: this.orderedColumns[this.orderedColumns.length - 1],
-            side: HdsAdvancedTableColumnReorderSideValues.Right,
-          };
-
-    if (targetColumn === undefined) {
-      return;
-    }
-
-    // Move the column to the target position
-    this.moveColumnToTarget(column, targetColumn, side);
-  }
-
-  @action
-  moveColumnToTarget(
-    sourceColumn: HdsAdvancedTableColumn,
-    targetColumn: HdsAdvancedTableColumn,
-    side: HdsAdvancedTableColumnReorderSide
-  ): void {
-    const sourceKey = sourceColumn.key;
-    const targetKey = targetColumn.key;
-
-    const oldIndex = this.columnOrder.indexOf(sourceKey);
-    const newIndex = this.columnOrder.indexOf(targetKey);
-
-    if (oldIndex !== -1 && newIndex !== -1) {
-      const updated = [...this.columnOrder];
-
-      updated.splice(oldIndex, 1); // Remove from old position
-
-      // Calculate the insertion index based on the side
-      // If dropping to the right of the target, insert after the target
-      // If dropping to the left of the target, insert before the target
-      // Adjust for the shift in indices caused by removing the source column
-      const adjustedIndex =
-        side === HdsAdvancedTableColumnReorderSideValues.Right
-          ? newIndex > oldIndex
-            ? newIndex
-            : newIndex + 1
-          : newIndex > oldIndex
-            ? newIndex - 1
-            : newIndex;
-
-      updated.splice(adjustedIndex, 0, sourceColumn.key); // Insert at new position
-
-      this.columnOrder = updated;
-
-      // we need to wait until the reposition has finished
-      requestAnimationFrame(() => {
-        sourceColumn.thElement?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center',
-        });
-
-        sourceColumn.isBeingDragged = false;
-
-        this.onColumnReorder?.({
-          column: sourceColumn,
-          newOrder: updated,
-          insertedAt: updated.indexOf(sourceColumn.key),
-        });
-      });
-    }
-  }
-
-  @action
-  moveColumnToDropTarget(
-    targetColumn: HdsAdvancedTableColumn,
-    side: HdsAdvancedTableColumnReorderSide
-  ) {
-    const sourceColumn = this.reorderDraggedColumn;
-
-    if (sourceColumn == null || sourceColumn === targetColumn) {
-      return;
-    }
-
-    this.moveColumnToTarget(sourceColumn, targetColumn, side);
   }
 }
