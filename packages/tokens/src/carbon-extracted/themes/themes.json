@@ -208,8 +208,8 @@
         "bodyLong01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -240,8 +240,8 @@
         "bodyLong02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -272,8 +272,8 @@
         "bodyShort01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -304,8 +304,8 @@
         "bodyShort02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -448,8 +448,8 @@
         "caption01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -480,8 +480,8 @@
         "caption02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -638,8 +638,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -677,8 +677,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -749,8 +749,8 @@
         "display01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -781,8 +781,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -791,8 +791,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -801,8 +801,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -818,8 +818,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -837,8 +837,8 @@
         "display02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -869,8 +869,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -879,8 +879,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -889,8 +889,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -906,8 +906,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -925,8 +925,8 @@
         "display03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -957,8 +957,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -974,8 +974,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -999,8 +999,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -1016,8 +1016,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 5.25,
-                "unit": "rem",
+                "$value": 84,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.25rem"
@@ -1043,8 +1043,8 @@
         "display04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -1075,8 +1075,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.25,
-                "unit": "rem",
+                "$value": 68,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.25rem"
@@ -1092,8 +1092,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 5.75,
-                "unit": "rem",
+                "$value": 92,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.75rem"
@@ -1117,8 +1117,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 7.625,
-                "unit": "rem",
+                "$value": 122,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "7.625rem"
@@ -1142,8 +1142,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 9.75,
-                "unit": "rem",
+                "$value": 156,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "9.75rem"
@@ -1169,8 +1169,8 @@
         "expressiveHeading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -1201,8 +1201,8 @@
         "expressiveHeading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -1233,8 +1233,8 @@
         "expressiveHeading03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -1265,8 +1265,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.25,
-                "unit": "rem",
+                "$value": 20,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -1282,8 +1282,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.5,
-                "unit": "rem",
+                "$value": 24,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -1301,8 +1301,8 @@
         "expressiveHeading04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.75,
-            "unit": "rem",
+            "$value": 28,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -1333,8 +1333,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -1357,8 +1357,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -1376,8 +1376,8 @@
         "expressiveHeading05": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -1408,8 +1408,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -1440,8 +1440,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -1465,8 +1465,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -1490,8 +1490,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -1510,8 +1510,8 @@
         "expressiveHeading06": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -1542,8 +1542,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -1574,8 +1574,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -1606,8 +1606,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -1638,8 +1638,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -1665,8 +1665,8 @@
         "expressiveParagraph01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.5,
-            "unit": "rem",
+            "$value": 24,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.5rem"
@@ -1697,8 +1697,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.75,
-                "unit": "rem",
+                "$value": 28,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -1714,8 +1714,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -1827,8 +1827,8 @@
         "heading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -1859,8 +1859,8 @@
         "heading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -1891,8 +1891,8 @@
         "helperText01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -1916,8 +1916,8 @@
         "helperText02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -2020,8 +2020,8 @@
         "label01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -2052,8 +2052,8 @@
         "label02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -2406,8 +2406,8 @@
         "productiveHeading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -2438,8 +2438,8 @@
         "productiveHeading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -2470,8 +2470,8 @@
         "productiveHeading03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -2502,8 +2502,8 @@
         "productiveHeading04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.75,
-            "unit": "rem",
+            "$value": 28,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -2534,8 +2534,8 @@
         "productiveHeading05": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -2566,8 +2566,8 @@
         "productiveHeading06": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -2598,8 +2598,8 @@
         "productiveHeading07": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 3.375,
-            "unit": "rem",
+            "$value": 54,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "3.375rem"
@@ -2637,8 +2637,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -2669,8 +2669,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.25,
-                "unit": "rem",
+                "$value": 20,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -2694,8 +2694,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.5,
-                "unit": "rem",
+                "$value": 24,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -2726,8 +2726,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.75,
-                "unit": "rem",
+                "$value": 28,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -2758,8 +2758,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -2799,8 +2799,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -2831,8 +2831,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -2848,8 +2848,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -2865,8 +2865,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -2882,8 +2882,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -3419,8 +3419,8 @@
         "bodyLong01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -3451,8 +3451,8 @@
         "bodyLong02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -3483,8 +3483,8 @@
         "bodyShort01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -3515,8 +3515,8 @@
         "bodyShort02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -3659,8 +3659,8 @@
         "caption01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -3691,8 +3691,8 @@
         "caption02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -3849,8 +3849,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -3888,8 +3888,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -3960,8 +3960,8 @@
         "display01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -3992,8 +3992,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -4002,8 +4002,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -4012,8 +4012,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4029,8 +4029,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -4048,8 +4048,8 @@
         "display02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -4080,8 +4080,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -4090,8 +4090,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -4100,8 +4100,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4117,8 +4117,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -4136,8 +4136,8 @@
         "display03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -4168,8 +4168,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -4185,8 +4185,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4210,8 +4210,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -4227,8 +4227,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 5.25,
-                "unit": "rem",
+                "$value": 84,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.25rem"
@@ -4254,8 +4254,8 @@
         "display04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -4286,8 +4286,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.25,
-                "unit": "rem",
+                "$value": 68,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.25rem"
@@ -4303,8 +4303,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 5.75,
-                "unit": "rem",
+                "$value": 92,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.75rem"
@@ -4328,8 +4328,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 7.625,
-                "unit": "rem",
+                "$value": 122,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "7.625rem"
@@ -4353,8 +4353,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 9.75,
-                "unit": "rem",
+                "$value": 156,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "9.75rem"
@@ -4380,8 +4380,8 @@
         "expressiveHeading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -4412,8 +4412,8 @@
         "expressiveHeading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -4444,8 +4444,8 @@
         "expressiveHeading03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -4476,8 +4476,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.25,
-                "unit": "rem",
+                "$value": 20,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -4493,8 +4493,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.5,
-                "unit": "rem",
+                "$value": 24,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -4512,8 +4512,8 @@
         "expressiveHeading04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.75,
-            "unit": "rem",
+            "$value": 28,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -4544,8 +4544,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -4568,8 +4568,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -4587,8 +4587,8 @@
         "expressiveHeading05": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -4619,8 +4619,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -4651,8 +4651,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -4676,8 +4676,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -4701,8 +4701,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4721,8 +4721,8 @@
         "expressiveHeading06": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -4753,8 +4753,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -4785,8 +4785,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -4817,8 +4817,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -4849,8 +4849,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -4876,8 +4876,8 @@
         "expressiveParagraph01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.5,
-            "unit": "rem",
+            "$value": 24,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.5rem"
@@ -4908,8 +4908,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.75,
-                "unit": "rem",
+                "$value": 28,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -4925,8 +4925,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -5038,8 +5038,8 @@
         "heading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -5070,8 +5070,8 @@
         "heading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -5102,8 +5102,8 @@
         "helperText01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -5127,8 +5127,8 @@
         "helperText02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -5231,8 +5231,8 @@
         "label01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -5263,8 +5263,8 @@
         "label02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -5617,8 +5617,8 @@
         "productiveHeading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -5649,8 +5649,8 @@
         "productiveHeading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -5681,8 +5681,8 @@
         "productiveHeading03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -5713,8 +5713,8 @@
         "productiveHeading04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.75,
-            "unit": "rem",
+            "$value": 28,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -5745,8 +5745,8 @@
         "productiveHeading05": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -5777,8 +5777,8 @@
         "productiveHeading06": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -5809,8 +5809,8 @@
         "productiveHeading07": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 3.375,
-            "unit": "rem",
+            "$value": 54,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "3.375rem"
@@ -5848,8 +5848,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -5880,8 +5880,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.25,
-                "unit": "rem",
+                "$value": 20,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -5905,8 +5905,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.5,
-                "unit": "rem",
+                "$value": 24,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -5937,8 +5937,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.75,
-                "unit": "rem",
+                "$value": 28,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -5969,8 +5969,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -6010,8 +6010,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -6042,8 +6042,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -6059,8 +6059,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -6076,8 +6076,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -6093,8 +6093,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -6630,8 +6630,8 @@
         "bodyLong01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -6662,8 +6662,8 @@
         "bodyLong02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -6694,8 +6694,8 @@
         "bodyShort01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -6726,8 +6726,8 @@
         "bodyShort02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -6870,8 +6870,8 @@
         "caption01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -6902,8 +6902,8 @@
         "caption02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -7060,8 +7060,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -7099,8 +7099,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -7171,8 +7171,8 @@
         "display01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -7203,8 +7203,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -7213,8 +7213,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -7223,8 +7223,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -7240,8 +7240,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -7259,8 +7259,8 @@
         "display02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -7291,8 +7291,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -7301,8 +7301,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -7311,8 +7311,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -7328,8 +7328,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -7347,8 +7347,8 @@
         "display03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -7379,8 +7379,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -7396,8 +7396,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -7421,8 +7421,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -7438,8 +7438,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 5.25,
-                "unit": "rem",
+                "$value": 84,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.25rem"
@@ -7465,8 +7465,8 @@
         "display04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -7497,8 +7497,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.25,
-                "unit": "rem",
+                "$value": 68,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.25rem"
@@ -7514,8 +7514,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 5.75,
-                "unit": "rem",
+                "$value": 92,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.75rem"
@@ -7539,8 +7539,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 7.625,
-                "unit": "rem",
+                "$value": 122,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "7.625rem"
@@ -7564,8 +7564,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 9.75,
-                "unit": "rem",
+                "$value": 156,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "9.75rem"
@@ -7591,8 +7591,8 @@
         "expressiveHeading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -7623,8 +7623,8 @@
         "expressiveHeading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -7655,8 +7655,8 @@
         "expressiveHeading03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -7687,8 +7687,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.25,
-                "unit": "rem",
+                "$value": 20,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -7704,8 +7704,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.5,
-                "unit": "rem",
+                "$value": 24,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -7723,8 +7723,8 @@
         "expressiveHeading04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.75,
-            "unit": "rem",
+            "$value": 28,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -7755,8 +7755,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -7779,8 +7779,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -7798,8 +7798,8 @@
         "expressiveHeading05": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -7830,8 +7830,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -7862,8 +7862,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -7887,8 +7887,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -7912,8 +7912,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -7932,8 +7932,8 @@
         "expressiveHeading06": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -7964,8 +7964,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -7996,8 +7996,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -8028,8 +8028,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -8060,8 +8060,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -8087,8 +8087,8 @@
         "expressiveParagraph01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.5,
-            "unit": "rem",
+            "$value": 24,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.5rem"
@@ -8119,8 +8119,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.75,
-                "unit": "rem",
+                "$value": 28,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -8136,8 +8136,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -8249,8 +8249,8 @@
         "heading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -8281,8 +8281,8 @@
         "heading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -8313,8 +8313,8 @@
         "helperText01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -8338,8 +8338,8 @@
         "helperText02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -8442,8 +8442,8 @@
         "label01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -8474,8 +8474,8 @@
         "label02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -8828,8 +8828,8 @@
         "productiveHeading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -8860,8 +8860,8 @@
         "productiveHeading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -8892,8 +8892,8 @@
         "productiveHeading03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -8924,8 +8924,8 @@
         "productiveHeading04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.75,
-            "unit": "rem",
+            "$value": 28,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -8956,8 +8956,8 @@
         "productiveHeading05": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -8988,8 +8988,8 @@
         "productiveHeading06": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -9020,8 +9020,8 @@
         "productiveHeading07": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 3.375,
-            "unit": "rem",
+            "$value": 54,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "3.375rem"
@@ -9059,8 +9059,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -9091,8 +9091,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.25,
-                "unit": "rem",
+                "$value": 20,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -9116,8 +9116,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.5,
-                "unit": "rem",
+                "$value": 24,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -9148,8 +9148,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.75,
-                "unit": "rem",
+                "$value": 28,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -9180,8 +9180,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -9221,8 +9221,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -9253,8 +9253,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -9270,8 +9270,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -9287,8 +9287,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -9304,8 +9304,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -9841,8 +9841,8 @@
         "bodyLong01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -9873,8 +9873,8 @@
         "bodyLong02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -9905,8 +9905,8 @@
         "bodyShort01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -9937,8 +9937,8 @@
         "bodyShort02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -10081,8 +10081,8 @@
         "caption01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -10113,8 +10113,8 @@
         "caption02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -10271,8 +10271,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -10310,8 +10310,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -10382,8 +10382,8 @@
         "display01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -10414,8 +10414,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -10424,8 +10424,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -10434,8 +10434,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -10451,8 +10451,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -10470,8 +10470,8 @@
         "display02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -10502,8 +10502,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -10512,8 +10512,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -10522,8 +10522,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -10539,8 +10539,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -10558,8 +10558,8 @@
         "display03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -10590,8 +10590,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.375,
-                "unit": "rem",
+                "$value": 54,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.375rem"
@@ -10607,8 +10607,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -10632,8 +10632,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.75,
-                "unit": "rem",
+                "$value": 76,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.75rem"
@@ -10649,8 +10649,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 5.25,
-                "unit": "rem",
+                "$value": 84,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.25rem"
@@ -10676,8 +10676,8 @@
         "display04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -10708,8 +10708,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 4.25,
-                "unit": "rem",
+                "$value": 68,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "4.25rem"
@@ -10725,8 +10725,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 5.75,
-                "unit": "rem",
+                "$value": 92,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "5.75rem"
@@ -10750,8 +10750,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 7.625,
-                "unit": "rem",
+                "$value": 122,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "7.625rem"
@@ -10775,8 +10775,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 9.75,
-                "unit": "rem",
+                "$value": 156,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "9.75rem"
@@ -10802,8 +10802,8 @@
         "expressiveHeading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -10834,8 +10834,8 @@
         "expressiveHeading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -10866,8 +10866,8 @@
         "expressiveHeading03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -10898,8 +10898,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.25,
-                "unit": "rem",
+                "$value": 20,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -10915,8 +10915,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.5,
-                "unit": "rem",
+                "$value": 24,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -10934,8 +10934,8 @@
         "expressiveHeading04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.75,
-            "unit": "rem",
+            "$value": 28,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -10966,8 +10966,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -10990,8 +10990,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -11009,8 +11009,8 @@
         "expressiveHeading05": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -11041,8 +11041,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -11073,8 +11073,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -11098,8 +11098,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -11123,8 +11123,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -11143,8 +11143,8 @@
         "expressiveHeading06": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -11175,8 +11175,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -11207,8 +11207,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -11239,8 +11239,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -11271,8 +11271,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
@@ -11298,8 +11298,8 @@
         "expressiveParagraph01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.5,
-            "unit": "rem",
+            "$value": 24,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.5rem"
@@ -11330,8 +11330,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.75,
-                "unit": "rem",
+                "$value": 28,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -11347,8 +11347,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -11460,8 +11460,8 @@
         "heading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -11492,8 +11492,8 @@
         "heading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -11524,8 +11524,8 @@
         "helperText01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -11549,8 +11549,8 @@
         "helperText02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -11653,8 +11653,8 @@
         "label01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.75,
-            "unit": "rem",
+            "$value": 12,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.75rem"
@@ -11685,8 +11685,8 @@
         "label02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -12039,8 +12039,8 @@
         "productiveHeading01": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 0.875,
-            "unit": "rem",
+            "$value": 14,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "0.875rem"
@@ -12071,8 +12071,8 @@
         "productiveHeading02": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1,
-            "unit": "rem",
+            "$value": 16,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1rem"
@@ -12103,8 +12103,8 @@
         "productiveHeading03": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -12135,8 +12135,8 @@
         "productiveHeading04": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.75,
-            "unit": "rem",
+            "$value": 28,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.75rem"
@@ -12167,8 +12167,8 @@
         "productiveHeading05": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -12199,8 +12199,8 @@
         "productiveHeading06": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 2.625,
-            "unit": "rem",
+            "$value": 42,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2.625rem"
@@ -12231,8 +12231,8 @@
         "productiveHeading07": {
           "fontSize": {
             "$type": "font-size",
-            "$value": 3.375,
-            "unit": "rem",
+            "$value": 54,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "3.375rem"
@@ -12270,8 +12270,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 1.25,
-            "unit": "rem",
+            "$value": 20,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "1.25rem"
@@ -12302,8 +12302,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.25,
-                "unit": "rem",
+                "$value": 20,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.25rem"
@@ -12327,8 +12327,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.5,
-                "unit": "rem",
+                "$value": 24,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.5rem"
@@ -12359,8 +12359,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 1.75,
-                "unit": "rem",
+                "$value": 28,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "1.75rem"
@@ -12391,8 +12391,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2,
-                "unit": "rem",
+                "$value": 32,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2rem"
@@ -12432,8 +12432,8 @@
           },
           "fontSize": {
             "$type": "font-size",
-            "$value": 2,
-            "unit": "rem",
+            "$value": 32,
+            "unit": "px",
             "group": "cds-themes",
             "private": true,
             "cds-original-value": "2rem"
@@ -12464,8 +12464,8 @@
             "md": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.25,
-                "unit": "rem",
+                "$value": 36,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.25rem"
@@ -12481,8 +12481,8 @@
             "lg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 2.625,
-                "unit": "rem",
+                "$value": 42,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "2.625rem"
@@ -12498,8 +12498,8 @@
             "xlg": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3,
-                "unit": "rem",
+                "$value": 48,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3rem"
@@ -12515,8 +12515,8 @@
             "max": {
               "fontSize": {
                 "$type": "font-size",
-                "$value": 3.75,
-                "unit": "rem",
+                "$value": 60,
+                "unit": "px",
                 "group": "cds-themes",
                 "private": true,
                 "cds-original-value": "3.75rem"
