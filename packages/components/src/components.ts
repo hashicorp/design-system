@@ -350,7 +350,7 @@ export { default as HdsTimeRange } from './components/hds/time/range.ts';
 export * from './services/hds-time-types.ts';
 
 // Toast
-export { default as HdsToast } from './components/hds/toast/index.ts';
+export { default as HdsToast } from './components/hds/toast/index.gts';
 
 // TooltipButton
 export { default as HdsTooltipButton } from './components/hds/tooltip-button/index.gts';
