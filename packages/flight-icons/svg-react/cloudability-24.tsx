@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconClouadbility16 = forwardRef<SVGSVGElement, IconProps>(
+export const IconCloudability24 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -13,10 +13,10 @@ export const IconClouadbility16 = forwardRef<SVGSVGElement, IconProps>(
         return (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width={16}
-                height={16}
+                width={24}
+                height={24}
                 fill="none"
-                viewBox="0 0 16 16"
+                viewBox="0 0 24 24"
                 aria-hidden={!title}
                 ref={svgRef}
                 aria-labelledby={titleId}
@@ -26,7 +26,7 @@ export const IconClouadbility16 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M8 1a7 7 0 110 14A7 7 0 018 1zm1.05 4.025c-1.04 0-1.736.858-1.75.875-.005-.001-1.051-.174-1.75.35-.691.519-.87 1.379-.875 1.4 0 0-1.4.175-1.4 1.575s1.4 1.575 1.4 1.575H11.5s1.05-.35 1.05-1.575-1.05-1.4-1.05-1.4V6.6L9.4 8.35l-.874-.875-3.676 2.1L8.526 6.25l.875.875L10.8 5.9c-.013-.016-.71-.875-1.75-.875z"
+                    d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1zm1.65 6.325c-1.646 0-2.745 1.37-2.75 1.375 0 0-1.65-.275-2.75.55-1.1.825-1.375 2.2-1.375 2.2s-2.2.275-2.2 2.475 2.2 2.475 2.2 2.475H17.5s1.65-.55 1.65-2.475-1.65-2.2-1.65-2.2V9.8l-3.3 2.75-1.375-1.375-5.775 3.3 5.775-5.225 1.375 1.375L16.4 8.7s-1.1-1.375-2.75-1.375z"
                     clipRule="evenodd"
                 />
             </svg>
