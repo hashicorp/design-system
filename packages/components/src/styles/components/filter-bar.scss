@@ -209,7 +209,7 @@
   padding: 8px 16px;
   color: var(--token-color-foreground-primary);
 
-  .hds-filter-bar__filter-group__selection-option--hidden {
+  &.hds-filter-bar__filter-group__selection-option--hidden {
     display: none;
   }
 
