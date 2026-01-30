@@ -1,0 +1,37 @@
+import { forwardRef, useMemo } from 'react';
+import { IconProps } from './types';
+
+export const IconCloudabilityColor24 = forwardRef<SVGSVGElement, IconProps>(
+    ({ color = 'currentColor', title, ...props }, svgRef) => {
+        const titleId = useMemo(
+            () =>
+                title
+                    ? 'title-' + Math.random().toString(36).substr(2, 9)
+                    : undefined,
+            [title]
+        );
+        return (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                fill="none"
+                viewBox="0 0 24 24"
+                aria-hidden={!title}
+                ref={svgRef}
+                aria-labelledby={titleId}
+                {...props}
+            >
+                {title ? <title id={titleId}>{title}</title> : null}
+                <path
+                    fill="#6DC8EC"
+                    d="M23 12c0 6.075-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1s11 4.925 11 11z"
+                />
+                <path
+                    fill="#fff"
+                    d="M17.5 16.4H6.775s-2.2-.275-2.2-2.475 2.2-2.475 2.2-2.475.275-1.375 1.375-2.2c1.1-.825 2.75-.55 2.75-.55s1.1-1.375 2.75-1.375S16.4 8.7 16.4 8.7l-2.2 1.925-1.375-1.375-5.775 5.225 5.775-3.3L14.2 12.55l3.3-2.75v1.925s1.65.275 1.65 2.2c0 1.925-1.65 2.475-1.65 2.475z"
+                />
+            </svg>
+        );
+    }
+);
