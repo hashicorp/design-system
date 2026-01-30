@@ -28,9 +28,9 @@ export { default as HdsAdvancedTableExpandableTrGroup } from './components/hds/a
 export * from './components/hds/advanced-table/types.ts';
 
 // Alert
-export { default as HdsAlert } from './components/hds/alert/index.ts';
-export { default as HdsAlertDescription } from './components/hds/alert/description.ts';
-export { default as HdsAlertTitle } from './components/hds/alert/title.ts';
+export { default as HdsAlert } from './components/hds/alert/index.gts';
+export { default as HdsAlertDescription } from './components/hds/alert/description.gts';
+export { default as HdsAlertTitle } from './components/hds/alert/title.gts';
 export * from './components/hds/alert/types.ts';
 
 // AppFooter

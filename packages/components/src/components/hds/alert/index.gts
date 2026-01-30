@@ -4,22 +4,29 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import { eq } from 'ember-truth-helpers';
+import { hash } from '@ember/helper';
+import { on } from '@ember/modifier';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+
+import type { WithBoundArgs } from '@glint/template';
+import type Owner from '@ember/owner';
 
 import { HdsAlertColorValues, HdsAlertTypeValues } from './types.ts';
+import HdsDismissButton from '../dismiss-button/index.gts';
+import HdsIcon from '../icon/index.gts';
+import HdsAlertTitle from './title.gts';
+import HdsAlertDescription from './description.gts';
+import HdsButton from '../button/index.gts';
+import HdsLinkStandalone from '../link/standalone.gts';
+import HdsYield from '../yield/index.gts';
 
-import type { ComponentLike, WithBoundArgs } from '@glint/template';
-import type HdsButtonComponent from '../button';
-import type HdsLinkStandaloneComponent from '../link/standalone';
-import type { HdsYieldSignature } from '../yield';
 import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
-import type { HdsAlertTitleSignature } from './title.ts';
-import type { HdsAlertDescriptionSignature } from './description.ts';
-import type { HdsIconSignature } from '../icon';
-import type Owner from '@ember/owner';
+import type { HdsIconSignature } from '../icon/index.gts';
 
 export const TYPES: HdsAlertTypes[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR: HdsAlertColors = HdsAlertColorValues.Neutral;
@@ -48,14 +55,11 @@ export interface HdsAlertSignature {
   Blocks: {
     default: [
       {
-        Title?: ComponentLike<HdsAlertTitleSignature>;
-        Description?: ComponentLike<HdsAlertDescriptionSignature>;
-        Generic?: ComponentLike<HdsYieldSignature>;
-        LinkStandalone?: WithBoundArgs<
-          typeof HdsLinkStandaloneComponent,
-          'size'
-        >;
-        Button?: WithBoundArgs<typeof HdsButtonComponent, 'size'>;
+        Title?: typeof HdsAlertTitle;
+        Description?: typeof HdsAlertDescription;
+        Generic?: typeof HdsYield;
+        LinkStandalone?: WithBoundArgs<typeof HdsLinkStandalone, 'size'>;
+        Button?: WithBoundArgs<typeof HdsButton, 'size'>;
       },
     ];
   };
@@ -77,7 +81,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     );
   }
 
-  // Determines the color scheme for the alert.
   get color(): HdsAlertColors {
     const { color = DEFAULT_COLOR } = this.args;
 
@@ -91,7 +94,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     return color;
   }
 
-  // The name of the icon to be used.
   get icon(): HdsIconSignature['Args']['name'] | false {
     const { icon } = this.args;
 
@@ -129,7 +131,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     }
   }
 
-  // Ensures that the correct icon size is used. Automatically calculated.
   get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.type === 'compact') {
       return '16';
@@ -150,8 +151,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     return classes.join(' ');
   }
 
-  @action
-  didInsert(element: HTMLDivElement): void {
+  didInsert = (element: HTMLDivElement): void => {
     const actions = element.querySelectorAll(
       `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
     );
@@ -178,5 +178,57 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
       label.setAttribute('id', labelId);
       this._ariaLabelledBy = labelId;
     }
-  }
+  };
+
+  <template>
+    <div
+      class={{this.classNames}}
+      role={{this._role}}
+      aria-live={{if this._role "polite"}}
+      aria-labelledby={{this._ariaLabelledBy}}
+      {{didInsert this.didInsert}}
+      ...attributes
+    >
+      {{#if this.icon}}
+        <div class="hds-alert__icon">
+          <HdsIcon
+            @name={{this.icon}}
+            @size={{this.iconSize}}
+            @stretched={{true}}
+          />
+        </div>
+      {{/if}}
+
+      <div class="hds-alert__content">
+        <div
+          class="hds-alert__text
+            {{if
+              (eq @type 'compact')
+              'hds-typography-body-100'
+              'hds-typography-body-200'
+            }}"
+        >
+          {{yield (hash Title=HdsAlertTitle)}}
+          {{yield (hash Description=HdsAlertDescription)}}
+        </div>
+
+        <div class="hds-alert__actions">
+          {{yield
+            (hash
+              Button=(component HdsButton size="small")
+              LinkStandalone=(component HdsLinkStandalone size="small")
+            )
+          }}
+        </div>
+        {{yield (hash Generic=HdsYield)}}
+      </div>
+
+      {{#if this.onDismiss}}
+        <HdsDismissButton
+          class="hds-alert__dismiss"
+          {{on "click" this.onDismiss}}
+        />
+      {{/if}}
+    </div>
+  </template>
 }
