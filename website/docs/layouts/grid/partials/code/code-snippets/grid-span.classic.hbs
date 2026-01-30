@@ -1,0 +1,19 @@
+<div {{style height="400px" border="1px solid"}}>
+  <Hds::Layout::Grid @columnMinWidth="25%" @gap="12" {{style height="100%" grid-template-rows="min-content"}} as |LG|>
+    <LG.Item @colspan={{4}}>
+      <Doc::Placeholder @text="Item 1" @background="#e4c5f3" {{style padding="1em"}} />
+    </LG.Item>
+
+    <LG.Item @rowspan={{3}}>
+      <Doc::Placeholder @height="100%" @text="Item 2" @background="#e5ffd2" />
+    </LG.Item>
+
+    <LG.Item @colspan={{3}}>
+      <Doc::Placeholder @height="100%" @text="Item 3" @background="#d2f4ff" />
+    </LG.Item>
+
+    <LG.Item @colspan={{3}} @rowspan={{2}}>
+      <Doc::Placeholder @height="100%" @text="Item 4" @background="#fff8d2" />
+    </LG.Item>
+  </Hds::Layout::Grid>
+</div>
