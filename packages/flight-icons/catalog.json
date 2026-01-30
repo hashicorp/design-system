@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2025-12-09T00:56:32.466Z",
+  "lastRunTimeISO": "2026-01-30T18:59:49.455Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -921,6 +921,46 @@
       "fileName": "cisco-color-16",
       "iconName": "cisco-color",
       "description": "cisco",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "9685:173",
+      "fileName": "clouadbility-24",
+      "iconName": "clouadbility",
+      "description": "clouadibility, apptio",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "9685:179",
+      "fileName": "clouadbility-16",
+      "iconName": "clouadbility",
+      "description": "clouadibility, apptio",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "9685:158",
+      "fileName": "cloudability-color-24",
+      "iconName": "cloudability-color",
+      "description": "clouadibility, apptio",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "9685:164",
+      "fileName": "cloudability-color-16",
+      "iconName": "cloudability-color",
+      "description": "clouadibility, apptio",
       "category": "Services",
       "size": "16",
       "width": 16,
