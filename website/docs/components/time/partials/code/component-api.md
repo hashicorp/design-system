@@ -16,8 +16,10 @@ It uses two helper functions: the `hds-format-date` helper, which formats a date
   <C.Property @name="endDate" @type="Date | string">
     Specify the ending date and time for a date range. Value can be specified as a JavaScript Date object or as an ISO date string.
   </C.Property>
-  <C.Property @name="display" @type="string" @values={{array "friendly-relative" "friendly-local" "friendly-only" "relative" "utc" }} @default="friendly-local">
+  <C.Property @name="display" @type="string" @values={{array "friendly-relative" "friendly-local" "friendly-only" "relative" "utc" }}>
     The display format used for the date and time.
+    <br /><br />
+    By default, the display is either “friendly local” or “relative”. If the date is within one week of the current date, it shows the “relative” format.
   </C.Property>
   <C.Property @name="hasTooltip" @type="boolean" @default="true">
     Sets whether a Tooltip is included which displays the time in ISO UTC format by default. (Varies according to `@display` value set.)
