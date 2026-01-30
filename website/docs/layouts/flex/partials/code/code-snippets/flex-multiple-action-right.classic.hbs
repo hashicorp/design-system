@@ -1,0 +1,11 @@
+<Hds::Layout::Flex @align="start" @gap="16" class="doc-flex-outlined-container">
+  <Hds::IconTile @logo="boundary" />
+  <Hds::Text::Display @size="500" @tag="h5">Lorem ipsum dolor</Hds::Text::Display>
+  <Hds::Button class="doc-flex-margin-left-auto" @text="Main action" @icon="edit" />
+  <Hds::Dropdown as |D|>
+    <D.ToggleButton @text="More actions" @color="secondary" />
+    <D.Interactive @route="components">Action One</D.Interactive>
+    <D.Interactive @route="components">Action Two</D.Interactive>
+    <D.Interactive @route="components">Action Three</D.Interactive>
+  </Hds::Dropdown>
+</Hds::Layout::Flex>
