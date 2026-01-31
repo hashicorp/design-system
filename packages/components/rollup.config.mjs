@@ -97,6 +97,10 @@ const plugins = [
         inputFile: 'design-system-power-select-overrides.scss',
         outputFile: 'design-system-power-select-overrides.css',
       },
+      {
+        inputFile: 'design-system-ember-a11y-refocus.scss',
+        outputFile: 'design-system-ember-a11y-refocus.css',
+      },
     ]
   ),
 
@@ -129,6 +133,7 @@ const plugins = [
       // Copy readme and license files into published package
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
+      {src: 'src/styles/@hashicorp', dest: 'dist/styles'},
       // Copy sass mixins for consumers to use directly
       { src: 'src/styles/mixins', dest: 'dist/styles' },
       // Copy sass components for consumers to use directly
