@@ -134,7 +134,7 @@ const plugins = [
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
       // Copy sass entry points for consumers to use directly
-      {src: 'src/styles/@hashicorp', dest: 'dist/styles'},
+      { src: 'src/styles/@hashicorp', dest: 'dist/styles' },
       // Copy sass mixins for consumers to use directly
       { src: 'src/styles/mixins', dest: 'dist/styles' },
       // Copy sass components for consumers to use directly
