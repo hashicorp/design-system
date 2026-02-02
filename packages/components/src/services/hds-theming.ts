@@ -33,12 +33,12 @@ export type HdsModes =
 export type HdsModesLight = `${HdsModesLightValues}`;
 export type HdsModesDark = `${HdsModesDarkValues}`;
 
-type HdsThemingOptions = {
+export type HdsThemingOptions = {
   lightTheme: HdsModesLight;
   darkTheme: HdsModesDark;
 };
 
-type SetThemeArgs = {
+export type HdsSetThemeArgs = {
   theme: HdsThemes | undefined;
   options?: HdsThemingOptions;
   onSetTheme?: HdsOnSetThemeCallback;
@@ -141,7 +141,7 @@ export default class HdsThemingService extends Service {
     }
   }
 
-  setTheme({ theme, options, onSetTheme }: SetThemeArgs) {
+  setTheme({ theme, options, onSetTheme }: HdsSetThemeArgs) {
     if (options !== undefined) {
       // if we have new options, we override the current ones (`lightTheme` / `darkTheme`)
       // these options can be used by consumers that want to customize how they apply theming
