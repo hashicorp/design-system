@@ -15,7 +15,7 @@ import SubSectionBasic from 'showcase/components/page-components/advanced-table/
 // import SubSectionLayout from 'showcase/components/page-components/advanced-table/sub-sections/layout';
 // import SubSectionMultiSelect from 'showcase/components/page-components/advanced-table/sub-sections/multi-select';
 import SubSectionNestedRows from 'showcase/components/page-components/advanced-table/sub-sections/nested-rows';
-// import SubSectionOverflow from 'showcase/components/page-components/advanced-table/sub-sections/overflow';
+import SubSectionOverflow from 'showcase/components/page-components/advanced-table/sub-sections/overflow';
 // import SubSectionPinnableColumns from 'showcase/components/page-components/advanced-table/sub-sections/pinnable-column';
 // import SubSectionReorderableColumns from 'showcase/components/page-components/advanced-table/sub-sections/reorderable-columns';
 // import SubSectionResizableColumns from 'showcase/components/page-components/advanced-table/sub-sections/resizable-columns';
@@ -30,8 +30,8 @@ const AdvancedTableIndex: TemplateOnlyComponent = <template>
   <section data-test-percy>
     <SubSectionBasic />
     <SubSectionNestedRows />
-    {{! <SubSectionOverflow />
-    <SubSectionSorting />
+    <SubSectionOverflow />
+    {{! <SubSectionSorting />
     <SubSectionTooltip />
     <SubSectionMultiSelect />
     <SubSectionReorderableColumns />
