@@ -12,6 +12,7 @@ import { modifier } from 'ember-modifier';
 
 import ShwThemeSwitcherControlSelect from './control/select';
 import ShwThemeSwitcherControlToggle from './control/toggle';
+import ShwThemingService from 'showcase/services/shw-theming';
 
 import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import {
@@ -38,6 +39,7 @@ interface ShwThemeSwitcherPopoverSignature {
 
 export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherPopoverSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
+  @service declare readonly shwTheming: ShwThemingService;
 
   // we use `!` (definite assignment assertion) because the actual assignment is done via the modifier
   _element!: HTMLDivElement;
@@ -97,7 +99,7 @@ export default class ShwThemeSwitcherPopover extends Component<ShwThemeSwitcherP
   };
 
   onApplyThemingPreferences = () => {
-    this.hdsTheming.setTheme({
+    this.shwTheming.setAppTheme({
       // we reuse the current theme (we're not changing it here)
       theme: this.hdsTheming.currentTheme,
       // we update the options
