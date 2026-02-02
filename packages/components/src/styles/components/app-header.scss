@@ -136,7 +136,7 @@
 // Logic: if the AppSideNav is "mobile" (operates in overlay mode) - AND - it is expanded (not minimized),
 // we disable interactions in the AppHeader
 
-.hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized)
+.hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized) {
   // visually disable all nested elements within the AppHeader when SideNav is open in mobile view
   .hds-app-header > * {
     filter: contrast(0.5) brightness(0.7);
