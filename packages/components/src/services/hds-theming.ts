@@ -60,46 +60,8 @@ export const MODES: HdsModes[] = [
   ...MODES_DARK,
 ];
 
-export const HDS_THEMING_LOCALSTORAGE_DATA = 'hds-theming-data';
-
 export const DEFAULT_THEMING_OPTION_LIGHT_THEME = HdsModesLightValues.CdsG0;
 export const DEFAULT_THEMING_OPTION_DARK_THEME = HdsModesDarkValues.CdsG100;
-
-type StoredThemingData = {
-  theme: HdsThemes | undefined;
-  options: HdsThemingOptions;
-};
-
-// We use this guard function to check if the data parsed from `localStorage` conforms to the `StoredThemingData` type and so is safe to use.
-// This prevents the application from using corrupted, malformed or malicious data, by validating the object structure, theme, and mode values.
-
-function isSafeStoredThemingData(data: unknown): data is StoredThemingData {
-  if (typeof data !== 'object' || data === null) return false;
-
-  const d = data as Record<string, unknown>;
-
-  const isSafeThemeData =
-    // there is no stored `theme` key in the object (eg. the `default` theme was selected)
-    !('theme' in d) ||
-    // there is a `theme` value and is one of the valid `HdsThemes`
-    d['theme'] === undefined ||
-    THEMES.includes(d['theme'] as HdsThemes);
-
-  const options = d['options'] as Record<string, unknown> | undefined;
-
-  const isSafeOptionsData =
-    // there is no stored `options` key in the object (eg. it's the first run of the application)
-    !('options' in d) ||
-    // there is an `options` value and has valid entries
-    (typeof options === 'object' &&
-      options !== null &&
-      'lightTheme' in options &&
-      MODES_LIGHT.includes(options['lightTheme'] as HdsModesLight) &&
-      'darkTheme' in options &&
-      MODES_DARK.includes(options['darkTheme'] as HdsModesDark));
-
-  return isSafeThemeData && isSafeOptionsData;
-}
 
 export default class HdsThemingService extends Service {
   @tracked _currentTheme: HdsThemes | undefined = undefined;
@@ -108,38 +70,6 @@ export default class HdsThemingService extends Service {
     DEFAULT_THEMING_OPTION_LIGHT_THEME;
   @tracked _currentDarkTheme: HdsModesDark = DEFAULT_THEMING_OPTION_DARK_THEME;
   @tracked globalOnSetTheme: HdsOnSetThemeCallback | undefined;
-
-  initializeTheme() {
-    const rawStoredThemingData = localStorage.getItem(
-      HDS_THEMING_LOCALSTORAGE_DATA
-    );
-
-    if (rawStoredThemingData !== null) {
-      let storedThemingData: unknown;
-      try {
-        storedThemingData = JSON.parse(rawStoredThemingData);
-      } catch (error) {
-        // malformed JSON in localStorage, ignore and proceed with defaults
-        console.error(
-          `Error while reading local storage '${HDS_THEMING_LOCALSTORAGE_DATA}' for theming`,
-          error
-        );
-      }
-
-      if (isSafeStoredThemingData(storedThemingData)) {
-        this.setTheme({
-          theme: storedThemingData.theme,
-          options: storedThemingData.options,
-        });
-      } else {
-        // if data is not safe or malformed, reset theming to its defaults
-        this.setTheme({
-          theme: undefined,
-          options: undefined,
-        });
-      }
-    }
-  }
 
   setTheme({ theme, options, onSetTheme }: HdsSetThemeArgs) {
     if (options !== undefined) {
@@ -205,18 +135,6 @@ export default class HdsThemingService extends Service {
     if (this._currentMode !== undefined) {
       rootElement.classList.add(`hds-mode-${this._currentMode}`);
     }
-
-    // store the current theme and theming options in local storage
-    localStorage.setItem(
-      HDS_THEMING_LOCALSTORAGE_DATA,
-      JSON.stringify({
-        theme: this._currentTheme,
-        options: {
-          lightTheme: this._currentLightTheme,
-          darkTheme: this._currentDarkTheme,
-        },
-      })
-    );
 
     // this is a general callback that can be defined globally (by extending the service)
     if (this.globalOnSetTheme) {
