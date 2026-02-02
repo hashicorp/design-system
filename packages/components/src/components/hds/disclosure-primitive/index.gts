@@ -5,9 +5,11 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
+import { hash } from '@ember/helper';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didUpdate from '@ember/render-modifiers/modifiers/did-insert';
 
 export interface HdsDisclosurePrimitiveSignature {
   Args: {
@@ -55,8 +57,7 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
     this._isOpen = value || false;
   }
 
-  @action
-  onClickToggle(): void {
+  onClickToggle = (): void => {
     this.isOpen = !this.isOpen;
     this._isControlled = false;
     // we call the "onClickToggle" callback if it exists and it's a function
@@ -66,18 +67,16 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
     ) {
       this.args.onClickToggle(this.isOpen);
     }
-  }
+  };
 
-  @action
-  onStateChange(): void {
+  onStateChange = (): void => {
     if (this.args.isOpen !== undefined) {
       this.isOpen = this.args.isOpen;
     }
     this._isControlled = true;
-  }
+  };
 
-  @action
-  close(): void {
+  close = (): void => {
     // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
@@ -87,5 +86,29 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
         this.args.onClose();
       }
     });
-  }
+  };
+
+  <template>
+    <div
+      class="hds-disclosure-primitive"
+      {{didUpdate this.onStateChange @isOpen}}
+      ...attributes
+    >
+      <div class="hds-disclosure-primitive__toggle">
+        {{yield
+          (hash
+            onClickToggle=this.onClickToggle
+            isOpen=this.isOpen
+            contentId=this._contentId
+          )
+          to="toggle"
+        }}
+      </div>
+      <div class="hds-disclosure-primitive__content" id={{this._contentId}}>
+        {{#if this.isOpen}}
+          {{yield (hash close=this.close) to="content"}}
+        {{/if}}
+      </div>
+    </div>
+  </template>
 }
