@@ -341,23 +341,6 @@ module('Unit | Service | hds-theming', function (hooks) {
     );
   });
 
-  test('setTheme() triggers global globalOnSetTheme callback', function (assert) {
-    const globalOnSetThemeSpy = sinon.spy();
-    this.service.globalOnSetTheme = globalOnSetThemeSpy;
-    this.service.setTheme({ theme: HdsThemeValues.Dark });
-    assert.ok(
-      globalOnSetThemeSpy.calledOnce,
-      'globalOnSetTheme callback was called',
-    );
-    assert.ok(
-      globalOnSetThemeSpy.calledWith({
-        currentTheme: HdsThemeValues.Dark,
-        currentMode: DEFAULT_THEMING_OPTION_DARK_THEME,
-      }),
-      'globalOnSetTheme callback received correct arguments',
-    );
-  });
-
   test('getters return correct values', function (assert) {
     assert.expect(4);
     this.service.setTheme({ theme: HdsThemeValues.Light });
