@@ -107,7 +107,6 @@ export default class HdsThemingService extends Service {
   @tracked _currentLightTheme: HdsModesLight =
     DEFAULT_THEMING_OPTION_LIGHT_THEME;
   @tracked _currentDarkTheme: HdsModesDark = DEFAULT_THEMING_OPTION_DARK_THEME;
-  @tracked globalOnSetTheme: HdsOnSetThemeCallback | undefined;
 
   initializeTheme() {
     const rawStoredThemingData = localStorage.getItem(
@@ -218,15 +217,6 @@ export default class HdsThemingService extends Service {
       })
     );
 
-    // this is a general callback that can be defined globally (by extending the service)
-    if (this.globalOnSetTheme) {
-      this.globalOnSetTheme({
-        currentTheme: this._currentTheme,
-        currentMode: this._currentMode,
-      });
-    }
-
-    // this is a "local" callback that can be defined "locally" (eg. in a theme switcher)
     if (onSetTheme) {
       onSetTheme({
         currentTheme: this._currentTheme,
