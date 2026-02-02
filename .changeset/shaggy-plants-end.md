@@ -3,7 +3,5 @@
 ---
 
 <!-- START components/side-nav -->
-
 `SideNav` - removed the component.
-
 <!-- END -->
