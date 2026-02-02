@@ -12,7 +12,6 @@ related:
   - components/link/standalone
   - components/link/inline
   - components/pagination
-  - components/side-nav
   - components/tag
 previewImage: assets/illustrations/utilities/interactive.jpg
 navigation:
