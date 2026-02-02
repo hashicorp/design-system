@@ -389,12 +389,12 @@ export {
 // -----------------------------------------------------------
 
 // DialogPrimitive
-export { default as HdsDialogPrimitiveBody } from './components/hds/dialog-primitive/body.ts';
-export { default as HdsDialogPrimitiveDescription } from './components/hds/dialog-primitive/description.ts';
-export { default as HdsDialogPrimitiveFooter } from './components/hds/dialog-primitive/footer.ts';
-export { default as HdsDialogPrimitiveHeader } from './components/hds/dialog-primitive/header.ts';
-export { default as HdsDialogPrimitiveOverlay } from './components/hds/dialog-primitive/overlay.ts';
-export { default as HdsDialogPrimitiveWrapper } from './components/hds/dialog-primitive/wrapper.ts';
+export { default as HdsDialogPrimitiveBody } from './components/hds/dialog-primitive/body.gts';
+export { default as HdsDialogPrimitiveDescription } from './components/hds/dialog-primitive/description.gts';
+export { default as HdsDialogPrimitiveFooter } from './components/hds/dialog-primitive/footer.gts';
+export { default as HdsDialogPrimitiveHeader } from './components/hds/dialog-primitive/header.gts';
+export { default as HdsDialogPrimitiveOverlay } from './components/hds/dialog-primitive/overlay.gts';
+export { default as HdsDialogPrimitiveWrapper } from './components/hds/dialog-primitive/wrapper.gts';
 export * from './components/hds/dialog-primitive/types.ts';
 
 // DisclosurePrimitive
