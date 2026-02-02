@@ -3,12 +3,12 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// these files come from `packages/tokens/dist/`
-@use "products/css/tokens";
-@use "products/css/helpers/color";
-@use "products/css/helpers/elevation";
-@use "products/css/helpers/focus-ring";
-@use "products/css/helpers/typography";
+// these files come from the 'design-system-tokens' package
+@use "tokens";
+@use "helpers/color";
+@use "helpers/elevation";
+@use "helpers/focus-ring";
+@use "helpers/typography";
 
 // Vendor styles
 @use "./design-system-ember-a11y-refocus";
