@@ -31,7 +31,6 @@ import {
   HdsLayoutFlex,
   HdsTooltipButton,
 } from '@hashicorp/design-system-components/components';
-import HdsAdvancedTableModel from '@hashicorp/design-system-components/components/hds/advanced-table/models/table';
 import HdsAdvancedTableThButtonExpand from '@hashicorp/design-system-components/components/hds/advanced-table/th-button-expand';
 import HdsAdvancedTableThButtonSort from '@hashicorp/design-system-components/components/hds/advanced-table/th-button-sort';
 import HdsAdvancedTableThReorderHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-reorder-handle';
@@ -41,37 +40,6 @@ import HdsAdvancedTableThSelectable from '@hashicorp/design-system-components/co
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 export default class SubSectionsBaseElements extends Component {
-  sampleTableModel!: HdsAdvancedTableModel;
-
-  constructor(owner: Owner, args: Record<string, never>) {
-    super(owner, args);
-
-    this.sampleTableModel = new HdsAdvancedTableModel({
-      model: [
-        {
-          value: 'lorem',
-          status: 'active',
-        },
-        {
-          value: 'ipsum',
-          status: 'active',
-        },
-      ],
-      hasResizableColumns: true,
-      columns: [
-        {
-          label: 'Label',
-          isVisuallyHidden: true,
-          width: '200px',
-        },
-        {
-          label: 'Status',
-          width: '200px',
-        },
-      ],
-    });
-  }
-
   mockIndeterminateState = (checkbox: HTMLInputElement) => {
     checkbox.indeterminate = true;
   };
