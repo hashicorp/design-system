@@ -110,6 +110,14 @@ const CUSTOM_FILTER = {
   },
 } as HdsFilterBarGenericFilter;
 
+const CUSTOM_FILTER_TWO = {
+  type: 'generic',
+  dismissTagText: 'equals second thing',
+  data: {
+    value: 'example/a))!hzfpKcBl0',
+  },
+} as HdsFilterBarGenericFilter;
+
 export interface CodeFragmentWithComplexTableSignature {
   Args: {
     isLiveFilter?: boolean;
@@ -119,6 +127,8 @@ export interface CodeFragmentWithComplexTableSignature {
 
 export default class CodeFragmentWithComplexTable extends Component<CodeFragmentWithComplexTableSignature> {
   @tracked filters: HdsFilterBarSignature['Args']['filters'] = {};
+
+  @tracked demoShowSecondButton: boolean = false;
 
   onFilter = (filters: HdsFilterBarSignature['Args']['filters']) => {
     this.filters = filters;
@@ -313,6 +323,16 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
   dateIsValid = (date?: Date | string): date is Date =>
     date instanceof Date && !isNaN(+date);
 
+  onGenericFilterClick = (updateFilter: Function) => {
+    updateFilter(CUSTOM_FILTER);
+    this.demoShowSecondButton = true;
+  };
+
+  onGenericFilterClickTwo = (updateFilter: Function) => {
+    updateFilter(CUSTOM_FILTER_TWO);
+    this.demoShowSecondButton = false;
+  };
+
   <template>
     <HdsFilterBar
       @filters={{this.filters}}
@@ -366,8 +386,16 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
               @text="Add custom filter"
               @color="secondary"
               @size="small"
-              {{on "click" (fn G.updateFilter CUSTOM_FILTER)}}
+              {{on "click" (fn this.onGenericFilterClick G.updateFilter)}}
             />
+            {{#if this.demoShowSecondButton}}
+              <HdsButton
+                @text="Update custom filter"
+                @color="secondary"
+                @size="small"
+                {{on "click" (fn this.onGenericFilterClickTwo G.updateFilter)}}
+              />
+            {{/if}}
           </F.Generic>
         </D.FilterGroup>
       </F.FiltersDropdown>
