@@ -196,6 +196,14 @@ export default class ShwThemingService extends HdsThemingService {
     );
   };
 
+  setAppTheme = ({ theme, options, onSetTheme }: HdsSetThemeArgs) => {
+    localStorage.setItem(
+      LOCALSTORAGE_CURRENT_THEMING_DATA,
+      JSON.stringify({ theme, options }),
+    );
+    this.hdsTheming.setTheme({ theme, options, onSetTheme });
+  };
+
   get currentStylesheet(): ShwStylesheets {
     return this._currentStylesheet;
   }
