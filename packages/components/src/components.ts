@@ -24,7 +24,6 @@ export { default as HdsAdvancedTableThSelectable } from './components/hds/advanc
 export { default as HdsAdvancedTableThSort } from './components/hds/advanced-table/th-sort.ts';
 export { default as HdsAdvancedTableTr } from './components/hds/advanced-table/tr.ts';
 export { default as HdsAdvancedTableThButtonExpand } from './components/hds/advanced-table/th-button-expand.ts';
-export { default as HdsAdvancedTableExpandableTrGroup } from './components/hds/advanced-table/expandable-tr-group.ts';
 export * from './components/hds/advanced-table/types.ts';
 
 // Alert

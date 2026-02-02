@@ -6,11 +6,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { tracked } from '@glimmer/tracking';
+import { cached, tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
-import HdsAdvancedTableTableModel from './models/table.ts';
+import { TrackedSet } from 'tracked-built-ins';
 import { HdsAdvancedTableThSortOrderValues } from './types.ts';
 
 import type Owner from '@ember/owner';
@@ -205,7 +205,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked private _tableHeight = 0;
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
-  private _tableModel!: HdsAdvancedTableTableModel;
   private _scrollHandler!: (event: Event) => void;
   private _resizeObserver!: ResizeObserver;
   private _theadElement!: HTMLDivElement;
@@ -226,38 +225,79 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked sortBy?: string;
   @tracked sortOrder?: HdsAdvancedTableThSortOrder;
 
+  // row expansion properties
+  expandedRowIds = new TrackedSet<string>();
+
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
-    const {
-      model,
-      columns,
-      childrenKey,
-      hasStickyFirstColumn,
-      sortBy,
-      sortOrder,
-    } = args;
+    const { hasStickyFirstColumn, model, sortBy, sortOrder } = args;
 
     this.sortBy = sortBy;
     this.sortOrder = sortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
 
-    this._tableModel = new HdsAdvancedTableTableModel({
-      model,
-      columns,
-      childrenKey,
-    });
-
     this._runAssertions();
+
+    this._initializeExpandedRows(model);
 
     if (hasStickyFirstColumn) {
       this.hasPinnedFirstColumn = true;
     }
   }
 
-  get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
-    const { columns, sortBy, sortOrder } = this.args;
+  get childrenKey(): string {
+    return this.args.childrenKey ?? 'children';
+  }
 
-    const currentColumn = columns.find((column) => column.key === sortBy);
+  get hasRowsWithChildren(): boolean {
+    const { model } = this.args;
+
+    return model.some((record) => {
+      const children = record[this.childrenKey] as
+        | Record<string, unknown>[]
+        | undefined;
+
+      return Array.isArray(children) && children.length > 0;
+    });
+  }
+
+  @cached
+  get expandableRowIds(): string[] {
+    const { model } = this.args;
+
+    const ids: string[] = [];
+
+    const collect = (items: Record<string, unknown>[]) => {
+      items.forEach((item) => {
+        const children = item[this.childrenKey] as
+          | Record<string, unknown>
+          | undefined;
+
+        if (Array.isArray(children) && children.length > 0) {
+          ids.push(guidFor(item));
+
+          collect(children);
+        }
+      });
+    };
+
+    collect(model);
+
+    return ids;
+  }
+
+  get isAllExpanded(): boolean {
+    if (this.expandableRowIds.length === 0) {
+      return false;
+    }
+
+    return this.expandableRowIds.every((id) => this.expandedRowIds.has(id));
+  }
+
+  get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
+    const { columns } = this.args;
+
+    const currentColumn = columns.find((column) => column.key === this.sortBy);
 
     if (
       currentColumn?.sortingFunction &&
@@ -265,7 +305,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     ) {
       return currentColumn.sortingFunction;
     } else {
-      return `${sortBy}:${sortOrder}`;
+      return `${this.sortBy}:${this.sortOrder}`;
     }
   }
 
@@ -276,12 +316,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     } else {
       return this.args.identityKey ?? '@identity';
     }
-  }
-
-  get childrenKey(): string {
-    const { childrenKey = 'children' } = this.args;
-
-    return childrenKey;
   }
 
   get hasStickyFirstColumn(): boolean | undefined {
@@ -296,13 +330,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get sortedMessageText(): string {
-    const { sortedMessageText, sortBy, sortOrder } = this.args;
+    const { sortedMessageText } = this.args;
 
     if (sortedMessageText !== undefined) {
       return sortedMessageText;
-    } else if (sortBy !== undefined && sortOrder !== undefined) {
+    } else if (this.sortBy !== undefined && this.sortOrder !== undefined) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${sortBy} ${sortOrder}ending`;
+      return `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
     } else {
       return '';
     }
@@ -311,7 +345,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get isSelectable(): boolean {
     const { isSelectable = false } = this.args;
 
-    if (this._tableModel.hasRowsWithChildren) {
+    if (this.hasRowsWithChildren) {
       assert(
         '@isSelectable must not be true if there are nested rows.',
         !isSelectable
@@ -325,7 +359,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get isStriped(): boolean {
     const { isStriped = false } = this.args;
 
-    if (this._tableModel.hasRowsWithChildren) {
+    if (this.hasRowsWithChildren) {
       assert(
         '@isStriped must not be true if there are nested rows.',
         !isStriped
@@ -388,7 +422,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       classes.push(`hds-advanced-table--valign-${this.valign}`);
     }
 
-    if (this._tableModel.hasRowsWithChildren) {
+    if (this.hasRowsWithChildren) {
       classes.push(`hds-advanced-table--nested`);
     }
 
@@ -413,6 +447,28 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
 
     return classes.join(' ');
+  }
+
+  private _initializeExpandedRows(
+    model: HdsAdvancedTableSignature['Args']['model']
+  ) {
+    const traverse = (items: Record<string, unknown>[]) => {
+      items.forEach((item) => {
+        if (item['isOpen'] === true) {
+          this.expandedRowIds.add(guidFor(item));
+        }
+
+        const children = item[this.childrenKey] as
+          | Record<string, unknown>[]
+          | undefined;
+
+        if (Array.isArray(children) && children.length > 0) {
+          traverse(children);
+        }
+      });
+    };
+
+    traverse(model);
   }
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
@@ -482,7 +538,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       hasStickyFirstColumn,
     } = this.args;
 
-    if (this._tableModel.hasRowsWithChildren) {
+    if (this.hasRowsWithChildren) {
       const sortableColumns = columns.filter((column) => column.isSortable);
       const sortableColumnLabels = sortableColumns.map(
         (column) => column.label
@@ -588,13 +644,25 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   @action
-  setupTableModelData(): void {
-    const { columns, model } = this.args;
+  toggleExpandAll() {
+    const allIds = this.expandableRowIds;
+    const isAllExpanded = allIds.every((id) => this.expandedRowIds.has(id));
 
-    this._tableModel.setupData({
-      columns,
-      model,
-    });
+    if (isAllExpanded) {
+      this.expandedRowIds.clear();
+    } else {
+      // Add all IDs efficiently
+      allIds.forEach((id) => this.expandedRowIds.add(id));
+    }
+  }
+
+  @action
+  toggleRow(rowId: string) {
+    if (this.expandedRowIds.has(rowId)) {
+      this.expandedRowIds.delete(rowId);
+    } else {
+      this.expandedRowIds.add(rowId);
+    }
   }
 
   @action

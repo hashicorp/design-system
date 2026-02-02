@@ -14,7 +14,6 @@ import type {
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.ts';
-import type HdsAdvancedTableRow from './models/row.ts';
 
 export interface BaseHdsAdvancedTableTrSignature {
   Args: {
@@ -25,7 +24,7 @@ export interface BaseHdsAdvancedTableTrSignature {
     isSelected?: boolean;
     isParentRow?: boolean;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
-    data?: HdsAdvancedTableRow;
+    data?: Record<string, unknown>;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope?: HdsAdvancedTableScope;
@@ -48,7 +47,7 @@ export interface BaseHdsAdvancedTableTrSignature {
   Blocks: {
     default?: [
       {
-        orderedCells?: HdsAdvancedTableRow['cells'];
+        orderedCells?: HdsAdvancedTableCell[];
       },
     ];
   };

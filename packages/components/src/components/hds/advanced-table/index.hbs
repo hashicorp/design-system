@@ -6,7 +6,6 @@
 <div
   class="hds-advanced-table__container
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
-  {{did-update this.setupTableModelData @columns @model @sortBy @sortOrder}}
   ...attributes
 >
   {{! Caption }}
@@ -21,7 +20,7 @@
     @columnOrder={{@columnOrder}}
     @hasReorderableColumns={{@hasReorderableColumns}}
     @hasStickyFirstColumn={{@hasStickyFirstColumn}}
-    @onColumnReorder={{@onColumnReorder}}
+    @onColumnReorder={{this._onColumnReorder}}
     as |CM|
   >
     {{! Grid }}
@@ -99,12 +98,12 @@
                 @column={{column}}
                 @draggedColumnKey={{CM.draggedColumnKey}}
                 @firstColumnKey={{CM.firstColumnKey}}
-                @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+                @hasExpandAllButton={{this.hasRowsWithChildren}}
                 @hasReorderableColumns={{@hasReorderableColumns}}
                 @hasResizableColumns={{@hasResizableColumns}}
                 @hasSelectableRows={{this.isSelectable}}
                 @hasStickyFirstColumn={{@hasStickyFirstColumn}}
-                @isExpanded={{this._tableModel.expandState}}
+                @isExpanded={{this.isAllExpanded}}
                 @isExpandable={{column.isExpandable}}
                 @isStickyColumn={{CM.getIsStickyColumn column.key}}
                 @isStickyColumnPinned={{this.isStickyColumnPinned}}
@@ -114,7 +113,7 @@
                 @tableHeight={{this._tableHeight}}
                 @tooltip={{column.tooltip}}
                 @onApplyTransientWidth={{CM.applyTransientWidth}}
-                @onClickToggle={{this._tableModel.toggleAll}}
+                @onClickToggle={{this.toggleExpandAll}}
                 @onColumnResize={{@onColumnResize}}
                 @onGetAppliedWidth={{CM.getAppliedWidth}}
                 @onGetColumnByKey={{CM.getColumnByKey}}
@@ -142,82 +141,55 @@
       </div>
 
       {{! Body }}
-      <div class="hds-advanced-table__tbody" role="rowgroup">
-        {{! ----------------------------------------------------------------------------------------
-        IMPORTANT: we loop on the `model` array and for each record
-        we yield the Tr/Td/Th elements _and_ the record itself as `data`
-        this means the consumer will *have to* use the `data` key to access it in their template
-        -------------------------------------------------------------------------------------------- }}
+      <Hds::AdvancedTable::Body
+        @childrenKey={{this.childrenKey}}
+        @expandedRowIds={{this.expandedRowIds}}
         {{! @glint-expect-error: [HDS-4380](https://hashicorp.atlassian.net/browse/HDS-4380) }}
-        {{#each (sort-by this.sortCriteria this._tableModel.rows) key=this.identityKey as |record index|}}
-          {{#if this._tableModel.hasRowsWithChildren}}
-            <Hds::AdvancedTable::ExpandableTrGroup
-              @record={{record}}
-              @rowIndex={{index}}
-              @onClickToggle={{record.onClickToggle}}
-              as |T|
-            >
-              {{yield
-                (hash
-                  Tr=(component
-                    "hds/advanced-table/tr"
-                    columnOrder=CM.columnOrder
-                    isLastRow=(eq this._tableModel.lastVisibleRow.id T.data.id)
-                    isParentRow=T.isExpandable
-                    depth=T.depth
-                    displayRow=T.shouldDisplayChildRows
-                    data=T.data
-                  )
-                  Th=(component
-                    "hds/advanced-table/th"
-                    depth=T.depth
-                    isExpandable=T.isExpandable
-                    isExpanded=T.isExpanded
-                    newLabel=T.id
-                    parentId=T.parentId
-                    scope="row"
-                    onClickToggle=T.onClickToggle
-                  )
-                  Td=(component "hds/advanced-table/td" align=@align)
-                  data=T.data
-                  isOpen=T.isExpanded
-                  rowIndex=T.rowIndex
-                )
-                to="body"
-              }}
-            </Hds::AdvancedTable::ExpandableTrGroup>
-          {{else}}
+        @model={{sort-by this.sortCriteria @model}}
+        as |B|
+      >
+        {{#each B.visibleRows key="id" as |row index|}}
+          {{#let (and (not this.hasRowsWithChildren) (not row.hasChildren)) as |isSimpleRow|}}
+
             {{yield
               (hash
                 Tr=(component
                   "hds/advanced-table/tr"
                   columnOrder=CM.columnOrder
-                  selectionScope="row"
-                  isLastRow=(eq this._tableModel.lastVisibleRow.id record.id)
-                  isSelectable=this.isSelectable
-                  onSelectionChange=this.onSelectionRowChange
-                  didInsert=this.didInsertRowCheckbox
-                  willDestroy=this.willDestroyRowCheckbox
-                  selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+                  data=row.source
+                  depth=row.depth
+                  isParentRow=row.hasChildren
+                  isLastRow=(and (eq row.id B.lastVisibleRowId) (not-eq B.lastVisibleRowId undefined))
+                  displayRow=true
+                  selectionScope=(if isSimpleRow "row")
+                  isSelectable=(if isSimpleRow this.isSelectable)
+                  onSelectionChange=(if isSimpleRow this.onSelectionRowChange)
+                  didInsert=(if isSimpleRow this.didInsertRowCheckbox)
+                  willDestroy=(if isSimpleRow this.willDestroyRowCheckbox)
                   hasStickyColumn=this.hasStickyFirstColumn
                   isStickyColumnPinned=this.isStickyColumnPinned
-                  data=record
                 )
                 Th=(component
                   "hds/advanced-table/th"
+                  isExpandable=row.hasChildren
+                  isExpanded=row.isExpanded
+                  onClickToggle=(fn this.toggleRow row.id)
+                  depth=row.depth
                   scope="row"
+                  newLabel=row.id
                   isStickyColumn=this.hasStickyFirstColumn
                   isStickyColumnPinned=this.isStickyColumnPinned
                 )
                 Td=(component "hds/advanced-table/td" align=@align)
-                data=record
+                data=row.source
                 rowIndex=index
+                isOpen=row.isExpanded
               )
               to="body"
             }}
-          {{/if}}
+          {{/let}}
         {{/each}}
-      </div>
+      </Hds::AdvancedTable::Body>
     </div>
 
   </Hds::AdvancedTable::ColumnManager>
