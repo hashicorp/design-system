@@ -28,7 +28,6 @@ body.page-layouts-app-frame {
 
       // For simulating minimize behavior
       &.hds-app-side-nav--is-minimized {
-        .hds-side-nav__wrapper,
         .hds-app-side-nav__wrapper  {
           overflow: hidden;
         }
