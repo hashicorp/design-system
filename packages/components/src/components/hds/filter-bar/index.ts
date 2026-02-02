@@ -66,6 +66,9 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     this._dropdownToggleElement = element.querySelector(
       '.hds-filter-bar__filters-dropdown .hds-dropdown-toggle-button'
     ) as HTMLDivElement;
+
+    // Align the expanded state with the presence of active filters
+    this._isExpanded = this.hasActiveFilters;
   });
 
   get searchValue(): string {
