@@ -20,26 +20,7 @@ The `<:logo>` block should contain the `AppHeader::HomeLink` which is provided a
 
 The other two slots are intended for consumer-provided controls. The `<:globalActions>` block should typically contain a “context switcher” (sometimes called an “org switcher” or “project switcher”). The `<:utilityActions>` block is used to provide utilities including “Help” and “User” menus and, optionally, “Search”.
 
-```handlebars
-{{!--
-for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
-probably need to be set to `true` (or omitted to rely on defaults)
---}}
-<Hds::AppHeader @hasA11yRefocus={{false}}>
-  <:logo>
-    <Doc::Placeholder @height="2em" @width="auto" @text="HomeLink" @background="#e4e4e4" />
-  </:logo>
-
-  <:globalActions>
-    <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
-  </:globalActions>
-
-  <:utilityActions>
-    <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
-    <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
-  </:utilityActions>
-</Hds::AppHeader>
-```
+[[code-snippets/app-header-layout]]
 
 ### Content
 
@@ -59,159 +40,24 @@ It is built on top of the [`Hds::Interactive` component](/utilities/interactive)
 
 Refer to the [Component API section](/components/app-header?tab=code#appheaderhomelink) for details.
 
-```handlebars
-{{!--
-for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
-probably need to be set to `true` (or omitted to rely on defaults)
---}}
-<Hds::AppHeader @hasA11yRefocus={{false}}>
-  <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="hashicorp" 
-      @text="HashiCorp home menu"
-      @href="/"
-    />
-  </:logo>
-  
-  <:globalActions>
-    <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
-  </:globalActions>
-  
-  <:utilityActions>
-    <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
-    <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
-  </:utilityActions>
-</Hds::AppHeader>
-```
+[[code-snippets/app-header-home-link]]
 
 When `@isIconOnly` is set to `false`, the `@text` argument displays text inline with the logo and can be used to more deliberately title an application or provide other differentiating text.
 
-```handlebars
-<Hds::AppHeader @hasA11yRefocus={{false}}>
-  <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="terraform" 
-      @text="Admin Console"
-      @isIconOnly={{false}}
-      @href="/"
-    />
-  </:logo>
-
-  <:utilityActions>
-    <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
-    <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
-  </:utilityActions>
-</Hds::AppHeader>
-```
+[[code-snippets/app-header-icon-home-link]]
 
 The `HomeLink` also accepts optional arguments; for example, it’s possible to provide a custom color for the icon if needed:
 
-```handlebars
-{{!--
-for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
-probably need to be set to `true` (or omitted to rely on defaults)
---}}
-<Hds::AppHeader @hasA11yRefocus={{false}}>
-  <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="terraform" 
-      @text="Terraform home menu"
-      @color="var(--token-color-terraform-brand)"
-      @href="/"
-    />
-  </:logo>
-  
-  <:globalActions>
-    <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
-  </:globalActions>
-
-  <:utilityActions>
-    <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
-    <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
-  </:utilityActions>
-</Hds::AppHeader>
-```
+[[code-snippets/app-header-home-link-args]]
 
 #### Global actions
 
 Consumers should provide their own “context switcher” (e.g., “org switcher” or “project switcher”) control yielded within the `<:globalActions>` block. HDS does not currently provide this component.
 
-```handlebars
-{{!--
-for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
-probably need to be set to `true` (or omitted to rely on defaults)
---}}
-<Hds::AppHeader @hasA11yRefocus={{false}}>
-  <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="hashicorp" 
-      @text="HashiCorp home menu"
-      @href="/"
-    />
-  </:logo>
-  
-  <:globalActions>
-    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-      <dd.ToggleButton @text="Choose an organization" @icon="org" />
-      <dd.Checkmark>
-        organizationName
-      </dd.Checkmark>
-    </Hds::Dropdown>
-  </:globalActions>
-
-  <:utilityActions>
-    <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
-    <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
-  </:utilityActions>
-</Hds::AppHeader>
-```
+[[code-snippets/app-header-global-actions]]
 
 #### Utility actions
 
 Consumers should provide their own utility action controls yielded within the `<:utilityActions>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
 
-```handlebars
-{{!--
-for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
-probably need to be set to `true` (or omitted to rely on defaults)
---}}
-<Hds::AppHeader @hasA11yRefocus={{false}}>
-  <:logo>
-    <Hds::AppHeader::HomeLink 
-      @icon="hashicorp" 
-      @text="HashiCorp home menu"
-      @href="/"
-    />
-  </:logo>
-  
-  <:globalActions>
-    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-      <dd.ToggleButton @text="Choose an organization" @icon="org" />
-      <dd.Checkmark>
-        organizationName
-      </dd.Checkmark>
-    </Hds::Dropdown>
-  </:globalActions>
-
-  <:utilityActions>
-    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-      <dd.ToggleIcon @icon="help" @text="help menu" />
-      <dd.Title @text="Help & Support" />
-      <dd.Interactive @href="#">Documentation</dd.Interactive>
-      <dd.Interactive @href="#">Tutorials</dd.Interactive>
-      <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
-      <dd.Interactive @href="#">Changelog</dd.Interactive>
-      <dd.Separator />
-      <dd.Interactive @href="#">Create support ticket</dd.Interactive>
-      <dd.Interactive @href="#">Give feedback</dd.Interactive>
-    </Hds::Dropdown>
-
-    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-      <dd.ToggleIcon @icon="user" @text="user menu" />
-      <dd.Title @text="Signed In" />
-      <dd.Description @text="email@domain.com" />
-      <dd.Interactive @href="#">Account settings</dd.Interactive>
-    </Hds::Dropdown>
-  </:utilityActions>
-</Hds::AppHeader>
-```
+[[code-snippets/app-header-utility-actions]]

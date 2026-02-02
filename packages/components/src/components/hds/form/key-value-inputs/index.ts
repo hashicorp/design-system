@@ -17,7 +17,7 @@ import {
 } from '../../../../utils/hds-aria-described-by.ts';
 import { guidFor } from '@ember/object/internals';
 
-import HdsAlertComponent from '../../alert/index.ts';
+import HdsAlertComponent from '../../alert/index.gts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormKeyValueInputsDeleteRowButtonComponent from './delete-row-button.ts';
@@ -27,7 +27,7 @@ import HdsFormLegendComponent from '../legend/index.ts';
 
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 import type { HdsFormKeyValueInputsAddRowButtonSignature } from './add-row-button.ts';
-import type { HdsYieldSignature } from '../../yield/index.ts';
+import type { HdsYieldSignature } from '../../yield/index.gts';
 
 const KEY_VALUE_INPUTS_FIELD_SELECTOR = '.hds-form-key-value-inputs__field';
 const KEY_VALUE_INPUTS_GENERIC_SELECTOR =

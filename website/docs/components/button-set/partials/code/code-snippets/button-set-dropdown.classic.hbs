@@ -1,0 +1,14 @@
+<Hds::ButtonSet>
+  <Hds::Dropdown as |D|>
+    <D.ToggleButton @color="secondary" @text="Select an option" />
+    <D.Title @text="Title Text" />
+    <D.Description @text="Descriptive text goes here." />
+    <D.Interactive @href="#">Add</D.Interactive>
+    <D.Interactive @href="#">Add More</D.Interactive>
+    <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
+    <D.Separator />
+    <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
+  </Hds::Dropdown>
+
+  <Hds::Button @text="Submit" type="submit" />
+</Hds::ButtonSet>

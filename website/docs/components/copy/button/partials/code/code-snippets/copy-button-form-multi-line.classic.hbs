@@ -1,0 +1,11 @@
+<Hds::Form::Fieldset @layout="vertical" as |F|>
+  <F.Legend>Cluster secret</F.Legend>
+  <F.HelperText>This is some example helper text.</F.HelperText>
+  <F.Control>
+    <Hds::Layout::Flex @align="start" @gap="8">
+      <Hds::Form::Textarea::Base @value="C9WhJuvE70CnTcqvNqptMhmnBHmMNXuj" id="cluster-name-example-textarea" />
+      <Hds::Copy::Button @text="Copy" @isIconOnly={{true}} @targetToCopy="#cluster-name-example-textarea" />
+    </Hds::Layout::Flex>
+  </F.Control>
+  <F.Error>This is example error text.</F.Error>
+</Hds::Form::Fieldset>

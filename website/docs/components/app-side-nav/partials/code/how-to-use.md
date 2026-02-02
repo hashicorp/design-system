@@ -23,13 +23,7 @@ The App Side Nav component provides a top-level layout for the sidebar navigatio
 
 Consumers can yield the navigation content and add business logic to control the content within it.
 
-```handlebars
-<div class="doc-app-sidenav-demo">
-  <Hds::AppSideNav>
-    <Doc::Placeholder @height="500px" @text="&lt;:body /&gt;" @background="#e4e4e4" />
-  </Hds::AppSideNav>
-</div>
-```
+[[code-snippets/app-side-nav-layout]]
 
 It also comes with a set of CSS properties that automatically set the App Side Nav in a fixed position on the left of the application frame, and force it to occupy the full height of the window.
 
@@ -55,40 +49,11 @@ The `AppSideNav::List` component (and its sub-components) are the fundamental bu
 
 Below is an example (with simplified code for better readability) of how these elements could be used to build different specific navigation items:
 
-```handlebars
-<div class="doc-app-sidenav-demo--short">
-  <Hds::AppSideNav>
-    <Hds::AppSideNav::List as |SNL|>
-      <SNL.BackLink @text="A “back” link" @href="#" />
-      <SNL.Title>A section title</SNL.Title>
-      <SNL.Link @text="A link with just text" @href="#" />
-      <SNL.Link @text="A link with an icon" @icon="network" @href="#" />
-      <SNL.Link @text="With a “count”" @icon="users" @count="12" @href="#" />
-      <SNL.Link @text="With a “badge” " @icon="credit-card" @badge="Beta" @href="#" />
-      <SNL.Link @text="With “sub items” indicator" @icon="settings" @hasSubItems={{true}} />
-      <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="As an “external” link" />
-      <SNL.Link @icon="hexagon" @href="#">
-        <Doc::Placeholder @height="20px" @text="With generic yielded content" @background="#e4e4e4" />
-      </SNL.Link>
-      <SNL.Item>
-        <Doc::Placeholder @height="20px" @text="Generic yielded content" @background="#e4e4e4" />
-      </SNL.Item>
-    </Hds::AppSideNav::List>
-  </Hds::AppSideNav>
-</div>
-```
+[[code-snippets/app-side-nav-content]]
 
 In case a consumer needs to add custom/extra content inside the `<nav>` element but outside of the `<ul>` element, we provide two extra “slot” containers (`ExtraBefore` and `ExtraAfter`):
 
-```handlebars{data-execute=false}
-<Hds::AppSideNav>
-  <Hds::AppSideNav::List as |SNL|>
-    <SNL.ExtraBefore>{{! content that is rendered before the list items }}</SNL.ExtraBefore>
-    {{! ... list items ... }}
-    <SNL.ExtraAfter>{{! content that is rendered after the list items }}</SNL.ExtraAfter>
-  </Hds::AppSideNav::List>
-</Hds::AppSideNav>
-```
+[[code-snippets/app-side-nav-extra-content execute=false]]
 
 For more details about how to use these sub-components, refer to the [“Component API”](/components/app-side-nav?tab=code#appsidenavlist) section.
 
@@ -116,47 +81,7 @@ For more details about how to use these sub-components, refer to the [“Compone
 
 Below is an example (inspired by the Cloud UI navigation) of how the two kinds of portals are declared in code:
 
-```handlebars
-{{!--
-for demo purposes we set `@isResponsive` to `false` but in your app it will probably need to be set to `true`
-(or omitted to rely on defaults)
---}}
-<div class="doc-app-sidenav-demo--cloud-ui">
-  <Hds::AppSideNav @isResponsive={{false}}>
-      {{!--
-      this portal "target" needs to be added in the position where you want
-      the content declared in the "portal(s)" to be injected
-      (typically the `:body` of the `Hds::AppSideNav`)
-      --}}
-      <Hds::AppSideNav::Portal::Target />
-  </Hds::AppSideNav>
-</div>
-
-{{!--
-this "portal" can be declared in any part of the application, and its content
-will be injected automatically in the "target" portal declared above;
-if multiple portals are declared, multiple "panels" will be rendered
-based on the nesting of the page route within the application’s global routing
---}}
-<Hds::AppSideNav::Portal @ariaLabel="Primary" as |Nav|>
-  <Nav.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-  <Nav.Title>Services</Nav.Title>
-  <Nav.Link @text="Boundary" @icon="boundary" @href="#" />
-  <Nav.Link @text="Consul" @icon="consul" @href="#" />
-  <Nav.Link @text="Packer" @icon="packer" @href="#" />
-  <Nav.Link @text="Vault" @icon="vault" @href="#" />
-  <Nav.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
-  <Nav.Link @text="Terraform" @icon="terraform" @href="#" />
-  <Nav.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-  <Nav.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-  <Nav.Title>Default Org</Nav.Title>
-  <Nav.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-  <Nav.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-  <Nav.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-  <Nav.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-  <Nav.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
-</Hds::AppSideNav::Portal>
-```
+[[code-snippets/app-side-nav-portal]]
 
 _Notice: given the complexity of the component and its usage, is not possible to exactly replicate its production-ready implementation in code; refer to other codebases (e.g., [Cloud UI](https://github.com/search?q=repo%3Ahashicorp%2Fcloud-ui+%3CHds%3A%3ASideNav%3A%3APortal&type=code)) to have a more in-depth view of how the “portals” should be used to build a complex app navigation._
 

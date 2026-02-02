@@ -1,0 +1,34 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! template-lint-disable require-context-role no-invalid-role }}
+{{! template-lint-disable require-presentational-children }}
+<li class={{this.classNames}} ...attributes role="presentation">
+  <button
+    class="hds-filter-bar__tabs__tab__button"
+    id={{this._tabId}}
+    type="button"
+    role="tab"
+    aria-controls={{this.coupledPanelId}}
+    aria-selected={{if this.isSelected "true" "false"}}
+    tabindex={{unless this.isSelected "-1"}}
+    {{on "click" this.onClick}}
+    {{on "keydown" this.onKeydown}}
+    {{this._setUpTab insertCallbackFunction=this.didInsertNode destroyCallbackFunction=this.willDestroyNode}}
+  >
+    <Hds::Text::Body @size="200" @weight="medium" class="hds-filter-bar__tabs__tab__text">{{yield}}</Hds::Text::Body>
+    {{#if (gt @numFilters 0)}}
+      <span class="sr-only">{{hds-t
+          "hds.components.filter-bar.tabs.tab.filters-applied"
+          default="Filters applied"
+        }}</span>
+      <Hds::Text::Body @size="200" @color="primary" class="hds-filter-bar__tabs__tab__filter-count">
+        {{@numFilters}}
+      </Hds::Text::Body>
+    {{/if}}
+    <Hds::Icon @name="chevron-right" @color="primary" class="hds-filter-bar__tabs__tab__icon" />
+  </button>
+</li>
+{{! template-lint-enable require-presentational-children }}
+{{! template-lint-enable require-context-role no-invalid-role }}

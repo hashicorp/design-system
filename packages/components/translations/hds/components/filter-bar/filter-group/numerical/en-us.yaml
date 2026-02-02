@@ -1,0 +1,20 @@
+legend: "Filter by {text}"
+label: Number is
+selector-input:
+  default-value: Pick a selector
+  less-than: Less than (<)
+  less-than-or-equal-to: Less than or equal to (≤)
+  equal-to: Equal to (=)
+  greater-than-or-equal-to: Greater than or equal to (≥)
+  greater-than: Greater than (>)
+  between: Between
+value-input:
+  aria-label: Number value
+  placeholder: Enter a value
+between-value-inputs:
+  start:
+    aria-label: Number start value
+    placeholder: Start
+  end:
+    aria-label: Number end value
+    placeholder: End

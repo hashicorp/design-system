@@ -1,0 +1,14 @@
+<div class="doc-alert-demo-heading">
+  <Hds::Text::Display @tag="h1" @size="500">Edit credit card</Hds::Text::Display>
+</div>
+<Hds::Alert @type="inline" @color="critical" as |A|>
+  <A.Title @tag="h2">Form submission error</A.Title>
+  <A.Description>
+    Correct the formatting of the following fields to update your user profile:
+  </A.Description>
+  <A.Description>
+    <Hds::Link::Inline @href="#" @color="secondary">
+      Expiration date
+    </Hds::Link::Inline>
+  </A.Description>
+</Hds::Alert>

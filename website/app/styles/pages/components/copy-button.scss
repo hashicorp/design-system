@@ -7,10 +7,9 @@
 // COMPONENTS > COPY/COPY-BUTTON
 
 #show-content-components-copy-button {
-  .doc-copy-button-composition-input-control {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    align-items: flex-start;
+  .doc-copy-button-copy-text {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-family: var(--token-typography-body-300-font-family);
   }
 }

@@ -24,7 +24,7 @@ const DocTokensListGrid: TemplateOnlyComponent<DocTokensListGridSignature> =
           <DocTokensListItem @token={{token}} />
         {{/each}}
       </ul>
-    {{/if}}s
+    {{/if}}
   </template>;
 
 export default DocTokensListGrid;

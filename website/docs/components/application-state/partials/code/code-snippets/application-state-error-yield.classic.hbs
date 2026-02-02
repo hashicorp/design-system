@@ -1,0 +1,10 @@
+<Hds::ApplicationState as |A|>
+  <A.Header @title="An error has occurred" @errorCode="404" />
+  <A.Body>
+    <Doc::Placeholder @text="block yield" @height="100" @background="#eee" />
+  </A.Body>
+  <A.Footer as |F|>
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+  </A.Footer>
+</Hds::ApplicationState>

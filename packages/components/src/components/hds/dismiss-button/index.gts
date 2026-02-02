@@ -8,7 +8,7 @@ import { service } from '@ember/service';
 
 import HdsIcon from '../icon/index.gts';
 
-import type HdsIntlService from '../../../services/hds-intl';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export interface HdsDismissButtonSignature {
   Args: {

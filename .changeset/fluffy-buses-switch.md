@@ -2,40 +2,38 @@
 "@hashicorp/design-system-components": patch
 ---
 
-
 <!-- START components/table/advanced-table -->
-Updated HdsIntlService service declarations to align how services are declared
+`AdvancedTable` - Updated HdsIntlService service declarations to align how services are declared
 <!-- END -->
 
 <!-- START components/app-side-nav -->
-Updated router service declaration to align how services are declared
+`AppSideNav` - Updated router service declaration to align how services are declared
 <!-- END -->
 
 <!-- START components/code-editor -->
-Updated HdsIntlService service declaration in `CodeEditor` modifier to align how services are declared
+`CodeEditor` - Updated HdsIntlService service declaration in `CodeEditor` modifier to align how services are declared
 <!-- END -->
 
 <!-- START components/copy/button -->
-Updated HdsIntlService service declaration to align how services are declared
+`CopyButton` - Updated HdsIntlService service declaration to align how services are declared
 <!-- END -->
 
 <!-- START utilities/dismiss-button -->
-Updated HdsIntlService service declaration to align how services are declared
+`DismissButton` - Updated HdsIntlService service declaration to align how services are declared
 <!-- END -->
 
 <!-- START components/form/masked-input -->
-Updated HdsIntlService service declaration to align how services are declared
+`MaskedInput` - Updated HdsIntlService service declaration to align how services are declared
 <!-- END -->
 
 <!-- START components/pagination -->
-Updated HdsIntlService service declaration for `PaginationInfo` to align how services are declared
+`Pagination` - Updated HdsIntlService service declaration for `PaginationInfo` to align how services are declared
 <!-- END -->
 
 <!-- START components/side-nav -->
-Updated router service declaration for `Portal` to align how services are declared
+`SideNav` - Updated router service declaration for `Portal` to align how services are declared
 <!-- END -->
 
 <!-- START components/table/table -->
-Updated HdsIntlService service declarations to align how services are declared
+`Table` - Updated HdsIntlService service declarations to align how services are declared
 <!-- END -->
-

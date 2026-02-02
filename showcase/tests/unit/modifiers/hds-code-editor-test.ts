@@ -5,7 +5,10 @@
 
 import { module, test } from 'qunit';
 
-import { getCSPNonceFromMeta } from '@hashicorp/design-system-components/modifiers/hds-code-editor';
+import {
+  getCSPNonceFromMeta,
+  getErrorMessage,
+} from '@hashicorp/design-system-components/modifiers/hds-code-editor';
 
 module('Unit | Helper | hds-code-editor', function (hooks) {
   hooks.afterEach(() => {
@@ -100,5 +103,23 @@ module('Unit | Helper | hds-code-editor', function (hooks) {
       undefined,
       'Should return undefined if nonce is not present',
     );
+  });
+
+  // getErrorMessage
+
+  test('returns the message property for Error instances', function (assert) {
+    const error = new Error('Something went wrong');
+    assert.strictEqual(getErrorMessage(error), 'Something went wrong');
+  });
+
+  test('returns string representation for non-Error values', function (assert) {
+    assert.strictEqual(getErrorMessage('a string error'), 'a string error');
+    assert.strictEqual(getErrorMessage(42), '42');
+    assert.strictEqual(
+      getErrorMessage({ custom: 'object' }),
+      '{"custom":"object"}',
+    );
+    assert.strictEqual(getErrorMessage(null), 'null');
+    assert.strictEqual(getErrorMessage(undefined), 'undefined');
   });
 });

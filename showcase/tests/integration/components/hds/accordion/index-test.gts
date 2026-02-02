@@ -480,4 +480,33 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.strictEqual(context.isOpen, 'close');
     assert.dom('.hds-accordion-item__content').doesNotExist();
   });
+
+  // NESTED ACCORDIONS
+
+  test('closing a nested accordion item should not close the parent accordion item', async function (assert) {
+    await render(
+      <template>
+        <HdsAccordion id="parent-accordion" as |A|>
+          <A.Item @isOpen={{true}} id="parent-item">
+            <:toggle>Parent item</:toggle>
+            <:content>
+              <HdsAccordion id="nested-accordion" as |NA|>
+                <NA.Item @isOpen={{true}} id="nested-item">
+                  <:toggle>Nested item</:toggle>
+                  <:content>Nested content</:content>
+                </NA.Item>
+              </HdsAccordion>
+            </:content>
+          </A.Item>
+        </HdsAccordion>
+      </template>,
+    );
+
+    assert.dom('#parent-item .hds-accordion-item__content').exists();
+    assert.dom('#nested-item .hds-accordion-item__content').exists();
+
+    await click('#nested-item .hds-accordion-item__button');
+    assert.dom('#nested-item .hds-accordion-item__content').doesNotExist();
+    assert.dom('#parent-item .hds-accordion-item__content').exists();
+  });
 });

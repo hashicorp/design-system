@@ -1,0 +1,29 @@
+<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="32">
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+    <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
+      <Hds::Layout::Flex @align="center" @gap="8">
+        <Hds::IconTile @icon="cloud" @size="small" />
+        <Hds::Text::Display @tag="h2" @size="300">
+          Active resources
+        </Hds::Text::Display>
+      </Hds::Layout::Flex>
+      <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" as |LG|>
+        <LG.Item>
+          <Hds::Badge @text="5 active resources" @color="success" @icon="check-circle" />
+        </LG.Item>
+        <Hds::Text::Body @tag="p">
+          There are 5 active resources inside this project.
+        </Hds::Text::Body>
+      </Hds::Layout::Grid>
+      <Hds::Link::Standalone @icon="arrow-right" @iconPosition="trailing" @text="View active resources" @href="#" />
+    </Hds::Layout::Grid>
+  </Hds::Card::Container>
+
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+    <Hds::Text::Display @tag="h2" @size="300">Card #2</Hds::Text::Display>
+  </Hds::Card::Container>
+
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+    <Hds::Text::Display @tag="h2" @size="300">Card #3</Hds::Text::Display>
+  </Hds::Card::Container>
+</Hds::Layout::Grid>
