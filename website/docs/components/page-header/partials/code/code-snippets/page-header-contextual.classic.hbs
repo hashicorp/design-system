@@ -1,0 +1,19 @@
+<Hds::PageHeader as |PH|>
+  <PH.Title>Page title</PH.Title>
+  <PH.Breadcrumb>
+    <Hds::Breadcrumb>
+      <Hds::Breadcrumb::Item @text="Organization" @icon="dashboard" />
+      <Hds::Breadcrumb::Item @text="Project" @icon="file-text" />
+      <Hds::Breadcrumb::Item @text="Clusters" @icon="server-cluster" />
+    </Hds::Breadcrumb>
+  </PH.Breadcrumb>
+  <PH.IconTile @icon="server-cluster" @color="consul" />
+  <PH.Badges>
+    <Hds::Badge @text="Status badge" @icon="award" @color="highlight" />
+  </PH.Badges>
+  <PH.Subtitle>Page subtitle</PH.Subtitle>
+  <PH.Description>Description of the page</PH.Description>
+  <PH.Actions>
+    <Hds::Button @text="Create" @icon="plus" @iconPosition="leading" @color="primary" />
+  </PH.Actions>
+</Hds::PageHeader>
