@@ -14,9 +14,9 @@ import { modifier } from 'ember-modifier';
 import type { WithBoundArgs } from '@glint/template';
 import type { HdsModalSizes, HdsModalColors } from './types.ts';
 
-import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.ts';
-import HdsDialogPrimitiveBodyComponent from '../dialog-primitive/body.ts';
-import HdsDialogPrimitiveFooterComponent from '../dialog-primitive/footer.ts';
+import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.gts';
+import HdsDialogPrimitiveBodyComponent from '../dialog-primitive/body.gts';
+import HdsDialogPrimitiveFooterComponent from '../dialog-primitive/footer.gts';
 import { HdsModalSizeValues, HdsModalColorValues } from './types.ts';
 
 const waiter = buildWaiter('@hashicorp/design-system-components:modal');
