@@ -43,7 +43,6 @@ export default class Application extends Component {
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
     this.router.on('routeDidChange', this.routeDidChange.bind(this));
-    this.hdsTheming.initializeTheme();
   }
 
   get isFrameless() {
