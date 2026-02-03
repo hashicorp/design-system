@@ -30,10 +30,6 @@
 `Pagination` - Updated HdsIntlService service declaration for `PaginationInfo` to align how services are declared
 <!-- END -->
 
-<!-- START components/side-nav -->
-`SideNav` - Updated router service declaration for `Portal` to align how services are declared
-<!-- END -->
-
 <!-- START components/table/table -->
 `Table` - Updated HdsIntlService service declarations to align how services are declared
 <!-- END -->
