@@ -8,7 +8,8 @@ import { tracked } from '@glimmer/tracking';
 import { schedule } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
 import { hash } from '@ember/helper';
-import { modifier } from 'ember-modifier';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 
 export interface HdsDisclosurePrimitiveSignature {
   Args: {
@@ -68,12 +69,12 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
     }
   };
 
-  onStateChange = modifier(() => {
+  onStateChange = () => {
     if (this.args.isOpen !== undefined) {
       this.isOpen = this.args.isOpen;
     }
     this._isControlled = true;
-  });
+  };
 
   close = (): void => {
     // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
@@ -88,7 +89,11 @@ export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimi
   };
 
   <template>
-    <div class="hds-disclosure-primitive" {{this.onStateChange}} ...attributes>
+    <div
+      class="hds-disclosure-primitive"
+      {{didUpdate this.onStateChange @isOpen}}
+      ...attributes
+    >
       <div class="hds-disclosure-primitive__toggle">
         {{yield
           (hash
