@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, click, fillIn } from '@ember/test-helpers';
+import { render, click, fillIn, settled } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 
 import {
@@ -498,5 +498,39 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
       .dom('.hds-filter-bar__applied-filters-toggle-button')
       .hasAttribute('aria-expanded', 'true');
     assert.dom('.hds-filter-bar__applied-filters-list__content').exists();
+  });
+
+  test('it should expand and collapse the applied filters section when the filters argument is updated externally', async function (assert) {
+    const context = new TrackedObject({
+      filters: EMPTY_FILTERS,
+    });
+
+    await render(
+      <template>
+        <HdsFilterBar @filters={{context.filters}} as |F|>
+          <F.FiltersDropdown />
+        </HdsFilterBar>
+      </template>,
+    );
+    assert
+      .dom('.hds-filter-bar__applied-filters-toggle-button')
+      .hasAttribute('aria-expanded', 'false');
+    assert.dom('.hds-filter-bar__applied-filters-list__content').doesNotExist();
+
+    context.filters = FILTERS['single-select'] as HdsFilterBarFilters;
+    await settled();
+
+    assert
+      .dom('.hds-filter-bar__applied-filters-toggle-button')
+      .hasAttribute('aria-expanded', 'true');
+    assert.dom('.hds-filter-bar__applied-filters-list__content').exists();
+
+    context.filters = EMPTY_FILTERS;
+    await settled();
+
+    assert
+      .dom('.hds-filter-bar__applied-filters-toggle-button')
+      .hasAttribute('aria-expanded', 'false');
+    assert.dom('.hds-filter-bar__applied-filters-list__content').doesNotExist();
   });
 });

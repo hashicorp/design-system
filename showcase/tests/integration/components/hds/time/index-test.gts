@@ -11,6 +11,7 @@ import HdsTimeService, {
   DEFAULT_DISPLAY_MAPPING,
   MINUTE_IN_MS,
   DAY_IN_MS,
+  THRESHOLD_RELATIVE_TIME_IN_MS,
 } from '@hashicorp/design-system-components/services/hds-time';
 import { HdsTime } from '@hashicorp/design-system-components/components';
 
@@ -70,27 +71,89 @@ module('Integration | Component | hds/time/index', function (hooks) {
 
   // OPTION: display
 
-  // Default display type
-
-  // default using Date object
-  test('it should render the correct string in the default format when passing a Date object', async function (assert) {
-    const defaultDate = new Date('05 September 2018 14:07:32');
+  test('it uses relative display as the default when passing a date object with a date within 7 days in the future from now', async function (assert) {
+    const service = this.owner.lookup('service:hdsTime') as HdsTimeService;
+    const exactlySevenDaysFromNow = new Date(
+      service.now + THRESHOLD_RELATIVE_TIME_IN_MS,
+    );
 
     await render(
-      <template><HdsTime @date={{defaultDate}} @isOpen={{true}} /></template>,
+      <template><HdsTime @date={{exactlySevenDaysFromNow}} /></template>,
+    );
+    assert.dom('.hds-time').includesText('in');
+    assert.dom('.hds-time').includesText('days');
+  });
+
+  test('it uses relative display as the default when passing a date object with a date within 7 days in the past from now', async function (assert) {
+    const service = this.owner.lookup('service:hdsTime') as HdsTimeService;
+    const exactlySevenDaysFromNow = new Date(
+      service.now - THRESHOLD_RELATIVE_TIME_IN_MS + DAY_IN_MS,
+    );
+
+    await render(
+      <template><HdsTime @date={{exactlySevenDaysFromNow}} /></template>,
+    );
+    assert.dom('.hds-time').includesText('days');
+    assert.dom('.hds-time').includesText('ago');
+  });
+
+  test('it uses friendly-local display as the default when passing a date object with a date more than 7 days in the future from now', async function (assert) {
+    const service = this.owner.lookup('service:hdsTime') as HdsTimeService;
+    const justOverSevenDaysFromNow = new Date(
+      service.now + THRESHOLD_RELATIVE_TIME_IN_MS + DAY_IN_MS,
+    );
+
+    await render(
+      <template>
+        <HdsTime @date={{justOverSevenDaysFromNow}} @isOpen={{true}} />
+      </template>,
     );
 
     const options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
 
     if (options?.displayFormat !== null) {
-      const expectedDateString = new Date(defaultDate).toLocaleString(
+      const expectedDateString = new Date(
+        justOverSevenDaysFromNow,
+      ).toLocaleString(
         navigator.language,
         // @ts-expect-error - displayFormat exists if options exists
         options.displayFormat,
       );
       assert.dom('.hds-time').hasText(expectedDateString);
       // test tooltip content
-      assert.dom('.tippy-content').hasText(defaultDate.toISOString());
+      assert
+        .dom('.tippy-content')
+        .hasText(justOverSevenDaysFromNow.toISOString());
+    }
+  });
+
+  test('it uses friendly-local display as the default when passing a date object with a date more than 7 days in the past from now', async function (assert) {
+    const service = this.owner.lookup('service:hdsTime') as HdsTimeService;
+    const justOverSevenDaysFromNow = new Date(
+      service.now - THRESHOLD_RELATIVE_TIME_IN_MS - DAY_IN_MS,
+    );
+
+    await render(
+      <template>
+        <HdsTime @date={{justOverSevenDaysFromNow}} @isOpen={{true}} />
+      </template>,
+    );
+
+    const options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
+
+    if (options?.displayFormat !== null) {
+      const expectedDateString = new Date(
+        justOverSevenDaysFromNow,
+      ).toLocaleString(
+        navigator.language,
+        // @ts-expect-error - displayFormat exists if options exists
+        options.displayFormat,
+      );
+      assert.dom('.hds-time').hasText(expectedDateString);
+      // test tooltip content
+      assert
+        .dom('.tippy-content')
+        .hasText(justOverSevenDaysFromNow.toISOString());
     }
   });
 
