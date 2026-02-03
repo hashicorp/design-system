@@ -1,0 +1,28 @@
+<Hds::Form class="doc-form-layout-mobile-view" as |FORM|>
+  <FORM.Section>
+    <FORM.SectionMultiFieldGroup as |FG|>
+      <Hds::Form::TextInput::Field as |F|>
+        <F.Label>City</F.Label>
+      </Hds::Form::TextInput::Field>
+
+      <FG.Item @width="auto">
+        <Hds::Form::Select::Field as |F|>
+          <F.Label>State</F.Label>
+          <F.Options>
+            <option value="state-1">Ohio</option>
+            <option value="state-2">Massachusetts</option>
+            <option value="state-3">Washington</option>
+            <option value="state-4">Florida</option>
+            <option value="state-4">North Carolina</option>
+          </F.Options>
+        </Hds::Form::Select::Field>
+      </FG.Item>
+
+      <FG.Item @width="6em">
+        <Hds::Form::TextInput::Field as |F|>
+          <F.Label>Zip</F.Label>
+        </Hds::Form::TextInput::Field>
+      </FG.Item>
+    </FORM.SectionMultiFieldGroup>
+  </FORM.Section>
+</Hds::Form>

@@ -1,0 +1,55 @@
+import Component from '@glimmer/component';
+import { on } from '@ember/modifier';
+
+import {
+  HdsForm,
+  HdsFormRadioCardGroup,
+} from '@hashicorp/design-system-components/components';
+
+export default class LocalComponent extends Component {
+  onChange = (event: Event) => {
+    const control = event.target as HTMLElement;
+    const group = control.closest('.hds-form-group__control-fields-wrapper');
+    group?.querySelectorAll('.hds-form-radio-card').forEach((radioCard) => {
+      radioCard.classList.remove('hds-form-radio-card--checked');
+    });
+    control
+      ?.closest('.hds-form-radio-card')
+      ?.classList.add('hds-form-radio-card--checked');
+  };
+
+  <template>
+    <HdsForm as |FORM|>
+      <FORM.Section @isFullWidth={{true}}>
+        <HdsFormRadioCardGroup
+          @name="radio-card-basic-example"
+          @alignment="center"
+          as |G|
+        >
+          <G.Legend>Create connection</G.Legend>
+          <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+            <R.Icon @name="aws-color" />
+            <R.Label>Quick peering with Quick Links</R.Label>
+            <R.Badge @text="2-5 min" />
+            <R.Description>Quick peering with quick links will provide the
+              fastest way to connect to your providers’ network.</R.Description>
+          </G.RadioCard>
+          <G.RadioCard {{on "change" this.onChange}} as |R|>
+            <R.Icon @name="aws-color" />
+            <R.Label>Manual peering using AWS CLI</R.Label>
+            <R.Badge @text="5-10 min" />
+            <R.Description>Provide you AWS CLI template to apply connection
+              settings.</R.Description>
+          </G.RadioCard>
+          <G.RadioCard {{on "change" this.onChange}} as |R|>
+            <R.Icon @name="hcp" />
+            <R.Label>Manual peering using HCP and AWS web console</R.Label>
+            <R.Badge @text="30-60 min" />
+            <R.Description>Manually follow UI instructions to complete
+              configuring a connection at provider side.</R.Description>
+          </G.RadioCard>
+        </HdsFormRadioCardGroup>
+      </FORM.Section>
+    </HdsForm>
+  </template>
+}
