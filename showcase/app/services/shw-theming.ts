@@ -15,11 +15,6 @@ import type {
   HdsThemingOptions,
 } from '@hashicorp/design-system-components/services/hds-theming';
 
-// import type {
-//   HdsOnSetThemeCallback,
-//   HdsOnSetThemeCallbackArgs,
-// } from '@hashicorp/design-system-components/services/hds-theming';
-
 const STYLESHEETS = [
   'standard',
   'css-selectors',
@@ -144,20 +139,6 @@ export default class ShwThemingService extends HdsThemingService {
       }
     }
   }
-
-  // example of how a consumer could use the `globalOnSetTheme` callback by extending the `hdsTheming` service
-  // note: for this to work, the `setTheme` must be invoked using the `shwTheming` service: `this.shwTheming.setTheme()`
-  //
-  // globalOnSetTheme: HdsOnSetThemeCallback = ({
-  //   currentTheme,
-  //   currentMode,
-  // }: HdsOnSetThemeCallbackArgs) => {
-  //   console.log(
-  //     'ShwTheming Service -- globalOnSetTheme invoked',
-  //     currentTheme,
-  //     currentMode,
-  //   );
-  // };
 
   _updatePageStylesheets = (currentStylesheet: ShwStylesheets) => {
     // we need a fallback in case the `currentStylesheet` is not found in the `STYLESHEETS_MAPPING` list
