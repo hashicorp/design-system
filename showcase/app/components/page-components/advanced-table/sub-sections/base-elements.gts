@@ -31,18 +31,60 @@ import {
   HdsLayoutFlex,
   HdsTooltipButton,
 } from '@hashicorp/design-system-components/components';
+
 import HdsAdvancedTableThButtonExpand from '@hashicorp/design-system-components/components/hds/advanced-table/th-button-expand';
 import HdsAdvancedTableThButtonSort from '@hashicorp/design-system-components/components/hds/advanced-table/th-button-sort';
 import HdsAdvancedTableThReorderHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-reorder-handle';
 import HdsAdvancedTableThResizeHandle from '@hashicorp/design-system-components/components/hds/advanced-table/th-resize-handle';
 import HdsAdvancedTableThSelectable from '@hashicorp/design-system-components/components/hds/advanced-table/th-selectable';
 
+import type {
+  HdsAdvancedTableColumn,
+  HdsAdvancedTableModel,
+} from '@hashicorp/design-system-components/components/hds/advanced-table/types';
+
 const STATES = ['default', 'hover', 'active', 'focus'];
 
 export default class SubSectionsBaseElements extends Component {
+  sampleTableModel: HdsAdvancedTableModel;
+  hasResizableColumns: boolean;
+  columns: HdsAdvancedTableColumn[];
+
+  constructor(owner: Owner, args: Record<string, never>) {
+    super(owner, args);
+
+    this.sampleTableModel = [
+      {
+        value: 'lorem',
+        status: 'active',
+      },
+      {
+        value: 'ipsum',
+        status: 'active',
+      },
+    ];
+
+    this.hasResizableColumns = true;
+    this.columns = [
+      {
+        label: 'Label',
+        isVisuallyHidden: true,
+        width: '200px',
+      },
+      {
+        label: 'Status',
+        width: '200px',
+      },
+    ];
+  }
+
   mockIndeterminateState = (checkbox: HTMLInputElement) => {
     checkbox.indeterminate = true;
   };
+
+  returnString = () => '';
+
+  returnUndefined = () => undefined;
 
   <template>
     <ShwTextH2>Base elements</ShwTextH2>
@@ -198,19 +240,19 @@ export default class SubSectionsBaseElements extends Component {
             <div class="hds-advanced-table__tr" role="row">
               <HdsAdvancedTableThSort
                 @tooltip="Here is more information"
-                @column={{get this.sampleTableModel.columns 1}}
+                @column={{get this.columns 1}}
                 @hasResizableColumns={{true}}
               >Left</HdsAdvancedTableThSort>
               <HdsAdvancedTableThSort
                 @align="center"
                 @tooltip="Here is more information"
-                @column={{get this.sampleTableModel.columns 1}}
+                @column={{get this.columns 1}}
                 @hasResizableColumns={{true}}
               >Center</HdsAdvancedTableThSort>
               <HdsAdvancedTableThSort
                 @align="right"
                 @tooltip="Here is more information"
-                @column={{get this.sampleTableModel.columns 1}}
+                @column={{get this.columns 1}}
                 @hasResizableColumns={{true}}
               >Right</HdsAdvancedTableThSort>
               {{! Note: need a last column to avoid a scrollbar}}
@@ -408,21 +450,21 @@ export default class SubSectionsBaseElements extends Component {
               <HdsAdvancedTableTh
                 @isExpandable={{true}}
                 @tooltip="Here is more information"
-                @column={{get this.sampleTableModel.columns 1}}
+                @column={{get this.columns 1}}
                 @hasResizableColumns={{true}}
               >Left</HdsAdvancedTableTh>
               <HdsAdvancedTableTh
                 @align="center"
                 @isExpandable={{true}}
                 @tooltip="Here is more information"
-                @column={{get this.sampleTableModel.columns 1}}
+                @column={{get this.columns 1}}
                 @hasResizableColumns={{true}}
               >Center</HdsAdvancedTableTh>
               <HdsAdvancedTableTh
                 @align="right"
                 @isExpandable={{true}}
                 @tooltip="Here is more information"
-                @column={{get this.sampleTableModel.columns 1}}
+                @column={{get this.columns 1}}
                 @hasResizableColumns={{true}}
               >Right</HdsAdvancedTableTh>
               {{! Note: need a last column to avoid a scrollbar}}
@@ -465,9 +507,7 @@ export default class SubSectionsBaseElements extends Component {
               <HdsAdvancedTableTh>Lorem</HdsAdvancedTableTh>
               <HdsAdvancedTableTh>Ipsum</HdsAdvancedTableTh>
               <HdsAdvancedTableTh>Dolor</HdsAdvancedTableTh>
-              <HdsAdvancedTableTh
-                @column={{get this.sampleTableModel.columns 0}}
-              >Sit amet</HdsAdvancedTableTh>
+              <HdsAdvancedTableTh @column={{get this.columns 0}}>Sit amet</HdsAdvancedTableTh>
             </div>
           </div>
         </div>
@@ -489,9 +529,7 @@ export default class SubSectionsBaseElements extends Component {
               <HdsAdvancedTableTh>Lorem</HdsAdvancedTableTh>
               <HdsAdvancedTableTh>Ipsum</HdsAdvancedTableTh>
               <HdsAdvancedTableTh>Dolor</HdsAdvancedTableTh>
-              <HdsAdvancedTableTh
-                @column={{get this.sampleTableModel.columns 0}}
-              >Sit amet</HdsAdvancedTableTh>
+              <HdsAdvancedTableTh @column={{get this.columns 0}}>Sit amet</HdsAdvancedTableTh>
             </div>
           </div>
         </div>
@@ -510,9 +548,7 @@ export default class SubSectionsBaseElements extends Component {
               <HdsAdvancedTableTh>Lorem</HdsAdvancedTableTh>
               <HdsAdvancedTableTh>Ipsum</HdsAdvancedTableTh>
               <HdsAdvancedTableTh>Dolor</HdsAdvancedTableTh>
-              <HdsAdvancedTableTh
-                @column={{get this.sampleTableModel.columns 0}}
-              >Sit amet</HdsAdvancedTableTh>
+              <HdsAdvancedTableTh @column={{get this.columns 0}}>Sit amet</HdsAdvancedTableTh>
             </div>
           </div>
         </div>
@@ -1213,7 +1249,14 @@ export default class SubSectionsBaseElements extends Component {
                     </div>
                     <HdsAdvancedTableThResizeHandle
                       mock-state-value={{state}}
-                      @column={{get this.sampleTableModel.columns 0}}
+                      @column={{get this.columns 0}}
+                      @onApplyTransientWidth={{NOOP}}
+                      @onGetAppliedWidth={{this.returnString}}
+                      @onGetColumnByKey={{this.returnUndefined}}
+                      @onSetTransientColumnWidth={{NOOP}}
+                      @onSetTransientColumnWidths={{NOOP}}
+                      @onResetTransientColumnWidths={{NOOP}}
+                      @onUpdateResizeDebt={{NOOP}}
                       aria-valuenow="200"
                     />
                   </HdsLayoutFlex>
@@ -1246,10 +1289,11 @@ export default class SubSectionsBaseElements extends Component {
         >
           <HdsAdvancedTableThReorderHandle
             mock-state-value={{state}}
-            @column={{get this.sampleTableModel.columns 0}}
+            @column={{get this.columns 0}}
             @tableHeight={{110}}
-            @onReorderDragStart={{NOOP}}
-            @onReorderDragEnd={{NOOP}}
+            @onFocusReorderHandle={{NOOP}}
+            @onSetDraggedColumnKey={{NOOP}}
+            @onStepColumn={{NOOP}}
           />
         </SF.Item>
       {{/each}}

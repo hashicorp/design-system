@@ -7,22 +7,22 @@ import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 
-// import SubSectionBaseElements from 'showcase/components/page-components/advanced-table/sub-sections/base-elements';
+import SubSectionBaseElements from 'showcase/components/page-components/advanced-table/sub-sections/base-elements';
 import SubSectionBasic from 'showcase/components/page-components/advanced-table/sub-sections/basic';
-// import SubSectionCustomization from 'showcase/components/page-components/advanced-table/sub-sections/customization';
-// import SubSectionDemos from 'showcase/components/page-components/advanced-table/sub-sections/demos';
-// import SubSectionEmptyState from 'showcase/components/page-components/advanced-table/sub-sections/empty-state';
-// import SubSectionFilterBar from 'showcase/components/page-components/advanced-table/sub-sections/filter-bar';
-// import SubSectionFunctionalExamples from 'showcase/components/page-components/advanced-table/sub-sections/functional-examples';
-// import SubSectionLayout from 'showcase/components/page-components/advanced-table/sub-sections/layout';
-// import SubSectionMultiSelect from 'showcase/components/page-components/advanced-table/sub-sections/multi-select';
+import SubSectionCustomization from 'showcase/components/page-components/advanced-table/sub-sections/customization';
+import SubSectionDemos from 'showcase/components/page-components/advanced-table/sub-sections/demos';
+import SubSectionEmptyState from 'showcase/components/page-components/advanced-table/sub-sections/empty-state';
+import SubSectionFilterBar from 'showcase/components/page-components/advanced-table/sub-sections/filter-bar';
+import SubSectionFunctionalExamples from 'showcase/components/page-components/advanced-table/sub-sections/functional-examples';
+import SubSectionLayout from 'showcase/components/page-components/advanced-table/sub-sections/layout';
+import SubSectionMultiSelect from 'showcase/components/page-components/advanced-table/sub-sections/multi-select';
 import SubSectionNestedRows from 'showcase/components/page-components/advanced-table/sub-sections/nested-rows';
 import SubSectionOverflow from 'showcase/components/page-components/advanced-table/sub-sections/overflow';
-// import SubSectionPinnableColumns from 'showcase/components/page-components/advanced-table/sub-sections/pinnable-column';
-// import SubSectionReorderableColumns from 'showcase/components/page-components/advanced-table/sub-sections/reorderable-columns';
-// import SubSectionResizableColumns from 'showcase/components/page-components/advanced-table/sub-sections/resizable-columns';
-// import SubSectionSorting from 'showcase/components/page-components/advanced-table/sub-sections/sorting';
-// import SubSectionTooltip from 'showcase/components/page-components/advanced-table/sub-sections/tooltip';
+import SubSectionPinnableColumns from 'showcase/components/page-components/advanced-table/sub-sections/pinnable-column';
+import SubSectionReorderableColumns from 'showcase/components/page-components/advanced-table/sub-sections/reorderable-columns';
+import SubSectionResizableColumns from 'showcase/components/page-components/advanced-table/sub-sections/resizable-columns';
+import SubSectionSorting from 'showcase/components/page-components/advanced-table/sub-sections/sorting';
+import SubSectionTooltip from 'showcase/components/page-components/advanced-table/sub-sections/tooltip';
 
 const AdvancedTableIndex: TemplateOnlyComponent = <template>
   {{pageTitle "AdvancedTable Component"}}
@@ -33,7 +33,7 @@ const AdvancedTableIndex: TemplateOnlyComponent = <template>
     <SubSectionBasic />
     <SubSectionNestedRows />
     <SubSectionOverflow />
-    {{! <SubSectionSorting />
+    <SubSectionSorting />
     <SubSectionTooltip />
     <SubSectionMultiSelect />
     <SubSectionReorderableColumns />
@@ -44,8 +44,8 @@ const AdvancedTableIndex: TemplateOnlyComponent = <template>
     <SubSectionFunctionalExamples />
     <SubSectionCustomization />
     <SubSectionLayout />
-    <SubSectionDemos /> }}
-    {{! <SubSectionBaseElements /> }}
+    <SubSectionDemos />
+    <SubSectionBaseElements />
   </section>
 </template>;
 

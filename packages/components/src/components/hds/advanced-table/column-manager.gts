@@ -68,8 +68,8 @@ export interface HdsAdvancedTableColumnManagerSignature {
         lastColumnKey: HdsAdvancedTableColumn['key'] | undefined;
         orderedColumns: HdsAdvancedTableColumn[];
         reorderHoveredColumnKey: HdsAdvancedTableColumn['key'] | undefined;
-        restoreColumnWidth: (columnKey: HdsAdvancedTableColumn['key']) => void;
         syncThElements: ModifierLike<HdsAdvancedTableSyncThElementsSignature>;
+        syncWidthValues: ModifierLike<HdsAdvancedTableSyncWidthValuesSignature>;
         applyTransientWidth: (columnKey: HdsAdvancedTableColumn['key']) => void;
         getAppliedWidth: (
           columnKey: HdsAdvancedTableColumn['key']
@@ -97,6 +97,7 @@ export interface HdsAdvancedTableColumnManagerSignature {
           columnKey: HdsAdvancedTableColumn['key'],
           position: 'start' | 'end'
         ) => void;
+        restoreColumnWidth: (columnKey: HdsAdvancedTableColumn['key']) => void;
         setDraggedColumnKey: (columnKey: HdsAdvancedTableColumn['key']) => void;
         setReorderHoveredColumnKey: (
           key: HdsAdvancedTableColumn['key']
@@ -751,36 +752,35 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
   );
 
   <template>
-    <div {{this.syncWidthValues @columns}}>
-      {{yield
-        (hash
-          columns=@columns
-          columnOrder=this.columnOrder
-          draggedColumnKey=this.draggedColumnKey
-          firstColumnKey=this.firstColumnKey
-          gridTemplateColumns=this.gridTemplateColumns
-          lastColumnKey=this.lastColumnKey
-          orderedColumns=this.orderedColumns
-          syncThElements=this.syncThElements
-          applyTransientWidth=this.applyTransientWidth
-          getAppliedWidth=this.getAppliedWidth
-          getColumnByKey=this.getColumnByKey
-          getSiblingColumnKeys=this.getSiblingColumnKeys
-          getIsStickyColumn=this.getIsStickyColumn
-          reorderHoveredColumnKey=this.reorderHoveredColumnKey
-          restoreColumnWidth=this.restoreColumnWidth
-          moveColumnToDropTarget=this.moveColumnToDropTarget
-          moveColumnToTarget=this.moveColumnToTarget
-          moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
-          setTransientColumnWidths=this.setTransientColumnWidths
-          setTransientColumnWidth=this.setTransientColumnWidth
-          resetTransientColumnWidths=this.resetTransientColumnWidths
-          stepColumn=this.stepColumn
-          setDraggedColumnKey=(fn (mut this.draggedColumnKey))
-          setReorderHoveredColumnKey=(fn (mut this.reorderHoveredColumnKey))
-          updateResizeDebt=this.updateResizeDebt
-        )
-      }}
-    </div>
+    {{yield
+      (hash
+        columns=@columns
+        columnOrder=this.columnOrder
+        draggedColumnKey=this.draggedColumnKey
+        firstColumnKey=this.firstColumnKey
+        gridTemplateColumns=this.gridTemplateColumns
+        lastColumnKey=this.lastColumnKey
+        orderedColumns=this.orderedColumns
+        syncThElements=this.syncThElements
+        syncWidthValues=this.syncWidthValues
+        applyTransientWidth=this.applyTransientWidth
+        getAppliedWidth=this.getAppliedWidth
+        getColumnByKey=this.getColumnByKey
+        getSiblingColumnKeys=this.getSiblingColumnKeys
+        getIsStickyColumn=this.getIsStickyColumn
+        reorderHoveredColumnKey=this.reorderHoveredColumnKey
+        restoreColumnWidth=this.restoreColumnWidth
+        moveColumnToDropTarget=this.moveColumnToDropTarget
+        moveColumnToTarget=this.moveColumnToTarget
+        moveColumnToTerminalPosition=this.moveColumnToTerminalPosition
+        setTransientColumnWidths=this.setTransientColumnWidths
+        setTransientColumnWidth=this.setTransientColumnWidth
+        resetTransientColumnWidths=this.resetTransientColumnWidths
+        stepColumn=this.stepColumn
+        setDraggedColumnKey=(fn (mut this.draggedColumnKey))
+        setReorderHoveredColumnKey=(fn (mut this.reorderHoveredColumnKey))
+        updateResizeDebt=this.updateResizeDebt
+      )
+    }}
   </template>
 }

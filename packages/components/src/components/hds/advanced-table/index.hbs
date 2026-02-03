@@ -27,6 +27,7 @@
       @columnOrder={{@columnOrder}}
       @hasReorderableColumns={{@hasReorderableColumns}}
       @hasStickyFirstColumn={{@hasStickyFirstColumn}}
+      @isSelectable={{@isSelectable}}
       @onColumnReorder={{this._onColumnReorder}}
       as |CM|
     >
@@ -42,6 +43,7 @@
           max-height=@maxHeight
         }}
         {{this._setUpScrollWrapper}}
+        {{CM.syncWidthValues @columns}}
       >
         {{! Header }}
         <div
