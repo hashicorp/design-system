@@ -14,7 +14,7 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
   0 0 0 3px #{$hds-interactive-dark-theme-color-focus-action-external};
 
 // Used to apply dark theme to interactive elements such as Button & Dropdown
-@mixin hds-interactive-dark-theme($add-visible-border: true, $is-within-side-nav: false) {
+@mixin hds-interactive-dark-theme($add-visible-border: true, $is-within-app-side-nav: false) {
   // Override token used in focus ring mixin
   --token-focus-ring-action-box-shadow: #{$hds-interactive-dark-theme-focus-ring-action-box-shadow};
 
@@ -26,9 +26,9 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
     border-color: var(--token-color-palette-neutral-500);
   }
 
-  @if $is-within-side-nav {
+  @if $is-within-app-side-nav {
     // sidenav specific dark theme tokens
-    color: var(--token-side-nav-color-foreground-strong);
+    color: var(--token-app-side-nav-color-foreground-strong);
     background-color: transparent; // test
     border-radius: var(--token-side-nav-body-list-item-border-radius);
   } @else {
@@ -45,9 +45,9 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
       border-color: var(--token-color-palette-neutral-500);
     }
 
-    @if $is-within-side-nav {
+    @if $is-within-app-side-nav {
       // sidenav specific dark theme tokens
-      color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+      color: var(--token-app-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
       background-color: var(--token-side-nav-color-surface-interactive-hover);
     } @else {
       // general dark theme tokens
@@ -86,9 +86,9 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
   // Active:
   &:active,
   &.mock-active {
-    @if $is-within-side-nav {
+    @if $is-within-app-side-nav {
       // sidenav specific dark theme tokens
-      color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+      color: var(--token-app-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
       background-color: var(--token-side-nav-color-surface-interactive-active);
     } @else {
       // general dark theme tokens
