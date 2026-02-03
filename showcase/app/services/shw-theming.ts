@@ -74,18 +74,18 @@ function isSafeStoredThemingData(data: unknown): data is StoredThemingData {
   const d = data as Record<string, unknown>;
 
   const isSafeThemeData =
-    // there is no stored `theme` key in the object (eg. the `default` theme was selected)
+    // Case: there is no stored `theme` key in the object (eg. the `default` theme was selected)
     !('theme' in d) ||
-    // there is a `theme` value and is one of the valid `HdsThemes`
+    // Case: there is a `theme` value and is one of the valid `HdsThemes`
     d['theme'] === undefined ||
     THEMES.includes(d['theme'] as HdsThemes);
 
   const options = d['options'] as Record<string, unknown> | undefined;
 
   const isSafeOptionsData =
-    // there is no stored `options` key in the object (eg. it's the first run of the application)
+    // Case: there is no stored `options` key in the object (eg. it's the first run of the application)
     !('options' in d) ||
-    // there is an `options` value and has valid entries
+    // Case: there is an `options` value and has valid entries
     (typeof options === 'object' &&
       options !== null &&
       'lightTheme' in options &&
