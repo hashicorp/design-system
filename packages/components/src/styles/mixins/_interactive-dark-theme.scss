@@ -30,7 +30,7 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
     // sidenav specific dark theme tokens
     color: var(--token-app-side-nav-color-foreground-strong);
     background-color: transparent; // test
-    border-radius: var(--token-side-nav-body-list-item-border-radius);
+    border-radius: var(--token-app-side-nav-body-list-item-border-radius);
   } @else {
     // general dark theme tokens
     color: var(--token-color-foreground-high-contrast);
@@ -48,7 +48,7 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
     @if $is-within-app-side-nav {
       // sidenav specific dark theme tokens
       color: var(--token-app-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
-      background-color: var(--token-side-nav-color-surface-interactive-hover);
+      background-color: var(--token-app-side-nav-color-surface-interactive-hover);
     } @else {
       // general dark theme tokens
       color: var(--token-color-foreground-high-contrast); // to avoid overrides by specificity (eg. `a:hover`)
@@ -89,7 +89,7 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
     @if $is-within-app-side-nav {
       // sidenav specific dark theme tokens
       color: var(--token-app-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
-      background-color: var(--token-side-nav-color-surface-interactive-active);
+      background-color: var(--token-app-side-nav-color-surface-interactive-active);
     } @else {
       // general dark theme tokens
       color: var(--token-color-foreground-high-contrast); // to avoid overrides by specificity (eg. `a:hover`)
