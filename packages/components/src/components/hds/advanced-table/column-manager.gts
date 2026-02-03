@@ -12,7 +12,8 @@
 import Component from '@glimmer/component';
 import { fn, hash } from '@ember/helper';
 import { assert } from '@ember/debug';
-import { tracked } from '@glimmer/tracking';
+import { guidFor } from '@ember/object/internals';
+import { cached, tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
 import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
@@ -43,9 +44,6 @@ export interface HdsAdvancedTableSyncThElementsSignature {
 
 export interface HdsAdvancedTableSyncWidthValuesSignature {
   Element: HTMLDivElement;
-  Args: {
-    Positional: [HdsAdvancedTableColumnManagerSignature['Args']['columns']];
-  };
 }
 
 export interface HdsAdvancedTableColumnManagerSignature {
@@ -123,15 +121,12 @@ export interface HdsAdvancedTableColumnManagerSignature {
 }
 
 export default class HdsAdvancedTableColumnManager extends Component<HdsAdvancedTableColumnManagerSignature> {
-  @tracked _columnOrder: string[] = [];
-
   @tracked draggedColumnKey?: HdsAdvancedTableColumn['key'];
   @tracked reorderHoveredColumnKey?: HdsAdvancedTableColumn['key'];
 
-  // tracking th elements by column key
-  thElements = new TrackedMap<string, HTMLDivElement>();
+  @tracked private _columnOrder: string[] = [];
 
-  // width tracking
+  thElements = new TrackedMap<string, HTMLDivElement>();
   columnWidths = new TrackedMap<string, HdsAdvancedTableColumnWidth>();
   originalColumnWidths = new TrackedMap<string, HdsAdvancedTableColumnWidth>();
   transientColumnWidths = new TrackedMap<string, HdsAdvancedTablePixelString>();
@@ -144,21 +139,16 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     args: HdsAdvancedTableColumnManagerSignature['Args']
   ) {
     super(owner, args);
+    this._initializeColumnOrder();
+  }
 
-    const { columnOrder, columns, hasReorderableColumns } = args;
-
-    if (hasReorderableColumns) {
-      assert(
-        'All columns must have a key when reordering is enabled',
-        columns.every((column) => column.key !== undefined)
-      );
-
-      if (columnOrder === undefined || columnOrder.length === 0) {
-        this._columnOrder = columns.map((column) => column.key!);
-      } else {
-        this._columnOrder = columnOrder;
-      }
-    }
+  @cached
+  private get _normalizedColumns() {
+    return this.args.columns.map((column) => {
+      return column.key !== undefined
+        ? column
+        : { ...column, key: guidFor(column) };
+    });
   }
 
   get columnOrder(): string[] {
@@ -169,11 +159,15 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
   }
 
   get orderedColumns(): HdsAdvancedTableColumn[] {
-    const { columns, hasReorderableColumns } = this.args;
+    const { hasReorderableColumns } = this.args;
 
     if (hasReorderableColumns && this.columnOrder !== undefined) {
+      const columnMap = new Map(
+        this._normalizedColumns.map((column) => [column.key, column])
+      );
+
       return this.columnOrder.reduce<HdsAdvancedTableColumn[]>((acc, key) => {
-        const column = this.getColumnByKey(key);
+        const column = columnMap.get(key);
 
         if (column !== undefined) {
           acc.push(column);
@@ -182,7 +176,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
         return acc;
       }, []);
     } else {
-      return columns;
+      return this._normalizedColumns;
     }
   }
 
@@ -203,17 +197,29 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
 
     let style = isSelectable ? 'min-content ' : '';
 
-    for (const col of this.args.columns) {
-      if (col.key === undefined) {
-        continue;
-      }
-
+    for (const col of this.orderedColumns) {
       const appliedWidth = this.getAppliedWidth(col.key);
 
       style += ` ${appliedWidth}`;
     }
 
     return style;
+  }
+
+  private _initializeColumnOrder = () => {
+    const { columnOrder, columns, hasReorderableColumns } = this.args;
+
+    if (hasReorderableColumns) {
+      if (columnOrder === undefined || columnOrder.length === 0) {
+        this._columnOrder = columns.map((column) => this._getColumnKey(column));
+      } else {
+        this._columnOrder = columnOrder;
+      }
+    }
+  };
+
+  private _getColumnKey(column: HdsAdvancedTableColumn): string {
+    return column.key ?? guidFor(column);
   }
 
   getColumnByKey(
@@ -223,7 +229,7 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
       return;
     }
 
-    return this.args.columns.find((column) => column.key === key);
+    return this._normalizedColumns.find((column) => column.key === key);
   }
 
   moveColumnToTerminalPosition = (
@@ -740,16 +746,12 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     }
   );
 
-  syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(
-    (_element, [columns]) => {
-      for (const column of columns) {
-        if (column.key !== undefined) {
-          this.columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
-          this.originalColumnWidths.set(column.key, column.width);
-        }
-      }
+  syncWidthValues = modifier<HdsAdvancedTableSyncWidthValuesSignature>(() => {
+    for (const column of this._normalizedColumns) {
+      this.columnWidths.set(column.key!, column.width ?? DEFAULT_WIDTH);
+      this.originalColumnWidths.set(column.key!, column.width);
     }
-  );
+  });
 
   <template>
     {{yield
