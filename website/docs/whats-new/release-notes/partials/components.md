@@ -14,6 +14,8 @@
 
 ## 6.0.0
 
+[6.0.0 documentation](https://hds-website-6-0-0.vercel.app/)
+
 **Major changes**
 
 Removed `ember-engines` as a peer dependency, and added the `hds-link-to-external` utility. If your application uses Ember engines, it is now necessary to add a configuration to the `app.js` file.
