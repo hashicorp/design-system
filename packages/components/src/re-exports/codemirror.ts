@@ -3,3 +3,4 @@ export * from '@codemirror/view';
 export * from '@codemirror/commands';
 export * from '@codemirror/language';
 export * from '@codemirror/lint';
+export * from '@codemirror/autocomplete';
