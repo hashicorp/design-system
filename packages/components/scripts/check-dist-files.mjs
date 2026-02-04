@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
+import { existsSync } from 'node:fs';
 
 const FILES_TO_CHECK = [
   'dist/styles/@hashicorp/design-system-components.css',
@@ -12,7 +12,7 @@ const FILES_TO_CHECK = [
 let hasErrors = false;
 
 for (const file of FILES_TO_CHECK) {
-  if (!fs.existsSync(file)) {
+  if (!existsSync(file)) {
     console.error(
       `\n\x1b[31m⚠️  Error: the pre-compiled CSS file \`${file}\` was not found\x1b[0m\n`
     );
