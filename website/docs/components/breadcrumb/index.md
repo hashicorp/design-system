@@ -10,8 +10,8 @@ links:
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/breadcrumb
 related:
-  - components/side-nav
   - components/tabs
+  - components/app-side-nav
 previewImage: assets/illustrations/components/breadcrumb.jpg
 navigation:
   keywords:

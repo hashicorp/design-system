@@ -203,11 +203,6 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-components.side-nav">
-            SideNav
-          </LinkTo>
-        </li>
-        <li>
           <LinkTo @route="page-components.stepper.indicator">
             Stepper::Indicator
           </LinkTo>

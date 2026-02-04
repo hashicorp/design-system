@@ -207,7 +207,7 @@ A Flyout should slide out from the right side of the viewport on top of the main
 
 ![Flyout in a desktop viewport](/assets/components/flyout/flyout-sizing.png)
 
-On smaller viewports, the Flyout should occupy 100% of the viewport width minus half the size of the minimized `SideNav` or `AppSideNav` width from the viewport edge.
+On smaller viewports, the Flyout should occupy 100% of the viewport width minus half the size of the minimized `AppSideNav` width from the viewport edge.
 
 - If the body content of the Flyout exceeds the maximum height of the viewport, a scroll will be introduced.
 - The Flyout header is not included in the scrolling section, only the body content. The header should always be visible to help the user understand the Flyout content and how it relates to the main page.
