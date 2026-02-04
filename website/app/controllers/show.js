@@ -187,10 +187,8 @@ export default class ShowController extends Controller {
         tocs.push({
           index,
           id: `toc-${name}`,
-          // we show only the headings level 2 in the sidecar
-          list: getAnchoredHeadings(section).filter(
-            (item) => item.depth === '2',
-          ),
+          // we show only the headings level 2 and 3 in the sidecar
+          list: getAnchoredHeadings(section).filter((item) => item.depth <= 3),
         });
       });
     } else {
@@ -198,10 +196,8 @@ export default class ShowController extends Controller {
       tocs.push({
         index: 0,
         id: 'toc-all',
-        // we show only the headings level 2 in the sidecar
-        list: getAnchoredHeadings(container).filter(
-          (item) => item.depth === '2',
-        ),
+        // we show only the headings level 2 and 3 in the sidecar
+        list: getAnchoredHeadings(container).filter((item) => item.depth <= 3),
       });
     }
 
