@@ -40,12 +40,7 @@
 }
 
 .doc-page-sidecar__item {
-  & + & {
-    margin-top: 8px;
-  }
-
   a {
-    @include doc-font-style-navigation();
     position: relative;
     display: inline-block;
     padding: 0 0 0 var(--padding-left);
@@ -74,9 +69,19 @@
 }
 
 .doc-page-sidecar__item--depth-2 {
+  @include doc-font-style-body-small();
+
   --padding-left: 12px;
+  margin-top: 8px;
+  font-weight: 600;
 }
 
 .doc-page-sidecar__item--depth-3 {
+  // we use custom typography to reduce usage of vertical spacing
+  @include doc-font-family("sans");
+
   --padding-left: 24px;
+  margin-top: 4px;
+  font-size: 0.875rem; // 14px
+  line-height: 1.5; // 21px
 }
