@@ -4,8 +4,15 @@
  */
 
 import Component from '@glimmer/component';
-import type { ComponentLike } from '@glint/template';
-import type { HdsFormErrorMessageSignature } from './message';
+import { hash } from '@ember/helper';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
+
+import HdsIcon from '../../icon/index.gts';
+import HdsTextBody from '../../text/body.gts';
+import HdsFormErrorMessage from './message.gts';
 
 export const ID_PREFIX = 'error-';
 
@@ -23,7 +30,7 @@ export interface HdsFormErrorSignature {
   Blocks: {
     default: [
       {
-        Message?: ComponentLike<HdsFormErrorMessageSignature>;
+        Message?: typeof HdsFormErrorMessage;
       },
     ];
   };
@@ -31,11 +38,6 @@ export interface HdsFormErrorSignature {
 }
 
 export default class HdsFormError extends Component<HdsFormErrorSignature> {
-  /**
-   * Determines the unique ID to assign to the element
-   * @method id
-   * @return {(string|null)} The "id" attribute to apply to the element or null, if no controlId is provided
-   */
   get id(): string | null {
     const { controlId } = this.args;
     if (controlId) {
@@ -44,11 +46,6 @@ export default class HdsFormError extends Component<HdsFormErrorSignature> {
     return null;
   }
 
-  /**
-   * @param onInsert
-   * @type {function}
-   * @default () => {}
-   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   get onInsert(): (element: HTMLElement, ...args: any[]) => void {
     const { onInsert } = this.args;
@@ -61,11 +58,6 @@ export default class HdsFormError extends Component<HdsFormErrorSignature> {
     }
   }
 
-  /**
-   * @param onRemove
-   * @type {function}
-   * @default () => {}
-   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   get onRemove(): (element: HTMLElement, ...args: any[]) => void {
     const { onRemove } = this.args;
@@ -77,11 +69,7 @@ export default class HdsFormError extends Component<HdsFormErrorSignature> {
       return NOOP;
     }
   }
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
+
   get classNames(): string {
     const classes = ['hds-form-error'];
 
@@ -94,4 +82,24 @@ export default class HdsFormError extends Component<HdsFormErrorSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <div
+      class={{this.classNames}}
+      id={{this.id}}
+      {{didInsert this.onInsert}}
+      {{willDestroy this.onRemove}}
+      ...attributes
+    >
+      <HdsIcon class="hds-form-error__icon" @name="alert-diamond-fill" />
+      <HdsTextBody
+        class="hds-form-error__content"
+        @tag="div"
+        @size="100"
+        @weight="medium"
+      >
+        {{yield (hash Message=HdsFormErrorMessage)}}
+      </HdsTextBody>
+    </div>
+  </template>
 }
