@@ -1,3 +1,11 @@
+## 6.0.0
+
+Updated router service declaration to align how services are declared
+
+
+Fixed an a11y issue by preventing a screenreader from reading content outside the menu when expanded on narrow devices.
+
+
 ## 4.22.0
 
 Translated template strings

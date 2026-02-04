@@ -20,7 +20,7 @@ navigation:
     - search
     - utility bar
 status:
-  added: 5.2.0
+  added: 6.0.0
 ---
 
 <section data-tab="Guidelines">

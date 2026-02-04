@@ -23,7 +23,7 @@ navigation:
     - list
   order: 101
 status:
-  updated: 5.2.0
+  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">

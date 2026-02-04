@@ -27,13 +27,7 @@ setLinkToExternal(LinkToExternalComponent);
 
 ### Minor Changes
 
-<!-- START components/breadcrumb -->
-
 `Breadcrumb` - Added `@href` argument to `Breadcrumb::Item`.
-
-<!-- END -->
-
-<!-- START utilities/interactive -->
 
 `Interactive` - Refactored the component to use the `hds-link-to-external` utility. If your application uses Ember engines, it is now necessary to add a configuration to the `app.js` file.
 
@@ -44,59 +38,33 @@ import { setLinkToExternal } from "@hashicorp/design-system-components/utils/hds
 setLinkToExternal(LinkToExternalComponent);
 ```
 
-<!-- END -->
-
 <small class="doc-whats-new-changelog-metadata">[#3429](https://github.com/hashicorp/design-system/pull/3429) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START layouts/grid -->
-
 `LayoutGridItem` - Added responsive options to the `@colspan` and `@rowspan` arguments. Supported views include: "sm", "md", "lg", "xl", and "xxl".`
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3438](https://github.com/hashicorp/design-system/pull/3438)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/filter-bar -->
-
 `FilterBar` - Added `FilterBar` component and related sub-components
-
-<!-- END -->
-
-<!-- START components/table/advanced-table -->
 
 `AdvancedTable` - Added support for filtering within the table with new `actions` named block and `FilterBar` contextual component
 
-<!-- END -->
-
-<!-- START components/table/advanced-table -->
-
 `AdvancedTable` - Added a named block `emptyState` and support for displaying content in the table when the model length is 0
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3386](https://github.com/hashicorp/design-system/pull/3386)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START layouts/grid -->
-
 `LayoutGrid` - Added responsive column width options to the `@columnWidth` argument. Supported views include: "sm", "md", "lg", "xl", and "xxl".
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3438](https://github.com/hashicorp/design-system/pull/3438)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/text -->
-
 `Text` - Converted component and all sub-components to gts
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3478](https://github.com/hashicorp/design-system/pull/3478)</small>
 
@@ -108,11 +76,7 @@ Added the `@codemirror/autocomplete` to the re-exported CodeMirror packages.
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/badge -->
-
 `Badge` - Converted component to `.gts` format
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3445](https://github.com/hashicorp/design-system/pull/3445)</small>
 
@@ -124,11 +88,7 @@ Updated `ember-intl` to version `8.0.0` and changed the peer dependency requirem
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/form/super-select -->
-
 `SuperSelect` - Updated `ember-power-select` library to 8.12.0 and replaced usage of `PowerSelectMultiple` to `PowerSelect` with `@multiple` set to `true`
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3345](https://github.com/hashicorp/design-system/pull/3345) - Thanks [@RobbieTheWagner](https://github.com/RobbieTheWagner) for the contribution! 🙏</small>
 
@@ -136,179 +96,95 @@ Updated `ember-intl` to version `8.0.0` and changed the peer dependency requirem
 
 ### Patch Changes
 
-<!-- START components/tooltip -->
-
 `TooltipButton` - Converted component to gts format
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3488](https://github.com/hashicorp/design-system/pull/3488)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/button-set -->
-
 `ButtonSet` - Converted ButtonSet to gts
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3492](https://github.com/hashicorp/design-system/pull/3492)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/alert -->
-
 `Alert` - converted component and subcomponents to gts format.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3524](https://github.com/hashicorp/design-system/pull/3524)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/advanced-table -->
-
 `AdvancedTable` - Updated HdsIntlService service declarations to align how services are declared
-
-<!-- END -->
-
-<!-- START components/app-side-nav -->
 
 `AppSideNav` - Updated router service declaration to align how services are declared
 
-<!-- END -->
-
-<!-- START components/code-editor -->
-
 `CodeEditor` - Updated HdsIntlService service declaration in `CodeEditor` modifier to align how services are declared
-
-<!-- END -->
-
-<!-- START components/copy/button -->
 
 `CopyButton` - Updated HdsIntlService service declaration to align how services are declared
 
-<!-- END -->
-
-<!-- START utilities/dismiss-button -->
-
 `DismissButton` - Updated HdsIntlService service declaration to align how services are declared
-
-<!-- END -->
-
-<!-- START components/form/masked-input -->
 
 `MaskedInput` - Updated HdsIntlService service declaration to align how services are declared
 
-<!-- END -->
-
-<!-- START components/pagination -->
-
 `Pagination` - Updated HdsIntlService service declaration for `PaginationInfo` to align how services are declared
 
-<!-- END -->
-
-<!-- START components/table/table -->
-
 `Table` - Updated HdsIntlService service declarations to align how services are declared
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3484](https://github.com/hashicorp/design-system/pull/3484)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/table/table -->
-
 `Table` - Fixed a bug in the cleanup logic of selectable rows where data updates caused the internal selection state to be incorrectly reset.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3480](https://github.com/hashicorp/design-system/pull/3480)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/badge-count -->
-
 `BadgeCount` - Converted component to gts format
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3477](https://github.com/hashicorp/design-system/pull/3477)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/link/inline -->
-
 `LinkInline` - converted component to gts format.
 
-<!-- END -->
-
-<!-- START components/link/standalone -->
-
 `LinkStandalone` - converted component to gts format.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3517](https://github.com/hashicorp/design-system/pull/3517)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START utilities/dismiss-button -->
-
 `DismissButton` - Converted component to gts format
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3476](https://github.com/hashicorp/design-system/pull/3476)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/separator -->
-
 `Separator` - Converted component to gts
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3490](https://github.com/hashicorp/design-system/pull/3490)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/button -->
-
 `Button` - converted component to gts format.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3518](https://github.com/hashicorp/design-system/pull/3518)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START utilities/interactive -->
-
 `Interactive` - Converted component to gts format.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3514](https://github.com/hashicorp/design-system/pull/3514)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/app-header -->
-
 `AppHeader` - Fixed issue with disabled styles for nested elements in AppHeader not applying to non-HDS components when AppSideNav is open in mobile view
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3467](https://github.com/hashicorp/design-system/pull/3467)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/app-side-nav -->
-
 `AppSideNav` - Fixed an a11y issue by preventing a screenreader from reading content outside the menu when expanded on narrow devices.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3470](https://github.com/hashicorp/design-system/pull/3470)</small>
 
@@ -320,21 +196,13 @@ Updated `ember-intl` to version `8.0.0` and changed the peer dependency requirem
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/segmented-group -->
-
 `SegmentedGroup` - Converted component to gts format
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3491](https://github.com/hashicorp/design-system/pull/3491)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/code-editor -->
-
 `CodeEditor` - Normalized error messages into readable strings
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3528](https://github.com/hashicorp/design-system/pull/3528)</small>
 

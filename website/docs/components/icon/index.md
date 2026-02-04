@@ -17,8 +17,6 @@ navigation:
     - icon
     - glyph
     - flight
-status:
-  updated: 5.2.0
 ---
 
 <section data-tab="Guidelines">
