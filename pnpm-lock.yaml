@@ -127,10 +127,10 @@ importers:
         specifier: ^1.6.12
         version: 1.7.3
       '@hashicorp/design-system-tokens':
-        specifier: workspace:^3.0.0
+        specifier: workspace:^4.0.0
         version: link:../tokens
       '@hashicorp/flight-icons':
-        specifier: workspace:^4.1.1
+        specifier: workspace:^4.2.0
         version: link:../flight-icons
       '@lezer/highlight':
         specifier: ^1.2.1
@@ -14203,6 +14203,7 @@ snapshots:
 
   '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@8.0.2(@babel/core@7.28.0)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(typescript@5.9.2))(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
     dependencies:
+      '@codemirror/autocomplete': 6.20.0
       '@codemirror/commands': 6.8.1
       '@codemirror/lang-go': 6.0.1
       '@codemirror/lang-javascript': 6.2.4
@@ -14257,6 +14258,7 @@ snapshots:
 
   '@hashicorp/design-system-components@file:packages/components(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0)(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glimmer/component@2.0.0)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5)))(ember-intl@7.3.1(@ember/test-helpers@5.4.0(@babel/core@7.28.0)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.9.2)(webpack@5.101.0))(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))':
     dependencies:
+      '@codemirror/autocomplete': 6.20.0
       '@codemirror/commands': 6.8.1
       '@codemirror/lang-go': 6.0.1
       '@codemirror/lang-javascript': 6.2.4
