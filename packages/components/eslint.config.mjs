@@ -118,23 +118,6 @@ export default ts.config(
     },
   },
   /**
-   * Node scripts
-   */
-  {
-    files: ['scripts/**/*.js'],
-    plugins: {
-      n,
-    },
-
-    languageOptions: {
-      sourceType: 'script',
-      ecmaVersion: 'latest',
-      globals: {
-        ...globals.node,
-      },
-    },
-  },
-  /**
    * ESM node files
    */
   {
