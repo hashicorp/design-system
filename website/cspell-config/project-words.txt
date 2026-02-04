@@ -4,6 +4,7 @@ Autoscaler
 borderless
 charcount
 Charcount
+cloudability
 Cntrl
 codemod
 codemods
@@ -47,6 +48,7 @@ rgba
 roadmap
 salesy
 scannability
+screenreader
 Segoe
 SideNav
 signup
