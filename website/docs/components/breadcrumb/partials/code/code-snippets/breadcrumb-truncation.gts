@@ -7,14 +7,28 @@ import {
 
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsBreadcrumb @itemsCanWrap={{false}}>
-    <HdsBreadcrumbItem @text="Level one with a very long string" @icon="org" />
+    <HdsBreadcrumbItem
+      @text="Level one with a very long string"
+      @icon="org"
+      @route="components"
+    />
     <HdsBreadcrumbItem
       @text="Level two with a very long string"
       @icon="folder"
+      @route="components"
     />
-    <HdsBreadcrumbItem @text="Level three with a very long string" />
-    <HdsBreadcrumbItem @text="Level four with a very long string" />
-    <HdsBreadcrumbItem @text="Level five with a very long string" />
+    <HdsBreadcrumbItem
+      @text="Level three with a very long string"
+      @route="components"
+    />
+    <HdsBreadcrumbItem
+      @text="Level four with a very long string"
+      @route="components"
+    />
+    <HdsBreadcrumbItem
+      @text="Level five with a very long string"
+      @route="components"
+    />
     <HdsBreadcrumbItem
       @text="Current with a very long string"
       @current={{true}}
