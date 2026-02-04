@@ -62,7 +62,7 @@ setLinkToExternal(LinkToExternalComponent);
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/layout/grid -->
+<!-- START layouts/grid -->
 
 `LayoutGridItem` - Added responsive options to the `@colspan` and `@rowspan` arguments. Supported views include: "sm", "md", "lg", "xl", and "xxl".`
 
@@ -94,7 +94,7 @@ setLinkToExternal(LinkToExternalComponent);
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/layout/grid -->
+<!-- START layouts/grid -->
 
 `LayoutGrid` - Added responsive column width options to the `@columnWidth` argument. Supported views include: "sm", "md", "lg", "xl", and "xxl".
 
