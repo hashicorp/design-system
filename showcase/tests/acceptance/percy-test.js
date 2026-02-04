@@ -100,6 +100,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/dropdown');
     await percySnapshot('Dropdown');
 
+    await visit('/components/filter-bar');
+    await percySnapshot('FilterBar');
+
     await visit('/components/flyout');
     await percySnapshot('Flyout');
 
@@ -176,9 +179,6 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/components/separator');
     await percySnapshot('Separator');
-
-    await visit('/components/side-nav');
-    await percySnapshot('SideNav');
 
     await visit('/components/stepper/indicator');
     await percySnapshot('Stepper Indicator');

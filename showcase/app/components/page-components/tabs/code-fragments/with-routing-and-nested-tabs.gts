@@ -20,7 +20,7 @@ interface CodeFragmentWithRoutingAndNestedTabsSignature {
 }
 
 export default class CodeFragmentWithRoutingAndNestedTabs extends Component<CodeFragmentWithRoutingAndNestedTabsSignature> {
-  @service declare router: RouterService;
+  @service declare readonly router: RouterService;
 
   onClickTab = (_event: MouseEvent, index: number) => {
     this.router.transitionTo({

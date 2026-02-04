@@ -10,6 +10,7 @@ links:
 related:
   - components/table/table
   - components/pagination
+  - components/filter-bar
   - patterns/filter-patterns
   - patterns/table-multi-select
 previewImage: assets/illustrations/components/advanced-table.jpg

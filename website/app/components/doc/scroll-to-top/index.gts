@@ -14,7 +14,7 @@ import { HdsIcon } from '@hashicorp/design-system-components/components';
 import docTrackEvent from 'website/modifiers/doc-track-event';
 
 export default class DocScrollToTopComponent extends Component {
-  @service declare fastboot: FastbootService;
+  @service declare readonly fastboot: FastbootService;
   @tracked isVisible = false;
 
   constructor(owner: Owner, args: Record<string, never>) {

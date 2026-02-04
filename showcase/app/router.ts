@@ -26,7 +26,11 @@ Router.map(function () {
   });
   this.route('page-components', { path: 'components' }, function () {
     this.route('accordion');
-    this.route('advanced-table');
+    this.route('advanced-table', function () {
+      this.route('frameless', function () {
+        this.route('demo-filtering');
+      });
+    });
     this.route('alert');
     this.route('app-footer');
     this.route('app-header', function () {
@@ -50,6 +54,7 @@ Router.map(function () {
     this.route('code-block');
     this.route('code-editor');
     this.route('dropdown');
+    this.route('filter-bar');
     this.route('flyout');
     this.route('form', function (): void {
       this.route('frameless', function (): void {
@@ -94,7 +99,6 @@ Router.map(function () {
     this.route('rich-tooltip');
     this.route('segmented-group');
     this.route('separator');
-    this.route('side-nav');
     this.route('stepper', function () {
       this.route('indicator');
       this.route('list');
@@ -126,8 +130,8 @@ Router.map(function () {
         this.route('demo-full-app-frame-with-modal');
         this.route('demo-full-app-frame-with-app-header');
         this.route('demo-full-app-frame-with-app-header-and-app-side-nav');
-        this.route('demo-full-app-frame-with-side-nav');
         this.route('demo-full-app-frame-with-advanced-table');
+        this.route('demo-full-app-frame-with-advanced-table-filtering');
       });
     });
     this.route('flex');

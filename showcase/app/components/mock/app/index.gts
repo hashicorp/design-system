@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 import MockAppHeaderAppHeader from './header/app-header';
 import MockAppSidebarAppSideNav from './sidebar/app-side-nav';
-import MockAppSidebarOldSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
 import MockAppMainGenericTextContent from './main/generic-text-content';
 import MockAppMainGenericAdvancedTable from './main/generic-advanced-table';
@@ -21,7 +20,6 @@ import type { ComponentLike } from '@glint/template';
 import type { HdsAppFrameSignature } from '@hashicorp/design-system-components/components/hds/app-frame/index';
 import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
 import type { MockAppSidebarAppSideNavSignature } from './sidebar/app-side-nav';
-import type { MockAppSidebarOldSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
 import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
 import type { MockAppMainGenericAdvancedTableSignature } from './main/generic-advanced-table';
@@ -31,7 +29,6 @@ export interface MockAppSignature {
   Args: {
     hasHeader?: HdsAppFrameSignature['Args']['hasHeader'];
     hasSidebar?: HdsAppFrameSignature['Args']['hasSidebar'];
-    hasOldSidebar?: boolean;
     hasFooter?: HdsAppFrameSignature['Args']['hasFooter'];
   };
   Blocks: {
@@ -42,9 +39,7 @@ export interface MockAppSignature {
     ];
     sidebar?: [
       {
-        SideNav?:
-          | ComponentLike<MockAppSidebarAppSideNavSignature>
-          | ComponentLike<MockAppSidebarOldSideNavSignature>;
+        SideNav?: ComponentLike<MockAppSidebarAppSideNavSignature>;
       },
     ];
     main?: [
@@ -84,11 +79,7 @@ export default class MockApp extends Component<MockAppSignature> {
         {{#if (has-block "sidebar")}}
           {{yield (hash SideNav=MockAppSidebarAppSideNav) to="sidebar"}}
         {{else}}
-          {{#if @hasOldSidebar}}
-            <MockAppSidebarOldSideNav />
-          {{else}}
-            <MockAppSidebarAppSideNav />
-          {{/if}}
+          <MockAppSidebarAppSideNav />
         {{/if}}
       </Frame.Sidebar>
       <Frame.Main>

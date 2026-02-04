@@ -15,7 +15,7 @@ const COOKIE_NAME = 'hide-banner';
 
 export default class DocPageBanner extends Component {
   @tracked isVisible = !this.isDismissed;
-  @service declare fastboot: FastBootService;
+  @service declare readonly fastboot: FastBootService;
 
   get isDismissed() {
     let hasCookie = false;

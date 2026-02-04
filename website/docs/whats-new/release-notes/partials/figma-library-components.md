@@ -12,6 +12,14 @@
 </p>
 
 
+### February 4th, 2026
+
+`FilterBar` - New component added.
+
+### January 12th, 2026
+
+`SuperSelect` - Fixed a bug where the nested ListItems weren't being published.
+
 ### December 4th, 2025
 
 `Breadcrumb` - Fixed a bug that caused the text styles in the default state of the Breadcrumb Item to detach.
@@ -104,23 +112,6 @@ This changelog corresponds with the [4.19](/whats-new/release-notes#4190) releas
 `Dropdown` - Radio and Checkbox list items updated to match font weight.
 
 `SideNav` - **Deprecated** the component. Use the `AppHeader` and `AppSideNav` instead.
-
-### April 24th, 2025
-
-`Button`, `StandaloneLink`, `Breadcrumb`, `Table Primitives` - Removed interactive component variants
-
-Unpublished all local variables for component-level tokens.
-
-### April 2nd, 2025
-
-`StepperList` and `StepperNav` - Components added.
-
-`AdvancedTable` - Multiple enhancements including:
-
-- Added support for expanding and collapsing all rows.
-- Added support for a sticky column in the [Template] components.
-
-`CodeBlock` and `CodeEditor` - Improved the color contrast in the focus ring.
 
 
 ---

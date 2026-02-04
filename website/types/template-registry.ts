@@ -4,6 +4,7 @@ import DocBadgeGroup from '../app/components/doc/badge-group';
 import DocBanner from '../app/components/doc/banner';
 import DocCardsCard from '../app/components/doc/cards/card';
 import DocCardsDeck from '../app/components/doc/cards/deck';
+import DocCodeGroup from '../app/components/doc/code-group';
 import DocColorCard from '../app/components/doc/color-card';
 import DocColorSwatch from '../app/components/doc/color-swatch';
 import DocComponentApi from '../app/components/doc/component-api';
@@ -71,6 +72,9 @@ export default interface WebsiteTemplateRegistry {
 
   'Doc::Cards::Deck': typeof DocCardsDeck;
   'doc/cards/deck': typeof DocCardsDeck;
+
+  'Doc::CodeGroup': typeof DocCodeGroup;
+  'doc/code-group': typeof DocCodeGroup;
 
   'Doc::ColorCard': typeof DocColorCard;
   'doc/color-card': typeof DocColorCard;

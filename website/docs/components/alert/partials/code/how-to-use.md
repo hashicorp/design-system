@@ -2,46 +2,19 @@
 
 The most basic invocation requires the `type` argument to be passed, along with the `title` and/or `description` content. By default, a `neutral` Alert is generated.
 
-```handlebars
-<Hds::Alert @type="inline" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
+[[code-snippets/alert-basic]]
 
 ### Type
 
 A different type of Alert can be invoked using the `type` argument.
 
-```handlebars
-<Hds::Alert @type="page" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
-
-```handlebars
-<Hds::Alert @type="compact" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
+[[code-snippets/alert-types]]
 
 ### Title and description
 
 Optionally, you can pass only `title` or only `description`.
 
-```handlebars
-<Hds::Alert @type="inline" as |A|>
-  <A.Title>Title here</A.Title>
-</Hds::Alert>
-```
-
-```handlebars
-<Hds::Alert @type="inline" as |A|>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
+[[code-snippets/alert-title-desc]]
 
 ### Tag
 
@@ -54,18 +27,7 @@ The default `@tag` is `"div"` because the correct value is dependent on the indi
 
 The `@tag` argument changes the HTML element that wraps the title content of `[A].Title`. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if an Alert appears directly below the main heading of the page, it should be `"h2"`.
 
-```handlebars
-<div class="doc-alert-demo-heading">
- <Hds::Text::Display @tag="h1" @size="500">Edit credit card</Hds::Text::Display>
-</div>
-<Hds::Alert @type="inline" @color="critical" as |A|>
-  <A.Title @tag="h2">Form submission error</A.Title>
-  <A.Description>Correct the formatting of the following fields to update your user profile:</A.Description>
-  <A.Description>
-    <Hds::Link::Inline @href="#" @color="secondary">Expiration date</Hds::Link::Inline>
-  </A.Description>
-</Hds::Alert>
-```
+[[code-snippets/alert-title-tag]]
 
 ### Color
 
@@ -77,32 +39,18 @@ The color value will also determine some accessibility features of the component
 If the alert is being used in an informational or promotional way, `neutral` or `highlight` colors should be chosen. 
 
 The other color values map to accessibility-related roles, and will ensure that essential information is presented to the user with assistive technology in a timely manner. 
-```handlebars
-<Hds::Alert @type="inline" @color="success" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
+
+[[code-snippets/alert-color]]
 
 ### Icons
 
 A different icon can be used in the Alert using the `icon` argument. This accepts any [icon](/icons/library) name.
 
-```handlebars
-<Hds::Alert @type="inline" @color="success" @icon="bulb" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
+[[code-snippets/alert-icon]]
 
 If you need to hide the icon, pass `false` to the `icon` argument. This is only an option on page and inline Alerts as compact Alerts require an icon.
 
-```handlebars
-<Hds::Alert @type="inline" @color="success" @icon={{false}} as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
+[[code-snippets/alert-no-icon]]
 
 ### Dismissal
 
@@ -110,66 +58,26 @@ To enable dismissibility, pass a callback function to the `onDismiss` argument. 
 
 Given the variety of use cases and contexts in which alerts are used across products, application teams will need to implement the callback function.
 
-```handlebars
-<Hds::Alert @type="inline" @color="warning" @onDismiss={{this.noop}} as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-</Hds::Alert>
-```
+[[code-snippets/alert-dismissal]]
 
 ### Actions
 
 Actions can be passed to the component using one of the suggested `Button` or `LinkStandalone` contextual components.
 
-```handlebars
-<Hds::Alert @type="inline" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-  <A.Button @text="Your action" @color="secondary" {{on "click" this.yourOnClickFunction}} />
-  <A.LinkStandalone @color="secondary" @icon="arrow-right" @iconPosition="trailing" @text="Another action" @href="#" />
-</Hds::Alert>
-```
+[[code-snippets/alert-actions]]
 
 ### Structured content
 
 When needed, the `Description` contextual component can contain logic, rich HTML, or structured content.
 
-```handlebars
-<Hds::Alert @type="inline" @color="success" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>
-    The description can contain
-    {{#if true}}conditional logic{{/if}}, Ember components, and HTML tags, like
-    <strong>strong text</strong>,
-    <em>emphasized text</em>,
-    <code>code</code>,
-    <pre>pre</pre>,
-    <Hds::Link::Inline @color="secondary" @href="#">inline</Hds::Link::Inline>
-    <LinkTo @route="index">links</LinkTo>.
-  </A.Description>
-</Hds::Alert>
-```
+[[code-snippets/alert-complex-content]]
 
 You can pass more than one `D.Description` contextual component to have multiple description lines.
 
-```handlebars
-<Hds::Alert @type="inline" @color="success" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>First line of description.</A.Description>
-  <A.Description>Second line of description.</A.Description>
-</Hds::Alert>
-```
+[[code-snippets/alert-multiple-desc]]
 
 ### Generic content
 
 Use the `Generic` contextual component to insert custom content. Generic content will appear after the title, description, and actions. Application teams will need to implement spacing, layout, and styling for generic content.
 
-```handlebars
-<Hds::Alert @type="inline" as |A|>
-  <A.Title>Title here</A.Title>
-  <A.Description>Description here</A.Description>
-  <A.Generic>
-    [your content here]
-  </A.Generic>
-</Hds::Alert>
-```
+[[code-snippets/alert-generic]]

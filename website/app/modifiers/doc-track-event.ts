@@ -22,7 +22,7 @@ export interface DocTrackEventModifierSignature {
 }
 
 export default class DocTrackEvent extends Modifier<DocTrackEventModifierSignature> {
-  @service declare eventTracking: EventTrackingService;
+  @service declare readonly eventTracking: EventTrackingService;
 
   modify(
     element: DocTrackEventModifierSignature['Element'],

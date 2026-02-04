@@ -1,0 +1,21 @@
+<Hds::Accordion as |A|>
+  <A.Item>
+    <:toggle>Item one</:toggle>
+    <:content>
+      Additional content for item one
+    </:content>
+  </A.Item>
+  <A.Item @onClickToggle={{this.onItemToggle}} @forceState={{this.itemState}}>
+    <:toggle>Item two</:toggle>
+    <:content>
+      Item open on page load. Click to close then refresh the window. The Item will remember its state and remain
+      closed.
+    </:content>
+  </A.Item>
+  <A.Item>
+    <:toggle>Item three</:toggle>
+    <:content>
+      Additional content for item three
+    </:content>
+  </A.Item>
+</Hds::Accordion>

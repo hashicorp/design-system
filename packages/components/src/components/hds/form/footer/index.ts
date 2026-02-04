@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsButtonSetSignature } from '../../button-set/index.ts';
+import type { HdsButtonSetSignature } from '../../button-set/index.gts';
 
 export interface HdsFormFooterSignature {
   Args: {

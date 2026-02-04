@@ -93,7 +93,7 @@ export interface HdsTableSignature<T = HdsTableModel> {
 export default class HdsTable<T = HdsTableModel> extends Component<
   HdsTableSignature<T>
 > {
-  @service hdsIntl!: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked sortBy;
   @tracked sortOrder;
@@ -319,9 +319,20 @@ export default class HdsTable<T = HdsTableModel> extends Component<
 
   @action
   willDestroyRowCheckbox(selectionKey?: string): void {
-    this._selectableRows = this._selectableRows.filter(
-      (row) => row.selectionKey !== selectionKey
+    if (selectionKey === undefined) {
+      return;
+    }
+
+    const index = this._selectableRows.findIndex(
+      (row): boolean => row.selectionKey === selectionKey
     );
+
+    if (index === -1) {
+      return;
+    }
+
+    this._selectableRows.splice(index, 1);
+
     this.setSelectAllState();
   }
 
