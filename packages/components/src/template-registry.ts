@@ -9,7 +9,7 @@ import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
 import type HdsAdvancedTableComponent from './components/hds/advanced-table';
 import type HdsAdvancedTableBodyComponent from './components/hds/advanced-table/body';
-import type HdsAdvancedTableColumnManagerComponent from './components/hds/advanced-table/column-manager';
+import type HdsAdvancedTableColumnManagerComponent from './components/hds/advanced-table/column-manager/index.gts';
 import type HdsAdvancedTableTdComponent from './components/hds/advanced-table/td';
 import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advanced-table/th-button-expand';
 import type HdsAdvancedTableThButtonSortComponent from './components/hds/advanced-table/th-button-sort';

@@ -15,7 +15,7 @@ export interface HdsAdvancedTableBodySignature<T> {
   Args: {
     childrenKey: string;
     expandedRowIds: Set<string>;
-    model: T[];
+    sortedModel: T[];
   };
   Blocks: {
     default: [
@@ -33,7 +33,7 @@ export default class HdsAdvancedTableBody<
 > extends Component<HdsAdvancedTableBodySignature<T>> {
   @cached
   get visibleRows(): HdsAdvancedTableRowWrapper<T>[] {
-    const { model, childrenKey, expandedRowIds } = this.args;
+    const { sortedModel, childrenKey, expandedRowIds } = this.args;
     const rows: HdsAdvancedTableRowWrapper<T>[] = [];
 
     const traverse = (items: T[], depth: number) => {
@@ -59,7 +59,7 @@ export default class HdsAdvancedTableBody<
       }
     };
 
-    traverse(model, 0);
+    traverse(sortedModel, 0);
 
     return rows;
   }

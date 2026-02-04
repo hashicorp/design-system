@@ -155,7 +155,7 @@
           @childrenKey={{this.childrenKey}}
           @expandedRowIds={{this.expandedRowIds}}
           {{! @glint-expect-error: [HDS-4380](https://hashicorp.atlassian.net/browse/HDS-4380) }}
-          @model={{sort-by this.sortCriteria @model}}
+          @sortedModel={{sort-by this.sortCriteria @model}}
           as |B|
         >
           {{#each B.visibleRows key="id" as |row index|}}

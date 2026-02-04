@@ -16,16 +16,16 @@ import { guidFor } from '@ember/object/internals';
 import { cached, tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
-import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
-import { isPixelSize, pixelToNumber } from './utils.ts';
+import { HdsAdvancedTableColumnReorderSideValues } from '../types.ts';
+import { isPixelSize, pixelToNumber } from '../utils.ts';
 
 import type {
   HdsAdvancedTableColumn,
   HdsAdvancedTableColumnReorderCallback,
   HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTablePixelString,
-} from './types';
-import type { HdsAdvancedTableSignature } from './index.ts';
+} from '../types';
+import type { HdsAdvancedTableSignature } from '../index.ts';
 import type Owner from '@ember/owner';
 import type { ModifierLike } from '@glint/template';
 
