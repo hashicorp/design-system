@@ -18,12 +18,12 @@ import {
 import { guidFor } from '@ember/object/internals';
 
 import HdsAlertComponent from '../../alert/index.gts';
-import HdsFormErrorComponent from '../error/index.ts';
-import HdsFormHelperTextComponent from '../helper-text/index.ts';
+import HdsFormErrorComponent from '../error/index.gts';
+import HdsFormHelperTextComponent from '../helper-text/index.gts';
 import HdsFormKeyValueInputsDeleteRowButtonComponent from './delete-row-button.ts';
 import HdsFormKeyValueInputsFieldComponent from './field.ts';
 import HdsFormKeyValueInputsGenericComponent from './generic.ts';
-import HdsFormLegendComponent from '../legend/index.ts';
+import HdsFormLegendComponent from '../legend/index.gts';
 
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 import type { HdsFormKeyValueInputsAddRowButtonSignature } from './add-row-button.ts';
