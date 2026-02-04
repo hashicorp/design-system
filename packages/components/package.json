@@ -30,7 +30,7 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
     "start": "rollup --config --watch --environment development",
-    "test:dist-files": "node scripts/check-dist-files.js",
+    "test:dist-files": "node scripts/check-dist-files.mjs",
     "prepublishOnly": "pnpm build && pnpm test:dist-files"
   },
   "dependencies": {
