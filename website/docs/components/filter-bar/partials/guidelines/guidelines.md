@@ -54,21 +54,21 @@ Applied filters are represented by a [Tag](/components/tag) displaying the filte
 
 ![](/assets/components/filter-bar/filter-bar-tag-example.png)
 
-The text rendered within the Tag uses a standardized format depending on the type of filter and the method:
+By default, the text rendered within the Tag uses a standardized format depending on the type of filter:
 
-- Single and multiple selection filters group the parameter and value using a colon; e.g., "Region: AWS (us-east)".
-- Numerical filters group the parameter and value with an operator symbol; e.g., "Modules > 50".
-- Date and time filters group the parameter and value with natural language; e.g., "Created before 12:00 PM".
+- Single and multiple selection filters group the parameter and value using a colon, e.g., "Region: AWS (us-east)"
+- Numerical filters group the parameter and value with an [operator symbols](/components/filter-bar?tab=specifications#value-input-operators), e.g., "Modules > 50"
+- Date and time filters group the parameter and value with natural language, e.g., "Created before 12:00 PM"
 
 ![](/assets/components/filter-bar/filter-bar-tag-filter-methods.png)
 
-For a full list of supported operators, visit the [specifications](/components/filter-bar?tab=specifications#value-input-operators) page.
+If necessary, the text can be overridden within the Tag. This can be useful if the parameter label is an irregular plural, if the parameter reads more naturally with certain punctuation or grammar, or for product-specific reasons.
 
 The [Tag](/components/tag?tab=code#truncation) component truncates at roughly 20 characters.
 
 ### Expand & collapse
 
-The Applied filters section can be expanded or collapsed to simplify the UI and bring focus to the data. This is especially helpful when many filters are applied or when the data set is complex.
+The applied filters section can be collapsed to simplify the UI or expanded to bring focus to the data. This is helpful when many filters are applied or when the data set is complex.
 
 ![An example of the collapsed state of the Filter Bar](/assets/components/filter-bar/filter-bar-collapsed.png)
 
@@ -79,10 +79,6 @@ When no filters are applied, the applied filters section is collapsed by default
 When one or more filters are applied, the Filter Bar is expanded by default.
 
 ![An example of the expanded Filter Bar with several filters applied](/assets/components/filter-bar/filter-bar-expanded-with-filters.png)
-
-### Custom applied filter text
-
-If necessary, the default formatting within the Tag can be overridden with custom text. This can be useful if the label of the parameter is an irregular plural, if the parameter reads more naturally with certain punctuation or grammar, or for product-specific reasons.
 
 ## Clearing filters
 
