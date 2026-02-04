@@ -31,11 +31,7 @@ setLinkToExternal(LinkToExternalComponent);
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-<!-- START components/side-nav -->
-
 `SideNav` - removed the component.
-
-<!-- END -->
 
 <small class="doc-whats-new-changelog-metadata">[#3541](https://github.com/hashicorp/design-system/pull/3541)</small>
 
