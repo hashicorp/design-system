@@ -4,7 +4,7 @@
  */
 import Component from '@glimmer/component';
 import style from 'ember-style-modifier';
-import { array, get } from '@ember/helper';
+import { array, get, concat } from '@ember/helper';
 import { capitalize } from '@ember/string';
 import type Owner from '@ember/owner';
 
@@ -40,6 +40,7 @@ import HdsAdvancedTableThSelectable from '@hashicorp/design-system-components/co
 
 import type {
   HdsAdvancedTableColumn,
+  HdsAdvancedTableNormalizedColumn,
   HdsAdvancedTableModel,
 } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
 
@@ -49,6 +50,7 @@ export default class SubSectionsBaseElements extends Component {
   sampleTableModel: HdsAdvancedTableModel;
   hasResizableColumns: boolean;
   columns: HdsAdvancedTableColumn[];
+  sortStatColumns: HdsAdvancedTableNormalizedColumn[];
 
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
@@ -74,6 +76,21 @@ export default class SubSectionsBaseElements extends Component {
       {
         label: 'Status',
         width: '200px',
+      },
+    ];
+
+    this.sortStateColumns = [
+      {
+        label: 'Unsorted',
+        isSortable: true,
+      },
+      {
+        label: 'Ascending',
+        isSortable: true,
+      },
+      {
+        label: 'Descending',
+        isSortable: true,
       },
     ];
   }
@@ -160,7 +177,9 @@ export default class SubSectionsBaseElements extends Component {
       </SF.Item>
     </ShwFlex>
 
-    <ShwTextH3>ThSort</ShwTextH3>
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH3>Th</ShwTextH3>
 
     <ShwFlex
       @direction="column"
@@ -176,140 +195,35 @@ export default class SubSectionsBaseElements extends Component {
           >
             <div class="hds-advanced-table__thead" role="rowgroup">
               <div class="hds-advanced-table__tr" role="row">
-                <HdsAdvancedTableThSort
+                <HdsAdvancedTableTh
                   mock-state-value={{state}}
                   mock-state-selector="button"
+                  @column={{get this.sortStateColumns 0}}
                   @tooltip="Here is more information"
                 >
                   Unsorted ({{state}})
-                </HdsAdvancedTableThSort>
-                <HdsAdvancedTableThSort
+                </HdsAdvancedTableTh>
+                <HdsAdvancedTableTh
+                  @column={{get this.sortStateColumns 1}}
                   @sortOrder="asc"
                   mock-state-value={{state}}
                   mock-state-selector="button"
                 >
                   Ascending
-                </HdsAdvancedTableThSort>
-                <HdsAdvancedTableThSort
+                </HdsAdvancedTableTh>
+                <HdsAdvancedTableTh
+                  @column={{get this.sortStateColumns 2}}
                   @sortOrder="desc"
                   mock-state-value={{state}}
                   mock-state-selector="button"
                 >
                   Descending
-                </HdsAdvancedTableThSort>
+                </HdsAdvancedTableTh>
               </div>
             </div>
           </div>
         </SF.Item>
       {{/each}}
-    </ShwFlex>
-
-    <ShwFlex @label="Alignment" as |SF|>
-      <SF.Item @grow={{true}}>
-        <div
-          class="hds-advanced-table hds-advanced-table--density-medium"
-          role="grid"
-          {{style gridTemplateColumns="repeat(3, 1fr)"}}
-        >
-          <div class="hds-advanced-table__thead" role="rowgroup">
-            <div class="hds-advanced-table__tr" role="row">
-              <HdsAdvancedTableThSort>Left</HdsAdvancedTableThSort>
-              <HdsAdvancedTableThSort
-                @align="center"
-              >Center</HdsAdvancedTableThSort>
-              <HdsAdvancedTableThSort
-                @align="right"
-              >Right</HdsAdvancedTableThSort>
-            </div>
-          </div>
-        </div>
-      </SF.Item>
-    </ShwFlex>
-
-    <ShwFlex @label="Alignment with all interactive elements" as |SF|>
-      <SF.Item @grow={{true}}>
-        <div
-          class="hds-advanced-table hds-advanced-table--density-medium"
-          role="grid"
-          {{style gridTemplateColumns="repeat(4, 1fr)"}}
-        >
-          <div
-            class="hds-advanced-table__thead hds-advanced-table__thead--has-resizable-columns"
-            role="rowgroup"
-          >
-            <div class="hds-advanced-table__tr" role="row">
-              <HdsAdvancedTableThSort
-                @tooltip="Here is more information"
-                @column={{get this.columns 1}}
-                @hasResizableColumns={{true}}
-              >Left</HdsAdvancedTableThSort>
-              <HdsAdvancedTableThSort
-                @align="center"
-                @tooltip="Here is more information"
-                @column={{get this.columns 1}}
-                @hasResizableColumns={{true}}
-              >Center</HdsAdvancedTableThSort>
-              <HdsAdvancedTableThSort
-                @align="right"
-                @tooltip="Here is more information"
-                @column={{get this.columns 1}}
-                @hasResizableColumns={{true}}
-              >Right</HdsAdvancedTableThSort>
-              {{! Note: need a last column to avoid a scrollbar}}
-              <HdsAdvancedTableThSort>Last column</HdsAdvancedTableThSort>
-            </div>
-          </div>
-        </div>
-      </SF.Item>
-    </ShwFlex>
-
-    <ShwFlex @direction="column" @label="Multi-line" as |SF|>
-      <SF.Item {{style width="600px"}}>
-        <div
-          class="hds-advanced-table"
-          role="grid"
-          {{style gridTemplateColumns="repeat(2, 1fr)"}}
-        >
-          <div class="hds-advanced-table__thead" role="rowgroup">
-            <div class="hds-advanced-table__tr" role="row">
-              <HdsAdvancedTableThSort>
-                This is a very long text that should go on two lines
-              </HdsAdvancedTableThSort>
-              <HdsAdvancedTableThSort @tooltip="Here is more information">
-                This is a very long text that should go on two lines
-              </HdsAdvancedTableThSort>
-            </div>
-          </div>
-        </div>
-      </SF.Item>
-    </ShwFlex>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH3>Th</ShwTextH3>
-
-    <ShwFlex @label="Interactive states" as |SF|>
-      <SF.Item @grow={{true}}>
-        <div
-          class="hds-advanced-table"
-          role="grid"
-          {{style gridTemplateColumns="repeat(4, 1fr)"}}
-        >
-          <div class="hds-advanced-table__thead" role="rowgroup">
-            <div class="hds-advanced-table__tr" role="row">
-              {{#each STATES as |state|}}
-                <HdsAdvancedTableTh
-                  @tooltip="Here is more information"
-                  mock-state-value={{state}}
-                  mock-state-selector="button"
-                >
-                  {{capitalize state}}
-                </HdsAdvancedTableTh>
-              {{/each}}
-            </div>
-          </div>
-        </div>
-      </SF.Item>
     </ShwFlex>
 
     <ShwFlex @label="Expandable" as |SF|>
@@ -435,7 +349,44 @@ export default class SubSectionsBaseElements extends Component {
       </SF.Item>
     </ShwFlex>
 
-    <ShwFlex @label="Alignment with all interactive elements" as |SF|>
+    <ShwFlex @label="Alignment with tooltip, resizing, and sorting" as |SF|>
+      <SF.Item @grow={{true}}>
+        <div
+          class="hds-advanced-table hds-advanced-table--density-medium"
+          role="grid"
+          {{style gridTemplateColumns="repeat(4, 1fr)"}}
+        >
+          <div
+            class="hds-advanced-table__thead hds-advanced-table__thead--has-resizable-columns"
+            role="rowgroup"
+          >
+            <div class="hds-advanced-table__tr" role="row">
+              <HdsAdvancedTableTh
+                @tooltip="Here is more information"
+                @column={{get this.sortStateColumns 1}}
+                @hasResizableColumns={{true}}
+              >Left</HdsAdvancedTableTh>
+              <HdsAdvancedTableTh
+                @align="center"
+                @tooltip="Here is more information"
+                @column={{get this.sortStateColumns 1}}
+                @hasResizableColumns={{true}}
+              >Center</HdsAdvancedTableTh>
+              <HdsAdvancedTableTh
+                @align="right"
+                @tooltip="Here is more information"
+                @column={{get this.sortStateColumns 1}}
+                @hasResizableColumns={{true}}
+              >Right</HdsAdvancedTableTh>
+              {{! Note: need a last column to avoid a scrollbar}}
+              <HdsAdvancedTableTh>Last column</HdsAdvancedTableTh>
+            </div>
+          </div>
+        </div>
+      </SF.Item>
+    </ShwFlex>
+
+    <ShwFlex @label="Alignment with tooltip, resizing, and nesting" as |SF|>
       <SF.Item @grow={{true}}>
         <div
           class="hds-advanced-table hds-advanced-table--density-medium"
@@ -588,10 +539,10 @@ export default class SubSectionsBaseElements extends Component {
         {{#each booleans as |bool1|}}
           {{#each booleans as |bool2|}}
             <SF.Item
-              @label="{{if bool1 'Selected' 'Deselected'}} {{if
-                bool2
-                ' with sort'
-              }}"
+              @label={{concat
+                (if bool1 "Selected" "Deselected")
+                (if bool2 " with sort" "")
+              }}
             >
 
               <div

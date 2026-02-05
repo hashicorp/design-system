@@ -29,7 +29,7 @@
     {{#if @column.isVisuallyHidden}}
       <span class="sr-only">{{yield}}</span>
     {{else}}
-      {{#if @isExpandable}}
+      {{#if (and @isExpandable (not this.isSortable))}}
         <Hds::AdvancedTable::ThButtonExpand
           @labelId={{this._labelId}}
           @onToggle={{@onClickToggle}}
