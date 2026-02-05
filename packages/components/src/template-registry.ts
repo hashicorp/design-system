@@ -62,7 +62,7 @@ import type HdsApplicationStateBodyComponent from './components/hds/application-
 import type HdsApplicationStateFooterComponent from './components/hds/application-state/footer';
 import type HdsApplicationStateHeaderComponent from './components/hds/application-state/header';
 import type HdsApplicationStateMediaComponent from './components/hds/application-state/media';
-import type HdsCardContainerComponent from './components/hds/card/container.ts';
+import type HdsCardContainerComponent from './components/hds/card/container';
 import type HdsCodeEditorComponent from './components/hds/code-editor/index.ts';
 import type HdsCodeEditorDescriptionComponent from './components/hds/code-editor/description.ts';
 import type HdsCodeEditorGenericComponent from './components/hds/code-editor/generic.ts';

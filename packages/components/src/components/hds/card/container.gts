@@ -5,6 +5,8 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { eq } from 'ember-truth-helpers';
+import { element } from 'ember-element-helper';
 
 import {
   HdsCardBackgroundValues,
@@ -168,4 +170,22 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
 
     return classes.join(' ');
   }
+
+  <template>
+    {{!
+      Dynamically generating an HTML tag in Ember creates a dynamic component class (with the corresponding tagName), while rendering
+      a plain HTML element requires less computing cycles for Ember (you will notice it doesn't add the ember-view class to it).
+    }}
+    {{#if (eq this.componentTag "div")}}
+      <div class={{this.classNames}} ...attributes>{{yield}}</div>
+    {{else}}
+      {{#let (element this.componentTag) as |Tag|}}
+        <Tag
+          class={{this.classNames}}
+          role={{if (eq this.componentTag "li") "listitem"}}
+          ...attributes
+        >{{yield}}</Tag>
+      {{/let}}
+    {{/if}}
+  </template>
 }

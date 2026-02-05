@@ -87,7 +87,7 @@ export * from './components/hds/button/types.ts';
 export { default as HdsButtonSet } from './components/hds/button-set/index.gts';
 
 // Card
-export { default as HdsCardContainer } from './components/hds/card/container.ts';
+export { default as HdsCardContainer } from './components/hds/card/container.gts';
 export * from './components/hds/card/types.ts';
 
 // CodeBlock
