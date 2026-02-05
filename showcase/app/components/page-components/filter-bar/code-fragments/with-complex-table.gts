@@ -333,6 +333,12 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
     this.demoShowSecondButton = false;
   };
 
+  demoOnFocusOut = () => {
+    console.log('FilterBar focus out detected');
+    const demoBtn = document.getElementById('demo-btn');
+    demoBtn?.focus();
+  };
+
   <template>
     <HdsFilterBar
       @filters={{this.filters}}
@@ -342,7 +348,7 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
       {{style marginBottom="24px"}}
       as |F|
     >
-      <F.FiltersDropdown as |D|>
+      <F.FiltersDropdown @onFocusOut={{this.demoOnFocusOut}} as |D|>
         <D.FilterGroup
           @key="run-status"
           @text="Run status"
@@ -386,6 +392,7 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
               @text="Add custom filter"
               @color="secondary"
               @size="small"
+              id="demo-btn"
               {{on "click" (fn this.onGenericFilterClick G.updateFilter)}}
             />
             {{#if this.demoShowSecondButton}}
@@ -393,7 +400,12 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
                 @text="Update custom filter"
                 @color="secondary"
                 @size="small"
+                id="demo-btn-two"
                 {{on "click" (fn this.onGenericFilterClickTwo G.updateFilter)}}
+              />
+              <ShwPlaceholder
+                @text="On click of the button, this content will be removed, and focus will be set back on the previous button"
+                @height="100"
               />
             {{/if}}
           </F.Generic>
