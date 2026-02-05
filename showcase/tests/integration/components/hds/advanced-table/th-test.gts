@@ -366,4 +366,167 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
       )
       .hasAria('labelledby', `${prefixLabel?.id} ${buttonLabel?.id}`);
   });
+
+  // SORTING
+
+  test('it renders with the sort CSS class if the column is sortable', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTableTh
+          id="data-test-advanced-table-th-sort"
+          @column={{hash isSortable=true key="test" label="Artist"}}
+          @onClickSort={{(fn (mut this.foo) true)}}
+        >
+          Artist
+        </HdsAdvancedTableTh>
+      </template>,
+    );
+
+    assert
+      .dom('#data-test-advanced-table-th-sort')
+      .hasClass('hds-advanced-table__th--sort');
+    assert
+      .dom(
+        '#data-test-advanced-table-th-sort .hds-advanced-table__th-button--sort',
+      )
+      .exists();
+  });
+
+  test('SORT: if @sortOrder is not defined, the swap-vertical icon should be displayed', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTableTh
+          @column={{hash isSortable=true key="test" label="Artist"}}
+          @onClickSort={{(fn (mut this.foo) true)}}
+        >
+          Artist
+        </HdsAdvancedTableTh>
+      </template>,
+    );
+
+    assert.dom('[data-test-icon="swap-vertical"]').exists();
+  });
+
+  test('SORT: if sorted, and `@sortOrder` is set, the correct icon should be displayed', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTableTh
+          @sortOrder="asc"
+          @column={{hash isSortable=true key="test" label="Artist"}}
+          @onClickSort={{(fn (mut this.foo) true)}}
+        >
+          Artist
+        </HdsAdvancedTableTh>
+      </template>,
+    );
+
+    assert.dom('[data-test-icon="arrow-up"]').exists();
+
+    await render(
+      <template>
+        <HdsAdvancedTableTh
+          @sortOrder="desc"
+          @column={{hash isSortable=true key="test" label="Artist"}}
+          @onClickSort={{(fn (mut this.foo) true)}}
+        >
+          Artist
+        </HdsAdvancedTableTh>
+      </template>,
+    );
+
+    assert.dom('[data-test-icon="arrow-down"]').exists();
+  });
+
+  test('SORT: if unsorted, the aria-sort attribute value should be set to none', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTableTh
+          id="data-test-advanced-table-th-sort"
+          @column={{hash isSortable=true key="test" label="Artist"}}
+          @onClickSort={{(fn (mut this.foo) true)}}
+        >
+          Artist
+        </HdsAdvancedTableTh>
+      </template>,
+    );
+
+    assert
+      .dom('#data-test-advanced-table-th-sort')
+      .hasAttribute('aria-sort', 'none');
+  });
+
+  test('SORT: if sorted, the aria-sort attribute value should reflect the direction', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTableTh
+          @sortOrder="desc"
+          @column={{hash isSortable=true key="test" label="Artist"}}
+          @onClickSort={{(fn (mut this.foo) true)}}
+          id="data-test-advanced-table-th-sort"
+        >
+          Artist
+        </HdsAdvancedTableTh>
+      </template>,
+    );
+
+    assert
+      .dom('#data-test-advanced-table-th-sort')
+      .hasAttribute('aria-sort', 'descending');
+  });
+
+  test('SORT: it renders the `aria-labelledby` attribute for the sort button with the correct IDs', async function (assert) {
+    await render(
+      <template>
+        <HdsAdvancedTableTh
+          id="data-test-advanced-table-th-sort"
+          @sortOrder="desc"
+          @column={{hash isSortable=true key="test" label="Artist"}}
+          @onClickSort={{(fn (mut this.foo) true)}}
+        >
+          Artist
+        </HdsAdvancedTableTh>
+      </template>,
+    );
+    const prefixLabel = find(
+      '#data-test-advanced-table-th-sort .hds-advanced-table__th-button-aria-label-hidden-segment:nth-of-type(1)',
+    );
+    const buttonLabel = find(
+      '#data-test-advanced-table-th-sort .hds-advanced-table__th-content > span',
+    );
+    const suffixLabel = find(
+      '#data-test-advanced-table-th-sort .hds-advanced-table__th-button-aria-label-hidden-segment:nth-of-type(2)',
+    );
+    assert
+      .dom(
+        '#data-test-advanced-table-th-sort .hds-advanced-table__th-button--sort',
+      )
+      .hasAria(
+        'labelledby',
+        `${prefixLabel?.id} ${buttonLabel?.id} ${suffixLabel?.id}`,
+      );
+    assert.dom(suffixLabel).hasText('ascending');
+  });
+
+  test('SORT: it should call the `@onClickSort` function if provided', async function (assert) {
+    let isClicked = false;
+    const onClickSort = () => {
+      isClicked = true;
+    };
+
+    await render(
+      <template>
+        <HdsAdvancedTableTh
+          id="data-test-advanced-table-th-sort"
+          @column={{hash isSortable=true key="test" label="Artist"}}
+          @onClickSort={{onClickSort}}
+        >
+          Artist
+        </HdsAdvancedTableTh>
+      </template>,
+    );
+    await click(
+      '#data-test-advanced-table-th-sort .hds-advanced-table__th-button--sort',
+    );
+    assert.ok(isClicked);
+  });
 });
