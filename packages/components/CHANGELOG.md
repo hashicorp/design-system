@@ -12,7 +12,7 @@ Removed `ember-engines` as a peer dependency, and added the `hds-link-to-externa
 import LinkToExternal from "ember-engines/components/link-to-external";
 import { setLinkToExternal } from "@hashicorp/design-system-components/utils/hds-link-to-external";
 
-setLinkToExternal(LinkToExternalComponent);
+setLinkToExternal(LinkToExternal);
 ```
 
 <small class="doc-whats-new-changelog-metadata">[#3429](https://github.com/hashicorp/design-system/pull/3429) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
@@ -35,7 +35,7 @@ setLinkToExternal(LinkToExternalComponent);
 import LinkToExternal from "ember-engines/components/link-to-external";
 import { setLinkToExternal } from "@hashicorp/design-system-components/utils/hds-link-to-external";
 
-setLinkToExternal(LinkToExternalComponent);
+setLinkToExternal(LinkToExternal);
 ```
 
 <small class="doc-whats-new-changelog-metadata">[#3429](https://github.com/hashicorp/design-system/pull/3429) - Thanks [@meirish](https://github.com/meirish) for the contribution! 🙏</small>
