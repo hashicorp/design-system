@@ -6,7 +6,7 @@ Refactored the component to use the `hds-link-to-external` utility. If your appl
 import LinkToExternal from "ember-engines/components/link-to-external";
 import { setLinkToExternal } from "@hashicorp/design-system-components/utils/hds-link-to-external";
 
-setLinkToExternal(LinkToExternalComponent);
+setLinkToExternal(LinkToExternal);
 ```
 
 
