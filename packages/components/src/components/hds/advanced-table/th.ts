@@ -12,7 +12,11 @@ import { scheduleOnce } from '@ember/runloop';
 import { focusable, type FocusableElement } from 'tabbable';
 import { modifier } from 'ember-modifier';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
-import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
+import {
+  HdsAdvancedTableHorizontalAlignmentValues,
+  HdsAdvancedTableThSortOrderLabelValues,
+  HdsAdvancedTableThSortOrderValues,
+} from './types.ts';
 
 import type {
   HdsAdvancedTableHorizontalAlignment,
@@ -20,10 +24,15 @@ import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableNormalizedColumn,
+  HdsAdvancedTableThSortOrderLabels,
+  HdsAdvancedTableThSortOrder,
 } from './types.ts';
+
+import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
+import type Owner from '@ember/owner';
 
 export const ALIGNMENTS: HdsAdvancedTableHorizontalAlignment[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -43,8 +52,8 @@ export interface HdsAdvancedTableThSignature {
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
     hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
-    isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
+    isExpanded?: HdsAdvancedTableExpandState;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     lastColumnKey?: HdsAdvancedTableNormalizedColumn['key'];
@@ -52,17 +61,19 @@ export interface HdsAdvancedTableThSignature {
     parentId?: string;
     reorderHoveredColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
     rowspan?: number;
+    scope?: HdsAdvancedTableScope;
     siblingColumnKeys?: {
       previous?: HdsAdvancedTableNormalizedColumn['key'];
       next?: HdsAdvancedTableNormalizedColumn['key'];
     };
-    scope?: HdsAdvancedTableScope;
+    sortOrder?: HdsAdvancedTableThSortOrder;
     tableHeight?: number;
     tooltip?: string;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onApplyTransientWidth?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key']
     ) => void;
+    onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onGetAppliedWidth?: (
@@ -80,6 +91,7 @@ export interface HdsAdvancedTableThSignature {
       columnKey: HdsAdvancedTableNormalizedColumn['key'],
       side: HdsAdvancedTableColumnReorderSide
     ) => void;
+    onResetTransientColumnWidths?: () => void;
     onSetDraggedColumnKey?: (
       key: HdsAdvancedTableNormalizedColumn['key'] | null
     ) => void;
@@ -91,7 +103,6 @@ export interface HdsAdvancedTableThSignature {
       width: `${number}px`
     ) => void;
     onSetTransientColumnWidths?: (options: { roundValues?: boolean }) => void;
-    onResetTransientColumnWidths?: () => void;
     onStepColumn?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key'],
       step: number
@@ -109,14 +120,24 @@ export interface HdsAdvancedTableThSignature {
 }
 
 export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSignature> {
-  private _labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
-  @tracked private _element!: HTMLDivElement;
+  private _labelId: string;
 
+  @tracked private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
   @tracked
   private _reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
   @tracked
   private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
+
+  constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
+    super(owner, args);
+
+    this._labelId = this.args.newLabel ?? guidFor(this);
+  }
+
+  get isSortable(): boolean {
+    return this.args.column?.isSortable ?? false;
+  }
 
   get isFirstColumn(): boolean {
     const { column, firstColumnKey } = this.args;
@@ -155,13 +176,23 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get scope(): HdsAdvancedTableScope {
-    const { scope = 'col' } = this.args;
-    return scope;
+    return this.args.scope ?? 'col';
   }
 
   get role(): string {
-    if (this.scope === 'col') return 'columnheader';
-    else return 'rowheader';
+    return this.scope === 'col' ? 'columnheader' : 'rowheader';
+  }
+
+  get ariaSort(): HdsAdvancedTableThSortOrderLabels {
+    switch (this.args.sortOrder) {
+      case HdsAdvancedTableThSortOrderValues.Asc:
+        return HdsAdvancedTableThSortOrderLabelValues.Asc;
+      case HdsAdvancedTableThSortOrderValues.Desc:
+        return HdsAdvancedTableThSortOrderLabelValues.Desc;
+      default:
+        // none is the default per the spec.
+        return HdsAdvancedTableThSortOrderLabelValues.None;
+    }
   }
 
   get align(): HdsAdvancedTableHorizontalAlignment {
@@ -179,23 +210,21 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
   get rowspan(): string {
-    if (this.args.rowspan) {
-      return `span ${this.args.rowspan}`;
-    }
-    return 'auto';
+    return this.args.rowspan !== undefined
+      ? `span ${this.args.rowspan}`
+      : 'auto';
   }
 
   get colspan(): string | undefined {
-    if (this.args.colspan) {
-      return `span ${this.args.colspan}`;
-    }
-    return 'auto';
+    return this.args.colspan !== undefined
+      ? `span ${this.args.colspan}`
+      : 'auto';
   }
 
   get paddingLeft(): string | undefined {
-    if (this.args.depth) {
-      return `calc(${this.args.depth} * 32px + 16px)`;
-    }
+    return this.args.depth !== undefined
+      ? `calc(${this.args.depth} * 32px + 16px)`
+      : undefined;
   }
 
   get classNames(): string {
@@ -203,7 +232,10 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
     const classes = ['hds-advanced-table__th'];
 
-    // add a class based on the @align argument
+    if (this.isSortable) {
+      classes.push('hds-advanced-table__th--sort');
+    }
+
     if (this.align) {
       classes.push(`hds-advanced-table__th--align-${this.align}`);
     }
@@ -250,6 +282,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action getInitialFocus(): FocusableElement | undefined {
     const cellFocusableElements = focusable(this._element);
+
     return cellFocusableElements[0];
   }
 
@@ -272,56 +305,32 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @action applyTransientWidth(
     columnKey: HdsAdvancedTableNormalizedColumn['key']
   ): void {
-    const { onApplyTransientWidth } = this.args;
-
-    if (columnKey !== undefined && onApplyTransientWidth !== undefined) {
-      onApplyTransientWidth(columnKey);
-    }
+    this.args.onApplyTransientWidth?.(columnKey);
   }
 
   @action resetTransientColumnWidths(): void {
-    const { onResetTransientColumnWidths } = this.args;
-
-    if (onResetTransientColumnWidths !== undefined) {
-      onResetTransientColumnWidths();
-    }
+    this.args.onResetTransientColumnWidths?.();
   }
 
   @action getAppliedWidth(
     columnKey: HdsAdvancedTableNormalizedColumn['key']
   ): HdsAdvancedTableNormalizedColumn['width'] | undefined {
-    const { onGetAppliedWidth } = this.args;
-
-    if (onGetAppliedWidth === undefined) {
-      return undefined;
-    }
-
-    return onGetAppliedWidth(columnKey);
+    return this.args.onGetAppliedWidth?.(columnKey);
   }
 
   @action getColumnByKey(
     columnKey: HdsAdvancedTableNormalizedColumn['key']
   ): HdsAdvancedTableNormalizedColumn | undefined {
-    const { onGetColumnByKey } = this.args;
-
-    if (onGetColumnByKey === undefined) {
-      return undefined;
-    }
-
-    return onGetColumnByKey(columnKey);
+    return this.args.onGetColumnByKey?.(columnKey);
   }
 
   @action setDraggedColumnKey(
     columnKey: HdsAdvancedTableNormalizedColumn['key'] | null
   ): void {
-    const { onSetDraggedColumnKey } = this.args;
-
-    if (onSetDraggedColumnKey !== undefined) {
-      onSetDraggedColumnKey(columnKey);
-    }
+    this.args.onSetDraggedColumnKey?.(columnKey);
   }
 
-  @action setTransientColumnWidth(width: `${number}px`) {
+  @action setTransientColumnWidth(width: `${number}px`): void {
     const { column, onSetTransientColumnWidth } = this.args;
 
     if (column !== undefined && onSetTransientColumnWidth !== undefined) {
@@ -329,12 +338,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     }
   }
 
-  @action setTransientColumnWidths(options: { roundValues?: boolean }) {
-    const { onSetTransientColumnWidths } = this.args;
-
-    if (onSetTransientColumnWidths !== undefined) {
-      onSetTransientColumnWidths(options);
-    }
+  @action setTransientColumnWidths(options: { roundValues?: boolean }): void {
+    this.args.onSetTransientColumnWidths?.(options);
   }
 
   @action stepColumn(step: number): void {
@@ -374,6 +379,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   private _manageExpandButton = modifier((button: HTMLButtonElement) => {
     const { didInsertExpandButton, willDestroyExpandButton } = this.args;
+
     if (typeof didInsertExpandButton === 'function') {
       didInsertExpandButton(button);
     }

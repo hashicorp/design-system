@@ -65,83 +65,46 @@
             @isStickyColumnPinned={{this.isStickyColumnPinned}}
           >
             {{#each CM.orderedColumns as |column|}}
-              {{#if column.isSortable}}
-                <Hds::AdvancedTable::ThSort
-                  @column={{column}}
-                  @draggedColumnKey={{CM.draggedColumnKey}}
-                  @firstColumnKey={{CM.firstColumnKey}}
-                  @sortOrder={{if (eq column.key this.sortBy) this.sortOrder}}
-                  @onClickSort={{fn this.setSortBy column.key}}
-                  @align={{column.align}}
-                  @hasReorderableColumns={{@hasReorderableColumns}}
-                  @hasResizableColumns={{@hasResizableColumns}}
-                  @hasSelectableRows={{this.isSelectable}}
-                  @hasStickyFirstColumn={{@hasStickyFirstColumn}}
-                  @isStickyColumn={{CM.getIsStickyColumn column.key}}
-                  @isStickyColumnPinned={{this.isStickyColumnPinned}}
-                  @lastColumnKey={{CM.lastColumnKey}}
-                  @reorderHoveredColumnKey={{CM.reorderHoveredColumnKey}}
-                  @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
-                  @tableHeight={{this._tableHeight}}
-                  @tooltip={{column.tooltip}}
-                  @onApplyTransientWidth={{CM.applyTransientWidth}}
-                  @onColumnResize={{@onColumnResize}}
-                  @onGetAppliedWidth={{CM.getAppliedWidth}}
-                  @onGetColumnByKey={{CM.getColumnByKey}}
-                  @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
-                  @onPinFirstColumn={{this._onPinFirstColumn}}
-                  @onReorderDrop={{CM.moveColumnToDropTarget}}
-                  @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
-                  @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
-                  @onSetReorderHoveredColumnKey={{CM.setReorderHoveredColumnKey}}
-                  @onSetTransientColumnWidth={{CM.setTransientColumnWidth}}
-                  @onSetTransientColumnWidths={{CM.setTransientColumnWidths}}
-                  @onStepColumn={{CM.stepColumn}}
-                  @onUpdateResizeDebt={{CM.updateResizeDebt}}
-                  {{CM.syncThElements column.key}}
-                >
-                  {{column.label}}
-                </Hds::AdvancedTable::ThSort>
-              {{else}}
-                <Hds::AdvancedTable::Th
-                  @align={{column.align}}
-                  @column={{column}}
-                  @draggedColumnKey={{CM.draggedColumnKey}}
-                  @firstColumnKey={{CM.firstColumnKey}}
-                  @hasExpandAllButton={{this.hasRowsWithChildren}}
-                  @hasReorderableColumns={{@hasReorderableColumns}}
-                  @hasResizableColumns={{@hasResizableColumns}}
-                  @hasSelectableRows={{this.isSelectable}}
-                  @hasStickyFirstColumn={{@hasStickyFirstColumn}}
-                  @isExpanded={{this.isAllExpanded}}
-                  @isExpandable={{column.isExpandable}}
-                  @isStickyColumn={{CM.getIsStickyColumn column.key}}
-                  @isStickyColumnPinned={{this.isStickyColumnPinned}}
-                  @lastColumnKey={{CM.lastColumnKey}}
-                  @reorderHoveredColumnKey={{CM.reorderHoveredColumnKey}}
-                  @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
-                  @tableHeight={{this._tableHeight}}
-                  @tooltip={{column.tooltip}}
-                  @onApplyTransientWidth={{CM.applyTransientWidth}}
-                  @onClickToggle={{this.toggleExpandAll}}
-                  @onColumnResize={{@onColumnResize}}
-                  @onGetAppliedWidth={{CM.getAppliedWidth}}
-                  @onGetColumnByKey={{CM.getColumnByKey}}
-                  @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
-                  @onPinFirstColumn={{this._onPinFirstColumn}}
-                  @onReorderDrop={{CM.moveColumnToDropTarget}}
-                  @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
-                  @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
-                  @onSetReorderHoveredColumnKey={{CM.setReorderHoveredColumnKey}}
-                  @onSetTransientColumnWidth={{CM.setTransientColumnWidth}}
-                  @onSetTransientColumnWidths={{CM.setTransientColumnWidths}}
-                  @onStepColumn={{CM.stepColumn}}
-                  @onUpdateResizeDebt={{CM.updateResizeDebt}}
-                  {{CM.syncThElements column.key}}
-                >
-                  {{column.label}}
-                </Hds::AdvancedTable::Th>
-              {{/if}}
+              <Hds::AdvancedTable::Th
+                @align={{column.align}}
+                @column={{column}}
+                @draggedColumnKey={{CM.draggedColumnKey}}
+                @firstColumnKey={{CM.firstColumnKey}}
+                @hasReorderableColumns={{@hasReorderableColumns}}
+                @hasResizableColumns={{@hasResizableColumns}}
+                @hasSelectableRows={{this.isSelectable}}
+                @hasStickyFirstColumn={{@hasStickyFirstColumn}}
+                @isStickyColumn={{CM.getIsStickyColumn column.key}}
+                @isStickyColumnPinned={{this.isStickyColumnPinned}}
+                @lastColumnKey={{CM.lastColumnKey}}
+                @reorderHoveredColumnKey={{CM.reorderHoveredColumnKey}}
+                @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
+                @tableHeight={{this._tableHeight}}
+                @tooltip={{column.tooltip}}
+                @hasExpandAllButton={{this.hasRowsWithChildren}}
+                @isExpanded={{this.isAllExpanded}}
+                @isExpandable={{column.isExpandable}}
+                @sortOrder={{if (eq column.key this.sortBy) this.sortOrder}}
+                @onApplyTransientWidth={{CM.applyTransientWidth}}
+                @onClickSort={{if column.isSortable (fn this.setSortBy column.key)}}
+                @onClickToggle={{this.toggleExpandAll}}
+                @onColumnResize={{@onColumnResize}}
+                @onGetAppliedWidth={{CM.getAppliedWidth}}
+                @onGetColumnByKey={{CM.getColumnByKey}}
+                @onMoveColumnToTerminalPosition={{CM.moveColumnToTerminalPosition}}
+                @onPinFirstColumn={{this._onPinFirstColumn}}
+                @onReorderDrop={{CM.moveColumnToDropTarget}}
+                @onResetTransientColumnWidths={{CM.resetTransientColumnWidths}}
+                @onSetDraggedColumnKey={{CM.setDraggedColumnKey}}
+                @onSetReorderHoveredColumnKey={{CM.setReorderHoveredColumnKey}}
+                @onSetTransientColumnWidth={{CM.setTransientColumnWidth}}
+                @onSetTransientColumnWidths={{CM.setTransientColumnWidths}}
+                @onStepColumn={{CM.stepColumn}}
+                @onUpdateResizeDebt={{CM.updateResizeDebt}}
+                {{CM.syncThElements column.key}}
+              >
+                {{column.label}}
+              </Hds::AdvancedTable::Th>
             {{/each}}
           </Hds::AdvancedTable::Tr>
 
