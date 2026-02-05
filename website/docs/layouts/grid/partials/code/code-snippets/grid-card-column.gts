@@ -13,7 +13,7 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 const LocalComponent: TemplateOnlyComponent = <template>
-  <HdsLayoutGrid @columnMinWidth="33.33%" @gap="32">
+  <HdsLayoutGrid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="32">
     <HdsCardContainer @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
       <HdsLayoutGrid @columnMinWidth="100%" @gap="16">
         <HdsLayoutFlex @align="center" @gap="8">
