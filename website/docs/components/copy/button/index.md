@@ -14,6 +14,8 @@ navigation:
   keywords:
     - snippet
     - clipboard
+status:
+  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">

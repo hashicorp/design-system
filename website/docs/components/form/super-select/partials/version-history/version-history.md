@@ -1,3 +1,8 @@
+## 6.0.0
+
+Updated `ember-power-select` library to 8.12.0 and replaced usage of `PowerSelectMultiple` to `PowerSelect` with `@multiple` set to `true`
+
+
 ## 5.2.0
 
 Removed styling incorrectly adding a checkbox next to the "Loading options..." message for search results
