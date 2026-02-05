@@ -12,6 +12,8 @@ import {
   HdsLinkStandalone,
 } from '@hashicorp/design-system-components/components';
 
+import { hash } from '@ember/helper';
+
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsLayoutGrid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="32">
     <HdsCardContainer @level="mid" @hasBorder={{true}} {{style padding="24px"}}>

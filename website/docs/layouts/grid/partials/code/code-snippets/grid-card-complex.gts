@@ -9,6 +9,8 @@ import {
   HdsTextBody,
 } from '@hashicorp/design-system-components/components';
 
+import { hash } from '@ember/helper';
+
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsLayoutGrid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="24" as |LG|>
     <LG.Item @colspan={{hash sm=1 md=2}}>

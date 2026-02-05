@@ -4,6 +4,8 @@ import { HdsLayoutGrid } from '@hashicorp/design-system-components/components';
 
 import DocPlaceholder from 'website/components/doc/placeholder';
 
+import { hash } from '@ember/helper';
+
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsLayoutGrid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="12" as |LG|>
     <LG.Item @colspan={{hash sm=1 md=2}}>
