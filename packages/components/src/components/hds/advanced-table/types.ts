@@ -100,6 +100,10 @@ export type HdsAdvancedTableColumn =
   | SortableHdsAdvancedTableColumn
   | NonSortableHdsAdvancedTableColumn;
 
+export type HdsAdvancedTableNormalizedColumn = HdsAdvancedTableColumn & {
+  key: string;
+};
+
 export type HdsAdvancedTableSortingFunction<T> = (a: T, b: T) => number;
 
 export interface HdsAdvancedTableOnSelectionChangeSignature {

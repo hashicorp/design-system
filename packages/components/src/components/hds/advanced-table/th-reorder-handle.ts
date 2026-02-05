@@ -7,15 +7,17 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { scheduleOnce } from '@ember/runloop';
 
-import type { HdsAdvancedTableColumn } from './types';
+import type { HdsAdvancedTableNormalizedColumn } from './types';
 
 export interface HdsAdvancedTableThReorderHandleSignature {
   Args: {
-    column: HdsAdvancedTableColumn;
+    column: HdsAdvancedTableNormalizedColumn;
     tableHeight?: number;
     thElement?: HTMLDivElement;
     onFocusReorderHandle: () => void;
-    onSetDraggedColumnKey: (columnKey: HdsAdvancedTableColumn['key']) => void;
+    onSetDraggedColumnKey: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key'] | null
+    ) => void;
     onStepColumn: (step: number) => void;
   };
   Blocks: {
@@ -46,7 +48,7 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
     const { column, tableHeight, thElement, onSetDraggedColumnKey } = this.args;
     const { key } = column;
 
-    if (key === undefined || thElement === undefined) {
+    if (thElement === undefined) {
       return;
     }
 

@@ -12,29 +12,31 @@ import { requestAnimationFrameWaiter } from './utils.ts';
 import { HdsAdvancedTableColumnReorderSideValues } from './types.ts';
 
 import type {
-  HdsAdvancedTableColumn,
+  HdsAdvancedTableNormalizedColumn,
   HdsAdvancedTableColumnReorderSide,
 } from './types.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
 export interface HdsAdvancedTableThReorderDropTargetSignature {
   Args: {
-    column?: HdsAdvancedTableColumn;
-    draggedColumnKey?: HdsAdvancedTableColumn['key'];
+    column?: HdsAdvancedTableNormalizedColumn;
+    draggedColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
     isFirstColumn: boolean;
     isLastColumn: boolean;
     hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
-    reorderHoveredColumnKey?: HdsAdvancedTableColumn['key'];
+    reorderHoveredColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
     siblingColumnKeys?: {
-      previous?: HdsAdvancedTableColumn['key'];
-      next?: HdsAdvancedTableColumn['key'];
+      previous?: HdsAdvancedTableNormalizedColumn['key'];
+      next?: HdsAdvancedTableNormalizedColumn['key'];
     };
     tableHeight?: number;
     onReorderDrop?: (
-      columnKey: HdsAdvancedTableColumn['key'],
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
       side: HdsAdvancedTableColumnReorderSide
     ) => void;
-    onSetReorderHoveredColumnKey?: (key: HdsAdvancedTableColumn['key']) => void;
+    onSetReorderHoveredColumnKey?: (
+      key: HdsAdvancedTableNormalizedColumn['key'] | null
+    ) => void;
   };
   Blocks: {
     default?: [];
@@ -138,7 +140,7 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
       if (draggedColumnKey !== null) {
         if (this.isBeingDragged) {
-          onSetReorderHoveredColumnKey(undefined);
+          onSetReorderHoveredColumnKey(null);
         } else {
           onSetReorderHoveredColumnKey(column.key);
 
@@ -181,6 +183,6 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
     this._dragSide = null;
 
-    onSetReorderHoveredColumnKey(undefined);
+    onSetReorderHoveredColumnKey(null);
   }
 }

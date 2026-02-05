@@ -17,8 +17,8 @@ import {
 } from './types.ts';
 
 import type {
-  HdsAdvancedTableColumn,
   HdsAdvancedTableHorizontalAlignment,
+  HdsAdvancedTableNormalizedColumn,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableThSortOrderLabels,
   HdsAdvancedTableColumnReorderSide,
@@ -40,8 +40,8 @@ export interface HdsAdvancedTableThSortSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     column?: HdsAdvancedTableThSignature['Args']['column'];
     colspan?: number;
-    draggedColumnKey?: HdsAdvancedTableColumn['key'];
-    firstColumnKey?: HdsAdvancedTableColumn['key'];
+    draggedColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
+    firstColumnKey?: HdsAdvancedTableNormalizedColumn['key'];
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
@@ -52,44 +52,50 @@ export interface HdsAdvancedTableThSortSignature {
     tooltip?: string;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
-    lastColumnKey?: HdsAdvancedTableColumn['key'];
-    reorderHoveredColumnKey?: HdsAdvancedTableColumn['key'];
+    lastColumnKey?: HdsAdvancedTableNormalizedColumn['key'];
+    reorderHoveredColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
     siblingColumnKeys?: {
-      previous?: HdsAdvancedTableColumn['key'];
-      next?: HdsAdvancedTableColumn['key'];
+      previous?: HdsAdvancedTableNormalizedColumn['key'];
+      next?: HdsAdvancedTableNormalizedColumn['key'];
     };
-    onApplyTransientWidth?: (columnKey: HdsAdvancedTableColumn['key']) => void;
+    onApplyTransientWidth?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => void;
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onGetAppliedWidth?: (
-      columnKey: HdsAdvancedTableColumn['key']
-    ) => HdsAdvancedTableColumn['width'];
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => HdsAdvancedTableNormalizedColumn['width'];
     onGetColumnByKey?: (
-      columnKey: HdsAdvancedTableColumn['key']
-    ) => HdsAdvancedTableColumn | undefined;
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => HdsAdvancedTableNormalizedColumn | undefined;
     onMoveColumnToTerminalPosition?: (
-      columnKey: HdsAdvancedTableColumn['key'],
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
       position: 'start' | 'end'
     ) => void;
     onPinFirstColumn?: () => void;
     onReorderDrop?: (
-      columnKey: HdsAdvancedTableColumn['key'],
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
       side: HdsAdvancedTableColumnReorderSide
     ) => void;
-    onSetDraggedColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
-    onSetReorderHoveredColumnKey: (key: HdsAdvancedTableColumn['key']) => void;
+    onSetDraggedColumnKey: (
+      key: HdsAdvancedTableNormalizedColumn['key'] | null
+    ) => void;
+    onSetReorderHoveredColumnKey: (
+      key: HdsAdvancedTableNormalizedColumn['key'] | null
+    ) => void;
     onSetTransientColumnWidth: (
-      columnKey: HdsAdvancedTableColumn['key'],
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
       width: `${number}px`
     ) => void;
     onSetTransientColumnWidths: (options: { roundValues?: boolean }) => void;
     onResetTransientColumnWidths: () => void;
     onStepColumn: (
-      columnKey: HdsAdvancedTableColumn['key'],
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
       step: number
     ) => void;
     onUpdateResizeDebt: (
-      columnKey: HdsAdvancedTableColumn['key'],
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
       delta: number
     ) => void;
   };
@@ -132,14 +138,14 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   get tableHasColumnBeingDragged(): boolean {
     const { draggedColumnKey } = this.args;
 
-    return draggedColumnKey !== undefined;
+    return draggedColumnKey != null;
   }
 
   get isColumnBeingDragged(): boolean {
     const { column, draggedColumnKey } = this.args;
 
     return (
-      draggedColumnKey !== undefined &&
+      draggedColumnKey != null &&
       column !== undefined &&
       draggedColumnKey === column.key
     );
@@ -240,10 +246,12 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     this._reorderHandleElement.focus();
   }
 
-  @action applyTransientWidth(columnKey: HdsAdvancedTableColumn['key']): void {
+  @action applyTransientWidth(
+    columnKey: HdsAdvancedTableNormalizedColumn['key']
+  ): void {
     const { onApplyTransientWidth } = this.args;
 
-    if (columnKey !== undefined && onApplyTransientWidth !== undefined) {
+    if (onApplyTransientWidth !== undefined) {
       onApplyTransientWidth(columnKey);
     }
   }
@@ -257,11 +265,11 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   }
 
   @action getAppliedWidth(
-    columnKey: HdsAdvancedTableColumn['key']
-  ): HdsAdvancedTableColumn['width'] | undefined {
+    columnKey: HdsAdvancedTableNormalizedColumn['key']
+  ): HdsAdvancedTableNormalizedColumn['width'] | undefined {
     const { onGetAppliedWidth } = this.args;
 
-    if (columnKey === undefined || onGetAppliedWidth === undefined) {
+    if (onGetAppliedWidth === undefined) {
       return undefined;
     }
 
@@ -269,11 +277,11 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   }
 
   @action getColumnByKey(
-    columnKey: HdsAdvancedTableColumn['key']
-  ): HdsAdvancedTableColumn | undefined {
+    columnKey: HdsAdvancedTableNormalizedColumn['key']
+  ): HdsAdvancedTableNormalizedColumn | undefined {
     const { onGetColumnByKey } = this.args;
 
-    if (columnKey === undefined || onGetColumnByKey === undefined) {
+    if (onGetColumnByKey === undefined) {
       return undefined;
     }
 
@@ -283,7 +291,7 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   @action setDraggedColumnKey(): void {
     const { column, onSetDraggedColumnKey } = this.args;
 
-    if (column?.key !== undefined && onSetDraggedColumnKey !== undefined) {
+    if (column !== undefined && onSetDraggedColumnKey !== undefined) {
       onSetDraggedColumnKey(column.key);
     }
   }
@@ -291,7 +299,7 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   @action setTransientColumnWidth(width: `${number}px`) {
     const { column, onSetTransientColumnWidth } = this.args;
 
-    if (column?.key !== undefined && onSetTransientColumnWidth !== undefined) {
+    if (column !== undefined && onSetTransientColumnWidth !== undefined) {
       onSetTransientColumnWidth(column.key, width);
     }
   }
@@ -307,7 +315,7 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   @action stepColumn(step: number): void {
     const { column, onStepColumn } = this.args;
 
-    if (column?.key !== undefined && onStepColumn !== undefined) {
+    if (column !== undefined && onStepColumn !== undefined) {
       onStepColumn(column.key, step);
     }
   }
@@ -315,7 +323,7 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   @action updateResizeDebt(delta: number): void {
     const { column, onUpdateResizeDebt } = this.args;
 
-    if (column?.key !== undefined && onUpdateResizeDebt !== undefined) {
+    if (column !== undefined && onUpdateResizeDebt !== undefined) {
       onUpdateResizeDebt(column.key, delta);
     }
   }

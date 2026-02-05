@@ -50,7 +50,7 @@
           class={{this.theadClassNames}}
           role="rowgroup"
           {{this._setUpThead}}
-          {{on "dragleave" (fn CM.setReorderHoveredColumnKey undefined)}}
+          {{on "dragleave" (fn CM.setReorderHoveredColumnKey null)}}
         >
           <Hds::AdvancedTable::Tr
             @selectionScope="col"
@@ -71,7 +71,7 @@
                   @draggedColumnKey={{CM.draggedColumnKey}}
                   @firstColumnKey={{CM.firstColumnKey}}
                   @sortOrder={{if (eq column.key this.sortBy) this.sortOrder}}
-                  @onClickSort={{if column.key (fn this.setSortBy column.key)}}
+                  @onClickSort={{fn this.setSortBy column.key}}
                   @align={{column.align}}
                   @hasReorderableColumns={{@hasReorderableColumns}}
                   @hasResizableColumns={{@hasResizableColumns}}

@@ -16,7 +16,7 @@ import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-hand
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 // import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
-import type { HdsAdvancedTableColumn } from './types';
+import type { HdsAdvancedTableNormalizedColumn } from './types';
 
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
@@ -27,7 +27,7 @@ interface HdsAdvancedTableThContextMenuOption {
 
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
-    column: HdsAdvancedTableColumn;
+    column: HdsAdvancedTableNormalizedColumn;
     isFirstColumn: boolean;
     isLastColumn: boolean;
     hasResizableColumns?: boolean;
@@ -37,7 +37,7 @@ export interface HdsAdvancedTableThContextMenuSignature {
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onMoveColumnToTerminalPosition?: (
-      columnKey: HdsAdvancedTableColumn['key'],
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
       position: 'start' | 'end'
     ) => void;
     onPinFirstColumn?: () => void;
