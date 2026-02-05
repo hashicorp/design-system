@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { hash } from '@ember/helper';
 
 export interface HdsDialogPrimitiveFooterSignature {
   Args: {
@@ -37,4 +38,13 @@ export default class HdsDialogPrimitiveFooter extends Component<HdsDialogPrimiti
       return NOOP;
     }
   }
+
+  <template>
+    <div
+      class="hds-dialog-primitive__footer {{@contextualClass}}"
+      ...attributes
+    >
+      {{yield (hash close=this.onDismiss)}}
+    </div>
+  </template>
 }
