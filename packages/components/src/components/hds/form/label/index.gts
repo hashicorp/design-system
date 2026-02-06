@@ -4,9 +4,12 @@
  */
 
 import Component from '@glimmer/component';
-export const ID_PREFIX = 'label-';
 
-import type { HdsFormIndicatorSignature } from '../indicator';
+import HdsFormIndicator from '../indicator/index.gts';
+
+import type { HdsFormIndicatorSignature } from '../indicator/index.gts';
+
+export const ID_PREFIX = 'label-';
 
 export interface HdsFormLabelSignature {
   Args: {
@@ -23,11 +26,6 @@ export interface HdsFormLabelSignature {
 }
 
 export default class HdsFormLabel extends Component<HdsFormLabelSignature> {
-  /**
-   * Determines the unique ID to assign to the element
-   * @method id
-   * @return {(string|null)} The "id" attribute to apply to the element or null, if no controlId is provided
-   */
   get id(): string | null {
     const { controlId } = this.args;
     if (controlId) {
@@ -36,11 +34,6 @@ export default class HdsFormLabel extends Component<HdsFormLabelSignature> {
     return null;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-label'];
 
@@ -56,4 +49,24 @@ export default class HdsFormLabel extends Component<HdsFormLabelSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <label
+      class={{this.classNames}}
+      for="{{@controlId}}"
+      id={{this.id}}
+      ...attributes
+    >
+      {{yield}}
+      <HdsFormIndicator
+        @isRequired={{@isRequired}}
+        @isOptional={{@isOptional}}
+      />
+      {{#if @hiddenText}}
+        <span class="sr-only">
+          {{@hiddenText}}
+        </span>
+      {{/if}}
+    </label>
+  </template>
 }

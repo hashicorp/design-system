@@ -5,7 +5,9 @@
 
 import Component from '@glimmer/component';
 
-import type { HdsFormIndicatorSignature } from '../indicator/index.ts';
+import HdsFormIndicator from '../indicator/index.gts';
+
+import type { HdsFormIndicatorSignature } from '../indicator/index.gts';
 
 export interface HdsFormLegendSignature {
   Args: {
@@ -21,11 +23,6 @@ export interface HdsFormLegendSignature {
 }
 
 export default class HdsFormLegend extends Component<HdsFormLegendSignature> {
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-legend'];
 
@@ -41,4 +38,14 @@ export default class HdsFormLegend extends Component<HdsFormLegendSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <legend class={{this.classNames}} id={{@id}} ...attributes>
+      {{yield}}
+      <HdsFormIndicator
+        @isRequired={{@isRequired}}
+        @isOptional={{@isOptional}}
+      />
+    </legend>
+  </template>
 }

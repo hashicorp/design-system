@@ -14,12 +14,12 @@ import {
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
-import HdsFormErrorComponent from '../error/index.ts';
+import HdsFormErrorComponent from '../error/index.gts';
 import HdsFormFileInputBaseComponent from '../file-input/base.ts';
-import HdsFormHelperTextComponent from '../helper-text/index.ts';
+import HdsFormHelperTextComponent from '../helper-text/index.gts';
 import HdsFormLabelComponent, {
   ID_PREFIX as LABEL_ID_PREFIX,
-} from '../label/index.ts';
+} from '../label/index.gts';
 import HdsFormMaskedInputBaseComponent from '../masked-input/base.ts';
 import HdsFormSelectBaseComponent from '../select/base.ts';
 import HdsFormSuperSelectMultipleBaseComponent from '../super-select/multiple/base.ts';

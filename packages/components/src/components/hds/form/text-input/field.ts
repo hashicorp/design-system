@@ -8,13 +8,13 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
-import type { HdsFormFieldSignature } from '../field';
+import type { HdsFormFieldSignature } from '../field/index.gts';
 import type { HdsFormTextInputBaseSignature } from './base';
-import type { HdsFormErrorSignature } from '../error';
-import type { HdsFormHelperTextSignature } from '../helper-text';
-import type { HdsFormLabelSignature } from '../label';
-import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle';
-import HdsFormCharacterCountComponent from '../character-count/index.ts';
+import type { HdsFormErrorSignature } from '../error/index.gts';
+import type { HdsFormHelperTextSignature } from '../helper-text/index.gts';
+import type { HdsFormLabelSignature } from '../label/index.gts';
+import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.gts';
+import HdsFormCharacterCountComponent from '../character-count/index.gts';
 import type Owner from '@ember/owner';
 
 export interface HdsFormTextInputFieldSignature {

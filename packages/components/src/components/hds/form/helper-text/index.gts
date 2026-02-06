@@ -2,9 +2,13 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-
 import Component from '@glimmer/component';
-import type { HdsTextBodySignature } from '../../text/body';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+
+import HdsTextBody from '../../text/body.gts';
+
+import type { HdsTextBodySignature } from '../../text/body.gts';
 
 export const ID_PREFIX = 'helper-text-';
 
@@ -24,11 +28,6 @@ export interface HdsFormHelperTextSignature {
 }
 
 export default class HdsFormHelperText extends Component<HdsFormHelperTextSignature> {
-  /**
-   * Determines the unique ID to assign to the element
-   * @method id
-   * @return {(string|null)} The "id" attribute to apply to the element or null, if no controlId is provided
-   */
   get id(): string | null {
     const { controlId } = this.args;
     if (controlId) {
@@ -37,11 +36,6 @@ export default class HdsFormHelperText extends Component<HdsFormHelperTextSignat
     return null;
   }
 
-  /**
-   * @param onInsert
-   * @type {function}
-   * @default () => {}
-   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   get onInsert(): (element: HTMLElement, ...args: any[]) => void {
     const { onInsert } = this.args;
@@ -54,11 +48,6 @@ export default class HdsFormHelperText extends Component<HdsFormHelperTextSignat
     }
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-helper-text'];
 
@@ -71,4 +60,18 @@ export default class HdsFormHelperText extends Component<HdsFormHelperTextSignat
 
     return classes.join(' ');
   }
+
+  <template>
+    <HdsTextBody
+      class={{this.classNames}}
+      @tag="div"
+      @size="100"
+      @weight="regular"
+      id={{this.id}}
+      {{didInsert this.onInsert}}
+      ...attributes
+    >
+      {{yield}}
+    </HdsTextBody>
+  </template>
 }

@@ -165,16 +165,16 @@ export { default as HdsFormSeparator } from './components/hds/form/separator/ind
 export * from './components/hds/form/types.ts';
 
 // Form > Base elements
-export { default as HdsFormCharacterCount } from './components/hds/form/character-count/index.ts';
-export { default as HdsFormError } from './components/hds/form/error/index.ts';
-export { default as HdsFormErrorMessage } from './components/hds/form/error/message.ts';
-export { default as HdsFormField } from './components/hds/form/field/index.ts';
-export { default as HdsFormFieldset } from './components/hds/form/fieldset/index.ts';
-export { default as HdsFormHelperText } from './components/hds/form/helper-text/index.ts';
-export { default as HdsFormIndicator } from './components/hds/form/indicator/index.ts';
-export { default as HdsFormLabel } from './components/hds/form/label/index.ts';
-export { default as HdsFormLegend } from './components/hds/form/legend/index.ts';
-export { default as HdsFormVisibilityToggle } from './components/hds/form/visibility-toggle/index.ts';
+export { default as HdsFormCharacterCount } from './components/hds/form/character-count/index.gts';
+export { default as HdsFormError } from './components/hds/form/error/index.gts';
+export { default as HdsFormErrorMessage } from './components/hds/form/error/message.gts';
+export { default as HdsFormField } from './components/hds/form/field/index.gts';
+export { default as HdsFormFieldset } from './components/hds/form/fieldset/index.gts';
+export { default as HdsFormHelperText } from './components/hds/form/helper-text/index.gts';
+export { default as HdsFormIndicator } from './components/hds/form/indicator/index.gts';
+export { default as HdsFormLabel } from './components/hds/form/label/index.gts';
+export { default as HdsFormLegend } from './components/hds/form/legend/index.gts';
+export { default as HdsFormVisibilityToggle } from './components/hds/form/visibility-toggle/index.gts';
 export * from './components/hds/form/field/types.ts';
 export * from './components/hds/form/fieldset/types.ts';
 
