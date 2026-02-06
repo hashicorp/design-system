@@ -101,41 +101,11 @@ Specify a `columnMinWidth` to create a more fluid, “semi-responsive“ layout.
 
 Note: The `gap` size will be automatically subtracted from the `columnMinWidth`. Take this into account when specifying a min width value.
 
-##### Semi-fluid layout behavior
+##### Semi-fluid layout behavior using percentage values
 
 The column widths in a single row automatically adjust to maintain a total width of 100%.
 
-```handlebars
-<Hds::Text::Display>With 3 items</Hds::Text::Display>
-<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-</Hds::Layout::Grid>
-
-<hr />
-
-<Hds::Text::Display>With 2 items</Hds::Text::Display>
-<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-</Hds::Layout::Grid>
-
-<hr />
-
-<Hds::Text::Display>With 1 item</Hds::Text::Display>
-<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-</Hds::Layout::Grid>
-```
-
-<!--
-??? TODO: These may need to be updated or replaced:
-
-[[code-snippets/grid-min-width-default]]
-
-[[code-snippets/grid-min-width-percentage]] - Probably Delete this one
--->
+[[code-snippets/grid-min-width-percentage]]
 
 ##### Semi-responsive layout using fixed unit values
 
@@ -173,15 +143,7 @@ See the [“Responsive layouts” section](/layouts/grid#responsive-layouts) for
 
 ##### With all views defined
 
-```handlebars
-<Hds::Layout::Grid @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}} @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
-  <Doc::Placeholder @height="40px" @text="Item 5" @background="#f3d9c5" />
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-width-responsive-all]]
 
 ##### With only `sm` & `lg` views defined
 
@@ -193,33 +155,13 @@ If you do not pass in a value for the `sm` view, columns in this view and views 
 
 Values defined for smaller views are inherited by larger views so you do not need to specify values for all breakpoints if not needed for your layout.
 
-```handlebars
-<Hds::Layout::Grid @columnWidth={{hash sm="50%" lg="33.33%"}} @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
-  <Doc::Placeholder @height="40px" @text="Item 5" @background="#f3d9c5" />
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-width-responsive-sm-lg]]
 
 ### Align
 
 Use the `@align` argument to align grid items to the "start", "end", "center" or "stretch" them within the grid parent.
 
 Note: The `Grid` parent will need a height set for the effect to be visible.
-<!-- 
-TODO: Delete?
-```handlebars
-<div class="doc-grid-mobile-view">
-  <Hds::Layout::Grid @columnMinWidth="50px" @gap="16" @align="center" {{style height="100%"}}>
-    <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-    <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-    <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-    <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
-  </Hds::Layout::Grid>
-</div>
-``` -->
 
 [[code-snippets/grid-align]]
 
@@ -235,34 +177,7 @@ Pass in a single value to specify the `colspan` or `rowspan` to create a non-res
 
 In this example, an underlying 4-column grid is specified by setting a `columnMinWidth` of “25%”. `colspan` and `rowspan` are used to create a flexible layout roughly resembling a typical web page layout.
 
-```handlebars
-<div {{style height="400px" border="1px solid"}}>
-  <Hds::Layout::Grid 
-    @columnMinWidth="25%" 
-    @gap="12"
-    {{style height="100%" grid-template-rows="min-content"}}
-    as |LG|
-  >
-    <LG.Item @colspan={{4}}>
-      <Doc::Placeholder @text="Item 1" @background="#e4c5f3" {{style padding="1em"}} />
-    </LG.Item>
-
-    <LG.Item @rowspan={{3}}>
-      <Doc::Placeholder @height="100%" @text="Item 2" @background="#e5ffd2" />
-    </LG.Item>
-
-    <LG.Item @colspan={{3}}>
-      <Doc::Placeholder @height="100%" @text="Item 3" @background="#d2f4ff" />
-    </LG.Item>
-
-    <LG.Item @colspan={{3}} @rowspan={{2}}>
-      <Doc::Placeholder @height="100%" @text="Item 4" @background="#fff8d2" />
-    </LG.Item>
-  </Hds::Layout::Grid>
-</div>
-```
-
-<!-- [[code-snippets/grid-span]] -->
+[[code-snippets/grid-span]]
 
 #### Responsive example using breakpoints
 
@@ -276,21 +191,7 @@ Optionally, instead of a single value, you can pass in an object to the `colspan
 
 In this example, both the `Grid` `columnWidth` and the `colspan` of 2 items use responsive values so the layout shifts when viewed in small screens. Narrow your browser window to see the responsive behavior.
 
-```handlebars
-<Hds::Layout::Grid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="12" as |LG|>
-  <LG.Item @colspan={{hash sm=1 md=2}}>
-    <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  </LG.Item>
-
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-
-  <LG.Item @colspan={{hash sm=1 md=2}}>
-    <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
-  </LG.Item>
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-span-responsive]]
 
 ---
 
@@ -336,51 +237,7 @@ A responsive layout is used so that the cards stack in the smallest view while b
 
 #### Basic 3-column card layout
 
-```handlebars
-<Hds::Layout::Grid
-  @columnWidth={{hash sm="100%" md="33.33%"}}
-  @gap="32"
->
-  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
-    <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
-      <Hds::Layout::Flex @align="center" @gap="8">
-        <Hds::IconTile @icon="cloud" @size="small" />
-        <Hds::Text::Display @tag="h2" @size="300">
-          Active resources
-        </Hds::Text::Display>
-      </Hds::Layout::Flex>
-      <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" as |LG|>
-          <LG.Item>
-            <Hds::Badge
-              @text="5 active resources"
-              @color="success"
-              @icon="check-circle"
-            />
-          </LG.Item>
-          <Hds::Text::Body @tag="p">
-            There are 5 active resources inside this project.
-          </Hds::Text::Body>
-      </Hds::Layout::Grid>
-      <Hds::Link::Standalone
-        @icon="arrow-right"
-        @iconPosition="trailing"
-        @text="View active resources"
-        @href="#"
-      />
-    </Hds::Layout::Grid>
-  </Hds::Card::Container>
-
-  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
-    <Hds::Text::Display @tag="h2" @size="300">Card #2</Hds::Text::Display>
-  </Hds::Card::Container>
-
-  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
-    <Hds::Text::Display @tag="h2" @size="300">Card #3</Hds::Text::Display>
-  </Hds::Card::Container>
-</Hds::Layout::Grid>
-```
-
-<!-- [[code-snippets/grid-card-column]] -->
+[[code-snippets/grid-card-column]]
 
 ### More complex layout
 
@@ -392,56 +249,4 @@ We first establish an underlying grid structure of three columns by setting the 
 
 It uses a responsive layout so the content items will stack in the smallest view.
 
-```handlebars
-<Hds::Layout::Grid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="24" as |LG|>
-  <LG.Item @colspan={{hash sm=1 md=2}}>
-    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}} {{style background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)" }}>
-      <Hds::Layout::Grid @columnWidth="100%" @gap="16" as |LG|>
-        <LG.Item>
-          <Hds::Badge @text="In Preview" @type="outlined" @color="highlight" />
-        </LG.Item>
-        <Hds::Text::Display @tag="h2" @size="300" @weight="bold">Better together</Hds::Text::Display>
-
-        <Hds::Text::Body @tag="p" @weight="semibold">
-          HCP Terraform now works together with HCP Vault Secrets.
-        </Hds::Text::Body>
-        <Hds::Text::Body @tag="p">
-          The combined solution enables your team to provision infrastructure with a scalable and least-privilege security approach for your secrets.
-        </Hds::Text::Body>
-      </Hds::Layout::Grid>
-    </Hds::Card::Container>
-  </LG.Item>
-
-  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
-    <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
-  </Hds::Card::Container>
-
-  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
-    <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
-  </Hds::Card::Container>
-
-  <LG.Item @colspan={{hash sm=1 md=2}}>
-    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
-      <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
-        <Hds::Text::Display @tag="h2" @size="300">HCP Terraform Provider Resources</Hds::Text::Display>
-        <Hds::Layout::Grid @columnMinWidth="50%" @gap="24" @tag="ul" class="doc-grid-plain-list">
-          <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" @tag="li">
-            <Hds::Text::Body @tag="p" @weight="semibold">Deploy HCP Vault</Hds::Text::Body>
-            <Hds::Text::Body @tag="p">
-              Integrate HCP Vault into your environment faster.
-            </Hds::Text::Body>
-          </Hds::Layout::Grid>
-          <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" @tag="li">
-            <Hds::Text::Body @tag="p" @weight="semibold">Deploy HCP Consul</Hds::Text::Body>
-            <Hds::Text::Body @tag="p">
-              Manage your provisions and snapshot.
-            </Hds::Text::Body>
-          </Hds::Layout::Grid>
-        </Hds::Layout::Grid>
-      </Hds::Layout::Grid>
-    </Hds::Card::Container>
-  </LG.Item>
-</Hds::Layout::Grid>
-```
-
-<!-- [[code-snippets/grid-card-complex]] -->
+[[code-snippets/grid-card-complex]]
