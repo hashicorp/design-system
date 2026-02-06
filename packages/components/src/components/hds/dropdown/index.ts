@@ -49,6 +49,7 @@ export interface HdsDropdownSignature {
     preserveContentInDom?: boolean;
     matchToggleWidth?: boolean;
     onClose?: HdsPopoverPrimitiveSignature['Args']['onClose'];
+    onFocusOut?: HdsPopoverPrimitiveSignature['Args']['onFocusOut'];
     boundary?: HdsAnchoredPositionOptions['boundary'];
   };
   Blocks: {

@@ -26,6 +26,7 @@ export interface HdsPopoverPrimitiveSignature {
     boundary?: HdsAnchoredPositionOptions['boundary'];
     onOpen?: () => void;
     onClose?: () => void;
+    onFocusOut?: () => void;
   };
   Blocks: {
     default: [
@@ -360,7 +361,12 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       }
       // if the target receiving the focus is _not_ part of the disclosed content we close the disclosed container
       if (!isFocusStillInside) {
-        this.hidePopover();
+        const { onFocusOut } = this.args;
+        if (!event.relatedTarget && typeof onFocusOut === 'function') {
+          onFocusOut();
+        } else {
+          this.hidePopover();
+        }
       }
     }
   }
