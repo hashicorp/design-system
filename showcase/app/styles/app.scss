@@ -8,7 +8,7 @@
 
 // global declarations
 
-@use "./tokens";
+@use "./showcase-theming" as theming;
 @use "./layout";
 @use "./typography";
 @use "./globals";
