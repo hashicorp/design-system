@@ -40,7 +40,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'typography/font-family',
   type: 'value',
-  transitive: true,
+  transitive: true, // see: https://styledictionary.com/reference/hooks/transforms/#transitive-transforms
   filter: function (token: DesignToken) {
     // notice: we don't use `fontFamily` as `$type` because is handled internally in Style Dictionary
     // and currently the typographic transforms (and general handling) is still a bit unstable (due also to the fact the DTCG specifications are also preliminary)
@@ -184,24 +184,27 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
   name: 'products/web',
-  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'products/email',
   // notice: for emails we need the font-size in `px` (not `rem`)
-  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-px', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerTransformGroup({
   name: 'marketing/web',
-  transforms: ['name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css', 'attributes/category']
+  transforms: ['attributes/category', 'name/kebab', 'typography/font-family', 'typography/font-size/to-rem', 'typography/letter-spacing', 'dimension/unit', 'color/css', 'color/with-alpha', 'time/duration', 'cubicBezier/css']
 });
 
 StyleDictionary.registerFormat({
   name: 'docs/json',
   format: customFormatDocsJsonFunction,
 });
+
+
+// CUSTOM ACTIONS
 
 StyleDictionary.registerAction({
   name: 'generate-css-helpers',
@@ -221,8 +224,7 @@ fs.emptyDirSync(distFolder);
 
 for (const target of targets) {
   const StyleDictionaryInstance = new StyleDictionary(getStyleDictionaryConfig({ target }));
-
-  console.log(`\nProcessing target "${target}"...`);
+  console.log(`\n---\n\nProcessing target "${target}"...`);
   await StyleDictionaryInstance.hasInitialized;
   await StyleDictionaryInstance.buildAllPlatforms()
   console.log('\nEnd processing');
