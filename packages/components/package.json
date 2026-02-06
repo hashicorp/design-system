@@ -30,7 +30,8 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
     "start": "rollup --config --watch --environment development",
-    "prepublishOnly": "pnpm build && test -f 'dist/styles/@hashicorp/design-system-components.css' || (echo \"\n\\033[31m⚠️  Error: the pre-compiled CSS file \\`dist/styles/@hashicorp/design-system-components.css\\` was not found\\033[0m\\n\" && exit 1)"
+    "test:dist-files": "node scripts/check-dist-files.mjs",
+    "prepublishOnly": "pnpm build && pnpm test:dist-files"
   },
   "dependencies": {
     "@codemirror/autocomplete": "^6.20.0",
