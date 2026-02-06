@@ -1,0 +1,18 @@
+<Hds::Layout::Flex @align="stretch" @gap="48" as |LF|>
+  <LF.Item @basis={{0}} @grow={{true}}>
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} class="doc-flex-cards-item">
+      <Hds::Text::Body @tag="p" @size="200">This is some generic content inside a card</Hds::Text::Body>
+    </Hds::Card::Container>
+  </LF.Item>
+  <LF.Item @basis={{0}} @grow={{true}}>
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} class="doc-flex-cards-item">
+      <Hds::Text::Body @tag="p" @size="200">This is some other generic content inside a card</Hds::Text::Body>
+    </Hds::Card::Container>
+  </LF.Item>
+  <LF.Item @basis={{0}} @grow={{true}}>
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} class="doc-flex-cards-item">
+      <Hds::Text::Body @tag="p" @size="200">This is also some generic content inside a card, but the text is longer and
+        makes the card grow vertically</Hds::Text::Body>
+    </Hds::Card::Container>
+  </LF.Item>
+</Hds::Layout::Flex>
