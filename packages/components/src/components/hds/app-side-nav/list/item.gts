@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import TemplateOnlyComponent from '@ember/component/template-only';
+import templateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsAppSideNavListItemSignature {
   Blocks: {
@@ -13,6 +13,12 @@ export interface HdsAppSideNavListItemSignature {
 }
 
 const HdsAppSideNavListItem =
-  TemplateOnlyComponent<HdsAppSideNavListItemSignature>();
+  templateOnlyComponent<HdsAppSideNavListItemSignature>();
 
 export default HdsAppSideNavListItem;
+
+<template>
+  <li class="hds-app-side-nav__list-item" ...attributes>
+    {{yield}}
+  </li>
+</template>

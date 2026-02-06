@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import TemplateOnlyComponent from '@ember/component/template-only';
+import templateOnlyComponent from '@ember/component/template-only';
 
+import HdsIcon from '../icon/index.ts';
 import type { HdsIconSignature } from '../icon';
 
 interface HdsAppSideNavToggleButtonSignature {
@@ -15,6 +16,12 @@ interface HdsAppSideNavToggleButtonSignature {
 }
 
 const HdsAppSideNavToggleButton =
-  TemplateOnlyComponent<HdsAppSideNavToggleButtonSignature>();
+  templateOnlyComponent<HdsAppSideNavToggleButtonSignature>();
 
 export default HdsAppSideNavToggleButton;
+
+<template>
+  <button class="hds-app-side-nav__toggle-button" type="button" ...attributes>
+    <HdsIcon @name={{@icon}} />
+  </button>
+</template>

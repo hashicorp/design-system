@@ -6,6 +6,10 @@
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
+// @ts-expect-error - no types available
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+
+import HdsAppSideNavListItem from './item.gts';
 
 export interface HdsAppSideNavListTitleSignature {
   Args: {
@@ -29,4 +33,15 @@ export default class HdsAppSideNavListTitle extends Component<HdsAppSideNavListT
       didInsertTitle(element.id);
     }
   }
+
+  <template>
+    <HdsAppSideNavListItem>
+      <div
+        class="hds-app-side-nav__list-title hds-typography-body-100 hds-font-weight-semibold"
+        id={{this._titleId}}
+        {{didInsert this.didInsertTitle}}
+        ...attributes
+      >{{~yield~}}</div>
+    </HdsAppSideNavListItem>
+  </template>
 }

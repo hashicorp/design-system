@@ -7,10 +7,16 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
+import { on } from '@ember/modifier';
+import { fn } from '@ember/helper';
 import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
+// @ts-expect-error - no types available
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
 import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
+import HdsAppSideNavToggleButton from './toggle-button.gts';
+import { hdsT } from '../../../helpers/hds-t.ts';
 
 export interface HdsAppSideNavSignature {
   Args: {
@@ -233,4 +239,42 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       onDesktopViewportChange(this._isDesktop);
     }
   }
+
+  <template>
+    {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes the empty element to still have visible padding - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+    <div
+      class={{this.classNames}}
+      ...attributes
+      role={{if this.isMobileCollapsible "dialog"}}
+      aria-labelledby={{if this.isMobileCollapsible "hds-app-side-nav-header"}}
+      aria-modal={{if this.isMobileCollapsible "true"}}
+      {{on "transitionstart" (fn this.setTransition "start")}}
+      {{on "transitionend" (fn this.setTransition "end")}}
+      {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
+      {{focusTrap isActive=this.shouldTrapFocus}}
+      {{this._setUpBodyElement}}
+    >
+      <h2 class="sr-only" id="hds-app-side-nav-header">
+        {{hdsT "hds.components.app-side-nav.screen-reader-label" default="Application local navigation"}}
+      </h2>
+
+      <div class="hds-app-side-nav__wrapper">
+        {{#if this.showToggleButton}}
+          {{! template-lint-disable no-invalid-interactive}}
+          <div class="hds-app-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
+          {{! template-lint-enable no-invalid-interactive}}
+          <HdsAppSideNavToggleButton
+            aria-labelledby="hds-app-side-nav-header"
+            aria-expanded={{if this._isMinimized "false" "true"}}
+            @icon={{if this._isMinimized "chevrons-right" "chevrons-left"}}
+            {{on "click" this.toggleMinimizedStatus}}
+          />
+        {{/if}}
+
+        <div class="hds-app-side-nav__wrapper-body" {{this._setUpNavWrapperBody}}>
+          {{~yield~}}
+        </div>
+      </div>
+    </div>
+  </template>
 }

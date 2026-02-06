@@ -6,6 +6,13 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+
+import HdsYield from '../../yield.ts';
+import HdsAppSideNavListItem from './item.gts';
+import HdsAppSideNavListBackLink from './back-link.gts';
+import HdsAppSideNavListTitle from './title.gts';
+import HdsAppSideNavListLink from './link.gts';
+import { hdsT } from '../../../../helpers/hds-t.ts';
 import type { ComponentLike } from '@glint/template';
 import type { HdsYieldSignature } from '../../yield';
 import type { HdsAppSideNavListItemSignature } from './item';
@@ -40,4 +47,25 @@ export default class HdsAppSideNavList extends Component<HdsAppSideNavListSignat
   didInsertTitle(titleId: string): void {
     this._titleIds = [...this._titleIds, titleId];
   }
+
+  <template>
+    <nav
+      class="hds-app-side-nav__list-wrapper"
+      aria-label={{hdsT "hds.components.app-side-nav.list.aria-label" default="Application local"}}
+      ...attributes
+    >
+      {{yield (hash ExtraBefore=HdsYield)}}
+      <ul class="hds-app-side-nav__list" role="list" aria-labelledby={{this.titleIds}}>
+        {{yield
+          (hash
+            Item=HdsAppSideNavListItem
+            BackLink=HdsAppSideNavListBackLink
+            Title=(component HdsAppSideNavListTitle didInsertTitle=this.didInsertTitle)
+            Link=HdsAppSideNavListLink
+          )
+        }}
+      </ul>
+      {{yield (hash ExtraAfter=HdsYield)}}
+    </nav>
+  </template>
 }
