@@ -9,7 +9,7 @@ const PageLayoutsAppFrameFramelessDemoFullAppFrameWithAppHeaderAndAppSideNav: Te
 
     <MockApp>
       <:sidebar as |S|>
-        <S.SideNav @showDevToggle={{true}} />
+        <S.AppSideNav @showDevToggle={{true}} />
       </:sidebar>
       <:main as |M|>
         <M.PageHeader @showActionButton={{true}} />
