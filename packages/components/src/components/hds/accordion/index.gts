@@ -5,12 +5,18 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { hash } from '@ember/helper';
 
-import { SIZES, DEFAULT_SIZE, TYPES, DEFAULT_TYPE } from './item/index.ts';
+import type { WithBoundArgs } from '@glint/template';
 
-import type { ComponentLike } from '@glint/template';
+import HdsAccordionItem, {
+  SIZES,
+  DEFAULT_SIZE,
+  TYPES,
+  DEFAULT_TYPE,
+} from './item/index.gts';
 import { HdsAccordionItemTitleTagValues } from './types.ts';
-import type { HdsAccordionItemSignature } from './item/index.ts';
+
 import type {
   HdsAccordionForceStates,
   HdsAccordionSizes,
@@ -28,7 +34,10 @@ export interface HdsAccordionSignature {
   Blocks: {
     default: [
       {
-        Item?: ComponentLike<HdsAccordionItemSignature>;
+        Item?: WithBoundArgs<
+          typeof HdsAccordionItem,
+          'titleTag' | 'size' | 'type' | 'forceState'
+        >;
       },
     ];
   };
@@ -36,13 +45,6 @@ export interface HdsAccordionSignature {
 }
 
 export default class HdsAccordion extends Component<HdsAccordionSignature> {
-  /**
-   * Sets the size for the component
-   *
-   * @param size
-   * @type {HdsAccordionSizes}
-   * @default 'medium'
-   */
   get size(): HdsAccordionSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -60,13 +62,6 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
     return this.args.titleTag ?? HdsAccordionItemTitleTagValues.Div;
   }
 
-  /**
-   * Sets the type of the component
-   *
-   * @param type
-   * @type {HdsAccordionTypes}
-   * @default 'card'
-   */
   get type(): HdsAccordionTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
@@ -80,11 +75,6 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
     return type;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-accordion'];
 
@@ -96,4 +86,20 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      {{yield
+        (hash
+          Item=(component
+            HdsAccordionItem
+            titleTag=this.titleTag
+            size=this.size
+            type=this.type
+            forceState=@forceState
+          )
+        )
+      }}
+    </div>
+  </template>
 }
