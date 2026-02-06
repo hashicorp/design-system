@@ -8,6 +8,9 @@ import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { macroCondition, isTesting } from '@embroider/macros';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+import PortalTarget from 'ember-stargate/components/portal-target';
 
 import type { HdsAppSideNavPortalSignature } from './index';
 import type { Registry as Services } from '@ember/service';
@@ -176,4 +179,16 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
       });
     }
   }
+
+  <template>
+    <div class="hds-app-side-nav__content" ...attributes>
+      <PortalTarget
+        @multiple={{true}}
+        @onChange={{this.panelsChanged}}
+        @name={{if @targetName @targetName "hds-app-side-nav-portal-target"}}
+        class="hds-app-side-nav__content-panels"
+        {{didUpdate this.didUpdateSubnav this._numSubnavs}}
+      />
+    </div>
+  </template>
 }
