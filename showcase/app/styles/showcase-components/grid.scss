@@ -8,7 +8,7 @@
 .shw-grid {
   & + &,
   & + .shw-flex {
-    margin-top: var(--shw-layout-gap-base);
+    margin-top: 1rem;
   }
 }
 
@@ -17,7 +17,7 @@
   flex-wrap: wrap;
   // this will be set via JS
   grid-template-columns: repeat(var(--shw-grid-columns), 1fr);
-  gap: var(--shw-layout-gap-base);
+  gap: 1rem;
 }
 
 .shw-grid__item--grow {

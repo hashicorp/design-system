@@ -26,6 +26,9 @@ export interface MockAppSidebarAppSideNavSignature {
     showDevToggle?: boolean;
     onToggleMinimizedStatus?: HdsAppSideNavSignature['Args']['onToggleMinimizedStatus'];
   };
+  Blocks: {
+    extraAfter?: [];
+  };
   Element: HdsAppSideNavSignature['Element'];
 }
 
@@ -134,6 +137,11 @@ export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAp
                 <F.Label>Show mock states</F.Label>
               </HdsFormToggleField>
             </div>
+          </SNL.ExtraAfter>
+        {{/if}}
+        {{#if (has-block "extraAfter")}}
+          <SNL.ExtraAfter>
+            {{yield to="extraAfter"}}
           </SNL.ExtraAfter>
         {{/if}}
       </HdsAppSideNavList>

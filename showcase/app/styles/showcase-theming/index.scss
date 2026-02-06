@@ -1,0 +1,24 @@
+// SHOWCASE COLORS > LIGHT/DARK THEMES
+
+@use "./light-color-variables" as *;
+// @use "./dark-color-variables" as *;
+
+// DEFAULT
+
+:root {
+  @include shw-theme-color-variables-light();
+}
+
+// PREFERS COLOR SCHEME
+
+@media (prefers-color-scheme: light) {
+  .hds-theme-system {
+    @include shw-theme-color-variables-light();
+  }
+}
+
+// @media (prefers-color-scheme: dark) {
+//   .hds-theme-system {
+//     @include shw-theme-color-variables-dark();
+//   }
+// }
