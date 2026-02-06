@@ -6,12 +6,18 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+import { hash } from '@ember/helper';
+import { or, eq } from 'ember-truth-helpers';
 
 import {
   HdsAccordionSizeValues,
   HdsAccordionTypeValues,
   HdsAccordionItemTitleTagValues,
 } from '../types.ts';
+import HdsAccordionItemButton from './button.gts';
+import HdsTextBody from '../../text/body.gts';
+import HdsDisclosurePrimitive from '../../disclosure-primitive/index.gts';
+
 import type {
   HdsAccordionForceStates,
   HdsAccordionSizes,
@@ -66,32 +72,15 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
     return undefined;
   }
 
-  /**
-   * @param containsInteractive
-   * @type {boolean}
-   * @default false
-   */
   get containsInteractive(): boolean {
     return this.args.containsInteractive ?? false;
   }
 
-  /**
-   * @param toggleTextSize
-   * @type {HdsTextSizes}
-   * @default 'medium'
-   */
   get toggleTextSize(): number {
     const size = this.args.size ?? DEFAULT_SIZE;
     return TEXT_SIZE_MAP[size];
   }
 
-  /**
-   * Sets the size for the component
-   *
-   * @param size
-   * @type {HdsAccordionSizes}
-   * @default 'medium'
-   */
   get size(): HdsAccordionSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -105,13 +94,6 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
     return size;
   }
 
-  /**
-   * Sets the type of the component
-   *
-   * @param type
-   * @type {HdsAccordionTypes}
-   * @default 'card'
-   */
   get type(): HdsAccordionTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
@@ -129,11 +111,6 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
     return this.args.titleTag ?? HdsAccordionItemTitleTagValues.Div;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-accordion-item'];
 
@@ -163,4 +140,50 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
 
     return classes.join(' ');
   }
+
+  <template>
+    <HdsDisclosurePrimitive
+      class={{this.classNames}}
+      @isOpen={{(or @isOpen (eq @forceState "open"))}}
+      @onClickToggle={{@onClickToggle}}
+      ...attributes
+    >
+      <:toggle as |t|>
+        <div class="hds-accordion-item__toggle">
+          <HdsAccordionItemButton
+            @isOpen={{t.isOpen}}
+            @onClickToggle={{t.onClickToggle}}
+            @contentId={{t.contentId}}
+            @ariaLabel={{@ariaLabel}}
+            @ariaLabelledBy={{this.ariaLabelledBy}}
+            @size={{this.size}}
+            @parentContainsInteractive={{this.containsInteractive}}
+          />
+
+          <HdsTextBody
+            @tag={{this.titleTag}}
+            @size={{this.toggleTextSize}}
+            @weight="semibold"
+            @color="strong"
+            id={{this._titleId}}
+            class="hds-accordion-item__toggle-content"
+          >
+            {{yield to="toggle"}}
+          </HdsTextBody>
+        </div>
+      </:toggle>
+
+      <:content as |c|>
+        <HdsTextBody
+          class="hds-accordion-item__content"
+          @tag="div"
+          @size="200"
+          @weight="regular"
+          @color="primary"
+        >
+          {{yield (hash close=c.close) to="content"}}
+        </HdsTextBody>
+      </:content>
+    </HdsDisclosurePrimitive>
+  </template>
 }
