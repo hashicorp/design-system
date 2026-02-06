@@ -38,7 +38,7 @@ module.exports = {
 
 const updateHDSComponentsCSS = (options) => {
   const name = options.entity.name;
-  const cssFilePath = `${options.project.root}/../packages/components/src/styles/@hashicorp/design-system-components.scss`;
+  const cssFilePath = `${options.project.root}/../packages/components/src/styles/components/index.scss`;
   const source = fs.readFileSync(cssFilePath, 'utf-8');
   const oldLinesArray = source.split(/\r?\n/);
   const firstComponentImportIndex =
