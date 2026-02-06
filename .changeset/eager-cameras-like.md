@@ -10,5 +10,6 @@
 `FormHelperText` - Converted component to gts format.
 `FormIndicator` - Converted component to gts format.
 `FormLabel` - Converted component to gts format.
+`FormLegend` - Converted component to gts format.
 `FormVisibilityToggle` - Converted component to gts format.
 <!-- END -->
