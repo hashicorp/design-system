@@ -1,0 +1,9 @@
+<Hds::SegmentedGroup as |SG|>
+  <SG.TextInput @type="search" placeholder="Search" aria-label="Search" />
+  <SG.Dropdown as |D|>
+    <D.ToggleButton @color="secondary" @text="Across" @count="2" />
+    <D.Checkbox checked>Metadata</D.Checkbox>
+    <D.Checkbox checked>Tags</D.Checkbox>
+    <D.Checkbox>Service name</D.Checkbox>
+  </SG.Dropdown>
+</Hds::SegmentedGroup>
