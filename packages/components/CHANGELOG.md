@@ -1,5 +1,71 @@
 # @hashicorp/design-system-components
 
+## 6.0.1
+
+### Patch Changes
+
+<!-- START components/form/primitives -->
+
+`FormCharacterCount` - Converted component to gts format.
+`FormError` - Converted component to gts format.
+`FormField` - Converted component to gts format.
+`FormFieldset` - Converted component to gts format.
+`FormHelperText` - Converted component to gts format.
+`FormIndicator` - Converted component to gts format.
+`FormLabel` - Converted component to gts format.
+`FormLegend` - Converted component to gts format.
+`FormVisibilityToggle` - Converted component to gts format.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3554](https://github.com/hashicorp/design-system/pull/3554)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START utilities/disclosure-primitive -->
+
+`DisclosurePrimitive` - Converted component to gts format.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3542](https://github.com/hashicorp/design-system/pull/3542)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/card -->
+
+`Card` - Converted component to gts format.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3543](https://github.com/hashicorp/design-system/pull/3543)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START utilities/dialog-primitive -->
+
+`DialogPrimitive` - Converted component to gts format.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3544](https://github.com/hashicorp/design-system/pull/3544)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/toast -->
+
+`Toast` - Converted component to gts format.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3529](https://github.com/hashicorp/design-system/pull/3529)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@4.0.1
+
 ## 6.0.0
 
 [6.0.0 documentation](https://hds-website-6-0-0.vercel.app/)

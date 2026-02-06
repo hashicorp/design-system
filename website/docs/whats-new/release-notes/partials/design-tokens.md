@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.0.1
+
+**Patch changes**
+
+Updated CSS helpers for `font-weight` property to use aliases to HDS tokens instead of direct values
+
+<small class="doc-whats-new-changelog-metadata">[#3562](https://github.com/hashicorp/design-system/pull/3562)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.0.0
 
 **Major changes**
@@ -207,14 +217,6 @@ Added design tokens for `SideNav` component
 Added design tokens for `Pagination` component
 
 <small class="doc-whats-new-changelog-metadata">[#661](https://github.com/hashicorp/design-system/pull/661)</small>
-
-## 1.3.1
-
-**Patch changes**
-
-Updated design system name to "Helios"
-
-<small class="doc-whats-new-changelog-metadata">[#1036](https://github.com/hashicorp/design-system/pull/1036)</small>
 
 
 ---
