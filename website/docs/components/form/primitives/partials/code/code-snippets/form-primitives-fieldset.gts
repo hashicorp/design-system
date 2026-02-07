@@ -1,0 +1,26 @@
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
+import { HdsFormFieldset } from '@hashicorp/design-system-components/components';
+
+const LocalComponent: TemplateOnlyComponent = <template>
+  <HdsFormFieldset @layout="horizontal" @isRequired={{true}} as |F|>
+    <F.Legend>This is the legend</F.Legend>
+    <F.HelperText>This is the helper text</F.HelperText>
+    <!-- add your fields here -->
+    <F.Control>
+      <label for="my-group-checkbox1" class="my-custom-class">
+        <input type="checkbox" id="my-group-checkbox1" checked="checked" />
+        selection #1
+      </label>
+    </F.Control>
+    <F.Control>
+      <label for="my-group-checkbox2" class="my-custom-class">
+        <input type="checkbox" id="my-group-checkbox2" />
+        selection #2
+      </label>
+    </F.Control>
+    <F.Error>This is the error</F.Error>
+  </HdsFormFieldset>
+</template>;
+
+export default LocalComponent;
