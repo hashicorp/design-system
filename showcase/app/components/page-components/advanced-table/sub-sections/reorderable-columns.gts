@@ -122,7 +122,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
     </:body>
   </HdsAdvancedTable>
 
-  {{!-- <ShwTextH4 @tag="h3">Reorderable columns with sorting</ShwTextH4>
+  <ShwTextH4 @tag="h3">Reorderable columns with sorting</ShwTextH4>
 
   <HdsAdvancedTable
     {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
@@ -364,7 +364,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
     @hasReorderableColumns={{true}}
   />
 
-  <ShwDivider @level={{2}} /> --}}
+  <ShwDivider @level={{2}} />
 </template>;
 
 export default SubSectionReorderableColumns;

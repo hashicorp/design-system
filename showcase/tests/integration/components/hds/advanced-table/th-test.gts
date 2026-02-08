@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { fn, hash } from '@ember/helper';
+import { hash } from '@ember/helper';
 import { module, test } from 'qunit';
 import { render, focus, click, setupOnerror, find } from '@ember/test-helpers';
 import NOOP from 'showcase/utils/noop';
