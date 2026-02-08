@@ -38,7 +38,6 @@ import HdsAdvancedTableThResizeHandle from '@hashicorp/design-system-components/
 import HdsAdvancedTableThSelectable from '@hashicorp/design-system-components/components/hds/advanced-table/th-selectable';
 
 import type {
-  HdsAdvancedTableColumn,
   HdsAdvancedTableNormalizedColumn,
   HdsAdvancedTableModel,
 } from '@hashicorp/design-system-components/components/hds/advanced-table/types';
@@ -48,7 +47,7 @@ const STATES = ['default', 'hover', 'active', 'focus'];
 export default class SubSectionsBaseElements extends Component {
   sampleTableModel: HdsAdvancedTableModel;
   hasResizableColumns: boolean;
-  columns: HdsAdvancedTableColumn[];
+  columns: HdsAdvancedTableNormalizedColumn[];
   sortStateColumns: HdsAdvancedTableNormalizedColumn[];
 
   constructor(owner: Owner, args: Record<string, never>) {
@@ -70,10 +69,12 @@ export default class SubSectionsBaseElements extends Component {
       {
         label: 'Label',
         isVisuallyHidden: true,
+        key: 'label',
         width: '200px',
       },
       {
         label: 'Status',
+        key: 'status',
         width: '200px',
       },
     ];
