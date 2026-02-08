@@ -81,14 +81,17 @@ export default class SubSectionsBaseElements extends Component {
     this.sortStateColumns = [
       {
         label: 'Unsorted',
+        key: 'unsorted',
         isSortable: true,
       },
       {
         label: 'Ascending',
+        key: 'ascending',
         isSortable: true,
       },
       {
         label: 'Descending',
+        key: 'descending',
         isSortable: true,
       },
     ];
