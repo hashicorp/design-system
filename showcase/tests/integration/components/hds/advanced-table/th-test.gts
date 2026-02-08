@@ -371,6 +371,8 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   // SORTING
 
   test('it renders with the sort CSS class if the column is sortable', async function (assert) {
+    this.foo = false;
+
     await render(
       <template>
         <HdsAdvancedTableTh
@@ -394,6 +396,8 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   });
 
   test('SORT: if @sortOrder is not defined, the swap-vertical icon should be displayed', async function (assert) {
+    this.foo = false;
+
     await render(
       <template>
         <HdsAdvancedTableTh
@@ -409,6 +413,8 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   });
 
   test('SORT: if sorted, and `@sortOrder` is set, the correct icon should be displayed', async function (assert) {
+    this.foo = false;
+
     await render(
       <template>
         <HdsAdvancedTableTh
@@ -439,6 +445,8 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   });
 
   test('SORT: if unsorted, the aria-sort attribute value should be set to none', async function (assert) {
+    this.foo = false;
+
     await render(
       <template>
         <HdsAdvancedTableTh
@@ -457,6 +465,8 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   });
 
   test('SORT: if sorted, the aria-sort attribute value should reflect the direction', async function (assert) {
+    this.foo = false;
+
     await render(
       <template>
         <HdsAdvancedTableTh
@@ -476,6 +486,8 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   });
 
   test('SORT: it renders the `aria-labelledby` attribute for the sort button with the correct IDs', async function (assert) {
+    this.foo = false;
+
     await render(
       <template>
         <HdsAdvancedTableTh
