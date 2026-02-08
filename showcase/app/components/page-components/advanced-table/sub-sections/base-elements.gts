@@ -21,7 +21,6 @@ import {
   HdsAdvancedTableTd,
   HdsAdvancedTableTh,
   HdsAdvancedTableThButtonTooltip,
-  HdsAdvancedTableThSort,
   HdsAdvancedTableTr,
   HdsBadge,
   HdsButton,
@@ -50,7 +49,7 @@ export default class SubSectionsBaseElements extends Component {
   sampleTableModel: HdsAdvancedTableModel;
   hasResizableColumns: boolean;
   columns: HdsAdvancedTableColumn[];
-  sortStatColumns: HdsAdvancedTableNormalizedColumn[];
+  sortStateColumns: HdsAdvancedTableNormalizedColumn[];
 
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
