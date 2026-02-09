@@ -109,6 +109,8 @@ const SubSectionInteraction: TemplateOnlyComponent = <template>
       {{/each}}
     </ShwGrid>
   {{/each}}
+
+  <ShwDivider {{style marginTop="150px"}} />
 </template>;
 
 export default SubSectionInteraction;
