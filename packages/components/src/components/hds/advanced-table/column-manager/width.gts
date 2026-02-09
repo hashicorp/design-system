@@ -93,7 +93,11 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
     const width = this.columnWidths.get(columnKey);
     const transientWidth = this.transientColumnWidths.get(columnKey);
 
-    return transientWidth ?? width ?? '0px';
+    return (
+      transientWidth ??
+      width ??
+      `${this.args.thElements.get(columnKey)?.offsetWidth ?? 0}px`
+    );
   };
 
   getSiblingColumnKeys = (

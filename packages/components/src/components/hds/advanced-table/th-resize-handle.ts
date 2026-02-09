@@ -121,6 +121,18 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     this._boundStopResize = this._stopResize.bind(this);
   }
 
+  get currentWidthInPixels(): number {
+    const { column, onGetAppliedWidth } = this.args;
+
+    if (onGetAppliedWidth === undefined) {
+      return 0;
+    }
+
+    const appliedWidth = onGetAppliedWidth(column.key);
+
+    return parsePixel(appliedWidth) ?? 0;
+  }
+
   get minWidthInPixels(): number {
     return parsePixel(this.args.column.minWidth) ?? 0;
   }
