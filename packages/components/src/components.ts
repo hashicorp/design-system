@@ -253,7 +253,7 @@ export { default as HdsLinkStandalone } from './components/hds/link/standalone.g
 export * from './components/hds/link/types.ts';
 
 // Modal
-export { default as HdsModal } from './components/hds/modal/index.ts';
+export { default as HdsModal } from './components/hds/modal/index.gts';
 export * from './components/hds/modal/types.ts';
 
 // PageHeader

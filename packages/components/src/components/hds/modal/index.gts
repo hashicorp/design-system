@@ -5,19 +5,24 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
 import { modifier } from 'ember-modifier';
+import { hash } from '@ember/helper';
+// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
 import type { WithBoundArgs } from '@glint/template';
-import type { HdsModalSizes, HdsModalColors } from './types.ts';
 
-import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.gts';
-import HdsDialogPrimitiveBodyComponent from '../dialog-primitive/body.gts';
-import HdsDialogPrimitiveFooterComponent from '../dialog-primitive/footer.gts';
+import HdsDialogPrimitiveHeader from '../dialog-primitive/header.gts';
+import HdsDialogPrimitiveBody from '../dialog-primitive/body.gts';
+import HdsDialogPrimitiveFooter from '../dialog-primitive/footer.gts';
+import HdsDialogPrimitiveWrapper from '../dialog-primitive/wrapper.gts';
+import HdsDialogPrimitiveOverlay from '../dialog-primitive/overlay.gts';
 import { HdsModalSizeValues, HdsModalColorValues } from './types.ts';
+import { getElementId } from '../../../utils/hds-get-element-id.ts';
+
+import type { HdsModalSizes, HdsModalColors } from './types.ts';
 
 const waiter = buildWaiter('@hashicorp/design-system-components:modal');
 
@@ -40,15 +45,12 @@ export interface HdsModalSignature {
     default: [
       {
         Header?: WithBoundArgs<
-          typeof HdsDialogPrimitiveHeaderComponent,
+          typeof HdsDialogPrimitiveHeader,
           'id' | 'onDismiss' | 'contextualClassPrefix'
         >;
-        Body?: WithBoundArgs<
-          typeof HdsDialogPrimitiveBodyComponent,
-          'contextualClass'
-        >;
+        Body?: WithBoundArgs<typeof HdsDialogPrimitiveBody, 'contextualClass'>;
         Footer?: WithBoundArgs<
-          typeof HdsDialogPrimitiveFooterComponent,
+          typeof HdsDialogPrimitiveFooter,
           'onDismiss' | 'contextualClass'
         >;
       },
@@ -137,7 +139,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     }
   }
 
-  @action registerOnCloseCallback(event: Event): void {
+  registerOnCloseCallback = (event: Event): void => {
     if (
       !this.isDismissDisabled &&
       this.args.onClose &&
@@ -158,7 +160,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     } else {
       this._performCloseCleanup();
     }
-  }
+  };
 
   private _registerDialog = modifier((element: HTMLDialogElement) => {
     // Store references of `<dialog>` and `<body>` elements
@@ -172,7 +174,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    // eslint-disable-next-line @typescript-eslint/unbound-method
+
     this._element.addEventListener('close', this.registerOnCloseCallback, true);
 
     // If the modal dialog is not already open
@@ -204,7 +206,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
 
       this._element?.removeEventListener(
         'close',
-        // eslint-disable-next-line @typescript-eslint/unbound-method
+
         this.registerOnCloseCallback,
         true
       );
@@ -217,8 +219,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     };
   });
 
-  @action
-  open(): void {
+  open = (): void => {
     // Make modal dialog visible using the native `showModal` method
     this._element.showModal();
     this._isOpen = true;
@@ -230,11 +231,10 @@ export default class HdsModal extends Component<HdsModalSignature> {
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
       this.args.onOpen();
     }
-  }
+  };
 
-  @action
   // eslint-disable-next-line @typescript-eslint/require-await
-  async onDismiss(): Promise<void> {
+  onDismiss = async (): Promise<void> => {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
     if (this._element.open) {
@@ -248,5 +248,56 @@ export default class HdsModal extends Component<HdsModalSignature> {
 
     // Make modal dialog invisible using the native `close` method
     this._element.close();
-  }
+  };
+
+  <template>
+    <HdsDialogPrimitiveWrapper
+      class={{this.classNames}}
+      ...attributes
+      aria-labelledby={{this.id}}
+      {{this._registerDialog}}
+      {{focusTrap
+        isActive=this._isOpen
+        focusTrapOptions=(hash onDeactivate=this.onDismiss)
+      }}
+    >
+      <:header>
+        {{yield
+          (hash
+            Header=(component
+              HdsDialogPrimitiveHeader
+              id=this.id
+              onDismiss=this.onDismiss
+              contextualClassPrefix="hds-modal"
+              titleTag="h1"
+            )
+          )
+        }}
+      </:header>
+      <:body>
+        {{yield
+          (hash
+            Body=(component
+              HdsDialogPrimitiveBody contextualClass="hds-modal__body"
+            )
+          )
+        }}
+      </:body>
+      <:footer>
+        {{yield
+          (hash
+            Footer=(component
+              HdsDialogPrimitiveFooter
+              onDismiss=this.onDismiss
+              contextualClass="hds-modal__footer"
+            )
+          )
+        }}
+      </:footer>
+    </HdsDialogPrimitiveWrapper>
+
+    {{#if this._isOpen}}
+      <HdsDialogPrimitiveOverlay @contextualClass="hds-modal__overlay" />
+    {{/if}}
+  </template>
 }

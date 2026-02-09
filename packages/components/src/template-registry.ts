@@ -179,7 +179,7 @@ import type HdsLayoutGridComponent from './components/hds/layout/grid';
 import type HdsLayoutGridItemComponent from './components/hds/layout/grid/item';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
-import type HdsModalComponent from './components/hds/modal/';
+import type HdsModalComponent from './components/hds/modal/index.gts';
 import type HdsPageHeaderComponent from './components/hds/page-header';
 import type HdsPageHeaderActionsComponent from './components/hds/page-header/actions';
 import type HdsPageHeaderBadgesComponent from './components/hds/page-header/badges';
