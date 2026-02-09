@@ -10,6 +10,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import SubSectionBase from 'showcase/components/page-utilities/popover-primitive/sub-sections/base';
 import SubSectionInteraction from 'showcase/components/page-utilities/popover-primitive/sub-sections/interaction';
 import SubSectionOptions from 'showcase/components/page-utilities/popover-primitive/sub-sections/options';
+import SubSectionDemos from 'showcase/components/page-utilities/popover-primitive/sub-sections/demos';
 
 const PopoverPrimitiveIndex: TemplateOnlyComponent = <template>
   {{pageTitle "PopoverPrimitive Component"}}
@@ -20,6 +21,7 @@ const PopoverPrimitiveIndex: TemplateOnlyComponent = <template>
     <SubSectionBase />
     <SubSectionOptions />
     <SubSectionInteraction />
+    <SubSectionDemos />
   </section>
 </template>;
 
