@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 
 import HdsIcon from '../../icon/index.gts';
+import { HdsAccordionSizeValues } from '../types.ts';
 
 import type { HdsAccordionSizes } from '../types.ts';
 
@@ -33,7 +34,7 @@ export default class HdsAccordionItemButton extends Component<HdsAccordionItemBu
   };
 
   get iconSize() {
-    return this.args.size === 'large' ? '24' : '16';
+    return this.args.size === HdsAccordionSizeValues.Large ? '24' : '16';
   }
 
   get classNames() {

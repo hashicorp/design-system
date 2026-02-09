@@ -12,6 +12,7 @@ import {
   HdsAccordionSizeValues,
   HdsAccordionTypeValues,
   HdsAccordionItemTitleTagValues,
+  HdsAccordionForceStateValues,
 } from '../types.ts';
 import HdsAccordionItemButton from './button.gts';
 import HdsTextBody from '../../text/body.gts';
@@ -94,7 +95,10 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
   }
 
   get isOpen(): boolean {
-    return this.args.isOpen ?? this.args.forceState === 'open';
+    return (
+      this.args.isOpen ??
+      this.args.forceState === HdsAccordionForceStateValues.Open
+    );
   }
 
   get type(): HdsAccordionTypes {
