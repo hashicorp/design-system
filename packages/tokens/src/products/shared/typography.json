@@ -242,7 +242,6 @@
         "$type": "letter-spacing",
         "$value": -0.5,
         "unit": "px",
-        "comment": "this is `tracking`",
         "$modes": {
           "default": -0.5,
           "cds-g0": "{carbon.typography.heading05.letter-spacing}",
@@ -293,7 +292,6 @@
         "$type": "letter-spacing",
         "$value": 0,
         "unit": "px",
-        "comment": "this is `tracking`",
         "$modes": {
           "default": 0,
           "cds-g0": "{carbon.typography.heading04.letter-spacing}",
@@ -344,7 +342,6 @@
         "$type": "letter-spacing",
         "$value": -0.5,
         "unit": "px",
-        "comment": "this is `tracking`",
         "$modes": {
           "default": -0.5,
           "cds-g0": "{carbon.typography.heading03.letter-spacing}",
@@ -395,7 +392,6 @@
         "$type": "letter-spacing",
         "$value": -0.5,
         "unit": "px",
-        "comment": "this is `tracking`",
         "$modes": {
           "default": -0.5,
           "cds-g0": "{carbon.typography.heading02.letter-spacing}",
@@ -446,7 +442,6 @@
         "$type": "letter-spacing",
         "$value": 0,
         "unit": "px",
-        "comment": "this is `tracking`",
         "$modes": {
           "default": 0,
           "cds-g0": "{carbon.typography.heading01.letter-spacing}",
