@@ -1,0 +1,53 @@
+<Hds::Table
+  @model={{this.model}}
+  @columns={{array
+    (hash key="artist" label=(t "components.table.headers.artist") isSortable=true)
+    (hash key="album" label=(t "components.table.headers.album") isSortable=true)
+    (hash key="year" label=(t "components.table.headers.year") isSortable=true)
+    (hash key="other" label=(t "global.titles.other"))
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+      <B.Td>
+        <Hds::Dropdown as |D|>
+          <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+          <D.Interactive @href="#">Create</D.Interactive>
+          <D.Interactive @href="#">Read</D.Interactive>
+          <D.Interactive @href="#">Update</D.Interactive>
+          <D.Separator />
+          <D.Interactive @href="#" @color="critical" @icon="trash">Delete</D.Interactive>
+        </Hds::Dropdown>
+      </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table><Hds::Table
+  @model={{this.model.myDemoData}}
+  @columns={{array
+    (hash key="artist" label=(t "components.table.headers.artist") isSortable=true)
+    (hash key="album" label=(t "components.table.headers.album") isSortable=true)
+    (hash key="year" label=(t "components.table.headers.year") isSortable=true)
+    (hash key="other" label=(t "global.titles.other"))
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+      <B.Td>
+        <Hds::Dropdown as |D|>
+          <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+          <D.Interactive @href="#">Create</D.Interactive>
+          <D.Interactive @href="#">Read</D.Interactive>
+          <D.Interactive @href="#">Update</D.Interactive>
+          <D.Separator />
+          <D.Interactive @href="#" @color="critical" @icon="trash">Delete</D.Interactive>
+        </Hds::Dropdown>
+      </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>

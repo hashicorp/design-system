@@ -1,0 +1,29 @@
+<Hds::Table
+  @isSelectable={{true}}
+  @selectableColumnKey="isSelected"
+  @onSelectionChange={{this.onSelectionChange}}
+  @sortBy={{this.sortBy}}
+  @sortOrder={{this.sortOrder}}
+  @onSort={{this.onSort}}
+>
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Artist</H.Th>
+      <H.Th>Album</H.Th>
+      <H.Th>Year</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    {{#each this.sortedData as |data|}}
+      <B.Tr
+        @selectionKey={{data.id}}
+        @isSelected={{data.isSelected}}
+        @selectionAriaLabelSuffix="row {{data.artist}} / {{data.album}}"
+      >
+        <B.Td>{{data.artist}}</B.Td>
+        <B.Td>{{data.album}}</B.Td>
+        <B.Td>{{data.year}}</B.Td>
+      </B.Tr>
+    {{/each}}
+  </:body>
+</Hds::Table>

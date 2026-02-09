@@ -1,0 +1,27 @@
+<Hds::Table
+  @isSelectable={{true}}
+  @selectableColumnKey="isSelected"
+  @onSelectionChange={{this.onSelectionChange}}
+  @model={{this.model}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Year" isSortable=true)
+    (hash key="selection" label="Selected" isSortable=true)
+  }}
+  @sortBy="isSelected"
+  @sortOrder="desc"
+>
+  <:body as |B|>
+    <B.Tr
+      @selectionKey={{B.data.id}}
+      @isSelected={{B.data.isSelected}}
+      @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}"
+    >
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+      <B.Td>{{if B.data.isSelected "Yes" "No"}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
