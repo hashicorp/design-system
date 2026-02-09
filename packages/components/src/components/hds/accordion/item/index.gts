@@ -95,10 +95,14 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
   }
 
   get isOpen(): boolean {
-    return (
-      this.args.isOpen ??
+    if (
+      this.args.isOpen ||
       this.args.forceState === HdsAccordionForceStateValues.Open
-    );
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   get type(): HdsAccordionTypes {
