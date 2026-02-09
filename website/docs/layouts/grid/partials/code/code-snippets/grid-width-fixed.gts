@@ -16,7 +16,7 @@ const LocalComponent: TemplateOnlyComponent = <template>
     <DocPlaceholder @height="40px" @text="Item 4" @background="#fff8d2" />
   </HdsLayoutGrid>
 
-  <hr />
+  <hr class="doc-code-group-hr" />
 
   <HdsTextDisplay>With 2 items</HdsTextDisplay>
   <HdsLayoutGrid @columnWidth="33.33%" @gap="16">
@@ -24,7 +24,7 @@ const LocalComponent: TemplateOnlyComponent = <template>
     <DocPlaceholder @height="40px" @text="Item 2" @background="#e5ffd2" />
   </HdsLayoutGrid>
 
-  <hr />
+  <hr class="doc-code-group-hr" />
 
   <HdsTextDisplay>With 1 item</HdsTextDisplay>
   <HdsLayoutGrid @columnWidth="33.33%" @gap="16">

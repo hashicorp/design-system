@@ -8,13 +8,22 @@ import {
 import DocPlaceholder from 'website/components/doc/placeholder';
 
 const LocalComponent: TemplateOnlyComponent = <template>
+  <HdsTextDisplay>With 3 items</HdsTextDisplay>
+  <HdsLayoutGrid @columnMinWidth="33.33%" @gap="16">
+    <DocPlaceholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+    <DocPlaceholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+    <DocPlaceholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  </HdsLayoutGrid>
+
+  <hr class="doc-code-group-hr" />
+
   <HdsTextDisplay>With 2 items</HdsTextDisplay>
   <HdsLayoutGrid @columnMinWidth="33.33%" @gap="16">
     <DocPlaceholder @height="40px" @text="Item 1" @background="#e4c5f3" />
     <DocPlaceholder @height="40px" @text="Item 2" @background="#e5ffd2" />
   </HdsLayoutGrid>
 
-  <hr />
+  <hr class="doc-code-group-hr" />
 
   <HdsTextDisplay>With 1 item</HdsTextDisplay>
   <HdsLayoutGrid @columnMinWidth="33.33%" @gap="16">

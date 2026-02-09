@@ -9,9 +9,11 @@ import {
   HdsTextBody,
 } from '@hashicorp/design-system-components/components';
 
+import { hash } from '@ember/helper';
+
 const LocalComponent: TemplateOnlyComponent = <template>
-  <HdsLayoutGrid @columnMinWidth="33.33%" @gap="24" as |LG|>
-    <LG.Item @colspan={{2}}>
+  <HdsLayoutGrid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="24" as |LG|>
+    <LG.Item @colspan={{hash sm=1 md=2}}>
       <HdsCardContainer
         @level="mid"
         @hasBorder={{true}}
@@ -20,7 +22,7 @@ const LocalComponent: TemplateOnlyComponent = <template>
           background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)"
         }}
       >
-        <HdsLayoutGrid @columnMinWidth="100%" @gap="16" as |LG|>
+        <HdsLayoutGrid @columnWidth="100%" @gap="16" as |LG|>
           <LG.Item>
             <HdsBadge @text="In Preview" @type="outlined" @color="highlight" />
           </LG.Item>
@@ -46,7 +48,7 @@ const LocalComponent: TemplateOnlyComponent = <template>
       <HdsTextDisplay @tag="h2" @size="300">content</HdsTextDisplay>
     </HdsCardContainer>
 
-    <LG.Item @colspan={{2}}>
+    <LG.Item @colspan={{hash sm=1 md=2}}>
       <HdsCardContainer
         @level="mid"
         @hasBorder={{true}}
