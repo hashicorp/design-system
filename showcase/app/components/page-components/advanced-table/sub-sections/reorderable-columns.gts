@@ -258,7 +258,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
   >
     <:body as |B|>
       <B.Tr
-        @selectionKey="{{B.data.id}}"
+        @selectionKey="{{B.data.resource_id}}"
         @isSelected={{B.data.isSelected}}
         @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
         as |R|
