@@ -13,8 +13,12 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import { parsePixel, requestAnimationFrameWaiter } from './utils.ts';
 import { BORDER_WIDTH } from './index.ts';
-import type Owner from '@ember/owner';
+import {
+  DEFAULT_MIN_WIDTH,
+  DEFAULT_MAX_WIDTH,
+} from './column-manager/width.gts';
 
+import type Owner from '@ember/owner';
 import type { HdsAdvancedTableNormalizedColumn } from './types';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
@@ -27,10 +31,10 @@ function calculateEffectiveDelta(
   nextCol: HdsAdvancedTableNormalizedColumn,
   startNextColW: number
 ): number {
-  const colMin = parsePixel(col.minWidth) ?? 0;
-  const colMax = parsePixel(col.maxWidth) ?? Infinity;
-  const nextMin = parsePixel(nextCol.minWidth) ?? 0;
-  const nextMax = parsePixel(nextCol.maxWidth) ?? Infinity;
+  const colMin = parsePixel(col.minWidth ?? DEFAULT_MIN_WIDTH) ?? 0;
+  const colMax = parsePixel(col.maxWidth ?? DEFAULT_MAX_WIDTH) ?? Infinity;
+  const nextMin = parsePixel(nextCol.minWidth ?? DEFAULT_MIN_WIDTH) ?? 0;
+  const nextMax = parsePixel(nextCol.maxWidth ?? DEFAULT_MAX_WIDTH) ?? Infinity;
 
   let effectiveDelta = 0;
 
@@ -134,11 +138,13 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   get minWidthInPixels(): number {
-    return parsePixel(this.args.column.minWidth) ?? 0;
+    return parsePixel(this.args.column.minWidth ?? DEFAULT_MIN_WIDTH) ?? 0;
   }
 
   get maxWidthInPixels(): number {
-    return parsePixel(this.args.column.maxWidth) ?? Infinity;
+    return (
+      parsePixel(this.args.column.maxWidth ?? DEFAULT_MAX_WIDTH) ?? Infinity
+    );
   }
 
   get height(): string | undefined {
