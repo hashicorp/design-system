@@ -11,6 +11,7 @@ import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
 import { TrackedSet } from 'tracked-built-ins';
+import { scheduleOnce } from '@ember/runloop';
 import { HdsAdvancedTableThSortOrderValues } from './types.ts';
 
 import type Owner from '@ember/owner';
@@ -500,25 +501,36 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     element.addEventListener('scroll', this._scrollHandler);
 
     const updateMeasurements = () => {
-      this._tableHeight = element.offsetHeight;
+      const { isSelectable = false } = this.args;
 
-      this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
+      const newTableHeight = element.offsetHeight;
+      const newDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,
         this.hasStickyFirstColumn ? true : false,
         this.isStickyColumnPinned
       );
 
-      if (this.hasStickyFirstColumn) {
-        this.stickyColumnOffset = getStickyColumnLeftOffset(
-          this._theadElement,
-          isSelectable,
-          this.isStickyColumnPinned
-        );
-      }
-    };
+      const setUpdatedMeasurements = () => {
+        if (this.isDestroying || this.isDestroyed) {
+          return;
+        }
 
-    const { isSelectable = false } = this.args;
+        this._tableHeight = newTableHeight;
+        this.scrollIndicatorDimensions = newDimensions;
+
+        if (this.hasStickyFirstColumn) {
+          this.stickyColumnOffset = getStickyColumnLeftOffset(
+            this._theadElement,
+            isSelectable,
+            this.isStickyColumnPinned
+          );
+        }
+      };
+
+      // eslint-disable-next-line ember/no-runloop
+      scheduleOnce('afterRender', this, setUpdatedMeasurements);
+    };
 
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
