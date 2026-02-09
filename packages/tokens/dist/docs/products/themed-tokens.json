@@ -8548,7 +8548,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 0.9286,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -8556,16 +8555,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 0.9286,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -8584,7 +8590,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.1429,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -8592,16 +8597,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.1429,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -8620,7 +8632,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.5,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -8628,16 +8639,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.5,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -9852,24 +9870,10 @@
       "$type": "dimension",
       "$value": "5px",
       "unit": "px",
-      "$modes": {
-        "default": "5px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
         "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
@@ -23049,7 +23053,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -23057,16 +23060,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -23085,7 +23095,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -23093,16 +23102,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -23121,7 +23137,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -23129,16 +23144,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -24353,24 +24375,10 @@
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
-      "$modes": {
-        "default": "0px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
-        "$value": "0",
+        "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
@@ -37550,7 +37558,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -37558,16 +37565,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -37586,7 +37600,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -37594,16 +37607,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -37622,7 +37642,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -37630,16 +37649,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -38854,24 +38880,10 @@
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
-      "$modes": {
-        "default": "0px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
-        "$value": "0",
+        "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
@@ -52051,7 +52063,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -52059,16 +52070,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -52087,7 +52105,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -52095,16 +52112,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -52123,7 +52147,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -52131,16 +52154,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -53355,24 +53385,10 @@
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
-      "$modes": {
-        "default": "0px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
-        "$value": "0",
+        "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
@@ -66552,7 +66568,6 @@
       "key": "{button.typography.line-height.small}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
@@ -66560,16 +66575,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
         "$modes": {
           "default": 0.9286,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.small}"
       },
@@ -66588,7 +66610,6 @@
       "key": "{button.typography.line-height.medium}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
@@ -66596,16 +66617,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "14px ~ 1.1429",
         "$modes": {
           "default": 1.1429,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "16px/14px ~ 1.1429",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.medium}"
       },
@@ -66624,7 +66652,6 @@
       "key": "{button.typography.line-height.large}",
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
@@ -66632,16 +66659,23 @@
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
       },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
+      },
       "original": {
         "$type": "number",
         "$value": 1.2858,
-        "comment": "24px = 1.5",
         "$modes": {
           "default": 1.5,
           "cds-g0": 1.2858,
           "cds-g10": 1.2858,
           "cds-g90": 1.2858,
           "cds-g100": 1.2858
+        },
+        "comments": {
+          "hds": "24px/16px = 1.5",
+          "cds": "18px/14px ~ 1.2858"
         },
         "key": "{button.typography.line-height.large}"
       },
@@ -67856,24 +67890,10 @@
       "$type": "dimension",
       "$value": "0px",
       "unit": "px",
-      "$modes": {
-        "default": "0px",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "original": {
         "$type": "dimension",
-        "$value": "0",
+        "$value": "{border.radius.small}",
         "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        },
         "key": "{button.border.radius}"
       },
       "name": "token-button-border-radius",
