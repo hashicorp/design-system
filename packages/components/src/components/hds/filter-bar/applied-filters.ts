@@ -30,6 +30,13 @@ export interface HdsFilterBarAppliedFiltersSignature {
 export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAppliedFiltersSignature> {
   @service hdsIntl!: HdsIntlService;
 
+  private _isArrayFilter = (filter: HdsFilterBarFilter): boolean => {
+    return (
+      filter.type === 'multi-select' ||
+      (filter.type === 'generic' && isArray(filter.data))
+    );
+  };
+
   private _onFilterDismiss = (key: string, filterValue?: unknown): void => {
     const { onFilterDismiss } = this.args;
 
@@ -50,6 +57,9 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
     if ('label' in data) {
       result.label = data.label;
     }
+    if ('dismissTagText' in data) {
+      result.dismissTagText = data.dismissTagText;
+    }
     return result;
   };
 
@@ -58,6 +68,24 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
     const keyText = this._filterKeyText(key, filter);
     const separatorText = this._filterSeparatorText(filter);
     return `${keyText}${separatorText} ${valueText}`;
+  };
+
+  private _arrayFilterText = (
+    key: string,
+    filter: HdsFilterBarFilter,
+    item: HdsFilterBarGenericFilterData
+  ): string => {
+    const keyText = this._filterKeyText(key, filter);
+    if (
+      filter.type === 'generic' &&
+      'dismissTagText' in item &&
+      item.dismissTagText
+    ) {
+      return `${keyText} ${item.dismissTagText}`;
+    } else {
+      const valueText = item.label ?? String(item.value);
+      return `${keyText}: ${valueText}`;
+    }
   };
 
   private _filterValueText = (filter: HdsFilterBarFilter): string => {
@@ -208,9 +236,9 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
     }
   };
 
-  private _multiSelectFilterData = (
+  private _arrayFilterData = (
     data: HdsFilterBarData
-  ): { value: unknown; label?: string }[] => {
+  ): { value: unknown; label?: string; dismissTagText?: string }[] => {
     if (isArray(data)) {
       return data.map((item) => this._filterData(item));
     }
