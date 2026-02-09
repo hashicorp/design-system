@@ -75,7 +75,7 @@ export default class HdsAccordion extends Component<HdsAccordionSignature> {
     return type;
   }
 
-  get classNames(): string {
+  get classNames() {
     const classes = ['hds-accordion'];
 
     // add a class based on the @size argument

@@ -4,7 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-import { eq } from 'ember-truth-helpers';
 import { on } from '@ember/modifier';
 
 import HdsIcon from '../../icon/index.gts';
@@ -33,7 +32,11 @@ export default class HdsAccordionItemButton extends Component<HdsAccordionItemBu
     }
   };
 
-  get classNames(): string {
+  get iconSize() {
+    return this.args.size === 'large' ? '24' : '16';
+  }
+
+  get classNames() {
     const classes = ['hds-accordion-item__button'];
 
     // add a class based on the @isOpen argument
@@ -67,7 +70,7 @@ export default class HdsAccordionItemButton extends Component<HdsAccordionItemBu
       aria-labelledby={{@ariaLabelledBy}}
       ...attributes
     >
-      <HdsIcon @name="chevron-down" @size={{if (eq @size "large") "24" "16"}} />
+      <HdsIcon @name="chevron-down" @size={{this.iconSize}} />
     </button>
   </template>
 }

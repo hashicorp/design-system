@@ -11,7 +11,7 @@ import type { IconName } from '@hashicorp/flight-icons/svg';
 import type Owner from '@ember/owner';
 
 import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
-import type { HdsIconSizes, HdsIconColors } from './types';
+import type { HdsIconSizes, HdsIconColors } from './types.ts';
 
 export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
 export const NAMES = iconNames;

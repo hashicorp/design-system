@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { hash } from '@ember/helper';
-import { or, eq } from 'ember-truth-helpers';
 
 import {
   HdsAccordionSizeValues,
@@ -94,6 +93,10 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
     return size;
   }
 
+  get isOpen(): boolean {
+    return this.args.isOpen ?? this.args.forceState === 'open';
+  }
+
   get type(): HdsAccordionTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
@@ -111,7 +114,7 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
     return this.args.titleTag ?? HdsAccordionItemTitleTagValues.Div;
   }
 
-  get classNames(): string {
+  get classNames() {
     const classes = ['hds-accordion-item'];
 
     // add a class based on the @isOpen argument
@@ -144,7 +147,7 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
   <template>
     <HdsDisclosurePrimitive
       class={{this.classNames}}
-      @isOpen={{(or @isOpen (eq @forceState "open"))}}
+      @isOpen={{this.isOpen}}
       @onClickToggle={{@onClickToggle}}
       ...attributes
     >
