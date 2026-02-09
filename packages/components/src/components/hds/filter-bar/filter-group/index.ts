@@ -34,6 +34,7 @@ export interface HdsFilterBarFilterGroupSignature {
     filters: HdsFilterBarFilters;
     searchEnabled?: boolean;
     onChange: (key: string, keyFilter?: HdsFilterBarFilter) => void;
+    onClear?: (key: string) => void;
   };
   Blocks: {
     default: [
@@ -165,8 +166,12 @@ export default class HdsFilterBarFilterGroup extends Component<HdsFilterBarFilte
   @action
   onClear(): void {
     this.internalFilters = undefined;
+    const { onChange, onClear } = this.args;
 
-    const { onChange } = this.args;
+    if (onClear && typeof onClear === 'function') {
+      onClear(this.args.key);
+    }
+
     if (onChange && typeof onChange === 'function') {
       onChange(this.args.key);
     }

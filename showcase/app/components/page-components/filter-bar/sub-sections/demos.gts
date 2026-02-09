@@ -12,6 +12,7 @@ import ShwFrame from 'showcase/components/shw/frame';
 
 import CodeFragmentWithComplexTable from 'showcase/components/page-components/filter-bar/code-fragments/with-complex-table';
 import CodeFragmentWithTable from 'showcase/components/page-components/filter-bar/code-fragments/with-table';
+import CodeFragmentWithGenericFilters from 'showcase/components/page-components/filter-bar/code-fragments/with-generic-filters';
 
 const SubSectionDemos: TemplateOnlyComponent = <template>
   <ShwTextH2>Demos</ShwTextH2>
@@ -31,6 +32,12 @@ const SubSectionDemos: TemplateOnlyComponent = <template>
   <ShwTextH3>All filter types</ShwTextH3>
 
   <CodeFragmentWithComplexTable />
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH3>Generic filters</ShwTextH3>
+
+  <CodeFragmentWithGenericFilters />
 
   <ShwDivider @level={{2}} />
 
