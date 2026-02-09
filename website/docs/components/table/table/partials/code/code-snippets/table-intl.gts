@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
 import { array, hash } from '@ember/helper';
 
 import {
@@ -6,35 +7,45 @@ import {
   HdsDropdown,
 } from '@hashicorp/design-system-components/components';
 
-import hdsT from '@hashicorp/design-system-components/helpers/hds-t';
+import type HdsIntlService from '@hashicorp/design-system-components/services/hds-intl';
 
 import FOLK_MUSIC_DATA from 'website/mocks/folk-music-data';
 
 export default class LocalComponent extends Component {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   get model() {
     return { myDemoData: FOLK_MUSIC_DATA };
+  }
+
+  get translations() {
+    return {
+      artist: this.hdsIntl.t('components.table.headers.artist', {
+        default: 'Artist',
+      }),
+      album: this.hdsIntl.t('components.table.headers.album', {
+        default: 'Album',
+      }),
+      year: this.hdsIntl.t('components.table.headers.year', {
+        default: 'Year',
+      }),
+      other: this.hdsIntl.t('global.titles.other', {
+        default: 'Other',
+      }),
+      overflowOptions: this.hdsIntl.t('components.table.overflowOptions', {
+        default: 'Overflow Options',
+      }),
+    };
   }
 
   <template>
     <HdsTable
       @model={{this.model.myDemoData}}
       @columns={{array
-        (hash
-          key="artist"
-          label=(hdsT "components.table.headers.artist")
-          isSortable=true
-        )
-        (hash
-          key="album"
-          label=(hdsT "components.table.headers.album")
-          isSortable=true
-        )
-        (hash
-          key="year"
-          label=(hdsT "components.table.headers.year")
-          isSortable=true
-        )
-        (hash key="other" label=(hdsT "global.titles.other"))
+        (hash key="artist" label=this.translations.artist isSortable=true)
+        (hash key="album" label=this.translations.album isSortable=true)
+        (hash key="year" label=this.translations.year isSortable=true)
+        (hash key="other" label=this.translations.other)
       }}
     >
       <:body as |B|>
@@ -46,7 +57,7 @@ export default class LocalComponent extends Component {
             <HdsDropdown as |D|>
               <D.ToggleIcon
                 @icon="more-horizontal"
-                @text="Overflow Options"
+                @text={{this.translations.overflowOptions}}
                 @hasChevron={{false}}
                 @size="small"
               />
