@@ -11,7 +11,6 @@ import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
 import { TrackedSet } from 'tracked-built-ins';
-import { scheduleOnce } from '@ember/runloop';
 import { HdsAdvancedTableThSortOrderValues } from './types.ts';
 
 import type Owner from '@ember/owner';
@@ -516,6 +515,15 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
           return;
         }
 
+        const isSameLeft =
+          this.scrollIndicatorDimensions.left === newDimensions.left;
+        const isSameRight =
+          this.scrollIndicatorDimensions.right === newDimensions.right;
+
+        if (isSameLeft && isSameRight && this._tableHeight === newTableHeight) {
+          return;
+        }
+
         this._tableHeight = newTableHeight;
         this.scrollIndicatorDimensions = newDimensions;
 
@@ -528,8 +536,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         }
       };
 
-      // eslint-disable-next-line ember/no-runloop
-      scheduleOnce('afterRender', this, setUpdatedMeasurements);
+      window.requestAnimationFrame(setUpdatedMeasurements);
     };
 
     this._resizeObserver = new ResizeObserver((entries) => {
