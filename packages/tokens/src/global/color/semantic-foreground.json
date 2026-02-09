@@ -31,10 +31,10 @@
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.neutral-500}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
         }
       },
       "high-contrast": {
@@ -43,10 +43,10 @@
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.neutral-0}",
-          "cds-g0": "{carbon.themes.white.textInverse}",
-          "cds-g10": "{carbon.themes.g10.textInverse}",
-          "cds-g90": "{carbon.themes.g90.textInverse}",
-          "cds-g100": "{carbon.themes.g100.textInverse}"
+          "cds-g0": "{carbon.themes.white.textOnColor}",
+          "cds-g10": "{carbon.themes.g10.textOnColor}",
+          "cds-g90": "{carbon.themes.g90.textOnColor}",
+          "cds-g100": "{carbon.themes.g100.textOnColor}"
         }
       },
       "disabled": {
@@ -175,10 +175,10 @@
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.amber-200}",
-          "cds-g0": "{carbon.color.orange.60}",
-          "cds-g10": "{carbon.color.orange.60}",
-          "cds-g90": "{carbon.color.orange.40}",
-          "cds-g100": "{carbon.color.orange.40}"
+          "cds-g0": "{carbon.color.yellow.60}",
+          "cds-g10": "{carbon.color.yellow.60}",
+          "cds-g90": "{carbon.color.yellow.40}",
+          "cds-g100": "{carbon.color.yellow.40}"
         }
       },
       "warning-on-surface": {
@@ -187,10 +187,10 @@
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.amber-300}",
-          "cds-g0": "{carbon.color.orange.70}",
-          "cds-g10": "{carbon.color.orange.70}",
-          "cds-g90": "{carbon.color.orange.30}",
-          "cds-g100": "{carbon.color.orange.30}"
+          "cds-g0": "{carbon.color.yellow.70}",
+          "cds-g10": "{carbon.color.yellow.70}",
+          "cds-g90": "{carbon.color.yellow.30}",
+          "cds-g100": "{carbon.color.yellow.30}"
         }
       },
       "warning-high-contrast": {
@@ -199,10 +199,10 @@
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.amber-500}",
-          "cds-g0": "{carbon.color.orange.80}",
-          "cds-g10": "{carbon.color.orange.80}",
-          "cds-g90": "{carbon.color.orange.20}",
-          "cds-g100": "{carbon.color.orange.20}"
+          "cds-g0": "{carbon.color.yellow.80}",
+          "cds-g10": "{carbon.color.yellow.80}",
+          "cds-g90": "{carbon.color.yellow.20}",
+          "cds-g100": "{carbon.color.yellow.20}"
         }
       },
       "critical": {
