@@ -17,7 +17,6 @@ import type {
   HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableNormalizedColumn,
 } from '../types';
-import type Owner from '@ember/owner';
 
 interface HdsAdvancedTableColumnManagerOrderSignature {
   Args: {
@@ -79,17 +78,16 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     | null = null;
   @tracked private _columnOrder: string[] = [];
 
-  constructor(
-    owner: Owner,
-    args: HdsAdvancedTableColumnManagerOrderSignature['Args']
-  ) {
-    super(owner, args);
-
-    this._initializeColumnOrder();
-  }
-
   get columnOrder(): string[] {
-    return this.args.columnOrder ?? this._columnOrder;
+    const { columns, columnOrder } = this.args;
+
+    if (columnOrder !== undefined) {
+      return columnOrder;
+    } else if (this._columnOrder.length > 0) {
+      return this._columnOrder;
+    } else {
+      return columns.map((column) => this._getColumnKey(column));
+    }
   }
   set columnOrder(value: string[]) {
     this._columnOrder = value;
@@ -280,18 +278,6 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     this.columnOrder = newOrder;
 
     onColumnReorder?.({ column, newOrder, insertedAt });
-  };
-
-  private _initializeColumnOrder = () => {
-    const { columnOrder, columns, hasReorderableColumns } = this.args;
-
-    if (hasReorderableColumns) {
-      if (columnOrder === undefined || columnOrder.length === 0) {
-        this._columnOrder = columns.map((column) => this._getColumnKey(column));
-      } else {
-        this._columnOrder = columnOrder;
-      }
-    }
   };
 
   private _getColumnKey(column: HdsAdvancedTableNormalizedColumn): string {
