@@ -5,20 +5,25 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
-import type { WithBoundArgs } from '@glint/template';
 import { modifier } from 'ember-modifier';
+import { hash } from '@ember/helper';
+// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
-import type { HdsFlyoutSizes } from './types.ts';
+import type { WithBoundArgs } from '@glint/template';
 
 import { HdsFlyoutSizesValues } from './types.ts';
-import HdsDialogPrimitiveBodyComponent from '../dialog-primitive/body.gts';
-import HdsDialogPrimitiveDescriptionComponent from '../dialog-primitive/description.gts';
-import HdsDialogPrimitiveFooterComponent from '../dialog-primitive/footer.gts';
-import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.gts';
+import HdsDialogPrimitiveBody from '../dialog-primitive/body.gts';
+import HdsDialogPrimitiveDescription from '../dialog-primitive/description.gts';
+import HdsDialogPrimitiveFooter from '../dialog-primitive/footer.gts';
+import HdsDialogPrimitiveHeader from '../dialog-primitive/header.gts';
+import HdsDialogPrimitiveOverlay from '../dialog-primitive/overlay.gts';
+import HdsDialogPrimitiveWrapper from '../dialog-primitive/wrapper.gts';
+import { getElementId } from '../../../utils/hds-get-element-id.ts';
+
+import type { HdsFlyoutSizes } from './types.ts';
 
 const waiter = buildWaiter('@hashicorp/design-system-components:flyout');
 
@@ -37,19 +42,16 @@ export interface HdsFlyoutSignature {
     default: [
       {
         Header?: WithBoundArgs<
-          typeof HdsDialogPrimitiveHeaderComponent,
+          typeof HdsDialogPrimitiveHeader,
           'id' | 'onDismiss' | 'contextualClassPrefix'
         >;
         Description?: WithBoundArgs<
-          typeof HdsDialogPrimitiveDescriptionComponent,
+          typeof HdsDialogPrimitiveDescription,
           'contextualClass'
         >;
-        Body?: WithBoundArgs<
-          typeof HdsDialogPrimitiveBodyComponent,
-          'contextualClass'
-        >;
+        Body?: WithBoundArgs<typeof HdsDialogPrimitiveBody, 'contextualClass'>;
         Footer?: WithBoundArgs<
-          typeof HdsDialogPrimitiveFooterComponent,
+          typeof HdsDialogPrimitiveFooter,
           'onDismiss' | 'contextualClass'
         >;
       },
@@ -131,7 +133,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    // eslint-disable-next-line @typescript-eslint/unbound-method
+
     this._element.addEventListener('close', this.registerOnCloseCallback, true);
 
     // If the flyout dialog is not already open
@@ -147,23 +149,22 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
 
       this._element?.removeEventListener(
         'close',
-        // eslint-disable-next-line @typescript-eslint/unbound-method
+
         this.registerOnCloseCallback,
         true
       );
     };
   });
 
-  @action registerOnCloseCallback(event: Event) {
+  registerOnCloseCallback = (event: Event) => {
     if (this.args.onClose && typeof this.args.onClose === 'function') {
       this.args.onClose(event);
     }
 
     this._performCloseCleanup();
-  }
+  };
 
-  @action
-  open(): void {
+  open = (): void => {
     // Make flyout dialog visible using the native `showModal` method
     this._element.showModal();
     this._isOpen = true;
@@ -175,11 +176,9 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
       this.args.onOpen();
     }
-  }
+  };
 
-  @action
-  // eslint-disable-next-line @typescript-eslint/require-await
-  async onDismiss(): Promise<void> {
+  onDismiss = (): void => {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
     if (this._element.open) {
@@ -193,5 +192,62 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
 
     // Make flyout dialog invisible using the native `close` method
     this._element.close();
-  }
+  };
+
+  <template>
+    <HdsDialogPrimitiveWrapper
+      class={{this.classNames}}
+      ...attributes
+      aria-labelledby={{this.id}}
+      {{this._registerDialog}}
+      {{focusTrap
+        isActive=this._isOpen
+        focusTrapOptions=(hash
+          onDeactivate=this.onDismiss clickOutsideDeactivates=true
+        )
+      }}
+    >
+      <:header>
+        {{yield
+          (hash
+            Header=(component
+              HdsDialogPrimitiveHeader
+              id=this.id
+              onDismiss=this.onDismiss
+              contextualClassPrefix="hds-flyout"
+              titleTag="h1"
+            )
+            Description=(component
+              HdsDialogPrimitiveDescription
+              contextualClass="hds-flyout__description"
+            )
+          )
+        }}
+      </:header>
+      <:body>
+        {{yield
+          (hash
+            Body=(component
+              HdsDialogPrimitiveBody contextualClass="hds-flyout__body"
+            )
+          )
+        }}
+      </:body>
+      <:footer>
+        {{yield
+          (hash
+            Footer=(component
+              HdsDialogPrimitiveFooter
+              onDismiss=this.onDismiss
+              contextualClass="hds-flyout__footer"
+            )
+          )
+        }}
+      </:footer>
+    </HdsDialogPrimitiveWrapper>
+
+    {{#if this._isOpen}}
+      <HdsDialogPrimitiveOverlay @contextualClass="hds-flyout__overlay" />
+    {{/if}}
+  </template>
 }

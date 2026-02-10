@@ -148,7 +148,7 @@ export { default as HdsFilterBarTabsTab } from './components/hds/filter-bar/tabs
 export * from './components/hds/filter-bar/types.ts';
 
 // Flyout
-export { default as HdsFlyout } from './components/hds/flyout/index.ts';
+export { default as HdsFlyout } from './components/hds/flyout/index.gts';
 export * from './components/hds/flyout/types.ts';
 
 // Form > Layout
