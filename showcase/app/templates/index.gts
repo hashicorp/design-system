@@ -438,6 +438,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.link.inline">
+            Link::Inline
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.modal">
             Modal
           </LinkTo>
