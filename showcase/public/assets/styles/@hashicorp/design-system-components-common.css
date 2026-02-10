@@ -7120,7 +7120,7 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-link-inline {
-  border-radius: 2px;
+  border-radius: var(--token-link-inline-border-radius);
 }
 .hds-link-inline:focus, .hds-link-inline.mock-focus, .hds-link-inline:focus-visible {
   text-decoration: none;
@@ -7135,10 +7135,10 @@ button.hds-button[href]::after {
   vertical-align: text-bottom;
 }
 .hds-link-inline--icon-leading > .hds-link-inline__icon {
-  margin-right: 0.25em;
+  margin-right: var(--token-link-inline-icon-margin-horizontal);
 }
 .hds-link-inline--icon-trailing > .hds-link-inline__icon {
-  margin-left: 0.25em;
+  margin-left: var(--token-link-inline-icon-margin-horizontal);
 }
 
 .hds-link-inline--color-primary {
