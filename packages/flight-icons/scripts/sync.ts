@@ -13,6 +13,26 @@ import { getAssetsMetadata } from './sync-parts/getAssetsMetadata';
 import { getAssetsCatalog } from './sync-parts/getAssetsCatalog';
 import { exportAssetsToFolder } from './sync-parts/exportAssetsToFolder';
 
+interface InputAsset {
+    id: string;
+    fileName: string;
+    iconName: string;
+    category: string;
+    size: string;
+    width: number;
+    height: number;
+}
+
+interface InputCatalog {
+    assets: InputAsset[];
+    lastRunTimeISO: string;
+    lastRunFigma: {
+        id: string;
+        page: string;
+        excludeFrames: string[];
+    };
+}
+
 // read the environment variables from the ".env" file
 dotenv.config();
 
@@ -67,6 +87,9 @@ async function sync() {
         try {
             console.log('Saving "catalog.json" file');
             fs.writeJsonSync(`${config.mainFolder}/catalog.json`, assetsCatalog, { spaces: 2 });
+
+            console.log('Generating "catalog.d.ts" type definitions');
+            generateTypes(assetsCatalog, `${config.mainFolder}/catalog.d.ts`);
         } catch (err) {
             console.error(err);
         }
@@ -74,4 +97,27 @@ async function sync() {
     } else {
         console.log(chalk.red(`WARNING:\nThe number of assets retrieved (${assetsExportedIDs.length}) and the number of assets expected (${assetsExpectedIDs.length}) are different. Please check why, this is unexpected.`));
     }
+}
+
+function generateTypes(catalog: InputCatalog, outputPath: string) {
+    // construct the .d.ts content
+    const fileContent = `
+import type { IconName } from './svg';
+
+export interface IconAsset {
+    iconName: IconName;
+    category: string;
+    size: string;
+    [key: string]: unknown; 
+}
+
+export interface IconCatalog {
+    assets: IconAsset[];
+}
+
+declare const catalog: IconCatalog;
+export default catalog;
+`;
+
+    fs.writeFileSync(outputPath, fileContent);
 }
