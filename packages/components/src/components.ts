@@ -184,8 +184,8 @@ export { default as HdsFormCheckboxField } from './components/hds/form/checkbox/
 export { default as HdsFormCheckboxGroup } from './components/hds/form/checkbox/group.ts';
 
 // Form > FileInput
-export { default as HdsFormFileInputBase } from './components/hds/form/file-input/base.ts';
-export { default as HdsFormFileInputField } from './components/hds/form/file-input/field.ts';
+export { default as HdsFormFileInputBase } from './components/hds/form/file-input/base.gts';
+export { default as HdsFormFileInputField } from './components/hds/form/file-input/field.gts';
 
 // Form > KeyValueInputs
 
