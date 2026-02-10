@@ -4,14 +4,18 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
+import { hash } from '@ember/helper';
+import { and, not } from 'ember-truth-helpers';
+import NavigationNarrator from 'ember-a11y-refocus';
+
 import type Owner from '@ember/owner';
 import type { NavigationNarratorSignature } from 'ember-a11y-refocus/components/navigation-narrator';
 
 import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
+import HdsAppHeaderMenuButton from './menu-button.gts';
 
 export interface HdsAppHeaderSignature {
   Args: {
@@ -67,11 +71,10 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   }
 
   addEventListeners(): void {
-    // eslint-disable-next-line @typescript-eslint/unbound-method
     document.addEventListener('keydown', this.escapePress, true);
     this._desktopMQ.addEventListener(
       'change',
-      // eslint-disable-next-line @typescript-eslint/unbound-method
+
       this.updateDesktopVariable,
       true
     );
@@ -85,11 +88,10 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   }
 
   removeEventListeners(): void {
-    // eslint-disable-next-line @typescript-eslint/unbound-method
     document.removeEventListener('keydown', this.escapePress, true);
     this._desktopMQ.removeEventListener(
       'change',
-      // eslint-disable-next-line @typescript-eslint/unbound-method
+
       this.updateDesktopVariable,
       true
     );
@@ -100,7 +102,6 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
     return !this._isDesktop && this._isOpen;
   }
 
-  // Get the class names to apply to the component.
   get classNames(): string {
     const classes = ['hds-app-header'];
 
@@ -120,26 +121,23 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
     return classes.join(' ');
   }
 
-  @action
-  escapePress(event: KeyboardEvent): void {
+  escapePress = (event: KeyboardEvent): void => {
     if (event.key === 'Escape' && this._isOpen && !this._isDesktop) {
       this._isOpen = false;
     }
-  }
+  };
 
-  @action
-  onClickToggle(): void {
+  onClickToggle = (): void => {
     this._isOpen = !this._isOpen;
-  }
+  };
 
-  @action close(): void {
+  close = (): void => {
     if (this._isOpen && !this._isDesktop) {
       this._isOpen = false;
     }
-  }
+  };
 
-  @action
-  updateDesktopVariable(event: MediaQueryListEvent): void {
+  updateDesktopVariable = (event: MediaQueryListEvent): void => {
     this._isDesktop = event.matches;
 
     // Close the menu when switching to desktop view
@@ -147,5 +145,44 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
     if (this._isDesktop) {
       this._isOpen = false;
     }
-  }
+  };
+
+  <template>
+    <div
+      class={{this.classNames}}
+      {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
+      {{focus-trap isActive=this.shouldTrapFocus}}
+      ...attributes
+    >
+      {{#if (and this.hasA11yRefocus (not this._isOpen))}}
+        <NavigationNarrator
+          @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
+          @skipTo={{this.a11yRefocusSkipTo}}
+          @skipText={{@a11yRefocusSkipText}}
+          @navigationText={{@a11yRefocusNavigationText}}
+          @excludeAllQueryParams={{@a11yRefocusExcludeAllQueryParams}}
+        />
+      {{/if}}
+
+      {{yield (hash close=this.close) to="logo"}}
+
+      {{#if (not this._isDesktop)}}
+        <HdsAppHeaderMenuButton
+          @onClickToggle={{this.onClickToggle}}
+          @isOpen={{this._isOpen}}
+          @menuContentId={{this._menuContentId}}
+        />
+      {{/if}}
+
+      <div class="hds-app-header__actions" id={{this._menuContentId}}>
+        <div class="hds-app-header__global-actions">
+          {{yield (hash close=this.close) to="globalActions"}}
+        </div>
+
+        <div class="hds-app-header__utility-actions">
+          {{yield (hash close=this.close) to="utilityActions"}}
+        </div>
+      </div>
+    </div>
+  </template>
 }
