@@ -11,14 +11,14 @@ import {
   HdsIconTileProductValues,
   HdsIconTileSizeValues,
 } from './types.ts';
+import HdsIcon from '../icon/index.ts';
 
 import type {
   HdsIconTileColors,
   HdsIconTileProducts,
   HdsIconTileSizes,
 } from './types.ts';
-
-import type { HdsIconSignature } from '../icon';
+import type { HdsIconSignature } from '../icon/index.gts';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'neutral';
@@ -146,7 +146,6 @@ export default class HdsIconTile extends Component<HdsIconTileSignature> {
     return this.args.iconSecondary;
   }
 
-  // hds-icon-tile {{this.entityClass}} {{this.sizeClass}} {{this.colorClass}}"
   get classNames(): string {
     const classes = ['hds-icon-tile'];
 
@@ -161,4 +160,30 @@ export default class HdsIconTile extends Component<HdsIconTileSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} aria-hidden="true" ...attributes>
+      {{#if this.icon}}
+        <div class={{this.iconWrapperClass}}>
+          <HdsIcon
+            @name={{this.icon}}
+            @size={{this.iconSize}}
+            @stretched={{true}}
+          />
+        </div>
+      {{/if}}
+
+      {{#if this.iconSecondary}}
+        <div class="hds-icon-tile__extra">
+          <div class="hds-icon-tile__extra-icon">
+            <HdsIcon
+              @name={{this.iconSecondary}}
+              @size="16"
+              @stretched={{true}}
+            />
+          </div>
+        </div>
+      {{/if}}
+    </div>
+  </template>
 }

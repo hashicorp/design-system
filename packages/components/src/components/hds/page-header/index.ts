@@ -5,7 +5,7 @@
 
 import TemplateOnlyComponent from '@ember/component/template-only';
 import type { ComponentLike } from '@glint/template';
-import type { HdsIconTileSignature } from '../icon-tile';
+import type { HdsIconTileSignature } from '../icon-tile/index.gts';
 import type { HdsYieldSignature } from '../yield';
 import type { HdsPageHeaderActionsSignature } from './actions';
 import type { HdsPageHeaderBadgesSignature } from './badges';
