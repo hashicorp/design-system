@@ -66,9 +66,10 @@ const BadgeLinkStandaloneIndex: TemplateOnlyComponent = <template>
       </:theming>
       <:reference>
         <HdsLayoutFlex @direction="column">
-          <cds-link size="md">Lorem ipsum
+          <cds-link href="#" size="md">Lorem ipsum
             <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
-          <cds-link size="md">Very long text that should wrap for multiple lines
+          <cds-link href="#" size="md">Very long text that should wrap for
+            multiple lines
             <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
         </HdsLayoutFlex>
       </:reference>
@@ -93,7 +94,7 @@ const BadgeLinkStandaloneIndex: TemplateOnlyComponent = <template>
       <:reference>
         <HdsLayoutFlex @direction="column">
           {{#each SIZES as |size|}}
-            <cds-link size={{mapHdsSizeToCdsSize size}}>Lorem ipsum
+            <cds-link href="#" size={{mapHdsSizeToCdsSize size}}>Lorem ipsum
               <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
           {{/each}}
         </HdsLayoutFlex>
@@ -123,7 +124,7 @@ const BadgeLinkStandaloneIndex: TemplateOnlyComponent = <template>
           </:theming>
           <:reference>
             {{#if (eq state "default")}}
-              <cds-link size="md">Lorem ipsum
+              <cds-link href="#" size="md">Lorem ipsum
                 <HdsIcon @name="arrow-right" slot="icon" /></cds-link>
             {{else}}
               <pre>TODO: add static image here</pre>

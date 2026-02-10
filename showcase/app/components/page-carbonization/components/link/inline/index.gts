@@ -87,8 +87,8 @@ const BadgeLinkInlineIndex: TemplateOnlyComponent = <template>
       </:theming>
       <:reference>
         <HdsLayoutFlex @direction="column">
-          <cds-link inline size="lg">Lorem ipsum dolor</cds-link>
-          <cds-link inline size="lg">Lorem ipsum dolor
+          <cds-link href="#" inline size="lg">Lorem ipsum dolor</cds-link>
+          <cds-link href="#" inline size="lg">Lorem ipsum dolor
             <HdsIcon
               @name="arrow-right-circle"
               @isInline={{true}}
@@ -113,7 +113,11 @@ const BadgeLinkInlineIndex: TemplateOnlyComponent = <template>
       <:reference>
         <HdsLayoutFlex @direction="column">
           {{#each HDS_TEXT_SIZES as |textSize|}}
-            <cds-link inline size={{mapHdsTextSizesToCdsSize textSize}}>
+            <cds-link
+              href="#"
+              inline
+              size={{mapHdsTextSizesToCdsSize textSize}}
+            >
               Lorem ipsum dolor
             </cds-link>
           {{/each}}
@@ -143,7 +147,7 @@ const BadgeLinkInlineIndex: TemplateOnlyComponent = <template>
           </:theming>
           <:reference>
             {{#if (eq state "default")}}
-              <cds-link inline size="lg">
+              <cds-link href="#" inline size="lg">
                 Lorem ipsum dolor
               </cds-link>
             {{else}}
