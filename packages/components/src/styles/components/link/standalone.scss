@@ -11,6 +11,7 @@
 
 @use "sass:map";
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 $hds-link-standalone-sizes: ("small", "medium", "large");
 $hds-link-standalone-focus-border-radius: var(--token-border-radius-small);
@@ -22,8 +23,8 @@ $hds-link-standalone-border-width: 1px;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: var(--token-link-standalone-padding-vertical);
+  padding-bottom: var(--token-link-standalone-padding-vertical);
   font-weight: var(--token-typography-font-weight-regular);
   font-family: var(--token-typography-font-stack-text);
   background-color: transparent; // needs to exist for a11y
@@ -42,6 +43,10 @@ $hds-link-standalone-border-width: 1px;
   text-decoration: underline;
   text-decoration-color: transparent;
   transition: text-decoration-color 0.25s ease-in;
+
+  @include hds-apply-only-if-carbon() {
+    transition: none;
+  }
 }
 
 // SIZE
@@ -49,28 +54,22 @@ $hds-link-standalone-border-width: 1px;
 // these values later may come from the design tokens
 $hds-link-standalone-size-props: (
   "small": (
-    // 13px = 0.8125rem
-    "font-size": 0.8125rem,
-    // 12px = 0.75rem
-    "icon-size": 0.75rem,
-    // 16px ~= 1.231
-    "line-height": 1.231,
+    "font-size": var(--token-link-standalone-typography-font-size-small),
+    "icon-size": var(--token-link-standalone-icon-size-small),
+    "line-height": var(--token-link-standalone-typography-line-height-small),
+    "letter-spacing": var(--token-link-standalone-typography-letter-spacing-small),
   ),
   "medium": (
-    // 14px = 0.875rem
-    "font-size": 0.875rem,
-    // 16px = 1rem
-    "icon-size": 1rem,
-    // 16px ~= 1.143
-    "line-height": 1.143,
+    "font-size": var(--token-link-standalone-typography-font-size-medium),
+    "icon-size": var(--token-link-standalone-icon-size-medium),
+    "line-height": var(--token-link-standalone-typography-line-height-medium),
+    "letter-spacing": var(--token-link-standalone-typography-letter-spacing-medium),
   ),
   "large": (
-    // 16px = 1rem
-    "font-size": 1rem,
-    // 24px = 1.5rem
-    "icon-size": 1.5rem,
-    // 24px = 1.5
-    "line-height": 1.5,
+    "font-size": var(--token-link-standalone-typography-font-size-large),
+    "icon-size": var(--token-link-standalone-icon-size-large),
+    "line-height": var(--token-link-standalone-typography-line-height-large),
+    "letter-spacing": var(--token-link-standalone-typography-letter-spacing-large),
   ),
 );
 
@@ -84,6 +83,7 @@ $hds-link-standalone-size-props: (
     .hds-link-standalone__text {
       font-size: map.get($hds-link-standalone-size-props, $size, "font-size");
       line-height: map.get($hds-link-standalone-size-props, $size, "line-height");
+      letter-spacing: map.get($hds-link-standalone-size-props, $size, "letter-spacing");
     }
   }
 }
@@ -101,6 +101,10 @@ $hds-link-standalone-size-props: (
 
     .hds-link-standalone__text {
       text-decoration-color: #4e81e8; // custom color by design
+
+      @include hds-apply-only-if-carbon() {
+        text-decoration-color: inherit;
+      }
     }
   }
 
@@ -110,10 +114,14 @@ $hds-link-standalone-size-props: (
 
     .hds-link-standalone__text {
       text-decoration-color: #396ed6; // custom color by design
+
+      @include hds-apply-only-if-carbon() {
+        text-decoration-color: inherit;
+      }
     }
 
     &::before {
-      background-color: var(--token-color-surface-action);
+      background-color: var(--token-link-standalone-surface-color-primary-active);
     }
   }
 }
@@ -137,7 +145,7 @@ $hds-link-standalone-size-props: (
     }
 
     &::before {
-      background-color: var(--token-color-surface-interactive-active);
+      background-color: var(--token-link-standalone-surface-color-secondary-active);
     }
   }
 }
