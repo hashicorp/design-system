@@ -456,6 +456,8 @@
     --token-color-focus-action-internal
   );
   --token-form-radiocard-border-radius: 6px;
+  --token-link-inline-border-radius: 2px;
+  --token-link-inline-icon-margin-horizontal: 0.25em;
   --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
   --token-surface-high-box-shadow:
     0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626,
@@ -825,6 +827,8 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-link-inline-border-radius: 0px;
+    --token-link-inline-icon-margin-horizontal: 0.5em;
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1200,6 +1204,8 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-link-inline-border-radius: 0px;
+    --token-link-inline-icon-margin-horizontal: 0.5em;
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1575,6 +1581,8 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-link-inline-border-radius: 0px;
+  --token-link-inline-icon-margin-horizontal: 0.5em;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1946,6 +1954,8 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-link-inline-border-radius: 0px;
+  --token-link-inline-icon-margin-horizontal: 0.5em;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -2316,6 +2326,8 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-link-inline-border-radius: 0px;
+  --token-link-inline-icon-margin-horizontal: 0.5em;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -2686,6 +2698,8 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-link-inline-border-radius: 0px;
+  --token-link-inline-icon-margin-horizontal: 0.5em;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
