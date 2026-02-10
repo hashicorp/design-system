@@ -25,7 +25,7 @@ export interface HdsAdvancedTableThReorderDropTargetSignature {
     isLastColumn: boolean;
     hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
     reorderHoveredColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
-    siblingColumnKeys?: {
+    draggedColumnSiblingColumnKeys?: {
       previous?: HdsAdvancedTableNormalizedColumn['key'];
       next?: HdsAdvancedTableNormalizedColumn['key'];
     };
@@ -130,7 +130,7 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
       const {
         column,
         draggedColumnKey,
-        siblingColumnKeys,
+        draggedColumnSiblingColumnKeys,
         onSetReorderHoveredColumnKey,
       } = this.args;
 
@@ -144,7 +144,7 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
         } else {
           onSetReorderHoveredColumnKey(column.key);
 
-          const { next, previous } = siblingColumnKeys ?? {};
+          const { next, previous } = draggedColumnSiblingColumnKeys ?? {};
           const dragSide = this._getDragSide(event);
 
           if (

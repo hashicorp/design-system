@@ -66,6 +66,10 @@ export interface HdsAdvancedTableThSignature {
       previous?: HdsAdvancedTableNormalizedColumn['key'];
       next?: HdsAdvancedTableNormalizedColumn['key'];
     };
+    draggedColumnSiblingColumnKeys?: {
+      previous?: HdsAdvancedTableNormalizedColumn['key'];
+      next?: HdsAdvancedTableNormalizedColumn['key'];
+    };
     sortOrder?: HdsAdvancedTableThSortOrder;
     tableHeight?: number;
     tooltip?: string;

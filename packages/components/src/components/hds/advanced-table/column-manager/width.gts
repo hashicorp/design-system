@@ -43,7 +43,7 @@ interface HdsAdvancedTableColumnManagerWidthSignature {
           columnKey: HdsAdvancedTableNormalizedColumn['key']
         ) => HdsAdvancedTableNormalizedColumn['width'];
         getSiblingColumnKeys: (
-          columnKey: HdsAdvancedTableNormalizedColumn['key']
+          columnKey: HdsAdvancedTableNormalizedColumn['key'] | null
         ) => {
           previous?: HdsAdvancedTableNormalizedColumn['key'];
           next?: HdsAdvancedTableNormalizedColumn['key'];
@@ -101,11 +101,15 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
   };
 
   getSiblingColumnKeys = (
-    columnKey: HdsAdvancedTableNormalizedColumn['key']
+    columnKey: HdsAdvancedTableNormalizedColumn['key'] | null
   ): {
     previous?: HdsAdvancedTableNormalizedColumn['key'];
     next?: HdsAdvancedTableNormalizedColumn['key'];
   } => {
+    if (columnKey === null) {
+      return {};
+    }
+
     const columnIndex = this.args.columnOrder.indexOf(columnKey);
 
     if (columnIndex === -1) {

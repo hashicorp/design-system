@@ -78,6 +78,7 @@
                 @isStickyColumnPinned={{this.isStickyColumnPinned}}
                 @lastColumnKey={{CM.lastColumnKey}}
                 @reorderHoveredColumnKey={{CM.reorderHoveredColumnKey}}
+                @draggedColumnSiblingColumnKeys={{if CM.draggedColumnKey (CM.getSiblingColumnKeys CM.draggedColumnKey)}}
                 @siblingColumnKeys={{CM.getSiblingColumnKeys column.key}}
                 @tableHeight={{this._tableHeight}}
                 @tooltip={{column.tooltip}}
