@@ -11,7 +11,7 @@ import {
   HdsIconTileProductValues,
   HdsIconTileSizeValues,
 } from './types.ts';
-import HdsIcon from '../icon/index.ts';
+import HdsIcon from '../icon/index.gts';
 
 import type {
   HdsIconTileColors,
