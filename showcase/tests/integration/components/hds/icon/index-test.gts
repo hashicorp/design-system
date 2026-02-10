@@ -19,6 +19,14 @@ module('Integration | Component | hds-icon', function (hooks) {
     assert.dom('svg.hds-icon').hasClass('hds-icon');
   });
 
+  test('changing the @name argument updates the rendered icon', async function (assert) {
+    this.set('iconName', 'activity');
+    await render(<template><HdsIcon @name={{this.iconName}} /></template>);
+    assert.dom('svg.hds-icon-activity').exists();
+    this.set('iconName', 'alert-circle');
+    assert.dom('svg.hds-icon-alert-circle').exists();
+  });
+
   // SIZE
 
   test('it renders the 16x16 icon by default', async function (assert) {
