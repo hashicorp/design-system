@@ -373,6 +373,7 @@
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
       "./helpers/hds-t.js": "./dist/_app_/helpers/hds-t.js",
       "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
+      "./instance-initializers/mount-icon-defs-host.js": "./dist/_app_/instance-initializers/mount-icon-defs-host.js",
       "./modifiers/hds-advanced-table-cell.js": "./dist/_app_/modifiers/hds-advanced-table-cell.js",
       "./modifiers/hds-advanced-table-cell/dom-management.js": "./dist/_app_/modifiers/hds-advanced-table-cell/dom-management.js",
       "./modifiers/hds-advanced-table-cell/keyboard-navigation.js": "./dist/_app_/modifiers/hds-advanced-table-cell/keyboard-navigation.js",
@@ -388,6 +389,7 @@
       "./modifiers/hds-code-editor/types.js": "./dist/_app_/modifiers/hds-code-editor/types.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
+      "./services/hds-icon-registry.js": "./dist/_app_/services/hds-icon-registry.js",
       "./services/hds-intl.js": "./dist/_app_/services/hds-intl.js",
       "./services/hds-theming.js": "./dist/_app_/services/hds-theming.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"

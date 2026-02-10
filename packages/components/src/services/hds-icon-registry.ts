@@ -68,58 +68,6 @@ export default class HdsIconRegistryService extends Service {
   >();
   private flushScheduled = false;
 
-  // intersection observer
-  private _observer: IntersectionObserver | null = null;
-  private _observerCallbacks = new WeakMap<Element, () => void>();
-
-  private ensureObserver(): IntersectionObserver | null {
-    if (this._observer) {
-      return this._observer;
-    }
-
-    if (!hasDOM()) {
-      return null;
-    }
-
-    this._observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const callback = this._observerCallbacks.get(entry.target);
-
-            callback?.();
-
-            this.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: '100px' }
-    );
-
-    return this._observer;
-  }
-
-  observe(element: Element, loadFn: () => void): void {
-    const observer = this.ensureObserver();
-
-    if (observer === null) {
-      loadFn();
-
-      return;
-    }
-
-    this._observerCallbacks.set(element, loadFn);
-
-    observer.observe(element);
-  }
-
-  unobserve(element: Element): void {
-    if (this._observer) {
-      this._observer.unobserve(element);
-      this._observerCallbacks.delete(element);
-    }
-  }
-
   track(key: string): void {
     let signal = this.signals.get(key);
 
