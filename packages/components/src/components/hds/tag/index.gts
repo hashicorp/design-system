@@ -8,12 +8,23 @@ import { tracked } from '@glimmer/tracking';
 import { TrackedWeakSet } from 'tracked-built-ins';
 import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
+import { on } from '@ember/modifier';
+import { or } from 'ember-truth-helpers';
+import { hash } from '@ember/helper';
 
 import { HdsTagColorValues } from './types.ts';
-import type { HdsTagColors } from './types.ts';
 import { HdsTagTooltipPlacementValues } from './types.ts';
+import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
+import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
+import HdsInteractive from '../interactive/index.gts';
+import HdsTooltipButton from '../tooltip-button/index.gts';
+import HdsTextBody from '../text/body.gts';
+import HdsIcon from '../icon/index.gts';
+import hdsTooltip from '../../../modifiers/hds-tooltip.ts';
+
+import type { HdsTagColors } from './types.ts';
 import type { HdsTagTooltipPlacements } from './types.ts';
-import type { HdsInteractiveSignature } from '../interactive/';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
 
 export const COLORS: HdsTagColors[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
@@ -73,12 +84,6 @@ export default class HdsTag extends Component<HdsTagSignature> {
     };
   });
 
-  /**
-   * @param tooltioPlacement
-   * @type {string}
-   * @default top
-   * @description The placement property of the tooltip attached to the tag text.
-   */
   get tooltipPlacement(): HdsTagTooltipPlacements {
     const { tooltipPlacement = DEFAULT_TOOLTIP_PLACEMENT } = this.args;
 
@@ -91,11 +96,6 @@ export default class HdsTag extends Component<HdsTagSignature> {
     return tooltipPlacement;
   }
 
-  /**
-   * @param onDismiss
-   * @type {function}
-   * @default () => {}
-   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   get onDismiss(): ((event: MouseEvent, ...args: any[]) => void) | false {
     const { onDismiss } = this.args;
@@ -107,11 +107,6 @@ export default class HdsTag extends Component<HdsTagSignature> {
     }
   }
 
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the tag. If no text value is defined, an error will be thrown.
-   */
   get text(): string {
     const { text } = this.args;
 
@@ -120,22 +115,11 @@ export default class HdsTag extends Component<HdsTagSignature> {
     return text;
   }
 
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'Dismiss'
-   */
   get ariaLabel(): string {
     const tagAriaLabel = this.args.ariaLabel ?? 'Dismiss';
     return tagAriaLabel + ' ' + this.args.text;
   }
 
-  /**
-   * @param color
-   * @type {string}
-   * @default primary
-   * @description Determines the color of link to be used; acceptable values are `primary` and `secondary`
-   */
   get color(): HdsTagColors | false {
     if (this.args.href || this.args.route) {
       const { color = DEFAULT_COLOR } = this.args;
@@ -155,11 +139,6 @@ export default class HdsTag extends Component<HdsTagSignature> {
     return false;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-tag'];
 
@@ -170,4 +149,96 @@ export default class HdsTag extends Component<HdsTagSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <span class={{this.classNames}} {{this._setUpObserver}} ...attributes>
+      {{#if this.onDismiss}}
+        <button
+          class="hds-tag__dismiss"
+          type="button"
+          aria-label={{this.ariaLabel}}
+          {{on "click" this.onDismiss}}
+        >
+          <HdsIcon class="hds-tag__dismiss-icon" @name="x" @size="16" />
+        </button>
+      {{/if}}
+      {{#if (or @href @route)}}
+        {{#if this._isTextOverflow}}
+          <HdsInteractive
+            class="hds-tag__link"
+            @current-when={{@current-when}}
+            @models={{hdsLinkToModels @model @models}}
+            @query={{hdsLinkToQuery @query}}
+            @replace={{@replace}}
+            @route={{@route}}
+            @isRouteExternal={{@isRouteExternal}}
+            @href={{@href}}
+            @isHrefExternal={{@isHrefExternal}}
+            {{hdsTooltip
+              this.text
+              options=(hash placement=this.tooltipPlacement)
+            }}
+          >
+            <HdsTextBody
+              @tag="span"
+              @size="100"
+              @weight="medium"
+              class="hds-tag__text-container"
+            >
+              {{this.text}}
+            </HdsTextBody>
+          </HdsInteractive>
+        {{else}}
+          <HdsInteractive
+            class="hds-tag__link"
+            @current-when={{@current-when}}
+            @models={{hdsLinkToModels @model @models}}
+            @query={{hdsLinkToQuery @query}}
+            @replace={{@replace}}
+            @route={{@route}}
+            @isRouteExternal={{@isRouteExternal}}
+            @href={{@href}}
+            @isHrefExternal={{@isHrefExternal}}
+          >
+            <HdsTextBody
+              @tag="span"
+              @size="100"
+              @weight="medium"
+              class="hds-tag__text-container"
+            >
+              {{this.text}}
+            </HdsTextBody>
+          </HdsInteractive>
+        {{/if}}
+      {{else}}
+        {{#if this._isTextOverflow}}
+          <HdsTooltipButton
+            class="hds-tag__text"
+            @text={{this.text}}
+            @placement={{this.tooltipPlacement}}
+          >
+            <HdsTextBody
+              @tag="span"
+              @size="100"
+              @weight="medium"
+              class="hds-tag__text-container"
+            >
+              {{this.text}}
+            </HdsTextBody>
+          </HdsTooltipButton>
+        {{else}}
+          <span class="hds-tag__text">
+            <HdsTextBody
+              @tag="span"
+              @size="100"
+              @weight="medium"
+              class="hds-tag__text-container"
+            >
+              {{this.text}}
+            </HdsTextBody>
+          </span>
+        {{/if}}
+      {{/if}}
+    </span>
+  </template>
 }
