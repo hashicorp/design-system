@@ -34,12 +34,12 @@ export { default as HdsAlertTitle } from './components/hds/alert/title.gts';
 export * from './components/hds/alert/types.ts';
 
 // AppFooter
-export { default as HdsAppFooter } from './components/hds/app-footer/index.ts';
-export { default as HdsAppFooterCopyright } from './components/hds/app-footer/copyright.ts';
-export { default as HdsAppFooterItem } from './components/hds/app-footer/item.ts';
-export { default as HdsAppFooterLegalLinks } from './components/hds/app-footer/legal-links.ts';
-export { default as HdsAppFooterLink } from './components/hds/app-footer/link.ts';
-export { default as HdsAppFooterStatusLink } from './components/hds/app-footer/status-link.ts';
+export { default as HdsAppFooter } from './components/hds/app-footer/index.gts';
+export { default as HdsAppFooterCopyright } from './components/hds/app-footer/copyright.gts';
+export { default as HdsAppFooterItem } from './components/hds/app-footer/item.gts';
+export { default as HdsAppFooterLegalLinks } from './components/hds/app-footer/legal-links.gts';
+export { default as HdsAppFooterLink } from './components/hds/app-footer/link.gts';
+export { default as HdsAppFooterStatusLink } from './components/hds/app-footer/status-link.gts';
 export * from './components/hds/app-footer/types.ts';
 
 // AppHeader

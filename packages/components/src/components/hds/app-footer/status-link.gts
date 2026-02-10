@@ -6,14 +6,20 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
+import { array } from '@ember/helper';
 
 import type { SafeString } from '@ember/template';
-import type { HdsInteractiveSignature } from '../interactive/';
-import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
-import type { HdsAppFooterStatusTypes } from './types.ts';
-import type { HdsAppFooterLinkSignature } from './link.ts';
-import type { HdsIconSignature } from '../icon';
 import type Owner from '@ember/owner';
+
+import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
+import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
+import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
+import HdsAppFooterLink from './link.gts';
+
+import type { HdsAppFooterStatusTypes } from './types.ts';
+import type { HdsAppFooterLinkSignature } from './link.gts';
+import type { HdsIconSignature } from '../icon/index.gts';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
 
 export const STATUSES = HdsAppFooterStatusLinkStatusValues;
 
@@ -38,11 +44,6 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
     );
   }
 
-  /**
-   * @param status
-   * @type {HdsAppFooterStatusTypes}
-   * @description The name of the status which the StatusLink is being set to
-   */
   get status(): HdsAppFooterStatusTypes | undefined {
     let status;
     if (this.args.status) {
@@ -66,11 +67,6 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
     );
   }
 
-  /**
-   * Get the inline style to apply to the item.
-   * @method StatusLink#itemStyle
-   * @return {string} The "style" attribute to apply to the item.
-   */
   get itemStyle(): SafeString | undefined {
     if (this.args.statusIconColor) {
       return htmlSafe(
@@ -81,11 +77,6 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
     }
   }
 
-  /**
-   * @param text
-   * @type {string}
-   * @description The text content of the StatusLink
-   */
   get text(): string | undefined {
     if (!this.args.text && this.status) {
       return STATUSES[this.status]?.text;
@@ -93,20 +84,10 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
     return this.args.text;
   }
 
-  /**
-   * @param href
-   * @type {string}
-   * @description The href value of the StatusLink
-   */
   get href(): string {
     return this.args.href ?? 'https://status.hashicorp.com';
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-app-footer__status-link'];
 
@@ -117,4 +98,24 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
 
     return classes.join(' ');
   }
+
+  <template>
+    <HdsAppFooterLink
+      class={{this.classNames}}
+      style={{this.itemStyle}}
+      @current-when={{@current-when}}
+      @models={{hdsLinkToModels (array @model @models)}}
+      @query={{hdsLinkToQuery (array @query)}}
+      @replace={{@replace}}
+      @route={{@route}}
+      @isRouteExternal={{@isRouteExternal}}
+      @href={{this.href}}
+      @isHrefExternal={{@isHrefExternal}}
+      @icon={{this.statusIcon}}
+      @iconPosition="leading"
+      ...attributes
+    >
+      {{this.text}}
+    </HdsAppFooterLink>
+  </template>
 }
