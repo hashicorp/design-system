@@ -6,7 +6,6 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 import { capitalize } from '@ember/string';
-import { helper } from '@ember/component/helper';
 import { eq } from 'ember-truth-helpers';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
@@ -22,36 +21,6 @@ import {
   HdsLinkInline,
 } from '@hashicorp/design-system-components/components';
 import { COLORS } from '@hashicorp/design-system-components/components/hds/link/inline';
-
-const MAPPING_HDS_TEXT_SIZES_TO_HDS_CLASSES = {
-  small: 'hds-typography-body-100',
-  medium: 'hds-typography-body-200',
-  large: 'hds-typography-body-300',
-} as const;
-
-const MAPPING_HDS_TEXT_SIZES_TO_CDS_SIZE = {
-  small: 'sm',
-  medium: 'md',
-  large: 'lg',
-} as const;
-
-const HDS_TEXT_SIZES = Object.keys(
-  MAPPING_HDS_TEXT_SIZES_TO_HDS_CLASSES,
-) as (keyof typeof MAPPING_HDS_TEXT_SIZES_TO_HDS_CLASSES)[];
-
-type HdsTextSizeClasses = [keyof typeof MAPPING_HDS_TEXT_SIZES_TO_HDS_CLASSES];
-
-const mapHdsTextSizesToHdsClasses = helper(function ([
-  textSize,
-]: HdsTextSizeClasses) {
-  return MAPPING_HDS_TEXT_SIZES_TO_HDS_CLASSES[textSize];
-});
-
-const mapHdsTextSizesToCdsSize = helper(function ([
-  textSize,
-]: HdsTextSizeClasses) {
-  return MAPPING_HDS_TEXT_SIZES_TO_CDS_SIZE[textSize];
-});
 
 const STATES = ['default', 'hover', 'active', 'focus'];
 
@@ -94,33 +63,6 @@ const BadgeLinkInlineIndex: TemplateOnlyComponent = <template>
               @isInline={{true}}
               slot="icon"
             /></cds-link>
-        </HdsLayoutFlex>
-      </:reference>
-    </ShwCarbonizationComparisonGrid>
-
-    <ShwDivider @level={{2}} />
-
-    <ShwTextH2>Size</ShwTextH2>
-
-    <ShwCarbonizationComparisonGrid>
-      <:theming>
-        {{#each HDS_TEXT_SIZES as |textSize|}}
-          <div class={{mapHdsTextSizesToHdsClasses textSize}}>
-            <HdsLinkInline @color="primary" @href="#">Lorem ipsum dolor</HdsLinkInline>
-          </div>
-        {{/each}}
-      </:theming>
-      <:reference>
-        <HdsLayoutFlex @direction="column">
-          {{#each HDS_TEXT_SIZES as |textSize|}}
-            <cds-link
-              href="#"
-              inline
-              size={{mapHdsTextSizesToCdsSize textSize}}
-            >
-              Lorem ipsum dolor
-            </cds-link>
-          {{/each}}
         </HdsLayoutFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
