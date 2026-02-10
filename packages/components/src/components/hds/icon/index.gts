@@ -34,7 +34,6 @@ export interface HdsIconSignature {
     size?: HdsIconSizes;
     stretched?: boolean;
     isInline?: boolean;
-    isLazy?: boolean;
     title?: string;
   };
   Element: SVGElement;
@@ -47,32 +46,14 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   private _iconId = 'icon-' + guidFor(this);
   private _titleId = 'title-' + guidFor(this);
 
-  loadIcon = modifier((element: HdsIconSignature['Element']) => {
+  loadIcon = modifier(() => {
     const library = this.isCarbon
       ? HdsIconLibraryValues.Carbon
       : HdsIconLibraryValues.Flight;
     const key = makeIconKey({ library, name: this.name, size: this.size });
 
-    const performLoad = () => {
-      this.hdsIconRegistry.requestLoad(key, this.loader);
-    };
-
-    if (this.isLazy) {
-      this.hdsIconRegistry.observe(element, performLoad);
-    } else {
-      performLoad();
-    }
-
-    return () => {
-      if (this.isLazy) {
-        this.hdsIconRegistry.unobserve(element);
-      }
-    };
+    this.hdsIconRegistry.requestLoad(key, this.loader);
   });
-
-  get isLazy(): boolean {
-    return (this.args.isLazy ?? true) && !this.isInline;
-  }
 
   get name(): HdsIconSignature['Args']['name'] {
     const { name } = this.args;
