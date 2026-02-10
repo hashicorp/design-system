@@ -55,8 +55,8 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
 
     <MockApp @hasPageAlert={{true}}>
       <:sidebar as |S|>
-        <S.SideNav>
-          <:extraBodyAfter>
+        <S.AppSideNav>
+          <:extraAfter>
             <div {{style margin-top="16px"}}>
               <HdsThemeSwitcher
                 @toggleSize="medium"
@@ -64,8 +64,8 @@ export default class PageFoundationsThemingFramelessDemoApplicationWithThemeSwit
                 @hasDefaultOption={{true}}
               />
             </div>
-          </:extraBodyAfter>
-        </S.SideNav>
+          </:extraAfter>
+        </S.AppSideNav>
       </:sidebar>
       <:main as |M|>
         <M.PageHeader @showActionButton={{true}} @showActionDropdown={{true}} />
