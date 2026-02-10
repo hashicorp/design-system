@@ -4,25 +4,24 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
-import { htmlSafe } from '@ember/template';
+import { modifier } from 'ember-modifier';
 import { iconNames } from '@hashicorp/flight-icons/svg';
 import { IconRegistry } from '@hashicorp/flight-icons/symbol-js/registry';
-import { task } from 'ember-concurrency';
-import { modifier } from 'ember-modifier';
-import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
+import { makeIconKey } from '@hashicorp/design-system-components/services/hds-icon-registry';
+import {
+  HdsIconSizeValues,
+  HdsIconColorValues,
+  HdsIconLibraryValues,
+} from './types.ts';
 
-import type { SafeString } from '@ember/template';
 import type { IconName } from '@hashicorp/flight-icons/svg';
-import type {
-  HdsIconModule,
-  HdsIconRegistryEntry,
-} from '@hashicorp/flight-icons/symbol-js/registry';
+import type { HdsIconRegistryEntry } from '@hashicorp/flight-icons/symbol-js/registry';
 import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
-import type { HdsIconSizes, HdsIconColors } from './types.ts';
+import type HdsIconRegistryService from '@hashicorp/design-system-components/services/hds-icon-registry';
+import type { HdsIconSizes, HdsIconColors, HdsIconLoader } from './types.ts';
 
 export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
 export const NAMES = iconNames;
@@ -35,6 +34,7 @@ export interface HdsIconSignature {
     size?: HdsIconSizes;
     stretched?: boolean;
     isInline?: boolean;
+    isLazy?: boolean;
     title?: string;
   };
   Element: SVGElement;
@@ -42,30 +42,37 @@ export interface HdsIconSignature {
 
 export default class HdsIcon extends Component<HdsIconSignature> {
   @service declare readonly hdsTheming: HdsThemingService;
-
-  @tracked iconModule: HdsIconModule | null = null;
+  @service declare readonly hdsIconRegistry: HdsIconRegistryService;
 
   private _iconId = 'icon-' + guidFor(this);
   private _titleId = 'title-' + guidFor(this);
 
-  // we use a modifier instead of a simple constructor so the component can
-  // react to changes to the `@name` and `@size` arguments and reload the
-  // correct icon module accordingly
-  loadIconModule = modifier(
-    (
-      _element: SVGElement,
+  loadIcon = modifier((element: HdsIconSignature['Element']) => {
+    const library = this.isCarbon
+      ? HdsIconLibraryValues.Carbon
+      : HdsIconLibraryValues.Flight;
+    const key = makeIconKey({ library, name: this.name, size: this.size });
 
-      _positional: [],
-      {
-        name,
-        size,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        carbonThemeEnabled,
-      }: { name: IconName; size: HdsIconSizes; carbonThemeEnabled: boolean }
-    ) => {
-      void this.loadIconModuleTask.perform(name, size);
+    const performLoad = () => {
+      this.hdsIconRegistry.requestLoad(key, this.loader);
+    };
+
+    if (this.isLazy) {
+      this.hdsIconRegistry.observe(element, performLoad);
+    } else {
+      performLoad();
     }
-  );
+
+    return () => {
+      if (this.isLazy) {
+        this.hdsIconRegistry.unobserve(element);
+      }
+    };
+  });
+
+  get isLazy(): boolean {
+    return (this.args.isLazy ?? true) && !this.isInline;
+  }
 
   get name(): HdsIconSignature['Args']['name'] {
     const { name } = this.args;
@@ -96,20 +103,6 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
   get isCarbon(): boolean {
     return this.hdsTheming.carbonThemeEnabled && this.hasCarbonEquivalent;
-  }
-
-  get svgSymbol(): SafeString | undefined {
-    if (this.iconModule === null) {
-      return undefined;
-    }
-
-    return htmlSafe(this.iconModule.default(this.uniqueSymbolId));
-  }
-
-  // this is the internal unique DOM `id` for the `<symbol>` element
-  get uniqueSymbolId(): string {
-    // note: we can't use just the `_iconId` because that's the DOM `id` of the `<svg>` element
-    return `${this._iconId}-symbol`;
   }
 
   get isInline() {
@@ -181,60 +174,63 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     return classes.join(' ');
   }
 
-  loadIconModuleTask = task(
-    async (name: IconName, size: HdsIconSizes): Promise<void> => {
-      let loader;
+  private get loader(): HdsIconLoader {
+    const { name, size } = this;
+    let loader: HdsIconLoader | undefined;
 
-      if (this.isCarbon) {
-        loader = this.registryEntry?.carbon ?? undefined;
-        assert(
-          `Carbon icon not available for "${name}".`,
-          loader !== undefined
-        );
-      } else {
-        loader = this.registryEntry?.flight[size] ?? undefined;
-        assert(
-          `Flight icon not available for "${name}" with size "${size}".`,
-          loader !== undefined
-        );
-      }
-
-      this.iconModule = await loader();
+    if (this.isCarbon) {
+      loader = this.registryEntry?.carbon ?? undefined;
+      assert(`Carbon icon not available for "${name}".`, loader !== undefined);
+    } else {
+      loader = this.registryEntry?.flight[size] ?? undefined;
+      assert(
+        `Flight icon not available for "${name}" with size "${size}".`,
+        loader !== undefined
+      );
     }
-  );
+
+    return loader;
+  }
+
+  get symbolId(): string | null {
+    const library = this.isCarbon ? 'carbon' : 'flight';
+    const key = makeIconKey({ library, name: this.name, size: this.size });
+
+    return this.hdsIconRegistry.getSymbolId(key);
+  }
 
   <template>
     <svg
       class={{this.classNames}}
       ...attributes
-      aria-hidden={{if @title "false" "true"}}
+      aria-hidden="{{if @title 'false' 'true'}}"
       aria-labelledby={{this.ariaLabelledby}}
       data-test-icon={{this.name}}
       data-has-carbon-equivalent={{this.hasCarbonEquivalent}}
       data-is-carbon={{this.isCarbon}}
-      fill={{this.fillColor}}
+      fill="{{this.fillColor}}"
       id={{this._iconId}}
       role={{this.role}}
       width={{this.svgSize.width}}
       height={{this.svgSize.height}}
       viewBox="0 0 {{this.size}} {{this.size}}"
       xmlns="http://www.w3.org/2000/svg"
-      {{this.loadIconModule
-        name=this.name
-        size=this.size
-        carbonThemeEnabled=this.hdsTheming.carbonThemeEnabled
-      }}
+      {{this.loadIcon}}
     >
-      {{#if @title}}
-        <title id={{this._titleId}}>{{@title}}</title>
-        <g role="presentation">
-          <use href="#{{this.uniqueSymbolId}}"></use>
-        </g>
-      {{else}}
-        <use href="#{{this.uniqueSymbolId}}"></use>
-      {{/if}}
-
-      {{this.svgSymbol}}
+      {{#let this.symbolId as |symbolId|}}
+        {{#if @title}}
+          <title id={{this._titleId}}>{{@title}}</title>
+          <g role="presentation">
+            {{#if symbolId}}
+              <use href="#{{symbolId}}"></use>
+            {{/if}}
+          </g>
+        {{else}}
+          {{#if symbolId}}
+            <use href="#{{symbolId}}"></use>
+          {{/if}}
+        {{/if}}
+      {{/let}}
     </svg>
   </template>
 }
