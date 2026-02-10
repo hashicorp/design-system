@@ -166,7 +166,7 @@ function convertCubicBezierValue(value: string) {
   // eg. `cubic-bezier(0.2, 0, 0.38, 0.9)`
   const match = value.match(/^cubic-bezier\((.*)\)$/);
   if (match) {
-    const $value = `[${match[1]}]`;
+    const $value = match[1].split(',').map(s => parseFloat(s.trim()));
     return { $value };
   } else {
     return undefined;
