@@ -443,6 +443,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.link.standalone">
+            Link::Standalone
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.modal">
             Modal
           </LinkTo>
