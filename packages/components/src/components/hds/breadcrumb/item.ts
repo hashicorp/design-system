@@ -4,14 +4,9 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
-import { hdsResolveLinkToExternal } from '../../../utils/hds-resolve-link-to-external.ts';
-
-import type Owner from '@ember/owner';
-import type { LinkTo } from '@ember/routing';
 import type { SafeString } from '@ember/template';
 import type { HdsIconSignature } from '../icon/index';
 
@@ -23,6 +18,7 @@ export interface HdsBreadcrumbItemSignature {
     isRouteExternal?: boolean;
     icon?: HdsIconSignature['Args']['name'];
     route?: string;
+    href?: string;
     models?: Array<string | number>;
     model?: string | number;
     query?: Record<string, string>;
@@ -33,23 +29,6 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
-  @tracked linkToExternal: LinkTo | null = null;
-
-  constructor(owner: Owner, args: HdsBreadcrumbItemSignature['Args']) {
-    super(owner, args);
-
-    // we want to avoid resolving the component if it's not needed
-    if (args.isRouteExternal) {
-      void this.resolveLinkToExternal();
-    }
-  }
-
-  async resolveLinkToExternal() {
-    this.linkToExternal = await hdsResolveLinkToExternal(
-      this.args.isRouteExternal
-    );
-  }
-
   /**
    * @param maxWidth
    * @type {string}

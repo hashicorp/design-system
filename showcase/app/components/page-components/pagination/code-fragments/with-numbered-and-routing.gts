@@ -25,7 +25,7 @@ interface CodeFragmentWithNumberedAndRoutingSignature {
 }
 
 export default class CodeFragmentWithNumberedAndRouting extends Component<CodeFragmentWithNumberedAndRoutingSignature> {
-  @service declare router: RouterService;
+  @service declare readonly router: RouterService;
 
   get demoRouteName() {
     // eg. 'components.pagination';

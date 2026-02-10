@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// these are the "standard" HDS tokens (the file comes from `packages/tokens/dist/`)
-@use "products/css/tokens";
+// these are the "standard" HDS tokens (the file comes from `packages/tokens/dist/products/css/`)
+@use "tokens";
 
 // these are the styles specific (and only) for the HDS components
 @use "./design-system-components-common";

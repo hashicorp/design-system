@@ -6,7 +6,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
-import type { HdsButtonSignature } from '../../button/index.ts';
+import type { HdsButtonSignature } from '../../button/index.gts';
 
 export interface HdsFormKeyValueInputsDeleteRowButtonSignature {
   Args: {

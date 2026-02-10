@@ -4,6 +4,7 @@ Autoscaler
 borderless
 charcount
 Charcount
+cloudability
 Cntrl
 codemod
 codemods
@@ -14,6 +15,7 @@ Credly
 datacenter
 datacenters
 datagrid
+datetimes
 Deque’s
 devdot
 dialogprimitive
@@ -46,6 +48,7 @@ rgba
 roadmap
 salesy
 scannability
+screenreader
 Segoe
 SideNav
 signup

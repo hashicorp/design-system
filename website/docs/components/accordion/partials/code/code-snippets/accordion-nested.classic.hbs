@@ -1,0 +1,17 @@
+<Hds::Accordion @type="flush" as |A|>
+  <A.Item @isOpen={{true}}>
+    <:toggle>Item one</:toggle>
+    <:content>
+      <Hds::Accordion @type="flush" as |AA|>
+        <AA.Item>
+          <:toggle>Nested item one</:toggle>
+          <:content>Nested content one</:content>
+        </AA.Item>
+        <AA.Item>
+          <:toggle>Nested item two</:toggle>
+          <:content>Nested content two</:content>
+        </AA.Item>
+      </Hds::Accordion>
+    </:content>
+  </A.Item>
+</Hds::Accordion>

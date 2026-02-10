@@ -1,6 +1,6 @@
 {
   "name": "@hashicorp/flight-icons",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "Flight: HashiCorp SVG icon set",
   "keywords": [
     "hashicorp",
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@carbon/icons": "^11.71.0",
     "@figma-export/cli": "^6.0.2",
-    "@figma-export/core": "^6.2.0",
+    "@figma-export/core": "^6.3.0",
     "@figma-export/output-components-as-svg": "^6.0.1",
     "@figma-export/transform-svg-with-svgo": "^6.0.2",
     "@figma-export/types": "^6.0.0",
@@ -47,7 +47,7 @@
     "eslint": "^8.57.1",
     "figma-api": "^2.1.0-beta",
     "fs-extra": "^11.2.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "mini-svg-data-uri": "^1.4.4",
     "prettier": "^3.4.2",
     "svgo": "~1.3.2",

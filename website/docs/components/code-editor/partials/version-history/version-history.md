@@ -1,3 +1,11 @@
+## 6.0.0
+
+Updated HdsIntlService service declaration in `CodeEditor` modifier to align how services are declared
+
+
+Normalized error messages into readable strings
+
+
 ## 5.2.0
 
 Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content

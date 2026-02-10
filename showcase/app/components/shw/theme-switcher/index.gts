@@ -14,8 +14,6 @@ import ShwThemeSwitcherPopover from './popover';
 import ShwThemeSwitcherSelector from './selector';
 import ShwThemeSwitcherDebuggingPanel from './debugging-panel';
 
-import HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
-
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 
 export type ControlsPreferences = {
@@ -37,7 +35,6 @@ interface ShwThemeSwitcherSignature {
 }
 
 export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignature> {
-  @service declare readonly hdsTheming: HdsThemingService;
   @service declare readonly shwTheming: ShwThemingService;
 
   @tracked showAdvancedOptions: boolean;

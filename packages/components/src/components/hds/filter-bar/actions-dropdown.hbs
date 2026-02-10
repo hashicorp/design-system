@@ -1,0 +1,18 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Dropdown
+  @listPosition="bottom-right"
+  @enableCollisionDetection={{@enableCollisionDetection}}
+  @width={{@width}}
+  @height={{@height}}
+  @preserveContentInDom={{@preserveContentInDom}}
+  @onClose={{@onClose}}
+  class="hds-filter-bar__actions-dropdown"
+  ...attributes
+  as |D|
+>
+  <D.ToggleButton @icon={{@toggleButtonIcon}} @text={{this.toggleButtonText}} @color="secondary" @size="small" />
+  {{yield D}}
+</Hds::Dropdown>

@@ -8,10 +8,12 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
+import ShwDivider from 'showcase/components/shw/divider';
 
 import SubSectionVariants from 'showcase/components/page-components/breadcrumb/sub-sections/variants';
 import SubSectionStates from 'showcase/components/page-components/breadcrumb/sub-sections/states';
 import SubSectionTruncationOptions from 'showcase/components/page-components/breadcrumb/sub-sections/truncation-options';
+import SubSectionBaseElements from 'showcase/components/page-components/breadcrumb/sub-sections/base-elements';
 
 const BreadcrumbIndex: TemplateOnlyComponent = <template>
   {{pageTitle "Breadcrumb Component"}}
@@ -22,6 +24,8 @@ const BreadcrumbIndex: TemplateOnlyComponent = <template>
     <SubSectionVariants />
     <SubSectionStates />
     <SubSectionTruncationOptions />
+    <ShwDivider />
+    <SubSectionBaseElements />
   </section>
 </template>;
 

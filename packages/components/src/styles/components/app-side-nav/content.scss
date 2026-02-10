@@ -4,7 +4,7 @@
  */
 
 //
-// SIDE-NAV > CONTENT (PORTALS + LISTS OF ITEMS/LINKS)
+// APP-SIDE-NAV > CONTENT (PORTALS + LISTS OF ITEMS/LINKS)
 //
 
 @use "../../mixins/focus-ring" as *;
@@ -16,7 +16,7 @@
   // to have the panels width match the sidebar extended width (it's used in the animated sliding of the panels)
   margin: 0 calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
 
-  // we hide the content when the SideNav is collapsed to prevent the vertical scrollbar from being visible
+  // we hide the content when the AppSideNav is collapsed to prevent the vertical scrollbar from being visible
   // when the scrollbar is set to be always visible or a mouse or trackpad force it to be always visible.
   // ideally we would use `display: none` but doing so would disable the fade-in transition when expanding
   .hds-app-side-nav--is-minimized & {

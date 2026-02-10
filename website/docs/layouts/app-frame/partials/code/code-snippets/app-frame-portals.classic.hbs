@@ -1,0 +1,12 @@
+<div class="doc-app-frame-mock-viewport">
+  <Hds::AppFrame as |Frame|>
+    <Frame.Sidebar>
+      ...
+    </Frame.Sidebar>
+    <Frame.Main>
+      ...
+    </Frame.Main>
+    {{! assign an ID to the element to target it in the DOM }}
+    <Frame.Modals id="app-frame-modals" data-test-modals-container />
+  </Hds::AppFrame>
+</div>

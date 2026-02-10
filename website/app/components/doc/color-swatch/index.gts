@@ -57,22 +57,22 @@ export default class DocColorSwatch extends Component<DocColorSwatchSignature> {
         <ul class="doc-color-swatch__list" role="list">
           <li class="doc-color-swatch__listitem">
             <span class="doc-color-swatch__listitem--context">CSS Variable</span>
-            <DocCopyButton @textToCopy={{this.cssVariable}} @type="ghost" />
+            <DocCopyButton @type="code" @textToCopy={{this.cssVariable}} />
 
           </li>
           {{#if this.cssHelper}}
             <li class="doc-color-swatch__listitem">
               <span class="doc-color-swatch__listitem--context">CSS Helper</span>
               <DocCopyButton
+                @type="code"
                 @textToCopy={{this.cssHelper}}
                 @textToShow=".{{this.cssHelper}}"
-                @type="ghost"
               />
             </li>
           {{/if}}
           <li class="doc-color-swatch__listitem">
             <span class="doc-color-swatch__listitem--context">HEX</span>
-            <DocCopyButton @textToCopy={{this.hexValue}} @type="ghost" />
+            <DocCopyButton @type="code" @textToCopy={{this.hexValue}} />
           </li>
         </ul>
       </div>

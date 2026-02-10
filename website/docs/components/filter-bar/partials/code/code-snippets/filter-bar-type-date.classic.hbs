@@ -1,0 +1,8 @@
+<Hds::FilterBar @filters={{this.demoDateTimeFilters}} @onFilter={{this.demoUpdateDateTimeFilters}} as |F|>
+  <F.FiltersDropdown as |D|>
+    <D.FilterGroup @key="demo-date" @text="Date" @type="date" />
+    <D.FilterGroup @key="demo-time" @text="Time" @type="time" />
+    <D.FilterGroup @key="demo-datetime" @text="Datetime" @type="datetime" />
+    <D.FilterGroup @key="demo-date-range" @text="Date range" @type="date" />
+  </F.FiltersDropdown>
+</Hds::FilterBar>

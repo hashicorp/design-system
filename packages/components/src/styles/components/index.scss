@@ -26,6 +26,7 @@
 @use "./disclosure-primitive";
 @use "./dismiss-button";
 @use "./dropdown";
+@use "./filter-bar";
 @use "./flyout";
 @use "./form"; // multiple components
 @use "./icon";
@@ -39,7 +40,6 @@
 @use "./rich-tooltip";
 @use "./segmented-group";
 @use "./separator";
-@use "./side-nav";
 @use "./stepper";
 @use "./table";
 @use "./tabs";

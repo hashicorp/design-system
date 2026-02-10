@@ -17,7 +17,7 @@ const addon = new Addon({
 
 // Custom SCSS compilation plugin for Rollup
 function addScssCompilationPlugins(options) {
-  return options.map(({ inputFile, outputFile }) => ({
+  return options.map(({ inputFile, outputFile, loadPaths }) => ({
     name: `rollup custom plugin to generate ${outputFile}`,
     generateBundle() {
       try {
@@ -26,7 +26,7 @@ function addScssCompilationPlugins(options) {
 
         const result = sass.compile(inputFileFullPath, {
           sourceMap: true,
-          loadPaths: ['node_modules/@hashicorp/design-system-tokens/dist'],
+          loadPaths,
         });
 
         // Emit the compiled CSS
@@ -85,20 +85,34 @@ const plugins = [
 
   // We use a custom plugin for the Sass/SCSS compilation
   // so we can have multiple input and multiple outputs
-  ...addScssCompilationPlugins([
-    {
-      inputFile: 'design-system-components.scss',
-      outputFile: 'design-system-components.css',
-    },
-    {
-      inputFile: 'design-system-components-common.scss',
-      outputFile: 'design-system-components-common.css',
-    },
-    {
-      inputFile: 'design-system-power-select-overrides.scss',
-      outputFile: 'design-system-power-select-overrides.css',
-    },
-  ]),
+  ...addScssCompilationPlugins(
+    // files that will be compiled
+    [
+      {
+        inputFile: 'design-system-components.scss',
+        outputFile: 'design-system-components.css',
+        loadPaths: [
+          'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        ],
+      },
+      {
+        inputFile: 'design-system-components-common.scss',
+        outputFile: 'design-system-components-common.css',
+        loadPaths: [
+          'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        ],
+      },
+      {
+        inputFile: 'design-system-power-select-overrides.scss',
+        outputFile: 'design-system-power-select-overrides.css',
+      },
+      {
+        inputFile: 'design-system-plex-fonts.scss',
+        outputFile: 'design-system-plex-fonts.css',
+        loadPaths: ['node_modules/@ibm'],
+      },
+    ]
+  ),
 
   // Ensure that standalone .hbs files are properly integrated as Javascript.
   addon.hbs(),
@@ -124,11 +138,59 @@ const plugins = [
   // to leave alone and keep in the published output.
   addon.keepAssets(['**/*.css', '**/*.scss']),
 
-  // Copy readme and license files into published package
   copy({
     targets: [
+      // Copy readme and license files into published package
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
+      // Copy Sass files for consumers to use directly
+      { src: 'src/styles', dest: 'dist' },
+      // Copy the IBM Plex fonts from the @ibm packages to the public folder
+      {
+        src: 'node_modules/@ibm/plex-sans/LICENSE.txt',
+        dest: 'dist/public/assets/fonts',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Italic.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-Regular.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBold.woff2',
+          'node_modules/@ibm/plex-sans/fonts/complete/woff2/IBMPlexSans-SemiBoldItalic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Italic.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-Regular.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBold.woff2',
+          'node_modules/@ibm/plex-mono/fonts/complete/woff2/IBMPlexMono-SemiBoldItalic.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/complete/woff2',
+      },
+      {
+        src: [
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Regular-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-Italic-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-sans/fonts/split/woff2/IBMPlexSans-SemiBoldItalic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Regular-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-Italic-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBold-*.woff2',
+          'node_modules/@ibm/plex-mono/fonts/split/woff2/IBMPlexMono-SemiBoldItalic-*.woff2',
+        ],
+        dest: 'dist/public/assets/fonts/split/woff2',
+      },
+    ],
+    hook: 'writeBundle',
+    copySync: true,
+    copyOnce: true,
+    // verbose: true,
+  }),
+
+  // After bundle is written, copy built CSS to Showcase app
+  copy({
+    hook: 'writeBundle',
+    targets: [
+      {
+        src: 'dist/styles/@hashicorp/*.css',
+        dest: '../../showcase/public/assets/styles/@hashicorp',
+      },
     ],
   }),
 

@@ -144,6 +144,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-components.filter-bar">
+            FilterBar
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-components.flyout">
             Flyout
           </LinkTo>
@@ -201,11 +206,6 @@ const Index: TemplateOnlyComponent = <template>
         <li>
           <LinkTo @route="page-components.separator">
             Separator
-          </LinkTo>
-        </li>
-        <li>
-          <LinkTo @route="page-components.side-nav">
-            SideNav
           </LinkTo>
         </li>
         <li>

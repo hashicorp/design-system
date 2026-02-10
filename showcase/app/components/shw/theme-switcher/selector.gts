@@ -86,6 +86,7 @@ export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcher
 
     // we set the `currentStylesheet` in the `shwTheming` service
     this.shwTheming.setStylesheet(selectedStylesheet);
+<<<<<<< HEAD
 
     // we set the `currentTheme` in the `hdsTheming` service
     this.hdsTheming.setTheme({
@@ -94,6 +95,17 @@ export default class ShwThemeSwitcherSelector extends Component<ShwThemeSwitcher
       // onSetTheme: ({ currentTheme, currentMode }) => {
       //   console.log(
       //     '➡️ LOCAL INVOCATION via setShwHdsThemes callback',
+=======
+    // we set the `currentTheme` in the `shwTheming` service
+    this.shwTheming.setAppTheme({
+      theme: selectedTheme === '' ? undefined : selectedTheme,
+      // example of how a consumer could use the `onSetTheme` callback by passing it to the `setAppTheme` function as extra option,
+      // which then will be forwarded to the `setTheme` callback of the `hdsTheming` service as `onSetTheme` optional argument
+      //
+      // onSetTheme: ({ currentTheme, currentMode }) => {
+      //   console.log(
+      //     '➡️ LOCAL INVOCATION via `onSetTheme` callback',
+>>>>>>> project-solar/phase-1-main-feature-branch
       //     currentTheme,
       //     currentMode,
       //   );

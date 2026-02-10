@@ -91,6 +91,18 @@ pre[class*="language-"].doc-markdown-pre.doc-code-block__code-snippet + pre[clas
   margin-top: -16px;
 }
 
+// CODE GROUPS
+
+.doc-code-group {
+  margin: 16px 0 32px;
+
+  // we want to reduce the spacing between to consecutive code blocks
+  & + & {
+    margin-top: -16px;
+  }
+}
+
+
 // TABLES
 
 .doc-markdown-table {

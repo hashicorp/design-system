@@ -15,10 +15,10 @@ import { modifier } from 'ember-modifier';
 import type { HdsFlyoutSizes } from './types.ts';
 
 import { HdsFlyoutSizesValues } from './types.ts';
-import HdsDialogPrimitiveBodyComponent from '../dialog-primitive/body.ts';
-import HdsDialogPrimitiveDescriptionComponent from '../dialog-primitive/description.ts';
-import HdsDialogPrimitiveFooterComponent from '../dialog-primitive/footer.ts';
-import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.ts';
+import HdsDialogPrimitiveBodyComponent from '../dialog-primitive/body.gts';
+import HdsDialogPrimitiveDescriptionComponent from '../dialog-primitive/description.gts';
+import HdsDialogPrimitiveFooterComponent from '../dialog-primitive/footer.gts';
+import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.gts';
 
 const waiter = buildWaiter('@hashicorp/design-system-components:flyout');
 

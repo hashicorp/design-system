@@ -53,18 +53,10 @@ export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAp
       @isCollapsible={{this.isCollapsible}}
       @onToggleMinimizedStatus={{@onToggleMinimizedStatus}}
     >
-      <HdsAppSideNavList
-        class="hds-side-nav-hide-when-minimized"
-        aria-label="Dashboard"
-        as |SNL|
-      >
+      <HdsAppSideNavList aria-label="Dashboard" as |SNL|>
         <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
       </HdsAppSideNavList>
-      <HdsAppSideNavList
-        class="hds-side-nav-hide-when-minimized"
-        aria-label="Services"
-        as |SNL|
-      >
+      <HdsAppSideNavList aria-label="Services" as |SNL|>
         <SNL.Title>Services</SNL.Title>
         <SNL.Link
           @text={{if this.showMockInteractionState "isActive" "Boundary"}}
@@ -104,11 +96,7 @@ export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAp
           @hasSubItems={{true}}
         />
       </HdsAppSideNavList>
-      <HdsAppSideNavList
-        class="hds-side-nav-hide-when-minimized"
-        aria-label="Organization"
-        as |SNL|
-      >
+      <HdsAppSideNavList aria-label="Organization" as |SNL|>
         <SNL.Title>Default Org</SNL.Title>
         <SNL.Link
           @text="HashiCorp Virtual Networks"

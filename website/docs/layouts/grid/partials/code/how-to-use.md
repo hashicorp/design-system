@@ -13,24 +13,17 @@ The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to
 
 ### Basic usage
 
-
 !!! Info
 
 **Code consideration**
 
 There is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of an individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
+
 !!!
 
 The simplest way to implement a grid layout is by using the `Layout::Grid` component to wrap content directly. A grid layout of equal width “columns” is created by default.
 
-```handlebars
-<Hds::Layout::Grid>
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-basic]]
 
 Every child of the **grid container** will be stretched to fit evenly within the underlying grid column tracks behaving as a **grid item** (for details on what this means, refer to the guide linked at the top of the page).
 
@@ -40,15 +33,7 @@ In some cases, it may be necessary to wrap one or more content items within the 
 
 Wrap content in a `Grid::Item` to prevent it from stretching to fill the grid column.
 
-```handlebars
-<Hds::Layout::Grid @columnMinWidth="100%" @gap="16" as |LG|>
-  <Hds::Badge @text="Stretched badge" @color="critical" />
-
-  <LG.Item>
-    <Hds::Badge @text="Non-stretched badge" @color="success" />
-  </LG.Item>
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-no-stretch]]
 
 ### Tag
 
@@ -62,15 +47,8 @@ While, by default, the component renders a `<div>`, we invite consumers to consi
 
 To specify the HTML tag used to render the grid container and/or item(s), use the `@tag` argument.
 
-```handlebars{data-execute=false}
-<Hds::Layout::Grid @tag="ul" as |LG|>
-  <li>{{! some content here }}</li>
-  <LG.Item @tag="li">
-    {{! some other content here }}
-  </LG.Item>
-  <li>{{! more content here }}</li>
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-tag execute=false]]
+
 ### Spacing
 
 !!! Warning
@@ -85,25 +63,11 @@ To control the spacing between grid items, use the `@gap` argument.
 
 Pass a single value to set equal spacing between columns & rows.
 
-```handlebars
-<Hds::Layout::Grid @columnMinWidth="50%" @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-spacing]]
 
 To differentiate the vertical and horizontal spacing between items when they wrap on multiple rows, provide an array of two values to the `@gap` argument.
 
-```handlebars
-<Hds::Layout::Grid @columnMinWidth="50%" @gap={{array "16" "48"}}>
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-spacing-complex]]
 
 The first value in the array refers to the vertical gap between “rows” of items (`row-gap` in CSS), the second one to the horizontal spacing between “columns” of items (`column-gap` in CSS).
 
@@ -115,75 +79,42 @@ If you need to provide custom spacing values, see below how you can use a specia
 
 If you absolutely have to use non-standard spacing value(s) for the grid `gap`, you can use the internal `--hds-layout-grid-row-gap` and `--hds-layout-grid-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS variable or an inline style).
 
-```handlebars{data-execute=false}
-<Hds::Layout::Grid class="doc-grid-demo-custom-grid-column-gap">
-  {{!
-    // example of CSS code associated with the demo class:
-    .doc-grid-demo-custom-grid-column-gap {
-      --hds-layout-grid-column-gap: 13px;
-    }
-  }}
-  {{!
-    multiple grid items here, with a non-standard gap between them
-  }}
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-spacing-custom execute=false]]
 
 In this case we’re overwriting only the “column” gap value via the custom CSS class.
 
 If the grid items are wrapping on multiple lines, you have to overwrite both the “row” and “column” gap values.
 
-```handlebars{data-execute=false}
-<Hds::Layout::Grid
-  {{style --hds-layout-grid-row-gap="10px" --hds-layout-grid-column-gap="0.625rem"}}
->
-  {{!
-    multiple grid items appearing on multiple rows
-    with a vertical gap of 10px and a horizontal one of 0.625rem
-  }}
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-spacing-custom-complex execute=false]]
 
-## Column width management
+### Column width management
 
-There are two options for controlling the widths of columns within the `Grid`, `@columnMinWidth` and `@columnWidth`.
+There are two options for controlling `Grid` column widths: `@columnMinWidth` and `@columnWidth`.
 
-Using `@columnMinWidth` creates a semi-fluid layout. This means that if there are fewer items than fit in a single row, the columns will automatically adjust so that their combined widths add up to 100%.
+- `@columnMinWidth` creates a semi-fluid layout. If there are fewer items than fit in a row, columns will automatically adjust so that their combined widths add up to 100%.  If the combined widths of columns in a row add up to more than 100%, they will automatically wrap to the next row as needed to fit.
 
-If you instead want to create a more “fixed” layout, in which the column widths remain consistent no matter how few items are in a single row, use `@columnWidth` instead.
+- `@columnWidth` creates a more “fixed” layout. The column widths will remain consistent no matter how many items are in a row. It supports optional breakpoints to define responsive views.
 
-### Column min width
+#### Column min width
 
-<!-- !!! Info
+Specify a `columnMinWidth` to create a more fluid, “semi-responsive“ layout.
 
-Using `@columnMinWidth` creates a semi-fluid layout. This means that if there are fewer items than fit in a single row, the columns will automatically adjust so that their combined widths add up to 100%.
+Note: The `gap` size will be automatically subtracted from the `columnMinWidth`. Take this into account when specifying a min width value.
 
-If you instead want to create a more “fixed” layout, in which the column widths remain consistent no matter how few items are in a single row, use `@columnWidth` instead.
+##### Semi-fluid layout behavior
 
-!!! -->
-
-Specify a `columnMinWidth` size to exercise control over the maximum number of columns to occupy a row. If the total widths of the columns add up to more than 100% of the parent, they will automatically wrap to the next row as necessary to fit.
-
-Note: The `gap` size will be automatically subtracted from the `columnMinWidth`, so take this into account when specifying a column min width.
-
-#### Using percentage values
-
-Column min-widths specified as a percentage value will maintain the same size ratio in all browser screen widths.
+The column widths in a single row automatically adjust to maintain a total width of 100%.
 
 ```handlebars
+<Hds::Text::Display>With 3 items</Hds::Text::Display>
 <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="16">
   <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
   <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
   <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
 </Hds::Layout::Grid>
-```
 
-#### Semi-fluid width behavior
+<hr />
 
-Column-width will automatically adjust to maintain a combined width of 100%.
-
-```handlebars
 <Hds::Text::Display>With 2 items</Hds::Text::Display>
 <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="16">
   <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
@@ -198,64 +129,77 @@ Column-width will automatically adjust to maintain a combined width of 100%.
 </Hds::Layout::Grid>
 ```
 
-#### Using fixed unit values
+<!--
+??? TODO: These may need to be updated or replaced:
 
-Column min-widths specified using pixels or other fixed units, allows you to create layouts which are “automatically” responsive.
+[[code-snippets/grid-min-width-default]]
 
-##### Grid within a wider view
+[[code-snippets/grid-min-width-percentage]] - Probably Delete this one
+-->
+
+##### Semi-responsive layout using fixed unit values
+
+Specifying column min-widths using fixed units such as pixels, allows you to create layouts which are “automatically” responsive. To create fully responsive layouts using defined break points, see [`columnWidth`](/layouts/grid#column-width).
+
+###### Grid within a wider view
 
 Narrow your browser window to see the responsive behavior.
 
-```handlebars
-<Hds::Layout::Grid @columnMinWidth="160px" @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
-</Hds::Layout::Grid>
-```
+[[code-snippets/grid-min-width-fixed]]
 
-##### The same grid within a narrower view
+###### The same grid within a narrower view
 
 At the specified column min width, columns are forced to stack in this narrower view.
 
+[[code-snippets/grid-min-width-fixed-mobile]]
+
+#### Column width
+
+To create column layouts that are more “fixed” vs. fluid, use `columnWidth` to specify a width for the columns. Items will respect the defined width instead of stretching to fill out a single column row.
+
+Note: The `gap` size will be automatically subtracted from the `columnWidth`. Take this into account when specifying width values.
+
+##### Non-responsive columns
+
+Pass in a single value specifying the column width to create a non-responsive column layout.
+
+[[code-snippets/grid-width-fixed]]
+
+##### Responsive columns
+
+Optionally, instead of a single value, you can pass in an object to the `columnWidth` argument to define responsive column widths for up to five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
+
+See the [“Responsive layouts” section](/layouts/grid#responsive-layouts) for more details on responsive layout break points and behavior.
+
+##### With all views defined
+
 ```handlebars
-<div class="doc-grid-mobile-view">
-  <Hds::Layout::Grid @columnMinWidth="160px" @gap="16">
-    <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-    <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-    <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-    <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
-  </Hds::Layout::Grid>
-</div>
-```
-
-### Column width
-
-To create column layouts that are more “fixed” vs. fluid, use `columnWidth` to specify a width for the columns.
-
-```handlebars
-<Hds::Text::Display>With 4 items</Hds::Text::Display>
-<Hds::Layout::Grid @columnWidth="33.33%" @gap="16">
+<Hds::Layout::Grid @columnWidth={{hash sm="100%" md="50%" lg="33.33%" xl="25%" xxl="20%"}} @gap="16">
   <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
   <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
   <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
   <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
+  <Doc::Placeholder @height="40px" @text="Item 5" @background="#f3d9c5" />
 </Hds::Layout::Grid>
+```
 
-<hr />
+##### With only `sm` & `lg` views defined
 
-<Hds::Text::Display>With 2 items</Hds::Text::Display>
-<Hds::Layout::Grid @columnWidth="33.33%" @gap="16">
+!!! Info
+
+If you do not pass in a value for the `sm` view, columns in this view and views inheriting from it will behave as undefined and will _never wrap_ as demonstrated in the [Basic usage example](/layouts/grid#basic-usage).
+
+!!!
+
+Values defined for smaller views are inherited by larger views so you do not need to specify values for all breakpoints if not needed for your layout.
+
+```handlebars
+<Hds::Layout::Grid @columnWidth={{hash sm="50%" lg="33.33%"}} @gap="16">
   <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
   <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-</Hds::Layout::Grid>
-
-<hr />
-
-<Hds::Text::Display>With 1 item</Hds::Text::Display>
-<Hds::Layout::Grid @columnWidth="33.33%" @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
+  <Doc::Placeholder @height="40px" @text="Item 5" @background="#f3d9c5" />
 </Hds::Layout::Grid>
 ```
 
@@ -264,25 +208,32 @@ To create column layouts that are more “fixed” vs. fluid, use `columnWidth` 
 Use the `@align` argument to align grid items to the "start", "end", "center" or "stretch" them within the grid parent.
 
 Note: The `Grid` parent will need a height set for the effect to be visible.
-
+<!-- 
+TODO: Delete?
 ```handlebars
 <div class="doc-grid-mobile-view">
   <Hds::Layout::Grid @columnMinWidth="50px" @gap="16" @align="center" {{style height="100%"}}>
     <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
+    <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+    <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+    <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
   </Hds::Layout::Grid>
 </div>
-```
+``` -->
+
+[[code-snippets/grid-align]]
 
 ### Colspan & rowspan
 
-Use the `colspan` and `rowspan` arguments of the `Grid::Item` component to set the number of columns or rows an item should occupy.
-
-The following example has an underlying 4-column grid specified by setting a `columnMinWidth` of “25%”. It uses `colspan` and `rowspan` to create a flexible layout roughly resembling a typical web page layout.
+Use the `colspan` and `rowspan` arguments of the `Grid::Item` component to set the number of columns or rows an item should occupy. They both support optional breakpoints to define responsive views.
 
 Note: By default, if a height is set on the `Grid` parent, grid row heights will stretch proportionally to fill the `Grid`. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
+
+#### Non-responsive example
+
+Pass in a single value to specify the `colspan` or `rowspan` to create a non-responsive layout.
+
+In this example, an underlying 4-column grid is specified by setting a `columnMinWidth` of “25%”. `colspan` and `rowspan` are used to create a flexible layout roughly resembling a typical web page layout.
 
 ```handlebars
 <div {{style height="400px" border="1px solid"}}>
@@ -311,6 +262,58 @@ Note: By default, if a height is set on the `Grid` parent, grid row heights will
 </div>
 ```
 
+<!-- [[code-snippets/grid-span]] -->
+
+#### Responsive example using breakpoints
+
+!!! Info
+
+See the [“Responsive layouts” section](/layouts/grid#responsive-layouts) for more details on responsive layout breakpoints and behavior.
+
+!!!
+
+Optionally, instead of a single value, you can pass in an object to the `colspan` or `rowspan` arguments to define values for up to five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
+
+In this example, both the `Grid` `columnWidth` and the `colspan` of 2 items use responsive values so the layout shifts when viewed in small screens. Narrow your browser window to see the responsive behavior.
+
+```handlebars
+<Hds::Layout::Grid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="12" as |LG|>
+  <LG.Item @colspan={{hash sm=1 md=2}}>
+    <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  </LG.Item>
+
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+
+  <LG.Item @colspan={{hash sm=1 md=2}}>
+    <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
+  </LG.Item>
+</Hds::Layout::Grid>
+```
+
+---
+
+## Responsive layouts
+
+!!! Info
+
+We use a mobile-first layout approach for the responsive views, so values defined for smaller views are inherited if not overridden by larger views. Therefore, it is not necessary to pass in values for all breakpoints.
+
+!!!
+
+### Responsive features
+
+Responsive layout options are supported by the [`Grid` `columnWidth`](/layouts/grid#column-width) and the [`GridItem` `colspan` and `rowspan`](/layouts/grid#colspan--rowspan) features. There are five supported views based on the [HDS breakpoint values](/foundations/breakpoints#the-ranges).
+
+### Supported breakpoints
+
+- `sm` view = mobile first approach (mobile devices)
+- `md` view = 768px and above (tablets and small laptops)
+- `lg` view = 1088px and above (large laptops and desktops)
+- `xl` = 1440px and above (extra large desktops)
+- `xxl` = 1920px and above (extra extra large desktops)
+
 ---
 
 ## Common layout patterns
@@ -325,14 +328,19 @@ The examples below are meant to show how one _could_ use the `Layout::Grid` comp
 
 Below are examples of common layout patterns that can be achieved using the `Layout::Grid` component in combination with other HDS components.
 
-### Card layouts
+### Card layout
 
-Note: The following example makes use of nested `Grid` and [Flex](/layouts/flex) components to achieve its layout. This may be overkill in actual practice but demonstrates the possibilities for achieving layouts with just these layout components alone.
+The following example makes use of nested `Grid` and [Flex](/layouts/flex) components to achieve its layout. This may be overkill in actual practice but demonstrates the possibilities for achieving layouts with just these layout components alone.
 
-#### Basic 3-column layout
+A responsive layout is used so that the cards stack in the smallest view while being laid out into three columns in all other views.
+
+#### Basic 3-column card layout
 
 ```handlebars
-<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="32">
+<Hds::Layout::Grid
+  @columnWidth={{hash sm="100%" md="33.33%"}}
+  @gap="32"
+>
   <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
     <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
       <Hds::Layout::Flex @align="center" @gap="8">
@@ -372,15 +380,23 @@ Note: The following example makes use of nested `Grid` and [Flex](/layouts/flex)
 </Hds::Layout::Grid>
 ```
 
-#### More complex layout
+<!-- [[code-snippets/grid-card-column]] -->
+
+### More complex layout
 
 Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
 
+#### How this layout works
+
+We first establish an underlying grid structure of three columns by setting the `columnWidth` of the `Grid` parent to `33.33%`. The `@colspan` option of the `GridItem` children is then used to make some of them span two of the underlying grid columns creating a more complex layout.
+
+It uses a responsive layout so the content items will stack in the smallest view.
+
 ```handlebars
-<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="24" as |LG|>
-  <LG.Item @colspan={{2}}>
+<Hds::Layout::Grid @columnWidth={{hash sm="100%" md="33.33%"}} @gap="24" as |LG|>
+  <LG.Item @colspan={{hash sm=1 md=2}}>
     <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}} {{style background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)" }}>
-      <Hds::Layout::Grid @columnMinWidth="100%" @gap="16" as |LG|>
+      <Hds::Layout::Grid @columnWidth="100%" @gap="16" as |LG|>
         <LG.Item>
           <Hds::Badge @text="In Preview" @type="outlined" @color="highlight" />
         </LG.Item>
@@ -404,7 +420,7 @@ Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
     <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
   </Hds::Card::Container>
 
-  <LG.Item @colspan={{2}}>
+  <LG.Item @colspan={{hash sm=1 md=2}}>
     <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
       <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
         <Hds::Text::Display @tag="h2" @size="300">HCP Terraform Provider Resources</Hds::Text::Display>
@@ -427,3 +443,5 @@ Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
   </LG.Item>
 </Hds::Layout::Grid>
 ```
+
+<!-- [[code-snippets/grid-card-complex]] -->

@@ -76,6 +76,18 @@ async function defineStreamLanguage(streamParser: StreamParserType<unknown>) {
   return StreamLanguage.define(streamParser);
 }
 
+export function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  if (typeof error === 'object' && error !== null) {
+    return JSON.stringify(error);
+  }
+
+  return String(error);
+}
+
 export function getCSPNonceFromMeta(): string | undefined {
   const meta = document.querySelector(
     'meta[http-equiv="Content-Security-Policy"]'
@@ -164,7 +176,7 @@ const LANGUAGES: Record<
 } as const;
 
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
-  @service declare hdsIntl: HdsIntlService;
+  @service declare readonly hdsIntl: HdsIntlService;
 
   editor!: EditorViewType;
   element!: HTMLElementWithEditor;
@@ -379,9 +391,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         return Promise.all(extensionPromises);
       } catch (error) {
         warn(
-          `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(
-            error
-          )}`,
+          `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${getErrorMessage(error)}`,
           {
             id: 'hds-code-editor.load-language-task.import-failed',
           }
@@ -551,7 +561,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         return editor;
       } catch (error) {
         console.error(
-          `\`hds-code-editor\` modifier - Failed to setup the CodeMirror editor. Error: ${JSON.stringify(error)}`
+          `\`hds-code-editor\` modifier - Failed to setup the CodeMirror editor. Error: ${getErrorMessage(error)}`
         );
       }
     }

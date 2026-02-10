@@ -62,7 +62,7 @@ import type HdsApplicationStateBodyComponent from './components/hds/application-
 import type HdsApplicationStateFooterComponent from './components/hds/application-state/footer';
 import type HdsApplicationStateHeaderComponent from './components/hds/application-state/header';
 import type HdsApplicationStateMediaComponent from './components/hds/application-state/media';
-import type HdsCardContainerComponent from './components/hds/card/container.ts';
+import type HdsCardContainerComponent from './components/hds/card/container';
 import type HdsCodeEditorComponent from './components/hds/code-editor/index.ts';
 import type HdsCodeEditorDescriptionComponent from './components/hds/code-editor/description.ts';
 import type HdsCodeEditorGenericComponent from './components/hds/code-editor/generic.ts';
@@ -97,6 +97,21 @@ import type HdsDropdownListItemTitleComponent from './components/hds/dropdown/li
 import type HdsDropdownToggleButtonComponent from './components/hds/dropdown/toggle/button';
 import type HdsDropdownToggleChevronComponent from './components/hds/dropdown/toggle/chevron';
 import type HdsDropdownToggleIconComponent from './components/hds/dropdown/toggle/icon';
+
+import type HdsFilterBarComponent from './components/hds/filter-bar';
+import type HdsFilterBarActionsDropdownComponent from './components/hds/filter-bar/actions-dropdown';
+import type HdsFilterBarAppliedFiltersComponent from './components/hds/filter-bar/applied-filters';
+import type HdsFilterBarFiltersDropdownComponent from './components/hds/filter-bar/filters-dropdown';
+import type HdsFilterBarFilterGroupComponent from './components/hds/filter-bar/filter-group/index.ts';
+import type HdsFilterBarFilterGroupCheckboxComponent from './components/hds/filter-bar/filter-group/checkbox';
+import type HdsFilterBarFilterGroupClearButtonComponent from './components/hds/filter-bar/filter-group/clear-button';
+import type HdsFilterBarFilterGroupDateComponent from './components/hds/filter-bar/filter-group/date';
+import type HdsFilterBarFilterGroupGenericComponent from './components/hds/filter-bar/filter-group/generic';
+import type HdsFilterBarFilterGroupRadioComponent from './components/hds/filter-bar/filter-group/radio';
+import type HdsFilterBarFilterGroupNumericalComponent from './components/hds/filter-bar/filter-group/numerical';
+import type HdsFilterBarTabsComponent from './components/hds/filter-bar/tabs';
+import type HdsFilterBarTabsPanelComponent from './components/hds/filter-bar/tabs/panel';
+import type HdsFilterBarTabsTabComponent from './components/hds/filter-bar/tabs/tab';
 import type HdsFlyoutComponent from './components/hds/flyout';
 
 import type HdsFormComponent from './components/hds/form';
@@ -186,18 +201,6 @@ import type HdsRichTooltipBubbleComponent from './components/hds/rich-tooltip/bu
 import type HdsRichTooltipToggleComponent from './components/hds/rich-tooltip/toggle.ts';
 import type HdsSegmentedGroupComponent from './components/hds/segmented-group';
 import type HdsSeparatorComponent from './components/hds/separator';
-import type HdsSideNavComponent from './components/hds/side-nav';
-import type HdsSideNavBaseComponent from './components/hds/side-nav/base';
-import type HdsSideNavToggleButtonComponent from './components/hds/side-nav/toggle-button';
-import type HdsSideNavPortalComponent from './components/hds/side-nav/portal';
-import type HdsSideNavPortalTargetComponent from './components/hds/side-nav/portal/target';
-import type HdsSideNavHeaderComponent from './components/hds/side-nav/header';
-import type HdsSideNavHeaderHomeLinkComponent from './components/hds/side-nav/header/home-link';
-import type HdsSideNavListComponent from './components/hds/side-nav/list';
-import type HdsSideNavListBackLinkComponent from './components/hds/side-nav/list/back-link';
-import type HdsSideNavListItemComponent from './components/hds/side-nav/list/item';
-import type HdsSideNavListLinkComponent from './components/hds/side-nav/list/link';
-import type HdsSideNavListTitleComponent from './components/hds/side-nav/list/title';
 import type HdsStepperListComponent from './components/hds/stepper/list';
 import type HdsStepperListStepComponent from './components/hds/stepper/list/step';
 import type HdsStepperNavComponent from './components/hds/stepper/nav';
@@ -556,6 +559,36 @@ export default interface HdsComponentsRegistry {
   'Hds::Dropdown::Toggle::Icon': typeof HdsDropdownToggleIconComponent;
   'hds/dropdown/toggle/icon': typeof HdsDropdownToggleIconComponent;
 
+  // Filter Bar
+  'Hds::FilterBar': typeof HdsFilterBarComponent;
+  'hds/filter-bar': typeof HdsFilterBarComponent;
+  'Hds::FilterBar::ActionsDropdown': typeof HdsFilterBarActionsDropdownComponent;
+  'hds/filter-bar/actions-dropdown': typeof HdsFilterBarActionsDropdownComponent;
+  'Hds::FilterBar::AppliedFilters': typeof HdsFilterBarAppliedFiltersComponent;
+  'hds/filter-bar/applied-filters': typeof HdsFilterBarAppliedFiltersComponent;
+  'Hds::FilterBar::FiltersDropdown': typeof HdsFilterBarFiltersDropdownComponent;
+  'hds/filter-bar/filters-dropdown': typeof HdsFilterBarFiltersDropdownComponent;
+  'Hds::FilterBar::FilterGroup': typeof HdsFilterBarFilterGroupComponent;
+  'hds/filter-bar/filter-group': typeof HdsFilterBarFilterGroupComponent;
+  'Hds::FilterBar::FilterGroup::Checkbox': typeof HdsFilterBarFilterGroupCheckboxComponent;
+  'hds/filter-bar/filter-group/checkbox': typeof HdsFilterBarFilterGroupCheckboxComponent;
+  'Hds::FilterBar::FilterGroup::ClearButton': typeof HdsFilterBarFilterGroupClearButtonComponent;
+  'hds/filter-bar/filter-group/clear-button': typeof HdsFilterBarFilterGroupClearButtonComponent;
+  'Hds::FilterBar::FilterGroup::Date': typeof HdsFilterBarFilterGroupDateComponent;
+  'hds/filter-bar/filter-group/date': typeof HdsFilterBarFilterGroupDateComponent;
+  'Hds::FilterBar::FilterGroup::Generic': typeof HdsFilterBarFilterGroupGenericComponent;
+  'hds/filter-bar/filter-group/generic': typeof HdsFilterBarFilterGroupGenericComponent;
+  'Hds::FilterBar::FilterGroup::Radio': typeof HdsFilterBarFilterGroupRadioComponent;
+  'hds/filter-bar/filter-group/radio': typeof HdsFilterBarFilterGroupRadioComponent;
+  'Hds::FilterBar::FilterGroup::Numerical': typeof HdsFilterBarFilterGroupNumericalComponent;
+  'hds/filter-bar/filter-group/numerical': typeof HdsFilterBarFilterGroupNumericalComponent;
+  'Hds::FilterBar::Tabs': typeof HdsFilterBarTabsComponent;
+  'hds/filter-bar/tabs': typeof HdsFilterBarTabsComponent;
+  'Hds::FilterBar::Tabs::Panel': typeof HdsFilterBarTabsPanelComponent;
+  'hds/filter-bar/tabs/panel': typeof HdsFilterBarTabsPanelComponent;
+  'Hds::FilterBar::Tabs::Tab': typeof HdsFilterBarTabsTabComponent;
+  'hds/filter-bar/tabs/tab': typeof HdsFilterBarTabsTabComponent;
+
   // Flyout
   'Hds::Flyout': typeof HdsFlyoutComponent;
   'hds/flyout': typeof HdsFlyoutComponent;
@@ -860,55 +893,6 @@ export default interface HdsComponentsRegistry {
   // Separator
   'Hds::Separator': typeof HdsSeparatorComponent;
   'hds/separator': typeof HdsSeparatorComponent;
-
-  // SideNav
-  'Hds::SideNav': typeof HdsSideNavComponent;
-  'hds/side-nav': typeof HdsSideNavComponent;
-  HdsSideNav: typeof HdsSideNavComponent;
-
-  'Hds::SideNav::Base': typeof HdsSideNavBaseComponent;
-  'hds/side-nav/base': typeof HdsSideNavBaseComponent;
-  HdsSideNavBase: typeof HdsSideNavBaseComponent;
-
-  'Hds::SideNav::ToggleButton': typeof HdsSideNavToggleButtonComponent;
-  'hds/side-nav/toggle-button': typeof HdsSideNavToggleButtonComponent;
-  HdsSideNavToggleButton: typeof HdsSideNavToggleButtonComponent;
-
-  'Hds::SideNav::Portal': typeof HdsSideNavPortalComponent;
-  'hds/side-nav/portal': typeof HdsSideNavPortalComponent;
-  HdsSideNavPortal: typeof HdsSideNavPortalComponent;
-
-  'Hds::SideNav::Portal::Target': typeof HdsSideNavPortalTargetComponent;
-  'hds/side-nav/portal/target': typeof HdsSideNavPortalTargetComponent;
-  HdsSideNavPortalTarget: typeof HdsSideNavPortalTargetComponent;
-
-  'Hds::SideNav::Header': typeof HdsSideNavHeaderComponent;
-  'hds/side-nav/header': typeof HdsSideNavHeaderComponent;
-  HdsSideNavHeader: typeof HdsSideNavHeaderComponent;
-
-  'Hds::SideNav::Header::HomeLink': typeof HdsSideNavHeaderHomeLinkComponent;
-  'hds/side-nav/header/home-link': typeof HdsSideNavHeaderHomeLinkComponent;
-  HdsSideNavHeaderHomeLink: typeof HdsSideNavHeaderHomeLinkComponent;
-
-  'Hds::SideNav::List': typeof HdsSideNavListComponent;
-  'hds/side-nav/list': typeof HdsSideNavListComponent;
-  HdsSideNavList: typeof HdsSideNavListComponent;
-
-  'Hds::SideNav::List::BackLink': typeof HdsSideNavListBackLinkComponent;
-  'hds/side-nav/list/back-link': typeof HdsSideNavListBackLinkComponent;
-  HdsSideNavListBackLink: typeof HdsSideNavListBackLinkComponent;
-
-  'Hds::SideNav::List::Item': typeof HdsSideNavListItemComponent;
-  'hds/side-nav/list/item': typeof HdsSideNavListItemComponent;
-  HdsSideNavListItem: typeof HdsSideNavListItemComponent;
-
-  'Hds::SideNav::List::Link': typeof HdsSideNavListLinkComponent;
-  'hds/side-nav/list/link': typeof HdsSideNavListLinkComponent;
-  HdsSideNavListLink: typeof HdsSideNavListLinkComponent;
-
-  'Hds::SideNav::List::Title': typeof HdsSideNavListTitleComponent;
-  'hds/side-nav/list/title': typeof HdsSideNavListTitleComponent;
-  HdsSideNavListTitle: typeof HdsSideNavListTitleComponent;
 
   // Stepper
   'Hds::Stepper::List': typeof HdsStepperListComponent;

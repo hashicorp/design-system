@@ -1,3 +1,8 @@
+## 6.0.0
+
+converted component to gts format.
+
+
 ## 5.1.0
 
 Optimized CSS used to apply dark theme styles within `AppHeader` and `SideNav`

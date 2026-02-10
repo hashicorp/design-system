@@ -37,15 +37,39 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
 
   // CONTENT
 
-  test('it should render a link by default', async function (assert) {
+  test('it should render a `<button>` by default', async function (assert) {
     await render(
       <template>
         <HdsBreadcrumbItem id="test-breadcrumb-item" @text="text renders" />
       </template>,
     );
+    assert.dom('#test-breadcrumb-item > button').exists();
+  });
+  test('it should render an `<a>` anchor if `@href` if provided', async function (assert) {
+    await render(
+      <template>
+        <HdsBreadcrumbItem
+          id="test-breadcrumb-item"
+          @text="text renders"
+          @href="#"
+        />
+      </template>,
+    );
     assert.dom('#test-breadcrumb-item > a').exists();
   });
-  test('it should not render a if @current is true', async function (assert) {
+  test('it should render an `<a>` anchor if `@route` if provided', async function (assert) {
+    await render(
+      <template>
+        <HdsBreadcrumbItem
+          id="test-breadcrumb-item"
+          @text="text renders"
+          @route="index"
+        />
+      </template>,
+    );
+    assert.dom('#test-breadcrumb-item > a').exists();
+  });
+  test('it should not render `<a>/<button>` elements if @current is true', async function (assert) {
     await render(
       <template>
         <HdsBreadcrumbItem
@@ -56,6 +80,7 @@ module('Integration | Component | hds/breadcrumb/item', function (hooks) {
       </template>,
     );
     assert.dom('#test-breadcrumb-item > a').doesNotExist();
+    assert.dom('#test-breadcrumb-item > button').doesNotExist();
     assert.dom('#test-breadcrumb-item .hds-breadcrumb__current').exists();
   });
   test('it should render the item with icon and text if @icon and @text are provided', async function (assert) {

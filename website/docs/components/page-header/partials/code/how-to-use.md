@@ -2,11 +2,7 @@
 
 A simple invocation of the component requires a contextual `<PH.Title>` which yields its content within an `<h1>`.
 
-```handlebars
-<Hds::PageHeader as |PH|>
-  <PH.Title>Page title</PH.Title>
-</Hds::PageHeader>
-```
+[[code-snippets/page-header-basic]]
 
 ### Contextual components
 
@@ -21,58 +17,10 @@ The responsive layout is achieved using [container queries](https://developer.mo
 
 The Page Header uses a number of contextual components that either yield their content or render a specific Helios component.
 
-```handlebars
-<Hds::PageHeader as |PH|>
-  <PH.Title>Page title</PH.Title>
-  <PH.Breadcrumb>
-    <Hds::Breadcrumb>
-      <Hds::Breadcrumb::Item @text="Organization" @icon="dashboard" />
-      <Hds::Breadcrumb::Item @text="Project" @icon="file-text" />
-      <Hds::Breadcrumb::Item @text="Clusters" @icon="server-cluster" />
-    </Hds::Breadcrumb>
-  </PH.Breadcrumb>
-  <PH.IconTile @icon="server-cluster" @color="consul" />
-  <PH.Badges>
-    <Hds::Badge @text="Status badge" @icon="award" @color="highlight" />
-  </PH.Badges>
-  <PH.Subtitle>Page subtitle</PH.Subtitle>
-  <PH.Description>Description of the page</PH.Description>
-  <PH.Actions>
-    <Hds::Button
-      @text="Create"
-      @icon="plus"
-      @iconPosition="leading"
-      @color="primary"
-    />
-  </PH.Actions>
-</Hds::PageHeader>
-```
+[[code-snippets/page-header-contextual]]
 
 ### Custom content
 
 Pass custom metadata to the component with a `generic` contextual component that yields its contents.
 
-```handlebars
-<Hds::PageHeader as |PH|>
-  <PH.Title>Page title</PH.Title>
-  <PH.IconTile @icon="folder" />
-  <PH.Actions>
-    <Hds::Dropdown as |D|>
-      <D.ToggleButton @text="Manage" @color="secondary" />
-      <D.Interactive @route="components">Item One</D.Interactive>
-      <D.Interactive @route="components">Item Two</D.Interactive>
-      <D.Interactive @route="components">Item Three</D.Interactive>
-      <D.Separator />
-      <D.Interactive @route="components" @color="critical" @icon="trash">Delete</D.Interactive>
-    </Hds::Dropdown>
-  </PH.Actions>
-  <PH.Generic>
-    <Doc::Placeholder
-      @text="generic metadata"
-      @height="36"
-      @width="350"
-      @background="#eee"
-    />
-  </PH.Generic>
-</Hds::PageHeader>
-```
+[[code-snippets/page-header-custom]]

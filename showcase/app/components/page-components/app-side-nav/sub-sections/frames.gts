@@ -37,7 +37,8 @@ const SubSectionFrames: TemplateOnlyComponent = <template>
     @height="780"
     @label="Full AppFrame with AppHeader & AppSideNav"
   />
-  <ShwDivider />
+
+  <ShwDivider @level={{2}} />
 
   <ShwFrame
     @id="demo-full-app-frame-with-app-header-and-app-side-nav-small-viewport"
@@ -47,7 +48,7 @@ const SubSectionFrames: TemplateOnlyComponent = <template>
     @label="Full AppFrame with AppHeader & AppSideNav (small viewport)"
   />
 
-  <ShwDivider />
+  <ShwDivider @level={{2}} />
 
   <ShwFrame
     @id="demo-full-app-frame-with-remove-from-dom"

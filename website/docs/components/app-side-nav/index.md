@@ -10,7 +10,6 @@ links:
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/app-side-nav
 related:
-  - components/side-nav
   - components/breadcrumb
   - components/tabs
   - layouts/app-frame
@@ -22,6 +21,8 @@ navigation:
     - side navigation
     - sidenav
     - sidebar
+status:
+  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">

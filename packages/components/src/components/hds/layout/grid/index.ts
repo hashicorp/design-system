@@ -24,11 +24,19 @@ export const ALIGNS: HdsLayoutGridAligns[] = Object.values(
 export const DEFAULT_GAP = HdsLayoutGridGapValues.Zero;
 export const GAPS: HdsLayoutGridGaps[] = Object.values(HdsLayoutGridGapValues);
 
+type ResponsiveColumnWidths = {
+  sm?: string;
+  md?: string;
+  lg?: string;
+  xl?: string;
+  xxl?: string;
+};
+
 export interface HdsLayoutGridSignature {
   Args: {
     tag?: AvailableTagNames;
     columnMinWidth?: string;
-    columnWidth?: string;
+    columnWidth?: string | ResponsiveColumnWidths;
     align?: HdsLayoutGridAligns;
     gap?: HdsLayoutGridGaps | [HdsLayoutGridGaps, HdsLayoutGridGaps];
   };
@@ -89,21 +97,33 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
   /*
     LOGIC:
 
-    If columnMinWidth is passed in:
-    1) we set --hds-layout-grid-column-min-width to the passed in value
-    2) We use the fallback value of "auto-fit" for --hds-layout-grid-column-fill-type (reults in a more fluid layout)
+     Default layout behavior:
+     --hds-layout-grid-column-fill-type is set to auto-fit (fluid layout)
 
-    If columnWidth is passed in:
-    1) we set --hds-layout-grid-column-min-width to the passed in value
-    2) we set --hds-layout-grid-column-fill-type to "auto-fill" (results in a more fixed layout)
+    If neither columnMinWidth nor columnWidth are passed in:
+    - We do not set --hds-layout-grid-column-min-width (defaults to 0px)
+    
+    If columnMinWidth is passed in:
+    - We set --hds-layout-grid-column-min-width to the passed in value
+
+    If a columnWidth value is passed in:
+    1) we set --hds-layout-grid-column-min-width to the passed in value for the view
+    2) In the CSS, we use "auto-fill" for --hds-layout-grid-column-fill-type for the view (fixed layout)
 
     If both columnMinWidth & columnWidth are passed in:
-    1) We throw an error, as it doesn't make sense in the context of a CSS grid layout (too complex to determine which to use & desired behavior)
+    - We throw an error, as it doesn't make sense in the context of a CSS grid layout (too complex to determine which to use & desired behavior)
   */
   get inlineStyles(): Record<string, unknown> {
     const inlineStyles: {
       '--hds-layout-grid-column-min-width'?: string;
       '--hds-layout-grid-column-fill-type'?: string;
+
+      // responsive
+      '--hds-layout-grid-column-width-sm'?: string;
+      '--hds-layout-grid-column-width-md'?: string;
+      '--hds-layout-grid-column-width-lg'?: string;
+      '--hds-layout-grid-column-width-xl'?: string;
+      '--hds-layout-grid-column-width-xxl'?: string;
     } = {};
 
     // if both columnMinWidth and columnWidth are passed in, we throw an error
@@ -116,9 +136,32 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       inlineStyles['--hds-layout-grid-column-min-width'] =
         this.args.columnMinWidth;
     } else if (this.args.columnWidth) {
-      inlineStyles['--hds-layout-grid-column-min-width'] =
-        this.args.columnWidth;
-      inlineStyles['--hds-layout-grid-column-fill-type'] = 'auto-fill';
+      if (typeof this.args.columnWidth === 'string') {
+        inlineStyles['--hds-layout-grid-column-min-width'] =
+          this.args.columnWidth;
+      } else if (typeof this.args.columnWidth === 'object') {
+        // Responsive column widths
+        if (this.args.columnWidth.sm) {
+          inlineStyles['--hds-layout-grid-column-width-sm'] =
+            this.args.columnWidth.sm;
+        }
+        if (this.args.columnWidth.md) {
+          inlineStyles['--hds-layout-grid-column-width-md'] =
+            this.args.columnWidth.md;
+        }
+        if (this.args.columnWidth.lg) {
+          inlineStyles['--hds-layout-grid-column-width-lg'] =
+            this.args.columnWidth.lg;
+        }
+        if (this.args.columnWidth.xl) {
+          inlineStyles['--hds-layout-grid-column-width-xl'] =
+            this.args.columnWidth.xl;
+        }
+        if (this.args.columnWidth.xxl) {
+          inlineStyles['--hds-layout-grid-column-width-xxl'] =
+            this.args.columnWidth.xxl;
+        }
+      }
     }
 
     return inlineStyles;
@@ -140,6 +183,31 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       } else if (this.gap.length === 1) {
         classes.push(`hds-layout-grid--row-gap-${this.gap[0]}`);
         classes.push(`hds-layout-grid--column-gap-${this.gap[0]}`);
+      }
+    }
+
+    // If a single columnWidth string is passed in, set the respective CSS class (non-responsive view case)
+    if (typeof this.args.columnWidth === 'string') {
+      classes.push('hds-layout-grid--column-width-non-responsive');
+    }
+
+    // add classes based on responsive width arguments
+    // If an object is passed in for the columnWidth arg, set the respective CSS classes
+    if (typeof this.args.columnWidth === 'object') {
+      if (this.args.columnWidth.sm) {
+        classes.push('hds-layout-grid--column-width-sm');
+      }
+      if (this.args.columnWidth.md) {
+        classes.push('hds-layout-grid--column-width-md');
+      }
+      if (this.args.columnWidth.lg) {
+        classes.push('hds-layout-grid--column-width-lg');
+      }
+      if (this.args.columnWidth.xl) {
+        classes.push('hds-layout-grid--column-width-xl');
+      }
+      if (this.args.columnWidth.xxl) {
+        classes.push('hds-layout-grid--column-width-xxl');
       }
     }
 
