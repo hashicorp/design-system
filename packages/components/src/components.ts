@@ -319,7 +319,7 @@ export { default as HdsTabsTab } from './components/hds/tabs/tab.ts';
 export * from './components/hds/tabs/types.ts';
 
 // Tag
-export { default as HdsTag } from './components/hds/tag/index.ts';
+export { default as HdsTag } from './components/hds/tag/index.gts';
 export * from './components/hds/tag/types.ts';
 
 // Text
