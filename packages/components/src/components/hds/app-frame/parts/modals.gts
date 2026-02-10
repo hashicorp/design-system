@@ -14,7 +14,7 @@ export interface HdsAppFrameModalsSignature {
 
 const HdsAppFrameModals: TemplateOnlyComponent<HdsAppFrameModalsSignature> =
   <template>
-    {{! we use `:empty` in CSS so we have to avoid whitespaces }}
+    {{! we use :empty in CSS so we have to avoid whitespaces }}
     <div class="hds-app-frame__modals" ...attributes>{{~yield~}}</div>
   </template>;
 
