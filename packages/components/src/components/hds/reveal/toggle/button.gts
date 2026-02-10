@@ -5,7 +5,9 @@
 
 import Component from '@glimmer/component';
 
-import type { HdsButtonSignature } from '../../button/';
+import HdsButton from '../../button/index.gts';
+
+import type { HdsButtonSignature } from '../../button/index.gts';
 
 export interface HdsRevealToggleButtonSignature {
   Args: {
@@ -16,11 +18,6 @@ export interface HdsRevealToggleButtonSignature {
 }
 
 export default class HdsRevealToggleButton extends Component<HdsRevealToggleButtonSignature> {
-  /**
-   * Get the class names to apply to the component.
-   * @method ToggleButton#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-reveal__toggle-button'];
 
@@ -31,4 +28,15 @@ export default class HdsRevealToggleButton extends Component<HdsRevealToggleButt
 
     return classes.join(' ');
   }
+
+  <template>
+    <HdsButton
+      @text={{@text}}
+      @color="tertiary"
+      @icon="chevron-down"
+      aria-expanded={{if @isOpen "true" "false"}}
+      class={{this.classNames}}
+      ...attributes
+    />
+  </template>
 }

@@ -275,8 +275,8 @@ export { default as HdsPaginationSizeSelector } from './components/hds/paginatio
 export * from './components/hds/pagination/types.ts';
 
 // Reveal
-export { default as HdsReveal } from './components/hds/reveal/index.ts';
-export { default as HdsRevealToggleButton } from './components/hds/reveal/toggle/button.ts';
+export { default as HdsReveal } from './components/hds/reveal/index.gts';
+export { default as HdsRevealToggleButton } from './components/hds/reveal/toggle/button.gts';
 
 // RichTooltip
 export { default as HdsRichTooltip } from './components/hds/rich-tooltip/index.ts';
