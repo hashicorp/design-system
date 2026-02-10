@@ -5,16 +5,16 @@
         "slow": {
           "01": {
             "$type": "duration",
-            "$value": 400,
-            "unit": "ms",
+            "$value": 0.4,
+            "unit": "s",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "400ms"
           },
           "02": {
             "$type": "duration",
-            "$value": 700,
-            "unit": "ms",
+            "$value": 0.7,
+            "unit": "s",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "700ms"
@@ -23,16 +23,16 @@
         "moderate": {
           "01": {
             "$type": "duration",
-            "$value": 150,
-            "unit": "ms",
+            "$value": 0.15,
+            "unit": "s",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "150ms"
           },
           "02": {
             "$type": "duration",
-            "$value": 240,
-            "unit": "ms",
+            "$value": 0.24,
+            "unit": "s",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "240ms"
@@ -41,16 +41,16 @@
         "fast": {
           "01": {
             "$type": "duration",
-            "$value": 70,
-            "unit": "ms",
+            "$value": 0.07,
+            "unit": "s",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "70ms"
           },
           "02": {
             "$type": "duration",
-            "$value": 110,
-            "unit": "ms",
+            "$value": 0.11,
+            "unit": "s",
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "110ms"
