@@ -244,7 +244,7 @@ export { default as HdsIcon } from './components/hds/icon/index.gts';
 export * from './components/hds/icon/types.ts';
 
 // IconTile
-export { default as HdsIconTile } from './components/hds/icon-tile/index.ts';
+export { default as HdsIconTile } from './components/hds/icon-tile/index.gts';
 export * from './components/hds/icon-tile/types.ts';
 
 // Link
