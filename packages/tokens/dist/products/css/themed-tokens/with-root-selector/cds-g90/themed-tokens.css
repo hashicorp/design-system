@@ -230,6 +230,18 @@
   --token-icon-tile-surface-color-overlay: #525252;
   --token-link-inline-border-radius: 0px;
   --token-link-inline-icon-margin-horizontal: 0.5em;
+  --token-link-standalone-icon-size-large: 1.25rem;
+  --token-link-standalone-icon-size-small: 1rem;
+  --token-link-standalone-padding-vertical: 0px;
+  --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
+  --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
+  --token-link-standalone-typography-font-size-small: 0.75rem;
+  --token-link-standalone-typography-letter-spacing-large: 0px;
+  --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+  --token-link-standalone-typography-letter-spacing-small: 0.32px;
+  --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+  --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+  --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;

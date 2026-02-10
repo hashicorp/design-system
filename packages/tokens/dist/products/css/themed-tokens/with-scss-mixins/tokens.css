@@ -420,6 +420,22 @@
     --token-icon-tile-surface-color-overlay: var(--token-color-surface-primary);
     --token-link-inline-border-radius: 2px;
     --token-link-inline-icon-margin-horizontal: 0.25em;
+    --token-link-standalone-icon-size-large: 1.5rem;
+    --token-link-standalone-icon-size-small: 0.75rem;
+    --token-link-standalone-padding-vertical: 4px;
+    --token-link-standalone-surface-color-primary-active: var(
+      --token-color-surface-action
+    );
+    --token-link-standalone-surface-color-secondary-active: var(
+      --token-color-surface-interactive-active
+    );
+    --token-link-standalone-typography-font-size-small: 0.8125rem;
+    --token-link-standalone-typography-letter-spacing-large: 0px;
+    --token-link-standalone-typography-letter-spacing-medium: 0px;
+    --token-link-standalone-typography-letter-spacing-small: 0px;
+    --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
+    --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
+    --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
     --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
     --token-surface-high-box-shadow:
       0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626,
@@ -752,6 +768,18 @@
     --token-icon-tile-surface-color-overlay: #ffffff;
     --token-link-inline-border-radius: 0px;
     --token-link-inline-icon-margin-horizontal: 0.5em;
+    --token-link-standalone-icon-size-large: 1.25rem;
+    --token-link-standalone-icon-size-small: 1rem;
+    --token-link-standalone-padding-vertical: 0px;
+    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-typography-font-size-small: 0.75rem;
+    --token-link-standalone-typography-letter-spacing-large: 0px;
+    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+    --token-link-standalone-typography-letter-spacing-small: 0.32px;
+    --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+    --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+    --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -1073,6 +1101,18 @@
     --token-icon-tile-surface-color-overlay: #393939;
     --token-link-inline-border-radius: 0px;
     --token-link-inline-icon-margin-horizontal: 0.5em;
+    --token-link-standalone-icon-size-large: 1.25rem;
+    --token-link-standalone-icon-size-small: 1rem;
+    --token-link-standalone-padding-vertical: 0px;
+    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-typography-font-size-small: 0.75rem;
+    --token-link-standalone-typography-letter-spacing-large: 0px;
+    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+    --token-link-standalone-typography-letter-spacing-small: 0.32px;
+    --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+    --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+    --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -1394,6 +1434,18 @@
     --token-icon-tile-surface-color-overlay: #ffffff;
     --token-link-inline-border-radius: 0px;
     --token-link-inline-icon-margin-horizontal: 0.5em;
+    --token-link-standalone-icon-size-large: 1.25rem;
+    --token-link-standalone-icon-size-small: 1rem;
+    --token-link-standalone-padding-vertical: 0px;
+    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-typography-font-size-small: 0.75rem;
+    --token-link-standalone-typography-letter-spacing-large: 0px;
+    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+    --token-link-standalone-typography-letter-spacing-small: 0.32px;
+    --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+    --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+    --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -1715,6 +1767,18 @@
     --token-icon-tile-surface-color-overlay: #f4f4f4;
     --token-link-inline-border-radius: 0px;
     --token-link-inline-icon-margin-horizontal: 0.5em;
+    --token-link-standalone-icon-size-large: 1.25rem;
+    --token-link-standalone-icon-size-small: 1rem;
+    --token-link-standalone-padding-vertical: 0px;
+    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-typography-font-size-small: 0.75rem;
+    --token-link-standalone-typography-letter-spacing-large: 0px;
+    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+    --token-link-standalone-typography-letter-spacing-small: 0.32px;
+    --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+    --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+    --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -2036,6 +2100,18 @@
     --token-icon-tile-surface-color-overlay: #525252;
     --token-link-inline-border-radius: 0px;
     --token-link-inline-icon-margin-horizontal: 0.5em;
+    --token-link-standalone-icon-size-large: 1.25rem;
+    --token-link-standalone-icon-size-small: 1rem;
+    --token-link-standalone-padding-vertical: 0px;
+    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-typography-font-size-small: 0.75rem;
+    --token-link-standalone-typography-letter-spacing-large: 0px;
+    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+    --token-link-standalone-typography-letter-spacing-small: 0.32px;
+    --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+    --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+    --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -2357,6 +2433,18 @@
     --token-icon-tile-surface-color-overlay: #393939;
     --token-link-inline-border-radius: 0px;
     --token-link-inline-icon-margin-horizontal: 0.5em;
+    --token-link-standalone-icon-size-large: 1.25rem;
+    --token-link-standalone-icon-size-small: 1rem;
+    --token-link-standalone-padding-vertical: 0px;
+    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
+    --token-link-standalone-typography-font-size-small: 0.75rem;
+    --token-link-standalone-typography-letter-spacing-large: 0px;
+    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+    --token-link-standalone-typography-letter-spacing-small: 0.32px;
+    --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+    --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+    --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -2719,6 +2807,9 @@
       1.15
     );
     --token-form-toggle-width: 32px;
+    --token-link-standalone-icon-size-medium: 1rem;
+    --token-link-standalone-typography-font-size-large: 1rem;
+    --token-link-standalone-typography-font-size-medium: 0.875rem;
     --token-pagination-child-spacing-horizontal: 20px;
     --token-pagination-child-spacing-vertical: 8px;
     --token-pagination-nav-control-focus-inset: 4px;
