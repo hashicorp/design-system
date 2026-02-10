@@ -8,9 +8,6 @@ import { hash } from '@ember/helper';
 
 import HdsFormField from '../field/index.gts';
 import HdsFormRadioBase from './base.gts';
-import HdsFormLabel from '../label/index.gts';
-import HdsFormHelperText from '../helper-text/index.gts';
-import HdsFormError from '../error/index.gts';
 
 import type { HdsFormFieldSignature } from '../field/index.gts';
 
@@ -22,9 +19,9 @@ export interface HdsFormRadioFieldSignature {
   Blocks: {
     default: [
       {
-        Label?: typeof HdsFormLabel;
-        HelperText?: typeof HdsFormHelperText;
-        Error?: typeof HdsFormError;
+        Label?: HdsFormFieldSignature['Blocks']['default'][0]['Label'];
+        HelperText?: HdsFormFieldSignature['Blocks']['default'][0]['HelperText'];
+        Error?: HdsFormFieldSignature['Blocks']['default'][0]['Error'];
       },
     ];
   };

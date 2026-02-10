@@ -9,10 +9,7 @@ import { hash } from '@ember/helper';
 import type { WithBoundArgs } from '@glint/template';
 
 import HdsFormFieldset from '../fieldset/index.gts';
-import HdsFormLegend from '../legend/index.gts';
-import HdsFormHelperText from '../helper-text/index.gts';
 import HdsFormRadioField from './field.gts';
-import HdsFormError from '../error/index.gts';
 
 import type { HdsFormFieldsetSignature } from '../fieldset/index.gts';
 
@@ -23,13 +20,13 @@ export interface HdsFormRadioGroupSignature {
   Blocks: {
     default: [
       {
-        Legend?: typeof HdsFormLegend;
-        HelperText?: typeof HdsFormHelperText;
+        Legend?: HdsFormFieldsetSignature['Blocks']['default'][0]['Legend'];
+        HelperText?: HdsFormFieldsetSignature['Blocks']['default'][0]['HelperText'];
         RadioField?: WithBoundArgs<
           typeof HdsFormRadioField,
           'name' | 'isRequired' | 'extraAriaDescribedBy' | 'contextualClass'
         >;
-        Error?: typeof HdsFormError;
+        Error?: HdsFormFieldsetSignature['Blocks']['default'][0]['Error'];
       },
     ];
   };
