@@ -19,6 +19,14 @@ module('Integration | Component | hds-icon', function (hooks) {
     assert.dom('svg.hds-icon').hasClass('hds-icon');
   });
 
+  test('changing the @name argument updates the rendered icon', async function (assert) {
+    this.set('iconName', 'activity');
+    await render(<template><HdsIcon @name={{this.iconName}} /></template>);
+    assert.dom('svg.hds-icon-activity').exists();
+    this.set('iconName', 'alert-circle');
+    assert.dom('svg.hds-icon-alert-circle').exists();
+  });
+
   // SIZE
 
   test('it renders the 16x16 icon by default', async function (assert) {
@@ -173,7 +181,7 @@ module('Integration | Component | hds-icon', function (hooks) {
     });
   });
   test('it should throw an assertion if the icon @name does not exist', async function (assert) {
-    const errorMessage = `The icon @name "abc" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
+    const errorMessage = `The icon @name "abc" or @size "16" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
@@ -181,7 +189,7 @@ module('Integration | Component | hds-icon', function (hooks) {
     await render(
       <template>
         {{! @glint-expect-error - testing invalid component usage }}
-        <HdsIcon @name="abc" />
+        <HdsIcon @name="abc" @size="16" />
       </template>,
     );
     assert.throws(function () {

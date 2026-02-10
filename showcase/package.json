@@ -65,6 +65,7 @@
     "@glint/template": "^1.5.2",
     "@hashicorp/design-system-components": "workspace:*",
     "@hashicorp/design-system-tokens": "workspace:*",
+    "@hashicorp/flight-icons": "workspace:*",
     "@ibm/plex": "^6.4.1",
     "@nullvoxpopuli/ember-composable-helpers": "^5.2.11",
     "@percy/cli": "^1.30.5",
