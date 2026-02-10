@@ -179,6 +179,7 @@ Router.map(function () {
       });
       this.route('link', function (): void {
         this.route('inline');
+        this.route('standalone');
       });
       this.route('modal');
       this.route('segmented-group');
