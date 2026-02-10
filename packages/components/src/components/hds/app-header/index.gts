@@ -9,7 +9,9 @@ import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
 import { hash } from '@ember/helper';
 import { and, not } from 'ember-truth-helpers';
-import NavigationNarrator from 'ember-a11y-refocus';
+import { NavigationNarrator } from 'ember-a11y-refocus';
+// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
 import type Owner from '@ember/owner';
 import type { NavigationNarratorSignature } from 'ember-a11y-refocus/components/navigation-narrator';
@@ -150,8 +152,7 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   <template>
     <div
       class={{this.classNames}}
-      {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
-      {{focus-trap isActive=this.shouldTrapFocus}}
+      {{focusTrap isActive=this.shouldTrapFocus}}
       ...attributes
     >
       {{#if (and this.hasA11yRefocus (not this._isOpen))}}
