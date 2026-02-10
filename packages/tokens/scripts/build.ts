@@ -50,7 +50,20 @@ for (const mode of modes) {
             if (mode === 'default' && slice.$modes[mode] !== slice.$value) {
               console.warn(`⚠️ ${chalk.yellow.bold('WARNING')} - Found themed 'default' token '{${tokenPath.join('.')}}' with value different than '$value' (\`${slice.$modes[mode]}\` instead of the expected \`${slice.$value}\`) - BuildPath: ${buildPath} - File: ${slice.filePath}`);
             }
-            slice.$value = slice.$modes[mode];
+            // if the $mode entry value is an object, loop over its entries and override their counterparts in the the main token object
+            if (typeof slice.$modes[mode] === 'object') {
+              Object.keys(slice.$modes[mode]).forEach((key: string) => {
+                // we use a `null` value when need to "remove" entries from the main token object instead of just overriding them (eg. for comments)
+                if (slice.$modes[mode][key] === null) {
+                  delete slice[key];
+                } else {
+                  slice[key] = slice.$modes[mode][key];
+                }
+              });
+            } else {
+              // otherwise, just replace the `$value` with the `$modes` value
+              slice.$value = slice.$modes[mode];
+            }
           } else {
             // we want to interrupt the execution of the script if one of the expected modes is missing
             throw new Error(`❌ ${chalk.red.bold('ERROR')} - Found themed token '{${tokenPath.join('.')}}' without '${mode}' value - BuildPath: ${buildPath} - File: ${slice.filePath} - Path: ${tokenPath.join('.')} - ${JSON.stringify(slice, null, 2)}`);
