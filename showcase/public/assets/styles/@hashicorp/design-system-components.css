@@ -444,33 +444,6 @@
   --token-pagination-nav-indicator-spacing: 6px;
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
-<<<<<<< HEAD
-  --token-side-nav-wrapper-border-width: 1px;
-  --token-side-nav-wrapper-border-color: #656a76;
-  --token-side-nav-wrapper-padding-horizontal: 16px;
-  --token-side-nav-wrapper-padding-vertical: 16px;
-  --token-side-nav-wrapper-padding-horizontal-minimized: 8px;
-  --token-side-nav-wrapper-padding-vertical-minimized: 22px;
-  --token-side-nav-toggle-button-border-radius: 5px;
-  --token-side-nav-header-home-link-padding: 4px;
-  --token-side-nav-header-home-link-logo-size: 48px;
-  --token-side-nav-header-home-link-logo-size-minimized: 32px;
-  --token-side-nav-header-actions-spacing: 8px;
-  --token-side-nav-body-list-margin-vertical: 24px;
-  --token-side-nav-body-list-item-height: 36px;
-  --token-side-nav-body-list-item-padding-horizontal: 8px;
-  --token-side-nav-body-list-item-padding-vertical: 4px;
-  --token-side-nav-body-list-item-spacing-vertical: 2px;
-  --token-side-nav-body-list-item-content-spacing-horizontal: 8px;
-  --token-side-nav-body-list-item-border-radius: 5px;
-  --token-side-nav-color-foreground-primary: #dedfe3;
-  --token-side-nav-color-foreground-strong: #ffffff;
-  --token-side-nav-color-foreground-faint: #8c909c;
-  --token-side-nav-color-surface-primary: #0c0c0e;
-  --token-side-nav-color-surface-interactive-hover: #3b3d45;
-  --token-side-nav-color-surface-interactive-active: #656a76;
-=======
->>>>>>> project-solar/phase-1-main-feature-branch
   --token-tabs-tab-height-medium: 36px;
   --token-tabs-tab-height-large: 48px;
   --token-tabs-tab-padding-horizontal-medium: 12px;
@@ -1824,8 +1797,6 @@
   box-shadow: var(--token-elevation-mid-box-shadow);
 }
 
-<<<<<<< HEAD
-=======
 .hds-advanced-table__actions .hds-filter-bar {
   border-bottom: none;
   border-radius: var(--token-border-radius-medium) var(--token-border-radius-medium) 0 0;
@@ -1862,7 +1833,6 @@
   border-bottom-left-radius: var(--token-border-radius-medium);
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -2400,22 +2370,8 @@
   border-color: var(--token-color-palette-neutral-500);
 }
 
-<<<<<<< HEAD
-.hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized) .hds-button,
-.hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized) .hds-dropdown-toggle-button,
-.hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized) .hds-dropdown-toggle-icon,
-.hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized) .hds-app-header__home-link,
-.hds-app-frame:has(.hds-side-nav--is-mobile.hds-side-nav--is-not-minimized) .hds-button,
-.hds-app-frame:has(.hds-side-nav--is-mobile.hds-side-nav--is-not-minimized) .hds-dropdown-toggle-button,
-.hds-app-frame:has(.hds-side-nav--is-mobile.hds-side-nav--is-not-minimized) .hds-dropdown-toggle-icon,
-.hds-app-frame:has(.hds-side-nav--is-mobile.hds-side-nav--is-not-minimized) .hds-app-header__home-link {
-  color: var(--token-color-foreground-disabled);
-  background-color: var(--token-color-palette-neutral-600);
-  border-color: var(--token-color-palette-neutral-500);
-=======
 .hds-app-frame:has(.hds-app-side-nav--is-mobile.hds-app-side-nav--is-not-minimized) .hds-app-header > * {
   filter: contrast(0.5) brightness(0.7);
->>>>>>> project-solar/phase-1-main-feature-branch
   pointer-events: none;
 }
 
@@ -2508,15 +2464,9 @@
 :root {
   --hds-app-side-nav-width-minimized: 16px;
   --hds-app-side-nav-width-expanded: 280px;
-<<<<<<< HEAD
-  --hds-app-side-nav-width-fixed: var(--hds-app-sidenav-width-expanded);
-  --hds-app-side-nav-animation-duration: 200ms;
-  --hds-app-side-nav-animation-delay: var(--hds-app-sidenav-animation-duration);
-=======
   --hds-app-side-nav-width-fixed: var(--hds-app-side-nav-width-expanded);
   --hds-app-side-nav-animation-duration: 200ms;
   --hds-app-side-nav-animation-delay: var(--hds-app-side-nav-animation-duration);
->>>>>>> project-solar/phase-1-main-feature-branch
   --hds-app-side-nav-animation-easing: cubic-bezier(0.65, 0, 0.35, 1);
   --hds-app-side-nav-toggle-button-width: 24px;
 }
@@ -3205,16 +3155,11 @@
   margin: 0 -4px;
   padding: 0 4px;
   color: var(--token-color-foreground-faint);
-<<<<<<< HEAD
-  border-radius: var(--token-border-radius-small);
-  text-decoration-color: transparent;
-=======
   background: none;
   border: none;
   border-radius: var(--token-border-radius-small);
   text-decoration-color: transparent;
   cursor: pointer;
->>>>>>> project-solar/phase-1-main-feature-branch
   outline-style: solid;
   outline-color: transparent;
 }
@@ -5370,8 +5315,6 @@ button.hds-button[href]::after {
 }
 
 /**
-<<<<<<< HEAD
-=======
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
@@ -5588,7 +5531,6 @@ button.hds-button[href]::after {
 }
 
 /**
->>>>>>> project-solar/phase-1-main-feature-branch
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
@@ -7491,15 +7433,6 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-<<<<<<< HEAD
-.hds-layout-grid {
-  --hds-layout-grid-column-min-width: 0px;
-  display: grid;
-  grid-template-columns: repeat(var(--hds-layout-grid-column-fill-type, auto-fit), minmax(calc(var(--hds-layout-grid-column-min-width) - var(--hds-layout-grid-column-gap)), 1fr));
-  gap: var(--hds-layout-grid-row-gap) var(--hds-layout-grid-column-gap);
-}
-
-=======
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -7549,7 +7482,6 @@ button.hds-button[href]::after {
   }
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-layout-grid--align-items-start {
   align-items: start;
 }
@@ -7570,114 +7502,62 @@ button.hds-button[href]::after {
   --hds-layout-grid-row-gap: 0px;
 }
 
-<<<<<<< HEAD
-.hds-layout-grid--row-gap-4 {
-  --hds-layout-grid-row-gap: 4px;
-}
-
-.hds-layout-grid--row-gap-8 {
-  --hds-layout-grid-row-gap: 8px;
-}
-
-.hds-layout-grid--row-gap-12 {
-  --hds-layout-grid-row-gap: 12px;
-}
-
-.hds-layout-grid--row-gap-16 {
-  --hds-layout-grid-row-gap: 16px;
-}
-
-.hds-layout-grid--row-gap-24 {
-  --hds-layout-grid-row-gap: 24px;
-}
-
-.hds-layout-grid--row-gap-32 {
-  --hds-layout-grid-row-gap: 32px;
-}
-
-.hds-layout-grid--row-gap-48 {
-  --hds-layout-grid-row-gap: 48px;
-}
-
-=======
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-layout-grid--column-gap-0 {
   --hds-layout-grid-column-gap: 0px;
 }
 
-<<<<<<< HEAD
-=======
 .hds-layout-grid--row-gap-4 {
   --hds-layout-grid-row-gap: 4px;
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-layout-grid--column-gap-4 {
   --hds-layout-grid-column-gap: 4px;
 }
 
-<<<<<<< HEAD
-=======
 .hds-layout-grid--row-gap-8 {
   --hds-layout-grid-row-gap: 8px;
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-layout-grid--column-gap-8 {
   --hds-layout-grid-column-gap: 8px;
 }
 
-<<<<<<< HEAD
-=======
 .hds-layout-grid--row-gap-12 {
   --hds-layout-grid-row-gap: 12px;
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-layout-grid--column-gap-12 {
   --hds-layout-grid-column-gap: 12px;
 }
 
-<<<<<<< HEAD
-=======
 .hds-layout-grid--row-gap-16 {
   --hds-layout-grid-row-gap: 16px;
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-layout-grid--column-gap-16 {
   --hds-layout-grid-column-gap: 16px;
 }
 
-<<<<<<< HEAD
-=======
 .hds-layout-grid--row-gap-24 {
   --hds-layout-grid-row-gap: 24px;
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-layout-grid--column-gap-24 {
   --hds-layout-grid-column-gap: 24px;
 }
 
-<<<<<<< HEAD
-=======
 .hds-layout-grid--row-gap-32 {
   --hds-layout-grid-row-gap: 32px;
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-layout-grid--column-gap-32 {
   --hds-layout-grid-column-gap: 32px;
 }
 
-<<<<<<< HEAD
-=======
 .hds-layout-grid--row-gap-48 {
   --hds-layout-grid-row-gap: 48px;
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-layout-grid--column-gap-48 {
   --hds-layout-grid-column-gap: 48px;
 }
@@ -7689,8 +7569,6 @@ button.hds-button[href]::after {
   grid-column-start: span var(--hds-layout-grid-column-span);
 }
 
-<<<<<<< HEAD
-=======
 .hds-layout-grid--col-span-view-sm {
   --hds-layout-grid-column-span: var(--hds-layout-grid-column-span-sm);
 }
@@ -7747,7 +7625,6 @@ button.hds-button[href]::after {
   }
 }
 
->>>>>>> project-solar/phase-1-main-feature-branch
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
@@ -8583,611 +8460,6 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-<<<<<<< HEAD
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-:root {
-  --hds-app-desktop-breakpoint: 1088px;
-  --hds-app-sidenav-width-minimized: 48px;
-  --hds-app-sidenav-width-expanded: 280px;
-  --hds-app-sidenav-width-fixed: var(--hds-app-sidenav-width-expanded);
-  --hds-app-sidenav-animation-duration: 200ms;
-  --hds-app-sidenav-animation-delay: var(--hds-app-sidenav-animation-duration);
-  --hds-app-sidenav-animation-easing: cubic-bezier(0.65, 0, 0.35, 1);
-  --hds-app-sidenav-toggle-button-width: 24px;
-  --hds-app-sidenav-color-focus-action-internal: #bcc7fd;
-  --hds-app-sidenav-color-focus-action-external: #0d69f2;
-  --hds-app-sidenav-focus-ring-action-box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
-}
-
-@media (prefers-reduced-motion) {
-  :root {
-    --hds-app-sidenav-animation-duration: 0;
-  }
-}
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-.hds-side-nav {
-  position: relative;
-  width: var(--hds-app-sidenav-width-fixed);
-  height: 100%;
-  min-height: 100%;
-  isolation: isolate;
-}
-.hds-side-nav.hds-side-nav--is-headerless {
-  --hds-app-sidenav-width-minimized: 16px;
-}
-.hds-side-nav.hds-side-nav--is-responsive {
-  transition: width var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing);
-}
-.hds-side-nav.hds-side-nav--is-mobile {
-  width: var(--hds-app-sidenav-width-minimized);
-}
-.hds-side-nav.hds-side-nav--is-desktop.hds-side-nav--is-not-minimized {
-  width: var(--hds-app-sidenav-width-expanded);
-}
-.hds-side-nav.hds-side-nav--is-desktop.hds-side-nav--is-minimized {
-  width: var(--hds-app-sidenav-width-minimized);
-}
-
-.hds-side-nav__overlay {
-  position: fixed;
-  z-index: -1;
-  inset: 0;
-  background-color: var(--token-color-palette-neutral-700);
-  opacity: 0.2;
-  transition: opacity var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing) var(--hds-app-sidenav-animation-delay);
-}
-.hds-side-nav--is-minimized .hds-side-nav__overlay {
-  opacity: 0;
-  pointer-events: none;
-}
-.hds-side-nav--is-desktop .hds-side-nav__overlay {
-  display: none;
-}
-
-.hds-side-nav__wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  color: var(--token-side-nav-color-foreground-primary);
-  background: var(--token-side-nav-color-surface-primary);
-  border-right: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
-}
-.hds-side-nav--is-responsive .hds-side-nav__wrapper {
-  transition: width var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing);
-}
-.hds-side-nav--is-minimized .hds-side-nav__wrapper {
-  width: var(--hds-app-sidenav-width-minimized);
-}
-.hds-side-nav--is-not-minimized .hds-side-nav__wrapper {
-  width: var(--hds-app-sidenav-width-expanded);
-}
-
-.hds-side-nav__wrapper-header {
-  padding-top: var(--token-side-nav-wrapper-padding-vertical);
-  padding-right: var(--token-side-nav-wrapper-padding-horizontal);
-  padding-bottom: 8px;
-  padding-left: var(--token-side-nav-wrapper-padding-horizontal);
-  transition: padding var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing);
-}
-.hds-side-nav--is-minimized .hds-side-nav__wrapper-header {
-  padding-top: var(--token-side-nav-wrapper-padding-vertical-minimized);
-  padding-right: var(--token-side-nav-wrapper-padding-horizontal-minimized);
-  padding-left: var(--token-side-nav-wrapper-padding-horizontal-minimized);
-}
-.hds-side-nav__wrapper-header:empty {
-  padding: 0;
-}
-
-.hds-side-nav__wrapper-body {
-  flex: 1;
-  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.hds-side-nav__wrapper-footer {
-  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
-}
-.hds-side-nav__wrapper-footer:empty {
-  min-height: var(--token-side-nav-wrapper-padding-horizontal);
-  padding: 0;
-}
-
-.hds-side-nav--is-minimized .hds-side-nav-hide-when-minimized {
-  visibility: hidden !important;
-  opacity: 0;
-  pointer-events: none;
-}
-.hds-side-nav--is-not-minimized .hds-side-nav-hide-when-minimized {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing) var(--hds-app-sidenav-animation-delay);
-}
-.hds-side-nav--is-animating .hds-side-nav-hide-when-minimized {
-  pointer-events: none;
-}
-
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-.hds-side-nav-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.hds-side-nav-header__logo-container {
-  display: flex;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  width: var(--token-side-nav-header-home-link-logo-size);
-  height: var(--token-side-nav-header-home-link-logo-size);
-  transition: width var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing), height var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing);
-}
-.hds-side-nav--is-minimized .hds-side-nav-header__logo-container {
-  width: var(--token-side-nav-header-home-link-logo-size-minimized);
-  height: var(--token-side-nav-header-home-link-logo-size-minimized);
-}
-
-.hds-side-nav__home-link {
-  --token-focus-ring-action-box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
-  border: 1px solid transparent;
-  cursor: pointer;
-  color: var(--token-side-nav-color-foreground-strong);
-  background-color: transparent;
-  border-radius: var(--token-side-nav-body-list-item-border-radius);
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: calc(var(--token-side-nav-header-home-link-padding) - 1px);
-}
-.hds-side-nav__home-link:hover, .hds-side-nav__home-link.mock-hover {
-  color: var(--token-side-nav-color-foreground-strong);
-  background-color: var(--token-side-nav-color-surface-interactive-hover);
-}
-.hds-side-nav__home-link:focus, .hds-side-nav__home-link.mock-focus {
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-side-nav__home-link:focus::before, .hds-side-nav__home-link.mock-focus::before {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
-  z-index: -1;
-  border-radius: 5px;
-  content: "";
-}
-.hds-side-nav__home-link:focus:focus::before, .hds-side-nav__home-link:focus.mock-focus::before, .hds-side-nav__home-link.mock-focus:focus::before, .hds-side-nav__home-link.mock-focus.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-side-nav__home-link:focus:focus:not(:focus-visible)::before, .hds-side-nav__home-link.mock-focus:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-side-nav__home-link:focus:focus-visible::before, .hds-side-nav__home-link.mock-focus:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-side-nav__home-link:focus:focus:active::before, .hds-side-nav__home-link:focus.mock-focus.mock-active::before, .hds-side-nav__home-link.mock-focus:focus:active::before, .hds-side-nav__home-link.mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-side-nav__home-link:focus, .hds-side-nav__home-link.mock-focus {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
-}
-.hds-side-nav__home-link:focus::before, .hds-side-nav__home-link.mock-focus::before {
-  color: var(--token-color-foreground-high-contrast);
-  border: none;
-}
-.hds-side-nav__home-link:focus:focus:not(:focus-visible)::before {
-  box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
-}
-.hds-side-nav__home-link:active, .hds-side-nav__home-link.mock-active {
-  color: var(--token-side-nav-color-foreground-strong);
-  background-color: var(--token-side-nav-color-surface-interactive-active);
-}
-.hds-side-nav__home-link:disabled, .hds-side-nav__home-link[disabled], .hds-side-nav__home-link.mock-disabled, .hds-side-nav__home-link:disabled:focus, .hds-side-nav__home-link[disabled]:focus, .hds-side-nav__home-link.mock-disabled:focus, .hds-side-nav__home-link:disabled:hover, .hds-side-nav__home-link[disabled]:hover, .hds-side-nav__home-link.mock-disabled:hover {
-  color: var(--token-color-foreground-disabled);
-  background-color: var(--token-color-palette-neutral-600);
-  border-color: var(--token-color-palette-neutral-500);
-}
-
-.hds-side-nav-header__actions-container {
-  display: flex;
-  gap: var(--token-side-nav-header-actions-spacing);
-}
-
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *),
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *) {
-  --token-focus-ring-action-box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
-  border: 1px solid transparent;
-  cursor: pointer;
-  border-color: var(--token-color-palette-neutral-500);
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
-  border-radius: var(--token-button-border-radius);
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):hover,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-hover {
-  border-color: var(--token-color-palette-neutral-500);
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-600);
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
-  z-index: -1;
-  border-radius: 5px;
-  content: "";
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus-visible::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus-visible::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:active::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:active::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:active::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus.mock-focus.mock-active::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus:focus:active::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-700);
-  border-color: #bcc7fd;
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-focus::before {
-  color: var(--token-color-foreground-high-contrast);
-  border: none;
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):focus:focus:not(:focus-visible)::before {
-  box-shadow: inset 0 0 0 1px #bcc7fd, 0 0 0 3px #0d69f2;
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):active,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-active {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-neutral-500);
-  border-color: var(--token-color-palette-neutral-400);
-}
-.hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled], .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:focus, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover, .hds-side-nav .hds-button:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled],
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:focus,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:focus,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:focus,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *):disabled:hover,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *)[disabled]:hover,
-.hds-side-nav button[class*=hds-dropdown-toggle]:not(.hds-dropdown__content *, .ember-basic-dropdown-content *, .hds-dialog-primitive__wrapper *).mock-disabled:hover {
-  color: var(--token-color-foreground-disabled);
-  background-color: var(--token-color-palette-neutral-600);
-  border-color: var(--token-color-palette-neutral-500);
-}
-
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-.hds-side-nav__content {
-  margin: 0 calc(var(--token-side-nav-wrapper-padding-horizontal) * -1);
-}
-.hds-side-nav--is-minimized .hds-side-nav__content {
-  height: 0;
-  overflow: hidden;
-}
-
-.hds-side-nav__content-panels {
-  display: grid;
-  grid-template-columns: repeat(5, var(--hds-app-sidenav-width-expanded));
-  width: 100%;
-}
-
-.hds-side-nav__content-panel {
-  padding: 0 var(--token-side-nav-wrapper-padding-horizontal);
-  overflow: hidden;
-}
-.hds-side-nav__content-panel[aria-hidden=true] {
-  max-height: 0;
-}
-
-.hds-side-nav__list-title {
-  min-height: var(--token-side-nav-body-list-item-height);
-  margin-top: var(--token-side-nav-body-list-margin-vertical);
-  padding: 9px var(--token-side-nav-body-list-item-padding-horizontal);
-  color: var(--token-side-nav-color-foreground-faint);
-  overflow-wrap: break-word;
-}
-.hds-side-nav__list-wrapper:first-child .hds-side-nav__list-item:first-child > .hds-side-nav__list-title {
-  margin-top: 0;
-}
-
-.hds-side-nav__list-wrapper,
-.hds-side-nav__list {
-  margin: 0;
-  padding: 0;
-}
-
-.hds-side-nav__list-item {
-  list-style-type: none;
-}
-.hds-side-nav__list-item + .hds-side-nav__list-item {
-  margin-top: var(--token-side-nav-body-list-item-spacing-vertical);
-}
-
-.hds-side-nav__list-item-link {
-  --token-focus-ring-action-box-shadow: var(--hds-app-sidenav-focus-ring-action-box-shadow);
-  display: flex;
-  gap: var(--token-side-nav-body-list-item-content-spacing-horizontal);
-  align-items: center;
-  width: 100%;
-  min-height: var(--token-side-nav-body-list-item-height);
-  padding: var(--token-side-nav-body-list-item-padding-vertical) var(--token-side-nav-body-list-item-padding-horizontal);
-  color: var(--token-side-nav-color-foreground-primary);
-  text-decoration: none;
-  background: var(--token-side-nav-color-surface-primary);
-  border-color: transparent;
-  border-width: 0;
-  border-radius: var(--token-side-nav-body-list-item-border-radius);
-}
-.hds-side-nav__list-item-link:focus, .hds-side-nav__list-item-link.mock-focus {
-  position: relative;
-  outline-style: solid;
-  outline-color: transparent;
-  isolation: isolate;
-}
-.hds-side-nav__list-item-link:focus::before, .hds-side-nav__list-item-link.mock-focus::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  border-radius: 5px;
-  content: "";
-}
-.hds-side-nav__list-item-link:focus:focus::before, .hds-side-nav__list-item-link:focus.mock-focus::before, .hds-side-nav__list-item-link.mock-focus:focus::before, .hds-side-nav__list-item-link.mock-focus.mock-focus::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-side-nav__list-item-link:focus:focus:not(:focus-visible)::before, .hds-side-nav__list-item-link.mock-focus:focus:not(:focus-visible)::before {
-  box-shadow: none;
-}
-.hds-side-nav__list-item-link:focus:focus-visible::before, .hds-side-nav__list-item-link.mock-focus:focus-visible::before {
-  box-shadow: var(--token-focus-ring-action-box-shadow);
-}
-.hds-side-nav__list-item-link:focus:focus:active::before, .hds-side-nav__list-item-link:focus.mock-focus.mock-active::before, .hds-side-nav__list-item-link.mock-focus:focus:active::before, .hds-side-nav__list-item-link.mock-focus.mock-focus.mock-active::before {
-  box-shadow: none;
-}
-.hds-side-nav__list-item-link:hover, .hds-side-nav__list-item-link.mock-hover {
-  background: var(--token-side-nav-color-surface-interactive-hover);
-  border-color: transparent;
-}
-.hds-side-nav__list-item-link:hover .hds-side-nav__list-item-text,
-.hds-side-nav__list-item-link:hover .hds-side-nav__list-item-icon-leading,
-.hds-side-nav__list-item-link:hover .hds-side-nav__list-item-icon-trailing, .hds-side-nav__list-item-link.mock-hover .hds-side-nav__list-item-text,
-.hds-side-nav__list-item-link.mock-hover .hds-side-nav__list-item-icon-leading,
-.hds-side-nav__list-item-link.mock-hover .hds-side-nav__list-item-icon-trailing {
-  color: var(--token-side-nav-color-foreground-strong);
-}
-.hds-side-nav__list-item-link:hover:focus, .hds-side-nav__list-item-link.active, .hds-side-nav__list-item-link:active, .hds-side-nav__list-item-link.mock-active {
-  background: var(--token-side-nav-color-surface-interactive-active);
-}
-.hds-side-nav__list-item-link:hover:focus .hds-side-nav__list-item-text,
-.hds-side-nav__list-item-link:hover:focus .hds-side-nav__list-item-icon-leading,
-.hds-side-nav__list-item-link:hover:focus .hds-side-nav__list-item-icon-trailing, .hds-side-nav__list-item-link.active .hds-side-nav__list-item-text,
-.hds-side-nav__list-item-link.active .hds-side-nav__list-item-icon-leading,
-.hds-side-nav__list-item-link.active .hds-side-nav__list-item-icon-trailing, .hds-side-nav__list-item-link:active .hds-side-nav__list-item-text,
-.hds-side-nav__list-item-link:active .hds-side-nav__list-item-icon-leading,
-.hds-side-nav__list-item-link:active .hds-side-nav__list-item-icon-trailing, .hds-side-nav__list-item-link.mock-active .hds-side-nav__list-item-text,
-.hds-side-nav__list-item-link.mock-active .hds-side-nav__list-item-icon-leading,
-.hds-side-nav__list-item-link.mock-active .hds-side-nav__list-item-icon-trailing {
-  color: var(--token-side-nav-color-foreground-strong);
-}
-.hds-side-nav__list-item-link:hover:focus .hds-badge,
-.hds-side-nav__list-item-link:hover:focus .hds-badge-count, .hds-side-nav__list-item-link.active .hds-badge,
-.hds-side-nav__list-item-link.active .hds-badge-count, .hds-side-nav__list-item-link:active .hds-badge,
-.hds-side-nav__list-item-link:active .hds-badge-count, .hds-side-nav__list-item-link.mock-active .hds-badge,
-.hds-side-nav__list-item-link.mock-active .hds-badge-count {
-  color: var(--token-color-foreground-primary);
-  background: var(--token-color-surface-strong);
-}
-
-.hds-side-nav__list-item-link--back-link:active, .hds-side-nav__list-item-link--back-link.mock-active {
-  background: var(--token-side-nav-color-surface-primary);
-}
-.hds-side-nav__list-item-link--back-link:active .hds-side-nav__list-item-text,
-.hds-side-nav__list-item-link--back-link:active .hds-side-nav__list-item-icon-leading,
-.hds-side-nav__list-item-link--back-link:active .hds-side-nav__list-item-icon-trailing, .hds-side-nav__list-item-link--back-link.mock-active .hds-side-nav__list-item-text,
-.hds-side-nav__list-item-link--back-link.mock-active .hds-side-nav__list-item-icon-leading,
-.hds-side-nav__list-item-link--back-link.mock-active .hds-side-nav__list-item-icon-trailing {
-  color: var(--token-side-nav-color-foreground-primary);
-}
-
-.hds-side-nav__list-item-text {
-  min-width: 0;
-  max-width: 100%;
-  color: var(--token-side-nav-color-foreground-primary);
-  text-align: left;
-  overflow-wrap: break-word;
-}
-
-.hds-side-nav__list-item-icon-leading {
-  flex: none;
-}
-
-.hds-side-nav__list-item-icon-trailing {
-  flex: none;
-  margin-left: auto;
-}
-
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-.hds-side-nav__toggle-button {
-  position: absolute;
-  top: 22px;
-  left: calc(var(--token-side-nav-wrapper-border-width) * -1);
-  z-index: 1;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  width: var(--hds-app-sidenav-toggle-button-width);
-  height: 36px;
-  padding: 0 4px;
-  color: var(--token-color-foreground-high-contrast);
-  background: none;
-  background-color: var(--token-side-nav-color-surface-primary);
-  border: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
-  border-left-color: transparent;
-  border-top-right-radius: var(--token-side-nav-toggle-button-border-radius);
-  border-bottom-right-radius: var(--token-side-nav-toggle-button-border-radius);
-  transform: translateX(var(--hds-app-sidenav-width-expanded));
-  cursor: pointer;
-  transition: transform var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing), width var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing);
-}
-.hds-side-nav__toggle-button::before {
-  position: absolute;
-  top: calc(var(--token-side-nav-toggle-button-border-radius) * -2);
-  left: calc(var(--token-side-nav-wrapper-border-width) * -1);
-  box-sizing: border-box;
-  width: calc(var(--token-side-nav-toggle-button-border-radius) * 2);
-  height: calc(var(--token-side-nav-toggle-button-border-radius) * 2);
-  border-bottom: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
-  border-left: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
-  border-bottom-left-radius: var(--token-side-nav-toggle-button-border-radius);
-  box-shadow: 0 var(--token-side-nav-toggle-button-border-radius) 0 var(--token-side-nav-color-surface-primary);
-  content: "";
-}
-.hds-side-nav__toggle-button::after {
-  position: absolute;
-  bottom: calc(var(--token-side-nav-toggle-button-border-radius) * -2);
-  left: calc(var(--token-side-nav-wrapper-border-width) * -1);
-  box-sizing: border-box;
-  width: calc(var(--token-side-nav-toggle-button-border-radius) * 2);
-  height: calc(var(--token-side-nav-toggle-button-border-radius) * 2);
-  border-top: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
-  border-left: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
-  border-top-left-radius: var(--token-side-nav-toggle-button-border-radius);
-  box-shadow: 0 calc(var(--token-side-nav-toggle-button-border-radius) * -1) 0 var(--token-side-nav-color-surface-primary);
-  content: "";
-}
-.hds-side-nav__toggle-button:hover, .hds-side-nav__toggle-button.mock-hover {
-  width: 30px;
-  background-color: var(--token-side-nav-color-surface-interactive-hover);
-}
-.hds-side-nav__toggle-button:hover::before, .hds-side-nav__toggle-button.mock-hover::before {
-  box-shadow: 0 var(--token-side-nav-toggle-button-border-radius) 0 var(--token-side-nav-color-surface-interactive-hover);
-}
-.hds-side-nav__toggle-button:hover::after, .hds-side-nav__toggle-button.mock-hover::after {
-  box-shadow: 0 calc(var(--token-side-nav-toggle-button-border-radius) * -1) 0 var(--token-side-nav-color-surface-interactive-hover);
-}
-.hds-side-nav__toggle-button:active, .hds-side-nav__toggle-button.mock-active {
-  background-color: var(--token-side-nav-color-surface-interactive-active);
-}
-.hds-side-nav__toggle-button:active::before, .hds-side-nav__toggle-button.mock-active::before {
-  box-shadow: 0 var(--token-side-nav-toggle-button-border-radius) 0 var(--token-side-nav-color-surface-interactive-active);
-}
-.hds-side-nav__toggle-button:active::after, .hds-side-nav__toggle-button.mock-active::after {
-  box-shadow: 0 calc(var(--token-side-nav-toggle-button-border-radius) * -1) 0 var(--token-side-nav-color-surface-interactive-active);
-}
-.hds-side-nav__toggle-button:focus-visible, .hds-side-nav__toggle-button.mock-focus {
-  border-color: var(--hds-app-sidenav-color-focus-action-internal);
-  outline: 3px solid var(--hds-app-sidenav-color-focus-action-external);
-}
-.hds-side-nav__toggle-button:focus-visible::before, .hds-side-nav__toggle-button:focus-visible::after, .hds-side-nav__toggle-button.mock-focus::before, .hds-side-nav__toggle-button.mock-focus::after {
-  display: none;
-}
-.hds-side-nav--is-minimized .hds-side-nav__toggle-button {
-  transform: translateX(var(--hds-app-sidenav-width-minimized));
-}
-.hds-side-nav:has(.hds-side-nav__wrapper-header:empty) .hds-side-nav__toggle-button {
-  top: var(--token-side-nav-wrapper-padding-vertical);
-}
-
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-.hds-side-nav .ember-a11y-refocus-skip-link {
-  top: 10px;
-  left: 10px;
-  z-index: 20;
-  width: max-content;
-  padding: 2px 10px 4px;
-  color: var(--token-color-foreground-action);
-  font-size: var(--token-typography-display-200-font-size);
-  font-family: var(--token-typography-display-200-font-family);
-  line-height: var(--token-typography-display-200-line-height);
-  background-color: var(--token-color-surface-faint);
-  border-radius: var(--token-border-radius-x-small);
-  transform: translateY(-200%);
-  transition: 0.6s ease-in-out;
-}
-.hds-side-nav .ember-a11y-refocus-skip-link:focus {
-  transform: translateY(0);
-}
-
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-/**
- * Copyright IBM Corp. 2021, 2025
- * SPDX-License-Identifier: MPL-2.0
- */
-=======
->>>>>>> project-solar/phase-1-main-feature-branch
 .hds-stepper-list {
   display: flex;
   flex-direction: column;

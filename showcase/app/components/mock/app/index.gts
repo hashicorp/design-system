@@ -89,7 +89,12 @@ export default class MockApp extends Component<MockAppSignature> {
       </Frame.Header>
       <Frame.Sidebar>
         {{#if (has-block "sidebar")}}
-          {{yield (hash AppSideNav=MockAppSidebarAppSideNav) to="sidebar"}}
+          {{yield
+            (hash
+              AppSideNav=MockAppSidebarAppSideNav
+            )
+            to="sidebar"
+          }}
         {{else}}
           <MockAppSidebarAppSideNav />
         {{/if}}
