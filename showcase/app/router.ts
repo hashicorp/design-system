@@ -177,6 +177,9 @@ Router.map(function () {
         this.route('text-input');
         this.route('radio-card');
       });
+      this.route('link', function (): void {
+        this.route('inline');
+      });
       this.route('modal');
       this.route('segmented-group');
     });
