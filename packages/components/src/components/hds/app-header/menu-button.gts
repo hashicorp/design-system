@@ -4,9 +4,12 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { on } from '@ember/modifier';
 
-import type { HdsButtonSignature } from '../button/';
+import hdsT from '../../../helpers/hds-t.ts';
+import HdsButton from '../button/index.gts';
+
+import type { HdsButtonSignature } from '../button/index.gts';
 
 export interface HdsAppHeaderMenuButtonSignature {
   Args: {
@@ -22,12 +25,24 @@ export default class HdsAppHeaderMenuButton extends Component<HdsAppHeaderMenuBu
     return this.args.isOpen ? 'x' : 'menu';
   }
 
-  @action
-  onClick(): void {
+  onClick = (): void => {
     const { onClickToggle } = this.args;
 
     if (typeof onClickToggle === 'function') {
       onClickToggle();
     }
-  }
+  };
+
+  <template>
+    <HdsButton
+      class="hds-app-header__menu-button"
+      @text={{hdsT "hds.components.common.menu" default="Menu"}}
+      @icon={{this.icon}}
+      @iconPosition="trailing"
+      {{on "click" this.onClick}}
+      aria-controls={{@menuContentId}}
+      aria-expanded={{if @isOpen "true" "false"}}
+      ...attributes
+    />
+  </template>
 }
