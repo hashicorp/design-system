@@ -22,6 +22,7 @@
     "build": "ts-node --transpile-only ./scripts/build.ts"
   },
   "devDependencies": {
+    "@carbon/icons": "^11.71.0",
     "@figma-export/cli": "^6.0.2",
     "@figma-export/core": "^6.3.0",
     "@figma-export/output-components-as-svg": "^6.0.1",
