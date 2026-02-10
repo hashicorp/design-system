@@ -207,12 +207,12 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     <svg
       class={{this.classNames}}
       ...attributes
-      aria-hidden="{{if @title 'false' 'true'}}"
+      aria-hidden={{if @title "false" "true"}}
       aria-labelledby={{this.ariaLabelledby}}
       data-test-icon={{this.name}}
       data-has-carbon-equivalent={{this.hasCarbonEquivalent}}
       data-is-carbon={{this.isCarbon}}
-      fill="{{this.fillColor}}"
+      fill={{this.fillColor}}
       id={{this._iconId}}
       role={{this.role}}
       width={{this.svgSize.width}}
