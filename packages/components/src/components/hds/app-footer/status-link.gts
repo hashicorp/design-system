@@ -114,8 +114,6 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
       @icon={{this.statusIcon}}
       @iconPosition="leading"
       ...attributes
-    >
-      {{this.text}}
-    </HdsAppFooterLink>
+    >{{this.text}}</HdsAppFooterLink>
   </template>
 }

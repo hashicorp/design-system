@@ -46,11 +46,10 @@ const HdsAppFooterLink: TemplateOnlyComponent<HdsAppFooterLinkSignature> =
         @icon={{@icon}}
         @iconPosition={{@iconPosition}}
         ...attributes
-      >
-        <HdsTextBody @tag="span" @size="100">
-          {{yield}}
-        </HdsTextBody>
-      </HdsLinkInline>
+      ><HdsTextBody
+          @tag="span"
+          @size="100"
+        >{{yield}}</HdsTextBody></HdsLinkInline>
     </HdsAppFooterItem>
   </template>;
 
