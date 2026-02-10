@@ -179,9 +179,9 @@ export * from './components/hds/form/field/types.ts';
 export * from './components/hds/form/fieldset/types.ts';
 
 // Form > Checkbox
-export { default as HdsFormCheckboxBase } from './components/hds/form/checkbox/base.ts';
-export { default as HdsFormCheckboxField } from './components/hds/form/checkbox/field.ts';
-export { default as HdsFormCheckboxGroup } from './components/hds/form/checkbox/group.ts';
+export { default as HdsFormCheckboxBase } from './components/hds/form/checkbox/base.gts';
+export { default as HdsFormCheckboxField } from './components/hds/form/checkbox/field.gts';
+export { default as HdsFormCheckboxGroup } from './components/hds/form/checkbox/group.gts';
 
 // Form > FileInput
 export { default as HdsFormFileInputBase } from './components/hds/form/file-input/base.ts';
