@@ -228,6 +228,8 @@
   --token-icon-tile-border-color-logo: #525252;
   --token-icon-tile-border-color-overlay: #6f6f6f;
   --token-icon-tile-surface-color-overlay: #393939;
+  --token-link-inline-border-radius: 0px;
+  --token-link-inline-icon-margin-horizontal: 0.5em;
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;

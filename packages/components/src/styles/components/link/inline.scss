@@ -11,7 +11,7 @@
 //
 
 .hds-link-inline {
-  border-radius: 2px; // this is used by the outline too
+  border-radius: var(--token-link-inline-border-radius); // this is used by the outline too
 
   &:focus,
   &.mock-focus,
@@ -29,11 +29,11 @@
   vertical-align: text-bottom; // don't use "middle" here or it will extend beyond the focus ring
 
   .hds-link-inline--icon-leading > & {
-    margin-right: 0.25em;
+    margin-right: var(--token-link-inline-icon-margin-horizontal);
   }
 
   .hds-link-inline--icon-trailing > & {
-    margin-left: 0.25em;
+    margin-left: var(--token-link-inline-icon-margin-horizontal);
   }
 }
 
