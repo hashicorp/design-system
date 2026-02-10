@@ -180,6 +180,9 @@ Router.map(function () {
         this.route('radio-card');
       });
       this.route('icon-tile');
+      this.route('link', function (): void {
+        this.route('inline');
+      });
       this.route('modal');
       this.route('rich-tooltip');
       this.route('segmented-group');
