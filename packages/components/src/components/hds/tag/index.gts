@@ -10,7 +10,7 @@ import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import { or } from 'ember-truth-helpers';
-import { hash } from '@ember/helper';
+import { hash, array } from '@ember/helper';
 
 import { HdsTagColorValues } from './types.ts';
 import { HdsTagTooltipPlacementValues } from './types.ts';
@@ -167,8 +167,8 @@ export default class HdsTag extends Component<HdsTagSignature> {
           <HdsInteractive
             class="hds-tag__link"
             @current-when={{@current-when}}
-            @models={{hdsLinkToModels @model @models}}
-            @query={{hdsLinkToQuery @query}}
+            @models={{hdsLinkToModels (array @model @models)}}
+            @query={{hdsLinkToQuery (array @query)}}
             @replace={{@replace}}
             @route={{@route}}
             @isRouteExternal={{@isRouteExternal}}
@@ -192,8 +192,8 @@ export default class HdsTag extends Component<HdsTagSignature> {
           <HdsInteractive
             class="hds-tag__link"
             @current-when={{@current-when}}
-            @models={{hdsLinkToModels @model @models}}
-            @query={{hdsLinkToQuery @query}}
+            @models={{hdsLinkToModels (array @model @models)}}
+            @query={{hdsLinkToQuery (array @query)}}
             @replace={{@replace}}
             @route={{@route}}
             @isRouteExternal={{@isRouteExternal}}
