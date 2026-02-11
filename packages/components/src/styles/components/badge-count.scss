@@ -18,7 +18,7 @@ $hds-badge-count-types: ("filled", "inverted", "outlined");
   font-weight: var(--token-typography-font-weight-medium);
   font-family: var(--token-typography-font-stack-text);
   border-style: solid;
-  border-width: var(--token-badge-border-width);
+  border-width: 1px;
 }
 
 // SIZE
@@ -26,9 +26,10 @@ $hds-badge-count-types: ("filled", "inverted", "outlined");
 @each $size in $hds-badge-count-sizes {
   .hds-badge-count--size-#{$size} {
     min-height: var(--token-badge-height-#{$size});
-    // note: for the horizontal padding, we're using a specific design token for the `BadgeCount` component
-    padding: calc(var(--token-badge-padding-vertical-#{$size}) - var(--token-badge-border-width))
-      calc(var(--token-badge-count-padding-horizontal-#{$size}) - var(--token-badge-border-width));
+    // we need to account for the `1px` border when calculating the actual padding
+    padding: calc(var(--token-badge-padding-vertical-#{$size}) - 1px)
+      // note: for the horizontal padding, we're using a specific design token for the `BadgeCount` component
+      calc(var(--token-badge-count-padding-horizontal-#{$size}) - 1px);
     font-size: var(--token-badge-typography-font-size-#{$size});
     line-height: var(--token-badge-typography-line-height-#{$size});
     border-radius: calc(var(--token-badge-height-#{$size}) / 2);
