@@ -226,8 +226,8 @@ export { default as HdsFormSuperSelectPlaceholder } from './components/hds/form/
 export * from './components/hds/form/super-select/types.ts';
 
 // Form > Textarea
-export { default as HdsFormTextareaBase } from './components/hds/form/textarea/base.ts';
-export { default as HdsFormTextareaField } from './components/hds/form/textarea/field.ts';
+export { default as HdsFormTextareaBase } from './components/hds/form/textarea/base.gts';
+export { default as HdsFormTextareaField } from './components/hds/form/textarea/field.gts';
 
 // Form > TextInput
 export { default as HdsFormTextInputBase } from './components/hds/form/text-input/base.ts';
