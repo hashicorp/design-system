@@ -6,16 +6,17 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { service } from '@ember/service';
 
 import { HdsCopyButtonSizeValues } from './types.ts';
+import HdsButton from '../../button/index.gts';
+import hdsClipboard from '../../../../modifiers/hds-clipboard.ts';
 
 import type { HdsCopyButtonSizes } from './types.ts';
-import type { HdsButtonSignature } from '../../button/';
+import type { HdsButtonSignature } from '../../button/index.gts';
 import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
-import type { HdsIconSignature } from '../../icon';
-import type HdsIntlService from '../../../../services/hds-intl';
+import type { HdsIconSignature } from '../../icon/index.gts';
+import type HdsIntlService from '../../../../services/hds-intl.ts';
 
 export const DEFAULT_SIZE = HdsCopyButtonSizeValues.Medium;
 export const SIZES: HdsCopyButtonSizes[] = Object.values(
@@ -44,11 +45,6 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
   @tracked private _status = DEFAULT_STATUS;
   @tracked private _timer: ReturnType<typeof setTimeout> | undefined;
 
-  /**
-   * @param icon
-   * @type {string}
-   * @description The icon to be displayed for each status; automatically calculated based on the tracked property `status`.
-   */
   get icon(): HdsIconSignature['Args']['name'] {
     let icon: HdsIconSignature['Args']['name'] = DEFAULT_ICON;
     if (this._status === 'success') {
@@ -59,12 +55,6 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
     return icon;
   }
 
-  /**
-   * @param size
-   * @type {string}
-   * @default medium
-   * @description The size of the copy/button; acceptable values are `small` and `medium`
-   */
   get size(): HdsCopyButtonSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -78,11 +68,6 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
     return size;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method CopyButton#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-copy-button'];
 
@@ -107,10 +92,9 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
     }
   }
 
-  @action
-  onSuccess(
+  onSuccess = (
     args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']
-  ): void {
+  ): void => {
     this._status = 'success';
     this.resetStatusDelayed();
 
@@ -119,12 +103,11 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
     if (typeof onSuccess === 'function') {
       onSuccess(args);
     }
-  }
+  };
 
-  @action
-  onError(
+  onError = (
     args: HdsClipboardModifierSignature['Args']['Named']['onError']
-  ): void {
+  ): void => {
     this._status = 'error';
     this.resetStatusDelayed();
 
@@ -133,13 +116,34 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
     if (typeof onError === 'function') {
       onError(args);
     }
-  }
+  };
 
-  resetStatusDelayed(): void {
+  resetStatusDelayed = (): void => {
     clearTimeout(this._timer);
     // make it fade back to the default state
     this._timer = setTimeout((): void => {
       this._status = DEFAULT_STATUS;
     }, 1500);
-  }
+  };
+
+  <template>
+    <HdsButton
+      class={{this.classNames}}
+      @size={{this.size}}
+      @isFullWidth={{@isFullWidth}}
+      @text={{@text}}
+      @icon={{this.icon}}
+      @isIconOnly={{@isIconOnly}}
+      @color="secondary"
+      @iconPosition="trailing"
+      {{hdsClipboard
+        text=@textToCopy
+        target=@targetToCopy
+        onSuccess=this.onSuccess
+        onError=this.onError
+      }}
+      ...attributes
+    />
+    <span class="sr-only" aria-live="polite">{{this.ariaMessageText}}</span>
+  </template>
 }

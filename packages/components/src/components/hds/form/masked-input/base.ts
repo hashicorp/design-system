@@ -10,8 +10,8 @@ import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
 
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
-import type { HdsCopyButtonSignature } from '../../copy/button/index.ts';
-import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.ts';
+import type { HdsCopyButtonSignature } from '../../copy/button/index.gts';
+import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.gts';
 import type HdsIntlService from '../../../../services/hds-intl.ts';
 
 export interface HdsFormMaskedInputBaseSignature {
