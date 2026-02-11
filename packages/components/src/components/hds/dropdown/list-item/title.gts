@@ -5,7 +5,10 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import type { HdsTextBodySignature } from '../../text/body';
+
+import HdsTextBody from '../../text/body.gts';
+
+import type { HdsTextBodySignature } from '../../text/body.gts';
 
 export interface HdsDropdownListItemTitleSignature {
   Args: {
@@ -15,11 +18,6 @@ export interface HdsDropdownListItemTitleSignature {
 }
 
 export default class HdsDropdownListItemTitle extends Component<HdsDropdownListItemTitleSignature> {
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the item. If no text value is defined an error will be thrown
-   */
   get text(): string {
     const { text } = this.args;
 
@@ -30,4 +28,17 @@ export default class HdsDropdownListItemTitle extends Component<HdsDropdownListI
 
     return text;
   }
+
+  <template>
+    <HdsTextBody
+      class="hds-dropdown-list-item hds-dropdown-list-item--variant-title"
+      @tag="li"
+      @size="100"
+      @weight="semibold"
+      @color="strong"
+      ...attributes
+    >
+      {{this.text}}
+    </HdsTextBody>
+  </template>
 }
