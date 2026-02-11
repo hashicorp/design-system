@@ -110,6 +110,11 @@ $doc-code-group-footer-height: 48px; // 32px button height + 16px bottom padding
   }
 }
 
+// Optional separator for rendered code examples
+.doc-code-group-hr {
+  margin: 32px 0;
+}
+
 .doc-code-group__code-snippet-footer {
   position: absolute;
   right: 12px;

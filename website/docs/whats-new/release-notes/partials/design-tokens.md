@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.0.0
+
+**Major changes**
+
+Removed tokens previously used by the `HdsSideNav` component. Component was removed in the 6.0.0 release of the components package.
+
+<small class="doc-whats-new-changelog-metadata">[#3541](https://github.com/hashicorp/design-system/pull/3541)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.0.0
 
 **Major changes**
@@ -205,14 +215,6 @@ Added design tokens for `Pagination` component
 Updated design system name to "Helios"
 
 <small class="doc-whats-new-changelog-metadata">[#1036](https://github.com/hashicorp/design-system/pull/1036)</small>
-
-## 1.3.0
-
-**Minor changes**
-
-Added design tokens for indeterminate `Checkbox`
-
-<small class="doc-whats-new-changelog-metadata">[#740](https://github.com/hashicorp/design-system/pull/740)</small>
 
 
 ---

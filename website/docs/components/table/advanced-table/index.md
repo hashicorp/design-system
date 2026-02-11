@@ -10,6 +10,7 @@ links:
 related:
   - components/table/table
   - components/pagination
+  - components/filter-bar
   - patterns/filter-patterns
   - patterns/table-multi-select
 previewImage: assets/illustrations/components/advanced-table.jpg
@@ -22,7 +23,7 @@ navigation:
     - list
   order: 101
 status:
-  updated: 5.2.0
+  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">

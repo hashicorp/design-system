@@ -1,3 +1,11 @@
+## 6.0.0
+
+Updated HdsIntlService service declarations to align how services are declared
+
+
+Fixed a bug in the cleanup logic of selectable rows where data updates caused the internal selection state to be incorrectly reset.
+
+
 ## 4.24.0
 
 Update the model and returned `B.data` to use generic types, so the type of the data is retained.

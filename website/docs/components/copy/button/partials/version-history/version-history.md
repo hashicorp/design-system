@@ -1,3 +1,8 @@
+## 6.0.0
+
+Updated HdsIntlService service declaration to align how services are declared
+
+
 ## 4.24.1
 
 Fixed a11y issue by adding `ariaMessageText` parameter to an aria-live region to announce to screen readers when content has been copied

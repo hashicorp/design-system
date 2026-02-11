@@ -12,7 +12,6 @@ links:
 related:
   - components/accordion
   - components/breadcrumb
-  - components/side-nav
 previewImage: assets/illustrations/components/tabs.jpg
 navigation:
   keywords:

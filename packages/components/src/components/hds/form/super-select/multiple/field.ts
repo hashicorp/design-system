@@ -4,13 +4,13 @@
  */
 
 import Component from '@glimmer/component';
-import { ID_PREFIX } from '../../label/index.ts';
+import { ID_PREFIX } from '../../label/index.gts';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsFormErrorSignature } from '../../error/index.ts';
-import type { HdsFormFieldSignature } from '../../field/index.ts';
-import type { HdsFormHelperTextSignature } from '../../helper-text/index.ts';
-import type { HdsFormLabelSignature } from '../../label';
+import type { HdsFormErrorSignature } from '../../error/index.gts';
+import type { HdsFormFieldSignature } from '../../field/index.gts';
+import type { HdsFormHelperTextSignature } from '../../helper-text/index.gts';
+import type { HdsFormLabelSignature } from '../../label/index.gts';
 import type { HdsFormSuperSelectMultipleBaseSignature } from './base.ts';
 import type { Select as PowerSelect } from 'ember-power-select/components/power-select';
 import type { HdsYieldSignature } from '../../../yield/index.ts';

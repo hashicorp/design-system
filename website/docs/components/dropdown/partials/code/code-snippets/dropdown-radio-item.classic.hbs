@@ -1,0 +1,10 @@
+<Hds::Dropdown as |D|>
+  <D.ToggleButton @text="Status" @color="secondary" />
+  <D.Radio name="status" @count="4">Failing</D.Radio>
+  <D.Radio name="status" @count="2" checked>Active</D.Radio>
+  <D.Radio name="status" @count="1">Starting</D.Radio>
+  <D.Radio name="status" @count="3">Pending</D.Radio>
+  <D.Footer @hasDivider={{true}}>
+    <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
+  </D.Footer>
+</Hds::Dropdown>

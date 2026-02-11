@@ -99,7 +99,6 @@ Router.map(function () {
     this.route('rich-tooltip');
     this.route('segmented-group');
     this.route('separator');
-    this.route('side-nav');
     this.route('stepper', function () {
       this.route('indicator');
       this.route('list');
@@ -131,7 +130,6 @@ Router.map(function () {
         this.route('demo-full-app-frame-with-modal');
         this.route('demo-full-app-frame-with-app-header');
         this.route('demo-full-app-frame-with-app-header-and-app-side-nav');
-        this.route('demo-full-app-frame-with-side-nav');
         this.route('demo-full-app-frame-with-advanced-table');
         this.route('demo-full-app-frame-with-advanced-table-filtering');
       });

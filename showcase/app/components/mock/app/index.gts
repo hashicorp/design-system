@@ -7,31 +7,37 @@ import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 import MockAppHeaderAppHeader from './header/app-header';
 import MockAppSidebarAppSideNav from './sidebar/app-side-nav';
-import MockAppSidebarOldSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
 import MockAppMainGenericTextContent from './main/generic-text-content';
 import MockAppMainGenericAdvancedTable from './main/generic-advanced-table';
+import MockAppMainFormComplex from './main/form-complex';
+import MockAppMainTableComplex from './main/table-complex';
 import MockAppFooterAppFooter from './footer/app-footer';
 
 // HDS components
-import { HdsAppFrame } from '@hashicorp/design-system-components/components';
+import {
+  HdsAlert,
+  HdsAppFrame,
+} from '@hashicorp/design-system-components/components';
 
 // types
 import type { ComponentLike } from '@glint/template';
 import type { HdsAppFrameSignature } from '@hashicorp/design-system-components/components/hds/app-frame/index';
 import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
 import type { MockAppSidebarAppSideNavSignature } from './sidebar/app-side-nav';
-import type { MockAppSidebarOldSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
 import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
 import type { MockAppMainGenericAdvancedTableSignature } from './main/generic-advanced-table';
+import type { MockAppMainFormComplexSignature } from './main/form-complex';
+import type { MockAppMainTableComplexSignature } from './main/table-complex';
+import type { MockAppMainPaginationSignature } from './main/pagination';
 import type { MockAppFooterAppFooterSignature } from './footer/app-footer';
 
 export interface MockAppSignature {
   Args: {
+    hasPageAlert?: boolean;
     hasHeader?: HdsAppFrameSignature['Args']['hasHeader'];
     hasSidebar?: HdsAppFrameSignature['Args']['hasSidebar'];
-    hasOldSidebar?: boolean;
     hasFooter?: HdsAppFrameSignature['Args']['hasFooter'];
   };
   Blocks: {
@@ -42,9 +48,7 @@ export interface MockAppSignature {
     ];
     sidebar?: [
       {
-        SideNav?:
-          | ComponentLike<MockAppSidebarAppSideNavSignature>
-          | ComponentLike<MockAppSidebarOldSideNavSignature>;
+        AppSideNav?: ComponentLike<MockAppSidebarAppSideNavSignature>;
       },
     ];
     main?: [
@@ -52,6 +56,9 @@ export interface MockAppSignature {
         PageHeader?: ComponentLike<MockAppMainPageHeaderSignature>;
         GenericTextContent?: ComponentLike<MockAppMainGenericTextContentSignature>;
         GenericAdvancedTable?: ComponentLike<MockAppMainGenericAdvancedTableSignature>;
+        FormComplex?: ComponentLike<MockAppMainFormComplexSignature>;
+        TableComplex?: ComponentLike<MockAppMainTableComplexSignature>;
+        Pagination?: ComponentLike<MockAppMainPaginationSignature>;
       },
     ];
     footer?: [
@@ -82,22 +89,26 @@ export default class MockApp extends Component<MockAppSignature> {
       </Frame.Header>
       <Frame.Sidebar>
         {{#if (has-block "sidebar")}}
-          {{yield (hash SideNav=MockAppSidebarAppSideNav) to="sidebar"}}
+          {{yield (hash AppSideNav=MockAppSidebarAppSideNav) to="sidebar"}}
         {{else}}
-          {{#if @hasOldSidebar}}
-            <MockAppSidebarOldSideNav />
-          {{else}}
-            <MockAppSidebarAppSideNav />
-          {{/if}}
+          <MockAppSidebarAppSideNav />
         {{/if}}
       </Frame.Sidebar>
       <Frame.Main>
+        {{#if @hasPageAlert}}
+          <HdsAlert @type="page" @color="highlight" as |A|>
+            <A.Title>Lorem ipsum</A.Title>
+            <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+          </HdsAlert>
+        {{/if}}
         <div class="mock-app-layout-main-content-wrapper">
           {{yield
             (hash
               PageHeader=MockAppMainPageHeader
               GenericTextContent=MockAppMainGenericTextContent
               GenericAdvancedTable=MockAppMainGenericAdvancedTable
+              FormComplex=MockAppMainFormComplex
+              TableComplex=MockAppMainTableComplex
             )
             to="main"
           }}

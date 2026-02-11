@@ -15,6 +15,8 @@ related:
   - patterns/filter-patterns
   - patterns/table-multi-select
 previewImage: assets/illustrations/components/pagination.jpg
+status:
+  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">

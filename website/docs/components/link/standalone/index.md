@@ -18,6 +18,8 @@ navigation:
     - external link
     - text link
     - cta
+status:
+  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">
@@ -26,7 +28,7 @@ navigation:
 
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
-  @include "partials/code/component-api.md"  
+  @include "partials/code/component-api.md"
 </section>
 
 <section data-tab="Specifications">
@@ -35,9 +37,13 @@ navigation:
 </section>
 
 <section data-tab="Content">
-  @include "partials/content/content.md" 
+  @include "partials/content/content.md"
 </section>
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/version-history.md"
 </section>

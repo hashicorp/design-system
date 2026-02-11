@@ -1,0 +1,42 @@
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Alert @type="inline" @color="critical" as |A|>
+      <A.Title @tag="h2">Form submission error</A.Title>
+      <A.Description>Correct the formatting of the following field:</A.Description>
+      <A.Description>
+        <Hds::Link::Inline @href="#" @color="secondary">Expiration date</Hds::Link::Inline>
+      </A.Description>
+    </Hds::Alert>
+  </FORM.Section>
+
+  <FORM.Section>
+    <Hds::Form::TextInput::Field name="field-1-name" as |F|>
+      <F.Label>Field 1</F.Label>
+    </Hds::Form::TextInput::Field>
+
+    <Hds::Form::Radio::Group @layout="horizontal" @name="field-2-name" as |G|>
+      <G.Legend>Field 2</G.Legend>
+      <G.RadioField as |F|>
+        <F.Label>Option 1</F.Label>
+      </G.RadioField>
+      <G.RadioField as |F|>
+        <F.Label>Option 2</F.Label>
+      </G.RadioField>
+      <G.RadioField as |F|>
+        <F.Label>Option 3</F.Label>
+      </G.RadioField>
+    </Hds::Form::Radio::Group>
+
+    <Hds::Form::Select::Field name="field-3-name" as |F|>
+      <F.Label>Field 3</F.Label>
+      <F.Options>
+        <option value="Kubernetes">Kubernetes</option>
+        <option value="Other" selected>Selected</option>
+      </F.Options>
+    </Hds::Form::Select::Field>
+
+    <Hds::Form::Textarea::Field name="field-4-name" as |F|>
+      <F.Label>Field 4</F.Label>
+    </Hds::Form::Textarea::Field>
+  </FORM.Section>
+</Hds::Form>

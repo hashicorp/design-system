@@ -1,3 +1,8 @@
+## 6.0.0
+
+Fixed issue with disabled styles for nested elements in AppHeader not applying to non-HDS components when AppSideNav is open in mobile view
+
+
 ## 5.1.0
 
 Optimized CSS used to apply dark theme styles to Buttons & Dropdowns

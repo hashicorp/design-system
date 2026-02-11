@@ -32,18 +32,18 @@ export { default as HdsAlertTitle } from './components/hds/alert/title.gts';
 export * from './components/hds/alert/types.ts';
 
 // AppFooter
-export { default as HdsAppFooter } from './components/hds/app-footer/index.ts';
-export { default as HdsAppFooterCopyright } from './components/hds/app-footer/copyright.ts';
-export { default as HdsAppFooterItem } from './components/hds/app-footer/item.ts';
-export { default as HdsAppFooterLegalLinks } from './components/hds/app-footer/legal-links.ts';
-export { default as HdsAppFooterLink } from './components/hds/app-footer/link.ts';
-export { default as HdsAppFooterStatusLink } from './components/hds/app-footer/status-link.ts';
+export { default as HdsAppFooter } from './components/hds/app-footer/index.gts';
+export { default as HdsAppFooterCopyright } from './components/hds/app-footer/copyright.gts';
+export { default as HdsAppFooterItem } from './components/hds/app-footer/item.gts';
+export { default as HdsAppFooterLegalLinks } from './components/hds/app-footer/legal-links.gts';
+export { default as HdsAppFooterLink } from './components/hds/app-footer/link.gts';
+export { default as HdsAppFooterStatusLink } from './components/hds/app-footer/status-link.gts';
 export * from './components/hds/app-footer/types.ts';
 
 // AppHeader
-export { default as HdsAppHeader } from './components/hds/app-header/index.ts';
-export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.ts';
-export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.ts';
+export { default as HdsAppHeader } from './components/hds/app-header/index.gts';
+export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.gts';
+export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.gts';
 
 // AppSideNav
 export { default as HdsAppSideNav } from './components/hds/app-side-nav/index.ts';
@@ -85,7 +85,7 @@ export * from './components/hds/button/types.ts';
 export { default as HdsButtonSet } from './components/hds/button-set/index.gts';
 
 // Card
-export { default as HdsCardContainer } from './components/hds/card/container.ts';
+export { default as HdsCardContainer } from './components/hds/card/container.gts';
 export * from './components/hds/card/types.ts';
 
 // CodeBlock
@@ -146,7 +146,7 @@ export { default as HdsFilterBarTabsTab } from './components/hds/filter-bar/tabs
 export * from './components/hds/filter-bar/types.ts';
 
 // Flyout
-export { default as HdsFlyout } from './components/hds/flyout/index.ts';
+export { default as HdsFlyout } from './components/hds/flyout/index.gts';
 export * from './components/hds/flyout/types.ts';
 
 // Form > Layout
@@ -163,16 +163,16 @@ export { default as HdsFormSeparator } from './components/hds/form/separator/ind
 export * from './components/hds/form/types.ts';
 
 // Form > Base elements
-export { default as HdsFormCharacterCount } from './components/hds/form/character-count/index.ts';
-export { default as HdsFormError } from './components/hds/form/error/index.ts';
-export { default as HdsFormErrorMessage } from './components/hds/form/error/message.ts';
-export { default as HdsFormField } from './components/hds/form/field/index.ts';
-export { default as HdsFormFieldset } from './components/hds/form/fieldset/index.ts';
-export { default as HdsFormHelperText } from './components/hds/form/helper-text/index.ts';
-export { default as HdsFormIndicator } from './components/hds/form/indicator/index.ts';
-export { default as HdsFormLabel } from './components/hds/form/label/index.ts';
-export { default as HdsFormLegend } from './components/hds/form/legend/index.ts';
-export { default as HdsFormVisibilityToggle } from './components/hds/form/visibility-toggle/index.ts';
+export { default as HdsFormCharacterCount } from './components/hds/form/character-count/index.gts';
+export { default as HdsFormError } from './components/hds/form/error/index.gts';
+export { default as HdsFormErrorMessage } from './components/hds/form/error/message.gts';
+export { default as HdsFormField } from './components/hds/form/field/index.gts';
+export { default as HdsFormFieldset } from './components/hds/form/fieldset/index.gts';
+export { default as HdsFormHelperText } from './components/hds/form/helper-text/index.gts';
+export { default as HdsFormIndicator } from './components/hds/form/indicator/index.gts';
+export { default as HdsFormLabel } from './components/hds/form/label/index.gts';
+export { default as HdsFormLegend } from './components/hds/form/legend/index.gts';
+export { default as HdsFormVisibilityToggle } from './components/hds/form/visibility-toggle/index.gts';
 export * from './components/hds/form/field/types.ts';
 export * from './components/hds/form/fieldset/types.ts';
 
@@ -242,7 +242,7 @@ export { default as HdsIcon } from './components/hds/icon/index.gts';
 export * from './components/hds/icon/types.ts';
 
 // IconTile
-export { default as HdsIconTile } from './components/hds/icon-tile/index.ts';
+export { default as HdsIconTile } from './components/hds/icon-tile/index.gts';
 export * from './components/hds/icon-tile/types.ts';
 
 // Link
@@ -251,7 +251,7 @@ export { default as HdsLinkStandalone } from './components/hds/link/standalone.g
 export * from './components/hds/link/types.ts';
 
 // Modal
-export { default as HdsModal } from './components/hds/modal/index.ts';
+export { default as HdsModal } from './components/hds/modal/index.gts';
 export * from './components/hds/modal/types.ts';
 
 // PageHeader
@@ -273,8 +273,8 @@ export { default as HdsPaginationSizeSelector } from './components/hds/paginatio
 export * from './components/hds/pagination/types.ts';
 
 // Reveal
-export { default as HdsReveal } from './components/hds/reveal/index.ts';
-export { default as HdsRevealToggleButton } from './components/hds/reveal/toggle/button.ts';
+export { default as HdsReveal } from './components/hds/reveal/index.gts';
+export { default as HdsRevealToggleButton } from './components/hds/reveal/toggle/button.gts';
 
 // RichTooltip
 export { default as HdsRichTooltip } from './components/hds/rich-tooltip/index.ts';
@@ -288,20 +288,6 @@ export { default as HdsSegmentedGroup } from './components/hds/segmented-group/i
 // Separator
 export { default as HdsSeparator } from './components/hds/separator/index.gts';
 export * from './components/hds/separator/types.ts';
-
-// SideNav
-export { default as HdsSideNav } from './components/hds/side-nav/index.ts';
-export { default as HdsSideNavBase } from './components/hds/side-nav/base.ts';
-export { default as HdsSideNavHeader } from './components/hds/side-nav/header/index.ts';
-export { default as HdsSideNavHeaderHomeLink } from './components/hds/side-nav/header/home-link.ts';
-export { default as HdsSideNavList } from './components/hds/side-nav/list/index.ts';
-export { default as HdsSideNavListBackLink } from './components/hds/side-nav/list/back-link.ts';
-export { default as HdsSideNavListItem } from './components/hds/side-nav/list/item.ts';
-export { default as HdsSideNavListLink } from './components/hds/side-nav/list/link.ts';
-export { default as HdsSideNavListTitle } from './components/hds/side-nav/list/title.ts';
-export { default as HdsSideNavPortal } from './components/hds/side-nav/portal/index.ts';
-export { default as HdsSideNavPortalTarget } from './components/hds/side-nav/portal/target.ts';
-export { default as HdsSideNavToggleButton } from './components/hds/side-nav/toggle-button.ts';
 
 // Stepper
 export { default as HdsStepperList } from './components/hds/stepper/list/index.ts';
@@ -331,7 +317,7 @@ export { default as HdsTabsTab } from './components/hds/tabs/tab.ts';
 export * from './components/hds/tabs/types.ts';
 
 // Tag
-export { default as HdsTag } from './components/hds/tag/index.ts';
+export { default as HdsTag } from './components/hds/tag/index.gts';
 export * from './components/hds/tag/types.ts';
 
 // Text
@@ -348,7 +334,7 @@ export { default as HdsTimeRange } from './components/hds/time/range.ts';
 export * from './services/hds-time-types.ts';
 
 // Toast
-export { default as HdsToast } from './components/hds/toast/index.ts';
+export { default as HdsToast } from './components/hds/toast/index.gts';
 
 // TooltipButton
 export { default as HdsTooltipButton } from './components/hds/tooltip-button/index.gts';
@@ -359,12 +345,12 @@ export * from './components/hds/tooltip-button/types.ts';
 // -----------------------------------------------------------
 
 // AppFrame
-export { default as HdsAppFrame } from './components/hds/app-frame/index.ts';
-export { default as HdsAppFrameFooter } from './components/hds/app-frame/parts/footer.ts';
-export { default as HdsAppFrameHeader } from './components/hds/app-frame/parts/header.ts';
-export { default as HdsAppFrameMain } from './components/hds/app-frame/parts/main.ts';
-export { default as HdsAppFrameModals } from './components/hds/app-frame/parts/modals.ts';
-export { default as HdsAppFrameSidebar } from './components/hds/app-frame/parts/sidebar.ts';
+export { default as HdsAppFrame } from './components/hds/app-frame/index.gts';
+export { default as HdsAppFrameFooter } from './components/hds/app-frame/parts/footer.gts';
+export { default as HdsAppFrameHeader } from './components/hds/app-frame/parts/header.gts';
+export { default as HdsAppFrameMain } from './components/hds/app-frame/parts/main.gts';
+export { default as HdsAppFrameModals } from './components/hds/app-frame/parts/modals.gts';
+export { default as HdsAppFrameSidebar } from './components/hds/app-frame/parts/sidebar.gts';
 
 // Layout > Flex
 export { default as HdsLayoutFlex } from './components/hds/layout/flex/index.ts';
@@ -387,16 +373,16 @@ export {
 // -----------------------------------------------------------
 
 // DialogPrimitive
-export { default as HdsDialogPrimitiveBody } from './components/hds/dialog-primitive/body.ts';
-export { default as HdsDialogPrimitiveDescription } from './components/hds/dialog-primitive/description.ts';
-export { default as HdsDialogPrimitiveFooter } from './components/hds/dialog-primitive/footer.ts';
-export { default as HdsDialogPrimitiveHeader } from './components/hds/dialog-primitive/header.ts';
-export { default as HdsDialogPrimitiveOverlay } from './components/hds/dialog-primitive/overlay.ts';
-export { default as HdsDialogPrimitiveWrapper } from './components/hds/dialog-primitive/wrapper.ts';
+export { default as HdsDialogPrimitiveBody } from './components/hds/dialog-primitive/body.gts';
+export { default as HdsDialogPrimitiveDescription } from './components/hds/dialog-primitive/description.gts';
+export { default as HdsDialogPrimitiveFooter } from './components/hds/dialog-primitive/footer.gts';
+export { default as HdsDialogPrimitiveHeader } from './components/hds/dialog-primitive/header.gts';
+export { default as HdsDialogPrimitiveOverlay } from './components/hds/dialog-primitive/overlay.gts';
+export { default as HdsDialogPrimitiveWrapper } from './components/hds/dialog-primitive/wrapper.gts';
 export * from './components/hds/dialog-primitive/types.ts';
 
 // DisclosurePrimitive
-export { default as HdsDisclosurePrimitive } from './components/hds/disclosure-primitive/index.ts';
+export { default as HdsDisclosurePrimitive } from './components/hds/disclosure-primitive/index.gts';
 
 // DismissButton
 export { default as HdsDismissButton } from './components/hds/dismiss-button/index.gts';

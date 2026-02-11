@@ -15,13 +15,6 @@ const SubSectionDemo: TemplateOnlyComponent = <template>
     @height="780"
     @label="Full AppFrame with AppHeader & AppSideNav"
   />
-
-  <ShwFrame
-    @id="demo-full-app-frame-with-side-nav"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-side-nav"
-    @height="780"
-    @label="Full AppFrame with old SideNav (without AppHeader)"
-  />
 </template>;
 
 export default SubSectionDemo;

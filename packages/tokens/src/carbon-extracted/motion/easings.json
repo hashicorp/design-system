@@ -4,15 +4,25 @@
       "easing": {
         "standard": {
           "productive": {
-            "$type": "cubic-bezier",
-            "$value": "cubic-bezier(0.2, 0, 0.38, 0.9)",
+            "$type": "cubicBezier",
+            "$value": [
+              0.2,
+              0,
+              0.38,
+              0.9
+            ],
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "cubic-bezier(0.2, 0, 0.38, 0.9)"
           },
           "expressive": {
-            "$type": "cubic-bezier",
-            "$value": "cubic-bezier(0.4, 0.14, 0.3, 1)",
+            "$type": "cubicBezier",
+            "$value": [
+              0.4,
+              0.14,
+              0.3,
+              1
+            ],
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "cubic-bezier(0.4, 0.14, 0.3, 1)"
@@ -20,15 +30,25 @@
         },
         "entrance": {
           "productive": {
-            "$type": "cubic-bezier",
-            "$value": "cubic-bezier(0, 0, 0.38, 0.9)",
+            "$type": "cubicBezier",
+            "$value": [
+              0,
+              0,
+              0.38,
+              0.9
+            ],
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "cubic-bezier(0, 0, 0.38, 0.9)"
           },
           "expressive": {
-            "$type": "cubic-bezier",
-            "$value": "cubic-bezier(0, 0, 0.3, 1)",
+            "$type": "cubicBezier",
+            "$value": [
+              0,
+              0,
+              0.3,
+              1
+            ],
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "cubic-bezier(0, 0, 0.3, 1)"
@@ -36,15 +56,25 @@
         },
         "exit": {
           "productive": {
-            "$type": "cubic-bezier",
-            "$value": "cubic-bezier(0.2, 0, 1, 0.9)",
+            "$type": "cubicBezier",
+            "$value": [
+              0.2,
+              0,
+              1,
+              0.9
+            ],
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "cubic-bezier(0.2, 0, 1, 0.9)"
           },
           "expressive": {
-            "$type": "cubic-bezier",
-            "$value": "cubic-bezier(0.4, 0.14, 1, 1)",
+            "$type": "cubicBezier",
+            "$value": [
+              0.4,
+              0.14,
+              1,
+              1
+            ],
             "group": "cds-motion",
             "private": true,
             "cds-original-value": "cubic-bezier(0.4, 0.14, 1, 1)"

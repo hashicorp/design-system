@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 4.0.0
+
+### Major Changes
+
+Removed tokens previously used by the `HdsSideNav` component. Component was removed in the 6.0.0 release of the components package.
+
+<small class="doc-whats-new-changelog-metadata">[#3541](https://github.com/hashicorp/design-system/pull/3541)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.0.0
 
 ### Major Changes

@@ -1,3 +1,8 @@
+## 6.0.0
+
+Added `@href` argument to `Breadcrumb::Item`.
+
+
 ## 4.16.0
 
 Implemented `aria-controls` in `Breadcrumb::Truncation` for a11y improvements with toggled content from `PopoverPrimitive`

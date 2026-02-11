@@ -1,0 +1,18 @@
+<Hds::Layout::Flex @direction="column" class="doc-flex-outlined-container">
+  <Doc::Placeholder @height="50px" @background="#e5ffd2">
+    Top content
+  </Doc::Placeholder>
+  <Hds::Layout::Flex @direction="row" as |LF|>
+    <Doc::Placeholder @width="150px" @height="auto" @background="#e4c5f3">
+      Side content
+    </Doc::Placeholder>
+    <LF.Item @grow={{true}}>
+      <Doc::Placeholder @width="auto" @height="250px" @background="#d2f4ff">
+        Main content
+      </Doc::Placeholder>
+    </LF.Item>
+  </Hds::Layout::Flex>
+  <Doc::Placeholder @height="50px" @background="#fff8d2">
+    Bottom content
+  </Doc::Placeholder>
+</Hds::Layout::Flex>

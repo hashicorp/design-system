@@ -104,7 +104,7 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
 
     const styles = getComputedStyle(targetElement);
     const columnWidth = styles.getPropertyValue(
-      '--hds-app-sidenav-width-expanded'
+      '--hds-app-side-nav-width-expanded'
     );
     const slideDuration = prefersReducedMotion ? 0 : 150;
     let fadeDuration = prefersReducedMotion ? 0 : 175;

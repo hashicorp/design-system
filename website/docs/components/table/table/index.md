@@ -8,8 +8,9 @@ links:
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/table
 related:
-  - components/pagination
   - components/table/advanced-table
+  - components/pagination
+  - components/filter-bar
   - patterns/filter-patterns
   - patterns/table-multi-select
 previewImage: assets/illustrations/components/table.jpg
@@ -21,6 +22,8 @@ navigation:
     - grid
     - list
   order: 100
+status:
+  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">

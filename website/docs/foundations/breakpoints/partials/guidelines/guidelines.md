@@ -45,3 +45,4 @@ Responsive behavior is already built into some Helios components. These componen
 * [App Side Nav](/components/app-side-nav) (width collapses below lg breakpoint)
 * [Stepper Nav](/components/stepper/nav) (layout shifts below sm breakpoint)
 * [Pagination](/components/pagination) (layout stacks below lg breakpoint)
+* [Grid](layouts/grid) (supports `sm`, `md`, `lg`, `xl`, and `xxl` views for defining responsive column widths)

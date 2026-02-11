@@ -1,0 +1,17 @@
+<Hds::PageHeader as |PH|>
+  <PH.Title>Page title</PH.Title>
+  <PH.IconTile @icon="folder" />
+  <PH.Actions>
+    <Hds::Dropdown as |D|>
+      <D.ToggleButton @text="Manage" @color="secondary" />
+      <D.Interactive @route="components">Item One</D.Interactive>
+      <D.Interactive @route="components">Item Two</D.Interactive>
+      <D.Interactive @route="components">Item Three</D.Interactive>
+      <D.Separator />
+      <D.Interactive @route="components" @color="critical" @icon="trash">Delete</D.Interactive>
+    </Hds::Dropdown>
+  </PH.Actions>
+  <PH.Generic>
+    <Doc::Placeholder @text="generic metadata" @height="36" @width="350" @background="#eee" />
+  </PH.Generic>
+</Hds::PageHeader>

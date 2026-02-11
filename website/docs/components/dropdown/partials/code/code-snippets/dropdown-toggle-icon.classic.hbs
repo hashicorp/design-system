@@ -1,0 +1,8 @@
+<Hds::Dropdown as |D|>
+  <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
+  <D.Interactive @route="components">Create</D.Interactive>
+  <D.Interactive @route="components">Read</D.Interactive>
+  <D.Interactive @route="components">Update</D.Interactive>
+  <D.Separator />
+  <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
+</Hds::Dropdown>

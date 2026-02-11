@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.2.0
+
+**Minor changes**
+
+Add `cloudability` and `cloudability-color` service icons.
+
+<small class="doc-whats-new-changelog-metadata">[#3530](https://github.com/hashicorp/design-system/pull/3530)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.1.1
 
 **Patch changes**
@@ -233,16 +243,6 @@ Added "category" to the icons' metadata in the `catalog.json` file.
 `vagrant`, `vault-radar`, and `vault-secrets` icons have been updated. Also added boxed versions of all product logos.
 
 <small class="doc-whats-new-changelog-metadata">[#1927](https://github.com/hashicorp/design-system/pull/1927)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 2.25.0
-
-**Minor changes**
-
-`vault-radar` icons added. `vault-secrets` icons updated per Brand guidance.
-
-<small class="doc-whats-new-changelog-metadata">[#1901](https://github.com/hashicorp/design-system/pull/1901)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 

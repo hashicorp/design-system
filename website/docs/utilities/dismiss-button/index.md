@@ -17,6 +17,8 @@ navigation:
     - button
     - close
     - exit
+status:
+  updated: 6.0.0
 ---
 
 <section data-tab="Code">

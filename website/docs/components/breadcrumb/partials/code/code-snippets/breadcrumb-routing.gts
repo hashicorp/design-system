@@ -8,6 +8,12 @@ import {
 const LocalComponent: TemplateOnlyComponent = <template>
   <HdsBreadcrumb>
     <HdsBreadcrumbItem @text="My org" @icon="org" @route="components" />
+    <HdsBreadcrumbItem @text="Projects" @icon="collections" @href="#" />
+    <HdsBreadcrumbItem
+      @text="Production"
+      @icon="file-text"
+      @route="components"
+    />
     <HdsBreadcrumbItem @text="Consul" @icon="consul" @route="components" />
     <HdsBreadcrumbItem @text="my-consul-cluster" @route="components" />
     <HdsBreadcrumbItem @text="Overview" @current={{true}} />

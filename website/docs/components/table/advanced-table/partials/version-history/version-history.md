@@ -1,3 +1,14 @@
+## 6.0.0
+
+Added support for filtering within the table with new `actions` named block and `FilterBar` contextual component
+
+
+Added a named block `emptyState` and support for displaying content in the table when the model length is 0
+
+
+Updated HdsIntlService service declarations to align how services are declared
+
+
 ## 5.2.0
 
 Added a guard against accessing `hdsIntl` service after component destruction
