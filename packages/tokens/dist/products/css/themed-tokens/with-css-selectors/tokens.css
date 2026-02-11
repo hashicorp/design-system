@@ -284,6 +284,9 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-icon-tile-border-radius-large: 0px;
+  --token-icon-tile-border-radius-medium: 0px;
+  --token-icon-tile-border-radius-small: 0px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -656,6 +659,9 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-icon-tile-border-radius-large: 0px;
+    --token-icon-tile-border-radius-medium: 0px;
+    --token-icon-tile-border-radius-small: 0px;
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1032,6 +1038,9 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-icon-tile-border-radius-large: 0px;
+    --token-icon-tile-border-radius-medium: 0px;
+    --token-icon-tile-border-radius-small: 0px;
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1407,6 +1416,9 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-icon-tile-border-radius-large: 0px;
+  --token-icon-tile-border-radius-medium: 0px;
+  --token-icon-tile-border-radius-small: 0px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1778,6 +1790,9 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-icon-tile-border-radius-large: 0px;
+  --token-icon-tile-border-radius-medium: 0px;
+  --token-icon-tile-border-radius-small: 0px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
