@@ -347,12 +347,12 @@ export * from './components/hds/tooltip-button/types.ts';
 // -----------------------------------------------------------
 
 // AppFrame
-export { default as HdsAppFrame } from './components/hds/app-frame/index.ts';
-export { default as HdsAppFrameFooter } from './components/hds/app-frame/parts/footer.ts';
-export { default as HdsAppFrameHeader } from './components/hds/app-frame/parts/header.ts';
-export { default as HdsAppFrameMain } from './components/hds/app-frame/parts/main.ts';
-export { default as HdsAppFrameModals } from './components/hds/app-frame/parts/modals.ts';
-export { default as HdsAppFrameSidebar } from './components/hds/app-frame/parts/sidebar.ts';
+export { default as HdsAppFrame } from './components/hds/app-frame/index.gts';
+export { default as HdsAppFrameFooter } from './components/hds/app-frame/parts/footer.gts';
+export { default as HdsAppFrameHeader } from './components/hds/app-frame/parts/header.gts';
+export { default as HdsAppFrameMain } from './components/hds/app-frame/parts/main.gts';
+export { default as HdsAppFrameModals } from './components/hds/app-frame/parts/modals.gts';
+export { default as HdsAppFrameSidebar } from './components/hds/app-frame/parts/sidebar.gts';
 
 // Layout > Flex
 export { default as HdsLayoutFlex } from './components/hds/layout/flex/index.ts';
