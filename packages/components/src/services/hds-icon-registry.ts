@@ -125,7 +125,9 @@ export default class HdsIconRegistryService extends Service {
         status: HdsIconRegistryLoadStatusValues.Loaded,
       });
 
-      this._bumpKey(key);
+      window.requestAnimationFrame(() => {
+        this._bumpKey(key);
+      });
 
       return;
     }
