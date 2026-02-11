@@ -432,9 +432,8 @@
   --token-form-toggle-transition-duration: 0.2s;
   --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --token-form-toggle-thumb-size: 16px;
-  --token-icon-tile-border-radius-small: 5px;
-  --token-icon-tile-border-radius-medium: 6px;
-  --token-icon-tile-border-radius-large: 6px;
+  --token-icon-tile-surface-color-neutral: #f1f2f3;
+  --token-icon-tile-surface-color-overlay: #ffffff;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
