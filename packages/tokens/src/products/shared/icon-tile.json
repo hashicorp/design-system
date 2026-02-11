@@ -1,0 +1,44 @@
+{
+  "icon-tile": {
+    "border": {
+      "radius": {
+        "small": {
+          "$type": "dimension",
+          "$value": "{border.radius.small}",
+          "unit": "px",
+          "$modes": {
+            "default": "{border.radius.small}",
+            "cds-g0": "0",
+            "cds-g10": "0",
+            "cds-g90": "0",
+            "cds-g100": "0"
+          }
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "{border.radius.medium}",
+          "unit": "px",
+          "$modes": {
+            "default": "{border.radius.medium}",
+            "cds-g0": "0",
+            "cds-g10": "0",
+            "cds-g90": "0",
+            "cds-g100": "0"
+          }
+        },
+        "large": {
+          "$type": "dimension",
+          "$value": "{border.radius.medium}",
+          "unit": "px",
+          "$modes": {
+            "default": "{border.radius.medium}",
+            "cds-g0": "0",
+            "cds-g10": "0",
+            "cds-g90": "0",
+            "cds-g100": "0"
+          }
+        }
+      }
+    }
+  }
+}
