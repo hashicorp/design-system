@@ -173,11 +173,11 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     return loader;
   }
 
-  get symbolId(): string | null {
+  get symbolId(): string {
     const library = this.isCarbon ? 'carbon' : 'flight';
     const key = makeIconKey({ library, name: this.name, size: this.size });
 
-    return this.hdsIconRegistry.getSymbolId(key);
+    return this.hdsIconRegistry.getSymbolId(key) ?? '';
   }
 
   <template>
@@ -202,14 +202,10 @@ export default class HdsIcon extends Component<HdsIconSignature> {
         {{#if @title}}
           <title id={{this._titleId}}>{{@title}}</title>
           <g role="presentation">
-            {{#if symbolId}}
-              <use href="#{{symbolId}}"></use>
-            {{/if}}
+            <use href="#{{symbolId}}"></use>
           </g>
         {{else}}
-          {{#if symbolId}}
-            <use href="#{{symbolId}}"></use>
-          {{/if}}
+          <use href="#{{symbolId}}"></use>
         {{/if}}
       {{/let}}
     </svg>
