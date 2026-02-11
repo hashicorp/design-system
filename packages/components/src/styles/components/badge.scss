@@ -63,12 +63,7 @@ $hds-badge-types: ("filled", "inverted", "outlined");
         color: var(--token-badge-foreground-color-#{$color}-#{$type});
 
         @if $type == "outlined" {
-          // only the `neutral` and `neutral-dark-mode` have explicit backgrounds
-          @if ($color == "neutral" or $color == "neutral-dark-mode") {
-            background-color: var(--token-badge-surface-color-#{$color}-#{$type});
-          } @else {
-            background-color: transparent;
-          }
+          background-color: transparent;
           border-color: var(--token-badge-foreground-color-#{$color}-#{$type});
         } @else {
           background-color: var(--token-badge-surface-color-#{$color}-#{$type});
