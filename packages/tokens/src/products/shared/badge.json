@@ -4,7 +4,14 @@
       "small": {
         "$type": "dimension",
         "$value": "20",
-        "unit": "px"
+        "unit": "px",
+        "$modes": {
+          "default": "20",
+          "cds-g0": "18",
+          "cds-g10": "18",
+          "cds-g90": "18",
+          "cds-g100": "18"
+        }
       },
       "medium": {
         "$type": "dimension",
@@ -60,7 +67,14 @@
         "small": {
           "$type": "dimension",
           "$value": "2",
-          "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "2",
+            "cds-g0": "1",
+            "cds-g10": "1",
+            "cds-g90": "1",
+            "cds-g100": "1"
+          }
         },
         "medium": {
           "$type": "dimension",
@@ -195,12 +209,11 @@
             "$value": "{color.foreground.high-contrast}",
             "$modes": {
               "default": "{color.foreground.high-contrast}",
-              "cds-g0": "{carbon.themes.white.textInverse}",
-              "cds-g10": "{carbon.themes.g10.textInverse}",
-              "cds-g90": "{carbon.themes.g90.textInverse}",
-              "cds-g100": "{carbon.themes.g100.textInverse}"
-            },
-            "comment": "TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?)"
+              "cds-g0": "{carbon.color.gray.20}",
+              "cds-g10": "{carbon.color.gray.20}",
+              "cds-g90": "{carbon.color.gray.100}",
+              "cds-g100": "{carbon.color.gray.100}"
+            }
           },
           "outlined": {
             "$type": "color",
@@ -217,7 +230,14 @@
         "neutral-dark-mode": {
           "filled": {
             "$type": "color",
-            "$value": "{color.foreground.high-contrast}"
+            "$value": "{color.foreground.high-contrast}",
+            "$modes": {
+              "default": "{color.foreground.high-contrast}",
+              "cds-g0": "{carbon.themes.white.textInverse}",
+              "cds-g10": "{carbon.themes.g10.textInverse}",
+              "cds-g90": "{carbon.themes.g90.textInverse}",
+              "cds-g100": "{carbon.themes.g100.textInverse}"
+            }
           },
           "inverted": {
             "$type": "color",
@@ -239,6 +259,9 @@
               "cds-g10": "{carbon.themes.g10.textInverse}",
               "cds-g90": "{carbon.themes.g90.textInverse}",
               "cds-g100": "{carbon.themes.g100.textInverse}"
+            },
+            "comments": {
+              "cds": "In Figma the `cds` value uses a token `Tag/HighContrast/TagColor` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead"
             }
           }
         },
@@ -318,13 +341,16 @@
           "filled": {
             "$type": "color",
             "$value": "{color.palette.amber-400}",
-            "comment": "we don't use `warning-on-surface` for accessibility (better contrast)",
             "$modes": {
               "default": "{color.palette.amber-400}",
-              "cds-g0": "{carbon.color.yellow.70}",
-              "cds-g10": "{carbon.color.yellow.70}",
-              "cds-g90": "{carbon.color.yellow.20}",
-              "cds-g100": "{carbon.color.yellow.20}"
+              "cds-g0": "{carbon.color.orange.70}",
+              "cds-g10": "{carbon.color.orange.70}",
+              "cds-g90": "{carbon.color.orange.20}",
+              "cds-g100": "{carbon.color.orange.20}"
+            },
+            "comments": {
+              "hds": "we don't use `warning-on-surface` for accessibility (better contrast)",
+              "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
             }
           },
           "inverted": {
@@ -343,10 +369,13 @@
             "$value": "{color.foreground.warning}",
             "$modes": {
               "default": "{color.foreground.warning}",
-              "cds-g0": "{carbon.color.yellow.70}",
-              "cds-g10": "{carbon.color.yellow.70}",
-              "cds-g90": "{carbon.color.yellow.20}",
-              "cds-g100": "{carbon.color.yellow.20}"
+              "cds-g0": "{carbon.color.orange.70}",
+              "cds-g10": "{carbon.color.orange.70}",
+              "cds-g90": "{carbon.color.orange.20}",
+              "cds-g100": "{carbon.color.orange.20}"
+            },
+            "comments": {
+              "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
             }
           }
         },
@@ -405,14 +434,32 @@
           "inverted": {
             "$type": "color",
             "$value": "{color.palette.neutral-500}",
-            "comment": "TODO - cristiano to ask Carbon team what to do because there is no equivalent color in code for the Tag inverted"
+            "$modes": {
+              "default": "{color.palette.neutral-500}",
+              "cds-g0": "{carbon.themes.white.backgroundInverse}",
+              "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+              "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+              "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+            },
+            "comment": "In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead"
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "transparent"
           }
         },
         "neutral-dark-mode": {
           "filled": {
             "$type": "color",
             "$value": "{color.palette.neutral-500}",
-            "comment": "TODO - cristiano to ask Carbon team what to do because there is no high-contrast color in the theme colors for the tag (in code)"
+            "$modes": {
+              "default": "{color.palette.neutral-500}",
+              "cds-g0": "{carbon.themes.white.backgroundInverse}",
+              "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+              "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+              "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+            },
+            "comment": "In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component"
           },
           "inverted": {
             "$type": "color",
@@ -424,6 +471,10 @@
               "cds-g90": "{carbon.themes.tagTokens.tagBackgroundGray.g90}",
               "cds-g100": "{carbon.themes.tagTokens.tagBackgroundGray.g100}"
             }
+          },
+          "outlined": {
+            "$type": "color",
+            "$value": "transparent"
           }
         },
         "highlight": {
@@ -469,10 +520,10 @@
             "$value": "{color.palette.green-200}",
             "$modes": {
               "default": "{color.palette.green-200}",
-              "cds-g0": "{carbon.color.green.70}",
-              "cds-g10": "{carbon.color.green.70}",
-              "cds-g90": "{carbon.color.green.40}",
-              "cds-g100": "{carbon.color.green.40}"
+              "cds-g0": "{carbon.themes.tagTokens.tagColorGreen.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorGreen.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorGreen.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorGreen.g100}"
             }
           }
         },
@@ -483,10 +534,13 @@
             "comment": "we don't use `surface-warning` for accessibility (better contrast)",
             "$modes": {
               "default": "{color.palette.amber-100}",
-              "cds-g0": "{carbon.color.yellow.20}",
-              "cds-g10": "{carbon.color.yellow.20}",
-              "cds-g90": "{carbon.color.yellow.70}",
-              "cds-g100": "{carbon.color.yellow.70}"
+              "cds-g0": "{carbon.color.orange.20}",
+              "cds-g10": "{carbon.color.orange.20}",
+              "cds-g90": "{carbon.color.orange.70}",
+              "cds-g100": "{carbon.color.orange.70}"
+            },
+            "comments": {
+              "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
             }
           },
           "inverted": {
@@ -494,10 +548,13 @@
             "$value": "{color.palette.amber-200}",
             "$modes": {
               "default": "{color.palette.amber-200}",
-              "cds-g0": "{carbon.color.yellow.70}",
-              "cds-g10": "{carbon.color.yellow.70}",
-              "cds-g90": "{carbon.color.yellow.40}",
-              "cds-g100": "{carbon.color.yellow.40}"
+              "cds-g0": "{carbon.color.orange.70}",
+              "cds-g10": "{carbon.color.orange.70}",
+              "cds-g90": "{carbon.color.orange.20}",
+              "cds-g100": "{carbon.color.orange.20}"
+            },
+            "comments": {
+              "cds": "in code there are no tokens for the `Tag/Orange` variant, so we need to use the corresponding values in Figma (aliases) instead"
             }
           }
         },
@@ -519,57 +576,26 @@
             "$value": "{color.palette.red-200}",
             "$modes": {
               "default": "{color.palette.red-200}",
-              "cds-g0": "{carbon.color.red.70}",
-              "cds-g10": "{carbon.color.red.70}",
-              "cds-g90": "{carbon.color.red.40}",
-              "cds-g100": "{carbon.color.red.40}"
+              "cds-g0": "{carbon.themes.tagTokens.tagColorRed.white}",
+              "cds-g10": "{carbon.themes.tagTokens.tagColorRed.g10}",
+              "cds-g90": "{carbon.themes.tagTokens.tagColorRed.g90}",
+              "cds-g100": "{carbon.themes.tagTokens.tagColorRed.g100}"
             }
           }
         }
       }
     },
     "border": {
-      "width": {
-        "$type": "dimension",
-        "$value": "1",
-        "unit": "px"
-      },
       "radius": {
-        "small": {
-          "$type": "dimension",
-          "$value": "{border.radius.small}",
-          "unit": "px",
-          "$modes": {
-            "default": "{border.radius.small}",
-            "cds-g0": "8",
-            "cds-g10": "8",
-            "cds-g90": "8",
-            "cds-g100": "8"
-          }
-        },
-        "medium": {
-          "$type": "dimension",
-          "$value": "{border.radius.small}",
-          "unit": "px",
-          "$modes": {
-            "default": "{border.radius.small}",
-            "cds-g0": "12",
-            "cds-g10": "12",
-            "cds-g90": "12",
-            "cds-g100": "12"
-          }
-        },
-        "large": {
-          "$type": "dimension",
-          "$value": "{border.radius.small}",
-          "unit": "px",
-          "$modes": {
-            "default": "{border.radius.small}",
-            "cds-g0": "16",
-            "cds-g10": "16",
-            "cds-g90": "16",
-            "cds-g100": "16"
-          }
+        "$type": "dimension",
+        "$value": "{border.radius.small}",
+        "unit": "px",
+        "$modes": {
+          "default": "{border.radius.small}",
+          "cds-g0": "{border.radius.rounded}",
+          "cds-g10": "{border.radius.rounded}",
+          "cds-g90": "{border.radius.rounded}",
+          "cds-g100": "{border.radius.rounded}"
         }
       }
     },
