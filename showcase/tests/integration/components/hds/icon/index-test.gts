@@ -173,7 +173,7 @@ module('Integration | Component | hds-icon', function (hooks) {
     });
   });
   test('it should throw an assertion if the icon @name does not exist', async function (assert) {
-    const errorMessage = `The icon @name "abc" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
+    const errorMessage = `The icon @name "abc" or @size "16" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
@@ -181,7 +181,7 @@ module('Integration | Component | hds-icon', function (hooks) {
     await render(
       <template>
         {{! @glint-expect-error - testing invalid component usage }}
-        <HdsIcon @name="abc" />
+        <HdsIcon @name="abc" @size="16" />
       </template>,
     );
     assert.throws(function () {
