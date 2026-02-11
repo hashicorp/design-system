@@ -1,41 +1,27 @@
 {
   "icon-tile": {
-    "border": {
-      "radius": {
-        "small": {
-          "$type": "dimension",
-          "$value": "{border.radius.small}",
-          "unit": "px",
+    "surface": {
+      "color": {
+        "neutral": {
+          "$type": "color",
+          "$value": "#F1F2F3",
           "$modes": {
-            "default": "{border.radius.small}",
-            "cds-g0": "0",
-            "cds-g10": "0",
-            "cds-g90": "0",
-            "cds-g100": "0"
+            "default": "#F1F2F3",
+            "cds-g0": "#F4F4F4",
+            "cds-g10": "#E0E0E0",
+            "cds-g90": "#393939",
+            "cds-g100": "#262626"
           }
         },
-        "medium": {
-          "$type": "dimension",
-          "$value": "{border.radius.medium}",
-          "unit": "px",
+        "overlay": {
+          "$type": "color",
+          "$value": "#FFFFFF",
           "$modes": {
-            "default": "{border.radius.medium}",
-            "cds-g0": "0",
-            "cds-g10": "0",
-            "cds-g90": "0",
-            "cds-g100": "0"
-          }
-        },
-        "large": {
-          "$type": "dimension",
-          "$value": "{border.radius.medium}",
-          "unit": "px",
-          "$modes": {
-            "default": "{border.radius.medium}",
-            "cds-g0": "0",
-            "cds-g10": "0",
-            "cds-g90": "0",
-            "cds-g100": "0"
+            "default": "#FFFFFF",
+            "cds-g0": "#FFFFFF",
+            "cds-g10": "#F4F4F4",
+            "cds-g90": "#525252",
+            "cds-g100": "#393939"
           }
         }
       }

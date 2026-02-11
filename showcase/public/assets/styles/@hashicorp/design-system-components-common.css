@@ -6606,7 +6606,7 @@ button.hds-button[href]::after {
   position: relative;
   display: flex;
   border: 1px solid transparent;
-  border-radius: var(--token-icon-tile-border-radius-medium);
+  border-radius: var(--token-border-radius-medium);
 }
 
 .hds-icon-tile__icon,
@@ -6621,7 +6621,7 @@ button.hds-button[href]::after {
   bottom: -6px;
   display: flex;
   box-sizing: content-box;
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-icon-tile-surface-color-overlay);
   border: 1px solid var(--token-color-border-primary);
 }
 
@@ -6634,7 +6634,7 @@ button.hds-button[href]::after {
 .hds-icon-tile--size-small {
   width: 1.75rem;
   height: 1.75rem;
-  border-radius: var(--token-icon-tile-border-radius-small);
+  border-radius: var(--token-border-radius-small);
 }
 .hds-icon-tile--size-small .hds-icon-tile__icon {
   width: 1rem;
@@ -6657,7 +6657,7 @@ button.hds-button[href]::after {
 .hds-icon-tile--size-medium {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: var(--token-icon-tile-border-radius-medium);
+  border-radius: var(--token-border-radius-medium);
 }
 .hds-icon-tile--size-medium .hds-icon-tile__icon {
   width: 1.5rem;
@@ -6680,7 +6680,7 @@ button.hds-button[href]::after {
 .hds-icon-tile--size-large {
   width: 3rem;
   height: 3rem;
-  border-radius: var(--token-icon-tile-border-radius-large);
+  border-radius: var(--token-border-radius-medium);
 }
 .hds-icon-tile--size-large .hds-icon-tile__icon {
   width: 1.5rem;
@@ -6707,7 +6707,7 @@ button.hds-button[href]::after {
 
 .hds-icon-tile--icon.hds-icon-tile--color-neutral {
   color: var(--token-color-foreground-faint);
-  background-color: var(--token-color-surface-strong);
+  background-color: var(--token-icon-tile-surface-color-neutral);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-boundary {
   color: var(--token-color-boundary-foreground);

@@ -30,7 +30,7 @@ $hds-icon-tile-border-width: 1px;
   position: relative;
   display: flex;
   border: $hds-icon-tile-border-width solid transparent;
-  border-radius: var(--token-icon-tile-border-radius-medium);
+  border-radius: var(--token-border-radius-medium);
 }
 
 .hds-icon-tile__icon,
@@ -39,13 +39,14 @@ $hds-icon-tile-border-width: 1px;
   margin: auto;
 }
 
+// secondary overlaid icon
 .hds-icon-tile__extra {
   position: absolute;
   right: -6px;
   bottom: -6px;
   display: flex;
   box-sizing: content-box; // the border is outside
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-icon-tile-surface-color-overlay);
   border: 1px solid var(--token-color-border-primary);
 }
 
@@ -62,7 +63,7 @@ $hds-icon-tile-size-props: (
   "small": (
     // 28px = 1.75rem
     "size": 1.75rem,
-    "border-radius": var(--token-icon-tile-border-radius-small),
+    "border-radius": var(--token-border-radius-small),
     // 16px = 1rem
     "icon-size": 1rem,
     // 18px = 1.125rem
@@ -75,7 +76,7 @@ $hds-icon-tile-size-props: (
   "medium": (
     // 40px = 2.5rem
     "size": 2.5rem,
-    "border-radius": var(--token-icon-tile-border-radius-medium),
+    "border-radius": var(--token-border-radius-medium),
     // 24px = 1.5rem
     "icon-size": 1.5rem,
     // 28px = 1.75rem
@@ -89,7 +90,7 @@ $hds-icon-tile-size-props: (
   "large": (
     // 48px = 3rem
     "size": 3rem,
-    "border-radius": var(--token-icon-tile-border-radius-large),
+    "border-radius": var(--token-border-radius-medium),
     // 24px = 1.5rem
     "icon-size": 1.5rem,
     // 32px = 2rem
@@ -143,7 +144,7 @@ $hds-icon-tile-size-props: (
 .hds-icon-tile--icon {
   &.hds-icon-tile--color-neutral {
     color: var(--token-color-foreground-faint);
-    background-color: var(--token-color-surface-strong);
+    background-color: var(--token-icon-tile-surface-color-neutral);
   }
 
   @each $product in $hds-icon-tile-colors-products {
