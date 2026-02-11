@@ -5,6 +5,10 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+
+import HdsTextBody from '../../text/body.gts';
+import HdsCopySnippet from '../../copy/snippet/index.gts';
+
 import type { HdsCopySnippetSignature } from '../../copy/snippet/index.gts';
 
 export interface HdsDropdownListItemCopyItemSignature {
@@ -17,11 +21,6 @@ export interface HdsDropdownListItemCopyItemSignature {
 }
 
 export default class HdsDropdownListItemCopyItem extends Component<HdsDropdownListItemCopyItemSignature> {
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the item. If no text value is defined an error will be thrown
-   */
   get text(): HdsCopySnippetSignature['Args']['textToCopy'] {
     const { text } = this.args;
 
@@ -33,23 +32,12 @@ export default class HdsDropdownListItemCopyItem extends Component<HdsDropdownLi
     return text;
   }
 
-  /**
-   * @param isTruncated
-   * @type {boolean}
-   * @default true
-   * @description Indicates that the text should be truncated instead of wrapping and using multiple lines.
-   */
   get isTruncated(): HdsCopySnippetSignature['Args']['isTruncated'] {
     const { isTruncated = true } = this.args;
 
     return isTruncated;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = [
       'hds-dropdown-list-item',
@@ -58,4 +46,23 @@ export default class HdsDropdownListItemCopyItem extends Component<HdsDropdownLi
 
     return classes.join(' ');
   }
+
+  <template>
+    <li class={{this.classNames}} ...attributes>
+      {{#if @copyItemTitle}}
+        <HdsTextBody
+          class="hds-dropdown-list-item__copy-item-title"
+          @tag="div"
+          @size="100"
+          @weight="semibold"
+          @color="faint"
+        >{{@copyItemTitle}}</HdsTextBody>
+      {{/if}}
+      <HdsCopySnippet
+        @color="secondary"
+        @textToCopy={{this.text}}
+        @isTruncated={{this.isTruncated}}
+      />
+    </li>
+  </template>
 }
