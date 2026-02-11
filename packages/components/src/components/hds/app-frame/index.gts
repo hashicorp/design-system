@@ -75,10 +75,10 @@ export default class HdsAppFrame extends Component<HdsAppFrameSignature> {
         {{yield (hash Sidebar=HdsAppFrameSidebar)}}
       {{/if}}
       {{!
-    IMPORTANT: since the modals may be injected via portal or in-element with code that lives in the "main" container,
-    the "modal" container needs to be present in the DOM _before_ the "main" block, otherwise it may cause errors
-    where the target DOM element is not found (for example in tests where the modal may be immediately opened on first render).
-  }}
+        IMPORTANT: since the modals may be injected via portal or in-element with code that lives in the "main" container,
+        the "modal" container needs to be present in the DOM _before_ the "main" block, otherwise it may cause errors
+        where the target DOM element is not found (for example in tests where the modal may be immediately opened on first render).
+      }}
       {{#if this.hasModals}}
         {{yield (hash Modals=HdsAppFrameModals)}}
       {{/if}}
