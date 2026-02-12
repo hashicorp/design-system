@@ -82,7 +82,10 @@ export interface HdsAdvancedTableThResizeHandleSignature {
     onGetColumnByKey: (
       columnKey: HdsAdvancedTableNormalizedColumn['key']
     ) => HdsAdvancedTableNormalizedColumn | undefined;
-    onSetTransientColumnWidth: (width: `${number}px`) => void;
+    onSetTransientColumnWidth: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
+      width: `${number}px`
+    ) => void;
     onSetTransientColumnWidths: (options: { roundValues?: boolean }) => void;
     onResetTransientColumnWidths: () => void;
     onUpdateResizeDebt: (delta: number) => void;
@@ -318,7 +321,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     column: HdsAdvancedTableNormalizedColumn,
     width: number
   ): void {
-    this.args.onSetTransientColumnWidth(`${width}px`);
+    this.args.onSetTransientColumnWidth(column.key, `${width}px`);
   }
 
   private _applyResizeDelta(
@@ -373,7 +376,10 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
       this._transientDelta = actualAppliedDelta;
     } else if (onSetTransientColumnWidth !== undefined) {
-      onSetTransientColumnWidth(`${Math.round(startColumnPxWidth + deltaX)}px`);
+      onSetTransientColumnWidth(
+        column.key,
+        `${Math.round(startColumnPxWidth + deltaX)}px`
+      );
     }
   }
 

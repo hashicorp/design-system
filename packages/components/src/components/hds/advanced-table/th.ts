@@ -337,11 +337,14 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     this.args.onSetDraggedColumnKey?.(columnKey);
   }
 
-  @action setTransientColumnWidth(width: `${number}px`): void {
+  @action setTransientColumnWidth(
+    columnKey: HdsAdvancedTableNormalizedColumn['key'],
+    width: `${number}px`
+  ): void {
     const { column, onSetTransientColumnWidth } = this.args;
 
     if (column !== undefined && onSetTransientColumnWidth !== undefined) {
-      onSetTransientColumnWidth(column.key, width);
+      onSetTransientColumnWidth(columnKey, width);
     }
   }
 
