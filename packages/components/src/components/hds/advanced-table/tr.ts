@@ -11,7 +11,7 @@ import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableThSortOrder,
 } from './types.ts';
-import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.ts';
 import type HdsAdvancedTableRow from './models/row.ts';
