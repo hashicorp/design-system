@@ -9,7 +9,7 @@ import { hash } from '@ember/helper';
 import HdsButton from '../button/index.gts';
 import HdsDropdown from '../dropdown/index.ts';
 import HdsFormSelectBase from '../form/select/base.ts';
-import HdsFormTextInputBase from '../form/text-input/base.ts';
+import HdsFormTextInputBase from '../form/text-input/base.gts';
 import HdsYield from '../yield/index.gts';
 
 export interface HdsSegmentedGroupSignature {

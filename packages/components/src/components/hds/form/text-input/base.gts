@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import style from 'ember-style-modifier';
 
 import { HdsFormTextInputTypeValues } from './types.ts';
 import type { HdsFormTextInputTypes } from './types.ts';
@@ -31,13 +32,6 @@ export interface HdsFormTextInputBaseSignature {
 }
 
 export default class HdsFormTextInputBase extends Component<HdsFormTextInputBaseSignature> {
-  /**
-   * Sets the type of input
-   *
-   * @param type
-   * @type {string}
-   * @default 'text'
-   */
   get type(): HdsFormTextInputTypes {
     const { type = DEFAULT_TYPE } = this.args;
 
@@ -51,11 +45,6 @@ export default class HdsFormTextInputBase extends Component<HdsFormTextInputBase
     return type;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-text-input'];
 
@@ -79,4 +68,16 @@ export default class HdsFormTextInputBase extends Component<HdsFormTextInputBase
 
     return classes.join(' ');
   }
+
+  <template>
+    <input
+      class={{this.classNames}}
+      {{style width=@width}}
+      id={{@id}}
+      aria-describedby={{@ariaDescribedBy}}
+      ...attributes
+      value={{@value}}
+      type={{this.type}}
+    />
+  </template>
 }

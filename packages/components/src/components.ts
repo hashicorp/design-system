@@ -230,8 +230,8 @@ export { default as HdsFormTextareaBase } from './components/hds/form/textarea/b
 export { default as HdsFormTextareaField } from './components/hds/form/textarea/field.gts';
 
 // Form > TextInput
-export { default as HdsFormTextInputBase } from './components/hds/form/text-input/base.ts';
-export { default as HdsFormTextInputField } from './components/hds/form/text-input/field.ts';
+export { default as HdsFormTextInputBase } from './components/hds/form/text-input/base.gts';
+export { default as HdsFormTextInputField } from './components/hds/form/text-input/field.gts';
 export * from './components/hds/form/text-input/types.ts';
 
 // Form > Toggle
