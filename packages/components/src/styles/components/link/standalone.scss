@@ -51,39 +51,17 @@ $hds-link-standalone-border-width: 1px;
 
 // SIZE
 
-// these values later may come from the design tokens
-$hds-link-standalone-size-props: (
-  "small": (
-    "font-size": var(--token-link-standalone-typography-font-size-small),
-    "icon-size": var(--token-link-standalone-icon-size-small),
-    "line-height": var(--token-link-standalone-typography-line-height-small),
-    "letter-spacing": var(--token-link-standalone-typography-letter-spacing-small),
-  ),
-  "medium": (
-    "font-size": var(--token-link-standalone-typography-font-size-medium),
-    "icon-size": var(--token-link-standalone-icon-size-medium),
-    "line-height": var(--token-link-standalone-typography-line-height-medium),
-    "letter-spacing": var(--token-link-standalone-typography-letter-spacing-medium),
-  ),
-  "large": (
-    "font-size": var(--token-link-standalone-typography-font-size-large),
-    "icon-size": var(--token-link-standalone-icon-size-large),
-    "line-height": var(--token-link-standalone-typography-line-height-large),
-    "letter-spacing": var(--token-link-standalone-typography-letter-spacing-large),
-  ),
-);
-
 @each $size in $hds-link-standalone-sizes {
   .hds-link-standalone--size-#{$size} {
     .hds-link-standalone__icon {
-      width: map.get($hds-link-standalone-size-props, $size, "icon-size");
-      height: map.get($hds-link-standalone-size-props, $size, "icon-size");
+      width: var(--token-link-standalone-icon-size-#{$size});
+      height: var(--token-link-standalone-icon-size-#{$size});
     }
 
     .hds-link-standalone__text {
-      font-size: map.get($hds-link-standalone-size-props, $size, "font-size");
-      line-height: map.get($hds-link-standalone-size-props, $size, "line-height");
-      letter-spacing: map.get($hds-link-standalone-size-props, $size, "letter-spacing");
+      font-size: var(--token-link-standalone-typography-font-size-#{$size});
+      line-height: var(--token-link-standalone-typography-line-height-#{$size});
+      letter-spacing: var(--token-link-standalone-typography-letter-spacing-#{$size});
     }
   }
 }
