@@ -33,7 +33,7 @@ import type {
 } from './types.ts';
 import type { HdsFilterBarSignature } from '../filter-bar/index.ts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
-import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
 import type HdsAdvancedTableTr from './tr.ts';
