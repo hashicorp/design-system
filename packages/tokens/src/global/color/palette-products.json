@@ -53,7 +53,14 @@
         "$type": "color",
         "$value": "#ffecec",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ffecec",
+          "cds-g0": "#ffecec",
+          "cds-g10": "#ffecec",
+          "cds-g90": "#b21e23",
+          "cds-g100": "#b21e23"
+        }
       },
       "consul-brand": {
         "$type": "color",
