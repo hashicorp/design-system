@@ -235,9 +235,9 @@ export { default as HdsFormTextInputField } from './components/hds/form/text-inp
 export * from './components/hds/form/text-input/types.ts';
 
 // Form > Toggle
-export { default as HdsFormToggleBase } from './components/hds/form/toggle/base.ts';
-export { default as HdsFormToggleField } from './components/hds/form/toggle/field.ts';
-export { default as HdsFormToggleGroup } from './components/hds/form/toggle/group.ts';
+export { default as HdsFormToggleBase } from './components/hds/form/toggle/base.gts';
+export { default as HdsFormToggleField } from './components/hds/form/toggle/field.gts';
+export { default as HdsFormToggleGroup } from './components/hds/form/toggle/group.gts';
 
 // Icon
 export { default as HdsIcon } from './components/hds/icon/index.gts';
