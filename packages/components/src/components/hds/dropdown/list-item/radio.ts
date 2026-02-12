@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import type { HdsIconSignature } from '../../icon';
-import type { HdsFormRadioBaseSignature } from '../../form/radio/base.ts';
+import type { HdsFormRadioBaseSignature } from '../../form/radio/base.gts';
 
 export interface HdsDropdownListItemRadioSignature {
   Args: HdsFormRadioBaseSignature['Args'] & {

@@ -200,9 +200,9 @@ export { default as HdsFormMaskedInputBase } from './components/hds/form/masked-
 export { default as HdsFormMaskedInputField } from './components/hds/form/masked-input/field.ts';
 
 // Form > Radio
-export { default as HdsFormRadioBase } from './components/hds/form/radio/base.ts';
-export { default as HdsFormRadioField } from './components/hds/form/radio/field.ts';
-export { default as HdsFormRadioGroup } from './components/hds/form/radio/group.ts';
+export { default as HdsFormRadioBase } from './components/hds/form/radio/base.gts';
+export { default as HdsFormRadioField } from './components/hds/form/radio/field.gts';
+export { default as HdsFormRadioGroup } from './components/hds/form/radio/group.gts';
 
 // Form > RadioCard
 export { default as HdsFormRadioCard } from './components/hds/form/radio-card/index.ts';
