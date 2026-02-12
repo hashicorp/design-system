@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-// import { scheduleOnce } from '@ember/runloop';
+import { scheduleOnce } from '@ember/runloop';
 import { modifier } from 'ember-modifier';
 
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
@@ -14,7 +14,7 @@ import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts'
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
-// import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
+import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
 import type { HdsAdvancedTableNormalizedColumn } from './types';
 
@@ -36,11 +36,15 @@ export interface HdsAdvancedTableThContextMenuSignature {
     reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onFocusReorderHandle?: () => void;
     onMoveColumnToTerminalPosition?: (
       columnKey: HdsAdvancedTableNormalizedColumn['key'],
       position: 'start' | 'end'
     ) => void;
     onPinFirstColumn?: () => void;
+    onRestoreColumnWidth?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => void;
   };
   Element: HdsDropdownSignature['Element'];
 }
@@ -48,7 +52,8 @@ export interface HdsAdvancedTableThContextMenuSignature {
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
   @service declare readonly hdsIntl: HdsIntlService;
 
-  @tracked private _element!: HdsDropdownSignature['Element'];
+  @tracked toggleElement: HdsDropdownToggleButtonSignature['Element'] | null =
+    null;
 
   get _resizeOptions(): HdsAdvancedTableThContextMenuOption[] {
     const { isLastColumn } = this.args;
@@ -201,11 +206,8 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   private _registerDropdownToggleElement = modifier(
-    // TODO
-    // (element: HdsDropdownToggleButtonSignature['Element']) => {
-    () => {
-      // TODO
-      // this.args.column.thContextMenuToggleElement = element;
+    (element: HdsDropdownToggleButtonSignature['Element']) => {
+      this.toggleElement = element;
     }
   );
 
@@ -214,25 +216,29 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   private _resetColumnWidth(dropdownCloseCallback: () => void): void {
-    const { column, onColumnResize } = this.args;
+    const { column, onColumnResize, onRestoreColumnWidth } = this.args;
 
-    // TODO
-    // column.restoreWidth();
+    if (
+      typeof onRestoreColumnWidth === 'function' &&
+      column.key !== undefined
+    ) {
+      onRestoreColumnWidth(column.key);
 
-    if (typeof onColumnResize === 'function' && column.key !== undefined) {
-      onColumnResize(column.key, column.width);
+      if (typeof onColumnResize === 'function') {
+        onColumnResize(column.key, column.width);
+      }
+
+      dropdownCloseCallback();
     }
-
-    dropdownCloseCallback();
   }
 
   private _moveColumn() {
-    // TODO
-    // scheduleOnce(
-    //   'afterRender',
-    //   this,
-    //   this.args.column.focusReorderHandle.bind(this)
-    // );
+    const { onFocusReorderHandle } = this.args;
+
+    if (typeof onFocusReorderHandle === 'function') {
+      // eslint-disable-next-line ember/no-runloop
+      scheduleOnce('afterRender', this, onFocusReorderHandle);
+    }
   }
 
   private _moveColumnToPosition(
@@ -241,13 +247,14 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   ): void {
     const { column, onMoveColumnToTerminalPosition } = this.args;
 
+    console.log({ onMoveColumnToTerminalPosition });
+
     onMoveColumnToTerminalPosition?.(column.key, position);
 
     requestAnimationFrame(() => {
       dropdownCloseCallback?.();
 
-      // TODO
-      // column.thContextMenuToggleElement?.focus();
+      this.toggleElement?.focus();
     });
   }
 

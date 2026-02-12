@@ -1,0 +1,3 @@
+export default function (id) {
+    return `<symbol id="${id}" viewBox="0 0 24 24"><g><path d="M12 3.5a2 2 0 100 4 2 2 0 000-4zM12 10a2 2 0 100 4 2 2 0 000-4zM12 16.5a2 2 0 100 4 2 2 0 000-4z"/></g></symbol>`;
+}

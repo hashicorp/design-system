@@ -70,7 +70,10 @@
               @reorderHandleElement={{this._reorderHandleElement}}
               @resizeHandleElement={{this._resizeHandleElement}}
               @onColumnResize={{@onColumnResize}}
+              @onFocusReorderHandle={{this.focusReorderHandle}}
+              @onMoveColumnToTerminalPosition={{@onMoveColumnToTerminalPosition}}
               @onPinFirstColumn={{@onPinFirstColumn}}
+              @onRestoreColumnWidth={{@onRestoreColumnWidth}}
             />
 
             {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
@@ -115,7 +118,10 @@
             @reorderHandleElement={{this._reorderHandleElement}}
             @resizeHandleElement={{this._resizeHandleElement}}
             @onColumnResize={{@onColumnResize}}
+            @onFocusReorderHandle={{this.focusReorderHandle}}
+            @onMoveColumnToTerminalPosition={{@onMoveColumnToTerminalPosition}}
             @onPinFirstColumn={{@onPinFirstColumn}}
+            @onRestoreColumnWidth={{@onRestoreColumnWidth}}
           />
 
           {{#if (and @hasReorderableColumns (not @isStickyColumn))}}

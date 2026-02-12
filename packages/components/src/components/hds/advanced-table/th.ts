@@ -96,6 +96,9 @@ export interface HdsAdvancedTableThSignature {
       side: HdsAdvancedTableColumnReorderSide
     ) => void;
     onResetTransientColumnWidths?: () => void;
+    onRestoreColumnWidth?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => void;
     onSetDraggedColumnKey?: (
       key: HdsAdvancedTableNormalizedColumn['key'] | null
     ) => void;

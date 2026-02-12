@@ -1,6 +1,5 @@
 /**
  * TODOs
- * - Make sure that updating @columns updates this.columnOrder
  * - Make sure that removed keys are no longer tracked
  */
 
@@ -8,7 +7,9 @@ import Component from '@glimmer/component';
 import { fn, hash } from '@ember/helper';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+import { scheduleOnce } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 import { TrackedMap } from 'tracked-built-ins';
 import { HdsAdvancedTableColumnReorderSideValues } from '../types.ts';
 
@@ -17,6 +18,14 @@ import type {
   HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableNormalizedColumn,
 } from '../types';
+import type { ModifierLike } from '@glint/template';
+
+export interface HdsAdvancedTableSyncColumnOrderSignature {
+  Element: HTMLDivElement;
+  Args: {
+    Positional: [HdsAdvancedTableNormalizedColumn[], string[] | undefined];
+  };
+}
 
 interface HdsAdvancedTableColumnManagerOrderSignature {
   Args: {
@@ -39,6 +48,7 @@ interface HdsAdvancedTableColumnManagerOrderSignature {
         reorderHoveredColumnKey: string | null;
         firstColumnKey: string | undefined;
         lastColumnKey: string | undefined;
+        syncColumnOrder: ModifierLike<HdsAdvancedTableSyncColumnOrderSignature>;
         moveColumnToDropTarget: (
           columnKey: HdsAdvancedTableNormalizedColumn['key'],
           side: HdsAdvancedTableColumnReorderSide
@@ -77,17 +87,12 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     | HdsAdvancedTableNormalizedColumn['key']
     | null = null;
   @tracked private _columnOrder: string[] = [];
+  @tracked private _lastColumnOrder: string[] = [];
 
   get columnOrder(): string[] {
-    const { columns, columnOrder } = this.args;
-
-    if (columnOrder !== undefined) {
-      return columnOrder;
-    } else if (this._columnOrder.length > 0) {
-      return this._columnOrder;
-    } else {
-      return columns.map((column) => this._getColumnKey(column));
-    }
+    return this._columnOrder.length > 0
+      ? this._columnOrder
+      : this.args.columns.map((column) => this._getColumnKey(column));
   }
   set columnOrder(value: string[]) {
     this._columnOrder = value;
@@ -284,6 +289,54 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     return column.key ?? guidFor(column);
   }
 
+  syncColumnOrder = modifier<HdsAdvancedTableSyncColumnOrderSignature>(
+    (_element, [columns, columnOrder]) => {
+      const columnKeys = columns.map((column) => this._getColumnKey(column));
+
+      let nextOrder = this._columnOrder;
+
+      if (columnOrder !== undefined) {
+        const sameLength = columnOrder.length === this._lastColumnOrder.length;
+        const sameOrder =
+          sameLength &&
+          columnOrder.every(
+            (value, index) => value === this._lastColumnOrder[index]
+          );
+
+        if (!sameOrder) {
+          nextOrder = [...columnOrder];
+        }
+      }
+
+      if (nextOrder.length === 0) {
+        nextOrder = [...columnKeys];
+      }
+
+      const missingKeys = columnKeys.filter((key) => !nextOrder.includes(key));
+
+      if (missingKeys.length > 0) {
+        nextOrder = [...nextOrder, ...missingKeys];
+      }
+
+      const isSame =
+        nextOrder.length === this._columnOrder.length &&
+        nextOrder.every((value, index) => value === this._columnOrder[index]);
+
+      const setColumnOrder = () => {
+        this.columnOrder = nextOrder;
+
+        if (columnOrder !== undefined) {
+          this._lastColumnOrder = [...columnOrder];
+        }
+      };
+
+      if (!isSame) {
+        // eslint-disable-next-line ember/no-runloop
+        scheduleOnce('afterRender', this, setColumnOrder);
+      }
+    }
+  );
+
   <template>
     {{yield
       (hash
@@ -293,6 +346,7 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
         reorderHoveredColumnKey=this.reorderHoveredColumnKey
         firstColumnKey=this.firstColumnKey
         lastColumnKey=this.lastColumnKey
+        syncColumnOrder=this.syncColumnOrder
         moveColumnToDropTarget=this.moveColumnToDropTarget
         moveColumnToTarget=this.moveColumnToTarget
         moveColumnToTerminalPosition=this.moveColumnToTerminalPosition

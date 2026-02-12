@@ -15,6 +15,7 @@ import HdsAdvancedTableColumnManagerOrder from './order.gts';
 
 import type { ModifierLike } from '@glint/template';
 import type { HdsAdvancedTableSyncWidthValuesSignature } from './width.gts';
+import type { HdsAdvancedTableSyncColumnOrderSignature } from './order.gts';
 import type {
   HdsAdvancedTableColumn,
   HdsAdvancedTableColumnReorderSide,
@@ -49,6 +50,7 @@ export interface HdsAdvancedTableColumnManagerSignature {
         lastColumnKey: HdsAdvancedTableNormalizedColumn['key'] | undefined;
         orderedColumns: HdsAdvancedTableNormalizedColumn[];
         reorderHoveredColumnKey: HdsAdvancedTableNormalizedColumn['key'] | null;
+        syncColumnOrder: ModifierLike<HdsAdvancedTableSyncColumnOrderSignature>;
         syncThElements: ModifierLike<HdsAdvancedTableSyncThElementsSignature>;
         syncWidthValues: ModifierLike<HdsAdvancedTableSyncWidthValuesSignature>;
         applyTransientWidth: (
@@ -170,13 +172,14 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
             gridTemplateColumns=Width.gridTemplateColumns
             lastColumnKey=Order.lastColumnKey
             orderedColumns=Order.orderedColumns
+            syncColumnOrder=Order.syncColumnOrder
             syncThElements=this.syncThElements
             syncWidthValues=Width.syncWidthValues
             applyTransientWidth=Width.applyTransientWidth
             getAppliedWidth=Width.getAppliedWidth
             getColumnByKey=this.getColumnByKey
-            getSiblingColumnKeys=Width.getSiblingColumnKeys
             getIsStickyColumn=Order.getIsStickyColumn
+            getSiblingColumnKeys=Width.getSiblingColumnKeys
             reorderHoveredColumnKey=Order.reorderHoveredColumnKey
             restoreColumnWidth=Width.restoreColumnWidth
             moveColumnToDropTarget=Order.moveColumnToDropTarget
