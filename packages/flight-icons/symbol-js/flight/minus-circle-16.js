@@ -1,3 +1,0 @@
-export default function (id) {
-    return `<symbol id="${id}" viewBox="0 0 16 16"><g><path d="M4.75 7a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z"/><path fill-rule="evenodd" d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z" clip-rule="evenodd"/></g></symbol>`;
-}
