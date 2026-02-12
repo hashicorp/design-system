@@ -25,11 +25,12 @@ export async function customFormatCssThemedTokensFunctionForTarget(target: strin
         // we have to consider different conditions to decide if this should be output in "common" or in "themed"
         const isThemed = ('$modes' in token);
         const hasReferencesAndHasBeenTransformed = checkIfHasReferencesAndHasBeenTransformed(token, dictionary, options.usesDtcg);
+        const hasPrivateThemedReferences = checkIfHasPrivateThemedReferences(token, dictionary, options.usesDtcg);
         const hasPrivateReferencesWithThemedDescendants = checkIfHasPrivateReferencesWithThemedDescendants(token, dictionary, options.usesDtcg);
         if (target === 'common') {
-          return !isThemed && !hasReferencesAndHasBeenTransformed && !hasPrivateReferencesWithThemedDescendants;
+          return !isThemed && !hasReferencesAndHasBeenTransformed && !hasPrivateThemedReferences && !hasPrivateReferencesWithThemedDescendants;
         } else {
-          return isThemed || (!isThemed && (hasReferencesAndHasBeenTransformed || hasPrivateReferencesWithThemedDescendants));
+          return isThemed || (!isThemed && (hasReferencesAndHasBeenTransformed || hasPrivateThemedReferences || hasPrivateReferencesWithThemedDescendants));
         }
       }
     });
@@ -117,6 +118,31 @@ const checkIfHasReferencesAndHasBeenTransformed = (token: TransformedToken, dict
   }
   return hasReferences && isTransformed;
 }
+
+// checks if a token has any private references that are themed (they have `$modes`)
+const checkIfHasPrivateThemedReferences = (
+  token: DesignToken,
+  dictionary: Dictionary,
+  usesDtcg?: boolean
+): boolean => {
+
+  const originalValue = usesDtcg ? token.original.$value : token.original.value;
+
+  // get all the token refs (aliases) that are referenced in its `$value`
+  // e.g. `"$value": "{foo.bar} {baz}"` has two references (`foo.bar` and `baz`)
+  const refs = getReferences(originalValue, dictionary.tokens, {
+    // note: we pass `unfilteredTokens` to ensure we find the refs even if they are filtered out
+    unfilteredTokens: dictionary.unfilteredTokens,
+    usesDtcg,
+    warnImmediately: false,
+  });
+
+  // check whether any of the refs is private and themed at the same time
+  const hasPrivateThemedReferences = refs.some((ref: DesignToken) => ref.private && '$modes' in ref);
+
+  return hasPrivateThemedReferences;
+
+};
 
 // checks if a token has any private references that themselves reference themed tokens (they have `$modes`)
 const checkIfHasPrivateReferencesWithThemedDescendants = (
