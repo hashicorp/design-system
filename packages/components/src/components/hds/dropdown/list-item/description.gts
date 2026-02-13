@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 
 import HdsTextBody from '../../text/body.gts';
 
-import type { HdsTextBodySignature } from '../../text/body';
+import type { HdsTextBodySignature } from '../../text/body.gts';
 
 export interface HdsDropdownListItemDescriptionSignature {
   Args: {

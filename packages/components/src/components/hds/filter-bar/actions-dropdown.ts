@@ -6,8 +6,8 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 
-import type { HdsDropdownSignature } from '../dropdown/index.ts';
-import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
+import type { HdsDropdownSignature } from '../dropdown/index.gts';
+import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.gts';
 import type HdsIntlService from '../../../services/hds-intl';
 
 export interface HdsFilterBarActionsDropdownSignature {
