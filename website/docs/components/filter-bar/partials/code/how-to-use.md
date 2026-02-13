@@ -87,9 +87,19 @@ For filtering support outside of the filter types supported above, an option for
 
 The dismissible filter tag can be customized by setting `dismissTagText` on the filter. If this is not provided, the dismissible filter tag's text will function similarly to the `single-select` and `multi-select` filter types, where the `value` or `label` is displayed.
 
+The `@onClear` callback can be used to listen to the `FilterGroup` "Clear filter" button, and reset any content inside your filter such as clearing a form input.
+
 [[code-snippets/filter-bar-type-generic]]
 
 [[code-snippets/filter-bar-type-generic-data execute=false]]
+
+A `generic` filter can also contain multiple filters, similar to a `multi-select` filter. By passing an array of data to the `data` object each item in the array will be displayed as a distinct filter.
+
+The dismissible filter tag will display the `label` for a given filter, and if the `label` is not provided it will display the `value`. The text can be customized by adding a `dismissTagText` value.
+
+[[code-snippets/filter-bar-type-generic-array]]
+
+[[code-snippets/filter-bar-type-generic-array-data execute=false]]
 
 ### Search
 

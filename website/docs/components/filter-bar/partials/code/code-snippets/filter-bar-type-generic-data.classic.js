@@ -4,9 +4,9 @@ const demoGenericFilters = {
   'demo-generic': {
     type: 'generic',
     text: 'Generic',
-    dismissTagText: 'equals lorem ipsum',
+    dismissTagText: 'equals Name',
     data: {
-      value: 'lorem ipsum',
+      value: 'Name',
     },
   }
 };
