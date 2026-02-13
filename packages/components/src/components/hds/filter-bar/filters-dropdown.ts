@@ -12,7 +12,7 @@ import type { WithBoundArgs } from '@glint/template';
 import HdsFilterBarFilterGroup from './filter-group/index.ts';
 import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
 
-import type { HdsDropdownSignature } from '../dropdown/index.ts';
+import type { HdsDropdownSignature } from '../dropdown/index.gts';
 
 export const DEFAULT_DROPDOWN_HEIGHT = '600px';
 

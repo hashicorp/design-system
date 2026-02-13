@@ -9,7 +9,7 @@ import { guidFor } from '@ember/object/internals';
 
 import type { HdsAdvancedTableThReorderHandleSignature } from '../th-reorder-handle.ts';
 import type HdsAdvancedTableModel from './table.ts';
-import type { HdsDropdownToggleButtonSignature } from '../../dropdown/toggle/button.ts';
+import type { HdsDropdownToggleButtonSignature } from '../../dropdown/toggle/button.gts';
 import type {
   HdsAdvancedTableCell,
   HdsAdvancedTableHorizontalAlignment,
