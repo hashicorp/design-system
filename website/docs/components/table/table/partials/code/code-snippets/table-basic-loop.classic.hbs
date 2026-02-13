@@ -1,0 +1,18 @@
+<Hds::Table @caption="Products that use Helios">
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Product</H.Th>
+      <H.Th>Brand Color</H.Th>
+      <H.Th>Uses Helios</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    {{#each this.myDataItems as |item|}}
+      <B.Tr>
+        <B.Td>{{item.product}}</B.Td>
+        <B.Td>{{item.brandColor}}</B.Td>
+        <B.Td>{{item.usesHelios}}</B.Td>
+      </B.Tr>
+    {{/each}}
+  </:body>
+</Hds::Table>

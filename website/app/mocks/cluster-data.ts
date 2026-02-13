@@ -1,0 +1,79 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+export interface Cluster {
+  id: number;
+  'peer-name': string;
+  'cluster-partition': string;
+  status: string;
+  services: {
+    imported: number;
+    exported: number;
+  };
+}
+
+const clusters: Cluster[] = [
+  {
+    id: 1,
+    'peer-name': 'cluster-2-partition-2',
+    'cluster-partition': 'cluster-2 / partition-2',
+    status: 'pending',
+    services: {
+      imported: 10,
+      exported: 10,
+    },
+  },
+  {
+    id: 2,
+    'peer-name': 'cluster-3-partition-3',
+    'cluster-partition': 'cluster-3 / partition-3',
+    status: 'establishing',
+    services: {
+      imported: 10,
+      exported: 10,
+    },
+  },
+  {
+    id: 3,
+    'peer-name': 'cluster-4-partition-4',
+    'cluster-partition': 'cluster-4 / partition-4',
+    status: 'failing',
+    services: {
+      imported: 5,
+      exported: 5,
+    },
+  },
+  {
+    id: 4,
+    'peer-name': 'cluster-5-partition-5',
+    'cluster-partition': 'cluster-5 / partition-5',
+    status: 'active',
+    services: {
+      imported: 3,
+      exported: 3,
+    },
+  },
+  {
+    id: 5,
+    'peer-name': 'cluster-6-partition-2',
+    'cluster-partition': 'cluster-6 / partition-2',
+    status: 'pending',
+    services: {
+      imported: 7,
+      exported: 10,
+    },
+  },
+  {
+    id: 6,
+    'peer-name': 'cluster-6-partition-1',
+    'cluster-partition': 'cluster-6 / partition-1',
+    status: 'failing',
+    services: {
+      imported: 7,
+      exported: 10,
+    },
+  },
+];
+export default clusters;

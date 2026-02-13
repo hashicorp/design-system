@@ -1,0 +1,14 @@
+<Hds::Table
+  @isSelectable={{true}}
+  @onSelectionChange={{this.onSelectionChange}}
+  @model={{this.model}}
+  @columns={{array (hash key="artist" label="Artist") (hash key="album" label="Album") (hash key="year" label="Year")}}
+>
+  <:body as |B|>
+    <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>

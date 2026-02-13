@@ -1,0 +1,43 @@
+import Component from '@glimmer/component';
+import { array, hash } from '@ember/helper';
+
+import { HdsTable } from '@hashicorp/design-system-components/components';
+
+import USER_WITH_MORE_COLUMNS from 'website/mocks/user-with-more-columns';
+
+export default class LocalComponent extends Component {
+  get model() {
+    return { demoDataWithLargeNumberOfColumns: USER_WITH_MORE_COLUMNS };
+  }
+
+  <template>
+    <div class="doc-table-scrollable-wrapper">
+      <HdsTable
+        @model={{this.model.demoDataWithLargeNumberOfColumns}}
+        @columns={{array
+          (hash key="first_name" label="First Name" isSortable=true)
+          (hash key="last_name" label="Last Name" isSortable=true)
+          (hash key="age" label="Age" isSortable=true)
+          (hash key="email" label="Email")
+          (hash key="phone" label="Phone")
+          (hash key="bio" label="Biography" width="350px")
+          (hash key="education" label="Education Degree")
+          (hash key="occupation" label="Occupation")
+        }}
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.first_name}}</B.Td>
+            <B.Td>{{B.data.last_name}}</B.Td>
+            <B.Td>{{B.data.age}}</B.Td>
+            <B.Td>{{B.data.email}}</B.Td>
+            <B.Td>{{B.data.phone}}</B.Td>
+            <B.Td>{{B.data.bio}}</B.Td>
+            <B.Td>{{B.data.education}}</B.Td>
+            <B.Td>{{B.data.occupation}}</B.Td>
+          </B.Tr>
+        </:body>
+      </HdsTable>
+    </div>
+  </template>
+}
