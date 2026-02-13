@@ -52,6 +52,11 @@ export type HdsOnSetThemeCallbackArgs = {
 export type HdsOnSetThemeCallback = (args: HdsOnSetThemeCallbackArgs) => void;
 
 export const THEMES: HdsThemes[] = Object.values(HdsThemeValues);
+export const CARBON_THEMES = [
+  HdsThemeValues.System,
+  HdsThemeValues.Light,
+  HdsThemeValues.Dark,
+];
 export const MODES_LIGHT: HdsModesLight[] = Object.values(HdsModesLightValues);
 export const MODES_DARK: HdsModesDark[] = Object.values(HdsModesDarkValues);
 export const MODES: HdsModes[] = [
@@ -147,6 +152,10 @@ export default class HdsThemingService extends Service {
 
   get currentTheme(): HdsThemes | undefined {
     return this._currentTheme;
+  }
+
+  get carbonThemeEnabled(): boolean {
+    return CARBON_THEMES.includes(this._currentTheme as HdsThemeValues);
   }
 
   get currentMode(): HdsModes | undefined {

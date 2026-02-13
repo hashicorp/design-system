@@ -17,6 +17,7 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
+    "prebuild": "pnpm --filter @hashicorp/flight-icons build",
     "build": "rollup --config",
     "format": "prettier . --cache --write",
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
@@ -372,6 +373,7 @@
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
       "./helpers/hds-t.js": "./dist/_app_/helpers/hds-t.js",
+      "./instance-initializers/load-sprite-empty.js": "./dist/_app_/instance-initializers/load-sprite-empty.js",
       "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
       "./modifiers/hds-advanced-table-cell.js": "./dist/_app_/modifiers/hds-advanced-table-cell.js",
       "./modifiers/hds-advanced-table-cell/dom-management.js": "./dist/_app_/modifiers/hds-advanced-table-cell/dom-management.js",
@@ -388,6 +390,7 @@
       "./modifiers/hds-code-editor/types.js": "./dist/_app_/modifiers/hds-code-editor/types.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
+      "./services/hds-icon-registry.js": "./dist/_app_/services/hds-icon-registry.js",
       "./services/hds-intl.js": "./dist/_app_/services/hds-intl.js",
       "./services/hds-theming.js": "./dist/_app_/services/hds-theming.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"
