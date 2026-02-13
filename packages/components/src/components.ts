@@ -10,8 +10,8 @@
 // -----------------------------------------------------------
 
 // Accordion
-export { default as HdsAccordion } from './components/hds/accordion/index.ts';
-export { default as HdsAccordionItem } from './components/hds/accordion/item/index.ts';
+export { default as HdsAccordion } from './components/hds/accordion/index.gts';
+export { default as HdsAccordionItem } from './components/hds/accordion/item/index.gts';
 export * from './components/hds/accordion/types.ts';
 
 // Advanced Table

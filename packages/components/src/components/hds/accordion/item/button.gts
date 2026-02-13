@@ -4,7 +4,10 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { on } from '@ember/modifier';
+
+import HdsIcon from '../../icon/index.gts';
+import { HdsAccordionSizeValues } from '../types.ts';
 
 import type { HdsAccordionSizes } from '../types.ts';
 
@@ -24,19 +27,17 @@ export interface HdsAccordionItemButtonSignature {
 }
 
 export default class HdsAccordionItemButton extends Component<HdsAccordionItemButtonSignature> {
-  @action
-  onClick(event: MouseEvent): void {
+  onClick = (event: MouseEvent): void => {
     if (this.args.onClickToggle) {
       this.args.onClickToggle(event);
     }
+  };
+
+  get iconSize() {
+    return this.args.size === HdsAccordionSizeValues.Large ? '24' : '16';
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method ItemButton#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames(): string {
+  get classNames() {
     const classes = ['hds-accordion-item__button'];
 
     // add a class based on the @isOpen argument
@@ -58,4 +59,19 @@ export default class HdsAccordionItemButton extends Component<HdsAccordionItemBu
     }
     return classes.join(' ');
   }
+
+  <template>
+    <button
+      class={{this.classNames}}
+      type="button"
+      {{on "click" this.onClick}}
+      aria-controls={{@contentId}}
+      aria-expanded={{if @isOpen "true" "false"}}
+      aria-label={{@ariaLabel}}
+      aria-labelledby={{@ariaLabelledBy}}
+      ...attributes
+    >
+      <HdsIcon @name="chevron-down" @size={{this.iconSize}} />
+    </button>
+  </template>
 }
