@@ -222,6 +222,12 @@ The `FilterBar::FiltersDropdown` is yielded as the `[F].FiltersDropdown` context
   <C.Property @name="height" @type="string" @default="600px">
     If a `@height` parameter is provided then the tabs and tab panels will have a max-height. Can be any valid CSS height (px, rem, etc).
   </C.Property>
+  <C.Property @name="onFocusOut" @type="function">
+    A callback function invoked when the dropdown menu loses focus, and focus does not move to another element (if provided).
+    <br />
+    <br />
+    _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
@@ -317,7 +323,13 @@ The `FilterBar::ActionsDropdown` is yielded as the `[F].ActionsDropdown` context
     Controls if the content is always rendered in the DOM, even when the Dropdown is closed.
   </C.Property>
   <C.Property @name="onClose" @type="function">
-    Callback function invoked when the Dropdown is closed, if provided.
+    Callback function invoked when the dropdown is closed (if provided).
+  </C.Property>
+  <C.Property @name="onFocusOut" @type="function">
+    A callback function invoked when the dropdown menu loses focus, and focus does not move to another element (if provided).
+    <br />
+    <br />
+    _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._
   </C.Property>
   <C.Property @name="toggleButtonText" @type="text" @default="&quot;Actions&quot;">
     The text of the dropdown toggle button.

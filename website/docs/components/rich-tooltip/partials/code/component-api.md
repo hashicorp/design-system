@@ -30,6 +30,12 @@
   <C.Property @name="onClose" @type="function">
     A callback function invoked when the tooltip is closed (if provided).
   </C.Property>
+  <C.Property @name="onFocusOut" @type="function">
+    A callback function invoked when the tooltip bubble loses focus, and focus does not move to another element (if provided).
+    <br />
+    <br />
+    _Notice: Focus can be lost if content inside the bubble is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the tooltip will close automatically when focus is lost._
+  </C.Property>
   <C.Property @name="[RT].isOpen" @type="yielded tracked property">
     Hook into this tracked property to access the state of `isOpen`.
   </C.Property>
