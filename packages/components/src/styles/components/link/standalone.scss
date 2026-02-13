@@ -11,6 +11,7 @@
 
 @use "sass:map";
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 $hds-link-standalone-sizes: ("small", "medium", "large");
 $hds-link-standalone-focus-border-radius: var(--token-border-radius-small);
@@ -22,8 +23,8 @@ $hds-link-standalone-border-width: 1px;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: var(--token-link-standalone-padding-vertical);
+  padding-bottom: var(--token-link-standalone-padding-vertical);
   font-weight: var(--token-typography-font-weight-regular);
   font-family: var(--token-typography-font-stack-text);
   background-color: transparent; // needs to exist for a11y
@@ -42,48 +43,25 @@ $hds-link-standalone-border-width: 1px;
   text-decoration: underline;
   text-decoration-color: transparent;
   transition: text-decoration-color 0.25s ease-in;
+
+  @include hds-apply-only-if-carbon() {
+    transition: none;
+  }
 }
 
 // SIZE
 
-// these values later may come from the design tokens
-$hds-link-standalone-size-props: (
-  "small": (
-    // 13px = 0.8125rem
-    "font-size": 0.8125rem,
-    // 12px = 0.75rem
-    "icon-size": 0.75rem,
-    // 16px ~= 1.231
-    "line-height": 1.231,
-  ),
-  "medium": (
-    // 14px = 0.875rem
-    "font-size": 0.875rem,
-    // 16px = 1rem
-    "icon-size": 1rem,
-    // 16px ~= 1.143
-    "line-height": 1.143,
-  ),
-  "large": (
-    // 16px = 1rem
-    "font-size": 1rem,
-    // 24px = 1.5rem
-    "icon-size": 1.5rem,
-    // 24px = 1.5
-    "line-height": 1.5,
-  ),
-);
-
 @each $size in $hds-link-standalone-sizes {
   .hds-link-standalone--size-#{$size} {
     .hds-link-standalone__icon {
-      width: map.get($hds-link-standalone-size-props, $size, "icon-size");
-      height: map.get($hds-link-standalone-size-props, $size, "icon-size");
+      width: var(--token-link-standalone-icon-size-#{$size});
+      height: var(--token-link-standalone-icon-size-#{$size});
     }
 
     .hds-link-standalone__text {
-      font-size: map.get($hds-link-standalone-size-props, $size, "font-size");
-      line-height: map.get($hds-link-standalone-size-props, $size, "line-height");
+      font-size: var(--token-link-standalone-typography-font-size-#{$size});
+      line-height: var(--token-link-standalone-typography-line-height-#{$size});
+      letter-spacing: var(--token-link-standalone-typography-letter-spacing-#{$size});
     }
   }
 }
@@ -101,6 +79,10 @@ $hds-link-standalone-size-props: (
 
     .hds-link-standalone__text {
       text-decoration-color: #4e81e8; // custom color by design
+
+      @include hds-apply-only-if-carbon() {
+        text-decoration-color: inherit;
+      }
     }
   }
 
@@ -110,10 +92,14 @@ $hds-link-standalone-size-props: (
 
     .hds-link-standalone__text {
       text-decoration-color: #396ed6; // custom color by design
+
+      @include hds-apply-only-if-carbon() {
+        text-decoration-color: inherit;
+      }
     }
 
     &::before {
-      background-color: var(--token-color-surface-action);
+      background-color: var(--token-link-standalone-surface-color-primary-active);
     }
   }
 }
@@ -137,7 +123,7 @@ $hds-link-standalone-size-props: (
     }
 
     &::before {
-      background-color: var(--token-color-surface-interactive-active);
+      background-color: var(--token-link-standalone-surface-color-secondary-active);
     }
   }
 }
