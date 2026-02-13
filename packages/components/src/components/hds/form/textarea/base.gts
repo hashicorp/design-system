@@ -4,6 +4,8 @@
  */
 
 import Component from '@glimmer/component';
+import style from 'ember-style-modifier';
+import { Textarea } from '@ember/component';
 
 export interface HdsFormTextareaBaseSignature {
   Args: {
@@ -18,11 +20,6 @@ export interface HdsFormTextareaBaseSignature {
 }
 
 export default class HdsFormTextareaBase extends Component<HdsFormTextareaBaseSignature> {
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-textarea'];
 
@@ -36,4 +33,17 @@ export default class HdsFormTextareaBase extends Component<HdsFormTextareaBaseSi
 
     return classes.join(' ');
   }
+
+  <template>
+    {{! Notice: this is not the native HTML <textarea> but the Ember component <Textarea> }}
+    <Textarea
+      class={{this.classNames}}
+      {{style width=@width height=@height}}
+      rows="4"
+      id={{@id}}
+      aria-describedby={{@ariaDescribedBy}}
+      ...attributes
+      @value={{@value}}
+    />
+  </template>
 }

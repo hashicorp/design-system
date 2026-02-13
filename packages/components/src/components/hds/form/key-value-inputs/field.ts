@@ -24,7 +24,7 @@ import HdsFormMaskedInputBaseComponent from '../masked-input/base.ts';
 import HdsFormSelectBaseComponent from '../select/base.ts';
 import HdsFormSuperSelectMultipleBaseComponent from '../super-select/multiple/base.ts';
 import HdsFormSuperSelectSingleBaseComponent from '../super-select/single/base.ts';
-import HdsFormTextareaBaseComponent from '../textarea/base.ts';
+import HdsFormTextareaBaseComponent from '../textarea/base.gts';
 import HdsFormTextInputBaseComponent from '../text-input/base.ts';
 
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
