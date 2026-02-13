@@ -1,0 +1,10 @@
+{{! TODO: Fix }}
+{{! template-lint-disable require-input-label }}
+<input
+  type="text"
+  aria-label="input with min length count"
+  id="input-character-count-min"
+  value={{this.value}}
+  {{on "input" this.updateValue}}
+/>
+<Hds::Form::CharacterCount @minLength={{3}} @controlId="input-character-count-min" @value={{this.value}} />
