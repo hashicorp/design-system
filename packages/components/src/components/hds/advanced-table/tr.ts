@@ -18,6 +18,7 @@ import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.ts';
 export interface BaseHdsAdvancedTableTrSignature {
   Args: {
     columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
+    displayRow?: boolean;
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
     isLastRow?: boolean;
     isSelectable?: boolean;
@@ -40,7 +41,6 @@ export interface BaseHdsAdvancedTableTrSignature {
     ) => void;
     willDestroy?: () => void;
     onClickSortBySelected?: HdsAdvancedTableThSelectableSignature['Args']['onClickSortBySelected'];
-    displayRow?: boolean;
     hasStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
   };
@@ -102,6 +102,8 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
     if (isParentRow) {
       classes.push('hds-advanced-table__tr--parent-row');
     }
+
+    console.log('displayRow:', displayRow);
 
     if (displayRow === false) {
       classes.push('hds-advanced-table__tr--hidden');

@@ -124,7 +124,7 @@
           @sortedModel={{sort-by this.sortCriteria @model}}
           as |B|
         >
-          {{#each B.visibleRows key="id" as |row index|}}
+          {{#each B.rows key="id" as |row index|}}
             {{#let (and (not this.hasRowsWithChildren) (not row.hasChildren)) as |isSimpleRow|}}
               {{yield
                 (hash
@@ -135,7 +135,7 @@
                     depth=row.depth
                     isParentRow=row.hasChildren
                     isLastRow=(and (eq row.id B.lastVisibleRowId) (not-eq B.lastVisibleRowId undefined))
-                    displayRow=true
+                    displayRow=row.isVisible
                     selectionScope=(if isSimpleRow "row")
                     isSelectable=(if isSimpleRow this.isSelectable)
                     onSelectionChange=(if isSimpleRow this.onSelectionRowChange)
