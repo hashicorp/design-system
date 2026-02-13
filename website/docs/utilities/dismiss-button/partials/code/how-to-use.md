@@ -5,6 +5,4 @@ This component is intended only for internal Helios use. If you need to use it, 
 
 ## How to use this component
 
-```handlebars
-<Hds::DismissButton {{on "click" this.onClickDismissButton}} />
-```
+[[code-snippets/dismiss-button-basic]]
