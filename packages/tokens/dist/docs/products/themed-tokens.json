@@ -12307,20 +12307,20 @@
       "$value": "#f1f2f3",
       "$modes": {
         "default": "#F1F2F3",
-        "cds-g0": "#F4F4F4",
+        "cds-g0": "#E0E0E0",
         "cds-g10": "#E0E0E0",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
       },
       "original": {
         "$type": "color",
         "$value": "#F1F2F3",
         "$modes": {
           "default": "#F1F2F3",
-          "cds-g0": "#F4F4F4",
+          "cds-g0": "#E0E0E0",
           "cds-g10": "#E0E0E0",
-          "cds-g90": "#393939",
-          "cds-g100": "#262626"
+          "cds-g90": "#525252",
+          "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.neutral}"
       },
@@ -12341,9 +12341,9 @@
       "$value": "#ffffff",
       "$modes": {
         "default": "#FFFFFF",
-        "cds-g0": "#FFFFFF",
-        "cds-g10": "#F4F4F4",
-        "cds-g90": "#525252",
+        "cds-g0": "#E0E0E0",
+        "cds-g10": "#C6C6C6",
+        "cds-g90": "#8D8D8D",
         "cds-g100": "#393939"
       },
       "original": {
@@ -12351,9 +12351,9 @@
         "$value": "#FFFFFF",
         "$modes": {
           "default": "#FFFFFF",
-          "cds-g0": "#FFFFFF",
-          "cds-g10": "#F4F4F4",
-          "cds-g90": "#525252",
+          "cds-g0": "#E0E0E0",
+          "cds-g10": "#C6C6C6",
+          "cds-g90": "#8D8D8D",
           "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.overlay}"
@@ -26841,23 +26841,23 @@
     "token-icon-tile-surface-color-neutral": {
       "key": "{icon-tile.surface.color.neutral}",
       "$type": "color",
-      "$value": "#f4f4f4",
+      "$value": "#e0e0e0",
       "$modes": {
         "default": "#F1F2F3",
-        "cds-g0": "#F4F4F4",
+        "cds-g0": "#E0E0E0",
         "cds-g10": "#E0E0E0",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
       },
       "original": {
         "$type": "color",
-        "$value": "#F4F4F4",
+        "$value": "#E0E0E0",
         "$modes": {
           "default": "#F1F2F3",
-          "cds-g0": "#F4F4F4",
+          "cds-g0": "#E0E0E0",
           "cds-g10": "#E0E0E0",
-          "cds-g90": "#393939",
-          "cds-g100": "#262626"
+          "cds-g90": "#525252",
+          "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.neutral}"
       },
@@ -26875,22 +26875,22 @@
     "token-icon-tile-surface-color-overlay": {
       "key": "{icon-tile.surface.color.overlay}",
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "#e0e0e0",
       "$modes": {
         "default": "#FFFFFF",
-        "cds-g0": "#FFFFFF",
-        "cds-g10": "#F4F4F4",
-        "cds-g90": "#525252",
+        "cds-g0": "#E0E0E0",
+        "cds-g10": "#C6C6C6",
+        "cds-g90": "#8D8D8D",
         "cds-g100": "#393939"
       },
       "original": {
         "$type": "color",
-        "$value": "#FFFFFF",
+        "$value": "#E0E0E0",
         "$modes": {
           "default": "#FFFFFF",
-          "cds-g0": "#FFFFFF",
-          "cds-g10": "#F4F4F4",
-          "cds-g90": "#525252",
+          "cds-g0": "#E0E0E0",
+          "cds-g10": "#C6C6C6",
+          "cds-g90": "#8D8D8D",
           "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.overlay}"
@@ -41381,20 +41381,20 @@
       "$value": "#e0e0e0",
       "$modes": {
         "default": "#F1F2F3",
-        "cds-g0": "#F4F4F4",
+        "cds-g0": "#E0E0E0",
         "cds-g10": "#E0E0E0",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
       },
       "original": {
         "$type": "color",
         "$value": "#E0E0E0",
         "$modes": {
           "default": "#F1F2F3",
-          "cds-g0": "#F4F4F4",
+          "cds-g0": "#E0E0E0",
           "cds-g10": "#E0E0E0",
-          "cds-g90": "#393939",
-          "cds-g100": "#262626"
+          "cds-g90": "#525252",
+          "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.neutral}"
       },
@@ -41412,22 +41412,22 @@
     "token-icon-tile-surface-color-overlay": {
       "key": "{icon-tile.surface.color.overlay}",
       "$type": "color",
-      "$value": "#f4f4f4",
+      "$value": "#c6c6c6",
       "$modes": {
         "default": "#FFFFFF",
-        "cds-g0": "#FFFFFF",
-        "cds-g10": "#F4F4F4",
-        "cds-g90": "#525252",
+        "cds-g0": "#E0E0E0",
+        "cds-g10": "#C6C6C6",
+        "cds-g90": "#8D8D8D",
         "cds-g100": "#393939"
       },
       "original": {
         "$type": "color",
-        "$value": "#F4F4F4",
+        "$value": "#C6C6C6",
         "$modes": {
           "default": "#FFFFFF",
-          "cds-g0": "#FFFFFF",
-          "cds-g10": "#F4F4F4",
-          "cds-g90": "#525252",
+          "cds-g0": "#E0E0E0",
+          "cds-g10": "#C6C6C6",
+          "cds-g90": "#8D8D8D",
           "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.overlay}"
@@ -55915,23 +55915,23 @@
     "token-icon-tile-surface-color-neutral": {
       "key": "{icon-tile.surface.color.neutral}",
       "$type": "color",
-      "$value": "#393939",
+      "$value": "#525252",
       "$modes": {
         "default": "#F1F2F3",
-        "cds-g0": "#F4F4F4",
+        "cds-g0": "#E0E0E0",
         "cds-g10": "#E0E0E0",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
       },
       "original": {
         "$type": "color",
-        "$value": "#393939",
+        "$value": "#525252",
         "$modes": {
           "default": "#F1F2F3",
-          "cds-g0": "#F4F4F4",
+          "cds-g0": "#E0E0E0",
           "cds-g10": "#E0E0E0",
-          "cds-g90": "#393939",
-          "cds-g100": "#262626"
+          "cds-g90": "#525252",
+          "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.neutral}"
       },
@@ -55949,22 +55949,22 @@
     "token-icon-tile-surface-color-overlay": {
       "key": "{icon-tile.surface.color.overlay}",
       "$type": "color",
-      "$value": "#525252",
+      "$value": "#8d8d8d",
       "$modes": {
         "default": "#FFFFFF",
-        "cds-g0": "#FFFFFF",
-        "cds-g10": "#F4F4F4",
-        "cds-g90": "#525252",
+        "cds-g0": "#E0E0E0",
+        "cds-g10": "#C6C6C6",
+        "cds-g90": "#8D8D8D",
         "cds-g100": "#393939"
       },
       "original": {
         "$type": "color",
-        "$value": "#525252",
+        "$value": "#8D8D8D",
         "$modes": {
           "default": "#FFFFFF",
-          "cds-g0": "#FFFFFF",
-          "cds-g10": "#F4F4F4",
-          "cds-g90": "#525252",
+          "cds-g0": "#E0E0E0",
+          "cds-g10": "#C6C6C6",
+          "cds-g90": "#8D8D8D",
           "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.overlay}"
@@ -70452,23 +70452,23 @@
     "token-icon-tile-surface-color-neutral": {
       "key": "{icon-tile.surface.color.neutral}",
       "$type": "color",
-      "$value": "#262626",
+      "$value": "#393939",
       "$modes": {
         "default": "#F1F2F3",
-        "cds-g0": "#F4F4F4",
+        "cds-g0": "#E0E0E0",
         "cds-g10": "#E0E0E0",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
+        "cds-g90": "#525252",
+        "cds-g100": "#393939"
       },
       "original": {
         "$type": "color",
-        "$value": "#262626",
+        "$value": "#393939",
         "$modes": {
           "default": "#F1F2F3",
-          "cds-g0": "#F4F4F4",
+          "cds-g0": "#E0E0E0",
           "cds-g10": "#E0E0E0",
-          "cds-g90": "#393939",
-          "cds-g100": "#262626"
+          "cds-g90": "#525252",
+          "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.neutral}"
       },
@@ -70489,9 +70489,9 @@
       "$value": "#393939",
       "$modes": {
         "default": "#FFFFFF",
-        "cds-g0": "#FFFFFF",
-        "cds-g10": "#F4F4F4",
-        "cds-g90": "#525252",
+        "cds-g0": "#E0E0E0",
+        "cds-g10": "#C6C6C6",
+        "cds-g90": "#8D8D8D",
         "cds-g100": "#393939"
       },
       "original": {
@@ -70499,9 +70499,9 @@
         "$value": "#393939",
         "$modes": {
           "default": "#FFFFFF",
-          "cds-g0": "#FFFFFF",
-          "cds-g10": "#F4F4F4",
-          "cds-g90": "#525252",
+          "cds-g0": "#E0E0E0",
+          "cds-g10": "#C6C6C6",
+          "cds-g90": "#8D8D8D",
           "cds-g100": "#393939"
         },
         "key": "{icon-tile.surface.color.overlay}"
