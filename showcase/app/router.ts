@@ -180,6 +180,7 @@ Router.map(function () {
       });
       this.route('icon-tile');
       this.route('modal');
+      this.route('pagination');
       this.route('segmented-group');
       this.route('separator');
       this.route('tooltip');
