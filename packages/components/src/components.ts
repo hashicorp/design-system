@@ -59,11 +59,11 @@ export { default as HdsAppSideNavListTitle } from './components/hds/app-side-nav
 export { default as HdsAppSideNavListLink } from './components/hds/app-side-nav/list/link.ts';
 
 // ApplicationState
-export { default as HdsApplicationState } from './components/hds/application-state/index.ts';
-export { default as HdsApplicationStateBody } from './components/hds/application-state/body.ts';
-export { default as HdsApplicationStateFooter } from './components/hds/application-state/footer.ts';
-export { default as HdsApplicationStateHeader } from './components/hds/application-state/header.ts';
-export { default as HdsApplicationStateMedia } from './components/hds/application-state/media.ts';
+export { default as HdsApplicationState } from './components/hds/application-state/index.gts';
+export { default as HdsApplicationStateBody } from './components/hds/application-state/body.gts';
+export { default as HdsApplicationStateFooter } from './components/hds/application-state/footer.gts';
+export { default as HdsApplicationStateHeader } from './components/hds/application-state/header.gts';
+export { default as HdsApplicationStateMedia } from './components/hds/application-state/media.gts';
 export * from './components/hds/application-state/types.ts';
 
 // Badge

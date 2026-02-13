@@ -5,14 +5,15 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { HdsApplicationStateAlignValues } from './types.ts';
+import { hash } from '@ember/helper';
 
-import type { ComponentLike } from '@glint/template';
-import type { HdsApplicationStateAligns } from './types';
-import type { HdsApplicationStateMediaSignature } from './media';
-import type { HdsApplicationStateHeaderSignature } from './header';
-import type { HdsApplicationStateBodySignature } from './body';
-import type { HdsApplicationStateFooterSignature } from './footer';
+import { HdsApplicationStateAlignValues } from './types.ts';
+import HdsApplicationStateMedia from './media.gts';
+import HdsApplicationStateHeader from './header.gts';
+import HdsApplicationStateBody from './body.gts';
+import HdsApplicationStateFooter from './footer.gts';
+
+import type { HdsApplicationStateAligns } from './types.ts';
 
 export const ALIGNS: HdsApplicationStateAligns[] = Object.values(
   HdsApplicationStateAlignValues
@@ -25,10 +26,10 @@ export interface HdsApplicationStateSignature {
   Blocks: {
     default: [
       {
-        Media?: ComponentLike<HdsApplicationStateMediaSignature>;
-        Header?: ComponentLike<HdsApplicationStateHeaderSignature>;
-        Body?: ComponentLike<HdsApplicationStateBodySignature>;
-        Footer?: ComponentLike<HdsApplicationStateFooterSignature>;
+        Media?: typeof HdsApplicationStateMedia;
+        Header?: typeof HdsApplicationStateHeader;
+        Body?: typeof HdsApplicationStateBody;
+        Footer?: typeof HdsApplicationStateFooter;
       },
     ];
   };
@@ -67,4 +68,17 @@ export default class HdsApplicationState extends Component<HdsApplicationStateSi
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      {{yield
+        (hash
+          Media=HdsApplicationStateMedia
+          Header=HdsApplicationStateHeader
+          Body=HdsApplicationStateBody
+          Footer=HdsApplicationStateFooter
+        )
+      }}
+    </div>
+  </template>
 }
