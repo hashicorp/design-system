@@ -7,7 +7,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { hash } from '@ember/helper';
 
 import HdsButton from '../button/index.gts';
-import HdsDropdown from '../dropdown/index.ts';
+import HdsDropdown from '../dropdown/index.gts';
 import HdsLinkStandalone from '../link/standalone.gts';
 
 export interface HdsApplicationStateFooterSignature {

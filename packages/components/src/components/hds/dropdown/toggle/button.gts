@@ -9,15 +9,14 @@ import { guidFor } from '@ember/object/internals';
 
 import type { ModifierLike } from '@glint/template';
 
-import HdsBadge from '../../badge/index.gts';
-import HdsBadgeCount from '../../badge-count/index.gts';
-import HdsIcon from '../../icon/index.gts';
-import HdsDropdownToggleChevron from '../toggle/chevron.gts';
-
 import {
   HdsDropdownToggleButtonSizeValues,
   HdsDropdownToggleButtonColorValues,
 } from './types.ts';
+import HdsBadge from '../../badge/index.gts';
+import HdsBadgeCount from '../../badge-count/index.gts';
+import HdsIcon from '../../icon/index.gts';
+import HdsDropdownToggleChevron from '../toggle/chevron.gts';
 
 import type { HdsIconSignature } from '../../icon/index.gts';
 import type { HdsBadgeSignature } from '../../badge/index.gts';
@@ -25,7 +24,7 @@ import type { HdsBadgeCountSignature } from '../../badge-count/index.gts';
 import type {
   HdsDropdownToggleButtonSizes,
   HdsDropdownToggleButtonColors,
-} from './types';
+} from './types.ts';
 import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.gts';
 
 export const DEFAULT_SIZE = HdsDropdownToggleButtonSizeValues.Medium;
