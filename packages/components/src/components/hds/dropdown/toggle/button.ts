@@ -19,7 +19,7 @@ import type {
   HdsDropdownToggleButtonColors,
 } from './types';
 import type { ModifierLike } from '@glint/template';
-import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.ts';
+import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.gts';
 
 export const DEFAULT_SIZE = HdsDropdownToggleButtonSizeValues.Medium;
 export const DEFAULT_COLOR = HdsDropdownToggleButtonColorValues.Primary;
