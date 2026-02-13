@@ -35,7 +35,7 @@ export interface BaseHdsTableTrSignature {
     onClickSortBySelected?: HdsTableThSelectableSignature['Args']['onClickSortBySelected'];
   };
   Blocks: {
-    default: [];
+    default?: [];
   };
   Element: HTMLTableRowElement;
 }
