@@ -164,7 +164,10 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
       const keyFilter: HdsFilterBarFilter = filters[key];
       const newFilters = this._copyFilters(filters);
 
-      if (keyFilter.type === 'multi-select' && isArray(keyFilter.data)) {
+      if (
+        (keyFilter.type === 'multi-select' && isArray(keyFilter.data)) ||
+        (keyFilter.type === 'generic' && isArray(keyFilter.data))
+      ) {
         const newKeyfilter = keyFilter.data?.filter(
           (item) => item.value !== filterValue
         );
@@ -172,7 +175,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
           delete newFilters[key];
         } else {
           newFilters[key] = {
-            type: 'multi-select',
+            type: keyFilter.type,
             text: keyFilter.text,
             data: newKeyfilter,
           };

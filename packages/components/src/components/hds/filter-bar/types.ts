@@ -19,6 +19,7 @@ export type HdsFilterBarFilterType = `${HdsFilterBarFilterTypeValues}`;
 export interface HdsFilterBarGenericFilterData {
   value: unknown;
   label?: string;
+  dismissTagText?: string;
 }
 
 export enum HdsFilterBarNumericalFilterSelectorValues {

@@ -210,6 +210,17 @@ const FILTERS: Record<string, HdsFilterBarFilters> = {
       },
     },
   },
+  'generic-array': {
+    'generic-array': {
+      type: 'generic',
+      text: 'Generic Array',
+      dismissTagText: 'lorem ipsum',
+      data: [
+        { value: '1', label: 'Option 1' },
+        { value: '2', label: 'Option 2' },
+      ],
+    },
+  },
   search: {
     search: {
       type: 'search',
@@ -371,6 +382,36 @@ module('Integration | Component | hds/filter-bar/index', function (hooks) {
 
     await createBasicFilterBar({
       appliedFiltersType: 'multi-select',
+      onFilter: onFilter,
+    });
+    assert
+      .dom('.hds-filter-bar__applied-filters .hds-tag')
+      .exists({ count: 2 });
+
+    await click('.hds-filter-bar__applied-filters .hds-tag .hds-tag__dismiss');
+    assert.ok(context.isClicked);
+    assert.true(Object.keys(context.filters).length === 1);
+    assert
+      .dom('.hds-filter-bar__filters-dropdown .hds-dropdown-toggle-button')
+      .isFocused();
+  });
+
+  test('it should call the onFilter callback when applied filters are dismissed for a generic array filter type', async function (assert) {
+    const context = new TrackedObject<{
+      isClicked: boolean;
+      filters: HdsFilterBarFilters;
+    }>({
+      isClicked: false,
+      filters: FILTERS['generic-array'] ?? EMPTY_FILTERS,
+    });
+
+    const onFilter = (filters: HdsFilterBarFilters) => {
+      context.isClicked = true;
+      context.filters = filters;
+    };
+
+    await createBasicFilterBar({
+      appliedFiltersType: 'generic-array',
       onFilter: onFilter,
     });
     assert

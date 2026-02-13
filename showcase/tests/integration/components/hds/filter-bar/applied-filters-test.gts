@@ -239,6 +239,15 @@ const FILTERS = {
         value: 'value-without-dismissTagText-and-label',
       },
     },
+    'generic-array': {
+      type: 'generic',
+      text: 'Generic Array',
+      data: [
+        { value: '1' },
+        { value: '2', label: 'Option 2' },
+        { value: '3', dismissTagText: 'equals Option 3' },
+      ],
+    },
   },
   search: {
     search: {
@@ -419,7 +428,7 @@ module(
 
     test('it should render applied filters for the generic filter type from the @filters argument', async function (assert) {
       await createFilterBarAppliedFilters({ appliedFiltersType: 'generic' });
-      assert.dom('.hds-tag').exists({ count: 3 });
+      assert.dom('.hds-tag').exists({ count: 6 });
       assert
         .dom('.hds-tag:nth-of-type(1) .hds-tag__dismiss')
         .hasAttribute('aria-label', 'Clear filter Generic lorem ipsum');
@@ -432,6 +441,15 @@ module(
       assert
         .dom('.hds-tag:nth-of-type(3) .hds-tag__text')
         .hasText('Generic: value-without-dismissTagText-and-label');
+      assert
+        .dom('.hds-tag:nth-of-type(4) .hds-tag__text')
+        .hasText('Generic Array: 1');
+      assert
+        .dom('.hds-tag:nth-of-type(5) .hds-tag__text')
+        .hasText('Generic Array: Option 2');
+      assert
+        .dom('.hds-tag:nth-of-type(6) .hds-tag__text')
+        .hasText('Generic Array equals Option 3');
     });
 
     test('it should render applied filters for the search filter type from the @filters argument', async function (assert) {
