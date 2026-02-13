@@ -521,12 +521,17 @@
   --token-modal-header-border-color-critical: #fbd4d4;
   --token-modal-header-tagline-color-warning: #9e4b00;
   --token-modal-header-tagline-color-critical: #c00005;
+  --token-pagination-bar-border-color: rgba(0, 0, 0, 0);
+  --token-pagination-bar-surface-color-default: #ffffff;
   --token-pagination-nav-control-height: 36px;
-  --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
+  --token-pagination-nav-control-foreground-color-action-default: #1060ff;
+  --token-pagination-nav-control-foreground-color-action-hover: #0c56e9;
+  --token-pagination-nav-control-foreground-color-action-active: #0046d1;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
+  --token-pagination-nav-surface-color-hover: rgba(0, 0, 0, 0);
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-rich-tooltip-bubble-max-width: 280px;

@@ -448,7 +448,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   };
 
   <template>
-    <div class="hds-pagination" ...attributes>
+    <div class="hds-pagination hds-pagination--numbered" ...attributes>
       {{#if this.showInfo}}
         <HdsPaginationInfo
           @itemsRangeStart={{this.itemsRangeStart}}
