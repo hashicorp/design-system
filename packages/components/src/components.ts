@@ -177,13 +177,13 @@ export * from './components/hds/form/field/types.ts';
 export * from './components/hds/form/fieldset/types.ts';
 
 // Form > Checkbox
-export { default as HdsFormCheckboxBase } from './components/hds/form/checkbox/base.ts';
-export { default as HdsFormCheckboxField } from './components/hds/form/checkbox/field.ts';
-export { default as HdsFormCheckboxGroup } from './components/hds/form/checkbox/group.ts';
+export { default as HdsFormCheckboxBase } from './components/hds/form/checkbox/base.gts';
+export { default as HdsFormCheckboxField } from './components/hds/form/checkbox/field.gts';
+export { default as HdsFormCheckboxGroup } from './components/hds/form/checkbox/group.gts';
 
 // Form > FileInput
-export { default as HdsFormFileInputBase } from './components/hds/form/file-input/base.ts';
-export { default as HdsFormFileInputField } from './components/hds/form/file-input/field.ts';
+export { default as HdsFormFileInputBase } from './components/hds/form/file-input/base.gts';
+export { default as HdsFormFileInputField } from './components/hds/form/file-input/field.gts';
 
 // Form > KeyValueInputs
 
@@ -198,9 +198,9 @@ export { default as HdsFormMaskedInputBase } from './components/hds/form/masked-
 export { default as HdsFormMaskedInputField } from './components/hds/form/masked-input/field.ts';
 
 // Form > Radio
-export { default as HdsFormRadioBase } from './components/hds/form/radio/base.ts';
-export { default as HdsFormRadioField } from './components/hds/form/radio/field.ts';
-export { default as HdsFormRadioGroup } from './components/hds/form/radio/group.ts';
+export { default as HdsFormRadioBase } from './components/hds/form/radio/base.gts';
+export { default as HdsFormRadioField } from './components/hds/form/radio/field.gts';
+export { default as HdsFormRadioGroup } from './components/hds/form/radio/group.gts';
 
 // Form > RadioCard
 export { default as HdsFormRadioCard } from './components/hds/form/radio-card/index.ts';
@@ -233,9 +233,9 @@ export { default as HdsFormTextInputField } from './components/hds/form/text-inp
 export * from './components/hds/form/text-input/types.ts';
 
 // Form > Toggle
-export { default as HdsFormToggleBase } from './components/hds/form/toggle/base.ts';
-export { default as HdsFormToggleField } from './components/hds/form/toggle/field.ts';
-export { default as HdsFormToggleGroup } from './components/hds/form/toggle/group.ts';
+export { default as HdsFormToggleBase } from './components/hds/form/toggle/base.gts';
+export { default as HdsFormToggleField } from './components/hds/form/toggle/field.gts';
+export { default as HdsFormToggleGroup } from './components/hds/form/toggle/group.gts';
 
 // Icon
 export { default as HdsIcon } from './components/hds/icon/index.gts';

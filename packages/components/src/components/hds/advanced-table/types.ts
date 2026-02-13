@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 
 export enum HdsAdvancedTableDensityValues {
   Default = 'default',

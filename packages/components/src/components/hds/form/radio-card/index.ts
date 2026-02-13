@@ -13,7 +13,7 @@ import {
 import type { ComponentLike } from '@glint/template';
 import type { HdsIconSignature } from '../../icon';
 import type { HdsBadgeSignature } from '../../badge';
-import type { HdsFormRadioBaseSignature } from '../radio/base';
+import type { HdsFormRadioBaseSignature } from '../radio/base.gts';
 import type { HdsFormRadioCardDescriptionSignature } from './description';
 import type { HdsFormRadioCardLabelSignature } from './label';
 import type { HdsYieldSignature } from '../../yield';

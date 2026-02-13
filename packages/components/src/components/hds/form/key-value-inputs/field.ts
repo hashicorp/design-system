@@ -15,7 +15,7 @@ import {
 } from '../../../../utils/hds-aria-described-by.ts';
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import HdsFormErrorComponent from '../error/index.gts';
-import HdsFormFileInputBaseComponent from '../file-input/base.ts';
+import HdsFormFileInputBaseComponent from '../file-input/base.gts';
 import HdsFormHelperTextComponent from '../helper-text/index.gts';
 import HdsFormLabelComponent, {
   ID_PREFIX as LABEL_ID_PREFIX,
