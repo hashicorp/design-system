@@ -6,16 +6,22 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
+import { on } from '@ember/modifier';
+
 import {
   HdsTableThSortOrderIconValues,
   HdsTableThSortOrderValues,
 } from './types.ts';
+import HdsIcon from '../icon/index.gts';
+import hdsT from '../../../helpers/hds-t.ts';
+
 import type {
   HdsTableThSortOrder,
   HdsTableThSortOrderIcons,
   HdsTableThSortOrderLabels,
 } from './types.ts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
+
 export interface HdsTableThButtonSortSignature {
   Args: {
     labelId?: string;
@@ -85,4 +91,28 @@ export default class HdsTableThButtonSort extends Component<HdsTableThButtonSort
 
     return classes.join(' ');
   }
+
+  <template>
+    <button
+      type="button"
+      class={{this.classNames}}
+      {{on "click" this.onClick}}
+      aria-labelledby="{{this._prefixLabelId}} {{@labelId}} {{this._suffixLabelId}}"
+      ...attributes
+    >
+      <span
+        id={{this._prefixLabelId}}
+        class="hds-table__th-button-aria-label-hidden-segment"
+      >
+        {{hdsT "hds.components.common.sort-by" default="Sort by"}}
+      </span>
+      <span
+        id={{this._suffixLabelId}}
+        class="hds-table__th-button-aria-label-hidden-segment"
+      >
+        {{this.sortOrderLabel}}
+      </span>
+      <HdsIcon @name={{this.icon}} />
+    </button>
+  </template>
 }

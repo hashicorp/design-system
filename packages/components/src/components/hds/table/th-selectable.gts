@@ -4,13 +4,24 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import { on } from '@ember/modifier';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import willDestroy from '@ember/render-modifiers/modifiers/will-destroy';
+
+import type Owner from '@ember/owner';
+
 import {
   HdsTableThSortOrderValues,
   HdsTableThSortOrderLabelValues,
 } from './types.ts';
+import HdsFormCheckboxBase from '../form/checkbox/base.gts';
+import HdsTableThButtonSort from './th-button-sort.gts';
+import HdsTableTh from './th.gts';
+
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
 import type {
   HdsTableScope,
@@ -18,7 +29,6 @@ import type {
   HdsTableThSortOrderLabels,
 } from './types';
 import type { HdsTableThSignature } from './th';
-import type Owner from '@ember/owner';
 
 export interface HdsTableThSelectableSignature {
   Args: {
@@ -74,25 +84,22 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     }
   }
 
-  @action
-  didInsert(checkbox: HdsFormCheckboxBaseSignature['Element']): void {
+  didInsert = (checkbox: HdsFormCheckboxBaseSignature['Element']): void => {
     const { didInsert } = this.args;
     if (typeof didInsert === 'function') {
       didInsert(checkbox, this.args.selectionKey);
     }
-  }
+  };
 
-  @action
-  willDestroyNode(): void {
+  willDestroyNode = (): void => {
     super.willDestroy();
     const { willDestroy } = this.args;
     if (typeof willDestroy === 'function') {
       willDestroy(this.args.selectionKey);
     }
-  }
+  };
 
-  @action
-  onSelectionChange(event: Event): void {
+  onSelectionChange = (event: Event): void => {
     // Assert event.target as HdsFormCheckboxBaseSignature['Element'] to access the 'checked' property
     const target = event.target as HdsFormCheckboxBaseSignature['Element'];
     this.isSelected = target.checked;
@@ -100,5 +107,33 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     if (typeof onSelectionChange === 'function') {
       onSelectionChange(target, this.args.selectionKey);
     }
-  }
+  };
+
+  <template>
+    <HdsTableTh
+      class="hds-table__th--is-selectable"
+      aria-sort={{if this.isSortable this.ariaSort}}
+      @scope={{@selectionScope}}
+      ...attributes
+    >
+      <div class="hds-table__th-content">
+        <HdsFormCheckboxBase
+          id={{this._checkboxId}}
+          class="hds-table__checkbox"
+          checked={{@isSelected}}
+          aria-label={{this.ariaLabel}}
+          {{didInsert this.didInsert}}
+          {{willDestroy this.willDestroyNode}}
+          {{on "change" this.onSelectionChange}}
+        />
+        {{#if this.isSortable}}
+          <HdsTableThButtonSort
+            @sortOrder={{@sortBySelectedOrder}}
+            @onClick={{@onClickSortBySelected}}
+            @labelId={{this._labelId}}
+          />
+        {{/if}}
+      </div>
+    </HdsTableTh>
+  </template>
 }
