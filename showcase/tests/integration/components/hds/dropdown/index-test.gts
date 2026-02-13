@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import { on } from '@ember/modifier';
 import { render, click, find } from '@ember/test-helpers';
 import style from 'ember-style-modifier';
+import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsDropdown } from '@hashicorp/design-system-components/components';
 
@@ -328,5 +329,66 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
 
     assert.dom('#test-dropdown ul').hasAttribute('role', 'listbox');
     assert.dom('#test-dropdown ul').hasAttribute('aria-labelledby', buttonId);
+  });
+
+  // CALLBACKS
+
+  test('it should invoke the `onClose` callback', async function (assert) {
+    let status;
+    const onClose = () => {
+      status = 'closed';
+    };
+
+    await render(
+      <template>
+        <HdsDropdown @onClose={{onClose}} id="test-dropdown" as |D|>
+          <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        </HdsDropdown>
+      </template>,
+    );
+    // toggle the visibility
+    await click('button#test-toggle-button');
+    // toggle it again
+    await click('button#test-toggle-button');
+    assert.strictEqual(status, 'closed');
+  });
+
+  test('it should invoke the `onFocusOut` callback', async function (assert) {
+    const context = new TrackedObject({
+      status: '',
+      showButton: true,
+    });
+
+    const onFocusOut = () => {
+      context.status = 'focus-out';
+    };
+
+    const onClickDemoButton = () => {
+      context.showButton = false;
+    };
+
+    await render(
+      <template>
+        <HdsDropdown @onFocusOut={{onFocusOut}} id="test-dropdown" as |D|>
+          <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+          <D.Generic>
+            {{#if context.showButton}}
+              <button
+                type="button"
+                id="test-dropdown-demo-button"
+                {{on "click" onClickDemoButton}}
+              >
+                Hide me
+              </button>
+            {{/if}}
+          </D.Generic>
+        </HdsDropdown>
+      </template>,
+    );
+    // toggle the visibility
+    await click('button#test-toggle-button');
+    // click outside of the dropdown to trigger focus out
+    await click('#test-dropdown-demo-button');
+    assert.strictEqual(context.status, 'focus-out');
   });
 });
