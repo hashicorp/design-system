@@ -15,7 +15,7 @@ import {
 } from './types.ts';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsPopoverPrimitiveSignature } from '../popover-primitive/index.ts';
+import type { HdsPopoverPrimitiveSignature } from '../popover-primitive/index.gts';
 import type { HdsDropdownFooterSignature } from './footer';
 import type { HdsDropdownHeaderSignature } from './header';
 import type { HdsDropdownListItemCheckboxSignature } from './list-item/checkbox';
