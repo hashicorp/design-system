@@ -9,7 +9,7 @@ import { assert } from '@ember/debug';
 import HdsTextBody from '../../text/body.gts';
 import HdsCopySnippet from '../../copy/snippet/index.ts';
 
-import type { HdsCopySnippetSignature } from '../../copy/snippet';
+import type { HdsCopySnippetSignature } from '../../copy/snippet/index.ts';
 
 export interface HdsDropdownListItemCopyItemSignature {
   Args: {
