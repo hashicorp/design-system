@@ -5,11 +5,14 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+
 import { HdsTableScopeValues } from './types.ts';
+import HdsTableThSelectable from './th-selectable.gts';
+
 import type { HdsTableScope, HdsTableThSortOrder } from './types.ts';
-import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type { HdsTableSignature } from './index.ts';
-import type { HdsTableThSelectableSignature } from './th-selectable.ts';
+import type { HdsTableThSelectableSignature } from './th-selectable.gts';
 
 export interface BaseHdsTableTrSignature {
   Args: {
@@ -50,6 +53,7 @@ export interface SelectableHdsTableTrArgs extends BaseHdsTableTrSignature {
 export type HdsTableTrSignature =
   | BaseHdsTableTrSignature
   | SelectableHdsTableTrArgs;
+
 export default class HdsTableTr extends Component<HdsTableTrSignature> {
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
@@ -61,4 +65,24 @@ export default class HdsTableTr extends Component<HdsTableTrSignature> {
     }
     return undefined;
   }
+
+  <template>
+    <tr class="hds-table__tr" ...attributes>
+      {{#if @isSelectable}}
+        <HdsTableThSelectable
+          @isSelected={{@isSelected}}
+          @selectionScope={{@selectionScope}}
+          @selectionKey={{this.selectionKey}}
+          @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}
+          @sortBySelectedOrder={{@sortBySelectedOrder}}
+          @didInsert={{@didInsert}}
+          @willDestroy={{@willDestroy}}
+          @onClickSortBySelected={{@onClickSortBySelected}}
+          @onSelectionChange={{@onSelectionChange}}
+        />
+      {{/if}}
+
+      {{yield}}
+    </tr>
+  </template>
 }

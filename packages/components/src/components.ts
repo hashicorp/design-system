@@ -302,14 +302,14 @@ export { default as HdsStepperTaskIndicator } from './components/hds/stepper/tas
 export * from './components/hds/stepper/types.ts';
 
 // Table
-export { default as HdsTable } from './components/hds/table/index.ts';
-export { default as HdsTableTd } from './components/hds/table/td.ts';
-export { default as HdsTableTh } from './components/hds/table/th.ts';
-export { default as HdsTableThButtonSort } from './components/hds/table/th-button-sort.ts';
-export { default as HdsTableThButtonTooltip } from './components/hds/table/th-button-tooltip.ts';
-export { default as HdsTableThSelectable } from './components/hds/table/th-selectable.ts';
-export { default as HdsTableThSort } from './components/hds/table/th-sort.ts';
-export { default as HdsTableTr } from './components/hds/table/tr.ts';
+export { default as HdsTable } from './components/hds/table/index.gts';
+export { default as HdsTableTd } from './components/hds/table/td.gts';
+export { default as HdsTableTh } from './components/hds/table/th.gts';
+export { default as HdsTableThButtonSort } from './components/hds/table/th-button-sort.gts';
+export { default as HdsTableThButtonTooltip } from './components/hds/table/th-button-tooltip.gts';
+export { default as HdsTableThSelectable } from './components/hds/table/th-selectable.gts';
+export { default as HdsTableThSort } from './components/hds/table/th-sort.gts';
+export { default as HdsTableTr } from './components/hds/table/tr.gts';
 export * from './components/hds/table/types.ts';
 
 // Tabs
