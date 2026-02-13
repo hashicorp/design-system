@@ -104,11 +104,11 @@ export { default as HdsCodeEditorTitle } from './components/hds/code-editor/titl
 export { default as HdsCodeEditorFullScreenButton } from './components/hds/code-editor/full-screen-button.ts';
 
 // CopyButton
-export { default as HdsCopyButton } from './components/hds/copy/button/index.ts';
+export { default as HdsCopyButton } from './components/hds/copy/button/index.gts';
 export * from './components/hds/copy/button/types.ts';
 
 // CopySnippet
-export { default as HdsCopySnippet } from './components/hds/copy/snippet/index.ts';
+export { default as HdsCopySnippet } from './components/hds/copy/snippet/index.gts';
 export * from './components/hds/copy/snippet/types.ts';
 
 // Dropdown

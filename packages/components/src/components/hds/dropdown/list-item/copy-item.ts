@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import type { HdsCopySnippetSignature } from '../../copy/snippet';
+import type { HdsCopySnippetSignature } from '../../copy/snippet/index.gts';
 
 export interface HdsDropdownListItemCopyItemSignature {
   Args: {

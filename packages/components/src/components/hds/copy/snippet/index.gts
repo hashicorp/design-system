@@ -6,11 +6,16 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import { concat } from '@ember/helper';
+
 import { HdsCopySnippetColorValues } from './types.ts';
+import HdsTextCode from '../../text/code.gts';
+import HdsIcon from '../../icon/index.gts';
+import hdsClipboard from '../../../../modifiers/hds-clipboard.ts';
+
 import type { HdsCopySnippetColors } from './types.ts';
 import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
-import type { HdsIconSignature } from '../../icon';
+import type { HdsIconSignature } from '../../icon/index.gts';
 
 export const DEFAULT_COLOR = HdsCopySnippetColorValues.Primary;
 export const COLORS: HdsCopySnippetColors[] = Object.values(
@@ -38,10 +43,6 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
   @tracked private _status = DEFAULT_STATUS;
   @tracked private _timer: ReturnType<typeof setTimeout> | undefined;
 
-  /**
-   * @method textToShow
-   * @return {string}
-   */
   get textToShow(): string {
     const { textToCopy = '' } = this.args;
 
@@ -52,12 +53,6 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
     }
   }
 
-  /**
-   * @param icon
-   * @type {string}
-   * @default clipboard-copy
-   * @description Determines the icon to be used, based on the success state. Note that this is auto-tracked because it depends on a tracked property (status).
-   */
   get icon(): HdsIconSignature['Args']['name'] {
     let icon: HdsIconSignature['Args']['name'] = DEFAULT_ICON;
     if (this._status === 'success') {
@@ -68,12 +63,6 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
     return icon;
   }
 
-  /**
-   * @param color
-   * @type {string}
-   * @default primary
-   * @description Determines the color of button to be used; acceptable values are `primary` and `secondary`
-   */
   get color(): HdsCopySnippetColors {
     const { color = DEFAULT_COLOR } = this.args;
 
@@ -87,31 +76,14 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
     return color;
   }
 
-  /**
-   * @param isFullWidth
-   * @type {boolean}
-   * @default false
-   * @description Indicates that the component should take up the full width of the parent container.
-   */
   get isFullWidth(): boolean {
     return this.args.isFullWidth ?? false;
   }
 
-  /**
-   * @param isTruncated
-   * @type {boolean}
-   * @default false
-   * @description Indicates that the component should be truncated instead of wrapping text and using multiple lines.
-   */
   get isTruncated(): boolean {
     return this.args.isTruncated ?? false;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method CopySnippet#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-copy-snippet'];
 
@@ -134,10 +106,9 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
     return classes.join(' ');
   }
 
-  @action
-  onSuccess(
+  onSuccess = (
     args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']
-  ): void {
+  ): void => {
     this._status = 'success';
     this.resetStatusDelayed();
 
@@ -146,12 +117,11 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
     if (typeof onSuccess === 'function') {
       onSuccess(args);
     }
-  }
+  };
 
-  @action
-  onError(
+  onError = (
     args: HdsClipboardModifierSignature['Args']['Named']['onError']
-  ): void {
+  ): void => {
     this._status = 'error';
     this.resetStatusDelayed();
 
@@ -160,13 +130,32 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
     if (typeof onError === 'function') {
       onError(args);
     }
-  }
+  };
 
-  resetStatusDelayed(): void {
+  resetStatusDelayed = (): void => {
     clearTimeout(this._timer);
     // make it fade back to the default state
     this._timer = setTimeout((): void => {
       this._status = DEFAULT_STATUS;
     }, 1500);
-  }
+  };
+
+  <template>
+    <button
+      type="button"
+      class={{this.classNames}}
+      {{hdsClipboard
+        text=@textToCopy
+        onSuccess=this.onSuccess
+        onError=this.onError
+      }}
+      aria-label={{concat "copy " @textToCopy}}
+      ...attributes
+    >
+      <HdsTextCode class="hds-copy-snippet__text" @tag="span" @size="100">
+        {{this.textToShow}}
+      </HdsTextCode>
+      <HdsIcon @name={{this.icon}} class="hds-copy-snippet__icon" />
+    </button>
+  </template>
 }
