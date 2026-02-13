@@ -30,6 +30,13 @@ export interface HdsFilterBarAppliedFiltersSignature {
 export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAppliedFiltersSignature> {
   @service hdsIntl!: HdsIntlService;
 
+  private _isMultiSelectFilter = (filter: HdsFilterBarFilter): boolean => {
+    return (
+      filter.type === 'multi-select' ||
+      (filter.type === 'generic' && isArray(filter.data))
+    );
+  };
+
   private _onFilterDismiss = (key: string, filterValue?: unknown): void => {
     const { onFilterDismiss } = this.args;
 

@@ -110,6 +110,14 @@ const CUSTOM_FILTER = {
   },
 } as HdsFilterBarGenericFilter;
 
+const CUSTOM_FILTER_TWO = {
+  type: 'generic',
+  dismissTagText: 'equals second thing',
+  data: {
+    value: 'example/a))!hzfpKcBl0',
+  },
+} as HdsFilterBarGenericFilter;
+
 export interface CodeFragmentWithComplexTableSignature {
   Args: {
     isLiveFilter?: boolean;
@@ -119,6 +127,8 @@ export interface CodeFragmentWithComplexTableSignature {
 
 export default class CodeFragmentWithComplexTable extends Component<CodeFragmentWithComplexTableSignature> {
   @tracked filters: HdsFilterBarSignature['Args']['filters'] = {};
+
+  @tracked demoShowSecondButton: boolean = false;
 
   onFilter = (filters: HdsFilterBarSignature['Args']['filters']) => {
     this.filters = filters;
@@ -313,6 +323,22 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
   dateIsValid = (date?: Date | string): date is Date =>
     date instanceof Date && !isNaN(+date);
 
+  onGenericFilterClick = (updateFilter: Function) => {
+    updateFilter(CUSTOM_FILTER);
+    this.demoShowSecondButton = true;
+  };
+
+  onGenericFilterClickTwo = (updateFilter: Function) => {
+    updateFilter(CUSTOM_FILTER_TWO);
+    this.demoShowSecondButton = false;
+  };
+
+  demoOnFocusOut = () => {
+    console.log('FilterBar focus out detected');
+    const demoBtn = document.getElementById('demo-btn');
+    demoBtn?.focus();
+  };
+
   <template>
     <HdsFilterBar
       @filters={{this.filters}}
@@ -322,7 +348,7 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
       {{style marginBottom="24px"}}
       as |F|
     >
-      <F.FiltersDropdown as |D|>
+      <F.FiltersDropdown @onFocusOut={{this.demoOnFocusOut}} as |D|>
         <D.FilterGroup
           @key="run-status"
           @text="Run status"
@@ -366,8 +392,22 @@ export default class CodeFragmentWithComplexTable extends Component<CodeFragment
               @text="Add custom filter"
               @color="secondary"
               @size="small"
-              {{on "click" (fn G.updateFilter CUSTOM_FILTER)}}
+              id="demo-btn"
+              {{on "click" (fn this.onGenericFilterClick G.updateFilter)}}
             />
+            {{#if this.demoShowSecondButton}}
+              <HdsButton
+                @text="Update custom filter"
+                @color="secondary"
+                @size="small"
+                id="demo-btn-two"
+                {{on "click" (fn this.onGenericFilterClickTwo G.updateFilter)}}
+              />
+              <ShwPlaceholder
+                @text="On click of the button, this content will be removed, and focus will be set back on the previous button"
+                @height="100"
+              />
+            {{/if}}
           </F.Generic>
         </D.FilterGroup>
       </F.FiltersDropdown>
