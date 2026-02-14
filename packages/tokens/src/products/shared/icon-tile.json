@@ -1,27 +1,64 @@
 {
   "icon-tile": {
+    "border": {
+      "color": {
+        "overlay": {
+          "$type": "color",
+          "$value": "{color.border.primary}",
+          "$modes": {
+            "default": "{color.border.primary}",
+            "cds-g0": "{carbon.themes.white.borderSubtle02}",
+            "cds-g10": "{carbon.themes.g10.borderSubtle02}",
+            "cds-g90": "{carbon.themes.g90.borderSubtle02}",
+            "cds-g100": "{carbon.themes.g100.borderSubtle02}"
+          }
+        },
+        "logo": {
+          "$type": "color",
+          "$value": "{color.border.primary}",
+          "$modes": {
+            "default": "{color.border.primary}",
+            "cds-g0": "{carbon.themes.white.borderSubtle01}",
+            "cds-g10": "{carbon.themes.g10.borderSubtle01}",
+            "cds-g90": "{carbon.themes.g90.borderSubtle01}",
+            "cds-g100": "{carbon.themes.g100.borderSubtle01}"
+          }
+        }
+      }
+    },
     "surface": {
       "color": {
         "neutral": {
           "$type": "color",
-          "$value": "#F1F2F3",
+          "$value": "{color.surface.strong}",
           "$modes": {
-            "default": "#F1F2F3",
-            "cds-g0": "#E0E0E0",
-            "cds-g10": "#E0E0E0",
-            "cds-g90": "#525252",
-            "cds-g100": "#393939"
+            "default": "{color.surface.strong}",
+            "cds-g0": "{carbon.themes.white.layerAccent01}",
+            "cds-g10": "{carbon.themes.g10.layerAccent01}",
+            "cds-g90": "{carbon.themes.g90.layerAccent01}",
+            "cds-g100": "{carbon.themes.g100.layerAccent01}"
           }
         },
         "overlay": {
           "$type": "color",
-          "$value": "#FFFFFF",
+          "$value": "{color.surface.primary}",
           "$modes": {
-            "default": "#FFFFFF",
-            "cds-g0": "#E0E0E0",
-            "cds-g10": "#C6C6C6",
-            "cds-g90": "#8D8D8D",
-            "cds-g100": "#393939"
+            "default": "{color.surface.primary}",
+            "cds-g0": "{carbon.themes.white.layer02}",
+            "cds-g10": "{carbon.themes.g10.layer02}",
+            "cds-g90": "{carbon.themes.g90.layer02}",
+            "cds-g100": "{carbon.themes.g100.layer02}"
+          }
+        },
+        "logo": {
+          "$type": "color",
+          "$value": "{color.surface.primary}",
+          "$modes": {
+            "default": "{color.surface.primary}",
+            "cds-g0": "{carbon.themes.white.layer01}",
+            "cds-g10": "{carbon.themes.g10.layer01}",
+            "cds-g90": "{carbon.themes.g90.layer01}",
+            "cds-g100": "{carbon.themes.g100.layer01}"
           }
         }
       }
