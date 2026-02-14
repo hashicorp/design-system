@@ -436,8 +436,11 @@
   --token-form-toggle-transition-duration: 0.2s;
   --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --token-form-toggle-thumb-size: 16px;
+  --token-icon-tile-border-color-overlay: #656a7633;
+  --token-icon-tile-border-color-logo: #656a7633;
   --token-icon-tile-surface-color-neutral: #f1f2f3;
   --token-icon-tile-surface-color-overlay: #ffffff;
+  --token-icon-tile-surface-color-logo: #ffffff;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
@@ -7136,7 +7139,7 @@ button.hds-button[href]::after {
   display: flex;
   box-sizing: content-box;
   background-color: var(--token-icon-tile-surface-color-overlay);
-  border: 1px solid var(--token-color-border-primary);
+  border: 1px solid var(--token-icon-tile-border-color-overlay);
 }
 
 .hds-icon-tile__extra-icon {
@@ -7215,8 +7218,8 @@ button.hds-button[href]::after {
 }
 
 .hds-icon-tile--logo {
-  background-color: var(--token-color-surface-primary);
-  border-color: var(--token-color-border-primary);
+  background-color: var(--token-icon-tile-surface-color-logo);
+  border-color: var(--token-icon-tile-border-color-logo);
 }
 
 .hds-icon-tile--icon.hds-icon-tile--color-neutral {
@@ -7232,8 +7235,8 @@ button.hds-button[href]::after {
   background-color: var(--token-color-consul-surface);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-hcp {
-  color: var(--token-color-palette-hcp-brand);
-  background-color: var(--token-color-surface-strong);
+  color: var(--token-color-hcp-foreground);
+  background-color: var(--token-icon-tile-surface-color-neutral);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-nomad {
   color: var(--token-color-nomad-foreground);
