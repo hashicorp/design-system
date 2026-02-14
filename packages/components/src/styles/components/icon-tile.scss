@@ -39,7 +39,7 @@ $hds-icon-tile-border-width: 1px;
   margin: auto;
 }
 
-// secondary overlaid icon
+// secondary overlay icon
 .hds-icon-tile__extra {
   position: absolute;
   right: -6px;
@@ -47,7 +47,7 @@ $hds-icon-tile-border-width: 1px;
   display: flex;
   box-sizing: content-box; // the border is outside
   background-color: var(--token-icon-tile-surface-color-overlay);
-  border: 1px solid var(--token-color-border-primary);
+  border: 1px solid var(--token-icon-tile-border-color-overlay);
 }
 
 .hds-icon-tile__extra-icon {
@@ -135,8 +135,8 @@ $hds-icon-tile-size-props: (
 
 .hds-icon-tile--logo {
   // notice: we are using colored icons so we don't need to set the "color" property here
-  background-color: var(--token-color-surface-primary);
-  border-color: var(--token-color-border-primary);
+  background-color: var(--token-icon-tile-surface-color-logo);
+  border-color: var(--token-icon-tile-border-color-logo);
 }
 
 // ICON - COLOR
@@ -152,7 +152,7 @@ $hds-icon-tile-size-props: (
       // exception for HCP (we use neutral colors, we don't have specific product colors for foreground/background)
       &.hds-icon-tile--color-hcp {
         color: var(--token-color-palette-#{$product}-brand);
-        background-color: var(--token-color-surface-strong);
+        background-color: var(--token-icon-tile-surface-color-neutral);
       }
     } @else {
       &.hds-icon-tile--color-#{$product} {
