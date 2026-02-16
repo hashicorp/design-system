@@ -1,0 +1,44 @@
+diff --git a/addon/scheduler.ts b/addon/scheduler.ts
+index 9a88aab6c4cfc49ac6662e61a42c1e8e6b0d4af0..db6af20c8280d2e6f9c1bea183f6fe54b9898cff 100644
+--- a/addon/scheduler.ts
++++ b/addon/scheduler.ts
+@@ -4,10 +4,18 @@ import { registerDestructor } from '@ember/destroyable';
+ import { addListener } from '@ember/object/events';
+ import type RouterService from '@ember/routing/router-service';
+ import { schedule } from '@ember/runloop';
+-import { buildWaiter, Token } from '@ember/test-waiters';
+ import { tracked } from '@glimmer/tracking';
+ import { Promise } from 'rsvp';
+ 
++type Token = unknown;
++
++// No-op waiter stub to avoid @ember/test-waiters dependency
++const waiter = {
++  beginAsync(): Token { return null; },
++  endAsync(_token: Token): void {},
++  reset(): void {},
++};
++
+ interface Deferred {
+   isResolved: boolean;
+   promise: Promise<any>;
+@@ -22,7 +30,6 @@ let _whenRouteDidChange: Deferred;
+ let _whenRouteIdle: Promise<unknown>;
+ 
+ const IS_FASTBOOT = typeof (<any>window).FastBoot !== 'undefined';
+-const waiter = buildWaiter('ember-app-scheduler-waiter');
+ 
+ reset();
+ 
+diff --git a/package.json b/package.json
+index d35c583d22f08797101030ba0e047284836e7e5d..0d85a6726cdc39cca1b635072e04890499fa2aeb 100644
+--- a/package.json
++++ b/package.json
+@@ -44,7 +44,6 @@
+     ]
+   },
+   "dependencies": {
+-    "@ember/test-waiters": "^3.0.0",
+     "@types/ember": "^3.16.5",
+     "@types/rsvp": "^4.0.4",
+     "ember-cli-babel": "^7.26.6",

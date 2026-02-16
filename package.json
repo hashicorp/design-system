@@ -35,7 +35,8 @@
       "systeminformation": "5.27.14"
     },
     "patchedDependencies": {
-      "broccoli-asset-rewrite": "patches/broccoli-asset-rewrite.patch"
+      "broccoli-asset-rewrite": "patches/broccoli-asset-rewrite.patch",
+      "ember-app-scheduler@7.0.1": "patches/ember-app-scheduler@7.0.1.patch"
     }
   }
 }
