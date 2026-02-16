@@ -5,18 +5,19 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { assert, warn } from '@ember/debug';
 import { next } from '@ember/runloop';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
+import { hash } from '@ember/helper';
+
+import type { ModifierLike } from '@glint/template';
+import type Owner from '@ember/owner';
 
 import registerEvent from '../../../modifiers/hds-register-event.ts';
 import anchoredPositionModifier from '../../../modifiers/hds-anchored-position.ts';
 
 import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
-import type { ModifierLike } from '@glint/template';
-import type Owner from '@ember/owner';
 
 export interface HdsPopoverPrimitiveSignature {
   Args: {
@@ -88,22 +89,20 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         // @ts-expect-error: known issue with type of invocation
         registerEvent(this._containerElement, [
           'mouseenter',
-          // eslint-disable-next-line @typescript-eslint/unbound-method
+
           this.onMouseEnter,
         ]);
         // @ts-expect-error: known issue with type of invocation
         registerEvent(this._containerElement, [
           'mouseleave',
-          // eslint-disable-next-line @typescript-eslint/unbound-method
+
           this.onMouseLeave,
         ]);
         // @ts-expect-error: known issue with type of invocation
-        // eslint-disable-next-line @typescript-eslint/unbound-method
         registerEvent(this._containerElement, ['focusin', this.onFocusIn]);
       }
       // we always want the focusOut event
       // @ts-expect-error: known issue with type of invocation
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       registerEvent(this._containerElement, ['focusout', this.onFocusOut]);
     }
   );
@@ -157,11 +156,9 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       // @ts-expect-error: known issue with type of invocation
       registerEvent(this._popoverElement, [
         'beforetoggle',
-        // eslint-disable-next-line @typescript-eslint/unbound-method
         this.onBeforeTogglePopover,
       ]);
       // @ts-expect-error: known issue with type of invocation
-      // eslint-disable-next-line @typescript-eslint/unbound-method
       registerEvent(this._popoverElement, ['toggle', this.onTogglePopover]);
 
       // we need to spread the argument because if it's set via `{{ hash … }}` Ember complains when we overwrite one of its values
@@ -218,8 +215,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
     this._applyAnchoredPositionModifier();
   }
 
-  @action
-  showPopover(): void {
+  showPopover = (): void => {
     try {
       if (this._popoverElement) {
         this._popoverElement.showPopover();
@@ -234,12 +230,11 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         }
       );
     }
-  }
+  };
 
-  @action
   // the event may be passed by the `on` modifier, so we need to keep it as an argument here
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  hidePopover(_event?: Event): void {
+  hidePopover = (_event?: Event): void => {
     try {
       if (this._popoverElement) {
         this._popoverElement.hidePopover();
@@ -254,10 +249,9 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         }
       );
     }
-  }
+  };
 
-  @action
-  togglePopover(): void {
+  togglePopover = (): void => {
     try {
       if (this._popoverElement) {
         this._popoverElement.togglePopover();
@@ -272,22 +266,20 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         }
       );
     }
-  }
+  };
 
   // fired just _before_ the "popover" is shown or hidden
-  @action
-  onBeforeTogglePopover(event: ToggleEvent): void {
+  onBeforeTogglePopover = (event: ToggleEvent): void => {
     if (event.newState === 'closed') {
       // we need this flag to check if it's in the "closing" process,
       // because the browser automatically returns the focus to the "trigger" button
       // and this would re-open immediately the popover because of the `focusin` event
       this._isClosing = true;
     }
-  }
+  };
 
   // fired just _after_ the "popover" is shown or hidden
-  @action
-  onTogglePopover(event: ToggleEvent): void {
+  onTogglePopover = (event: ToggleEvent): void => {
     if (event.newState === 'open') {
       this._isOpen = true;
 
@@ -315,18 +307,16 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         onClose();
       }
     }
-  }
+  };
 
-  @action
-  onMouseEnter(): void {
+  onMouseEnter = (): void => {
     if (this._timer) {
       clearTimeout(this._timer);
     }
     this.showPopover();
-  }
+  };
 
-  @action
-  onFocusIn(): void {
+  onFocusIn = (): void => {
     // don't re-open the popover if the focus is returned because the closing
     if (!this._isClosing) {
       if (this._timer) {
@@ -334,15 +324,13 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       }
       this.showPopover();
     }
-  }
+  };
 
-  @action
-  onMouseLeave(): void {
+  onMouseLeave = (): void => {
     this._timer = setTimeout((): void => this.hidePopover(), 500);
-  }
+  };
 
-  @action
-  onFocusOut(event: FocusEvent): void {
+  onFocusOut = (event: FocusEvent): void => {
     if (this._containerElement) {
       let isFocusStillInside = false;
       if (
@@ -363,5 +351,22 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         this.hidePopover();
       }
     }
-  }
+  };
+
+  <template>
+    {{yield
+      (hash
+        setupPrimitiveContainer=this.setupPrimitiveContainer
+        setupPrimitiveToggle=this.setupPrimitiveToggle
+        setupPrimitivePopover=this.setupPrimitivePopover
+        toggleElement=this._toggleElement
+        popoverElement=this._popoverElement
+        isOpen=this._isOpen
+        showPopover=this.showPopover
+        hidePopover=this.hidePopover
+        togglePopover=this.togglePopover
+        boundary=@boundary
+      )
+    }}
+  </template>
 }
