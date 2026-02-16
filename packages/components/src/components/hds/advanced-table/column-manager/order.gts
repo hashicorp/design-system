@@ -72,9 +72,6 @@ interface HdsAdvancedTableColumnManagerOrderSignature {
         setReorderHoveredColumnKey: (
           key: HdsAdvancedTableNormalizedColumn['key'] | null
         ) => void;
-        getIsStickyColumn: (
-          columnKey: HdsAdvancedTableNormalizedColumn['key']
-        ) => boolean | undefined;
       },
     ];
   };
@@ -132,21 +129,6 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
 
     return lastColumn?.key;
   }
-
-  getIsStickyColumn = (
-    columnKey: HdsAdvancedTableNormalizedColumn['key']
-  ): boolean | undefined => {
-    const { hasStickyFirstColumn } = this.args;
-
-    if (
-      columnKey === this.firstColumnKey &&
-      hasStickyFirstColumn !== undefined
-    ) {
-      return hasStickyFirstColumn;
-    }
-
-    return undefined;
-  };
 
   moveColumnToTerminalPosition = (
     columnKey: HdsAdvancedTableNormalizedColumn['key'],
@@ -353,7 +335,6 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
         stepColumn=this.stepColumn
         setDraggedColumnKey=(fn (mut this.draggedColumnKey))
         setReorderHoveredColumnKey=(fn (mut this.reorderHoveredColumnKey))
-        getIsStickyColumn=this.getIsStickyColumn
       )
     }}
   </template>

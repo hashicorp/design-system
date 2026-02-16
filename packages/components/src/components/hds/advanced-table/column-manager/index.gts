@@ -62,9 +62,6 @@ export interface HdsAdvancedTableColumnManagerSignature {
         getColumnByKey: (
           columnKey: HdsAdvancedTableNormalizedColumn['key']
         ) => HdsAdvancedTableNormalizedColumn | undefined;
-        getIsStickyColumn: (
-          columnKey: HdsAdvancedTableNormalizedColumn['key']
-        ) => boolean | undefined;
         getSiblingColumnKeys: (
           columnKey: HdsAdvancedTableNormalizedColumn['key']
         ) => {
@@ -178,7 +175,6 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
             applyTransientWidth=Width.applyTransientWidth
             getAppliedWidth=Width.getAppliedWidth
             getColumnByKey=this.getColumnByKey
-            getIsStickyColumn=Order.getIsStickyColumn
             getSiblingColumnKeys=Width.getSiblingColumnKeys
             reorderHoveredColumnKey=Order.reorderHoveredColumnKey
             restoreColumnWidth=Width.restoreColumnWidth

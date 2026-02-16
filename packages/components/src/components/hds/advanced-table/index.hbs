@@ -74,8 +74,8 @@
                 @hasReorderableColumns={{@hasReorderableColumns}}
                 @hasResizableColumns={{@hasResizableColumns}}
                 @hasSelectableRows={{this.isSelectable}}
-                @hasStickyFirstColumn={{@hasStickyFirstColumn}}
-                @isStickyColumn={{CM.getIsStickyColumn column.key}}
+                @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
+                @isStickyColumn={{and (eq column.key CM.firstColumnKey) this.hasStickyFirstColumn}}
                 @isStickyColumnPinned={{this.isStickyColumnPinned}}
                 @lastColumnKey={{CM.lastColumnKey}}
                 @reorderHoveredColumnKey={{CM.reorderHoveredColumnKey}}
