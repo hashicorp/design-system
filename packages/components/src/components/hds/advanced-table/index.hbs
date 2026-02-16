@@ -75,7 +75,11 @@
                 @hasResizableColumns={{@hasResizableColumns}}
                 @hasSelectableRows={{this.isSelectable}}
                 @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
-                @isStickyColumn={{and (eq column.key CM.firstColumnKey) this.hasStickyFirstColumn}}
+                @isStickyColumn={{if
+                  (and (eq column.key CM.firstColumnKey) (not-eq this.hasStickyFirstColumn undefined))
+                  this.hasStickyFirstColumn
+                  undefined
+                }}
                 @isStickyColumnPinned={{this.isStickyColumnPinned}}
                 @lastColumnKey={{CM.lastColumnKey}}
                 @reorderHoveredColumnKey={{CM.reorderHoveredColumnKey}}
