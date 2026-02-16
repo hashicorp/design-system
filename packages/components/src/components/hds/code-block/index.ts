@@ -21,7 +21,7 @@ import type { HdsCodeBlockTitleSignature } from './title';
 import type { HdsCodeBlockDescriptionSignature } from './description';
 import { HdsCodeBlockLanguageValues } from './types.ts';
 import type { HdsCodeBlockLanguages } from './types.ts';
-import type { HdsCopyButtonSignature } from '../copy/button/index.ts';
+import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
 
 import HdsCodeBlockTitleComponent from './title.ts';
 import HdsCodeBlockDescriptionComponent from './description.ts';

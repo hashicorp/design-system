@@ -20,7 +20,7 @@ import type { HdsCodeEditorDescriptionSignature } from './description';
 import type { HdsCodeEditorTitleSignature } from './title';
 import type { HdsCodeEditorGenericSignature } from './generic';
 import type { EditorView } from '@codemirror/view';
-import type { HdsCopyButtonSignature } from '../copy/button/index.ts';
+import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
 
 export interface HdsCodeEditorSignature {
   Args: {

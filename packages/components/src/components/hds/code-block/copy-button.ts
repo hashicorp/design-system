@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-import type { HdsCopyButtonSignature } from '../copy/button';
+import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
 
 export interface HdsCodeBlockCopyButtonSignature {
   Args: {
