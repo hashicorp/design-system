@@ -58,8 +58,10 @@
   --token-color-boundary-brand: #f24c53;
   --token-color-boundary-foreground: #cf2d32;
   --token-color-boundary-gradient-faint-start: #fffafa; /** this is the 'boundary-50' value at 25% opacity on white */
+  --token-color-boundary-gradient-faint-stop: #ffecec;
   --token-color-boundary-gradient-primary-start: #f97076;
   --token-color-boundary-gradient-primary-stop: #db363b;
+  --token-color-boundary-surface: #ffecec;
   --token-color-consul-border: #ffcede;
   --token-color-consul-brand: #e03875;
   --token-color-consul-foreground: #d01c5b;
