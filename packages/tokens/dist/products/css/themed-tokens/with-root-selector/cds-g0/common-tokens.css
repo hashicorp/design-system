@@ -52,6 +52,7 @@
   --token-button-border-color-tertiary-focus-external: var(--token-color-focus-action-external);
   --token-button-border-color-tertiary-focus-internal: var(--token-color-focus-action-internal);
   --token-button-border-color-tertiary-hover: var(--token-color-border-strong);
+  --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
   --token-button-focus-border-width: 3px;
   --token-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);

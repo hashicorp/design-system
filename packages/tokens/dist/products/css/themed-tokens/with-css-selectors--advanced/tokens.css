@@ -148,7 +148,6 @@
     --token-color-focus-action-internal
   ); /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: var(--token-color-border-strong);
-  --token-button-border-radius: var(--token-border-radius-small);
   --token-button-foreground-color-critical-active: var(
     --token-color-foreground-high-contrast
   );
@@ -260,9 +259,9 @@
   --token-button-typography-font-size-large: 1rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.8125rem;
-  --token-button-typography-line-height-large: 1.5; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.1429; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 0.9286; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-button-typography-line-height-large: 1.5;
+  --token-button-typography-line-height-medium: 1.1429;
+  --token-button-typography-line-height-small: 0.9286;
   --token-color-border-action: var(--token-color-palette-blue-100);
   --token-color-border-critical: var(--token-color-palette-red-100);
   --token-color-border-faint: var(--token-color-palette-alpha-100);
@@ -607,7 +606,6 @@
     --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
     --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -657,9 +655,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-color-border-action: #0f62fe;
     --token-color-border-critical: #ff8389;
     --token-color-border-faint: #e0e0e0;
@@ -982,7 +980,6 @@
     --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
     --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -1032,9 +1029,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-color-border-action: #4589ff;
     --token-color-border-critical: #fa4d56;
     --token-color-border-faint: #393939;
@@ -1357,7 +1354,6 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-radius: 0px;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -1407,9 +1403,9 @@
   --token-button-typography-font-size-large: 0.875rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.875rem;
-  --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-button-typography-line-height-large: 1.2858;
+  --token-button-typography-line-height-medium: 1.2858;
+  --token-button-typography-line-height-small: 1.2858;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;
   --token-color-border-faint: #e0e0e0;
@@ -1728,7 +1724,6 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-radius: 0px;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -1778,9 +1773,9 @@
   --token-button-typography-font-size-large: 0.875rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.875rem;
-  --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-button-typography-line-height-large: 1.2858;
+  --token-button-typography-line-height-medium: 1.2858;
+  --token-button-typography-line-height-small: 1.2858;
   --token-color-border-action: #4589ff;
   --token-color-border-critical: #fa4d56;
   --token-color-border-faint: #393939;
@@ -2098,7 +2093,6 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-radius: 0px;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -2148,9 +2142,9 @@
   --token-button-typography-font-size-large: 0.875rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.875rem;
-  --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-button-typography-line-height-large: 1.2858;
+  --token-button-typography-line-height-medium: 1.2858;
+  --token-button-typography-line-height-small: 1.2858;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;
   --token-color-border-faint: #c6c6c6;
@@ -2468,7 +2462,6 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-radius: 0px;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -2518,9 +2511,9 @@
   --token-button-typography-font-size-large: 0.875rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.875rem;
-  --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-button-typography-line-height-large: 1.2858;
+  --token-button-typography-line-height-medium: 1.2858;
+  --token-button-typography-line-height-small: 1.2858;
   --token-color-border-action: #4589ff;
   --token-color-border-critical: #fa4d56;
   --token-color-border-faint: #525252;
@@ -2874,6 +2867,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     --token-color-focus-action-internal
   );
   --token-button-border-color-tertiary-hover: var(--token-color-border-strong);
+  --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
   --token-button-focus-border-width: 3px;
   --token-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
