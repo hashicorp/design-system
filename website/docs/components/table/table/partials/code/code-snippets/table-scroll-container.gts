@@ -11,6 +11,7 @@ export default class LocalComponent extends Component {
   }
 
   <template>
+    <!-- this is an element with "overflow: auto" -->
     <div class="doc-table-scrollable-wrapper">
       <HdsTable
         @model={{this.model.demoDataWithLargeNumberOfColumns}}

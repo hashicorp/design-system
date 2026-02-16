@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 
 import FOLK_MUSIC_DATA from 'website/mocks/folk-music-data';
 
-export default class Index extends Component {
+export default class LocalComponent extends Component {
   @tracked currentPage = 1;
   @tracked currentPageSize = 2;
 

@@ -12,7 +12,7 @@ const customSortingCriteriaArray = [
   'pending',
 ];
 
-export default class Index extends Component {
+export default class LocalComponent extends Component {
   // we track the sorting order, so it can be used in the custom sorting function
   @tracked customSortOrderForStatus = 'asc';
 

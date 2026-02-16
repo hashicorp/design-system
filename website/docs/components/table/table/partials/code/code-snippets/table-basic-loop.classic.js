@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 
-export default class Index extends Component {
+export default class LocalComponent extends Component {
   get myDataItems() {
     return [
       {
