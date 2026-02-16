@@ -46,7 +46,7 @@
     "@ember/render-modifiers": "^3.0.0",
     "@ember/string": "^4.0.1",
     "@ember/test-helpers": "^5.2.1",
-    "@ember/test-waiters": "^3.1.0",
+    "@ember/test-waiters": "^4.1.1",
     "@embroider/macros": "^1.18.1",
     "@embroider/test-setup": "^4.0.0",
     "@eslint/js": "^9.27.0",
