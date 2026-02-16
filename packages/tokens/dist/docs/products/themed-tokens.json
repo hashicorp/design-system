@@ -46050,7 +46050,7 @@
     "token-color-boundary-surface": {
       "key": "{color.boundary.surface}",
       "$type": "color",
-      "$value": "#b21e23",
+      "$value": "#ffecec",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -46163,7 +46163,7 @@
     "token-color-boundary-gradient-faint-stop": {
       "key": "{color.boundary.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#b21e23",
+      "$value": "#ffecec",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -60314,7 +60314,7 @@
     "token-color-boundary-surface": {
       "key": "{color.boundary.surface}",
       "$type": "color",
-      "$value": "#b21e23",
+      "$value": "#ffecec",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -60427,7 +60427,7 @@
     "token-color-boundary-gradient-faint-stop": {
       "key": "{color.boundary.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#b21e23",
+      "$value": "#ffecec",
       "group": "branding",
       "original": {
         "$type": "color",
