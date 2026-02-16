@@ -78,7 +78,7 @@ export default class Application extends Component {
     ) {
       if (this.isCarbonizationPage) {
         this.shwTheming.setStylesheet('css-selectors--advanced');
-        // TODO should we set theme and mode here too, in some conditions?
+        this.hdsTheming.setTheme({ theme: 'light' });
       }
     }
     // transitioning from a carbonized page to a non-carbonized
