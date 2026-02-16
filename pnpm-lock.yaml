@@ -18,6 +18,9 @@ patchedDependencies:
   broccoli-asset-rewrite:
     hash: d54eacd85247824bbf501fce65fb2d12f8c7605fbcc551dd0f5711156cf53c35
     path: patches/broccoli-asset-rewrite.patch
+  ember-app-scheduler@7.0.1:
+    hash: 3468ba2a00e33153df420bfaf232d174c20a0faf43b2ee93ac56de474ef90e4c
+    path: patches/ember-app-scheduler@7.0.1.patch
 
 importers:
 
@@ -14226,7 +14229,7 @@ snapshots:
       '@codemirror/view': 6.38.1
       '@ember/render-modifiers': 3.0.0(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       '@ember/string': 4.0.1
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1(@glint/template@1.5.2)
       '@embroider/addon-shim': 1.10.2
       '@embroider/macros': 1.19.6(@glint/template@1.5.2)
       '@embroider/util': 1.13.4(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -14281,7 +14284,7 @@ snapshots:
       '@codemirror/view': 6.38.1
       '@ember/render-modifiers': 3.0.0(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       '@ember/string': 4.0.1
-      '@ember/test-waiters': 3.1.0
+      '@ember/test-waiters': 4.1.1(@glint/template@1.5.2)
       '@embroider/addon-shim': 1.10.2
       '@embroider/macros': 1.19.6(@glint/template@1.5.2)
       '@embroider/util': 1.13.4(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.0.0)(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.28.0)))(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -18463,7 +18466,7 @@ snapshots:
       - supports-color
       - webpack
 
-  ember-app-scheduler@7.0.1(@babel/core@7.28.0):
+  ember-app-scheduler@7.0.1(patch_hash=3468ba2a00e33153df420bfaf232d174c20a0faf43b2ee93ac56de474ef90e4c)(@babel/core@7.28.0):
     dependencies:
       '@ember/test-waiters': 3.1.0
       '@types/ember': 3.16.14
@@ -19610,7 +19613,7 @@ snapshots:
 
   ember-router-scroll@4.1.2(@babel/core@7.28.0):
     dependencies:
-      ember-app-scheduler: 7.0.1(@babel/core@7.28.0)
+      ember-app-scheduler: 7.0.1(patch_hash=3468ba2a00e33153df420bfaf232d174c20a0faf43b2ee93ac56de474ef90e4c)(@babel/core@7.28.0)
       ember-cli-babel: 7.26.11
       ember-compatibility-helpers: 1.2.7(@babel/core@7.28.0)
     transitivePeerDependencies:
