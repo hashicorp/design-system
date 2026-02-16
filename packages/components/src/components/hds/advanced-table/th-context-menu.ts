@@ -218,8 +218,6 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   private _resetColumnWidth(dropdownCloseCallback: () => void): void {
     const { column, onColumnResize, onRestoreColumnWidth } = this.args;
 
-    console.log({ column, onColumnResize, onRestoreColumnWidth });
-
     if (
       typeof onRestoreColumnWidth === 'function' &&
       column.key !== undefined

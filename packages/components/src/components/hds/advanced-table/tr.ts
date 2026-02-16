@@ -103,8 +103,6 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
       classes.push('hds-advanced-table__tr--parent-row');
     }
 
-    console.log('displayRow:', displayRow);
-
     if (displayRow === false) {
       classes.push('hds-advanced-table__tr--hidden');
     }
