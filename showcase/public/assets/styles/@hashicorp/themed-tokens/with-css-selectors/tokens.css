@@ -126,8 +126,6 @@
   --token-color-border-strong: #8d8d8d;
   --token-color-border-success: #42be65;
   --token-color-border-warning: #ff832b;
-  --token-color-boundary-gradient-faint-stop: #ffecec;
-  --token-color-boundary-surface: #ffecec;
   --token-color-focus-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-action-internal: #ffffff;
   --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -441,8 +439,6 @@
     --token-color-border-strong: #8d8d8d;
     --token-color-border-success: #42be65;
     --token-color-border-warning: #ff832b;
-    --token-color-boundary-gradient-faint-stop: #ffecec;
-    --token-color-boundary-surface: #ffecec;
     --token-color-focus-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --token-color-focus-action-internal: #ffffff;
     --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -760,8 +756,6 @@
     --token-color-border-strong: #6f6f6f;
     --token-color-border-success: #24a148;
     --token-color-border-warning: #eb6200;
-    --token-color-boundary-gradient-faint-stop: #b21e23;
-    --token-color-boundary-surface: #b21e23;
     --token-color-focus-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --token-color-focus-action-internal: #161616;
     --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -1078,8 +1072,6 @@
   --token-color-border-strong: #8d8d8d;
   --token-color-border-success: #42be65;
   --token-color-border-warning: #ff832b;
-  --token-color-boundary-gradient-faint-stop: #ffecec;
-  --token-color-boundary-surface: #ffecec;
   --token-color-focus-action-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-action-internal: #ffffff;
   --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -1392,8 +1384,6 @@
   --token-color-border-strong: #6f6f6f;
   --token-color-border-success: #24a148;
   --token-color-border-warning: #eb6200;
-  --token-color-boundary-gradient-faint-stop: #b21e23;
-  --token-color-boundary-surface: #b21e23;
   --token-color-focus-action-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-action-internal: #161616;
   --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -1682,8 +1672,10 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-color-boundary-brand: #f24c53;
   --token-color-boundary-foreground: #cf2d32;
   --token-color-boundary-gradient-faint-start: #fffafa; /** this is the 'boundary-50' value at 25% opacity on white */
+  --token-color-boundary-gradient-faint-stop: #ffecec;
   --token-color-boundary-gradient-primary-start: #f97076;
   --token-color-boundary-gradient-primary-stop: #db363b;
+  --token-color-boundary-surface: #ffecec;
   --token-color-consul-border: #ffcede;
   --token-color-consul-brand: #e03875;
   --token-color-consul-foreground: #d01c5b;

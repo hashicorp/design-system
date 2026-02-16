@@ -126,8 +126,6 @@
   --token-color-border-strong: var(--token-color-palette-alpha-300);
   --token-color-border-success: var(--token-color-palette-green-100);
   --token-color-border-warning: var(--token-color-palette-amber-100);
-  --token-color-boundary-gradient-faint-stop: #ffecec;
-  --token-color-boundary-surface: #ffecec;
   --token-color-focus-action-external: #5990ff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-action-internal: var(--token-color-palette-blue-300);
   --token-color-focus-critical-external: #dd7578; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */

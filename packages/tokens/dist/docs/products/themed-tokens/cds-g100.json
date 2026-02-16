@@ -3257,7 +3257,7 @@
   {
     "key": "{color.boundary.surface}",
     "$type": "color",
-    "$value": "#b21e23",
+    "$value": "#ffecec",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3370,7 +3370,7 @@
   {
     "key": "{color.boundary.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#b21e23",
+    "$value": "#ffecec",
     "group": "branding",
     "original": {
       "$type": "color",
