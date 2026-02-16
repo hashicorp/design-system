@@ -247,8 +247,6 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   ): void {
     const { column, onMoveColumnToTerminalPosition } = this.args;
 
-    console.log({ onMoveColumnToTerminalPosition });
-
     onMoveColumnToTerminalPosition?.(column.key, position);
 
     requestAnimationFrame(() => {
