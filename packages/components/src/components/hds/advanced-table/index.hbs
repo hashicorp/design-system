@@ -167,45 +167,45 @@
         </Hds::AdvancedTable::Body>
       </div>
     </Hds::AdvancedTable::ColumnManager>
+
+    {{! Empty state }}
+    {{#if this.isEmpty}}
+      <div class="hds-advanced-table__empty-state">
+        {{#if (has-block "emptyState")}}
+          {{yield to="emptyState"}}
+        {{else}}
+          <Hds::ApplicationState as |A|>
+            <A.Header @title={{hds-t "hds.components.advanced-table.empty-state.title" default="No data available"}} />
+            <A.Body
+              @text={{hds-t
+                "hds.components.advanced-table.empty-state.description"
+                default="There is currently no data to display in the table."
+              }}
+            />
+          </Hds::ApplicationState>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    {{#if this.showScrollIndicatorLeft}}
+      <div
+        class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
+        {{style height=this.scrollIndicatorDimensions.height left=this.scrollIndicatorDimensions.left}}
+      />
+    {{/if}}
+
+    {{#if this.showScrollIndicatorRight}}
+      <div
+        class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
+        {{style height=this.scrollIndicatorDimensions.height right=this.scrollIndicatorDimensions.right}}
+      />
+    {{/if}}
+
+    {{#if this.showScrollIndicatorBottom}}
+      <div
+        class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-bottom"
+        {{style bottom=this.scrollIndicatorDimensions.bottom width=this.scrollIndicatorDimensions.width}}
+      />
+    {{/if}}
   </div>
-
-  {{! Empty state }}
-  {{#if this.isEmpty}}
-    <div class="hds-advanced-table__empty-state">
-      {{#if (has-block "emptyState")}}
-        {{yield to="emptyState"}}
-      {{else}}
-        <Hds::ApplicationState as |A|>
-          <A.Header @title={{hds-t "hds.components.advanced-table.empty-state.title" default="No data available"}} />
-          <A.Body
-            @text={{hds-t
-              "hds.components.advanced-table.empty-state.description"
-              default="There is currently no data to display in the table."
-            }}
-          />
-        </Hds::ApplicationState>
-      {{/if}}
-    </div>
-  {{/if}}
-
-  {{#if this.showScrollIndicatorLeft}}
-    <div
-      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
-      {{style height=this.scrollIndicatorDimensions.height left=this.scrollIndicatorDimensions.left}}
-    />
-  {{/if}}
-
-  {{#if this.showScrollIndicatorRight}}
-    <div
-      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
-      {{style height=this.scrollIndicatorDimensions.height right=this.scrollIndicatorDimensions.right}}
-    />
-  {{/if}}
-
-  {{#if this.showScrollIndicatorBottom}}
-    <div
-      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-bottom"
-      {{style bottom=this.scrollIndicatorDimensions.bottom width=this.scrollIndicatorDimensions.width}}
-    />
-  {{/if}}
 </div>
