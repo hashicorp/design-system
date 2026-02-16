@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import style from 'ember-style-modifier';
 
 export interface HdsFormSectionMultiFieldGroupItemSignature {
   Args: {
@@ -25,4 +26,12 @@ export default class HdsFormSectionMultiFieldGroupItem extends Component<HdsForm
     }
     return widthStyle;
   }
+
+  <template>
+    <div
+      class="hds-form__section-multi-field-group-item"
+      {{style this.widthStyle}}
+      ...attributes
+    >{{yield}}</div>
+  </template>
 }

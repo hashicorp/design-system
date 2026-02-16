@@ -4,10 +4,10 @@
  */
 
 import Component from '@glimmer/component';
+import { hash } from '@ember/helper';
 
-import type { ComponentLike } from '@glint/template';
-import type { HdsFormHeaderTitleSignature } from './title.ts';
-import type { HdsFormHeaderDescriptionSignature } from './description.ts';
+import HdsFormHeaderTitle from './title.gts';
+import HdsFormHeaderDescription from './description.gts';
 
 export interface HdsFormHeaderSignature {
   Args: {
@@ -16,8 +16,8 @@ export interface HdsFormHeaderSignature {
   Blocks: {
     default: [
       {
-        Title?: ComponentLike<HdsFormHeaderTitleSignature>;
-        Description?: ComponentLike<HdsFormHeaderDescriptionSignature>;
+        Title?: typeof HdsFormHeaderTitle;
+        Description?: typeof HdsFormHeaderDescription;
       },
     ];
   };
@@ -35,4 +35,12 @@ export default class HdsFormHeader extends Component<HdsFormHeaderSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      {{yield
+        (hash Title=HdsFormHeaderTitle Description=HdsFormHeaderDescription)
+      }}
+    </div>
+  </template>
 }
