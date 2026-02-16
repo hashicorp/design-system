@@ -205,10 +205,10 @@ export { default as HdsFormRadioField } from './components/hds/form/radio/field.
 export { default as HdsFormRadioGroup } from './components/hds/form/radio/group.gts';
 
 // Form > RadioCard
-export { default as HdsFormRadioCard } from './components/hds/form/radio-card/index.ts';
-export { default as HdsFormRadioCardGroup } from './components/hds/form/radio-card/group.ts';
-export { default as HdsFormRadioCardDescription } from './components/hds/form/radio-card/description.ts';
-export { default as HdsFormRadioCardLabel } from './components/hds/form/radio-card/label.ts';
+export { default as HdsFormRadioCard } from './components/hds/form/radio-card/index.gts';
+export { default as HdsFormRadioCardGroup } from './components/hds/form/radio-card/group.gts';
+export { default as HdsFormRadioCardDescription } from './components/hds/form/radio-card/description.gts';
+export { default as HdsFormRadioCardLabel } from './components/hds/form/radio-card/label.gts';
 export * from './components/hds/form/radio-card/types.ts';
 
 // Form > Select

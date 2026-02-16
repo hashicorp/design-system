@@ -5,22 +5,27 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { hash } from '@ember/helper';
+import style from 'ember-style-modifier';
+
+import type { WithBoundArgs } from '@glint/template';
+
 import {
   HdsFormRadioCardControlPositionValues,
   HdsFormRadioCardAlignmentValues,
 } from './types.ts';
+import HdsFormRadioBase from '../radio/base.gts';
+import HdsIcon from '../../icon/index.gts';
+import HdsBadge from '../../badge/index.gts';
+import HdsFormRadioCardLabel from './label.gts';
+import HdsFormRadioCardDescription from './description.gts';
+import HdsYield from '../../yield/index.gts';
 
-import type { ComponentLike } from '@glint/template';
-import type { HdsIconSignature } from '../../icon';
-import type { HdsBadgeSignature } from '../../badge';
 import type { HdsFormRadioBaseSignature } from '../radio/base.gts';
-import type { HdsFormRadioCardDescriptionSignature } from './description';
-import type { HdsFormRadioCardLabelSignature } from './label';
-import type { HdsYieldSignature } from '../../yield';
 import type {
   HdsFormRadioCardControlPositions,
   HdsFormRadioCardAlignments,
-} from './types';
+} from './types.ts';
 
 export const DEFAULT_CONTROL_POSITION =
   HdsFormRadioCardControlPositionValues.Bottom;
@@ -45,11 +50,11 @@ export interface HdsFormRadioCardSignature {
   Blocks: {
     default: [
       {
-        Icon?: ComponentLike<HdsIconSignature>;
-        Label?: ComponentLike<HdsFormRadioCardLabelSignature>;
-        Badge?: ComponentLike<HdsBadgeSignature>;
-        Description?: ComponentLike<HdsFormRadioCardDescriptionSignature>;
-        Generic?: ComponentLike<HdsYieldSignature>;
+        Icon?: WithBoundArgs<typeof HdsIcon, 'size'>;
+        Label?: typeof HdsFormRadioCardLabel;
+        Badge?: typeof HdsBadge;
+        Description?: typeof HdsFormRadioCardDescription;
+        Generic?: typeof HdsYield;
       },
     ];
   };
@@ -57,14 +62,6 @@ export interface HdsFormRadioCardSignature {
 }
 
 export default class HdsFormRadioCard extends Component<HdsFormRadioCardSignature> {
-  /**
-   * Sets the position of the control
-   * Accepted values: buttom, left
-   *
-   * @param type
-   * @type {string}
-   * @default 'bottom'
-   */
   get controlPosition(): HdsFormRadioCardControlPositions {
     const { controlPosition = DEFAULT_CONTROL_POSITION } = this.args;
 
@@ -78,14 +75,6 @@ export default class HdsFormRadioCard extends Component<HdsFormRadioCardSignatur
     return controlPosition;
   }
 
-  /**
-   * Sets the alignment of the content
-   * Accepted values: left, center
-   *
-   * @param alignnment
-   * @type {string}
-   * @default 'left'
-   */
   get alignment(): HdsFormRadioCardAlignments {
     const { alignment = DEFAULT_ALIGNMENT } = this.args;
 
@@ -99,11 +88,6 @@ export default class HdsFormRadioCard extends Component<HdsFormRadioCardSignatur
     return alignment;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-radio-card'];
 
@@ -127,4 +111,27 @@ export default class HdsFormRadioCard extends Component<HdsFormRadioCardSignatur
 
     return classes.join(' ');
   }
+
+  <template>
+    <label class={{this.classNames}} {{style maxWidth=@maxWidth}}>
+      <span class="hds-form-radio-card__content">
+        {{yield (hash Icon=(component HdsIcon size="24"))}}
+        {{yield (hash Label=HdsFormRadioCardLabel)}}
+        {{yield (hash Badge=HdsBadge)}}
+        {{yield (hash Description=HdsFormRadioCardDescription)}}
+        {{yield (hash Generic=HdsYield)}}
+      </span>
+      <span class="hds-form-radio-card__control-wrapper">
+        <HdsFormRadioBase
+          class="hds-form-radio-card__control"
+          @value={{@value}}
+          name={{@name}}
+          checked={{@checked}}
+          disabled={{@disabled}}
+          aria-describedby={{@extraAriaDescribedBy}}
+          ...attributes
+        />
+      </span>
+    </label>
+  </template>
 }
