@@ -4,8 +4,10 @@
  */
 
 import Component from '@glimmer/component';
-import type { ComponentLike } from '@glint/template';
-import type { HdsYieldSignature } from '../../yield';
+import { hash } from '@ember/helper';
+import style from 'ember-style-modifier';
+
+import HdsYield from '../../yield/index.gts';
 
 export interface HdsFormSelectBaseSignature {
   Args: {
@@ -17,7 +19,7 @@ export interface HdsFormSelectBaseSignature {
   Blocks: {
     default: [
       {
-        Options?: ComponentLike<HdsYieldSignature>;
+        Options?: typeof HdsYield;
       },
     ];
   };
@@ -25,11 +27,6 @@ export interface HdsFormSelectBaseSignature {
 }
 
 export default class HdsFormSelectBase extends Component<HdsFormSelectBaseSignature> {
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-select'];
 
@@ -43,4 +40,16 @@ export default class HdsFormSelectBase extends Component<HdsFormSelectBaseSignat
 
     return classes.join(' ');
   }
+
+  <template>
+    <select
+      class={{this.classNames}}
+      {{style width=@width}}
+      id={{@id}}
+      aria-describedby={{@ariaDescribedBy}}
+      ...attributes
+    >
+      {{yield (hash Options=HdsYield)}}
+    </select>
+  </template>
 }
