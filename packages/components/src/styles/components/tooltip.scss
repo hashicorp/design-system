@@ -89,7 +89,7 @@
   }
 
   // works with Tippy's custom SVG arrow variation:
-  .tippy-svg-arrow {
+  .tippy-arrow {
     position: relative;
     width: var(--token-tooltip-caret-width);
     height: var(--token-tooltip-caret-height);
@@ -109,70 +109,66 @@
         clip-path: polygon(0 100%, 50% 0, 100% 100%);
       }
     }
-
-    svg {
-      display: none;
-    }
   }
 
   // Arrow positioning styles taken from tippy.js (tippy.js/dist/svg-arrow.css)
-  &[data-placement^="left"] > .tippy-svg-arrow,
-  &[data-placement^="right"] > .tippy-svg-arrow {
+  &[data-placement^="left"] > .tippy-arrow,
+  &[data-placement^="right"] > .tippy-arrow {
     width: var(--token-tooltip-caret-height);
     height: var(--token-tooltip-caret-width);
   }
 
-  &[data-placement^="left"] > .tippy-svg-arrow::before,
-  &[data-placement^="right"] > .tippy-svg-arrow::before {
+  &[data-placement^="left"] > .tippy-arrow::before,
+  &[data-placement^="right"] > .tippy-arrow::before {
     transform-origin: calc(var(--token-tooltip-caret-width) / 2) calc(var(--token-tooltip-caret-width) / 2);
   }
 
-  &[data-placement="left-start"] > .tippy-svg-arrow::before,
-  &[data-placement="right-start"] > .tippy-svg-arrow::before {
+  &[data-placement="left-start"] > .tippy-arrow::before,
+  &[data-placement="right-start"] > .tippy-arrow::before {
     top: calc(var(--token-tooltip-caret-height) / 2);
   }
 
-  &[data-placement="left-end"] > .tippy-svg-arrow::before,
-  &[data-placement="right-end"] > .tippy-svg-arrow::before {
+  &[data-placement="left-end"] > .tippy-arrow::before,
+  &[data-placement="right-end"] > .tippy-arrow::before {
     top: calc(-1 * var(--token-tooltip-caret-height) / 2);
   }
 
-  &[data-placement^="top"] > .tippy-svg-arrow::before,
-  &[data-placement^="bottom"] > .tippy-svg-arrow::before {
+  &[data-placement^="top"] > .tippy-arrow::before,
+  &[data-placement^="bottom"] > .tippy-arrow::before {
     transform-origin: unset;
   }
 
-  &[data-placement^="top"] > .tippy-svg-arrow {
+  &[data-placement^="top"] > .tippy-arrow {
     bottom: 0;
   }
 
-  &[data-placement^="top"] > .tippy-svg-arrow::before {
+  &[data-placement^="top"] > .tippy-arrow::before {
     bottom: calc(-1 * var(--token-tooltip-caret-height));
     transform: rotate(180deg);
   }
 
-  &[data-placement^="bottom"] > .tippy-svg-arrow {
+  &[data-placement^="bottom"] > .tippy-arrow {
     top: 0;
   }
 
-  &[data-placement^="bottom"] > .tippy-svg-arrow::before {
+  &[data-placement^="bottom"] > .tippy-arrow::before {
     top: calc(-1 * var(--token-tooltip-caret-height));
   }
 
-  &[data-placement^="left"] > .tippy-svg-arrow {
+  &[data-placement^="left"] > .tippy-arrow {
     right: 0;
   }
 
-  &[data-placement^="left"] > .tippy-svg-arrow::before {
+  &[data-placement^="left"] > .tippy-arrow::before {
     right: calc(-1 * var(--token-tooltip-caret-height));
     transform: rotate(90deg);
   }
 
-  &[data-placement^="right"] > .tippy-svg-arrow {
+  &[data-placement^="right"] > .tippy-arrow {
     left: 0;
   }
 
-  &[data-placement^="right"] > .tippy-svg-arrow::before {
+  &[data-placement^="right"] > .tippy-arrow::before {
     left: calc(-1 * var(--token-tooltip-caret-height));
     transform: rotate(-90deg);
   }
