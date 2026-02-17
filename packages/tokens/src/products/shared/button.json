@@ -177,37 +177,46 @@
         "small": {
           "$type": "number",
           "$value": 0.9286,
-          "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
           "$modes": {
             "default": 0.9286,
             "cds-g0": 1.2858,
             "cds-g10": 1.2858,
             "cds-g90": 1.2858,
             "cds-g100": 1.2858
+          },
+          "comments": {
+            "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+            "cds": "18px/14px ~ 1.2858"
           }
         },
         "medium": {
           "$type": "number",
           "$value": 1.1429,
-          "comment": "14px ~ 1.1429",
           "$modes": {
             "default": 1.1429,
             "cds-g0": 1.2858,
             "cds-g10": 1.2858,
             "cds-g90": 1.2858,
             "cds-g100": 1.2858
+          },
+          "comments": {
+            "hds": "16px/14px ~ 1.1429",
+            "cds": "18px/14px ~ 1.2858"
           }
         },
         "large": {
           "$type": "number",
           "$value": 1.5,
-          "comment": "24px = 1.5",
           "$modes": {
             "default": 1.5,
             "cds-g0": 1.2858,
             "cds-g10": 1.2858,
             "cds-g90": 1.2858,
             "cds-g100": 1.2858
+          },
+          "comments": {
+            "hds": "24px/16px = 1.5",
+            "cds": "18px/14px ~ 1.2858"
           }
         }
       }
@@ -403,10 +412,10 @@
           "$value": "{color.foreground.disabled}",
           "$modes": {
             "default": "{color.foreground.disabled}",
-            "cds-g0": "{carbon.themes.white.textOnColorDisabled}",
-            "cds-g10": "{carbon.themes.g10.textOnColorDisabled}",
-            "cds-g90": "{carbon.themes.g90.textOnColorDisabled}",
-            "cds-g100": "{carbon.themes.g100.textOnColorDisabled}"
+            "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+            "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+            "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+            "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
           }
         }
       }
@@ -592,9 +601,9 @@
         },
         "disabled": {
           "$type": "color",
-          "$value": "{color.surface.faint}",
+          "$value": "{color.surface.interactive-disabled}",
           "$modes": {
-            "default": "{color.surface.faint}",
+            "default": "{color.surface.interactive-disabled}",
             "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
             "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
             "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
@@ -612,14 +621,7 @@
       "radius": {
         "$type": "dimension",
         "$value": "{border.radius.small}",
-        "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        }
+        "unit": "px"
       },
       "color": {
         "primary": {
@@ -636,9 +638,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.palette.blue-300}",
+            "$value": "{color.palette.blue-400}",
             "$modes": {
-              "default": "{color.palette.blue-300}",
+              "default": "{color.palette.blue-400}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -648,27 +650,11 @@
           "focus": {
             "internal": {
               "$type": "color",
-              "$value": "{color.focus.action.internal}",
-              "$modes": {
-                "default": "{color.focus.action.internal}",
-                "cds-g0": "pink",
-                "cds-g10": "pink",
-                "cds-g90": "pink",
-                "cds-g100": "pink"
-              },
-              "comment": "TODO - replace the `pink` values with the correct ones"
+              "$value": "{color.focus.action.internal}"
             },
             "external": {
               "$type": "color",
-              "$value": "{color.focus.action.external}",
-              "$modes": {
-                "default": "{color.focus.action.external}",
-                "cds-g0": "magenta",
-                "cds-g10": "magenta",
-                "cds-g90": "magenta",
-                "cds-g100": "magenta"
-              },
-              "comment": "TODO - replace the `magenta` values with the correct ones"
+              "$value": "{color.focus.action.external}"
             }
           },
           "active": {
@@ -709,27 +695,11 @@
           "focus": {
             "internal": {
               "$type": "color",
-              "$value": "{color.focus.action.internal}",
-              "$modes": {
-                "default": "{color.focus.action.internal}",
-                "cds-g0": "pink",
-                "cds-g10": "pink",
-                "cds-g90": "pink",
-                "cds-g100": "pink"
-              },
-              "comment": "TODO - replace the `pink` values with the correct ones"
+              "$value": "{color.focus.action.internal}"
             },
             "external": {
               "$type": "color",
-              "$value": "{color.focus.action.external}",
-              "$modes": {
-                "default": "{color.focus.action.external}",
-                "cds-g0": "magenta",
-                "cds-g10": "magenta",
-                "cds-g90": "magenta",
-                "cds-g100": "magenta"
-              },
-              "comment": "TODO - replace the `magenta` values with the correct ones"
+              "$value": "{color.focus.action.external}"
             }
           },
           "active": {
@@ -747,11 +717,25 @@
         "tertiary": {
           "default": {
             "$type": "color",
-            "$value": "transparent"
+            "$value": "transparent",
+            "$modes": {
+              "default": "transparent",
+              "cds-g0": "{carbon.themes.buttonTokens.buttonTertiary.white}",
+              "cds-g10": "{carbon.themes.buttonTokens.buttonTertiary.g10}",
+              "cds-g90": "{carbon.themes.buttonTokens.buttonTertiary.g90}",
+              "cds-g100": "{carbon.themes.buttonTokens.buttonTertiary.g100}"
+            }
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.border.strong}"
+            "$value": "{color.border.strong}",
+            "$modes": {
+              "default": "{color.border.strong}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
           },
           "focus": {
             "internal": {
@@ -765,15 +749,26 @@
           },
           "active": {
             "$type": "color",
-            "$value": "{color.border.strong}"
+            "$value": "{color.border.strong}",
+            "$modes": {
+              "default": "{color.border.strong}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{button.border.color.disabled}"
           }
         },
         "critical": {
           "default": {
             "$type": "color",
-            "$value": "{color.foreground.critical-on-surface}",
+            "$value": "{color.palette.red-300}",
             "$modes": {
-              "default": "{color.foreground.critical-on-surface}",
+              "default": "{color.palette.red-300}",
               "cds-g0": "transparent",
               "cds-g10": "transparent",
               "cds-g90": "transparent",
@@ -794,27 +789,11 @@
           "focus": {
             "internal": {
               "$type": "color",
-              "$value": "{color.focus.critical.internal}",
-              "$modes": {
-                "default": "{color.focus.critical.internal}",
-                "cds-g0": "pink",
-                "cds-g10": "pink",
-                "cds-g90": "pink",
-                "cds-g100": "pink"
-              },
-              "comment": "TODO - replace the `pink` values with the correct ones"
+              "$value": "{color.focus.critical.internal}"
             },
             "external": {
               "$type": "color",
-              "$value": "{color.focus.critical.external}",
-              "$modes": {
-                "default": "{color.focus.critical.external}",
-                "cds-g0": "magenta",
-                "cds-g10": "magenta",
-                "cds-g90": "magenta",
-                "cds-g100": "magenta"
-              },
-              "comment": "TODO - replace the `magenta` values with the correct ones"
+              "$value": "{color.focus.critical.external}"
             }
           },
           "active": {
@@ -831,7 +810,14 @@
         },
         "disabled": {
           "$type": "color",
-          "$value": "{color.border.primary}"
+          "$value": "{color.border.primary}",
+          "$modes": {
+            "default": "{color.border.primary}",
+            "cds-g0": "{carbon.themes.buttonTokens.buttonDisabled.white}",
+            "cds-g10": "{carbon.themes.buttonTokens.buttonDisabled.g10}",
+            "cds-g90": "{carbon.themes.buttonTokens.buttonDisabled.g90}",
+            "cds-g100": "{carbon.themes.buttonTokens.buttonDisabled.g100}"
+          }
         }
       }
     },
