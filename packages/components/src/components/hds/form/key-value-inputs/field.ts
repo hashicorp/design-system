@@ -22,8 +22,8 @@ import HdsFormLabelComponent, {
 } from '../label/index.gts';
 import HdsFormMaskedInputBaseComponent from '../masked-input/base.ts';
 import HdsFormSelectBaseComponent from '../select/base.ts';
-import HdsFormSuperSelectMultipleBaseComponent from '../super-select/multiple/base.ts';
-import HdsFormSuperSelectSingleBaseComponent from '../super-select/single/base.ts';
+import HdsFormSuperSelectMultipleBaseComponent from '../super-select/multiple/base.gts';
+import HdsFormSuperSelectSingleBaseComponent from '../super-select/single/base.gts';
 import HdsFormTextareaBaseComponent from '../textarea/base.gts';
 import HdsFormTextInputBaseComponent from '../text-input/base.gts';
 
