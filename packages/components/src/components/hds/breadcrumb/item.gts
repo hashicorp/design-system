@@ -6,12 +6,9 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
-import { array } from '@ember/helper';
 
 import type { SafeString } from '@ember/template';
 
-import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
-import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 import HdsInteractive from '../interactive/index.gts';
 import HdsIcon from '../icon/index.gts';
 
@@ -80,8 +77,9 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
         <HdsInteractive
           class="hds-breadcrumb__link"
           @current-when={{@current-when}}
-          @models={{hdsLinkToModels (array @model @models)}}
-          @query={{hdsLinkToQuery (array @query)}}
+          @models={{@models}}
+          @model={{@model}}
+          @query={{@query}}
           @replace={{@replace}}
           @route={{@route}}
           @href={{@href}}
