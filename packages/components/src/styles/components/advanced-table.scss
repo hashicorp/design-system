@@ -407,7 +407,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element-focus-always-visible($position: absolute, $top: 3px, $bottom: 3px);
+    @include hds-focus-ring-with-pseudo-element($position: absolute, $top: 3px, $bottom: 3px, $is-focus-always-visible: true);
 
     .hds-advanced-table__th-reorder-handle__inner {
       background-color: var(--token-color-surface-interactive);
@@ -433,9 +433,15 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     box-shadow: var(--token-elevation-low-box-shadow);
   }
 
+  // Use pseudo element for focus ring to allow offset position to be partially inside the button
+  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+
   &:focus,
   &.mock-focus,
   .hds-dropdown-toggle-icon--is-open {
+    // Override outline used on regular hds-dropdown-toggle-icon
+    outline: none;
+
     &::before {
       top: 0;
       right: 0;
@@ -659,7 +665,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     .hds-advanced-table--valign-baseline & {
       /**
         setting to center because in FlexBox, when you set align-items: baseline, it also aligns content to the top - unlike display: table-cell which aligns the content to the center
-      
+
         we decided as a team to match the Table behavior instead of actually setting align-items to baseline to mitigate the difference.
       */
       align-items: center;

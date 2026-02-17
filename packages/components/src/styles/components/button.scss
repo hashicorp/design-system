@@ -60,11 +60,6 @@
       flex: 0 0 auto;
     }
   }
-
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
-  }
 }
 
 .hds-button__icon {

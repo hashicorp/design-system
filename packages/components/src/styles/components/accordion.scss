@@ -158,13 +158,7 @@
 // only chevron button area is interactive
 .hds-accordion-item__button--parent-contains-interactive {
   @include hds-button();
-
-  &:focus,
-  &.mock-focus {
-    @include hds-button-state-focus();
-  }
-
-  // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button-state-focus`
+  // `hds-button-color-secondary` determines the focus color and needs to be placed after `hds-button`
   @include hds-button-color-secondary();
 }
 
