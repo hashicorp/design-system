@@ -10,7 +10,7 @@ import HdsYield from '../../yield/index.gts';
 import HdsFormField from '../field/index.gts';
 import HdsFormSelectBase from './base.gts';
 
-import type { HdsFormFieldSignature } from '../field';
+import type { HdsFormFieldSignature } from '../field/index.gts';
 import type { HdsFormSelectBaseSignature } from './base.gts';
 
 export interface HdsFormSelectFieldSignature {
