@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
-import type { HdsFormSelectBaseSignature } from '../../form/select/base';
+import type { HdsFormSelectBaseSignature } from '../../form/select/base.gts';
 
 export interface HdsPaginationSizeSelectorSignature {
   Args: {
