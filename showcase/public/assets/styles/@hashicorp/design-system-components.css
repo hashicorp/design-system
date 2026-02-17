@@ -312,9 +312,9 @@
   --token-button-typography-font-size-small: 0.8125rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-large: 1rem;
-  --token-button-typography-line-height-small: 0.9286; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
-  --token-button-typography-line-height-medium: 1.1429; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-large: 1.5; /** 24px = 1.5 */
+  --token-button-typography-line-height-small: 0.9286;
+  --token-button-typography-line-height-medium: 1.1429;
+  --token-button-typography-line-height-large: 1.5;
   --token-button-foreground-color-primary-default: #ffffff;
   --token-button-foreground-color-primary-hover: #ffffff;
   --token-button-foreground-color-primary-focus: #ffffff;
@@ -353,7 +353,7 @@
   --token-button-border-radius: 5px;
   --token-button-border-color-primary-default: #0c56e9;
   --token-button-border-color-primary-hover: #0c56e9;
-  --token-button-border-color-primary-focus-internal: #0c56e9; /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-primary-focus-internal: #ffffff; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-primary-focus-external: #5990ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-primary-active: #0046d1;
   --token-button-border-color-secondary-default: #3b3d4566;
@@ -378,6 +378,14 @@
   --token-button-icon-size-large: 24px;
   --token-card-surface-color-primary: #ffffff;
   --token-card-surface-color-secondary: #fafafa;
+  --token-copy-button-foreground-color: #3b3d45;
+  --token-copy-button-surface-color-default: #fafafa;
+  --token-copy-button-surface-color-hover: #ffffff;
+  --token-copy-button-surface-color-active: #dedfe3;
+  --token-copy-button-icon-color-default: #1060ff;
+  --token-copy-button-icon-color-hover: #0c56e9;
+  --token-copy-button-icon-color-focus: #0c56e9;
+  --token-copy-button-icon-color-active: #0046d1;
   --token-dialog-primitive-padding-horizontal: 24px;
   --token-dialog-primitive-padding-vertical: 16px;
   --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
@@ -3601,10 +3609,10 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-primary-focus-internal);
 }
 .hds-button--color-primary:focus::before, .hds-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
 }
@@ -4567,16 +4575,30 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-copy-button {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-default);
   cursor: pointer;
 }
 .hds-copy-button .hds-button__icon {
-  color: var(--token-color-foreground-action);
+  color: var(--token-copy-button-icon-color-default);
+}
+.hds-copy-button:hover, .hds-copy-button.mock-hover {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-hover);
 }
 .hds-copy-button:hover .hds-button__icon, .hds-copy-button.mock-hover .hds-button__icon {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--token-copy-button-icon-color-hover);
+}
+.hds-copy-button:focus, .hds-copy-button.mock-focus {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-focus);
+}
+.hds-copy-button:active, .hds-copy-button.mock-active {
+  color: var(--token-copy-button-foreground-color);
+  background-color: var(--token-copy-button-surface-color-active);
 }
 .hds-copy-button:active .hds-button__icon, .hds-copy-button.mock-active .hds-button__icon {
-  color: var(--token-color-foreground-action-active);
+  color: var(--token-copy-button-icon-color-active);
 }
 .hds-copy-button.hds-copy-button--status-success .hds-button__icon {
   color: var(--token-color-foreground-success);
@@ -5194,10 +5216,10 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-primary-focus-internal);
 }
 .hds-dropdown-toggle-button--color-primary:focus::before, .hds-dropdown-toggle-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
 }
