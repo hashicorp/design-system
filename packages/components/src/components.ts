@@ -75,9 +75,9 @@ export { default as HdsBadgeCount } from './components/hds/badge-count/index.gts
 export * from './components/hds/badge-count/types.ts';
 
 // Breadcrumb
-export { default as HdsBreadcrumb } from './components/hds/breadcrumb/index.ts';
-export { default as HdsBreadcrumbItem } from './components/hds/breadcrumb/item.ts';
-export { default as HdsBreadcrumbTruncation } from './components/hds/breadcrumb/truncation.ts';
+export { default as HdsBreadcrumb } from './components/hds/breadcrumb/index.gts';
+export { default as HdsBreadcrumbItem } from './components/hds/breadcrumb/item.gts';
+export { default as HdsBreadcrumbTruncation } from './components/hds/breadcrumb/truncation.gts';
 
 // Button
 export { default as HdsButton } from './components/hds/button/index.gts';
