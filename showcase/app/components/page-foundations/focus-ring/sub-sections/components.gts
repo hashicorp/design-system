@@ -276,17 +276,56 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
 
   <ShwTextH4 @tag="h3">CodeBlock</ShwTextH4>
 
-  <div class="shw-component-code-block-wrapper">
-    <span class="shw-component-code-block-display-none" id="test-target">Copy me</span>
-    <HdsCodeBlock
-      @language="shell-session"
-      @hasCopyButton={{true}}
-      @ariaLabel="hasCopyButton=true"
-      @value="$ brew tap hashicorp/tap"
+  <span class="shw-component-code-block-display-none" id="test-target">Copy me</span>
+  <ShwFlex
+    @direction="column"
+    @gap="2rem"
+    class="shw-component-code-block-wrapper"
+    as |SF|
+  >
+    <SF.Item
       mock-state-value="focus"
-      mock-state-selector=".hds-code-block__copy-button"
-    />
-  </div>
+      mock-state-selector=".hds-code-block__code"
+    >
+      <HdsCodeBlock
+        @value='Vagrant.configure("2") do |config|
+config.vm.box = "ubuntu/noble64"
+end'
+        @language="ruby"
+        as |CB|
+      >
+        <CB.Title>Title</CB.Title>
+      </HdsCodeBlock>
+    </SF.Item>
+    {{!-- <SF.Item
+      mock-state-value="focus"
+      mock-state-selector=".hds-code-block__height-toggle-button"
+    >
+      {{! template-lint-disable no-whitespace-for-layout }}
+      <HdsCodeBlock
+        @language="go"
+        @maxHeight="105px"
+        @lineNumberStart={{5}}
+        @ariaLabel="Line numbering start changed to 5"
+        @value="package main
+import 'fmt'
+func main() {
+  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  fmt.Println(res)
+}"
+      />
+    </SF.Item> --}}
+    <SF.Item>
+      <HdsCodeBlock
+        @language="shell-session"
+        @hasCopyButton={{true}}
+        @ariaLabel="hasCopyButton=true"
+        @value="$ brew tap hashicorp/tap"
+        mock-state-value="focus"
+        mock-state-selector=".hds-code-block__copy-button"
+      />
+    </SF.Item>
+  </ShwFlex>
 
   <ShwDivider @level={{2}} />
 
