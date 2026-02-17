@@ -11,7 +11,7 @@
 //
 
 .hds-link-inline {
-  border-radius: var(--token-link-inline-border-radius); // this is used by the outline too
+  border-radius: var(--token-border-radius-x-small); // this is used by the outline too
 
   &:focus,
   &.mock-focus,

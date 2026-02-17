@@ -7120,7 +7120,7 @@ button.hds-button[href]::after {
  * SPDX-License-Identifier: MPL-2.0
  */
 .hds-link-inline {
-  border-radius: var(--token-link-inline-border-radius);
+  border-radius: var(--token-border-radius-x-small);
 }
 .hds-link-inline:focus, .hds-link-inline.mock-focus, .hds-link-inline:focus-visible {
   text-decoration: none;
