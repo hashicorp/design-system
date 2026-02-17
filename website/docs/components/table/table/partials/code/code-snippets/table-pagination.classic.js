@@ -20,11 +20,14 @@ export default class LocalComponent extends Component {
 
   @action
   onSelectionChange({ selectableRowsStates }) {
+    // we loop over all the displayed table rows (a subset of the dataset)
     selectableRowsStates.forEach((row) => {
+      // we find the record in the dataset corresponding to the current row
       const recordToUpdate = FOLK_MUSIC_DATA.find(
-        (modelRow) => modelRow.id === row.selectionKey
+        (modelRow) => modelRow.id === row.selectionKey,
       );
       if (recordToUpdate) {
+        // we update the record `isSelected` state based on the row (checkbox) state
         recordToUpdate.isSelected = row.isSelected;
       }
     });

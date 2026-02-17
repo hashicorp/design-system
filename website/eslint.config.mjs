@@ -110,6 +110,19 @@ export default ts.config(
     },
   },
   /**
+   * Table multi-select examples show all the args available for documentation purposes, even if they are not used in the example
+   */
+  {
+    files: [
+      'docs/components/table/table/partials/code/code-snippets/table-multi-select.gts',
+      'docs/components/table/table/partials/code/code-snippets/table-multi-select.classic.js',
+    ],
+    rules: {
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+    },
+  },
+  /**
    * CJS node files
    */
   {
