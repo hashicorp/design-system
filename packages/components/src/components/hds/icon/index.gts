@@ -174,7 +174,9 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   }
 
   get symbolId(): string {
-    const library = this.isCarbon ? 'carbon' : 'flight';
+    const library = this.isCarbon
+      ? HdsIconLibraryValues.Carbon
+      : HdsIconLibraryValues.Flight;
     const key = makeIconKey({ library, name: this.name, size: this.size });
 
     return this.hdsIconRegistry.getSymbolId(key) ?? '';
@@ -184,12 +186,12 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     <svg
       class={{this.classNames}}
       ...attributes
-      aria-hidden="{{if @title 'false' 'true'}}"
+      aria-hidden={{if @title "false" "true"}}
       aria-labelledby={{this.ariaLabelledby}}
       data-test-icon={{this.name}}
       data-has-carbon-equivalent={{this.hasCarbonEquivalent}}
       data-is-carbon={{this.isCarbon}}
-      fill="{{this.fillColor}}"
+      fill={{this.fillColor}}
       id={{this._iconId}}
       role={{this.role}}
       width={{this.svgSize.width}}
@@ -198,16 +200,14 @@ export default class HdsIcon extends Component<HdsIconSignature> {
       xmlns="http://www.w3.org/2000/svg"
       {{this.loadIcon}}
     >
-      {{#let this.symbolId as |symbolId|}}
-        {{#if @title}}
-          <title id={{this._titleId}}>{{@title}}</title>
-          <g role="presentation">
-            <use href="#{{symbolId}}"></use>
-          </g>
-        {{else}}
-          <use href="#{{symbolId}}"></use>
-        {{/if}}
-      {{/let}}
+      {{#if @title}}
+        <title id={{this._titleId}}>{{@title}}</title>
+        <g role="presentation">
+          <use href="#{{this.symbolId}}"></use>
+        </g>
+      {{else}}
+        <use href="#{{this.symbolId}}"></use>
+      {{/if}}
     </svg>
   </template>
 }
