@@ -58,7 +58,6 @@ export function makeSymbolIdFromKey(key: string): string {
 
 export default class HdsIconRegistryService extends Service {
   private _entries = new Map<string, HdsIconRegistryEntry>();
-
   private _signals = new Map<string, HdsIconRegistryServiceKeySignal>();
 
   // queue
@@ -84,7 +83,6 @@ export default class HdsIconRegistryService extends Service {
     signal.version++;
   }
 
-  // if we already know the symbol is loaded, return its symbolId
   getSymbolId(key: string): string | null {
     let signal = this._signals.get(key);
 
@@ -94,7 +92,7 @@ export default class HdsIconRegistryService extends Service {
       this._signals.set(key, signal);
     }
 
-    // this read is the subscription
+    // by reading the `value` we subscribe to future updates and force reactivity when this value is updated
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     signal.version;
 

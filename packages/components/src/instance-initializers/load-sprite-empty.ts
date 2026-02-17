@@ -6,10 +6,9 @@
 import { isTesting } from '@embroider/macros';
 
 export const ROOT_ID = 'flight-sprite-empty-container';
-export const DEFS_ID = 'hds-icon-defs';
 
 function buildHostMarkup(): string {
-  // One hidden SVG element that hosts all <symbol> nodes under a <defs>.
+  // One hidden SVG element that hosts all <symbol> nodes
   // This is intentionally "DOM-only" and not an Ember component so that consumers
   // don't need to mount anything in templates or call initializers manually.
   return `
