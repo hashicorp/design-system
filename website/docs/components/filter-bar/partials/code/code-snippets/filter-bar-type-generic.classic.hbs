@@ -1,14 +1,16 @@
 <Hds::FilterBar @filters={{this.demoGenericFilters}} @onFilter={{this.demoUpdateGenericFilters}} as |F|>
   <F.FiltersDropdown as |D|>
-    <D.FilterGroup @key="demo-generic" @text="Generic" @type="generic" as |F|>
-      <F.Generic as |G|>
-        <Hds::Button
-          @text="Add custom filter"
-          @color="secondary"
-          @size="small"
-          {{on "click" (fn this.onGenericFilterUpdate G.updateFilter)}}
-        />
-      </F.Generic>
+    <D.FilterGroup @key="demo-generic" @text="Generic" @type="generic" @onClear={{this.onClear}} as |FG|>
+      <FG.Generic as |G|>
+        <Hds::Form::TextInput::Field
+          @value={{this.demoGenericName}}
+          {{on "input" (fn this.onGenericNameChange G.updateFilter)}}
+          name="name"
+          as |FT|
+        >
+          <FT.Label>Name</FT.Label>
+        </Hds::Form::TextInput::Field>
+      </FG.Generic>
     </D.FilterGroup>
   </F.FiltersDropdown>
 </Hds::FilterBar>
