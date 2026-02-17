@@ -13,9 +13,11 @@ import {
   HdsFilterBar,
   HdsFormTextInputField,
   HdsTextBody,
-  type HdsFilterBarGenericFilter,
-  type HdsFilterBarGenericFilterData,
 } from '@hashicorp/design-system-components/components';
+import type {
+  HdsFilterBarGenericFilter,
+  HdsFilterBarGenericFilterData,
+} from '@hashicorp/design-system-components/components/hds/filter-bar/types';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 export interface CodeFragmentWithGenericContentSignature {

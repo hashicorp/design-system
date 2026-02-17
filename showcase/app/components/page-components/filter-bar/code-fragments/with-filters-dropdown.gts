@@ -5,10 +5,8 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import {
-  HdsFilterBarFiltersDropdown,
-  type HdsFilterBarFilters,
-} from '@hashicorp/design-system-components/components';
+import { HdsFilterBarFiltersDropdown } from '@hashicorp/design-system-components/components';
+import type { HdsFilterBarFilters } from '@hashicorp/design-system-components/components/hds/filter-bar/types';
 import type { HdsFilterBarFiltersDropdownSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/filters-dropdown';
 
 const EMPTY_FILTERS = {} as HdsFilterBarFilters;
