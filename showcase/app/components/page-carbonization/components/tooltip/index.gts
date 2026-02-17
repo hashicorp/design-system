@@ -16,6 +16,7 @@ import ShwGrid from 'showcase/components/shw/grid';
 import ShwDivider from 'showcase/components/shw/divider';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 
+import hdsTooltip from '@hashicorp/design-system-components/modifiers/hds-tooltip';
 import {
   HdsBadge,
   HdsIcon,
@@ -69,6 +70,10 @@ const TooltipCarbonizationIndex: TemplateOnlyComponent = <template>
             >
               <HdsBadge @icon="activity" @text="Lorem ipsum" />
             </HdsTooltipButton>
+          </SF.Item>
+
+          <SF.Item>
+            <span {{hdsTooltip "Here is more information"}}>hds-tooltip modifier</span>
           </SF.Item>
         </ShwFlex>
       </:theming>
