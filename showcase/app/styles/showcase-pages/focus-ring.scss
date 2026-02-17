@@ -1,0 +1,70 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FOCUS RING
+
+body.page-foundations-focus-ring {
+  .shw-component-accordion-wrapper {
+    max-width: 300px;
+  }
+
+  .shw-component-sim-app-side-nav-list-link-wrapper {
+    max-width: var(--hds-app-side-nav-width-expanded);
+    margin: 0;
+    padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
+    background: var(--token-app-side-nav-color-surface-primary);
+    border: 1px solid var(--token-app-side-nav-wrapper-border-color);
+  }
+
+  .shw-component-sim-toggle-button {
+    height: 80px;
+
+    .hds-app-side-nav__toggle-button {
+      position: relative;
+      transform: none;
+    }
+  }
+
+  .shw-component-code-block-wrapper {
+    max-width: 350px;
+
+    .shw-component-code-block-display-none {
+      display: none;
+    }
+  }
+
+  .shw-component-form-elements-wrapper {
+    max-width: 300px;
+  }
+
+  .shw-component-stepper-wrapper {
+    max-width: 300px;
+  }
+
+  .shw-component-table-container {
+    max-width: 300px;
+  }
+
+  .shw-component-advanced-table-reorder-handle-container {
+    position: relative;
+    width: 40px;
+
+    .hds-advanced-table__th-reorder-handle {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .shw-component-tabs-wrapper {
+    position: relative;
+
+    .hds-tabs__tab-indicator { width: 100%; }
+
+    .shw-component-tabs-sample-ul-wrapper {
+      display: contents;
+      list-style: none;
+    }
+  }
+}
