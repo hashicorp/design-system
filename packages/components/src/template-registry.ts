@@ -131,11 +131,11 @@ import type HdsFormHeaderDescriptionComponent from './components/hds/form/header
 import type HdsFormHeaderTitleComponent from './components/hds/form/header/title';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
-import type HdsFormKeyValueInputsComponent from './components/hds/form/key-value-inputs/index.ts';
-import type HdsFormKeyValueInputsAddRowButtonComponent from './components/hds/form/key-value-inputs/add-row-button.ts';
-import type HdsFormKeyValueInputsDeleteRowButtonComponent from './components/hds/form/key-value-inputs/delete-row-button.ts';
-import type HdsFormKeyValueInputsFieldComponent from './components/hds/form/key-value-inputs/field.ts';
-import type HdsFormKeyValueInputsGenericComponent from './components/hds/form/key-value-inputs/generic.ts';
+import type HdsFormKeyValueInputsComponent from './components/hds/form/key-value-inputs/index.gts';
+import type HdsFormKeyValueInputsAddRowButtonComponent from './components/hds/form/key-value-inputs/add-row-button.gts';
+import type HdsFormKeyValueInputsDeleteRowButtonComponent from './components/hds/form/key-value-inputs/delete-row-button.gts';
+import type HdsFormKeyValueInputsFieldComponent from './components/hds/form/key-value-inputs/field.gts';
+import type HdsFormKeyValueInputsGenericComponent from './components/hds/form/key-value-inputs/generic.gts';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
 import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
