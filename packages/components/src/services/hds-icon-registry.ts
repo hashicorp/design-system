@@ -157,7 +157,7 @@ export default class HdsIconRegistryService extends Service {
 
     try {
       const mod = await loader();
-      const markup = mod.default(symbolId);
+      const markup = mod.default;
 
       // buffer markup for batched injection
       this._pendingByKey.set(key, { symbolId, markup });

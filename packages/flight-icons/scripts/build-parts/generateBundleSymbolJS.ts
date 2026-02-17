@@ -17,7 +17,19 @@ const prettierConfig = {
     trailingComma: 'none'
 } as const;
 
-const getSymbolModule = (sourceSvg: string): string => {
+function makeDomSafeId(value: string): string {
+    return value.replace(/[^a-zA-Z0-9_-]/g, '-');
+}
+
+function makeSymbolId(library: string, name: string, size?: string): string {
+    const key = size 
+        ? `${library}-${name}-${size}` 
+        : `${library}-${name}`;
+    
+    return `hds-icon-${makeDomSafeId(key)}`;
+}
+
+const getSymbolModule = (sourceSvg: string, id: string): string => {
     const viewBoxMatch = sourceSvg.match(/viewBox="([^"]+)"/);
     const viewBox = viewBoxMatch ? viewBoxMatch[1] : '0 0 16 16';
 
@@ -27,9 +39,8 @@ const getSymbolModule = (sourceSvg: string): string => {
 
     innerContent = replaceDynamicColor(innerContent);
 
-    return `export default function (id) {
-        return \`<symbol id="\${id}" viewBox="${viewBox}">${innerContent}</symbol>\`;
-    }`;
+    // OPTIMIZATION: Just a string now!
+    return `export default \`<symbol id="${id}" viewBox="${viewBox}">${innerContent}</symbol>\`;`;
 };
 
 export async function generateBundleSymbolJS({ config, catalog }: { config: ConfigData, catalog: AssetsCatalog }): Promise<void> {
@@ -57,34 +68,43 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
     const registry: Record<string, { flight: Record<string, string>, carbon: string | null }> = {};
 
     for (const { fileName } of catalog.assets) {
-        try {
-            const flightSource = await fs.readFile(`${tempSVGFolderPath}/${fileName}.svg`, 'utf8');
-            const flightContent = await prettier.format(getSymbolModule(flightSource), { ...prettierConfig, parser: 'typescript' });
-            
-            await fs.writeFile(`${flightFolder}/${fileName}.js`, flightContent);
-        } catch (err) {
-            console.error(`Error reading Flight icon: ${fileName}`, err);
-        }
-
         const match = fileName.match(/^(.*)-(16|24)$/);
 
         if (match) {
             const [, baseName, size] = match;
 
+            // --- FLIGHT ---
+            try {
+                // Generate the static ID
+                const symbolId = makeSymbolId('flight', baseName, size);
+                
+                const flightSource = await fs.readFile(`${tempSVGFolderPath}/${fileName}.svg`, 'utf8');
+                // Pass ID to the generator
+                const flightContent = await prettier.format(getSymbolModule(flightSource, symbolId), { ...prettierConfig, parser: 'typescript' });
+                
+                await fs.writeFile(`${flightFolder}/${fileName}.js`, flightContent);
+            } catch (err) {
+                console.error(`Error reading Flight icon: ${fileName}`, err);
+            }
+
+            // --- REGISTRY ---
             if (!registry[baseName]) {
                 registry[baseName] = { flight: {}, carbon: null };
             }
-
             registry[baseName].flight[size] = `() => import('./flight/${fileName}.js')`;
 
+            // --- CARBON ---
             const carbonName = mapping[baseName];
 
             if (carbonName && !registry[baseName].carbon) {
                 const carbonPath = path.join(carbonIconsPath, '32', `${carbonName}.svg`);
 
                 if (fs.existsSync(carbonPath)) {
+                    // Generate the static ID (Carbon has no size suffix in key)
+                    const symbolId = makeSymbolId('carbon', baseName);
+
                     const carbonSource = await fs.readFile(carbonPath, 'utf8');
-                    const carbonContent = await prettier.format(getSymbolModule(carbonSource), { ...prettierConfig, parser: 'typescript' });
+                    const carbonContent = await prettier.format(getSymbolModule(carbonSource, symbolId), { ...prettierConfig, parser: 'typescript' });
 
                     await fs.writeFile(`${carbonFolder}/${baseName}.js`, carbonContent);
                     
@@ -122,7 +142,7 @@ export async function generateBundleSymbolJS({ config, catalog }: { config: Conf
         import type { IconName } from '../svg';
 
         export interface HdsIconModule {
-            default: (id: string) => string;
+            default: string; 
         }
 
         export interface HdsIconRegistryEntry {
