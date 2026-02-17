@@ -159,7 +159,7 @@ In this case the table layout is still set to `auto` (default). If instead you w
 
 A multi-select table includes checkboxes enabling users to select multiple rows in a table for purposes of performing bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
 
-Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected table rows change. You must also pass a `selectionKey` to each row which gets passed back through the `onSelectionChange` callback which maps the row selection on the table to an item in your data model.
+Add `isSelectable=true` to create a multi-select table. The `@onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected table rows change. You must also pass a `@selectionKey` argument to each row which gets passed back through the `@onSelectionChange` callback which maps the row selection on the table to an item in your data model.
 
 #### Multi-select table using a model
 
