@@ -479,6 +479,25 @@
     0 0 0 1px #656a7626, 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --token-surface-overlay-box-shadow:
     0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --token-tooltip-border-radius: var(--token-border-radius-small);
+  --token-tooltip-box-shadow: var(--token-elevation-higher-box-shadow);
+  --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%230C0C0E'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+  --token-tooltip-caret-height: 7px;
+  --token-tooltip-caret-width: 16px;
+  --token-tooltip-max-width: 280px;
+  --token-tooltip-padding-horizontal: 12px;
+  --token-tooltip-padding-vertical: 8px;
+  --token-tooltip-surface-color: var(--token-color-palette-neutral-700);
+  --token-tooltip-typography-font-size: var(
+    --token-typography-body-200-font-size
+  );
+  --token-tooltip-typography-font-weight: var(
+    --token-typography-font-weight-regular
+  );
+  --token-tooltip-typography-letter-spacing: 0px;
+  --token-tooltip-typography-line-height: var(
+    --token-typography-body-200-line-height
+  );
   --token-typography-body-100-font-family: var(
     --token-typography-font-stack-text
   );
@@ -854,6 +873,19 @@
     --token-surface-overlay-box-shadow:
       0 0 0 1px #39393940, 0px 2px 3px 0px #39393940,
       0px 12px 24px 0px #39393959;
+    --token-tooltip-border-radius: 2px;
+    --token-tooltip-box-shadow: none;
+    --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23393939'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+    --token-tooltip-caret-height: 6px;
+    --token-tooltip-caret-width: 12px;
+    --token-tooltip-max-width: 288px;
+    --token-tooltip-padding-horizontal: 16px;
+    --token-tooltip-padding-vertical: 16px;
+    --token-tooltip-surface-color: #393939;
+    --token-tooltip-typography-font-size: 0.875rem;
+    --token-tooltip-typography-font-weight: 400;
+    --token-tooltip-typography-letter-spacing: 0.16px;
+    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1232,6 +1264,19 @@
     --token-surface-overlay-box-shadow:
       0 0 0 1px #39393940, 0px 2px 3px 0px #39393940,
       0px 12px 24px 0px #39393959;
+    --token-tooltip-border-radius: 2px;
+    --token-tooltip-box-shadow: none;
+    --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23F4F4F4'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+    --token-tooltip-caret-height: 6px;
+    --token-tooltip-caret-width: 12px;
+    --token-tooltip-max-width: 288px;
+    --token-tooltip-padding-horizontal: 16px;
+    --token-tooltip-padding-vertical: 16px;
+    --token-tooltip-surface-color: #f4f4f4;
+    --token-tooltip-typography-font-size: 0.875rem;
+    --token-tooltip-typography-font-weight: 400;
+    --token-tooltip-typography-letter-spacing: 0.16px;
+    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1606,6 +1651,19 @@
     0 0 0 1px #52525226, 0px 2px 3px 0px #5252521a, 0px 8px 16px -10px #52525233;
   --token-surface-overlay-box-shadow:
     0 0 0 1px #39393940, 0px 2px 3px 0px #39393940, 0px 12px 24px 0px #39393959;
+  --token-tooltip-border-radius: 2px;
+  --token-tooltip-box-shadow: none;
+  --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23393939'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+  --token-tooltip-caret-height: 6px;
+  --token-tooltip-caret-width: 12px;
+  --token-tooltip-max-width: 288px;
+  --token-tooltip-padding-horizontal: 16px;
+  --token-tooltip-padding-vertical: 16px;
+  --token-tooltip-surface-color: #393939;
+  --token-tooltip-typography-font-size: 0.875rem;
+  --token-tooltip-typography-font-weight: 400;
+  --token-tooltip-typography-letter-spacing: 0.16px;
+  --token-tooltip-typography-line-height: 1.42857;
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
@@ -1979,6 +2037,19 @@
     0 0 0 1px #52525226, 0px 2px 3px 0px #5252521a, 0px 8px 16px -10px #52525233;
   --token-surface-overlay-box-shadow:
     0 0 0 1px #39393940, 0px 2px 3px 0px #39393940, 0px 12px 24px 0px #39393959;
+  --token-tooltip-border-radius: 2px;
+  --token-tooltip-box-shadow: none;
+  --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23F4F4F4'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+  --token-tooltip-caret-height: 6px;
+  --token-tooltip-caret-width: 12px;
+  --token-tooltip-max-width: 288px;
+  --token-tooltip-padding-horizontal: 16px;
+  --token-tooltip-padding-vertical: 16px;
+  --token-tooltip-surface-color: #f4f4f4;
+  --token-tooltip-typography-font-size: 0.875rem;
+  --token-tooltip-typography-font-weight: 400;
+  --token-tooltip-typography-letter-spacing: 0.16px;
+  --token-tooltip-typography-line-height: 1.42857;
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
@@ -2305,14 +2376,14 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-tabs-tab-padding-horizontal-large: 20px;
   --token-tabs-tab-padding-horizontal-medium: 12px;
   --token-tabs-tab-padding-vertical: 0px;
-  --token-tooltip-border-radius: 5px;
   --token-tooltip-color-foreground-primary: var(
     --token-color-foreground-high-contrast
   );
   --token-tooltip-color-surface-primary: var(--token-color-palette-neutral-700);
   --token-tooltip-focus-offset: -2px;
-  --token-tooltip-max-width: 280px;
-  --token-tooltip-padding-horizontal: 12px;
-  --token-tooltip-padding-vertical: 8px;
+  --token-tooltip-foreground-color: var(--token-color-foreground-high-contrast);
   --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+  --token-tooltip-typography-font-family: var(
+    --token-typography-body-200-font-family
+  );
 }

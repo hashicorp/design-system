@@ -286,6 +286,19 @@
   --token-surface-low-box-shadow: 0 0 0 1px #656a7626, 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
   --token-surface-mid-box-shadow: 0 0 0 1px #656a7626, 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --token-tooltip-border-radius: var(--token-border-radius-small);
+  --token-tooltip-box-shadow: var(--token-elevation-higher-box-shadow);
+  --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%230C0C0E'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+  --token-tooltip-caret-height: 7px;
+  --token-tooltip-caret-width: 16px;
+  --token-tooltip-max-width: 280px;
+  --token-tooltip-padding-horizontal: 12px;
+  --token-tooltip-padding-vertical: 8px;
+  --token-tooltip-surface-color: var(--token-color-palette-neutral-700);
+  --token-tooltip-typography-font-size: var(--token-typography-body-200-font-size);
+  --token-tooltip-typography-font-weight: var(--token-typography-font-weight-regular);
+  --token-tooltip-typography-letter-spacing: 0px;
+  --token-tooltip-typography-line-height: var(--token-typography-body-200-line-height);
   --token-typography-body-100-font-family: var(--token-typography-font-stack-text);
   --token-typography-body-100-font-size: 0.8125rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.3846; /** 18px */
