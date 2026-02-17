@@ -6,12 +6,12 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-import { HdsTableScopeValues } from './types.ts';
+// import { HdsTableScopeValues } from './types.ts';
 import HdsTableThSelectable from './th-selectable.gts';
 
 import type { HdsTableScope, HdsTableThSortOrder } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
-import type { HdsTableSignature } from './index.ts';
+import type { HdsTableSignature } from './index.gts';
 import type { HdsTableThSelectableSignature } from './th-selectable.gts';
 
 export interface BaseHdsTableTrSignature {
@@ -40,19 +40,24 @@ export interface BaseHdsTableTrSignature {
   Element: HTMLTableRowElement;
 }
 
+/*
+ * NOTE: There is currently an issue with `WithBoundArgs` or Glint that causes a typing error where @selectionKey is set as always required.
+ *
+ * Until this is fixed, we are holding off on doing a union with the SelectableHdsTableTrArgs
+ */
+
 // Extended interface for selectable rows
-export interface SelectableHdsTableTrArgs extends BaseHdsTableTrSignature {
-  Args: BaseHdsTableTrSignature['Args'] & {
-    isSelectable: true;
-    selectionScope?: HdsTableScopeValues.Row;
-    selectionKey: string; // Now required for selectable rows
-  };
-}
+// export interface SelectableHdsTableTrArgs extends BaseHdsTableTrSignature {
+//   Args: BaseHdsTableTrSignature['Args'] & {
+//     isSelectable: true;
+//     selectionScope?: HdsTableScopeValues.Row;
+//     selectionKey: string; // Now required for selectable rows
+//   };
+// }
 
 // Union type to combine both possible states
-export type HdsTableTrSignature =
-  | BaseHdsTableTrSignature
-  | SelectableHdsTableTrArgs;
+export type HdsTableTrSignature = BaseHdsTableTrSignature;
+// | SelectableHdsTableTrArgs;
 
 export default class HdsTableTr extends Component<HdsTableTrSignature> {
   get selectionKey(): string | undefined {
