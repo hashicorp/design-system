@@ -216,13 +216,13 @@ export { default as HdsFormSelectBase } from './components/hds/form/select/base.
 export { default as HdsFormSelectField } from './components/hds/form/select/field.gts';
 
 // Form > SuperSelect
-export { default as HdsFormSuperSelectSingleBase } from './components/hds/form/super-select/single/base.ts';
-export { default as HdsFormSuperSelectSingleField } from './components/hds/form/super-select/single/field.ts';
-export { default as HdsFormSuperSelectMultipleBase } from './components/hds/form/super-select/multiple/base.ts';
-export { default as HdsFormSuperSelectMultipleField } from './components/hds/form/super-select/multiple/field.ts';
-export { default as HdsFormSuperSelectAfterOptions } from './components/hds/form/super-select/after-options.ts';
-export { default as HdsFormSuperSelectOptionGroup } from './components/hds/form/super-select/option-group.ts';
-export { default as HdsFormSuperSelectPlaceholder } from './components/hds/form/super-select/placeholder.ts';
+export { default as HdsFormSuperSelectSingleBase } from './components/hds/form/super-select/single/base.gts';
+export { default as HdsFormSuperSelectSingleField } from './components/hds/form/super-select/single/field.gts';
+export { default as HdsFormSuperSelectMultipleBase } from './components/hds/form/super-select/multiple/base.gts';
+export { default as HdsFormSuperSelectMultipleField } from './components/hds/form/super-select/multiple/field.gts';
+export { default as HdsFormSuperSelectAfterOptions } from './components/hds/form/super-select/after-options.gts';
+export { default as HdsFormSuperSelectOptionGroup } from './components/hds/form/super-select/option-group.gts';
+export { default as HdsFormSuperSelectPlaceholder } from './components/hds/form/super-select/placeholder.gts';
 export * from './components/hds/form/super-select/types.ts';
 
 // Form > Textarea
