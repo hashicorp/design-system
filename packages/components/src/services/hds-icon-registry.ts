@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import { tracked } from '@glimmer/tracking';
+import { TrackedMap } from 'tracked-built-ins';
 import { ROOT_ID } from '../instance-initializers/load-sprite-empty.ts';
 import { HdsIconLibraryValues } from '../components.ts';
 
@@ -28,10 +28,6 @@ export interface HdsIconDefinition {
   size: HdsIconSizes;
 }
 
-class HdsIconRegistryServiceKeySignal {
-  @tracked version = 0;
-}
-
 function hasDOM(): boolean {
   return typeof window !== 'undefined' && typeof document !== 'undefined';
 }
@@ -55,8 +51,7 @@ export function makeSymbolIdFromKey(key: string): string {
 }
 
 export default class HdsIconRegistryService extends Service {
-  private _entries = new Map<string, HdsIconRegistryEntry>();
-  private _signals = new Map<string, HdsIconRegistryServiceKeySignal>();
+  private _entries = new TrackedMap<string, HdsIconRegistryEntry>();
 
   // queue
   private _queue: Array<{ key: string; loader: HdsIconLoader }> = [];
@@ -70,17 +65,6 @@ export default class HdsIconRegistryService extends Service {
   >();
   private _flushScheduled = false;
 
-  private _bumpKey(key: string): void {
-    let signal = this._signals.get(key);
-
-    if (signal === undefined) {
-      signal = new HdsIconRegistryServiceKeySignal();
-      this._signals.set(key, signal);
-    }
-
-    signal.version++;
-  }
-
   private _makeKey({ library, name, size }: HdsIconDefinition): string {
     return library === HdsIconLibraryValues.Flight
       ? `${library}-${name}-${size}`
@@ -89,19 +73,6 @@ export default class HdsIconRegistryService extends Service {
 
   getSymbolId(definition: HdsIconDefinition): string | null {
     const key = this._makeKey(definition);
-
-    let signal = this._signals.get(key);
-
-    if (signal === undefined) {
-      signal = new HdsIconRegistryServiceKeySignal();
-
-      this._signals.set(key, signal);
-    }
-
-    // by reading the `value` we subscribe to future updates and force reactivity when this value is updated
-    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-    signal.version;
-
     const entry = this._entries.get(key);
 
     // if loaded, return the ID
@@ -114,41 +85,40 @@ export default class HdsIconRegistryService extends Service {
 
   requestLoad(definition: HdsIconDefinition, loader: HdsIconLoader): void {
     const key = this._makeKey(definition);
-    const entry = this._entries.get(key);
 
-    // if we already have an entry do nothing
-    if (entry !== undefined) {
+    if (this._entries.has(key)) {
       return;
     }
 
-    // if it's new, set up the entry and queue it.
-    const symbolId = makeSymbolIdFromKey(key);
+    // defer the write to a microtask
+    void Promise.resolve().then(() => {
+      // re-check existence (state might have changed in the microsecond interim)
+      if (this._entries.has(key)) {
+        return;
+      }
 
-    if (this._symbolExists(symbolId)) {
+      const symbolId = makeSymbolIdFromKey(key);
+
+      if (this._symbolExists(symbolId)) {
+        this._entries.set(key, {
+          symbolId,
+          status: HdsIconRegistryLoadStatusValues.Loaded,
+        });
+        return;
+      }
+
+      if (!hasDOM()) {
+        return;
+      }
+
       this._entries.set(key, {
         symbolId,
-        status: HdsIconRegistryLoadStatusValues.Loaded,
+        status: HdsIconRegistryLoadStatusValues.Queued,
       });
 
-      window.requestAnimationFrame(() => {
-        this._bumpKey(key);
-      });
-
-      return;
-    }
-
-    if (!hasDOM()) {
-      return;
-    }
-
-    this._entries.set(key, {
-      symbolId,
-      status: HdsIconRegistryLoadStatusValues.Queued,
+      this._queue.push({ key, loader });
+      this._drainQueue();
     });
-
-    this._queue.push({ key, loader });
-
-    this._drainQueue();
   }
 
   private _drainQueue(): void {
@@ -192,11 +162,6 @@ export default class HdsIconRegistryService extends Service {
       // buffer markup for batched injection
       this._pendingByKey.set(key, { symbolId, markup });
       this._scheduleFlush();
-
-      this._entries.set(key, {
-        symbolId,
-        status: HdsIconRegistryLoadStatusValues.Loaded,
-      });
     } catch (e) {
       this._entries.set(key, {
         symbolId,
@@ -232,13 +197,13 @@ export default class HdsIconRegistryService extends Service {
 
       // combine into one insertion
       let combined = '';
-      const keysToBump: string[] = [];
+      const keysToUpdate: string[] = [];
 
       for (const [key, { symbolId, markup }] of this._pendingByKey) {
         if (!this._symbolExists(symbolId)) {
           combined += markup;
 
-          keysToBump.push(key);
+          keysToUpdate.push(key);
         }
       }
 
@@ -247,8 +212,15 @@ export default class HdsIconRegistryService extends Service {
       if (combined.length > 0) {
         root.insertAdjacentHTML('beforeend', combined);
 
-        for (const key of keysToBump) {
-          this._bumpKey(key);
+        // update entries to `Loaded`
+        for (const key of keysToUpdate) {
+          const entry = this._entries.get(key);
+          if (entry) {
+            this._entries.set(key, {
+              ...entry,
+              status: HdsIconRegistryLoadStatusValues.Loaded,
+            });
+          }
         }
       }
     });
