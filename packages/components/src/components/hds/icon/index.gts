@@ -10,7 +10,6 @@ import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 import { iconNames } from '@hashicorp/flight-icons/svg';
 import { IconRegistry } from '@hashicorp/flight-icons/symbol-js/registry';
-import { makeIconKey } from '@hashicorp/design-system-components/services/hds-icon-registry';
 import {
   HdsIconSizeValues,
   HdsIconColorValues,
@@ -21,6 +20,7 @@ import type { IconName } from '@hashicorp/flight-icons/svg';
 import type { HdsIconRegistryEntry } from '@hashicorp/flight-icons/symbol-js/registry';
 import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import type HdsIconRegistryService from '@hashicorp/design-system-components/services/hds-icon-registry';
+import type { HdsIconDefinition } from '@hashicorp/design-system-components/services/hds-icon-registry';
 import type { HdsIconSizes, HdsIconColors, HdsIconLoader } from './types.ts';
 
 export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
@@ -46,14 +46,15 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   private _iconId = 'icon-' + guidFor(this);
   private _titleId = 'title-' + guidFor(this);
 
-  loadIcon = modifier(() => {
-    const library = this.isCarbon
-      ? HdsIconLibraryValues.Carbon
-      : HdsIconLibraryValues.Flight;
-    const key = makeIconKey({ library, name: this.name, size: this.size });
-
-    this.hdsIconRegistry.requestLoad(key, this.loader);
-  });
+  get definition(): HdsIconDefinition {
+    return {
+      name: this.name,
+      size: this.size,
+      library: this.isCarbon
+        ? HdsIconLibraryValues.Carbon
+        : HdsIconLibraryValues.Flight,
+    };
+  }
 
   get name(): HdsIconSignature['Args']['name'] {
     const { name } = this.args;
@@ -174,13 +175,12 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   }
 
   get symbolId(): string {
-    const library = this.isCarbon
-      ? HdsIconLibraryValues.Carbon
-      : HdsIconLibraryValues.Flight;
-    const key = makeIconKey({ library, name: this.name, size: this.size });
-
-    return this.hdsIconRegistry.getSymbolId(key) ?? '';
+    return this.hdsIconRegistry.getSymbolId(this.definition) ?? '';
   }
+
+  loadIcon = modifier(() => {
+    this.hdsIconRegistry.requestLoad(this.definition, this.loader);
+  });
 
   <template>
     <svg
