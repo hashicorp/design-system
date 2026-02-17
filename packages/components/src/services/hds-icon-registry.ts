@@ -3,7 +3,11 @@ import { tracked } from '@glimmer/tracking';
 import { ROOT_ID } from '../instance-initializers/load-sprite-empty.ts';
 import { HdsIconLibraryValues } from '../components.ts';
 
-import type { HdsIconLoader, HdsIconLibraries } from '../components';
+import type {
+  HdsIconLoader,
+  HdsIconLibraries,
+  HdsIconSizes,
+} from '../components';
 
 enum HdsIconRegistryLoadStatusValues {
   Queued = 'queued',
@@ -17,6 +21,12 @@ type HdsIconRegistryEntry = {
   symbolId: string;
   error?: unknown;
 };
+
+export interface HdsIconDefinition {
+  name: string;
+  library: HdsIconLibraries;
+  size: HdsIconSizes;
+}
 
 class HdsIconRegistryServiceKeySignal {
   @tracked version = 0;
@@ -39,18 +49,6 @@ const MAX_CONCURRENT_LOADS = Math.min(
     (typeof navigator !== 'undefined' ? navigator.hardwareConcurrency : 0) * 2
   ) || MAX_CONCURRENT_LOADS_CAP
 );
-
-export function makeIconKey(args: {
-  library: HdsIconLibraries;
-  name: string;
-  size: string | number;
-}): string {
-  const { library, name, size } = args;
-
-  return library === HdsIconLibraryValues.Flight
-    ? `${library}-${name}-${size}`
-    : `${library}-${name}`;
-}
 
 export function makeSymbolIdFromKey(key: string): string {
   return `hds-icon-${makeDomSafeId(key)}`;
@@ -83,7 +81,15 @@ export default class HdsIconRegistryService extends Service {
     signal.version++;
   }
 
-  getSymbolId(key: string): string | null {
+  private _makeKey({ library, name, size }: HdsIconDefinition): string {
+    return library === HdsIconLibraryValues.Flight
+      ? `${library}-${name}-${size}`
+      : `${library}-${name}`;
+  }
+
+  getSymbolId(definition: HdsIconDefinition): string | null {
+    const key = this._makeKey(definition);
+
     let signal = this._signals.get(key);
 
     if (signal === undefined) {
@@ -106,7 +112,8 @@ export default class HdsIconRegistryService extends Service {
     return null;
   }
 
-  requestLoad(key: string, loader: HdsIconLoader): void {
+  requestLoad(definition: HdsIconDefinition, loader: HdsIconLoader): void {
+    const key = this._makeKey(definition);
     const entry = this._entries.get(key);
 
     // if we already have an entry do nothing
