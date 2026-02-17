@@ -29,4 +29,14 @@ export default class HdsFormKeyValueInputsGeneric extends Component<HdsFormKeyVa
       }
     };
   });
+
+  <template>
+    <div
+      class="hds-form-key-value-inputs__generic-container"
+      {{this._onInsert}}
+      ...attributes
+    >
+      {{yield}}
+    </div>
+  </template>
 }

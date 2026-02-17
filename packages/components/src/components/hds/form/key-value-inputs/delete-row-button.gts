@@ -3,8 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import { on } from '@ember/modifier';
+
+import HdsButton from '../../button/index.gts';
 
 import type { HdsButtonSignature } from '../../button/index.gts';
 
@@ -44,12 +46,29 @@ export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsF
     return this.args.text ?? `Delete row ${this.args.rowIndex + 1}`;
   }
 
-  @action
-  onClick(): void {
+  onClick = (): void => {
     const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
       onClick(this.args.rowData, this.args.rowIndex);
     }
-  }
+  };
+
+  <template>
+    <span
+      class="hds-form-key-value-inputs__delete-row-button-container"
+      {{this._onInsert}}
+    >
+      <HdsButton
+        @text={{this.text}}
+        @size="medium"
+        @color="secondary"
+        @icon="trash"
+        @isIconOnly={{true}}
+        class="hds-form-key-value-inputs__delete-row-button"
+        {{on "click" this.onClick}}
+        ...attributes
+      />
+    </span>
+  </template>
 }

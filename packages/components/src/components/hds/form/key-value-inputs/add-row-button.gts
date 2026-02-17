@@ -3,7 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { on } from '@ember/modifier';
+
+import HdsButton from '../../button/index.gts';
 
 import type { HdsButtonSignature } from '../../button/index.gts';
 
@@ -20,12 +22,25 @@ export default class HdsFormKeyValueInputsAddRowButton extends Component<HdsForm
     return this.args.text ?? 'Add row';
   }
 
-  @action
-  onClick(): void {
+  onClick = (): void => {
     const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
       onClick();
     }
-  }
+  };
+
+  <template>
+    <HdsButton
+      @text={{this.text}}
+      @size="medium"
+      @color="secondary"
+      @icon="plus"
+      @iconPosition="leading"
+      class="hds-form-key-value-inputs__add-row-button"
+      aria-description="Adds a new row of one or more inputs at the end of the form field. Press shift tab to move focus back to the newly added row."
+      {{on "click" this.onClick}}
+      ...attributes
+    />
+  </template>
 }
