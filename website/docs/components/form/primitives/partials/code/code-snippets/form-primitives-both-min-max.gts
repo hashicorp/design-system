@@ -14,7 +14,6 @@ export default class LocalComponent extends Component {
   };
 
   <template>
-    {{! TODO: Fix }}
     {{! template-lint-disable require-input-label }}
     <input
       type="text"
