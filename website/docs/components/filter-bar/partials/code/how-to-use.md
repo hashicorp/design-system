@@ -99,7 +99,19 @@ The dismissible filter tag will display the `label` for a given filter, and if t
 
 [[code-snippets/filter-bar-type-generic-array]]
 
-[[code-snippets/filter-bar-type-generic-array-data execute=false]]
+```javascript
+// example of filter data
+const demoGenericArrayFilters = {
+  'demo-generic-array': {
+    type: 'generic',
+    text: 'Generic',
+    data: [
+      { value: 'Name 1', label: 'Name 1' },
+      { value: 'Name 2', dismissTagText: 'equals Name 2' }
+    ]
+  }
+};
+```
 
 ### Search
 
