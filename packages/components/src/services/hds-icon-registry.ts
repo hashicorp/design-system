@@ -10,10 +10,10 @@ import type {
 } from '../components';
 
 enum HdsIconRegistryLoadStatusValues {
-  Queued = 'queued',
-  Loading = 'loading',
-  Loaded = 'loaded',
-  Error = 'error',
+  Queued = 'queued', // request received and waiting in the queue
+  Loading = 'loading', // network request in progress
+  Loaded = 'loaded', // icon has been loaded and injected into the DOM
+  Error = 'error', // icon failed to load or inject
 }
 
 type HdsIconRegistryEntry = {
