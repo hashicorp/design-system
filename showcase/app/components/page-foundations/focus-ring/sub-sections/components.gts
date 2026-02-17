@@ -1002,85 +1002,116 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
 
   <ShwTextH4 @tag="h3">AdvancedTable</ShwTextH4>
 
-  <ShwTextBody>ThSort</ShwTextBody>
-  <div
-    class="hds-advanced-table shw-component-table-container"
-    role="grid"
-    {{style gridTemplateColumns="repeat(1, 1fr)"}}
-  >
-    <div class="hds-advanced-table__thead" role="rowgroup">
-      <div class="hds-advanced-table__tr" role="row">
-        <HdsAdvancedTableThSort
-          mock-state-value="focus"
-          mock-state-selector="button"
-          @tooltip="Here is more information"
-        >
-          Lorem
-        </HdsAdvancedTableThSort>
-      </div>
-    </div>
-    <div class="hds-advanced-table__tbody" role="rowgroup">
-      <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
-    </div>
-  </div>
-
   <ShwTextBody>Th</ShwTextBody>
-  <div
-    class="hds-advanced-table shw-component-table-container"
-    role="grid"
-    {{style gridTemplateColumns="1fr"}}
-  >
-    <div class="hds-advanced-table__thead" role="rowgroup">
-      <div class="hds-advanced-table__tr" role="row">
-        <HdsAdvancedTableTh
-          @isExpandable={{true}}
-          @hasExpandAllButton={{true}}
-          @tooltip="Here is more information"
-          mock-state-value="focus"
-          mock-state-selector="button"
-        >
-          Lorem ipsum
-        </HdsAdvancedTableTh>
-      </div>
-    </div>
-    <div class="hds-advanced-table__tbody" role="rowgroup">
-      <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
-    </div>
-  </div>
-
-  <ShwTextBody>ThSelectable</ShwTextBody>
-  <ShwFlex @direction="row" @gap="2rem" as |SF|>
-    {{#let (array false true) as |booleans|}}
-      {{#each booleans as |bool|}}
+  <ShwFlex @direction="column" as |SF|>
+    {{#let (array "" "button") as |selectors|}}
+      {{#each selectors as |selector|}}
         <SF.Item>
           <div
-            class="hds-advanced-table hds-advanced-table--density-medium shw-component-table-container"
+            class="hds-advanced-table shw-component-table-container"
             role="grid"
-            {{style gridTemplateColumns="auto 1fr"}}
+            {{style gridTemplateColumns="1fr"}}
           >
             <div class="hds-advanced-table__thead" role="rowgroup">
               <div class="hds-advanced-table__tr" role="row">
-                <HdsAdvancedTableThSelectable
-                  @selectionScope="col"
-                  @isSelected={{bool}}
+                <HdsAdvancedTableTh
+                  @isExpandable={{true}}
+                  @hasExpandAllButton={{true}}
+                  @tooltip="Here is more information"
                   mock-state-value="focus"
-                  mock-state-selector="input"
-                />
-                <HdsAdvancedTableTh>Lorem</HdsAdvancedTableTh>
+                  mock-state-selector={{selector}}
+                >
+                  Lorem ipsum
+                </HdsAdvancedTableTh>
               </div>
             </div>
             <div class="hds-advanced-table__tbody" role="rowgroup">
               <div class="hds-advanced-table__tr" role="row">
-                <HdsAdvancedTableThSelectable
-                  @selectionScope="row"
-                  @isSelected={{bool}}
-                  mock-state-value="focus"
-                  mock-state-selector="input"
-                />
-                <HdsAdvancedTableTd>Ipsum</HdsAdvancedTableTd>
+                <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
               </div>
             </div>
           </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </ShwFlex>
+
+  <ShwTextBody>ThSort</ShwTextBody>
+  <ShwFlex @direction="column" as |SF|>
+    {{#let (array "" "button") as |selectors|}}
+      {{#each selectors as |selector|}}
+        <SF.Item>
+          <div
+            class="hds-advanced-table shw-component-table-container"
+            role="grid"
+            {{style gridTemplateColumns="repeat(1, 1fr)"}}
+          >
+            <div class="hds-advanced-table__thead" role="rowgroup">
+              <div class="hds-advanced-table__tr" role="row">
+                <HdsAdvancedTableThSort
+                  @tooltip="Here is more information"
+                  mock-state-value="focus"
+                  mock-state-selector={{selector}}
+                >
+                  Lorem
+                </HdsAdvancedTableThSort>
+              </div>
+            </div>
+            <div class="hds-advanced-table__tbody" role="rowgroup">
+              <div class="hds-advanced-table__tr" role="row">
+                <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
+              </div>
+            </div>
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </ShwFlex>
+
+  <ShwTextBody>ThSelectable</ShwTextBody>
+  <ShwFlex @direction="column" as |SF|>
+    {{#let (array "" "input") as |selectors|}}
+      {{#each selectors as |selector|}}
+        <SF.Item>
+          <ShwFlex @direction="row" @gap="0.5rem" as |SF|>
+            {{#let (array false true) as |booleans|}}
+              {{#each booleans as |bool|}}
+                <SF.Item>
+                  <div
+                    class="hds-advanced-table hds-advanced-table--density-medium shw-component-table-container"
+                    role="grid"
+                    {{style gridTemplateColumns="auto 1fr"}}
+                  >
+                    <div class="hds-advanced-table__thead" role="rowgroup">
+                      <div class="hds-advanced-table__tr" role="row">
+                        <HdsAdvancedTableThSelectable
+                          @selectionScope="col"
+                          @isSelected={{bool}}
+                          mock-state-value="focus"
+                          mock-state-selector={{selector}}
+                        />
+                        <HdsAdvancedTableTh>Lorem</HdsAdvancedTableTh>
+                      </div>
+                    </div>
+                    <div class="hds-advanced-table__tbody" role="rowgroup">
+                      <div
+                        class="hds-advanced-table__tr hds-advanced-table__tr--last-row"
+                        role="row"
+                      >
+                        <HdsAdvancedTableThSelectable
+                          @selectionScope="row"
+                          @isSelected={{bool}}
+                          mock-state-value="focus"
+                          mock-state-selector={{selector}}
+                        />
+                        <HdsAdvancedTableTd>Ipsum</HdsAdvancedTableTd>
+                      </div>
+                    </div>
+                  </div>
+                </SF.Item>
+              {{/each}}
+            {{/let}}
+          </ShwFlex>
         </SF.Item>
       {{/each}}
     {{/let}}
@@ -1125,6 +1156,33 @@ const SubSectionComponents: TemplateOnlyComponent = <template>
       @onReorderDragStart={{NOOP}}
       @onReorderDragEnd={{NOOP}}
     />
+  </div>
+
+  <ShwTextBody>Td</ShwTextBody>
+  <div
+    class="hds-advanced-table hds-advanced-table--density-medium shw-component-table-container"
+    role="grid"
+    {{style gridTemplateColumns="1fr"}}
+  >
+    <div class="hds-advanced-table__thead" role="rowgroup">
+      <div class="hds-advanced-table__tr" role="row">
+        <HdsAdvancedTableTh
+          @isExpandable={{false}}
+          @hasExpandAllButton={{false}}
+          @tooltip="Here is more information"
+        >
+          Lorem ipsum
+        </HdsAdvancedTableTh>
+      </div>
+    </div>
+    <div class="hds-advanced-table__tbody" role="rowgroup">
+      <div
+        class="hds-advanced-table__tr hds-advanced-table__tr--last-row"
+        role="row"
+      >
+        <HdsAdvancedTableTd mock-state-value="focus">Dolor sit amet</HdsAdvancedTableTd>
+      </div>
+    </div>
   </div>
 
   <ShwDivider @level={{2}} />
