@@ -79,14 +79,6 @@ The `controlId` value will be used to generate an ID, prefixed with `error-`, so
 [[code-snippets/form-primitives-error]]
 
 If the error is made up of multiple messages, it’s possible to iterate over a collection of error messages.
-<!-- TODO: NOT WORKING IN CODE-SNIPPET VERSION
-```handlebars
-<Hds::Form::Error @controlId="control-ID" as |Error|>
-  {{#each this.SAMPLE_ERROR_MESSAGES as |message|}}
-    <Error.Message>{{message}}</Error.Message>
-  {{/each}}
-</Hds::Form::Error>
-``` -->
 
 [[code-snippets/form-primitives-error-iteration]]
 
