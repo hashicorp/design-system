@@ -3,25 +3,25 @@
 ---
 
 <!-- START components/app-footer -->
-`AppFooter` -  Remove usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead just forward the arguments to `HdsLinkInline`.
+`AppFooter` -  Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsLinkInline`.
 <!-- END -->
 
 <!-- START components/app-header -->
-`AppHeader` - Remove usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead just forward the arguments to `HdsInteractive`.
+`AppHeader` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
 <!-- END -->
 
 <!-- START components/button -->
-`Button` - Remove usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead just forward the arguments to `HdsInteractive`.
+`Button` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
 <!-- END -->
 
 <!-- START components/link/inline -->
-`LinkInline` - Remove usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead just forward the arguments to `HdsInteractive`.
+`LinkInline` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
 <!-- END -->
 
 <!-- START components/link/standalone -->
-`LinkStandalone` - Remove usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead just forward the arguments to `HdsInteractive`.
+`LinkStandalone` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
 <!-- END -->
 
 <!-- START components/tag -->
-`Tag` - Remove usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead just forward the arguments to `HdsInteractive`.
+`Tag` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
 <!-- END -->
