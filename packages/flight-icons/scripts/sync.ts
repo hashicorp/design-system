@@ -89,7 +89,6 @@ async function sync() {
             fs.writeJsonSync(`${config.mainFolder}/catalog.json`, assetsCatalog, { spaces: 2 });
 
             console.log('Generating "catalog.d.ts" type definitions');
-            generateTypes(assetsCatalog, `${config.mainFolder}/catalog.d.ts`);
         } catch (err) {
             console.error(err);
         }
@@ -97,27 +96,4 @@ async function sync() {
     } else {
         console.log(chalk.red(`WARNING:\nThe number of assets retrieved (${assetsExportedIDs.length}) and the number of assets expected (${assetsExpectedIDs.length}) are different. Please check why, this is unexpected.`));
     }
-}
-
-function generateTypes(catalog: InputCatalog, outputPath: string) {
-    // construct the .d.ts content
-    const fileContent = `
-import type { IconName } from './svg';
-
-export interface IconAsset {
-    iconName: IconName;
-    category: string;
-    size: string;
-    [key: string]: unknown; 
-}
-
-export interface IconCatalog {
-    assets: IconAsset[];
-}
-
-declare const catalog: IconCatalog;
-export default catalog;
-`;
-
-    fs.writeFileSync(outputPath, fileContent);
 }
