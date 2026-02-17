@@ -80,7 +80,6 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-radius: 0px;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -130,11 +129,9 @@
   --token-button-typography-font-size-large: 0.875rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.875rem;
-  --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
-  --token-card-surface-color-primary: #f4f4f4;
-  --token-card-surface-color-secondary: #ffffff;
+  --token-button-typography-line-height-large: 1.2858;
+  --token-button-typography-line-height-medium: 1.2858;
+  --token-button-typography-line-height-small: 1.2858;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;
   --token-color-border-faint: #e0e0e0;
@@ -278,15 +275,6 @@
   --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
   --token-modal-header-tagline-color-critical: #525252;
   --token-modal-header-tagline-color-warning: #525252;
-  --token-pagination-bar-border-color: #c6c6c6;
-  --token-pagination-bar-surface-color: #f4f4f4;
-  --token-pagination-nav-control-foreground-color-active: #161616;
-  --token-pagination-nav-control-foreground-color-default: #161616;
-  --token-pagination-nav-control-foreground-color-hover: #161616;
-  --token-pagination-nav-control-height: 40px;
-  --token-pagination-nav-control-typography-font-weight-active: 600;
-  --token-pagination-nav-indicator-height: 4px;
-  --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -467,7 +455,6 @@
     --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
     --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -517,11 +504,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
-    --token-card-surface-color-primary: #f4f4f4;
-    --token-card-surface-color-secondary: #ffffff;
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-color-border-action: #0f62fe;
     --token-color-border-critical: #ff8389;
     --token-color-border-faint: #e0e0e0;
@@ -669,15 +654,6 @@
     );
     --token-modal-header-tagline-color-critical: #525252;
     --token-modal-header-tagline-color-warning: #525252;
-    --token-pagination-bar-border-color: #c6c6c6;
-    --token-pagination-bar-surface-color: #f4f4f4;
-    --token-pagination-nav-control-foreground-color-active: #161616;
-    --token-pagination-nav-control-foreground-color-default: #161616;
-    --token-pagination-nav-control-foreground-color-hover: #161616;
-    --token-pagination-nav-control-height: 40px;
-    --token-pagination-nav-control-typography-font-weight-active: 600;
-    --token-pagination-nav-indicator-height: 4px;
-    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -859,7 +835,6 @@
     --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
     --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-    --token-button-border-radius: 0px;
     --token-button-foreground-color-critical-active: #ffffff;
     --token-button-foreground-color-critical-default: #ffffff;
     --token-button-foreground-color-critical-focus: #ffffff;
@@ -909,11 +884,9 @@
     --token-button-typography-font-size-large: 0.875rem;
     --token-button-typography-font-size-medium: 0.875rem;
     --token-button-typography-font-size-small: 0.875rem;
-    --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-    --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-    --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
-    --token-card-surface-color-primary: #262626;
-    --token-card-surface-color-secondary: #393939;
+    --token-button-typography-line-height-large: 1.2858;
+    --token-button-typography-line-height-medium: 1.2858;
+    --token-button-typography-line-height-small: 1.2858;
     --token-color-border-action: #4589ff;
     --token-color-border-critical: #fa4d56;
     --token-color-border-faint: #393939;
@@ -1061,15 +1034,6 @@
     );
     --token-modal-header-tagline-color-critical: #c6c6c6;
     --token-modal-header-tagline-color-warning: #c6c6c6;
-    --token-pagination-bar-border-color: #525252;
-    --token-pagination-bar-surface-color: #262626;
-    --token-pagination-nav-control-foreground-color-active: #f4f4f4;
-    --token-pagination-nav-control-foreground-color-default: #f4f4f4;
-    --token-pagination-nav-control-foreground-color-hover: #f4f4f4;
-    --token-pagination-nav-control-height: 40px;
-    --token-pagination-nav-control-typography-font-weight-active: 600;
-    --token-pagination-nav-indicator-height: 4px;
-    --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1249,7 +1213,6 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-radius: 0px;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -1299,11 +1262,9 @@
   --token-button-typography-font-size-large: 0.875rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.875rem;
-  --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
-  --token-card-surface-color-primary: #f4f4f4;
-  --token-card-surface-color-secondary: #ffffff;
+  --token-button-typography-line-height-large: 1.2858;
+  --token-button-typography-line-height-medium: 1.2858;
+  --token-button-typography-line-height-small: 1.2858;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;
   --token-color-border-faint: #e0e0e0;
@@ -1447,15 +1408,6 @@
   --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
   --token-modal-header-tagline-color-critical: #525252;
   --token-modal-header-tagline-color-warning: #525252;
-  --token-pagination-bar-border-color: #c6c6c6;
-  --token-pagination-bar-surface-color: #f4f4f4;
-  --token-pagination-nav-control-foreground-color-active: #161616;
-  --token-pagination-nav-control-foreground-color-default: #161616;
-  --token-pagination-nav-control-foreground-color-hover: #161616;
-  --token-pagination-nav-control-height: 40px;
-  --token-pagination-nav-control-typography-font-weight-active: 600;
-  --token-pagination-nav-indicator-height: 4px;
-  --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -1634,7 +1586,6 @@
   --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-radius: 0px;
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -1684,11 +1635,9 @@
   --token-button-typography-font-size-large: 0.875rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.875rem;
-  --token-button-typography-line-height-large: 1.2858; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.2858; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 1.2858; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
-  --token-card-surface-color-primary: #262626;
-  --token-card-surface-color-secondary: #393939;
+  --token-button-typography-line-height-large: 1.2858;
+  --token-button-typography-line-height-medium: 1.2858;
+  --token-button-typography-line-height-small: 1.2858;
   --token-color-border-action: #4589ff;
   --token-color-border-critical: #fa4d56;
   --token-color-border-faint: #393939;
@@ -1832,15 +1781,6 @@
   --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
   --token-modal-header-tagline-color-critical: #c6c6c6;
   --token-modal-header-tagline-color-warning: #c6c6c6;
-  --token-pagination-bar-border-color: #525252;
-  --token-pagination-bar-surface-color: #262626;
-  --token-pagination-nav-control-foreground-color-active: #f4f4f4;
-  --token-pagination-nav-control-foreground-color-default: #f4f4f4;
-  --token-pagination-nav-control-foreground-color-hover: #f4f4f4;
-  --token-pagination-nav-control-height: 40px;
-  --token-pagination-nav-control-typography-font-weight-active: 600;
-  --token-pagination-nav-indicator-height: 4px;
-  --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.16);
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -2026,6 +1966,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     --token-color-focus-action-internal
   );
   --token-button-border-color-tertiary-hover: var(--token-color-border-strong);
+  --token-button-border-radius: var(--token-border-radius-small);
   --token-button-border-width: 1px;
   --token-button-focus-border-width: 3px;
   --token-button-surface-color-tertiary-default: rgba(0, 0, 0, 0);
@@ -2231,7 +2172,10 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-pagination-child-spacing-horizontal: 20px;
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-nav-control-focus-inset: 4px;
+  --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-icon-spacing: 6px;
+  --token-pagination-nav-control-padding-horizontal: 12px;
+  --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
   --token-tabs-divider-height: 1px;
   --token-tabs-indicator-height: 3px;
