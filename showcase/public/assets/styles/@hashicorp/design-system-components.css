@@ -472,7 +472,7 @@
   --token-tooltip-typography-font-weight: 400;
   --token-tooltip-typography-line-height: 1.4286;
   --token-tooltip-typography-letter-spacing: 0px;
-  --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%230C0C0E'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+  --token-tooltip-caret-clip-path: path("M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z");
   --token-tooltip-caret-height: 7px;
   --token-tooltip-caret-width: 16px;
   --token-tooltip-color-foreground-primary: var(--token-color-foreground-high-contrast);
@@ -9855,34 +9855,14 @@ button.hds-button[href]::after {
   height: var(--token-tooltip-caret-height);
   text-align: initial;
 }
-<<<<<<< HEAD
-.tippy-box[data-theme~=hds] .tippy-svg-arrow::before {
-=======
 .tippy-box[data-theme~=hds] .tippy-arrow::before {
->>>>>>> 83f84a9e2 (Fix: Remove SVG from hdsTooltip modifier arrow)
   position: absolute;
   width: var(--token-tooltip-caret-width);
   height: var(--token-tooltip-caret-height);
-  background-image: var(--token-tooltip-caret-data-url);
-  background-repeat: no-repeat;
-  content: "";
-}
-<<<<<<< HEAD
-.hds-mode-cds-g0 .tippy-box[data-theme~=hds] .tippy-svg-arrow::before,
-.hds-mode-cds-g10 .tippy-box[data-theme~=hds] .tippy-svg-arrow::before,
-.hds-mode-cds-g90 .tippy-box[data-theme~=hds] .tippy-svg-arrow::before,
-.hds-mode-cds-g100 .tippy-box[data-theme~=hds] .tippy-svg-arrow::before {
-=======
-.hds-mode-cds-g0 .tippy-box[data-theme~=hds] .tippy-arrow::before,
-.hds-mode-cds-g10 .tippy-box[data-theme~=hds] .tippy-arrow::before,
-.hds-mode-cds-g90 .tippy-box[data-theme~=hds] .tippy-arrow::before,
-.hds-mode-cds-g100 .tippy-box[data-theme~=hds] .tippy-arrow::before {
->>>>>>> 83f84a9e2 (Fix: Remove SVG from hdsTooltip modifier arrow)
   background-color: var(--token-tooltip-surface-color);
-  background-image: none;
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  content: "";
+  clip-path: var(--token-tooltip-caret-clip-path);
 }
-
 .tippy-box[data-theme~=hds][data-placement^=left] > .tippy-arrow, .tippy-box[data-theme~=hds][data-placement^=right] > .tippy-arrow {
   width: var(--token-tooltip-caret-height);
   height: var(--token-tooltip-caret-width);
@@ -9902,11 +9882,7 @@ button.hds-button[href]::after {
 .tippy-box[data-theme~=hds][data-placement^=top] > .tippy-arrow {
   bottom: 0;
 }
-<<<<<<< HEAD
-.tippy-box[data-theme~=hds][data-placement^=top] > .tippy-svg-arrow::before {
-=======
 .tippy-box[data-theme~=hds][data-placement^=top] > .tippy-arrow::before {
->>>>>>> 83f84a9e2 (Fix: Remove SVG from hdsTooltip modifier arrow)
   bottom: calc(-1 * var(--token-tooltip-caret-height));
   transform: rotate(180deg);
 }
@@ -9919,22 +9895,14 @@ button.hds-button[href]::after {
 .tippy-box[data-theme~=hds][data-placement^=left] > .tippy-arrow {
   right: 0;
 }
-<<<<<<< HEAD
-.tippy-box[data-theme~=hds][data-placement^=left] > .tippy-svg-arrow::before {
-=======
 .tippy-box[data-theme~=hds][data-placement^=left] > .tippy-arrow::before {
->>>>>>> 83f84a9e2 (Fix: Remove SVG from hdsTooltip modifier arrow)
   right: calc(-1 * var(--token-tooltip-caret-height));
   transform: rotate(90deg);
 }
 .tippy-box[data-theme~=hds][data-placement^=right] > .tippy-arrow {
   left: 0;
 }
-<<<<<<< HEAD
-.tippy-box[data-theme~=hds][data-placement^=right] > .tippy-svg-arrow::before {
-=======
 .tippy-box[data-theme~=hds][data-placement^=right] > .tippy-arrow::before {
->>>>>>> 83f84a9e2 (Fix: Remove SVG from hdsTooltip modifier arrow)
   left: calc(-1 * var(--token-tooltip-caret-height));
   transform: rotate(-90deg);
 }
