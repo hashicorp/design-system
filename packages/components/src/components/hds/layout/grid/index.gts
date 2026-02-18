@@ -5,11 +5,13 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-
-import type { ComponentLike } from '@glint/template';
-import type { HdsLayoutGridItemSignature } from '../grid/item.ts';
+import { eq } from 'ember-truth-helpers';
+import { element } from 'ember-element-helper';
+import { hash } from '@ember/helper';
+import style from 'ember-style-modifier';
 
 import { HdsLayoutGridAlignValues, HdsLayoutGridGapValues } from './types.ts';
+import HdsLayoutGridItem from './item.gts';
 
 import type {
   HdsLayoutGridAligns,
@@ -43,7 +45,7 @@ export interface HdsLayoutGridSignature {
   Blocks: {
     default: [
       {
-        Item?: ComponentLike<HdsLayoutGridItemSignature>;
+        Item?: typeof HdsLayoutGridItem;
       },
     ];
   };
@@ -213,4 +215,26 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    {{!
+      Dynamically generating an HTML tag in Ember creates a dynamic component class (with the corresponding tagName), while rendering
+      a plain HTML element requires less computing cycles for Ember (you will notice it doesn't add the ember-view class to it).
+    }}
+    {{#if (eq this.componentTag "div")}}
+      <div
+        class={{this.classNames}}
+        {{style this.inlineStyles}}
+        ...attributes
+      >{{yield (hash Item=HdsLayoutGridItem)}}</div>
+    {{else}}
+      {{#let (element this.componentTag) as |Tag|}}
+        <Tag
+          class={{this.classNames}}
+          {{style this.inlineStyles}}
+          ...attributes
+        >{{yield (hash Item=HdsLayoutGridItem)}}</Tag>
+      {{/let}}
+    {{/if}}
+  </template>
 }
