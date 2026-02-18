@@ -5,16 +5,19 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+
+import type Owner from '@ember/owner';
+
 import { HdsPaginationDirectionValues } from '../types.ts';
+import HdsPaginationNavArrow from '../nav/arrow.gts';
+import HdsPaginationSizeSelector from '../size-selector/index.gts';
 
 import type {
   HdsPaginationRoutingProps,
   HdsPaginationDirections,
-} from '../types';
-import type { HdsInteractiveSignature } from '../../interactive';
-import type Owner from '@ember/owner';
+} from '../types.ts';
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
 
 type HdsInteractiveQuery = HdsInteractiveSignature['Args']['query'];
 
@@ -211,22 +214,58 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
     return routing;
   }
 
-  @action
-  onPageChange(newPage: HdsPaginationDirections): void {
+  onPageChange = (newPage: HdsPaginationDirections): void => {
     const { onPageChange } = this.args;
 
     if (typeof onPageChange === 'function') {
       onPageChange(newPage);
     }
-  }
+  };
 
-  @action
-  onPageSizeChange(newPageSize: number): void {
+  onPageSizeChange = (newPageSize: number): void => {
     const { onPageSizeChange } = this.args;
 
     // invoke the callback function
     if (typeof onPageSizeChange === 'function') {
       onPageSizeChange(newPageSize);
     }
-  }
+  };
+
+  <template>
+    <div class="hds-pagination" ...attributes>
+      <nav class="hds-pagination-nav" aria-label={{this.ariaLabel}}>
+        <HdsPaginationNavArrow
+          @direction="prev"
+          @showLabel={{this.showLabels}}
+          @route={{this.routing.route}}
+          @query={{this.routing.queryPrev}}
+          @model={{this.routing.model}}
+          @models={{this.routing.models}}
+          @replace={{this.routing.replace}}
+          @onClick={{this.onPageChange}}
+          @disabled={{@isDisabledPrev}}
+        />
+        <HdsPaginationNavArrow
+          @direction="next"
+          @showLabel={{this.showLabels}}
+          @route={{this.routing.route}}
+          @query={{this.routing.queryNext}}
+          @model={{this.routing.model}}
+          @models={{this.routing.models}}
+          @replace={{this.routing.replace}}
+          @onClick={{this.onPageChange}}
+          @disabled={{@isDisabledNext}}
+        />
+      </nav>
+
+      {{#if this.showSizeSelector}}
+        <HdsPaginationSizeSelector
+          @pageSizes={{this.pageSizes}}
+          @label={{@sizeSelectorLabel}}
+          @selectedSize={{this.currentPageSize}}
+          @onChange={{this.onPageSizeChange}}
+        />
+      {{/if}}
+    </div>
+  </template>
 }
