@@ -152,16 +152,16 @@ export { default as HdsFlyout } from './components/hds/flyout/index.gts';
 export * from './components/hds/flyout/types.ts';
 
 // Form > Layout
-export { default as HdsForm } from './components/hds/form/index.ts';
-export { default as HdsFormFooter } from './components/hds/form/footer/index.ts';
-export { default as HdsFormHeader } from './components/hds/form/header/index.ts';
-export { default as HdsFormHeaderTitle } from './components/hds/form/header/title.ts';
-export { default as HdsFormHeaderDescription } from './components/hds/form/header/description.ts';
-export { default as HdsFormSection } from './components/hds/form/section/index.ts';
-export { default as HdsFormSectionHeader } from './components/hds/form/section/header.ts';
-export { default as HdsFormSectionMultiFieldGroup } from './components/hds/form/section/multi-field-group/index.ts';
-export { default as HdsFormSectionMultiFieldGroupItem } from './components/hds/form/section/multi-field-group/item.ts';
-export { default as HdsFormSeparator } from './components/hds/form/separator/index.ts';
+export { default as HdsForm } from './components/hds/form/index.gts';
+export { default as HdsFormFooter } from './components/hds/form/footer/index.gts';
+export { default as HdsFormHeader } from './components/hds/form/header/index.gts';
+export { default as HdsFormHeaderTitle } from './components/hds/form/header/title.gts';
+export { default as HdsFormHeaderDescription } from './components/hds/form/header/description.gts';
+export { default as HdsFormSection } from './components/hds/form/section/index.gts';
+export { default as HdsFormSectionHeader } from './components/hds/form/section/header.gts';
+export { default as HdsFormSectionMultiFieldGroup } from './components/hds/form/section/multi-field-group/index.gts';
+export { default as HdsFormSectionMultiFieldGroupItem } from './components/hds/form/section/multi-field-group/item.gts';
+export { default as HdsFormSeparator } from './components/hds/form/separator/index.gts';
 export * from './components/hds/form/types.ts';
 
 // Form > Base elements

@@ -5,6 +5,8 @@
 
 import Component from '@glimmer/component';
 
+import HdsSeparator from '../../separator/index.gts';
+
 export interface HdsFormSeparatorSignature {
   Args: {
     isFullWidth?: boolean;
@@ -23,4 +25,8 @@ export default class HdsFormSeparator extends Component<HdsFormSeparatorSignatur
 
     return classes.join(' ');
   }
+
+  <template>
+    <HdsSeparator class={{this.classNames}} @spacing="0" ...attributes />
+  </template>
 }

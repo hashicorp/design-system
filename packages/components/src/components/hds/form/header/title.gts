@@ -5,11 +5,13 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import type { HdsFormHeaderTitleTags } from '../types.ts';
-import { HdsFormHeaderTitleTagValues } from '../types.ts';
 
+import { HdsFormHeaderTitleTagValues } from '../types.ts';
 import { HdsTextSizeValues } from '../../text/types.ts';
-import type { HdsTextDisplaySignature } from '../../text/display.ts';
+import HdsTextDisplay from '../../text/display.gts';
+
+import type { HdsFormHeaderTitleTags } from '../types.ts';
+import type { HdsTextDisplaySignature } from '../../text/display.gts';
 
 export const DEFAULT_SIZE = HdsTextSizeValues.FourHundred;
 export const DEFAULT_TAG = HdsFormHeaderTitleTagValues.Div;
@@ -45,4 +47,16 @@ export default class HdsFormHeaderTitle extends Component<HdsFormHeaderTitleSign
   get size(): HdsTextDisplaySignature['Args']['size'] {
     return this.args.size ?? DEFAULT_SIZE;
   }
+
+  <template>
+    <HdsTextDisplay
+      class="hds-form__header-title"
+      @tag={{this.tag}}
+      @size={{this.size}}
+      @color="strong"
+      ...attributes
+    >
+      {{yield}}
+    </HdsTextDisplay>
+  </template>
 }

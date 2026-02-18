@@ -4,9 +4,9 @@
  */
 
 import Component from '@glimmer/component';
+import { hash } from '@ember/helper';
 
-import type { ComponentLike } from '@glint/template';
-import type { HdsButtonSetSignature } from '../../button-set/index.gts';
+import HdsButtonSet from '../../button-set/index.gts';
 
 export interface HdsFormFooterSignature {
   Args: {
@@ -15,7 +15,7 @@ export interface HdsFormFooterSignature {
   Blocks: {
     default: [
       {
-        ButtonSet?: ComponentLike<HdsButtonSetSignature>;
+        ButtonSet?: typeof HdsButtonSet;
       },
     ];
   };
@@ -33,4 +33,10 @@ export default class HdsFormFooter extends Component<HdsFormFooterSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      {{yield (hash ButtonSet=HdsButtonSet)}}
+    </div>
+  </template>
 }
