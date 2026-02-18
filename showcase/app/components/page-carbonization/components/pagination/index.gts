@@ -214,7 +214,123 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwOutliner>
       </:theming>
       <:reference>
-        ???
+        <ShwFlex @direction="column" as |SF|>
+          <SF.Item @label="Default">
+            <ShwFlex as |SF|>
+              <SF.Item>
+                <cds-button
+                  pagination=""
+                  size="sm"
+                  button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--backward cds--pagination__button--no-index cds--btn--md cds--btn--ghost"
+                  tooltip-text="Previous"
+                  kind="primary"
+                  tab-index="0"
+                  tooltip-alignment=""
+                  tooltip-position="top"
+                  type="button"
+                >
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    slot="icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                  ><path d="M20 24 10 16 20 8z"></path></svg>
+                </cds-button>
+              </SF.Item>
+              <SF.Item>
+                <cds-button
+                  tooltip-position="top"
+                  pagination=""
+                  size="sm"
+                  button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--forward cds--btn--md cds--btn--ghost"
+                  tooltip-text="Next"
+                  kind="primary"
+                  tab-index="0"
+                  tooltip-alignment=""
+                  type="button"
+                >
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    slot="icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                  ><path d="M12 8 22 16 12 24z"></path></svg>
+                </cds-button>
+              </SF.Item>
+            </ShwFlex>
+          </SF.Item>
+
+          <SF.Item @label="???">
+            <code>???</code>
+          </SF.Item>
+
+          <SF.Item @label="Disabled">
+            <ShwFlex as |SF|>
+              <SF.Item>
+                <cds-button
+                  pagination=""
+                  size="sm"
+                  disabled=""
+                  button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--backward cds--pagination__button--no-index cds--btn--md cds--btn--ghost"
+                  tooltip-text="Previous"
+                  kind="primary"
+                  tab-index="0"
+                  tooltip-alignment=""
+                  tooltip-position="top"
+                  type="button"
+                >
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    slot="icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                  ><path d="M20 24 10 16 20 8z"></path></svg>
+                </cds-button>
+              </SF.Item>
+              <SF.Item>
+                <cds-button
+                  tooltip-position="top"
+                  disabled=""
+                  pagination=""
+                  size="sm"
+                  button-class-name="cds--btn cds--btn--icon-only cds--pagination__button cds--pagination__button--forward cds--btn--md cds--btn--ghost"
+                  tooltip-text="Next"
+                  kind="primary"
+                  tab-index="0"
+                  tooltip-alignment=""
+                  type="button"
+                >
+                  <svg
+                    focusable="false"
+                    preserveAspectRatio="xMidYMid meet"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    slot="icon"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                  ><path d="M12 8 22 16 12 24z"></path></svg>
+                </cds-button>
+              </SF.Item>
+            </ShwFlex>
+          </SF.Item>
+        </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
@@ -282,7 +398,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwOutliner>
       </:theming>
       <:reference>
-        ???
+        <code>???</code>
       </:reference>
     </ShwCarbonizationComparisonGrid>
   </section>
