@@ -6,18 +6,22 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
+import style from 'ember-style-modifier';
 
 import {
   HdsTableHorizontalAlignmentValues,
   HdsTableThSortOrderValues,
   HdsTableThSortOrderLabelValues,
 } from './types.ts';
+import HdsTableThButtonTooltip from './th-button-tooltip.gts';
+import HdsTableThButtonSort from './th-button-sort.gts';
+
 import type {
   HdsTableHorizontalAlignment,
   HdsTableThSortOrder,
   HdsTableThSortOrderLabels,
 } from './types.ts';
-import type { HdsTableThButtonSortSignature } from './th-button-sort';
+import type { HdsTableThButtonSortSignature } from './th-button-sort.gts';
 
 export const ALIGNMENTS: HdsTableHorizontalAlignment[] = Object.values(
   HdsTableHorizontalAlignmentValues
@@ -39,20 +43,8 @@ export interface HdsTableThSortSignature {
 }
 
 export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
-  /**
-   * Generates a unique ID for the <span> element ("label")
-   *
-   * @param _labelId
-   */
   private _labelId = guidFor(this);
 
-  /**
-   * @param ariaSort
-   * @type {HdsTableThSortOrderLabels}
-   * @private
-   * @default none
-   * @description Sets the aria-sort attribute based on the sort order defined; acceptable values are ascending, descending, none(default) and other. Authors SHOULD only apply this property to table headers or grid headers. If the property is not provided, there is no defined sort order. For each table or grid, authors SHOULD apply aria-sort to only one header at a time.
-   */
   get ariaSort(): HdsTableThSortOrderLabels {
     switch (this.args.sortOrder) {
       case HdsTableThSortOrderValues.Asc:
@@ -65,12 +57,6 @@ export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
     }
   }
 
-  /**
-   * @param align
-   * @type {HdsTableHorizontalAlignment}
-   * @default left
-   * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
-   */
   get align(): HdsTableHorizontalAlignment {
     const { align = DEFAULT_ALIGN } = this.args;
 
@@ -83,11 +69,6 @@ export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
     return align;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-table__th', 'hds-table__th--sort'];
 
@@ -98,4 +79,32 @@ export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <th
+      class={{this.classNames}}
+      aria-sort={{this.ariaSort}}
+      {{style width=@width minWidth=@width}}
+      ...attributes
+      scope="col"
+    >
+      <div class="hds-table__th-content">
+        <span
+          id={{this._labelId}}
+          class="hds-typography-body-200 hds-font-weight-semibold"
+        >{{yield}}</span>
+        {{#if @tooltip}}
+          <HdsTableThButtonTooltip
+            @tooltip={{@tooltip}}
+            @labelId={{this._labelId}}
+          />
+        {{/if}}
+        <HdsTableThButtonSort
+          @sortOrder={{@sortOrder}}
+          @onClick={{@onClickSort}}
+          @labelId={{this._labelId}}
+        />
+      </div>
+    </th>
+  </template>
 }
