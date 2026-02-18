@@ -31,6 +31,13 @@ const SUPPORTED_FILE_EXTENSIONS = [
   '.bash',
 ];
 
+// Helper to remove template-lint ignore comments
+function stripTemplateLintIgnores(code) {
+  return code
+    .replace(/\{\{!\s*template-lint-disable.*?\}\}\n?/g, '')
+    .replace(/\{\{!\s*template-lint-enable.*?\}\}\n?/g, '');
+}
+
 // Helper to escape code for attribute usage
 function escapeCode(code) {
   return code
@@ -132,7 +139,7 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
               dependencies.push(filePath);
 
               if (ext === '.classic.hbs') {
-                codeSnippets.hbs = escapeCode(code);
+                codeSnippets.hbs = escapeCode(stripTemplateLintIgnores(code));
 
                 // need to use the classic.hbs file path for forwarding because the DynamicTemplate relies on the hbs/js files to render the preview - so the fileName must include the .classic extension
                 fileNameToForward = filePath.match(fileNameRegex)?.[1];
@@ -146,9 +153,9 @@ class MarkdownReplaceDemoBlocks extends Multifilter {
               }
 
               if (ext === '.gts') {
-                codeSnippets.gts = escapeCode(code);
+                codeSnippets.gts = escapeCode(stripTemplateLintIgnores(code));
                 codeSnippets.compactGts = escapeCode(
-                  getCompactGtsSnippet(code),
+                  stripTemplateLintIgnores(getCompactGtsSnippet(code)),
                 );
               }
 
