@@ -99,15 +99,9 @@
       position: absolute;
       width: var(--token-tooltip-caret-width);
       height: var(--token-tooltip-caret-height);
-      background-image: var(--token-tooltip-caret-data-url);
-      background-repeat: no-repeat;
+      background-color: var(--token-tooltip-surface-color);
       content: "";
-
-      @include hds-apply-only-if-carbon() {
-        background-color: var(--token-tooltip-surface-color);
-        background-image: none;
-        clip-path: polygon(0 100%, 50% 0, 100% 100%);
-      }
+      clip-path: var(--token-tooltip-caret-clip-path);
     }
   }
 

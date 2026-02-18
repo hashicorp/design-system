@@ -9293,19 +9293,10 @@ button.hds-button[href]::after {
   position: absolute;
   width: var(--token-tooltip-caret-width);
   height: var(--token-tooltip-caret-height);
-  background-image: var(--token-tooltip-caret-data-url);
-  background-repeat: no-repeat;
+  background-color: var(--token-tooltip-surface-color);
+  clip-path: var(--token-tooltip-caret-clip-path);
   content: "";
 }
-.hds-mode-cds-g0 .tippy-box[data-theme~=hds] .tippy-arrow::before,
-.hds-mode-cds-g10 .tippy-box[data-theme~=hds] .tippy-arrow::before,
-.hds-mode-cds-g90 .tippy-box[data-theme~=hds] .tippy-arrow::before,
-.hds-mode-cds-g100 .tippy-box[data-theme~=hds] .tippy-arrow::before {
-  background-color: var(--token-tooltip-surface-color);
-  background-image: none;
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
-}
-
 .tippy-box[data-theme~=hds][data-placement^=left] > .tippy-arrow, .tippy-box[data-theme~=hds][data-placement^=right] > .tippy-arrow {
   width: var(--token-tooltip-caret-height);
   height: var(--token-tooltip-caret-width);

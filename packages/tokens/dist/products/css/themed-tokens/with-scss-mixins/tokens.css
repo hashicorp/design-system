@@ -488,7 +488,9 @@
       0px 12px 24px 0px #3b3d4559;
     --token-tooltip-border-radius: var(--token-border-radius-small);
     --token-tooltip-box-shadow: var(--token-elevation-higher-box-shadow);
-    --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%230C0C0E'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+    --token-tooltip-caret-clip-path: path(
+      "M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z"
+    );
     --token-tooltip-caret-height: 7px;
     --token-tooltip-caret-width: 16px;
     --token-tooltip-max-width: 280px;
@@ -884,7 +886,7 @@
       0px 12px 24px 0px #39393959;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-box-shadow: none;
-    --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23393939'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+    --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
     --token-tooltip-caret-width: 12px;
     --token-tooltip-max-width: 288px;
@@ -1275,7 +1277,7 @@
       0px 12px 24px 0px #39393959;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-box-shadow: none;
-    --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23F4F4F4'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+    --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
     --token-tooltip-caret-width: 12px;
     --token-tooltip-max-width: 288px;
@@ -1666,7 +1668,7 @@
       0px 12px 24px 0px #39393959;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-box-shadow: none;
-    --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23393939'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+    --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
     --token-tooltip-caret-width: 12px;
     --token-tooltip-max-width: 288px;
@@ -2057,7 +2059,7 @@
       0px 12px 24px 0px #39393959;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-box-shadow: none;
-    --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23393939'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+    --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
     --token-tooltip-caret-width: 12px;
     --token-tooltip-max-width: 288px;
@@ -2448,7 +2450,7 @@
       0px 12px 24px 0px #39393959;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-box-shadow: none;
-    --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23F4F4F4'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+    --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
     --token-tooltip-caret-width: 12px;
     --token-tooltip-max-width: 288px;
@@ -2839,7 +2841,7 @@
       0px 12px 24px 0px #39393959;
     --token-tooltip-border-radius: 2px;
     --token-tooltip-box-shadow: none;
-    --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23F4F4F4'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+    --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
     --token-tooltip-caret-height: 6px;
     --token-tooltip-caret-width: 12px;
     --token-tooltip-max-width: 288px;

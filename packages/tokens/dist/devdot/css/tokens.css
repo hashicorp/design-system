@@ -466,7 +466,7 @@
   --token-tooltip-typography-font-weight: 400;
   --token-tooltip-typography-line-height: 1.4286;
   --token-tooltip-typography-letter-spacing: 0px;
-  --token-tooltip-caret-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%230C0C0E'/%3e%3c/svg%3e"); /** notice: the 'caret' color is hardcoded here! */
+  --token-tooltip-caret-clip-path: path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z');
   --token-tooltip-caret-height: 7px;
   --token-tooltip-caret-width: 16px;
   --token-tooltip-color-foreground-primary: var(--token-color-foreground-high-contrast);
