@@ -58,7 +58,7 @@
   --token-button-border-color-primary-active: var(--token-color-palette-blue-400);
   --token-button-border-color-primary-default: var(--token-color-palette-blue-300);
   --token-button-border-color-primary-focus-external: var(--token-color-focus-action-external); /** TODO - replace the `magenta` values with the correct ones */
-  --token-button-border-color-primary-focus-internal: var(--token-color-focus-action-internal); /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-primary-focus-internal: var(--token-color-palette-neutral-0); /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-primary-hover: var(--token-color-palette-blue-300);
   --token-button-border-color-secondary-active: var(--token-color-border-strong);
   --token-button-border-color-secondary-default: var(--token-color-border-strong);

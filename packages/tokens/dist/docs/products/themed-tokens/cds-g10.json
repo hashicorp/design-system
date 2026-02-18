@@ -9919,7 +9919,7 @@
       "$type": "color",
       "$value": "pink",
       "$modes": {
-        "default": "{color.focus.action.internal}",
+        "default": "{color.palette.neutral-0}",
         "cds-g0": "pink",
         "cds-g10": "pink",
         "cds-g90": "pink",

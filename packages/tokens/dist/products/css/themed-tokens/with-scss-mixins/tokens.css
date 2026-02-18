@@ -130,7 +130,7 @@
       --token-color-focus-action-external
     ); /** TODO - replace the `magenta` values with the correct ones */
     --token-button-border-color-primary-focus-internal: var(
-      --token-color-focus-action-internal
+      --token-color-palette-neutral-0
     ); /** TODO - replace the `pink` values with the correct ones */
     --token-button-border-color-primary-hover: var(
       --token-color-palette-blue-300

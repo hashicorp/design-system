@@ -338,7 +338,7 @@
   --token-button-border-radius: 5px;
   --token-button-border-color-primary-default: #0c56e9;
   --token-button-border-color-primary-hover: #0c56e9;
-  --token-button-border-color-primary-focus-internal: #0c56e9; /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-primary-focus-internal: #ffffff; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-primary-focus-external: #5990ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-primary-active: #0046d1;
   --token-button-border-color-secondary-default: #3b3d4566;
