@@ -8,7 +8,11 @@ import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
 import type { SafeString } from '@ember/template';
-import type { HdsIconSignature } from '../icon/index';
+
+import HdsInteractive from '../interactive/index.gts';
+import HdsIcon from '../icon/index.gts';
+
+import type { HdsIconSignature } from '../icon/index.gts';
 
 export interface HdsBreadcrumbItemSignature {
   Args: {
@@ -29,12 +33,6 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
-  /**
-   * @param maxWidth
-   * @type {string}
-   * @default undefined
-   * @description A parameter that can be applied to an "item" to limit its max-width
-   */
   get maxWidth(): string | undefined {
     const { maxWidth } = this.args;
 
@@ -50,11 +48,6 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
     }
   }
 
-  /**
-   * Get the inline style to apply to the item.
-   * @method BreadcrumbItem#itemStyle
-   * @return {string} The "style" attribute to apply to the item.
-   */
   get itemStyle(): SafeString | undefined {
     if (this.maxWidth) {
       return htmlSafe(`max-width: ${this.maxWidth}`);
@@ -63,14 +56,43 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
     }
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method BreadcrumbItem#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-breadcrumb__item'];
 
     return classes.join(' ');
   }
+
+  <template>
+    <li class="hds-breadcrumb__item" style={{this.itemStyle}} ...attributes>
+      {{#if @current}}
+        <div class="hds-breadcrumb__current">
+          {{#if @icon}}
+            <div class="hds-breadcrumb__icon">
+              <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+            </div>
+          {{/if}}
+          <span class="hds-breadcrumb__text">{{@text}}</span>
+        </div>
+      {{else}}
+        <HdsInteractive
+          class="hds-breadcrumb__link"
+          @current-when={{@current-when}}
+          @models={{@models}}
+          @model={{@model}}
+          @query={{@query}}
+          @replace={{@replace}}
+          @route={{@route}}
+          @href={{@href}}
+          @isRouteExternal={{@isRouteExternal}}
+        >
+          {{#if @icon}}
+            <div class="hds-breadcrumb__icon">
+              <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+            </div>
+          {{/if}}
+          <span class="hds-breadcrumb__text">{{@text}}</span>
+        </HdsInteractive>
+      {{/if}}
+    </li>
+  </template>
 }

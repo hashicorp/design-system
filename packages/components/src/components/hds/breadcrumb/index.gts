@@ -4,6 +4,8 @@
  */
 
 import Component from '@glimmer/component';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
 export interface HdsBreadcrumbSignature {
   Args: {
@@ -20,11 +22,6 @@ export interface HdsBreadcrumbSignature {
 const NOOP = () => {};
 
 export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
-  /**
-   * @param onDidInsert
-   * @type {function}
-   * @default () => {}
-   */
   get didInsert(): () => void {
     const { didInsert } = this.args;
 
@@ -35,29 +32,14 @@ export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
     }
   }
 
-  /**
-   * @param itemsCanWrap
-   * @type {boolean}
-   * @default true
-   */
   get itemsCanWrap(): boolean {
     return this.args.itemsCanWrap ?? true;
   }
 
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'breadcrumbs'
-   */
   get ariaLabel(): string {
     return this.args.ariaLabel ?? 'breadcrumbs';
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method Breadcrumb#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-breadcrumb'];
 
@@ -68,4 +50,12 @@ export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <nav class={{this.classNames}} aria-label={{this.ariaLabel}} ...attributes>
+      <ol class="hds-breadcrumb__list" {{didInsert this.didInsert}}>
+        {{yield}}
+      </ol>
+    </nav>
+  </template>
 }
