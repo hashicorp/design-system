@@ -9954,7 +9954,7 @@
     "$type": "color",
     "$value": "#ffc0cb",
     "$modes": {
-      "default": "#161616",
+      "default": "#ffffff",
       "cds-g0": "pink",
       "cds-g10": "pink",
       "cds-g90": "pink",
@@ -9965,7 +9965,7 @@
       "$type": "color",
       "$value": "pink",
       "$modes": {
-        "default": "{color.focus.action.internal}",
+        "default": "{color.palette.neutral-0}",
         "cds-g0": "pink",
         "cds-g10": "pink",
         "cds-g90": "pink",

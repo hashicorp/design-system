@@ -9959,9 +9959,9 @@
     "token-button-border-color-primary-focus-internal": {
       "key": "{button.border.color.primary.focus.internal}",
       "$type": "color",
-      "$value": "#0c56e9",
+      "$value": "#ffffff",
       "$modes": {
-        "default": "#0c56e9",
+        "default": "#ffffff",
         "cds-g0": "pink",
         "cds-g10": "pink",
         "cds-g90": "pink",
@@ -9970,9 +9970,9 @@
       "comment": "TODO - replace the `pink` values with the correct ones",
       "original": {
         "$type": "color",
-        "$value": "{color.focus.action.internal}",
+        "$value": "{color.palette.neutral-0}",
         "$modes": {
-          "default": "{color.focus.action.internal}",
+          "default": "{color.palette.neutral-0}",
           "cds-g0": "pink",
           "cds-g10": "pink",
           "cds-g90": "pink",
@@ -24477,7 +24477,7 @@
         "$type": "color",
         "$value": "pink",
         "$modes": {
-          "default": "{color.focus.action.internal}",
+          "default": "{color.palette.neutral-0}",
           "cds-g0": "pink",
           "cds-g10": "pink",
           "cds-g90": "pink",
@@ -38982,7 +38982,7 @@
         "$type": "color",
         "$value": "pink",
         "$modes": {
-          "default": "{color.focus.action.internal}",
+          "default": "{color.palette.neutral-0}",
           "cds-g0": "pink",
           "cds-g10": "pink",
           "cds-g90": "pink",
@@ -53476,7 +53476,7 @@
       "$type": "color",
       "$value": "#ffc0cb",
       "$modes": {
-        "default": "#161616",
+        "default": "#ffffff",
         "cds-g0": "pink",
         "cds-g10": "pink",
         "cds-g90": "pink",
@@ -53487,7 +53487,7 @@
         "$type": "color",
         "$value": "pink",
         "$modes": {
-          "default": "{color.focus.action.internal}",
+          "default": "{color.palette.neutral-0}",
           "cds-g0": "pink",
           "cds-g10": "pink",
           "cds-g90": "pink",
@@ -67981,7 +67981,7 @@
       "$type": "color",
       "$value": "#ffc0cb",
       "$modes": {
-        "default": "#161616",
+        "default": "#ffffff",
         "cds-g0": "pink",
         "cds-g10": "pink",
         "cds-g90": "pink",
@@ -67992,7 +67992,7 @@
         "$type": "color",
         "$value": "pink",
         "$modes": {
-          "default": "{color.focus.action.internal}",
+          "default": "{color.palette.neutral-0}",
           "cds-g0": "pink",
           "cds-g10": "pink",
           "cds-g90": "pink",

@@ -650,9 +650,9 @@
           "focus": {
             "internal": {
               "$type": "color",
-              "$value": "{color.focus.action.internal}",
+              "$value": "{color.palette.neutral-0}",
               "$modes": {
-                "default": "{color.focus.action.internal}",
+                "default": "{color.palette.neutral-0}",
                 "cds-g0": "pink",
                 "cds-g10": "pink",
                 "cds-g90": "pink",
