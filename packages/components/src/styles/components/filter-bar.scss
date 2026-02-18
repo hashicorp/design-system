@@ -77,17 +77,17 @@
 }
 
 .hds-filter-bar__tabs__tab__button {
-  @include hds-focus-ring-basic();
+  @include hds-focus-ring-with-outline();
 
   display: flex;
   gap: 16px;
   align-items: center;
   width: 100%;
-  padding: 8px 16px;
+  padding: 7px 15px;
   color: var(--token-color-foreground-primary);
   text-align: left;
   background-color: transparent;
-  border: none;
+  border: 1px solid transparent;
   border-radius: var(--token-border-radius-x-small);
 
   &.mock-hover,
@@ -117,10 +117,10 @@
 
   &::before {
     position: absolute;
-    top: 6px;
-    left: 4px;
+    top: 5px;
+    left: 3px;
     width: 2px;
-    height: calc(100% - 12px);
+    height: calc(100% - 10px);
     background-color: var(--token-color-foreground-action);
     border-radius: 1px;
     content: "";

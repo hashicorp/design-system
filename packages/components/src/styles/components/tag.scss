@@ -26,9 +26,9 @@ $hds-tag-border-radius: 50px;
 .hds-tag__dismiss {
   flex: 0 0 auto;
   margin: 0; // reset default button margin
-  padding: 6px 4px 6px 8px;
+  padding: 5px 3px 5px 7px;
   background-color: var(--token-color-surface-interactive);
-  border: none; // reset default button border
+  border: 1px solid transparent; // reset default button border
   border-radius: inherit;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -48,8 +48,9 @@ $hds-tag-border-radius: 50px;
 .hds-tag__link {
   flex: 1 0 0;
   max-width: 166px; // account for excess horizontal padding of text in non-dismissible variant
-  padding: 3px 10px 5px 10px;
+  padding: 2px 9px 4px 9px;
   background-color: var(--token-color-surface-interactive);
+  border: 1px solid transparent;
   border-radius: inherit;
 }
 
@@ -66,7 +67,7 @@ $hds-tag-border-radius: 50px;
 .hds-tag__dismiss ~ .hds-tag__text,
 .hds-tag__dismiss ~ .hds-tag__link {
   max-width: 160px;
-  padding: 3px 8px 5px 6px;
+  padding: 2px 7px 4px 5px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -87,9 +88,10 @@ $hds-tag-border-radius: 50px;
     background-color: var(--token-color-surface-interactive-active);
   }
 
+  @include hds-focus-ring-with-outline();
+
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-basic();
     z-index: 1; // ensures focus is not obscured by adjacent elements
   }
 }
@@ -98,9 +100,10 @@ $hds-tag-border-radius: 50px;
   cursor: text;
   user-select: text;
 
+  @include hds-focus-ring-with-outline();
+
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-basic();
     z-index: 1; // ensures focus is not obscured by adjacent elements
   }
 

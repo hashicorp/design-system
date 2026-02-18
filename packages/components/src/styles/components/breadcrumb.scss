@@ -76,7 +76,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
   color: var(--token-color-foreground-faint);
   background: none;
-  border: none;
+  border: 1px solid transparent;
   border-radius: $hds-breadcrumb-item-border-radius;
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
@@ -92,7 +92,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   }
 
   // we apply the focus directly to the element, without using a pseudo-element
-  @include hds-focus-ring-basic();
+  @include hds-focus-ring-with-outline();
 
   &:active,
   &.mock-active {
@@ -127,7 +127,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
 .hds-breadcrumb__text {
   // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
-  padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
+  padding: calc((#{$hds-breadcrumb-item-height} - 16px - 2px) / 2) 0;
   overflow: hidden;
   font-size: 0.8125rem; // 13px
   font-family: var(--token-typography-font-stack-text);
@@ -157,7 +157,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   background-color: transparent;
   border: 1px solid transparent; // We need this to be transparent for a11y
   border-radius: $hds-breadcrumb-item-border-radius;
-  outline: none; // TODO check with @melanie
+  outline: none;
   cursor: pointer;
 
   &:hover,
@@ -168,12 +168,11 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   }
 
   // we apply the focus directly to the element, without using a pseudo-element
-  @include hds-focus-ring-basic();
+  @include hds-focus-ring-with-outline();
 
   &:focus,
   &.mock-focus {
     background-color: transparent;
-    border: none; // important: we need to completely remove the border, of the inner box-shadow of the focus ring will be drawn inside the border
   }
 
   &:active,

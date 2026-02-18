@@ -129,7 +129,7 @@ $hds-code-block-code-footer-height: 48px;
 
 // Code
 .hds-code-block__code {
-  @include hds-focus-ring-basic();
+  @include hds-focus-ring-with-box-shadow();
   position: relative;
   display: grid;
   margin: 0;
