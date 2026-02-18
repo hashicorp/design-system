@@ -17,6 +17,7 @@ import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwDivider from 'showcase/components/shw/divider';
 import FormSuperSelectCodeFragmentWithSingleBaseElement from 'showcase/components/page-components/form/super-select/code-fragments/with-single-base-element';
 import FormSuperSelectCodeFragmentWithMultipleBaseElement from 'showcase/components/page-components/form/super-select/code-fragments/with-multiple-base-element';
+import FilterBarCodeFragmentWithGenericContent from 'showcase/components/page-components/filter-bar/code-fragments/with-generic-content';
 import NOOP from 'showcase/utils/noop';
 
 import {
@@ -44,6 +45,7 @@ import {
   HdsDropdownListItemCheckmark,
   HdsDropdownListItemCheckbox,
   HdsDropdownListItemRadio,
+  HdsFilterBarTabsTab,
   HdsFormCheckboxBase,
   HdsFormFileInputBase,
   HdsFormMaskedInputBase,
@@ -529,6 +531,39 @@ func main() {
         </ul>
       </div>
     </SF.Item>
+  </ShwFlex>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH4 tag="h3">Filterbar</ShwTextH4>
+  <ShwTextBody>Complete</ShwTextBody>
+  <div mock-state-value="focus" mock-state-selector="button,input">
+    <FilterBarCodeFragmentWithGenericContent
+      @hasSearch={{true}}
+      @hasActionsDropdown={{true}}
+      @hasFilters={{true}}
+    />
+  </div>
+
+  <ShwTextBody>TabsTab</ShwTextBody>
+  <ShwFlex @direction="column" as |SF|>
+    {{#each (array "Unselected" "Selected") as |selection|}}
+      <SF.Item
+        @label={{selection}}
+        mock-state-value="focus"
+        mock-state-selector="button"
+      >
+        <ul class="shw-component-filter-bar-wrapper" role="tablist">
+          <HdsFilterBarTabsTab
+            @numFilters={{1}}
+            class={{if
+              (eq selection "Selected")
+              "hds-filter-bar__tabs__tab--is-selected"
+            }}
+          >Tab 1</HdsFilterBarTabsTab>
+        </ul>
+      </SF.Item>
+    {{/each}}
   </ShwFlex>
 
   <ShwDivider @level={{2}} />
@@ -1226,21 +1261,6 @@ func main() {
 
   <ShwDivider @level={{2}} />
 
-  <ShwTextH4 @tag="h3">Tag</ShwTextH4>
-  {{#each TAG_COLORS as |color|}}
-    <ShwTextBody>{{capitalize color}}</ShwTextBody>
-    <HdsTag
-      @color={{color}}
-      @href="#"
-      @text="My link tag"
-      @onDismiss={{NOOP}}
-      mock-state-value="focus"
-      mock-state-selector="button"
-    />
-  {{/each}}
-
-  <ShwDivider @level={{2}} />
-
   <ShwTextH4 @tag="h3">Tabs</ShwTextH4>
   <ShwFlex as |SF|>
     {{#each TABS_SIZES as |size|}}
@@ -1268,6 +1288,21 @@ func main() {
       </SF.Item>
     {{/each}}
   </ShwFlex>
+
+  <ShwDivider @level={{2}} />
+
+  <ShwTextH4 @tag="h3">Tag</ShwTextH4>
+  {{#each TAG_COLORS as |color|}}
+    <ShwTextBody>{{capitalize color}}</ShwTextBody>
+    <HdsTag
+      @color={{color}}
+      @href="#"
+      @text="My link tag"
+      @onDismiss={{NOOP}}
+      mock-state-value="focus"
+      mock-state-selector="button"
+    />
+  {{/each}}
 
   <ShwDivider @level={{2}} />
 
