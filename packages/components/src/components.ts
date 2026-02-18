@@ -265,13 +265,13 @@ export { default as HdsPageHeaderSubtitle } from './components/hds/page-header/s
 export { default as HdsPageHeaderTitle } from './components/hds/page-header/title.gts';
 
 // Pagination
-export { default as HdsPaginationCompact } from './components/hds/pagination/compact/index.ts';
-export { default as HdsPaginationInfo } from './components/hds/pagination/info/index.ts';
-export { default as HdsPaginationNavArrow } from './components/hds/pagination/nav/arrow.ts';
-export { default as HdsPaginationNavEllipsis } from './components/hds/pagination/nav/ellipsis.ts';
-export { default as HdsPaginationNavNumber } from './components/hds/pagination/nav/number.ts';
-export { default as HdsPaginationNumbered } from './components/hds/pagination/numbered/index.ts';
-export { default as HdsPaginationSizeSelector } from './components/hds/pagination/size-selector/index.ts';
+export { default as HdsPaginationCompact } from './components/hds/pagination/compact/index.gts';
+export { default as HdsPaginationInfo } from './components/hds/pagination/info/index.gts';
+export { default as HdsPaginationNavArrow } from './components/hds/pagination/nav/arrow.gts';
+export { default as HdsPaginationNavEllipsis } from './components/hds/pagination/nav/ellipsis.gts';
+export { default as HdsPaginationNavNumber } from './components/hds/pagination/nav/number.gts';
+export { default as HdsPaginationNumbered } from './components/hds/pagination/numbered/index.gts';
+export { default as HdsPaginationSizeSelector } from './components/hds/pagination/size-selector/index.gts';
 export * from './components/hds/pagination/types.ts';
 
 // Reveal

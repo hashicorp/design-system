@@ -4,18 +4,27 @@
  */
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { eq } from 'ember-truth-helpers';
+import { get } from '@ember/helper';
+
+import type Owner from '@ember/owner';
+
 import { HdsPaginationDirectionValues } from '../types.ts';
+import HdsPaginationInfo from '../info/index.gts';
+import HdsPaginationNavArrow from '../nav/arrow.gts';
+import HdsPaginationNavNumber from '../nav/number.gts';
+import HdsPaginationNavEllipsis from '../nav/ellipsis.gts';
+import HdsPaginationSizeSelector from '../size-selector/index.gts';
 
 import type {
   HdsPaginationPage,
   HdsPaginationRoutingProps,
   HdsPaginationElliptizedPageArray,
   HdsPaginationElliptizedPageArrayItem,
-} from '../types';
+} from '../types.ts';
 import type { HdsInteractiveSignature } from '../../interactive/index.ts';
-import type Owner from '@ember/owner';
+
 interface ElliptizeProps {
   pages: number[];
   current: number;
@@ -383,8 +392,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     return this.currentPage === this.totalPages;
   }
 
-  @action
-  onPageChange(page: HdsPaginationPage) {
+  onPageChange = (page: HdsPaginationPage) => {
     let gotoPageNumber;
     if (page === HdsPaginationDirectionValues.Prev && this.currentPage > 1) {
       gotoPageNumber = this.currentPage - 1;
@@ -408,10 +416,9 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
         onPageChange(this.currentPage, this.currentPageSize);
       }
     }
-  }
+  };
 
-  @action
-  onPageSizeChange(newPageSize: number) {
+  onPageSizeChange = (newPageSize: number) => {
     const { onPageSizeChange } = this.args;
 
     if (!this._isControlled) {
@@ -424,7 +431,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     if (typeof onPageSizeChange === 'function') {
       onPageSizeChange(newPageSize);
     }
-  }
+  };
 
   elliptizedPageArrayItemAsNumber = (
     item: HdsPaginationElliptizedPageArrayItem
@@ -436,7 +443,76 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     }
   };
 
-  getPageNumberQuery(page: HdsPaginationElliptizedPageArrayItem) {
+  getPageNumberQuery = (page: HdsPaginationElliptizedPageArrayItem) => {
     return this.routing.queryPages![this.elliptizedPageArrayItemAsNumber(page)];
-  }
+  };
+
+  <template>
+    <div class="hds-pagination" ...attributes>
+      {{#if this.showInfo}}
+        <HdsPaginationInfo
+          @itemsRangeStart={{this.itemsRangeStart}}
+          @itemsRangeEnd={{this.itemsRangeEnd}}
+          @totalItems={{@totalItems}}
+          @showTotalItems={{@showTotalItems}}
+        />
+      {{/if}}
+
+      <nav class="hds-pagination-nav" aria-label={{this.ariaLabel}}>
+        <HdsPaginationNavArrow
+          @direction="prev"
+          @showLabel={{this.showLabels}}
+          @route={{this.routing.route}}
+          @query={{this.routing.queryPrev}}
+          @model={{this.routing.model}}
+          @models={{this.routing.models}}
+          @replace={{this.routing.replace}}
+          @onClick={{this.onPageChange}}
+          @disabled={{this.isDisabledPrev}}
+        />
+        {{#if this.showPageNumbers}}
+          <ul class="hds-pagination-nav__page-list">
+            {{#each this.pages as |page|}}
+              <li class="hds-pagination-nav__page-item">
+                {{#if (eq page "…")}}
+                  <HdsPaginationNavEllipsis />
+                {{else}}
+                  <HdsPaginationNavNumber
+                    @page={{this.elliptizedPageArrayItemAsNumber page}}
+                    @route={{this.routing.route}}
+                    @query={{get this.routing.queryPages page}}
+                    @model={{this.routing.model}}
+                    @models={{this.routing.models}}
+                    @replace={{this.routing.replace}}
+                    @onClick={{this.onPageChange}}
+                    @isSelected={{if (eq page this.currentPage) true false}}
+                  />
+                {{/if}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+        <HdsPaginationNavArrow
+          @direction="next"
+          @showLabel={{this.showLabels}}
+          @route={{this.routing.route}}
+          @query={{this.routing.queryNext}}
+          @model={{this.routing.model}}
+          @models={{this.routing.models}}
+          @replace={{this.routing.replace}}
+          @onClick={{this.onPageChange}}
+          @disabled={{this.isDisabledNext}}
+        />
+      </nav>
+
+      {{#if this.showSizeSelector}}
+        <HdsPaginationSizeSelector
+          @pageSizes={{this.pageSizes}}
+          @label={{@sizeSelectorLabel}}
+          @selectedSize={{this.currentPageSize}}
+          @onChange={{this.onPageSizeChange}}
+        />
+      {{/if}}
+    </div>
+  </template>
 }
