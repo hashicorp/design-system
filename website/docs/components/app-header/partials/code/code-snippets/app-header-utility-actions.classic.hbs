@@ -23,8 +23,8 @@ probably need to be set to true (or omitted to rely on defaults) }}
       <dd.Interactive @route="components" {{on "click" dd.close}}>Terraform Provider</dd.Interactive>
       <dd.Interactive @route="components" {{on "click" dd.close}}>Changelog</dd.Interactive>
       <dd.Separator />
-      <dd.Interactive @href="#">Create support ticket</dd.Interactive>
-      <dd.Interactive @href="#">Give feedback</dd.Interactive>
+      <dd.Interactive @route="components" {{on "click" dd.close}}>Create support ticket</dd.Interactive>
+      <dd.Interactive @route="components" {{on "click" dd.close}}>Give feedback</dd.Interactive>
     </Hds::Dropdown>
 
     <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>

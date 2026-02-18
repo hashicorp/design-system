@@ -47,8 +47,10 @@ probably need to be set to true (or omitted to rely on defaults) }}
           {{on "click" dd.close}}
         >Changelog</dd.Interactive>
         <dd.Separator />
-        <dd.Interactive @href="#">Create support ticket</dd.Interactive>
-        <dd.Interactive @href="#">Give feedback</dd.Interactive>
+        <dd.Interactive @route="components" {{on "click" dd.close}}>Create
+          support ticket</dd.Interactive>
+        <dd.Interactive @route="components" {{on "click" dd.close}}>Give
+          feedback</dd.Interactive>
       </HdsDropdown>
 
       <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
