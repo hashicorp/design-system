@@ -135,15 +135,14 @@
       }
     },
     "caret": {
-      "data-url": {
-        "$value": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%230C0C0E'/%3e%3c/svg%3e\")",
-        "comment": "notice: the 'caret' color is hardcoded here!",
+      "clip-path": {
+        "$value": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
         "$modes": {
-          "default": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%230C0C0E'/%3e%3c/svg%3e\")",
-          "cds-g0": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23393939'/%3e%3c/svg%3e\")",
-          "cds-g10": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23393939'/%3e%3c/svg%3e\")",
-          "cds-g90": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23F4F4F4'/%3e%3c/svg%3e\")",
-          "cds-g100": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 16 7' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z' fill='%23F4F4F4'/%3e%3c/svg%3e\")"
+          "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
+          "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
+          "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
+          "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
+          "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
         }
       },
       "height": {
