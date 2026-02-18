@@ -20,7 +20,7 @@ import HdsFormFileInputBase from '../file-input/base.gts';
 import HdsFormHelperText from '../helper-text/index.gts';
 import HdsFormLabel, { ID_PREFIX as LABEL_ID_PREFIX } from '../label/index.gts';
 import HdsFormMaskedInputBase from '../masked-input/base.gts';
-import HdsFormSelectBase from '../select/base.ts';
+import HdsFormSelectBase from '../select/base.gts';
 import HdsFormSuperSelectMultipleBase from '../super-select/multiple/base.ts';
 import HdsFormSuperSelectSingleBase from '../super-select/single/base.ts';
 import HdsFormTextareaBase from '../textarea/base.gts';
