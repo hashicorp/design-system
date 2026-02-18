@@ -84,7 +84,6 @@ This action will:
 ### After you have run the scripts
 
 * Check the git diff:
-  * if you see only the `lastRunTimeISO` value changed in the `catalog.json` file it means there are no updated to the icons, so there's no need to commit the changes.
   * if there were changes to the icons, you will see changes to the `catalog.json` file and to the content of the `svg` and `svg-sprite` folders.
 * Commit and push the changes, then submit a pull request in GitHub.
 * Once approved and merged to the `main` branch, you can proceed to the release phase.
