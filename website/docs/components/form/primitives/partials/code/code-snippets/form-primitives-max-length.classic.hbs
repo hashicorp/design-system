@@ -1,0 +1,9 @@
+{{! template-lint-disable require-input-label }}
+<input
+  type="text"
+  aria-label="input with max length count"
+  id="input-character-count-max"
+  value={{this.value}}
+  {{on "input" this.updateValue}}
+/>
+<Hds::Form::CharacterCount @maxLength={{10}} @controlId="input-character-count-max" @value={{this.value}} />

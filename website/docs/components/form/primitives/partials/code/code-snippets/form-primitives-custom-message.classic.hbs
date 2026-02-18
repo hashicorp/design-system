@@ -1,0 +1,12 @@
+{{! template-lint-disable require-input-label }}
+<input
+  type="text"
+  aria-label="input with min and max length count"
+  id="input-character-count-custom"
+  value={{this.value}}
+  {{on "input" this.updateValue}}
+/>
+<Hds::Form::CharacterCount @maxLength={{20}} @controlId="input-character-count-custom" @value={{this.value}} as |CC|>
+  {{CC.remaining}}
+  characters remaining
+</Hds::Form::CharacterCount>
