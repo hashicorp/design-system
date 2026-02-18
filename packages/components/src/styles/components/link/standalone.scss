@@ -11,6 +11,7 @@
 
 @use "sass:map";
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/carbonization" as *;
 
 $hds-link-standalone-sizes: ("small", "medium", "large");
 $hds-link-standalone-focus-border-radius: var(--token-border-radius-small);
@@ -101,6 +102,10 @@ $hds-link-standalone-size-props: (
 
     .hds-link-standalone__text {
       text-decoration-color: #4e81e8; // custom color by design
+    }
+
+    @include hds-apply-only-if-carbon() {
+      text-decoration-color: inherit;
     }
   }
 
