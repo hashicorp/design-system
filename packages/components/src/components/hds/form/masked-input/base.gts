@@ -4,12 +4,18 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
+import { on } from '@ember/modifier';
+import style from 'ember-style-modifier';
 
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
+import HdsCopyButton from '../../copy/button/index.gts';
+import HdsFormTextInputBase from '../text-input/base.gts';
+import HdsFormTextareaBase from '../textarea/base.gts';
+import HdsFormVisibilityToggle from '../visibility-toggle/index.gts';
+
 import type { HdsCopyButtonSignature } from '../../copy/button/index.gts';
 import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.gts';
 import type HdsIntlService from '../../../../services/hds-intl.ts';
@@ -52,11 +58,10 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     this._isContentMasked = value || false;
   }
 
-  @action
-  onClickToggleMasking(): void {
+  onClickToggleMasking = (): void => {
     this.isContentMasked = !this.isContentMasked;
     this._isControlled = false;
-  }
+  };
 
   private _manageState = modifier(() => {
     if (this.args.isContentMasked !== undefined) {
@@ -135,4 +140,45 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} {{style width=@width}} {{this._manageState}}>
+      {{#if @isMultiline}}
+        <HdsFormTextareaBase
+          class="hds-form-masked-input__control"
+          @value={{@value}}
+          @isInvalid={{@isInvalid}}
+          @height={{@height}}
+          id={{this.id}}
+          aria-describedby={{@ariaDescribedBy}}
+          ...attributes
+        />
+      {{else}}
+        <HdsFormTextInputBase
+          class="hds-form-masked-input__control"
+          @value={{@value}}
+          @isInvalid={{@isInvalid}}
+          id={{this.id}}
+          aria-describedby={{@ariaDescribedBy}}
+          ...attributes
+        />
+      {{/if}}
+      <HdsFormVisibilityToggle
+        @isVisible={{this.isContentMasked}}
+        @ariaLabel={{this.visibilityToggleAriaLabel}}
+        @ariaMessageText={{this.visibilityToggleAriaMessageText}}
+        aria-controls={{this.id}}
+        class="hds-form-masked-input__toggle-button"
+        {{on "click" this.onClickToggleMasking}}
+      />
+      {{#if @hasCopyButton}}
+        <HdsCopyButton
+          class="hds-form-masked-input__copy-button"
+          @text={{this.copyButtonText}}
+          @isIconOnly={{true}}
+          @targetToCopy="#{{this.id}}"
+        />
+      {{/if}}
+    </div>
+  </template>
 }
