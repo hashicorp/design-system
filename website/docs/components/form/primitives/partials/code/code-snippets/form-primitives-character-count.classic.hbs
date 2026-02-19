@@ -1,0 +1,9 @@
+{{! template-lint-disable require-input-label }}
+<input
+  type="text"
+  aria-label="input with default character count"
+  id="input-character-count-default"
+  value={{this.value}}
+  {{on "input" this.updateValue}}
+/>
+<Hds::Form::CharacterCount @controlId="input-character-count-default" @value={{this.value}} />

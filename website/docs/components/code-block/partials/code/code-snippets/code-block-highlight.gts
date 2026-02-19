@@ -3,6 +3,7 @@ import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { HdsCodeBlock } from '@hashicorp/design-system-components/components';
 
 const LocalComponent: TemplateOnlyComponent = <template>
+  {{! template-lint-disable no-whitespace-for-layout }}
   <HdsCodeBlock
     @ariaLabel="line highlighting"
     @language="ruby"

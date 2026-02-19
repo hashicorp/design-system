@@ -24,15 +24,5 @@ module.exports = {
         prettier: false,
       },
     },
-    // Code block examples use whitespace to format the snippet, so we need to disable this rule
-    {
-      files: [
-        'docs/components/code-block/partials/code/code-snippets/*.gts',
-        'docs/components/code-block/partials/code/code-snippets/*.hbs',
-      ],
-      rules: {
-        'no-whitespace-for-layout': false,
-      },
-    },
   ],
 };

@@ -15,7 +15,6 @@ export function getAssetsCatalog({ config, assetsMetadata, figmaExportPageNode }
 
     // initialize the "catalog" object
     const assetsCatalog: AssetsCatalog = {
-        lastRunTimeISO: new Date().toISOString(),
         lastRunFigma: config.figmaFile,
         assets: []
     };

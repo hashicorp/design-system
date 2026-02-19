@@ -4,12 +4,12 @@
  */
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
 const SubSectionVariants: TemplateOnlyComponent = <template>
-  <ShwTextH2>Color variants</ShwTextH2>
+  <ShwTextH4 @tag="h2">Color variants</ShwTextH4>
 
   <ShwFlex as |SF|>
     <SF.Item @label="action">
