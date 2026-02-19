@@ -9294,8 +9294,8 @@ button.hds-button[href]::after {
   width: var(--token-tooltip-caret-width);
   height: var(--token-tooltip-caret-height);
   background-color: var(--token-tooltip-surface-color);
-  clip-path: var(--token-tooltip-caret-clip-path);
   content: "";
+  clip-path: var(--token-tooltip-caret-clip-path);
 }
 .tippy-box[data-theme~=hds][data-placement^=left] > .tippy-arrow, .tippy-box[data-theme~=hds][data-placement^=right] > .tippy-arrow {
   width: var(--token-tooltip-caret-height);
