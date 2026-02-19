@@ -7,7 +7,7 @@
 // - https://github.com/hashicorp/design-system-components/issues/161
 // - https://www.tpgi.com/focus-visible-and-backwards-compatibility/
 
-@mixin hds-focus-ring-with-outline($focus-color: action, $border-color-initial: transparent, $offset: 0) {
+@mixin hds-focus-ring-with-outline($focus-color: action, $border-color-initial: transparent, $border-color-active: $border-color-initial, $offset: 0) {
   outline-offset: $offset;
 
   // default focus for browsers that still rely on ":focus"
@@ -29,7 +29,7 @@
   // remove the focus ring on "active + focused" state (by design)
   &:focus:active,
   &.mock-focus.mock-active {
-    border-color: $border-color-initial;
+    border-color: $border-color-active;
     // outline: none;
   }
 }
@@ -64,7 +64,9 @@
   $bottom: 0,
   $left: 0,
   $radius: 5px,
-  $color: action,
+  $focus-color: action,
+  $border-color-initial: transparent,
+  $border-color-active: $border-color-initial,
   $position: relative,
   $is-focus-always-visible: false
 ) {
@@ -80,6 +82,7 @@
     bottom: $bottom;
     left: $left;
     z-index: -1;
+    border: 1px solid transparent;
     border-radius: $radius;
     content: "";
   }
@@ -88,7 +91,8 @@
   &:focus,
   &.mock-focus {
     &::before {
-      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
+      border-color: var(--token-color-focus-#{$focus-color}-internal);
+      outline: 3px solid var(--token-color-focus-#{$focus-color}-external);
     }
   }
 
@@ -96,13 +100,15 @@
     // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
     &:focus:not(:focus-visible) {
       &::before {
-        box-shadow: none;
+        border-color: $border-color-initial;
+        // outline: none;
       }
     }
     // set focus for browsers that support ":focus-visible"
     &:focus-visible {
       &::before {
-        box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
+        border-color: var(--token-color-focus-#{$focus-color}-internal);
+        outline: 3px solid var(--token-color-focus-#{$focus-color}-external);
       }
     }
   }
@@ -111,7 +117,8 @@
   &:focus:active,
   &.mock-focus.mock-active {
     &::before {
-      box-shadow: none;
+      border-color: $border-color-active;
+      // outline: none;
     }
   }
 }
