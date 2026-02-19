@@ -5,10 +5,8 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-
-import type { ComponentLike } from '@glint/template';
-
-import type { HdsLayoutFlexItemSignature } from './item.ts';
+import { element } from 'ember-element-helper';
+import { hash } from '@ember/helper';
 
 import {
   HdsLayoutFlexDirectionValues,
@@ -16,6 +14,7 @@ import {
   HdsLayoutFlexAlignValues,
   HdsLayoutFlexGapValues,
 } from './types.ts';
+import HdsLayoutFlexItem from './item.gts';
 
 import type {
   HdsLayoutFlexDirections,
@@ -52,7 +51,7 @@ export interface HdsLayoutFlexSignature {
   Blocks: {
     default: [
       {
-        Item?: ComponentLike<HdsLayoutFlexItemSignature>;
+        Item?: typeof HdsLayoutFlexItem;
       },
     ];
   };
@@ -170,4 +169,12 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    {{#let (element this.componentTag) as |Tag|}}
+      <Tag class={{this.classNames}} ...attributes>{{yield
+          (hash Item=HdsLayoutFlexItem)
+        }}</Tag>
+    {{/let}}
+  </template>
 }

@@ -355,8 +355,8 @@ export { default as HdsAppFrameModals } from './components/hds/app-frame/parts/m
 export { default as HdsAppFrameSidebar } from './components/hds/app-frame/parts/sidebar.gts';
 
 // Layout > Flex
-export { default as HdsLayoutFlex } from './components/hds/layout/flex/index.ts';
-export { default as HdsLayoutFlexItem } from './components/hds/layout/flex/item.ts';
+export { default as HdsLayoutFlex } from './components/hds/layout/flex/index.gts';
+export { default as HdsLayoutFlexItem } from './components/hds/layout/flex/item.gts';
 export * from './components/hds/layout/flex/types.ts';
 
 // Layout > Grid
