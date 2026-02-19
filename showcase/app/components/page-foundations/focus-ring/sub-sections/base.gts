@@ -5,13 +5,13 @@
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import style from 'ember-style-modifier';
 
-import ShwTextH2 from 'showcase/components/shw/text/h2';
+import ShwTextH4 from 'showcase/components/shw/text/h4';
 import ShwFlex from 'showcase/components/shw/flex';
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 import ShwDivider from 'showcase/components/shw/divider';
 
 const SubSectionBase: TemplateOnlyComponent = <template>
-  <ShwTextH2>Base "focus ring" effect</ShwTextH2>
+  <ShwTextH4 @tag="h2">Base "focus ring" effect</ShwTextH4>
 
   <ShwFlex as |SF|>
     <SF.Item>
