@@ -6,14 +6,11 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
-import { array } from '@ember/helper';
 
 import type { SafeString } from '@ember/template';
 import type Owner from '@ember/owner';
 
 import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
-import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
-import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 import HdsAppFooterLink from './link.gts';
 
 import type { HdsAppFooterStatusTypes } from './types.ts';
@@ -104,8 +101,9 @@ export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatus
       class={{this.classNames}}
       style={{this.itemStyle}}
       @current-when={{@current-when}}
-      @models={{hdsLinkToModels (array @model @models)}}
-      @query={{hdsLinkToQuery (array @query)}}
+      @models={{@models}}
+      @model={{@model}}
+      @query={{@query}}
       @replace={{@replace}}
       @route={{@route}}
       @isRouteExternal={{@isRouteExternal}}

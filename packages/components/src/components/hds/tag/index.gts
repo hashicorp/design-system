@@ -10,12 +10,10 @@ import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import { or } from 'ember-truth-helpers';
-import { hash, array } from '@ember/helper';
+import { hash } from '@ember/helper';
 
 import { HdsTagColorValues } from './types.ts';
 import { HdsTagTooltipPlacementValues } from './types.ts';
-import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
-import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 import HdsInteractive from '../interactive/index.gts';
 import HdsTooltipButton from '../tooltip-button/index.gts';
 import HdsTextBody from '../text/body.gts';
@@ -167,8 +165,9 @@ export default class HdsTag extends Component<HdsTagSignature> {
           <HdsInteractive
             class="hds-tag__link"
             @current-when={{@current-when}}
-            @models={{hdsLinkToModels (array @model @models)}}
-            @query={{hdsLinkToQuery (array @query)}}
+            @models={{@models}}
+            @model={{@model}}
+            @query={{@query}}
             @replace={{@replace}}
             @route={{@route}}
             @isRouteExternal={{@isRouteExternal}}
@@ -192,8 +191,9 @@ export default class HdsTag extends Component<HdsTagSignature> {
           <HdsInteractive
             class="hds-tag__link"
             @current-when={{@current-when}}
-            @models={{hdsLinkToModels (array @model @models)}}
-            @query={{hdsLinkToQuery (array @query)}}
+            @models={{@models}}
+            @model={{@model}}
+            @query={{@query}}
             @replace={{@replace}}
             @route={{@route}}
             @isRouteExternal={{@isRouteExternal}}

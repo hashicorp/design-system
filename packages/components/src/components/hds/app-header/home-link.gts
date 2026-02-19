@@ -5,10 +5,7 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { array } from '@ember/helper';
 
-import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
-import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 import HdsIcon from '../icon/index.gts';
 import HdsTextDisplay from '../text/display.gts';
 import HdsInteractive from '../interactive/index.gts';
@@ -57,8 +54,9 @@ export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLink
     <HdsInteractive
       class="hds-app-header__home-link"
       @current-when={{@current-when}}
-      @models={{hdsLinkToModels (array @model @models)}}
-      @query={{hdsLinkToQuery (array @query)}}
+      @models={{@models}}
+      @model={{@model}}
+      @query={{@query}}
       @replace={{@replace}}
       @route={{@route}}
       @isRouteExternal={{@isRouteExternal}}

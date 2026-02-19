@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { eq } from 'ember-truth-helpers';
-import { array } from '@ember/helper';
 
 import type Owner from '@ember/owner';
 
@@ -17,8 +16,6 @@ import {
 } from './types.ts';
 import HdsInteractive from '../interactive/index.gts';
 import HdsIcon from '../icon/index.gts';
-import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
-import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 
 import type { HdsInteractiveSignature } from '../interactive/index.gts';
 import type {
@@ -146,8 +143,9 @@ export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignat
     <HdsInteractive
       class={{this.classNames}}
       @current-when={{@current-when}}
-      @models={{hdsLinkToModels (array @model @models)}}
-      @query={{hdsLinkToQuery (array @query)}}
+      @models={{@models}}
+      @model={{@model}}
+      @query={{@query}}
       @replace={{@replace}}
       @route={{@route}}
       @isRouteExternal={{@isRouteExternal}}

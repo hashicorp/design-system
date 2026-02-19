@@ -4,10 +4,7 @@
  */
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
-import { array } from '@ember/helper';
 
-import { hdsLinkToModels } from '../../../helpers/hds-link-to-models.ts';
-import { hdsLinkToQuery } from '../../../helpers/hds-link-to-query.ts';
 import HdsAppFooterItem from './item.gts';
 import HdsLinkInline from '../link/inline.gts';
 import HdsTextBody from '../text/body.gts';
@@ -36,8 +33,9 @@ const HdsAppFooterLink: TemplateOnlyComponent<HdsAppFooterLinkSignature> =
         class="hds-app-footer__link"
         @color="secondary"
         @current-when={{@current-when}}
-        @models={{hdsLinkToModels (array @model @models)}}
-        @query={{hdsLinkToQuery (array @query)}}
+        @models={{@models}}
+        @model={{@model}}
+        @query={{@query}}
         @replace={{@replace}}
         @route={{@route}}
         @isRouteExternal={{@isRouteExternal}}
