@@ -59,7 +59,7 @@ $hds-interactive-dark-theme-focus-ring-action-box-shadow:
   // Focus:
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+    @include hds-focus-ring($with-pseudo-element: true, $top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
 
     // See: https://sass-lang.com/d/mixed-decls
     & {

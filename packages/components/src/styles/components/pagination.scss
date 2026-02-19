@@ -97,7 +97,8 @@
   background-color: transparent;
   border: 1px solid transparent;
 
-  @include hds-focus-ring-with-pseudo-element(
+  @include hds-focus-ring(
+    $with-pseudo-element: true,
     $top: var(--token-pagination-nav-control-focus-inset),
     $right: var(--token-pagination-nav-control-focus-inset),
     $bottom: var(--token-pagination-nav-control-focus-inset),

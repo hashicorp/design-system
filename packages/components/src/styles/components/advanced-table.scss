@@ -101,7 +101,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       &:focus,
       &.mock-focus {
         // the box shadow is 3px wide, so offsetting by 3px so the focus ring doesn't go outside the cell
-        @include hds-focus-ring-with-pseudo-element(
+        @include hds-focus-ring(
+          $with-pseudo-element: true,
           $top: 3px,
           $right: 3px,
           $bottom: 3px,
@@ -185,7 +186,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     }
 
     .hds-advanced-table__th-resize-handle {
-      @include hds-focus-ring-with-pseudo-element($position: absolute);
+      @include hds-focus-ring($with-pseudo-element: true, $position: absolute);
 
       top: 0;
       right: 0;
@@ -407,7 +408,13 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element($position: absolute, $top: 3px, $bottom: 3px, $is-focus-always-visible: true);
+    @include hds-focus-ring(
+      $with-pseudo-element: true,
+      $position: absolute,
+      $top: 3px,
+      $bottom: 3px,
+      $is-focus-always-visible: true
+    );
 
     .hds-advanced-table__th-reorder-handle__inner {
       background-color: var(--token-color-surface-interactive);
@@ -434,7 +441,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   }
 
   // Use pseudo element for focus ring to allow offset position to be partially inside the button
-  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+  @include hds-focus-ring($with-pseudo-element: true, $radius: inherit);
 
   &:focus,
   &.mock-focus,
@@ -477,7 +484,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     cursor: pointer;
   }
 
-  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+  @include hds-focus-ring($with-pseudo-element: true, $radius: inherit);
 
   &:active,
   &.mock-active {
@@ -568,7 +575,8 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     &:focus,
     &.mock-focus {
       // the box shadow is 3px wide, so offsetting by 3px so the focus ring doesn't go outside the cell
-      @include hds-focus-ring-with-pseudo-element(
+      @include hds-focus-ring(
+        $with-pseudo-element: true,
         $top: 3px,
         $right: 3px,
         $bottom: 3px,

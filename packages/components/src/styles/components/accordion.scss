@@ -138,7 +138,8 @@
 
 // entire toggle area is interactive
 .hds-accordion-item__button--parent-does-not-contain-interactive {
-  @include hds-focus-ring-with-pseudo-element(
+  @include hds-focus-ring(
+    $with-pseudo-element: true,
     $top: var(--hds-accordion-item-focus-ring-offset),
     $right: var(--hds-accordion-item-focus-ring-offset),
     $bottom: var(--hds-accordion-item-focus-ring-offset),

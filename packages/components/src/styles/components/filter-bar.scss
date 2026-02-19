@@ -77,7 +77,7 @@
 }
 
 .hds-filter-bar__tabs__tab__button {
-  @include hds-focus-ring-with-outline();
+  @include hds-focus-ring();
 
   display: flex;
   gap: 16px;

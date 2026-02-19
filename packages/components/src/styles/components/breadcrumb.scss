@@ -92,7 +92,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   }
 
   // we apply the focus directly to the element, without using a pseudo-element
-  @include hds-focus-ring-with-outline();
+  @include hds-focus-ring();
 
   &:active,
   &.mock-active {
@@ -168,7 +168,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   }
 
   // we apply the focus directly to the element, without using a pseudo-element
-  @include hds-focus-ring-with-outline();
+  @include hds-focus-ring();
 
   &:focus,
   &.mock-focus {

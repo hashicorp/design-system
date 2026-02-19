@@ -67,7 +67,8 @@ $hds-tabs-sizes: ("medium", "large");
 }
 
 .hds-tabs__tab-button {
-  @include hds-focus-ring-with-pseudo-element(
+  @include hds-focus-ring(
+    $with-pseudo-element: true,
     $top: var(--token-tabs-tab-focus-inset),
     $right: var(--token-tabs-tab-focus-inset),
     $bottom: var(--token-tabs-tab-focus-inset),

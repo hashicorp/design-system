@@ -88,7 +88,7 @@ $hds-tag-border-radius: 50px;
     background-color: var(--token-color-surface-interactive-active);
   }
 
-  @include hds-focus-ring-with-outline();
+  @include hds-focus-ring();
 
   &:focus,
   &.mock-focus {
@@ -100,7 +100,7 @@ $hds-tag-border-radius: 50px;
   cursor: text;
   user-select: text;
 
-  @include hds-focus-ring-with-outline();
+  @include hds-focus-ring();
 
   &:focus,
   &.mock-focus {
