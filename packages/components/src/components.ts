@@ -212,8 +212,8 @@ export { default as HdsFormRadioCardLabel } from './components/hds/form/radio-ca
 export * from './components/hds/form/radio-card/types.ts';
 
 // Form > Select
-export { default as HdsFormSelectBase } from './components/hds/form/select/base.ts';
-export { default as HdsFormSelectField } from './components/hds/form/select/field.ts';
+export { default as HdsFormSelectBase } from './components/hds/form/select/base.gts';
+export { default as HdsFormSelectField } from './components/hds/form/select/field.gts';
 
 // Form > SuperSelect
 export { default as HdsFormSuperSelectSingleBase } from './components/hds/form/super-select/single/base.ts';
