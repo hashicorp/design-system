@@ -10,7 +10,9 @@ import {
   HdsStepperStatusesValues,
   HdsStepperStatusToIconsValues,
 } from '../types.ts';
-import type { HdsIconSignature } from '../../icon';
+import HdsIcon from '../../icon/index.gts';
+
+import type { HdsIconSignature } from '../../icon/index.gts';
 import type { HdsStepperStatuses } from '../types.ts';
 
 export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
@@ -29,12 +31,6 @@ export interface HdsStepperTaskIndicatorSignature {
 }
 
 export default class HdsStepperTaskIndicator extends Component<HdsStepperTaskIndicatorSignature> {
-  /**
-   * @param status
-   * @type {string}
-   * @default "incomplete"
-   */
-
   get status(): HdsStepperStatuses {
     const { status = DEFAULT_STATUS } = this.args;
 
@@ -48,30 +44,14 @@ export default class HdsStepperTaskIndicator extends Component<HdsStepperTaskInd
     return status;
   }
 
-  /**
-   * @param isInteractive
-   * @type {boolean}
-   * @default false
-   */
-
   get isInteractive(): boolean {
     return this.args.isInteractive || false;
   }
-
-  /**
-   * @param iconName
-   * @type {string}
-   */
 
   get iconName(): HdsIconSignature['Args']['name'] {
     return MAPPING_STATUS_TO_ICONS[this.status];
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method IndicatorTask#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-stepper-indicator-task'];
 
@@ -84,4 +64,14 @@ export default class HdsStepperTaskIndicator extends Component<HdsStepperTaskInd
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      <HdsIcon
+        class="hds-stepper-indicator-task__icon"
+        @name={{this.iconName}}
+        @size="16"
+      />
+    </div>
+  </template>
 }
