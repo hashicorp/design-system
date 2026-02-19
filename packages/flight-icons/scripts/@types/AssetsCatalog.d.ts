@@ -25,7 +25,6 @@ export type AssetCatalogItem = {
 };
 
 export type AssetsCatalog = {
-    lastRunTimeISO: string,
     lastRunFigma: ConfigData[figmaFile],
     assets: AssetCatalogItem[]
 }
