@@ -30,19 +30,15 @@
   --token-app-side-nav-wrapper-padding-horizontal: 16px;
   --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
   --token-app-side-nav-wrapper-padding-vertical: 16px;
-  --token-badge-border-width: 1px;
-  --token-badge-foreground-color-neutral-dark-mode-filled: var(--token-color-foreground-high-contrast);
   --token-badge-height-large: 32px;
   --token-badge-height-medium: 24px;
-  --token-badge-height-small: 20px;
   --token-badge-icon-size-large: 16px;
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-small: 12px;
   --token-badge-padding-vertical-large: 4px;
   --token-badge-padding-vertical-medium: 4px;
-  --token-badge-padding-vertical-small: 2px;
-  --token-badge-surface-color-neutral-dark-mode-filled: var(--token-color-palette-neutral-500); /** TODO - cristiano to ask Carbon team what to do because there is no high-contrast color in the theme colors for the tag (in code) */
-  --token-badge-surface-color-neutral-inverted: var(--token-color-palette-neutral-500); /** TODO - cristiano to ask Carbon team what to do because there is no equivalent color in code for the Tag inverted */
+  --token-badge-surface-color-neutral-dark-mode-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-neutral-outlined: rgba(0, 0, 0, 0);
   --token-badge-typography-line-height-medium: 1.2308; /** 16px = 1.2308 */
   --token-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
   --token-border-radius-rounded: 1000000000px;
