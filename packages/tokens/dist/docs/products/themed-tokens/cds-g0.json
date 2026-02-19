@@ -140,6 +140,27 @@
     ]
   },
   {
+    "key": "{border.radius.rounded}",
+    "$type": "dimension",
+    "$value": "1000000000px",
+    "unit": "px",
+    "original": {
+      "$type": "dimension",
+      "$value": "1000000000",
+      "unit": "px",
+      "key": "{border.radius.rounded}"
+    },
+    "name": "token-border-radius-rounded",
+    "attributes": {
+      "category": "border"
+    },
+    "path": [
+      "border",
+      "radius",
+      "rounded"
+    ]
+  },
+  {
     "key": "{color.palette.blue-500}",
     "$type": "color",
     "$value": "#001141",
@@ -772,25 +793,25 @@
   {
     "key": "{color.palette.amber-500}",
     "$type": "color",
-    "$value": "#302400",
+    "$value": "#3e1a00",
     "group": "palette",
     "$modes": {
       "default": "#542800",
-      "cds-g0": "#302400",
-      "cds-g10": "#302400",
-      "cds-g90": "#302400",
-      "cds-g100": "#302400"
+      "cds-g0": "#3e1a00",
+      "cds-g10": "#3e1a00",
+      "cds-g90": "#3e1a00",
+      "cds-g100": "#3e1a00"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.yellow.90}",
+      "$value": "{carbon.color.orange.90}",
       "group": "palette",
       "$modes": {
         "default": "#542800",
-        "cds-g0": "{carbon.color.yellow.90}",
-        "cds-g10": "{carbon.color.yellow.90}",
-        "cds-g90": "{carbon.color.yellow.90}",
-        "cds-g100": "{carbon.color.yellow.90}"
+        "cds-g0": "{carbon.color.orange.90}",
+        "cds-g10": "{carbon.color.orange.90}",
+        "cds-g90": "{carbon.color.orange.90}",
+        "cds-g100": "{carbon.color.orange.90}"
       },
       "key": "{color.palette.amber-500}"
     },
@@ -807,25 +828,25 @@
   {
     "key": "{color.palette.amber-400}",
     "$type": "color",
-    "$value": "#483700",
+    "$value": "#5e2900",
     "group": "palette",
     "$modes": {
       "default": "#803d00",
-      "cds-g0": "#483700",
-      "cds-g10": "#483700",
-      "cds-g90": "#483700",
-      "cds-g100": "#483700"
+      "cds-g0": "#5e2900",
+      "cds-g10": "#5e2900",
+      "cds-g90": "#5e2900",
+      "cds-g100": "#5e2900"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.yellow.80}",
+      "$value": "{carbon.color.orange.80}",
       "group": "palette",
       "$modes": {
         "default": "#803d00",
-        "cds-g0": "{carbon.color.yellow.80}",
-        "cds-g10": "{carbon.color.yellow.80}",
-        "cds-g90": "{carbon.color.yellow.80}",
-        "cds-g100": "{carbon.color.yellow.80}"
+        "cds-g0": "{carbon.color.orange.80}",
+        "cds-g10": "{carbon.color.orange.80}",
+        "cds-g90": "{carbon.color.orange.80}",
+        "cds-g100": "{carbon.color.orange.80}"
       },
       "key": "{color.palette.amber-400}"
     },
@@ -842,25 +863,25 @@
   {
     "key": "{color.palette.amber-300}",
     "$type": "color",
-    "$value": "#8e6a00",
+    "$value": "#8a3800",
     "group": "palette",
     "$modes": {
       "default": "#9e4b00",
-      "cds-g0": "#8e6a00",
-      "cds-g10": "#8e6a00",
-      "cds-g90": "#8e6a00",
-      "cds-g100": "#8e6a00"
+      "cds-g0": "#8a3800",
+      "cds-g10": "#8a3800",
+      "cds-g90": "#8a3800",
+      "cds-g100": "#8a3800"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.yellow.60}",
+      "$value": "{carbon.color.orange.70}",
       "group": "palette",
       "$modes": {
         "default": "#9e4b00",
-        "cds-g0": "{carbon.color.yellow.60}",
-        "cds-g10": "{carbon.color.yellow.60}",
-        "cds-g90": "{carbon.color.yellow.60}",
-        "cds-g100": "{carbon.color.yellow.60}"
+        "cds-g0": "{carbon.color.orange.70}",
+        "cds-g10": "{carbon.color.orange.70}",
+        "cds-g90": "{carbon.color.orange.70}",
+        "cds-g100": "{carbon.color.orange.70}"
       },
       "key": "{color.palette.amber-300}"
     },
@@ -877,25 +898,25 @@
   {
     "key": "{color.palette.amber-200}",
     "$type": "color",
-    "$value": "#d2a106",
+    "$value": "#ba4e00",
     "group": "palette",
     "$modes": {
       "default": "#bb5a00",
-      "cds-g0": "#d2a106",
-      "cds-g10": "#d2a106",
-      "cds-g90": "#d2a106",
-      "cds-g100": "#d2a106"
+      "cds-g0": "#ba4e00",
+      "cds-g10": "#ba4e00",
+      "cds-g90": "#ba4e00",
+      "cds-g100": "#ba4e00"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.yellow.40}",
+      "$value": "{carbon.color.orange.60}",
       "group": "palette",
       "$modes": {
         "default": "#bb5a00",
-        "cds-g0": "{carbon.color.yellow.40}",
-        "cds-g10": "{carbon.color.yellow.40}",
-        "cds-g90": "{carbon.color.yellow.40}",
-        "cds-g100": "{carbon.color.yellow.40}"
+        "cds-g0": "{carbon.color.orange.60}",
+        "cds-g10": "{carbon.color.orange.60}",
+        "cds-g90": "{carbon.color.orange.60}",
+        "cds-g100": "{carbon.color.orange.60}"
       },
       "key": "{color.palette.amber-200}"
     },
@@ -912,25 +933,25 @@
   {
     "key": "{color.palette.amber-100}",
     "$type": "color",
-    "$value": "#fddc69",
+    "$value": "#ffd9be",
     "group": "palette",
     "$modes": {
       "default": "#fbeabf",
-      "cds-g0": "#fddc69",
-      "cds-g10": "#fddc69",
-      "cds-g90": "#fddc69",
-      "cds-g100": "#fddc69"
+      "cds-g0": "#ffd9be",
+      "cds-g10": "#ffd9be",
+      "cds-g90": "#ffd9be",
+      "cds-g100": "#ffd9be"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.yellow.20}",
+      "$value": "{carbon.color.orange.20}",
       "group": "palette",
       "$modes": {
         "default": "#fbeabf",
-        "cds-g0": "{carbon.color.yellow.20}",
-        "cds-g10": "{carbon.color.yellow.20}",
-        "cds-g90": "{carbon.color.yellow.20}",
-        "cds-g100": "{carbon.color.yellow.20}"
+        "cds-g0": "{carbon.color.orange.20}",
+        "cds-g10": "{carbon.color.orange.20}",
+        "cds-g90": "{carbon.color.orange.20}",
+        "cds-g100": "{carbon.color.orange.20}"
       },
       "key": "{color.palette.amber-100}"
     },
@@ -947,25 +968,25 @@
   {
     "key": "{color.palette.amber-50}",
     "$type": "color",
-    "$value": "#fcf4d6",
+    "$value": "#fff2e8",
     "group": "palette",
     "$modes": {
       "default": "#fff9e8",
-      "cds-g0": "#fcf4d6",
-      "cds-g10": "#fcf4d6",
-      "cds-g90": "#fcf4d6",
-      "cds-g100": "#fcf4d6"
+      "cds-g0": "#fff2e8",
+      "cds-g10": "#fff2e8",
+      "cds-g90": "#fff2e8",
+      "cds-g100": "#fff2e8"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.yellow.10}",
+      "$value": "{carbon.color.orange.10}",
       "group": "palette",
       "$modes": {
         "default": "#fff9e8",
-        "cds-g0": "{carbon.color.yellow.10}",
-        "cds-g10": "{carbon.color.yellow.10}",
-        "cds-g90": "{carbon.color.yellow.10}",
-        "cds-g100": "{carbon.color.yellow.10}"
+        "cds-g0": "{carbon.color.orange.10}",
+        "cds-g10": "{carbon.color.orange.10}",
+        "cds-g90": "{carbon.color.orange.10}",
+        "cds-g100": "{carbon.color.orange.10}"
       },
       "key": "{color.palette.amber-50}"
     },
@@ -1507,14 +1528,74 @@
   {
     "key": "{color.palette.alpha-300}",
     "$type": "color",
-    "$value": "#39393966",
-    "alpha": "0.4",
+    "$value": "#8d8d8d",
     "group": "palette",
+    "$modes": {
+      "default": "#393939",
+      "cds-g0": {
+        "$value": "#8d8d8d",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g10": {
+        "$value": "#8d8d8d",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g90": {
+        "$value": "#8d8d8d",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g100": {
+        "$value": "#6f6f6f",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      }
+    },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.neutral-600}",
-      "alpha": "0.4",
+      "$value": "{carbon.color.gray.50}",
       "group": "palette",
+      "$modes": {
+        "default": "{color.palette.neutral-600}",
+        "cds-g0": {
+          "$value": "{carbon.color.gray.50}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g10": {
+          "$value": "{carbon.color.gray.50}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g90": {
+          "$value": "{carbon.color.gray.50}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g100": {
+          "$value": "{carbon.color.gray.60}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        }
+      },
       "key": "{color.palette.alpha-300}"
     },
     "name": "token-color-palette-alpha-300",
@@ -1530,14 +1611,74 @@
   {
     "key": "{color.palette.alpha-200}",
     "$type": "color",
-    "$value": "#52525233",
-    "alpha": "0.2",
+    "$value": "#c6c6c6",
     "group": "palette",
+    "$modes": {
+      "default": "#525252",
+      "cds-g0": {
+        "$value": "#c6c6c6",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g10": {
+        "$value": "#e0e0e0",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g90": {
+        "$value": "#6f6f6f",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g100": {
+        "$value": "#525252",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      }
+    },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.neutral-500}",
-      "alpha": "0.2",
+      "$value": "{carbon.color.gray.30}",
       "group": "palette",
+      "$modes": {
+        "default": "{color.palette.neutral-500}",
+        "cds-g0": {
+          "$value": "{carbon.color.gray.30}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g10": {
+          "$value": "{carbon.color.gray.20}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g90": {
+          "$value": "{carbon.color.gray.60}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g100": {
+          "$value": "{carbon.color.gray.70}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        }
+      },
       "key": "{color.palette.alpha-200}"
     },
     "name": "token-color-palette-alpha-200",
@@ -1553,14 +1694,74 @@
   {
     "key": "{color.palette.alpha-100}",
     "$type": "color",
-    "$value": "#5252521a",
-    "alpha": "0.1",
+    "$value": "#e0e0e0",
     "group": "palette",
+    "$modes": {
+      "default": "#525252",
+      "cds-g0": {
+        "$value": "#e0e0e0",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g10": {
+        "$value": "#c6c6c6",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g90": {
+        "$value": "#525252",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      },
+      "cds-g100": {
+        "$value": "#393939",
+        "alpha": null,
+        "filePath": "src/global/color/palette-neutrals.json",
+        "isSource": true,
+        "$type": "color"
+      }
+    },
     "original": {
       "$type": "color",
-      "$value": "{color.palette.neutral-500}",
-      "alpha": "0.1",
+      "$value": "{carbon.color.gray.20}",
       "group": "palette",
+      "$modes": {
+        "default": "{color.palette.neutral-500}",
+        "cds-g0": {
+          "$value": "{carbon.color.gray.20}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g10": {
+          "$value": "{carbon.color.gray.30}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g90": {
+          "$value": "{carbon.color.gray.70}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        },
+        "cds-g100": {
+          "$value": "{carbon.color.gray.80}",
+          "alpha": null,
+          "filePath": "src/global/color/palette-neutrals.json",
+          "isSource": true,
+          "$type": "color"
+        }
+      },
       "key": "{color.palette.alpha-100}"
     },
     "name": "token-color-palette-alpha-100",
@@ -1579,7 +1780,7 @@
     "$value": "#c6c6c6",
     "group": "semantic",
     "$modes": {
-      "default": "#52525233",
+      "default": "#c6c6c6",
       "cds-g0": "#c6c6c6",
       "cds-g10": "#e0e0e0",
       "cds-g90": "#8d8d8d",
@@ -1614,7 +1815,7 @@
     "$value": "#e0e0e0",
     "group": "semantic",
     "$modes": {
-      "default": "#5252521a",
+      "default": "#e0e0e0",
       "cds-g0": "#e0e0e0",
       "cds-g10": "#c6c6c6",
       "cds-g90": "#525252",
@@ -1649,7 +1850,7 @@
     "$value": "#8d8d8d",
     "group": "semantic",
     "$modes": {
-      "default": "#39393966",
+      "default": "#8d8d8d",
       "cds-g0": "#8d8d8d",
       "cds-g10": "#8d8d8d",
       "cds-g90": "#8d8d8d",
@@ -1692,14 +1893,14 @@
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.blue.60}",
+      "$value": "{carbon.themes.white.borderInteractive}",
       "group": "semantic",
       "$modes": {
         "default": "{color.palette.blue-100}",
-        "cds-g0": "{carbon.color.blue.60}",
-        "cds-g10": "{carbon.color.blue.60}",
-        "cds-g90": "{carbon.color.blue.50}",
-        "cds-g100": "{carbon.color.blue.50}"
+        "cds-g0": "{carbon.themes.white.borderInteractive}",
+        "cds-g10": "{carbon.themes.g10.borderInteractive}",
+        "cds-g90": "{carbon.themes.g90.borderInteractive}",
+        "cds-g100": "{carbon.themes.g100.borderInteractive}"
       },
       "key": "{color.border.action}"
     },
@@ -1786,25 +1987,25 @@
   {
     "key": "{color.border.warning}",
     "$type": "color",
-    "$value": "#ff832b",
+    "$value": "#d2a106",
     "group": "semantic",
     "$modes": {
-      "default": "#fddc69",
-      "cds-g0": "#ff832b",
-      "cds-g10": "#ff832b",
-      "cds-g90": "#eb6200",
-      "cds-g100": "#eb6200"
+      "default": "#ffd9be",
+      "cds-g0": "#d2a106",
+      "cds-g10": "#d2a106",
+      "cds-g90": "#b28600",
+      "cds-g100": "#b28600"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.orange.40}",
+      "$value": "{carbon.color.yellow.40}",
       "group": "semantic",
       "$modes": {
         "default": "{color.palette.amber-100}",
-        "cds-g0": "{carbon.color.orange.40}",
-        "cds-g10": "{carbon.color.orange.40}",
-        "cds-g90": "{carbon.color.orange.50}",
-        "cds-g100": "{carbon.color.orange.50}"
+        "cds-g0": "{carbon.color.yellow.40}",
+        "cds-g10": "{carbon.color.yellow.40}",
+        "cds-g90": "{carbon.color.yellow.50}",
+        "cds-g100": "{carbon.color.yellow.50}"
       },
       "key": "{color.border.warning}"
     },
@@ -2074,25 +2275,25 @@
   {
     "key": "{color.foreground.faint}",
     "$type": "color",
-    "$value": "#161616",
+    "$value": "#525252",
     "group": "semantic",
     "$modes": {
       "default": "#525252",
-      "cds-g0": "#161616",
-      "cds-g10": "#161616",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
+      "cds-g0": "#525252",
+      "cds-g10": "#525252",
+      "cds-g90": "#c6c6c6",
+      "cds-g100": "#c6c6c6"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.white.textPrimary}",
+      "$value": "{carbon.themes.white.textSecondary}",
       "group": "semantic",
       "$modes": {
         "default": "{color.palette.neutral-500}",
-        "cds-g0": "{carbon.themes.white.textPrimary}",
-        "cds-g10": "{carbon.themes.g10.textPrimary}",
-        "cds-g90": "{carbon.themes.g90.textPrimary}",
-        "cds-g100": "{carbon.themes.g100.textPrimary}"
+        "cds-g0": "{carbon.themes.white.textSecondary}",
+        "cds-g10": "{carbon.themes.g10.textSecondary}",
+        "cds-g90": "{carbon.themes.g90.textSecondary}",
+        "cds-g100": "{carbon.themes.g100.textSecondary}"
       },
       "key": "{color.foreground.faint}"
     },
@@ -2115,19 +2316,19 @@
       "default": "#ffffff",
       "cds-g0": "#ffffff",
       "cds-g10": "#ffffff",
-      "cds-g90": "#161616",
-      "cds-g100": "#161616"
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.white.textInverse}",
+      "$value": "{carbon.themes.white.textOnColor}",
       "group": "semantic",
       "$modes": {
         "default": "{color.palette.neutral-0}",
-        "cds-g0": "{carbon.themes.white.textInverse}",
-        "cds-g10": "{carbon.themes.g10.textInverse}",
-        "cds-g90": "{carbon.themes.g90.textInverse}",
-        "cds-g100": "{carbon.themes.g100.textInverse}"
+        "cds-g0": "{carbon.themes.white.textOnColor}",
+        "cds-g10": "{carbon.themes.g10.textOnColor}",
+        "cds-g90": "{carbon.themes.g90.textOnColor}",
+        "cds-g100": "{carbon.themes.g100.textOnColor}"
       },
       "key": "{color.foreground.high-contrast}"
     },
@@ -2494,25 +2695,25 @@
   {
     "key": "{color.foreground.warning}",
     "$type": "color",
-    "$value": "#ba4e00",
+    "$value": "#8e6a00",
     "group": "semantic",
     "$modes": {
-      "default": "#d2a106",
-      "cds-g0": "#ba4e00",
-      "cds-g10": "#ba4e00",
-      "cds-g90": "#ff832b",
-      "cds-g100": "#ff832b"
+      "default": "#ba4e00",
+      "cds-g0": "#8e6a00",
+      "cds-g10": "#8e6a00",
+      "cds-g90": "#d2a106",
+      "cds-g100": "#d2a106"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.orange.60}",
+      "$value": "{carbon.color.yellow.60}",
       "group": "semantic",
       "$modes": {
         "default": "{color.palette.amber-200}",
-        "cds-g0": "{carbon.color.orange.60}",
-        "cds-g10": "{carbon.color.orange.60}",
-        "cds-g90": "{carbon.color.orange.40}",
-        "cds-g100": "{carbon.color.orange.40}"
+        "cds-g0": "{carbon.color.yellow.60}",
+        "cds-g10": "{carbon.color.yellow.60}",
+        "cds-g90": "{carbon.color.yellow.40}",
+        "cds-g100": "{carbon.color.yellow.40}"
       },
       "key": "{color.foreground.warning}"
     },
@@ -2529,25 +2730,25 @@
   {
     "key": "{color.foreground.warning-on-surface}",
     "$type": "color",
-    "$value": "#8a3800",
+    "$value": "#684e00",
     "group": "semantic",
     "$modes": {
-      "default": "#8e6a00",
-      "cds-g0": "#8a3800",
-      "cds-g10": "#8a3800",
-      "cds-g90": "#ffb784",
-      "cds-g100": "#ffb784"
+      "default": "#8a3800",
+      "cds-g0": "#684e00",
+      "cds-g10": "#684e00",
+      "cds-g90": "#f1c21b",
+      "cds-g100": "#f1c21b"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.orange.70}",
+      "$value": "{carbon.color.yellow.70}",
       "group": "semantic",
       "$modes": {
         "default": "{color.palette.amber-300}",
-        "cds-g0": "{carbon.color.orange.70}",
-        "cds-g10": "{carbon.color.orange.70}",
-        "cds-g90": "{carbon.color.orange.30}",
-        "cds-g100": "{carbon.color.orange.30}"
+        "cds-g0": "{carbon.color.yellow.70}",
+        "cds-g10": "{carbon.color.yellow.70}",
+        "cds-g90": "{carbon.color.yellow.30}",
+        "cds-g100": "{carbon.color.yellow.30}"
       },
       "key": "{color.foreground.warning-on-surface}"
     },
@@ -2564,25 +2765,25 @@
   {
     "key": "{color.foreground.warning-high-contrast}",
     "$type": "color",
-    "$value": "#5e2900",
+    "$value": "#483700",
     "group": "semantic",
     "$modes": {
-      "default": "#302400",
-      "cds-g0": "#5e2900",
-      "cds-g10": "#5e2900",
-      "cds-g90": "#ffd9be",
-      "cds-g100": "#ffd9be"
+      "default": "#3e1a00",
+      "cds-g0": "#483700",
+      "cds-g10": "#483700",
+      "cds-g90": "#fddc69",
+      "cds-g100": "#fddc69"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.orange.80}",
+      "$value": "{carbon.color.yellow.80}",
       "group": "semantic",
       "$modes": {
         "default": "{color.palette.amber-500}",
-        "cds-g0": "{carbon.color.orange.80}",
-        "cds-g10": "{carbon.color.orange.80}",
-        "cds-g90": "{carbon.color.orange.20}",
-        "cds-g100": "{carbon.color.orange.20}"
+        "cds-g0": "{carbon.color.yellow.80}",
+        "cds-g10": "{carbon.color.yellow.80}",
+        "cds-g90": "{carbon.color.yellow.20}",
+        "cds-g100": "{carbon.color.yellow.20}"
       },
       "key": "{color.foreground.warning-high-contrast}"
     },
@@ -2844,25 +3045,25 @@
   {
     "key": "{color.surface.strong}",
     "$type": "color",
-    "$value": "#f4f4f4",
+    "$value": "#e0e0e0",
     "group": "semantic",
     "$modes": {
       "default": "#e0e0e0",
-      "cds-g0": "#f4f4f4",
-      "cds-g10": "#ffffff",
-      "cds-g90": "#393939",
-      "cds-g100": "#262626"
+      "cds-g0": "#e0e0e0",
+      "cds-g10": "#e0e0e0",
+      "cds-g90": "#525252",
+      "cds-g100": "#393939"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.themes.white.layer01}",
+      "$value": "{carbon.themes.white.layerAccent01}",
       "group": "semantic",
       "$modes": {
         "default": "{color.palette.neutral-100}",
-        "cds-g0": "{carbon.themes.white.layer01}",
-        "cds-g10": "{carbon.themes.g10.layer01}",
-        "cds-g90": "{carbon.themes.g90.layer01}",
-        "cds-g100": "{carbon.themes.g100.layer01}"
+        "cds-g0": "{carbon.themes.white.layerAccent01}",
+        "cds-g10": "{carbon.themes.g10.layerAccent01}",
+        "cds-g90": "{carbon.themes.g90.layerAccent01}",
+        "cds-g100": "{carbon.themes.g100.layerAccent01}"
       },
       "key": "{color.surface.strong}"
     },
@@ -2990,7 +3191,7 @@
       "default": "#f4f4f4",
       "cds-g0": "#c6c6c6",
       "cds-g10": "#c6c6c6",
-      "cds-g90": "#525252",
+      "cds-g90": "#6f6f6f",
       "cds-g100": "#525252"
     },
     "original": {
@@ -3001,7 +3202,7 @@
         "default": "{color.palette.neutral-50}",
         "cds-g0": "{carbon.color.gray.30}",
         "cds-g10": "{carbon.color.gray.30}",
-        "cds-g90": "{carbon.color.gray.70}",
+        "cds-g90": "{carbon.color.gray.60}",
         "cds-g100": "{carbon.color.gray.70}"
       },
       "key": "{color.surface.interactive-disabled}"
@@ -3025,7 +3226,7 @@
       "default": "#edf5ff",
       "cds-g0": "#d0e2ff",
       "cds-g10": "#d0e2ff",
-      "cds-g90": "#0043ce",
+      "cds-g90": "#0f62fe",
       "cds-g100": "#0043ce"
     },
     "original": {
@@ -3036,7 +3237,7 @@
         "default": "{color.palette.blue-50}",
         "cds-g0": "{carbon.color.blue.20}",
         "cds-g10": "{carbon.color.blue.20}",
-        "cds-g90": "{carbon.color.blue.70}",
+        "cds-g90": "{carbon.color.blue.60}",
         "cds-g100": "{carbon.color.blue.70}"
       },
       "key": "{color.surface.action}"
@@ -3124,25 +3325,25 @@
   {
     "key": "{color.surface.warning}",
     "$type": "color",
-    "$value": "#ffd9be",
+    "$value": "#fcf4d6",
     "group": "semantic",
     "$modes": {
-      "default": "#fcf4d6",
-      "cds-g0": "#ffd9be",
-      "cds-g10": "#ffd9be",
-      "cds-g90": "#8a3800",
-      "cds-g100": "#8a3800"
+      "default": "#fff2e8",
+      "cds-g0": "#fcf4d6",
+      "cds-g10": "#fcf4d6",
+      "cds-g90": "#684e00",
+      "cds-g100": "#684e00"
     },
     "original": {
       "$type": "color",
-      "$value": "{carbon.color.orange.20}",
+      "$value": "{carbon.color.yellow.10}",
       "group": "semantic",
       "$modes": {
         "default": "{color.palette.amber-50}",
-        "cds-g0": "{carbon.color.orange.20}",
-        "cds-g10": "{carbon.color.orange.20}",
-        "cds-g90": "{carbon.color.orange.70}",
-        "cds-g100": "{carbon.color.orange.70}"
+        "cds-g0": "{carbon.color.yellow.10}",
+        "cds-g10": "{carbon.color.yellow.10}",
+        "cds-g90": "{carbon.color.yellow.70}",
+        "cds-g100": "{carbon.color.yellow.70}"
       },
       "key": "{color.surface.warning}"
     },
@@ -7008,7 +7209,7 @@
     "$value": "#684e00",
     "comment": "we don't use `warning-on-surface` for accessibility (better contrast)",
     "$modes": {
-      "default": "#483700",
+      "default": "#5e2900",
       "cds-g0": "#684e00",
       "cds-g10": "#684e00",
       "cds-g90": "#fddc69",
@@ -7079,7 +7280,7 @@
     "$type": "color",
     "$value": "#684e00",
     "$modes": {
-      "default": "#ba4e00",
+      "default": "#8e6a00",
       "cds-g0": "#684e00",
       "cds-g10": "#684e00",
       "cds-g90": "#fddc69",
@@ -7482,7 +7683,7 @@
     "$value": "#fddc69",
     "comment": "we don't use `surface-warning` for accessibility (better contrast)",
     "$modes": {
-      "default": "#fddc69",
+      "default": "#ffd9be",
       "cds-g0": "#fddc69",
       "cds-g10": "#fddc69",
       "cds-g90": "#684e00",
@@ -7518,7 +7719,7 @@
     "$type": "color",
     "$value": "#684e00",
     "$modes": {
-      "default": "#d2a106",
+      "default": "#ba4e00",
       "cds-g0": "#684e00",
       "cds-g10": "#684e00",
       "cds-g90": "#d2a106",
@@ -10473,7 +10674,7 @@
   {
     "key": "{form.helper-text.color}",
     "$type": "color",
-    "$value": "#161616",
+    "$value": "#525252",
     "group": "components",
     "original": {
       "$type": "color",
@@ -10494,7 +10695,7 @@
   {
     "key": "{form.indicator.optional.color}",
     "$type": "color",
-    "$value": "#161616",
+    "$value": "#525252",
     "group": "components",
     "original": {
       "$type": "color",
@@ -10748,7 +10949,7 @@
   {
     "key": "{form.control.base.foreground.placeholder-color}",
     "$type": "color",
-    "$value": "#161616",
+    "$value": "#525252",
     "group": "components",
     "original": {
       "$type": "color",
@@ -11045,7 +11246,7 @@
   {
     "key": "{form.control.readonly.surface-color}",
     "$type": "color",
-    "$value": "#f4f4f4",
+    "$value": "#e0e0e0",
     "group": "components",
     "original": {
       "$type": "color",
@@ -11863,7 +12064,7 @@
   {
     "key": "{form.toggle.base.surface-color.default}",
     "$type": "color",
-    "$value": "#f4f4f4",
+    "$value": "#e0e0e0",
     "group": "components",
     "comment": "the toggle has a different base surface color, compared to the other controls",
     "original": {
@@ -13031,7 +13232,6 @@
     "$type": "letter-spacing",
     "$value": "0px",
     "unit": "px",
-    "comment": "this is `tracking`",
     "$modes": {
       "default": -0.5,
       "cds-g0": "0px",
@@ -13043,7 +13243,6 @@
       "$type": "letter-spacing",
       "$value": "{carbon.typography.heading05.letter-spacing}",
       "unit": "px",
-      "comment": "this is `tracking`",
       "$modes": {
         "default": -0.5,
         "cds-g0": "{carbon.typography.heading05.letter-spacing}",
@@ -13173,7 +13372,6 @@
     "$type": "letter-spacing",
     "$value": "0px",
     "unit": "px",
-    "comment": "this is `tracking`",
     "$modes": {
       "default": 0,
       "cds-g0": "0px",
@@ -13185,7 +13383,6 @@
       "$type": "letter-spacing",
       "$value": "{carbon.typography.heading04.letter-spacing}",
       "unit": "px",
-      "comment": "this is `tracking`",
       "$modes": {
         "default": 0,
         "cds-g0": "{carbon.typography.heading04.letter-spacing}",
@@ -13315,7 +13512,6 @@
     "$type": "letter-spacing",
     "$value": "0px",
     "unit": "px",
-    "comment": "this is `tracking`",
     "$modes": {
       "default": -0.5,
       "cds-g0": "0px",
@@ -13327,7 +13523,6 @@
       "$type": "letter-spacing",
       "$value": "{carbon.typography.heading03.letter-spacing}",
       "unit": "px",
-      "comment": "this is `tracking`",
       "$modes": {
         "default": -0.5,
         "cds-g0": "{carbon.typography.heading03.letter-spacing}",
@@ -13457,7 +13652,6 @@
     "$type": "letter-spacing",
     "$value": "0px",
     "unit": "px",
-    "comment": "this is `tracking`",
     "$modes": {
       "default": -0.5,
       "cds-g0": "0px",
@@ -13469,7 +13663,6 @@
       "$type": "letter-spacing",
       "$value": "{carbon.typography.heading02.letter-spacing}",
       "unit": "px",
-      "comment": "this is `tracking`",
       "$modes": {
         "default": -0.5,
         "cds-g0": "{carbon.typography.heading02.letter-spacing}",
@@ -13599,7 +13792,6 @@
     "$type": "letter-spacing",
     "$value": "0.16px",
     "unit": "px",
-    "comment": "this is `tracking`",
     "$modes": {
       "default": 0,
       "cds-g0": "0.16px",
@@ -13611,7 +13803,6 @@
       "$type": "letter-spacing",
       "$value": "{carbon.typography.heading01.letter-spacing}",
       "unit": "px",
-      "comment": "this is `tracking`",
       "$modes": {
         "default": 0,
         "cds-g0": "{carbon.typography.heading01.letter-spacing}",
