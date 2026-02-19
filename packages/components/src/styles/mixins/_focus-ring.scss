@@ -7,122 +7,78 @@
 // - https://github.com/hashicorp/design-system-components/issues/161
 // - https://www.tpgi.com/focus-visible-and-backwards-compatibility/
 
-@mixin hds-focus-ring-basic($color: action) {
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent;
-
-  // default focus for browsers that still rely on ":focus"
-  &:focus,
-  &.mock-focus {
-    box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-  }
-  // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-  &:focus:not(:focus-visible) {
-    box-shadow: none;
-  }
-  // set focus for browsers that support ":focus-visible"
-  &:focus-visible {
-    box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-  }
-  // remove the focus ring on "active + focused" state (by design)
-  &:focus:active,
-  &.mock-focus.mock-active {
-    box-shadow: none;
+// Private helper — conditionally wraps @content in &::before
+/* stylelint-disable-next-line scss/at-mixin-pattern */
+@mixin _hds-focus-ring-target($with-pseudo-element) {
+  @if $with-pseudo-element {
+    &::before {
+      @content;
+    }
+  } @else {
+    @content;
   }
 }
 
-@mixin hds-focus-ring-with-pseudo-element(
+@mixin hds-focus-ring(
+  $focus-color: action,
+  $border-color-initial: transparent,
+  $border-color-active: $border-color-initial,
+  $with-pseudo-element: false,
   $top: 0,
   $right: 0,
   $bottom: 0,
   $left: 0,
-  $radius: 5px,
-  $color: action,
-  $position: relative
+  $radius: var(--token-border-radius-small),
+  $position: relative,
+  // TODO we can remove also this argument, used only in a couple of places
+  $is-focus-always-visible: false
 ) {
-  position: $position;
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent;
-  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
+  // use a pseudo element to apply the focus to
+  @if $with-pseudo-element {
+    position: $position;
+    outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+    outline-color: transparent;
+    isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
-  &::before {
-    position: absolute;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
-    z-index: -1;
-    border-radius: $radius;
-    content: "";
-  }
-
-  // default focus for browsers that still rely on ":focus"
-  &:focus,
-  &.mock-focus {
     &::before {
-      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
+      position: absolute;
+      top: $top;
+      right: $right;
+      bottom: $bottom;
+      left: $left;
+      z-index: -1;
+      border: 1px solid transparent;
+      border-radius: $radius;
+      content: "";
     }
   }
-  // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
-  &:focus:not(:focus-visible) {
-    &::before {
-      box-shadow: none;
-    }
-  }
-  // set focus for browsers that support ":focus-visible"
-  &:focus-visible {
-    &::before {
-      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
-    }
-  }
-  // remove the focus ring on "active + focused" state (by design)
-  &:focus:active,
-  &.mock-focus.mock-active {
-    &::before {
-      box-shadow: none;
-    }
-  }
-}
 
-// This mixin is used for the _rare_ cases where we want the focus ring to be visible when the user clicks the element (not just if they focus it with a keyboard).
-@mixin hds-focus-ring-with-pseudo-element-focus-always-visible(
-  $top: 0,
-  $right: 0,
-  $bottom: 0,
-  $left: 0,
-  $radius: 5px,
-  $color: action,
-  $position: relative
-) {
-  position: $position;
-  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
-  outline-color: transparent;
-  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
-
-  &::before {
-    position: absolute;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
-    z-index: -1;
-    border-radius: $radius;
-    content: "";
-  }
-
-  // default focus for browsers that still rely on ":focus"
-  &:focus,
-  &.mock-focus {
-    &::before {
-      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
+  // when focus should always be visible we use `:focus` (covers both keyboard and mouse)
+  // otherwise we use the standard `:focus-visible` (keyboard-only)
+  @if $is-focus-always-visible {
+    &:focus,
+    &.mock-focus {
+      @include _hds-focus-ring-target($with-pseudo-element) {
+        border-color: var(--token-color-focus-#{$focus-color}-internal);
+        outline: 3px solid var(--token-color-focus-#{$focus-color}-external);
+      }
+    }
+  } @else {
+    &:focus-visible,
+    &.mock-focus {
+      @include _hds-focus-ring-target($with-pseudo-element) {
+        border-color: var(--token-color-focus-#{$focus-color}-internal);
+        outline: 3px solid var(--token-color-focus-#{$focus-color}-external);
+      }
     }
   }
 
   // remove the focus ring on "active + focused" state (by design)
   &:focus:active,
   &.mock-focus.mock-active {
-    &::before {
-      box-shadow: none;
+    @include _hds-focus-ring-target($with-pseudo-element) {
+      border-color: $border-color-active;
+      // outline: none;
     }
   }
 }

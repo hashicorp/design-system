@@ -27,7 +27,7 @@
 }
 
 .hds-copy-snippet {
-  @include hds-focus-ring-with-pseudo-element();
+  @include hds-focus-ring($with-pseudo-element: true);
 
   display: flex;
   gap: 8px;

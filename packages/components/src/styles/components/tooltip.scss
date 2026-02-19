@@ -10,7 +10,8 @@
 @use "../mixins/focus-ring" as *;
 
 .hds-tooltip-button {
-  @include hds-focus-ring-with-pseudo-element(
+  @include hds-focus-ring(
+    $with-pseudo-element: true,
     $top: var(--token-tooltip-focus-offset),
     $right: var(--token-tooltip-focus-offset),
     $bottom: var(--token-tooltip-focus-offset),

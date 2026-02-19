@@ -99,7 +99,7 @@
   // :Focus
   &:focus,
   &.mock-focus {
-    @include hds-focus-ring-with-pseudo-element();
+    @include hds-focus-ring($with-pseudo-element: true);
     // to move the item link above the siblings elements when they have a solid background (eg. active) so that the focus ring is not cut out
     z-index: 1;
   }

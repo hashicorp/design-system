@@ -153,7 +153,8 @@ $progress-bar-animation-duration: 0.25s;
   }
 
   .hds-stepper-nav__step--active .hds-stepper-nav__step-button {
-    @include hds-focus-ring-with-pseudo-element(
+    @include hds-focus-ring(
+      $with-pseudo-element: true,
       $top: -3px,
       $right: -1px,
       $bottom: -1px,
@@ -167,7 +168,8 @@ $progress-bar-animation-duration: 0.25s;
 
 .hds-stepper-nav__step--interactive {
   .hds-stepper-nav__step-button {
-    @include hds-focus-ring-with-pseudo-element(
+    @include hds-focus-ring(
+      $with-pseudo-element: true,
       $top: -3px,
       $right: -1px,
       $bottom: -1px,
@@ -326,7 +328,14 @@ $progress-bar-animation-duration: 0.25s;
 
   .hds-stepper-nav--interactive .hds-stepper-nav__step--interactive .hds-stepper-nav__step-button,
   .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button {
-    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: 0);
+    @include hds-focus-ring(
+      $with-pseudo-element: true,
+      $top: -1px,
+      $right: -1px,
+      $bottom: -1px,
+      $left: -1px,
+      $radius: 0
+    );
   }
 
   .hds-stepper-nav__step--active {

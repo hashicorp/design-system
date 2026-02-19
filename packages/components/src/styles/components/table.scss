@@ -125,7 +125,7 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     cursor: pointer;
   }
 
-  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+  @include hds-focus-ring($with-pseudo-element: true, $radius: inherit);
 
   &:active,
   &.mock-active {
