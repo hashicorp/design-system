@@ -177,37 +177,46 @@
         "small": {
           "$type": "number",
           "$value": 0.9286,
-          "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
           "$modes": {
             "default": 0.9286,
             "cds-g0": 1.2858,
             "cds-g10": 1.2858,
             "cds-g90": 1.2858,
             "cds-g100": 1.2858
+          },
+          "comments": {
+            "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+            "cds": "18px/14px ~ 1.2858"
           }
         },
         "medium": {
           "$type": "number",
           "$value": 1.1429,
-          "comment": "14px ~ 1.1429",
           "$modes": {
             "default": 1.1429,
             "cds-g0": 1.2858,
             "cds-g10": 1.2858,
             "cds-g90": 1.2858,
             "cds-g100": 1.2858
+          },
+          "comments": {
+            "hds": "16px/14px ~ 1.1429",
+            "cds": "18px/14px ~ 1.2858"
           }
         },
         "large": {
           "$type": "number",
           "$value": 1.5,
-          "comment": "24px = 1.5",
           "$modes": {
             "default": 1.5,
             "cds-g0": 1.2858,
             "cds-g10": 1.2858,
             "cds-g90": 1.2858,
             "cds-g100": 1.2858
+          },
+          "comments": {
+            "hds": "24px/16px = 1.5",
+            "cds": "18px/14px ~ 1.2858"
           }
         }
       }
@@ -612,14 +621,7 @@
       "radius": {
         "$type": "dimension",
         "$value": "{border.radius.small}",
-        "unit": "px",
-        "$modes": {
-          "default": "{border.radius.small}",
-          "cds-g0": "0",
-          "cds-g10": "0",
-          "cds-g90": "0",
-          "cds-g100": "0"
-        }
+        "unit": "px"
       },
       "color": {
         "primary": {
@@ -648,9 +650,9 @@
           "focus": {
             "internal": {
               "$type": "color",
-              "$value": "{color.focus.action.internal}",
+              "$value": "{color.palette.neutral-0}",
               "$modes": {
-                "default": "{color.focus.action.internal}",
+                "default": "{color.palette.neutral-0}",
                 "cds-g0": "pink",
                 "cds-g10": "pink",
                 "cds-g90": "pink",

@@ -160,4 +160,12 @@ export default class HdsThemingService extends Service {
   get currentDarkTheme(): HdsModesDark {
     return this._currentDarkTheme;
   }
+
+  get isCarbonThemeEnabled(): boolean {
+    return [
+      HdsThemeValues.System,
+      HdsThemeValues.Light,
+      HdsThemeValues.Dark,
+    ].includes(this._currentTheme as HdsThemeValues);
+  }
 }
