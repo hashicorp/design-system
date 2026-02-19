@@ -149,6 +149,14 @@ export default class HdsThemingService extends Service {
     return this._currentTheme;
   }
 
+  get isCarbonThemeEnabled(): boolean {
+    return [
+      HdsThemeValues.System,
+      HdsThemeValues.Light,
+      HdsThemeValues.Dark,
+    ].includes(this._currentTheme as HdsThemeValues);
+  }
+
   get currentMode(): HdsModes | undefined {
     return this._currentMode;
   }

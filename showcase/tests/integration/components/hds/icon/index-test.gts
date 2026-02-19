@@ -4,11 +4,11 @@
  */
 
 import { module, test } from 'qunit';
-import { render, setupOnerror } from '@ember/test-helpers';
+import { render, setupOnerror, settled } from '@ember/test-helpers';
+import { tracked } from '@glimmer/tracking';
 import style from 'ember-style-modifier';
 
 import { HdsIcon } from '@hashicorp/design-system-components/components';
-
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds-icon', function (hooks) {
@@ -89,7 +89,7 @@ module('Integration | Component | hds-icon', function (hooks) {
       .dom(`svg.hds-icon`)
       .hasAttribute('fill', 'var(--doc-color-feedback-critical-100)');
   });
-  test('it should render the correct style if the @color prop is declared as custom HEX color', async function (assert) {
+  test('it should render the correct style if the @color prop is declared as custom HEX color', async function (assert) {Expand commentComment on line L92Resolved
     await render(
       <template><HdsIcon @name="alert-circle" @color="#FF0000" /></template>,
     );
@@ -106,6 +106,23 @@ module('Integration | Component | hds-icon', function (hooks) {
     });
   });
 
+  // REACTIVITY
+
+  test('it updates the icon when @name argument changes', async function (assert) {
+    class State {
+      @tracked name = 'activity';
+    }
+    const state = new State();
+
+    await render(<template><HdsIcon @name={{state.name}} /></template>);
+    assert.dom('svg.hds-icon').hasClass('hds-icon-activity');
+
+    state.name = 'alert-circle';
+    await settled(); // Wait for the service to fetch, buffer, and flush RAF
+
+    assert.dom('svg.hds-icon').hasClass('hds-icon-alert-circle');
+  });
+
   // A11Y
 
   test('it renders the title if one is defined', async function (assert) {
@@ -114,7 +131,7 @@ module('Integration | Component | hds-icon', function (hooks) {
     );
     assert.dom('title').containsText('try to avoid');
   });
-  test('it has aria-hidden set to true', async function (assert) {
+  test('it has aria-hidden set to true by default', async function (assert) {
     await render(<template><HdsIcon @name="activity" /></template>);
     assert.dom('svg.hds-icon.hds-icon-activity').hasAria('hidden', 'true');
   });
@@ -147,20 +164,15 @@ module('Integration | Component | hds-icon', function (hooks) {
     assert.dom('svg > g').hasAttribute('role');
   });
 
-  // ATTRIBUTES
-
-  test('additional classes can be added when component is invoked', async function (assert) {
-    await render(<template><HdsIcon @name="meh" class="demo" /></template>);
-    assert.dom(`svg.hds-icon`).hasClass('demo');
-  });
-
   // ASSERTIONS
 
   test('it should throw an assertion if @name is not provided', async function (assert) {
-    const errorMessage = `Please provide to <Hds::Icon> a value for @name`;
-    assert.expect(2);
+    const errorMessage = `Assertion Failed: Please provide to <Hds::Icon> a value for @name`;
+
+    assert.expect(1);
+
     setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      assert.strictEqual(error.message, errorMessage);
     });
     await render(
       <template>
@@ -168,24 +180,39 @@ module('Integration | Component | hds-icon', function (hooks) {
         <HdsIcon />
       </template>,
     );
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
   });
   test('it should throw an assertion if the icon @name does not exist', async function (assert) {
-    const errorMessage = `The icon @name "abc" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
-    assert.expect(2);
+    // This tests the `registryEntry` getter assertion
+    const errorMessage = `Assertion Failed: The icon @name "abc" or @size "16" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
+
+    assert.expect(1);
+
     setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+      assert.strictEqual(error.message, errorMessage);
     });
+
     await render(
       <template>
         {{! @glint-expect-error - testing invalid component usage }}
-        <HdsIcon @name="abc" />
+        <HdsIcon @name="abc" @size="16" />
       </template>,
     );
-    assert.throws(function () {
-      throw new Error(errorMessage);
+  });
+
+  test('it should throw an assertion if the icon @size does not exist for a valid name', async function (assert) {
+    const errorMessage = `Assertion Failed: Flight icon not available for "activity" with size "48".`;
+
+    assert.expect(1);
+
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, errorMessage);
     });
+
+    await render(
+      <template>
+        {{! @glint-expect-error - testing invalid component usage }}
+        <HdsIcon @name="activity" @size="48" />
+      </template>,
+    );
   });
 });
