@@ -68,11 +68,10 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   }
 
   get registryEntry(): HdsIconRegistryEntry | undefined {
-    const { name, size } = this.args;
     const registryEntry = IconRegistry[this.name];
 
     assert(
-      `The icon @name "${name}" or @size "${size}" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`,
+      `The icon @name "${this.args.name}" or @size "${this.args.size}" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`,
       registryEntry !== undefined
     );
 
@@ -84,7 +83,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   }
 
   get isCarbon(): boolean {
-    return this.hdsTheming.carbonThemeEnabled && this.hasCarbonEquivalent;
+    return this.hdsTheming.isCarbonThemeEnabled && this.hasCarbonEquivalent;
   }
 
   get isInline() {
@@ -156,30 +155,12 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     return classes.join(' ');
   }
 
-  private get loader(): HdsIconLoader {
-    const { name, size } = this;
-    let loader: HdsIconLoader | undefined;
-
-    if (this.isCarbon) {
-      loader = this.registryEntry?.carbon ?? undefined;
-      assert(`Carbon icon not available for "${name}".`, loader !== undefined);
-    } else {
-      loader = this.registryEntry?.flight[size] ?? undefined;
-      assert(
-        `Flight icon not available for "${name}" with size "${size}".`,
-        loader !== undefined
-      );
-    }
-
-    return loader;
-  }
-
   get symbolId(): string {
     return this.hdsIconRegistry.getSymbolId(this.definition) ?? '';
   }
 
   loadIcon = modifier(() => {
-    this.hdsIconRegistry.requestLoad(this.definition, this.loader);
+    this.hdsIconRegistry.requestLoad(this.definition);
   });
 
   <template>

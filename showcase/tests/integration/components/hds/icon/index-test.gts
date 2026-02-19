@@ -89,6 +89,12 @@ module('Integration | Component | hds-icon', function (hooks) {
       .dom(`svg.hds-icon`)
       .hasAttribute('fill', 'var(--doc-color-feedback-critical-100)');
   });
+  test('it should render the correct style if the @color prop is declared as custom HEX color', async function (assert) {Expand commentComment on line L92Resolved
+    await render(
+      <template><HdsIcon @name="alert-circle" @color="#FF0000" /></template>,
+    );
+    assert.dom(`svg.hds-icon`).hasAttribute('fill', '#FF0000');
+  });
   test('the fill color should be able to be inherited from parent', async function (assert) {
     await render(
       <template>
@@ -149,14 +155,22 @@ module('Integration | Component | hds-icon', function (hooks) {
       .dom('svg.hds-icon.hds-icon-activity')
       .doesNotHaveAttribute('aria-labelledby');
   });
+  test('it has a g element with role of presentation if a title exists', async function (assert) {
+    await render(
+      <template>
+        <HdsIcon @name="activity" @title="computer says no" />
+      </template>,
+    );
+    assert.dom('svg > g').hasAttribute('role');
+  });
 
   // ASSERTIONS
 
   test('it should throw an assertion if @name is not provided', async function (assert) {
     const errorMessage = `Assertion Failed: Please provide to <Hds::Icon> a value for @name`;
-    
+
     assert.expect(1);
-    
+
     setupOnerror(function (error) {
       assert.strictEqual(error.message, errorMessage);
     });
@@ -170,9 +184,9 @@ module('Integration | Component | hds-icon', function (hooks) {
   test('it should throw an assertion if the icon @name does not exist', async function (assert) {
     // This tests the `registryEntry` getter assertion
     const errorMessage = `Assertion Failed: The icon @name "abc" or @size "16" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`;
-    
+
     assert.expect(1);
-    
+
     setupOnerror(function (error) {
       assert.strictEqual(error.message, errorMessage);
     });
@@ -187,7 +201,7 @@ module('Integration | Component | hds-icon', function (hooks) {
 
   test('it should throw an assertion if the icon @size does not exist for a valid name', async function (assert) {
     const errorMessage = `Assertion Failed: Flight icon not available for "activity" with size "48".`;
-    
+
     assert.expect(1);
 
     setupOnerror(function (error) {

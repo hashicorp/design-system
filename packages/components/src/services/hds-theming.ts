@@ -149,7 +149,7 @@ export default class HdsThemingService extends Service {
     return this._currentTheme;
   }
 
-  get carbonThemeEnabled(): boolean {
+  get isCarbonThemeEnabled(): boolean {
     return [
       HdsThemeValues.System,
       HdsThemeValues.Light,
