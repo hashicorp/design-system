@@ -89,7 +89,7 @@ module('Integration | Component | hds-icon', function (hooks) {
       .dom(`svg.hds-icon`)
       .hasAttribute('fill', 'var(--doc-color-feedback-critical-100)');
   });
-  test('it should render the correct style if the @color prop is declared as custom HEX color', async function (assert) {Expand commentComment on line L92Resolved
+  test('it should render the correct style if the @color prop is declared as custom HEX color', async function (assert) {
     await render(
       <template><HdsIcon @name="alert-circle" @color="#FF0000" /></template>,
     );

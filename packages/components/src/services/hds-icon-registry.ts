@@ -14,7 +14,6 @@ import type {
 
 enum HdsIconRegistryLoadStatusValues {
   Queued = 'queued', // request received and waiting in the queue
-  Loading = 'loading', // network request in progress
   Loaded = 'loaded', // icon has been loaded and injected into the DOM
   Error = 'error', // icon failed to load or inject
 }
@@ -31,9 +30,8 @@ export interface HdsIconDefinition {
   size: HdsIconSizes;
 }
 
-function hasDOM(): boolean {
-  return typeof window !== 'undefined' && typeof document !== 'undefined';
-}
+const HAS_DOM =
+  typeof window !== 'undefined' && typeof document !== 'undefined';
 
 // important: if you update this function, update the identical one in `packages/flight-icons/scripts/build-parts/generateBundleSymbolJS.ts` as well (and vice versa)
 function makeDomSafeId(value: string): string {
@@ -51,7 +49,7 @@ const MAX_CONCURRENT_LOADS = Math.min(
   Math.max(
     8,
     (typeof navigator !== 'undefined' ? navigator.hardwareConcurrency : 0) * 2
-  ) || MAX_CONCURRENT_LOADS_CAP
+  )
 );
 
 export default class HdsIconRegistryService extends Service {
@@ -68,6 +66,41 @@ export default class HdsIconRegistryService extends Service {
     { symbolId: string; markup: string }
   >();
   private _flushScheduled = false;
+
+  private _spriteRoot: SVGSVGElement | null = null;
+
+  private _setEntryStatus(
+    key: string,
+    symbolId: string,
+    status: HdsIconRegistryLoadStatusValues,
+    error?: unknown
+  ): void {
+    this._entries.set(key, {
+      symbolId,
+      status,
+      error,
+    });
+  }
+
+  private _getSpriteRoot(): SVGSVGElement | null {
+    if (!HAS_DOM) {
+      return null;
+    }
+
+    if (this._spriteRoot) {
+      return this._spriteRoot;
+    }
+
+    this._spriteRoot = document.getElementById(ROOT_ID) as SVGSVGElement | null;
+
+    if (this._spriteRoot === null) {
+      console.warn(
+        `HDS Icon Registry: Sprite root element with ID "${ROOT_ID}" not found in DOM.`
+      );
+    }
+
+    return this._spriteRoot;
+  }
 
   private _makeKey({ library, name, size }: HdsIconDefinition): string {
     return library === HdsIconLibraryValues.Flight
@@ -106,21 +139,23 @@ export default class HdsIconRegistryService extends Service {
       const symbolId = makeSymbolIdFromKey(key);
 
       if (this._symbolExists(symbolId)) {
-        this._entries.set(key, {
+        this._setEntryStatus(
+          key,
           symbolId,
-          status: HdsIconRegistryLoadStatusValues.Loaded,
-        });
+          HdsIconRegistryLoadStatusValues.Loaded
+        );
         return;
       }
 
-      if (!hasDOM()) {
+      if (!HAS_DOM) {
         return;
       }
 
-      this._entries.set(key, {
+      this._setEntryStatus(
+        key,
         symbolId,
-        status: HdsIconRegistryLoadStatusValues.Queued,
-      });
+        HdsIconRegistryLoadStatusValues.Queued
+      );
 
       this._queue.push({ key, loader });
       this._drainQueue();
@@ -170,17 +205,14 @@ export default class HdsIconRegistryService extends Service {
     const { symbolId } = entry;
 
     if (this._symbolExists(symbolId)) {
-      this._entries.set(key, {
+      this._setEntryStatus(
+        key,
         symbolId,
-        status: HdsIconRegistryLoadStatusValues.Loaded,
-      });
+        HdsIconRegistryLoadStatusValues.Loaded
+      );
       return;
     }
 
-    this._entries.set(key, {
-      ...entry,
-      status: HdsIconRegistryLoadStatusValues.Loading,
-    });
     this._activeCount++;
 
     try {
@@ -190,12 +222,13 @@ export default class HdsIconRegistryService extends Service {
       // buffer markup for batched injection
       this._pendingByKey.set(key, { symbolId, markup });
       this._scheduleFlush();
-    } catch (e) {
-      this._entries.set(key, {
+    } catch (error) {
+      this._setEntryStatus(
+        key,
         symbolId,
-        status: HdsIconRegistryLoadStatusValues.Error,
-        error: e,
-      });
+        HdsIconRegistryLoadStatusValues.Error,
+        error
+      );
     } finally {
       this._activeCount--;
       this._drainQueue();
@@ -203,11 +236,11 @@ export default class HdsIconRegistryService extends Service {
   }
 
   private _symbolExists(symbolId: string): boolean {
-    return hasDOM() ? document.getElementById(symbolId) !== null : false;
+    return HAS_DOM ? document.getElementById(symbolId) !== null : false;
   }
 
   private _scheduleFlush(): void {
-    if (this._flushScheduled || !hasDOM()) {
+    if (this._flushScheduled || !HAS_DOM) {
       return;
     }
 
@@ -217,7 +250,7 @@ export default class HdsIconRegistryService extends Service {
     window.requestAnimationFrame(() => {
       this._flushScheduled = false;
 
-      const root = document.getElementById(ROOT_ID) as SVGSVGElement | null;
+      const root = this._getSpriteRoot();
 
       if (root === null || this._pendingByKey.size === 0) {
         return;
@@ -238,16 +271,33 @@ export default class HdsIconRegistryService extends Service {
       this._pendingByKey.clear();
 
       if (combined.length > 0) {
-        root.insertAdjacentHTML('beforeend', combined);
+        try {
+          root.insertAdjacentHTML('beforeend', combined);
 
-        // update entries to `Loaded`
-        for (const key of keysToUpdate) {
-          const entry = this._entries.get(key);
-          if (entry) {
-            this._entries.set(key, {
-              ...entry,
-              status: HdsIconRegistryLoadStatusValues.Loaded,
-            });
+          for (const key of keysToUpdate) {
+            const entry = this._entries.get(key);
+            if (entry) {
+              this._setEntryStatus(
+                key,
+                entry.symbolId,
+                HdsIconRegistryLoadStatusValues.Loaded
+              );
+            }
+          }
+        } catch (error) {
+          console.error('HDS Icon Registry: Failed to inject batch', error);
+
+          for (const key of keysToUpdate) {
+            const entry = this._entries.get(key);
+
+            if (entry) {
+              this._setEntryStatus(
+                key,
+                entry.symbolId,
+                HdsIconRegistryLoadStatusValues.Error,
+                error
+              );
+            }
           }
         }
       }

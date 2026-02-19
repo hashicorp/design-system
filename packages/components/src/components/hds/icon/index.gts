@@ -21,7 +21,7 @@ import type { HdsIconRegistryEntry } from '@hashicorp/flight-icons/symbol-js/reg
 import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
 import type HdsIconRegistryService from '@hashicorp/design-system-components/services/hds-icon-registry';
 import type { HdsIconDefinition } from '@hashicorp/design-system-components/services/hds-icon-registry';
-import type { HdsIconSizes, HdsIconColors, HdsIconLoader } from './types.ts';
+import type { HdsIconSizes, HdsIconColors } from './types.ts';
 
 export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
 export const NAMES = iconNames;
