@@ -1,0 +1,11 @@
+<Hds::Stepper::List @ariaLabel="Processing status" as |S|>
+  <S.Step @status="complete">
+    <:title>Completed step</:title>
+  </S.Step>
+  <S.Step @status="processing">
+    <:title>Current step</:title>
+  </S.Step>
+  <S.Step>
+    <:title>Upcoming step</:title>
+  </S.Step>
+</Hds::Stepper::List>

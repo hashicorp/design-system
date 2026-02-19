@@ -1,0 +1,17 @@
+<Hds::Stepper::List @ariaLabel="Additional information" as |S|>
+  <S.Step @status="complete">
+    <:title>Completed step</:title>
+    <:description>Step description</:description>
+  </S.Step>
+  <S.Step @status="progress">
+    <:title>Current step</:title>
+    <:description>Step description</:description>
+    <:content>
+      <Hds::Button @text="Do step action" />
+    </:content>
+  </S.Step>
+  <S.Step>
+    <:title>Upcoming step</:title>
+    <:description>Step description</:description>
+  </S.Step>
+</Hds::Stepper::List>
