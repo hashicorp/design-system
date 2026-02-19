@@ -313,9 +313,9 @@ export { default as HdsTableTr } from './components/hds/table/tr.ts';
 export * from './components/hds/table/types.ts';
 
 // Tabs
-export { default as HdsTabs } from './components/hds/tabs/index.ts';
-export { default as HdsTabsPanel } from './components/hds/tabs/panel.ts';
-export { default as HdsTabsTab } from './components/hds/tabs/tab.ts';
+export { default as HdsTabs } from './components/hds/tabs/index.gts';
+export { default as HdsTabsPanel } from './components/hds/tabs/panel.gts';
+export { default as HdsTabsTab } from './components/hds/tabs/tab.gts';
 export * from './components/hds/tabs/types.ts';
 
 // Tag
