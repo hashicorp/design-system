@@ -1,8 +1,11 @@
 import Service from '@ember/service';
+import { assert } from '@ember/debug';
 import { TrackedMap } from 'tracked-built-ins';
 import { ROOT_ID } from '../instance-initializers/load-sprite-empty.ts';
 import { HdsIconLibraryValues } from '../components.ts';
+import { IconRegistry } from '@hashicorp/flight-icons/symbol-js/registry';
 
+import type { IconName } from '@hashicorp/flight-icons/svg/index';
 import type {
   HdsIconLoader,
   HdsIconLibraries,
@@ -23,7 +26,7 @@ type HdsIconRegistryEntry = {
 };
 
 export interface HdsIconDefinition {
-  name: string;
+  name: IconName;
   library: HdsIconLibraries;
   size: HdsIconSizes;
 }
@@ -32,8 +35,13 @@ function hasDOM(): boolean {
   return typeof window !== 'undefined' && typeof document !== 'undefined';
 }
 
+// important: if you update this function, update the identical one in `packages/flight-icons/scripts/build-parts/generateBundleSymbolJS.ts` as well (and vice versa)
 function makeDomSafeId(value: string): string {
   return value.replace(/[^a-zA-Z0-9_-]/g, '-');
+}
+
+function makeSymbolIdFromKey(key: string): string {
+  return `hds-icon-${makeDomSafeId(key)}`;
 }
 
 // we scale with available CPU cores when possible, clamped to a safe range.
@@ -45,10 +53,6 @@ const MAX_CONCURRENT_LOADS = Math.min(
     (typeof navigator !== 'undefined' ? navigator.hardwareConcurrency : 0) * 2
   ) || MAX_CONCURRENT_LOADS_CAP
 );
-
-export function makeSymbolIdFromKey(key: string): string {
-  return `hds-icon-${makeDomSafeId(key)}`;
-}
 
 export default class HdsIconRegistryService extends Service {
   private _entries = new TrackedMap<string, HdsIconRegistryEntry>();
@@ -83,12 +87,14 @@ export default class HdsIconRegistryService extends Service {
     return null;
   }
 
-  requestLoad(definition: HdsIconDefinition, loader: HdsIconLoader): void {
+  requestLoad(definition: HdsIconDefinition): void {
     const key = this._makeKey(definition);
 
     if (this._entries.has(key)) {
       return;
     }
+
+    const loader = this._resolveLoader(definition);
 
     // defer the write to a microtask
     void Promise.resolve().then(() => {
@@ -119,6 +125,28 @@ export default class HdsIconRegistryService extends Service {
       this._queue.push({ key, loader });
       this._drainQueue();
     });
+  }
+
+  private _resolveLoader({
+    name,
+    library,
+    size,
+  }: HdsIconDefinition): HdsIconLoader {
+    const entry = IconRegistry[name];
+
+    if (library === HdsIconLibraryValues.Carbon) {
+      assert(`Carbon icon not available for "${name}".`, entry.carbon !== null);
+
+      return entry.carbon;
+    }
+
+    const flightLoader = entry.flight[size];
+    assert(
+      `Flight icon not available for "${name}" with size "${size}".`,
+      flightLoader !== undefined
+    );
+
+    return flightLoader;
   }
 
   private _drainQueue(): void {
