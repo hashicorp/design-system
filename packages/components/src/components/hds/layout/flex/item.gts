@@ -4,7 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-import { eq } from 'ember-truth-helpers';
 import { element } from 'ember-element-helper';
 import style from 'ember-style-modifier';
 
@@ -92,22 +91,10 @@ export default class HdsLayoutFlexItem extends Component<HdsLayoutFlexItemSignat
   }
 
   <template>
-    {{!
-      Dynamically generating an HTML tag in Ember creates a dynamic component class (with the corresponding tagName), while rendering
-      a plain HTML element requires less computing cycles for Ember (you will notice it doesn't add the ember-view class to it).
-    }}
-    {{#if (eq this.componentTag "div")}}
-      <div
+    {{#let (element this.componentTag) as |Tag|}}<Tag
         class={{this.classNames}}
         {{style this.inlineStyles}}
         ...attributes
-      >{{yield}}</div>
-    {{else}}
-      {{#let (element this.componentTag) as |Tag|}}<Tag
-          class={{this.classNames}}
-          {{style this.inlineStyles}}
-          ...attributes
-        >{{yield}}</Tag>{{/let}}
-    {{/if}}
+      >{{yield}}</Tag>{{/let}}
   </template>
 }
