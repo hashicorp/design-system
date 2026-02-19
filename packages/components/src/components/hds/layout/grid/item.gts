@@ -4,6 +4,8 @@
  */
 
 import Component from '@glimmer/component';
+import { element } from 'ember-element-helper';
+import style from 'ember-style-modifier';
 
 import type { AvailableTagNames, AvailableElements } from './types.ts';
 
@@ -157,4 +159,14 @@ export default class HdsLayoutGridItem extends Component<HdsLayoutGridItemSignat
 
     return classes.join(' ');
   }
+
+  <template>
+    {{#let (element this.componentTag) as |Tag|}}
+      <Tag
+        class={{this.classNames}}
+        {{style this.inlineStyles}}
+        ...attributes
+      >{{yield}}</Tag>
+    {{/let}}
+  </template>
 }
