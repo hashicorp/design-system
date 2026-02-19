@@ -24,11 +24,11 @@ The other two slots are intended for consumer-provided controls. The `<:globalAc
 
 ### Content
 
-!!! Info
+!!! Warning
 
 When adding Dropdown components within the App Header, be sure to set `enableCollisionDetection` to `true` for each Dropdown.
 
-When a Dropdown item triggers navigation (either a route or URL change), the Dropdown must close. Consumers are responsible for invoking the [Dropdown close callback](/components/dropdown?tab=code#component-api) in these cases.
+When a Dropdown item triggers navigation (either a route or URL change), the Dropdown must close. Consumers are responsible for invoking the [Dropdown `close` function](/components/dropdown?tab=code#component-api) in these cases.
 
 !!!
 
