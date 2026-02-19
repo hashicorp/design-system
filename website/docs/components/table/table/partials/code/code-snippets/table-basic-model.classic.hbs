@@ -1,0 +1,12 @@
+<Hds::Table
+  @model={{this.model.myDemoData}}
+  @columns={{array (hash label="Artist") (hash label="Album") (hash label="Year")}}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>

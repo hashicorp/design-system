@@ -1,0 +1,33 @@
+<div class="doc-table-multiselect-with-pagination-demo">
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectionChange}}
+    @model={{this.paginatedData}}
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Year")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}"
+      >
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <Hds::Pagination::Numbered
+    @totalItems={{this.totalItems}}
+    @currentPage={{this.currentPage}}
+    @pageSizes={{array 2 4}}
+    @currentPageSize={{this.currentPageSize}}
+    @onPageChange={{this.onPageChange}}
+    @onPageSizeChange={{this.onPageSizeChange}}
+    @ariaLabel="Pagination for multi-select table"
+  />
+</div>
