@@ -16,7 +16,7 @@ import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-hand
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
 import type HdsIntlService from '../../../services/hds-intl.ts';
-import type { HdsAdvancedTableNormalizedColumn } from './types';
+import type { HdsAdvancedTableNormalizedColumn } from './types.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
   key: string;

@@ -7,7 +7,7 @@ import { isPixelSize, pixelToNumber } from '../utils.ts';
 import type {
   HdsAdvancedTableNormalizedColumn,
   HdsAdvancedTablePixelString,
-} from '../types';
+} from '../types.ts';
 import type { ModifierLike } from '@glint/template';
 
 export const DEFAULT_WIDTH = '1fr'; // default to '1fr' to allow flexible width

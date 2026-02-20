@@ -20,7 +20,7 @@ import type {
   HdsAdvancedTableColumn,
   HdsAdvancedTableColumnReorderSide,
   HdsAdvancedTableNormalizedColumn,
-} from '../types';
+} from '../types.ts';
 import type { HdsAdvancedTableSignature } from '../index.ts';
 
 export interface HdsAdvancedTableSyncThElementsSignature {
