@@ -48,15 +48,15 @@ export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/hom
 export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.gts';
 
 // AppSideNav
-export { default as HdsAppSideNav } from './components/hds/app-side-nav/index.ts';
-export { default as HdsAppSideNavToggleButton } from './components/hds/app-side-nav/toggle-button.ts';
-export { default as HdsAppSideNavPortal } from './components/hds/app-side-nav/portal/index.ts';
-export { default as HdsAppSideNavPortalTarget } from './components/hds/app-side-nav/portal/target.ts';
-export { default as HdsAppSideNavList } from './components/hds/app-side-nav/list/index.ts';
-export { default as HdsAppSideNavListItem } from './components/hds/app-side-nav/list/item.ts';
-export { default as HdsAppSideNavListBackLink } from './components/hds/app-side-nav/list/back-link.ts';
-export { default as HdsAppSideNavListTitle } from './components/hds/app-side-nav/list/title.ts';
-export { default as HdsAppSideNavListLink } from './components/hds/app-side-nav/list/link.ts';
+export { default as HdsAppSideNav } from './components/hds/app-side-nav/index.gts';
+export { default as HdsAppSideNavToggleButton } from './components/hds/app-side-nav/toggle-button.gts';
+export { default as HdsAppSideNavPortal } from './components/hds/app-side-nav/portal/index.gts';
+export { default as HdsAppSideNavPortalTarget } from './components/hds/app-side-nav/portal/target.gts';
+export { default as HdsAppSideNavList } from './components/hds/app-side-nav/list/index.gts';
+export { default as HdsAppSideNavListItem } from './components/hds/app-side-nav/list/item.gts';
+export { default as HdsAppSideNavListBackLink } from './components/hds/app-side-nav/list/back-link.gts';
+export { default as HdsAppSideNavListTitle } from './components/hds/app-side-nav/list/title.gts';
+export { default as HdsAppSideNavListLink } from './components/hds/app-side-nav/list/link.gts';
 
 // ApplicationState
 export { default as HdsApplicationState } from './components/hds/application-state/index.gts';

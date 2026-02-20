@@ -1,0 +1,88 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
+
+import HdsAppSideNavListItem from './item.gts';
+import HdsIcon from '../../icon/index.gts';
+import HdsInteractive from '../../interactive/index.gts';
+import HdsBadge from '../../badge/index.gts';
+import HdsBadgeCount from '../../badge-count/index.gts';
+
+import type { HdsIconSignature } from '../../icon/index.gts';
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
+
+export interface HdsAppSideNavListLinkSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    icon?: HdsIconSignature['Args']['name'];
+    text?: string;
+    badge?: string;
+    count?: string;
+    hasSubItems?: boolean;
+    isActive?: boolean;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HdsInteractiveSignature['Element'];
+}
+
+const HdsAppSideNavListLink: TemplateOnlyComponent<HdsAppSideNavListLinkSignature> =
+  <template>
+    <HdsAppSideNavListItem>
+      <HdsInteractive
+        class="hds-app-side-nav__list-item-link {{if @isActive 'active'}}"
+        @current-when={{@current-when}}
+        @model={{@model}}
+        @models={{@models}}
+        @query={{@query}}
+        @replace={{@replace}}
+        @route={{@route}}
+        @isRouteExternal={{@isRouteExternal}}
+        @href={{@href}}
+        @isHrefExternal={{@isHrefExternal}}
+        aria-current={{if @isActive "page"}}
+        ...attributes
+      >
+        {{#if @icon}}
+          <HdsIcon
+            class="hds-app-side-nav__list-item-icon-leading"
+            @name={{@icon}}
+          />
+        {{/if}}
+
+        {{#if @text}}
+          <span
+            class="hds-app-side-nav__list-item-text hds-typography-body-200 hds-font-weight-medium"
+          >
+            {{@text}}
+          </span>
+        {{/if}}
+
+        {{#if @count}}
+          <HdsBadgeCount @text={{@count}} @type="outlined" @size="small" />
+        {{/if}}
+
+        {{#if @badge}}
+          <HdsBadge @text={{@badge}} @type="outlined" @size="small" />
+        {{/if}}
+
+        {{yield}}
+
+        {{#if @hasSubItems}}
+          <span class="hds-app-side-nav__list-item-icon-trailing">
+            <HdsIcon @name="chevron-right" />
+          </span>
+        {{/if}}
+        {{#if @isHrefExternal}}
+          <span class="hds-app-side-nav__list-item-icon-trailing">
+            <HdsIcon @name="external-link" />
+          </span>
+        {{/if}}
+      </HdsInteractive>
+    </HdsAppSideNavListItem>
+  </template>;
+
+export default HdsAppSideNavListLink;
