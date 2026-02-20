@@ -150,6 +150,58 @@
           }
         }
       },
+      "underline": {
+        "color": {
+          "primary": {
+            "hover": {
+              "$type": "color",
+              "$value": "#4e81e8",
+              "$modes": {
+                "default": "#4e81e8",
+                "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
+                "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
+                "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
+                "cds-g100": "{carbon.themes.g100.linkPrimaryHover}"
+              }
+            },
+            "active": {
+              "$type": "color",
+              "$value": "#396ed6",
+              "$modes": {
+                "default": "#396ed6",
+                "cds-g0": "{carbon.themes.white.linkPrimary}",
+                "cds-g10": "{carbon.themes.g10.linkPrimary}",
+                "cds-g90": "{carbon.themes.g90.linkPrimary}",
+                "cds-g100": "{carbon.themes.g100.linkPrimary}"
+              }
+            }
+          },
+          "secondary": {
+            "hover": {
+              "$type": "color",
+              "$value": "#4d4d4f",
+              "$modes": {
+                "default": "#4d4d4f",
+                "cds-g0": "{color.foreground.primary}",
+                "cds-g10": "{color.foreground.primary}",
+                "cds-g90": "{color.foreground.primary}",
+                "cds-g100": "{color.foreground.primary}"
+              }
+            },
+            "active": {
+              "$type": "color",
+              "$value": "#6e7075",
+              "$modes": {
+                "default": "#6e7075",
+                "cds-g0": "{color.foreground.faint}",
+                "cds-g10": "{color.foreground.faint}",
+                "cds-g90": "{color.foreground.faint}",
+                "cds-g100": "{color.foreground.faint}"
+              }
+            }
+          }
+        }
+      },
       "surface": {
         "color": {
           "primary": {

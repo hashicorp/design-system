@@ -414,7 +414,6 @@
   --token-icon-tile-border-color-logo: var(--token-color-border-primary);
   --token-icon-tile-border-color-overlay: var(--token-color-border-primary);
   --token-icon-tile-surface-color-overlay: var(--token-color-surface-primary);
-  --token-link-inline-border-radius: 2px;
   --token-link-inline-icon-margin-horizontal: 0.25em;
   --token-link-standalone-icon-size-large: 1.5rem;
   --token-link-standalone-icon-size-small: 0.75rem;
@@ -432,6 +431,10 @@
   --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
+  --token-link-standalone-underline-color-primary-active: #396ed6;
+  --token-link-standalone-underline-color-primary-hover: #4e81e8;
+  --token-link-standalone-underline-color-secondary-active: #6e7075;
+  --token-link-standalone-underline-color-secondary-hover: #4d4d4f;
   --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
   --token-surface-high-box-shadow:
     0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626,
@@ -757,7 +760,6 @@
     --token-icon-tile-border-color-logo: #c6c6c6;
     --token-icon-tile-border-color-overlay: #e0e0e0;
     --token-icon-tile-surface-color-overlay: #ffffff;
-    --token-link-inline-border-radius: 0px;
     --token-link-inline-icon-margin-horizontal: 0.5em;
     --token-link-standalone-icon-size-large: 1.25rem;
     --token-link-standalone-icon-size-small: 1rem;
@@ -771,6 +773,14 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+    --token-link-standalone-underline-color-primary-active: #0f62fe;
+    --token-link-standalone-underline-color-primary-hover: #0043ce;
+    --token-link-standalone-underline-color-secondary-active: var(
+      --token-color-foreground-faint
+    );
+    --token-link-standalone-underline-color-secondary-hover: var(
+      --token-color-foreground-primary
+    );
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -1090,7 +1100,6 @@
     --token-icon-tile-border-color-logo: #525252;
     --token-icon-tile-border-color-overlay: #6f6f6f;
     --token-icon-tile-surface-color-overlay: #393939;
-    --token-link-inline-border-radius: 0px;
     --token-link-inline-icon-margin-horizontal: 0.5em;
     --token-link-standalone-icon-size-large: 1.25rem;
     --token-link-standalone-icon-size-small: 1rem;
@@ -1104,6 +1113,14 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+    --token-link-standalone-underline-color-primary-active: #78a9ff;
+    --token-link-standalone-underline-color-primary-hover: #a6c8ff;
+    --token-link-standalone-underline-color-secondary-active: var(
+      --token-color-foreground-faint
+    );
+    --token-link-standalone-underline-color-secondary-hover: var(
+      --token-color-foreground-primary
+    );
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -1422,7 +1439,6 @@
   --token-icon-tile-border-color-logo: #c6c6c6;
   --token-icon-tile-border-color-overlay: #e0e0e0;
   --token-icon-tile-surface-color-overlay: #ffffff;
-  --token-link-inline-border-radius: 0px;
   --token-link-inline-icon-margin-horizontal: 0.5em;
   --token-link-standalone-icon-size-large: 1.25rem;
   --token-link-standalone-icon-size-small: 1rem;
@@ -1436,6 +1452,14 @@
   --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+  --token-link-standalone-underline-color-primary-active: #0f62fe;
+  --token-link-standalone-underline-color-primary-hover: #0043ce;
+  --token-link-standalone-underline-color-secondary-active: var(
+    --token-color-foreground-faint
+  );
+  --token-link-standalone-underline-color-secondary-hover: var(
+    --token-color-foreground-primary
+  );
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;
@@ -1753,7 +1777,6 @@
   --token-icon-tile-border-color-logo: #525252;
   --token-icon-tile-border-color-overlay: #6f6f6f;
   --token-icon-tile-surface-color-overlay: #393939;
-  --token-link-inline-border-radius: 0px;
   --token-link-inline-icon-margin-horizontal: 0.5em;
   --token-link-standalone-icon-size-large: 1.25rem;
   --token-link-standalone-icon-size-small: 1rem;
@@ -1767,6 +1790,14 @@
   --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
+  --token-link-standalone-underline-color-primary-active: #78a9ff;
+  --token-link-standalone-underline-color-primary-hover: #a6c8ff;
+  --token-link-standalone-underline-color-secondary-active: var(
+    --token-color-foreground-faint
+  );
+  --token-link-standalone-underline-color-secondary-hover: var(
+    --token-color-foreground-primary
+  );
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;
