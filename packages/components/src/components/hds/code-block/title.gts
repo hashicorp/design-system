@@ -5,9 +5,12 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
+
 import { HdsCodeBlockTitleTagValues } from './types.ts';
-import type { HdsCodeBlockTitleTags } from './types';
-import type { HdsTextBodySignature } from '../text/body';
+import HdsTextBody from '../text/body.gts';
+
+import type { HdsCodeBlockTitleTags } from './types.ts';
+import type { HdsTextBodySignature } from '../text/body.gts';
 
 type HdsCodeBlockTitleElement = HdsTextBodySignature['Element'];
 export interface HdsCodeBlockTitleSignature {
@@ -38,4 +41,18 @@ export default class HdsCodeBlockTitle extends Component<HdsCodeBlockTitleSignat
   get componentTag(): HdsCodeBlockTitleTags {
     return this.args.tag ?? HdsCodeBlockTitleTagValues.P;
   }
+
+  <template>
+    <HdsTextBody
+      id={{this._id}}
+      @size="200"
+      @tag={{this.componentTag}}
+      @weight="semibold"
+      class="hds-code-block__title"
+      ...attributes
+      {{this._setUpTitle @didInsertNode}}
+    >
+      {{yield}}
+    </HdsTextBody>
+  </template>
 }

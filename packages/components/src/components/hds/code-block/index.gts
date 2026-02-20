@@ -4,27 +4,30 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { next, schedule } from '@ember/runloop';
 import { htmlSafe } from '@ember/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-
+import { hash } from '@ember/helper';
+import { on } from '@ember/modifier';
 import Prism from 'prismjs';
+import style from 'ember-style-modifier';
 
 import type { SafeString } from '@ember/template';
 import type { WithBoundArgs } from '@glint/template';
 
-import type { HdsCodeBlockTitleSignature } from './title';
-import type { HdsCodeBlockDescriptionSignature } from './description';
 import { HdsCodeBlockLanguageValues } from './types.ts';
+import HdsCodeBlockCopyButton from './copy-button.gts';
+import HdsButton from '../button/index.gts';
+import HdsCodeBlockTitle from './title.gts';
+import HdsCodeBlockDescription from './description.gts';
+
+import type { HdsCodeBlockTitleSignature } from './title.gts';
+import type { HdsCodeBlockDescriptionSignature } from './description.gts';
 import type { HdsCodeBlockLanguages } from './types.ts';
 import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
-
-import HdsCodeBlockTitleComponent from './title.ts';
-import HdsCodeBlockDescriptionComponent from './description.ts';
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
@@ -69,12 +72,9 @@ export interface HdsCodeBlockSignature {
   Blocks: {
     default: [
       {
-        Title?: WithBoundArgs<
-          typeof HdsCodeBlockTitleComponent,
-          'didInsertNode'
-        >;
+        Title?: WithBoundArgs<typeof HdsCodeBlockTitle, 'didInsertNode'>;
         Description?: WithBoundArgs<
-          typeof HdsCodeBlockDescriptionComponent,
+          typeof HdsCodeBlockDescription,
           'didInsertNode'
         >;
       },
@@ -187,20 +187,19 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     return this.args.copyButtonText ? this.args.copyButtonText : 'Copy';
   }
 
-  @action
-  registerTitleElement(element: HdsCodeBlockTitleSignature['Element']): void {
+  registerTitleElement = (
+    element: HdsCodeBlockTitleSignature['Element']
+  ): void => {
     this._titleId = element.id;
-  }
+  };
 
-  @action
-  registerDescriptionElement(
+  registerDescriptionElement = (
     element: HdsCodeBlockDescriptionSignature['Element']
-  ): void {
+  ): void => {
     this._descriptionId = element.id;
-  }
+  };
 
-  @action
-  setPrismCode(element: HTMLElement): void {
+  setPrismCode = (element: HTMLElement): void => {
     const code = this.code;
     const language = this.language;
     const grammar = language ? Prism.languages[language] : undefined;
@@ -244,17 +243,17 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
         });
       });
     }
-  }
+  };
 
-  private _updateCodeHeights(): void {
+  private _updateCodeHeights = (): void => {
     if (!this._isExpanded) {
       // Get the actual height & the content height of the preCodeElement
       this._codeContentHeight = this._preCodeElement?.scrollHeight ?? 0;
       this._codeContainerHeight = this._preCodeElement?.clientHeight ?? 0;
     }
-  }
+  };
 
-  private _updatePrismPlugins(): void {
+  private _updatePrismPlugins = (): void => {
     if (this.hasLineNumbers && Prism?.plugins?.['lineNumbers']) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       Prism.plugins['lineNumbers'].resize(this._preCodeElement);
@@ -266,16 +265,15 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
       // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
       if (window) window.dispatchEvent(new Event('resize'));
     }
-  }
+  };
 
-  @action
-  toggleExpanded(): void {
+  toggleExpanded = (): void => {
     this._isExpanded = !this._isExpanded;
-  }
+  };
 
   // Logic for determining where line highlighting starts and ends taken from Prism.js plugin source code
   // Context: https://github.com/PrismJS/prism/blob/19f8de66b0f3a79aedbbf096081a4060fc0e80af/src/plugins/line-highlight/prism-line-highlight.ts#L82
-  private _addHighlightSrOnlyText(code: string): SafeString {
+  private _addHighlightSrOnlyText = (code: string): SafeString => {
     const NEW_LINE_EXP = /\n(?!$)/g;
     const lines = code.split(NEW_LINE_EXP);
     const numLines = lines.length;
@@ -314,7 +312,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     } else {
       return htmlSafe(code);
     }
-  }
+  };
 
   get classNames(): string {
     // Currently there is only one theme so the class name is hard-coded.
@@ -348,4 +346,64 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes {{this._setUpCodeObserver}}>
+      <div class="hds-code-block__header">
+        {{~yield
+          (hash
+            Title=(component
+              HdsCodeBlockTitle didInsertNode=this.registerTitleElement
+            )
+          )
+        ~}}
+        {{~yield
+          (hash
+            Description=(component
+              HdsCodeBlockDescription
+              didInsertNode=this.registerDescriptionElement
+            )
+          )
+        ~}}
+      </div>
+      <div class="hds-code-block__body">
+        {{! content within pre tag is whitespace-sensitive; do not add new lines! }}
+        <pre
+          class="hds-code-block__code"
+          {{style maxHeight=this.maxHeight}}
+          data-line={{@highlightLines}}
+          data-start={{@lineNumberStart}}
+          id={{this._preCodeId}}
+          aria-label={{@ariaLabel}}
+          aria-labelledby={{this.ariaLabelledBy}}
+          aria-describedby={{this.ariaDescribedBy}}
+          tabindex="0"
+        ><code {{this._setUpCodeBlockCode}}>
+            {{~this._prismCode~}}
+          </code></pre>
+
+        {{#if @hasCopyButton}}
+          <HdsCodeBlockCopyButton
+            @targetToCopy="#{{this._preCodeId}}"
+            aria-describedby={{this._preCodeId}}
+            @text={{this.copyButtonText}}
+            @onCopy={{@onCopy}}
+            @copySuccessMessageText={{@copySuccessMessageText}}
+          />
+        {{/if}}
+      </div>
+      {{#if this.showFooter}}
+        <div class="hds-code-block__overlay-footer">
+          <HdsButton
+            class="hds-code-block__height-toggle-button"
+            @text={{if this._isExpanded "Show less code" "Show more code"}}
+            @color="secondary"
+            @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
+            @size="small"
+            {{on "click" this.toggleExpanded}}
+          />
+        </div>
+      {{/if}}
+    </div>
+  </template>
 }

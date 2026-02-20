@@ -91,10 +91,10 @@ export { default as HdsCardContainer } from './components/hds/card/container.gts
 export * from './components/hds/card/types.ts';
 
 // CodeBlock
-export { default as HdsCodeBlock } from './components/hds/code-block/index.ts';
-export { default as HdsCodeBlockCopyButton } from './components/hds/code-block/copy-button.ts';
-export { default as HdsCodeBlockDescription } from './components/hds/code-block/description.ts';
-export { default as HdsCodeBlockTitle } from './components/hds/code-block/title.ts';
+export { default as HdsCodeBlock } from './components/hds/code-block/index.gts';
+export { default as HdsCodeBlockCopyButton } from './components/hds/code-block/copy-button.gts';
+export { default as HdsCodeBlockDescription } from './components/hds/code-block/description.gts';
+export { default as HdsCodeBlockTitle } from './components/hds/code-block/title.gts';
 export * from './components/hds/code-block/types.ts';
 
 // CodeEditor
