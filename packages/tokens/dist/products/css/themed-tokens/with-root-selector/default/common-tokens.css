@@ -174,5 +174,4 @@
   --token-tooltip-focus-offset: -2px;
   --token-tooltip-foreground-color: var(--token-color-foreground-high-contrast);
   --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
-  --token-tooltip-typography-font-family: var(--token-typography-body-200-font-family);
 }

@@ -309,10 +309,7 @@
   --token-tooltip-padding-horizontal: 16px;
   --token-tooltip-padding-vertical: 16px;
   --token-tooltip-surface-color: #393939;
-  --token-tooltip-typography-font-size: 0.875rem;
-  --token-tooltip-typography-font-weight: 400;
   --token-tooltip-typography-letter-spacing: 0.16px;
-  --token-tooltip-typography-line-height: 1.42857;
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
@@ -699,10 +696,7 @@
     --token-tooltip-padding-horizontal: 16px;
     --token-tooltip-padding-vertical: 16px;
     --token-tooltip-surface-color: #393939;
-    --token-tooltip-typography-font-size: 0.875rem;
-    --token-tooltip-typography-font-weight: 400;
     --token-tooltip-typography-letter-spacing: 0.16px;
-    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1090,10 +1084,7 @@
     --token-tooltip-padding-horizontal: 16px;
     --token-tooltip-padding-vertical: 16px;
     --token-tooltip-surface-color: #f4f4f4;
-    --token-tooltip-typography-font-size: 0.875rem;
-    --token-tooltip-typography-font-weight: 400;
     --token-tooltip-typography-letter-spacing: 0.16px;
-    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1477,10 +1468,7 @@
   --token-tooltip-padding-horizontal: 16px;
   --token-tooltip-padding-vertical: 16px;
   --token-tooltip-surface-color: #393939;
-  --token-tooltip-typography-font-size: 0.875rem;
-  --token-tooltip-typography-font-weight: 400;
   --token-tooltip-typography-letter-spacing: 0.16px;
-  --token-tooltip-typography-line-height: 1.42857;
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
@@ -1863,10 +1851,7 @@
   --token-tooltip-padding-horizontal: 16px;
   --token-tooltip-padding-vertical: 16px;
   --token-tooltip-surface-color: #f4f4f4;
-  --token-tooltip-typography-font-size: 0.875rem;
-  --token-tooltip-typography-font-weight: 400;
   --token-tooltip-typography-letter-spacing: 0.16px;
-  --token-tooltip-typography-line-height: 1.42857;
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
@@ -2199,7 +2184,4 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-tooltip-focus-offset: -2px;
   --token-tooltip-foreground-color: var(--token-color-foreground-high-contrast);
   --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
-  --token-tooltip-typography-font-family: var(
-    --token-typography-body-200-font-family
-  );
 }

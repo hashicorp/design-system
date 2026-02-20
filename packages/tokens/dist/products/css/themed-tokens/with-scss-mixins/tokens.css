@@ -497,16 +497,7 @@
     --token-tooltip-padding-horizontal: 12px;
     --token-tooltip-padding-vertical: 8px;
     --token-tooltip-surface-color: var(--token-color-palette-neutral-700);
-    --token-tooltip-typography-font-size: var(
-      --token-typography-body-200-font-size
-    );
-    --token-tooltip-typography-font-weight: var(
-      --token-typography-font-weight-regular
-    );
     --token-tooltip-typography-letter-spacing: 0px;
-    --token-tooltip-typography-line-height: var(
-      --token-typography-body-200-line-height
-    );
     --token-typography-body-100-font-family: var(
       --token-typography-font-stack-text
     );
@@ -893,10 +884,7 @@
     --token-tooltip-padding-horizontal: 16px;
     --token-tooltip-padding-vertical: 16px;
     --token-tooltip-surface-color: #393939;
-    --token-tooltip-typography-font-size: 0.875rem;
-    --token-tooltip-typography-font-weight: 400;
     --token-tooltip-typography-letter-spacing: 0.16px;
-    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1284,10 +1272,7 @@
     --token-tooltip-padding-horizontal: 16px;
     --token-tooltip-padding-vertical: 16px;
     --token-tooltip-surface-color: #f4f4f4;
-    --token-tooltip-typography-font-size: 0.875rem;
-    --token-tooltip-typography-font-weight: 400;
     --token-tooltip-typography-letter-spacing: 0.16px;
-    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1675,10 +1660,7 @@
     --token-tooltip-padding-horizontal: 16px;
     --token-tooltip-padding-vertical: 16px;
     --token-tooltip-surface-color: #393939;
-    --token-tooltip-typography-font-size: 0.875rem;
-    --token-tooltip-typography-font-weight: 400;
     --token-tooltip-typography-letter-spacing: 0.16px;
-    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -2066,10 +2048,7 @@
     --token-tooltip-padding-horizontal: 16px;
     --token-tooltip-padding-vertical: 16px;
     --token-tooltip-surface-color: #393939;
-    --token-tooltip-typography-font-size: 0.875rem;
-    --token-tooltip-typography-font-weight: 400;
     --token-tooltip-typography-letter-spacing: 0.16px;
-    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -2457,10 +2436,7 @@
     --token-tooltip-padding-horizontal: 16px;
     --token-tooltip-padding-vertical: 16px;
     --token-tooltip-surface-color: #f4f4f4;
-    --token-tooltip-typography-font-size: 0.875rem;
-    --token-tooltip-typography-font-weight: 400;
     --token-tooltip-typography-letter-spacing: 0.16px;
-    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -2848,10 +2824,7 @@
     --token-tooltip-padding-horizontal: 16px;
     --token-tooltip-padding-vertical: 16px;
     --token-tooltip-surface-color: #f4f4f4;
-    --token-tooltip-typography-font-size: 0.875rem;
-    --token-tooltip-typography-font-weight: 400;
     --token-tooltip-typography-letter-spacing: 0.16px;
-    --token-tooltip-typography-line-height: 1.42857;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -3176,8 +3149,5 @@
       --token-color-foreground-high-contrast
     );
     --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
-    --token-tooltip-typography-font-family: var(
-      --token-typography-body-200-font-family
-    );
   }
 }
