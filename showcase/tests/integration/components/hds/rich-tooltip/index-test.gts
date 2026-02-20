@@ -12,6 +12,8 @@ import {
   render,
   resetOnerror,
 } from '@ember/test-helpers';
+import { on } from '@ember/modifier';
+import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsRichTooltip } from '@hashicorp/design-system-components/components';
 
@@ -147,6 +149,53 @@ module('Integration | Component | hds/rich-tooltip/index', function (hooks) {
     // toggle it again
     await click('button.hds-rich-tooltip__toggle');
     assert.strictEqual(status, 'closed');
+  });
+
+  test('it should invoke the `onFocusOut` callback if focus is lost, and not close the popover', async function (assert) {
+    const context = new TrackedObject({
+      status: '',
+      showButton: true,
+    });
+
+    const onFocusOut = () => {
+      context.status = 'focus-out';
+    };
+
+    const onClickDemoButton = () => {
+      context.showButton = false;
+    };
+
+    await render(
+      <template>
+        <HdsRichTooltip
+          @enableClickEvents={{true}}
+          @onFocusOut={{onFocusOut}}
+          as |RT|
+        >
+          <RT.Toggle />
+          <RT.Bubble>
+            {{#if context.showButton}}
+              <button
+                type="button"
+                id="test-rich-tooltip-demo-button"
+                {{on "click" onClickDemoButton}}
+              >
+                Hide me
+              </button>
+            {{/if}}
+          </RT.Bubble>
+        </HdsRichTooltip>
+      </template>,
+    );
+
+    await click('button.hds-rich-tooltip__toggle');
+    assert.dom('.hds-rich-tooltip__bubble').isVisible();
+
+    // trigger the dynamic template change that will cause the tooltip bubble content to lose focus
+    await click('#test-rich-tooltip-demo-button');
+    assert.strictEqual(context.showButton, false);
+    assert.strictEqual(context.status, 'focus-out');
+    assert.dom('.hds-rich-tooltip__bubble').isVisible();
   });
 
   // ANCHORED POSITION OPTIONS

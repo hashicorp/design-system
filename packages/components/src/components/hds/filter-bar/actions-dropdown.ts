@@ -18,6 +18,7 @@ export interface HdsFilterBarActionsDropdownSignature {
     | 'height'
     | 'preserveContentInDom'
     | 'onClose'
+    | 'onFocusOut'
   > & {
     toggleButtonText?: HdsDropdownToggleButtonSignature['Args']['text'];
     toggleButtonIcon?: HdsDropdownToggleButtonSignature['Args']['icon'];

@@ -5,6 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
+import { on } from '@ember/modifier';
 import { render, click } from '@ember/test-helpers';
 import { TrackedObject } from 'tracked-built-ins';
 
@@ -186,6 +187,56 @@ module(
 
       assert.ok(context.isClicked);
       assert.true(Object.keys(context.filters).length === 0);
+    });
+
+    // CALLBACKS: ONFOCUSOUT
+
+    test('it should call the onFocusOut callback', async function (assert) {
+      const context = new TrackedObject({
+        status: '',
+        showButton: true,
+      });
+
+      const onFocusOut = () => {
+        context.status = 'focus-out';
+      };
+
+      const onClickDemoButton = () => {
+        context.showButton = false;
+      };
+
+      await render(
+        <template>
+          <HdsFilterBarFiltersDropdown
+            @filters={{EMPTY_FILTERS}}
+            @onFocusOut={{onFocusOut}}
+            id="test-filters-dropdown"
+            as |D|
+          >
+            <D.FilterGroup
+              @key="demo-generic"
+              @type="generic"
+              @text="Generic"
+              as |F|
+            >
+              <F.Generic>
+                {{#if context.showButton}}
+                  <button
+                    type="button"
+                    id="test-filters-dropdown-demo-button"
+                    {{on "click" onClickDemoButton}}
+                  >
+                    Hide me
+                  </button>
+                {{/if}}
+              </F.Generic>
+            </D.FilterGroup>
+          </HdsFilterBarFiltersDropdown>
+        </template>,
+      );
+      await click('.hds-dropdown-toggle-button');
+      await click('#test-filters-dropdown-demo-button');
+      assert.strictEqual(context.status, 'focus-out');
     });
   },
 );

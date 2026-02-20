@@ -22,6 +22,7 @@ export interface HdsFilterBarFiltersDropdownSignature {
     isLiveFilter?: boolean;
     height?: string;
     onFilter?: (filters: HdsFilterBarFilters) => void;
+    onFocusOut?: HdsDropdownSignature['Args']['onFocusOut'];
   };
   Blocks: {
     default: [

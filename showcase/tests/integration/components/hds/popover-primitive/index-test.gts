@@ -13,6 +13,7 @@ import {
   settled,
   setupOnerror,
 } from '@ember/test-helpers';
+import { on } from '@ember/modifier';
 import { hash } from '@ember/helper';
 import { TrackedObject } from 'tracked-built-ins';
 
@@ -272,6 +273,121 @@ module(
       // toggle it again
       await click('#test-popover-primitive-toggle');
       assert.strictEqual(context.status, 'closed');
+    });
+
+    test('it should invoke the `onFocusOut` callback if focus is lost, and not close the popover', async function (assert) {
+      const context = new TrackedObject({
+        status: '',
+        showButton: true,
+      });
+
+      const onFocusOut = () => {
+        context.status = 'focus-out';
+      };
+
+      const onClickDemoButton = () => {
+        context.showButton = false;
+      };
+
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @onFocusOut={{onFocusOut}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div
+                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                id="test-popover-primitive-content"
+              >
+                {{#if context.showButton}}
+                  <button
+                    type="button"
+                    id="test-popover-primitive-demo-button"
+                    {{on "click" onClickDemoButton}}
+                  >
+                    Hide me
+                  </button>
+                {{/if}}
+              </div>
+            </div>
+          </HdsPopoverPrimitive>
+        </template>,
+      );
+
+      await click('#test-popover-primitive-toggle');
+      assert.dom('#test-popover-primitive-content').isVisible();
+
+      // trigger the dynamic template change that will cause the popover content to lose focus
+      await click('#test-popover-primitive-demo-button');
+      assert.strictEqual(context.showButton, false);
+      assert.strictEqual(context.status, 'focus-out');
+      assert.dom('#test-popover-primitive-content').isVisible();
+    });
+
+    test('it should not invoke the `onFocusOut` callback if focus is moved outside of the popover to another element', async function (assert) {
+      const context = new TrackedObject({
+        status: '',
+        showButton: true,
+      });
+
+      const onFocusOut = () => {
+        context.status = 'focus-out';
+      };
+
+      const onClickDemoButton = () => {
+        context.showButton = false;
+      };
+
+      await render(
+        <template>
+          <HdsPopoverPrimitive
+            @enableClickEvents={{true}}
+            @onFocusOut={{onFocusOut}}
+            as |PP|
+          >
+            <div {{PP.setupPrimitiveContainer}}>
+              <button
+                {{PP.setupPrimitiveToggle}}
+                id="test-popover-primitive-toggle"
+                type="button"
+              />
+              <div
+                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                id="test-popover-primitive-content"
+              >
+                <button
+                  type="button"
+                  id="test-popover-primitive-demo-button"
+                  {{on "click" onClickDemoButton}}
+                >
+                  Demo button
+                </button>
+              </div>
+            </div>
+          </HdsPopoverPrimitive>
+          <button type="button" id="test-popover-primitive-external-button">
+            External button
+          </button>
+        </template>,
+      );
+
+      await click('#test-popover-primitive-toggle');
+      assert.dom('#test-popover-primitive-content').isVisible();
+
+      // focus on the button inside the popover
+      await focus('#test-popover-primitive-demo-button');
+      // move focus to the button outside of the popover
+      await focus('#test-popover-primitive-external-button');
+      // the popover should be closed, and the `onFocusOut` callback should not be invoked
+      assert.dom('#test-popover-primitive-content').isNotVisible();
+      assert.strictEqual(context.status, '');
     });
 
     // ANCHORED POSITION OPTIONS
