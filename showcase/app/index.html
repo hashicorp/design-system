@@ -14,10 +14,83 @@
 
     {{content-for "head"}}
 
+    <!-- these styles are pre-compiled in the `tokens` and `components` packages -->
+    <!-- IMPORTANT: if you add a new entry here, make sure to check if it's needed also in the `showcase/tests/index.html` file, which is used to run the tests -->
+
+    <!-- this is the "standard" (non-themed) CSS file for the HDS components, which contains both the default HDS tokens as well as the HDS components' styles  -->
+    <link id="hds-components-stylesheet-default" rel="stylesheet" integrity=""
+      href="{{rootURL}}assets/styles/@hashicorp/design-system-components.css">
+
+    <!-- these are the design tokens (CSS variables) for theming [NOTE: they are disabled by default and toggled on/off via JS by the `ShwThemeSwitcher` selector] -->
+    <link id="hds-tokens-with-css-selectors" rel="stylesheet" integrity="" disabled="true"
+      href="{{rootURL}}assets/styles/@hashicorp/themed-tokens/with-css-selectors/tokens.css">
+    <link id="hds-tokens-with-css-selectors--migration" rel="stylesheet" integrity="" disabled="true"
+      href="{{rootURL}}assets/styles/@hashicorp/themed-tokens/with-css-selectors--migration/tokens.css">
+    <link id="hds-tokens-with-css-selectors--advanced" rel="stylesheet" integrity="" disabled="true"
+      href="{{rootURL}}assets/styles/@hashicorp/themed-tokens/with-css-selectors--advanced/tokens.css">
+
+    <!-- this is the "components-only" CSS file for the HDS components, which needs to be associated with a themed CSS tokens file to work  -->
+    <link id="hds-components-stylesheet-common" rel="stylesheet" integrity="" disabled="true"
+      href="{{rootURL}}assets/styles/@hashicorp/design-system-components-common.css">
+
+    <!-- these are the overriding styles for the Ember PowerSelect component -->
+    <link rel="stylesheet" integrity=""
+      href="{{rootURL}}assets/styles/@hashicorp/design-system-power-select-overrides.css">
+
+    <!-- these are the `@font-face` declarations for the IBM Plex fonts -->
+    <link rel="stylesheet" integrity="" href="{{rootURL}}assets/styles/@hashicorp/design-system-plex-fonts.css">
+
+    <!-- these styles are compiled with the Showcase -->
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase.css">
 
     <link rel="shortcut icon" href="/assets/logos/favicon.png" />
+
+    <!-- IBM Carbon Web Components - Import via CDN -->
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/badge-indicator.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/button.min.js"></script>
+    <!-- <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/icon.min.js"></script> -->
+    <!-- <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/icon-button.min.js"></script> -->
+    <script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/tag.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/inline-loading.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/text-input.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/modal.min.js"></script>
+    <script type="module"
+      src="https://1.www.s81c.com/common/carbon/web-components/version/v2.48.0/tile.min.js"></script>
+
+    <!-- This contains global styles and CSS resets too! -->
+    <link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/tag/latest/themes.css" />
+    <style type="text/css">
+      /* Suppress custom element until styles are loaded */
+      cds-badge-indicator:not(:defined),
+      cds-button:not(:defined),
+      /* cds-icon:not(:defined), */
+      /* cds-icon-button:not(:defined), */
+      cds-modal:not(:defined),
+      cds-modal-body:not(:defined),
+      cds-modal-body-content:not(:defined),
+      cds-modal-close-button:not(:defined),
+      cds-modal-footer:not(:defined),
+      cds-modal-footer-button:not(:defined),
+      cds-modal-header:not(:defined),
+      cds-modal-heading:not(:defined),
+      cds-modal-label:not(:defined),
+      cds-radio-tile:not(:defined),
+      cds-text-input:not(:defined),
+      cds-tag:not(:defined),
+      cds-tile-group:not(:defined),
+      cds-dismissible-tag:not(:defined),
+      cds-operational-tag:not(:defined),
+      cds-selectable-tag:not(:defined) {
+        visibility: hidden;
+      }
+    </style>
 
     {{content-for "head-footer"}}
   </head>
@@ -26,7 +99,7 @@
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/showcase.js"></script>
-    
+
     {{content-for "body-footer"}}
   </body>
 </html>
