@@ -7167,6 +7167,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-link-standalone {
   display: flex;
   gap: 0.375rem;
@@ -7230,6 +7234,13 @@ button.hds-button[href]::after {
 .hds-link-standalone--color-primary:hover .hds-link-standalone__text, .hds-link-standalone--color-primary.mock-hover .hds-link-standalone__text {
   text-decoration-color: #4e81e8;
 }
+.hds-mode-cds-g0 .hds-link-standalone--color-primary:hover, .hds-mode-cds-g0 .hds-link-standalone--color-primary.mock-hover,
+.hds-mode-cds-g10 .hds-link-standalone--color-primary:hover, .hds-mode-cds-g10 .hds-link-standalone--color-primary.mock-hover,
+.hds-mode-cds-g90 .hds-link-standalone--color-primary:hover, .hds-mode-cds-g90 .hds-link-standalone--color-primary.mock-hover,
+.hds-mode-cds-g100 .hds-link-standalone--color-primary:hover, .hds-mode-cds-g100 .hds-link-standalone--color-primary.mock-hover {
+  text-decoration-color: inherit;
+}
+
 .hds-link-standalone--color-primary:active, .hds-link-standalone--color-primary.mock-active {
   color: var(--token-color-foreground-action-active);
 }
