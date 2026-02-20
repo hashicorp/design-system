@@ -9,6 +9,8 @@ import { registerDestructor } from '@ember/destroyable';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
+// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
 
 import type Owner from '@ember/owner';
 
@@ -242,8 +244,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       aria-modal={{if this.isMobileCollapsible "true"}}
       {{on "transitionstart" (fn this.setTransition "start")}}
       {{on "transitionend" (fn this.setTransition "end")}}
-      {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
-      {{focus-trap isActive=this.shouldTrapFocus}}
+      {{focusTrap isActive=this.shouldTrapFocus}}
       {{this._setUpBodyElement}}
     >
       <h2 class="sr-only" id="hds-app-side-nav-header">
