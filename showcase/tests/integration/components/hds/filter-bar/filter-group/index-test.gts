@@ -710,6 +710,45 @@ module(
       assert.equal(context.keyFilter, undefined);
     });
 
+    // ONCLEAR
+
+    test('it should call the onClear callback when the clear filter button is clicked', async function (assert) {
+      const context = new TrackedObject<{
+        isTriggered: boolean;
+        key: string;
+      }>({
+        isTriggered: false,
+        key: '',
+      });
+
+      const onClear = (key: string) => {
+        context.isTriggered = true;
+        context.key = key;
+      };
+
+      await render(
+        <template>
+          <HdsFilterBarTabs as |T|>
+            <HdsFilterBarFilterGroup
+              @key="name"
+              @text="Name"
+              @type="date"
+              @tab={{T.Tab}}
+              @panel={{T.Panel}}
+              @filters={{SAMPLE_FILTERS}}
+              @onChange={{NOOP}}
+              @onClear={{onClear}}
+            />
+          </HdsFilterBarTabs>
+        </template>,
+      );
+
+      await click('.hds-filter-bar__filter-group__clear-button');
+
+      assert.true(context.isTriggered);
+      assert.equal(context.key, 'name');
+    });
+
     // NUM FILTERS
 
     test('it should display the correct number of applied filters', async function (assert) {

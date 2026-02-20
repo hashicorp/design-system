@@ -6,10 +6,8 @@
 import Component from '@glimmer/component';
 import { get } from '@ember/object';
 
-import {
-  HdsFilterBarAppliedFilters,
-  type HdsFilterBarFilters,
-} from '@hashicorp/design-system-components/components';
+import { HdsFilterBarAppliedFilters } from '@hashicorp/design-system-components/components';
+import type { HdsFilterBarFilters } from '@hashicorp/design-system-components/components/hds/filter-bar/types';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 const FILTERS = {

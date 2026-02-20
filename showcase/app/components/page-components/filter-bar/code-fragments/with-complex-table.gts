@@ -20,14 +20,16 @@ import {
   HdsFilterBar,
   HdsLinkInline,
   HdsTable,
-  type HdsFilterBarNumericalFilter,
-  type HdsFilterBarDateFilter,
-  type HdsFilterBarSingleSelectFilter,
-  type HdsFilterBarMultiSelectFilter,
-  type HdsFilterBarSearchFilter,
-  type HdsFilterBarFilter,
-  type HdsFilterBarGenericFilter,
 } from '@hashicorp/design-system-components/components';
+import type {
+  HdsFilterBarSingleSelectFilter,
+  HdsFilterBarMultiSelectFilter,
+  HdsFilterBarSearchFilter,
+  HdsFilterBarNumericalFilter,
+  HdsFilterBarDateFilter,
+  HdsFilterBarGenericFilter,
+  HdsFilterBarFilter,
+} from '@hashicorp/design-system-components/components/hds/filter-bar/types';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 const RUNS_VALUES = {

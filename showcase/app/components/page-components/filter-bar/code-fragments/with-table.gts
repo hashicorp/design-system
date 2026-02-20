@@ -18,11 +18,13 @@ import {
   HdsIcon,
   HdsLinkInline,
   HdsTable,
-  type HdsFilterBarSingleSelectFilter,
-  type HdsFilterBarMultiSelectFilter,
-  type HdsFilterBarSearchFilter,
-  type HdsFilterBarFilter,
 } from '@hashicorp/design-system-components/components';
+import type {
+  HdsFilterBarSingleSelectFilter,
+  HdsFilterBarMultiSelectFilter,
+  HdsFilterBarSearchFilter,
+  HdsFilterBarFilter,
+} from '@hashicorp/design-system-components/components/hds/filter-bar/types';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
 const MUSIC_VALUES = {
