@@ -6,7 +6,10 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import type { HdsTextBodySignature } from '../text/body';
+
+import HdsTextBody from '../text/body.gts';
+
+import type { HdsTextBodySignature } from '../text/body.gts';
 
 type HdsCodeBlockDescriptionElement = HdsTextBodySignature['Element'];
 export interface HdsCodeBlockDescriptionSignature {
@@ -32,4 +35,17 @@ export default class HdsCodeBlockDescription extends Component<HdsCodeBlockDescr
       }
     }
   );
+
+  <template>
+    <HdsTextBody
+      id={{this._id}}
+      @tag="p"
+      @size="100"
+      class="hds-code-block__description"
+      ...attributes
+      {{this._setUpDescription @didInsertNode}}
+    >
+      {{yield}}
+    </HdsTextBody>
+  </template>
 }

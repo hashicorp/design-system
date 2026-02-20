@@ -5,6 +5,8 @@
 
 import Component from '@glimmer/component';
 
+import HdsCopyButton from '../copy/button/index.gts';
+
 import type { HdsCopyButtonSignature } from '../copy/button/index.gts';
 
 export interface HdsCodeBlockCopyButtonSignature {
@@ -24,4 +26,17 @@ export default class HdsCodeBlockCopyButton extends Component<HdsCodeBlockCopyBu
   get text(): HdsCopyButtonSignature['Args']['text'] {
     return this.args.text ? this.args.text : 'Copy';
   }
+
+  <template>
+    <HdsCopyButton
+      class="hds-code-block__copy-button"
+      @text={{this.text}}
+      @isIconOnly={{true}}
+      @size="small"
+      @targetToCopy={{@targetToCopy}}
+      @onSuccess={{@onCopy}}
+      @ariaMessageText={{@copySuccessMessageText}}
+      ...attributes
+    />
+  </template>
 }
