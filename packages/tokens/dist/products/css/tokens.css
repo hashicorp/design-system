@@ -432,7 +432,6 @@
   --token-form-toggle-transition-duration: 0.2s;
   --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --token-form-toggle-thumb-size: 16px;
-  --token-link-inline-border-radius: 2px;
   --token-link-inline-icon-margin-horizontal: 0.25em;
   --token-link-standalone-padding-vertical: 4px;
   --token-link-standalone-typography-font-size-small: 0.8125rem;
@@ -447,6 +446,10 @@
   --token-link-standalone-icon-size-small: 0.75rem;
   --token-link-standalone-icon-size-medium: 1rem;
   --token-link-standalone-icon-size-large: 1.5rem;
+  --token-link-standalone-underline-color-primary-hover: #4e81e8;
+  --token-link-standalone-underline-color-primary-active: #396ed6;
+  --token-link-standalone-underline-color-secondary-hover: #4d4d4f;
+  --token-link-standalone-underline-color-secondary-active: #6e7075;
   --token-link-standalone-surface-color-primary-active: var(--token-color-surface-action);
   --token-link-standalone-surface-color-secondary-active: var(--token-color-surface-interactive-active);
   --token-pagination-nav-control-height: 36px;

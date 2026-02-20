@@ -279,7 +279,6 @@
   --token-form-radiocard-border-color-default: var(--token-color-surface-primary);
   --token-form-radiocard-border-color-focus: var(--token-color-focus-action-internal);
   --token-form-radiocard-border-radius: 6px;
-  --token-link-inline-border-radius: 2px;
   --token-link-inline-icon-margin-horizontal: 0.25em;
   --token-link-standalone-icon-size-large: 1.5rem;
   --token-link-standalone-icon-size-small: 0.75rem;
@@ -293,6 +292,10 @@
   --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
+  --token-link-standalone-underline-color-primary-active: #396ed6;
+  --token-link-standalone-underline-color-primary-hover: #4e81e8;
+  --token-link-standalone-underline-color-secondary-active: #6e7075;
+  --token-link-standalone-underline-color-secondary-hover: #4d4d4f;
   --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
   --token-surface-high-box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --token-surface-higher-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
