@@ -127,10 +127,10 @@ importers:
         specifier: ^1.6.12
         version: 1.7.3
       '@hashicorp/design-system-tokens':
-        specifier: workspace:^4.0.0
+        specifier: workspace:^4.0.1
         version: link:../tokens
       '@hashicorp/flight-icons':
-        specifier: workspace:^4.2.0
+        specifier: workspace:^4.2.1
         version: link:../flight-icons
       '@lezer/highlight':
         specifier: ^1.2.1
