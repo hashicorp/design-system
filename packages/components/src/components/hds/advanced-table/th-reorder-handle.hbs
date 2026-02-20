@@ -18,9 +18,8 @@
     columnLabel=@column.label
     default=(concat "Reorder " @column.label " column")
   }}
-  {{this._registerElement}}
   {{on "dragstart" this.handleDragStart}}
-  {{on "dragend" this.handleDragEnd}}
+  {{on "dragend" (fn @onSetDraggedColumnKey null)}}
   {{on "keydown" this.handleKeydown}}
   ...attributes
 >
