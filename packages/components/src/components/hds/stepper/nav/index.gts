@@ -9,23 +9,29 @@ import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
+import { hash } from '@ember/helper';
+import { and } from 'ember-truth-helpers';
+import style from 'ember-style-modifier';
+
 import type { WithBoundArgs } from '@glint/template';
+
 import { HdsStepperTitleTagValues } from '../types.ts';
+import HdsStepperNavStep from './step.gts';
+import HdsStepperNavPanel from './panel.gts';
+
 import type {
   HdsStepperTitleTags,
   HdsStepperNavStepIds,
-  HdsStepperNavStep,
+  HdsStepperNavStep as HdsStepperNavStepType,
   HdsStepperNavPanelIds,
 } from '../types.ts';
-import HdsStepperNavStepComponent from './step.ts';
-import HdsStepperNavPanelComponent from './panel.ts';
 
 const STEP_ELEMENT_SELECTOR = '.hds-stepper-nav__step-content';
 const PANEL_ELEMENT_SELECTOR = '.hds-stepper-nav__panel';
 
 export interface HdsStepperNavSignature {
   Args: {
-    steps?: HdsStepperNavStep[];
+    steps?: HdsStepperNavStepType[];
     currentStep?: number;
     isInteractive?: boolean;
     titleTag?: HdsStepperTitleTags;
@@ -37,7 +43,7 @@ export interface HdsStepperNavSignature {
     default: [
       {
         Step?: WithBoundArgs<
-          typeof HdsStepperNavStepComponent,
+          typeof HdsStepperNavStep,
           | 'currentStep'
           | 'isNavInteractive'
           | 'titleTag'
@@ -49,7 +55,7 @@ export interface HdsStepperNavSignature {
           | 'onKeyUp'
         >;
         Panel?: WithBoundArgs<
-          typeof HdsStepperNavPanelComponent,
+          typeof HdsStepperNavPanel,
           | 'currentStep'
           | 'isNavInteractive'
           | 'stepIds'
@@ -252,4 +258,84 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <div
+      class={{this.classNames}}
+      ...attributes
+      {{style this.inlineStyles}}
+      {{this._setUpStepperNav}}
+    >
+      <div class="hds-stepper-nav__progress-bar"></div>
+      <ol
+        class="hds-stepper-nav__list"
+        aria-label={{@ariaLabel}}
+        role={{if this.isInteractive "tablist"}}
+      >
+        {{#if @steps}}
+          {{#each @steps as |step|}}
+            <HdsStepperNavStep
+              @currentStep={{this.currentStep}}
+              @isNavInteractive={{this.isInteractive}}
+              @titleTag={{this.titleTag}}
+              @didInsertNode={{this.didInsertStep}}
+              @willDestroyNode={{this.willDestroyStep}}
+              @stepIds={{this._stepIds}}
+              @panelIds={{this._panelIds}}
+              @onStepChange={{@onStepChange}}
+              @onKeyUp={{this.onKeyUp}}
+            >
+              <:title>{{step.title}}</:title>
+              <:description>{{step.description}}</:description>
+            </HdsStepperNavStep>
+          {{/each}}
+        {{else}}
+          {{yield
+            (hash
+              Step=(component
+                HdsStepperNavStep
+                currentStep=this.currentStep
+                isNavInteractive=this.isInteractive
+                titleTag=this.titleTag
+                stepIds=this._stepIds
+                panelIds=this._panelIds
+                didInsertNode=this.didInsertStep
+                willDestroyNode=this.willDestroyStep
+                onStepChange=@onStepChange
+                onKeyUp=this.onKeyUp
+              )
+            )
+          }}
+        {{/if}}
+      </ol>
+      {{#if (and @steps (has-block "body"))}}
+        {{#each @steps}}
+          <HdsStepperNavPanel
+            @currentStep={{this.currentStep}}
+            @isNavInteractive={{this.isInteractive}}
+            @stepIds={{this._stepIds}}
+            @panelIds={{this._panelIds}}
+            @didInsertNode={{this.didInsertPanel}}
+            @willDestroyNode={{this.willDestroyPanel}}
+          >
+            {{yield to="body"}}
+          </HdsStepperNavPanel>
+        {{/each}}
+      {{else}}
+        {{yield
+          (hash
+            Panel=(component
+              HdsStepperNavPanel
+              currentStep=this.currentStep
+              isNavInteractive=this.isInteractive
+              stepIds=this._stepIds
+              panelIds=this._panelIds
+              didInsertNode=this.didInsertPanel
+              willDestroyNode=this.willDestroyPanel
+            )
+          )
+        }}
+      {{/if}}
+    </div>
+  </template>
 }

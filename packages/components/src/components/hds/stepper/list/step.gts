@@ -13,6 +13,8 @@ import {
   HdsStepperStatusToSrOnlyText,
   HdsStepperTitleTagValues,
 } from '../types.ts';
+import HdsTextBody from '../../text/body.gts';
+import HdsStepperStepIndicator from '../step/indicator.gts';
 
 import type {
   HdsStepperListStepIds,
@@ -98,4 +100,50 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
 
     return classes.join(' ');
   }
+
+  <template>
+    <li
+      class={{this.classNames}}
+      ...attributes
+      id={{this._stepId}}
+      {{this._setUpStep @didInsertNode @willDestroyNode}}
+    >
+      <div class="hds-stepper-list__step-progress">
+        <HdsStepperStepIndicator
+          @text="{{this.stepNumber}}"
+          @status={{this.status}}
+          @isInteractive={{false}}
+          class="hds-stepper-list__step-indicator"
+        />
+      </div>
+      <div class="hds-stepper-list__step-text">
+        <HdsTextBody
+          class="hds-stepper-list__step-title"
+          @tag={{this.titleTag}}
+          @size="200"
+          @weight="semibold"
+          @color="strong"
+        >
+          {{yield to="title"}}
+          <span class="sr-only">{{this.statusSrOnlyText}}</span>
+        </HdsTextBody>
+        {{#if (has-block "description")}}
+          <HdsTextBody
+            class="hds-stepper-list__step-description"
+            @tag="div"
+            @size="100"
+            @weight="regular"
+            @color="primary"
+          >
+            {{yield to="description"}}
+          </HdsTextBody>
+        {{/if}}
+        {{#if (has-block "content")}}
+          <div class="hds-stepper-list__step-content">
+            {{yield to="content"}}
+          </div>
+        {{/if}}
+      </div>
+    </li>
+  </template>
 }

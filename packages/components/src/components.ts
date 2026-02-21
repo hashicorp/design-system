@@ -292,13 +292,13 @@ export { default as HdsSeparator } from './components/hds/separator/index.gts';
 export * from './components/hds/separator/types.ts';
 
 // Stepper
-export { default as HdsStepperList } from './components/hds/stepper/list/index.ts';
-export { default as HdsStepperListStep } from './components/hds/stepper/list/step.ts';
-export { default as HdsStepperNav } from './components/hds/stepper/nav/index.ts';
-export { default as HdsStepperNavPanel } from './components/hds/stepper/nav/panel.ts';
-export { default as HdsStepperNavStep } from './components/hds/stepper/nav/step.ts';
-export { default as HdsStepperStepIndicator } from './components/hds/stepper/step/indicator.ts';
-export { default as HdsStepperTaskIndicator } from './components/hds/stepper/task/indicator.ts';
+export { default as HdsStepperList } from './components/hds/stepper/list/index.gts';
+export { default as HdsStepperListStep } from './components/hds/stepper/list/step.gts';
+export { default as HdsStepperNav } from './components/hds/stepper/nav/index.gts';
+export { default as HdsStepperNavPanel } from './components/hds/stepper/nav/panel.gts';
+export { default as HdsStepperNavStep } from './components/hds/stepper/nav/step.gts';
+export { default as HdsStepperStepIndicator } from './components/hds/stepper/step/indicator.gts';
+export { default as HdsStepperTaskIndicator } from './components/hds/stepper/task/indicator.gts';
 export * from './components/hds/stepper/types.ts';
 
 // Table
