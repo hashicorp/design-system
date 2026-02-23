@@ -223,10 +223,10 @@
         "group": "palette",
         "$modes": {
           "default": "#542800",
-          "cds-g0": "{carbon.color.yellow.90}",
-          "cds-g10": "{carbon.color.yellow.90}",
-          "cds-g90": "{carbon.color.yellow.90}",
-          "cds-g100": "{carbon.color.yellow.90}"
+          "cds-g0": "{carbon.color.orange.90}",
+          "cds-g10": "{carbon.color.orange.90}",
+          "cds-g90": "{carbon.color.orange.90}",
+          "cds-g100": "{carbon.color.orange.90}"
         }
       },
       "amber-400": {
@@ -235,10 +235,10 @@
         "group": "palette",
         "$modes": {
           "default": "#803d00",
-          "cds-g0": "{carbon.color.yellow.80}",
-          "cds-g10": "{carbon.color.yellow.80}",
-          "cds-g90": "{carbon.color.yellow.80}",
-          "cds-g100": "{carbon.color.yellow.80}"
+          "cds-g0": "{carbon.color.orange.80}",
+          "cds-g10": "{carbon.color.orange.80}",
+          "cds-g90": "{carbon.color.orange.80}",
+          "cds-g100": "{carbon.color.orange.80}"
         }
       },
       "amber-300": {
@@ -247,10 +247,10 @@
         "group": "palette",
         "$modes": {
           "default": "#9e4b00",
-          "cds-g0": "{carbon.color.yellow.60}",
-          "cds-g10": "{carbon.color.yellow.60}",
-          "cds-g90": "{carbon.color.yellow.60}",
-          "cds-g100": "{carbon.color.yellow.60}"
+          "cds-g0": "{carbon.color.orange.70}",
+          "cds-g10": "{carbon.color.orange.70}",
+          "cds-g90": "{carbon.color.orange.70}",
+          "cds-g100": "{carbon.color.orange.70}"
         }
       },
       "amber-200": {
@@ -259,10 +259,10 @@
         "group": "palette",
         "$modes": {
           "default": "#bb5a00",
-          "cds-g0": "{carbon.color.yellow.40}",
-          "cds-g10": "{carbon.color.yellow.40}",
-          "cds-g90": "{carbon.color.yellow.40}",
-          "cds-g100": "{carbon.color.yellow.40}"
+          "cds-g0": "{carbon.color.orange.60}",
+          "cds-g10": "{carbon.color.orange.60}",
+          "cds-g90": "{carbon.color.orange.60}",
+          "cds-g100": "{carbon.color.orange.60}"
         }
       },
       "amber-100": {
@@ -271,10 +271,10 @@
         "group": "palette",
         "$modes": {
           "default": "#fbeabf",
-          "cds-g0": "{carbon.color.yellow.20}",
-          "cds-g10": "{carbon.color.yellow.20}",
-          "cds-g90": "{carbon.color.yellow.20}",
-          "cds-g100": "{carbon.color.yellow.20}"
+          "cds-g0": "{carbon.color.orange.20}",
+          "cds-g10": "{carbon.color.orange.20}",
+          "cds-g90": "{carbon.color.orange.20}",
+          "cds-g100": "{carbon.color.orange.20}"
         }
       },
       "amber-50": {
@@ -283,10 +283,10 @@
         "group": "palette",
         "$modes": {
           "default": "#fff9e8",
-          "cds-g0": "{carbon.color.yellow.10}",
-          "cds-g10": "{carbon.color.yellow.10}",
-          "cds-g90": "{carbon.color.yellow.10}",
-          "cds-g100": "{carbon.color.yellow.10}"
+          "cds-g0": "{carbon.color.orange.10}",
+          "cds-g10": "{carbon.color.orange.10}",
+          "cds-g90": "{carbon.color.orange.10}",
+          "cds-g100": "{carbon.color.orange.10}"
         }
       },
       "red-500": {

@@ -43,10 +43,10 @@
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.blue-100}",
-          "cds-g0": "{carbon.color.blue.60}",
-          "cds-g10": "{carbon.color.blue.60}",
-          "cds-g90": "{carbon.color.blue.50}",
-          "cds-g100": "{carbon.color.blue.50}"
+          "cds-g0": "{carbon.themes.white.borderInteractive}",
+          "cds-g10": "{carbon.themes.g10.borderInteractive}",
+          "cds-g90": "{carbon.themes.g90.borderInteractive}",
+          "cds-g100": "{carbon.themes.g100.borderInteractive}"
         }
       },
       "highlight": {
@@ -79,10 +79,10 @@
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.amber-100}",
-          "cds-g0": "{carbon.color.orange.40}",
-          "cds-g10": "{carbon.color.orange.40}",
-          "cds-g90": "{carbon.color.orange.50}",
-          "cds-g100": "{carbon.color.orange.50}"
+          "cds-g0": "{carbon.color.yellow.40}",
+          "cds-g10": "{carbon.color.yellow.40}",
+          "cds-g90": "{carbon.color.yellow.50}",
+          "cds-g100": "{carbon.color.yellow.50}"
         }
       },
       "critical": {
