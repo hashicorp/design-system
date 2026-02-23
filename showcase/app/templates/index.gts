@@ -443,6 +443,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.rich-tooltip">
+            RichTooltip
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.segmented-group">
             SegmentedGroup
           </LinkTo>
