@@ -172,16 +172,21 @@ export default class HdsIconRegistryService extends Service {
 
     if (library === HdsIconLibraryValues.Carbon) {
       const carbonLoader = entry.carbon;
+
       assert(`Carbon icon not available for "${name}".`, carbonLoader !== null);
+
       return carbonLoader;
     } else {
       const flightLoader = entry.flight[size];
+
       assert(
         `Flight icon not available for "${name}" with size "${size}".`,
         flightLoader !== undefined
       );
+
       return flightLoader;
     }
+  }
 
   private _drainQueue(): void {
     while (this._activeCount < this._maxConcurrent && this._queue.length > 0) {
@@ -271,7 +276,18 @@ export default class HdsIconRegistryService extends Service {
 
       if (combined.length > 0) {
         try {
-          root.insertAdjacentHTML('beforeend', combined);
+          const parser = new DOMParser();
+          const svgDoc = parser.parseFromString(
+            `<svg xmlns="http://www.w3.org/2000/svg">${combined}</svg>`,
+            'image/svg+xml'
+          );
+
+          const fragment = document.createDocumentFragment();
+          while (svgDoc.documentElement.firstChild) {
+            fragment.appendChild(svgDoc.documentElement.firstChild);
+          }
+
+          root.appendChild(fragment);
 
           for (const key of keysToUpdate) {
             const entry = this._entries.get(key);
