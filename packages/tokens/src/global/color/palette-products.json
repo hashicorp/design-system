@@ -5,7 +5,14 @@
         "$type": "color",
         "$value": "#000000",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#000000",
+          "cds-g0": "#000000",
+          "cds-g10": "#000000",
+          "cds-g90": "#ffffff",
+          "cds-g100": "#ffffff"
+        }
       },
       "boundary-brand": {
         "$type": "color",
@@ -17,19 +24,40 @@
         "$type": "color",
         "$value": "#b21e23",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#b21e23",
+          "cds-g0": "#b21e23",
+          "cds-g10": "#b21e23",
+          "cds-g90": "#ffecec",
+          "cds-g100": "#ffecec"
+        }
       },
       "boundary-500": {
         "$type": "color",
         "$value": "#cf2d32",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#cf2d32",
+          "cds-g0": "#cf2d32",
+          "cds-g10": "#cf2d32",
+          "cds-g90": "#fbd7d8",
+          "cds-g100": "#fbd7d8"
+        }
       },
       "boundary-400": {
         "$type": "color",
         "$value": "#db363b",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#db363b",
+          "cds-g0": "#db363b",
+          "cds-g10": "#db363b",
+          "cds-g90": "#ff9da2",
+          "cds-g100": "#ff9da2"
+        }
       },
       "boundary-300": {
         "$type": "color",
@@ -41,19 +69,40 @@
         "$type": "color",
         "$value": "#ff9da2",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ff9da2",
+          "cds-g0": "#ff9da2",
+          "cds-g10": "#ff9da2",
+          "cds-g90": "#db363b",
+          "cds-g100": "#db363b"
+        }
       },
       "boundary-100": {
         "$type": "color",
         "$value": "#fbd7d8",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#fbd7d8",
+          "cds-g0": "#fbd7d8",
+          "cds-g10": "#fbd7d8",
+          "cds-g90": "#cf2d32",
+          "cds-g100": "#cf2d32"
+        }
       },
       "boundary-50": {
         "$type": "color",
         "$value": "#ffecec",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ffecec",
+          "cds-g0": "#ffecec",
+          "cds-g10": "#ffecec",
+          "cds-g90": "#b21e23",
+          "cds-g100": "#b21e23"
+        }
       },
       "consul-brand": {
         "$type": "color",
@@ -65,19 +114,40 @@
         "$type": "color",
         "$value": "#b10743",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#b10743",
+          "cds-g0": "#b10743",
+          "cds-g10": "#b10743",
+          "cds-g90": "#ffe9f1",
+          "cds-g100": "#ffe9f1"
+        }
       },
       "consul-500": {
         "$type": "color",
         "$value": "#d01c5b",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#d01c5b",
+          "cds-g0": "#d01c5b",
+          "cds-g10": "#d01c5b",
+          "cds-g90": "#ffcede",
+          "cds-g100": "#ffcede"
+        }
       },
       "consul-400": {
         "$type": "color",
         "$value": "#da306e",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#da306e",
+          "cds-g0": "#da306e",
+          "cds-g10": "#da306e",
+          "cds-g90": "#ffbbd4",
+          "cds-g100": "#ffbbd4"
+        }
       },
       "consul-300": {
         "$type": "color",
@@ -89,25 +159,53 @@
         "$type": "color",
         "$value": "#ffbbd4",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ffbbd4",
+          "cds-g0": "#ffbbd4",
+          "cds-g10": "#ffbbd4",
+          "cds-g90": "#da306e",
+          "cds-g100": "#da306e"
+        }
       },
       "consul-100": {
         "$type": "color",
         "$value": "#ffcede",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ffcede",
+          "cds-g0": "#ffcede",
+          "cds-g10": "#ffcede",
+          "cds-g90": "#d01c5b",
+          "cds-g100": "#d01c5b"
+        }
       },
       "consul-50": {
         "$type": "color",
         "$value": "#ffe9f1",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ffe9f1",
+          "cds-g0": "#ffe9f1",
+          "cds-g10": "#ffe9f1",
+          "cds-g90": "#b10743",
+          "cds-g100": "#b10743"
+        }
       },
       "hcp-brand": {
         "$type": "color",
         "$value": "#000000",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#000000",
+          "cds-g0": "#000000",
+          "cds-g10": "#000000",
+          "cds-g90": "#ffffff",
+          "cds-g100": "#ffffff"
+        }
       },
       "nomad-brand": {
         "$type": "color",
@@ -119,19 +217,40 @@
         "$type": "color",
         "$value": "#007756",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#007756",
+          "cds-g0": "#007756",
+          "cds-g10": "#007756",
+          "cds-g90": "#d3fdeb",
+          "cds-g100": "#d3fdeb"
+        }
       },
       "nomad-500": {
         "$type": "color",
         "$value": "#008661",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#008661",
+          "cds-g0": "#008661",
+          "cds-g10": "#008661",
+          "cds-g90": "#bff3dd",
+          "cds-g100": "#bff3dd"
+        }
       },
       "nomad-400": {
         "$type": "color",
         "$value": "#22a870",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#22a870",
+          "cds-g0": "#22a870",
+          "cds-g10": "#22a870",
+          "cds-g90": "#60dea9",
+          "cds-g100": "#60dea9"
+        }
       },
       "nomad-300": {
         "$type": "color",
@@ -143,19 +262,40 @@
         "$type": "color",
         "$value": "#60dea9",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#60dea9",
+          "cds-g0": "#60dea9",
+          "cds-g10": "#60dea9",
+          "cds-g90": "#22a870",
+          "cds-g100": "#22a870"
+        }
       },
       "nomad-100": {
         "$type": "color",
         "$value": "#bff3dd",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#bff3dd",
+          "cds-g0": "#bff3dd",
+          "cds-g10": "#bff3dd",
+          "cds-g90": "#008661",
+          "cds-g100": "#008661"
+        }
       },
       "nomad-50": {
         "$type": "color",
         "$value": "#d3fdeb",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#d3fdeb",
+          "cds-g0": "#d3fdeb",
+          "cds-g10": "#d3fdeb",
+          "cds-g90": "#007756",
+          "cds-g100": "#007756"
+        }
       },
       "packer-brand": {
         "$type": "color",
@@ -167,19 +307,40 @@
         "$type": "color",
         "$value": "#0071a1",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#0071a1",
+          "cds-g0": "#0071a1",
+          "cds-g10": "#0071a1",
+          "cds-g90": "#d4f2ff",
+          "cds-g100": "#d4f2ff"
+        }
       },
       "packer-500": {
         "$type": "color",
         "$value": "#007eb4",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#007eb4",
+          "cds-g0": "#007eb4",
+          "cds-g10": "#007eb4",
+          "cds-g90": "#b4e4ff",
+          "cds-g100": "#b4e4ff"
+        }
       },
       "packer-400": {
         "$type": "color",
         "$value": "#1d9ed7",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#1d9ed7",
+          "cds-g0": "#1d9ed7",
+          "cds-g10": "#1d9ed7",
+          "cds-g90": "#63d0ff",
+          "cds-g100": "#63d0ff"
+        }
       },
       "packer-300": {
         "$type": "color",
@@ -191,19 +352,40 @@
         "$type": "color",
         "$value": "#63d0ff",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#63d0ff",
+          "cds-g0": "#63d0ff",
+          "cds-g10": "#63d0ff",
+          "cds-g90": "#1d9ed7",
+          "cds-g100": "#1d9ed7"
+        }
       },
       "packer-100": {
         "$type": "color",
         "$value": "#b4e4ff",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#b4e4ff",
+          "cds-g0": "#b4e4ff",
+          "cds-g10": "#b4e4ff",
+          "cds-g90": "#007eb4",
+          "cds-g100": "#007eb4"
+        }
       },
       "packer-50": {
         "$type": "color",
         "$value": "#d4f2ff",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#d4f2ff",
+          "cds-g0": "#d4f2ff",
+          "cds-g10": "#d4f2ff",
+          "cds-g90": "#0071a1",
+          "cds-g100": "#0071a1"
+        }
       },
       "terraform-brand": {
         "$type": "color",
@@ -215,19 +397,40 @@
         "$type": "color",
         "$value": "#5f219e",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#5f219e",
+          "cds-g0": "#5f219e",
+          "cds-g10": "#5f219e",
+          "cds-g90": "#f4ecff",
+          "cds-g100": "#f4ecff"
+        }
       },
       "terraform-500": {
         "$type": "color",
         "$value": "#773cb4",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#773cb4",
+          "cds-g0": "#773cb4",
+          "cds-g10": "#773cb4",
+          "cds-g90": "#ebdbfc",
+          "cds-g100": "#ebdbfc"
+        }
       },
       "terraform-400": {
         "$type": "color",
         "$value": "#844fba",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#844fba",
+          "cds-g0": "#844fba",
+          "cds-g10": "#844fba",
+          "cds-g90": "#d8b7fc",
+          "cds-g100": "#d8b7fc"
+        }
       },
       "terraform-300": {
         "$type": "color",
@@ -239,19 +442,40 @@
         "$type": "color",
         "$value": "#d8b7fc",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#d8b7fc",
+          "cds-g0": "#d8b7fc",
+          "cds-g10": "#d8b7fc",
+          "cds-g90": "#844fba",
+          "cds-g100": "#844fba"
+        }
       },
       "terraform-100": {
         "$type": "color",
         "$value": "#ebdbfc",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ebdbfc",
+          "cds-g0": "#ebdbfc",
+          "cds-g10": "#ebdbfc",
+          "cds-g90": "#773cb4",
+          "cds-g100": "#773cb4"
+        }
       },
       "terraform-50": {
         "$type": "color",
         "$value": "#f4ecff",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#f4ecff",
+          "cds-g0": "#f4ecff",
+          "cds-g10": "#f4ecff",
+          "cds-g90": "#5f219e",
+          "cds-g100": "#5f219e"
+        }
       },
       "vagrant-brand": {
         "$type": "color",
@@ -263,19 +487,40 @@
         "$type": "color",
         "$value": "#064abe",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#064abe",
+          "cds-g0": "#064abe",
+          "cds-g10": "#064abe",
+          "cds-g90": "#d6ebff",
+          "cds-g100": "#d6ebff"
+        }
       },
       "vagrant-500": {
         "$type": "color",
         "$value": "#1c61d8",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#1c61d8",
+          "cds-g0": "#1c61d8",
+          "cds-g10": "#1c61d8",
+          "cds-g90": "#c7dbfc",
+          "cds-g100": "#c7dbfc"
+        }
       },
       "vagrant-400": {
         "$type": "color",
         "$value": "#2e71e5",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#2e71e5",
+          "cds-g0": "#2e71e5",
+          "cds-g10": "#2e71e5",
+          "cds-g90": "#7dadff",
+          "cds-g100": "#7dadff"
+        }
       },
       "vagrant-300": {
         "$type": "color",
@@ -287,19 +532,40 @@
         "$type": "color",
         "$value": "#7dadff",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#7dadff",
+          "cds-g0": "#7dadff",
+          "cds-g10": "#7dadff",
+          "cds-g90": "#2e71e5",
+          "cds-g100": "#2e71e5"
+        }
       },
       "vagrant-100": {
         "$type": "color",
         "$value": "#c7dbfc",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#c7dbfc",
+          "cds-g0": "#c7dbfc",
+          "cds-g10": "#c7dbfc",
+          "cds-g90": "#1c61d8",
+          "cds-g100": "#1c61d8"
+        }
       },
       "vagrant-50": {
         "$type": "color",
         "$value": "#d6ebff",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#d6ebff",
+          "cds-g0": "#d6ebff",
+          "cds-g10": "#d6ebff",
+          "cds-g90": "#064abe",
+          "cds-g100": "#064abe"
+        }
       },
       "vault-brand": {
         "$type": "color",
@@ -311,19 +577,40 @@
         "$type": "color",
         "$value": "#8b6400",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#8b6400",
+          "cds-g0": "#8b6400",
+          "cds-g10": "#8b6400",
+          "cds-g90": "#fff9cf",
+          "cds-g100": "#fff9cf"
+        }
       },
       "vault-500": {
         "$type": "color",
         "$value": "#9a6f00",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#9a6f00",
+          "cds-g0": "#9a6f00",
+          "cds-g10": "#9a6f00",
+          "cds-g90": "#feec7b",
+          "cds-g100": "#feec7b"
+        }
       },
       "vault-400": {
         "$type": "color",
         "$value": "#bb8e1a",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#bb8e1a",
+          "cds-g0": "#bb8e1a",
+          "cds-g10": "#bb8e1a",
+          "cds-g90": "#ffe543",
+          "cds-g100": "#ffe543"
+        }
       },
       "vault-300": {
         "$type": "color",
@@ -335,19 +622,40 @@
         "$type": "color",
         "$value": "#ffe543",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ffe543",
+          "cds-g0": "#ffe543",
+          "cds-g10": "#ffe543",
+          "cds-g90": "#bb8e1a",
+          "cds-g100": "#bb8e1a"
+        }
       },
       "vault-100": {
         "$type": "color",
         "$value": "#feec7b",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#feec7b",
+          "cds-g0": "#feec7b",
+          "cds-g10": "#feec7b",
+          "cds-g90": "#9a6f00",
+          "cds-g100": "#9a6f00"
+        }
       },
       "vault-50": {
         "$type": "color",
         "$value": "#fff9cf",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#fff9cf",
+          "cds-g0": "#fff9cf",
+          "cds-g10": "#fff9cf",
+          "cds-g90": "#8b6400",
+          "cds-g100": "#8b6400"
+        }
       },
       "vault-secrets-brand": {
         "$type": "color",
@@ -359,19 +667,40 @@
         "$type": "color",
         "$value": "#8b6400",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#8b6400",
+          "cds-g0": "#8b6400",
+          "cds-g10": "#8b6400",
+          "cds-g90": "#fff9cf",
+          "cds-g100": "#fff9cf"
+        }
       },
       "vault-secrets-500": {
         "$type": "color",
         "$value": "#9a6f00",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#9a6f00",
+          "cds-g0": "#9a6f00",
+          "cds-g10": "#9a6f00",
+          "cds-g90": "#feec7b",
+          "cds-g100": "#feec7b"
+        }
       },
       "vault-secrets-400": {
         "$type": "color",
         "$value": "#bb8e1a",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#bb8e1a",
+          "cds-g0": "#bb8e1a",
+          "cds-g10": "#bb8e1a",
+          "cds-g90": "#ffe543",
+          "cds-g100": "#ffe543"
+        }
       },
       "vault-secrets-300": {
         "$type": "color",
@@ -383,19 +712,40 @@
         "$type": "color",
         "$value": "#ffe543",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ffe543",
+          "cds-g0": "#ffe543",
+          "cds-g10": "#ffe543",
+          "cds-g90": "#bb8e1a",
+          "cds-g100": "#bb8e1a"
+        }
       },
       "vault-secrets-100": {
         "$type": "color",
         "$value": "#feec7b",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#feec7b",
+          "cds-g0": "#feec7b",
+          "cds-g10": "#feec7b",
+          "cds-g90": "#9a6f00",
+          "cds-g100": "#9a6f00"
+        }
       },
       "vault-secrets-50": {
         "$type": "color",
         "$value": "#fff9cf",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#fff9cf",
+          "cds-g0": "#fff9cf",
+          "cds-g10": "#fff9cf",
+          "cds-g90": "#8b6400",
+          "cds-g100": "#8b6400"
+        }
       },
       "vault-radar-brand": {
         "$type": "color",
@@ -407,19 +757,40 @@
         "$type": "color",
         "$value": "#8b6400",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#8b6400",
+          "cds-g0": "#8b6400",
+          "cds-g10": "#8b6400",
+          "cds-g90": "#fff9cf",
+          "cds-g100": "#fff9cf"
+        }
       },
       "vault-radar-500": {
         "$type": "color",
         "$value": "#9a6f00",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#9a6f00",
+          "cds-g0": "#9a6f00",
+          "cds-g10": "#9a6f00",
+          "cds-g90": "#feec7b",
+          "cds-g100": "#feec7b"
+        }
       },
       "vault-radar-400": {
         "$type": "color",
         "$value": "#bb8e1a",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#bb8e1a",
+          "cds-g0": "#bb8e1a",
+          "cds-g10": "#bb8e1a",
+          "cds-g90": "#ffe543",
+          "cds-g100": "#ffe543"
+        }
       },
       "vault-radar-300": {
         "$type": "color",
@@ -431,19 +802,40 @@
         "$type": "color",
         "$value": "#ffe543",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#ffe543",
+          "cds-g0": "#ffe543",
+          "cds-g10": "#ffe543",
+          "cds-g90": "#bb8e1a",
+          "cds-g100": "#bb8e1a"
+        }
       },
       "vault-radar-100": {
         "$type": "color",
         "$value": "#feec7b",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#feec7b",
+          "cds-g0": "#feec7b",
+          "cds-g10": "#feec7b",
+          "cds-g90": "#9a6f00",
+          "cds-g100": "#9a6f00"
+        }
       },
       "vault-radar-50": {
         "$type": "color",
         "$value": "#fff9cf",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#fff9cf",
+          "cds-g0": "#fff9cf",
+          "cds-g10": "#fff9cf",
+          "cds-g90": "#8b6400",
+          "cds-g100": "#8b6400"
+        }
       },
       "waypoint-brand": {
         "$type": "color",
@@ -455,19 +847,40 @@
         "$type": "color",
         "$value": "#007487",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#007487",
+          "cds-g0": "#007487",
+          "cds-g10": "#007487",
+          "cds-g90": "#e0fcff",
+          "cds-g100": "#e0fcff"
+        }
       },
       "waypoint-500": {
         "$type": "color",
         "$value": "#008196",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#008196",
+          "cds-g0": "#008196",
+          "cds-g10": "#008196",
+          "cds-g90": "#cbf1f3",
+          "cds-g100": "#cbf1f3"
+        }
       },
       "waypoint-400": {
         "$type": "color",
         "$value": "#22a4ac",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#22a4ac",
+          "cds-g0": "#22a4ac",
+          "cds-g10": "#22a4ac",
+          "cds-g90": "#62d4dc",
+          "cds-g100": "#62d4dc"
+        }
       },
       "waypoint-300": {
         "$type": "color",
@@ -479,19 +892,40 @@
         "$type": "color",
         "$value": "#62d4dc",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#62d4dc",
+          "cds-g0": "#62d4dc",
+          "cds-g10": "#62d4dc",
+          "cds-g90": "#22a4ac",
+          "cds-g100": "#22a4ac"
+        }
       },
       "waypoint-100": {
         "$type": "color",
         "$value": "#cbf1f3",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#cbf1f3",
+          "cds-g0": "#cbf1f3",
+          "cds-g10": "#cbf1f3",
+          "cds-g90": "#008196",
+          "cds-g100": "#008196"
+        }
       },
       "waypoint-50": {
         "$type": "color",
         "$value": "#e0fcff",
         "group": "palette",
-        "private": "true"
+        "private": "true",
+        "$modes": {
+          "default": "#e0fcff",
+          "cds-g0": "#e0fcff",
+          "cds-g10": "#e0fcff",
+          "cds-g90": "#007487",
+          "cds-g100": "#007487"
+        }
       }
     }
   }

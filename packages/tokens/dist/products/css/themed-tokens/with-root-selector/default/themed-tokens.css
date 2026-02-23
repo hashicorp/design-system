@@ -126,6 +126,16 @@
   --token-color-border-strong: var(--token-color-palette-alpha-300);
   --token-color-border-success: var(--token-color-palette-green-100);
   --token-color-border-warning: var(--token-color-palette-amber-100);
+  --token-color-boundary-border: #fbd7d8;
+  --token-color-boundary-foreground: #cf2d32;
+  --token-color-boundary-gradient-faint-stop: #ffecec;
+  --token-color-boundary-gradient-primary-stop: #db363b;
+  --token-color-boundary-surface: #ffecec;
+  --token-color-consul-border: #ffcede;
+  --token-color-consul-foreground: #d01c5b;
+  --token-color-consul-gradient-faint-stop: #ffe9f1;
+  --token-color-consul-gradient-primary-stop: #da306e;
+  --token-color-consul-surface: #ffe9f1;
   --token-color-focus-action-external: #5990ff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-action-internal: var(--token-color-palette-blue-300);
   --token-color-focus-critical-external: #dd7578; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
@@ -150,6 +160,20 @@
   --token-color-foreground-warning-high-contrast: var(--token-color-palette-amber-500);
   --token-color-foreground-warning-on-surface: var(--token-color-palette-amber-300);
   --token-color-foreground-warning: var(--token-color-palette-amber-200);
+  --token-color-hashicorp-brand: #000000;
+  --token-color-hcp-brand: #000000;
+  --token-color-nomad-border: #bff3dd;
+  --token-color-nomad-foreground: #008661;
+  --token-color-nomad-gradient-faint-stop: #d3fdeb;
+  --token-color-nomad-gradient-primary-start: #bff3dd;
+  --token-color-nomad-gradient-primary-stop: #60dea9;
+  --token-color-nomad-surface: #d3fdeb;
+  --token-color-packer-border: #b4e4ff;
+  --token-color-packer-foreground: #007eb4;
+  --token-color-packer-gradient-faint-stop: #d4f2ff;
+  --token-color-packer-gradient-primary-start: #b4e4ff;
+  --token-color-packer-gradient-primary-stop: #63d0ff;
+  --token-color-packer-surface: #d4f2ff;
   --token-color-page-faint: var(--token-color-palette-neutral-50);
   --token-color-page-primary: var(--token-color-palette-neutral-0);
   --token-color-palette-alpha-100: #656a761a;
@@ -206,6 +230,40 @@
   --token-color-surface-strong: var(--token-color-palette-neutral-100);
   --token-color-surface-success: var(--token-color-palette-green-50);
   --token-color-surface-warning: var(--token-color-palette-amber-50);
+  --token-color-terraform-border: #ebdbfc;
+  --token-color-terraform-foreground: #773cb4;
+  --token-color-terraform-gradient-faint-stop: #f4ecff;
+  --token-color-terraform-gradient-primary-stop: #844fba;
+  --token-color-terraform-surface: #f4ecff;
+  --token-color-vagrant-border: #c7dbfc;
+  --token-color-vagrant-foreground: #1c61d8;
+  --token-color-vagrant-gradient-faint-stop: #d6ebff;
+  --token-color-vagrant-gradient-primary-stop: #2e71e5;
+  --token-color-vagrant-surface: #d6ebff;
+  --token-color-vault-border: #feec7b;
+  --token-color-vault-foreground: #9a6f00;
+  --token-color-vault-gradient-faint-stop: #fff9cf;
+  --token-color-vault-gradient-primary-start: #feec7b;
+  --token-color-vault-gradient-primary-stop: #ffe543;
+  --token-color-vault-radar-border: #feec7b;
+  --token-color-vault-radar-foreground: #9a6f00;
+  --token-color-vault-radar-gradient-faint-stop: #fff9cf;
+  --token-color-vault-radar-gradient-primary-start: #feec7b;
+  --token-color-vault-radar-gradient-primary-stop: #ffe543;
+  --token-color-vault-radar-surface: #fff9cf;
+  --token-color-vault-secrets-border: #feec7b;
+  --token-color-vault-secrets-foreground: #9a6f00;
+  --token-color-vault-secrets-gradient-faint-stop: #fff9cf;
+  --token-color-vault-secrets-gradient-primary-start: #feec7b;
+  --token-color-vault-secrets-gradient-primary-stop: #ffe543;
+  --token-color-vault-secrets-surface: #fff9cf;
+  --token-color-vault-surface: #fff9cf;
+  --token-color-waypoint-border: #cbf1f3;
+  --token-color-waypoint-foreground: #008196;
+  --token-color-waypoint-gradient-faint-stop: #e0fcff;
+  --token-color-waypoint-gradient-primary-start: #cbf1f3;
+  --token-color-waypoint-gradient-primary-stop: #62d4dc;
+  --token-color-waypoint-surface: #e0fcff;
   --token-elevation-high-box-shadow: 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --token-elevation-higher-box-shadow: 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;
@@ -245,23 +303,23 @@
   --token-typography-code-300-line-height: 1.25; /** 20px */
   --token-typography-display-100-font-family: var(--token-typography-font-stack-display);
   --token-typography-display-100-font-size: 0.8125rem; /** 13px/0.8125rem */
-  --token-typography-display-100-letter-spacing: 0px; /** this is `tracking` */
+  --token-typography-display-100-letter-spacing: 0px;
   --token-typography-display-100-line-height: 1.3846; /** 18px */
   --token-typography-display-200-font-family: var(--token-typography-font-stack-display);
   --token-typography-display-200-font-size: 1rem; /** 16px/1rem */
-  --token-typography-display-200-letter-spacing: -0.5px; /** this is `tracking` */
+  --token-typography-display-200-letter-spacing: -0.5px;
   --token-typography-display-200-line-height: 1.5; /** 24px */
   --token-typography-display-300-font-family: var(--token-typography-font-stack-text);
   --token-typography-display-300-font-size: 1.125rem; /** 18px/1.125rem */
-  --token-typography-display-300-letter-spacing: -0.5px; /** this is `tracking` */
+  --token-typography-display-300-letter-spacing: -0.5px;
   --token-typography-display-300-line-height: 1.3333; /** 24px */
   --token-typography-display-400-font-family: var(--token-typography-font-stack-display);
   --token-typography-display-400-font-size: 1.5rem; /** 24px/1.5rem */
-  --token-typography-display-400-letter-spacing: 0px; /** this is `tracking` */
+  --token-typography-display-400-letter-spacing: 0px;
   --token-typography-display-400-line-height: 1.3333; /** 32px */
   --token-typography-display-500-font-family: var(--token-typography-font-stack-display);
   --token-typography-display-500-font-size: 1.875rem; /** 30px/1.875rem */
-  --token-typography-display-500-letter-spacing: -0.5px; /** this is `tracking` */
+  --token-typography-display-500-letter-spacing: -0.5px;
   --token-typography-display-500-line-height: 1.2666; /** 38px */
   --token-typography-font-stack-code: ui-monospace, Menlo, Consolas, monospace;
   --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;

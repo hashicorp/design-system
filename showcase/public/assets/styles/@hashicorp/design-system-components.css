@@ -11,6 +11,7 @@
   --token-border-radius-small: 5px;
   --token-border-radius-medium: 6px;
   --token-border-radius-large: 8px;
+  --token-border-radius-rounded: 1000000000px;
   --token-color-palette-blue-500: #1c345f;
   --token-color-palette-blue-400: #0046d1;
   --token-color-palette-blue-300: #0c56e9;
@@ -474,23 +475,23 @@
   --token-typography-display-500-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-display-500-font-size: 1.875rem; /** 30px/1.875rem */
   --token-typography-display-500-line-height: 1.2666; /** 38px */
-  --token-typography-display-500-letter-spacing: -0.5px; /** this is `tracking` */
+  --token-typography-display-500-letter-spacing: -0.5px;
   --token-typography-display-400-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-display-400-font-size: 1.5rem; /** 24px/1.5rem */
   --token-typography-display-400-line-height: 1.3333; /** 32px */
-  --token-typography-display-400-letter-spacing: 0px; /** this is `tracking` */
+  --token-typography-display-400-letter-spacing: 0px;
   --token-typography-display-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-display-300-font-size: 1.125rem; /** 18px/1.125rem */
   --token-typography-display-300-line-height: 1.3333; /** 24px */
-  --token-typography-display-300-letter-spacing: -0.5px; /** this is `tracking` */
+  --token-typography-display-300-letter-spacing: -0.5px;
   --token-typography-display-200-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-display-200-font-size: 1rem; /** 16px/1rem */
   --token-typography-display-200-line-height: 1.5; /** 24px */
-  --token-typography-display-200-letter-spacing: -0.5px; /** this is `tracking` */
+  --token-typography-display-200-letter-spacing: -0.5px;
   --token-typography-display-100-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-display-100-font-size: 0.8125rem; /** 13px/0.8125rem */
   --token-typography-display-100-line-height: 1.3846; /** 18px */
-  --token-typography-display-100-letter-spacing: 0px; /** this is `tracking` */
+  --token-typography-display-100-letter-spacing: 0px;
   --token-typography-body-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-body-300-font-size: 1rem; /** 16px/1rem */
   --token-typography-body-300-line-height: 1.5; /** 24px */

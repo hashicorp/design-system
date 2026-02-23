@@ -48,6 +48,11 @@
           "cds-g90": "0",
           "cds-g100": "0"
         }
+      },
+      "rounded": {
+        "$type": "dimension",
+        "$value": "1000000000",
+        "unit": "px"
       }
     }
   }
