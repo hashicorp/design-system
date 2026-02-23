@@ -7084,6 +7084,11 @@ button.hds-button[href]::after {
   display: inline-block;
 }
 
+.hds-icon--stretched {
+  width: 100%;
+  height: 100%;
+}
+
 @keyframes hds-icon-animation-rotation {
   to {
     transform: rotate(360deg);

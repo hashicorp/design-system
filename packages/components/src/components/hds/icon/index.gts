@@ -114,8 +114,8 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
   get svgSize(): { width: string; height: string } {
     return {
-      width: this.args.stretched ? '100%' : this.size,
-      height: this.args.stretched ? '100%' : this.size,
+      width: this.size,
+      height: this.size,
     };
   }
 
@@ -132,7 +132,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   }
 
   get classNames() {
-    const { name } = this.args;
+    const { name, stretched } = this.args;
     const classes = ['hds-icon'];
 
     // add a class based on the @name argument
@@ -140,6 +140,10 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
     if (this.isInline) {
       classes.push('hds-icon--is-inline');
+    }
+
+    if (stretched) {
+      classes.push('hds-icon--stretched');
     }
 
     // add a (helper) class based on the @color argument (if pre-defined)
