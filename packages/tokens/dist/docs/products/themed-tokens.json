@@ -12747,6 +12747,42 @@
         "width"
       ]
     },
+    "token-rich-tooltip-toggle-gap-horizontal": {
+      "key": "{rich-tooltip.toggle.gap.horizontal}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "8",
+          "cds-g10": "8",
+          "cds-g90": "8",
+          "cds-g100": "8"
+        },
+        "key": "{rich-tooltip.toggle.gap.horizontal}"
+      },
+      "name": "token-rich-tooltip-toggle-gap-horizontal",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "toggle",
+        "gap",
+        "horizontal"
+      ]
+    },
     "token-rich-tooltip-toggle-foreground-color-default": {
       "key": "{rich-tooltip.toggle.foreground.color.default}",
       "$value": "#0c0c0e",
@@ -12928,43 +12964,6 @@
         "toggle",
         "icon",
         "size"
-      ]
-    },
-    "token-rich-tooltip-toggle-icon-margin-horizontal": {
-      "key": "{rich-tooltip.toggle.icon.margin.horizontal}",
-      "$type": "dimension",
-      "$value": "4px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "8",
-        "cds-g10": "8",
-        "cds-g90": "8",
-        "cds-g100": "8"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "4",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "8",
-          "cds-g10": "8",
-          "cds-g90": "8",
-          "cds-g100": "8"
-        },
-        "key": "{rich-tooltip.toggle.icon.margin.horizontal}"
-      },
-      "name": "token-rich-tooltip-toggle-icon-margin-horizontal",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "toggle",
-        "icon",
-        "margin",
-        "horizontal"
       ]
     },
     "token-tabs-tab-height-medium": {
@@ -27705,6 +27704,42 @@
         "width"
       ]
     },
+    "token-rich-tooltip-toggle-gap-horizontal": {
+      "key": "{rich-tooltip.toggle.gap.horizontal}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "8",
+          "cds-g10": "8",
+          "cds-g90": "8",
+          "cds-g100": "8"
+        },
+        "key": "{rich-tooltip.toggle.gap.horizontal}"
+      },
+      "name": "token-rich-tooltip-toggle-gap-horizontal",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "toggle",
+        "gap",
+        "horizontal"
+      ]
+    },
     "token-rich-tooltip-toggle-foreground-color-default": {
       "key": "{rich-tooltip.toggle.foreground.color.default}",
       "$value": "#525252",
@@ -27886,43 +27921,6 @@
         "toggle",
         "icon",
         "size"
-      ]
-    },
-    "token-rich-tooltip-toggle-icon-margin-horizontal": {
-      "key": "{rich-tooltip.toggle.icon.margin.horizontal}",
-      "$type": "dimension",
-      "$value": "8px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "8",
-        "cds-g10": "8",
-        "cds-g90": "8",
-        "cds-g100": "8"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "8",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "8",
-          "cds-g10": "8",
-          "cds-g90": "8",
-          "cds-g100": "8"
-        },
-        "key": "{rich-tooltip.toggle.icon.margin.horizontal}"
-      },
-      "name": "token-rich-tooltip-toggle-icon-margin-horizontal",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "toggle",
-        "icon",
-        "margin",
-        "horizontal"
       ]
     },
     "token-tabs-tab-height-medium": {
@@ -42663,6 +42661,42 @@
         "width"
       ]
     },
+    "token-rich-tooltip-toggle-gap-horizontal": {
+      "key": "{rich-tooltip.toggle.gap.horizontal}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "8",
+          "cds-g10": "8",
+          "cds-g90": "8",
+          "cds-g100": "8"
+        },
+        "key": "{rich-tooltip.toggle.gap.horizontal}"
+      },
+      "name": "token-rich-tooltip-toggle-gap-horizontal",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "toggle",
+        "gap",
+        "horizontal"
+      ]
+    },
     "token-rich-tooltip-toggle-foreground-color-default": {
       "key": "{rich-tooltip.toggle.foreground.color.default}",
       "$value": "#525252",
@@ -42844,43 +42878,6 @@
         "toggle",
         "icon",
         "size"
-      ]
-    },
-    "token-rich-tooltip-toggle-icon-margin-horizontal": {
-      "key": "{rich-tooltip.toggle.icon.margin.horizontal}",
-      "$type": "dimension",
-      "$value": "8px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "8",
-        "cds-g10": "8",
-        "cds-g90": "8",
-        "cds-g100": "8"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "8",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "8",
-          "cds-g10": "8",
-          "cds-g90": "8",
-          "cds-g100": "8"
-        },
-        "key": "{rich-tooltip.toggle.icon.margin.horizontal}"
-      },
-      "name": "token-rich-tooltip-toggle-icon-margin-horizontal",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "toggle",
-        "icon",
-        "margin",
-        "horizontal"
       ]
     },
     "token-tabs-tab-height-medium": {
@@ -57621,6 +57618,42 @@
         "width"
       ]
     },
+    "token-rich-tooltip-toggle-gap-horizontal": {
+      "key": "{rich-tooltip.toggle.gap.horizontal}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "8",
+          "cds-g10": "8",
+          "cds-g90": "8",
+          "cds-g100": "8"
+        },
+        "key": "{rich-tooltip.toggle.gap.horizontal}"
+      },
+      "name": "token-rich-tooltip-toggle-gap-horizontal",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "toggle",
+        "gap",
+        "horizontal"
+      ]
+    },
     "token-rich-tooltip-toggle-foreground-color-default": {
       "key": "{rich-tooltip.toggle.foreground.color.default}",
       "$value": "#c6c6c6",
@@ -57802,43 +57835,6 @@
         "toggle",
         "icon",
         "size"
-      ]
-    },
-    "token-rich-tooltip-toggle-icon-margin-horizontal": {
-      "key": "{rich-tooltip.toggle.icon.margin.horizontal}",
-      "$type": "dimension",
-      "$value": "8px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "8",
-        "cds-g10": "8",
-        "cds-g90": "8",
-        "cds-g100": "8"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "8",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "8",
-          "cds-g10": "8",
-          "cds-g90": "8",
-          "cds-g100": "8"
-        },
-        "key": "{rich-tooltip.toggle.icon.margin.horizontal}"
-      },
-      "name": "token-rich-tooltip-toggle-icon-margin-horizontal",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "toggle",
-        "icon",
-        "margin",
-        "horizontal"
       ]
     },
     "token-tabs-tab-height-medium": {
@@ -72579,6 +72575,42 @@
         "width"
       ]
     },
+    "token-rich-tooltip-toggle-gap-horizontal": {
+      "key": "{rich-tooltip.toggle.gap.horizontal}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "8",
+        "cds-g10": "8",
+        "cds-g90": "8",
+        "cds-g100": "8"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "8",
+          "cds-g10": "8",
+          "cds-g90": "8",
+          "cds-g100": "8"
+        },
+        "key": "{rich-tooltip.toggle.gap.horizontal}"
+      },
+      "name": "token-rich-tooltip-toggle-gap-horizontal",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "toggle",
+        "gap",
+        "horizontal"
+      ]
+    },
     "token-rich-tooltip-toggle-foreground-color-default": {
       "key": "{rich-tooltip.toggle.foreground.color.default}",
       "$value": "#c6c6c6",
@@ -72760,43 +72792,6 @@
         "toggle",
         "icon",
         "size"
-      ]
-    },
-    "token-rich-tooltip-toggle-icon-margin-horizontal": {
-      "key": "{rich-tooltip.toggle.icon.margin.horizontal}",
-      "$type": "dimension",
-      "$value": "8px",
-      "unit": "px",
-      "$modes": {
-        "default": "4",
-        "cds-g0": "8",
-        "cds-g10": "8",
-        "cds-g90": "8",
-        "cds-g100": "8"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "8",
-        "unit": "px",
-        "$modes": {
-          "default": "4",
-          "cds-g0": "8",
-          "cds-g10": "8",
-          "cds-g90": "8",
-          "cds-g100": "8"
-        },
-        "key": "{rich-tooltip.toggle.icon.margin.horizontal}"
-      },
-      "name": "token-rich-tooltip-toggle-icon-margin-horizontal",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "toggle",
-        "icon",
-        "margin",
-        "horizontal"
       ]
     },
     "token-tabs-tab-height-medium": {

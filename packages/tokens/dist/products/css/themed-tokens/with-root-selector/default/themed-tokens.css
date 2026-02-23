@@ -289,7 +289,7 @@
   --token-rich-tooltip-toggle-foreground-color-active: var(--token-color-foreground-faint);
   --token-rich-tooltip-toggle-foreground-color-default: var(--token-color-foreground-strong);
   --token-rich-tooltip-toggle-foreground-color-hover: var(--token-color-foreground-primary);
-  --token-rich-tooltip-toggle-icon-margin-horizontal: 4px;
+  --token-rich-tooltip-toggle-gap-horizontal: 4px;
   --token-rich-tooltip-toggle-icon-size: 1em;
   --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
   --token-surface-high-box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;

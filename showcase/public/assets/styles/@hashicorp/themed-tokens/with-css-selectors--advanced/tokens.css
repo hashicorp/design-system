@@ -485,7 +485,7 @@
   --token-rich-tooltip-toggle-foreground-color-hover: var(
     --token-color-foreground-primary
   );
-  --token-rich-tooltip-toggle-icon-margin-horizontal: 4px;
+  --token-rich-tooltip-toggle-gap-horizontal: 4px;
   --token-rich-tooltip-toggle-icon-size: 1em;
   --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
   --token-surface-high-box-shadow:
@@ -875,7 +875,7 @@
     --token-rich-tooltip-toggle-foreground-color-active: #161616;
     --token-rich-tooltip-toggle-foreground-color-default: #525252;
     --token-rich-tooltip-toggle-foreground-color-hover: #161616;
-    --token-rich-tooltip-toggle-icon-margin-horizontal: 8px;
+    --token-rich-tooltip-toggle-gap-horizontal: 8px;
     --token-rich-tooltip-toggle-icon-size: 14px;
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
@@ -1271,7 +1271,7 @@
     --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
     --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
     --token-rich-tooltip-toggle-foreground-color-hover: #f4f4f4;
-    --token-rich-tooltip-toggle-icon-margin-horizontal: 8px;
+    --token-rich-tooltip-toggle-gap-horizontal: 8px;
     --token-rich-tooltip-toggle-icon-size: 14px;
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
@@ -1667,7 +1667,7 @@
   --token-rich-tooltip-toggle-foreground-color-active: #161616;
   --token-rich-tooltip-toggle-foreground-color-default: #525252;
   --token-rich-tooltip-toggle-foreground-color-hover: #161616;
-  --token-rich-tooltip-toggle-icon-margin-horizontal: 8px;
+  --token-rich-tooltip-toggle-gap-horizontal: 8px;
   --token-rich-tooltip-toggle-icon-size: 14px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
@@ -2059,7 +2059,7 @@
   --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
   --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
   --token-rich-tooltip-toggle-foreground-color-hover: #f4f4f4;
-  --token-rich-tooltip-toggle-icon-margin-horizontal: 8px;
+  --token-rich-tooltip-toggle-gap-horizontal: 8px;
   --token-rich-tooltip-toggle-icon-size: 14px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
@@ -2450,7 +2450,7 @@
   --token-rich-tooltip-toggle-foreground-color-active: #161616;
   --token-rich-tooltip-toggle-foreground-color-default: #525252;
   --token-rich-tooltip-toggle-foreground-color-hover: #161616;
-  --token-rich-tooltip-toggle-icon-margin-horizontal: 8px;
+  --token-rich-tooltip-toggle-gap-horizontal: 8px;
   --token-rich-tooltip-toggle-icon-size: 14px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
@@ -2841,7 +2841,7 @@
   --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
   --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
   --token-rich-tooltip-toggle-foreground-color-hover: #f4f4f4;
-  --token-rich-tooltip-toggle-icon-margin-horizontal: 8px;
+  --token-rich-tooltip-toggle-gap-horizontal: 8px;
   --token-rich-tooltip-toggle-icon-size: 14px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:

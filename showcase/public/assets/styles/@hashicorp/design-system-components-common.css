@@ -7724,10 +7724,10 @@ button.hds-button[href]::after {
   color: var(--icon-color);
 }
 .hds-rich-tooltip__toggle-icon:first-child:not(:only-child) {
-  margin-right: var(--token-rich-tooltip-toggle-icon-margin-horizontal);
+  margin-right: var(--token-rich-tooltip-gap-horizontal);
 }
 .hds-rich-tooltip__toggle-icon:last-child:not(:only-child) {
-  margin-left: var(--token-rich-tooltip-toggle-icon-margin-horizontal);
+  margin-left: var(--token-rich-tooltip-gap-horizontal);
 }
 
 :where(.hds-rich-tooltip__toggle--is-inline) {

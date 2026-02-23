@@ -80,11 +80,11 @@
   color: var(--icon-color);
 
   &:first-child:not(:only-child) {
-    margin-right: var(--token-rich-tooltip-toggle-icon-margin-horizontal);
+    margin-right: var(--token-rich-tooltip-gap-horizontal);
   }
 
   &:last-child:not(:only-child) {
-    margin-left: var(--token-rich-tooltip-toggle-icon-margin-horizontal);
+    margin-left: var(--token-rich-tooltip-gap-horizontal);
   }
 }
 
