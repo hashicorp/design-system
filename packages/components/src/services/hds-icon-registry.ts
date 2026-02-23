@@ -171,19 +171,17 @@ export default class HdsIconRegistryService extends Service {
     const entry = IconRegistry[name];
 
     if (library === HdsIconLibraryValues.Carbon) {
-      assert(`Carbon icon not available for "${name}".`, entry.carbon !== null);
-
-      return entry.carbon;
+      const carbonLoader = entry.carbon;
+      assert(`Carbon icon not available for "${name}".`, carbonLoader !== null);
+      return carbonLoader;
+    } else {
+      const flightLoader = entry.flight[size];
+      assert(
+        `Flight icon not available for "${name}" with size "${size}".`,
+        flightLoader !== undefined
+      );
+      return flightLoader;
     }
-
-    const flightLoader = entry.flight[size];
-    assert(
-      `Flight icon not available for "${name}" with size "${size}".`,
-      flightLoader !== undefined
-    );
-
-    return flightLoader;
-  }
 
   private _drainQueue(): void {
     while (this._activeCount < this._maxConcurrent && this._queue.length > 0) {
