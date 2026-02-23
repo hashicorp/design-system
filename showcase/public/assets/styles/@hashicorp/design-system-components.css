@@ -250,7 +250,7 @@
   --token-badge-typography-line-height-medium: 1.2308; /** 16px = 1.2308 */
   --token-badge-typography-line-height-large: 1.5; /** 24px = 1.5 */
   --token-badge-foreground-color-neutral-filled: #3b3d45;
-  --token-badge-foreground-color-neutral-inverted: #ffffff; /** TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?) */
+  --token-badge-foreground-color-neutral-inverted: #ffffff;
   --token-badge-foreground-color-neutral-outlined: #3b3d45;
   --token-badge-foreground-color-neutral-dark-mode-filled: #ffffff;
   --token-badge-foreground-color-neutral-dark-mode-inverted: #3b3d45;
@@ -261,16 +261,18 @@
   --token-badge-foreground-color-success-filled: #006619; /** we don't use `success-on-surface` for accessibility (better contrast) */
   --token-badge-foreground-color-success-inverted: #ffffff;
   --token-badge-foreground-color-success-outlined: #008a22;
-  --token-badge-foreground-color-warning-filled: #803d00; /** we don't use `warning-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-warning-filled: #803d00;
   --token-badge-foreground-color-warning-inverted: #ffffff;
   --token-badge-foreground-color-warning-outlined: #bb5a00;
   --token-badge-foreground-color-critical-filled: #940004; /** we don't use `critical-on-surface` for accessibility (better contrast) */
   --token-badge-foreground-color-critical-inverted: #ffffff;
   --token-badge-foreground-color-critical-outlined: #e52228;
   --token-badge-surface-color-neutral-filled: #dedfe3;
-  --token-badge-surface-color-neutral-inverted: #656a76; /** TODO - cristiano to ask Carbon team what to do because there is no equivalent color in code for the Tag inverted */
-  --token-badge-surface-color-neutral-dark-mode-filled: #656a76; /** TODO - cristiano to ask Carbon team what to do because there is no high-contrast color in the theme colors for the tag (in code) */
+  --token-badge-surface-color-neutral-inverted: #656a76; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
+  --token-badge-surface-color-neutral-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-neutral-dark-mode-filled: #656a76; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
   --token-badge-surface-color-neutral-dark-mode-inverted: #fafafa;
+  --token-badge-surface-color-neutral-dark-mode-outlined: rgba(0, 0, 0, 0);
   --token-badge-surface-color-highlight-filled: #ead2fe; /** we don't use `surface-highlight` for accessibility (better contrast) */
   --token-badge-surface-color-highlight-inverted: #a737ff;
   --token-badge-surface-color-success-filled: #cceeda; /** we don't use `surface-success` for accessibility (better contrast) */
@@ -279,10 +281,7 @@
   --token-badge-surface-color-warning-inverted: #bb5a00;
   --token-badge-surface-color-critical-filled: #fbd4d4; /** we don't use `surface-critical` for accessibility (better contrast) */
   --token-badge-surface-color-critical-inverted: #e52228;
-  --token-badge-border-width: 1px;
-  --token-badge-border-radius-small: 5px;
-  --token-badge-border-radius-medium: 5px;
-  --token-badge-border-radius-large: 5px;
+  --token-badge-border-radius: 5px;
   --token-badge-icon-size-small: 12px;
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-large: 16px;
@@ -2879,7 +2878,8 @@
   max-width: 100%;
   vertical-align: middle;
   border-style: solid;
-  border-width: var(--token-badge-border-width);
+  border-width: 1px;
+  border-radius: var(--token-badge-border-radius);
 }
 
 .hds-badge__icon {
@@ -2896,8 +2896,7 @@
 .hds-badge--size-small {
   gap: var(--token-badge-gap-small);
   min-height: var(--token-badge-height-small);
-  padding: calc(var(--token-badge-padding-vertical-small) - var(--token-badge-border-width)) calc(var(--token-badge-padding-horizontal-small) - var(--token-badge-border-width));
-  border-radius: var(--token-badge-border-radius-small);
+  padding: calc(var(--token-badge-padding-vertical-small) - 1px) calc(var(--token-badge-padding-horizontal-small) - 1px);
 }
 .hds-badge--size-small .hds-badge__icon {
   width: var(--token-badge-icon-size-small);
@@ -2911,8 +2910,7 @@
 .hds-badge--size-medium {
   gap: var(--token-badge-gap-medium);
   min-height: var(--token-badge-height-medium);
-  padding: calc(var(--token-badge-padding-vertical-medium) - var(--token-badge-border-width)) calc(var(--token-badge-padding-horizontal-medium) - var(--token-badge-border-width));
-  border-radius: var(--token-badge-border-radius-medium);
+  padding: calc(var(--token-badge-padding-vertical-medium) - 1px) calc(var(--token-badge-padding-horizontal-medium) - 1px);
 }
 .hds-badge--size-medium .hds-badge__icon {
   width: var(--token-badge-icon-size-medium);
@@ -2926,8 +2924,7 @@
 .hds-badge--size-large {
   gap: var(--token-badge-gap-large);
   min-height: var(--token-badge-height-large);
-  padding: calc(var(--token-badge-padding-vertical-large) - var(--token-badge-border-width)) calc(var(--token-badge-padding-horizontal-large) - var(--token-badge-border-width));
-  border-radius: var(--token-badge-border-radius-large);
+  padding: calc(var(--token-badge-padding-vertical-large) - 1px) calc(var(--token-badge-padding-horizontal-large) - 1px);
 }
 .hds-badge--size-large .hds-badge__icon {
   width: var(--token-badge-icon-size-large);
@@ -2950,7 +2947,7 @@
 }
 .hds-badge--color-neutral.hds-badge--type-outlined {
   color: var(--token-badge-foreground-color-neutral-outlined);
-  background-color: transparent;
+  background-color: var(--token-badge-surface-color-neutral-outlined);
   border-color: var(--token-badge-foreground-color-neutral-outlined);
 }
 
@@ -2966,7 +2963,7 @@
 }
 .hds-badge--color-neutral-dark-mode.hds-badge--type-outlined {
   color: var(--token-badge-foreground-color-neutral-dark-mode-outlined);
-  background-color: transparent;
+  background-color: var(--token-badge-surface-color-neutral-dark-mode-outlined);
   border-color: var(--token-badge-foreground-color-neutral-dark-mode-outlined);
 }
 
@@ -3045,12 +3042,12 @@
   font-weight: var(--token-typography-font-weight-medium);
   font-family: var(--token-typography-font-stack-text);
   border-style: solid;
-  border-width: var(--token-badge-border-width);
+  border-width: 1px;
 }
 
 .hds-badge-count--size-small {
   min-height: var(--token-badge-height-small);
-  padding: calc(var(--token-badge-padding-vertical-small) - var(--token-badge-border-width)) calc(var(--token-badge-count-padding-horizontal-small) - var(--token-badge-border-width));
+  padding: calc(var(--token-badge-padding-vertical-small) - 1px) calc(var(--token-badge-count-padding-horizontal-small) - 1px);
   font-size: var(--token-badge-typography-font-size-small);
   line-height: var(--token-badge-typography-line-height-small);
   border-radius: calc(var(--token-badge-height-small) / 2);
@@ -3058,7 +3055,7 @@
 
 .hds-badge-count--size-medium {
   min-height: var(--token-badge-height-medium);
-  padding: calc(var(--token-badge-padding-vertical-medium) - var(--token-badge-border-width)) calc(var(--token-badge-count-padding-horizontal-medium) - var(--token-badge-border-width));
+  padding: calc(var(--token-badge-padding-vertical-medium) - 1px) calc(var(--token-badge-count-padding-horizontal-medium) - 1px);
   font-size: var(--token-badge-typography-font-size-medium);
   line-height: var(--token-badge-typography-line-height-medium);
   border-radius: calc(var(--token-badge-height-medium) / 2);
@@ -3066,7 +3063,7 @@
 
 .hds-badge-count--size-large {
   min-height: var(--token-badge-height-large);
-  padding: calc(var(--token-badge-padding-vertical-large) - var(--token-badge-border-width)) calc(var(--token-badge-count-padding-horizontal-large) - var(--token-badge-border-width));
+  padding: calc(var(--token-badge-padding-vertical-large) - 1px) calc(var(--token-badge-count-padding-horizontal-large) - 1px);
   font-size: var(--token-badge-typography-font-size-large);
   line-height: var(--token-badge-typography-line-height-large);
   border-radius: calc(var(--token-badge-height-large) / 2);

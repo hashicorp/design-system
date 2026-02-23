@@ -4,9 +4,7 @@
 
 :root,
 .hds-theme-default {
-  --token-badge-border-radius-large: var(--token-border-radius-small);
-  --token-badge-border-radius-medium: var(--token-border-radius-small);
-  --token-badge-border-radius-small: var(--token-border-radius-small);
+  --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
   --token-badge-count-padding-horizontal-medium: 12px;
   --token-badge-count-padding-horizontal-small: 8px;
@@ -28,6 +26,9 @@
   --token-badge-foreground-color-highlight-outlined: var(
     --token-color-foreground-highlight
   );
+  --token-badge-foreground-color-neutral-dark-mode-filled: var(
+    --token-color-foreground-high-contrast
+  );
   --token-badge-foreground-color-neutral-dark-mode-inverted: var(
     --token-color-foreground-primary
   );
@@ -39,7 +40,7 @@
   );
   --token-badge-foreground-color-neutral-inverted: var(
     --token-color-foreground-high-contrast
-  ); /** TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?) */
+  );
   --token-badge-foreground-color-neutral-outlined: var(
     --token-color-foreground-primary
   );
@@ -54,7 +55,7 @@
   );
   --token-badge-foreground-color-warning-filled: var(
     --token-color-palette-amber-400
-  ); /** we don't use `warning-on-surface` for accessibility (better contrast) */
+  );
   --token-badge-foreground-color-warning-inverted: var(
     --token-color-foreground-high-contrast
   );
@@ -64,9 +65,11 @@
   --token-badge-gap-large: 6px;
   --token-badge-gap-medium: 4px;
   --token-badge-gap-small: 4px;
+  --token-badge-height-small: 20px;
   --token-badge-padding-horizontal-large: 8px;
   --token-badge-padding-horizontal-medium: 8px;
   --token-badge-padding-horizontal-small: 6px;
+  --token-badge-padding-vertical-small: 2px;
   --token-badge-surface-color-critical-filled: var(
     --token-color-palette-red-100
   ); /** we don't use `surface-critical` for accessibility (better contrast) */
@@ -79,12 +82,18 @@
   --token-badge-surface-color-highlight-inverted: var(
     --token-color-palette-purple-200
   );
+  --token-badge-surface-color-neutral-dark-mode-filled: var(
+    --token-color-palette-neutral-500
+  ); /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
   --token-badge-surface-color-neutral-dark-mode-inverted: var(
     --token-color-surface-faint
   );
   --token-badge-surface-color-neutral-filled: var(
     --token-color-palette-neutral-200
   );
+  --token-badge-surface-color-neutral-inverted: var(
+    --token-color-palette-neutral-500
+  ); /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
   --token-badge-surface-color-success-filled: var(
     --token-color-palette-green-100
   ); /** we don't use `surface-success` for accessibility (better contrast) */
@@ -545,9 +554,7 @@
 
 @media (prefers-color-scheme: light) {
   .hds-theme-system {
-    --token-badge-border-radius-large: 16px;
-    --token-badge-border-radius-medium: 12px;
-    --token-badge-border-radius-small: 8px;
+    --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
     --token-badge-count-padding-horizontal-small: 8px;
@@ -557,33 +564,38 @@
     --token-badge-foreground-color-highlight-filled: #6929c4; /** we don't use `highlight-on-surface` for accessibility (better contrast) */
     --token-badge-foreground-color-highlight-inverted: #ffffff;
     --token-badge-foreground-color-highlight-outlined: #6929c4;
+    --token-badge-foreground-color-neutral-dark-mode-filled: #ffffff;
     --token-badge-foreground-color-neutral-dark-mode-inverted: #161616;
     --token-badge-foreground-color-neutral-dark-mode-outlined: #ffffff;
     --token-badge-foreground-color-neutral-filled: #161616;
-    --token-badge-foreground-color-neutral-inverted: #ffffff; /** TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?) */
+    --token-badge-foreground-color-neutral-inverted: #e0e0e0;
     --token-badge-foreground-color-neutral-outlined: #161616;
     --token-badge-foreground-color-success-filled: #0e6027; /** we don't use `success-on-surface` for accessibility (better contrast) */
     --token-badge-foreground-color-success-inverted: #ffffff;
     --token-badge-foreground-color-success-outlined: #0e6027;
-    --token-badge-foreground-color-warning-filled: #684e00; /** we don't use `warning-on-surface` for accessibility (better contrast) */
+    --token-badge-foreground-color-warning-filled: #8a3800;
     --token-badge-foreground-color-warning-inverted: #ffffff;
-    --token-badge-foreground-color-warning-outlined: #684e00;
+    --token-badge-foreground-color-warning-outlined: #8a3800;
     --token-badge-gap-large: 4px;
     --token-badge-gap-medium: 4px;
     --token-badge-gap-small: 4px;
+    --token-badge-height-small: 18px;
     --token-badge-padding-horizontal-large: 12px;
     --token-badge-padding-horizontal-medium: 8px;
     --token-badge-padding-horizontal-small: 8px;
+    --token-badge-padding-vertical-small: 1px;
     --token-badge-surface-color-critical-filled: #ffd7d9; /** we don't use `surface-critical` for accessibility (better contrast) */
     --token-badge-surface-color-critical-inverted: #a2191f;
     --token-badge-surface-color-highlight-filled: #e8daff; /** we don't use `surface-highlight` for accessibility (better contrast) */
     --token-badge-surface-color-highlight-inverted: #6929c4;
+    --token-badge-surface-color-neutral-dark-mode-filled: #393939; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
     --token-badge-surface-color-neutral-dark-mode-inverted: #e0e0e0;
     --token-badge-surface-color-neutral-filled: #e0e0e0;
+    --token-badge-surface-color-neutral-inverted: #393939; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
     --token-badge-surface-color-success-filled: #a7f0ba; /** we don't use `surface-success` for accessibility (better contrast) */
     --token-badge-surface-color-success-inverted: #0e6027;
-    --token-badge-surface-color-warning-filled: #fddc69; /** we don't use `surface-warning` for accessibility (better contrast) */
-    --token-badge-surface-color-warning-inverted: #684e00;
+    --token-badge-surface-color-warning-filled: #ffd9be; /** we don't use `surface-warning` for accessibility (better contrast) */
+    --token-badge-surface-color-warning-inverted: #8a3800;
     --token-badge-typography-font-size-large: 0.75rem;
     --token-badge-typography-font-size-medium: 0.75rem;
     --token-badge-typography-font-size-small: 0.75rem;
@@ -920,9 +932,7 @@
 
 @media (prefers-color-scheme: dark) {
   .hds-theme-system {
-    --token-badge-border-radius-large: 16px;
-    --token-badge-border-radius-medium: 12px;
-    --token-badge-border-radius-small: 8px;
+    --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
     --token-badge-count-padding-horizontal-small: 8px;
@@ -932,33 +942,38 @@
     --token-badge-foreground-color-highlight-filled: #e8daff; /** we don't use `highlight-on-surface` for accessibility (better contrast) */
     --token-badge-foreground-color-highlight-inverted: #161616;
     --token-badge-foreground-color-highlight-outlined: #e8daff;
+    --token-badge-foreground-color-neutral-dark-mode-filled: #161616;
     --token-badge-foreground-color-neutral-dark-mode-inverted: #f4f4f4;
     --token-badge-foreground-color-neutral-dark-mode-outlined: #161616;
     --token-badge-foreground-color-neutral-filled: #f4f4f4;
-    --token-badge-foreground-color-neutral-inverted: #161616; /** TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?) */
+    --token-badge-foreground-color-neutral-inverted: #161616;
     --token-badge-foreground-color-neutral-outlined: #f4f4f4;
     --token-badge-foreground-color-success-filled: #a7f0ba; /** we don't use `success-on-surface` for accessibility (better contrast) */
     --token-badge-foreground-color-success-inverted: #161616;
     --token-badge-foreground-color-success-outlined: #a7f0ba;
-    --token-badge-foreground-color-warning-filled: #fddc69; /** we don't use `warning-on-surface` for accessibility (better contrast) */
+    --token-badge-foreground-color-warning-filled: #ffd9be;
     --token-badge-foreground-color-warning-inverted: #161616;
-    --token-badge-foreground-color-warning-outlined: #fddc69;
+    --token-badge-foreground-color-warning-outlined: #ffd9be;
     --token-badge-gap-large: 4px;
     --token-badge-gap-medium: 4px;
     --token-badge-gap-small: 4px;
+    --token-badge-height-small: 18px;
     --token-badge-padding-horizontal-large: 12px;
     --token-badge-padding-horizontal-medium: 8px;
     --token-badge-padding-horizontal-small: 8px;
+    --token-badge-padding-vertical-small: 1px;
     --token-badge-surface-color-critical-filled: #a2191f; /** we don't use `surface-critical` for accessibility (better contrast) */
-    --token-badge-surface-color-critical-inverted: #ff8389;
+    --token-badge-surface-color-critical-inverted: #ffd7d9;
     --token-badge-surface-color-highlight-filled: #6929c4; /** we don't use `surface-highlight` for accessibility (better contrast) */
     --token-badge-surface-color-highlight-inverted: #be95ff;
+    --token-badge-surface-color-neutral-dark-mode-filled: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
     --token-badge-surface-color-neutral-dark-mode-inverted: #525252;
     --token-badge-surface-color-neutral-filled: #525252;
+    --token-badge-surface-color-neutral-inverted: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
     --token-badge-surface-color-success-filled: #0e6027; /** we don't use `surface-success` for accessibility (better contrast) */
-    --token-badge-surface-color-success-inverted: #42be65;
-    --token-badge-surface-color-warning-filled: #684e00; /** we don't use `surface-warning` for accessibility (better contrast) */
-    --token-badge-surface-color-warning-inverted: #d2a106;
+    --token-badge-surface-color-success-inverted: #a7f0ba;
+    --token-badge-surface-color-warning-filled: #8a3800; /** we don't use `surface-warning` for accessibility (better contrast) */
+    --token-badge-surface-color-warning-inverted: #ffd9be;
     --token-badge-typography-font-size-large: 0.75rem;
     --token-badge-typography-font-size-medium: 0.75rem;
     --token-badge-typography-font-size-small: 0.75rem;
@@ -1294,9 +1309,7 @@
 }
 
 .hds-theme-light {
-  --token-badge-border-radius-large: 16px;
-  --token-badge-border-radius-medium: 12px;
-  --token-badge-border-radius-small: 8px;
+  --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
   --token-badge-count-padding-horizontal-small: 8px;
@@ -1306,33 +1319,38 @@
   --token-badge-foreground-color-highlight-filled: #6929c4; /** we don't use `highlight-on-surface` for accessibility (better contrast) */
   --token-badge-foreground-color-highlight-inverted: #ffffff;
   --token-badge-foreground-color-highlight-outlined: #6929c4;
+  --token-badge-foreground-color-neutral-dark-mode-filled: #ffffff;
   --token-badge-foreground-color-neutral-dark-mode-inverted: #161616;
   --token-badge-foreground-color-neutral-dark-mode-outlined: #ffffff;
   --token-badge-foreground-color-neutral-filled: #161616;
-  --token-badge-foreground-color-neutral-inverted: #ffffff; /** TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?) */
+  --token-badge-foreground-color-neutral-inverted: #e0e0e0;
   --token-badge-foreground-color-neutral-outlined: #161616;
   --token-badge-foreground-color-success-filled: #0e6027; /** we don't use `success-on-surface` for accessibility (better contrast) */
   --token-badge-foreground-color-success-inverted: #ffffff;
   --token-badge-foreground-color-success-outlined: #0e6027;
-  --token-badge-foreground-color-warning-filled: #684e00; /** we don't use `warning-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-warning-filled: #8a3800;
   --token-badge-foreground-color-warning-inverted: #ffffff;
-  --token-badge-foreground-color-warning-outlined: #684e00;
+  --token-badge-foreground-color-warning-outlined: #8a3800;
   --token-badge-gap-large: 4px;
   --token-badge-gap-medium: 4px;
   --token-badge-gap-small: 4px;
+  --token-badge-height-small: 18px;
   --token-badge-padding-horizontal-large: 12px;
   --token-badge-padding-horizontal-medium: 8px;
   --token-badge-padding-horizontal-small: 8px;
+  --token-badge-padding-vertical-small: 1px;
   --token-badge-surface-color-critical-filled: #ffd7d9; /** we don't use `surface-critical` for accessibility (better contrast) */
   --token-badge-surface-color-critical-inverted: #a2191f;
   --token-badge-surface-color-highlight-filled: #e8daff; /** we don't use `surface-highlight` for accessibility (better contrast) */
   --token-badge-surface-color-highlight-inverted: #6929c4;
+  --token-badge-surface-color-neutral-dark-mode-filled: #393939; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
   --token-badge-surface-color-neutral-dark-mode-inverted: #e0e0e0;
   --token-badge-surface-color-neutral-filled: #e0e0e0;
+  --token-badge-surface-color-neutral-inverted: #393939; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
   --token-badge-surface-color-success-filled: #a7f0ba; /** we don't use `surface-success` for accessibility (better contrast) */
   --token-badge-surface-color-success-inverted: #0e6027;
-  --token-badge-surface-color-warning-filled: #fddc69; /** we don't use `surface-warning` for accessibility (better contrast) */
-  --token-badge-surface-color-warning-inverted: #684e00;
+  --token-badge-surface-color-warning-filled: #ffd9be; /** we don't use `surface-warning` for accessibility (better contrast) */
+  --token-badge-surface-color-warning-inverted: #8a3800;
   --token-badge-typography-font-size-large: 0.75rem;
   --token-badge-typography-font-size-medium: 0.75rem;
   --token-badge-typography-font-size-small: 0.75rem;
@@ -1664,9 +1682,7 @@
 }
 
 .hds-theme-dark {
-  --token-badge-border-radius-large: 16px;
-  --token-badge-border-radius-medium: 12px;
-  --token-badge-border-radius-small: 8px;
+  --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
   --token-badge-count-padding-horizontal-small: 8px;
@@ -1676,33 +1692,38 @@
   --token-badge-foreground-color-highlight-filled: #e8daff; /** we don't use `highlight-on-surface` for accessibility (better contrast) */
   --token-badge-foreground-color-highlight-inverted: #161616;
   --token-badge-foreground-color-highlight-outlined: #e8daff;
+  --token-badge-foreground-color-neutral-dark-mode-filled: #161616;
   --token-badge-foreground-color-neutral-dark-mode-inverted: #f4f4f4;
   --token-badge-foreground-color-neutral-dark-mode-outlined: #161616;
   --token-badge-foreground-color-neutral-filled: #f4f4f4;
-  --token-badge-foreground-color-neutral-inverted: #161616; /** TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?) */
+  --token-badge-foreground-color-neutral-inverted: #161616;
   --token-badge-foreground-color-neutral-outlined: #f4f4f4;
   --token-badge-foreground-color-success-filled: #a7f0ba; /** we don't use `success-on-surface` for accessibility (better contrast) */
   --token-badge-foreground-color-success-inverted: #161616;
   --token-badge-foreground-color-success-outlined: #a7f0ba;
-  --token-badge-foreground-color-warning-filled: #fddc69; /** we don't use `warning-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-warning-filled: #ffd9be;
   --token-badge-foreground-color-warning-inverted: #161616;
-  --token-badge-foreground-color-warning-outlined: #fddc69;
+  --token-badge-foreground-color-warning-outlined: #ffd9be;
   --token-badge-gap-large: 4px;
   --token-badge-gap-medium: 4px;
   --token-badge-gap-small: 4px;
+  --token-badge-height-small: 18px;
   --token-badge-padding-horizontal-large: 12px;
   --token-badge-padding-horizontal-medium: 8px;
   --token-badge-padding-horizontal-small: 8px;
+  --token-badge-padding-vertical-small: 1px;
   --token-badge-surface-color-critical-filled: #a2191f; /** we don't use `surface-critical` for accessibility (better contrast) */
-  --token-badge-surface-color-critical-inverted: #ff8389;
+  --token-badge-surface-color-critical-inverted: #ffd7d9;
   --token-badge-surface-color-highlight-filled: #6929c4; /** we don't use `surface-highlight` for accessibility (better contrast) */
   --token-badge-surface-color-highlight-inverted: #be95ff;
+  --token-badge-surface-color-neutral-dark-mode-filled: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
   --token-badge-surface-color-neutral-dark-mode-inverted: #525252;
   --token-badge-surface-color-neutral-filled: #525252;
+  --token-badge-surface-color-neutral-inverted: #f4f4f4; /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
   --token-badge-surface-color-success-filled: #0e6027; /** we don't use `surface-success` for accessibility (better contrast) */
-  --token-badge-surface-color-success-inverted: #42be65;
-  --token-badge-surface-color-warning-filled: #684e00; /** we don't use `surface-warning` for accessibility (better contrast) */
-  --token-badge-surface-color-warning-inverted: #d2a106;
+  --token-badge-surface-color-success-inverted: #a7f0ba;
+  --token-badge-surface-color-warning-filled: #8a3800; /** we don't use `surface-warning` for accessibility (better contrast) */
+  --token-badge-surface-color-warning-inverted: #ffd9be;
   --token-badge-typography-font-size-large: 0.75rem;
   --token-badge-typography-font-size-medium: 0.75rem;
   --token-badge-typography-font-size-small: 0.75rem;
@@ -2096,25 +2117,15 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-app-side-nav-wrapper-padding-horizontal: 16px;
   --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
   --token-app-side-nav-wrapper-padding-vertical: 16px;
-  --token-badge-border-width: 1px;
-  --token-badge-foreground-color-neutral-dark-mode-filled: var(
-    --token-color-foreground-high-contrast
-  );
   --token-badge-height-large: 32px;
   --token-badge-height-medium: 24px;
-  --token-badge-height-small: 20px;
   --token-badge-icon-size-large: 16px;
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-small: 12px;
   --token-badge-padding-vertical-large: 4px;
   --token-badge-padding-vertical-medium: 4px;
-  --token-badge-padding-vertical-small: 2px;
-  --token-badge-surface-color-neutral-dark-mode-filled: var(
-    --token-color-palette-neutral-500
-  ); /** TODO - cristiano to ask Carbon team what to do because there is no high-contrast color in the theme colors for the tag (in code) */
-  --token-badge-surface-color-neutral-inverted: var(
-    --token-color-palette-neutral-500
-  ); /** TODO - cristiano to ask Carbon team what to do because there is no equivalent color in code for the Tag inverted */
+  --token-badge-surface-color-neutral-dark-mode-outlined: rgba(0, 0, 0, 0);
+  --token-badge-surface-color-neutral-outlined: rgba(0, 0, 0, 0);
   --token-badge-typography-line-height-medium: 1.2308; /** 16px = 1.2308 */
   --token-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
   --token-border-radius-rounded: 1000000000px;
