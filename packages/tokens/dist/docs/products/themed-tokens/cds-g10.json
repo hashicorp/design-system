@@ -12539,41 +12539,6 @@
     ]
   },
   {
-    "key": "{rich-tooltip.bubble.padding}",
-    "$type": "dimension",
-    "$value": "16px",
-    "unit": "px",
-    "$modes": {
-      "default": "16",
-      "cds-g0": "16px",
-      "cds-g10": "16px",
-      "cds-g90": "16px",
-      "cds-g100": "16px"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "{carbon.themes.g10.spacing05}",
-      "unit": "px",
-      "$modes": {
-        "default": "16",
-        "cds-g0": "{carbon.themes.white.spacing05}",
-        "cds-g10": "{carbon.themes.g10.spacing05}",
-        "cds-g90": "{carbon.themes.g90.spacing05}",
-        "cds-g100": "{carbon.themes.g100.spacing05}"
-      },
-      "key": "{rich-tooltip.bubble.padding}"
-    },
-    "name": "token-rich-tooltip-bubble-padding",
-    "attributes": {
-      "category": "rich-tooltip"
-    },
-    "path": [
-      "rich-tooltip",
-      "bubble",
-      "padding"
-    ]
-  },
-  {
     "key": "{rich-tooltip.bubble.border-color}",
     "$value": "#e0e0e0",
     "$modes": {

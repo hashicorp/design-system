@@ -7771,7 +7771,7 @@ button.hds-button[href]::after {
   max-width: var(--token-rich-tooltip-bubble-max-width);
   height: fit-content;
   max-height: none;
-  padding: var(--token-rich-tooltip-bubble-padding);
+  padding: 16px;
   background-color: var(--token-color-surface-primary);
   border-radius: var(--token-rich-tooltip-bubble-border-radius);
   box-shadow: var(--token-rich-tooltip-bubble-box-shadow);
@@ -7809,14 +7809,14 @@ button.hds-button[href]::after {
   pointer-events: none;
 }
 .hds-rich-tooltip__bubble-arrow::before {
-  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%) scale(0.8);
   width: 100%;
   height: 100%;
   background-color: var(--token-color-surface-primary);
+  transform: translate(-50%, -40%) scale(0.8);
+  content: "";
   clip-path: var(--token-rich-tooltip-bubble-arrow-clip-path);
 }
 .hds-rich-tooltip__bubble-arrow[data-hds-anchored-arrow-placement^=top] {

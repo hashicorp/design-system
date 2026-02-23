@@ -445,7 +445,6 @@
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-rich-tooltip-bubble-max-width: 280px;
-  --token-rich-tooltip-bubble-padding: 16px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --token-rich-tooltip-bubble-border-radius: 5px;
@@ -8296,7 +8295,7 @@ button.hds-button[href]::after {
   max-width: var(--token-rich-tooltip-bubble-max-width);
   height: fit-content;
   max-height: none;
-  padding: var(--token-rich-tooltip-bubble-padding);
+  padding: 16px;
   background-color: var(--token-color-surface-primary);
   border-radius: var(--token-rich-tooltip-bubble-border-radius);
   box-shadow: var(--token-rich-tooltip-bubble-box-shadow);
@@ -8334,14 +8333,14 @@ button.hds-button[href]::after {
   pointer-events: none;
 }
 .hds-rich-tooltip__bubble-arrow::before {
-  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%) scale(0.8);
   width: 100%;
   height: 100%;
   background-color: var(--token-color-surface-primary);
+  transform: translate(-50%, -40%) scale(0.8);
+  content: "";
   clip-path: var(--token-rich-tooltip-bubble-arrow-clip-path);
 }
 .hds-rich-tooltip__bubble-arrow[data-hds-anchored-arrow-placement^=top] {
