@@ -88,9 +88,9 @@
       "foreground": {
         "color": {
           "default": {
-            "$value": "{color.foreground.primary}",
+            "$value": "{color.foreground.strong}",
             "$modes": {
-              "default": "{color.foreground.primary}",
+              "default": "{color.foreground.strong}",
               "cds-g0": "{carbon.themes.white.textSecondary}",
               "cds-g10": "{carbon.themes.g10.textSecondary}",
               "cds-g90": "{carbon.themes.g90.textSecondary}",

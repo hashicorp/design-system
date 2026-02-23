@@ -12753,7 +12753,7 @@
     "original": {
       "$value": "{carbon.themes.g10.textSecondary}",
       "$modes": {
-        "default": "{color.foreground.primary}",
+        "default": "{color.foreground.strong}",
         "cds-g0": "{carbon.themes.white.textSecondary}",
         "cds-g10": "{carbon.themes.g10.textSecondary}",
         "cds-g90": "{carbon.themes.g90.textSecondary}",

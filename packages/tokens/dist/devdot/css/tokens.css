@@ -449,7 +449,7 @@
   --token-rich-tooltip-bubble-arrow-clip-path: path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z');
   --token-rich-tooltip-bubble-arrow-height: 7px;
   --token-rich-tooltip-bubble-arrow-width: 16px;
-  --token-rich-tooltip-toggle-foreground-color-default: #3b3d45;
+  --token-rich-tooltip-toggle-foreground-color-default: #0c0c0e;
   --token-rich-tooltip-toggle-foreground-color-hover: #3b3d45;
   --token-rich-tooltip-toggle-foreground-color-active: #656a76;
   --token-rich-tooltip-toggle-icon-size: 1em;

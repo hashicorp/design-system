@@ -484,7 +484,7 @@
       --token-color-foreground-faint
     );
     --token-rich-tooltip-toggle-foreground-color-default: var(
-      --token-color-foreground-primary
+      --token-color-foreground-strong
     );
     --token-rich-tooltip-toggle-foreground-color-hover: var(
       --token-color-foreground-primary

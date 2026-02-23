@@ -287,7 +287,7 @@
   --token-rich-tooltip-bubble-box-shadow: var(--token-surface-higher-box-shadow);
   --token-rich-tooltip-bubble-max-width: 280px;
   --token-rich-tooltip-toggle-foreground-color-active: var(--token-color-foreground-faint);
-  --token-rich-tooltip-toggle-foreground-color-default: var(--token-color-foreground-primary);
+  --token-rich-tooltip-toggle-foreground-color-default: var(--token-color-foreground-strong);
   --token-rich-tooltip-toggle-foreground-color-hover: var(--token-color-foreground-primary);
   --token-rich-tooltip-toggle-icon-margin-horizontal: 4px;
   --token-rich-tooltip-toggle-icon-size: 1em;
