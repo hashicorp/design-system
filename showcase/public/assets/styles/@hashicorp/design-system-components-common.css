@@ -2366,7 +2366,8 @@
   max-width: 100%;
   vertical-align: middle;
   border-style: solid;
-  border-width: var(--token-badge-border-width);
+  border-width: 1px;
+  border-radius: var(--token-badge-border-radius);
 }
 
 .hds-badge__icon {
@@ -2383,8 +2384,7 @@
 .hds-badge--size-small {
   gap: var(--token-badge-gap-small);
   min-height: var(--token-badge-height-small);
-  padding: calc(var(--token-badge-padding-vertical-small) - var(--token-badge-border-width)) calc(var(--token-badge-padding-horizontal-small) - var(--token-badge-border-width));
-  border-radius: var(--token-badge-border-radius-small);
+  padding: calc(var(--token-badge-padding-vertical-small) - 1px) calc(var(--token-badge-padding-horizontal-small) - 1px);
 }
 .hds-badge--size-small .hds-badge__icon {
   width: var(--token-badge-icon-size-small);
@@ -2398,8 +2398,7 @@
 .hds-badge--size-medium {
   gap: var(--token-badge-gap-medium);
   min-height: var(--token-badge-height-medium);
-  padding: calc(var(--token-badge-padding-vertical-medium) - var(--token-badge-border-width)) calc(var(--token-badge-padding-horizontal-medium) - var(--token-badge-border-width));
-  border-radius: var(--token-badge-border-radius-medium);
+  padding: calc(var(--token-badge-padding-vertical-medium) - 1px) calc(var(--token-badge-padding-horizontal-medium) - 1px);
 }
 .hds-badge--size-medium .hds-badge__icon {
   width: var(--token-badge-icon-size-medium);
@@ -2413,8 +2412,7 @@
 .hds-badge--size-large {
   gap: var(--token-badge-gap-large);
   min-height: var(--token-badge-height-large);
-  padding: calc(var(--token-badge-padding-vertical-large) - var(--token-badge-border-width)) calc(var(--token-badge-padding-horizontal-large) - var(--token-badge-border-width));
-  border-radius: var(--token-badge-border-radius-large);
+  padding: calc(var(--token-badge-padding-vertical-large) - 1px) calc(var(--token-badge-padding-horizontal-large) - 1px);
 }
 .hds-badge--size-large .hds-badge__icon {
   width: var(--token-badge-icon-size-large);
@@ -2437,7 +2435,7 @@
 }
 .hds-badge--color-neutral.hds-badge--type-outlined {
   color: var(--token-badge-foreground-color-neutral-outlined);
-  background-color: transparent;
+  background-color: var(--token-badge-surface-color-neutral-outlined);
   border-color: var(--token-badge-foreground-color-neutral-outlined);
 }
 
@@ -2453,7 +2451,7 @@
 }
 .hds-badge--color-neutral-dark-mode.hds-badge--type-outlined {
   color: var(--token-badge-foreground-color-neutral-dark-mode-outlined);
-  background-color: transparent;
+  background-color: var(--token-badge-surface-color-neutral-dark-mode-outlined);
   border-color: var(--token-badge-foreground-color-neutral-dark-mode-outlined);
 }
 
@@ -2532,12 +2530,12 @@
   font-weight: var(--token-typography-font-weight-medium);
   font-family: var(--token-typography-font-stack-text);
   border-style: solid;
-  border-width: var(--token-badge-border-width);
+  border-width: 1px;
 }
 
 .hds-badge-count--size-small {
   min-height: var(--token-badge-height-small);
-  padding: calc(var(--token-badge-padding-vertical-small) - var(--token-badge-border-width)) calc(var(--token-badge-count-padding-horizontal-small) - var(--token-badge-border-width));
+  padding: calc(var(--token-badge-padding-vertical-small) - 1px) calc(var(--token-badge-count-padding-horizontal-small) - 1px);
   font-size: var(--token-badge-typography-font-size-small);
   line-height: var(--token-badge-typography-line-height-small);
   border-radius: calc(var(--token-badge-height-small) / 2);
@@ -2545,7 +2543,7 @@
 
 .hds-badge-count--size-medium {
   min-height: var(--token-badge-height-medium);
-  padding: calc(var(--token-badge-padding-vertical-medium) - var(--token-badge-border-width)) calc(var(--token-badge-count-padding-horizontal-medium) - var(--token-badge-border-width));
+  padding: calc(var(--token-badge-padding-vertical-medium) - 1px) calc(var(--token-badge-count-padding-horizontal-medium) - 1px);
   font-size: var(--token-badge-typography-font-size-medium);
   line-height: var(--token-badge-typography-line-height-medium);
   border-radius: calc(var(--token-badge-height-medium) / 2);
@@ -2553,7 +2551,7 @@
 
 .hds-badge-count--size-large {
   min-height: var(--token-badge-height-large);
-  padding: calc(var(--token-badge-padding-vertical-large) - var(--token-badge-border-width)) calc(var(--token-badge-count-padding-horizontal-large) - var(--token-badge-border-width));
+  padding: calc(var(--token-badge-padding-vertical-large) - 1px) calc(var(--token-badge-count-padding-horizontal-large) - 1px);
   font-size: var(--token-badge-typography-font-size-large);
   line-height: var(--token-badge-typography-line-height-large);
   border-radius: calc(var(--token-badge-height-large) / 2);
