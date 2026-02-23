@@ -11,6 +11,8 @@ import style from 'ember-style-modifier';
 import { HdsIcon } from '@hashicorp/design-system-components/components';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 
+import type { IconName } from '@hashicorp/flight-icons/svg';
+
 module('Integration | Component | hds-icon', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -109,7 +111,7 @@ module('Integration | Component | hds-icon', function (hooks) {
 
   test('it updates the icon when @name argument changes', async function (assert) {
     class State {
-      @tracked name = 'activity';
+      @tracked name: IconName = 'activity';
     }
     const state = new State();
 
