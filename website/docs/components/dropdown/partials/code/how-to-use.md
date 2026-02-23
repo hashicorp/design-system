@@ -98,9 +98,13 @@ If you add an event handler (no `@href` or `@route`), a `<button>` element will 
 
 [[code-snippets/dropdown-interactive-button]]
 
-You can pass an `@icon` argument to add a leading icon:
+You can pass an `@icon` or `@trailingIcon` argument to add a leading or trailing icon:
 
 [[code-snippets/dropdown-interactive-button-icon]]
+
+You can add a badge with the `Badge` contextual component:
+
+[[code-snippets/dropdown-interactive-button-badge]]
 
 #### Rendering a link with `@href`
 
