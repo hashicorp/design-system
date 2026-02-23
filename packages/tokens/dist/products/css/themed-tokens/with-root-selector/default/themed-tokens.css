@@ -3,9 +3,7 @@
  */
 
 :root {
-  --token-badge-border-radius-large: var(--token-border-radius-small);
-  --token-badge-border-radius-medium: var(--token-border-radius-small);
-  --token-badge-border-radius-small: var(--token-border-radius-small);
+  --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
   --token-badge-count-padding-horizontal-medium: 12px;
   --token-badge-count-padding-horizontal-small: 8px;
@@ -15,29 +13,34 @@
   --token-badge-foreground-color-highlight-filled: var(--token-color-palette-purple-400); /** we don't use `highlight-on-surface` for accessibility (better contrast) */
   --token-badge-foreground-color-highlight-inverted: var(--token-color-foreground-high-contrast);
   --token-badge-foreground-color-highlight-outlined: var(--token-color-foreground-highlight);
+  --token-badge-foreground-color-neutral-dark-mode-filled: var(--token-color-foreground-high-contrast);
   --token-badge-foreground-color-neutral-dark-mode-inverted: var(--token-color-foreground-primary);
   --token-badge-foreground-color-neutral-dark-mode-outlined: var(--token-color-foreground-high-contrast);
   --token-badge-foreground-color-neutral-filled: var(--token-color-foreground-primary);
-  --token-badge-foreground-color-neutral-inverted: var(--token-color-foreground-high-contrast); /** TODO validate if this is `TextInverse` or should be `TextOnColor (ask Carbon team too?) */
+  --token-badge-foreground-color-neutral-inverted: var(--token-color-foreground-high-contrast);
   --token-badge-foreground-color-neutral-outlined: var(--token-color-foreground-primary);
   --token-badge-foreground-color-success-filled: var(--token-color-palette-green-400); /** we don't use `success-on-surface` for accessibility (better contrast) */
   --token-badge-foreground-color-success-inverted: var(--token-color-foreground-high-contrast);
   --token-badge-foreground-color-success-outlined: var(--token-color-foreground-success);
-  --token-badge-foreground-color-warning-filled: var(--token-color-palette-amber-400); /** we don't use `warning-on-surface` for accessibility (better contrast) */
+  --token-badge-foreground-color-warning-filled: var(--token-color-palette-amber-400);
   --token-badge-foreground-color-warning-inverted: var(--token-color-foreground-high-contrast);
   --token-badge-foreground-color-warning-outlined: var(--token-color-foreground-warning);
   --token-badge-gap-large: 6px;
   --token-badge-gap-medium: 4px;
   --token-badge-gap-small: 4px;
+  --token-badge-height-small: 20px;
   --token-badge-padding-horizontal-large: 8px;
   --token-badge-padding-horizontal-medium: 8px;
   --token-badge-padding-horizontal-small: 6px;
+  --token-badge-padding-vertical-small: 2px;
   --token-badge-surface-color-critical-filled: var(--token-color-palette-red-100); /** we don't use `surface-critical` for accessibility (better contrast) */
   --token-badge-surface-color-critical-inverted: var(--token-color-palette-red-200);
   --token-badge-surface-color-highlight-filled: var(--token-color-palette-purple-100); /** we don't use `surface-highlight` for accessibility (better contrast) */
   --token-badge-surface-color-highlight-inverted: var(--token-color-palette-purple-200);
+  --token-badge-surface-color-neutral-dark-mode-filled: var(--token-color-palette-neutral-500); /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we use the same token use in the Carbon Web Component */
   --token-badge-surface-color-neutral-dark-mode-inverted: var(--token-color-surface-faint);
   --token-badge-surface-color-neutral-filled: var(--token-color-palette-neutral-200);
+  --token-badge-surface-color-neutral-inverted: var(--token-color-palette-neutral-500); /** In Figma the `cds` value uses a token `Tag/HighContrast/TagBackground` that doesn't exist in code, so we need to use the corresponding values in Figma (aliases) instead */
   --token-badge-surface-color-success-filled: var(--token-color-palette-green-100); /** we don't use `surface-success` for accessibility (better contrast) */
   --token-badge-surface-color-success-inverted: var(--token-color-palette-green-200);
   --token-badge-surface-color-warning-filled: var(--token-color-palette-amber-100); /** we don't use `surface-warning` for accessibility (better contrast) */

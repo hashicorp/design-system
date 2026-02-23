@@ -108,7 +108,12 @@ const BadgeCountCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid @label="neutral-dark-mode">
       <:theming>
-        <ShwFlex @direction="column" @gap="0.5rem" as |SF|>
+        <ShwFlex
+          @direction="column"
+          @gap="0.5rem"
+          class="shw-component-badge-sample-color--neutral-dark-mode"
+          as |SF|
+        >
           {{#each TYPES as |type|}}
             <SF.Item>
               <HdsBadgeCount
@@ -126,8 +131,10 @@ const BadgeCountCarbonizationIndex: TemplateOnlyComponent = <template>
         </ShwFlex>
       </:theming>
       <:reference>
-        <cds-tag type="high-contrast">3</cds-tag>
-        <cds-tag type="high-contrast">99+</cds-tag>
+        <div class="shw-component-badge-sample-color--neutral-dark-mode">
+          <cds-tag type="high-contrast">3</cds-tag>
+          <cds-tag type="high-contrast">99+</cds-tag>
+        </div>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
