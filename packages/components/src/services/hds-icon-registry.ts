@@ -53,6 +53,8 @@ const MAX_CONCURRENT_LOADS = Math.min(
   )
 );
 
+const PARSER = new DOMParser();
+
 export default class HdsIconRegistryService extends Service {
   private _entries = new TrackedMap<string, HdsIconRegistryEntry>();
 
@@ -276,8 +278,7 @@ export default class HdsIconRegistryService extends Service {
 
       if (combined.length > 0) {
         try {
-          const parser = new DOMParser();
-          const svgDoc = parser.parseFromString(
+          const svgDoc = PARSER.parseFromString(
             `<svg xmlns="http://www.w3.org/2000/svg">${combined}</svg>`,
             'image/svg+xml'
           );
