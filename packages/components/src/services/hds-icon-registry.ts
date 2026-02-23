@@ -38,6 +38,7 @@ function makeDomSafeId(value: string): string {
   return value.replace(/[^a-zA-Z0-9_-]/g, '-');
 }
 
+// important: if you update this function, update the identical one in `packages/flight-icons/scripts/build-parts/generateBundleSymbolJS.ts` as well (and vice versa)
 function makeSymbolIdFromKey(key: string): string {
   return `hds-icon-${makeDomSafeId(key)}`;
 }

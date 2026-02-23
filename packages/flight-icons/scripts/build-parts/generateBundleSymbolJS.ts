@@ -22,6 +22,7 @@ function makeDomSafeId(value: string): string {
     return value.replace(/[^a-zA-Z0-9_-]/g, '-');
 }
 
+// important: if you update this function, update the identical one in `packages/components/src/services/hds-icon-registry.ts` as well (and vice versa)
 function makeSymbolIdFromKey(key: string): string {
     return `hds-icon-${makeDomSafeId(key)}`;
 }
