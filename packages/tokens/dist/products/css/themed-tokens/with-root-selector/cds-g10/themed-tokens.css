@@ -238,7 +238,7 @@
   --token-rich-tooltip-toggle-foreground-color-active: #161616;
   --token-rich-tooltip-toggle-foreground-color-default: #525252;
   --token-rich-tooltip-toggle-foreground-color-hover: #161616;
-  --token-rich-tooltip-toggle-icon-margin-horizontal: 8px;
+  --token-rich-tooltip-toggle-gap-horizontal: 8px;
   --token-rich-tooltip-toggle-icon-size: 14px;
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;

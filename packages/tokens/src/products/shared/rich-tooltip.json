@@ -85,6 +85,20 @@
       }
     },
     "toggle": {
+      "gap": {
+        "horizontal": {
+          "$type": "dimension",
+          "$value": "4",
+          "unit": "px",
+          "$modes": {
+            "default": "4",
+            "cds-g0": "8",
+            "cds-g10": "8",
+            "cds-g90": "8",
+            "cds-g100": "8"
+          }
+        }
+      },
       "foreground": {
         "color": {
           "default": {
@@ -141,20 +155,6 @@
             "cds-g100": {
               "$value": "14",
               "unit": "px"
-            }
-          }
-        },
-        "margin": {
-          "horizontal": {
-            "$type": "dimension",
-            "$value": "4",
-            "unit": "px",
-            "$modes": {
-              "default": "4",
-              "cds-g0": "8",
-              "cds-g10": "8",
-              "cds-g90": "8",
-              "cds-g100": "8"
             }
           }
         }
