@@ -1,5 +1,8 @@
-<ul class="hds-dropdown__list">
+<ul class="hds-dropdown__list" {{style maxWidth="150px"}}>
   <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @icon="build">
+    Run command
+  </Hds::Dropdown::ListItem::Interactive>
+  <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @trailingIcon="build">
     Run command
   </Hds::Dropdown::ListItem::Interactive>
 </ul>

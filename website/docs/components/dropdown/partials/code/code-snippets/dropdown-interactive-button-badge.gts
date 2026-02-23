@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
-import style from 'ember-style-modifier';
 
 import { HdsDropdownListItemInteractive } from '@hashicorp/design-system-components/components';
 
@@ -10,18 +9,10 @@ export default class LocalComponent extends Component {
   };
 
   <template>
-    <ul class="hds-dropdown__list" {{style maxWidth="150px"}}>
-      <HdsDropdownListItemInteractive
-        {{on "click" this.myAction}}
-        @icon="build"
-      >
+    <ul class="hds-dropdown__list">
+      <HdsDropdownListItemInteractive {{on "click" this.myAction}} as |I|>
         Run command
-      </HdsDropdownListItemInteractive>
-      <HdsDropdownListItemInteractive
-        {{on "click" this.myAction}}
-        @trailingIcon="build"
-      >
-        Run command
+        <I.Badge @text="Badge" />
       </HdsDropdownListItemInteractive>
     </ul>
   </template>
