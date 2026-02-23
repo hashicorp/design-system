@@ -3,28 +3,30 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+@use "sass:selector";
+
 @mixin hds-apply-only-if-carbon($mode: false) {
   @if $mode == "cds-g0" {
-    @at-root .hds-mode-cds-g0 #{&} {
+    @at-root #{selector.nest(".hds-mode-cds-g0", &)} {
       @content;
     }
   } @else if $mode == "cds-g10" {
-    @at-root .hds-mode-cds-g10 #{&} {
+    @at-root #{selector.nest(".hds-mode-cds-g10", &)} {
       @content;
     }
   } @else if $mode == "cds-g90" {
-    @at-root .hds-mode-cds-g90 #{&} {
+    @at-root #{selector.nest(".hds-mode-cds-g90", &)} {
       @content;
     }
   } @else if $mode == "cds-g100" {
-    @at-root .hds-mode-cds-g100 #{&} {
+    @at-root #{selector.nest(".hds-mode-cds-g100", &)} {
       @content;
     }
   } @else {
-    @at-root .hds-mode-cds-g0 #{&},
-      .hds-mode-cds-g10 #{&},
-      .hds-mode-cds-g90 #{&},
-      .hds-mode-cds-g100 #{&} {
+    @at-root #{selector.nest(".hds-mode-cds-g0", &)},
+      #{selector.nest(".hds-mode-cds-g10", &)},
+      #{selector.nest(".hds-mode-cds-g90", &)},
+      #{selector.nest(".hds-mode-cds-g100", &)} {
       @content;
     }
   }
