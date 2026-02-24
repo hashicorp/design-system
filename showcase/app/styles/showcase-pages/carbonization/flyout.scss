@@ -1,0 +1,19 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// CARBONIZATION > FLYOUT
+
+// ----
+
+body.page-carbonization-components-flyout {
+  .hds-flyout[open] {
+    position: relative;
+    z-index: initial;
+    display: flex;
+    width: auto;
+    height: 40vh;
+    margin: 0;
+  }
+}

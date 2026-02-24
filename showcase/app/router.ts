@@ -179,6 +179,7 @@ Router.map(function () {
       this.route('copy', function () {
         this.route('snippet');
       });
+      this.route('flyout');
       this.route('form', function (): void {
         this.route('text-input');
         this.route('radio-card');
@@ -195,6 +196,7 @@ Router.map(function () {
       this.route('tooltip');
     });
     this.route('utilities', function () {
+      this.route('dialog-primitive');
       this.route('dismiss-button');
     });
   });
