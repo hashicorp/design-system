@@ -26,7 +26,7 @@ const SubSectionDisplay: TemplateOnlyComponent = <template>
 
       <ShwFlex class="shw-component-outline-icons" as |SF|>
         <SF.Item @label="single icon">
-          <HdsIcon @name="bookmark" @isInline={{isInline}} />
+          <HdsIcon @name="bookmark-fill" @isInline={{isInline}} />
         </SF.Item>
         <SF.Item @label="multiple icons">
           <HdsIcon @name="alert-circle-fill" @isInline={{isInline}} />
@@ -37,18 +37,18 @@ const SubSectionDisplay: TemplateOnlyComponent = <template>
 
       <ShwFlex class="shw-component-outline-icons" @gap="4rem" as |SG|>
         <SG.Item @label="icon + inline text">
-          <HdsIcon @name="bookmark" @isInline={{isInline}} />
+          <HdsIcon @name="bookmark-fill" @isInline={{isInline}} />
           <span class="hds-typography-body-200">Lorem ipsum dolor</span>
         </SG.Item>
         <SG.Item @label="icon + inline text (inside flexbox)">
           <div class="shw-component-icon-container-flex">
-            <HdsIcon @name="bookmark" @isInline={{isInline}} />
+            <HdsIcon @name="bookmark-fill" @isInline={{isInline}} />
             <span class="hds-typography-body-200">Lorem ipsum dolor</span>
           </div>
         </SG.Item>
         <SG.Item @label="icon + inline text (inside grid)">
           <div class="shw-component-icon-container-grid">
-            <HdsIcon @name="bookmark" @isInline={{isInline}} />
+            <HdsIcon @name="bookmark-fill" @isInline={{isInline}} />
             <span class="hds-typography-body-200">Lorem ipsum dolor</span>
           </div>
         </SG.Item>
@@ -57,7 +57,7 @@ const SubSectionDisplay: TemplateOnlyComponent = <template>
       <ShwFlex class="shw-component-outline-icons" @gap="4rem" as |SF|>
         <SF.Item @label="icons interleaved with inline text">
           <span class="hds-typography-body-200">Lorem ipsum dolor</span>
-          <HdsIcon @name="bookmark" @isInline={{isInline}} />
+          <HdsIcon @name="bookmark-fill" @isInline={{isInline}} />
           <span class="hds-typography-body-200">Sit amet consectetur</span>
           <HdsIcon @name="alert-circle-fill" @isInline={{isInline}} />
           <HdsIcon @name="alert-diamond-fill" @isInline={{isInline}} />
@@ -66,7 +66,7 @@ const SubSectionDisplay: TemplateOnlyComponent = <template>
         </SF.Item>
         <SF.Item @label="icons interleaved with block text">
           <p class="hds-typography-body-200">Lorem ipsum dolor</p>
-          <HdsIcon @name="bookmark" @isInline={{isInline}} />
+          <HdsIcon @name="bookmark-fill" @isInline={{isInline}} />
           <p class="hds-typography-body-200">Sit amet consectetur</p>
           <HdsIcon @name="alert-circle-fill" @isInline={{isInline}} />
           <HdsIcon @name="alert-diamond-fill" @isInline={{isInline}} />

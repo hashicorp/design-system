@@ -23,13 +23,13 @@ const SubSectionColor: TemplateOnlyComponent = <template>
     <SF.Item as |SFI|>
       <SFI.Label>unspecified color (<code>currentColor</code>)</SFI.Label>
       <div>
-        <HdsIcon @name="lock-fill" @size="24" />
+        <HdsIcon @name="plus-circle-fill" @size="24" />
       </div>
     </SF.Item>
     <SF.Item as |SGI|>
       <SGI.Label>parent with <code>#e12568</code> color</SGI.Label>
       <div {{style color="#e12568"}}>
-        <HdsIcon @name="lock-fill" @size="24" />
+        <HdsIcon @name="plus-circle-fill" @size="24" />
       </div>
     </SF.Item>
   </ShwFlex>
@@ -41,7 +41,7 @@ const SubSectionColor: TemplateOnlyComponent = <template>
     {{#each COLORS as |color|}}
       <SG.Item @label={{color}}>
         <div class="shw-component-icon-sample-color--{{color}}">
-          <HdsIcon @name="lock-fill" @color={{color}} @size="24" />
+          <HdsIcon @name="plus-circle-fill" @color={{color}} @size="24" />
         </div>
       </SG.Item>
     {{/each}}
@@ -53,12 +53,12 @@ const SubSectionColor: TemplateOnlyComponent = <template>
   <ShwFlex @direction="column" as |SF|>
     <SF.Item as |SGI|>
       <SGI.Label><code>#e91e63</code></SGI.Label>
-      <HdsIcon @name="lock-fill" @color="#e91e63" @size="24" />
+      <HdsIcon @name="plus-circle-fill" @color="#e91e63" @size="24" />
     </SF.Item>
     <SF.Item as |SGI|>
       <SGI.Label><code>--token-color-palette-purple-400</code></SGI.Label>
       <HdsIcon
-        @name="lock-fill"
+        @name="plus-circle-fill"
         @color="var(--token-color-palette-purple-400)"
         @size="24"
       />
@@ -69,7 +69,7 @@ const SubSectionColor: TemplateOnlyComponent = <template>
         <code>green !important</code>
       </SGI.Label>
       <div {{style color="green !important"}}>
-        <HdsIcon @name="lock-fill" @color="orange" @size="24" />
+        <HdsIcon @name="plus-circle-fill" @color="orange" @size="24" />
       </div>
     </SF.Item>
   </ShwFlex>
