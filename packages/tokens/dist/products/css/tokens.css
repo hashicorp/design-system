@@ -441,12 +441,11 @@
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-rich-tooltip-bubble-max-width: 280px;
-  --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
+  --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: 5px;
-  --token-rich-tooltip-bubble-arrow-clip-path: path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z');
-  --token-rich-tooltip-bubble-arrow-height: 7px;
-  --token-rich-tooltip-bubble-arrow-width: 16px;
+  --token-rich-tooltip-bubble-arrow-height: 20px;
+  --token-rich-tooltip-bubble-arrow-width: 20px;
   --token-rich-tooltip-toggle-gap-horizontal: 4px;
   --token-rich-tooltip-toggle-foreground-color-default: #0c0c0e;
   --token-rich-tooltip-toggle-foreground-color-hover: #3b3d45;

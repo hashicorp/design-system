@@ -279,9 +279,8 @@
   --token-form-radiocard-border-color-default: var(--token-color-surface-primary);
   --token-form-radiocard-border-color-focus: var(--token-color-focus-action-internal);
   --token-form-radiocard-border-radius: 6px;
-  --token-rich-tooltip-bubble-arrow-clip-path: path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z');
-  --token-rich-tooltip-bubble-arrow-height: 7px;
-  --token-rich-tooltip-bubble-arrow-width: 16px;
+  --token-rich-tooltip-bubble-arrow-height: 20px;
+  --token-rich-tooltip-bubble-arrow-width: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
   --token-rich-tooltip-bubble-box-shadow: var(--token-surface-higher-box-shadow);

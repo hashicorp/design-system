@@ -12545,8 +12545,39 @@
         "max-width"
       ]
     },
+    "token-rich-tooltip-bubble-box-shadow": {
+      "key": "{rich-tooltip.bubble.box-shadow}",
+      "$value": "0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640",
+      "$modes": {
+        "default": "0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640",
+        "cds-g0": "none",
+        "cds-g10": "none",
+        "cds-g90": "none",
+        "cds-g100": "none"
+      },
+      "original": {
+        "$value": "{surface.higher.box-shadow}",
+        "$modes": {
+          "default": "{surface.higher.box-shadow}",
+          "cds-g0": "none",
+          "cds-g10": "none",
+          "cds-g90": "none",
+          "cds-g100": "none"
+        },
+        "key": "{rich-tooltip.bubble.box-shadow}"
+      },
+      "name": "token-rich-tooltip-bubble-box-shadow",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "bubble",
+        "box-shadow"
+      ]
+    },
     "token-rich-tooltip-bubble-border-color": {
-      "key": "{rich-tooltip.bubble.border-color}",
+      "key": "{rich-tooltip.bubble.border.color}",
       "$value": "#656a7633",
       "$modes": {
         "default": "#656a7633",
@@ -12564,7 +12595,7 @@
           "cds-g90": "{color.palette.alpha-200}",
           "cds-g100": "{color.palette.alpha-200}"
         },
-        "key": "{rich-tooltip.bubble.border-color}"
+        "key": "{rich-tooltip.bubble.border.color}"
       },
       "name": "token-rich-tooltip-bubble-border-color",
       "attributes": {
@@ -12573,38 +12604,8 @@
       "path": [
         "rich-tooltip",
         "bubble",
-        "border-color"
-      ]
-    },
-    "token-rich-tooltip-bubble-box-shadow": {
-      "key": "{rich-tooltip.bubble.box-shadow}",
-      "$value": "0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640",
-      "$modes": {
-        "default": "0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640",
-        "cds-g0": "0 0 0 1px #656a7633",
-        "cds-g10": "0 0 0 1px #656a7633",
-        "cds-g90": "0 0 0 1px #656a7633",
-        "cds-g100": "0 0 0 1px #656a7633"
-      },
-      "original": {
-        "$value": "{surface.higher.box-shadow}",
-        "$modes": {
-          "default": "{surface.higher.box-shadow}",
-          "cds-g0": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g10": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g90": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g100": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}"
-        },
-        "key": "{rich-tooltip.bubble.box-shadow}"
-      },
-      "name": "token-rich-tooltip-bubble-box-shadow",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "box-shadow"
+        "border",
+        "color"
       ]
     },
     "token-rich-tooltip-bubble-border-radius": {
@@ -12643,60 +12644,28 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-clip-path": {
-      "key": "{rich-tooltip.bubble.arrow.clip-path}",
-      "$value": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-      "$modes": {
-        "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-        "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-      },
-      "original": {
-        "$value": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-        "$modes": {
-          "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-          "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-        },
-        "key": "{rich-tooltip.bubble.arrow.clip-path}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-clip-path",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "clip-path"
-      ]
-    },
     "token-rich-tooltip-bubble-arrow-height": {
       "key": "{rich-tooltip.bubble.arrow.height}",
       "$type": "dimension",
-      "$value": "7px",
+      "$value": "20px",
       "unit": "px",
       "$modes": {
-        "default": "7",
-        "cds-g0": "6",
-        "cds-g10": "6",
-        "cds-g90": "6",
-        "cds-g100": "6"
+        "default": "20",
+        "cds-g0": "12",
+        "cds-g10": "12",
+        "cds-g90": "12",
+        "cds-g100": "12"
       },
       "original": {
         "$type": "dimension",
-        "$value": "7",
+        "$value": "20",
         "unit": "px",
         "$modes": {
-          "default": "7",
-          "cds-g0": "6",
-          "cds-g10": "6",
-          "cds-g90": "6",
-          "cds-g100": "6"
+          "default": "20",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
         },
         "key": "{rich-tooltip.bubble.arrow.height}"
       },
@@ -12714,10 +12683,10 @@
     "token-rich-tooltip-bubble-arrow-width": {
       "key": "{rich-tooltip.bubble.arrow.width}",
       "$type": "dimension",
-      "$value": "16px",
+      "$value": "20px",
       "unit": "px",
       "$modes": {
-        "default": "16",
+        "default": "20",
         "cds-g0": "12",
         "cds-g10": "12",
         "cds-g90": "12",
@@ -12725,10 +12694,10 @@
       },
       "original": {
         "$type": "dimension",
-        "$value": "16",
+        "$value": "20",
         "unit": "px",
         "$modes": {
-          "default": "16",
+          "default": "20",
           "cds-g0": "12",
           "cds-g10": "12",
           "cds-g90": "12",
@@ -27502,8 +27471,39 @@
         "max-width"
       ]
     },
+    "token-rich-tooltip-bubble-box-shadow": {
+      "key": "{rich-tooltip.bubble.box-shadow}",
+      "$value": "none",
+      "$modes": {
+        "default": "0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240",
+        "cds-g0": "none",
+        "cds-g10": "none",
+        "cds-g90": "none",
+        "cds-g100": "none"
+      },
+      "original": {
+        "$value": "none",
+        "$modes": {
+          "default": "{surface.higher.box-shadow}",
+          "cds-g0": "none",
+          "cds-g10": "none",
+          "cds-g90": "none",
+          "cds-g100": "none"
+        },
+        "key": "{rich-tooltip.bubble.box-shadow}"
+      },
+      "name": "token-rich-tooltip-bubble-box-shadow",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "bubble",
+        "box-shadow"
+      ]
+    },
     "token-rich-tooltip-bubble-border-color": {
-      "key": "{rich-tooltip.bubble.border-color}",
+      "key": "{rich-tooltip.bubble.border.color}",
       "$value": "#c6c6c6",
       "$modes": {
         "default": "#52525233",
@@ -27521,7 +27521,7 @@
           "cds-g90": "{color.palette.alpha-200}",
           "cds-g100": "{color.palette.alpha-200}"
         },
-        "key": "{rich-tooltip.bubble.border-color}"
+        "key": "{rich-tooltip.bubble.border.color}"
       },
       "name": "token-rich-tooltip-bubble-border-color",
       "attributes": {
@@ -27530,38 +27530,8 @@
       "path": [
         "rich-tooltip",
         "bubble",
-        "border-color"
-      ]
-    },
-    "token-rich-tooltip-bubble-box-shadow": {
-      "key": "{rich-tooltip.bubble.box-shadow}",
-      "$value": "0 0 0 1px #c6c6c6",
-      "$modes": {
-        "default": "0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240",
-        "cds-g0": "0 0 0 1px #c6c6c6",
-        "cds-g10": "0 0 0 1px #c6c6c6",
-        "cds-g90": "0 0 0 1px #c6c6c6",
-        "cds-g100": "0 0 0 1px #c6c6c6"
-      },
-      "original": {
-        "$value": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-        "$modes": {
-          "default": "{surface.higher.box-shadow}",
-          "cds-g0": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g10": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g90": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g100": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}"
-        },
-        "key": "{rich-tooltip.bubble.box-shadow}"
-      },
-      "name": "token-rich-tooltip-bubble-box-shadow",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "box-shadow"
+        "border",
+        "color"
       ]
     },
     "token-rich-tooltip-bubble-border-radius": {
@@ -27600,60 +27570,28 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-clip-path": {
-      "key": "{rich-tooltip.bubble.arrow.clip-path}",
-      "$value": "polygon(0 100%, 50% 0, 100% 100%)",
-      "$modes": {
-        "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-        "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-      },
-      "original": {
-        "$value": "polygon(0 100%, 50% 0, 100% 100%)",
-        "$modes": {
-          "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-          "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-        },
-        "key": "{rich-tooltip.bubble.arrow.clip-path}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-clip-path",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "clip-path"
-      ]
-    },
     "token-rich-tooltip-bubble-arrow-height": {
       "key": "{rich-tooltip.bubble.arrow.height}",
       "$type": "dimension",
-      "$value": "6px",
+      "$value": "12px",
       "unit": "px",
       "$modes": {
-        "default": "7",
-        "cds-g0": "6",
-        "cds-g10": "6",
-        "cds-g90": "6",
-        "cds-g100": "6"
+        "default": "20",
+        "cds-g0": "12",
+        "cds-g10": "12",
+        "cds-g90": "12",
+        "cds-g100": "12"
       },
       "original": {
         "$type": "dimension",
-        "$value": "6",
+        "$value": "12",
         "unit": "px",
         "$modes": {
-          "default": "7",
-          "cds-g0": "6",
-          "cds-g10": "6",
-          "cds-g90": "6",
-          "cds-g100": "6"
+          "default": "20",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
         },
         "key": "{rich-tooltip.bubble.arrow.height}"
       },
@@ -27674,7 +27612,7 @@
       "$value": "12px",
       "unit": "px",
       "$modes": {
-        "default": "16",
+        "default": "20",
         "cds-g0": "12",
         "cds-g10": "12",
         "cds-g90": "12",
@@ -27685,7 +27623,7 @@
         "$value": "12",
         "unit": "px",
         "$modes": {
-          "default": "16",
+          "default": "20",
           "cds-g0": "12",
           "cds-g10": "12",
           "cds-g90": "12",
@@ -42459,8 +42397,39 @@
         "max-width"
       ]
     },
+    "token-rich-tooltip-bubble-box-shadow": {
+      "key": "{rich-tooltip.bubble.box-shadow}",
+      "$value": "none",
+      "$modes": {
+        "default": "0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240",
+        "cds-g0": "none",
+        "cds-g10": "none",
+        "cds-g90": "none",
+        "cds-g100": "none"
+      },
+      "original": {
+        "$value": "none",
+        "$modes": {
+          "default": "{surface.higher.box-shadow}",
+          "cds-g0": "none",
+          "cds-g10": "none",
+          "cds-g90": "none",
+          "cds-g100": "none"
+        },
+        "key": "{rich-tooltip.bubble.box-shadow}"
+      },
+      "name": "token-rich-tooltip-bubble-box-shadow",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "bubble",
+        "box-shadow"
+      ]
+    },
     "token-rich-tooltip-bubble-border-color": {
-      "key": "{rich-tooltip.bubble.border-color}",
+      "key": "{rich-tooltip.bubble.border.color}",
       "$value": "#e0e0e0",
       "$modes": {
         "default": "#52525233",
@@ -42478,7 +42447,7 @@
           "cds-g90": "{color.palette.alpha-200}",
           "cds-g100": "{color.palette.alpha-200}"
         },
-        "key": "{rich-tooltip.bubble.border-color}"
+        "key": "{rich-tooltip.bubble.border.color}"
       },
       "name": "token-rich-tooltip-bubble-border-color",
       "attributes": {
@@ -42487,38 +42456,8 @@
       "path": [
         "rich-tooltip",
         "bubble",
-        "border-color"
-      ]
-    },
-    "token-rich-tooltip-bubble-box-shadow": {
-      "key": "{rich-tooltip.bubble.box-shadow}",
-      "$value": "0 0 0 1px #e0e0e0",
-      "$modes": {
-        "default": "0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240",
-        "cds-g0": "0 0 0 1px #e0e0e0",
-        "cds-g10": "0 0 0 1px #e0e0e0",
-        "cds-g90": "0 0 0 1px #e0e0e0",
-        "cds-g100": "0 0 0 1px #e0e0e0"
-      },
-      "original": {
-        "$value": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-        "$modes": {
-          "default": "{surface.higher.box-shadow}",
-          "cds-g0": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g10": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g90": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g100": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}"
-        },
-        "key": "{rich-tooltip.bubble.box-shadow}"
-      },
-      "name": "token-rich-tooltip-bubble-box-shadow",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "box-shadow"
+        "border",
+        "color"
       ]
     },
     "token-rich-tooltip-bubble-border-radius": {
@@ -42557,60 +42496,28 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-clip-path": {
-      "key": "{rich-tooltip.bubble.arrow.clip-path}",
-      "$value": "polygon(0 100%, 50% 0, 100% 100%)",
-      "$modes": {
-        "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-        "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-      },
-      "original": {
-        "$value": "polygon(0 100%, 50% 0, 100% 100%)",
-        "$modes": {
-          "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-          "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-        },
-        "key": "{rich-tooltip.bubble.arrow.clip-path}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-clip-path",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "clip-path"
-      ]
-    },
     "token-rich-tooltip-bubble-arrow-height": {
       "key": "{rich-tooltip.bubble.arrow.height}",
       "$type": "dimension",
-      "$value": "6px",
+      "$value": "12px",
       "unit": "px",
       "$modes": {
-        "default": "7",
-        "cds-g0": "6",
-        "cds-g10": "6",
-        "cds-g90": "6",
-        "cds-g100": "6"
+        "default": "20",
+        "cds-g0": "12",
+        "cds-g10": "12",
+        "cds-g90": "12",
+        "cds-g100": "12"
       },
       "original": {
         "$type": "dimension",
-        "$value": "6",
+        "$value": "12",
         "unit": "px",
         "$modes": {
-          "default": "7",
-          "cds-g0": "6",
-          "cds-g10": "6",
-          "cds-g90": "6",
-          "cds-g100": "6"
+          "default": "20",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
         },
         "key": "{rich-tooltip.bubble.arrow.height}"
       },
@@ -42631,7 +42538,7 @@
       "$value": "12px",
       "unit": "px",
       "$modes": {
-        "default": "16",
+        "default": "20",
         "cds-g0": "12",
         "cds-g10": "12",
         "cds-g90": "12",
@@ -42642,7 +42549,7 @@
         "$value": "12",
         "unit": "px",
         "$modes": {
-          "default": "16",
+          "default": "20",
           "cds-g0": "12",
           "cds-g10": "12",
           "cds-g90": "12",
@@ -57416,8 +57323,39 @@
         "max-width"
       ]
     },
+    "token-rich-tooltip-bubble-box-shadow": {
+      "key": "{rich-tooltip.bubble.box-shadow}",
+      "$value": "none",
+      "$modes": {
+        "default": "0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240",
+        "cds-g0": "none",
+        "cds-g10": "none",
+        "cds-g90": "none",
+        "cds-g100": "none"
+      },
+      "original": {
+        "$value": "none",
+        "$modes": {
+          "default": "{surface.higher.box-shadow}",
+          "cds-g0": "none",
+          "cds-g10": "none",
+          "cds-g90": "none",
+          "cds-g100": "none"
+        },
+        "key": "{rich-tooltip.bubble.box-shadow}"
+      },
+      "name": "token-rich-tooltip-bubble-box-shadow",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "bubble",
+        "box-shadow"
+      ]
+    },
     "token-rich-tooltip-bubble-border-color": {
-      "key": "{rich-tooltip.bubble.border-color}",
+      "key": "{rich-tooltip.bubble.border.color}",
       "$value": "#6f6f6f",
       "$modes": {
         "default": "#52525233",
@@ -57435,7 +57373,7 @@
           "cds-g90": "{color.palette.alpha-200}",
           "cds-g100": "{color.palette.alpha-200}"
         },
-        "key": "{rich-tooltip.bubble.border-color}"
+        "key": "{rich-tooltip.bubble.border.color}"
       },
       "name": "token-rich-tooltip-bubble-border-color",
       "attributes": {
@@ -57444,38 +57382,8 @@
       "path": [
         "rich-tooltip",
         "bubble",
-        "border-color"
-      ]
-    },
-    "token-rich-tooltip-bubble-box-shadow": {
-      "key": "{rich-tooltip.bubble.box-shadow}",
-      "$value": "0 0 0 1px #6f6f6f",
-      "$modes": {
-        "default": "0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240",
-        "cds-g0": "0 0 0 1px #6f6f6f",
-        "cds-g10": "0 0 0 1px #6f6f6f",
-        "cds-g90": "0 0 0 1px #6f6f6f",
-        "cds-g100": "0 0 0 1px #6f6f6f"
-      },
-      "original": {
-        "$value": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-        "$modes": {
-          "default": "{surface.higher.box-shadow}",
-          "cds-g0": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g10": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g90": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g100": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}"
-        },
-        "key": "{rich-tooltip.bubble.box-shadow}"
-      },
-      "name": "token-rich-tooltip-bubble-box-shadow",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "box-shadow"
+        "border",
+        "color"
       ]
     },
     "token-rich-tooltip-bubble-border-radius": {
@@ -57514,60 +57422,28 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-clip-path": {
-      "key": "{rich-tooltip.bubble.arrow.clip-path}",
-      "$value": "polygon(0 100%, 50% 0, 100% 100%)",
-      "$modes": {
-        "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-        "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-      },
-      "original": {
-        "$value": "polygon(0 100%, 50% 0, 100% 100%)",
-        "$modes": {
-          "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-          "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-        },
-        "key": "{rich-tooltip.bubble.arrow.clip-path}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-clip-path",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "clip-path"
-      ]
-    },
     "token-rich-tooltip-bubble-arrow-height": {
       "key": "{rich-tooltip.bubble.arrow.height}",
       "$type": "dimension",
-      "$value": "6px",
+      "$value": "12px",
       "unit": "px",
       "$modes": {
-        "default": "7",
-        "cds-g0": "6",
-        "cds-g10": "6",
-        "cds-g90": "6",
-        "cds-g100": "6"
+        "default": "20",
+        "cds-g0": "12",
+        "cds-g10": "12",
+        "cds-g90": "12",
+        "cds-g100": "12"
       },
       "original": {
         "$type": "dimension",
-        "$value": "6",
+        "$value": "12",
         "unit": "px",
         "$modes": {
-          "default": "7",
-          "cds-g0": "6",
-          "cds-g10": "6",
-          "cds-g90": "6",
-          "cds-g100": "6"
+          "default": "20",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
         },
         "key": "{rich-tooltip.bubble.arrow.height}"
       },
@@ -57588,7 +57464,7 @@
       "$value": "12px",
       "unit": "px",
       "$modes": {
-        "default": "16",
+        "default": "20",
         "cds-g0": "12",
         "cds-g10": "12",
         "cds-g90": "12",
@@ -57599,7 +57475,7 @@
         "$value": "12",
         "unit": "px",
         "$modes": {
-          "default": "16",
+          "default": "20",
           "cds-g0": "12",
           "cds-g10": "12",
           "cds-g90": "12",
@@ -72373,8 +72249,39 @@
         "max-width"
       ]
     },
+    "token-rich-tooltip-bubble-box-shadow": {
+      "key": "{rich-tooltip.bubble.box-shadow}",
+      "$value": "none",
+      "$modes": {
+        "default": "0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240",
+        "cds-g0": "none",
+        "cds-g10": "none",
+        "cds-g90": "none",
+        "cds-g100": "none"
+      },
+      "original": {
+        "$value": "none",
+        "$modes": {
+          "default": "{surface.higher.box-shadow}",
+          "cds-g0": "none",
+          "cds-g10": "none",
+          "cds-g90": "none",
+          "cds-g100": "none"
+        },
+        "key": "{rich-tooltip.bubble.box-shadow}"
+      },
+      "name": "token-rich-tooltip-bubble-box-shadow",
+      "attributes": {
+        "category": "rich-tooltip"
+      },
+      "path": [
+        "rich-tooltip",
+        "bubble",
+        "box-shadow"
+      ]
+    },
     "token-rich-tooltip-bubble-border-color": {
-      "key": "{rich-tooltip.bubble.border-color}",
+      "key": "{rich-tooltip.bubble.border.color}",
       "$value": "#525252",
       "$modes": {
         "default": "#52525233",
@@ -72392,7 +72299,7 @@
           "cds-g90": "{color.palette.alpha-200}",
           "cds-g100": "{color.palette.alpha-200}"
         },
-        "key": "{rich-tooltip.bubble.border-color}"
+        "key": "{rich-tooltip.bubble.border.color}"
       },
       "name": "token-rich-tooltip-bubble-border-color",
       "attributes": {
@@ -72401,38 +72308,8 @@
       "path": [
         "rich-tooltip",
         "bubble",
-        "border-color"
-      ]
-    },
-    "token-rich-tooltip-bubble-box-shadow": {
-      "key": "{rich-tooltip.bubble.box-shadow}",
-      "$value": "0 0 0 1px #525252",
-      "$modes": {
-        "default": "0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240",
-        "cds-g0": "0 0 0 1px #525252",
-        "cds-g10": "0 0 0 1px #525252",
-        "cds-g90": "0 0 0 1px #525252",
-        "cds-g100": "0 0 0 1px #525252"
-      },
-      "original": {
-        "$value": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-        "$modes": {
-          "default": "{surface.higher.box-shadow}",
-          "cds-g0": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g10": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g90": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}",
-          "cds-g100": "0 0 0 {elevation.higher.border.width} {color.palette.alpha-200}"
-        },
-        "key": "{rich-tooltip.bubble.box-shadow}"
-      },
-      "name": "token-rich-tooltip-bubble-box-shadow",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "box-shadow"
+        "border",
+        "color"
       ]
     },
     "token-rich-tooltip-bubble-border-radius": {
@@ -72471,60 +72348,28 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-clip-path": {
-      "key": "{rich-tooltip.bubble.arrow.clip-path}",
-      "$value": "polygon(0 100%, 50% 0, 100% 100%)",
-      "$modes": {
-        "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-        "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-        "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-      },
-      "original": {
-        "$value": "polygon(0 100%, 50% 0, 100% 100%)",
-        "$modes": {
-          "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
-          "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
-          "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
-        },
-        "key": "{rich-tooltip.bubble.arrow.clip-path}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-clip-path",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "clip-path"
-      ]
-    },
     "token-rich-tooltip-bubble-arrow-height": {
       "key": "{rich-tooltip.bubble.arrow.height}",
       "$type": "dimension",
-      "$value": "6px",
+      "$value": "12px",
       "unit": "px",
       "$modes": {
-        "default": "7",
-        "cds-g0": "6",
-        "cds-g10": "6",
-        "cds-g90": "6",
-        "cds-g100": "6"
+        "default": "20",
+        "cds-g0": "12",
+        "cds-g10": "12",
+        "cds-g90": "12",
+        "cds-g100": "12"
       },
       "original": {
         "$type": "dimension",
-        "$value": "6",
+        "$value": "12",
         "unit": "px",
         "$modes": {
-          "default": "7",
-          "cds-g0": "6",
-          "cds-g10": "6",
-          "cds-g90": "6",
-          "cds-g100": "6"
+          "default": "20",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
         },
         "key": "{rich-tooltip.bubble.arrow.height}"
       },
@@ -72545,7 +72390,7 @@
       "$value": "12px",
       "unit": "px",
       "$modes": {
-        "default": "16",
+        "default": "20",
         "cds-g0": "12",
         "cds-g10": "12",
         "cds-g90": "12",
@@ -72556,7 +72401,7 @@
         "$value": "12",
         "unit": "px",
         "$modes": {
-          "default": "16",
+          "default": "20",
           "cds-g0": "12",
           "cds-g10": "12",
           "cds-g90": "12",
