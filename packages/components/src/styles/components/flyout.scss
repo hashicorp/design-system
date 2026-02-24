@@ -7,6 +7,8 @@
 // FLYOUT
 //
 
+@use "../mixins/carbonization" as *;
+
 $hds-flyout-max-width: calc(100vw - var(--hds-app-side-nav-width-minimized) / 2);
 
 @mixin hds-flyout-position($size) {
@@ -29,6 +31,10 @@ $hds-flyout-max-width: calc(100vw - var(--hds-app-side-nav-width-minimized) / 2)
   box-shadow:
     0 2px 3px 0 #3b3d4540,
     0 12px 24px 0 #3b3d4559; // TODO: convert to token
+
+  @include hds-apply-only-if-carbon() {
+    box-shadow: none;
+  }
 
   // the `<dialog>` element uses a special "open" attribute to determine its visibility status
   &:not([open]) {

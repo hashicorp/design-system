@@ -7,6 +7,8 @@
 // MODAL
 //
 
+@use "../mixins/carbonization" as *;
+
 .hds-modal {
   position: fixed;
   z-index: 50;
@@ -16,6 +18,10 @@
   margin: auto; // needed to center the modal dialog on the viewport
   border-radius: var(--token-border-radius-large);
   box-shadow: var(--token-surface-overlay-box-shadow);
+
+  @include hds-apply-only-if-carbon() {
+    box-shadow: none;
+  }
 
   // the `<dialog>` element uses a special "open" attribute to determine its visibility status
   &:not([open]) {
@@ -50,7 +56,11 @@
 .hds-modal--color-warning {
   .hds-dialog-primitive__wrapper-header {
     background: var(--token-color-surface-warning);
-    border-bottom: 1px solid var(--token-color-border-warning);
+    border-bottom-color: var(--token-color-border-warning);
+
+    @include hds-apply-only-if-carbon() {
+      border-bottom-color: transparent;
+    }
   }
 
   .hds-dialog-primitive__header,
@@ -62,7 +72,11 @@
 .hds-modal--color-critical {
   .hds-dialog-primitive__wrapper-header {
     background: var(--token-color-surface-critical);
-    border-bottom: 1px solid var(--token-color-border-critical);
+    border-bottom-color: var(--token-color-border-critical);
+
+    @include hds-apply-only-if-carbon() {
+      border-bottom-color: transparent;
+    }
   }
 
   .hds-dialog-primitive__header,

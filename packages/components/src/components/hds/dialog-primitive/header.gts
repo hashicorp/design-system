@@ -96,9 +96,7 @@ export default class HdsDialogPrimitiveHeader extends Component<HdsDialogPrimiti
             </HdsTextBody>
           {{/if}}
 
-          <HdsTextDisplay @tag="div" @size="300" @weight="semibold">
-            {{yield}}
-          </HdsTextDisplay>
+          {{yield}}
         </Tag>
       {{/let}}
 
