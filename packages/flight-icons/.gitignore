@@ -3,7 +3,6 @@
 node_modules/
 flight-icons/temp
 yarn.log
-symbol-js/
 
 # Output of `npm pack`, which is an (optional) test for `npm publish`
 *.tgz
