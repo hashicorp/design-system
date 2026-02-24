@@ -175,6 +175,7 @@ Router.map(function () {
       this.route('badge');
       this.route('badge-count');
       this.route('button');
+      this.route('flyout');
       this.route('form', function (): void {
         this.route('text-input');
         this.route('radio-card');
@@ -191,6 +192,7 @@ Router.map(function () {
       this.route('tooltip');
     });
     this.route('utilities', function () {
+      this.route('dialog-primitive');
       this.route('dismiss-button');
     });
   });
