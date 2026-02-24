@@ -428,6 +428,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.flyout">
+            Flyout
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.form.text-input">
             Form::TextInput
           </LinkTo>
@@ -445,6 +450,14 @@ const Index: TemplateOnlyComponent = <template>
         <li>
           <LinkTo @route="page-carbonization.components.segmented-group">
             SegmentedGroup
+          </LinkTo>
+        </li>
+      </ol>
+      <ShwTextH4 @tag="h3">Utilities</ShwTextH4>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-carbonization.utilities.dialog-primitive">
+            DialogPrimitive
           </LinkTo>
         </li>
       </ol>
