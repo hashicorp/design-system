@@ -4,13 +4,23 @@
  */
 
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
+import { service } from '@ember/service';
 import { guidFor } from '@ember/object/internals';
+import { assert } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 import { iconNames } from '@hashicorp/flight-icons/svg';
-import type { IconName } from '@hashicorp/flight-icons/svg';
-import type Owner from '@ember/owner';
+import { IconRegistry } from '@hashicorp/flight-icons/symbol-js/registry';
+import {
+  HdsIconSizeValues,
+  HdsIconColorValues,
+  HdsIconLibraryValues,
+} from './types.ts';
 
-import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
+import type { IconName } from '@hashicorp/flight-icons/svg';
+import type { HdsIconRegistryEntry } from '@hashicorp/flight-icons/symbol-js/registry';
+import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming';
+import type HdsIconRegistryService from '@hashicorp/design-system-components/services/hds-icon-registry';
+import type { HdsIconDefinition } from '@hashicorp/design-system-components/services/hds-icon-registry';
 import type { HdsIconSizes, HdsIconColors } from './types.ts';
 
 export const COLORS: HdsIconColors[] = Object.values(HdsIconColorValues);
@@ -30,19 +40,50 @@ export interface HdsIconSignature {
 }
 
 export default class HdsIcon extends Component<HdsIconSignature> {
+  @service declare readonly hdsTheming: HdsThemingService;
+  @service declare readonly hdsIconRegistry: HdsIconRegistryService;
+
   private _iconId = 'icon-' + guidFor(this);
   private _titleId = 'title-' + guidFor(this);
 
-  constructor(owner: Owner, args: HdsIconSignature['Args']) {
-    super(owner, args);
+  get definition(): HdsIconDefinition {
+    return {
+      name: this.name,
+      size: this.size,
+      library: this.isCarbon
+        ? HdsIconLibraryValues.Carbon
+        : HdsIconLibraryValues.Flight,
+    };
+  }
 
-    if (!this.args.name) {
-      assert('Please provide to <Hds::Icon> a value for @name');
-    } else if (!iconNames.includes(this.args.name)) {
-      assert(
-        `The icon @name "${this.args.name}" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`
-      );
-    }
+  get name(): HdsIconSignature['Args']['name'] {
+    const { name } = this.args;
+
+    assert(
+      'Please provide to <Hds::Icon> a value for @name',
+      name !== undefined
+    );
+
+    return name;
+  }
+
+  get registryEntry(): HdsIconRegistryEntry | undefined {
+    const registryEntry = IconRegistry[this.name];
+
+    assert(
+      `The icon @name "${this.args.name}" or @size "${this.args.size}" provided to <Hds::Icon> is not correct. Please verify it exists on https://helios.hashicorp.design/icons/library`,
+      registryEntry !== undefined
+    );
+
+    return IconRegistry[this.name];
+  }
+
+  get hasCarbonEquivalent(): boolean {
+    return this.registryEntry?.carbon !== null;
+  }
+
+  get isCarbon(): boolean {
+    return this.hdsTheming.isCarbonThemeEnabled && this.hasCarbonEquivalent;
   }
 
   get isInline() {
@@ -67,7 +108,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     }
   }
 
-  get size() {
+  get size(): HdsIconSizes {
     return this.args.size ?? HdsIconSizeValues.Sixteen;
   }
 
@@ -114,13 +155,23 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     return classes.join(' ');
   }
 
+  get symbolId(): string {
+    return this.hdsIconRegistry.getSymbolId(this.definition) ?? '';
+  }
+
+  loadIcon = modifier(() => {
+    this.hdsIconRegistry.requestLoad(this.definition);
+  });
+
   <template>
     <svg
       class={{this.classNames}}
       ...attributes
       aria-hidden={{if @title "false" "true"}}
       aria-labelledby={{this.ariaLabelledby}}
-      data-test-icon={{@name}}
+      data-test-icon={{this.name}}
+      data-has-carbon-equivalent={{this.hasCarbonEquivalent}}
+      data-is-carbon={{this.isCarbon}}
       fill={{this.fillColor}}
       id={{this._iconId}}
       role={{this.role}}
@@ -128,14 +179,15 @@ export default class HdsIcon extends Component<HdsIconSignature> {
       height={{this.svgSize.height}}
       viewBox="0 0 {{this.size}} {{this.size}}"
       xmlns="http://www.w3.org/2000/svg"
+      {{this.loadIcon}}
     >
       {{#if @title}}
         <title id={{this._titleId}}>{{@title}}</title>
         <g role="presentation">
-          <use href="#flight-{{@name}}-{{this.size}}" />
+          <use href="#{{this.symbolId}}"></use>
         </g>
       {{else}}
-        <use href="#flight-{{@name}}-{{this.size}}" />
+        <use href="#{{this.symbolId}}"></use>
       {{/if}}
     </svg>
   </template>
