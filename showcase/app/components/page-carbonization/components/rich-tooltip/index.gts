@@ -119,14 +119,12 @@ const RichTooltipCarbonizationIndex: TemplateOnlyComponent = <template>
       </:theming>
       <:reference>
         <ShwFlex @direction="column" as |SF|>
-          {{#each TOGGLE_SIZES}}
-            <SF.Item>
-              <cds-toggletip alignment="bottom">
-                Lorem ipsum
-                <span slot="body-text">Generic content</span>
-              </cds-toggletip>
-            </SF.Item>
-          {{/each}}
+          <SF.Item>
+            <cds-toggletip alignment="bottom">
+              Lorem ipsum
+              <span slot="body-text">Generic content</span>
+            </cds-toggletip>
+          </SF.Item>
         </ShwFlex>
       </:reference>
     </ShwCarbonizationComparisonGrid>
@@ -194,7 +192,7 @@ const RichTooltipCarbonizationIndex: TemplateOnlyComponent = <template>
         <ShwGrid
           class="shw-component-rich-tooltip-placement-grid"
           @columns={{3}}
-          @gap="4rem"
+          @gap="4.5rem"
           as |SG|
         >
           {{#each PLACEMENTS as |place|}}
@@ -222,7 +220,7 @@ const RichTooltipCarbonizationIndex: TemplateOnlyComponent = <template>
         <ShwGrid
           class="shw-component-rich-tooltip-placement-grid"
           @columns={{3}}
-          @gap="4rem"
+          @gap="4.5rem"
           as |SG|
         >
           {{#each PLACEMENTS as |place|}}
