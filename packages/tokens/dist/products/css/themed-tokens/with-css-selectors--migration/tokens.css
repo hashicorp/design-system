@@ -440,6 +440,12 @@
   --token-color-waypoint-gradient-primary-start: #cbf1f3;
   --token-color-waypoint-gradient-primary-stop: #62d4dc;
   --token-color-waypoint-surface: #e0fcff;
+  --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
+  --token-dialog-primitive-padding-horizontal: 24px;
+  --token-dialog-primitive-padding-vertical: 16px;
+  --token-dialog-primitive-title-font-weight: var(
+    --token-typography-font-weight-semibold
+  );
   --token-elevation-high-box-shadow:
     0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --token-elevation-higher-box-shadow:
@@ -818,6 +824,10 @@
     --token-color-waypoint-gradient-primary-start: #cbf1f3;
     --token-color-waypoint-gradient-primary-stop: #62d4dc;
     --token-color-waypoint-surface: #e0fcff;
+    --token-dialog-primitive-border-color: 1.25;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
+    --token-dialog-primitive-title-font-weight: 400;
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
     --token-elevation-higher-box-shadow:
@@ -1196,6 +1206,10 @@
     --token-color-waypoint-gradient-primary-start: #008196;
     --token-color-waypoint-gradient-primary-stop: #22a4ac;
     --token-color-waypoint-surface: #007487;
+    --token-dialog-primitive-border-color: #525252;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
+    --token-dialog-primitive-title-font-weight: 400;
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
     --token-elevation-higher-box-shadow:
@@ -1573,6 +1587,10 @@
   --token-color-waypoint-gradient-primary-start: #cbf1f3;
   --token-color-waypoint-gradient-primary-stop: #62d4dc;
   --token-color-waypoint-surface: #e0fcff;
+  --token-dialog-primitive-border-color: 1.25;
+  --token-dialog-primitive-padding-horizontal: 16px;
+  --token-dialog-primitive-padding-vertical: 16px;
+  --token-dialog-primitive-title-font-weight: 400;
   --token-elevation-high-box-shadow:
     0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
   --token-elevation-higher-box-shadow:
@@ -1946,6 +1964,10 @@
   --token-color-waypoint-gradient-primary-start: #008196;
   --token-color-waypoint-gradient-primary-stop: #22a4ac;
   --token-color-waypoint-surface: #007487;
+  --token-dialog-primitive-border-color: #525252;
+  --token-dialog-primitive-padding-horizontal: 16px;
+  --token-dialog-primitive-padding-vertical: 16px;
+  --token-dialog-primitive-title-font-weight: 400;
   --token-elevation-high-box-shadow:
     0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
   --token-elevation-higher-box-shadow:
