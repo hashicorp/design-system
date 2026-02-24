@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-google-slides-16" viewBox="0 0 16 16"><g><path d="M10.344 7.315H5.656v2.753h4.688V7.315z"/><path fill-rule="evenodd" d="M3.938 15.25h8.124c.516 0 .938-.437.938-.972V4.562L9.563 1H3.937C3.422 1 3 1.437 3 1.972v12.306c0 .535.422.972.938.972zm7.187-8.744h-6.25v4.372h6.25V6.506z" clip-rule="evenodd"/></g></symbol>`;
