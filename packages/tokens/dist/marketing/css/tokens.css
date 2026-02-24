@@ -440,6 +440,16 @@
   --token-pagination-nav-indicator-spacing: 6px;
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
+  --token-rich-tooltip-bubble-max-width: 280px;
+  --token-rich-tooltip-bubble-border-color: #656a7633;
+  --token-rich-tooltip-bubble-border-radius: 5px;
+  --token-rich-tooltip-bubble-arrow-height: 20px;
+  --token-rich-tooltip-bubble-arrow-width: 20px;
+  --token-rich-tooltip-toggle-gap-horizontal: 4px;
+  --token-rich-tooltip-toggle-foreground-color-default: #0c0c0e;
+  --token-rich-tooltip-toggle-foreground-color-hover: #3b3d45;
+  --token-rich-tooltip-toggle-foreground-color-active: #656a76;
+  --token-rich-tooltip-toggle-icon-size: 1em;
   --token-tabs-tab-height-medium: 36px;
   --token-tabs-tab-height-large: 48px;
   --token-tabs-tab-padding-horizontal-medium: 12px;

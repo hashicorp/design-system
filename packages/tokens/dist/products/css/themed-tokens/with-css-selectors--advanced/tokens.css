@@ -465,6 +465,22 @@
     --token-color-focus-action-internal
   );
   --token-form-radiocard-border-radius: 6px;
+  --token-rich-tooltip-bubble-arrow-height: 20px;
+  --token-rich-tooltip-bubble-arrow-width: 20px;
+  --token-rich-tooltip-bubble-border-color: #656a7633;
+  --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
+  --token-rich-tooltip-bubble-max-width: 280px;
+  --token-rich-tooltip-toggle-foreground-color-active: var(
+    --token-color-foreground-faint
+  );
+  --token-rich-tooltip-toggle-foreground-color-default: var(
+    --token-color-foreground-strong
+  );
+  --token-rich-tooltip-toggle-foreground-color-hover: var(
+    --token-color-foreground-primary
+  );
+  --token-rich-tooltip-toggle-gap-horizontal: 4px;
+  --token-rich-tooltip-toggle-icon-size: 1em;
   --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
   --token-surface-high-box-shadow:
     0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626,
@@ -837,6 +853,18 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-rich-tooltip-bubble-arrow-height: 12px;
+    --token-rich-tooltip-bubble-arrow-width: 12px;
+    --token-rich-tooltip-bubble-border-color: var(
+      --token-color-palette-alpha-200
+    );
+    --token-rich-tooltip-bubble-border-radius: 2px;
+    --token-rich-tooltip-bubble-max-width: 288px;
+    --token-rich-tooltip-toggle-foreground-color-active: #161616;
+    --token-rich-tooltip-toggle-foreground-color-default: #525252;
+    --token-rich-tooltip-toggle-foreground-color-hover: #161616;
+    --token-rich-tooltip-toggle-gap-horizontal: 8px;
+    --token-rich-tooltip-toggle-icon-size: 14px;
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1215,6 +1243,18 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-rich-tooltip-bubble-arrow-height: 12px;
+    --token-rich-tooltip-bubble-arrow-width: 12px;
+    --token-rich-tooltip-bubble-border-color: var(
+      --token-color-palette-alpha-200
+    );
+    --token-rich-tooltip-bubble-border-radius: 2px;
+    --token-rich-tooltip-bubble-max-width: 288px;
+    --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
+    --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
+    --token-rich-tooltip-toggle-foreground-color-hover: #f4f4f4;
+    --token-rich-tooltip-toggle-gap-horizontal: 8px;
+    --token-rich-tooltip-toggle-icon-size: 14px;
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1593,6 +1633,18 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-rich-tooltip-bubble-arrow-height: 12px;
+  --token-rich-tooltip-bubble-arrow-width: 12px;
+  --token-rich-tooltip-bubble-border-color: var(
+    --token-color-palette-alpha-200
+  );
+  --token-rich-tooltip-bubble-border-radius: 2px;
+  --token-rich-tooltip-bubble-max-width: 288px;
+  --token-rich-tooltip-toggle-foreground-color-active: #161616;
+  --token-rich-tooltip-toggle-foreground-color-default: #525252;
+  --token-rich-tooltip-toggle-foreground-color-hover: #161616;
+  --token-rich-tooltip-toggle-gap-horizontal: 8px;
+  --token-rich-tooltip-toggle-icon-size: 14px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1967,6 +2019,18 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-rich-tooltip-bubble-arrow-height: 12px;
+  --token-rich-tooltip-bubble-arrow-width: 12px;
+  --token-rich-tooltip-bubble-border-color: var(
+    --token-color-palette-alpha-200
+  );
+  --token-rich-tooltip-bubble-border-radius: 2px;
+  --token-rich-tooltip-bubble-max-width: 288px;
+  --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
+  --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
+  --token-rich-tooltip-toggle-foreground-color-hover: #f4f4f4;
+  --token-rich-tooltip-toggle-gap-horizontal: 8px;
+  --token-rich-tooltip-toggle-icon-size: 14px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -2340,6 +2404,18 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-rich-tooltip-bubble-arrow-height: 12px;
+  --token-rich-tooltip-bubble-arrow-width: 12px;
+  --token-rich-tooltip-bubble-border-color: var(
+    --token-color-palette-alpha-200
+  );
+  --token-rich-tooltip-bubble-border-radius: 2px;
+  --token-rich-tooltip-bubble-max-width: 288px;
+  --token-rich-tooltip-toggle-foreground-color-active: #161616;
+  --token-rich-tooltip-toggle-foreground-color-default: #525252;
+  --token-rich-tooltip-toggle-foreground-color-hover: #161616;
+  --token-rich-tooltip-toggle-gap-horizontal: 8px;
+  --token-rich-tooltip-toggle-icon-size: 14px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -2713,6 +2789,18 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-rich-tooltip-bubble-arrow-height: 12px;
+  --token-rich-tooltip-bubble-arrow-width: 12px;
+  --token-rich-tooltip-bubble-border-color: var(
+    --token-color-palette-alpha-200
+  );
+  --token-rich-tooltip-bubble-border-radius: 2px;
+  --token-rich-tooltip-bubble-max-width: 288px;
+  --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
+  --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
+  --token-rich-tooltip-toggle-foreground-color-hover: #f4f4f4;
+  --token-rich-tooltip-toggle-gap-horizontal: 8px;
+  --token-rich-tooltip-toggle-icon-size: 14px;
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
