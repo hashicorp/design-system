@@ -10970,6 +10970,253 @@
     ]
   },
   {
+    "key": "{dialog-primitive.padding.horizontal}",
+    "$type": "dimension",
+    "$value": "16px",
+    "unit": "px",
+    "$modes": {
+      "default": "24",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "16",
+      "unit": "px",
+      "$modes": {
+        "default": "24",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "key": "{dialog-primitive.padding.horizontal}"
+    },
+    "name": "token-dialog-primitive-padding-horizontal",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "padding",
+      "horizontal"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.padding.vertical}",
+    "$type": "dimension",
+    "$value": "16px",
+    "unit": "px",
+    "$modes": {
+      "default": "16",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "16",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "key": "{dialog-primitive.padding.vertical}"
+    },
+    "name": "token-dialog-primitive-padding-vertical",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "padding",
+      "vertical"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.border.color}",
+    "$type": "color",
+    "$value": "#c6c6c6",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": "#c6c6c6",
+      "cds-g10": "#e0e0e0",
+      "cds-g90": "#6f6f6f",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.gray.30}",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{carbon.color.gray.30}",
+        "cds-g10": "{carbon.color.gray.20}",
+        "cds-g90": "{carbon.color.gray.60}",
+        "cds-g100": "{carbon.color.gray.70}"
+      },
+      "key": "{dialog-primitive.border.color}"
+    },
+    "name": "token-dialog-primitive-border-color",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.header.border.color.primary}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.primary}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{dialog-primitive.header.border.color.primary}"
+    },
+    "name": "token-dialog-primitive-header-border-color-primary",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "header",
+      "border",
+      "color",
+      "primary"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.header.border.color.warning}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#d2a106",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.warning}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{dialog-primitive.header.border.color.warning}"
+    },
+    "name": "token-dialog-primitive-header-border-color-warning",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "header",
+      "border",
+      "color",
+      "warning"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.header.border.color.critical}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#ff8389",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.critical}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{dialog-primitive.header.border.color.critical}"
+    },
+    "name": "token-dialog-primitive-header-border-color-critical",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "header",
+      "border",
+      "color",
+      "critical"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.title.font-weight}",
+    "$type": "font-weight",
+    "$value": 400,
+    "$modes": {
+      "default": 600,
+      "cds-g0": 400,
+      "cds-g10": 400,
+      "cds-g90": 400,
+      "cds-g100": 400
+    },
+    "comments": {
+      "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
+    },
+    "original": {
+      "$type": "font-weight",
+      "$value": "{carbon.typography.heading03.font-weight}",
+      "$modes": {
+        "default": "{typography.font-weight.semibold}",
+        "cds-g0": "{carbon.typography.heading03.font-weight}",
+        "cds-g10": "{carbon.typography.heading03.font-weight}",
+        "cds-g90": "{carbon.typography.heading03.font-weight}",
+        "cds-g100": "{carbon.typography.heading03.font-weight}"
+      },
+      "comments": {
+        "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
+      },
+      "key": "{dialog-primitive.title.font-weight}"
+    },
+    "name": "token-dialog-primitive-title-font-weight",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "title",
+      "font-weight"
+    ]
+  },
+  {
     "key": "{dismiss-button.size}",
     "$type": "dimension",
     "$value": "48px",
