@@ -283,7 +283,6 @@
   --token-rich-tooltip-bubble-arrow-width: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
-  --token-rich-tooltip-bubble-box-shadow: var(--token-surface-higher-box-shadow);
   --token-rich-tooltip-bubble-max-width: 280px;
   --token-rich-tooltip-toggle-foreground-color-active: var(--token-color-foreground-faint);
   --token-rich-tooltip-toggle-foreground-color-default: var(--token-color-foreground-strong);

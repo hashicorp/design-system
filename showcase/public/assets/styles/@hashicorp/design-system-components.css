@@ -445,7 +445,6 @@
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-rich-tooltip-bubble-max-width: 280px;
-  --token-rich-tooltip-bubble-box-shadow: 0 0 0 1px #656a7633, 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: 5px;
   --token-rich-tooltip-bubble-arrow-height: 20px;
@@ -8297,7 +8296,7 @@ button.hds-button[href]::after {
   padding: 16px;
   background-color: var(--token-color-surface-primary);
   border-radius: var(--token-rich-tooltip-bubble-border-radius);
-  box-shadow: var(--token-rich-tooltip-bubble-box-shadow);
+  box-shadow: var(--token-surface-higher-box-shadow);
   opacity: 0;
   transition: opacity 0.3s;
   will-change: opacity;
@@ -8307,6 +8306,7 @@ button.hds-button[href]::after {
 .hds-mode-cds-g90 .hds-rich-tooltip__bubble,
 .hds-mode-cds-g100 .hds-rich-tooltip__bubble {
   border: 1px solid var(--token-rich-tooltip-bubble-border-color);
+  box-shadow: none;
   transition: none;
 }
 

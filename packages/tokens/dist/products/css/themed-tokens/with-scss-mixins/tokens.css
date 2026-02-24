@@ -473,9 +473,6 @@
     --token-rich-tooltip-bubble-arrow-width: 20px;
     --token-rich-tooltip-bubble-border-color: #656a7633;
     --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
-    --token-rich-tooltip-bubble-box-shadow: var(
-      --token-surface-higher-box-shadow
-    );
     --token-rich-tooltip-bubble-max-width: 280px;
     --token-rich-tooltip-toggle-foreground-color-active: var(
       --token-color-foreground-faint
@@ -871,7 +868,6 @@
       --token-color-palette-alpha-200
     );
     --token-rich-tooltip-bubble-border-radius: 2px;
-    --token-rich-tooltip-bubble-box-shadow: none;
     --token-rich-tooltip-bubble-max-width: 288px;
     --token-rich-tooltip-toggle-foreground-color-active: #161616;
     --token-rich-tooltip-toggle-foreground-color-default: #525252;
@@ -1262,7 +1258,6 @@
       --token-color-palette-alpha-200
     );
     --token-rich-tooltip-bubble-border-radius: 2px;
-    --token-rich-tooltip-bubble-box-shadow: none;
     --token-rich-tooltip-bubble-max-width: 288px;
     --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
     --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
@@ -1653,7 +1648,6 @@
       --token-color-palette-alpha-200
     );
     --token-rich-tooltip-bubble-border-radius: 2px;
-    --token-rich-tooltip-bubble-box-shadow: none;
     --token-rich-tooltip-bubble-max-width: 288px;
     --token-rich-tooltip-toggle-foreground-color-active: #161616;
     --token-rich-tooltip-toggle-foreground-color-default: #525252;
@@ -2044,7 +2038,6 @@
       --token-color-palette-alpha-200
     );
     --token-rich-tooltip-bubble-border-radius: 2px;
-    --token-rich-tooltip-bubble-box-shadow: none;
     --token-rich-tooltip-bubble-max-width: 288px;
     --token-rich-tooltip-toggle-foreground-color-active: #161616;
     --token-rich-tooltip-toggle-foreground-color-default: #525252;
@@ -2435,7 +2428,6 @@
       --token-color-palette-alpha-200
     );
     --token-rich-tooltip-bubble-border-radius: 2px;
-    --token-rich-tooltip-bubble-box-shadow: none;
     --token-rich-tooltip-bubble-max-width: 288px;
     --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
     --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
@@ -2826,7 +2818,6 @@
       --token-color-palette-alpha-200
     );
     --token-rich-tooltip-bubble-border-radius: 2px;
-    --token-rich-tooltip-bubble-box-shadow: none;
     --token-rich-tooltip-bubble-max-width: 288px;
     --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
     --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;

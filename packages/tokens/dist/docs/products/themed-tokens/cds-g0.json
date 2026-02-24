@@ -12539,37 +12539,6 @@
     ]
   },
   {
-    "key": "{rich-tooltip.bubble.box-shadow}",
-    "$value": "none",
-    "$modes": {
-      "default": "0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240",
-      "cds-g0": "none",
-      "cds-g10": "none",
-      "cds-g90": "none",
-      "cds-g100": "none"
-    },
-    "original": {
-      "$value": "none",
-      "$modes": {
-        "default": "{surface.higher.box-shadow}",
-        "cds-g0": "none",
-        "cds-g10": "none",
-        "cds-g90": "none",
-        "cds-g100": "none"
-      },
-      "key": "{rich-tooltip.bubble.box-shadow}"
-    },
-    "name": "token-rich-tooltip-bubble-box-shadow",
-    "attributes": {
-      "category": "rich-tooltip"
-    },
-    "path": [
-      "rich-tooltip",
-      "bubble",
-      "box-shadow"
-    ]
-  },
-  {
     "key": "{rich-tooltip.bubble.border.color}",
     "$value": "#c6c6c6",
     "$modes": {

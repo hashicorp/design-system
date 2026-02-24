@@ -7774,7 +7774,7 @@ button.hds-button[href]::after {
   padding: 16px;
   background-color: var(--token-color-surface-primary);
   border-radius: var(--token-rich-tooltip-bubble-border-radius);
-  box-shadow: var(--token-rich-tooltip-bubble-box-shadow);
+  box-shadow: var(--token-surface-higher-box-shadow);
   opacity: 0;
   transition: opacity 0.3s;
   will-change: opacity;
@@ -7784,6 +7784,7 @@ button.hds-button[href]::after {
 .hds-mode-cds-g90 .hds-rich-tooltip__bubble,
 .hds-mode-cds-g100 .hds-rich-tooltip__bubble {
   border: 1px solid var(--token-rich-tooltip-bubble-border-color);
+  box-shadow: none;
   transition: none;
 }
 

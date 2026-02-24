@@ -142,7 +142,7 @@
   padding: 16px;
   background-color: var(--token-color-surface-primary);
   border-radius: var(--token-rich-tooltip-bubble-border-radius);
-  box-shadow: var(--token-rich-tooltip-bubble-box-shadow);
+  box-shadow: var(--token-surface-higher-box-shadow);
 
   // fade-in animation (we can't do fade-out because `isOpen` removes the content of the bubble immediately from the DOM)
   // see: https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#animating_popovers
@@ -152,6 +152,7 @@
 
   @include hds-apply-only-if-carbon() {
     border: 1px solid var(--token-rich-tooltip-bubble-border-color);
+    box-shadow: none;
     transition: none;
   }
 
