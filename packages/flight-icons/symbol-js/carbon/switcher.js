@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-carbon-switcher" viewBox="0 0 32 32"><path d="M14 4H18V8H14z"/><path d="M4 4H8V8H4z"/><path d="M24 4H28V8H24z"/><path d="M14 14H18V18H14z"/><path d="M4 14H8V18H4z"/><path d="M24 14H28V18H24z"/><path d="M14 24H18V28H14z"/><path d="M4 24H8V28H4z"/><path d="M24 24H28V28H24z"/></symbol>`;

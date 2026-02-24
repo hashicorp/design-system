@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-new-relic-24" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M11.5 5.847l5.384 3.076v6.154l-5.383 3.077V22l8.75-5V7L11.5 2 2.75 7l-.001 3.847 5.383 3.077v6.154L11.501 22V12L6.116 8.924l5.385-3.076z" clip-rule="evenodd"/></symbol>`;

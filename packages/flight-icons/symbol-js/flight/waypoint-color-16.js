@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-waypoint-color-16" viewBox="0 0 16 16"><g fill="#14C6CB"><path d="M16 3l-1.998 3.463L12.004 3H16zM5.334 5.312H4l3.332 5.777L6 13.4 0 3h6.667L10 8.778l.666-1.155L8 3h2.666l2.668 4.623L10 13.4 5.334 5.312z"/></g></symbol>`;

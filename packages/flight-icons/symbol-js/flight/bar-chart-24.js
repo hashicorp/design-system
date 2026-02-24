@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-bar-chart-24" viewBox="0 0 24 24"><g><path d="M18 3a1 1 0 011 1v16a1 1 0 11-2 0V4a1 1 0 011-1zM12 9a1 1 0 011 1v10a1 1 0 11-2 0V10a1 1 0 011-1zM7 16a1 1 0 10-2 0v4a1 1 0 102 0v-4z"/></g></symbol>`;
