@@ -39,7 +39,7 @@ module('Integration | Component | hds-icon', function (hooks) {
       .hasAttribute('width', '24')
       .hasAttribute('height', '24');
   });
-  test('it applies the hds-icon--stretched class when the "stretched" option is set to true', async function (assert) {
+  test('it sets the width/height to 100% when the "stretched" option is set to true', async function (assert) {
     await render(
       <template>
         <HdsIcon @name="activity" @size="24" @stretched={{true}} />
@@ -47,7 +47,8 @@ module('Integration | Component | hds-icon', function (hooks) {
     );
     assert
       .dom('svg.hds-icon.hds-icon-activity')
-      .hasClass('hds-icon--stretched');
+      .hasAttribute('width', '100%')
+      .hasAttribute('height', '100%');
   });
 
   // DISPLAY
