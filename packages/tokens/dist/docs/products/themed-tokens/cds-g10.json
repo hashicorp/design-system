@@ -12900,37 +12900,6 @@
     ]
   },
   {
-    "key": "{rich-tooltip.bubble.box-shadow}",
-    "$value": "none",
-    "$modes": {
-      "default": "none",
-      "cds-g0": "none",
-      "cds-g10": "none",
-      "cds-g90": "none",
-      "cds-g100": "none"
-    },
-    "original": {
-      "$value": "none",
-      "$modes": {
-        "default": "{surface.higher.box-shadow}",
-        "cds-g0": "none",
-        "cds-g10": "none",
-        "cds-g90": "none",
-        "cds-g100": "none"
-      },
-      "key": "{rich-tooltip.bubble.box-shadow}"
-    },
-    "name": "token-rich-tooltip-bubble-box-shadow",
-    "attributes": {
-      "category": "rich-tooltip"
-    },
-    "path": [
-      "rich-tooltip",
-      "bubble",
-      "box-shadow"
-    ]
-  },
-  {
     "key": "{rich-tooltip.bubble.border.color}",
     "$value": "#e0e0e0",
     "$modes": {

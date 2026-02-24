@@ -13,16 +13,6 @@
           "cds-g100": "288"
         }
       },
-      "box-shadow": {
-        "$value": "{surface.higher.box-shadow}",
-        "$modes": {
-          "default": "{surface.higher.box-shadow}",
-          "cds-g0": "none",
-          "cds-g10": "none",
-          "cds-g90": "none",
-          "cds-g100": "none"
-        }
-      },
       "border": {
         "color": {
           "$value": "{elevation.higher.border.color}",
