@@ -267,6 +267,10 @@
   --token-color-waypoint-gradient-primary-start: #cbf1f3;
   --token-color-waypoint-gradient-primary-stop: #62d4dc;
   --token-color-waypoint-surface: #e0fcff;
+  --token-dialog-primitive-border-color: 1.25;
+  --token-dialog-primitive-padding-horizontal: 16px;
+  --token-dialog-primitive-padding-vertical: 16px;
+  --token-dialog-primitive-title-font-weight: 400;
   --token-dismiss-button-foreground-color-active: #161616;
   --token-dismiss-button-foreground-color-default: #161616;
   --token-dismiss-button-padding: 16px;
