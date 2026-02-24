@@ -486,10 +486,6 @@
     --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
-    --token-link-standalone-underline-color-primary-active: #396ed6;
-    --token-link-standalone-underline-color-primary-hover: #4e81e8;
-    --token-link-standalone-underline-color-secondary-active: #6e7075;
-    --token-link-standalone-underline-color-secondary-hover: #4d4d4f;
     --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
     --token-surface-high-box-shadow:
       0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626,
@@ -880,14 +876,6 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
-    --token-link-standalone-underline-color-primary-active: #0f62fe;
-    --token-link-standalone-underline-color-primary-hover: #0043ce;
-    --token-link-standalone-underline-color-secondary-active: var(
-      --token-color-foreground-faint
-    );
-    --token-link-standalone-underline-color-secondary-hover: var(
-      --token-color-foreground-primary
-    );
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1279,14 +1267,6 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
-    --token-link-standalone-underline-color-primary-active: #78a9ff;
-    --token-link-standalone-underline-color-primary-hover: #a6c8ff;
-    --token-link-standalone-underline-color-secondary-active: var(
-      --token-color-foreground-faint
-    );
-    --token-link-standalone-underline-color-secondary-hover: var(
-      --token-color-foreground-primary
-    );
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1678,14 +1658,6 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
-    --token-link-standalone-underline-color-primary-active: #0f62fe;
-    --token-link-standalone-underline-color-primary-hover: #0043ce;
-    --token-link-standalone-underline-color-secondary-active: var(
-      --token-color-foreground-faint
-    );
-    --token-link-standalone-underline-color-secondary-hover: var(
-      --token-color-foreground-primary
-    );
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -2077,14 +2049,6 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
-    --token-link-standalone-underline-color-primary-active: #0f62fe;
-    --token-link-standalone-underline-color-primary-hover: #0043ce;
-    --token-link-standalone-underline-color-secondary-active: var(
-      --token-color-foreground-faint
-    );
-    --token-link-standalone-underline-color-secondary-hover: var(
-      --token-color-foreground-primary
-    );
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -2476,14 +2440,6 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
-    --token-link-standalone-underline-color-primary-active: #78a9ff;
-    --token-link-standalone-underline-color-primary-hover: #a6c8ff;
-    --token-link-standalone-underline-color-secondary-active: var(
-      --token-color-foreground-faint
-    );
-    --token-link-standalone-underline-color-secondary-hover: var(
-      --token-color-foreground-primary
-    );
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -2875,14 +2831,6 @@
     --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
     --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
     --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
-    --token-link-standalone-underline-color-primary-active: #78a9ff;
-    --token-link-standalone-underline-color-primary-hover: #a6c8ff;
-    --token-link-standalone-underline-color-secondary-active: var(
-      --token-color-foreground-faint
-    );
-    --token-link-standalone-underline-color-secondary-hover: var(
-      --token-color-foreground-primary
-    );
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,

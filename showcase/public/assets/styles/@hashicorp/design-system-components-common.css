@@ -7239,13 +7239,13 @@ button.hds-button[href]::after {
   color: var(--token-color-foreground-action-hover);
 }
 .hds-link-standalone--color-primary:hover .hds-link-standalone__text, .hds-link-standalone--color-primary.mock-hover .hds-link-standalone__text {
-  text-decoration-color: var(--token-link-standalone-underline-color-primary-hover);
+  text-decoration-color: var(--token-color-foreground-action-hover);
 }
 .hds-link-standalone--color-primary:active, .hds-link-standalone--color-primary.mock-active {
   color: var(--token-color-foreground-action-active);
 }
 .hds-link-standalone--color-primary:active .hds-link-standalone__text, .hds-link-standalone--color-primary.mock-active .hds-link-standalone__text {
-  text-decoration-color: var(--token-link-standalone-underline-color-primary-active);
+  text-decoration-color: var(--token-color-foreground-action-active);
 }
 .hds-link-standalone--color-primary:active::before, .hds-link-standalone--color-primary.mock-active::before {
   background-color: var(--token-link-standalone-surface-color-primary-active);
@@ -7255,13 +7255,13 @@ button.hds-button[href]::after {
   color: var(--token-color-foreground-strong);
 }
 .hds-link-standalone--color-secondary:hover .hds-link-standalone__text, .hds-link-standalone--color-secondary.mock-hover .hds-link-standalone__text {
-  text-decoration-color: var(--token-link-standalone-underline-color-secondary-hover);
+  text-decoration-color: var(--token-color-foreground-strong);
 }
 .hds-link-standalone--color-secondary:active, .hds-link-standalone--color-secondary.mock-active {
   color: var(--token-color-foreground-primary);
 }
 .hds-link-standalone--color-secondary:active .hds-link-standalone__text, .hds-link-standalone--color-secondary.mock-active .hds-link-standalone__text {
-  text-decoration-color: var(--token-link-standalone-underline-color-secondary-active);
+  text-decoration-color: var(--token-color-foreground-primary);
 }
 .hds-link-standalone--color-secondary:active::before, .hds-link-standalone--color-secondary.mock-active::before {
   background-color: var(--token-link-standalone-surface-color-secondary-active);

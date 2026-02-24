@@ -78,7 +78,7 @@ $hds-link-standalone-border-width: 1px;
     color: var(--token-color-foreground-action-hover);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--token-link-standalone-underline-color-primary-hover);
+      text-decoration-color: var(--token-color-foreground-action-hover);
     }
   }
 
@@ -87,7 +87,7 @@ $hds-link-standalone-border-width: 1px;
     color: var(--token-color-foreground-action-active);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--token-link-standalone-underline-color-primary-active);
+      text-decoration-color: var(--token-color-foreground-action-active);
     }
 
     &::before {
@@ -102,7 +102,7 @@ $hds-link-standalone-border-width: 1px;
   &:hover,
   &.mock-hover {
     .hds-link-standalone__text {
-      text-decoration-color: var(--token-link-standalone-underline-color-secondary-hover);
+      text-decoration-color: var(--token-color-foreground-strong);
     }
   }
 
@@ -111,7 +111,7 @@ $hds-link-standalone-border-width: 1px;
     color: var(--token-color-foreground-primary);
 
     .hds-link-standalone__text {
-      text-decoration-color: var(--token-link-standalone-underline-color-secondary-active);
+      text-decoration-color: var(--token-color-foreground-primary);
     }
 
     &::before {
