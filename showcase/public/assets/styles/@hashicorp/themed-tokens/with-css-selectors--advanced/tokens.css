@@ -711,7 +711,7 @@
     --token-color-focus-action-internal: #ffffff;
     --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --token-color-focus-critical-internal: #ffffff;
-    --token-color-foreground-action-active: #0043ce;
+    --token-color-foreground-action-active: #0f62fe;
     --token-color-foreground-action-hover: #0043ce;
     --token-color-foreground-action: #0f62fe;
     --token-color-foreground-critical-high-contrast: #750e13;
@@ -1102,7 +1102,7 @@
     --token-color-focus-action-internal: #161616;
     --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --token-color-focus-critical-internal: #161616;
-    --token-color-foreground-action-active: #a6c8ff;
+    --token-color-foreground-action-active: #78a9ff;
     --token-color-foreground-action-hover: #a6c8ff;
     --token-color-foreground-action: #78a9ff;
     --token-color-foreground-critical-high-contrast: #ffd7d9;
@@ -1493,7 +1493,7 @@
   --token-color-focus-action-internal: #ffffff;
   --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #ffffff;
-  --token-color-foreground-action-active: #0043ce;
+  --token-color-foreground-action-active: #0f62fe;
   --token-color-foreground-action-hover: #0043ce;
   --token-color-foreground-action: #0f62fe;
   --token-color-foreground-critical-high-contrast: #750e13;
@@ -1880,7 +1880,7 @@
   --token-color-focus-action-internal: #161616;
   --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #161616;
-  --token-color-foreground-action-active: #a6c8ff;
+  --token-color-foreground-action-active: #78a9ff;
   --token-color-foreground-action-hover: #a6c8ff;
   --token-color-foreground-action: #78a9ff;
   --token-color-foreground-critical-high-contrast: #ffd7d9;
@@ -2266,7 +2266,7 @@
   --token-color-focus-action-internal: #ffffff;
   --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #ffffff;
-  --token-color-foreground-action-active: #0043ce;
+  --token-color-foreground-action-active: #0f62fe;
   --token-color-foreground-action-hover: #0043ce;
   --token-color-foreground-action: #0f62fe;
   --token-color-foreground-critical-high-contrast: #750e13;
@@ -2652,7 +2652,7 @@
   --token-color-focus-action-internal: #161616;
   --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #161616;
-  --token-color-foreground-action-active: #a6c8ff;
+  --token-color-foreground-action-active: #78a9ff;
   --token-color-foreground-action-hover: #a6c8ff;
   --token-color-foreground-action: #78a9ff;
   --token-color-foreground-critical-high-contrast: #ffd7d9;

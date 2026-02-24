@@ -2461,10 +2461,10 @@
       "group": "semantic",
       "$modes": {
         "default": "#0046d1",
-        "cds-g0": "#0043ce",
-        "cds-g10": "#0043ce",
-        "cds-g90": "#a6c8ff",
-        "cds-g100": "#a6c8ff"
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#78a9ff",
+        "cds-g100": "#78a9ff"
       },
       "original": {
         "$type": "color",
@@ -2472,10 +2472,10 @@
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.blue-400}",
-          "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
-          "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
-          "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
-          "cds-g100": "{carbon.themes.g100.linkPrimaryHover}"
+          "cds-g0": "{carbon.themes.white.linkPrimary}",
+          "cds-g10": "{carbon.themes.g10.linkPrimary}",
+          "cds-g90": "{carbon.themes.g90.linkPrimary}",
+          "cds-g100": "{carbon.themes.g100.linkPrimary}"
         },
         "key": "{color.foreground.action-active}"
       },
@@ -17505,25 +17505,25 @@
     "token-color-foreground-action-active": {
       "key": "{color.foreground.action-active}",
       "$type": "color",
-      "$value": "#0043ce",
+      "$value": "#0f62fe",
       "group": "semantic",
       "$modes": {
         "default": "#002d9c",
-        "cds-g0": "#0043ce",
-        "cds-g10": "#0043ce",
-        "cds-g90": "#a6c8ff",
-        "cds-g100": "#a6c8ff"
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#78a9ff",
+        "cds-g100": "#78a9ff"
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.themes.white.linkPrimaryHover}",
+        "$value": "{carbon.themes.white.linkPrimary}",
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.blue-400}",
-          "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
-          "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
-          "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
-          "cds-g100": "{carbon.themes.g100.linkPrimaryHover}"
+          "cds-g0": "{carbon.themes.white.linkPrimary}",
+          "cds-g10": "{carbon.themes.g10.linkPrimary}",
+          "cds-g90": "{carbon.themes.g90.linkPrimary}",
+          "cds-g100": "{carbon.themes.g100.linkPrimary}"
         },
         "key": "{color.foreground.action-active}"
       },
@@ -24090,7 +24090,7 @@
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
-        "default": "#0043ce",
+        "default": "#0f62fe",
         "cds-g0": "#ffffff",
         "cds-g10": "#ffffff",
         "cds-g90": "#161616",
@@ -32553,25 +32553,25 @@
     "token-color-foreground-action-active": {
       "key": "{color.foreground.action-active}",
       "$type": "color",
-      "$value": "#0043ce",
+      "$value": "#0f62fe",
       "group": "semantic",
       "$modes": {
         "default": "#002d9c",
-        "cds-g0": "#0043ce",
-        "cds-g10": "#0043ce",
-        "cds-g90": "#a6c8ff",
-        "cds-g100": "#a6c8ff"
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#78a9ff",
+        "cds-g100": "#78a9ff"
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.themes.g10.linkPrimaryHover}",
+        "$value": "{carbon.themes.g10.linkPrimary}",
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.blue-400}",
-          "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
-          "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
-          "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
-          "cds-g100": "{carbon.themes.g100.linkPrimaryHover}"
+          "cds-g0": "{carbon.themes.white.linkPrimary}",
+          "cds-g10": "{carbon.themes.g10.linkPrimary}",
+          "cds-g90": "{carbon.themes.g90.linkPrimary}",
+          "cds-g100": "{carbon.themes.g100.linkPrimary}"
         },
         "key": "{color.foreground.action-active}"
       },
@@ -39138,7 +39138,7 @@
       "$type": "color",
       "$value": "#ffffff",
       "$modes": {
-        "default": "#0043ce",
+        "default": "#0f62fe",
         "cds-g0": "#ffffff",
         "cds-g10": "#ffffff",
         "cds-g90": "#161616",
@@ -47601,25 +47601,25 @@
     "token-color-foreground-action-active": {
       "key": "{color.foreground.action-active}",
       "$type": "color",
-      "$value": "#a6c8ff",
+      "$value": "#78a9ff",
       "group": "semantic",
       "$modes": {
         "default": "#002d9c",
-        "cds-g0": "#0043ce",
-        "cds-g10": "#0043ce",
-        "cds-g90": "#a6c8ff",
-        "cds-g100": "#a6c8ff"
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#78a9ff",
+        "cds-g100": "#78a9ff"
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.themes.g90.linkPrimaryHover}",
+        "$value": "{carbon.themes.g90.linkPrimary}",
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.blue-400}",
-          "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
-          "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
-          "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
-          "cds-g100": "{carbon.themes.g100.linkPrimaryHover}"
+          "cds-g0": "{carbon.themes.white.linkPrimary}",
+          "cds-g10": "{carbon.themes.g10.linkPrimary}",
+          "cds-g90": "{carbon.themes.g90.linkPrimary}",
+          "cds-g100": "{carbon.themes.g100.linkPrimary}"
         },
         "key": "{color.foreground.action-active}"
       },
@@ -54186,7 +54186,7 @@
       "$type": "color",
       "$value": "#161616",
       "$modes": {
-        "default": "#a6c8ff",
+        "default": "#78a9ff",
         "cds-g0": "#ffffff",
         "cds-g10": "#ffffff",
         "cds-g90": "#161616",
@@ -62649,25 +62649,25 @@
     "token-color-foreground-action-active": {
       "key": "{color.foreground.action-active}",
       "$type": "color",
-      "$value": "#a6c8ff",
+      "$value": "#78a9ff",
       "group": "semantic",
       "$modes": {
         "default": "#002d9c",
-        "cds-g0": "#0043ce",
-        "cds-g10": "#0043ce",
-        "cds-g90": "#a6c8ff",
-        "cds-g100": "#a6c8ff"
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#78a9ff",
+        "cds-g100": "#78a9ff"
       },
       "original": {
         "$type": "color",
-        "$value": "{carbon.themes.g100.linkPrimaryHover}",
+        "$value": "{carbon.themes.g100.linkPrimary}",
         "group": "semantic",
         "$modes": {
           "default": "{color.palette.blue-400}",
-          "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
-          "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
-          "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
-          "cds-g100": "{carbon.themes.g100.linkPrimaryHover}"
+          "cds-g0": "{carbon.themes.white.linkPrimary}",
+          "cds-g10": "{carbon.themes.g10.linkPrimary}",
+          "cds-g90": "{carbon.themes.g90.linkPrimary}",
+          "cds-g100": "{carbon.themes.g100.linkPrimary}"
         },
         "key": "{color.foreground.action-active}"
       },
@@ -69234,7 +69234,7 @@
       "$type": "color",
       "$value": "#161616",
       "$modes": {
-        "default": "#a6c8ff",
+        "default": "#78a9ff",
         "cds-g0": "#ffffff",
         "cds-g10": "#ffffff",
         "cds-g90": "#161616",

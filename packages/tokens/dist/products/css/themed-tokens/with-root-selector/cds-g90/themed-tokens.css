@@ -143,7 +143,7 @@
   --token-color-focus-action-internal: #161616;
   --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #161616;
-  --token-color-foreground-action-active: #a6c8ff;
+  --token-color-foreground-action-active: #78a9ff;
   --token-color-foreground-action-hover: #a6c8ff;
   --token-color-foreground-action: #78a9ff;
   --token-color-foreground-critical-high-contrast: #ffd7d9;
