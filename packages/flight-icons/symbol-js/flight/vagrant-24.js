@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-vagrant-24" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M1 1.878h7.333v5.344l7.334 14.9H8.333L1 7.222V1.878zm14.667 5.344V1.878H23v5.344l-6.708 13.626-3.67-7.447 3.045-6.179z" clip-rule="evenodd"/></symbol>`;

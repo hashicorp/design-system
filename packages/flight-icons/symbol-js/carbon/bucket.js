@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-carbon-bucket" viewBox="0 0 32 32"><path stroke-width="0" d="M10 10H22V12H10z"/><path stroke-width="0" d="M10 15H22V17H10z"/><path stroke-width="0" d="M10 20H22V22H10z"/><path stroke-width="0" d="m26,28H6c-1.1028,0-2-.8972-2-2V6c0-1.1028.8972-2,2-2h20c1.1028,0,2,.8972,2,2v20c0,1.1028-.8972,2-2,2ZM6,6v20h20V6H6Z"/></symbol>`;

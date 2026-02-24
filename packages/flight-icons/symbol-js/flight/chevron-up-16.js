@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-chevron-up-16" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.235 10.795a.75.75 0 001.06-.03L8 6.842l3.705 3.923a.75.75 0 001.09-1.03l-4.25-4.5a.75.75 0 00-1.09 0l-4.25 4.5a.75.75 0 00.03 1.06z" clip-rule="evenodd"/></symbol>`;
