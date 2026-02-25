@@ -5,8 +5,9 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import { eq } from 'ember-truth-helpers';
+import { on } from '@ember/modifier';
 
 import {
   HdsStepperNavStatusesValues,
@@ -14,6 +15,8 @@ import {
   HdsStepperNavStatusToSrOnlyText,
   HdsStepperTitleTagValues,
 } from '../types.ts';
+import HdsStepperStepIndicator from '../step/indicator.gts';
+import HdsTextBody from '../../text/body.gts';
 
 import type {
   HdsStepperNavPanelIds,
@@ -124,27 +127,24 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
     );
   }
 
-  @action
-  didInsertNode(element: HTMLButtonElement): void {
+  didInsertNode = (element: HTMLButtonElement): void => {
     const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
       this._elementId = element.id;
       didInsertNode();
     }
-  }
+  };
 
-  @action
-  willDestroyNode(element: HTMLButtonElement): void {
+  willDestroyNode = (element: HTMLButtonElement): void => {
     const { willDestroyNode } = this.args;
 
     if (typeof willDestroyNode === 'function') {
       willDestroyNode(element);
     }
-  }
+  };
 
-  @action
-  onStepChange(event: MouseEvent): false | undefined {
+  onStepChange = (event: MouseEvent): false | undefined => {
     const { onStepChange } = this.args;
 
     if (
@@ -156,10 +156,9 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
     } else {
       return false;
     }
-  }
+  };
 
-  @action
-  onKeyUp(event: KeyboardEvent): void {
+  onKeyUp = (event: KeyboardEvent): void => {
     const { onKeyUp } = this.args;
 
     if (
@@ -169,7 +168,7 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
     ) {
       onKeyUp(this.nodeIndex, event);
     }
-  }
+  };
 
   get classNames(): string {
     const classes = ['hds-stepper-nav__step'];
@@ -186,4 +185,106 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
 
     return classes.join(' ');
   }
+
+  <template>
+    {{! template-lint-disable require-context-role no-invalid-role }}
+    {{! template-lint-disable require-presentational-children }}
+    {{#if this.isNavInteractive}}
+      <li
+        class={{this.classNames}}
+        ...attributes
+        role={{if this.isNavInteractive "presentation"}}
+      >
+        <button
+          class="hds-stepper-nav__step-content hds-stepper-nav__step-button"
+          id={{this._stepId}}
+          tabindex={{unless (eq this.status "active") "-1"}}
+          type="button"
+          role="tab"
+          aria-controls={{this.coupledPanelId}}
+          aria-selected={{if (eq this.status "active") "true" "false"}}
+          aria-disabled={{if (eq this.status "incomplete") "true" "false"}}
+          {{on "click" this.onStepChange}}
+          {{on "keyup" this.onKeyUp}}
+          {{this._setUpStep this.didInsertNode this.willDestroyNode}}
+        >
+          <div class="hds-stepper-nav__step-progress">
+            <HdsStepperStepIndicator
+              @text="{{this.stepNumber}}"
+              @status={{this.stepIndicatorStatus}}
+              @isInteractive={{true}}
+              class="hds-stepper-nav__step-indicator"
+            />
+          </div>
+          <div class="hds-stepper-nav__step-text">
+            <HdsTextBody
+              class="hds-stepper-nav__step-title"
+              @tag={{this.titleTag}}
+              @size="200"
+              @weight="semibold"
+            >
+              {{yield to="title"}}
+              <span class="sr-only">{{this.statusSrOnlyText}}</span>
+            </HdsTextBody>
+            {{#if (has-block "description")}}
+              <HdsTextBody
+                class="hds-stepper-nav__step-description"
+                @tag="div"
+                @size="100"
+                @weight="regular"
+              >
+                {{yield to="description"}}
+              </HdsTextBody>
+            {{/if}}
+          </div>
+        </button>
+      </li>
+    {{else}}
+      <li
+        class={{this.classNames}}
+        ...attributes
+        role={{if this.isNavInteractive "presentation"}}
+        aria-current={{if (eq this.status "active") "step" "false"}}
+      >
+        <div
+          class="hds-stepper-nav__step-content"
+          id={{this._stepId}}
+          {{this._setUpStep this.didInsertNode this.willDestroyNode}}
+        >
+          <div class="hds-stepper-nav__step-progress">
+            <HdsStepperStepIndicator
+              @text="{{this.stepNumber}}"
+              @status={{this.stepIndicatorStatus}}
+              @isInteractive={{false}}
+              aria-hidden="true"
+              class="hds-stepper-nav__step-indicator"
+            />
+          </div>
+          <div class="hds-stepper-nav__step-text">
+            <HdsTextBody
+              class="hds-stepper-nav__step-title"
+              @tag={{this.titleTag}}
+              @size="200"
+              @weight="semibold"
+            >
+              {{yield to="title"}}
+              <span class="sr-only">{{this.statusSrOnlyText}}</span>
+            </HdsTextBody>
+            {{#if (has-block "description")}}
+              <HdsTextBody
+                class="hds-stepper-nav__step-description"
+                @tag="div"
+                @size="100"
+                @weight="regular"
+              >
+                {{yield to="description"}}
+              </HdsTextBody>
+            {{/if}}
+          </div>
+        </div>
+      </li>
+    {{/if}}
+    {{! template-lint-enable require-presentational-children }}
+    {{! template-lint-enable require-context-role no-invalid-role }}
+  </template>
 }
