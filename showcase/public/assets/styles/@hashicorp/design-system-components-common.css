@@ -2871,10 +2871,10 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-primary-focus-internal);
 }
 .hds-button--color-primary:focus::before, .hds-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
 }
@@ -4337,10 +4337,10 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-primary-focus-internal);
 }
 .hds-dropdown-toggle-button--color-primary:focus::before, .hds-dropdown-toggle-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
 }

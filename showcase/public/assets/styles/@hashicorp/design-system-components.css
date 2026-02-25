@@ -298,9 +298,9 @@
   --token-button-typography-font-size-small: 0.8125rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-large: 1rem;
-  --token-button-typography-line-height-small: 0.9286; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
-  --token-button-typography-line-height-medium: 1.1429; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-large: 1.5; /** 24px = 1.5 */
+  --token-button-typography-line-height-small: 0.9286;
+  --token-button-typography-line-height-medium: 1.1429;
+  --token-button-typography-line-height-large: 1.5;
   --token-button-foreground-color-primary-default: #ffffff;
   --token-button-foreground-color-primary-hover: #ffffff;
   --token-button-foreground-color-primary-focus: #ffffff;
@@ -339,7 +339,7 @@
   --token-button-border-radius: 5px;
   --token-button-border-color-primary-default: #0c56e9;
   --token-button-border-color-primary-hover: #0c56e9;
-  --token-button-border-color-primary-focus-internal: #0c56e9; /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-primary-focus-internal: #ffffff; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-primary-focus-external: #5990ff; /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-primary-active: #0046d1;
   --token-button-border-color-secondary-default: #3b3d4566;
@@ -3383,10 +3383,10 @@ a.hds-button:hover, a.hds-button:focus, a.hds-button:active, a.hds-button.mock-h
   border-color: var(--token-button-border-color-primary-focus-internal);
 }
 .hds-button--color-primary:focus::before, .hds-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
 }
@@ -4849,10 +4849,10 @@ button.hds-button[href]::after {
   border-color: var(--token-button-border-color-primary-focus-internal);
 }
 .hds-dropdown-toggle-button--color-primary:focus::before, .hds-dropdown-toggle-button--color-primary.mock-focus::before {
-  top: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  right: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  bottom: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
-  left: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width) + 2px));
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   border-color: var(--token-button-border-color-primary-focus-external);
   border-radius: calc(var(--token-button-border-radius) + var(--token-button-focus-border-width) + 2px);
 }
