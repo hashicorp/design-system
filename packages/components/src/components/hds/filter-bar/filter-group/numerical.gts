@@ -4,19 +4,27 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
+import { concat, fn } from '@ember/helper';
+import { on } from '@ember/modifier';
+import { eq } from 'ember-truth-helpers';
 
-import type { HdsFilterBarFilterGroupGenericSignature } from './generic.ts';
-import type HdsIntlService from '../../../../services/hds-intl';
+import { HdsFilterBarNumericalFilterSelectorValues } from '../types.ts';
+import hdsT from '../../../../helpers/hds-t.ts';
+import HdsFilterBarFilterGroupGeneric from './generic.gts';
+import HdsFormSelectField from '../../form/select/field.ts';
+import HdsLayoutFlex from '../../layout/flex/index.gts';
+import HdsFormTextInputBase from '../../form/text-input/base.gts';
+
+import type { HdsFilterBarFilterGroupGenericSignature } from './generic.gts';
+import type HdsIntlService from '../../../../services/hds-intl.ts';
 import type {
   HdsFilterBarFilter,
   HdsFilterBarNumericalFilterData,
   HdsFilterBarNumericalFilterSelector,
 } from '../types.ts';
-import { HdsFilterBarNumericalFilterSelectorValues } from '../types.ts';
 
 export const NUMERICAL_SELECTORS: HdsFilterBarNumericalFilterSelector[] =
   Object.values(HdsFilterBarNumericalFilterSelectorValues);
@@ -145,11 +153,10 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
       : undefined;
   }
 
-  @action
-  onSelectorChange(
+  onSelectorChange = (
     updateFilter: (filter: HdsFilterBarFilter) => void,
     event: Event
-  ): void {
+  ): void => {
     const select = event.target as HTMLSelectElement;
     this._selectorInputValue =
       select.value as HdsFilterBarNumericalFilterSelector;
@@ -160,49 +167,45 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
       this._betweenValueEndInputValue = undefined;
     }
     this._updateFilter(updateFilter);
-  }
+  };
 
-  @action
-  onValueChange(
+  onValueChange = (
     updateFilter: (filter: HdsFilterBarFilter) => void,
     event: Event
-  ): void {
+  ): void => {
     const input = event.target as HTMLInputElement;
     this._valueInputValue = parseFloat(input.value);
     this._updateFilter(updateFilter);
-  }
+  };
 
-  @action
-  onBetweenValueStartChange(
+  onBetweenValueStartChange = (
     updateFilter: (filter: HdsFilterBarFilter) => void,
     event: Event
-  ): void {
+  ): void => {
     const input = event.target as HTMLInputElement;
     this._betweenValueStartInputValue = parseFloat(input.value);
     this._updateFilter(updateFilter);
-  }
+  };
 
-  @action
-  onBetweenValueEndChange(
+  onBetweenValueEndChange = (
     updateFilter: (filter: HdsFilterBarFilter) => void,
     event: Event
-  ): void {
+  ): void => {
     const input = event.target as HTMLInputElement;
     this._betweenValueEndInputValue = parseFloat(input.value);
     this._updateFilter(updateFilter);
-  }
+  };
 
-  @action
-  onChange(filter: HdsFilterBarFilter): void {
+  onChange = (filter: HdsFilterBarFilter): void => {
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(filter);
     }
-  }
+  };
 
-  private _updateFilter(
+  private _updateFilter = (
     updateFilter: (filter: HdsFilterBarFilter) => void
-  ): void {
+  ): void => {
     const addFilter = (): HdsFilterBarFilter => {
       const value =
         this._selectorInputValue === 'between'
@@ -225,9 +228,9 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
     if (this._isFormCompleted()) {
       updateFilter(addFilter());
     }
-  }
+  };
 
-  private _isFormCompleted(): boolean {
+  private _isFormCompleted = (): boolean => {
     if (this._selectorInputValue === 'between') {
       return (
         this._betweenValueStartInputValue !== undefined &&
@@ -239,7 +242,7 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
         this._valueInputValue !== undefined
       );
     }
-  }
+  };
 
   private _getSelectorText = (
     selector: HdsFilterBarNumericalFilterSelector
@@ -251,4 +254,102 @@ export default class HdsFilterBarFilterGroupNumerical extends Component<HdsFilte
       }
     );
   };
+
+  <template>
+    <HdsFilterBarFilterGroupGeneric
+      class="hds-filter-bar__filter-group__numerical"
+      @onChange={{this.onChange}}
+      ...attributes
+      as |G|
+    >
+      <fieldset class="hds-filter-bar__filter-group__fieldset">
+        <legend class="sr-only">
+          {{hdsT
+            "hds.components.filter-bar.filter-group.numerical.legend"
+            text=@text
+            default="Filter by number"
+          }}
+        </legend>
+        <HdsFormSelectField
+          @id={{this._selectorInputId}}
+          name={{concat @key "-selector"}}
+          class="hds-filter-bar__filter-group__field"
+          {{on "change" (fn this.onSelectorChange G.updateFilter)}}
+          as |F|
+        >
+          <F.Label>
+            {{hdsT
+              "hds.components.filter-bar.filter-group.numerical.label"
+              default="Number is"
+            }}
+          </F.Label>
+          <F.Options>
+            <option value="">{{hdsT
+                "hds.components.filter-bar.filter-group.numerical.selector-input.default-value"
+                default="Pick a selector"
+              }}</option>
+            {{#each this._selectorValues as |selectorValue|}}
+              <option
+                value={{selectorValue}}
+                selected={{eq selectorValue this.selector}}
+              >{{this._getSelectorText selectorValue}}</option>
+            {{/each}}
+          </F.Options>
+        </HdsFormSelectField>
+        {{#if (eq this.selector "between")}}
+          <HdsLayoutFlex @gap="8">
+            <HdsFormTextInputBase
+              @id={{this._betweenValueStartInputId}}
+              @type="text"
+              @value={{this.stringBetweenValueStart}}
+              name={{concat @key "-between-start"}}
+              aria-label={{hdsT
+                "hds.components.filter-bar.between-value-inputs.start.aria-label"
+                default="Number start value"
+              }}
+              placeholder={{hdsT
+                "hds.components.filter-bar.between-value-inputs.start.placeholder"
+                default="Start"
+              }}
+              class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
+              {{on "change" (fn this.onBetweenValueStartChange G.updateFilter)}}
+            />
+            <HdsFormTextInputBase
+              @id={{this._betweenValueEndInputId}}
+              @type="text"
+              @value={{this.stringBetweenValueEnd}}
+              name={{concat @key "-between-end"}}
+              aria-label={{hdsT
+                "hds.components.filter-bar.between-value-inputs.end.aria-label"
+                default="Number end value"
+              }}
+              placeholder={{hdsT
+                "hds.components.filter-bar.between-value-inputs.end.placeholder"
+                default="End"
+              }}
+              class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
+              {{on "change" (fn this.onBetweenValueEndChange G.updateFilter)}}
+            />
+          </HdsLayoutFlex>
+        {{else}}
+          <HdsFormTextInputBase
+            @id={{this._valueInputId}}
+            @type="text"
+            @value={{this.stringValue}}
+            name={{concat @key "-value"}}
+            aria-label={{hdsT
+              "hds.components.filter-bar.filter-group.numerical.value-input.aria-label"
+              default="Number value"
+            }}
+            placeholder={{hdsT
+              "hds.components.filter-bar.filter-group.numerical.value-input.placeholder"
+              default="Enter a value"
+            }}
+            class="hds-filter-bar__filter-group__field"
+            {{on "change" (fn this.onValueChange G.updateFilter)}}
+          />
+        {{/if}}
+      </fieldset>
+    </HdsFilterBarFilterGroupGeneric>
+  </template>
 }

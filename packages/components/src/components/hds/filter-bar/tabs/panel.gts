@@ -5,8 +5,8 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
 import { modifier, type PositionalArgs } from 'ember-modifier';
+import { not } from 'ember-truth-helpers';
 
 export interface HdsFilterBarTabsPanelModifierSignature {
   Args: {
@@ -65,21 +65,38 @@ export default class HdsFilterBarTabsPanel extends Component<HdsFilterBarTabsPan
     return this.nodeIndex === this.args.selectedTabIndex;
   }
 
-  @action
-  didInsertNode(element: HTMLElement): void {
+  didInsertNode = (element: HTMLElement): void => {
     const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
       didInsertNode(element, this._panelId);
     }
-  }
+  };
 
-  @action
-  willDestroyNode(element: HTMLElement): void {
+  willDestroyNode = (element: HTMLElement): void => {
     const { willDestroyNode } = this.args;
 
     if (typeof willDestroyNode === 'function') {
       willDestroyNode(element);
     }
-  }
+  };
+
+  <template>
+    <section
+      class="hds-filter-bar__tabs__panel"
+      ...attributes
+      role="tabpanel"
+      id={{this._panelId}}
+      hidden={{not this.isVisible}}
+      aria-labelledby={{this.coupledTabId}}
+      {{this._setUpPanel
+        insertCallbackFunction=this.didInsertNode
+        destroyCallbackFunction=this.willDestroyNode
+      }}
+    >
+      {{#if this.isVisible}}
+        {{yield}}
+      {{/if}}
+    </section>
+  </template>
 }

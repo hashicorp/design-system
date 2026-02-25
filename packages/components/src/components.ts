@@ -131,20 +131,20 @@ export * from './components/hds/dropdown/toggle/types.ts';
 export * from './components/hds/dropdown/types.ts';
 
 // FilterBar
-export { default as HdsFilterBar } from './components/hds/filter-bar/index.ts';
-export { default as HdsFilterBarActionsDropdown } from './components/hds/filter-bar/actions-dropdown.ts';
-export { default as HdsFilterBarAppliedFilters } from './components/hds/filter-bar/applied-filters.ts';
-export { default as HdsFilterBarFiltersDropdown } from './components/hds/filter-bar/filters-dropdown.ts';
-export { default as HdsFilterBarFilterGroup } from './components/hds/filter-bar/filter-group/index.ts';
-export { default as HdsFilterBarFilterGroupCheckbox } from './components/hds/filter-bar/filter-group/checkbox.ts';
-export { default as HdsFilterBarFilterGroupClearButton } from './components/hds/filter-bar/filter-group/clear-button.ts';
-export { default as HdsFilterBarFilterGroupDate } from './components/hds/filter-bar/filter-group/date.ts';
-export { default as HdsFilterBarFilterGroupGeneric } from './components/hds/filter-bar/filter-group/generic.ts';
-export { default as HdsFilterBarFilterGroupRadio } from './components/hds/filter-bar/filter-group/radio.ts';
-export { default as HdsFilterBarFilterGroupNumerical } from './components/hds/filter-bar/filter-group/numerical.ts';
-export { default as HdsFilterBarTabs } from './components/hds/filter-bar/tabs/index.ts';
-export { default as HdsFilterBarTabsPanel } from './components/hds/filter-bar/tabs/panel.ts';
-export { default as HdsFilterBarTabsTab } from './components/hds/filter-bar/tabs/tab.ts';
+export { default as HdsFilterBar } from './components/hds/filter-bar/index.gts';
+export { default as HdsFilterBarActionsDropdown } from './components/hds/filter-bar/actions-dropdown.gts';
+export { default as HdsFilterBarAppliedFilters } from './components/hds/filter-bar/applied-filters.gts';
+export { default as HdsFilterBarFiltersDropdown } from './components/hds/filter-bar/filters-dropdown.gts';
+export { default as HdsFilterBarFilterGroup } from './components/hds/filter-bar/filter-group/index.gts';
+export { default as HdsFilterBarFilterGroupCheckbox } from './components/hds/filter-bar/filter-group/checkbox.gts';
+export { default as HdsFilterBarFilterGroupClearButton } from './components/hds/filter-bar/filter-group/clear-button.gts';
+export { default as HdsFilterBarFilterGroupDate } from './components/hds/filter-bar/filter-group/date.gts';
+export { default as HdsFilterBarFilterGroupGeneric } from './components/hds/filter-bar/filter-group/generic.gts';
+export { default as HdsFilterBarFilterGroupRadio } from './components/hds/filter-bar/filter-group/radio.gts';
+export { default as HdsFilterBarFilterGroupNumerical } from './components/hds/filter-bar/filter-group/numerical.gts';
+export { default as HdsFilterBarTabs } from './components/hds/filter-bar/tabs/index.gts';
+export { default as HdsFilterBarTabsPanel } from './components/hds/filter-bar/tabs/panel.gts';
+export { default as HdsFilterBarTabsTab } from './components/hds/filter-bar/tabs/tab.gts';
 export * from './components/hds/filter-bar/types.ts';
 
 // Flyout

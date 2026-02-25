@@ -6,8 +6,14 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { isArray } from '@ember/array';
+import { fn } from '@ember/helper';
 
-import type HdsIntlService from '../../../services/hds-intl';
+import { NUMERICAL_SELECTORS_TEXT } from './filter-group/numerical.gts';
+import { DATE_SELECTORS_TEXT } from './filter-group/date.gts';
+import hdsT from '../../../helpers/hds-t.ts';
+import HdsTag from '../tag/index.gts';
+
+import type HdsIntlService from '../../../services/hds-intl.ts';
 import type {
   HdsFilterBarFilters,
   HdsFilterBarFilter,
@@ -15,9 +21,6 @@ import type {
   HdsFilterBarData,
   HdsFilterBarGenericFilterData,
 } from './types.ts';
-
-import { NUMERICAL_SELECTORS_TEXT } from './filter-group/numerical.ts';
-import { DATE_SELECTORS_TEXT } from './filter-group/date.ts';
 
 export interface HdsFilterBarAppliedFiltersSignature {
   Args: {
@@ -253,4 +256,34 @@ export default class HdsFilterBarAppliedFilters extends Component<HdsFilterBarAp
       ? ':'
       : '';
   };
+
+  <template>
+    <div class="hds-filter-bar__applied-filters" ...attributes>
+      {{#each-in @filters as |key filter|}}
+        {{#if filter.data}}
+          {{#if (this._isArrayFilter filter)}}
+            {{#each (this._arrayFilterData filter.data) as |item|}}
+              <HdsTag
+                @text="{{this._arrayFilterText key filter item}}"
+                @ariaLabel={{hdsT
+                  "hds.components.filter-bar.applied-filters.tag.aria-label"
+                  default="Clear filter"
+                }}
+                @onDismiss={{fn this._onFilterDismiss key item.value}}
+              />
+            {{/each}}
+          {{else}}
+            <HdsTag
+              @text={{this._filterText key filter}}
+              @ariaLabel={{hdsT
+                "hds.components.filter-bar.applied-filters.tag.aria-label"
+                default="Clear filter"
+              }}
+              @onDismiss={{fn this._onFilterDismiss key}}
+            />
+          {{/if}}
+        {{/if}}
+      {{/each-in}}
+    </div>
+  </template>
 }

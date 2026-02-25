@@ -6,9 +6,11 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 
+import HdsDropdown from '../dropdown/index.ts';
+
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleButtonSignature } from '../dropdown/toggle/button.ts';
-import type HdsIntlService from '../../../services/hds-intl';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export interface HdsFilterBarActionsDropdownSignature {
   Args: Pick<
@@ -42,4 +44,26 @@ export default class HdsFilterBarActionsDropdown extends Component<HdsFilterBarA
       )
     );
   }
+
+  <template>
+    <HdsDropdown
+      @listPosition="bottom-right"
+      @enableCollisionDetection={{@enableCollisionDetection}}
+      @width={{@width}}
+      @height={{@height}}
+      @preserveContentInDom={{@preserveContentInDom}}
+      @onClose={{@onClose}}
+      class="hds-filter-bar__actions-dropdown"
+      ...attributes
+      as |D|
+    >
+      <D.ToggleButton
+        @icon={{@toggleButtonIcon}}
+        @text={{this.toggleButtonText}}
+        @color="secondary"
+        @size="small"
+      />
+      {{yield D}}
+    </HdsDropdown>
+  </template>
 }

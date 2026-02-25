@@ -4,8 +4,11 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { on } from '@ember/modifier';
+
+import HdsFormCheckboxBase from '../../form/checkbox/base.gts';
+import HdsTextBody from '../../text/body.gts';
 
 import type { HdsFilterBarFilter } from '../types.ts';
 
@@ -57,11 +60,29 @@ export default class HdsFilterBarFilterGroupCheckbox extends Component<HdsFilter
     return classes.join(' ');
   }
 
-  @action
-  onChange(event: Event): void {
+  onChange = (event: Event): void => {
     const { onChange, label } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(event, label);
     }
-  }
+  };
+
+  <template>
+    <label class={{this.classNames}} ...attributes for={{this._elementId}}>
+      <HdsFormCheckboxBase
+        class="hds-filter-bar__filter-group__selection-option__control"
+        id={{this._elementId}}
+        name={{@name}}
+        checked={{this.isChecked}}
+        @value={{@value}}
+        {{on "change" this.onChange}}
+      />
+      <HdsTextBody
+        @tag="span"
+        @size="200"
+        @weight="medium"
+        class="hds-filter-bar__filter-group__selection-option__text-content"
+      >{{@label}}</HdsTextBody>
+    </label>
+  </template>
 }
