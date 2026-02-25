@@ -10676,6 +10676,148 @@
     ]
   },
   {
+    "key": "{dialog-primitive.padding.horizontal}",
+    "$type": "dimension",
+    "$value": "16px",
+    "unit": "px",
+    "$modes": {
+      "default": "24",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "16",
+      "unit": "px",
+      "$modes": {
+        "default": "24",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "key": "{dialog-primitive.padding.horizontal}"
+    },
+    "name": "token-dialog-primitive-padding-horizontal",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "padding",
+      "horizontal"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.padding.vertical}",
+    "$type": "dimension",
+    "$value": "16px",
+    "unit": "px",
+    "$modes": {
+      "default": "16",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "16",
+      "unit": "px",
+      "$modes": {
+        "default": "16",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "key": "{dialog-primitive.padding.vertical}"
+    },
+    "name": "token-dialog-primitive-padding-vertical",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "padding",
+      "vertical"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.border.color}",
+    "$type": "color",
+    "$value": "#6f6f6f",
+    "$modes": {
+      "default": "transparent",
+      "cds-g0": 1.25,
+      "cds-g10": "#e0e0e0",
+      "cds-g90": "#6f6f6f",
+      "cds-g100": "#525252"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.color.gray.60}",
+      "$modes": {
+        "default": "transparent",
+        "cds-g0": "{carbon.typography.heading05.line-height}",
+        "cds-g10": "{carbon.color.gray.20}",
+        "cds-g90": "{carbon.color.gray.60}",
+        "cds-g100": "{carbon.color.gray.70}"
+      },
+      "key": "{dialog-primitive.border.color}"
+    },
+    "name": "token-dialog-primitive-border-color",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "border",
+      "color"
+    ]
+  },
+  {
+    "key": "{dialog-primitive.title.font-weight}",
+    "$type": "font-weight",
+    "$value": 400,
+    "$modes": {
+      "default": 600,
+      "cds-g0": 400,
+      "cds-g10": 400,
+      "cds-g90": 400,
+      "cds-g100": 400
+    },
+    "comments": {
+      "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
+    },
+    "original": {
+      "$type": "font-weight",
+      "$value": "{carbon.typography.heading03.font-weight}",
+      "$modes": {
+        "default": "{typography.font-weight.semibold}",
+        "cds-g0": "{carbon.typography.heading03.font-weight}",
+        "cds-g10": "{carbon.typography.heading03.font-weight}",
+        "cds-g90": "{carbon.typography.heading03.font-weight}",
+        "cds-g100": "{carbon.typography.heading03.font-weight}"
+      },
+      "comments": {
+        "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
+      },
+      "key": "{dialog-primitive.title.font-weight}"
+    },
+    "name": "token-dialog-primitive-title-font-weight",
+    "attributes": {
+      "category": "dialog-primitive"
+    },
+    "path": [
+      "dialog-primitive",
+      "title",
+      "font-weight"
+    ]
+  },
+  {
     "key": "{form.label.color}",
     "$type": "color",
     "$value": "#f4f4f4",

@@ -173,12 +173,16 @@ Router.map(function () {
       this.route('badge');
       this.route('badge-count');
       this.route('button');
+      this.route('flyout');
       this.route('form', function (): void {
         this.route('text-input');
         this.route('radio-card');
       });
       this.route('modal');
       this.route('segmented-group');
+    });
+    this.route('utilities', function () {
+      this.route('dialog-primitive');
     });
   });
 });
