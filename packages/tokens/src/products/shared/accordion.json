@@ -1,0 +1,188 @@
+{
+  "accordion": {
+    "gap": {
+      "small": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        }
+      }
+    },
+    "item": {
+      "toggle": {
+        "padding": {
+          "small": {
+            "$type": "dimension",
+            "$value": "8",
+            "unit": "px"
+          },
+          "medium": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          },
+          "large": {
+            "$type": "dimension",
+            "$value": "16",
+            "unit": "px"
+          }
+        },
+        "padding-left": {
+          "small": {
+            "$type": "dimension",
+            "$value": "8",
+            "unit": "px"
+          },
+          "medium": {
+            "$type": "dimension",
+            "$value": "8",
+            "unit": "px"
+          },
+          "large": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          }
+        },
+        "gap": {
+          "small": {
+            "$type": "dimension",
+            "$value": "8",
+            "unit": "px"
+          },
+          "medium": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          },
+          "large": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          }
+        },
+        "icon": {
+          "size": {
+            "small": {
+              "$type": "dimension",
+              "$value": "16",
+              "unit": "px"
+            },
+            "medium": {
+              "$type": "dimension",
+              "$value": "20",
+              "unit": "px"
+            },
+            "large": {
+              "$type": "dimension",
+              "$value": "24",
+              "unit": "px"
+            }
+          }
+        }
+      }
+    },
+    "content": {
+      "padding": {
+        "top": {
+          "small": {
+            "$type": "dimension",
+            "$value": "4",
+            "unit": "px"
+          },
+          "medium": {
+            "$type": "dimension",
+            "$value": "4",
+            "unit": "px"
+          },
+          "large": {
+            "$type": "dimension",
+            "$value": "4",
+            "unit": "px"
+          }
+        },
+        "right": {
+          "small": {
+            "$type": "dimension",
+            "$value": "8",
+            "unit": "px"
+          },
+          "medium": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          },
+          "large": {
+            "$type": "dimension",
+            "$value": "16",
+            "unit": "px"
+          }
+        },
+        "bottom": {
+          "small": {
+            "$type": "dimension",
+            "$value": "8",
+            "unit": "px"
+          },
+          "medium": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          },
+          "large": {
+            "$type": "dimension",
+            "$value": "16",
+            "unit": "px"
+          }
+        },
+        "left": {
+          "small": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          },
+          "medium": {
+            "$type": "dimension",
+            "$value": "12",
+            "unit": "px"
+          },
+          "large": {
+            "$type": "dimension",
+            "$value": "16",
+            "unit": "px"
+          }
+        }
+      }
+    }
+  }
+}

@@ -5568,6 +5568,666 @@
         "box-shadow"
       ]
     },
+    "token-accordion-gap-small": {
+      "key": "{accordion.gap.small}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.small}"
+      },
+      "name": "token-accordion-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-gap-medium": {
+      "key": "{accordion.gap.medium}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.medium}"
+      },
+      "name": "token-accordion-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-gap-large": {
+      "key": "{accordion.gap.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.large}"
+      },
+      "name": "token-accordion-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-small": {
+      "key": "{accordion.item.toggle.padding.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-medium": {
+      "key": "{accordion.item.toggle.padding.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-large": {
+      "key": "{accordion.item.toggle.padding.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-small": {
+      "key": "{accordion.item.toggle.padding-left.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-medium": {
+      "key": "{accordion.item.toggle.padding-left.medium}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-large": {
+      "key": "{accordion.item.toggle.padding-left.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-gap-small": {
+      "key": "{accordion.item.toggle.gap.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.small}"
+      },
+      "name": "token-accordion-item-toggle-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-gap-medium": {
+      "key": "{accordion.item.toggle.gap.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.medium}"
+      },
+      "name": "token-accordion-item-toggle-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-gap-large": {
+      "key": "{accordion.item.toggle.gap.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.large}"
+      },
+      "name": "token-accordion-item-toggle-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-small": {
+      "key": "{accordion.item.toggle.icon.size.small}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.small}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-medium": {
+      "key": "{accordion.item.toggle.icon.size.medium}",
+      "$type": "dimension",
+      "$value": "20px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "20",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.medium}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-large": {
+      "key": "{accordion.item.toggle.icon.size.large}",
+      "$type": "dimension",
+      "$value": "24px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.large}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-top-small": {
+      "key": "{accordion.content.padding.top.small}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.small}"
+      },
+      "name": "token-accordion-content-padding-top-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-top-medium": {
+      "key": "{accordion.content.padding.top.medium}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.medium}"
+      },
+      "name": "token-accordion-content-padding-top-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-top-large": {
+      "key": "{accordion.content.padding.top.large}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.large}"
+      },
+      "name": "token-accordion-content-padding-top-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-right-small": {
+      "key": "{accordion.content.padding.right.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.small}"
+      },
+      "name": "token-accordion-content-padding-right-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-right-medium": {
+      "key": "{accordion.content.padding.right.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.medium}"
+      },
+      "name": "token-accordion-content-padding-right-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-right-large": {
+      "key": "{accordion.content.padding.right.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.large}"
+      },
+      "name": "token-accordion-content-padding-right-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-bottom-small": {
+      "key": "{accordion.content.padding.bottom.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.small}"
+      },
+      "name": "token-accordion-content-padding-bottom-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-bottom-medium": {
+      "key": "{accordion.content.padding.bottom.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.medium}"
+      },
+      "name": "token-accordion-content-padding-bottom-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-bottom-large": {
+      "key": "{accordion.content.padding.bottom.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.large}"
+      },
+      "name": "token-accordion-content-padding-bottom-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-left-small": {
+      "key": "{accordion.content.padding.left.small}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.small}"
+      },
+      "name": "token-accordion-content-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-left-medium": {
+      "key": "{accordion.content.padding.left.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.medium}"
+      },
+      "name": "token-accordion-content-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-left-large": {
+      "key": "{accordion.content.padding.left.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.large}"
+      },
+      "name": "token-accordion-content-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "large"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
@@ -20067,6 +20727,666 @@
         "focus-ring",
         "critical",
         "box-shadow"
+      ]
+    },
+    "token-accordion-gap-small": {
+      "key": "{accordion.gap.small}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.small}"
+      },
+      "name": "token-accordion-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-gap-medium": {
+      "key": "{accordion.gap.medium}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.medium}"
+      },
+      "name": "token-accordion-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-gap-large": {
+      "key": "{accordion.gap.large}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.large}"
+      },
+      "name": "token-accordion-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-small": {
+      "key": "{accordion.item.toggle.padding.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-medium": {
+      "key": "{accordion.item.toggle.padding.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-large": {
+      "key": "{accordion.item.toggle.padding.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-small": {
+      "key": "{accordion.item.toggle.padding-left.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-medium": {
+      "key": "{accordion.item.toggle.padding-left.medium}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-large": {
+      "key": "{accordion.item.toggle.padding-left.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-gap-small": {
+      "key": "{accordion.item.toggle.gap.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.small}"
+      },
+      "name": "token-accordion-item-toggle-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-gap-medium": {
+      "key": "{accordion.item.toggle.gap.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.medium}"
+      },
+      "name": "token-accordion-item-toggle-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-gap-large": {
+      "key": "{accordion.item.toggle.gap.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.large}"
+      },
+      "name": "token-accordion-item-toggle-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-small": {
+      "key": "{accordion.item.toggle.icon.size.small}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.small}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-medium": {
+      "key": "{accordion.item.toggle.icon.size.medium}",
+      "$type": "dimension",
+      "$value": "20px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "20",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.medium}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-large": {
+      "key": "{accordion.item.toggle.icon.size.large}",
+      "$type": "dimension",
+      "$value": "24px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.large}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-top-small": {
+      "key": "{accordion.content.padding.top.small}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.small}"
+      },
+      "name": "token-accordion-content-padding-top-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-top-medium": {
+      "key": "{accordion.content.padding.top.medium}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.medium}"
+      },
+      "name": "token-accordion-content-padding-top-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-top-large": {
+      "key": "{accordion.content.padding.top.large}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.large}"
+      },
+      "name": "token-accordion-content-padding-top-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-right-small": {
+      "key": "{accordion.content.padding.right.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.small}"
+      },
+      "name": "token-accordion-content-padding-right-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-right-medium": {
+      "key": "{accordion.content.padding.right.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.medium}"
+      },
+      "name": "token-accordion-content-padding-right-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-right-large": {
+      "key": "{accordion.content.padding.right.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.large}"
+      },
+      "name": "token-accordion-content-padding-right-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-bottom-small": {
+      "key": "{accordion.content.padding.bottom.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.small}"
+      },
+      "name": "token-accordion-content-padding-bottom-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-bottom-medium": {
+      "key": "{accordion.content.padding.bottom.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.medium}"
+      },
+      "name": "token-accordion-content-padding-bottom-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-bottom-large": {
+      "key": "{accordion.content.padding.bottom.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.large}"
+      },
+      "name": "token-accordion-content-padding-bottom-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-left-small": {
+      "key": "{accordion.content.padding.left.small}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.small}"
+      },
+      "name": "token-accordion-content-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-left-medium": {
+      "key": "{accordion.content.padding.left.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.medium}"
+      },
+      "name": "token-accordion-content-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-left-large": {
+      "key": "{accordion.content.padding.left.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.large}"
+      },
+      "name": "token-accordion-content-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "large"
       ]
     },
     "token-app-header-height": {
@@ -34570,6 +35890,666 @@
         "box-shadow"
       ]
     },
+    "token-accordion-gap-small": {
+      "key": "{accordion.gap.small}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.small}"
+      },
+      "name": "token-accordion-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-gap-medium": {
+      "key": "{accordion.gap.medium}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.medium}"
+      },
+      "name": "token-accordion-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-gap-large": {
+      "key": "{accordion.gap.large}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.large}"
+      },
+      "name": "token-accordion-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-small": {
+      "key": "{accordion.item.toggle.padding.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-medium": {
+      "key": "{accordion.item.toggle.padding.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-large": {
+      "key": "{accordion.item.toggle.padding.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-small": {
+      "key": "{accordion.item.toggle.padding-left.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-medium": {
+      "key": "{accordion.item.toggle.padding-left.medium}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-large": {
+      "key": "{accordion.item.toggle.padding-left.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-gap-small": {
+      "key": "{accordion.item.toggle.gap.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.small}"
+      },
+      "name": "token-accordion-item-toggle-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-gap-medium": {
+      "key": "{accordion.item.toggle.gap.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.medium}"
+      },
+      "name": "token-accordion-item-toggle-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-gap-large": {
+      "key": "{accordion.item.toggle.gap.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.large}"
+      },
+      "name": "token-accordion-item-toggle-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-small": {
+      "key": "{accordion.item.toggle.icon.size.small}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.small}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-medium": {
+      "key": "{accordion.item.toggle.icon.size.medium}",
+      "$type": "dimension",
+      "$value": "20px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "20",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.medium}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-large": {
+      "key": "{accordion.item.toggle.icon.size.large}",
+      "$type": "dimension",
+      "$value": "24px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.large}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-top-small": {
+      "key": "{accordion.content.padding.top.small}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.small}"
+      },
+      "name": "token-accordion-content-padding-top-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-top-medium": {
+      "key": "{accordion.content.padding.top.medium}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.medium}"
+      },
+      "name": "token-accordion-content-padding-top-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-top-large": {
+      "key": "{accordion.content.padding.top.large}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.large}"
+      },
+      "name": "token-accordion-content-padding-top-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-right-small": {
+      "key": "{accordion.content.padding.right.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.small}"
+      },
+      "name": "token-accordion-content-padding-right-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-right-medium": {
+      "key": "{accordion.content.padding.right.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.medium}"
+      },
+      "name": "token-accordion-content-padding-right-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-right-large": {
+      "key": "{accordion.content.padding.right.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.large}"
+      },
+      "name": "token-accordion-content-padding-right-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-bottom-small": {
+      "key": "{accordion.content.padding.bottom.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.small}"
+      },
+      "name": "token-accordion-content-padding-bottom-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-bottom-medium": {
+      "key": "{accordion.content.padding.bottom.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.medium}"
+      },
+      "name": "token-accordion-content-padding-bottom-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-bottom-large": {
+      "key": "{accordion.content.padding.bottom.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.large}"
+      },
+      "name": "token-accordion-content-padding-bottom-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-left-small": {
+      "key": "{accordion.content.padding.left.small}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.small}"
+      },
+      "name": "token-accordion-content-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-left-medium": {
+      "key": "{accordion.content.padding.left.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.medium}"
+      },
+      "name": "token-accordion-content-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-left-large": {
+      "key": "{accordion.content.padding.left.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.large}"
+      },
+      "name": "token-accordion-content-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "large"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
@@ -49071,6 +51051,666 @@
         "box-shadow"
       ]
     },
+    "token-accordion-gap-small": {
+      "key": "{accordion.gap.small}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.small}"
+      },
+      "name": "token-accordion-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-gap-medium": {
+      "key": "{accordion.gap.medium}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.medium}"
+      },
+      "name": "token-accordion-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-gap-large": {
+      "key": "{accordion.gap.large}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.large}"
+      },
+      "name": "token-accordion-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-small": {
+      "key": "{accordion.item.toggle.padding.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-medium": {
+      "key": "{accordion.item.toggle.padding.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-large": {
+      "key": "{accordion.item.toggle.padding.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-small": {
+      "key": "{accordion.item.toggle.padding-left.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-medium": {
+      "key": "{accordion.item.toggle.padding-left.medium}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-large": {
+      "key": "{accordion.item.toggle.padding-left.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-gap-small": {
+      "key": "{accordion.item.toggle.gap.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.small}"
+      },
+      "name": "token-accordion-item-toggle-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-gap-medium": {
+      "key": "{accordion.item.toggle.gap.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.medium}"
+      },
+      "name": "token-accordion-item-toggle-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-gap-large": {
+      "key": "{accordion.item.toggle.gap.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.large}"
+      },
+      "name": "token-accordion-item-toggle-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-small": {
+      "key": "{accordion.item.toggle.icon.size.small}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.small}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-medium": {
+      "key": "{accordion.item.toggle.icon.size.medium}",
+      "$type": "dimension",
+      "$value": "20px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "20",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.medium}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-large": {
+      "key": "{accordion.item.toggle.icon.size.large}",
+      "$type": "dimension",
+      "$value": "24px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.large}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-top-small": {
+      "key": "{accordion.content.padding.top.small}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.small}"
+      },
+      "name": "token-accordion-content-padding-top-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-top-medium": {
+      "key": "{accordion.content.padding.top.medium}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.medium}"
+      },
+      "name": "token-accordion-content-padding-top-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-top-large": {
+      "key": "{accordion.content.padding.top.large}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.large}"
+      },
+      "name": "token-accordion-content-padding-top-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-right-small": {
+      "key": "{accordion.content.padding.right.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.small}"
+      },
+      "name": "token-accordion-content-padding-right-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-right-medium": {
+      "key": "{accordion.content.padding.right.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.medium}"
+      },
+      "name": "token-accordion-content-padding-right-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-right-large": {
+      "key": "{accordion.content.padding.right.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.large}"
+      },
+      "name": "token-accordion-content-padding-right-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-bottom-small": {
+      "key": "{accordion.content.padding.bottom.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.small}"
+      },
+      "name": "token-accordion-content-padding-bottom-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-bottom-medium": {
+      "key": "{accordion.content.padding.bottom.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.medium}"
+      },
+      "name": "token-accordion-content-padding-bottom-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-bottom-large": {
+      "key": "{accordion.content.padding.bottom.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.large}"
+      },
+      "name": "token-accordion-content-padding-bottom-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-left-small": {
+      "key": "{accordion.content.padding.left.small}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.small}"
+      },
+      "name": "token-accordion-content-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-left-medium": {
+      "key": "{accordion.content.padding.left.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.medium}"
+      },
+      "name": "token-accordion-content-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-left-large": {
+      "key": "{accordion.content.padding.left.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.large}"
+      },
+      "name": "token-accordion-content-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "large"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
@@ -63570,6 +66210,666 @@
         "focus-ring",
         "critical",
         "box-shadow"
+      ]
+    },
+    "token-accordion-gap-small": {
+      "key": "{accordion.gap.small}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "4",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "4",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.small}"
+      },
+      "name": "token-accordion-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-gap-medium": {
+      "key": "{accordion.gap.medium}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "8",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.medium}"
+      },
+      "name": "token-accordion-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-gap-large": {
+      "key": "{accordion.gap.large}",
+      "$type": "dimension",
+      "$value": "0px",
+      "unit": "px",
+      "$modes": {
+        "default": "12",
+        "cds-g0": "0",
+        "cds-g10": "0",
+        "cds-g90": "0",
+        "cds-g100": "0"
+      },
+      "original": {
+        "$type": "dimension",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "0",
+          "cds-g10": "0",
+          "cds-g90": "0",
+          "cds-g100": "0"
+        },
+        "key": "{accordion.gap.large}"
+      },
+      "name": "token-accordion-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-small": {
+      "key": "{accordion.item.toggle.padding.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-medium": {
+      "key": "{accordion.item.toggle.padding.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-large": {
+      "key": "{accordion.item.toggle.padding.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-small": {
+      "key": "{accordion.item.toggle.padding-left.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.small}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-medium": {
+      "key": "{accordion.item.toggle.padding-left.medium}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.medium}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-padding-left-large": {
+      "key": "{accordion.item.toggle.padding-left.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.padding-left.large}"
+      },
+      "name": "token-accordion-item-toggle-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "padding-left",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-gap-small": {
+      "key": "{accordion.item.toggle.gap.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.small}"
+      },
+      "name": "token-accordion-item-toggle-gap-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-gap-medium": {
+      "key": "{accordion.item.toggle.gap.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.medium}"
+      },
+      "name": "token-accordion-item-toggle-gap-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-gap-large": {
+      "key": "{accordion.item.toggle.gap.large}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.item.toggle.gap.large}"
+      },
+      "name": "token-accordion-item-toggle-gap-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "gap",
+        "large"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-small": {
+      "key": "{accordion.item.toggle.icon.size.small}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.small}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "small"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-medium": {
+      "key": "{accordion.item.toggle.icon.size.medium}",
+      "$type": "dimension",
+      "$value": "20px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "20",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.medium}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "medium"
+      ]
+    },
+    "token-accordion-item-toggle-icon-size-large": {
+      "key": "{accordion.item.toggle.icon.size.large}",
+      "$type": "dimension",
+      "$value": "24px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px",
+        "key": "{accordion.item.toggle.icon.size.large}"
+      },
+      "name": "token-accordion-item-toggle-icon-size-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "item",
+        "toggle",
+        "icon",
+        "size",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-top-small": {
+      "key": "{accordion.content.padding.top.small}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.small}"
+      },
+      "name": "token-accordion-content-padding-top-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-top-medium": {
+      "key": "{accordion.content.padding.top.medium}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.medium}"
+      },
+      "name": "token-accordion-content-padding-top-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-top-large": {
+      "key": "{accordion.content.padding.top.large}",
+      "$type": "dimension",
+      "$value": "4px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "4",
+        "unit": "px",
+        "key": "{accordion.content.padding.top.large}"
+      },
+      "name": "token-accordion-content-padding-top-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "top",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-right-small": {
+      "key": "{accordion.content.padding.right.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.small}"
+      },
+      "name": "token-accordion-content-padding-right-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-right-medium": {
+      "key": "{accordion.content.padding.right.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.medium}"
+      },
+      "name": "token-accordion-content-padding-right-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-right-large": {
+      "key": "{accordion.content.padding.right.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.right.large}"
+      },
+      "name": "token-accordion-content-padding-right-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "right",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-bottom-small": {
+      "key": "{accordion.content.padding.bottom.small}",
+      "$type": "dimension",
+      "$value": "8px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.small}"
+      },
+      "name": "token-accordion-content-padding-bottom-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-bottom-medium": {
+      "key": "{accordion.content.padding.bottom.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.medium}"
+      },
+      "name": "token-accordion-content-padding-bottom-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-bottom-large": {
+      "key": "{accordion.content.padding.bottom.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.bottom.large}"
+      },
+      "name": "token-accordion-content-padding-bottom-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "bottom",
+        "large"
+      ]
+    },
+    "token-accordion-content-padding-left-small": {
+      "key": "{accordion.content.padding.left.small}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.small}"
+      },
+      "name": "token-accordion-content-padding-left-small",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "small"
+      ]
+    },
+    "token-accordion-content-padding-left-medium": {
+      "key": "{accordion.content.padding.left.medium}",
+      "$type": "dimension",
+      "$value": "12px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.medium}"
+      },
+      "name": "token-accordion-content-padding-left-medium",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "medium"
+      ]
+    },
+    "token-accordion-content-padding-left-large": {
+      "key": "{accordion.content.padding.left.large}",
+      "$type": "dimension",
+      "$value": "16px",
+      "unit": "px",
+      "original": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "key": "{accordion.content.padding.left.large}"
+      },
+      "name": "token-accordion-content-padding-left-large",
+      "attributes": {
+        "category": "accordion"
+      },
+      "path": [
+        "accordion",
+        "content",
+        "padding",
+        "left",
+        "large"
       ]
     },
     "token-app-header-height": {
