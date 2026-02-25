@@ -2,7 +2,7 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-import type { HdsIconSignature } from '../icon';
+import type { HdsIconSignature } from '../icon/index.gts';
 
 export enum HdsAppFooterStatusValues {
   Operational = 'operational',
