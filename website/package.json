@@ -61,6 +61,7 @@
     "@hashicorp/design-system-components": "workspace:*",
     "@hashicorp/design-system-tokens": "workspace:*",
     "@hashicorp/flight-icons": "workspace:*",
+    "@nullvoxpopuli/ember-composable-helpers": "^5.2.11",
     "@tsconfig/ember": "^3.0.10",
     "@types/ember-cli-fastboot": "^2.2.6",
     "@types/qunit": "^2.19.12",

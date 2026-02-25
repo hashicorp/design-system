@@ -1,0 +1,22 @@
+<Hds::Table>
+  <:head as |H|>
+    <H.Tr>
+      <H.ThSort @onClickSort={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer
+        Name</H.ThSort>
+      <H.ThSort
+        @onClickSort={{fn H.setSortBy "status"}}
+        @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}
+      >Status</H.ThSort>
+      <H.Th>Partition</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    {{#each (call (fn this.myDemoCustomSortingFunction B.sortBy B.sortOrder)) as |cluster|}}
+      <B.Tr>
+        <B.Td>{{get cluster "peer-name"}}</B.Td>
+        <B.Td>{{get cluster "status"}}</B.Td>
+        <B.Td>{{get cluster "cluster-partition"}}</B.Td>
+      </B.Tr>
+    {{/each}}
+  </:body>
+</Hds::Table>

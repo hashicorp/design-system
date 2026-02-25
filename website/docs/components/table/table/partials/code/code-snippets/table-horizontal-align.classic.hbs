@@ -1,0 +1,25 @@
+<Hds::Table
+  @model={{this.model.myDemoData}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash label="Actions" align="right")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td @align="right">
+        <Hds::Dropdown @isInline={{true}} as |dd|>
+          <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+          <dd.Interactive @route="components">Create</dd.Interactive>
+          <dd.Interactive @route="components">Read</dd.Interactive>
+          <dd.Interactive @route="components">Update</dd.Interactive>
+          <dd.Separator />
+          <dd.Interactive @route="components" @color="critical" @icon="trash">Delete</dd.Interactive>
+        </Hds::Dropdown>
+      </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>

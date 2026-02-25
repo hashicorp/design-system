@@ -6,117 +6,22 @@ If you want to use the component but have no model defined (e.g., there are only
 
 #### Manual row implementation
 
-```handlebars
-<Hds::Table @caption="your custom, meaningful caption goes here">
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Column Header One</H.Th>
-      <H.Th>Column Header Two</H.Th>
-      <H.Th>Column Header Three</H.Th>
-    </H.Tr>
-  </:head>
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>Cell one A</B.Td>
-      <B.Td>Cell two A</B.Td>
-      <B.Td>Cell three A</B.Td>
-    </B.Tr>
-    <B.Tr>
-      <B.Td>Cell one B</B.Td>
-      <B.Td>Cell two B</B.Td>
-      <B.Td>Cell three B</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-basic-manual]]
 
 #### Using `each` to loop over records to create rows
 
-```handlebars
-<Hds::Table @caption="Products that use Helios">
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Product</H.Th>
-      <H.Th>Brand Color</H.Th>
-      <H.Th>Uses Helios</H.Th>
-    </H.Tr>
-  </:head>
-  <:body as |B|>
-    {{#each this.myDataItems as |item|}}
-      <B.Tr>
-        <B.Td>{{item.product}}</B.Td>
-        <B.Td>{{item.brandColor}}</B.Td>
-        <B.Td>{{item.usesHelios}}</B.Td>
-      </B.Tr>
-    {{/each}}
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-basic-loop]]
 
 ### Non-sortable Table with model defined
 
-To use a Table with a model, first define the data model in your route or model:
-
-```javascript
-import Route from '@ember/routing/route';
-
-export default class ComponentsTableRoute extends Route {
-  async model() {
-    // example of data retrieved:
-    //[
-    //  {
-    //    id: '1',
-    //    attributes: {
-    //      artist: 'Nick Drake',
-    //      album: 'Pink Moon',
-    //      year: '1972'
-    //    },
-    //  },
-    //  {
-    //    id: '2',
-    //    attributes: {
-    //      artist: 'The Beatles',
-    //      album: 'Abbey Road',
-    //      year: '1969'
-    //    },
-    //  },
-    // ...
-    let response = await fetch('/api/demo.json');
-    let { data } = await response.json();
-    return { myDemoData: data };
-  }
-}
-```
-
-!!! Warning
-
-**Consumer responsibility**
-
-For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
-
-!!!
-
-Then, in the template code you will need to:
+To use a Table with a model, you will need to:
 
 - pass the data model to the `@model` argument of the Table component
 - provide a `@columns` argument to describe the expected columns (see [Component API](#component-api) for details)
 - insert your own content into the `:body` block (the component will take care of looping over the `@model`)
 - use the `.data` key to access the `@model` record content (it’s yielded as `data`)
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array (hash label="Artist") (hash label="Album") (hash label="Year")}}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-basic-model]]
 
 ### Sortable table
 
@@ -129,73 +34,19 @@ This component takes advantage of the `sort-by` helper provided by [@nullvoxpopu
 
 Add `isSortable=true` to the hash for each column that should be sortable.
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year")
-  }}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-sortable]]
 
 #### Pre-sorting columns
 
 To indicate that a specific column should be pre-sorted, add `@sortBy`, where the value is the column’s key.
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year")
-  }}
-  @sortBy="artist"
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-pre-sort]]
 
 ##### Pre-sorting direction
 
 By default, the sort order is set to ascending. To indicate that the column defined in `@sortBy` should be pre-sorted in descending order, pass in `@sortOrder="desc"`.
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year")
-  }}
-  @sortBy="artist"
-  @sortOrder="desc"
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-pre-sort-direction]]
 
 #### Custom sort callback
 
@@ -206,63 +57,9 @@ To implement a custom sort callback on a column:
 
 This is useful for cases where the key might not be A-Z or 0-9 sortable by default, e.g., status, and you’re otherwise unable to influence the shape of the data in the model.
 
-_The code has been truncated for clarity._
+Here’s an example of what a custom sort function could look like. In this example, we are indicating that we want to sort on a status, which takes its order based on the position in the array.
 
-```handlebars{data-execute=false}
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-      (hash
-        key='status'
-        label='Status'
-        isSortable=true
-        sortingFunction=this.myCustomSortingFunction
-      )
-      (hash key='album' label='Album')
-      (hash key='year' label='Year')
-    }}
-  @onSort={{this.myCustomOnSort}}
->
-  <!-- <:body> here -->
-</Hds::Table>
-```
-
-Here’s an example of what a custom sort function could look like. In this example, we are indicating that we want to sort on a status, which takes its order based on the position in the array:
-
-```javascript
-// we use an array to declare the custom sorting order for the "status" column
-const customSortingCriteriaArray = [
-  'failing',
-  'active',
-  'establishing',
-  'pending',
-];
-
-// we track the sorting order, so it can be used in the custom sorting function
-@tracked customSortOrderForStatus = 'asc';
-
-// we define a "getter" that returns a custom sorting function ("s1" and "s2" are data records)
-get customSortingMethodForStatus() {
-  return (s1, s2) => {
-    const index1 = customSortingCriteriaArray.indexOf(s1['status']);
-    const index2 = customSortingCriteriaArray.indexOf(s2['status']);
-    if (index1 < index2) {
-      return this.customSortOrderForStatus === 'asc' ? -1 : 1;
-    } else if (index1 > index2) {
-      return this.customSortOrderForStatus === 'asc' ? 1 : -1;
-    } else {
-      return 0;
-    }
-  };
-}
-
-// we define a callback function that listens to the `onSort` event in the table,
-// and updates the tracked sort order values accordingly
-@action
-customOnSort(_sortBy, sortOrder) {
-  this.customSortOrderForStatus = sortOrder;
-}
-```
+[[code-snippets/table-custom-sort]]
 
 #### Custom sorting using the yielded sorting arguments/functions
 
@@ -281,33 +78,6 @@ The `Hds::Table` exposes (via yielding) some of its internal properties and meth
 
 For more details about these properties refer to the [Component API](#component-api) section below.
 
-Below you can see an example of a Table that renders a list of clusters, in which the sorting is based on a custom function that depends on the sorting column (`sortBy`) and direction (`sortOrder`):
-
-_The code has been simplified for clarity._
-
-```handlebars{data-execute=false}
-<Hds::Table>
-  <:head as |H|>
-    <H.Tr>
-      <H.ThSort @onClickSort={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer Name</H.ThSort>
-      <H.ThSort @onClickSort={{fn H.setSortBy "status"}} @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}>Status</H.ThSort>
-      <H.ThSort @onClickSort={{fn H.setSortBy "partition"}} @sortOrder={{if (eq "partition" H.sortBy) H.sortOrder}}>Partition</H.ThSort>
-      <H.Th>Description</H.Th>
-    </H.Tr>
-  </:head>
-  <:body as |B|>
-    {{#each (call (fn this.myDemoCustomSortingFunction B.sortBy B.sortOrder)) as |cluster|}}
-      <B.Tr>
-        <B.Td>{{cluster.peer-name}}</B.Td>
-        <B.Td><ClusterStatusBadge @status={{cluster.status}} /></B.Td>
-        <B.Td>{{cluster.cluster-partition}}</B.Td>
-        <B.Td>{{cluster.description}}</B.Td>
-      </B.Tr>
-    {{/each}}
-  </:body>
-</Hds::Table>
-```
-
 In the `<:head>` the `setSortBy` function is invoked when the `<ThSort>` element is clicked to set the values of `sortBy` and `sortOrder` in the table; in turn these values are then used by the `<ThSort>` element to assign the sorting icon via the `@sortOrder` argument.
 
 In the `<:body>` the values of `sortBy` and `sortOrder` are provided instead as arguments to a consumer-side function that takes care of custom sorting the model/data.
@@ -316,52 +86,13 @@ _Notice: in this case for the example we're using the [`call` helper](https://gi
 
 The sorting function in the backing class code will look something like this (the actual implementation will depend on the consumer-side/business-logic context):
 
-_The code has been simplified for clarity._
-
-```javascript
-myDemoCustomSortingFunction = (sortBy, sortOrder) => {
-  // here goes the logic for the custom sorting of the `model` or `data` array
-  // based on the `sortBy/sortOrder` arguments
-  if (sortBy === 'peer-name') {
-    myDemoDataArray.sort((s1, s2) => {
-      // logic for sorting by `peer-name` goes here
-    });
-  } else if (sortBy === 'status') {
-    myDemoDataArray.sort((s1, s2) => {
-      // logic for sorting by `status` goes here
-    });
-  //
-  // same for all the other conditions/columns
-  // ...
-  }
-  return myDemoDataArray;
-};
-
-```
+[[code-snippets/table-custom-sort-yield]]
 
 ### Density
 
 To create a condensed or spacious Table, add `@density` to the Table’s invocation. Note that it only affects the Table body, not the Table header.
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year")
-  }}
-  @density="short"
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-density]]
 
 ### Alignment
 
@@ -369,25 +100,7 @@ To create a condensed or spacious Table, add `@density` to the Table’s invocat
 
 To indicate that the table’s content should have a middle vertical-align, use `@valign` in the table’s invocation.
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year")
-  }}
-  @valign="middle"
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-vertical-align]]
 
 #### Vertical alignment with additional cell content
 
@@ -400,84 +113,19 @@ Note that vertical-align only applies to inline, inline-block and table-cell ele
 If you have more than just text content in the table cell, you'll want to wrap that content in a flex box and style accordingly.
 !!!
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year")
-  }}
-  @valign="middle"
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>
-        <div class="doc-table-valign-demo">
-          <Hds::Icon @name="headphones" /> {{B.data.artist}}
-        </div>
-      </B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-vertical-align-complex]]
 
 #### Horizontal alignment
 
 To create a column that has right-aligned content, set `@align` to `right` on both the column’s header and cell (the cell’s horizontal content alignment should be the same as the column’s horizontal content alignment).
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash label="Actions" align="right")
-  }}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td @align="right">
-        <Hds::Dropdown @isInline={{true}} as |dd|>
-          <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
-          <dd.Interactive @route="components">Create</dd.Interactive>
-          <dd.Interactive @route="components">Read</dd.Interactive>
-          <dd.Interactive @route="components">Update</dd.Interactive>
-          <dd.Separator />
-          <dd.Interactive @route="components" @color="critical" @icon="trash">Delete</dd.Interactive>
-        </Hds::Dropdown>
-      </B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-horizontal-align]]
 
 ### Tooltip
 
 [Table headers](/components/table/table#headers) should be clear, concise, and straightforward whenever possible. However, there could be cases where the label is insufficient by itself and extra information is required. In this case, it’s possible to show a tooltip next to the label in the header:
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist")
-    (hash key="album" label="Album" tooltip="Title of the album (in its first release)")
-    (hash key="vinyl-cost" label="Vinyl Cost (USD)" isSortable=true tooltip="Cost of the vinyl (adjusted for inflation)" align="right")
-  }}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-tooltip]]
 
 ### Scrollable table
 
@@ -496,37 +144,7 @@ In most cases, wrapping the table with a container that has `overflow: auto` doe
 The default table layout is `auto` which means the browser will try to optimize the width of the columns to fit their different content. In some cases, this will mean the content may wrap (see the `Phone` column as an example) in which case you may want to apply a `width` to [suggest to the browser](https://www.w3.org/TR/WD-CSS2-971104/tables.html#h-17.2) to apply a specific width to a column (see the `Biography` column).
 
 
-```handlebars
-<!-- this is an element with "overflow: auto" -->
-<div class="doc-table-scrollable-wrapper">
-  <Hds::Table
-    @model={{this.demoDataWithLargeNumberOfColumns}}
-    @columns={{array
-      (hash key="first_name" label="First Name" isSortable=true)
-      (hash key="last_name" label="Last Name" isSortable=true)
-      (hash key="age" label="Age" isSortable=true)
-      (hash key="email" label="Email")
-      (hash key="phone" label="Phone")
-      (hash key="bio" label="Biography" width="350px")
-      (hash key="education" label="Education Degree")
-      (hash key="occupation" label="Occupation")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.first_name}}</B.Td>
-        <B.Td>{{B.data.last_name}}</B.Td>
-        <B.Td>{{B.data.age}}</B.Td>
-        <B.Td>{{B.data.email}}</B.Td>
-        <B.Td>{{B.data.phone}}</B.Td>
-        <B.Td>{{B.data.bio}}</B.Td>
-        <B.Td>{{B.data.education}}</B.Td>
-        <B.Td>{{B.data.occupation}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-</div>
-```
+[[code-snippets/table-scroll-container]]
 
 #### Using a container with `overflow: auto` and a sub-container with `width: max-content`
 
@@ -535,46 +153,13 @@ If you have specified the width of some of the columns, leaving the others to ad
 In this case the table layout is still set to `auto` (default). If instead you want to set it to `fixed` (using the `@isFixedLayout` argument) you will have to specify the width for **every** column or the table will explode horizontally.
 
 
-```handlebars
-<!-- this is an element with "overflow: auto" -->
-<div class="doc-table-scrollable-wrapper">
-  <!-- this is an element with "width: max-content" -->
-  <div class="doc-table-max-content-width">
-    <Hds::Table
-      @model={{this.demoDataWithLargeNumberOfColumns}}
-      @columns={{array
-        (hash key="first_name" label="First Name" isSortable=true width="200px")
-        (hash key="last_name" label="Last Name" isSortable=true width="200px")
-        (hash key="age" label="Age" isSortable=true)
-        (hash key="email" label="Email")
-        (hash key="phone" label="Phone")
-        (hash key="bio" label="Biography" width="350px")
-        (hash key="education" label="Education Degree")
-        (hash key="occupation" label="Occupation")
-      }}
-    >
-      <:body as |B|>
-        <B.Tr>
-          <B.Td>{{B.data.first_name}}</B.Td>
-          <B.Td>{{B.data.last_name}}</B.Td>
-          <B.Td>{{B.data.age}}</B.Td>
-          <B.Td>{{B.data.email}}</B.Td>
-          <B.Td>{{B.data.phone}}</B.Td>
-          <B.Td>{{B.data.bio}}</B.Td>
-          <B.Td>{{B.data.education}}</B.Td>
-          <B.Td>{{B.data.occupation}}</B.Td>
-        </B.Tr>
-      </:body>
-    </Hds::Table>
-  </div>
-</div>
-```
+[[code-snippets/table-scroll-container-fixed-width]]
 
 ### Multi-select table
 
 A multi-select table includes checkboxes enabling users to select multiple rows in a table for purposes of performing bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
 
-Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected table rows change. You must also pass a `selectionKey` to each row which gets passed back through the `onSelectionChange` callback which maps the row selection on the table to an item in your data model.
+Add `isSelectable=true` to create a multi-select table. The `@onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected table rows change. You must also pass a `@selectionKey` argument to each row which gets passed back through the `@onSelectionChange` callback which maps the row selection on the table to an item in your data model.
 
 #### Multi-select table using a model
 
@@ -587,26 +172,7 @@ If you want the state of the checkboxes to persist after the model updates, you 
 
 This is a simple example of a table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.
 
-```handlebars
-<Hds::Table
-  @isSelectable={{true}}
-  @onSelectionChange={{this.demoOnSelectionChange}}
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist")
-    (hash key="album" label="Album")
-    (hash key="year" label="Year")
-  }}
->
-  <:body as |B|>
-    <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-multi-select]]
 
 !!! Warning
 
@@ -614,26 +180,6 @@ This is a simple example of a table with multi-selection. Notice the `@selection
 
 To make the table correctly accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the table’s `tbody`.
 !!!
-
-Here’s an example of what a `@onSelectionChange` callback function could look like.
-
-```javascript
-@action
-demoOnSelectionChange({
-  selectionKey, // the `selectionKey` value for the selected row or "all" if the "select all" has been toggled
-  selectionCheckboxElement, // the checkbox DOM element toggled by the user
-  selectableRowsStates, // an array of objects describing each displayed "row" state (its `selectionKey` value and its `isSelected` state)
-  selectedRowsKeys // an array of all the `selectionKey` values of the currently selected rows
-}) {
-  // here we use the `selectedRowsKeys` to execute some action on each of the data records associated (via the `@selectionKey` argument) to the selected rows
-  selectedRowsKeys.forEach((rowSelectionKey) => {
-    // do something using the row’s `selectionKey` value
-    // ...
-    // ...
-    // ...
-  });
-}
-```
 
 For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
@@ -651,35 +197,7 @@ To enable sorting by selected rows in a table, you need to set `@selectableColum
 
 In the demo below, we set up a multi-select table that can be sorted based on the selection state of its rows.
 
-```handlebars
-<Hds::Table
-  @isSelectable={{true}}
-  @selectableColumnKey="isSelected"
-  @onSelectionChange={{this.demoOnSelectionChangeSortBySelected}}
-  @model={{this.demoSortBySelectedData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Year" isSortable=true)
-    (hash key="selection" label="Selected" isSortable=true)
-  }}
-  @sortBy="isSelected"
-  @sortOrder="desc"
->
-  <:body as |B|>
-    <B.Tr
-      @selectionKey={{B.data.id}}
-      @isSelected={{B.data.isSelected}}
-      @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}"
-    >
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-      <B.Td>{{if B.data.isSelected "Yes" "No"}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-sort-by-selected]]
 
 #### Multi-select table without a model with sorting by selection state
 
@@ -687,37 +205,7 @@ To enable sorting by selected rows in a table without using a model, you need to
 
 In the demo below, we set up a multi-select table without a model, where the selection and sorting are controlled externally. This approach allows the table to be sorted based on the selection state of its rows.
 
-```handlebars
-<Hds::Table
-  @isSelectable={{true}}
-  @selectableColumnKey="isSelected"
-  @onSelectionChange={{this.demoSortBySelectedControlledOnSelectionChange}}
-  @sortBy={{this.demoSortBySelectedControlledSortBy}}
-  @sortOrder={{this.demoSortBySelectedControlledSortOrder}}
-  @onSort={{this.demoSortBySelectedControlledOnSort}}
->
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Year</H.Th>
-    </H.Tr>
-  </:head>
-  <:body as |B|>
-    {{#each this.demoSortBySelectedControlledSortedData as |data|}}
-      <B.Tr
-        @selectionKey={{data.id}}
-        @isSelected={{data.isSelected}}
-        @selectionAriaLabelSuffix="row {{data.artist}} / {{data.album}}"
-      >
-        <B.Td>{{data.artist}}</B.Td>
-        <B.Td>{{data.album}}</B.Td>
-        <B.Td>{{data.year}}</B.Td>
-      </B.Tr>
-    {{/each}}
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-sort-by-selected-yield]]
 
 #### Multi-select table with pagination and persisted selection status
 
@@ -727,57 +215,7 @@ When a user selects a row, if the displayed rows are replaced with other ones (e
 
 In the demo below, we are persisting the selection in the data/model, so that when navigating to different pages, the row selections persist across table re-renderings.
 
-```handlebars
-<div class="doc-table-multiselect-with-pagination-demo">
-  <Hds::Table
-    @isSelectable={{true}}
-    @onSelectionChange={{this.demoOnSelectionChangeWithPagination}}
-    @model={{this.demoPaginatedData}}
-    @columns={{array
-      (hash key="artist" label="Artist")
-      (hash key="album" label="Album")
-      (hash key="year" label="Year")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-  <Hds::Pagination::Numbered
-    @totalItems={{this.demoTotalItems}}
-    @currentPage={{this.demoCurrentPage}}
-    @pageSizes={{array 2 4}}
-    @currentPageSize={{this.demoCurrentPageSize}}
-    @onPageChange={{this.demoOnPageChange}}
-    @onPageSizeChange={{this.demoOnPageSizeChange}}
-    @ariaLabel="Pagination for multi-select table"
-  />
-</div>
-```
-
-Depending on the expected behavior, you will need to implement the consumer-side logic that handles the persistence (or not) using the `@onSelectionChange` callback function. For the example above, something like this:
-
-```javascript
-@action
-demoOnSelectionChangeWithPagination({ selectableRowsStates }) {
-  // we loop over all the displayed table rows (a subset of the dataset)
-  selectableRowsStates.forEach((row) => {
-    // we find the record in the dataset corresponding to the current row
-    const recordToUpdate = this.demoSourceData.find(
-      (modelRow) => modelRow.id === row.selectionKey
-    );
-    if (recordToUpdate) {
-      // we update the record `isSelected` state based on the row (checkbox) state
-      recordToUpdate.isSelected = row.isSelected;
-    }
-  });
-}
-
-```
+[[code-snippets/table-pagination]]
 
 For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
@@ -810,40 +248,7 @@ Labels within the table header are intended to provide contextual information ab
 
 In this example we’re visually hiding the label in the last column by passing `isVisuallyHidden=true` to it:
 
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Year" isSortable=true)
-    (hash key="other" label="Select an action from the menu" isVisuallyHidden=true width="60px")
-  }}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-      <B.Td>
-          <Hds::Dropdown as |D|>
-            <D.ToggleIcon
-              @icon="more-horizontal"
-              @text="Overflow Options"
-              @hasChevron={{false}}
-              @size="small"
-            />
-            <D.Interactive
-              @href="#"
-              @color="critical"
-              @icon="trash"
-            >Delete</D.Interactive>
-          </Hds::Dropdown>
-        </B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-visually-hidden-header]]
 
 _Notice: only non-sortable headers can be visually hidden._
 
@@ -851,37 +256,4 @@ _Notice: only non-sortable headers can be visually hidden._
 
 Here’s a Table implementation that uses an array hash with strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
 
-```handlebars{data-execute=false}
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-      (hash key="artist" label=(t "components.table.headers.artist") isSortable=true)
-      (hash key="album" label=(t "components.table.headers.album") isSortable=true)
-      (hash key="year" label=(t "components.table.headers.year") isSortable=true)
-      (hash key="other" label=(t "global.titles.other"))
-    }}
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-      <B.Td>
-          <Hds::Dropdown as |D|>
-            <D.ToggleIcon
-              @icon="more-horizontal"
-              @text="Overflow Options"
-              @hasChevron={{false}}
-              @size="small"
-            />
-            <D.Interactive @href="#">Create</D.Interactive>
-            <D.Interactive @href="#">Read</D.Interactive>
-            <D.Interactive @href="#">Update</D.Interactive>
-            <D.Separator />
-            <D.Interactive @href="#" @color="critical" @icon="trash">Delete</D.Interactive>
-          </Hds::Dropdown>
-        </B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
+[[code-snippets/table-intl execute=false]]
