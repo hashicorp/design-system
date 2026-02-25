@@ -8,6 +8,7 @@
 //
 
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 .hds-tooltip-button {
   @include hds-focus-ring-with-pseudo-element(
@@ -50,16 +51,21 @@
 
 .tippy-box[data-theme~="hds"] {
   padding: var(--token-tooltip-padding-vertical) var(--token-tooltip-padding-horizontal);
-  color: var(--token-tooltip-color-foreground-primary);
+  color: var(--token-tooltip-foreground-color);
   font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: var(--token-typography-body-200-line-height);
+  letter-spacing: var(--token-tooltip-typography-letter-spacing);
   overflow-wrap: break-word;
-  background-color: var(--token-tooltip-color-surface-primary);
+  background-color: var(--token-tooltip-surface-color);
   border-radius: var(--token-tooltip-border-radius);
-  box-shadow: var(--token-elevation-higher-box-shadow);
+  box-shadow: var(--token-tooltip-box-shadow);
   transition-property: transform, visibility, opacity;
+
+  @include hds-apply-only-if-carbon() {
+    transition: none;
+  }
 
   &[data-animation="fade"][data-state="hidden"] {
     opacity: 0;
@@ -83,56 +89,81 @@
   }
 
   // works with Tippy's custom SVG arrow variation:
-  .tippy-svg-arrow {
-    width: 16px;
-    height: 16px;
+  .tippy-arrow {
+    position: relative;
+    width: var(--token-tooltip-caret-width);
+    height: var(--token-tooltip-caret-height);
     text-align: initial;
-    fill: var(--token-tooltip-color-surface-primary);
 
-    &,
-    & > svg {
+    &::before {
       position: absolute;
+      width: var(--token-tooltip-caret-width);
+      height: var(--token-tooltip-caret-height);
+      background-color: var(--token-tooltip-surface-color);
+      content: "";
+      clip-path: var(--token-tooltip-caret-clip-path);
     }
   }
 
   // Arrow positioning styles taken from tippy.js (tippy.js/dist/svg-arrow.css)
-  &[data-placement^="top"] > .tippy-svg-arrow {
+  &[data-placement^="left"] > .tippy-arrow,
+  &[data-placement^="right"] > .tippy-arrow {
+    width: var(--token-tooltip-caret-height);
+    height: var(--token-tooltip-caret-width);
+  }
+
+  &[data-placement^="left"] > .tippy-arrow::before,
+  &[data-placement^="right"] > .tippy-arrow::before {
+    transform-origin: calc(var(--token-tooltip-caret-width) / 2) calc(var(--token-tooltip-caret-width) / 2);
+  }
+
+  &[data-placement="left-start"] > .tippy-arrow::before,
+  &[data-placement="right-start"] > .tippy-arrow::before {
+    top: calc(var(--token-tooltip-caret-height) / 2);
+  }
+
+  &[data-placement="left-end"] > .tippy-arrow::before,
+  &[data-placement="right-end"] > .tippy-arrow::before {
+    top: calc(-1 * var(--token-tooltip-caret-height) / 2);
+  }
+
+  &[data-placement^="top"] > .tippy-arrow::before,
+  &[data-placement^="bottom"] > .tippy-arrow::before {
+    transform-origin: unset;
+  }
+
+  &[data-placement^="top"] > .tippy-arrow {
     bottom: 0;
   }
 
-  &[data-placement^="top"] > .tippy-svg-arrow::after,
-  &[data-placement^="top"] > .tippy-svg-arrow > svg {
-    top: 16px;
+  &[data-placement^="top"] > .tippy-arrow::before {
+    bottom: calc(-1 * var(--token-tooltip-caret-height));
     transform: rotate(180deg);
   }
 
-  &[data-placement^="bottom"] > .tippy-svg-arrow {
+  &[data-placement^="bottom"] > .tippy-arrow {
     top: 0;
   }
 
-  &[data-placement^="bottom"] > .tippy-svg-arrow > svg {
-    bottom: 16px;
+  &[data-placement^="bottom"] > .tippy-arrow::before {
+    top: calc(-1 * var(--token-tooltip-caret-height));
   }
 
-  &[data-placement^="left"] > .tippy-svg-arrow {
+  &[data-placement^="left"] > .tippy-arrow {
     right: 0;
   }
 
-  &[data-placement^="left"] > .tippy-svg-arrow::after,
-  &[data-placement^="left"] > .tippy-svg-arrow > svg {
-    top: calc(50% - 3px);
-    left: 11px;
+  &[data-placement^="left"] > .tippy-arrow::before {
+    right: calc(-1 * var(--token-tooltip-caret-height));
     transform: rotate(90deg);
   }
 
-  &[data-placement^="right"] > .tippy-svg-arrow {
+  &[data-placement^="right"] > .tippy-arrow {
     left: 0;
   }
 
-  &[data-placement^="right"] > .tippy-svg-arrow::after,
-  &[data-placement^="right"] > .tippy-svg-arrow > svg {
-    top: calc(50% - 3px);
-    right: 11px;
+  &[data-placement^="right"] > .tippy-arrow::before {
+    left: calc(-1 * var(--token-tooltip-caret-height));
     transform: rotate(-90deg);
   }
 }

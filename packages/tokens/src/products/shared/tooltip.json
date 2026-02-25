@@ -1,9 +1,137 @@
 {
   "tooltip": {
-    "border-radius": {
+    "max-width": {
       "$type": "dimension",
-      "$value": "5",
-      "unit": "px"
+      "$value": "280",
+      "unit": "px",
+      "$modes": {
+        "default": "280",
+        "cds-g0": "288",
+        "cds-g10": "288",
+        "cds-g90": "288",
+        "cds-g100": "288"
+      }
+    },
+    "padding": {
+      "horizontal": {
+        "$type": "dimension",
+        "$value": "12",
+        "unit": "px",
+        "$modes": {
+          "default": "12",
+          "cds-g0": "{carbon.themes.white.spacing05}",
+          "cds-g10": "{carbon.themes.g10.spacing05}",
+          "cds-g90": "{carbon.themes.g90.spacing05}",
+          "cds-g100": "{carbon.themes.g100.spacing05}"
+        }
+      },
+      "vertical": {
+        "$type": "dimension",
+        "$value": "8",
+        "unit": "px",
+        "$modes": {
+          "default": "8",
+          "cds-g0": "{carbon.themes.white.spacing05}",
+          "cds-g10": "{carbon.themes.g10.spacing05}",
+          "cds-g90": "{carbon.themes.g90.spacing05}",
+          "cds-g100": "{carbon.themes.g100.spacing05}"
+        }
+      }
+    },
+    "box-shadow": {
+      "$value": "{elevation.higher.box-shadow}",
+      "$modes": {
+        "default": "{elevation.higher.box-shadow}",
+        "cds-g0": "none",
+        "cds-g10": "none",
+        "cds-g90": "none",
+        "cds-g100": "none"
+      }
+    },
+    "foreground": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.foreground.high-contrast}",
+        "group": "components"
+      }
+    },
+    "surface": {
+      "color": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-700}",
+        "group": "components",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "{carbon.themes.white.backgroundInverse}",
+          "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+          "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+          "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+        }
+      }
+    },
+    "border": {
+      "radius": {
+        "$type": "dimension",
+        "$value": "{border.radius.small}",
+        "unit": "px",
+        "$modes": {
+          "default": "{border.radius.small}",
+          "cds-g0": "2",
+          "cds-g10": "2",
+          "cds-g90": "2",
+          "cds-g100": "2"
+        }
+      }
+    },
+    "typography": {
+      "letter-spacing": {
+        "$type": "letter-spacing",
+        "$value": "0",
+        "unit": "px",
+        "$modes": {
+          "default": "0",
+          "cds-g0": "{carbon.typography.body01.letter-spacing}",
+          "cds-g10": "{carbon.typography.body01.letter-spacing}",
+          "cds-g90": "{carbon.typography.body01.letter-spacing}",
+          "cds-g100": "{carbon.typography.body01.letter-spacing}"
+        }
+      }
+    },
+    "caret": {
+      "clip-path": {
+        "$value": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
+        "$modes": {
+          "default": "path('M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z')",
+          "cds-g0": "polygon(0 100%, 50% 0, 100% 100%)",
+          "cds-g10": "polygon(0 100%, 50% 0, 100% 100%)",
+          "cds-g90": "polygon(0 100%, 50% 0, 100% 100%)",
+          "cds-g100": "polygon(0 100%, 50% 0, 100% 100%)"
+        }
+      },
+      "height": {
+        "$type": "dimension",
+        "$value": "7",
+        "unit": "px",
+        "$modes": {
+          "default": "7",
+          "cds-g0": "6",
+          "cds-g10": "6",
+          "cds-g90": "6",
+          "cds-g100": "6"
+        }
+      },
+      "width": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "12",
+          "cds-g10": "12",
+          "cds-g90": "12",
+          "cds-g100": "12"
+        }
+      }
     },
     "color": {
       "foreground": {
@@ -25,23 +153,6 @@
       "$type": "dimension",
       "$value": "-2",
       "unit": "px"
-    },
-    "max-width": {
-      "$type": "dimension",
-      "$value": "280",
-      "unit": "px"
-    },
-    "padding": {
-      "horizontal": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px"
-      },
-      "vertical": {
-        "$type": "dimension",
-        "$value": "8",
-        "unit": "px"
-      }
     },
     "transition": {
       "function": {

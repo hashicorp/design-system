@@ -286,6 +286,16 @@
   --token-surface-low-box-shadow: 0 0 0 1px #52525226, 0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
   --token-surface-mid-box-shadow: 0 0 0 1px #52525226, 0px 2px 3px 0px #5252521a, 0px 8px 16px -10px #52525233;
   --token-surface-overlay-box-shadow: 0 0 0 1px #39393940, 0px 2px 3px 0px #39393940, 0px 12px 24px 0px #39393959;
+  --token-tooltip-border-radius: 2px;
+  --token-tooltip-box-shadow: none;
+  --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  --token-tooltip-caret-height: 6px;
+  --token-tooltip-caret-width: 12px;
+  --token-tooltip-max-width: 288px;
+  --token-tooltip-padding-horizontal: 16px;
+  --token-tooltip-padding-vertical: 16px;
+  --token-tooltip-surface-color: #393939;
+  --token-tooltip-typography-letter-spacing: 0.16px;
   --token-typography-body-100-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
   --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.28572; /** 18px */
