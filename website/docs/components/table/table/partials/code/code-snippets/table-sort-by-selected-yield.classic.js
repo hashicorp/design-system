@@ -9,7 +9,7 @@ const MODEL = [...FOLK_MUSIC_DATA].map((row, index) => ({
   isSelected: index % 2 === 0,
 }));
 
-export default class Index extends Component {
+export default class LocalComponent extends Component {
   @tracked sortBy = 'isSelected';
   @tracked sortOrder = 'desc';
 
