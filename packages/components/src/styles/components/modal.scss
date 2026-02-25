@@ -14,6 +14,7 @@
   max-height: 95vh;
   inset: 0;
   margin: auto; // needed to center the modal dialog on the viewport
+  overflow: hidden; // ensure tooltip container will not extend outside the modal triggering overflow
   border-radius: var(--token-border-radius-large);
   box-shadow: var(--token-surface-overlay-box-shadow);
 
