@@ -175,6 +175,7 @@ Router.map(function () {
       this.route('app-footer');
       this.route('badge');
       this.route('badge-count');
+      this.route('breadcrumb');
       this.route('button');
       this.route('flyout');
       this.route('form', function (): void {
