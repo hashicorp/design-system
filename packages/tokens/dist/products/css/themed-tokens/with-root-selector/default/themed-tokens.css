@@ -56,10 +56,10 @@
   --token-breadcrumb-divider-color: var(--token-color-palette-neutral-300);
   --token-breadcrumb-link-foreground-color-active: var(--token-color-foreground-primary);
   --token-breadcrumb-link-foreground-color-default: var(--token-color-foreground-faint);
-  --token-breadcrumb-link-foreground-color-hover: var(--token-color-palette-neutral-600);
+  --token-breadcrumb-link-foreground-color-hover: var(--token-color-foreground-primary);
   --token-breadcrumb-truncation-content-box-shadow: var(--token-surface-high-box-shadow);
   --token-breadcrumb-truncation-content-foreground-color-default: var(--token-color-foreground-faint);
-  --token-breadcrumb-truncation-content-foreground-color-hover: var(--token-color-palette-neutral-600);
+  --token-breadcrumb-truncation-content-foreground-color-hover: var(--token-color-foreground-primary);
   --token-breadcrumb-truncation-toggle-foreground-color-active: var(--token-color-foreground-primary);
   --token-breadcrumb-truncation-toggle-foreground-color-default: var(--token-color-foreground-faint);
   --token-breadcrumb-truncation-toggle-foreground-color-hover: var(--token-color-foreground-faint);

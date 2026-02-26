@@ -8220,9 +8220,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.neutral-600}",
+        "$value": "{color.foreground.primary}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
           "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
           "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
@@ -8358,9 +8358,9 @@
       },
       "original": {
         "$type": "color",
-        "$value": "{color.palette.neutral-600}",
+        "$value": "{color.foreground.primary}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -23227,7 +23227,7 @@
       "$type": "color",
       "$value": "#0043ce",
       "$modes": {
-        "default": "#393939",
+        "default": "#161616",
         "cds-g0": "#0043ce",
         "cds-g10": "#0043ce",
         "cds-g90": "#a6c8ff",
@@ -23237,7 +23237,7 @@
         "$type": "color",
         "$value": "{carbon.themes.white.linkPrimaryHover}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
           "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
           "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
@@ -23365,7 +23365,7 @@
       "$type": "color",
       "$value": "#161616",
       "$modes": {
-        "default": "#393939",
+        "default": "#161616",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -23375,7 +23375,7 @@
         "$type": "color",
         "$value": "{carbon.themes.white.textPrimary}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -38242,7 +38242,7 @@
       "$type": "color",
       "$value": "#0043ce",
       "$modes": {
-        "default": "#393939",
+        "default": "#161616",
         "cds-g0": "#0043ce",
         "cds-g10": "#0043ce",
         "cds-g90": "#a6c8ff",
@@ -38252,7 +38252,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g10.linkPrimaryHover}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
           "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
           "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
@@ -38380,7 +38380,7 @@
       "$type": "color",
       "$value": "#161616",
       "$modes": {
-        "default": "#393939",
+        "default": "#161616",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -38390,7 +38390,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g10.textPrimary}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -53257,7 +53257,7 @@
       "$type": "color",
       "$value": "#a6c8ff",
       "$modes": {
-        "default": "#393939",
+        "default": "#f4f4f4",
         "cds-g0": "#0043ce",
         "cds-g10": "#0043ce",
         "cds-g90": "#a6c8ff",
@@ -53267,7 +53267,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g90.linkPrimaryHover}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
           "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
           "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
@@ -53395,7 +53395,7 @@
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
-        "default": "#393939",
+        "default": "#f4f4f4",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -53405,7 +53405,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g90.textPrimary}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",
@@ -68272,7 +68272,7 @@
       "$type": "color",
       "$value": "#a6c8ff",
       "$modes": {
-        "default": "#393939",
+        "default": "#f4f4f4",
         "cds-g0": "#0043ce",
         "cds-g10": "#0043ce",
         "cds-g90": "#a6c8ff",
@@ -68282,7 +68282,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g100.linkPrimaryHover}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
           "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
           "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
@@ -68410,7 +68410,7 @@
       "$type": "color",
       "$value": "#f4f4f4",
       "$modes": {
-        "default": "#393939",
+        "default": "#f4f4f4",
         "cds-g0": "#161616",
         "cds-g10": "#161616",
         "cds-g90": "#f4f4f4",
@@ -68420,7 +68420,7 @@
         "$type": "color",
         "$value": "{carbon.themes.g100.textPrimary}",
         "$modes": {
-          "default": "{color.palette.neutral-600}",
+          "default": "{color.foreground.primary}",
           "cds-g0": "{carbon.themes.white.textPrimary}",
           "cds-g10": "{carbon.themes.g10.textPrimary}",
           "cds-g90": "{carbon.themes.g90.textPrimary}",

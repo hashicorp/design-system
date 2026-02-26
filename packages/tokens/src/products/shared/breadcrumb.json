@@ -55,9 +55,9 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{color.palette.neutral-600}",
+            "$value": "{color.foreground.primary}",
             "$modes": {
-              "default": "{color.palette.neutral-600}",
+              "default": "{color.foreground.primary}",
               "cds-g0": "{carbon.themes.white.linkPrimaryHover}",
               "cds-g10": "{carbon.themes.g10.linkPrimaryHover}",
               "cds-g90": "{carbon.themes.g90.linkPrimaryHover}",
@@ -105,9 +105,9 @@
             },
             "hover": {
               "$type": "color",
-              "$value": "{color.palette.neutral-600}",
+              "$value": "{color.foreground.primary}",
               "$modes": {
-                "default": "{color.palette.neutral-600}",
+                "default": "{color.foreground.primary}",
                 "cds-g0": "{carbon.themes.white.textPrimary}",
                 "cds-g10": "{carbon.themes.g10.textPrimary}",
                 "cds-g90": "{carbon.themes.g90.textPrimary}",

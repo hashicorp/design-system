@@ -2654,12 +2654,12 @@
   margin: 0 -4px;
   padding: 0 4px;
   color: var(--token-breadcrumb-link-foreground-color-default);
+  text-align: left;
   background: none;
   border: none;
   border-radius: var(--token-border-radius-small);
-  text-align: left;
-  text-decoration-color: transparent;
   cursor: pointer;
+  text-decoration-color: transparent;
   outline-style: solid;
   outline-color: transparent;
 }
@@ -2719,8 +2719,8 @@
   overflow: hidden;
   font-size: var(--token-typography-body-100-font-size);
   font-family: var(--token-typography-font-stack-text);
-  letter-spacing: var(--token-breadcrumb-typography-letter-spacing);
   line-height: var(--token-breadcrumb-typography-line-height);
+  letter-spacing: var(--token-breadcrumb-typography-letter-spacing);
   white-space: nowrap;
   text-decoration: underline;
   text-overflow: ellipsis;
@@ -2753,8 +2753,8 @@
 .hds-mode-cds-g90 .hds-breadcrumb__truncation-toggle,
 .hds-mode-cds-g100 .hds-breadcrumb__truncation-toggle {
   align-items: end;
-  border: none;
   padding-bottom: 3px;
+  border: none;
 }
 .hds-mode-cds-g0 .hds-breadcrumb__truncation-toggle::after,
 .hds-mode-cds-g10 .hds-breadcrumb__truncation-toggle::after,
@@ -2762,10 +2762,10 @@
 .hds-mode-cds-g100 .hds-breadcrumb__truncation-toggle::after {
   position: absolute;
   bottom: 8px;
-  content: "";
   width: 14px;
   height: 1px;
   background-color: transparent;
+  content: "";
 }
 .hds-mode-cds-g0 .hds-breadcrumb__truncation-toggle:hover::after, .hds-mode-cds-g0 .hds-breadcrumb__truncation-toggle.mock-hover::after,
 .hds-mode-cds-g10 .hds-breadcrumb__truncation-toggle:hover::after,
@@ -2868,8 +2868,8 @@
 .hds-mode-cds-g100 .hds-breadcrumb__truncation-content .hds-breadcrumb__link {
   margin: 0;
   padding: 11px 16px;
-  background-color: var(--token-color-surface-interactive);
   text-decoration: none;
+  background-color: var(--token-color-surface-interactive);
 }
 .hds-mode-cds-g0 .hds-breadcrumb__truncation-content .hds-breadcrumb__link:hover, .hds-mode-cds-g0 .hds-breadcrumb__truncation-content .hds-breadcrumb__link.mock-hover,
 .hds-mode-cds-g10 .hds-breadcrumb__truncation-content .hds-breadcrumb__link:hover,
