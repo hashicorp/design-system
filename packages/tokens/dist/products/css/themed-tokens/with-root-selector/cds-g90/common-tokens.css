@@ -42,6 +42,7 @@
   --token-badge-typography-line-height-medium: 1.2308; /** 16px = 1.2308 */
   --token-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
   --token-border-radius-rounded: 1000000000px;
+  --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
   --token-button-border-color-disabled: var(--token-color-border-primary);
   --token-button-border-color-tertiary-active: var(--token-color-border-strong);
   --token-button-border-color-tertiary-default: rgba(0, 0, 0, 0);
