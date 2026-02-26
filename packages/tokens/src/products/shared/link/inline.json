@@ -1,0 +1,22 @@
+{
+  "link": {
+    "inline": {
+      "icon": {
+        "margin": {
+          "horizontal": {
+            "$type": "dimension",
+            "$value": "0.25",
+            "unit": "em",
+            "$modes": {
+              "default": "0.25",
+              "cds-g0": "0.5",
+              "cds-g10": "0.5",
+              "cds-g90": "0.5",
+              "cds-g100": "0.5"
+            }
+          }
+        }
+      }
+    }
+  }
+}
