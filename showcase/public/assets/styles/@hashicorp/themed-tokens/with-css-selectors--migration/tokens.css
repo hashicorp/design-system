@@ -114,6 +114,42 @@
   --token-border-radius-medium: 6px;
   --token-border-radius-small: 5px;
   --token-border-radius-x-small: 3px;
+  --token-breadcrumb-divider-color: var(--token-color-palette-neutral-300);
+  --token-breadcrumb-link-foreground-color-active: var(
+    --token-color-foreground-primary
+  );
+  --token-breadcrumb-link-foreground-color-default: var(
+    --token-color-foreground-faint
+  );
+  --token-breadcrumb-link-foreground-color-hover: var(
+    --token-color-palette-neutral-600
+  );
+  --token-breadcrumb-truncation-content-box-shadow: var(
+    --token-surface-high-box-shadow
+  );
+  --token-breadcrumb-truncation-content-foreground-color-default: var(
+    --token-color-foreground-faint
+  );
+  --token-breadcrumb-truncation-content-foreground-color-hover: var(
+    --token-color-palette-neutral-600
+  );
+  --token-breadcrumb-truncation-toggle-foreground-color-active: var(
+    --token-color-foreground-primary
+  );
+  --token-breadcrumb-truncation-toggle-foreground-color-default: var(
+    --token-color-foreground-faint
+  );
+  --token-breadcrumb-truncation-toggle-foreground-color-hover: var(
+    --token-color-foreground-faint
+  );
+  --token-breadcrumb-truncation-toggle-surface-color-active: var(
+    --token-color-surface-interactive-hover
+  );
+  --token-breadcrumb-truncation-toggle-surface-color-hover: var(
+    --token-color-surface-interactive
+  );
+  --token-breadcrumb-typography-letter-spacing: 0;
+  --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
   --token-button-border-color-critical-active: var(
     --token-color-palette-red-400
   );
@@ -604,6 +640,21 @@
     --token-border-radius-medium: 0px;
     --token-border-radius-small: 0px;
     --token-border-radius-x-small: 0px;
+    --token-breadcrumb-divider-color: #161616;
+    --token-breadcrumb-link-foreground-color-active: #161616;
+    --token-breadcrumb-link-foreground-color-default: #0f62fe;
+    --token-breadcrumb-link-foreground-color-hover: #0043ce;
+    --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px
+      rgba(0, 0, 0, 0.3);
+    --token-breadcrumb-truncation-content-foreground-color-default: #525252;
+    --token-breadcrumb-truncation-content-foreground-color-hover: #161616;
+    --token-breadcrumb-truncation-toggle-foreground-color-active: #161616;
+    --token-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
+    --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
+    --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
+    --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+    --token-breadcrumb-typography-letter-spacing: 0.16px;
+    --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
@@ -982,6 +1033,21 @@
     --token-border-radius-medium: 0px;
     --token-border-radius-small: 0px;
     --token-border-radius-x-small: 0px;
+    --token-breadcrumb-divider-color: #f4f4f4;
+    --token-breadcrumb-link-foreground-color-active: #f4f4f4;
+    --token-breadcrumb-link-foreground-color-default: #78a9ff;
+    --token-breadcrumb-link-foreground-color-hover: #a6c8ff;
+    --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px
+      rgba(0, 0, 0, 0.8);
+    --token-breadcrumb-truncation-content-foreground-color-default: #c6c6c6;
+    --token-breadcrumb-truncation-content-foreground-color-hover: #f4f4f4;
+    --token-breadcrumb-truncation-toggle-foreground-color-active: #f4f4f4;
+    --token-breadcrumb-truncation-toggle-foreground-color-default: #78a9ff;
+    --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
+    --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
+    --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+    --token-breadcrumb-typography-letter-spacing: 0.16px;
+    --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
@@ -1359,6 +1425,20 @@
   --token-border-radius-medium: 0px;
   --token-border-radius-small: 0px;
   --token-border-radius-x-small: 0px;
+  --token-breadcrumb-divider-color: #161616;
+  --token-breadcrumb-link-foreground-color-active: #161616;
+  --token-breadcrumb-link-foreground-color-default: #0f62fe;
+  --token-breadcrumb-link-foreground-color-hover: #0043ce;
+  --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --token-breadcrumb-truncation-content-foreground-color-default: #525252;
+  --token-breadcrumb-truncation-content-foreground-color-hover: #161616;
+  --token-breadcrumb-truncation-toggle-foreground-color-active: #161616;
+  --token-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
+  --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
+  --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
+  --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+  --token-breadcrumb-typography-letter-spacing: 0.16px;
+  --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
   --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
@@ -1732,6 +1812,20 @@
   --token-border-radius-medium: 0px;
   --token-border-radius-small: 0px;
   --token-border-radius-x-small: 0px;
+  --token-breadcrumb-divider-color: #f4f4f4;
+  --token-breadcrumb-link-foreground-color-active: #f4f4f4;
+  --token-breadcrumb-link-foreground-color-default: #78a9ff;
+  --token-breadcrumb-link-foreground-color-hover: #a6c8ff;
+  --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  --token-breadcrumb-truncation-content-foreground-color-default: #c6c6c6;
+  --token-breadcrumb-truncation-content-foreground-color-hover: #f4f4f4;
+  --token-breadcrumb-truncation-toggle-foreground-color-active: #f4f4f4;
+  --token-breadcrumb-truncation-toggle-foreground-color-default: #78a9ff;
+  --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
+  --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
+  --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+  --token-breadcrumb-typography-letter-spacing: 0.16px;
+  --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
   --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
@@ -2129,6 +2223,7 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-badge-typography-line-height-medium: 1.2308; /** 16px = 1.2308 */
   --token-badge-typography-line-height-small: 1.2308; /** 16px = 1.2308 */
   --token-border-radius-rounded: 1000000000px;
+  --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
   --token-button-border-color-disabled: var(--token-color-border-primary);
   --token-button-border-color-tertiary-active: var(--token-color-border-strong);
   --token-button-border-color-tertiary-default: rgba(0, 0, 0, 0);

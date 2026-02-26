@@ -17,6 +17,7 @@ import {
   HdsBreadcrumb,
   HdsBreadcrumbItem,
   HdsBreadcrumbTruncation,
+  HdsIcon,
 } from '@hashicorp/design-system-components/components';
 
 const STATES = ['default', 'hover', 'active', 'focus'];
@@ -42,17 +43,17 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <cds-breadcrumb>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level one</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">Level one</cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level two</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">Level two</cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level three</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">Level three</cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
             <cds-breadcrumb-link
-              href="javascript:void(0)"
+              href="#"
               aria-current="page"
             >Current</cds-breadcrumb-link>
           </cds-breadcrumb-item>
@@ -72,19 +73,22 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <cds-breadcrumb>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level one</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">
+              <HdsIcon @name="org" slot="icon" />
+              Level one
+            </cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level two</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">
+              <HdsIcon @name="folder" slot="icon" />
+              Level two
+            </cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level three</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">Level three</cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link
-              href="javascript:void(0)"
-              aria-current="page"
-            >Current</cds-breadcrumb-link>
+            <cds-breadcrumb-link is-currentpage>Current</cds-breadcrumb-link>
           </cds-breadcrumb-item>
         </cds-breadcrumb>
       </:reference>
@@ -96,17 +100,12 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
     >
       <:theming>
         <HdsBreadcrumb aria-label="breadcrumb with truncation example">
-          <HdsBreadcrumbItem @text="Level one" />
-          <HdsBreadcrumbItem @text="Level two" />
+          <HdsBreadcrumbItem @text="Level one" @icon="org" />
+          <HdsBreadcrumbItem @text="Level two" @icon="folder" />
           <HdsBreadcrumbTruncation>
             <HdsBreadcrumbItem @text="Sub-level one" />
             <HdsBreadcrumbItem
               @text="Sub-level two with a very long string that we may want to trim somehow"
-            />
-            <HdsBreadcrumbItem @text="Sub-level with icon" @icon="org" />
-            <HdsBreadcrumbItem
-              @text="Another sub-level with icon"
-              @icon="folder"
             />
           </HdsBreadcrumbTruncation>
           <HdsBreadcrumbItem @text="Level three" />
@@ -116,10 +115,16 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <cds-breadcrumb>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level one</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">
+              <HdsIcon @name="org" slot="icon" />
+              Level one
+            </cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level two</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">
+              <HdsIcon @name="folder" slot="icon" />
+              Level two
+            </cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
             <cds-overflow-menu breadcrumb="" align="bottom">
@@ -148,13 +153,10 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
             </cds-overflow-menu>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level three</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">Level three</cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link
-              href="javascript:void(0)"
-              aria-current="page"
-            >Current</cds-breadcrumb-link>
+            <cds-breadcrumb-link is-currentpage>Current</cds-breadcrumb-link>
           </cds-breadcrumb-item>
         </cds-breadcrumb>
       </:reference>
@@ -166,8 +168,8 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
     >
       <:theming>
         <HdsBreadcrumb aria-label="breadcrumb with icons example">
-          <HdsBreadcrumbItem @text="Level one long string" @icon="org" />
-          <HdsBreadcrumbItem @text="Level two long string" @icon="folder" />
+          <HdsBreadcrumbItem @text="Level one long string" />
+          <HdsBreadcrumbItem @text="Level two long string" />
           <HdsBreadcrumbItem @text="Level three long string" />
           <HdsBreadcrumbItem @text="Current long string" @current={{true}} />
         </HdsBreadcrumb>
@@ -175,20 +177,16 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
       <:reference>
         <cds-breadcrumb>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level one long string</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">Level one long string</cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level two long string</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">Level two long string</cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link href="javascript:void(0)">Level three long
-              string</cds-breadcrumb-link>
+            <cds-breadcrumb-link href="#">Level three long string</cds-breadcrumb-link>
           </cds-breadcrumb-item>
           <cds-breadcrumb-item>
-            <cds-breadcrumb-link
-              href="javascript:void(0)"
-              aria-current="page"
-            >Current long string</cds-breadcrumb-link>
+            <cds-breadcrumb-link is-currentpage>Current long string</cds-breadcrumb-link>
           </cds-breadcrumb-item>
         </cds-breadcrumb>
       </:reference>
