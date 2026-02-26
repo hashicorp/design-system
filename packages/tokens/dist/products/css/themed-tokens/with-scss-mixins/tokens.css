@@ -122,7 +122,7 @@
       --token-color-foreground-faint
     );
     --token-breadcrumb-link-foreground-color-hover: var(
-      --token-color-palette-neutral-600
+      --token-color-foreground-primary
     );
     --token-breadcrumb-truncation-content-box-shadow: var(
       --token-surface-high-box-shadow
@@ -131,7 +131,7 @@
       --token-color-foreground-faint
     );
     --token-breadcrumb-truncation-content-foreground-color-hover: var(
-      --token-color-palette-neutral-600
+      --token-color-foreground-primary
     );
     --token-breadcrumb-truncation-toggle-foreground-color-active: var(
       --token-color-foreground-primary
