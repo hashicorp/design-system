@@ -422,12 +422,6 @@
     --token-link-standalone-icon-size-large: 1.5rem;
     --token-link-standalone-icon-size-small: 0.75rem;
     --token-link-standalone-padding-vertical: 4px;
-    --token-link-standalone-surface-color-primary-active: var(
-      --token-color-surface-action
-    );
-    --token-link-standalone-surface-color-secondary-active: var(
-      --token-color-surface-interactive-active
-    );
     --token-link-standalone-typography-font-size-small: 0.8125rem;
     --token-link-standalone-typography-letter-spacing-large: 0px;
     --token-link-standalone-typography-letter-spacing-medium: 0px;
@@ -769,8 +763,6 @@
     --token-link-standalone-icon-size-large: 1.25rem;
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
-    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
-    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
     --token-link-standalone-typography-font-size-small: 0.75rem;
     --token-link-standalone-typography-letter-spacing-large: 0px;
     --token-link-standalone-typography-letter-spacing-medium: 0.16px;
@@ -1101,8 +1093,6 @@
     --token-link-standalone-icon-size-large: 1.25rem;
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
-    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
-    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
     --token-link-standalone-typography-font-size-small: 0.75rem;
     --token-link-standalone-typography-letter-spacing-large: 0px;
     --token-link-standalone-typography-letter-spacing-medium: 0.16px;
@@ -1433,8 +1423,6 @@
     --token-link-standalone-icon-size-large: 1.25rem;
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
-    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
-    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
     --token-link-standalone-typography-font-size-small: 0.75rem;
     --token-link-standalone-typography-letter-spacing-large: 0px;
     --token-link-standalone-typography-letter-spacing-medium: 0.16px;
@@ -1765,8 +1753,6 @@
     --token-link-standalone-icon-size-large: 1.25rem;
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
-    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
-    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
     --token-link-standalone-typography-font-size-small: 0.75rem;
     --token-link-standalone-typography-letter-spacing-large: 0px;
     --token-link-standalone-typography-letter-spacing-medium: 0.16px;
@@ -2097,8 +2083,6 @@
     --token-link-standalone-icon-size-large: 1.25rem;
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
-    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
-    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
     --token-link-standalone-typography-font-size-small: 0.75rem;
     --token-link-standalone-typography-letter-spacing-large: 0px;
     --token-link-standalone-typography-letter-spacing-medium: 0.16px;
@@ -2429,8 +2413,6 @@
     --token-link-standalone-icon-size-large: 1.25rem;
     --token-link-standalone-icon-size-small: 1rem;
     --token-link-standalone-padding-vertical: 0px;
-    --token-link-standalone-surface-color-primary-active: rgba(0, 0, 0, 0);
-    --token-link-standalone-surface-color-secondary-active: rgba(0, 0, 0, 0);
     --token-link-standalone-typography-font-size-small: 0.75rem;
     --token-link-standalone-typography-letter-spacing-large: 0px;
     --token-link-standalone-typography-letter-spacing-medium: 0.16px;
