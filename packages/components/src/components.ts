@@ -196,8 +196,8 @@ export { default as HdsFormKeyValueInputsField } from './components/hds/form/key
 export { default as HdsFormKeyValueInputsGeneric } from './components/hds/form/key-value-inputs/generic.gts';
 
 // Form > MaskedInput
-export { default as HdsFormMaskedInputBase } from './components/hds/form/masked-input/base.ts';
-export { default as HdsFormMaskedInputField } from './components/hds/form/masked-input/field.ts';
+export { default as HdsFormMaskedInputBase } from './components/hds/form/masked-input/base.gts';
+export { default as HdsFormMaskedInputField } from './components/hds/form/masked-input/field.gts';
 
 // Form > Radio
 export { default as HdsFormRadioBase } from './components/hds/form/radio/base.gts';
