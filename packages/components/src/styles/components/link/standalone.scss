@@ -14,8 +14,6 @@
 @use "../../mixins/carbonization" as *;
 
 $hds-link-standalone-sizes: ("small", "medium", "large");
-$hds-link-standalone-focus-border-radius: var(--token-border-radius-small);
-$hds-link-standalone-border-width: 1px;
 
 .hds-link-standalone {
   display: flex;
@@ -23,14 +21,13 @@ $hds-link-standalone-border-width: 1px;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding-top: var(--token-link-standalone-padding-vertical);
-  padding-bottom: var(--token-link-standalone-padding-vertical);
+  padding: var(--token-link-standalone-padding-vertical) 0;
   font-weight: var(--token-typography-font-weight-regular);
   font-family: var(--token-typography-font-stack-text);
-  background-color: transparent; // needs to exist for a11y
-  border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
+
+  @include hds-focus-ring-with-pseudo-element($left: -2px, $right: -2px, $radius: var(--token-border-radius-small));
 }
 
 .hds-link-standalone__icon {
@@ -68,7 +65,6 @@ $hds-link-standalone-border-width: 1px;
 
 // COLORS & STATES
 // The "primary" and "secondary" variants share a lot of styles for the interactive states
-// Note: the order of the pseuo-selectors need to stay the way they are
 
 .hds-link-standalone--color-primary {
   color: var(--token-color-foreground-action);
@@ -88,10 +84,6 @@ $hds-link-standalone-border-width: 1px;
 
     .hds-link-standalone__text {
       text-decoration-color: var(--token-color-foreground-action-active);
-    }
-
-    &::before {
-      background-color: var(--token-link-standalone-surface-color-primary-active);
     }
   }
 }
@@ -113,37 +105,5 @@ $hds-link-standalone-border-width: 1px;
     .hds-link-standalone__text {
       text-decoration-color: var(--token-color-foreground-primary);
     }
-
-    &::before {
-      background-color: var(--token-link-standalone-surface-color-secondary-active);
-    }
-  }
-}
-
-// this is how much the focus is visually "shifted" from the bounding box of the
-// notice: you have to take in account also the inset shadow of the focus (see Figma file and also "focus-ring" mixin)
-$hds-link-standalone-focus-shift: 4px;
-
-.hds-link-standalone {
-  // the position absolute of an element is computed from the inside of the border of the container
-  // so we have to take in account the border width of the pseudo-element container itself
-  $hds-shift: $hds-link-standalone-focus-shift + $hds-link-standalone-border-width;
-  // for visual/optical balance we add an extra 2px to the "shift" near the text (opposite the icon)
-  $hds-shift-extra: $hds-shift + 2px;
-
-  // notice: this is used not only for the focus, but also to increase the clickable area
-  @include hds-focus-ring-with-pseudo-element(
-    $right: -$hds-shift,
-    $left: -$hds-shift,
-    $radius: $hds-link-standalone-focus-border-radius
-  );
-
-  // we need to override a couple of values for better visual alignment
-  &.hds-link-standalone--icon-position-leading::before {
-    right: -$hds-shift-extra;
-  }
-
-  &.hds-link-standalone--icon-position-trailing::before {
-    left: -$hds-shift-extra;
   }
 }
