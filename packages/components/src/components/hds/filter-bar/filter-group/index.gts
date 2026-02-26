@@ -46,7 +46,10 @@ export interface HdsFilterBarFilterGroupSignature {
   Blocks: {
     default: [
       {
-        Generic?: WithBoundArgs<typeof HdsFilterBarFilterGroupGeneric, never>;
+        Generic?: WithBoundArgs<
+          typeof HdsFilterBarFilterGroupGeneric,
+          'onChange'
+        >;
         Checkbox?: WithBoundArgs<
           typeof HdsFilterBarFilterGroupCheckbox,
           'keyFilter' | 'name' | 'searchValue' | 'onChange'
