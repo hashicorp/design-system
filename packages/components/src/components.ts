@@ -257,12 +257,12 @@ export { default as HdsModal } from './components/hds/modal/index.gts';
 export * from './components/hds/modal/types.ts';
 
 // PageHeader
-export { default as HdsPageHeader } from './components/hds/page-header/index.ts';
-export { default as HdsPageHeaderActions } from './components/hds/page-header/actions.ts';
-export { default as HdsPageHeaderBadges } from './components/hds/page-header/badges.ts';
-export { default as HdsPageHeaderDescription } from './components/hds/page-header/description.ts';
-export { default as HdsPageHeaderSubtitle } from './components/hds/page-header/subtitle.ts';
-export { default as HdsPageHeaderTitle } from './components/hds/page-header/title.ts';
+export { default as HdsPageHeader } from './components/hds/page-header/index.gts';
+export { default as HdsPageHeaderActions } from './components/hds/page-header/actions.gts';
+export { default as HdsPageHeaderBadges } from './components/hds/page-header/badges.gts';
+export { default as HdsPageHeaderDescription } from './components/hds/page-header/description.gts';
+export { default as HdsPageHeaderSubtitle } from './components/hds/page-header/subtitle.gts';
+export { default as HdsPageHeaderTitle } from './components/hds/page-header/title.gts';
 
 // Pagination
 export { default as HdsPaginationCompact } from './components/hds/pagination/compact/index.ts';
