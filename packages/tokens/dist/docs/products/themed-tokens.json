@@ -12401,40 +12401,6 @@
         "logo"
       ]
     },
-    "token-icon-tile-surface-color-neutral": {
-      "key": "{icon-tile.surface.color.neutral}",
-      "$type": "color",
-      "$value": "#f1f2f3",
-      "$modes": {
-        "default": "#f1f2f3",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#e0e0e0",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{color.surface.strong}",
-        "$modes": {
-          "default": "{color.surface.strong}",
-          "cds-g0": "{carbon.themes.white.layerAccent01}",
-          "cds-g10": "{carbon.themes.g10.layerAccent01}",
-          "cds-g90": "{carbon.themes.g90.layerAccent01}",
-          "cds-g100": "{carbon.themes.g100.layerAccent01}"
-        },
-        "key": "{icon-tile.surface.color.neutral}"
-      },
-      "name": "token-icon-tile-surface-color-neutral",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "neutral"
-      ]
-    },
     "token-icon-tile-surface-color-overlay": {
       "key": "{icon-tile.surface.color.overlay}",
       "$type": "color",
@@ -12467,40 +12433,6 @@
         "surface",
         "color",
         "overlay"
-      ]
-    },
-    "token-icon-tile-surface-color-logo": {
-      "key": "{icon-tile.surface.color.logo}",
-      "$type": "color",
-      "$value": "#ffffff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#f4f4f4",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{color.surface.primary}",
-        "$modes": {
-          "default": "{color.surface.primary}",
-          "cds-g0": "{carbon.themes.white.layer01}",
-          "cds-g10": "{carbon.themes.g10.layer01}",
-          "cds-g90": "{carbon.themes.g90.layer01}",
-          "cds-g100": "{carbon.themes.g100.layer01}"
-        },
-        "key": "{icon-tile.surface.color.logo}"
-      },
-      "name": "token-icon-tile-surface-color-logo",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "logo"
       ]
     },
     "token-pagination-nav-control-height": {
@@ -27072,40 +27004,6 @@
         "logo"
       ]
     },
-    "token-icon-tile-surface-color-neutral": {
-      "key": "{icon-tile.surface.color.neutral}",
-      "$type": "color",
-      "$value": "#e0e0e0",
-      "$modes": {
-        "default": "#e0e0e0",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#e0e0e0",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.layerAccent01}",
-        "$modes": {
-          "default": "{color.surface.strong}",
-          "cds-g0": "{carbon.themes.white.layerAccent01}",
-          "cds-g10": "{carbon.themes.g10.layerAccent01}",
-          "cds-g90": "{carbon.themes.g90.layerAccent01}",
-          "cds-g100": "{carbon.themes.g100.layerAccent01}"
-        },
-        "key": "{icon-tile.surface.color.neutral}"
-      },
-      "name": "token-icon-tile-surface-color-neutral",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "neutral"
-      ]
-    },
     "token-icon-tile-surface-color-overlay": {
       "key": "{icon-tile.surface.color.overlay}",
       "$type": "color",
@@ -27138,40 +27036,6 @@
         "surface",
         "color",
         "overlay"
-      ]
-    },
-    "token-icon-tile-surface-color-logo": {
-      "key": "{icon-tile.surface.color.logo}",
-      "$type": "color",
-      "$value": "#f4f4f4",
-      "$modes": {
-        "default": "#f4f4f4",
-        "cds-g0": "#f4f4f4",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.white.layer01}",
-        "$modes": {
-          "default": "{color.surface.primary}",
-          "cds-g0": "{carbon.themes.white.layer01}",
-          "cds-g10": "{carbon.themes.g10.layer01}",
-          "cds-g90": "{carbon.themes.g90.layer01}",
-          "cds-g100": "{carbon.themes.g100.layer01}"
-        },
-        "key": "{icon-tile.surface.color.logo}"
-      },
-      "name": "token-icon-tile-surface-color-logo",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "logo"
       ]
     },
     "token-pagination-nav-control-height": {
@@ -41743,40 +41607,6 @@
         "logo"
       ]
     },
-    "token-icon-tile-surface-color-neutral": {
-      "key": "{icon-tile.surface.color.neutral}",
-      "$type": "color",
-      "$value": "#e0e0e0",
-      "$modes": {
-        "default": "#e0e0e0",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#e0e0e0",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.layerAccent01}",
-        "$modes": {
-          "default": "{color.surface.strong}",
-          "cds-g0": "{carbon.themes.white.layerAccent01}",
-          "cds-g10": "{carbon.themes.g10.layerAccent01}",
-          "cds-g90": "{carbon.themes.g90.layerAccent01}",
-          "cds-g100": "{carbon.themes.g100.layerAccent01}"
-        },
-        "key": "{icon-tile.surface.color.neutral}"
-      },
-      "name": "token-icon-tile-surface-color-neutral",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "neutral"
-      ]
-    },
     "token-icon-tile-surface-color-overlay": {
       "key": "{icon-tile.surface.color.overlay}",
       "$type": "color",
@@ -41809,40 +41639,6 @@
         "surface",
         "color",
         "overlay"
-      ]
-    },
-    "token-icon-tile-surface-color-logo": {
-      "key": "{icon-tile.surface.color.logo}",
-      "$type": "color",
-      "$value": "#ffffff",
-      "$modes": {
-        "default": "#ffffff",
-        "cds-g0": "#f4f4f4",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g10.layer01}",
-        "$modes": {
-          "default": "{color.surface.primary}",
-          "cds-g0": "{carbon.themes.white.layer01}",
-          "cds-g10": "{carbon.themes.g10.layer01}",
-          "cds-g90": "{carbon.themes.g90.layer01}",
-          "cds-g100": "{carbon.themes.g100.layer01}"
-        },
-        "key": "{icon-tile.surface.color.logo}"
-      },
-      "name": "token-icon-tile-surface-color-logo",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "logo"
       ]
     },
     "token-pagination-nav-control-height": {
@@ -56414,40 +56210,6 @@
         "logo"
       ]
     },
-    "token-icon-tile-surface-color-neutral": {
-      "key": "{icon-tile.surface.color.neutral}",
-      "$type": "color",
-      "$value": "#525252",
-      "$modes": {
-        "default": "#525252",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#e0e0e0",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.layerAccent01}",
-        "$modes": {
-          "default": "{color.surface.strong}",
-          "cds-g0": "{carbon.themes.white.layerAccent01}",
-          "cds-g10": "{carbon.themes.g10.layerAccent01}",
-          "cds-g90": "{carbon.themes.g90.layerAccent01}",
-          "cds-g100": "{carbon.themes.g100.layerAccent01}"
-        },
-        "key": "{icon-tile.surface.color.neutral}"
-      },
-      "name": "token-icon-tile-surface-color-neutral",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "neutral"
-      ]
-    },
     "token-icon-tile-surface-color-overlay": {
       "key": "{icon-tile.surface.color.overlay}",
       "$type": "color",
@@ -56480,40 +56242,6 @@
         "surface",
         "color",
         "overlay"
-      ]
-    },
-    "token-icon-tile-surface-color-logo": {
-      "key": "{icon-tile.surface.color.logo}",
-      "$type": "color",
-      "$value": "#393939",
-      "$modes": {
-        "default": "#393939",
-        "cds-g0": "#f4f4f4",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g90.layer01}",
-        "$modes": {
-          "default": "{color.surface.primary}",
-          "cds-g0": "{carbon.themes.white.layer01}",
-          "cds-g10": "{carbon.themes.g10.layer01}",
-          "cds-g90": "{carbon.themes.g90.layer01}",
-          "cds-g100": "{carbon.themes.g100.layer01}"
-        },
-        "key": "{icon-tile.surface.color.logo}"
-      },
-      "name": "token-icon-tile-surface-color-logo",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "logo"
       ]
     },
     "token-pagination-nav-control-height": {
@@ -71085,40 +70813,6 @@
         "logo"
       ]
     },
-    "token-icon-tile-surface-color-neutral": {
-      "key": "{icon-tile.surface.color.neutral}",
-      "$type": "color",
-      "$value": "#393939",
-      "$modes": {
-        "default": "#393939",
-        "cds-g0": "#e0e0e0",
-        "cds-g10": "#e0e0e0",
-        "cds-g90": "#525252",
-        "cds-g100": "#393939"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.layerAccent01}",
-        "$modes": {
-          "default": "{color.surface.strong}",
-          "cds-g0": "{carbon.themes.white.layerAccent01}",
-          "cds-g10": "{carbon.themes.g10.layerAccent01}",
-          "cds-g90": "{carbon.themes.g90.layerAccent01}",
-          "cds-g100": "{carbon.themes.g100.layerAccent01}"
-        },
-        "key": "{icon-tile.surface.color.neutral}"
-      },
-      "name": "token-icon-tile-surface-color-neutral",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "neutral"
-      ]
-    },
     "token-icon-tile-surface-color-overlay": {
       "key": "{icon-tile.surface.color.overlay}",
       "$type": "color",
@@ -71151,40 +70845,6 @@
         "surface",
         "color",
         "overlay"
-      ]
-    },
-    "token-icon-tile-surface-color-logo": {
-      "key": "{icon-tile.surface.color.logo}",
-      "$type": "color",
-      "$value": "#262626",
-      "$modes": {
-        "default": "#262626",
-        "cds-g0": "#f4f4f4",
-        "cds-g10": "#ffffff",
-        "cds-g90": "#393939",
-        "cds-g100": "#262626"
-      },
-      "original": {
-        "$type": "color",
-        "$value": "{carbon.themes.g100.layer01}",
-        "$modes": {
-          "default": "{color.surface.primary}",
-          "cds-g0": "{carbon.themes.white.layer01}",
-          "cds-g10": "{carbon.themes.g10.layer01}",
-          "cds-g90": "{carbon.themes.g90.layer01}",
-          "cds-g100": "{carbon.themes.g100.layer01}"
-        },
-        "key": "{icon-tile.surface.color.logo}"
-      },
-      "name": "token-icon-tile-surface-color-logo",
-      "attributes": {
-        "category": "icon-tile"
-      },
-      "path": [
-        "icon-tile",
-        "surface",
-        "color",
-        "logo"
       ]
     },
     "token-pagination-nav-control-height": {
