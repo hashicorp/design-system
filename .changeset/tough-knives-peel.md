@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/filter-bar -->
-`FilerBar` - Converted component to gts format.
+`FilterBar` - Converted component to gts format.
 <!-- END -->
