@@ -10,6 +10,7 @@
 //
 
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 $hds-breadcrumb-item-height: 28px;
 $hds-breadcrumb-item-border-radius: var(--token-border-radius-small);
@@ -51,8 +52,16 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   .hds-breadcrumb__list > & {
     &:not(:last-child)::after {
       padding: 0 8px;
-      color: var(--token-color-palette-neutral-300);
+      color: var(--token-breadcrumb-divider-color);
       content: "/";
+    }
+
+    @include hds-apply-only-if-carbon() {
+      &::after {
+        padding: 0 8px;
+        color: var(--token-breadcrumb-divider-color);
+        content: "/";
+      }
     }
   }
 
@@ -74,17 +83,18 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   min-width: 0;
   margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
-  color: var(--token-color-foreground-faint);
+  color: var(--token-breadcrumb-link-foreground-color-default);
+  text-align: left;
   background: none;
   border: none;
   border-radius: $hds-breadcrumb-item-border-radius;
+  cursor: pointer;
   // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
   text-decoration-color: transparent;
-  cursor: pointer;
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-palette-neutral-600);
+    color: var(--token-breadcrumb-link-foreground-color-hover);
 
     > .hds-breadcrumb__text {
       text-decoration-color: currentColor;
@@ -96,10 +106,17 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-secondary);
+    color: var(--token-breadcrumb-link-foreground-color-active);
 
     > .hds-breadcrumb__text {
       text-decoration-color: currentColor;
+    }
+  }
+
+  @include hds-apply-only-if-carbon() {
+    &:focus,
+    &.mock-focus {
+      text-decoration: underline;
     }
   }
 }
@@ -129,9 +146,10 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
   padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
   overflow: hidden;
-  font-size: 0.8125rem; // 13px
+  font-size: var(--token-typography-body-100-font-size);
   font-family: var(--token-typography-font-stack-text);
-  line-height: 1rem; // 16px
+  line-height: var(--token-breadcrumb-typography-line-height);
+  letter-spacing: var(--token-breadcrumb-typography-letter-spacing);
   white-space: nowrap;
   text-decoration: underline;
   text-overflow: ellipsis;
@@ -153,17 +171,47 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   height: $hds-breadcrumb-item-height;
   margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // the horizontal negative margin applied here is for visual balance of the spacing between items
   padding: 0;
-  color: var(--token-color-foreground-faint);
-  background-color: transparent;
+  color: var(--token-breadcrumb-truncation-toggle-foreground-color-default);
+  background-color: var(--token-breadcrumb-truncation-toggle-surface-color-default);
   border: 1px solid transparent; // We need this to be transparent for a11y
   border-radius: $hds-breadcrumb-item-border-radius;
   outline: none; // TODO check with @melanie
   cursor: pointer;
 
+  @include hds-apply-only-if-carbon() {
+    align-items: end;
+    padding-bottom: 3px;
+    border: none;
+
+    &::after {
+      position: absolute;
+      bottom: 8px;
+      width: 14px;
+      height: 1px;
+      background-color: transparent;
+      content: "";
+    }
+
+    &:hover::after,
+    &.mock-hover::after {
+      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-hover);
+    }
+
+    &:focus::after,
+    &.mock-focus::after {
+      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-default);
+    }
+
+    &:active::after,
+    &.mock-active::after {
+      background-color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
+    }
+  }
+
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-faint);
-    background-color: var(--token-color-surface-interactive);
+    color: var(--token-breadcrumb-truncation-toggle-foreground-color-hover);
+    background-color: var(--token-breadcrumb-truncation-toggle-surface-color-hover);
     border-color: var(--token-color-border-strong);
   }
 
@@ -178,8 +226,8 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive-active);
+    color: var(--token-breadcrumb-truncation-toggle-foreground-color-active);
+    background-color: var(--token-breadcrumb-truncation-toggle-surface-color-active);
     border-color: var(--token-color-border-strong);
   }
 }
@@ -191,7 +239,15 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   padding: 6px 12px;
   background-color: var(--token-color-surface-primary);
   border-radius: var(--token-border-radius-medium);
-  box-shadow: var(--token-surface-high-box-shadow);
+  box-shadow: var(--token-breadcrumb-truncation-content-box-shadow);
+
+  @include hds-apply-only-if-carbon() {
+    padding: 0;
+
+    .hds-breadcrumb__sublist > .hds-breadcrumb__item + .hds-breadcrumb__item {
+      margin-top: 0;
+    }
+  }
 
   // the "popover" attributes comes with pre-defined styling so we need to override it
   :where(&[popover]) {
@@ -204,5 +260,32 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     background: none;
     border: none;
     inset: 0;
+  }
+
+  .hds-breadcrumb__link {
+    width: 100%;
+    color: var(--token-breadcrumb-truncation-content-foreground-color-default);
+
+    &:hover,
+    &.mock-hover {
+      color: var(--token-breadcrumb-truncation-content-foreground-color-hover);
+    }
+
+    @include hds-apply-only-if-carbon() {
+      margin: 0;
+      padding: 11px 16px;
+      text-decoration: none;
+      background-color: var(--token-color-surface-interactive);
+
+      &:hover,
+      &.mock-hover {
+        background-color: var(--token-color-surface-interactive-hover);
+      }
+
+      .hds-breadcrumb__text {
+        padding: 0;
+        text-decoration: none;
+      }
+    }
   }
 }

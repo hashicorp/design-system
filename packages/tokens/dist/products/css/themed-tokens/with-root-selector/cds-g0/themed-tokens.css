@@ -53,6 +53,20 @@
   --token-border-radius-medium: 0px;
   --token-border-radius-small: 0px;
   --token-border-radius-x-small: 0px;
+  --token-breadcrumb-divider-color: #161616;
+  --token-breadcrumb-link-foreground-color-active: #161616;
+  --token-breadcrumb-link-foreground-color-default: #0f62fe;
+  --token-breadcrumb-link-foreground-color-hover: #0043ce;
+  --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --token-breadcrumb-truncation-content-foreground-color-default: #525252;
+  --token-breadcrumb-truncation-content-foreground-color-hover: #161616;
+  --token-breadcrumb-truncation-toggle-foreground-color-active: #161616;
+  --token-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
+  --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
+  --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
+  --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
+  --token-breadcrumb-typography-letter-spacing: 0.16px;
+  --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
   --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
