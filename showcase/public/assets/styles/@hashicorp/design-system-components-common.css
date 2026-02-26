@@ -6701,7 +6701,7 @@ button.hds-button[href]::after {
 }
 
 .hds-icon-tile--logo {
-  background-color: var(--token-icon-tile-surface-color-logo);
+  background-color: var(--token-color-surface-primary);
   border-color: var(--token-icon-tile-border-color-logo);
 }
 .hds-icon-tile--logo.hds-icon-tile--color-boundary {
@@ -6740,7 +6740,7 @@ button.hds-button[href]::after {
 
 .hds-icon-tile--icon.hds-icon-tile--color-neutral {
   color: var(--token-color-foreground-faint);
-  background-color: var(--token-icon-tile-surface-color-neutral);
+  background-color: var(--token-color-surface-strong);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-boundary {
   color: var(--token-color-boundary-foreground);
@@ -6752,7 +6752,7 @@ button.hds-button[href]::after {
 }
 .hds-icon-tile--icon.hds-icon-tile--color-hcp {
   color: var(--token-color-hcp-brand);
-  background-color: var(--token-icon-tile-surface-color-neutral);
+  background-color: var(--token-color-surface-strong);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-nomad {
   color: var(--token-color-nomad-foreground);
