@@ -330,9 +330,9 @@ export { default as HdsTextDisplay } from './components/hds/text/display.gts';
 export * from './components/hds/text/types.ts';
 
 // Time
-export { default as HdsTime } from './components/hds/time/index.ts';
-export { default as HdsTimeSingle } from './components/hds/time/single.ts';
-export { default as HdsTimeRange } from './components/hds/time/range.ts';
+export { default as HdsTime } from './components/hds/time/index.gts';
+export { default as HdsTimeSingle } from './components/hds/time/single.gts';
+export { default as HdsTimeRange } from './components/hds/time/range.gts';
 export * from './services/hds-time-types.ts';
 
 // Toast

@@ -5,7 +5,10 @@
 
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
-import type TimeService from '../../../services/hds-time';
+
+import hdsFormatDate from '../../../helpers/hds-format-date.ts';
+
+import type TimeService from '../../../services/hds-time.ts';
 
 export interface HdsTimeRangeSignature {
   Args: {
@@ -71,4 +74,17 @@ export default class HdsTimeRange extends Component<HdsTimeRangeSignature> {
       year: 'numeric',
     };
   }
+
+  <template>
+    {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes extra space around the time element - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+    <span class="hds-time hds-time--range" ...attributes>
+      <time datetime={{this.startDateIsoUtcString}}>
+        {{~hdsFormatDate @startDate this.startDateDisplayFormat~}}
+      </time>
+      &ndash;
+      <time datetime={{this.endDateIsoUtcString}}>
+        {{~hdsFormatDate @endDate this.endDateDisplayFormat~}}
+      </time>
+    </span>
+  </template>
 }

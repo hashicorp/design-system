@@ -6,10 +6,15 @@
 import Component from '@glimmer/component';
 import { typeOf } from '@ember/utils';
 import { service } from '@ember/service';
-import { action } from '@ember/object';
-import type { DisplayType } from '../../../services/hds-time-types.ts';
+import { hash, concat } from '@ember/helper';
 
-import type TimeService from '../../../services/hds-time';
+import hdsFormatDate from '../../../helpers/hds-format-date.ts';
+import HdsTimeRange from './range.gts';
+import HdsTimeSingle from './single.gts';
+import HdsTooltipButton from '../tooltip-button/index.gts';
+
+import type { DisplayType } from '../../../services/hds-time-types.ts';
+import type TimeService from '../../../services/hds-time.ts';
 
 export interface HdsTimeSignature {
   Args: {
@@ -128,21 +133,85 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     return this.args.isOpen ?? false;
   }
 
-  @action
-  didInsertNode(): void {
+  didInsertNode = (): void => {
     const date = this.date;
 
     if (dateIsValid(date)) {
       this.hdsTime.register(date);
     }
-  }
+  };
 
-  @action
-  willDestroyNode(): void {
+  willDestroyNode = (): void => {
     const date = this.date;
 
     if (dateIsValid(date)) {
       this.hdsTime.unregister(date);
     }
-  }
+  };
+
+  <template>
+    {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes extra space around the time element - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+    {{~#let this.display as |display|~}}
+      {{~#if this.isValidDate~}}
+        {{~#if this.hasTooltip~}}
+          <HdsTooltipButton
+            class="hds-time-wrapper"
+            @text={{if
+              display.options.tooltipFormat
+              (hdsFormatDate this.date display.options.tooltipFormat)
+              this.isoUtcString
+            }}
+            @placement="bottom"
+            @extraTippyOptions={{hash showOnCreate=this.isOpen}}
+          >
+            <HdsTimeSingle
+              @date={{this.date}}
+              @isoUtcString={{this.isoUtcString}}
+              @display={{this.display}}
+              @register={{this.didInsertNode}}
+              @unregister={{this.willDestroyNode}}
+              ...attributes
+            />
+          </HdsTooltipButton>
+        {{~else~}}
+          <HdsTimeSingle
+            @date={{this.date}}
+            @isoUtcString={{this.isoUtcString}}
+            @display={{this.display}}
+            @register={{this.didInsertNode}}
+            @unregister={{this.willDestroyNode}}
+            ...attributes
+          />
+        {{~/if~}}
+      {{~else if this.isValidDateRange~}}
+        {{~#if this.hasTooltip~}}
+          <HdsTooltipButton
+            class="hds-time-wrapper"
+            @text={{if
+              display.options.tooltipFormat
+              (concat
+                (hdsFormatDate this.startDate display.options.tooltipFormat)
+                (hdsFormatDate this.endDate display.options.tooltipFormat)
+              )
+              this.rangeIsoUtcString
+            }}
+            @placement="bottom"
+            @extraTippyOptions={{hash showOnCreate=this.isOpen}}
+          >
+            <HdsTimeRange
+              @startDate={{this.startDate}}
+              @endDate={{this.endDate}}
+              ...attributes
+            />
+          </HdsTooltipButton>
+        {{~else~}}
+          <HdsTimeRange
+            @startDate={{this.startDate}}
+            @endDate={{this.endDate}}
+            ...attributes
+          />
+        {{~/if~}}
+      {{~/if~}}
+    {{~/let~}}
+  </template>
 }
