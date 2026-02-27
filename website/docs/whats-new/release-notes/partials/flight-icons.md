@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.2.1
+
+**Patch changes**
+
+Fixed naming for `ping-identity` icon (there was a space after the name)
+
+<small class="doc-whats-new-changelog-metadata">[#3623](https://github.com/hashicorp/design-system/pull/3623)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.2.0
 
 **Minor changes**
@@ -233,16 +243,6 @@ Reorganized the icons within the "Core" icon set into 16 more descriptive catego
 Added "category" to the icons' metadata in the `catalog.json` file.
 
 <small class="doc-whats-new-changelog-metadata">[#1967](https://github.com/hashicorp/design-system/pull/1967)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 3.0.0
-
-**Major changes**
-
-`vagrant`, `vault-radar`, and `vault-secrets` icons have been updated. Also added boxed versions of all product logos.
-
-<small class="doc-whats-new-changelog-metadata">[#1927](https://github.com/hashicorp/design-system/pull/1927)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
