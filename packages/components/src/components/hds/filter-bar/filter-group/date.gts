@@ -12,7 +12,7 @@ import { concat, fn } from '@ember/helper';
 import { eq } from 'ember-truth-helpers';
 
 import hdsT from '../../../../helpers/hds-t.ts';
-import HdsFormSelectField from '../../form/select/field.ts';
+import HdsFormSelectField from '../../form/select/field.gts';
 import HdsFormTextInputBase from '../../form/text-input/base.gts';
 import HdsLayoutFlex from '../../layout/flex/index.gts';
 import HdsFilterBarFilterGroupGeneric from './generic.gts';
