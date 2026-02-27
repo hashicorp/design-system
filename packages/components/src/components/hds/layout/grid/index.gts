@@ -5,11 +5,12 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-
-import type { ComponentLike } from '@glint/template';
-import type { HdsLayoutGridItemSignature } from '../grid/item.ts';
+import { element } from 'ember-element-helper';
+import { hash } from '@ember/helper';
+import style from 'ember-style-modifier';
 
 import { HdsLayoutGridAlignValues, HdsLayoutGridGapValues } from './types.ts';
+import HdsLayoutGridItem from './item.gts';
 
 import type {
   HdsLayoutGridAligns,
@@ -43,7 +44,7 @@ export interface HdsLayoutGridSignature {
   Blocks: {
     default: [
       {
-        Item?: ComponentLike<HdsLayoutGridItemSignature>;
+        Item?: typeof HdsLayoutGridItem;
       },
     ];
   };
@@ -213,4 +214,14 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    {{#let (element this.componentTag) as |Tag|}}
+      <Tag
+        class={{this.classNames}}
+        {{style this.inlineStyles}}
+        ...attributes
+      >{{yield (hash Item=HdsLayoutGridItem)}}</Tag>
+    {{/let}}
+  </template>
 }
