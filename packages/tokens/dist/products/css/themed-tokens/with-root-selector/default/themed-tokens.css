@@ -53,6 +53,15 @@
   --token-border-radius-medium: 6px;
   --token-border-radius-small: 5px;
   --token-border-radius-x-small: 3px;
+  --token-breadcrumb-foreground-color-current: var(--token-color-foreground-strong);
+  --token-breadcrumb-foreground-color-link-active: var(--token-color-foreground-primary);
+  --token-breadcrumb-foreground-color-link-default: var(--token-color-foreground-faint);
+  --token-breadcrumb-foreground-color-link-hover: var(--token-color-palette-neutral-600);
+  --token-breadcrumb-foreground-color-separator: var(--token-color-palette-neutral-300);
+  --token-breadcrumb-spacing-icon-gap: 6px;
+  --token-breadcrumb-spacing-separator: 8px;
+  --token-breadcrumb-typography-font-size: 0.8125rem;
+  --token-breadcrumb-typography-line-height: 1.2308;
   --token-button-border-color-critical-active: var(--token-color-palette-red-400);
   --token-button-border-color-critical-default: var(--token-color-foreground-critical-on-surface);
   --token-button-border-color-critical-focus-external: var(--token-color-focus-critical-external); /** TODO - replace the `magenta` values with the correct ones */
