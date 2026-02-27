@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
@@ -142,16 +141,14 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     return `calc(${progressBarWidth}% - ${progressBarOffset}px)`;
   }
 
-  @action
-  didInsertStep(): void {
+  didInsertStep = (): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this.updateSteps();
     });
-  }
+  };
 
-  @action
-  willDestroyStep(element: HTMLElement): void {
+  willDestroyStep = (element: HTMLElement): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._stepNodes = this._stepNodes.filter(
@@ -161,18 +158,16 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
         (stepId): boolean => stepId !== element.id
       );
     });
-  }
+  };
 
-  @action
-  didInsertPanel(): void {
+  didInsertPanel = (): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this.updatePanels();
     });
-  }
+  };
 
-  @action
-  willDestroyPanel(element: HTMLElement): void {
+  willDestroyPanel = (element: HTMLElement): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._panelNodes = this._panelNodes.filter(
@@ -182,10 +177,9 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
         (panelId): boolean => panelId !== element.id
       );
     });
-  }
+  };
 
-  @action
-  onKeyUp(currentStepIndex: number, event: KeyboardEvent): void {
+  onKeyUp = (currentStepIndex: number, event: KeyboardEvent): void => {
     const leftArrow = 'ArrowLeft';
     const rightArrow = 'ArrowRight';
 
@@ -202,10 +196,10 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
       );
       this.focusStep(prevStepIndex, event);
     }
-  }
+  };
 
   // Update the step arrays based on how they are ordered in the DOM
-  private updateSteps(): void {
+  private updateSteps = (): void => {
     const steps = this._element.querySelectorAll(STEP_ELEMENT_SELECTOR);
     let newStepIds: HdsStepperNavStepIds = [];
     let newStepNodes: HTMLElement[] = [];
@@ -215,10 +209,10 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     });
     this._stepIds = newStepIds;
     this._stepNodes = newStepNodes;
-  }
+  };
 
   // Update the panel arrays based on how they are ordered in the DOM
-  private updatePanels(): void {
+  private updatePanels = (): void => {
     const panels = this._element.querySelectorAll(PANEL_ELEMENT_SELECTOR);
     let newPanelIds: HdsStepperNavPanelIds = [];
     let newPanelNodes: HTMLElement[] = [];
@@ -228,26 +222,26 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     });
     this._panelIds = newPanelIds;
     this._panelNodes = newPanelNodes;
-  }
+  };
 
   // Find the next interactive step to focus based on keyboard input
-  private findNextInteractiveStepIndex(
+  private findNextInteractiveStepIndex = (
     currentStepIndex: number,
     increment: number
-  ): number {
+  ): number => {
     let newStepIndex = (currentStepIndex + increment) % this._stepIds.length;
     while (newStepIndex > this.currentStep) {
       newStepIndex = (newStepIndex + increment) % this._stepIds.length;
     }
     return newStepIndex;
-  }
+  };
 
   // Focus step for keyboard & mouse nav
-  private focusStep(stepIndex: number, event: KeyboardEvent): void {
+  private focusStep = (stepIndex: number, event: KeyboardEvent): void => {
     event.preventDefault();
     const step = this._stepNodes[stepIndex];
     step?.focus();
-  }
+  };
 
   get classNames() {
     const classes = ['hds-stepper-nav'];
