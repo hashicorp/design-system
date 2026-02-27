@@ -208,9 +208,18 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
     }
   }
 
+  onFocusOut = () => {
+    const demoNameInput = document.getElementById(
+      'demo-name-2',
+    ) as HTMLInputElement | null;
+    if (demoNameInput) {
+      demoNameInput.focus();
+    }
+  };
+
   <template>
     <HdsFilterBar @filters={{this.filters}} @onFilter={{this.onFilter}} as |F|>
-      <F.FiltersDropdown as |D|>
+      <F.FiltersDropdown @onFocusOut={{this.onFocusOut}} as |D|>
         <D.FilterGroup
           @key="single"
           @text="Single filter"
@@ -245,6 +254,7 @@ export default class CodeFragmentWithGenericContent extends Component<CodeFragme
               @value={{this.multiFilterName}}
               {{on "input" (fn this.onMultiNameChange G.updateFilter)}}
               name="name-2"
+              id="demo-name-2"
               as |F|
             >
               <F.Label>Name</F.Label>
