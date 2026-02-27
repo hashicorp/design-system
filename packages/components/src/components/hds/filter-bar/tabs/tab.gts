@@ -5,8 +5,13 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
 import { modifier, type PositionalArgs } from 'ember-modifier';
+import { on } from '@ember/modifier';
+import { gt } from 'ember-truth-helpers';
+
+import hdsT from '../../../../helpers/hds-t.ts';
+import HdsTextBody from '../../text/body.gts';
+import HdsIcon from '../../icon/index.gts';
 
 export interface HdsFilterBarTabsTabModifierSignature {
   Args: {
@@ -71,41 +76,37 @@ export default class HdsFilterBarTabsTab extends Component<HdsFilterBarTabsTabSi
     );
   }
 
-  @action
-  didInsertNode(element: HTMLButtonElement): void {
+  didInsertNode = (element: HTMLButtonElement): void => {
     const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
       didInsertNode(element, this._tabId);
     }
-  }
+  };
 
-  @action
-  willDestroyNode(element: HTMLButtonElement): void {
+  willDestroyNode = (element: HTMLButtonElement): void => {
     const { willDestroyNode } = this.args;
 
     if (typeof willDestroyNode === 'function') {
       willDestroyNode(element);
     }
-  }
+  };
 
-  @action
-  onClick(event: MouseEvent): void {
+  onClick = (event: MouseEvent): void => {
     const { onClick } = this.args;
 
     if (this.nodeIndex !== undefined && typeof onClick === 'function') {
       onClick(event, this.nodeIndex);
     }
-  }
+  };
 
-  @action
-  onKeydown(event: KeyboardEvent): void {
+  onKeydown = (event: KeyboardEvent): void => {
     const { onKeydown } = this.args;
 
     if (this.nodeIndex !== undefined && typeof onKeydown === 'function') {
       onKeydown(event, this.nodeIndex);
     }
-  }
+  };
 
   get classNames(): string {
     const classes = ['hds-filter-bar__tabs__tab'];
@@ -116,4 +117,52 @@ export default class HdsFilterBarTabsTab extends Component<HdsFilterBarTabsTabSi
 
     return classes.join(' ');
   }
+
+  <template>
+    {{! template-lint-disable require-context-role no-invalid-role }}
+    {{! template-lint-disable require-presentational-children }}
+    <li class={{this.classNames}} ...attributes role="presentation">
+      <button
+        class="hds-filter-bar__tabs__tab__button"
+        id={{this._tabId}}
+        type="button"
+        role="tab"
+        aria-controls={{this.coupledPanelId}}
+        aria-selected={{if this.isSelected "true" "false"}}
+        tabindex={{unless this.isSelected "-1"}}
+        {{on "click" this.onClick}}
+        {{on "keydown" this.onKeydown}}
+        {{this._setUpTab
+          insertCallbackFunction=this.didInsertNode
+          destroyCallbackFunction=this.willDestroyNode
+        }}
+      >
+        <HdsTextBody
+          @size="200"
+          @weight="medium"
+          class="hds-filter-bar__tabs__tab__text"
+        >{{yield}}</HdsTextBody>
+        {{#if (gt @numFilters 0)}}
+          <span class="sr-only">{{hdsT
+              "hds.components.filter-bar.tabs.tab.filters-applied"
+              default="Filters applied"
+            }}</span>
+          <HdsTextBody
+            @size="200"
+            @color="primary"
+            class="hds-filter-bar__tabs__tab__filter-count"
+          >
+            {{@numFilters}}
+          </HdsTextBody>
+        {{/if}}
+        <HdsIcon
+          @name="chevron-right"
+          @color="primary"
+          class="hds-filter-bar__tabs__tab__icon"
+        />
+      </button>
+    </li>
+    {{! template-lint-enable require-presentational-children }}
+    {{! template-lint-enable require-context-role no-invalid-role }}
+  </template>
 }

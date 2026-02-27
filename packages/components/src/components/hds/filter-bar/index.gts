@@ -4,15 +4,30 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 import { isArray } from '@ember/array';
 import { modifier } from 'ember-modifier';
 import { guidFor } from '@ember/object/internals';
+import { hash } from '@ember/helper';
+import { on } from '@ember/modifier';
+
 import type { WithBoundArgs } from '@glint/template';
 
-import type HdsIntlService from '../../../services/hds-intl';
+import { NUMERICAL_SELECTORS_TEXT } from './filter-group/numerical.gts';
+import { DATE_SELECTORS_TEXT } from './filter-group/date.gts';
+import hdsT from '../../../helpers/hds-t.ts';
+import HdsYield from '../yield/index.gts';
+import HdsFilterBarActionsDropdown from './actions-dropdown.gts';
+import HdsFilterBarFiltersDropdown from './filters-dropdown.gts';
+import HdsLayoutFlex from '../layout/flex/index.gts';
+import HdsFormTextInputBase from '../form/text-input/base.gts';
+import HdsButton from '../button/index.gts';
+import HdsSeparator from '../separator/index.gts';
+import HdsTextBody from '../text/body.gts';
+import HdsFilterBarAppliedFilters from './applied-filters.gts';
+
+import type HdsIntlService from '../../../services/hds-intl.ts';
 import type {
   HdsFilterBarFilters,
   HdsFilterBarFilter,
@@ -20,12 +35,6 @@ import type {
   HdsFilterBarData,
   HdsFilterBarGenericFilterData,
 } from './types.ts';
-import HdsYield from '../yield/index.gts';
-import HdsFilterBarActionsDropdown from './actions-dropdown.ts';
-import HdsFilterBarFiltersDropdown from './filters-dropdown.ts';
-
-import { NUMERICAL_SELECTORS_TEXT } from './filter-group/numerical.ts';
-import { DATE_SELECTORS_TEXT } from './filter-group/date.ts';
 
 export interface HdsFilterBarSignature {
   Args: {
@@ -46,7 +55,7 @@ export interface HdsFilterBarSignature {
           typeof HdsFilterBarActionsDropdown,
           never
         >;
-        ActionsGeneric?: WithBoundArgs<typeof HdsYield, never>;
+        ActionsGeneric?: typeof HdsYield;
       },
     ];
   };
@@ -92,8 +101,7 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     return Object.keys(this.args.filters).length > 0;
   }
 
-  @action
-  onFilter(filters: HdsFilterBarFilters): void {
+  onFilter = (filters: HdsFilterBarFilters): void => {
     const { onFilter } = this.args;
     if (onFilter && typeof onFilter === 'function') {
       onFilter(filters);
@@ -104,20 +112,18 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
         this._isExpanded = false;
       }
     }
-  }
+  };
 
-  @action
-  clearFilters(): void {
+  clearFilters = (): void => {
     const { onFilter } = this.args;
     if (onFilter && typeof onFilter === 'function') {
       onFilter({});
       this._isExpanded = false;
     }
     this._dropdownToggleElement?.focus();
-  }
+  };
 
-  @action
-  onSearch(event: Event): void {
+  onSearch = (event: Event): void => {
     const { filters } = this.args;
     const input = event.target as HTMLInputElement;
     const value = input?.value;
@@ -135,12 +141,11 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     }
 
     this.onFilter({ ...newFilters });
-  }
+  };
 
-  @action
-  toggleExpand(): void {
+  toggleExpand = (): void => {
     this._isExpanded = !this._isExpanded;
-  }
+  };
 
   private _copyFilters = (
     filters: HdsFilterBarFilters
@@ -334,4 +339,98 @@ export default class HdsFilterBar extends Component<HdsFilterBarSignature> {
     }
     return [];
   };
+
+  <template>
+    <div class="hds-filter-bar" ...attributes {{this._setUpFilterBar}}>
+      {{#if @isLiveFilter}}
+        <span class="sr-only">{{hdsT
+            "hds.components.filter-bar.live-filtering"
+            default="Filters will be applied automatically as selections are made"
+          }}</span>
+      {{/if}}
+      <HdsLayoutFlex @align="center" @gap="8" class="hds-filter-bar__actions">
+        <HdsButton
+          @text={{hdsT
+            "hds.components.filter-bar.applied-filters.toggle-button"
+            default="View applied filters"
+          }}
+          @color="secondary"
+          @size="small"
+          @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
+          @isIconOnly={{true}}
+          id={{this._appliedFiltersButtonId}}
+          aria-controls={{this._appliedFiltersContentId}}
+          aria-expanded={{if this._isExpanded "true" "false"}}
+          class="hds-filter-bar__applied-filters-toggle-button"
+          {{on "click" this.toggleExpand}}
+        />
+        {{yield
+          (hash
+            FiltersDropdown=(component
+              HdsFilterBarFiltersDropdown
+              filters=@filters
+              isLiveFilter=@isLiveFilter
+              onFilter=this.onFilter
+            )
+          )
+        }}
+        {{#if @hasSearch}}
+          <HdsFormTextInputBase
+            @type="search"
+            @value={{this.searchValue}}
+            class="hds-filter-bar__search"
+            placeholder={{this.searchPlaceholder}}
+            aria-label={{hdsT
+              "hds.components.filter-bar.search.aria-label"
+              default="Search"
+            }}
+            name="search"
+            {{on "change" this.onSearch}}
+          />
+        {{/if}}
+        <HdsLayoutFlex
+          @gap="8"
+          @align="center"
+          class="hds-filter-bar__actions__right"
+        >
+          {{yield (hash ActionsGeneric=HdsYield)}}
+          {{yield (hash ActionsDropdown=HdsFilterBarActionsDropdown)}}
+        </HdsLayoutFlex>
+      </HdsLayoutFlex>
+      <div
+        class="hds-filter-bar__applied-filters-list"
+        id={{this._appliedFiltersContentId}}
+      >
+        {{#if this._isExpanded}}
+          <HdsSeparator @spacing="0" />
+          <div class="hds-filter-bar__applied-filters-list__content">
+            {{#if this.hasActiveFilters}}
+              <HdsFilterBarAppliedFilters
+                @filters={{@filters}}
+                @onFilterDismiss={{this._onFilterDismiss}}
+              />
+              <HdsButton
+                class="hds-filter-bar__clear-button"
+                @text={{hdsT
+                  "hds.components.filter-bar.applied-filters.clear-filters"
+                  default="Clear all filters"
+                }}
+                @color="tertiary"
+                @icon="x"
+                @size="small"
+                {{on "click" this.clearFilters}}
+              />
+            {{else}}
+              <HdsTextBody @size={{100}} @color="faint">
+                {{hdsT
+                  "hds.components.filter-bar.applied-filters.no-filters-applied"
+                  default="No filters applied"
+                }}
+              </HdsTextBody>
+            {{/if}}
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </template>
 }

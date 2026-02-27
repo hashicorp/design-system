@@ -31,7 +31,7 @@ import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
-import type { HdsFilterBarSignature } from '../filter-bar/index.ts';
+import type { HdsFilterBarSignature } from '../filter-bar/index.gts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type HdsAdvancedTableTd from './td.ts';

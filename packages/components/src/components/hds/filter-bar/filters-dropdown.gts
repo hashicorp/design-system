@@ -4,14 +4,22 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { modifier } from 'ember-modifier';
+import style from 'ember-style-modifier';
+import { hash, fn } from '@ember/helper';
+import { on } from '@ember/modifier';
+
 import type { WithBoundArgs } from '@glint/template';
 
-import HdsFilterBarFilterGroup from './filter-group/index.ts';
-import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
+import hdsT from '../../../helpers/hds-t.ts';
+import HdsDropdown from '../dropdown/index.ts';
+import HdsFilterBarFilterGroup from './filter-group/index.gts';
+import HdsFilterBarTabs from './tabs/index.gts';
+import HdsButtonSet from '../button-set/index.gts';
+import HdsButton from '../button/index.gts';
 
+import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 
 export const DEFAULT_DROPDOWN_HEIGHT = '600px';
@@ -60,22 +68,19 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
     return heightStyle;
   }
 
-  @action
-  onFilter(key: string, keyFilter?: HdsFilterBarFilter): void {
+  onFilter = (key: string, keyFilter?: HdsFilterBarFilter): void => {
     this.internalFilters = this._updateFilter(key, keyFilter);
 
     if (this.isLiveFilter) {
       this._applyFilters();
     }
-  }
+  };
 
-  @action
-  onApply(closeDropdown: () => void): void {
+  onApply = (closeDropdown: () => void): void => {
     this._applyFilters(closeDropdown);
-  }
+  };
 
-  @action
-  onClear(closeDropdown: () => void): void {
+  onClear = (closeDropdown: () => void): void => {
     const { onFilter } = this.args;
     this.internalFilters = {};
 
@@ -86,7 +91,7 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
     if (closeDropdown && typeof closeDropdown === 'function') {
       closeDropdown();
     }
-  }
+  };
 
   private _copyFilters = (
     filters: HdsFilterBarFilters
@@ -104,10 +109,10 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
     return newFilters;
   };
 
-  private _updateFilter(
+  private _updateFilter = (
     key: string,
     keyFilter?: HdsFilterBarFilter
-  ): HdsFilterBarFilters {
+  ): HdsFilterBarFilters => {
     const newFilters = this._copyFilters(this.internalFilters);
     if (keyFilter === undefined) {
       delete newFilters[key];
@@ -116,7 +121,7 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
     }
 
     return { ...newFilters };
-  }
+  };
 
   private _applyFilters = (closeDropdown?: () => void): void => {
     const { onFilter } = this.args;
@@ -128,4 +133,65 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
       closeDropdown();
     }
   };
+
+  <template>
+    <HdsDropdown
+      @listPosition="bottom-left"
+      @width="600px"
+      ...attributes
+      class="hds-filter-bar__filters-dropdown"
+      {{style this.dropdownHeightStyle}}
+      {{this._syncFilters}}
+      as |D|
+    >
+      <D.ToggleButton
+        @icon="filter"
+        @text={{hdsT
+          "hds.components.filter-bar.filters-dropdown.toggle-button"
+          default="Filters"
+        }}
+        @color="secondary"
+        @size="small"
+      />
+      <D.Generic>
+        <HdsFilterBarTabs as |T|>
+          {{yield
+            (hash
+              FilterGroup=(component
+                HdsFilterBarFilterGroup
+                tab=T.Tab
+                panel=T.Panel
+                onChange=this.onFilter
+                filters=this.internalFilters
+              )
+              close=D.close
+            )
+          }}
+        </HdsFilterBarTabs>
+      </D.Generic>
+      <D.Footer @hasDivider={{true}}>
+        <HdsButtonSet>
+          {{#unless this.isLiveFilter}}
+            <HdsButton
+              @text={{hdsT
+                "hds.components.filter-bar.filters-dropdown.apply"
+                default="Apply filters"
+              }}
+              @size="small"
+              {{on "click" (fn this.onApply D.close)}}
+            />
+          {{/unless}}
+          <HdsButton
+            @text={{hdsT
+              "hds.components.filter-bar.filters-dropdown.clear"
+              default="Clear all filters"
+            }}
+            @color="secondary"
+            @size="small"
+            {{on "click" (fn this.onClear D.close)}}
+          />
+        </HdsButtonSet>
+      </D.Footer>
+    </HdsDropdown>
+  </template>
 }

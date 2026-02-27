@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { hash } from '@ember/helper';
 
 import type { HdsFilterBarFilter } from '../types.ts';
 
@@ -23,11 +23,16 @@ export interface HdsFilterBarFilterGroupGenericSignature {
 }
 
 export default class HdsFilterBarFilterGroupGeneric extends Component<HdsFilterBarFilterGroupGenericSignature> {
-  @action
-  updateFilter(filter: HdsFilterBarFilter): void {
+  updateFilter = (filter: HdsFilterBarFilter): void => {
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(filter);
     }
-  }
+  };
+
+  <template>
+    <div class="hds-filter-bar__filter-group__generic" ...attributes>
+      {{yield (hash updateFilter=this.updateFilter)}}
+    </div>
+  </template>
 }

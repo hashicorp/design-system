@@ -4,8 +4,11 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { on } from '@ember/modifier';
+
+import HdsFormRadioBase from '../../form/radio/base.gts';
+import HdsTextBody from '../../text/body.gts';
 
 import type { HdsFilterBarFilter } from '../types.ts';
 
@@ -27,13 +30,12 @@ export interface HdsFilterBarFilterGroupRadioSignature {
 export default class HdsFilterBarFilterGroupRadio extends Component<HdsFilterBarFilterGroupRadioSignature> {
   private _elementId = 'radio' + guidFor(this);
 
-  @action
-  onChange(event: Event): void {
+  onChange = (event: Event): void => {
     const { onChange, label } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(event, label);
     }
-  }
+  };
 
   get isChecked(): boolean {
     const { keyFilter, value } = this.args;
@@ -69,4 +71,23 @@ export default class HdsFilterBarFilterGroupRadio extends Component<HdsFilterBar
 
     return classes.join(' ');
   }
+
+  <template>
+    <label class={{this.classNames}} ...attributes for={{this._elementId}}>
+      <HdsFormRadioBase
+        class="hds-filter-bar__filter-group__selection-option__control"
+        id={{this._elementId}}
+        name={{@name}}
+        checked={{this.isChecked}}
+        @value={{@value}}
+        {{on "change" this.onChange}}
+      />
+      <HdsTextBody
+        @tag="span"
+        @size="200"
+        @weight="medium"
+        class="hds-filter-bar__filter-group__selection-option__text-content"
+      >{{@label}}</HdsTextBody>
+    </label>
+  </template>
 }

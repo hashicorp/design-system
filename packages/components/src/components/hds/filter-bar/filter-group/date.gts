@@ -4,13 +4,21 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
+import { on } from '@ember/modifier';
+import { concat, fn } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
 
-import type { HdsFilterBarFilterGroupGenericSignature } from './generic.ts';
-import type HdsIntlService from '../../../../services/hds-intl';
+import hdsT from '../../../../helpers/hds-t.ts';
+import HdsFormSelectField from '../../form/select/field.gts';
+import HdsFormTextInputBase from '../../form/text-input/base.gts';
+import HdsLayoutFlex from '../../layout/flex/index.gts';
+import HdsFilterBarFilterGroupGeneric from './generic.gts';
+
+import type { HdsFilterBarFilterGroupGenericSignature } from './generic.gts';
+import type HdsIntlService from '../../../../services/hds-intl.ts';
 import type { HdsFormTextInputTypes } from '../../form/text-input/types.ts';
 
 import type {
@@ -159,11 +167,10 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     }
   }
 
-  @action
-  onSelectorChange(
+  onSelectorChange = (
     updateFilter: (filter: HdsFilterBarFilter) => void,
     event: Event
-  ): void {
+  ): void => {
     const select = event.target as HTMLSelectElement;
     this._selectorInputValue = select.value as HdsFilterBarDateFilterSelector;
     if (this._selectorInputValue === 'between') {
@@ -173,49 +180,45 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
       this._betweenValueEndInputValue = undefined;
     }
     this._updateFilter(updateFilter);
-  }
+  };
 
-  @action
-  onValueChange(
+  onValueChange = (
     updateFilter: (filter: HdsFilterBarFilter) => void,
     event: Event
-  ): void {
+  ): void => {
     const input = event.target as HTMLInputElement;
     this._valueInputValue = input.value;
     this._updateFilter(updateFilter);
-  }
+  };
 
-  @action
-  onBetweenValueStartChange(
+  onBetweenValueStartChange = (
     updateFilter: (filter: HdsFilterBarFilter) => void,
     event: Event
-  ): void {
+  ): void => {
     const input = event.target as HTMLInputElement;
     this._betweenValueStartInputValue = input.value;
     this._updateFilter(updateFilter);
-  }
+  };
 
-  @action
-  onBetweenValueEndChange(
+  onBetweenValueEndChange = (
     updateFilter: (filter: HdsFilterBarFilter) => void,
     event: Event
-  ): void {
+  ): void => {
     const input = event.target as HTMLInputElement;
     this._betweenValueEndInputValue = input.value;
     this._updateFilter(updateFilter);
-  }
+  };
 
-  @action
-  onChange(filter: HdsFilterBarFilter): void {
+  onChange = (filter: HdsFilterBarFilter): void => {
     const { onChange } = this.args;
     if (onChange && typeof onChange === 'function') {
       onChange(filter);
     }
-  }
+  };
 
-  private _updateFilter(
+  private _updateFilter = (
     updateFilter: (filter: HdsFilterBarFilter) => void
-  ): void {
+  ): void => {
     const addFilter = (): HdsFilterBarFilter => {
       const value =
         this._selectorInputValue === 'between'
@@ -238,9 +241,9 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
     if (this._isFormCompleted()) {
       updateFilter(addFilter());
     }
-  }
+  };
 
-  private _isFormCompleted(): boolean {
+  private _isFormCompleted = (): boolean => {
     if (this._selectorInputValue === 'between') {
       return (
         this._betweenValueStartInputValue !== undefined &&
@@ -252,7 +255,7 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
         this._valueInputValue !== undefined
       );
     }
-  }
+  };
 
   private _getSelectorText = (
     selector: HdsFilterBarDateFilterSelector
@@ -264,4 +267,99 @@ export default class HdsFilterBarFilterGroupDate extends Component<HdsFilterBarF
       }
     );
   };
+
+  <template>
+    <HdsFilterBarFilterGroupGeneric
+      class="hds-filter-bar__filter-group__date"
+      @onChange={{this.onChange}}
+      ...attributes
+      as |G|
+    >
+      <fieldset class="hds-filter-bar__filter-group__fieldset">
+        <legend class="sr-only">
+          {{hdsT
+            "hds.components.filter-bar.filter-group.date.legend"
+            text=@text
+            default="Filter by date"
+          }}
+        </legend>
+        <HdsFormSelectField
+          @id={{this._selectorInputId}}
+          name={{concat @key "-selector"}}
+          {{on "change" (fn this.onSelectorChange G.updateFilter)}}
+          class="hds-filter-bar__filter-group__field"
+          as |F|
+        >
+          <F.Label>{{this.selectorLabelText}}</F.Label>
+          <F.Options>
+            <option value="">{{hdsT
+                "hds.components.filter-bar.filter-group.date.selector-input.default-value"
+                default="Pick a selector"
+              }}</option>
+            {{#each this._selectorValues as |selectorValue|}}
+              <option
+                value={{selectorValue}}
+                selected={{eq selectorValue this.selector}}
+              >{{this._getSelectorText selectorValue}}</option>
+            {{/each}}
+          </F.Options>
+        </HdsFormSelectField>
+        {{#if (eq this.selector "between")}}
+          <HdsLayoutFlex
+            @gap="8"
+            @direction={{if (eq @type "datetime") "column" "row"}}
+          >
+            <HdsFormTextInputBase
+              @id={{this._betweenValueStartInputId}}
+              @type={{this.inputType}}
+              @value={{this.betweenValueStart}}
+              name={{concat @key "-between-start"}}
+              aria-label={{hdsT
+                "hds.components.filter-bar.filter-group.date.between-value-inputs.start.aria-label"
+                type=this.type
+                default="Date start value"
+              }}
+              placeholder={{hdsT
+                "hds.components.filter-bar.filter-group.date.between-value-inputs.start.placeholder"
+                default="Start"
+              }}
+              class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
+              {{on "change" (fn this.onBetweenValueStartChange G.updateFilter)}}
+            />
+            <HdsFormTextInputBase
+              @id={{this._betweenValueEndInputId}}
+              @type={{this.inputType}}
+              @value={{this.betweenValueEnd}}
+              name={{concat @key "-between-end"}}
+              aria-label={{hdsT
+                "hds.components.filter-bar.filter-group.date.between-value-inputs.end.aria-label"
+                type=this.type
+                default="Date end value"
+              }}
+              placeholder={{hdsT
+                "hds.components.filter-bar.filter-group.date.between-value-inputs.end.placeholder"
+                default="End"
+              }}
+              class="hds-filter-bar__filter-group__field hds-filter-bar__filter-group__field--between"
+              {{on "change" (fn this.onBetweenValueEndChange G.updateFilter)}}
+            />
+          </HdsLayoutFlex>
+        {{else}}
+          <HdsFormTextInputBase
+            @id={{this._valueInputId}}
+            @type={{this.inputType}}
+            @value={{this.value}}
+            name={{concat @key "-value"}}
+            aria-label={{hdsT
+              "hds.components.filter-bar.filter-group.date.value-input.aria-label"
+              type=this.type
+              default="Date value"
+            }}
+            class="hds-filter-bar__filter-group__field"
+            {{on "change" (fn this.onValueChange G.updateFilter)}}
+          />
+        {{/if}}
+      </fieldset>
+    </HdsFilterBarFilterGroupGeneric>
+  </template>
 }

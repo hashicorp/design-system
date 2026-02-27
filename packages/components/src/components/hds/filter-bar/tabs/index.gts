@@ -5,12 +5,15 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { modifier } from 'ember-modifier';
+import { hash } from '@ember/helper';
+
 import type { WithBoundArgs } from '@glint/template';
-import HdsFilterBarTabsTabComponent from './tab.ts';
-import HdsFilterBarTabsPanelComponent from './panel.ts';
+
+import hdsT from '../../../../helpers/hds-t.ts';
+import HdsFilterBarTabsTab from './tab.gts';
+import HdsFilterBarTabsPanel from './panel.gts';
 
 export interface HdsFilterBarTabsSignature {
   Args: {
@@ -20,7 +23,7 @@ export interface HdsFilterBarTabsSignature {
     default: [
       {
         Tab?: WithBoundArgs<
-          typeof HdsFilterBarTabsTabComponent,
+          typeof HdsFilterBarTabsTab,
           | 'selectedTabIndex'
           | 'tabIds'
           | 'panelIds'
@@ -30,7 +33,7 @@ export interface HdsFilterBarTabsSignature {
           | 'onKeydown'
         >;
         Panel?: WithBoundArgs<
-          typeof HdsFilterBarTabsPanelComponent,
+          typeof HdsFilterBarTabsPanel,
           | 'selectedTabIndex'
           | 'tabIds'
           | 'panelIds'
@@ -62,17 +65,15 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
     this._element = element;
   });
 
-  @action
-  didInsertTab(element: HTMLElement, tabId: string): void {
+  didInsertTab = (element: HTMLElement, tabId: string): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._tabIds = [...this._tabIds, tabId];
       this._tabNodes = [...this._tabNodes, element];
     });
-  }
+  };
 
-  @action
-  willDestroyTab(element: HTMLElement): void {
+  willDestroyTab = (element: HTMLElement): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._tabNodes = this._tabNodes.filter(
@@ -82,19 +83,17 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
         (tabId): boolean => tabId !== element.id
       );
     });
-  }
+  };
 
-  @action
-  didInsertPanel(element: HTMLElement, panelId: string): void {
+  didInsertPanel = (element: HTMLElement, panelId: string): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._panelIds = [...this._panelIds, panelId];
       this._panelNodes = [...this._panelNodes, element];
     });
-  }
+  };
 
-  @action
-  willDestroyPanel(element: HTMLElement): void {
+  willDestroyPanel = (element: HTMLElement): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._panelNodes = this._panelNodes.filter(
@@ -104,15 +103,13 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
         (panelId): boolean => panelId !== element.id
       );
     });
-  }
+  };
 
-  @action
-  onClick(event: MouseEvent, tabIndex: number): void {
+  onClick = (event: MouseEvent, tabIndex: number): void => {
     this._selectedTabIndex = tabIndex;
-  }
+  };
 
-  @action
-  onKeydown(event: KeyboardEvent, tabIndex: number): void {
+  onKeydown = (event: KeyboardEvent, tabIndex: number): void => {
     const leftArrow = 'ArrowLeft';
     const rightArrow = 'ArrowRight';
     const upArrow = 'ArrowUp';
@@ -144,11 +141,55 @@ export default class HdsFilterBarTabs extends Component<HdsFilterBarTabsSignatur
         inline: 'nearest',
       });
     }
-  }
+  };
 
   // Focus tab for keyboard & mouse navigation:
-  private _focusTab(tabIndex: number, event: KeyboardEvent): void {
+  private _focusTab = (tabIndex: number, event: KeyboardEvent): void => {
     event.preventDefault();
     this._tabNodes[tabIndex]?.focus();
-  }
+  };
+
+  <template>
+    <div
+      class="hds-filter-bar__tabs"
+      ...attributes
+      {{this._setUpFilterBarTabs}}
+    >
+      <ol
+        class="hds-filter-bar__tabs__list"
+        aria-label={{hdsT
+          "hds.components.filter-bar.tabs.aria-label"
+          default="Filter bar tabs"
+        }}
+        role="tablist"
+      >
+        {{yield
+          (hash
+            Tab=(component
+              HdsFilterBarTabsTab
+              selectedTabIndex=this._selectedTabIndex
+              tabIds=this._tabIds
+              panelIds=this._panelIds
+              didInsertNode=this.didInsertTab
+              willDestroyNode=this.willDestroyTab
+              onClick=this.onClick
+              onKeydown=this.onKeydown
+            )
+          )
+        }}
+      </ol>
+      {{yield
+        (hash
+          Panel=(component
+            HdsFilterBarTabsPanel
+            selectedTabIndex=this._selectedTabIndex
+            tabIds=this._tabIds
+            panelIds=this._panelIds
+            didInsertNode=this.didInsertPanel
+            willDestroyNode=this.willDestroyPanel
+          )
+        )
+      }}
+    </div>
+  </template>
 }
