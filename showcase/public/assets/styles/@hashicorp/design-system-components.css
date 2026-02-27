@@ -436,6 +436,9 @@
   --token-form-toggle-transition-duration: 0.2s;
   --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --token-form-toggle-thumb-size: 16px;
+  --token-icon-tile-border-color-overlay: #656a7633;
+  --token-icon-tile-border-color-logo: #656a7633;
+  --token-icon-tile-surface-color-overlay: #ffffff;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
@@ -7133,8 +7136,8 @@ button.hds-button[href]::after {
   bottom: -6px;
   display: flex;
   box-sizing: content-box;
-  background-color: var(--token-color-surface-primary);
-  border: 1px solid var(--token-color-border-primary);
+  background-color: var(--token-icon-tile-surface-color-overlay);
+  border: 1px solid var(--token-icon-tile-border-color-overlay);
 }
 
 .hds-icon-tile__extra-icon {
@@ -7146,7 +7149,7 @@ button.hds-button[href]::after {
 .hds-icon-tile--size-small {
   width: 1.75rem;
   height: 1.75rem;
-  border-radius: 5px;
+  border-radius: var(--token-border-radius-small);
 }
 .hds-icon-tile--size-small .hds-icon-tile__icon {
   width: 1rem;
@@ -7169,7 +7172,7 @@ button.hds-button[href]::after {
 .hds-icon-tile--size-medium {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 6px;
+  border-radius: var(--token-border-radius-medium);
 }
 .hds-icon-tile--size-medium .hds-icon-tile__icon {
   width: 1.5rem;
@@ -7192,7 +7195,7 @@ button.hds-button[href]::after {
 .hds-icon-tile--size-large {
   width: 3rem;
   height: 3rem;
-  border-radius: 6px;
+  border-radius: var(--token-border-radius-medium);
 }
 .hds-icon-tile--size-large .hds-icon-tile__icon {
   width: 1.5rem;
@@ -7214,7 +7217,40 @@ button.hds-button[href]::after {
 
 .hds-icon-tile--logo {
   background-color: var(--token-color-surface-primary);
-  border-color: var(--token-color-border-primary);
+  border-color: var(--token-icon-tile-border-color-logo);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-boundary {
+  color: var(--token-color-boundary-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-consul {
+  color: var(--token-color-consul-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-hcp {
+  color: var(--token-color-hcp-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-nomad {
+  color: var(--token-color-nomad-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-packer {
+  color: var(--token-color-packer-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-terraform {
+  color: var(--token-color-terraform-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-vagrant {
+  color: var(--token-color-vagrant-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-vault {
+  color: var(--token-color-vault-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-vault-secrets {
+  color: var(--token-color-vault-secrets-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-vault-radar {
+  color: var(--token-color-vault-radar-brand);
+}
+.hds-icon-tile--logo.hds-icon-tile--color-waypoint {
+  color: var(--token-color-waypoint-brand);
 }
 
 .hds-icon-tile--icon.hds-icon-tile--color-neutral {
@@ -7230,7 +7266,7 @@ button.hds-button[href]::after {
   background-color: var(--token-color-consul-surface);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-hcp {
-  color: var(--token-color-palette-hcp-brand);
+  color: var(--token-color-hcp-brand);
   background-color: var(--token-color-surface-strong);
 }
 .hds-icon-tile--icon.hds-icon-tile--color-nomad {

@@ -39,14 +39,15 @@ $hds-icon-tile-border-width: 1px;
   margin: auto;
 }
 
+// secondary overlay icon
 .hds-icon-tile__extra {
   position: absolute;
   right: -6px;
   bottom: -6px;
   display: flex;
   box-sizing: content-box; // the border is outside
-  background-color: var(--token-color-surface-primary);
-  border: 1px solid var(--token-color-border-primary);
+  background-color: var(--token-icon-tile-surface-color-overlay);
+  border: 1px solid var(--token-icon-tile-border-color-overlay);
 }
 
 .hds-icon-tile__extra-icon {
@@ -62,7 +63,7 @@ $hds-icon-tile-size-props: (
   "small": (
     // 28px = 1.75rem
     "size": 1.75rem,
-    "border-radius": 5px,
+    "border-radius": var(--token-border-radius-small),
     // 16px = 1rem
     "icon-size": 1rem,
     // 18px = 1.125rem
@@ -75,7 +76,7 @@ $hds-icon-tile-size-props: (
   "medium": (
     // 40px = 2.5rem
     "size": 2.5rem,
-    "border-radius": 6px,
+    "border-radius": var(--token-border-radius-medium),
     // 24px = 1.5rem
     "icon-size": 1.5rem,
     // 28px = 1.75rem
@@ -89,7 +90,7 @@ $hds-icon-tile-size-props: (
   "large": (
     // 48px = 3rem
     "size": 3rem,
-    "border-radius": 6px,
+    "border-radius": var(--token-border-radius-medium),
     // 24px = 1.5rem
     "icon-size": 1.5rem,
     // 32px = 2rem
@@ -133,9 +134,15 @@ $hds-icon-tile-size-props: (
 // LOGO - COLOR
 
 .hds-icon-tile--logo {
-  // notice: we are using colored icons so we don't need to set the "color" property here
   background-color: var(--token-color-surface-primary);
-  border-color: var(--token-color-border-primary);
+  border-color: var(--token-icon-tile-border-color-logo);
+
+  // We use the non-colored logos and apply the brand color via CSS
+  @each $product in $hds-icon-tile-colors-products {
+    &.hds-icon-tile--color-#{$product} {
+      color: var(--token-color-#{$product}-brand);
+    }
+  }
 }
 
 // ICON - COLOR
@@ -150,7 +157,7 @@ $hds-icon-tile-size-props: (
     @if ($product == "hcp") {
       // exception for HCP (we use neutral colors, we don't have specific product colors for foreground/background)
       &.hds-icon-tile--color-hcp {
-        color: var(--token-color-palette-#{$product}-brand);
+        color: var(--token-color-#{$product}-brand);
         background-color: var(--token-color-surface-strong);
       }
     } @else {
