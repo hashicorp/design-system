@@ -6,19 +6,25 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
+
+import type { ModifierLike } from '@glint/template';
+
 import {
   HdsDropdownToggleButtonSizeValues,
   HdsDropdownToggleButtonColorValues,
 } from './types.ts';
+import HdsBadge from '../../badge/index.gts';
+import HdsBadgeCount from '../../badge-count/index.gts';
+import HdsIcon from '../../icon/index.gts';
+import HdsDropdownToggleChevron from '../toggle/chevron.gts';
 
-import type { HdsIconSignature } from '../../icon';
-import type { HdsBadgeSignature } from '../../badge';
-import type { HdsBadgeCountSignature } from '../../badge-count';
+import type { HdsIconSignature } from '../../icon/index.gts';
+import type { HdsBadgeSignature } from '../../badge/index.gts';
+import type { HdsBadgeCountSignature } from '../../badge-count/index.gts';
 import type {
   HdsDropdownToggleButtonSizes,
   HdsDropdownToggleButtonColors,
-} from './types';
-import type { ModifierLike } from '@glint/template';
+} from './types.ts';
 import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.gts';
 
 export const DEFAULT_SIZE = HdsDropdownToggleButtonSizeValues.Medium;
@@ -47,18 +53,8 @@ export interface HdsDropdownToggleButtonSignature {
 }
 
 export default class HdsDropdownToggleButton extends Component<HdsDropdownToggleButtonSignature> {
-  /**
-   * Generates a unique ID for the button
-   *
-   * @param _toggleButtonId
-   */
   private _toggleButtonId = 'toggle-button-' + guidFor(this);
 
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the button. If no text value is defined an error will be thrown.
-   */
   get text(): string {
     const { text } = this.args;
 
@@ -70,12 +66,6 @@ export default class HdsDropdownToggleButton extends Component<HdsDropdownToggle
     return text;
   }
 
-  /**
-   * @param size
-   * @type {string}
-   * @default medium
-   * @description The size of the button; acceptable values are `small` and `medium`
-   */
   get size(): HdsDropdownToggleButtonSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -89,12 +79,6 @@ export default class HdsDropdownToggleButton extends Component<HdsDropdownToggle
     return size;
   }
 
-  /**
-   * @param color
-   * @type {string}
-   * @default primary
-   * @description Determines the color of button to be used; acceptable values are `primary` and  `secondary`
-   */
   get color(): HdsDropdownToggleButtonColors {
     const { color = DEFAULT_COLOR } = this.args;
 
@@ -108,31 +92,14 @@ export default class HdsDropdownToggleButton extends Component<HdsDropdownToggle
     return color;
   }
 
-  /**
-   * @param isFullWidth
-   * @type {boolean}
-   * @default false
-   * @description Indicates that a button should take up the full width of the parent container. The default is false.
-   */
   get isFullWidth(): boolean {
     return this.args.isFullWidth ?? false;
   }
 
-  /**
-   * @param badgeType
-   * @type {string}
-   * @default 'filled'
-   * @description ensures that the correct Badge/BadgeCount type is used to meet contrast requirements
-   */
   get badgeType(): HdsBadgeCountSignature['Args']['type'] {
     return this.color !== 'primary' ? 'inverted' : 'filled';
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method ToggleButton#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-dropdown-toggle-button'];
 
@@ -154,4 +121,42 @@ export default class HdsDropdownToggleButton extends Component<HdsDropdownToggle
 
     return classes.join(' ');
   }
+
+  <template>
+    <button
+      class={{this.classNames}}
+      id={{this._toggleButtonId}}
+      ...attributes
+      type="button"
+      aria-expanded={{if @isOpen "true" "false"}}
+      {{@setupPrimitiveToggle}}
+    >
+      {{#if @icon}}
+        <div class="hds-dropdown-toggle-button__icon">
+          <HdsIcon @name={{@icon}} @stretched={{true}} />
+        </div>
+      {{/if}}
+      <div class="hds-dropdown-toggle-button__text">
+        {{this.text}}
+      </div>
+      {{#if @count}}
+        <HdsBadgeCount
+          @text={{@count}}
+          @size="small"
+          @type={{this.badgeType}}
+          class="hds-dropdown-toggle-button__count"
+        />
+      {{/if}}
+      {{#if @badge}}
+        <HdsBadge
+          @text={{@badge}}
+          @icon={{@badgeIcon}}
+          @size="small"
+          @type={{this.badgeType}}
+          class="hds-dropdown-toggle-button__badge"
+        />
+      {{/if}}
+      <HdsDropdownToggleChevron />
+    </button>
+  </template>
 }

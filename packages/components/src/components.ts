@@ -112,20 +112,20 @@ export { default as HdsCopySnippet } from './components/hds/copy/snippet/index.g
 export * from './components/hds/copy/snippet/types.ts';
 
 // Dropdown
-export { default as HdsDropdown } from './components/hds/dropdown/index.ts';
-export { default as HdsDropdownFooter } from './components/hds/dropdown/footer.ts';
-export { default as HdsDropdownHeader } from './components/hds/dropdown/header.ts';
-export { default as HdsDropdownListItemCheckbox } from './components/hds/dropdown/list-item/checkbox.ts';
-export { default as HdsDropdownListItemCheckmark } from './components/hds/dropdown/list-item/checkmark.ts';
-export { default as HdsDropdownListItemCopyItem } from './components/hds/dropdown/list-item/copy-item.ts';
-export { default as HdsDropdownListItemDescription } from './components/hds/dropdown/list-item/description.ts';
-export { default as HdsDropdownListItemGeneric } from './components/hds/dropdown/list-item/generic.ts';
-export { default as HdsDropdownListItemInteractive } from './components/hds/dropdown/list-item/interactive.ts';
-export { default as HdsDropdownListItemRadio } from './components/hds/dropdown/list-item/radio.ts';
-export { default as HdsDropdownListItemSeparator } from './components/hds/dropdown/list-item/separator.ts';
-export { default as HdsDropdownListItemTitle } from './components/hds/dropdown/list-item/title.ts';
-export { default as HdsDropdownToggleButton } from './components/hds/dropdown/toggle/button.ts';
-export { default as HdsDropdownToggleIcon } from './components/hds/dropdown/toggle/icon.ts';
+export { default as HdsDropdown } from './components/hds/dropdown/index.gts';
+export { default as HdsDropdownFooter } from './components/hds/dropdown/footer.gts';
+export { default as HdsDropdownHeader } from './components/hds/dropdown/header.gts';
+export { default as HdsDropdownListItemCheckbox } from './components/hds/dropdown/list-item/checkbox.gts';
+export { default as HdsDropdownListItemCheckmark } from './components/hds/dropdown/list-item/checkmark.gts';
+export { default as HdsDropdownListItemCopyItem } from './components/hds/dropdown/list-item/copy-item.gts';
+export { default as HdsDropdownListItemDescription } from './components/hds/dropdown/list-item/description.gts';
+export { default as HdsDropdownListItemGeneric } from './components/hds/dropdown/list-item/generic.gts';
+export { default as HdsDropdownListItemInteractive } from './components/hds/dropdown/list-item/interactive.gts';
+export { default as HdsDropdownListItemRadio } from './components/hds/dropdown/list-item/radio.gts';
+export { default as HdsDropdownListItemSeparator } from './components/hds/dropdown/list-item/separator.gts';
+export { default as HdsDropdownListItemTitle } from './components/hds/dropdown/list-item/title.gts';
+export { default as HdsDropdownToggleButton } from './components/hds/dropdown/toggle/button.gts';
+export { default as HdsDropdownToggleIcon } from './components/hds/dropdown/toggle/icon.gts';
 export * from './components/hds/dropdown/list-item/types.ts';
 export * from './components/hds/dropdown/toggle/types.ts';
 export * from './components/hds/dropdown/types.ts';
