@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 4.0.1
+
+### Patch Changes
+
+Updated CSS helpers for `font-weight` property to use aliases to HDS tokens instead of direct values
+
+<small class="doc-whats-new-changelog-metadata">[#3562](https://github.com/hashicorp/design-system/pull/3562)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.0.0
 
 ### Major Changes
