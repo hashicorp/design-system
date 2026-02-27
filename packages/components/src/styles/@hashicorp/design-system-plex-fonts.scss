@@ -1,0 +1,58 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// IBM PLEX FONTS
+//
+
+// We use only a few selected weights, per design specs
+/* stylelint-disable value-keyword-case */
+$selected-weights: (
+  // ❌ 100
+  thin: false,
+  thinItalic: false,
+  // ❌ 200
+  extralight: false,
+  extralightItalic: false,
+  // ❌ 300
+  light: false,
+  lightItalic: false,
+  // ✅ 400
+  regular: true,
+  italic: true,
+  // ❌ 500
+  medium: false,
+  mediumItalic: false,
+  // ❌ 450
+  text: false,
+  textItalic: false,
+  // ✅ 600
+  semibold: true,
+  semiboldItalic: true,
+  // ❌ 700
+  bold: false,
+  boldItalic: false
+);
+/* stylelint-enable value-keyword-case */
+
+// Plex Sans (imported from `node_modules/@ibm/plex-sans`)
+//
+@use "plex-sans/scss/index.scss" as PlexSans with (
+  $font-prefix: "/assets",
+  $font-weights: $selected-weights
+);
+
+// Plex Mono (imported from `node_modules/@ibm/plex-mono`)
+//
+@use "plex-mono/scss/index.scss" as PlexMono with (
+  $font-prefix: "/assets",
+  $font-weights: $selected-weights
+);
+
+// Add the `@font-face` definitions
+// see: https://github.com/IBM/plex/tree/master/packages/plex-sans#font-weights
+//
+@include PlexSans.all();
+@include PlexMono.all();
