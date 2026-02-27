@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/tooltip -->
-`Tooltip` - Fixed issue with page layout shift caused by overflow by reducing width of the Tooltip popoverContainer from 100% to match the tooltip-max-width
+`Tooltip` - Fixed issue where showing the Tooltip caused page layout shift by reducing the width of the Tooltip container from 100% to the Tooltip max width of 280px.
 <!-- END -->
