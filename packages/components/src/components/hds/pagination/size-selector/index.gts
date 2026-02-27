@@ -6,7 +6,10 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
+import { on } from '@ember/modifier';
+import { eq } from 'ember-truth-helpers';
+
+import HdsFormSelectBase from '../../form/select/base.gts';
 
 import type { HdsFormSelectBaseSignature } from '../../form/select/base.gts';
 
@@ -53,8 +56,7 @@ export default class HdsPaginationSizeSelector extends Component<HdsPaginationSi
     return label;
   }
 
-  @action
-  onChange(e: Event): void {
+  onChange = (e: Event): void => {
     const { onChange } = this.args;
 
     const target = e.target as HdsFormSelectBaseSignature['Element'];
@@ -62,5 +64,30 @@ export default class HdsPaginationSizeSelector extends Component<HdsPaginationSi
     if (typeof onChange === 'function') {
       onChange(parseInt(target.value));
     }
-  }
+  };
+
+  <template>
+    <div class="hds-pagination-size-selector" ...attributes>
+      <label
+        class="hds-typography-body-100 hds-font-weight-medium"
+        for={{this._sizeSelectorId}}
+      >
+        {{this.label}}
+      </label>
+      <HdsFormSelectBase
+        id={{this._sizeSelectorId}}
+        {{on "change" this.onChange}}
+        as |S|
+      >
+        <S.Options>
+          {{#each this.pageSizes as |size|}}
+            <option
+              value={{size}}
+              selected={{if (eq size this.selectedSize) true null}}
+            >{{size}}</option>
+          {{/each}}
+        </S.Options>
+      </HdsFormSelectBase>
+    </div>
+  </template>
 }

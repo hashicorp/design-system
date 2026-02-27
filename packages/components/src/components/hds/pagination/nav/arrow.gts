@@ -3,21 +3,25 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { on } from '@ember/modifier';
+
 import {
   HdsPaginationDirectionValues,
   HdsPaginationDirectionAriaLabelValues,
   HdsPaginationDirectionLabelValues,
 } from '../types.ts';
+import HdsInteractive from '../../interactive/index.gts';
+import HdsIcon from '../../icon/index.gts';
+import HdsTextBody from '../../text/body.gts';
 
 import type { HdsIconSignature } from '../../icon/index.ts';
-import type { HdsInteractiveSignature } from '../../interactive';
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
 import type {
   HdsPaginationDirections,
   HdsPaginationDirectionAriaLabels,
   HdsPaginationDirectionLabels,
-} from '../types';
+} from '../types.ts';
 
 interface HdsPaginationControlArrowContent {
   label: HdsPaginationDirectionLabels;
@@ -88,12 +92,60 @@ export default class HdsPaginationControlArrow extends Component<HdsPaginationCo
     return classes.join(' ');
   }
 
-  @action
-  onClick(): void {
+  onClick = (): void => {
     const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
       onClick(this.args.direction);
     }
-  }
+  };
+
+  <template>
+    {{#if @disabled}}
+      <HdsInteractive
+        class={{this.classNames}}
+        aria-label={{this.content.ariaLabel}}
+        disabled={{true}}
+        ...attributes
+      >
+        <HdsIcon @name={{this.content.icon}} />
+        {{#if this.showLabel}}
+          <HdsTextBody
+            class="hds-pagination-nav__arrow-label"
+            @tag="span"
+            @size="100"
+            @weight="medium"
+            aria-hidden="true"
+          >
+            {{this.content.label}}
+          </HdsTextBody>
+        {{/if}}
+      </HdsInteractive>
+    {{else}}
+      <HdsInteractive
+        class={{this.classNames}}
+        @route={{@route}}
+        @query={{@query}}
+        @model={{@model}}
+        @models={{@models}}
+        @replace={{@replace}}
+        {{on "click" this.onClick}}
+        aria-label={{this.content.ariaLabel}}
+        ...attributes
+      >
+        <HdsIcon @name={{this.content.icon}} />
+        {{#if this.showLabel}}
+          <HdsTextBody
+            class="hds-pagination-nav__arrow-label"
+            @tag="span"
+            @size="100"
+            @weight="medium"
+            aria-hidden="true"
+          >
+            {{this.content.label}}
+          </HdsTextBody>
+        {{/if}}
+      </HdsInteractive>
+    {{/if}}
+  </template>
 }

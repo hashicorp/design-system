@@ -3,10 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { on } from '@ember/modifier';
 
-import type { HdsInteractiveSignature } from '../../interactive';
+import HdsInteractive from '../../interactive/index.gts';
+import HdsTextBody from '../../text/body.gts';
+import hdsT from '../../../../helpers/hds-t.ts';
+
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
 
 interface HdsPaginationNavNumberArgs {
   page: number;
@@ -44,12 +48,33 @@ export default class HdsPaginationControlNumber extends Component<HdsPaginationN
     return classes.join(' ');
   }
 
-  @action
-  onClick(): void {
+  onClick = (): void => {
     const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
       onClick(this.args.page);
     }
-  }
+  };
+
+  <template>
+    <HdsInteractive
+      class={{this.classNames}}
+      @route={{@route}}
+      @query={{@query}}
+      @model={{@model}}
+      @models={{@models}}
+      @replace={{@replace}}
+      {{on "click" this.onClick}}
+      ...attributes
+      aria-current={{if @isSelected "page" null}}
+    >
+      <HdsTextBody @tag="span" @size="100" @weight="medium">
+        <span class="sr-only">{{hdsT
+            "hds.components.pagination.nav.number.screen-reader-label"
+            default="page"
+          }}</span>
+        {{this.page}}
+      </HdsTextBody>
+    </HdsInteractive>
+  </template>
 }
