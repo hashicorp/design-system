@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
+import { service } from '@ember/service';
 
 import HdsAppFooterCopyright from './copyright.gts';
 import HdsYield from '../yield/index.gts';
@@ -12,6 +13,8 @@ import HdsAppFooterStatusLink from './status-link.gts';
 import HdsAppFooterLegalLinks from './legal-links.gts';
 import HdsAppFooterLink from './link.gts';
 import HdsAppFooterItem from './item.gts';
+
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 import type { HdsAppFooterThemeTypes } from './types.ts';
 
@@ -37,8 +40,15 @@ export interface HdsAppFooterSignature {
 }
 
 export default class HdsAppFooter extends Component<HdsAppFooterSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   get ariaLabel(): string {
-    return this.args.ariaLabel ?? 'Footer items';
+    return (
+      this.args.ariaLabel ??
+      this.hdsIntl.t('hds.components.app-footer.aria-label', {
+        default: 'Footer items',
+      })
+    );
   }
 
   get theme(): HdsAppFooterThemeTypes {

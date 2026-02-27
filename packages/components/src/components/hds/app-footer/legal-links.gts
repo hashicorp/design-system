@@ -4,10 +4,13 @@
  */
 
 import Component from '@glimmer/component';
+import { service } from '@ember/service';
 
 import hdsT from '../../../helpers/hds-t.ts';
 import HdsAppFooterItem from './item.gts';
 import HdsAppFooterLink from './link.gts';
+
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export interface HdsAppFooterLegalLinksSignature {
   Args: {
@@ -22,8 +25,15 @@ export interface HdsAppFooterLegalLinksSignature {
 }
 
 export default class HdsAppFooterLegalLinks extends Component<HdsAppFooterLegalLinksSignature> {
+  @service declare readonly hdsIntl: HdsIntlService;
+
   get ariaLabel(): string {
-    return this.args.ariaLabel ?? 'Legal links';
+    return (
+      this.args.ariaLabel ??
+      this.hdsIntl.t('hds.components.app-footer.legal-links.aria-label', {
+        default: 'Legal links',
+      })
+    );
   }
 
   get hrefForSupport(): string {
