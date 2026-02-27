@@ -6,11 +6,14 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { macroCondition, isTesting } from '@embroider/macros';
+import PortalTarget from 'ember-stargate/components/portal-target';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
 
-import type { HdsAppSideNavPortalSignature } from './index';
 import type { Registry as Services } from '@ember/service';
+
+import type { HdsAppSideNavPortalSignature } from './index.gts';
 
 interface HdsAppSideNavPortalTargetSignature {
   Args: {
@@ -40,18 +43,15 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
     );
   }
 
-  @action
-  panelsChanged(portalCount: number): void {
+  panelsChanged = (portalCount: number): void => {
     this._numSubnavs = portalCount;
-  }
+  };
 
-  @action
-  didUpdateSubnav(element: HTMLElement, [count]: [number]): void {
+  didUpdateSubnav = (element: HTMLElement, [count]: [number]): void => {
     this.animateSubnav(element, [count]);
-  }
+  };
 
-  @action
-  animateSubnav(element: HTMLElement, [count]: [number]): void {
+  animateSubnav = (element: HTMLElement, [count]: [number]): void => {
     /*
      * Here is ascii art of what the layout looks like for this setup
      *
@@ -175,5 +175,17 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
         fill: 'forwards',
       });
     }
-  }
+  };
+
+  <template>
+    <div class="hds-app-side-nav__content" ...attributes>
+      <PortalTarget
+        @multiple={{true}}
+        @onChange={{this.panelsChanged}}
+        @name={{if @targetName @targetName "hds-app-side-nav-portal-target"}}
+        class="hds-app-side-nav__content-panels"
+        {{didUpdate this.didUpdateSubnav this._numSubnavs}}
+      />
+    </div>
+  </template>
 }

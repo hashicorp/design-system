@@ -5,12 +5,18 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
-import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
+import { on } from '@ember/modifier';
+import { fn } from '@ember/helper';
+// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
+import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+
+import type Owner from '@ember/owner';
 
 import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
+import hdsT from '../../../helpers/hds-t.ts';
+import HdsAppSideNavToggleButton from './toggle-button.gts';
 
 export interface HdsAppSideNavSignature {
   Args: {
@@ -62,11 +68,10 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   });
 
   addEventListeners(): void {
-    // eslint-disable-next-line @typescript-eslint/unbound-method
     document.addEventListener('keydown', this.escapePress, true);
     this._desktopMQ.addEventListener(
       'change',
-      // eslint-disable-next-line @typescript-eslint/unbound-method
+
       this.updateDesktopVariable,
       true
     );
@@ -82,11 +87,10 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   removeEventListeners(): void {
-    // eslint-disable-next-line @typescript-eslint/unbound-method
     document.removeEventListener('keydown', this.escapePress, true);
     this._desktopMQ.removeEventListener(
       'change',
-      // eslint-disable-next-line @typescript-eslint/unbound-method
+
       this.updateDesktopVariable,
       true
     );
@@ -139,22 +143,22 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     return classes.join(' ');
   }
 
-  synchronizeInert(): void {
+  synchronizeInert = (): void => {
     if (this._isMinimized) {
       this._navWrapperBody?.setAttribute('inert', '');
     } else {
       this._navWrapperBody?.removeAttribute('inert');
     }
-  }
+  };
 
-  lockBodyScroll(): void {
+  lockBodyScroll = (): void => {
     if (this._body) {
       // Prevent page from scrolling when the dialog is open
       this._body.style.setProperty('overflow', 'hidden');
     }
-  }
+  };
 
-  unlockBodyScroll(): void {
+  unlockBodyScroll = (): void => {
     // Reset page `overflow` property
     if (this._body) {
       this._body.style.removeProperty('overflow');
@@ -169,19 +173,17 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
         );
       }
     }
-  }
+  };
 
-  @action
-  escapePress(event: KeyboardEvent): void {
+  escapePress = (event: KeyboardEvent): void => {
     if (event.key === 'Escape' && !this._isMinimized && !this._isDesktop) {
       this._isMinimized = true;
       this.synchronizeInert();
       this.unlockBodyScroll();
     }
-  }
+  };
 
-  @action
-  toggleMinimizedStatus(): void {
+  toggleMinimizedStatus = (): void => {
     this._isMinimized = !this._isMinimized;
     this.synchronizeInert();
 
@@ -198,10 +200,9 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
         this.lockBodyScroll();
       }
     }
-  }
+  };
 
-  @action
-  setTransition(phase: string, event: TransitionEvent): void {
+  setTransition = (phase: string, event: TransitionEvent): void => {
     // we only want to respond to `width` animation/transitions
     if (event.propertyName !== 'width') {
       return;
@@ -211,10 +212,9 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     } else {
       this._isAnimating = false;
     }
-  }
+  };
 
-  @action
-  updateDesktopVariable(event: MediaQueryListEvent): void {
+  updateDesktopVariable = (event: MediaQueryListEvent): void => {
     this._isDesktop = event.matches;
 
     // automatically minimize on narrow viewports (when not in desktop mode)
@@ -232,5 +232,51 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     if (typeof onDesktopViewportChange === 'function') {
       onDesktopViewportChange(this._isDesktop);
     }
-  }
+  };
+
+  <template>
+    {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes the empty element to still have visible padding - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+    <div
+      class={{this.classNames}}
+      ...attributes
+      role={{if this.isMobileCollapsible "dialog"}}
+      aria-labelledby={{if this.isMobileCollapsible "hds-app-side-nav-header"}}
+      aria-modal={{if this.isMobileCollapsible "true"}}
+      {{on "transitionstart" (fn this.setTransition "start")}}
+      {{on "transitionend" (fn this.setTransition "end")}}
+      {{focusTrap isActive=this.shouldTrapFocus}}
+      {{this._setUpBodyElement}}
+    >
+      <h2 class="sr-only" id="hds-app-side-nav-header">
+        {{hdsT
+          "hds.components.app-side-nav.screen-reader-label"
+          default="Application local navigation"
+        }}
+      </h2>
+
+      <div class="hds-app-side-nav__wrapper">
+        {{#if this.showToggleButton}}
+          {{! template-lint-disable no-invalid-interactive}}
+          <div
+            class="hds-app-side-nav__overlay"
+            {{on "click" this.toggleMinimizedStatus}}
+          />
+          {{! template-lint-enable no-invalid-interactive}}
+          <HdsAppSideNavToggleButton
+            aria-labelledby="hds-app-side-nav-header"
+            aria-expanded={{if this._isMinimized "false" "true"}}
+            @icon={{if this._isMinimized "chevrons-right" "chevrons-left"}}
+            {{on "click" this.toggleMinimizedStatus}}
+          />
+        {{/if}}
+
+        <div
+          class="hds-app-side-nav__wrapper-body"
+          {{this._setUpNavWrapperBody}}
+        >
+          {{~yield~}}
+        </div>
+      </div>
+    </div>
+  </template>
 }
