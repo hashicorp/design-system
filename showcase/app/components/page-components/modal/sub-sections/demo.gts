@@ -22,6 +22,8 @@ import {
   HdsDropdown,
   HdsFormSuperSelectSingleBase,
   HdsFormTextInputField,
+  HdsTooltipButton,
+  HdsIcon,
 } from '@hashicorp/design-system-components/components';
 
 export default class SubSectionDemo extends Component {
@@ -91,7 +93,20 @@ export default class SubSectionDemo extends Component {
           Modal title
         </M.Header>
         <M.Body>
-          <p class="hds-typography-body-300 hds-foreground-primary">Lorem ipsum
+          <HdsTooltipButton
+            @text="Here is more information"
+            aria-label="Information"
+          >
+            <HdsIcon @name="info" />
+          </HdsTooltipButton>
+          <p class="hds-typography-body-300 hds-foreground-primary">
+            Lorem ipsum dolor sit amet, consectetur
+            <HdsTooltipButton
+              @text="Here is more information"
+              aria-label="Information"
+            >
+              <HdsIcon @name="info" />
+            </HdsTooltipButton>
             dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
@@ -124,7 +139,8 @@ export default class SubSectionDemo extends Component {
             rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
             et molestiae non recusandae. Itaque earum rerum hic tenetur a
             sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-            consequatur aut perferendis doloribus asperiores repellat.</p>
+            consequatur aut perferendis doloribus asperiores repellat.
+          </p>
         </M.Body>
         <M.Footer as |F|>
           <HdsButton type="button" @text="Confirm" {{on "click" F.close}} />

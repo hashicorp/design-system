@@ -3,9 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// Note: the majority of this code is a porting of the existing tooltip implementation in Cloud UI
-// (which was initially implemented in Structure)
-
 import Modifier from 'ember-modifier';
 import type { ArgsFor } from 'ember-modifier';
 
@@ -132,7 +129,12 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     containerElement.setAttribute('id', this._containerId);
     containerElement.classList.add('hds-tooltip-container');
     containerElement.style.setProperty('position', 'absolute');
-    containerElement.style.setProperty('width', '100%');
+    // Note: If the popoverContent div extends outside the viewport it triggers overflow when the popover is open.
+    // This is visible for users whose system settings have scrollbars set to always show.
+    containerElement.style.setProperty(
+      'width',
+      'var(--token-tooltip-max-width)'
+    );
     element.setAttribute('aria-controls', this._containerId);
     element.setAttribute('aria-describedby', this._containerId);
     element.after(containerElement);
