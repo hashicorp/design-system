@@ -6,7 +6,7 @@
 <button
   type="button"
   class={{this.classNames}}
-  {{hds-tooltip this.tooltip}}
+  {{hds-tooltip this.tooltip options=(hash placement="bottom")}}
   aria-labelledby="{{this._prefixLabelId}} {{@labelId}}"
   ...attributes
 >
