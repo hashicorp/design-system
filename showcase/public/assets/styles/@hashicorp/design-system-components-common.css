@@ -271,6 +271,14 @@
   font-weight: var(--token-typography-font-weight-bold);
 }
 
+.hds-typography-letter-spacing {
+  font-family: var(--token-typography-letter-spacing-font-family);
+  font-size: var(--token-typography-letter-spacing-font-size);
+  line-height: var(--token-typography-letter-spacing-line-height);
+  margin: 0;
+  padding: 0;
+}
+
 .hds-typography-display-500 {
   font-family: var(--token-typography-display-500-font-family);
   font-size: var(--token-typography-display-500-font-size);

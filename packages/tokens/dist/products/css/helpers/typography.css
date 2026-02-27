@@ -9,6 +9,10 @@
 .hds-font-weight-medium { font-weight: var(--token-typography-font-weight-medium); }
 .hds-font-weight-semibold { font-weight: var(--token-typography-font-weight-semibold); }
 .hds-font-weight-bold { font-weight: var(--token-typography-font-weight-bold); }
+.hds-letter-spacing-none { letter-spacing: var(--token-typography-letter-spacing-none); }
+.hds-letter-spacing-compact { letter-spacing: var(--token-typography-letter-spacing-compact); }
+.hds-letter-spacing-small { letter-spacing: var(--token-typography-letter-spacing-small); }
+.hds-letter-spacing-large { letter-spacing: var(--token-typography-letter-spacing-large); }
 .hds-typography-display-500 { font-family: var(--token-typography-display-500-font-family); font-size: var(--token-typography-display-500-font-size); line-height: var(--token-typography-display-500-line-height); margin: 0; padding: 0; }
 .hds-typography-display-400 { font-family: var(--token-typography-display-400-font-family); font-size: var(--token-typography-display-400-font-size); line-height: var(--token-typography-display-400-line-height); margin: 0; padding: 0; }
 .hds-typography-display-300 { font-family: var(--token-typography-display-300-font-family); font-size: var(--token-typography-display-300-font-size); line-height: var(--token-typography-display-300-line-height); margin: 0; padding: 0; }
