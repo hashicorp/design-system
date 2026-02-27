@@ -14,7 +14,7 @@ import { eq } from 'ember-truth-helpers';
 import { HdsFilterBarNumericalFilterSelectorValues } from '../types.ts';
 import hdsT from '../../../../helpers/hds-t.ts';
 import HdsFilterBarFilterGroupGeneric from './generic.gts';
-import HdsFormSelectField from '../../form/select/field.ts';
+import HdsFormSelectField from '../../form/select/field.gts';
 import HdsLayoutFlex from '../../layout/flex/index.gts';
 import HdsFormTextInputBase from '../../form/text-input/base.gts';
 
