@@ -4,18 +4,26 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import type { ComponentLike } from '@glint/template';
+import { fn, hash } from '@ember/helper';
+import { eq } from 'ember-truth-helpers';
+import { sortBy } from '@nullvoxpopuli/ember-composable-helpers';
 
-import type HdsIntlService from '../../../services/hds-intl.ts';
+import type { WithBoundArgs } from '@glint/template';
+import type Owner from '@ember/owner';
+
 import {
   HdsTableDensityValues,
   HdsTableThSortOrderValues,
   HdsTableVerticalAlignmentValues,
 } from './types.ts';
+import HdsTableTr from './tr.gts';
+import HdsTableTh from './th.gts';
+import HdsTableThSort from './th-sort.gts';
+import HdsTableTd from './td.gts';
+
 import type {
   HdsTableColumn,
   HdsTableDensities,
@@ -26,13 +34,9 @@ import type {
   HdsTableThSortOrder,
   HdsTableVerticalAlignment,
   HdsTableModel,
-} from './types';
-import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
-import type { HdsTableTdSignature } from './td.ts';
-import type { HdsTableThSignature } from './th.ts';
-import type { HdsTableThSortSignature } from './th-sort.ts';
-import type { HdsTableTrSignature } from './tr.ts';
-import type Owner from '@ember/owner';
+} from './types.ts';
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
+import type HdsIntlService from '../../../services/hds-intl.ts';
 
 export const DENSITIES: HdsTableDensities[] = Object.values(
   HdsTableDensityValues
@@ -67,9 +71,19 @@ export interface HdsTableSignature<T = HdsTableModel> {
   Blocks: {
     head?: [
       {
-        Tr?: ComponentLike<HdsTableTrSignature>;
-        Th?: ComponentLike<HdsTableThSignature>;
-        ThSort?: ComponentLike<HdsTableThSortSignature>;
+        Tr?: WithBoundArgs<
+          typeof HdsTableTr,
+          | 'selectionScope'
+          | 'isSelectable'
+          | 'onSelectionChange'
+          | 'didInsert'
+          | 'willDestroy'
+          | 'selectionAriaLabelSuffix'
+          | 'onClickSortBySelected'
+          | 'sortBySelectedOrder'
+        >;
+        Th?: typeof HdsTableTh;
+        ThSort?: typeof HdsTableThSort;
         sortBy?: string;
         sortOrder?: HdsTableThSortOrder;
         setSortBy?: (column: string) => void;
@@ -77,9 +91,17 @@ export interface HdsTableSignature<T = HdsTableModel> {
     ];
     body?: [
       {
-        Td?: ComponentLike<HdsTableTdSignature>;
-        Tr?: ComponentLike<HdsTableTrSignature>;
-        Th?: ComponentLike<HdsTableThSignature>;
+        Td?: WithBoundArgs<typeof HdsTableTd, 'align'>;
+        Tr?: WithBoundArgs<
+          typeof HdsTableTr,
+          | 'selectionScope'
+          | 'isSelectable'
+          | 'onSelectionChange'
+          | 'didInsert'
+          | 'willDestroy'
+          | 'selectionAriaLabelSuffix'
+        >;
+        Th?: WithBoundArgs<typeof HdsTableTh, 'scope'>;
         data?: T;
         rowIndex?: number;
         sortBy?: string;
@@ -222,8 +244,7 @@ export default class HdsTable<T = HdsTableModel> extends Component<
     return classes.join(' ');
   }
 
-  @action
-  setSortBy(column: string): void {
+  setSortBy = (column: string): void => {
     if (this.sortBy === column) {
       // check to see if the column is already sorted and invert the sort order if so
       this.sortOrder =
@@ -241,12 +262,12 @@ export default class HdsTable<T = HdsTableModel> extends Component<
     if (typeof onSort === 'function') {
       onSort(this.sortBy, this.sortOrder);
     }
-  }
+  };
 
-  onSelectionChangeCallback(
+  onSelectionChangeCallback = (
     checkbox?: HdsFormCheckboxBaseSignature['Element'],
     selectionKey?: string
-  ): void {
+  ): void => {
     const { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange({
@@ -273,52 +294,46 @@ export default class HdsTable<T = HdsTableModel> extends Component<
         ),
       });
     }
-  }
+  };
 
-  @action
-  onSelectionAllChange(): void {
+  onSelectionAllChange = (): void => {
     this._selectableRows.forEach((row) => {
       row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
     });
     this._isSelectAllCheckboxSelected =
       this._selectAllCheckbox?.checked ?? false;
     this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
-  }
+  };
 
-  @action
-  onSelectionRowChange(
+  onSelectionRowChange = (
     checkbox?: HdsFormCheckboxBaseSignature['Element'],
     selectionKey?: string
-  ): void {
+  ): void => {
     this.setSelectAllState();
     this.onSelectionChangeCallback(checkbox, selectionKey);
-  }
+  };
 
-  @action
-  didInsertSelectAllCheckbox(
+  didInsertSelectAllCheckbox = (
     checkbox: HdsFormCheckboxBaseSignature['Element']
-  ): void {
+  ): void => {
     this._selectAllCheckbox = checkbox;
-  }
+  };
 
-  @action
-  willDestroySelectAllCheckbox(): void {
+  willDestroySelectAllCheckbox = (): void => {
     this._selectAllCheckbox = undefined;
-  }
+  };
 
-  @action
-  didInsertRowCheckbox(
+  didInsertRowCheckbox = (
     checkbox: HdsFormCheckboxBaseSignature['Element'],
     selectionKey?: string
-  ): void {
+  ): void => {
     if (selectionKey) {
       this._selectableRows.push({ selectionKey, checkbox });
     }
     this.setSelectAllState();
-  }
+  };
 
-  @action
-  willDestroyRowCheckbox(selectionKey?: string): void {
+  willDestroyRowCheckbox = (selectionKey?: string): void => {
     if (selectionKey === undefined) {
       return;
     }
@@ -334,10 +349,9 @@ export default class HdsTable<T = HdsTableModel> extends Component<
     this._selectableRows.splice(index, 1);
 
     this.setSelectAllState();
-  }
+  };
 
-  @action
-  setSelectAllState(): void {
+  setSelectAllState = (): void => {
     if (this._selectAllCheckbox) {
       const selectableRowsCount = this._selectableRows.length;
       const selectedRowsCount = this._selectableRows.filter(
@@ -350,5 +364,136 @@ export default class HdsTable<T = HdsTableModel> extends Component<
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
     }
-  }
+  };
+
+  <template>
+    <table class={{this.classNames}} ...attributes>
+      {{#if @columns}}
+        <caption class="sr-only" aria-live="polite">{{@caption}}
+          {{this.sortedMessageText}}</caption>
+      {{else if @caption}}
+        <caption class="sr-only">{{@caption}}</caption>
+      {{/if}}
+
+      <thead class="hds-table__thead">
+        {{#if @columns}}
+          <HdsTableTr
+            @selectionScope="col"
+            @onClickSortBySelected={{if
+              @selectableColumnKey
+              (fn this.setSortBy @selectableColumnKey)
+            }}
+            @sortBySelectedOrder={{if
+              (eq this.sortBy @selectableColumnKey)
+              this.sortOrder
+            }}
+            @isSelectable={{@isSelectable}}
+            @onSelectionChange={{this.onSelectionAllChange}}
+            @didInsert={{this.didInsertSelectAllCheckbox}}
+            @willDestroy={{this.willDestroySelectAllCheckbox}}
+            @selectionAriaLabelSuffix="all rows"
+          >
+            {{#each @columns as |column|}}
+              {{#if column.isSortable}}
+                <HdsTableThSort
+                  @sortOrder={{if (eq column.key this.sortBy) this.sortOrder}}
+                  @onClickSort={{fn this.setSortBy column.key}}
+                  @align={{column.align}}
+                  @width={{column.width}}
+                  @tooltip={{column.tooltip}}
+                >
+                  {{column.label}}
+                </HdsTableThSort>
+              {{else}}
+                <HdsTableTh
+                  @align={{column.align}}
+                  @width={{column.width}}
+                  @tooltip={{column.tooltip}}
+                  @isVisuallyHidden={{column.isVisuallyHidden}}
+                >{{column.label}}</HdsTableTh>
+              {{/if}}
+            {{/each}}
+          </HdsTableTr>
+        {{else}}
+          {{yield
+            (hash
+              Tr=(component
+                HdsTableTr
+                selectionScope="col"
+                isSelectable=@isSelectable
+                onSelectionChange=this.onSelectionAllChange
+                didInsert=this.didInsertSelectAllCheckbox
+                willDestroy=this.willDestroySelectAllCheckbox
+                selectionAriaLabelSuffix="all rows"
+                onClickSortBySelected=(if
+                  @selectableColumnKey (fn this.setSortBy @selectableColumnKey)
+                )
+                sortBySelectedOrder=(if
+                  (eq this.sortBy @selectableColumnKey) this.sortOrder
+                )
+              )
+              Th=HdsTableTh
+              ThSort=HdsTableThSort
+              sortBy=this.sortBy
+              sortOrder=this.sortOrder
+              setSortBy=this.setSortBy
+            )
+            to="head"
+          }}
+        {{/if}}
+      </thead>
+
+      <tbody class="hds-table__tbody">
+        {{#if @columns}}
+          {{! -----------------------------------------------------------------
+            IMPORTANT: we loop on the model array and for each record
+            we yield the Tr/Td/Th elements _and_ the record itself as data
+            this means the consumer will *have to* use the data key to access it in their template
+          ----------------------------------------------------------------- }}
+          {{! @glint-expect-error: [HDS-4380](https://hashicorp.atlassian.net/browse/HDS-4380) }}
+          {{#let (sortBy this.getSortCriteria @model) as |sortedModel|}}
+            {{#each sortedModel key=this.identityKey as |record index|}}
+              {{yield
+                (hash
+                  Tr=(component
+                    HdsTableTr
+                    selectionScope="row"
+                    isSelectable=@isSelectable
+                    onSelectionChange=this.onSelectionRowChange
+                    didInsert=this.didInsertRowCheckbox
+                    willDestroy=this.willDestroyRowCheckbox
+                    selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+                  )
+                  Th=(component HdsTableTh scope="row")
+                  Td=(component HdsTableTd align=@align)
+                  data=record
+                  rowIndex=index
+                )
+                to="body"
+              }}
+            {{/each}}
+          {{/let}}
+        {{else}}
+          {{yield
+            (hash
+              Tr=(component
+                HdsTableTr
+                selectionScope="row"
+                isSelectable=@isSelectable
+                onSelectionChange=this.onSelectionRowChange
+                didInsert=this.didInsertRowCheckbox
+                willDestroy=this.willDestroyRowCheckbox
+                selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+              )
+              Th=(component HdsTableTh scope="row")
+              Td=(component HdsTableTd align=@align)
+              sortBy=this.sortBy
+              sortOrder=this.sortOrder
+            )
+            to="body"
+          }}
+        {{/if}}
+      </tbody>
+    </table>
+  </template>
 }
