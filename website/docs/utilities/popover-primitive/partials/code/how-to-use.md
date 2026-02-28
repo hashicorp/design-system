@@ -27,14 +27,7 @@ The internal logic and APIs of this component are quite complex; it's impossible
 
 The basic invocation of this primitive uses three different modifiers (`setupPrimitiveContainer`, `setupPrimitiveToggle`, and `setupPrimitivePopover`) applied to three distinct elements (which can be either HTML elements or Ember components):
 
-```handlebars{data-execute=false}
-<Hds::PopoverPrimitive as |PP|>
-  <div id="container" {{PP.setupPrimitiveContainer}}>
-    <button id="toggle" {{PP.setupPrimitiveToggle}}>toggle</button>
-    <div id="popover" {{PP.setupPrimitivePopover}}>popover content</div>
-  </div>
-</Hds::PopoverPrimitive>
-```
+[[code-snippets/popover-primitive-basic execute=false]]
 
 The primitive itself doesn't provide any styling to the container, toggle, popover (and arrow) elements, and doesn't generate any extra HTML beyond that which is yielded to the component itself. It provides only the popover, anchoring, and collision detection functionalities to the elements that the "setup" modifiers are applied to.
 
@@ -42,27 +35,13 @@ The primitive itself doesn't provide any styling to the container, toggle, popov
 
 The visibility of the popover can be toggled via "soft" event listeners (hover/focus) applied to the toggle element:
 
-```handlebars{data-execute=false}
-<Hds::PopoverPrimitive @enableSoftEvents={{true}} as |PP|>
-  <div id="container" {{PP.setupPrimitiveContainer}}>
-    <button id="toggle" {{PP.setupPrimitiveToggle}}>toggle</button>
-    <div id="popover" {{PP.setupPrimitivePopover}}>popover content</div>
-  </div>
-</Hds::PopoverPrimitive>
-```
+[[code-snippets/popover-primitive-soft-events execute=false]]
 
 _Notice: The actual technical events used are `mouseEnter/Leave` and `focusIn/Out`._
 
 Alternatively, the toggle behavior can be enabled via "click" events:
 
-```handlebars{data-execute=false}
-<Hds::PopoverPrimitive @enableClickEvents={{true}} as |PP|>
-  <div id="container" {{PP.setupPrimitiveContainer}}>
-    <button id="toggle" {{PP.setupPrimitiveToggle}}>toggle</button>
-    <div id="popover" {{PP.setupPrimitivePopover}}>popover content</div>
-  </div>
-</Hds::PopoverPrimitive>
-```
+[[code-snippets/popover-primitive-click-event execute=false]]
 
 !!! Warning
 
@@ -75,33 +54,13 @@ Important: if you don't apply either `@enableSoftEvents` or `@enableClickEvents`
 
 The popover element can be positioned in relation to the toggle anchor using the `placement` argument of the `@anchoredPositionOptions`:
 
-```handlebars{data-execute=false}
-<Hds::PopoverPrimitive as |PP|>
-  <div id="container" {{PP.setupPrimitiveContainer}}>
-    <button id="toggle" {{PP.setupPrimitiveToggle}}>toggle</button>
-    <div
-      id="popover"
-      {{PP.setupPrimitivePopover anchoredPositionOptions=(hash placement="top-start")}}
-    >popover content</div>
-  </div>
-</Hds::PopoverPrimitive>
-```
+[[code-snippets/popover-primitive-positioning execute=false]]
 
 ### Collision detection
 
 The collision detection logic can be controlled using the `enableCollisionDetection` argument of the `@anchoredPositionOptions`:
 
-```handlebars{data-execute=false}
-<Hds::PopoverPrimitive as |PP|>
-  <div id="container" {{PP.setupPrimitiveContainer}}>
-    <button id="toggle" {{PP.setupPrimitiveToggle}}>toggle</button>
-    <div
-      id="popover"
-      {{PP.setupPrimitivePopover anchoredPositionOptions=(hash enableCollisionDetection=true)}}
-    >popover content</div>
-  </div>
-</Hds::PopoverPrimitive>
-```
+[[code-snippets/popover-primitive-collision-detection execute=false]]
 
 For details about how the collision detection works, refer to the [Floating UI > Tutorial](https://floating-ui.com/docs/tutorial).
 
@@ -109,20 +68,7 @@ For details about how the collision detection works, refer to the [Floating UI >
 
 It is possible to account for an arrow element in the positioning of the popover, if an `arrowSelector` (or directly an `arrowElement` reference) is provided to the `anchoredPositionOptions`:
 
-```handlebars{data-execute=false}
-<Hds::PopoverPrimitive as |PP|>
-  <div id="container" {{PP.setupPrimitiveContainer}}>
-    <button id="toggle" {{PP.setupPrimitiveToggle}}>toggle</button>
-    <div
-      id="popover"
-      {{PP.setupPrimitivePopover anchoredPositionOptions=(hash arrowSelector="arrow")}}
-    >
-      <div id="arrow" />
-      popover content
-    </div>
-  </div>
-</Hds::PopoverPrimitive>
-```
+[[code-snippets/popover-primitive-arrow execute=false]]
 
 ### Other `anchoredPositionOptions`
 
