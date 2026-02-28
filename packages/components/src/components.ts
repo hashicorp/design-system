@@ -279,9 +279,9 @@ export { default as HdsReveal } from './components/hds/reveal/index.gts';
 export { default as HdsRevealToggleButton } from './components/hds/reveal/toggle/button.gts';
 
 // RichTooltip
-export { default as HdsRichTooltip } from './components/hds/rich-tooltip/index.ts';
-export { default as HdsRichTooltipBubble } from './components/hds/rich-tooltip/bubble.ts';
-export { default as HdsRichTooltipToggle } from './components/hds/rich-tooltip/toggle.ts';
+export { default as HdsRichTooltip } from './components/hds/rich-tooltip/index.gts';
+export { default as HdsRichTooltipBubble } from './components/hds/rich-tooltip/bubble.gts';
+export { default as HdsRichTooltipToggle } from './components/hds/rich-tooltip/toggle.gts';
 export * from './components/hds/rich-tooltip/types.ts';
 
 // SegmentedGroup
