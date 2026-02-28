@@ -228,6 +228,10 @@
   --token-icon-tile-border-color-logo: #e0e0e0;
   --token-icon-tile-border-color-overlay: #c6c6c6;
   --token-icon-tile-surface-color-overlay: #f4f4f4;
+  --token-pagination-bar-surface-color-default: #ffffff;
+  --token-pagination-nav-control-foreground-color-action-active: #161616;
+  --token-pagination-nav-control-foreground-color-action-hover: #161616;
+  --token-pagination-nav-control-foreground-color-action: #161616;
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;
