@@ -437,6 +437,9 @@
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
+  --token-pagination-nav-control-foreground-color-action: #1060ff;
+  --token-pagination-nav-control-foreground-color-action-hover: #0c56e9;
+  --token-pagination-nav-control-foreground-color-action-active: #0046d1;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
