@@ -240,6 +240,10 @@
   --token-icon-tile-border-color-logo: #c6c6c6;
   --token-icon-tile-border-color-overlay: #e0e0e0;
   --token-icon-tile-surface-color-overlay: #ffffff;
+  --token-pagination-bar-surface-color-default: #f4f4f4;
+  --token-pagination-nav-control-foreground-color-action-active: #161616;
+  --token-pagination-nav-control-foreground-color-action-hover: #161616;
+  --token-pagination-nav-control-foreground-color-action: #161616;
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -579,6 +583,10 @@
     --token-icon-tile-border-color-logo: #c6c6c6;
     --token-icon-tile-border-color-overlay: #e0e0e0;
     --token-icon-tile-surface-color-overlay: #ffffff;
+    --token-pagination-bar-surface-color-default: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action-active: #161616;
+    --token-pagination-nav-control-foreground-color-action-hover: #161616;
+    --token-pagination-nav-control-foreground-color-action: #161616;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -919,6 +927,10 @@
     --token-icon-tile-border-color-logo: #525252;
     --token-icon-tile-border-color-overlay: #6f6f6f;
     --token-icon-tile-surface-color-overlay: #393939;
+    --token-pagination-bar-surface-color-default: #262626;
+    --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
+    --token-pagination-nav-control-foreground-color-action: #f4f4f4;
     --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
@@ -1258,6 +1270,10 @@
   --token-icon-tile-border-color-logo: #c6c6c6;
   --token-icon-tile-border-color-overlay: #e0e0e0;
   --token-icon-tile-surface-color-overlay: #ffffff;
+  --token-pagination-bar-surface-color-default: #f4f4f4;
+  --token-pagination-nav-control-foreground-color-action-active: #161616;
+  --token-pagination-nav-control-foreground-color-action-hover: #161616;
+  --token-pagination-nav-control-foreground-color-action: #161616;
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
@@ -1596,6 +1612,10 @@
   --token-icon-tile-border-color-logo: #525252;
   --token-icon-tile-border-color-overlay: #6f6f6f;
   --token-icon-tile-surface-color-overlay: #393939;
+  --token-pagination-bar-surface-color-default: #262626;
+  --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
+  --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
+  --token-pagination-nav-control-foreground-color-action: #f4f4f4;
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200

@@ -7487,6 +7487,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-pagination {
   display: grid;
   grid-template-areas: "info nav selector";
@@ -7533,6 +7537,10 @@ button.hds-button[href]::after {
     margin-top: var(--token-pagination-child-spacing-vertical);
     margin-right: var(--token-pagination-child-spacing-horizontal);
   }
+}
+
+.hds-pagination--compact {
+  background-color: var(--token-pagination-bar-surface-color-default);
 }
 
 .hds-pagination-info {
@@ -7590,10 +7598,10 @@ button.hds-button[href]::after {
   box-shadow: none;
 }
 .hds-pagination-nav__control:hover, .hds-pagination-nav__control.mock-hover {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--token-pagination-nav-control-foreground-color-action-hover);
 }
 .hds-pagination-nav__control:active, .hds-pagination-nav__control.mock-active {
-  color: var(--token-color-foreground-action-active);
+  color: var(--token-pagination-nav-control-foreground-color-action-active);
 }
 
 .hds-pagination-nav__arrow {
@@ -7616,10 +7624,10 @@ button.hds-button[href]::after {
 
 .hds-pagination-nav__number--is-selected {
   position: relative;
-  color: var(--token-color-foreground-action);
+  color: var(--token-pagination-nav-control-foreground-color-action);
 }
 .hds-pagination-nav__number--is-selected:hover {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--token-pagination-nav-control-foreground-color-action-hover);
 }
 .hds-pagination-nav__number--is-selected:active {
   color: var(--token-color-foreground-action-active);
@@ -7631,9 +7639,16 @@ button.hds-button[href]::after {
   left: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
   height: var(--token-pagination-nav-indicator-height);
   margin: 0 auto;
+  color: var(--token-color-foreground-action);
   background-color: currentColor;
   border-radius: 2px;
   content: "";
+}
+.hds-mode-cds-g0 .hds-pagination-nav__number--is-selected > .hds-font-weight-medium,
+.hds-mode-cds-g10 .hds-pagination-nav__number--is-selected > .hds-font-weight-medium,
+.hds-mode-cds-g90 .hds-pagination-nav__number--is-selected > .hds-font-weight-medium,
+.hds-mode-cds-g100 .hds-pagination-nav__number--is-selected > .hds-font-weight-medium {
+  font-weight: 600;
 }
 
 .hds-pagination-nav__ellipsis {

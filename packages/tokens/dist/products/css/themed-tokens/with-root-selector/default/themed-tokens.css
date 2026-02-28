@@ -238,6 +238,10 @@
   --token-icon-tile-border-color-logo: var(--token-color-border-primary);
   --token-icon-tile-border-color-overlay: var(--token-color-border-primary);
   --token-icon-tile-surface-color-overlay: var(--token-color-surface-primary);
+  --token-pagination-bar-surface-color-default: var(--token-color-surface-primary);
+  --token-pagination-nav-control-foreground-color-action-active: var(--token-color-foreground-action-active);
+  --token-pagination-nav-control-foreground-color-action-hover: var(--token-color-foreground-action-hover);
+  --token-pagination-nav-control-foreground-color-action: var(--token-color-foreground-action);
   --token-rich-tooltip-bubble-arrow-size: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
