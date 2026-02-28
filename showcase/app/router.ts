@@ -178,6 +178,7 @@ Router.map(function () {
         this.route('radio-card');
       });
       this.route('modal');
+      this.route('pagination');
       this.route('segmented-group');
     });
   });
