@@ -106,12 +106,12 @@
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--token-pagination-nav-control-foreground-color-action-hover);
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action-active);
+    color: var(--token-pagination-nav-control-foreground-color-action-active);
   }
 }
 
@@ -139,10 +139,10 @@
 
 .hds-pagination-nav__number--is-selected {
   position: relative;
-  color: var(--token-color-foreground-action);
+  color: var(--token-pagination-nav-control-foreground-color-action);
 
   &:hover {
-    color: var(--token-color-foreground-action-hover);
+    color: var(--token-pagination-nav-control-foreground-color-action-hover);
   }
 
   &:active {
@@ -159,9 +159,14 @@
     left: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
     height: var(--token-pagination-nav-indicator-height);
     margin: 0 auto;
+    // TODO: The blue color is different in Carbon from HDS (need to use themed token)
+    color: var(--token-color-foreground-action);
     background-color: currentColor;
     border-radius: 2px;
     content: "";
+
+    // TODO: Carbon sets an explicit width for this underline
+    // inline-size: 1rem;
   }
 }
 
