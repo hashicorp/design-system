@@ -4,8 +4,12 @@
  */
 
 import Component from '@glimmer/component';
+import { on } from '@ember/modifier';
 
-import type { HdsButtonSignature } from '../button';
+import HdsButton from '../button/index.gts';
+import hdsT from '../../../helpers/hds-t.ts';
+
+import type { HdsButtonSignature } from '../button/index.gts';
 
 export interface HdsCodeEditorFullScreenButtonSignature {
   Args: {
@@ -32,4 +36,21 @@ export default class HdsCodeEditorFullScreenButton extends Component<HdsCodeEdit
 
     return classes.join(' ');
   }
+
+  <template>
+    <HdsButton
+      class={{this.className}}
+      aria-pressed={{@isFullScreen}}
+      @isIconOnly={{true}}
+      @color="secondary"
+      @size="small"
+      @icon={{this.state}}
+      @text={{hdsT
+        "hds.components.code-editor.full-screen-button.text"
+        default="Toggle full screen view"
+      }}
+      {{on "click" @onToggleFullScreen}}
+      ...attributes
+    />
+  </template>
 }

@@ -98,10 +98,10 @@ export { default as HdsCodeBlockTitle } from './components/hds/code-block/title.
 export * from './components/hds/code-block/types.ts';
 
 // CodeEditor
-export { default as HdsCodeEditor } from './components/hds/code-editor/index.ts';
-export { default as HdsCodeEditorDescription } from './components/hds/code-editor/description.ts';
-export { default as HdsCodeEditorTitle } from './components/hds/code-editor/title.ts';
-export { default as HdsCodeEditorFullScreenButton } from './components/hds/code-editor/full-screen-button.ts';
+export { default as HdsCodeEditor } from './components/hds/code-editor/index.gts';
+export { default as HdsCodeEditorDescription } from './components/hds/code-editor/description.gts';
+export { default as HdsCodeEditorTitle } from './components/hds/code-editor/title.gts';
+export { default as HdsCodeEditorFullScreenButton } from './components/hds/code-editor/full-screen-button.gts';
 
 // CopyButton
 export { default as HdsCopyButton } from './components/hds/copy/button/index.gts';
