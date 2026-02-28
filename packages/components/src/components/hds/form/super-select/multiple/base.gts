@@ -4,18 +4,23 @@
  */
 
 import Component from '@glimmer/component';
-import anchoredPositionModifier from '../../../../../modifiers/hds-anchored-position.ts';
-
-import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { or } from 'ember-truth-helpers';
+import style from 'ember-style-modifier';
+import PowerSelect from 'ember-power-select/components/power-select';
+
+import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
+import type { Select } from 'ember-power-select/components/power-select';
+import type { CalculatePositionResult } from 'ember-basic-dropdown/utils/calculate-position';
+
 import {
   HdsFormSuperSelectHorizontalPositionValues,
   HdsFormSuperSelectHorizontalPositionToPlacementValues,
 } from '../types.ts';
+import anchoredPositionModifier from '../../../../../modifiers/hds-anchored-position.ts';
+import HdsFormSuperSelectAfterOptions from '../after-options.gts';
+import HdsFormSuperSelectOptionGroup from '../option-group.gts';
 
-import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
-import type { Select as PowerSelect } from 'ember-power-select/components/power-select';
-import type { CalculatePositionResult } from 'ember-basic-dropdown/utils/calculate-position';
 import type { HdsFormSuperSelectHorizontalPositions } from '../types.ts';
 
 export const DEFAULT_HORIZONTAL_POSITION: string =
@@ -39,7 +44,7 @@ export interface HdsFormSuperSelectMultipleBaseSignature {
 }
 
 export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSuperSelectMultipleBaseSignature> {
-  @tracked private _powerSelectAPI?: PowerSelect;
+  @tracked private _powerSelectAPI?: Select;
   @tracked private _showOnlySelected = false;
   @tracked private _showNoSelectedMessage = false;
 
@@ -73,10 +78,10 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     return undefined;
   }
 
-  @action calculatePosition(
+  calculatePosition = (
     trigger: Element,
     content: HTMLElement
-  ): CalculatePositionResult {
+  ): CalculatePositionResult => {
     // use `hds-anchored-position` to calculate and set position
     // @ts-expect-error: known issue with type of invocation
     anchoredPositionModifier(content, [trigger], {
@@ -90,7 +95,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
       verticalPosition: 'auto',
       style: {},
     };
-  }
+  };
 
   /**
    * This action sets the powerSelectAPI property and optionally calls a registerAPI function.
@@ -103,30 +108,29 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
    *
    * The `powerSelectAPI` is also stored on the component instance and used in `clearSelected`
    */
-  @action
-  setPowerSelectAPI(powerSelectAPI: PowerSelect): void {
+  setPowerSelectAPI = (powerSelectAPI: Select): void => {
     if (typeof this.args.registerAPI === 'function') {
       this.args.registerAPI(powerSelectAPI);
     }
     this._powerSelectAPI = powerSelectAPI;
-  }
+  };
 
-  @action showSelected(): void {
+  showSelected = (): void => {
     this._showNoSelectedMessage = this.selectedCount === '0';
     this._showOnlySelected = true;
-  }
+  };
 
-  @action showAll(): void {
+  showAll = (): void => {
     this._showNoSelectedMessage = false;
     this._showOnlySelected = false;
-  }
+  };
 
-  @action clearSelected(): void {
+  clearSelected = (): void => {
     this._powerSelectAPI?.actions.select(null);
     // show all options after clearing all selection
     this._showNoSelectedMessage = false;
     this._showOnlySelected = false;
-  }
+  };
 
   get showAfterOptions(): boolean {
     return this.args.showAfterOptions ?? true;
@@ -177,4 +181,89 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
 
     return classes.join(' ');
   }
+
+  <template>
+    {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
+    <div class={{this.classNames}} {{style this.styles}}>
+      <PowerSelect
+        tabindex="0"
+        @afterOptionsComponent={{if
+          this.showAfterOptions
+          (or
+            @afterOptionsComponent
+            (component
+              HdsFormSuperSelectAfterOptions
+              content=@afterOptionsContent
+              resultCountMessage=this.resultCountMessageText
+              showNoSelectedMessage=this._showNoSelectedMessage
+              showOnlySelected=this._showOnlySelected
+              showSelected=this.showSelected
+              showAll=this.showAll
+              clearSelected=this.clearSelected
+              selectedCount=this.selectedCount
+            )
+          )
+        }}
+        @ariaDescribedBy={{@ariaDescribedBy}}
+        @ariaInvalid={{@ariaInvalid}}
+        @ariaLabel={{@ariaLabel}}
+        @ariaLabelledBy={{@ariaLabelledBy}}
+        @beforeOptionsComponent={{@beforeOptionsComponent}}
+        @calculatePosition={{if
+          @verticalPosition
+          undefined
+          this.calculatePosition
+        }}
+        @closeOnSelect={{false}}
+        @disabled={{@disabled}}
+        @dropdownClass={{@dropdownClass}}
+        @extra={{@extra}}
+        @groupComponent={{HdsFormSuperSelectOptionGroup}}
+        @horizontalPosition={{@horizontalPosition}}
+        @initiallyOpened={{@initiallyOpened}}
+        @labelText={{@labelText}}
+        @loadingMessage={{@loadingMessage}}
+        @matcher={{@matcher}}
+        @matchTriggerWidth={{if @dropdownMaxWidth false @matchTriggerWidth}}
+        @multiple={{true}}
+        @noMatchesMessage={{@noMatchesMessage}}
+        @onBlur={{@onBlur}}
+        @onChange={{@onChange}}
+        @onClose={{@onClose}}
+        @onFocus={{@onFocus}}
+        @onInput={{@onInput}}
+        @onKeydown={{@onKeydown}}
+        @onOpen={{@onOpen}}
+        @options={{@options}}
+        @optionsComponent={{@optionsComponent}}
+        @placeholder={{@placeholder}}
+        @placeholderComponent={{@placeholderComponent}}
+        @preventScroll={{@preventScroll}}
+        @registerAPI={{this.setPowerSelectAPI}}
+        @renderInPlace={{true}}
+        @resultCountMessage={{this.resultCountMessageFunction}}
+        @scrollTo={{@scrollTo}}
+        @search={{@search}}
+        @searchEnabled={{@searchEnabled}}
+        @searchField={{@searchField}}
+        @searchFieldPosition="before-options"
+        @searchMessage={{@searchMessage}}
+        @searchPlaceholder={{this.searchPlaceholder}}
+        @selected={{@selected}}
+        @selectedItemComponent={{@selectedItemComponent}}
+        @tabindex={{@tabindex}}
+        @triggerClass={{@triggerClass}}
+        @triggerComponent={{@triggerComponent}}
+        @triggerId={{@triggerId}}
+        @triggerRole={{@triggerRole}}
+        @typeAheadOptionMatcher={{@typeAheadOptionMatcher}}
+        @verticalPosition={{@verticalPosition}}
+        ...attributes
+        as |option select|
+      >
+        {{! even if technically what is yielded here are _a list_ of options, we've decided to keep the option name for consistency with the existing PowerSelect API }}
+        {{yield option select}}
+      </PowerSelect>
+    </div>
+  </template>
 }
