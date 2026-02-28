@@ -439,6 +439,9 @@
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
+  --token-pagination-nav-control-foreground-color-action: #1060ff;
+  --token-pagination-nav-control-foreground-color-action-hover: #0c56e9;
+  --token-pagination-nav-control-foreground-color-action-active: #0046d1;
   --token-pagination-nav-control-icon-spacing: 6px;
   --token-pagination-nav-indicator-height: 2px;
   --token-pagination-nav-indicator-spacing: 6px;
@@ -7952,6 +7955,29 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/* For planning out any new tokens or updates
+
+--token-pagination-
+
+Replace this:
+
+OLD: color: var(--token-color-foreground-action);
+NEW: --token-pagination-nav-control-foreground-color-action
+
+TODO: Now add -
+-token-pagination-nav-control-foreground-color-action-hover
+-token-pagination-nav-control-foreground-color-action-active
+-token-pagination-nav-control-foreground-color-secondary
+
+? Replace this?
+--token-pagination-nav-indicator-spacing (= 6px)
+
+*/
+.hds-pagination-nav__page-item,
+.cds--pagination-nav__list-item {
+  outline: 1px dotted;
+}
+
 .hds-pagination {
   display: grid;
   grid-template-areas: "info nav selector";
@@ -8055,10 +8081,10 @@ button.hds-button[href]::after {
   box-shadow: none;
 }
 .hds-pagination-nav__control:hover, .hds-pagination-nav__control.mock-hover {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--token-pagination-nav-control-foreground-color-action-hover);
 }
 .hds-pagination-nav__control:active, .hds-pagination-nav__control.mock-active {
-  color: var(--token-color-foreground-action-active);
+  color: var(--token-pagination-nav-control-foreground-color-action-active);
 }
 
 .hds-pagination-nav__arrow {
@@ -8081,10 +8107,10 @@ button.hds-button[href]::after {
 
 .hds-pagination-nav__number--is-selected {
   position: relative;
-  color: var(--token-color-foreground-action);
+  color: var(--token-pagination-nav-control-foreground-color-action);
 }
 .hds-pagination-nav__number--is-selected:hover {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--token-pagination-nav-control-foreground-color-action-hover);
 }
 .hds-pagination-nav__number--is-selected:active {
   color: var(--token-color-foreground-action-active);
@@ -8096,6 +8122,7 @@ button.hds-button[href]::after {
   left: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
   height: var(--token-pagination-nav-indicator-height);
   margin: 0 auto;
+  color: var(--token-color-foreground-action);
   background-color: currentColor;
   border-radius: 2px;
   content: "";

@@ -12394,6 +12394,114 @@
     ]
   },
   {
+    "key": "{pagination.nav.control.foreground.color.action}",
+    "$type": "color",
+    "$value": "#161616",
+    "$modes": {
+      "default": "#0f62fe",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.action}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{pagination.nav.control.foreground.color.action}"
+    },
+    "name": "token-pagination-nav-control-foreground-color-action",
+    "attributes": {
+      "category": "pagination"
+    },
+    "path": [
+      "pagination",
+      "nav",
+      "control",
+      "foreground",
+      "color",
+      "action"
+    ]
+  },
+  {
+    "key": "{pagination.nav.control.foreground.color.action-hover}",
+    "$type": "color",
+    "$value": "#161616",
+    "$modes": {
+      "default": "#0043ce",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.action-hover}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{pagination.nav.control.foreground.color.action-hover}"
+    },
+    "name": "token-pagination-nav-control-foreground-color-action-hover",
+    "attributes": {
+      "category": "pagination"
+    },
+    "path": [
+      "pagination",
+      "nav",
+      "control",
+      "foreground",
+      "color",
+      "action-hover"
+    ]
+  },
+  {
+    "key": "{pagination.nav.control.foreground.color.action-active}",
+    "$type": "color",
+    "$value": "#161616",
+    "$modes": {
+      "default": "#0043ce",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.textPrimary}",
+      "$modes": {
+        "default": "{color.foreground.action-active}",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{pagination.nav.control.foreground.color.action-active}"
+    },
+    "name": "token-pagination-nav-control-foreground-color-action-active",
+    "attributes": {
+      "category": "pagination"
+    },
+    "path": [
+      "pagination",
+      "nav",
+      "control",
+      "foreground",
+      "color",
+      "action-active"
+    ]
+  },
+  {
     "key": "{pagination.nav.control.icon-spacing}",
     "$type": "dimension",
     "$value": "6px",
