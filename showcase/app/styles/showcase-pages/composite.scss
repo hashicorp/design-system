@@ -1,0 +1,27 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// COMPOSITE
+
+.composite-with-grid {
+  .composite-with-grid__row {
+    margin-bottom: 8px;
+  }
+
+  .composite-with-grid__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    padding: 8px;
+    font-family: inherit;
+    background-color: var(--token-color-palette-neutral-100);
+    border-radius: var(--token-border-radius-medium);
+
+    &.composite-with-grid__cell--disabled .shw-text {
+      color: var(--token-color-palette-neutral-400);
+    }
+  }
+}
