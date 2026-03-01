@@ -2,9 +2,11 @@
   Copyright IBM Corp. 2021, 2025
   SPDX-License-Identifier: MPL-2.0
 }}
+
 <div
   class={{this.classNames}}
   role={{this.role}}
+  aria-sort={{this.ariaSort}}
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
   aria-describedby={{@parentId}}
@@ -27,85 +29,146 @@
     {{#if @column.isVisuallyHidden}}
       <span class="sr-only">{{yield}}</span>
     {{else}}
-      {{#if @tooltip}}
-        {{#if @isExpandable}}
-          <Hds::AdvancedTable::ThButtonExpand
-            @labelId={{this._labelId}}
-            @onToggle={{@onClickToggle}}
-            @isExpanded={{@isExpanded}}
-            @isExpandAll={{@hasExpandAllButton}}
-            {{this._manageExpandButton}}
-          />
-        {{/if}}
-        <div class="hds-advanced-table__th-content">
-          <span
-            id={{this._labelId}}
-            class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold"
-          >
-            {{yield}}
-          </span>
+      {{#if (and @isExpandable (not this.isSortable))}}
+        <Hds::AdvancedTable::ThButtonExpand
+          @labelId={{this._labelId}}
+          @onToggle={{@onClickToggle}}
+          @isExpanded={{@isExpanded}}
+          @isExpandAll={{@hasExpandAllButton}}
+          {{this._manageExpandButton}}
+        />
+      {{/if}}
+
+      <div class="hds-advanced-table__th-content">
+        <span
+          id={{this._labelId}}
+          class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold"
+        >
+          {{yield}}
+        </span>
+        {{#if @tooltip}}
           <Hds::AdvancedTable::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this._labelId}} />
-        </div>
-      {{else}}
-        {{#if @isExpandable}}
-          <Hds::AdvancedTable::ThButtonExpand
-            @labelId={{this._labelId}}
-            @onToggle={{@onClickToggle}}
-            @isExpanded={{@isExpanded}}
-            @isExpandAll={{@hasExpandAllButton}}
-            {{this._manageExpandButton}}
-          />
         {{/if}}
-        <div class="hds-advanced-table__th-content">
-          <span
-            class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold"
-            id={{this._labelId}}
-          >{{yield}}</span>
-        </div>
-      {{/if}}
-    {{/if}}
+      </div>
 
-    {{#if @column}}
-      <Hds::AdvancedTable::ThContextMenu
-        @column={{@column}}
-        @hasReorderableColumns={{@hasReorderableColumns}}
-        @hasResizableColumns={{@hasResizableColumns}}
-        @isStickyColumn={{@isStickyColumn}}
-        @reorderHandleElement={{this._reorderHandleElement}}
-        @resizeHandleElement={{this._resizeHandleElement}}
-        @onColumnResize={{@onColumnResize}}
-        @onPinFirstColumn={{@onPinFirstColumn}}
-      />
+      {{#if this.isSortable}}
+        <Hds::Layout::Flex class="hds-advanced-table__th-actions" @align="center" @gap="8">
+          <Hds::AdvancedTable::ThButtonSort
+            @sortOrder={{@sortOrder}}
+            @onClick={{@onClickSort}}
+            @labelId={{this._labelId}}
+          />
 
-      {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
-        <Hds::AdvancedTable::ThReorderHandle
-          @column={{@column}}
-          @tableHeight={{@tableHeight}}
-          @onReorderDragStart={{this.handleDragStart}}
-          @onReorderDragEnd={{@onReorderDragEnd}}
-          {{this._registerReorderHandleElement}}
-        />
-      {{/if}}
+          {{#if @column}}
+            <Hds::AdvancedTable::ThContextMenu
+              @column={{@column}}
+              @hasReorderableColumns={{@hasReorderableColumns}}
+              @hasResizableColumns={{@hasResizableColumns}}
+              @isFirstColumn={{this.isFirstColumn}}
+              @isLastColumn={{this.isLastColumn}}
+              @isStickyColumn={{@isStickyColumn}}
+              @reorderHandleElement={{this._reorderHandleElement}}
+              @resizeHandleElement={{this._resizeHandleElement}}
+              @onColumnResize={{@onColumnResize}}
+              @onFocusReorderHandle={{this.focusReorderHandle}}
+              @onMoveColumnToTerminalPosition={{@onMoveColumnToTerminalPosition}}
+              @onPinFirstColumn={{@onPinFirstColumn}}
+              @onRestoreColumnWidth={{@onRestoreColumnWidth}}
+            />
 
-      {{#if (and @hasResizableColumns (not @column.isLast) (not @column.table.hasColumnBeingDragged))}}
-        <Hds::AdvancedTable::ThResizeHandle
-          @column={{@column}}
-          @tableHeight={{@tableHeight}}
-          @onColumnResize={{@onColumnResize}}
-          {{this._registerResizeHandleElement}}
-        />
+            {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
+              <Hds::AdvancedTable::ThReorderHandle
+                @column={{@column}}
+                @tableHeight={{@tableHeight}}
+                @thElement={{this._element}}
+                @onFocusReorderHandle={{this.focusReorderHandle}}
+                @onSetDraggedColumnKey={{this.setDraggedColumnKey}}
+                @onStepColumn={{this.stepColumn}}
+                {{this._registerReorderHandleElement}}
+              />
+            {{/if}}
+
+            {{#if this.showResizeHandle}}
+              <Hds::AdvancedTable::ThResizeHandle
+                @column={{@column}}
+                @siblingColumnKeys={{@siblingColumnKeys}}
+                @tableHeight={{@tableHeight}}
+                @onApplyTransientWidth={{this.applyTransientWidth}}
+                @onColumnResize={{@onColumnResize}}
+                @onGetAppliedWidth={{this.getAppliedWidth}}
+                @onGetColumnByKey={{this.getColumnByKey}}
+                @onSetTransientColumnWidth={{this.setTransientColumnWidth}}
+                @onSetTransientColumnWidths={{this.setTransientColumnWidths}}
+                @onResetTransientColumnWidths={{this.resetTransientColumnWidths}}
+                @onUpdateResizeDebt={{this.updateResizeDebt}}
+                {{this._registerResizeHandleElement}}
+              />
+            {{/if}}
+          {{/if}}
+        </Hds::Layout::Flex>
+      {{else}}
+        {{#if @column}}
+          <Hds::AdvancedTable::ThContextMenu
+            @column={{@column}}
+            @hasReorderableColumns={{@hasReorderableColumns}}
+            @hasResizableColumns={{@hasResizableColumns}}
+            @isFirstColumn={{this.isFirstColumn}}
+            @isLastColumn={{this.isLastColumn}}
+            @isStickyColumn={{@isStickyColumn}}
+            @reorderHandleElement={{this._reorderHandleElement}}
+            @resizeHandleElement={{this._resizeHandleElement}}
+            @onColumnResize={{@onColumnResize}}
+            @onFocusReorderHandle={{this.focusReorderHandle}}
+            @onMoveColumnToTerminalPosition={{@onMoveColumnToTerminalPosition}}
+            @onPinFirstColumn={{@onPinFirstColumn}}
+            @onRestoreColumnWidth={{@onRestoreColumnWidth}}
+          />
+
+          {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
+            <Hds::AdvancedTable::ThReorderHandle
+              @column={{@column}}
+              @tableHeight={{@tableHeight}}
+              @thElement={{this._element}}
+              @onFocusReorderHandle={{this.focusReorderHandle}}
+              @onSetDraggedColumnKey={{this.setDraggedColumnKey}}
+              @onStepColumn={{this.stepColumn}}
+              {{this._registerReorderHandleElement}}
+            />
+          {{/if}}
+
+          {{#if this.showResizeHandle}}
+            <Hds::AdvancedTable::ThResizeHandle
+              @column={{@column}}
+              @siblingColumnKeys={{@siblingColumnKeys}}
+              @tableHeight={{@tableHeight}}
+              @onApplyTransientWidth={{this.applyTransientWidth}}
+              @onColumnResize={{@onColumnResize}}
+              @onGetAppliedWidth={{this.getAppliedWidth}}
+              @onGetColumnByKey={{this.getColumnByKey}}
+              @onSetTransientColumnWidth={{this.setTransientColumnWidth}}
+              @onSetTransientColumnWidths={{this.setTransientColumnWidths}}
+              @onResetTransientColumnWidths={{this.resetTransientColumnWidths}}
+              @onUpdateResizeDebt={{this.updateResizeDebt}}
+              {{this._registerResizeHandleElement}}
+            />
+          {{/if}}
+        {{/if}}
       {{/if}}
     {{/if}}
   </Hds::Layout::Flex>
 
-  {{#if @column}}
-    {{#if (and @column.table.hasColumnBeingDragged (not @isStickyColumn))}}
-      <Hds::AdvancedTable::ThReorderDropTarget
-        @column={{@column}}
-        @hasSelectableRows={{@hasSelectableRows}}
-        @tableHeight={{@tableHeight}}
-        @onReorderDrop={{@onReorderDrop}}
-      />
-    {{/if}}
+  {{#if this.showDropTarget}}
+    <Hds::AdvancedTable::ThReorderDropTarget
+      @column={{@column}}
+      @draggedColumnKey={{@draggedColumnKey}}
+      @hasSelectableRows={{@hasSelectableRows}}
+      @isFirstColumn={{this.isFirstColumn}}
+      @isLastColumn={{this.isLastColumn}}
+      @reorderHoveredColumnKey={{@reorderHoveredColumnKey}}
+      @draggedColumnSiblingColumnKeys={{@draggedColumnSiblingColumnKeys}}
+      @tableHeight={{@tableHeight}}
+      @onReorderDrop={{@onReorderDrop}}
+      @onSetReorderHoveredColumnKey={{@onSetReorderHoveredColumnKey}}
+    />
   {{/if}}
 </div>
