@@ -9,9 +9,9 @@
   draggable="false"
   role="slider"
   aria-orientation="horizontal"
-  aria-valuenow={{or @column.pxAppliedWidth @column.thElement.offsetWidth}}
-  aria-valuemin={{@column.pxMinWidth}}
-  aria-valuemax={{@column.pxMaxWidth}}
+  aria-valuenow={{this.currentWidthInPixels}}
+  aria-valuemin={{this.minWidthInPixels}}
+  aria-valuemax={{this.maxWidthInPixels}}
   tabindex="0"
   aria-label={{hds-t
     "hds.components.advanced-table.th-resize-handle.aria-label"
