@@ -129,7 +129,11 @@
           as |B|
         >
           {{#each B.rows key="id" as |row index|}}
+<<<<<<< HEAD
             {{#let (and (not this.hasRowsWithChildren) (not row.hasChildren)) as |isSelectionAllowed|}}
+=======
+            {{#let (and (not this.hasRowsWithChildren) (not row.hasChildren)) as |isSimpleRow|}}
+>>>>>>> fb80a65898 (Flattened feature)
               {{yield
                 (hash
                   Tr=(component
@@ -140,11 +144,19 @@
                     isParentRow=row.hasChildren
                     isLastRow=(and (eq row.id B.lastVisibleRowId) (not-eq B.lastVisibleRowId undefined))
                     displayRow=row.isVisible
+<<<<<<< HEAD
                     selectionScope=(if isSelectionAllowed "row")
                     isSelectable=(if isSelectionAllowed this.isSelectable)
                     onSelectionChange=(if isSelectionAllowed this.onSelectionRowChange)
                     didInsert=(if isSelectionAllowed this.didInsertRowCheckbox)
                     willDestroy=(if isSelectionAllowed this.willDestroyRowCheckbox)
+=======
+                    selectionScope=(if isSimpleRow "row")
+                    isSelectable=(if isSimpleRow this.isSelectable)
+                    onSelectionChange=(if isSimpleRow this.onSelectionRowChange)
+                    didInsert=(if isSimpleRow this.didInsertRowCheckbox)
+                    willDestroy=(if isSimpleRow this.willDestroyRowCheckbox)
+>>>>>>> fb80a65898 (Flattened feature)
                     hasStickyColumn=this.hasStickyFirstColumn
                     isStickyColumnPinned=this.isStickyColumnPinned
                   )
@@ -205,7 +217,11 @@
       />
     {{/if}}
 
+<<<<<<< HEAD
     {{#if (and this.showScrollIndicatorBottom (not this.isEmpty))}}
+=======
+    {{#if this.showScrollIndicatorBottom}}
+>>>>>>> fb80a65898 (Flattened feature)
       <div
         class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-bottom"
         {{style bottom=this.scrollIndicatorDimensions.bottom width=this.scrollIndicatorDimensions.width}}
