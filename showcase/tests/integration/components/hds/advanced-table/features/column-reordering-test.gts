@@ -545,7 +545,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           ],
           'The third column is moved back to the left',
         );
-        assert.dom(firstReorderHandle).isFocused();
+        assert
+          .dom(firstReorderHandle)
+          .isFocused('focus is returned to the handle after move');
       }
     });
 

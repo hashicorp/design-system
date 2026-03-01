@@ -8,22 +8,31 @@ import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { scheduleOnce } from '@ember/runloop';
 import { focusable, type FocusableElement } from 'tabbable';
 import { modifier } from 'ember-modifier';
-import HdsAdvancedTableColumn from './models/column.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
-import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
+import {
+  HdsAdvancedTableHorizontalAlignmentValues,
+  HdsAdvancedTableThSortOrderLabelValues,
+  HdsAdvancedTableThSortOrderValues,
+} from './types.ts';
 
-import type Owner from '@ember/owner';
 import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableScope,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderSide,
+  HdsAdvancedTableNormalizedColumn,
+  HdsAdvancedTableThSortOrderLabels,
+  HdsAdvancedTableThSortOrder,
 } from './types.ts';
+
+import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
+import type Owner from '@ember/owner';
 
 export const ALIGNMENTS: HdsAdvancedTableHorizontalAlignment[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -33,32 +42,81 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 export interface HdsAdvancedTableThSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
-    column?: HdsAdvancedTableColumn;
+    column?: HdsAdvancedTableNormalizedColumn;
     colspan?: number;
     depth?: number;
+    draggedColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
+    firstColumnKey?: HdsAdvancedTableNormalizedColumn['key'];
     hasExpandAllButton?: boolean;
     hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
     hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
-    isExpanded?: HdsAdvancedTableExpandState;
+    hasStickyFirstColumn?: HdsAdvancedTableSignature['Args']['hasStickyFirstColumn'];
     isExpandable?: boolean;
+    isExpanded?: HdsAdvancedTableExpandState;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
+    lastColumnKey?: HdsAdvancedTableNormalizedColumn['key'];
     newLabel?: string;
     parentId?: string;
+    reorderHoveredColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;
     rowspan?: number;
     scope?: HdsAdvancedTableScope;
-    tooltip?: string;
+    siblingColumnKeys?: {
+      previous?: HdsAdvancedTableNormalizedColumn['key'];
+      next?: HdsAdvancedTableNormalizedColumn['key'];
+    };
+    draggedColumnSiblingColumnKeys?: {
+      previous?: HdsAdvancedTableNormalizedColumn['key'];
+      next?: HdsAdvancedTableNormalizedColumn['key'];
+    };
+    sortOrder?: HdsAdvancedTableThSortOrder;
     tableHeight?: number;
+    tooltip?: string;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
+    onApplyTransientWidth?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => void;
+    onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onGetAppliedWidth?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => HdsAdvancedTableNormalizedColumn['width'];
+    onGetColumnByKey?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => HdsAdvancedTableNormalizedColumn | undefined;
+    onMoveColumnToTerminalPosition?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
+      position: 'start' | 'end'
+    ) => void;
     onPinFirstColumn?: () => void;
-    onReorderDragEnd?: () => void;
-    onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
-      column: HdsAdvancedTableColumn,
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
       side: HdsAdvancedTableColumnReorderSide
+    ) => void;
+    onResetTransientColumnWidths?: () => void;
+    onRestoreColumnWidth?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key']
+    ) => void;
+    onSetDraggedColumnKey?: (
+      key: HdsAdvancedTableNormalizedColumn['key'] | null
+    ) => void;
+    onSetReorderHoveredColumnKey?: (
+      key: HdsAdvancedTableNormalizedColumn['key'] | null
+    ) => void;
+    onSetTransientColumnWidth?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
+      width: `${number}px`
+    ) => void;
+    onSetTransientColumnWidths?: (options: { roundValues?: boolean }) => void;
+    onStepColumn?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
+      step: number
+    ) => void;
+    onUpdateResizeDebt?: (
+      columnKey: HdsAdvancedTableNormalizedColumn['key'],
+      delta: number
     ) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
@@ -69,9 +127,9 @@ export interface HdsAdvancedTableThSignature {
 }
 
 export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSignature> {
-  private _labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
-  private _element!: HTMLDivElement;
+  private _labelId: string;
 
+  @tracked private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
   @tracked
   private _reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
@@ -81,24 +139,67 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
     super(owner, args);
 
-    const { rowspan, colspan, isStickyColumn } = args;
+    this._labelId = this.args.newLabel ?? guidFor(this);
+  }
 
-    if (isStickyColumn) {
-      assert(
-        'Cannot have custom rowspan or colspan if there are nested rows.',
-        rowspan === undefined || colspan === undefined
-      );
-    }
+  get isSortable(): boolean {
+    return this.args.column?.isSortable ?? false;
+  }
+
+  get isFirstColumn(): boolean {
+    const { column, firstColumnKey } = this.args;
+
+    return (
+      firstColumnKey !== undefined &&
+      column !== undefined &&
+      firstColumnKey === column.key
+    );
+  }
+
+  get isLastColumn(): boolean {
+    const { column, lastColumnKey } = this.args;
+
+    return (
+      lastColumnKey !== undefined &&
+      column !== undefined &&
+      lastColumnKey === column.key
+    );
+  }
+
+  get tableHasColumnBeingDragged(): boolean {
+    const { draggedColumnKey } = this.args;
+
+    return draggedColumnKey != null;
+  }
+
+  get isColumnBeingDragged(): boolean {
+    const { column, draggedColumnKey } = this.args;
+
+    return (
+      draggedColumnKey != null &&
+      column !== undefined &&
+      draggedColumnKey === column.key
+    );
   }
 
   get scope(): HdsAdvancedTableScope {
-    const { scope = 'col' } = this.args;
-    return scope;
+    return this.args.scope ?? 'col';
   }
 
   get role(): string {
-    if (this.scope === 'col') return 'columnheader';
-    else return 'rowheader';
+    return this.scope === 'col' ? 'columnheader' : 'rowheader';
+  }
+
+  get ariaSort(): HdsAdvancedTableThSortOrderLabels {
+    switch (this.args.sortOrder) {
+      case HdsAdvancedTableThSortOrderValues.Asc:
+        return HdsAdvancedTableThSortOrderLabelValues.Asc;
+      case HdsAdvancedTableThSortOrderValues.Desc:
+        return HdsAdvancedTableThSortOrderLabelValues.Desc;
+      default:
+        // none is the default per the spec.
+        return HdsAdvancedTableThSortOrderLabelValues.None;
+    }
   }
 
   get align(): HdsAdvancedTableHorizontalAlignment {
@@ -116,51 +217,65 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
   get rowspan(): string {
-    if (this.args.rowspan) {
-      return `span ${this.args.rowspan}`;
-    }
-    return 'auto';
+    return this.args.rowspan !== undefined
+      ? `span ${this.args.rowspan}`
+      : 'auto';
   }
 
   get colspan(): string | undefined {
-    if (this.args.colspan) {
-      return `span ${this.args.colspan}`;
-    }
-    return 'auto';
+    return this.args.colspan !== undefined
+      ? `span ${this.args.colspan}`
+      : 'auto';
   }
 
   get paddingLeft(): string | undefined {
-    if (this.args.depth) {
-      return `calc(${this.args.depth} * 32px + 16px)`;
-    }
+    return this.args.depth !== undefined
+      ? `calc(${this.args.depth} * 32px + 16px)`
+      : undefined;
   }
 
   get classNames(): string {
+    const { isStickyColumn, isStickyColumnPinned } = this.args;
+
     const classes = ['hds-advanced-table__th'];
 
-    // add a class based on the @align argument
+    if (this.isSortable) {
+      classes.push('hds-advanced-table__th--sort');
+    }
+
     if (this.align) {
       classes.push(`hds-advanced-table__th--align-${this.align}`);
     }
 
-    if (this.args.isStickyColumn) {
+    if (isStickyColumn) {
       classes.push('hds-advanced-table__th--is-sticky-column');
     }
 
-    if (this.args.isStickyColumn && this.args.isStickyColumnPinned) {
+    if (isStickyColumn && isStickyColumnPinned) {
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
-    if (this.args.column?.isBeingDragged) {
+    if (this.isColumnBeingDragged) {
       classes.push('hds-advanced-table__th--is-being-dragged');
     }
 
     return classes.join(' ');
   }
 
-  @action
-  handleDragStart(column: HdsAdvancedTableColumn): void {
-    this.args.onReorderDragStart?.(column);
+  get showDropTarget(): boolean {
+    const { isStickyColumn } = this.args;
+
+    return this.tableHasColumnBeingDragged === true && !isStickyColumn;
+  }
+
+  get showResizeHandle(): boolean {
+    const { hasResizableColumns } = this.args;
+
+    return (
+      hasResizableColumns === true &&
+      !this.isLastColumn &&
+      !this.tableHasColumnBeingDragged
+    );
   }
 
   @action onFocusTrapDeactivate(): void {
@@ -174,15 +289,90 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action getInitialFocus(): FocusableElement | undefined {
     const cellFocusableElements = focusable(this._element);
+
     return cellFocusableElements[0];
   }
 
-  @action setElement(element: HTMLDivElement): void {
-    this._element = element;
-
-    if (this.args.column !== undefined) {
-      this.args.column.thElement = element;
+  @action focusReorderHandle(): void {
+    if (this._element === undefined) {
+      return;
     }
+
+    // focus the th element first (parent) to ensure the handle is visible
+    this._element.focus({ preventScroll: true });
+
+    if (this._reorderHandleElement === undefined) {
+      return;
+    }
+
+    // then focus the reorder handle element
+    this._reorderHandleElement.focus();
+  }
+
+  @action applyTransientWidth(
+    columnKey: HdsAdvancedTableNormalizedColumn['key']
+  ): void {
+    this.args.onApplyTransientWidth?.(columnKey);
+  }
+
+  @action resetTransientColumnWidths(): void {
+    this.args.onResetTransientColumnWidths?.();
+  }
+
+  @action getAppliedWidth(
+    columnKey: HdsAdvancedTableNormalizedColumn['key']
+  ): HdsAdvancedTableNormalizedColumn['width'] | undefined {
+    return this.args.onGetAppliedWidth?.(columnKey);
+  }
+
+  @action getColumnByKey(
+    columnKey: HdsAdvancedTableNormalizedColumn['key']
+  ): HdsAdvancedTableNormalizedColumn | undefined {
+    return this.args.onGetColumnByKey?.(columnKey);
+  }
+
+  @action setDraggedColumnKey(
+    columnKey: HdsAdvancedTableNormalizedColumn['key'] | null
+  ): void {
+    this.args.onSetDraggedColumnKey?.(columnKey);
+  }
+
+  @action setTransientColumnWidth(
+    columnKey: HdsAdvancedTableNormalizedColumn['key'],
+    width: `${number}px`
+  ): void {
+    const { column, onSetTransientColumnWidth } = this.args;
+
+    if (column !== undefined && onSetTransientColumnWidth !== undefined) {
+      onSetTransientColumnWidth(columnKey, width);
+    }
+  }
+
+  @action setTransientColumnWidths(options: { roundValues?: boolean }): void {
+    this.args.onSetTransientColumnWidths?.(options);
+  }
+
+  @action stepColumn(step: number): void {
+    const { column, onStepColumn } = this.args;
+
+    if (column !== undefined && onStepColumn !== undefined) {
+      onStepColumn(column.key, step);
+    }
+  }
+
+  @action updateResizeDebt(delta: number): void {
+    const { column, onUpdateResizeDebt } = this.args;
+
+    if (column !== undefined && onUpdateResizeDebt !== undefined) {
+      onUpdateResizeDebt(column.key, delta);
+    }
+  }
+
+  @action setElement(element: HTMLDivElement): void {
+    // eslint-disable-next-line ember/no-runloop, ember/no-incorrect-calls-with-inline-anonymous-functions
+    scheduleOnce('afterRender', () => {
+      this._element = element;
+    });
   }
 
   private _registerReorderHandleElement = modifier(
@@ -199,6 +389,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   private _manageExpandButton = modifier((button: HTMLButtonElement) => {
     const { didInsertExpandButton, willDestroyExpandButton } = this.args;
+
     if (typeof didInsertExpandButton === 'function') {
       didInsertExpandButton(button);
     }
