@@ -113,7 +113,6 @@ export interface HdsAdvancedTableColumnManagerSignature {
 export default class HdsAdvancedTableColumnManager extends Component<HdsAdvancedTableColumnManagerSignature> {
   thElements = new TrackedMap<string, HTMLDivElement>();
 
-<<<<<<< HEAD
   syncThElements = modifier<HdsAdvancedTableSyncThElementsSignature>(
     (element, [key]) => {
       if (key !== undefined) {
@@ -122,8 +121,6 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     }
   );
 
-=======
->>>>>>> fb80a65898 (Flattened feature)
   @cached
   get normalizedColumns(): HdsAdvancedTableNormalizedColumn[] {
     return this.args.columns.map((column) => {
@@ -143,17 +140,6 @@ export default class HdsAdvancedTableColumnManager extends Component<HdsAdvanced
     return this.normalizedColumns.find((column) => column.key === key);
   };
 
-<<<<<<< HEAD
-=======
-  syncThElements = modifier<HdsAdvancedTableSyncThElementsSignature>(
-    (element, [key]) => {
-      if (key !== undefined) {
-        this.thElements.set(key, element);
-      }
-    }
-  );
-
->>>>>>> fb80a65898 (Flattened feature)
   <template>
     <HdsAdvancedTableColumnManagerOrder
       @columns={{this.normalizedColumns}}

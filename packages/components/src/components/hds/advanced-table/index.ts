@@ -34,11 +34,7 @@ import type {
   HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
 
-<<<<<<< HEAD
 import type { HdsFilterBarSignature } from '../filter-bar/index.gts';
-=======
-import type { HdsFilterBarSignature } from '../filter-bar/index.ts';
->>>>>>> fb80a65898 (Flattened feature)
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type HdsAdvancedTableTd from './td.ts';
 import type HdsAdvancedTableTh from './th.ts';
@@ -241,7 +237,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   // row expansion properties
   expandedRowIds = new TrackedSet<string>();
 
-<<<<<<< HEAD
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollWrapperElement = element;
 
@@ -335,8 +330,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._theadElement = element;
   });
 
-=======
->>>>>>> fb80a65898 (Flattened feature)
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
@@ -521,10 +514,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return valign;
   }
 
-<<<<<<< HEAD
-=======
-  // returns the grid-template-columns CSS attribute for the grid
->>>>>>> fb80a65898 (Flattened feature)
   get classNames(): string {
     const classes = ['hds-advanced-table'];
 
@@ -583,72 +572,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         if (Array.isArray(children) && children.length > 0) {
           traverse(children);
         }
-<<<<<<< HEAD
-=======
-      });
-    };
-
-    traverse(model);
-  }
-
-  private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
-    this._scrollWrapperElement = element;
-
-    const updateHorizontalScrollIndicators = () => {
-      this.showScrollIndicatorRight = element.clientWidth < element.scrollWidth;
-    };
-
-    this._scrollHandler = () => {
-      this._updateScrollIndicators(element);
-    };
-
-    element.addEventListener('scroll', this._scrollHandler);
-
-    const updateMeasurements = () => {
-      const { isSelectable = false } = this.args;
-
-      const newTableHeight = element.offsetHeight;
-      const newDimensions = getScrollIndicatorDimensions(
-        element,
-        this._theadElement,
-        this.hasStickyFirstColumn ? true : false,
-        this.isStickyColumnPinned
-      );
-
-      const setUpdatedMeasurements = () => {
-        if (this.isDestroying || this.isDestroyed) {
-          return;
-        }
-
-        const isSameLeft =
-          this.scrollIndicatorDimensions.left === newDimensions.left;
-        const isSameRight =
-          this.scrollIndicatorDimensions.right === newDimensions.right;
-
-        if (isSameLeft && isSameRight && this._tableHeight === newTableHeight) {
-          return;
-        }
-
-        this._tableHeight = newTableHeight;
-        this.scrollIndicatorDimensions = newDimensions;
-
-        if (this.hasStickyFirstColumn) {
-          this.stickyColumnOffset = getStickyColumnLeftOffset(
-            this._theadElement,
-            isSelectable,
-            this.isStickyColumnPinned
-          );
-        }
-      };
-
-      window.requestAnimationFrame(setUpdatedMeasurements);
-    };
-
-    this._resizeObserver = new ResizeObserver((entries) => {
-      entries.forEach(() => {
-        updateMeasurements();
-        updateHorizontalScrollIndicators();
->>>>>>> fb80a65898 (Flattened feature)
       });
     };
 

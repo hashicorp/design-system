@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-=======
-/**
- * TODOs
- * - Make sure that removed keys are no longer tracked
- */
-
->>>>>>> fb80a65898 (Flattened feature)
 import Component from '@glimmer/component';
 import { fn, hash } from '@ember/helper';
 import { assert } from '@ember/debug';
@@ -87,7 +79,6 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     | HdsAdvancedTableNormalizedColumn['key']
     | null = null;
   @tracked private _columnOrder: string[] = [];
-<<<<<<< HEAD
 
   syncColumnOrder = modifier<HdsAdvancedTableSyncColumnOrderSignature>(
     (_element, [columns, columnOrder]) => {
@@ -133,9 +124,6 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
       }
     }
   );
-=======
-  @tracked private _lastColumnOrder: string[] = [];
->>>>>>> fb80a65898 (Flattened feature)
 
   get columnOrder(): string[] {
     return this._columnOrder.length > 0
@@ -146,7 +134,6 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     this._columnOrder = value;
   }
 
-<<<<<<< HEAD
   get visibleColumnOrder(): string[] {
     const visibleKeys = new Set(
       this.args.columns.map((column) => this._getColumnKey(column))
@@ -155,8 +142,6 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     return this._columnOrder.filter((key) => visibleKeys.has(key));
   }
 
-=======
->>>>>>> fb80a65898 (Flattened feature)
   get orderedColumns(): HdsAdvancedTableNormalizedColumn[] {
     const { hasReorderableColumns, columns } = this.args;
 
@@ -333,66 +318,11 @@ export default class HdsAdvancedTableColumnManagerOrder extends Component<HdsAdv
     return column.key ?? guidFor(column);
   }
 
-<<<<<<< HEAD
-=======
-  syncColumnOrder = modifier<HdsAdvancedTableSyncColumnOrderSignature>(
-    (_element, [columns, columnOrder]) => {
-      const columnKeys = columns.map((column) => this._getColumnKey(column));
-
-      let nextOrder = this._columnOrder;
-
-      if (columnOrder !== undefined) {
-        const sameLength = columnOrder.length === this._lastColumnOrder.length;
-        const sameOrder =
-          sameLength &&
-          columnOrder.every(
-            (value, index) => value === this._lastColumnOrder[index]
-          );
-
-        if (!sameOrder) {
-          nextOrder = [...columnOrder];
-        }
-      }
-
-      if (nextOrder.length === 0) {
-        nextOrder = [...columnKeys];
-      }
-
-      const missingKeys = columnKeys.filter((key) => !nextOrder.includes(key));
-
-      if (missingKeys.length > 0) {
-        nextOrder = [...nextOrder, ...missingKeys];
-      }
-
-      const isSame =
-        nextOrder.length === this._columnOrder.length &&
-        nextOrder.every((value, index) => value === this._columnOrder[index]);
-
-      const setColumnOrder = () => {
-        this.columnOrder = nextOrder;
-
-        if (columnOrder !== undefined) {
-          this._lastColumnOrder = [...columnOrder];
-        }
-      };
-
-      if (!isSame) {
-        // eslint-disable-next-line ember/no-runloop
-        scheduleOnce('afterRender', this, setColumnOrder);
-      }
-    }
-  );
-
->>>>>>> fb80a65898 (Flattened feature)
   <template>
     {{yield
       (hash
         orderedColumns=this.orderedColumns
-<<<<<<< HEAD
         columnOrder=this.visibleColumnOrder
-=======
-        columnOrder=this.columnOrder
->>>>>>> fb80a65898 (Flattened feature)
         draggedColumnKey=this.draggedColumnKey
         reorderHoveredColumnKey=this.reorderHoveredColumnKey
         firstColumnKey=this.firstColumnKey
