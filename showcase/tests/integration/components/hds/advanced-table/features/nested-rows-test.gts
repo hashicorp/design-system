@@ -234,6 +234,8 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
       const rowToggles = findAll(expandRowButtonSelector);
 
+      // await this.pauseTest();
+
       assert
         .dom(
           '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden',

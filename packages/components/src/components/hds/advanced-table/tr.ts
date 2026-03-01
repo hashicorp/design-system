@@ -74,6 +74,11 @@ export interface BaseHdsAdvancedTableTrSignature {
 export type HdsAdvancedTableTrSignature = BaseHdsAdvancedTableTrSignature;
 // | SelectableHdsAdvancedTableTrArgs;
 
+interface HdsAdvancedTableCell {
+  columnKey: string;
+  content: unknown;
+}
+
 export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSignature> {
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {

@@ -1,3 +1,7 @@
+/** TODO
+ * - Try to make sure all of the functions that will always be passed in are not marked as optional. Remove unneeded guards
+ */
+
 /**
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
