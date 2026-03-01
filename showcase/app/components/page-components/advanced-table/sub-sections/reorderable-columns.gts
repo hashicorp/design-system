@@ -279,7 +279,7 @@ const SubSectionReorderableColumns: TemplateOnlyComponent = <template>
     <:body as |B|>
       <B.Tr
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
-        @selectionKey="{{B.data.id}}"
+        @selectionKey="{{B.data.resource_id}}"
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
         @isSelected={{B.data.isSelected}}
         {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
