@@ -208,6 +208,8 @@
       "./components/hds/code-editor/generic.js": "./dist/_app_/components/hds/code-editor/generic.js",
       "./components/hds/code-editor.js": "./dist/_app_/components/hds/code-editor.js",
       "./components/hds/code-editor/title.js": "./dist/_app_/components/hds/code-editor/title.js",
+      "./components/hds/composite.js": "./dist/_app_/components/hds/composite.js",
+      "./components/hds/composite/navigation.js": "./dist/_app_/components/hds/composite/navigation.js",
       "./components/hds/copy/button.js": "./dist/_app_/components/hds/copy/button.js",
       "./components/hds/copy/snippet.js": "./dist/_app_/components/hds/copy/snippet.js",
       "./components/hds/dialog-primitive/body.js": "./dist/_app_/components/hds/dialog-primitive/body.js",
