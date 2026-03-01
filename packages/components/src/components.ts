@@ -21,10 +21,8 @@ export { default as HdsAdvancedTableTh } from './components/hds/advanced-table/t
 export { default as HdsAdvancedTableThButtonSort } from './components/hds/advanced-table/th-button-sort.ts';
 export { default as HdsAdvancedTableThButtonTooltip } from './components/hds/advanced-table/th-button-tooltip.ts';
 export { default as HdsAdvancedTableThSelectable } from './components/hds/advanced-table/th-selectable.ts';
-export { default as HdsAdvancedTableThSort } from './components/hds/advanced-table/th-sort.ts';
 export { default as HdsAdvancedTableTr } from './components/hds/advanced-table/tr.ts';
 export { default as HdsAdvancedTableThButtonExpand } from './components/hds/advanced-table/th-button-expand.ts';
-export { default as HdsAdvancedTableExpandableTrGroup } from './components/hds/advanced-table/expandable-tr-group.ts';
 export * from './components/hds/advanced-table/types.ts';
 
 // Alert
@@ -102,6 +100,10 @@ export { default as HdsCodeEditor } from './components/hds/code-editor/index.ts'
 export { default as HdsCodeEditorDescription } from './components/hds/code-editor/description.ts';
 export { default as HdsCodeEditorTitle } from './components/hds/code-editor/title.ts';
 export { default as HdsCodeEditorFullScreenButton } from './components/hds/code-editor/full-screen-button.ts';
+
+// Composite
+export { default as HdsComposite } from './components/hds/composite/index.gts';
+export * from './components/hds/composite/types.ts';
 
 // CopyButton
 export { default as HdsCopyButton } from './components/hds/copy/button/index.gts';
