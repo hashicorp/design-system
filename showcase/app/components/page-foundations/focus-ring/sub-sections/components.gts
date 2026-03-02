@@ -70,7 +70,6 @@ import {
   HdsTableThSort,
   HdsAdvancedTableTh,
   HdsAdvancedTableThSelectable,
-  HdsAdvancedTableThSort,
   HdsAdvancedTableTd,
   HdsTableTr,
   HdsTag,
@@ -997,26 +996,6 @@ func main() {
   <ShwDivider @level={{2}} />
 
   <ShwTextH4 @tag="h3">Table</ShwTextH4>
-
-  <ShwTextBody>ThSort</ShwTextBody>
-  <HdsTable class="shw-component-table-container">
-    <:head>
-      <HdsTableTr>
-        <HdsTableThSort
-          mock-state-value="focus"
-          mock-state-selector="button"
-          @tooltip="Here is more information"
-        >
-          Lorem ipsum
-        </HdsTableThSort>
-      </HdsTableTr>
-    </:head>
-    <:body as |B|>
-      <B.Tr>
-        <B.Td />
-      </B.Tr>
-    </:body>
-  </HdsTable>
 
   <ShwTextBody>Th</ShwTextBody>
   <HdsTable class="shw-component-table-container">
