@@ -1089,38 +1089,6 @@ func main() {
     {{/let}}
   </ShwFlex>
 
-  <ShwTextBody>ThSort</ShwTextBody>
-  <ShwFlex @direction="column" as |SF|>
-    {{#let (array "" "button") as |selectors|}}
-      {{#each selectors as |selector|}}
-        <SF.Item>
-          <div
-            class="hds-advanced-table shw-component-table-container"
-            role="grid"
-            {{style gridTemplateColumns="repeat(1, 1fr)"}}
-          >
-            <div class="hds-advanced-table__thead" role="rowgroup">
-              <div class="hds-advanced-table__tr" role="row">
-                <HdsAdvancedTableThSort
-                  @tooltip="Here is more information"
-                  mock-state-value="focus"
-                  mock-state-selector={{selector}}
-                >
-                  Lorem
-                </HdsAdvancedTableThSort>
-              </div>
-            </div>
-            <div class="hds-advanced-table__tbody" role="rowgroup">
-              <div class="hds-advanced-table__tr" role="row">
-                <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
-              </div>
-            </div>
-          </div>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
-  </ShwFlex>
-
   <ShwTextBody>ThSelectable</ShwTextBody>
   <ShwFlex @direction="column" as |SF|>
     {{#let (array "" "input") as |selectors|}}
