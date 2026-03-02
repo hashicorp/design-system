@@ -7955,29 +7955,6 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
-/* For planning out any new tokens or updates
-
---token-pagination-
-
-Replace this:
-
-OLD: color: var(--token-color-foreground-action);
-NEW: --token-pagination-nav-control-foreground-color-action
-
-TODO: Now add -
--token-pagination-nav-control-foreground-color-action-hover
--token-pagination-nav-control-foreground-color-action-active
--token-pagination-nav-control-foreground-color-secondary
-
-? Replace this?
---token-pagination-nav-indicator-spacing (= 6px)
-
-*/
-.hds-pagination-nav__page-item,
-.cds--pagination-nav__list-item {
-  outline: 1px dotted;
-}
-
 .hds-pagination {
   display: grid;
   grid-template-areas: "info nav selector";
