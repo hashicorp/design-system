@@ -444,6 +444,15 @@
     --token-color-waypoint-gradient-primary-start: #cbf1f3;
     --token-color-waypoint-gradient-primary-stop: #62d4dc;
     --token-color-waypoint-surface: #e0fcff;
+    --token-dismiss-button-foreground-color-active: var(
+      --token-color-foreground-strong
+    );
+    --token-dismiss-button-foreground-color-default: var(
+      --token-color-foreground-faint
+    );
+    --token-dismiss-button-padding: 0px;
+    --token-dismiss-button-surface-color-active: rgba(222, 223, 227, 0.4);
+    --token-dismiss-button-surface-color-hover: rgba(222, 223, 227, 0.4);
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
     --token-elevation-higher-box-shadow:
@@ -827,6 +836,11 @@
     --token-color-waypoint-gradient-primary-start: #cbf1f3;
     --token-color-waypoint-gradient-primary-stop: #62d4dc;
     --token-color-waypoint-surface: #e0fcff;
+    --token-dismiss-button-foreground-color-active: #161616;
+    --token-dismiss-button-foreground-color-default: #161616;
+    --token-dismiss-button-padding: 16px;
+    --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
+    --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
     --token-elevation-higher-box-shadow:
@@ -1205,6 +1219,11 @@
     --token-color-waypoint-gradient-primary-start: #008196;
     --token-color-waypoint-gradient-primary-stop: #22a4ac;
     --token-color-waypoint-surface: #007487;
+    --token-dismiss-button-foreground-color-active: #f4f4f4;
+    --token-dismiss-button-foreground-color-default: #f4f4f4;
+    --token-dismiss-button-padding: 16px;
+    --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
+    --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
     --token-elevation-higher-box-shadow:
@@ -1583,6 +1602,11 @@
     --token-color-waypoint-gradient-primary-start: #cbf1f3;
     --token-color-waypoint-gradient-primary-stop: #62d4dc;
     --token-color-waypoint-surface: #e0fcff;
+    --token-dismiss-button-foreground-color-active: #161616;
+    --token-dismiss-button-foreground-color-default: #161616;
+    --token-dismiss-button-padding: 16px;
+    --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
+    --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
     --token-elevation-higher-box-shadow:
@@ -1961,6 +1985,11 @@
     --token-color-waypoint-gradient-primary-start: #cbf1f3;
     --token-color-waypoint-gradient-primary-stop: #62d4dc;
     --token-color-waypoint-surface: #e0fcff;
+    --token-dismiss-button-foreground-color-active: #161616;
+    --token-dismiss-button-foreground-color-default: #161616;
+    --token-dismiss-button-padding: 16px;
+    --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
+    --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
     --token-elevation-higher-box-shadow:
@@ -2339,6 +2368,11 @@
     --token-color-waypoint-gradient-primary-start: #008196;
     --token-color-waypoint-gradient-primary-stop: #22a4ac;
     --token-color-waypoint-surface: #007487;
+    --token-dismiss-button-foreground-color-active: #f4f4f4;
+    --token-dismiss-button-foreground-color-default: #f4f4f4;
+    --token-dismiss-button-padding: 16px;
+    --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
+    --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
     --token-elevation-higher-box-shadow:
@@ -2717,6 +2751,11 @@
     --token-color-waypoint-gradient-primary-start: #008196;
     --token-color-waypoint-gradient-primary-stop: #22a4ac;
     --token-color-waypoint-surface: #007487;
+    --token-dismiss-button-foreground-color-active: #f4f4f4;
+    --token-dismiss-button-foreground-color-default: #f4f4f4;
+    --token-dismiss-button-padding: 16px;
+    --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
+    --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-elevation-high-box-shadow:
       0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
     --token-elevation-higher-box-shadow:
