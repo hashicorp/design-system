@@ -5,18 +5,27 @@
 
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { assert, warn } from '@ember/debug';
 import { next, schedule } from '@ember/runloop';
-import { HdsTabsSizeValues } from './types.ts';
-import type { ComponentLike } from '@glint/template';
-import type { HdsTabsTabSignature } from './tab';
-import type { HdsTabsPanelSignature } from './panel';
-import type { HdsTabsTabIds, HdsTabsPanelIds, HdsTabsSizes } from './types.ts';
+import { hash } from '@ember/helper';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+
+import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
+
+import { HdsTabsSizeValues } from './types.ts';
+import HdsTabsTab from './tab.gts';
+import HdsTabsPanel from './panel.gts';
+
+import type { HdsTabsTabSignature } from './tab.gts';
+import type { HdsTabsTabIds, HdsTabsPanelIds, HdsTabsSizes } from './types.ts';
 
 export const DEFAULT_SIZE: HdsTabsSizes = 'medium';
 export const SIZES: HdsTabsSizes[] = Object.values(HdsTabsSizeValues);
+
 export interface HdsTabsSignature {
   Args: {
     size?: HdsTabsSizes;
@@ -27,8 +36,25 @@ export interface HdsTabsSignature {
   Blocks: {
     default: [
       {
-        Tab?: ComponentLike<HdsTabsTabSignature>;
-        Panel?: ComponentLike<HdsTabsPanelSignature>;
+        Tab?: WithBoundArgs<
+          typeof HdsTabsTab,
+          | 'selectedTabIndex'
+          | 'tabIds'
+          | 'panelIds'
+          | 'onClick'
+          | 'onKeyUp'
+          | 'didInsertNode'
+          | 'didUpdateNode'
+          | 'willDestroyNode'
+        >;
+        Panel?: WithBoundArgs<
+          typeof HdsTabsPanel,
+          | 'selectedTabIndex'
+          | 'tabIds'
+          | 'panelIds'
+          | 'didInsertNode'
+          | 'willDestroyNode'
+        >;
       },
     ];
   };
@@ -44,14 +70,6 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   @tracked private _selectedTabId?: string;
   @tracked private _isControlled: boolean;
 
-  /**
-   * Sets the size of Tabs
-   * Accepted values: medium, large
-   *
-   * @param size
-   * @type {string}
-   * @default 'medium'
-   */
   get size(): HdsTabsSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -89,11 +107,6 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     }
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-tabs'];
 
@@ -103,8 +116,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     return classes.join(' ');
   }
 
-  @action
-  didInsert(): void {
+  didInsert = (): void => {
     assert(
       'The number of Tabs must be equal to the number of Panels',
       this._tabNodes.length === this._panelNodes.length
@@ -118,18 +130,16 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     schedule('afterRender', (): void => {
       this.setTabIndicator();
     });
-  }
+  };
 
-  @action
-  didUpdateSelectedTabIndex(): void {
+  didUpdateSelectedTabIndex = (): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this.setTabIndicator();
     });
-  }
+  };
 
-  @action
-  didUpdateSelectedTabId(): void {
+  didUpdateSelectedTabId = (): void => {
     // if the selected tab is set dynamically (eg. in a `each` loop)
     // the `Tab` nodes will be re-inserted/rendered, which means the `this.selectedTabId` variable changes
     // but the parent `Tabs` component has already been rendered/inserted but doesn't re-render
@@ -138,61 +148,54 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     if (this._selectedTabId) {
       this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
     }
-  }
+  };
 
-  @action
-  didUpdateParentVisibility(): void {
+  didUpdateParentVisibility = (): void => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this.setTabIndicator();
     });
-  }
+  };
 
-  @action
-  didInsertTab(element: HTMLButtonElement, isSelected?: boolean): void {
+  didInsertTab = (element: HTMLButtonElement, isSelected?: boolean): void => {
     this._tabNodes = [...this._tabNodes, element];
     this._tabIds = [...this._tabIds, element.id];
     if (isSelected) {
       this._selectedTabId = element.id;
     }
-  }
+  };
 
-  @action
-  didUpdateTab(tabIndex: number, isSelected?: boolean): void {
+  didUpdateTab = (tabIndex: number, isSelected?: boolean): void => {
     if (isSelected) {
       this.selectedTabIndex = tabIndex;
     }
     this.setTabIndicator();
-  }
+  };
 
-  @action
-  willDestroyTab(element: HTMLButtonElement): void {
+  willDestroyTab = (element: HTMLButtonElement): void => {
     this._tabNodes = this._tabNodes.filter(
       (node): boolean => node.id !== element.id
     );
     this._tabIds = this._tabIds.filter(
       (tabId): boolean => tabId !== element.id
     );
-  }
+  };
 
-  @action
-  didInsertPanel(element: HTMLElement, panelId: string): void {
+  didInsertPanel = (element: HTMLElement, panelId: string): void => {
     this._panelNodes = [...this._panelNodes, element];
     this._panelIds = [...this._panelIds, panelId];
-  }
+  };
 
-  @action
-  willDestroyPanel(element: HTMLElement): void {
+  willDestroyPanel = (element: HTMLElement): void => {
     this._panelNodes = this._panelNodes.filter(
       (node): boolean => node.id !== element.id
     );
     this._panelIds = this._panelIds.filter(
       (panelId): boolean => panelId !== element.id
     );
-  }
+  };
 
-  @action
-  onClick(event: MouseEvent, tabIndex: number): void {
+  onClick = (event: MouseEvent, tabIndex: number): void => {
     this.selectedTabIndex = tabIndex;
     this.setTabIndicator();
 
@@ -200,10 +203,9 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     if (typeof this.args.onClickTab === 'function') {
       this.args.onClickTab(event, tabIndex);
     }
-  }
+  };
 
-  @action
-  onKeyUp(tabIndex: number, event: KeyboardEvent): void {
+  onKeyUp = (tabIndex: number, event: KeyboardEvent): void => {
     const leftArrow = 'ArrowLeft';
     const rightArrow = 'ArrowRight';
     const enterKey = 'Enter';
@@ -228,15 +230,15 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
         inline: 'nearest',
       });
     }
-  }
+  };
 
   // Focus tab for keyboard & mouse navigation:
-  focusTab(tabIndex: number, event: KeyboardEvent): void {
+  focusTab = (tabIndex: number, event: KeyboardEvent): void => {
     event.preventDefault();
     this._tabNodes[tabIndex]?.focus();
-  }
+  };
 
-  setTabIndicator(): void {
+  setTabIndicator = (): void => {
     // eslint-disable-next-line ember/no-runloop
     next((): void => {
       const tabElem = this._tabNodes[this.selectedTabIndex];
@@ -282,5 +284,52 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
         });
       }
     });
-  }
+  };
+
+  <template>
+    {{! template-lint-disable no-invalid-role }}
+    <div
+      class={{this.classNames}}
+      {{didInsert this.didInsert}}
+      {{didUpdate this.didUpdateSelectedTabIndex this.selectedTabIndex}}
+      {{didUpdate this.didUpdateSelectedTabId this._selectedTabId}}
+      {{didUpdate this.didUpdateParentVisibility @isParentVisible}}
+      ...attributes
+    >
+      <div class="hds-tabs__tablist-wrapper">
+        <ul class="hds-tabs__tablist" role="tablist">
+          {{yield
+            (hash
+              Tab=(component
+                HdsTabsTab
+                didInsertNode=this.didInsertTab
+                didUpdateNode=this.didUpdateTab
+                willDestroyNode=this.willDestroyTab
+                tabIds=this._tabIds
+                panelIds=this._panelIds
+                selectedTabIndex=this.selectedTabIndex
+                onClick=this.onClick
+                onKeyUp=this.onKeyUp
+              )
+            )
+          }}
+          <li class="hds-tabs__tab-indicator" role="presentation"></li>
+        </ul>
+      </div>
+
+      {{yield
+        (hash
+          Panel=(component
+            HdsTabsPanel
+            didInsertNode=this.didInsertPanel
+            willDestroyNode=this.willDestroyPanel
+            tabIds=this._tabIds
+            panelIds=this._panelIds
+            selectedTabIndex=this.selectedTabIndex
+          )
+        )
+      }}
+    </div>
+    {{! template-lint-enable no-invalid-role }}
+  </template>
 }

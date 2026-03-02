@@ -96,10 +96,10 @@ export { default as HdsCodeBlockTitle } from './components/hds/code-block/title.
 export * from './components/hds/code-block/types.ts';
 
 // CodeEditor
-export { default as HdsCodeEditor } from './components/hds/code-editor/index.ts';
-export { default as HdsCodeEditorDescription } from './components/hds/code-editor/description.ts';
-export { default as HdsCodeEditorTitle } from './components/hds/code-editor/title.ts';
-export { default as HdsCodeEditorFullScreenButton } from './components/hds/code-editor/full-screen-button.ts';
+export { default as HdsCodeEditor } from './components/hds/code-editor/index.gts';
+export { default as HdsCodeEditorDescription } from './components/hds/code-editor/description.gts';
+export { default as HdsCodeEditorTitle } from './components/hds/code-editor/title.gts';
+export { default as HdsCodeEditorFullScreenButton } from './components/hds/code-editor/full-screen-button.gts';
 
 // Composite
 export { default as HdsComposite } from './components/hds/composite/index.gts';
@@ -315,9 +315,9 @@ export { default as HdsTableTr } from './components/hds/table/tr.ts';
 export * from './components/hds/table/types.ts';
 
 // Tabs
-export { default as HdsTabs } from './components/hds/tabs/index.ts';
-export { default as HdsTabsPanel } from './components/hds/tabs/panel.ts';
-export { default as HdsTabsTab } from './components/hds/tabs/tab.ts';
+export { default as HdsTabs } from './components/hds/tabs/index.gts';
+export { default as HdsTabsPanel } from './components/hds/tabs/panel.gts';
+export { default as HdsTabsTab } from './components/hds/tabs/tab.gts';
 export * from './components/hds/tabs/types.ts';
 
 // Tag
