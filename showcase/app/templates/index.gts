@@ -448,6 +448,14 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
       </ol>
+      <ShwTextH4 @tag="h3">Utilities</ShwTextH4>
+      <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-carbonization.utilities.dismiss-button">
+            DismissButton
+          </LinkTo>
+        </li>
+      </ol>
     </div>
   </div>
 </template>;

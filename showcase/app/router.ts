@@ -180,5 +180,8 @@ Router.map(function () {
       this.route('modal');
       this.route('segmented-group');
     });
+    this.route('utilities', function () {
+      this.route('dismiss-button');
+    });
   });
 });
