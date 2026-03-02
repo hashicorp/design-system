@@ -10,7 +10,7 @@ import {
   HdsTextDisplay,
 } from '@hashicorp/design-system-components/components';
 
-import DocPlaceholder from 'website/components/doc/placeholder/index.gts';
+import DocPlaceholder from 'website/components/doc/placeholder';
 
 const LocalComponent: TemplateOnlyComponent = <template>
   <div class="doc-dialog-primitive-grid-layout">
