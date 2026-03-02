@@ -59,7 +59,7 @@ export interface SetupPrimitivePopoverModifier {
   Element: HTMLElement;
   Args: {
     Positional: [];
-    Named: { anchoredPositionOptions: HdsAnchoredPositionOptions };
+    Named: { anchoredPositionOptions?: HdsAnchoredPositionOptions };
   };
 }
 
@@ -133,7 +133,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
     (
       element: HTMLElement,
       _positional,
-      named: { anchoredPositionOptions: HdsAnchoredPositionOptions }
+      named: { anchoredPositionOptions?: HdsAnchoredPositionOptions }
     ): void => {
       this._popoverElement = element;
 
@@ -163,9 +163,11 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       registerEvent(this._popoverElement, ['toggle', this.onTogglePopover]);
 
       // we need to spread the argument because if it's set via `{{ hash … }}` Ember complains when we overwrite one of its values
-      this._anchoredPositionOptions = {
-        ...named.anchoredPositionOptions,
-      };
+      if (named.anchoredPositionOptions) {
+        this._anchoredPositionOptions = {
+          ...named.anchoredPositionOptions,
+        };
+      }
 
       this._linkToggleAndPopover();
     }
@@ -180,8 +182,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   private _applyAnchoredPositionModifier(): void {
     if (
       this._toggleElement !== undefined &&
-      this._popoverElement !== undefined &&
-      this._anchoredPositionOptions !== undefined
+      this._popoverElement !== undefined
     ) {
       // eslint-disable-next-line ember/no-runloop
       next((): void => {
