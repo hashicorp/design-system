@@ -67,7 +67,6 @@ import {
   HdsTable,
   HdsTableTh,
   HdsTableThSelectable,
-  HdsTableThSort,
   HdsAdvancedTableTh,
   HdsAdvancedTableThSelectable,
   HdsAdvancedTableTd,
