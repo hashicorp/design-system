@@ -5,7 +5,7 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { pageTitle } from 'ember-page-title';
-import style from 'ember-style-modifier';
+// import style from 'ember-style-modifier';
 import { capitalize } from '@ember/string';
 import { array } from '@ember/helper';
 
@@ -13,7 +13,7 @@ import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
 import ShwTextH3 from 'showcase/components/shw/text/h3';
 import ShwDivider from 'showcase/components/shw/divider';
-import ShwOutliner from 'showcase/components/shw/outliner';
+// import ShwOutliner from 'showcase/components/shw/outliner';
 import ShwCarbonizationComparisonGrid from 'showcase/components/shw/carbonization/comparison-grid';
 import ShwFlex from 'showcase/components/shw/flex';
 
@@ -52,13 +52,13 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       @sideBySide={{true}}
     >
       <:theming>
-        <ShwOutliner {{style outline-offset="7px"}}>
-          <HdsPaginationNumbered
-            @totalItems={{40}}
-            @showInfo={{false}}
-            @showSizeSelector={{false}}
-          />
-        </ShwOutliner>
+        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
+        <HdsPaginationNumbered
+          @totalItems={{40}}
+          @showInfo={{false}}
+          @showSizeSelector={{false}}
+        />
+        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <cds-pagination-nav size="sm" total-items="4"></cds-pagination-nav>
@@ -70,13 +70,13 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       @sideBySide={{true}}
     >
       <:theming>
-        <ShwOutliner {{style outline-offset="7px"}}>
-          <HdsPaginationNumbered
-            @totalItems={{100}}
-            @showInfo={{false}}
-            @showSizeSelector={{false}}
-          />
-        </ShwOutliner>
+        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
+        <HdsPaginationNumbered
+          @totalItems={{100}}
+          @showInfo={{false}}
+          @showSizeSelector={{false}}
+        />
+        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <cds-pagination-nav
@@ -98,9 +98,9 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       @sideBySide={{true}}
     >
       <:theming>
-        <ShwOutliner {{style outline-offset="7px"}}>
-          <HdsPaginationCompact />
-        </ShwOutliner>
+        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
+        <HdsPaginationCompact />
+        {{! </ShwOutliner> }}
       </:theming>
     </ShwCarbonizationComparisonGrid>
 
@@ -114,12 +114,12 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
       @sideBySide={{true}}
     >
       <:theming>
-        <ShwOutliner {{style outline-offset="7px"}}>
-          <HdsPaginationCompact
-            @showLabels={{false}}
-            @showSizeSelector={{true}}
-          />
-        </ShwOutliner>
+        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
+        <HdsPaginationCompact
+          @showLabels={{false}}
+          @showSizeSelector={{true}}
+        />
+        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <cds-pagination
@@ -148,70 +148,64 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
-        <ShwOutliner {{style outline-offset="7px"}}>
-          <ShwFlex @direction="column" as |SF|>
-            {{#let (array "default" "hover" "active" "focus") as |states|}}
-              {{#each states as |state|}}
-                <SF.Item
-                  @label={{capitalize state}}
-                  mock-state-value={{state}}
-                  mock-state-selector="button,a"
-                >
-                  <ShwFlex as |SF|>
-                    <SF.Item>
-                      <HdsPaginationNavArrow @direction="prev" />
-                    </SF.Item>
-                    <SF.Item>
-                      <HdsPaginationNavArrow @direction="next" />
-                    </SF.Item>
-                    <SF.Item>
-                      <HdsPaginationNavArrow
-                        @direction="prev"
-                        @showLabel={{false}}
-                      />
-                    </SF.Item>
-                    <SF.Item>
-                      <HdsPaginationNavArrow
-                        @direction="next"
-                        @showLabel={{false}}
-                      />
-                    </SF.Item>
-                  </ShwFlex>
-                </SF.Item>
-              {{/each}}
-              <SF.Item @label="Disabled">
+        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
+        <ShwFlex @direction="column" as |SF|>
+          {{#let (array "default" "hover" "active" "focus") as |states|}}
+            {{#each states as |state|}}
+              <SF.Item
+                @label={{capitalize state}}
+                mock-state-value={{state}}
+                mock-state-selector="button,a"
+              >
                 <ShwFlex as |SF|>
                   <SF.Item>
-                    <HdsPaginationNavArrow
-                      @direction="prev"
-                      @disabled={{true}}
-                    />
+                    <HdsPaginationNavArrow @direction="prev" />
                   </SF.Item>
                   <SF.Item>
-                    <HdsPaginationNavArrow
-                      @direction="next"
-                      @disabled={{true}}
-                    />
+                    <HdsPaginationNavArrow @direction="next" />
                   </SF.Item>
                   <SF.Item>
                     <HdsPaginationNavArrow
                       @direction="prev"
                       @showLabel={{false}}
-                      @disabled={{true}}
                     />
                   </SF.Item>
                   <SF.Item>
                     <HdsPaginationNavArrow
                       @direction="next"
                       @showLabel={{false}}
-                      @disabled={{true}}
                     />
                   </SF.Item>
                 </ShwFlex>
               </SF.Item>
-            {{/let}}
-          </ShwFlex>
-        </ShwOutliner>
+            {{/each}}
+            <SF.Item @label="Disabled">
+              <ShwFlex as |SF|>
+                <SF.Item>
+                  <HdsPaginationNavArrow @direction="prev" @disabled={{true}} />
+                </SF.Item>
+                <SF.Item>
+                  <HdsPaginationNavArrow @direction="next" @disabled={{true}} />
+                </SF.Item>
+                <SF.Item>
+                  <HdsPaginationNavArrow
+                    @direction="prev"
+                    @showLabel={{false}}
+                    @disabled={{true}}
+                  />
+                </SF.Item>
+                <SF.Item>
+                  <HdsPaginationNavArrow
+                    @direction="next"
+                    @showLabel={{false}}
+                    @disabled={{true}}
+                  />
+                </SF.Item>
+              </ShwFlex>
+            </SF.Item>
+          {{/let}}
+        </ShwFlex>
+        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <ShwFlex @direction="column" as |SF|>
@@ -338,64 +332,64 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid>
       <:theming>
-        <ShwOutliner {{style outline-offset="7px"}}>
-          <ShwFlex @direction="column" as |SF|>
-            {{#let (array "default" "hover" "active" "focus") as |states|}}
-              {{#each states as |state|}}
-                <SF.Item
-                  @label={{capitalize state}}
-                  mock-state-value={{state}}
-                  mock-state-selector="button,a"
-                >
-                  <ShwFlex as |SF|>
-                    <SF.Item>
-                      <HdsPaginationNavNumber
-                        @page={{1}}
-                        @isSelected={{false}}
-                        @onClick={{NOOP}}
-                      />
-                    </SF.Item>
-                    <SF.Item>
-                      <HdsPaginationNavNumber
-                        @page={{12}}
-                        @isSelected={{false}}
-                        @onClick={{NOOP}}
-                      />
-                    </SF.Item>
-                    <SF.Item>
-                      <HdsPaginationNavNumber
-                        @page={{123}}
-                        @isSelected={{false}}
-                        @onClick={{NOOP}}
-                      />
-                    </SF.Item>
-                    <SF.Item>
-                      <HdsPaginationNavNumber
-                        @page={{1}}
-                        @isSelected={{true}}
-                        @onClick={{NOOP}}
-                      />
-                    </SF.Item>
-                    <SF.Item>
-                      <HdsPaginationNavNumber
-                        @page={{12}}
-                        @isSelected={{true}}
-                        @onClick={{NOOP}}
-                      />
-                    </SF.Item>
-                    <SF.Item>
-                      <HdsPaginationNavNumber
-                        @page={{123}}
-                        @isSelected={{true}}
-                        @onClick={{NOOP}}
-                      />
-                    </SF.Item>
-                  </ShwFlex>
-                </SF.Item>
-              {{/each}}
-            {{/let}}
-          </ShwFlex>
-        </ShwOutliner>
+        {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
+        <ShwFlex @direction="column" as |SF|>
+          {{#let (array "default" "hover" "active" "focus") as |states|}}
+            {{#each states as |state|}}
+              <SF.Item
+                @label={{capitalize state}}
+                mock-state-value={{state}}
+                mock-state-selector="button,a"
+              >
+                <ShwFlex as |SF|>
+                  <SF.Item>
+                    <HdsPaginationNavNumber
+                      @page={{1}}
+                      @isSelected={{false}}
+                      @onClick={{NOOP}}
+                    />
+                  </SF.Item>
+                  <SF.Item>
+                    <HdsPaginationNavNumber
+                      @page={{12}}
+                      @isSelected={{false}}
+                      @onClick={{NOOP}}
+                    />
+                  </SF.Item>
+                  <SF.Item>
+                    <HdsPaginationNavNumber
+                      @page={{123}}
+                      @isSelected={{false}}
+                      @onClick={{NOOP}}
+                    />
+                  </SF.Item>
+                  <SF.Item>
+                    <HdsPaginationNavNumber
+                      @page={{1}}
+                      @isSelected={{true}}
+                      @onClick={{NOOP}}
+                    />
+                  </SF.Item>
+                  <SF.Item>
+                    <HdsPaginationNavNumber
+                      @page={{12}}
+                      @isSelected={{true}}
+                      @onClick={{NOOP}}
+                    />
+                  </SF.Item>
+                  <SF.Item>
+                    <HdsPaginationNavNumber
+                      @page={{123}}
+                      @isSelected={{true}}
+                      @onClick={{NOOP}}
+                    />
+                  </SF.Item>
+                </ShwFlex>
+              </SF.Item>
+            {{/each}}
+          {{/let}}
+        </ShwFlex>
+        {{! </ShwOutliner> }}
       </:theming>
       <:reference>
         <code>???</code>
