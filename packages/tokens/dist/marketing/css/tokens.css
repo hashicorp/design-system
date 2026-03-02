@@ -359,6 +359,11 @@
   --token-button-icon-size-small: 12px;
   --token-button-icon-size-medium: 16px;
   --token-button-icon-size-large: 24px;
+  --token-dismiss-button-padding: 0px;
+  --token-dismiss-button-foreground-color-default: #656a76;
+  --token-dismiss-button-foreground-color-active: #0c0c0e;
+  --token-dismiss-button-surface-color-hover: rgba(222, 223, 227, 0.4);
+  --token-dismiss-button-surface-color-active: rgba(222, 223, 227, 0.4);
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;

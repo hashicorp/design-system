@@ -213,6 +213,11 @@
   --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-dismiss-button-foreground-color-active: var(--token-color-foreground-strong);
+  --token-dismiss-button-foreground-color-default: var(--token-color-foreground-faint);
+  --token-dismiss-button-padding: 0px;
+  --token-dismiss-button-surface-color-active: rgba(222, 223, 227, 0.4);
+  --token-dismiss-button-surface-color-hover: rgba(222, 223, 227, 0.4);
   --token-elevation-high-box-shadow: 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
   --token-elevation-higher-box-shadow: 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;
