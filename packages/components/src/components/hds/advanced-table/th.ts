@@ -28,6 +28,7 @@ import type {
   HdsAdvancedTableThSortOrder,
 } from './types.ts';
 
+import type { HdsCompositeSignature } from '../composite/index.gts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
 import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
@@ -43,6 +44,7 @@ export interface HdsAdvancedTableThSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     column?: HdsAdvancedTableNormalizedColumn;
+    compositeItem?: HdsCompositeSignature['Blocks']['default'][0]['item'];
     colspan?: number;
     depth?: number;
     draggedColumnKey?: HdsAdvancedTableNormalizedColumn['key'] | null;

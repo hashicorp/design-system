@@ -14,35 +14,37 @@ import type {
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.gts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.ts';
+import type { HdsCompositeSignature } from '../composite/index.gts';
 
 export interface BaseHdsAdvancedTableTrSignature {
   Args: {
     columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
+    compositeGroup: HdsCompositeSignature['Blocks']['default'][0]['group'];
+    data?: Record<string, unknown>;
+    depth?: number;
     displayRow?: boolean;
-    selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
+    hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
+    hasStickyColumn?: boolean;
     isLastRow?: boolean;
     isSelectable?: boolean;
     isSelected?: boolean;
     isParentRow?: boolean;
-    hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
-    data?: Record<string, unknown>;
+    isStickyColumnPinned?: boolean;
+    selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope?: HdsAdvancedTableScope;
     sortBySelectedOrder?: HdsAdvancedTableThSortOrder;
-    depth?: number;
     didInsert?: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
+    onClickSortBySelected?: HdsAdvancedTableThSelectableSignature['Args']['onClickSortBySelected'];
     onSelectionChange?: (
       checkbox?: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
     willDestroy?: () => void;
-    onClickSortBySelected?: HdsAdvancedTableThSelectableSignature['Args']['onClickSortBySelected'];
-    hasStickyColumn?: boolean;
-    isStickyColumnPinned?: boolean;
   };
   Blocks: {
     default?: [
