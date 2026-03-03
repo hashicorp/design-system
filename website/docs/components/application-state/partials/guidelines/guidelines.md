@@ -16,7 +16,7 @@
 
 **Code consideration**
 
-By default, the Application State has horizontal auto margins applied to it, always centering it on the page or containing element. This can be overridden with CSS properties.
+By default, the Application State is horizontally centered with the `isAutoCentered` argument. This does not impact the text alignment within the component which is determined by the `align` argument and mimics the property in Figma. For more details on alignment, reference the [code tab](?tab=code#alignment-1).
 !!!
 
 The Application State supports two alignment options: `left` (default) and `center`. The alignment affects text alignment, action placement/alignment in the footer, and media placement; however, it does not change the default page alignment.
