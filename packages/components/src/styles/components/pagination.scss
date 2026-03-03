@@ -62,6 +62,11 @@
   }
 }
 
+// Pagination Compact (equivilant to Carbon Pagination)
+.hds-pagination--compact {
+  background-color: var(--token-pagination-bar-surface-color-default);
+}
+
 // * Sub-component: Info
 // ---------------------------------------
 .hds-pagination-info {
