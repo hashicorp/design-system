@@ -5,6 +5,7 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
+import style from 'ember-style-modifier';
 
 import ShwPlaceholder from 'showcase/components/shw/placeholder';
 
@@ -50,6 +51,7 @@ export default class CodeFragmentWithFocusOut extends Component<CodeFragmentWith
         <button
           type="button"
           class="shw-utilities-popover-primitive-fake-toggle"
+          {{style marginBottom="150px"}}
           {{PP.setupPrimitiveToggle}}
         >Toggle</button>
         <div
