@@ -1,0 +1,49 @@
+<!--  Note: this is a non-interactive example -->
+
+<Hds::Form::KeyValueInputs
+  @isRequired={{true}}
+  @data={{array (hash email="j.maxene@randatmail.com" name="Judith Maxene")}}
+>
+  <:header as |H|>
+    <H.Legend>Invite multiple users to your organization</H.Legend>
+  </:header>
+  <:row as |R|>
+    <R.Field as |F|>
+      <F.Label>
+        Email address for invitee
+      </F.Label>
+      <F.TextInput @value={{R.rowData.email}} />
+    </R.Field>
+    <R.Field as |F|>
+      <F.Label>
+        Name of invitee
+      </F.Label>
+      <F.TextInput @value={{R.rowData.name}} />
+    </R.Field>
+    <R.DeleteRowButton />
+  </:row>
+</Hds::Form::KeyValueInputs>
+<hr />
+<Hds::Form::KeyValueInputs
+  @isOptional={{true}}
+  @data={{array (hash email="j.maxene@randatmail.com" name="Judith Maxene")}}
+>
+  <:header as |H|>
+    <H.Legend>Invite multiple users to your organization</H.Legend>
+  </:header>
+  <:row as |R|>
+    <R.Field as |F|>
+      <F.Label>
+        Email address for invitee
+      </F.Label>
+      <F.TextInput @value={{R.rowData.email}} />
+    </R.Field>
+    <R.Field as |F|>
+      <F.Label>
+        Name of invitee
+      </F.Label>
+      <F.TextInput @value={{R.rowData.name}} />
+    </R.Field>
+    <R.DeleteRowButton />
+  </:row>
+</Hds::Form::KeyValueInputs>
