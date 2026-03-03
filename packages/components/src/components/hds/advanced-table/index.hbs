@@ -56,6 +56,7 @@
           >
             <Hds::AdvancedTable::Tr
               @compositeGroup={{C.group}}
+              @compositeItem={{C.item}}
               @didInsert={{this.didInsertSelectAllCheckbox}}
               @hasStickyColumn={{this.hasStickyFirstColumn}}
               @isSelectable={{this.isSelectable}}
@@ -142,6 +143,7 @@
                       "hds/advanced-table/tr"
                       columnOrder=CM.columnOrder
                       compositeGroup=C.group
+                      compositeItem=C.item
                       data=row.source
                       depth=row.depth
                       isParentRow=row.hasChildren

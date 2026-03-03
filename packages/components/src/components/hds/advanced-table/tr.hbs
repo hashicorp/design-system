@@ -7,6 +7,7 @@
   {{#if @isSelectable}}
     <Hds::AdvancedTable::ThSelectable
       role={{if (eq @selectionScope "row") "gridcell" "columnheader"}}
+      @compositeItem={{@compositeItem}}
       @isSelected={{@isSelected}}
       @selectionScope={{@selectionScope}}
       @selectionKey={{this.selectionKey}}
