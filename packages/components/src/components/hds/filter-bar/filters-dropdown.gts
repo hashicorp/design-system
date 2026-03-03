@@ -30,6 +30,7 @@ export interface HdsFilterBarFiltersDropdownSignature {
     isLiveFilter?: boolean;
     height?: string;
     onFilter?: (filters: HdsFilterBarFilters) => void;
+    onFocusOut?: HdsDropdownSignature['Args']['onFocusOut'];
   };
   Blocks: {
     default: [
@@ -138,6 +139,7 @@ export default class HdsFilterBarFiltersDropdown extends Component<HdsFilterBarF
     <HdsDropdown
       @listPosition="bottom-left"
       @width="600px"
+      @onFocusOut={{@onFocusOut}}
       ...attributes
       class="hds-filter-bar__filters-dropdown"
       {{style this.dropdownHeightStyle}}

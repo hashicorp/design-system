@@ -20,6 +20,7 @@ export interface HdsFilterBarActionsDropdownSignature {
     | 'height'
     | 'preserveContentInDom'
     | 'onClose'
+    | 'onFocusOut'
   > & {
     toggleButtonText?: HdsDropdownToggleButtonSignature['Args']['text'];
     toggleButtonIcon?: HdsDropdownToggleButtonSignature['Args']['icon'];
@@ -53,6 +54,7 @@ export default class HdsFilterBarActionsDropdown extends Component<HdsFilterBarA
       @height={{@height}}
       @preserveContentInDom={{@preserveContentInDom}}
       @onClose={{@onClose}}
+      @onFocusOut={{@onFocusOut}}
       class="hds-filter-bar__actions-dropdown"
       ...attributes
       as |D|
