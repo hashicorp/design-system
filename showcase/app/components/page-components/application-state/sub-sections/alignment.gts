@@ -14,6 +14,8 @@ import { ALIGNS } from '@hashicorp/design-system-components/components/hds/appli
 
 import CodeFragmentWithActionVariants from '../code-fragments/with-action-variants';
 
+import { HdsApplicationState } from '@hashicorp/design-system-components/components';
+
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 export interface SubSectionAlignmentSignature {
@@ -35,6 +37,31 @@ const SubSectionAlignment: TemplateOnlyComponent<SubSectionAlignmentSignature> =
       {{if @showHighlight "Hide" "Show"}}
       layout highlight
     </button>
+
+    <ShwTextH2>Auto centered</ShwTextH2>
+
+    <ShwFlex @direction="column" @gap="4rem" as |SF|>
+      <SF.Item @label="Auto centered (default)">
+        <HdsApplicationState as |A|>
+          <A.Header @title="Empty state title" />
+          <A.Body
+            @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+          />
+        </HdsApplicationState>
+      </SF.Item>
+      <SF.Item @label="Not auto centered">
+        <HdsApplicationState @isAutoCentered={{false}} as |A|>
+          <A.Header @title="Empty state title" />
+          <A.Body
+            @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+          />
+        </HdsApplicationState>
+      </SF.Item>
+    </ShwFlex>
+
+    <ShwDivider @level={{2}} />
+
+    <ShwTextH2>Align options</ShwTextH2>
 
     <ShwFlex @direction="row" @gap="4rem" as |SF|>
       {{#each ALIGNS as |align|}}
