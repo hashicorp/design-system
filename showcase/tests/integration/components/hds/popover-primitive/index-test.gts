@@ -14,7 +14,6 @@ import {
   setupOnerror,
 } from '@ember/test-helpers';
 import { on } from '@ember/modifier';
-import { hash } from '@ember/helper';
 import { TrackedObject } from 'tracked-built-ins';
 
 import { HdsPopoverPrimitive } from '@hashicorp/design-system-components/components';
@@ -36,9 +35,7 @@ module(
           <HdsPopoverPrimitive @enableClickEvents={{true}} as |PP|>
             <div {{PP.setupPrimitiveContainer}}>
               <button {{PP.setupPrimitiveToggle}} type="button" />
-              <main
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
-              />
+              <main {{PP.setupPrimitivePopover}} />
             </div>
           </HdsPopoverPrimitive>
         </template>,
@@ -62,7 +59,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-content"
               />
             </div>
@@ -90,7 +87,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-content"
               />
             </div>
@@ -124,7 +121,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-content"
               />
             </div>
@@ -173,10 +170,7 @@ module(
                   Original
                 </button>
               {{/if}}
-              <div
-                data-test-id="popover-content"
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
-              >
+              <div data-test-id="popover-content" {{PP.setupPrimitivePopover}}>
                 Content
               </div>
             </div>
@@ -260,9 +254,7 @@ module(
                 id="test-popover-primitive-toggle"
                 type="button"
               />
-              <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
-              />
+              <div {{PP.setupPrimitivePopover}} />
             </div>
           </HdsPopoverPrimitive>
         </template>,
@@ -303,7 +295,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-content"
               >
                 {{#if context.showButton}}
@@ -359,7 +351,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-content"
               >
                 <button
@@ -407,9 +399,7 @@ module(
                 id="test-popover-primitive-toggle"
                 type="button"
               />
-              <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
-              />
+              <div {{PP.setupPrimitivePopover}} />
             </div>
           </HdsPopoverPrimitive>
         </template>,
@@ -429,7 +419,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-popover"
               />
             </div>
@@ -451,7 +441,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-content"
               />
             </div>
@@ -477,7 +467,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-content"
               />
             </div>
@@ -512,7 +502,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-content"
               />
             </div>
@@ -543,7 +533,7 @@ module(
                 type="button"
               />
               <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+                {{PP.setupPrimitivePopover}}
                 id="test-popover-primitive-content"
               />
             </div>
@@ -568,9 +558,7 @@ module(
             <div {{PP.setupPrimitiveContainer}}>
               {{! @glint-expect-error - testing invalid component usage }}
               <div {{PP.setupPrimitiveToggle}} />
-              <div
-                {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
-              />
+              <div {{PP.setupPrimitivePopover}} />
             </div>
           </HdsPopoverPrimitive>
         </template>,
