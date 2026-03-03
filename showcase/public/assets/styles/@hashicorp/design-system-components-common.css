@@ -7488,6 +7488,10 @@ button.hds-button[href]::after {
   }
 }
 
+.hds-pagination--compact {
+  background-color: var(--token-pagination-bar-surface-color-default);
+}
+
 .hds-pagination-info {
   white-space: nowrap;
 }

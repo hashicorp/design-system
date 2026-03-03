@@ -286,6 +286,7 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-pagination-bar-surface-color-default: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action-active: #161616;
   --token-pagination-nav-control-foreground-color-action-hover: #161616;
   --token-pagination-nav-control-foreground-color-action: #161616;
@@ -663,6 +664,7 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-pagination-bar-surface-color-default: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-active: #161616;
     --token-pagination-nav-control-foreground-color-action-hover: #161616;
     --token-pagination-nav-control-foreground-color-action: #161616;
@@ -1044,6 +1046,7 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-pagination-bar-surface-color-default: #262626;
     --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action: #f4f4f4;
@@ -1424,6 +1427,7 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-pagination-bar-surface-color-default: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action-active: #161616;
   --token-pagination-nav-control-foreground-color-action-hover: #161616;
   --token-pagination-nav-control-foreground-color-action: #161616;
@@ -1800,6 +1804,7 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-pagination-bar-surface-color-default: #262626;
   --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action: #f4f4f4;
