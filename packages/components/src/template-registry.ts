@@ -246,6 +246,7 @@ import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 import type HdsTooltipModifier from './modifiers/hds-tooltip.ts';
 import type HdsAdvancedTableCellModifier from './modifiers/hds-advanced-table-cell.ts';
+import type HdsScrollIntoViewOnFocusModifier from './modifiers/hds-scroll-into-view-on-focus.ts';
 
 export default interface HdsComponentsRegistry {
   // ----- COMPONENTS ---------------------------------------------------
@@ -1019,4 +1020,7 @@ export default interface HdsComponentsRegistry {
 
   // hds-advanced-table-cell
   'hds-advanced-table-cell': typeof HdsAdvancedTableCellModifier;
+
+  // hds-scroll-into-view-on-focus
+  'hds-scroll-into-view-on-focus': typeof HdsScrollIntoViewOnFocusModifier;
 }
