@@ -67,10 +67,8 @@ import {
   HdsTable,
   HdsTableTh,
   HdsTableThSelectable,
-  HdsTableThSort,
   HdsAdvancedTableTh,
   HdsAdvancedTableThSelectable,
-  HdsAdvancedTableThSort,
   HdsAdvancedTableTd,
   HdsTableTr,
   HdsTag,
@@ -998,26 +996,6 @@ func main() {
 
   <ShwTextH4 @tag="h3">Table</ShwTextH4>
 
-  <ShwTextBody>ThSort</ShwTextBody>
-  <HdsTable class="shw-component-table-container">
-    <:head>
-      <HdsTableTr>
-        <HdsTableThSort
-          mock-state-value="focus"
-          mock-state-selector="button"
-          @tooltip="Here is more information"
-        >
-          Lorem ipsum
-        </HdsTableThSort>
-      </HdsTableTr>
-    </:head>
-    <:body as |B|>
-      <B.Tr>
-        <B.Td />
-      </B.Tr>
-    </:body>
-  </HdsTable>
-
   <ShwTextBody>Th</ShwTextBody>
   <HdsTable class="shw-component-table-container">
     <:head>
@@ -1097,38 +1075,6 @@ func main() {
                 >
                   Lorem ipsum
                 </HdsAdvancedTableTh>
-              </div>
-            </div>
-            <div class="hds-advanced-table__tbody" role="rowgroup">
-              <div class="hds-advanced-table__tr" role="row">
-                <HdsAdvancedTableTd>&nbsp;</HdsAdvancedTableTd>
-              </div>
-            </div>
-          </div>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
-  </ShwFlex>
-
-  <ShwTextBody>ThSort</ShwTextBody>
-  <ShwFlex @direction="column" as |SF|>
-    {{#let (array "" "button") as |selectors|}}
-      {{#each selectors as |selector|}}
-        <SF.Item>
-          <div
-            class="hds-advanced-table shw-component-table-container"
-            role="grid"
-            {{style gridTemplateColumns="repeat(1, 1fr)"}}
-          >
-            <div class="hds-advanced-table__thead" role="rowgroup">
-              <div class="hds-advanced-table__tr" role="row">
-                <HdsAdvancedTableThSort
-                  @tooltip="Here is more information"
-                  mock-state-value="focus"
-                  mock-state-selector={{selector}}
-                >
-                  Lorem
-                </HdsAdvancedTableThSort>
               </div>
             </div>
             <div class="hds-advanced-table__tbody" role="rowgroup">
