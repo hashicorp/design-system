@@ -132,6 +132,12 @@ importers:
       '@hashicorp/flight-icons':
         specifier: workspace:^4.2.0
         version: link:../flight-icons
+      '@ibm/plex-mono':
+        specifier: ^1.1.0
+        version: 1.1.0
+      '@ibm/plex-sans':
+        specifier: ^1.1.0
+        version: 1.1.0
       '@lezer/highlight':
         specifier: ^1.2.1
         version: 1.2.1
@@ -322,6 +328,9 @@ importers:
 
   packages/flight-icons:
     devDependencies:
+      '@carbon/icons':
+        specifier: ^11.71.0
+        version: 11.74.0
       '@figma-export/cli':
         specifier: ^6.0.2
         version: 6.2.2
@@ -420,22 +429,22 @@ importers:
     devDependencies:
       '@carbon/colors':
         specifier: ^11.39.0
-        version: 11.39.0
+        version: 11.42.0
       '@carbon/grid':
         specifier: ^11.42.0
-        version: 11.42.0
+        version: 11.45.0
       '@carbon/layout':
         specifier: ^11.40.0
-        version: 11.40.0
+        version: 11.43.0
       '@carbon/motion':
         specifier: ^11.34.0
-        version: 11.34.0
+        version: 11.37.0
       '@carbon/themes':
         specifier: ^11.59.0
-        version: 11.59.0
+        version: 11.62.0
       '@carbon/type':
         specifier: ^11.46.0
-        version: 11.46.0
+        version: 11.49.0
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
@@ -454,6 +463,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^8.18.1
         version: 8.38.0(eslint@8.57.1)(typescript@5.9.2)
+      chalk:
+        specifier: ^5.4.1
+        version: 5.4.1
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -496,6 +508,21 @@ importers:
       '@babel/plugin-proposal-decorators':
         specifier: ^7.27.1
         version: 7.28.0(@babel/core@7.28.0)
+      '@carbon/grid':
+        specifier: ^11.43.0
+        version: 11.45.0
+      '@carbon/layout':
+        specifier: ^11.41.0
+        version: 11.43.0
+      '@carbon/styles':
+        specifier: ^1.93.0
+        version: 1.93.0(sass@1.89.2)
+      '@carbon/themes':
+        specifier: ^11.60.0
+        version: 11.62.0
+      '@carbon/type':
+        specifier: ^11.47.0
+        version: 11.49.0
       '@codemirror/lint':
         specifier: ^6.8.4
         version: 6.8.5
@@ -556,6 +583,12 @@ importers:
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
+      '@hashicorp/flight-icons':
+        specifier: workspace:*
+        version: link:../packages/flight-icons
+      '@ibm/plex':
+        specifier: ^6.4.1
+        version: 6.4.1
       '@nullvoxpopuli/ember-composable-helpers':
         specifier: ^5.2.11
         version: 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
@@ -1925,23 +1958,37 @@ packages:
   '@bundled-es-modules/memfs@4.17.0':
     resolution: {integrity: sha512-ykdrkEmQr9BV804yd37ikXfNnvxrwYfY9Z2/EtMHFEFadEjsQXJ1zL9bVZrKNLDtm91UdUOEHso6Aweg93K6xQ==}
 
-  '@carbon/colors@11.39.0':
-    resolution: {integrity: sha512-H1hL9NW1I1vks469KuIV/YY4zHUiDQJ/MOlJgv8iCLi0SQS4DWkDslccXAhce8U8qRtx1JPfePhiYkRBbjgKgw==}
+  '@carbon/colors@11.42.0':
+    resolution: {integrity: sha512-kfEGVk2vzokkRrVwqUGYK8YLQ1Cn7cDhJ/lEz31kdBrUbR8vlgKSFq9GTqAgZiqxbTC0surR3nBF2kU3NTNPOg==}
 
-  '@carbon/grid@11.42.0':
-    resolution: {integrity: sha512-l91wFV7uMhaf2PX89cW1zS5iMnzrFVY2d81Xf7U9OdNu8sBTQWxUPtj1RnZyep4F7v/HG8U4DOzfa+nO5GgZeA==}
+  '@carbon/feature-flags@0.32.0':
+    resolution: {integrity: sha512-a1rFplSEFPwJ4ZsuwvOaKHgoLqPNhjCJdWY6VTgCoytRZqtgYWqwYFEqQkm9/f1mX1lHr6oK/eBpAcmi0Izuvg==}
 
-  '@carbon/layout@11.40.0':
-    resolution: {integrity: sha512-2wIOPJZFjt5Y+TZ7NwPTf0l3zif14hBiPwv/nQo76J2Wr1i/NJrYNfBTpUnKxoq6IZEsVd0e6Ab4RLGGIP2eVA==}
+  '@carbon/grid@11.45.0':
+    resolution: {integrity: sha512-J8hh5li0Q0RRS6IGg+MVPQVfjp1ePxzQsyMyjQOHLux8i8HwiWJmKLQ+4lKMzRXorLG2RtEoPVl00EaKlQEgKQ==}
 
-  '@carbon/motion@11.34.0':
-    resolution: {integrity: sha512-Gc5VcfXO70un5jeCUqlplKal8PpRLzUfxg8x8b1LwKfzjWrgxilHtNk3B4dGj190M9dyrTKVfCCrLKlVtyhEQw==}
+  '@carbon/icons@11.74.0':
+    resolution: {integrity: sha512-tKAUXSgzLvov2gidRb3/U1NvUWKqxfG3anmWMz7WnTj/W3aK6PXpvgfspqPMOnBsnuF5q5H3Csq6XJ99dUZ5ig==}
 
-  '@carbon/themes@11.59.0':
-    resolution: {integrity: sha512-vnFuKTuThYVGQ9f8G/amO0laun6pyr8Nze1KuD6LrOJl6waEC2LPJqNz3rg4ySLievFg9+993R0GNUI9HjC2bw==}
+  '@carbon/layout@11.43.0':
+    resolution: {integrity: sha512-aOUNqVv/5TGhNTn1HV+620ZlqhE7+Chs0TJoxwe/CCsLOdziCX9st3c5inyINPZDyvDK46mas1RmqvZwNYe/mA==}
 
-  '@carbon/type@11.46.0':
-    resolution: {integrity: sha512-Xt2lhYsRuRrpEESy8BW+xjsf1TXnzv4CdxgAvjL+YSQxzdD0gbMnIhEIpJiDAyWddviqH8ZwxIdlnlfqKrA9rg==}
+  '@carbon/motion@11.37.0':
+    resolution: {integrity: sha512-bjFzY8Wy5Umj+g41ZGj3L3b/z2gDBDKfzfc9M3ZAHaj73PZ7Z/Z5jT0IFlihEv8wUwZfbhbtnb4jeNhckfLINA==}
+
+  '@carbon/styles@1.93.0':
+    resolution: {integrity: sha512-Nt8W4gwnSBRkDsnmJ3yqXYyR0elZPElmHt2aEBkKPpSRskRddF+2cDTlOH+iq+D9KHWWO+n6WLEnZ0fvftvDPA==}
+    peerDependencies:
+      sass: ^1.33.0
+    peerDependenciesMeta:
+      sass:
+        optional: true
+
+  '@carbon/themes@11.62.0':
+    resolution: {integrity: sha512-/sPOiGaC4YtXBiA4uNx2PuBxPOAjVMOThrsHfdDbroUvm2yigvRZUJcJTivunOFKtfIC5EOoKxxAP3XzxWjf0Q==}
+
+  '@carbon/type@11.49.0':
+    resolution: {integrity: sha512-5SwbuMj7VO7QAxB273MQVMoVLEvwcMVflhmriWA4I+YWMDwtoprPHiXseO6ueoRGJp+TOqnItvkPMPOdKz5sjQ==}
 
   '@changesets/apply-release-plan@7.0.12':
     resolution: {integrity: sha512-EaET7As5CeuhTzvXTQCRZeBUcisoYPDDcXvgTE/2jmmypKp0RC7LxKj/yzqeh/1qFTZI7oDGFcL1PHRuQuketQ==}
@@ -2936,6 +2983,37 @@ packages:
   '@humanwhocodes/retry@0.4.2':
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
+
+  '@ibm/plex-mono@1.1.0':
+    resolution: {integrity: sha512-hpsdRxR3BRJkC6wGM4MZcUFD6C8M+mmK76RtAy/hlsfPro9FzpXVdIWC+G3jeQOXof109dxlUvmeKxpeKUG68A==}
+
+  '@ibm/plex-sans-arabic@1.1.0':
+    resolution: {integrity: sha512-u8wIS6szLAOFvlBjCFZmtpKIqbhuIuniG2N0J+sio8vV6INH58hP0t0QNYrSl9SZtCv2Fwb4oQGuZJY3kJ4+QA==}
+
+  '@ibm/plex-sans-devanagari@1.1.0':
+    resolution: {integrity: sha512-IVNV9NxXZDzcGZRao/xj+kiFwkdLkcw5vNiKwY8wEzzkpjApXJnPhJ0a7mIKNAh8oIadTIF68+iGtzRKK3nXAQ==}
+
+  '@ibm/plex-sans-hebrew@1.1.0':
+    resolution: {integrity: sha512-iix0rLpUD0E8dE8q+/t3B7u1or7h6gEzoy6TK9NwP41AN31WE55f2cFwQAXomBDwr0Ozc9sHYy97NutEukZXzQ==}
+
+  '@ibm/plex-sans-thai-looped@1.1.0':
+    resolution: {integrity: sha512-9zbDGzmtscHgBRTF88y3/92zQx6lmKjz5ZxhgcljilwOpj08BAytDc3mzUl9XGUh+DmOMl0Ql1lk6ecsEYYg2w==}
+
+  '@ibm/plex-sans-thai@1.1.0':
+    resolution: {integrity: sha512-vk7IrjdO69eEElJpFBppCha/wvU48DFyVuDewcfIf5L6Z11s0vbROANCvKipVPRUz1LE4ron8KoitWGcl3AlfA==}
+
+  '@ibm/plex-sans@1.1.0':
+    resolution: {integrity: sha512-WPgvO6Yfj2w5YbhyAr1tv95RUz4LRJlqN+CmYvBglabXteufP1D1E9BABMde+ZIKdRbFJDoKF5eQzfhpnbgZcQ==}
+
+  '@ibm/plex-serif@1.1.0':
+    resolution: {integrity: sha512-ORIyWlK8t8mvpFI7AAfhVFH+sacink2l9AjLiKZscmAzLVSa2dqFckrPOXqx4dK/cax567gWwCpJNEYk7xWxBQ==}
+
+  '@ibm/plex@6.0.0-next.6':
+    resolution: {integrity: sha512-B3uGruTn2rS5gweynLmfSe7yCawSRsJguJJQHVQiqf4rh2RNgJFu8YLE2Zd/JHV0ZXoVMOslcXP2k3hMkxKEyA==}
+    engines: {node: '>=14'}
+
+  '@ibm/plex@6.4.1':
+    resolution: {integrity: sha512-fnsipQywHt3zWvsnlyYKMikcVI7E2fEwpiPnIHFqlbByXVfQfANAAeJk1IV4mNnxhppUIDlhU0TzwYwL++Rn2g==}
 
   '@ibm/telemetry-js@1.10.1':
     resolution: {integrity: sha512-aQcDq03BKbgNnkHujHbA950wJVHtJnY0PsMHKyxgRvr3XPgInWjDfgxJQmKIp9I8Vy2wpfe0cGmduJfIX0HewQ==}
@@ -12937,35 +13015,65 @@ snapshots:
       stream: 0.0.3
       util: 0.12.5
 
-  '@carbon/colors@11.39.0':
+  '@carbon/colors@11.42.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/grid@11.42.0':
-    dependencies:
-      '@carbon/layout': 11.40.0
-      '@ibm/telemetry-js': 1.10.1
-
-  '@carbon/layout@11.40.0':
+  '@carbon/feature-flags@0.32.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/motion@11.34.0':
+  '@carbon/grid@11.45.0':
+    dependencies:
+      '@carbon/layout': 11.43.0
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/icons@11.74.0':
     dependencies:
       '@ibm/telemetry-js': 1.10.1
 
-  '@carbon/themes@11.59.0':
+  '@carbon/layout@11.43.0':
     dependencies:
-      '@carbon/colors': 11.39.0
-      '@carbon/layout': 11.40.0
-      '@carbon/type': 11.46.0
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/motion@11.37.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@carbon/styles@1.93.0(sass@1.89.2)':
+    dependencies:
+      '@carbon/colors': 11.42.0
+      '@carbon/feature-flags': 0.32.0
+      '@carbon/grid': 11.45.0
+      '@carbon/layout': 11.43.0
+      '@carbon/motion': 11.37.0
+      '@carbon/themes': 11.62.0
+      '@carbon/type': 11.49.0
+      '@ibm/plex': 6.0.0-next.6
+      '@ibm/plex-mono': 1.1.0
+      '@ibm/plex-sans': 1.1.0
+      '@ibm/plex-sans-arabic': 1.1.0
+      '@ibm/plex-sans-devanagari': 1.1.0
+      '@ibm/plex-sans-hebrew': 1.1.0
+      '@ibm/plex-sans-thai': 1.1.0
+      '@ibm/plex-sans-thai-looped': 1.1.0
+      '@ibm/plex-serif': 1.1.0
+      '@ibm/telemetry-js': 1.10.1
+    optionalDependencies:
+      sass: 1.89.2
+
+  '@carbon/themes@11.62.0':
+    dependencies:
+      '@carbon/colors': 11.42.0
+      '@carbon/layout': 11.43.0
+      '@carbon/type': 11.49.0
       '@ibm/telemetry-js': 1.10.1
       color: 4.2.3
 
-  '@carbon/type@11.46.0':
+  '@carbon/type@11.49.0':
     dependencies:
-      '@carbon/grid': 11.42.0
-      '@carbon/layout': 11.40.0
+      '@carbon/grid': 11.45.0
+      '@carbon/layout': 11.43.0
       '@ibm/telemetry-js': 1.10.1
 
   '@changesets/apply-release-plan@7.0.12':
@@ -14246,6 +14354,8 @@ snapshots:
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
+      '@ibm/plex-mono': 1.1.0
+      '@ibm/plex-sans': 1.1.0
       '@lezer/highlight': 1.2.1
       '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0)(ember-source@6.4.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       clipboard-polyfill: 4.1.1
@@ -14301,6 +14411,8 @@ snapshots:
       '@floating-ui/dom': 1.7.3
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
+      '@ibm/plex-mono': 1.1.0
+      '@ibm/plex-sans': 1.1.0
       '@lezer/highlight': 1.2.1
       '@nullvoxpopuli/ember-composable-helpers': 5.2.11(@babel/core@7.28.0)(ember-source@6.5.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       clipboard-polyfill: 4.1.1
@@ -14358,6 +14470,44 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.2': {}
+
+  '@ibm/plex-mono@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-arabic@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-devanagari@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-hebrew@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-thai-looped@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans-thai@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-sans@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex-serif@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
+
+  '@ibm/plex@6.0.0-next.6': {}
+
+  '@ibm/plex@6.4.1':
+    dependencies:
+      '@ibm/telemetry-js': 1.10.1
 
   '@ibm/telemetry-js@1.10.1': {}
 

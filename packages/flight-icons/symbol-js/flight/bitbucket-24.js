@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-bitbucket-24" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.153 3.225A.64.64 0 012.643 3l18.715.003a.64.64 0 01.634.744L19.289 20.45a.644.644 0 01-.634.54H5.572a.874.874 0 01-.847-.717L2.008 3.743a.64.64 0 01.145-.518zm7.765 11.722h4.187l1.011-5.897H8.804l1.114 5.897z" clip-rule="evenodd"/></symbol>`;

@@ -3,3 +3,6 @@
 
 # compiled output
 /dist/
+
+# temporary CSS files for theming
+/public/assets/styles/@hashicorp/

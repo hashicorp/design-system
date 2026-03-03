@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-carbon-closed-caption" viewBox="0 0 32 32"><path d="M15,21H10a2,2,0,0,1-2-2V13a2,2,0,0,1,2-2h5v2H10v6h5Z"/><path d="M25,21H20a2,2,0,0,1-2-2V13a2,2,0,0,1,2-2h5v2H20v6h5Z"/><path d="M28,26H4a2,2,0,0,1-2-2V8A2,2,0,0,1,4,6H28a2,2,0,0,1,2,2V24A2,2,0,0,1,28,26ZM4,8V24H28V8Z"/></symbol>`;
