@@ -78,6 +78,7 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
       case 'ArrowLeft':
       case 'ArrowRight': {
         event.preventDefault();
+        event.stopPropagation();
 
         const { onStepColumn } = this.args;
         const direction = event.key === 'ArrowLeft' ? -1 : 1;
@@ -91,6 +92,7 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
 
       case ' ': {
         event.preventDefault();
+        event.stopPropagation();
         break;
       }
 

@@ -23,26 +23,28 @@ import type {
   HdsAdvancedTableThSortOrderLabels,
 } from './types.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
+import type { HdsCompositeSignature } from '../composite/index.gts';
 
 export interface HdsAdvancedTableThSelectableSignature {
   Args: {
+    compositeItem?: HdsCompositeSignature['Blocks']['default'][0]['item'];
+    isSelected?: boolean;
+    isStickyColumn?: boolean;
+    isStickyColumnPinned?: boolean;
+    selectionAriaLabelSuffix?: string;
+    selectionKey?: string;
+    selectionScope?: HdsAdvancedTableScope;
+    sortBySelectedOrder?: HdsAdvancedTableThSortOrder;
     didInsert?: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
-    isSelected?: boolean;
     onClickSortBySelected?: () => void;
     onSelectionChange?: (
       target: HdsFormCheckboxBaseSignature['Element'],
       selectionKey: string | undefined
     ) => void;
-    selectionAriaLabelSuffix?: string;
-    selectionKey?: string;
-    selectionScope?: HdsAdvancedTableScope;
-    sortBySelectedOrder?: HdsAdvancedTableThSortOrder;
     willDestroy?: (selectionKey?: string) => void;
-    isStickyColumn?: boolean;
-    isStickyColumnPinned?: boolean;
   };
   Element: HdsAdvancedTableThSignature['Element'];
 }
