@@ -16,10 +16,13 @@ import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.ts';
 import type { HdsCompositeSignature } from '../composite/index.gts';
 
+type HdsCompositeDefaultBlock = HdsCompositeSignature['Blocks']['default'][0];
+
 export interface BaseHdsAdvancedTableTrSignature {
   Args: {
     columnOrder?: HdsAdvancedTableSignature['Args']['columnOrder'];
-    compositeGroup: HdsCompositeSignature['Blocks']['default'][0]['group'];
+    compositeGroup?: HdsCompositeDefaultBlock['group'];
+    compositeItem?: HdsCompositeDefaultBlock['item'];
     data?: Record<string, unknown>;
     depth?: number;
     displayRow?: boolean;
