@@ -21,8 +21,8 @@ import HdsFormHelperText from '../helper-text/index.gts';
 import HdsFormLabel, { ID_PREFIX as LABEL_ID_PREFIX } from '../label/index.gts';
 import HdsFormMaskedInputBase from '../masked-input/base.gts';
 import HdsFormSelectBase from '../select/base.gts';
-import HdsFormSuperSelectMultipleBase from '../super-select/multiple/base.ts';
-import HdsFormSuperSelectSingleBase from '../super-select/single/base.ts';
+import HdsFormSuperSelectMultipleBase from '../super-select/multiple/base.gts';
+import HdsFormSuperSelectSingleBase from '../super-select/single/base.gts';
 import HdsFormTextareaBase from '../textarea/base.gts';
 import HdsFormTextInputBase from '../text-input/base.gts';
 
