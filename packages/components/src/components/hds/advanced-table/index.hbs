@@ -142,8 +142,8 @@
                     Tr=(component
                       "hds/advanced-table/tr"
                       columnOrder=CM.columnOrder
-                      compositeGroup=C.group
-                      compositeItem=C.item
+                      compositeGroup=(if row.isVisible C.group)
+                      compositeItem=(if row.isVisible C.item)
                       data=row.source
                       depth=row.depth
                       isParentRow=row.hasChildren
@@ -159,7 +159,7 @@
                     )
                     Th=(component
                       "hds/advanced-table/th"
-                      compositeItem=C.item
+                      compositeItem=(if row.isVisible C.item)
                       depth=row.depth
                       isExpandable=row.hasChildren
                       isExpanded=row.isExpanded
@@ -169,7 +169,7 @@
                       scope="row"
                       onClickToggle=(fn this.toggleRow row.id)
                     )
-                    Td=(component "hds/advanced-table/td" align=@align compositeItem=C.item)
+                    Td=(component "hds/advanced-table/td" align=@align compositeItem=(if row.isVisible C.item))
                     data=row.source
                     rowIndex=index
                     isOpen=row.isExpanded
