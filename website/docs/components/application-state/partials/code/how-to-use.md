@@ -22,10 +22,6 @@ This component intends to replace a few different simple error and empty/zero st
 
 [[code-snippets/application-state-empty-body]]
 
-#### Empty state with center alignment
-
-[[code-snippets/application-state-empty-center]]
-
 #### Empty state with media
 
 [[code-snippets/application-state-empty-media]]
@@ -51,6 +47,20 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
 #### Error state with media
 
 [[code-snippets/application-state-error-media]]
+
+### Alignment
+
+#### Center align content
+
+Application State content, such as text, is left-aligned by default but you can optionally center it.
+
+[[code-snippets/application-state-empty-center]]
+
+#### Left align content container
+
+To turn off centering of the Application State content container, set `isAutoCentered` to “false”.
+
+[[code-snippets/application-state-auto-center-false]]
 
 ### Title tag
 
