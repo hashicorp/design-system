@@ -185,7 +185,7 @@ const plugins = [
       // Copy readme and license files into published package
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
-      // // Copy Sass files for consumers to use directly
+      // Copy Sass files for consumers to use directly
       { src: 'src/styles', dest: 'dist' },
     ],
     hook: 'writeBundle',
