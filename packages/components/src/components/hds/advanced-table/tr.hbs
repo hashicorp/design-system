@@ -3,10 +3,11 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class={{this.classNames}} role="row" ...attributes>
+<div class={{this.classNames}} role="row" {{@compositeGroup}} ...attributes>
   {{#if @isSelectable}}
     <Hds::AdvancedTable::ThSelectable
       role={{if (eq @selectionScope "row") "gridcell" "columnheader"}}
+      @compositeItem={{@compositeItem}}
       @isSelected={{@isSelected}}
       @selectionScope={{@selectionScope}}
       @selectionKey={{this.selectionKey}}
@@ -21,5 +22,5 @@
     />
   {{/if}}
 
-  {{yield (hash orderedCells=@data.orderedCells)}}
+  {{yield (hash orderedCells=this.orderedCells)}}
 </div>

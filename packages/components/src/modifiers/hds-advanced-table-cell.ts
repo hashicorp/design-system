@@ -4,22 +4,19 @@
  */
 
 import Modifier from 'ember-modifier';
-import type { ArgsFor, PositionalArgs } from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
+import { updateTabbableChildren } from './hds-advanced-table-cell/dom-management.ts';
+import { focusable } from 'tabbable';
 
-import {
-  didInsertGridCell,
-  updateTabbableChildren,
-} from './hds-advanced-table-cell/dom-management.ts';
-import { handleGridCellKeyPress } from './hds-advanced-table-cell/keyboard-navigation.ts';
 import type Owner from '@ember/owner';
+import type { ArgsFor, PositionalArgs } from 'ember-modifier';
 
 export interface HdsAdvancedTableCellModifierSignature {
   Args: {
     Named: {
-      handleEnableFocusTrap: () => void;
       shouldTrapFocus: boolean;
-      setCellElement: (el: HTMLDivElement) => void;
+      handleEnableFocusTrap: () => void;
+      setCellElement?: (el: HTMLDivElement) => void;
     };
   };
   Element: HTMLDivElement;
@@ -47,7 +44,7 @@ export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTa
   }
 
   modify(
-    element: HTMLDivElement,
+    element: HdsAdvancedTableCellModifierSignature['Element'],
     positional: PositionalArgs<HdsAdvancedTableCellModifierSignature>,
     named: HdsAdvancedTableCellModifierSignature['Args']['Named']
   ): void {
@@ -55,7 +52,9 @@ export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTa
 
     if (!this._didSetup) {
       this.#setupObserver(element, positional, named);
-      named.setCellElement(element);
+
+      named.setCellElement?.(element);
+
       this._didSetup = true;
       this._element = element;
     }
@@ -67,16 +66,37 @@ export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTa
     named: HdsAdvancedTableCellModifierSignature['Args']['Named']
   ): void {
     const { handleEnableFocusTrap } = named;
-    didInsertGridCell(element);
 
+    // suppress tabbable children on initial setup
+    updateTabbableChildren(element);
+
+    // only handle Enter key for action mode (focus trap activation)
     this._keydownHandler = (event: KeyboardEvent) => {
-      handleGridCellKeyPress(event, handleEnableFocusTrap);
+      if (event.key === 'Enter') {
+        const cellFocusableChildren = focusable(element);
+
+        if (cellFocusableChildren.length > 0) {
+          for (let i = 0; i < cellFocusableChildren.length; i++) {
+            const child = cellFocusableChildren[i];
+
+            if (child?.hasAttribute('data-advanced-table-child-focusable')) {
+              child.setAttribute('tabindex', '0');
+            }
+          }
+
+          element.setAttribute('tabindex', '-1');
+
+          handleEnableFocusTrap();
+        }
+      }
     };
+
     element.addEventListener('keydown', this._keydownHandler);
 
     this._observer = new MutationObserver(() => {
       updateTabbableChildren(element, this._shouldTrapFocus);
     });
+
     this._observer.observe(element, {
       childList: true,
       subtree: true,

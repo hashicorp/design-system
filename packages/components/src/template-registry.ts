@@ -8,6 +8,8 @@ import type HdsAccordionComponent from './components/hds/accordion';
 import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
 import type HdsAdvancedTableComponent from './components/hds/advanced-table';
+import type HdsAdvancedTableBodyComponent from './components/hds/advanced-table/body';
+import type HdsAdvancedTableColumnManagerComponent from './components/hds/advanced-table/column-manager/index.gts';
 import type HdsAdvancedTableTdComponent from './components/hds/advanced-table/td';
 import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advanced-table/th-button-expand';
 import type HdsAdvancedTableThButtonSortComponent from './components/hds/advanced-table/th-button-sort';
@@ -17,10 +19,8 @@ import type HdsAdvancedTableThContextMenu from './components/hds/advanced-table/
 import type HdsAdvancedTableThReorderDropTarget from './components/hds/advanced-table/th-reorder-drop-target';
 import type HdsAdvancedTableThReorderHandle from './components/hds/advanced-table/th-reorder-handle';
 import type HdsAdvancedTableThResizeHandle from './components/hds/advanced-table/th-resize-handle';
-import type HdsAdvancedTableThSortComponent from './components/hds/advanced-table/th-sort';
 import type HdsAdvancedTableThSelectableComponent from './components/hds/advanced-table/th-selectable';
 import type HdsAdvancedTableTrComponent from './components/hds/advanced-table/tr';
-import type HdsAdvancedTableExpandableTrGroupComponent from './components/hds/advanced-table/expandable-tr-group.ts';
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
@@ -72,6 +72,7 @@ import type HdsCodeBlockComponent from './components/hds/code-block';
 import type HdsCodeBlockCopyButtonComponent from './components/hds/code-block/copy-button';
 import type HdsCodeBlockDescriptionComponent from './components/hds/code-block/description';
 import type HdsCodeBlockTitleComponent from './components/hds/code-block/title';
+import type HdsCompositeComponent from './components/hds/composite/index.gts';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
@@ -245,6 +246,7 @@ import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 import type HdsTooltipModifier from './modifiers/hds-tooltip.ts';
 import type HdsAdvancedTableCellModifier from './modifiers/hds-advanced-table-cell.ts';
+import type HdsScrollIntoViewOnFocusModifier from './modifiers/hds-scroll-into-view-on-focus.ts';
 
 export default interface HdsComponentsRegistry {
   // ----- COMPONENTS ---------------------------------------------------
@@ -262,6 +264,10 @@ export default interface HdsComponentsRegistry {
   // Advanced Table
   'Hds::AdvancedTable': typeof HdsAdvancedTableComponent;
   'hds/advanced-table': typeof HdsAdvancedTableComponent;
+  'Hds::AdvancedTable::Body': typeof HdsAdvancedTableBodyComponent;
+  'hds/advanced-table/body': typeof HdsAdvancedTableBodyComponent;
+  'Hds::AdvancedTable::ColumnManager': typeof HdsAdvancedTableColumnManagerComponent;
+  'hds/advanced-table/column-manager': typeof HdsAdvancedTableColumnManagerComponent;
   'Hds::AdvancedTable::Td': typeof HdsAdvancedTableTdComponent;
   'hds/advanced-table/td': typeof HdsAdvancedTableTdComponent;
   'Hds::AdvancedTable::Th': typeof HdsAdvancedTableThComponent;
@@ -282,12 +288,8 @@ export default interface HdsComponentsRegistry {
   'Hds::AdvancedTable::ThResizeHandle': typeof HdsAdvancedTableThResizeHandle;
   'hds/advanced-table/th-resize-handle': typeof HdsAdvancedTableThResizeHandle;
   'hds/advanced-table/th-button-tooltip': typeof HdsAdvancedTableThButtonTooltipComponent;
-  'Hds::AdvancedTable::ThSort': typeof HdsAdvancedTableThSortComponent;
-  'hds/advanced-table/th-sort': typeof HdsAdvancedTableThSortComponent;
   'Hds::AdvancedTable::ThSelectable': typeof HdsAdvancedTableThSelectableComponent;
   'hds/advanced-table/th-selectable': typeof HdsAdvancedTableThSelectableComponent;
-  'Hds::AdvancedTable::ExpandableTrGroup': typeof HdsAdvancedTableExpandableTrGroupComponent;
-  'hds/advanced-table/expandable-tr-group': typeof HdsAdvancedTableExpandableTrGroupComponent;
 
   // Alert
   'Hds::Alert': typeof HdsAlertComponent;
@@ -442,6 +444,10 @@ export default interface HdsComponentsRegistry {
 
   'Hds::CodeBlock::Title': typeof HdsCodeBlockTitleComponent;
   'hds/code-block/title': typeof HdsCodeBlockTitleComponent;
+
+  // Composite
+  'Hds::Composite': typeof HdsCompositeComponent;
+  'hds/composite': typeof HdsCompositeComponent;
 
   // Code Editor
   'Hds::CodeEditor': typeof HdsCodeEditorComponent;
@@ -1014,4 +1020,7 @@ export default interface HdsComponentsRegistry {
 
   // hds-advanced-table-cell
   'hds-advanced-table-cell': typeof HdsAdvancedTableCellModifier;
+
+  // hds-scroll-into-view-on-focus
+  'hds-scroll-into-view-on-focus': typeof HdsScrollIntoViewOnFocusModifier;
 }
