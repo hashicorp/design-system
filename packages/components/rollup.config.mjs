@@ -186,21 +186,11 @@ const plugins = [
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
       // // Copy Sass files for consumers to use directly
-      // { src: 'src/styles', dest: 'dist' },
-    ],
-    hook: 'writeBundle',
-    copySync: true,
-    copyOnce: true,
-    // verbose: true,
-  }),
-
-  copy({
-    targets: [
-      // Copy Sass files for consumers to use directly
       { src: 'src/styles', dest: 'dist' },
     ],
     hook: 'writeBundle',
     copySync: true,
+    copyOnce: true,
     // verbose: true,
   }),
 ];
