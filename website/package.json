@@ -160,7 +160,7 @@
     "unist-util-select": "^5.1.0",
     "unist-util-visit": "^5.0.0",
     "walk-sync": "^3.0.0",
-    "webpack": "^5.99.9",
+    "webpack": "^5.104.1",
     "yaml-front-matter": "^4.1.1"
   },
   "engines": {
