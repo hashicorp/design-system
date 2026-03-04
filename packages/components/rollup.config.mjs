@@ -22,6 +22,31 @@ function addScssCompilationPlugins(options) {
     let watchedFiles = new Set();
     let needsRecompile = true;
 
+    const compileScss = function () {
+      const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
+
+      compiledResult = sass.compile(inputFileFullPath, {
+        sourceMap: true,
+        loadPaths,
+      });
+
+      // Track all dependencies and add new ones to watch list
+      const newWatchedFiles = new Set();
+      if (compiledResult.loadedUrls) {
+        compiledResult.loadedUrls.forEach((url) => {
+          if (url.protocol === 'file:') {
+            const filePath = url.pathname;
+            newWatchedFiles.add(filePath);
+            if (!watchedFiles.has(filePath)) {
+              this.addWatchFile(filePath);
+            }
+          }
+        });
+      }
+      watchedFiles = newWatchedFiles;
+      needsRecompile = false;
+    };
+
     return {
       name: `rollup custom plugin to generate ${outputFile}`,
 
@@ -31,25 +56,7 @@ function addScssCompilationPlugins(options) {
         this.addWatchFile(inputFileFullPath);
 
         try {
-          const result = sass.compile(inputFileFullPath, {
-            sourceMap: true,
-            loadPaths,
-          });
-
-          compiledResult = result;
-
-          // Track all dependencies
-          if (result.loadedUrls) {
-            result.loadedUrls.forEach((url) => {
-              if (url.protocol === 'file:') {
-                const filePath = url.pathname;
-                watchedFiles.add(filePath);
-                this.addWatchFile(filePath);
-              }
-            });
-          }
-
-          needsRecompile = false;
+          compileScss.call(this);
         } catch (error) {
           this.error(
             `Failed to compile SCSS file "${inputFile}": ${error.message}`
@@ -68,29 +75,7 @@ function addScssCompilationPlugins(options) {
         // Only recompile if needed (a watched file changed)
         if (needsRecompile) {
           try {
-            const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
-            const result = sass.compile(inputFileFullPath, {
-              sourceMap: true,
-              loadPaths,
-            });
-
-            compiledResult = result;
-
-            // Update watched files if dependencies changed
-            const newWatchedFiles = new Set();
-            if (result.loadedUrls) {
-              result.loadedUrls.forEach((url) => {
-                if (url.protocol === 'file:') {
-                  const filePath = url.pathname;
-                  newWatchedFiles.add(filePath);
-                  if (!watchedFiles.has(filePath)) {
-                    this.addWatchFile(filePath);
-                  }
-                }
-              });
-            }
-            watchedFiles = newWatchedFiles;
-            needsRecompile = false;
+            compileScss.call(this);
           } catch (error) {
             this.error(
               `Failed to compile SCSS file "${inputFile}": ${error.message}`
