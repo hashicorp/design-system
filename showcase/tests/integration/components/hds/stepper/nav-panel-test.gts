@@ -63,7 +63,58 @@ module('Integration | Component | hds/stepper/nav/panel', function (hooks) {
     assert.dom('[data-test="panel-1"]').hasClass('hds-stepper-nav__panel');
   });
 
-  // DIDINSERTNODE
+  // OPTIONS
+
+  // stepIds, panelIds
+
+  test('it sets the correct step and panel IDs based on the @stepIds and @panelIds arguments', async function (assert) {
+    const context = new TrackedObject<{
+      stepIds: string[];
+      panelIds: string[];
+    }>({
+      stepIds: ['step-1'],
+      panelIds: ['panel-1'],
+    });
+
+    const didInsertNode = () => {
+      const panel = document.querySelector(
+        '.hds-stepper-nav__panel',
+      ) as HTMLElement;
+      const panelId = panel.getAttribute('id') ?? '';
+      context.panelIds = [panelId];
+    };
+
+    await render(
+      <template>
+        <HdsStepperNavPanel
+          @currentStep={{0}}
+          @stepIds={{context.stepIds}}
+          @panelIds={{context.panelIds}}
+          @didInsertNode={{didInsertNode}}
+        />
+      </template>,
+    );
+
+    assert
+      .dom('.hds-stepper-nav__panel')
+      .hasAttribute('aria-labelledby', 'step-1');
+  });
+
+  // isNavInteractive
+
+  test('it sets the panel to interactive when the @isNavInteractive argument is not provided', async function (assert) {
+    await createNavPanel({ currentStep: 0 });
+    assert.dom('.hds-stepper-nav__panel').hasAttribute('role', 'tabpanel');
+  });
+
+  test('it sets the panel to non-interactive when the @isNavInteractive argument is provided', async function (assert) {
+    await createNavPanel({ isNavInteractive: false });
+    assert.dom('.hds-stepper-nav__panel').hasNoAttribute('role');
+  });
+
+  // CALLBACKS
+
+  // didInsertNode
 
   test('it passes the correct content from the panel in the @didInsertNode action', async function (assert) {
     const context = new TrackedObject<{
@@ -88,7 +139,7 @@ module('Integration | Component | hds/stepper/nav/panel', function (hooks) {
     assert.ok(context.isTriggered);
   });
 
-  // WILLDESTROYNODE
+  // willDestroyNode
 
   test('it passes the correct content from the panel in the @willDestroyNode action', async function (assert) {
     const context = new TrackedObject<{
@@ -128,41 +179,6 @@ module('Integration | Component | hds/stepper/nav/panel', function (hooks) {
     assert.strictEqual(context.element, panelElement);
   });
 
-  // STEPIDS, PANELIDS
-
-  test('it sets the correct step and panel IDs based on the @stepIds and @panelIds arguments', async function (assert) {
-    const context = new TrackedObject<{
-      stepIds: string[];
-      panelIds: string[];
-    }>({
-      stepIds: ['step-1'],
-      panelIds: ['panel-1'],
-    });
-
-    const didInsertNode = () => {
-      const panel = document.querySelector(
-        '.hds-stepper-nav__panel',
-      ) as HTMLElement;
-      const panelId = panel.getAttribute('id') ?? '';
-      context.panelIds = [panelId];
-    };
-
-    await render(
-      <template>
-        <HdsStepperNavPanel
-          @currentStep={{0}}
-          @stepIds={{context.stepIds}}
-          @panelIds={{context.panelIds}}
-          @didInsertNode={{didInsertNode}}
-        />
-      </template>,
-    );
-
-    assert
-      .dom('.hds-stepper-nav__panel')
-      .hasAttribute('aria-labelledby', 'step-1');
-  });
-
   // VISIBILITY
 
   test('it sets the panel content to not visible when the @currentStep argument does not match the panel index in the @panelIds argument', async function (assert) {
@@ -177,17 +193,5 @@ module('Integration | Component | hds/stepper/nav/panel', function (hooks) {
     assert.dom('.hds-stepper-nav__panel').hasNoAttribute('hidden');
     assert.dom('#test-panel-content').exists();
     assert.dom('.hds-stepper-nav__panel').hasAttribute('aria-labelledby');
-  });
-
-  // INTERACTIVITY
-
-  test('it sets the panel to interactive when the @isNavInteractive argument is not provided', async function (assert) {
-    await createNavPanel({ currentStep: 0 });
-    assert.dom('.hds-stepper-nav__panel').hasAttribute('role', 'tabpanel');
-  });
-
-  test('it sets the panel to non-interactive when the @isNavInteractive argument is provided', async function (assert) {
-    await createNavPanel({ isNavInteractive: false });
-    assert.dom('.hds-stepper-nav__panel').hasNoAttribute('role');
   });
 });

@@ -69,73 +69,9 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert.dom('#test-stepper-nav-step').hasClass('hds-stepper-nav__step');
   });
 
-  // DIDINSTERTNODE
+  // OPTIONS
 
-  test('it calls the @didInsertNode action when the component is inserted into the DOM', async function (assert) {
-    const context = new TrackedObject<{
-      isTriggered: boolean;
-    }>({
-      isTriggered: false,
-    });
-
-    const didInsertNode = () => {
-      context.isTriggered = true;
-    };
-
-    await render(
-      <template>
-        <HdsStepperNavStep @currentStep={{0}} @didInsertNode={{didInsertNode}}>
-          <:title>Title</:title>
-          <:description>Description</:description>
-        </HdsStepperNavStep>
-      </template>,
-    );
-
-    assert.ok(context.isTriggered);
-  });
-
-  // WILLDESTROYNODE
-
-  test('it passes the correct content from the step in the @willDestroyNode action', async function (assert) {
-    const context = new TrackedObject<{
-      isVisible: boolean;
-      isTriggered: boolean;
-      element: HTMLElement | undefined;
-    }>({
-      isVisible: true,
-      isTriggered: false,
-      element: undefined,
-    });
-
-    const willDestroyNode = (element: HTMLElement) => {
-      context.isTriggered = true;
-      context.element = element;
-    };
-
-    await render(
-      <template>
-        {{#if context.isVisible}}
-          <HdsStepperNavStep
-            @currentStep={{0}}
-            data-test="step-1"
-            @willDestroyNode={{willDestroyNode}}
-          />
-        {{/if}}
-      </template>,
-    );
-
-    const tabElement = document.querySelector(
-      '[data-test="step-1"] .hds-stepper-nav__step-button',
-    ) as HTMLElement;
-
-    context.isVisible = false;
-    await settled();
-
-    assert.ok(context.isTriggered);
-    assert.strictEqual(context.element, tabElement);
-  });
-
-  // STEPIDS, PANELIDS
+  // stepIds, panelIds
 
   test('it sets the correct step and panel IDs based on the @stepIds and @panelIds arguments', async function (assert) {
     const context = new TrackedObject<{
@@ -170,14 +106,14 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
       .hasAttribute('aria-controls', 'panel-1');
   });
 
-  // STEP NUMBER
+  // stepNumber
 
   test('it sets the step number automatically based on the step ids provided', async function (assert) {
     await createNavStep({});
     assert.dom('.hds-stepper-indicator-step__text').hasText('1');
   });
 
-  // NAV INTERACTIVE
+  // navInteractive
 
   test('it sets the step to interactive when the @isNavInteractive argument is not provided to the parent', async function (assert) {
     await createNavStep({});
@@ -205,6 +141,18 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step-content')
       .hasNoClass('hds-stepper-nav__step-button');
+  });
+
+  // titleTag
+
+  test('it renders a div when the @titleTag argument is not provided', async function (assert) {
+    await createNavStep({});
+    assert.dom('.hds-stepper-nav__step-title').hasTagName('div');
+  });
+
+  test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
+    await createNavStep({ titleTag: 'h2' });
+    assert.dom('.hds-stepper-nav__step-title').hasTagName('h2');
   });
 
   // STATUS - INTERACTIVE
@@ -306,26 +254,16 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert.dom('.sr-only').hasText('(current)');
   });
 
-  // TITLE TAG
+  // NAMED BLOCKS
 
-  test('it renders a div when the @titleTag argument is not provided', async function (assert) {
-    await createNavStep({});
-    assert.dom('.hds-stepper-nav__step-title').hasTagName('div');
-  });
-
-  test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
-    await createNavStep({ titleTag: 'h2' });
-    assert.dom('.hds-stepper-nav__step-title').hasTagName('h2');
-  });
-
-  // TITLE
+  // title
 
   test('it renders the title when the title contextual component block is used', async function (assert) {
     await createNavStep({ title: 'Test' });
     assert.dom('.hds-stepper-nav__step-title').containsText('Test');
   });
 
-  // DESCRIPTION
+  // description
 
   test('it does not render the description when the description contextual component block is not used', async function (assert) {
     await render(<template><HdsStepperNavStep @currentStep={{0}} /></template>);
@@ -338,7 +276,75 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert.dom('.hds-stepper-nav__step-description').containsText('Test');
   });
 
-  // CALLBACKS: ONSTEPCHANGE
+  // CALLBACKS
+
+  // didInsertNode
+
+  test('it calls the @didInsertNode action when the component is inserted into the DOM', async function (assert) {
+    const context = new TrackedObject<{
+      isTriggered: boolean;
+    }>({
+      isTriggered: false,
+    });
+
+    const didInsertNode = () => {
+      context.isTriggered = true;
+    };
+
+    await render(
+      <template>
+        <HdsStepperNavStep @currentStep={{0}} @didInsertNode={{didInsertNode}}>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </HdsStepperNavStep>
+      </template>,
+    );
+
+    assert.ok(context.isTriggered);
+  });
+
+  // willDestroyNode
+
+  test('it passes the correct content from the step in the @willDestroyNode action', async function (assert) {
+    const context = new TrackedObject<{
+      isVisible: boolean;
+      isTriggered: boolean;
+      element: HTMLElement | undefined;
+    }>({
+      isVisible: true,
+      isTriggered: false,
+      element: undefined,
+    });
+
+    const willDestroyNode = (element: HTMLElement) => {
+      context.isTriggered = true;
+      context.element = element;
+    };
+
+    await render(
+      <template>
+        {{#if context.isVisible}}
+          <HdsStepperNavStep
+            @currentStep={{0}}
+            data-test="step-1"
+            @willDestroyNode={{willDestroyNode}}
+          />
+        {{/if}}
+      </template>,
+    );
+
+    const tabElement = document.querySelector(
+      '[data-test="step-1"] .hds-stepper-nav__step-button',
+    ) as HTMLElement;
+
+    context.isVisible = false;
+    await settled();
+
+    assert.ok(context.isTriggered);
+    assert.strictEqual(context.element, tabElement);
+  });
+
+  // onStepChange
 
   test('it calls the @onStepChange action when the step button is clicked', async function (assert) {
     const context = new TrackedObject<{
@@ -388,7 +394,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert.equal(context.stepNumber, 0);
   });
 
-  // CALLBACKS: ONKEYUP
+  // onKeyUp
 
   test('it calls the @onKeyUp action when the step button is clicked', async function (assert) {
     const context = new TrackedObject<{
