@@ -175,6 +175,7 @@ Router.map(function () {
       this.route('badge');
       this.route('badge-count');
       this.route('button');
+      this.route('card');
       this.route('form', function (): void {
         this.route('text-input');
         this.route('radio-card');
