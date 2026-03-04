@@ -4,28 +4,22 @@ import { on } from '@ember/modifier';
 import { fn } from '@ember/helper';
 
 import {
-  HdsButton,
   HdsFilterBar,
+  HdsFormTextInputField,
   type HdsFilterBarGenericFilter,
+  type HdsFilterBarGenericFilterData,
 } from '@hashicorp/design-system-components/components';
 import type { HdsFilterBarSignature } from '@hashicorp/design-system-components/components/hds/filter-bar/index';
 
-const CUSTOM_FILTER = {
-  type: 'generic',
-  dismissTagText: 'equals lorem ipsum',
-  data: {
-    value: 'lorem ipsum',
-  },
-} as HdsFilterBarGenericFilter;
-
 export default class LocalComponent extends Component {
+  @tracked demoGenericName = 'Name';
   @tracked demoGenericFilters: HdsFilterBarSignature['Args']['filters'] = {
     'demo-generic': {
       type: 'generic',
       text: 'Generic',
-      dismissTagText: 'equals lorem ipsum',
+      dismissTagText: `equals ${this.demoGenericName}`,
       data: {
-        value: 'lorem ipsum',
+        value: this.demoGenericName,
       },
     },
   };
@@ -34,13 +28,49 @@ export default class LocalComponent extends Component {
     newFilters: HdsFilterBarSignature['Args']['filters'],
   ) => {
     this.demoGenericFilters = newFilters;
+    if (newFilters['demo-generic']) {
+      const filterData = newFilters['demo-generic']
+        ?.data as HdsFilterBarGenericFilterData;
+      this.demoGenericName = String(filterData.value);
+    } else {
+      this.demoGenericName = '';
+    }
   };
 
-  onGenericFilterUpdate = (
-    updateFilter: (filter: HdsFilterBarGenericFilter) => void,
-  ) => {
-    updateFilter(CUSTOM_FILTER);
+  onClear = () => {
+    this.demoGenericName = '';
   };
+
+  onGenericNameChange = (
+    updateFilter: (filter: HdsFilterBarGenericFilter) => void,
+    event: Event,
+  ) => {
+    const target = event.target as HTMLInputElement;
+    this.demoGenericName = target.value;
+
+    this.updateGenericFilters(updateFilter);
+  };
+
+  updateGenericFilters(
+    updateFilter: (filter: HdsFilterBarGenericFilter) => void,
+  ) {
+    const demoGenericNameData = [];
+    if (this.demoGenericName) {
+      demoGenericNameData.push({
+        value: this.demoGenericName,
+      });
+    }
+    if (demoGenericNameData.length > 0) {
+      updateFilter({
+        type: 'generic',
+        text: 'Generic',
+        dismissTagText: `equals ${this.demoGenericName}`,
+        data: {
+          value: this.demoGenericName,
+        },
+      } as HdsFilterBarGenericFilter);
+    }
+  }
 
   <template>
     <HdsFilterBar
@@ -53,16 +83,19 @@ export default class LocalComponent extends Component {
           @key="demo-generic"
           @text="Generic"
           @type="generic"
-          as |F|
+          @onClear={{this.onClear}}
+          as |FG|
         >
-          <F.Generic as |G|>
-            <HdsButton
-              @text="Add custom filter"
-              @color="secondary"
-              @size="small"
-              {{on "click" (fn this.onGenericFilterUpdate G.updateFilter)}}
-            />
-          </F.Generic>
+          <FG.Generic as |G|>
+            <HdsFormTextInputField
+              @value={{this.demoGenericName}}
+              {{on "input" (fn this.onGenericNameChange G.updateFilter)}}
+              name="name"
+              as |FT|
+            >
+              <FT.Label>Name</FT.Label>
+            </HdsFormTextInputField>
+          </FG.Generic>
         </D.FilterGroup>
       </F.FiltersDropdown>
     </HdsFilterBar>

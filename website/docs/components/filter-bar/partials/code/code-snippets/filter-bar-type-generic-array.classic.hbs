@@ -1,0 +1,24 @@
+<Hds::FilterBar @filters={{this.demoGenericArrayFilters}} @onFilter={{this.demoUpdateGenericArrayFilters}} as |F|>
+  <F.FiltersDropdown as |D|>
+    <D.FilterGroup @key="demo-generic-array" @text="Generic" @type="generic" @onClear={{this.onClear}} as |FG|>
+      <FG.Generic as |G|>
+        <Hds::Form::TextInput::Field
+          @value={{this.demoGenericArrayName1}}
+          {{on "input" (fn this.onGenericArrayName1Change G.updateFilter)}}
+          name="name-1"
+          as |FT|
+        >
+          <FT.Label>Name 1</FT.Label>
+        </Hds::Form::TextInput::Field>
+        <Hds::Form::TextInput::Field
+          @value={{this.demoGenericArrayName2}}
+          {{on "input" (fn this.onGenericArrayName2Change G.updateFilter)}}
+          name="name-2"
+          as |FT|
+        >
+          <FT.Label>Name 2</FT.Label>
+        </Hds::Form::TextInput::Field>
+      </FG.Generic>
+    </D.FilterGroup>
+  </F.FiltersDropdown>
+</Hds::FilterBar>
