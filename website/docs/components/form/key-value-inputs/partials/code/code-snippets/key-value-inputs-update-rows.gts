@@ -20,13 +20,15 @@ export default class LocalComponent extends Component {
     ];
   };
 
-  onDeleteRow = (rowToDelete: { id: number; name: string; email: string }) => {
+  onDeleteRow = (rowToDelete: unknown) => {
     if (this.exampleData.length === 1) {
       this.exampleData = [{ id: 1, name: '', email: '' }];
     } else {
-      this.exampleData = this.exampleData.filter(
-        (item) => item.id !== rowToDelete.id,
-      );
+      if ('id' in (rowToDelete as Record<string, unknown>)) {
+        this.exampleData = this.exampleData.filter(
+          (item) => item.id !== (rowToDelete as { id: number }).id,
+        );
+      }
     }
   };
 
