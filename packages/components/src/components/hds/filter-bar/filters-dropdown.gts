@@ -13,14 +13,14 @@ import { on } from '@ember/modifier';
 import type { WithBoundArgs } from '@glint/template';
 
 import hdsT from '../../../helpers/hds-t.ts';
-import HdsDropdown from '../dropdown/index.ts';
+import HdsDropdown from '../dropdown/index.gts';
 import HdsFilterBarFilterGroup from './filter-group/index.gts';
 import HdsFilterBarTabs from './tabs/index.gts';
 import HdsButtonSet from '../button-set/index.gts';
 import HdsButton from '../button/index.gts';
 
 import type { HdsFilterBarFilters, HdsFilterBarFilter } from './types.ts';
-import type { HdsDropdownSignature } from '../dropdown/index.ts';
+import type { HdsDropdownSignature } from '../dropdown/index.gts';
 
 export const DEFAULT_DROPDOWN_HEIGHT = '600px';
 

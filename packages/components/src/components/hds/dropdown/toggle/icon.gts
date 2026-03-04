@@ -7,16 +7,23 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
+import { on } from '@ember/modifier';
+// eslint-disable-next-line ember/no-at-ember-render-modifiers
+import didUpdate from '@ember/render-modifiers/modifiers/did-update';
+
+import type { ModifierLike } from '@glint/template';
+import type Owner from '@ember/owner';
+
+import HdsIcon from '../../icon/index.gts';
+import HdsDropdownToggleChevron from './chevron.gts';
 import {
   HdsDropdownToggleIconSizeValues,
   HdsDropdownToggleIconAllowedIconValues,
 } from './types.ts';
 
-import type { HdsIconSignature } from '../../icon';
-import type { HdsDropdownToggleIconSizes } from './types';
-import type { ModifierLike } from '@glint/template';
+import type { HdsIconSignature } from '../../icon/index.gts';
+import type { HdsDropdownToggleIconSizes } from './types.ts';
 import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.gts';
-import type Owner from '@ember/owner';
 
 export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
 export const SIZES: HdsDropdownToggleIconSizes[] = Object.values(
@@ -61,11 +68,6 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     this._hasImage = false;
   }
 
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the `aria-label` applied to the toggle
-   */
   get text(): string {
     const { text } = this.args;
 
@@ -77,12 +79,6 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     return text;
   }
 
-  /**
-   * @param size
-   * @type {string}
-   * @default medium
-   * @description The size of the button; acceptable values are `small` and `medium`
-   */
   get size(): HdsDropdownToggleIconSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -96,12 +92,6 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     return size;
   }
 
-  /**
-   * @param iconSize
-   * @type {string}
-   * @default 24
-   * @description ensures that the correct icon size is used
-   */
   get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.size === 'medium' && !this.hasChevron) {
       // in this special case we use a larger SVG
@@ -112,13 +102,6 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     }
   }
 
-  /**
-   * Indicates if a dropdown chevron icon should be displayed; should be displayed unless the "more-horizontal" or "more-vertical" icons are used.
-   *
-   * @param hasChevron
-   * @type {boolean}
-   * @default true
-   */
   get hasChevron(): boolean {
     if (
       this.args.icon &&
@@ -135,11 +118,6 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
     return this.args.hasChevron ?? true;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method ToggleIcon#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-dropdown-toggle-icon'];
 
@@ -158,4 +136,36 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
 
     return classes.join(' ');
   }
+
+  <template>
+    <button
+      class={{this.classNames}}
+      aria-label={{this.text}}
+      ...attributes
+      aria-expanded={{if @isOpen "true" "false"}}
+      {{@setupPrimitiveToggle}}
+      {{didUpdate this.onDidUpdateImageSrc @imageSrc}}
+      type="button"
+    >
+      <div class="hds-dropdown-toggle-icon__wrapper">
+        {{#if @imageSrc}}
+          {{#if this._hasImage}}
+            <img
+              src={{@imageSrc}}
+              alt=""
+              role="presentation"
+              {{on "error" this.onImageLoadError}}
+            />
+          {{else}}
+            <HdsIcon @name="user" @size={{this.iconSize}} />
+          {{/if}}
+        {{else if @icon}}
+          <HdsIcon @name={{@icon}} @size={{this.iconSize}} />
+        {{/if}}
+      </div>
+      {{#if this.hasChevron}}
+        <HdsDropdownToggleChevron />
+      {{/if}}
+    </button>
+  </template>
 }
