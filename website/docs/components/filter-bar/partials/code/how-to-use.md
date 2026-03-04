@@ -91,6 +91,14 @@ The dismissible filter tag can be customized by setting `dismissTagText` on the 
 
 [[code-snippets/filter-bar-type-generic-data execute=false]]
 
+**Callbacks**
+
+The `@onClear` argument can be added to the `FilterGroup` to listen for when a user triggers a clear of the filter group. This can be used to reset any inputs present in the filter content.
+
+If your content for inputting filters can change dynamically, it's possible focus can be lost if an element with focus is removed. By default, the `FiltersDropdown` will close anytime focus leaves, including if it is lost. You can use the `@onFocusOut` argument to stop the dropdown from closing when this occurs and set focus on another appropriate element.
+
+[[code-snippets/filter-bar-type-generic-callbacks]]
+
 ### Search
 
 The Filter Bar provides a search input, which can be used for searching across multiple areas of a data set. If the `@hasSearch` argument is set to `true`, a search input will be shown next to the dropdown.

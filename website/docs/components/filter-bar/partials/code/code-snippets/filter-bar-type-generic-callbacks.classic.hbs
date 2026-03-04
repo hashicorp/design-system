@@ -1,0 +1,46 @@
+<Hds::FilterBar @filters={{this.demoGenericFilters}} @onFilter={{this.demoUpdateGenericFilters}} as |F|>
+  <F.FiltersDropdown @onFocusOut={{this.onFocusOut}} as |D|>
+    <D.FilterGroup @key="demo-generic" @text="Demo generic" @type="generic" @onClear={{this.onClear}} as |F|>
+      <F.Generic as |G|>
+        <Hds::Form::TextInput::Field
+          @value={{this.name}}
+          @id="demo-name"
+          {{on "input" (fn this.onNameChange G.updateFilter)}}
+          name="name"
+          as |F|
+        >
+          <F.Label>Name</F.Label>
+        </Hds::Form::TextInput::Field>
+        {{#if this.showExtraName}}
+          <Hds::Form::TextInput::Field
+            @value={{this.nameExtra}}
+            {{on "input" (fn this.onNameExtraChange G.updateFilter)}}
+            name="name-extra"
+            as |F|
+          >
+            <F.Label>Extra name</F.Label>
+          </Hds::Form::TextInput::Field>
+          <Hds::Button
+            @text="Remove name"
+            @color="secondary"
+            @size="small"
+            id="btn-remove-extra-name"
+            {{on "click" this.removeExtraName}}
+          />
+        {{else}}
+          <Hds::Button
+            @text="Add name"
+            @color="secondary"
+            @size="small"
+            id="btn-add-extra-name"
+            {{on "click" this.addExtraName}}
+          />
+        {{/if}}
+        <Hds::Text::Body @size="100">
+          This filter has a dynamic template that changes based on the number of values added. On clear, the filter
+          should reset to only showing one input.
+        </Hds::Text::Body>
+      </F.Generic>
+    </D.FilterGroup>
+  </F.FiltersDropdown>
+</Hds::FilterBar>
