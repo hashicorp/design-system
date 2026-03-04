@@ -20,7 +20,6 @@ export const config: ConfigData = {
     // notice: these paths are relative to where the npm script is invoked, not this file!
     mainFolder: '.',
     tempFolder: './temp',
-    emberPublicFolder: path.resolve(__dirname, '../../../website/public'),
     // number of files retrieved by figma-export in a batch request
     syncConcurrency: 100,
 };

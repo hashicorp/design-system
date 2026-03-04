@@ -12,6 +12,5 @@ export type ConfigData = {
     },
     mainFolder: string,
     tempFolder: string,
-    emberPublicFolder: string,
     syncConcurrency: number,
 };
