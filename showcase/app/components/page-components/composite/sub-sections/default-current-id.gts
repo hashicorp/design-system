@@ -24,6 +24,7 @@ const SubSectionDefaultCurrentId: TemplateOnlyComponent = <template>
       <CompositeWithToolbar
         @ariaLabel="Pre-selected"
         @defaultCurrentId="preset-third"
+        @role="toolbar"
       />
     </SF.Item>
   </ShwFlex>
@@ -40,6 +41,7 @@ const SubSectionDefaultCurrentId: TemplateOnlyComponent = <template>
       <CompositeWithToolbar
         @ariaLabel="Nonexistent ID"
         @defaultCurrentId="does-not-exist"
+        @role="toolbar"
       />
     </SF.Item>
   </ShwFlex>
