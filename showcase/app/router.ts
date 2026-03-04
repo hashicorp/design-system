@@ -176,6 +176,7 @@ Router.map(function () {
       this.route('badge-count');
       this.route('breadcrumb');
       this.route('button');
+      this.route('card');
       this.route('copy', function () {
         this.route('snippet');
       });
