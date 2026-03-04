@@ -10,8 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
 import style from 'ember-style-modifier';
 import hdsAdvancedTableCell from '../../../modifiers/hds-advanced-table-cell.ts';
-// @ts-expect-error: missing types https://github.com/josemarluedke/ember-focus-trap/issues/86
-import focusTrap from 'ember-focus-trap/modifiers/focus-trap';
+import { focusTrap } from 'ember-focus-trap';
 import { hash } from '@ember/helper';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';

@@ -341,8 +341,8 @@ importers:
         specifier: ^0.8.6
         version: 0.8.8(supports-color@8.1.1)
       ember-focus-trap:
-        specifier: ^1.1.1
-        version: 1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+        specifier: ^2.0.0
+        version: 2.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
       ember-modifier:
         specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
@@ -366,7 +366,7 @@ importers:
         version: 1.30.0
       tabbable:
         specifier: ^6.2.0
-        version: 6.2.0
+        version: 6.5.1
       tippy.js:
         specifier: ^6.3.7
         version: 6.3.7
@@ -1010,7 +1010,7 @@ importers:
         version: 14.0.0(postcss@8.5.31)(stylelint@16.23.0(supports-color@8.1.1)(typescript@5.9.2))
       tabbable:
         specifier: ^6.2.0
-        version: 6.2.0
+        version: 6.5.1
       tracked-built-ins:
         specifier: ^4.0.0
         version: 4.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
@@ -6979,11 +6979,9 @@ packages:
     resolution: {integrity: sha512-TVx24/jrvDIuPL296DV0hBwp7BWLcSMf0I8464KGz01sPytAB+ZAePbc9ooBTJDkKZEGFgatJa4nj3yF1S9Bpw==}
     engines: {node: '>= 10'}
 
-  ember-focus-trap@1.1.1:
-    resolution: {integrity: sha512-5tOWu6eV1UoNZE+P9Gl9lJXNrENZVCoOXi52ePb7JOrOZ3ckOk1OkPsFwR4Jym9VJ7vZ6S3Z3D8BrkFa2aCpYw==}
-    engines: {node: 12.* || >= 14}
-    peerDependencies:
-      ember-source: '>= 4.0.0'
+  ember-focus-trap@2.0.0:
+    resolution: {integrity: sha512-zGPvt934h08gxdemIZz29XRn4cdwn51UxlodKtDkiahGrEpiSQ6qH8nvXGwDhQvZsf8zGumnXqcmDYYA5oFomQ==}
+    engines: {node: '>= 22.*', pnpm: '>= 10'}
 
   ember-functions-as-helper-polyfill@2.1.3:
     resolution: {integrity: sha512-Hte8jfOmSNzrz/vOchf68CGaBWXN2/5qKgFaylqr9omW2i4Wt9JmaBWRkeR0AJ53N57q3DX2TOb166Taq6QjiA==}
@@ -7821,8 +7819,8 @@ packages:
     resolution: {integrity: sha512-Y8CrO98EcXVCiYE4s5z0LTMbeYjKyd3MAEUJqxA7B8yGRlmdrG5UDqq4pVrUAfAu2tMFgpQESvBhBu9Xg1tpow==}
     engines: {node: '>=0.4.0'}
 
-  focus-trap@6.9.4:
-    resolution: {integrity: sha512-v2NTsZe2FF59Y+sDykKY+XjqZ0cPfhq/hikWVL88BqLivnNiEffAsac6rP6H45ff9wG9LL5ToiDqrLEP9GX9mw==}
+  focus-trap@8.2.4:
+    resolution: {integrity: sha512-oy6dj7WZYgMbbpoOA29K5W++473F1zEzdI1oJgPb6x7yWT36YaWedUe6i6YPWEt5quSh0pRMohVyHLWXUxtdxg==}
 
   follow-redirects@1.16.1:
     resolution: {integrity: sha512-FNvFGzoMLWmE6Yj9spb/zjd7yiNCHiAW9/Tg9CXrQ8wuu32HtlJOwWO11OJafl5FfY3DxTdQ0vj42zU1kvv5jg==}
@@ -11795,11 +11793,8 @@ packages:
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
 
-  tabbable@5.3.3:
-    resolution: {integrity: sha512-QD9qKY3StfbZqWOPLp0++pOrAVb/HbUi5xCc8cUo4XjP19808oaMiDzn0leBY5mCespIBM0CIZePzZjgzR83kA==}
-
-  tabbable@6.2.0:
-    resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
+  tabbable@6.5.1:
+    resolution: {integrity: sha512-dMCuwDUY6Noz3zVKLefBC4wq+aJV20yc7vWmM7uTNGwtQSFF5kX7OUIUsxuVajz/bdt5Xqdah3/0NLjth+cM5A==}
 
   table@5.4.6:
     resolution: {integrity: sha512-wmEc8m4fjnob4gt5riFRtTu/6+4rSe12TpAELNSqHMfF3IqnA+CH37USM6/YR3qRZv7e56kAEAtd6nKZaxe0Ug==}
@@ -15171,7 +15166,7 @@ snapshots:
       ember-basic-dropdown: 8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       ember-concurrency: 4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
       ember-element-helper: 0.8.8(supports-color@8.1.1)
-      ember-focus-trap: 1.1.1(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-focus-trap: 2.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
       ember-modifier: 4.2.2(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
       ember-power-select: 8.12.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-concurrency@4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       ember-stargate: 1.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
@@ -15179,7 +15174,7 @@ snapshots:
       ember-truth-helpers: 5.0.0(supports-color@8.1.1)
       luxon: 3.7.1
       prismjs: 1.30.0
-      tabbable: 6.2.0
+      tabbable: 6.5.1
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
     optionalDependencies:
@@ -15228,7 +15223,7 @@ snapshots:
       ember-basic-dropdown: 8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       ember-concurrency: 4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
       ember-element-helper: 0.8.8(supports-color@8.1.1)
-      ember-focus-trap: 1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-focus-trap: 2.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
       ember-modifier: 4.2.2(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
       ember-power-select: 8.12.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-concurrency@4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       ember-stargate: 1.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
@@ -15236,7 +15231,7 @@ snapshots:
       ember-truth-helpers: 5.0.0(supports-color@8.1.1)
       luxon: 3.7.1
       prismjs: 1.30.0
-      tabbable: 6.2.0
+      tabbable: 6.5.1
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
     optionalDependencies:
@@ -15285,7 +15280,7 @@ snapshots:
       ember-basic-dropdown: 8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       ember-concurrency: 4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
       ember-element-helper: 0.8.8(supports-color@8.1.1)
-      ember-focus-trap: 1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
+      ember-focus-trap: 2.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
       ember-modifier: 4.2.2(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
       ember-power-select: 8.12.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-basic-dropdown@8.8.0(@babel/core@7.28.0(supports-color@8.1.1))(@ember/string@4.0.1)(@ember/test-helpers@5.4.0(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1))(ember-concurrency@4.0.4(@babel/core@7.28.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1))(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1)
       ember-stargate: 1.0.2(@babel/core@7.28.0(supports-color@8.1.1))(@glimmer/component@2.0.0(supports-color@8.1.1))(@glint/template@1.7.7)(supports-color@8.1.1)
@@ -15293,7 +15288,7 @@ snapshots:
       ember-truth-helpers: 5.0.0(supports-color@8.1.1)
       luxon: 3.7.1
       prismjs: 1.30.0
-      tabbable: 6.2.0
+      tabbable: 6.5.1
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1)
     optionalDependencies:
@@ -20734,20 +20729,13 @@ snapshots:
       - encoding
       - supports-color
 
-  ember-focus-trap@1.1.1(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1):
+  ember-focus-trap@2.0.0(@babel/core@7.28.0(supports-color@8.1.1))(supports-color@8.1.1):
     dependencies:
       '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
-      ember-source: 6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1)
-      focus-trap: 6.9.4
+      decorator-transforms: 2.3.1(@babel/core@7.28.0(supports-color@8.1.1))
+      focus-trap: 8.2.4
     transitivePeerDependencies:
-      - supports-color
-
-  ember-focus-trap@1.1.1(ember-source@6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1):
-    dependencies:
-      '@embroider/addon-shim': 1.10.2(supports-color@8.1.1)
-      ember-source: 6.5.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1)
-      focus-trap: 6.9.4
-    transitivePeerDependencies:
+      - '@babel/core'
       - supports-color
 
   ember-functions-as-helper-polyfill@2.1.3(ember-source@6.4.0(@glimmer/component@2.0.0(supports-color@8.1.1))(rsvp@4.8.5)(supports-color@8.1.1))(supports-color@8.1.1):
@@ -22176,9 +22164,9 @@ snapshots:
 
   flow-parser@0.258.1: {}
 
-  focus-trap@6.9.4:
+  focus-trap@8.2.4:
     dependencies:
-      tabbable: 5.3.3
+      tabbable: 6.5.1
 
   follow-redirects@1.16.1(debug@4.4.3(supports-color@8.1.1)):
     optionalDependencies:
@@ -27053,9 +27041,7 @@ snapshots:
 
   systeminformation@5.33.16: {}
 
-  tabbable@5.3.3: {}
-
-  tabbable@6.2.0: {}
+  tabbable@6.5.1: {}
 
   table@5.4.6:
     dependencies:
