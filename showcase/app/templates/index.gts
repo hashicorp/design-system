@@ -410,8 +410,14 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
       </ol>
+
       <ShwTextH4 @tag="h3">Components</ShwTextH4>
       <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-carbonization.components.app-footer">
+            AppFooter
+          </LinkTo>
+        </li>
         <li>
           <LinkTo @route="page-carbonization.components.badge">
             Badge
