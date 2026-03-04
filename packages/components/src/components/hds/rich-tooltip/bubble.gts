@@ -5,14 +5,17 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import style from 'ember-style-modifier';
 
 import type { ModifierLike } from '@glint/template';
-import type { SetupPrimitivePopoverModifier } from '../popover-primitive';
-import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
+
 import {
   DEFAULT_PLACEMENT,
   PLACEMENTS,
 } from '../../../modifiers/hds-anchored-position.ts';
+
+import type { SetupPrimitivePopoverModifier } from '../popover-primitive/index.gts';
+import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
 
 export interface HdsRichTooltipBubbleSignature {
   Args: {
@@ -34,11 +37,6 @@ export interface HdsRichTooltipBubbleSignature {
 }
 
 export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubbleSignature> {
-  /**
-   * @param placement
-   * @type {string}
-   * @description Determines the position of the "popover"
-   */
   get placement(): HdsAnchoredPositionOptions['placement'] {
     const { placement = DEFAULT_PLACEMENT } = this.args;
 
@@ -96,4 +94,26 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
       boundary: this.args.boundary,
     };
   }
+
+  <template>
+    <div
+      class="hds-rich-tooltip__bubble"
+      ...attributes
+      id={{@popoverId}}
+      tabindex="-1"
+      role="tooltip"
+      aria-hidden={{(unless @isOpen true)}}
+      {{style this.sizingStyles}}
+      {{@setupPrimitivePopover
+        anchoredPositionOptions=this.anchoredPositionOptions
+      }}
+    >
+      <div class="hds-rich-tooltip__bubble-arrow" id={{@arrowId}} />
+      {{#if @isOpen}}
+        <div class="hds-rich-tooltip__bubble-inner-content">
+          {{yield}}
+        </div>
+      {{/if}}
+    </div>
+  </template>
 }

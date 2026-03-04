@@ -5,18 +5,22 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { eq } from 'ember-truth-helpers';
+
+import type { ModifierLike } from '@glint/template';
 
 import {
   HdsRichTooltipToggleIconPositionValues,
   HdsRichTooltipToggleSizeValues,
 } from './types.ts';
+import HdsIcon from '../icon/index.gts';
+
 import type {
   HdsRichTooltipToggleIconPositions,
   HdsRichTooltipToggleSizes,
 } from './types.ts';
-import type { HdsIconSignature } from '../icon';
-import type { ModifierLike } from '@glint/template';
-import type { SetupPrimitiveToggleModifier } from '../popover-primitive';
+import type { HdsIconSignature } from '../icon/index.gts';
+import type { SetupPrimitiveToggleModifier } from '../popover-primitive/index.gts';
 
 export const ICON_POSITIONS: HdsRichTooltipToggleIconPositions[] =
   Object.values(HdsRichTooltipToggleIconPositionValues);
@@ -44,23 +48,11 @@ export interface HdsRichTooltipToggleSignature {
 }
 
 export default class HdsRichTooltipToggle extends Component<HdsRichTooltipToggleSignature> {
-  /**
-   * @param isInline
-   * @type {boolean}
-   * @default true
-   * @description sets display inline for the element
-   */
   get isInline(): boolean {
     const { isInline = false } = this.args;
     return isInline;
   }
 
-  /**
-   * @param iconPosition
-   * @type {string}
-   * @default leading
-   * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
-   */
   get iconPosition(): HdsRichTooltipToggleIconPositions {
     const { iconPosition = DEFAULT_ICON_POSITION } = this.args;
 
@@ -74,12 +66,6 @@ export default class HdsRichTooltipToggle extends Component<HdsRichTooltipToggle
     return iconPosition;
   }
 
-  /**
-   * @param size
-   * @type {string}
-   * @default medium
-   * @description The size of the "info" text; acceptable values are `small`, `medium`, `large`
-   */
   get size(): HdsRichTooltipToggleSizes | undefined {
     let size;
 
@@ -98,10 +84,6 @@ export default class HdsRichTooltipToggle extends Component<HdsRichTooltipToggle
     return size;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-rich-tooltip__toggle'];
 
@@ -119,4 +101,42 @@ export default class HdsRichTooltipToggle extends Component<HdsRichTooltipToggle
 
     return classes.join(' ');
   }
+
+  <template>
+    {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the underlined text (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+    <button
+      class={{this.classNames}}
+      ...attributes
+      type="button"
+      aria-describedby={{@popoverId}}
+      aria-expanded={{if @isOpen "true" "false"}}
+      {{@setupPrimitiveToggle}}
+    >
+      {{~#if (has-block)~}}
+        {{yield}}
+      {{~else~}}
+        {{~#if @icon~}}
+          {{~#if (eq this.iconPosition "leading")~}}
+            <HdsIcon
+              class="hds-rich-tooltip__toggle-icon"
+              @name={{@icon}}
+              @isInline={{this.isInline}}
+            />
+          {{~/if~}}
+        {{~/if~}}
+        {{~#if @text~}}
+          <span class="hds-rich-tooltip__toggle-text">{{~@text~}}</span>
+        {{~/if~}}
+        {{~#if @icon~}}
+          {{~#if (eq this.iconPosition "trailing")~}}
+            <HdsIcon
+              class="hds-rich-tooltip__toggle-icon"
+              @name={{@icon}}
+              @isInline={{this.isInline}}
+            />
+          {{~/if~}}
+        {{~/if~}}
+      {{~/if~}}
+    </button>
+  </template>
 }
