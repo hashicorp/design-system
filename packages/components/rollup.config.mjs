@@ -17,40 +17,109 @@ const addon = new Addon({
 
 // Custom SCSS compilation plugin for Rollup
 function addScssCompilationPlugins(options) {
-  return options.map(({ inputFile, outputFile, loadPaths }) => ({
-    name: `rollup custom plugin to generate ${outputFile}`,
-    generateBundle() {
-      try {
+  return options.map(({ inputFile, outputFile, loadPaths }) => {
+    let compiledResult = null;
+    let watchedFiles = new Set();
+    let needsRecompile = true;
+
+    return {
+      name: `rollup custom plugin to generate ${outputFile}`,
+
+      buildStart() {
+        // Initial compilation to discover dependencies
         const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
-        const outputFileFullPath = `styles/@hashicorp/${outputFile}`;
+        this.addWatchFile(inputFileFullPath);
 
-        const result = sass.compile(inputFileFullPath, {
-          sourceMap: true,
-          loadPaths,
-        });
+        try {
+          const result = sass.compile(inputFileFullPath, {
+            sourceMap: true,
+            loadPaths,
+          });
 
-        // Emit the compiled CSS
-        this.emitFile({
-          type: 'asset',
-          fileName: outputFileFullPath,
-          source: result.css,
-        });
+          compiledResult = result;
 
-        // Emit the source map
-        if (result.sourceMap) {
+          // Track all dependencies
+          if (result.loadedUrls) {
+            result.loadedUrls.forEach((url) => {
+              if (url.protocol === 'file:') {
+                const filePath = url.pathname;
+                watchedFiles.add(filePath);
+                this.addWatchFile(filePath);
+              }
+            });
+          }
+
+          needsRecompile = false;
+        } catch (error) {
+          this.error(
+            `Failed to compile SCSS file "${inputFile}": ${error.message}`
+          );
+        }
+      },
+
+      watchChange(id) {
+        // Check if the changed file is one of our dependencies
+        if (watchedFiles.has(id) || id.includes(inputFile)) {
+          needsRecompile = true;
+        }
+      },
+
+      generateBundle() {
+        // Only recompile if needed (a watched file changed)
+        if (needsRecompile) {
+          try {
+            const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
+            const result = sass.compile(inputFileFullPath, {
+              sourceMap: true,
+              loadPaths,
+            });
+
+            compiledResult = result;
+
+            // Update watched files if dependencies changed
+            const newWatchedFiles = new Set();
+            if (result.loadedUrls) {
+              result.loadedUrls.forEach((url) => {
+                if (url.protocol === 'file:') {
+                  const filePath = url.pathname;
+                  newWatchedFiles.add(filePath);
+                  if (!watchedFiles.has(filePath)) {
+                    this.addWatchFile(filePath);
+                  }
+                }
+              });
+            }
+            watchedFiles = newWatchedFiles;
+            needsRecompile = false;
+          } catch (error) {
+            this.error(
+              `Failed to compile SCSS file "${inputFile}": ${error.message}`
+            );
+          }
+        }
+
+        if (compiledResult) {
+          const outputFileFullPath = `styles/@hashicorp/${outputFile}`;
+
+          // Emit the compiled CSS
           this.emitFile({
             type: 'asset',
-            fileName: `${outputFileFullPath}.map`,
-            source: JSON.stringify(result.sourceMap),
+            fileName: outputFileFullPath,
+            source: compiledResult.css,
           });
+
+          // Emit the source map
+          if (compiledResult.sourceMap) {
+            this.emitFile({
+              type: 'asset',
+              fileName: `${outputFileFullPath}.map`,
+              source: JSON.stringify(compiledResult.sourceMap),
+            });
+          }
         }
-      } catch (error) {
-        this.error(
-          `Failed to compile SCSS file "${inputFile}": ${error.message}`
-        );
-      }
-    },
-  }));
+      },
+    };
+  });
 }
 
 const plugins = [
@@ -131,12 +200,22 @@ const plugins = [
       // Copy readme and license files into published package
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
+      // // Copy Sass files for consumers to use directly
+      // { src: 'src/styles', dest: 'dist' },
+    ],
+    hook: 'writeBundle',
+    copySync: true,
+    copyOnce: true,
+    // verbose: true,
+  }),
+
+  copy({
+    targets: [
       // Copy Sass files for consumers to use directly
       { src: 'src/styles', dest: 'dist' },
     ],
     hook: 'writeBundle',
     copySync: true,
-    copyOnce: true,
     // verbose: true,
   }),
 ];
