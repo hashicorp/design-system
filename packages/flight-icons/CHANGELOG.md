@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 4.2.1
+
+### Patch Changes
+
+Fixed naming for `ping-identity` icon (there was a space after the name)
+
+<small class="doc-whats-new-changelog-metadata">[#3623](https://github.com/hashicorp/design-system/pull/3623)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.2.0
 
 ### Minor Changes
