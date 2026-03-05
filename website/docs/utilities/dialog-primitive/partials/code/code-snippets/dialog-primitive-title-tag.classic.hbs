@@ -1,0 +1,28 @@
+<div class="doc-dialog-primitive-grid-layout">
+  <div class="doc-dialog-primitive-flex-layout">
+    <Hds::Text::Display @tag="h1" @size="500">
+      Page title
+    </Hds::Text::Display>
+    <Doc::Placeholder @text="Main content" @height="100%" @width="100%" @background="#eee" />
+  </div>
+  <Hds::DialogPrimitive::Wrapper class="doc-dialog-primitive-with-border">
+    <:header>
+      <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline" @titleTag="h2">
+        Split Window
+      </Hds::DialogPrimitive::Header>
+    </:header>
+    <:body>
+      <Hds::DialogPrimitive::Body>
+        <Doc::Placeholder @text="Split Window content" @height="10rem" @width="100%" @background="#eee" />
+      </Hds::DialogPrimitive::Body>
+    </:body>
+    <:footer>
+      <Hds::DialogPrimitive::Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Primary" />
+          <Hds::Button type="button" @text="Secondary" @color="secondary" />
+        </Hds::ButtonSet>
+      </Hds::DialogPrimitive::Footer>
+    </:footer>
+  </Hds::DialogPrimitive::Wrapper>
+</div>
