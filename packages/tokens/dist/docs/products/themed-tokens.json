@@ -5568,6 +5568,41 @@
         "box-shadow"
       ]
     },
+    "token-app-footer-focus-color-action-internal": {
+      "key": "{app-footer.focus.color.action.internal}",
+      "$type": "color",
+      "$value": "var(--token-color-focus-action-internal)",
+      "$modes": {
+        "default": "var(--token-color-focus-action-internal)",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "var(--token-color-focus-action-internal)",
+        "$modes": {
+          "default": "var(--token-color-focus-action-internal)",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-footer.focus.color.action.internal}"
+      },
+      "name": "token-app-footer-focus-color-action-internal",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "focus",
+        "color",
+        "action",
+        "internal"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
@@ -20067,6 +20102,41 @@
         "focus-ring",
         "critical",
         "box-shadow"
+      ]
+    },
+    "token-app-footer-focus-color-action-internal": {
+      "key": "{app-footer.focus.color.action.internal}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "var(--token-color-focus-action-internal)",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.white.focus}",
+        "$modes": {
+          "default": "var(--token-color-focus-action-internal)",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-footer.focus.color.action.internal}"
+      },
+      "name": "token-app-footer-focus-color-action-internal",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "focus",
+        "color",
+        "action",
+        "internal"
       ]
     },
     "token-app-header-height": {
@@ -34570,6 +34640,41 @@
         "box-shadow"
       ]
     },
+    "token-app-footer-focus-color-action-internal": {
+      "key": "{app-footer.focus.color.action.internal}",
+      "$type": "color",
+      "$value": "#0f62fe",
+      "$modes": {
+        "default": "var(--token-color-focus-action-internal)",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g10.focus}",
+        "$modes": {
+          "default": "var(--token-color-focus-action-internal)",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-footer.focus.color.action.internal}"
+      },
+      "name": "token-app-footer-focus-color-action-internal",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "focus",
+        "color",
+        "action",
+        "internal"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
@@ -49071,6 +49176,41 @@
         "box-shadow"
       ]
     },
+    "token-app-footer-focus-color-action-internal": {
+      "key": "{app-footer.focus.color.action.internal}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "var(--token-color-focus-action-internal)",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g90.focus}",
+        "$modes": {
+          "default": "var(--token-color-focus-action-internal)",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-footer.focus.color.action.internal}"
+      },
+      "name": "token-app-footer-focus-color-action-internal",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "focus",
+        "color",
+        "action",
+        "internal"
+      ]
+    },
     "token-app-header-height": {
       "key": "{app-header.height}",
       "$type": "dimension",
@@ -63570,6 +63710,41 @@
         "focus-ring",
         "critical",
         "box-shadow"
+      ]
+    },
+    "token-app-footer-focus-color-action-internal": {
+      "key": "{app-footer.focus.color.action.internal}",
+      "$type": "color",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "var(--token-color-focus-action-internal)",
+        "cds-g0": "#0f62fe",
+        "cds-g10": "#0f62fe",
+        "cds-g90": "#ffffff",
+        "cds-g100": "#ffffff"
+      },
+      "original": {
+        "$type": "color",
+        "$value": "{carbon.themes.g100.focus}",
+        "$modes": {
+          "default": "var(--token-color-focus-action-internal)",
+          "cds-g0": "{carbon.themes.white.focus}",
+          "cds-g10": "{carbon.themes.g10.focus}",
+          "cds-g90": "{carbon.themes.g90.focus}",
+          "cds-g100": "{carbon.themes.g100.focus}"
+        },
+        "key": "{app-footer.focus.color.action.internal}"
+      },
+      "name": "token-app-footer-focus-color-action-internal",
+      "attributes": {
+        "category": "app-footer"
+      },
+      "path": [
+        "app-footer",
+        "focus",
+        "color",
+        "action",
+        "internal"
       ]
     },
     "token-app-header-height": {

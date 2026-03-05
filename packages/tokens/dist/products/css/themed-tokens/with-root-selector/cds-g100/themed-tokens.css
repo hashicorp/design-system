@@ -3,6 +3,7 @@
  */
 
 :root {
+  --token-app-footer-focus-color-action-internal: #ffffff;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;

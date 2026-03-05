@@ -4,6 +4,9 @@
 
 :root,
 .hds-theme-default {
+  --token-app-footer-focus-color-action-internal: var(
+    --token-color-focus-action-internal
+  );
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
   --token-badge-count-padding-horizontal-medium: 12px;
@@ -554,6 +557,7 @@
 
 @media (prefers-color-scheme: light) {
   .hds-theme-system {
+    --token-app-footer-focus-color-action-internal: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -932,6 +936,7 @@
 
 @media (prefers-color-scheme: dark) {
   .hds-theme-system {
+    --token-app-footer-focus-color-action-internal: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1309,6 +1314,7 @@
 }
 
 .hds-theme-light {
+  --token-app-footer-focus-color-action-internal: #0f62fe;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -1682,6 +1688,7 @@
 }
 
 .hds-theme-dark {
+  --token-app-footer-focus-color-action-internal: #ffffff;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
