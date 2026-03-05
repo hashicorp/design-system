@@ -11,11 +11,7 @@ When no `@href` or `@route` arguments are provided, it generates an HTML `<butto
 
 The `type=“button”` HTML attribute is applied to the element by default, but can be overwritten using the “splattributes”.
 
-```handlebars{data-execute=false}
-<Hds::Interactive>
-    your content here (will be yielded)
-</Hds::Interactive>
-```
+[[code-snippets/interactive-button execute=false]]
 
 ### With `@href` parameter for `<a>`
 
@@ -28,22 +24,13 @@ Provide an `@href` argument to generate an HTML `<a>` link element.
 
 By default, the link is considered "external", which means that the `target=“_blank”` and `rel=“noopener noreferrer”` attributes are applied to the `<a>` element. This is the most common case, as internal links are generally handled using a `@route` argument.
 
-```handlebars{data-execute=false}
-<Hds::Interactive @href="https://google.com">
-    your content here
-</Hds::Interactive>
-```
-
+[[code-snippets/interactive-href execute=false]]
 
 #### Adding `@isHrefExternal={{false}}`
 
 If the `@href` points to an internal link, or uses a different protocol (e.g., "mailto" or "ftp"), pass `@isHrefExternal={{false}}` to the component and it will omit the `target` and `rel` attributes.
 
-```handlebars{data-execute=false}
-<Hds::Interactive @href="#your-local-anchor-id" @isHrefExternal={{false}}>
-    your content here
-</Hds::Interactive>
-```
+[[code-snippets/interactive-external-false execute=false]]
 
 ### With `@route` parameter for `<LinkTo>`/`<LinkToExternal>`
 
@@ -53,18 +40,10 @@ All the standard arguments for the `<LinkTo>`/`<LinkToExternal>` components are 
 
 Provide a `@route` argument to generate a `<LinkTo>` component.
 
-```handlebars{data-execute=false}
-<Hds::Interactive @route="components">
-    your content here
-</Hds::Interactive>
-```
+[[code-snippets/interactive-route execute=false]]
 
 #### For `<LinkToExternal>`
 
 When the `@route` is external to the current engine, provide the `@isRouteExternal` parameter to generate a `<LinkToExternal>` component. Learn more about [LinkToExternal](https://ember-engines.com/docs/link-to-external).
 
-```handlebars{data-execute=false}
-<Hds::Interactive @route="components" @isRouteExternal={{true}}>
-    your content here
-</Hds::Interactive>
-```
+[[code-snippets/interactive-link-external execute=false]]
