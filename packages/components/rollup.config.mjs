@@ -17,94 +17,55 @@ const addon = new Addon({
 
 // Custom SCSS compilation plugin for Rollup
 function addScssCompilationPlugins(options) {
-  return options.map(({ inputFile, outputFile, loadPaths }) => {
-    let compiledResult = null;
-    let watchedFiles = new Set();
-    let needsRecompile = true;
+  return options.map(({ inputFile, outputFile, loadPaths }) => ({
+    name: `rollup custom plugin to generate ${outputFile}`,
 
-    const compileScss = function () {
-      const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
+    buildStart() {
+      // Ensure Rollup watch is at least aware of the entry file
+      this.addWatchFile(path.resolve(`src/styles/@hashicorp/${inputFile}`));
+    },
 
-      compiledResult = sass.compile(inputFileFullPath, {
-        sourceMap: true,
-        loadPaths,
-      });
+    generateBundle() {
+      try {
+        const inputFileFullPath = path.resolve(
+          `src/styles/@hashicorp/${inputFile}`
+        );
+        const outputFileFullPath = `styles/@hashicorp/${outputFile}`;
 
-      // Track all dependencies and add new ones to watch list
-      const newWatchedFiles = new Set();
-      if (compiledResult.loadedUrls) {
-        compiledResult.loadedUrls.forEach((url) => {
-          if (url.protocol === 'file:') {
-            const filePath = url.pathname;
-            newWatchedFiles.add(filePath);
-            if (!watchedFiles.has(filePath)) {
-              this.addWatchFile(filePath);
+        const result = sass.compile(inputFileFullPath, {
+          sourceMap: true,
+          loadPaths,
+        });
+
+        // Tell Rollup to watch all transitive Sass deps
+        if (result.loadedUrls) {
+          for (const url of result.loadedUrls) {
+            if (url.protocol === 'file:') {
+              this.addWatchFile(url.pathname);
             }
           }
+        }
+
+        this.emitFile({
+          type: 'asset',
+          fileName: outputFileFullPath,
+          source: result.css,
         });
-      }
-      watchedFiles = newWatchedFiles;
-      needsRecompile = false;
-    };
 
-    return {
-      name: `rollup custom plugin to generate ${outputFile}`,
-
-      buildStart() {
-        // Initial compilation to discover dependencies
-        const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
-        this.addWatchFile(inputFileFullPath);
-
-        try {
-          compileScss.call(this);
-        } catch (error) {
-          this.error(
-            `Failed to compile SCSS file "${inputFile}": ${error.message}`
-          );
-        }
-      },
-
-      watchChange(id) {
-        // Check if the changed file is one of our dependencies
-        if (watchedFiles.has(id) || id.includes(inputFile)) {
-          needsRecompile = true;
-        }
-      },
-
-      generateBundle() {
-        // Only recompile if needed (a watched file changed)
-        if (needsRecompile) {
-          try {
-            compileScss.call(this);
-          } catch (error) {
-            this.error(
-              `Failed to compile SCSS file "${inputFile}": ${error.message}`
-            );
-          }
-        }
-
-        if (compiledResult) {
-          const outputFileFullPath = `styles/@hashicorp/${outputFile}`;
-
-          // Emit the compiled CSS
+        if (result.sourceMap) {
           this.emitFile({
             type: 'asset',
-            fileName: outputFileFullPath,
-            source: compiledResult.css,
+            fileName: `${outputFileFullPath}.map`,
+            source: JSON.stringify(result.sourceMap),
           });
-
-          // Emit the source map
-          if (compiledResult.sourceMap) {
-            this.emitFile({
-              type: 'asset',
-              fileName: `${outputFileFullPath}.map`,
-              source: JSON.stringify(compiledResult.sourceMap),
-            });
-          }
         }
-      },
-    };
-  });
+      } catch (error) {
+        this.error(
+          `Failed to compile SCSS file "${inputFile}": ${error.message}`
+        );
+      }
+    },
+  }));
 }
 
 const plugins = [
@@ -176,22 +137,26 @@ const plugins = [
     babelHelpers: 'bundled',
   }),
 
-  // Addons are allowed to contain imports of .css files, which we want rollup
-  // to leave alone and keep in the published output.
-  addon.keepAssets(['**/*.css', '**/*.scss']),
-
   copy({
     targets: [
       // Copy readme and license files into published package
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
-      // Copy Sass files for consumers to use directly
-      { src: 'src/styles', dest: 'dist' },
     ],
     hook: 'writeBundle',
     copySync: true,
     copyOnce: true,
     // verbose: true,
+  }),
+
+  // Ensures the latest version of the sass file is always copied into the dist
+  copy({
+    targets: [
+      // Copy Sass files for consumers to use directly
+      { src: 'src/styles', dest: 'dist' },
+    ],
+    hook: 'writeBundle',
+    copySync: true,
   }),
 ];
 
