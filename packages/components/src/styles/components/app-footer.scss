@@ -123,6 +123,8 @@ $hds-app-footer-icon-text-gap: 6px;
 
 // THEMING
 
+// Note: Custom property values for each theme are defined here vs. in a JSON file as tokens so do not follow --token naming
+
 // Light
 .hds-app-footer--theme-light {
   --app-footer-foreground-color: var(--token-color-foreground-primary);
@@ -133,10 +135,10 @@ $hds-app-footer-icon-text-gap: 6px;
   --app-footer-link-hover-color: var(--token-color-foreground-primary);
   --app-footer-link-active-color: var(--token-color-foreground-strong);
   --app-footer-link-focus-color: var(--token-color-foreground-faint);
-  --app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
+  --app-footer-link-focus-outline-color: var(--token-app-footer-focus-color-action-internal);
 
   // Copyright
-  --app-footer-copyright-text-color: var(--token-color-foreground-primary);
+  --app-footer-copyright-text-color: var(--token-color-foreground-faint);
   --app-footer-copyright-icon-color: var(--token-color-hashicorp-brand);
 
   // StatusLink icon colors
