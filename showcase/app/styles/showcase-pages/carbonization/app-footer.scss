@@ -1,0 +1,25 @@
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// APP-FOOTER
+
+body.page-carbonization-components-app-footer {
+  // Add dark barkground to HDS default theme examples for AppFooter with @theme="dark"
+  .shw-carbonization-comparison-grid__item--area-default {
+    .hds-app-footer--theme-dark {
+      position: relative;
+      background: var(--token-color-palette-neutral-700);
+
+      &::after {
+        position: absolute;
+        z-index: -1;
+        display: block;
+        background: inherit;
+        content: "";
+        inset: -8px;
+      }
+    }
+  }
+}
