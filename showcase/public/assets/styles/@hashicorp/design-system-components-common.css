@@ -1594,8 +1594,8 @@
   --app-footer-foreground-color: var(--token-color-foreground-primary);
   --app-footer-border-top-color: var(--token-color-border-primary);
   --app-footer-link-default-color: var(--token-color-foreground-faint);
-  --app-footer-link-hover-color: var(--token-color-palette-neutral-600);
-  --app-footer-link-active-color: var(--token-color-palette-neutral-700);
+  --app-footer-link-hover-color: var(--token-color-foreground-primary);
+  --app-footer-link-active-color: var(--token-color-foreground-strong);
   --app-footer-link-focus-color: var(--token-color-foreground-faint);
   --app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
   --app-footer-copyright-text-color: var(--token-color-foreground-primary);
