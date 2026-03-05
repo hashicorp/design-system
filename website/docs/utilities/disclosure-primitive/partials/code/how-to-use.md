@@ -9,16 +9,7 @@ The `DisclosurePrimitive` component renders an interactive element that triggers
 
 When the content is disclosed, the container can be closed by toggling the button (`click` or `enter/return`).
 
-```handlebars
-<Hds::DisclosurePrimitive>
-  <:toggle as |t|>
-    <button type="button" {{on "click" t.onClickToggle}}>Click me</button>
-  </:toggle>
-  <:content>
-    your content here
-  </:content>
-</Hds::DisclosurePrimitive>
-```
+[[code-snippets/disclosure-primitive-basic]]
 
 ### Content positioning
 
