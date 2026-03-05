@@ -12,3 +12,6 @@
 ember-cli-update.json
 *.html
 *.scss
+
+# temporary CSS files for theming
+/public/assets/styles/@hashicorp/

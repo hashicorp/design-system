@@ -19,9 +19,17 @@ const addon = new Addon({
 function addScssCompilationPlugins(options) {
   return options.map(({ inputFile, outputFile, loadPaths }) => ({
     name: `rollup custom plugin to generate ${outputFile}`,
+
+    buildStart() {
+      // Ensure Rollup watch is at least aware of the entry file
+      this.addWatchFile(path.resolve(`src/styles/@hashicorp/${inputFile}`));
+    },
+
     generateBundle() {
       try {
-        const inputFileFullPath = `src/styles/@hashicorp/${inputFile}`;
+        const inputFileFullPath = path.resolve(
+          `src/styles/@hashicorp/${inputFile}`
+        );
         const outputFileFullPath = `styles/@hashicorp/${outputFile}`;
 
         const result = sass.compile(inputFileFullPath, {
@@ -29,14 +37,21 @@ function addScssCompilationPlugins(options) {
           loadPaths,
         });
 
-        // Emit the compiled CSS
+        // Tell Rollup to watch all transitive Sass deps
+        if (result.loadedUrls) {
+          for (const url of result.loadedUrls) {
+            if (url.protocol === 'file:') {
+              this.addWatchFile(url.pathname);
+            }
+          }
+        }
+
         this.emitFile({
           type: 'asset',
           fileName: outputFileFullPath,
           source: result.css,
         });
 
-        // Emit the source map
         if (result.sourceMap) {
           this.emitFile({
             type: 'asset',
@@ -122,22 +137,37 @@ const plugins = [
     babelHelpers: 'bundled',
   }),
 
-  // Addons are allowed to contain imports of .css files, which we want rollup
-  // to leave alone and keep in the published output.
-  addon.keepAssets(['**/*.css', '**/*.scss']),
-
   copy({
     targets: [
       // Copy readme and license files into published package
       { src: 'README.md', dest: 'dist' },
       { src: 'LICENSE.md', dest: 'dist' },
-      // Copy Sass files for consumers to use directly
-      { src: 'src/styles', dest: 'dist' },
     ],
     hook: 'writeBundle',
     copySync: true,
     copyOnce: true,
     // verbose: true,
+  }),
+
+  // Ensures the latest version of the sass file is always copied into the dist
+  copy({
+    targets: [
+      // Copy Sass files for consumers to use directly
+      { src: 'src/styles', dest: 'dist' },
+    ],
+    hook: 'writeBundle',
+    copySync: true,
+  }),
+
+  // After bundle is written, copy built CSS to Showcase app
+  copy({
+    hook: 'writeBundle',
+    targets: [
+      {
+        src: 'dist/styles/@hashicorp/*.css',
+        dest: '../../showcase/public/assets/styles/@hashicorp',
+      },
+    ],
   }),
 ];
 

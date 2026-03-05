@@ -14,6 +14,22 @@
     {{content-for "head"}}
     {{content-for "test-head"}}
 
+    <!-- these styles are pre-compiled in the `tokens` and `components` packages -->
+    <!-- IMPORTANT: if you add a new entry here, make sure to check if it's needed also in the `showcase/app/index.html` file, which is used to run the tests -->
+
+    <!-- this is the "standard" (non-themed) CSS file for the HDS components, which contains both the default HDS tokens as well as the HDS components' styles  -->
+    <link id="hds-components-stylesheet-default" rel="stylesheet" integrity=""
+      href="{{rootURL}}assets/styles/@hashicorp/design-system-components.css">
+
+    <!-- this is the "components-only" CSS file for the HDS components, which needs to be associated with a themed CSS tokens file to work  -->
+    <link id="hds-components-stylesheet-common" rel="stylesheet" integrity="" disabled="true"
+      href="{{rootURL}}assets/styles/@hashicorp/design-system-components-common.css">
+
+    <!-- these are the overriding styles for the Ember PowerSelect component -->
+    <link rel="stylesheet" integrity=""
+      href="{{rootURL}}assets/styles/@hashicorp/design-system-power-select-overrides.css">
+
+
     <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link rel="stylesheet" href="{{rootURL}}assets/showcase.css">
     <link rel="stylesheet" href="{{rootURL}}assets/test-support.css">
