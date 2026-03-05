@@ -1,0 +1,155 @@
+{
+  "link": {
+    "standalone": {
+      "padding": {
+        "vertical": {
+          "$type": "dimension",
+          "$value": "4",
+          "unit": "px",
+          "$modes": {
+            "default": "4",
+            "cds-g0": "0",
+            "cds-g10": "0",
+            "cds-g90": "0",
+            "cds-g100": "0"
+          }
+        }
+      },
+      "typography": {
+        "font-size": {
+          "small": {
+            "$type": "font-size",
+            "$value": "0.8125",
+            "unit": "rem",
+            "$modes": {
+              "default": "0.8125",
+              "cds-g0": "{carbon.typography.helperText01.font-size}",
+              "cds-g10": "{carbon.typography.helperText01.font-size}",
+              "cds-g90": "{carbon.typography.helperText01.font-size}",
+              "cds-g100": "{carbon.typography.helperText01.font-size}"
+            }
+          },
+          "medium": {
+            "$type": "font-size",
+            "$value": "0.875",
+            "unit": "rem"
+          },
+          "large": {
+            "$type": "font-size",
+            "$value": "1",
+            "unit": "rem"
+          }
+        },
+        "letter-spacing": {
+          "small": {
+            "$type": "letter-spacing",
+            "$value": 0,
+            "unit": "px",
+            "$modes": {
+              "default": 0,
+              "cds-g0": "{carbon.typography.helperText01.letter-spacing}",
+              "cds-g10": "{carbon.typography.helperText01.letter-spacing}",
+              "cds-g90": "{carbon.typography.helperText01.letter-spacing}",
+              "cds-g100": "{carbon.typography.helperText01.letter-spacing}"
+            }
+          },
+          "medium": {
+            "$type": "letter-spacing",
+            "$value": 0,
+            "unit": "px",
+            "$modes": {
+              "default": 0,
+              "cds-g0": "{carbon.typography.bodyCompact01.letter-spacing}",
+              "cds-g10": "{carbon.typography.bodyCompact01.letter-spacing}",
+              "cds-g90": "{carbon.typography.bodyCompact01.letter-spacing}",
+              "cds-g100": "{carbon.typography.bodyCompact01.letter-spacing}"
+            }
+          },
+          "large": {
+            "$type": "letter-spacing",
+            "$value": 0,
+            "unit": "px",
+            "$modes": {
+              "default": 0,
+              "cds-g0": "{carbon.typography.bodyCompact02.letter-spacing}",
+              "cds-g10": "{carbon.typography.bodyCompact02.letter-spacing}",
+              "cds-g90": "{carbon.typography.bodyCompact02.letter-spacing}",
+              "cds-g100": "{carbon.typography.bodyCompact02.letter-spacing}"
+            }
+          }
+        },
+        "line-height": {
+          "small": {
+            "$type": "number",
+            "$value": 1.231,
+            "comment": "16px ~= 1.231",
+            "$modes": {
+              "default": 1.231,
+              "cds-g0": "{carbon.typography.helperText01.line-height}",
+              "cds-g10": "{carbon.typography.helperText01.line-height}",
+              "cds-g90": "{carbon.typography.helperText01.line-height}",
+              "cds-g100": "{carbon.typography.helperText01.line-height}"
+            }
+          },
+          "medium": {
+            "$type": "number",
+            "$value": 1.143,
+            "comment": "16px ~= 1.143",
+            "$modes": {
+              "default": 1.143,
+              "cds-g0": "{carbon.typography.bodyCompact01.line-height}",
+              "cds-g10": "{carbon.typography.bodyCompact01.line-height}",
+              "cds-g90": "{carbon.typography.bodyCompact01.line-height}",
+              "cds-g100": "{carbon.typography.bodyCompact01.line-height}"
+            }
+          },
+          "large": {
+            "$type": "number",
+            "$value": 1.5,
+            "comment": "24px = 1.5",
+            "$modes": {
+              "default": 1.5,
+              "cds-g0": "{carbon.typography.bodyCompact02.line-height}",
+              "cds-g10": "{carbon.typography.bodyCompact02.line-height}",
+              "cds-g90": "{carbon.typography.bodyCompact02.line-height}",
+              "cds-g100": "{carbon.typography.bodyCompact02.line-height}"
+            }
+          }
+        }
+      },
+      "icon": {
+        "size": {
+          "small": {
+            "$type": "dimension",
+            "$value": "0.75",
+            "unit": "rem",
+            "$modes": {
+              "default": "0.75",
+              "cds-g0": "1",
+              "cds-g10": "1",
+              "cds-g90": "1",
+              "cds-g100": "1"
+            }
+          },
+          "medium": {
+            "$type": "dimension",
+            "$value": "1",
+            "unit": "rem"
+          },
+          "large": {
+            "$type": "dimension",
+            "$value": "1.5",
+            "unit": "rem",
+            "$modes": {
+              "default": "1.5",
+              "cds-g0": "1.25",
+              "cds-g10": "1.25",
+              "cds-g90": "1.25",
+              "cds-g100": "1.25"
+            }
+          }
+        }
+      }
+    }
+  }
+}

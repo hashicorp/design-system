@@ -143,7 +143,7 @@
   --token-color-focus-action-internal: #ffffff;
   --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #ffffff;
-  --token-color-foreground-action-active: #0043ce;
+  --token-color-foreground-action-active: #0f62fe;
   --token-color-foreground-action-hover: #0043ce;
   --token-color-foreground-action: #0f62fe;
   --token-color-foreground-critical-high-contrast: #750e13;
@@ -286,6 +286,17 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-link-inline-icon-margin-horizontal: 0.5em;
+  --token-link-standalone-icon-size-large: 1.25rem;
+  --token-link-standalone-icon-size-small: 1rem;
+  --token-link-standalone-padding-vertical: 0px;
+  --token-link-standalone-typography-font-size-small: 0.75rem;
+  --token-link-standalone-typography-letter-spacing-large: 0px;
+  --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+  --token-link-standalone-typography-letter-spacing-small: 0.32px;
+  --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+  --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+  --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -517,7 +528,7 @@
     --token-color-focus-action-internal: #ffffff;
     --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --token-color-focus-critical-internal: #ffffff;
-    --token-color-foreground-action-active: #0043ce;
+    --token-color-foreground-action-active: #0f62fe;
     --token-color-foreground-action-hover: #0043ce;
     --token-color-foreground-action: #0f62fe;
     --token-color-foreground-critical-high-contrast: #750e13;
@@ -660,6 +671,17 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-link-inline-icon-margin-horizontal: 0.5em;
+    --token-link-standalone-icon-size-large: 1.25rem;
+    --token-link-standalone-icon-size-small: 1rem;
+    --token-link-standalone-padding-vertical: 0px;
+    --token-link-standalone-typography-font-size-small: 0.75rem;
+    --token-link-standalone-typography-letter-spacing-large: 0px;
+    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+    --token-link-standalone-typography-letter-spacing-small: 0.32px;
+    --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+    --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+    --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -895,7 +917,7 @@
     --token-color-focus-action-internal: #161616;
     --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
     --token-color-focus-critical-internal: #161616;
-    --token-color-foreground-action-active: #a6c8ff;
+    --token-color-foreground-action-active: #78a9ff;
     --token-color-foreground-action-hover: #a6c8ff;
     --token-color-foreground-action: #78a9ff;
     --token-color-foreground-critical-high-contrast: #ffd7d9;
@@ -1038,6 +1060,17 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-link-inline-icon-margin-horizontal: 0.5em;
+    --token-link-standalone-icon-size-large: 1.25rem;
+    --token-link-standalone-icon-size-small: 1rem;
+    --token-link-standalone-padding-vertical: 0px;
+    --token-link-standalone-typography-font-size-small: 0.75rem;
+    --token-link-standalone-typography-letter-spacing-large: 0px;
+    --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+    --token-link-standalone-typography-letter-spacing-small: 0.32px;
+    --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+    --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+    --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
     --token-surface-base-box-shadow: 0 0 0 1px #52525233;
     --token-surface-high-box-shadow:
       0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1272,7 +1305,7 @@
   --token-color-focus-action-internal: #ffffff;
   --token-color-focus-critical-external: #0f62fe; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #ffffff;
-  --token-color-foreground-action-active: #0043ce;
+  --token-color-foreground-action-active: #0f62fe;
   --token-color-foreground-action-hover: #0043ce;
   --token-color-foreground-action: #0f62fe;
   --token-color-foreground-critical-high-contrast: #750e13;
@@ -1415,6 +1448,17 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-link-inline-icon-margin-horizontal: 0.5em;
+  --token-link-standalone-icon-size-large: 1.25rem;
+  --token-link-standalone-icon-size-small: 1rem;
+  --token-link-standalone-padding-vertical: 0px;
+  --token-link-standalone-typography-font-size-small: 0.75rem;
+  --token-link-standalone-typography-letter-spacing-large: 0px;
+  --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+  --token-link-standalone-typography-letter-spacing-small: 0.32px;
+  --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+  --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+  --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -1645,7 +1689,7 @@
   --token-color-focus-action-internal: #161616;
   --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #161616;
-  --token-color-foreground-action-active: #a6c8ff;
+  --token-color-foreground-action-active: #78a9ff;
   --token-color-foreground-action-hover: #a6c8ff;
   --token-color-foreground-action: #78a9ff;
   --token-color-foreground-critical-high-contrast: #ffd7d9;
@@ -1788,6 +1832,17 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-link-inline-icon-margin-horizontal: 0.5em;
+  --token-link-standalone-icon-size-large: 1.25rem;
+  --token-link-standalone-icon-size-small: 1rem;
+  --token-link-standalone-padding-vertical: 0px;
+  --token-link-standalone-typography-font-size-small: 0.75rem;
+  --token-link-standalone-typography-letter-spacing-large: 0px;
+  --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+  --token-link-standalone-typography-letter-spacing-small: 0.32px;
+  --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+  --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+  --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
   --token-surface-base-box-shadow: 0 0 0 1px #52525233;
   --token-surface-high-box-shadow:
     0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
@@ -2107,6 +2162,9 @@ we redeclare each "computed" variable in every theme scope where its "source" va
     1.15
   );
   --token-form-toggle-width: 32px;
+  --token-link-standalone-icon-size-medium: 1rem;
+  --token-link-standalone-typography-font-size-large: 1rem;
+  --token-link-standalone-typography-font-size-medium: 0.875rem;
   --token-pagination-child-spacing-horizontal: 20px;
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-nav-control-focus-inset: 4px;
