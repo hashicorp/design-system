@@ -53,6 +53,20 @@
   --token-border-radius-medium: 6px;
   --token-border-radius-small: 5px;
   --token-border-radius-x-small: 3px;
+  --token-breadcrumb-divider-color: var(--token-color-palette-neutral-300);
+  --token-breadcrumb-link-foreground-color-active: var(--token-color-foreground-primary);
+  --token-breadcrumb-link-foreground-color-default: var(--token-color-foreground-faint);
+  --token-breadcrumb-link-foreground-color-hover: var(--token-color-foreground-primary);
+  --token-breadcrumb-truncation-content-box-shadow: var(--token-surface-high-box-shadow);
+  --token-breadcrumb-truncation-content-foreground-color-default: var(--token-color-foreground-faint);
+  --token-breadcrumb-truncation-content-foreground-color-hover: var(--token-color-foreground-primary);
+  --token-breadcrumb-truncation-toggle-foreground-color-active: var(--token-color-foreground-primary);
+  --token-breadcrumb-truncation-toggle-foreground-color-default: var(--token-color-foreground-faint);
+  --token-breadcrumb-truncation-toggle-foreground-color-hover: var(--token-color-foreground-faint);
+  --token-breadcrumb-truncation-toggle-surface-color-active: var(--token-color-surface-interactive-hover);
+  --token-breadcrumb-truncation-toggle-surface-color-hover: var(--token-color-surface-interactive);
+  --token-breadcrumb-typography-letter-spacing: 0;
+  --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
   --token-button-border-color-critical-active: var(--token-color-palette-red-400);
   --token-button-border-color-critical-default: var(--token-color-foreground-critical-on-surface);
   --token-button-border-color-critical-focus-external: var(--token-color-focus-critical-external); /** TODO - replace the `magenta` values with the correct ones */

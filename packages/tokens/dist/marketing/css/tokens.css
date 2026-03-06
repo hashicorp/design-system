@@ -281,6 +281,21 @@
   --token-badge-icon-size-small: 12px;
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-large: 16px;
+  --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
+  --token-breadcrumb-typography-letter-spacing: 0;
+  --token-breadcrumb-divider-color: #c2c5cb;
+  --token-breadcrumb-link-foreground-color-default: #656a76;
+  --token-breadcrumb-link-foreground-color-hover: #3b3d45;
+  --token-breadcrumb-link-foreground-color-active: #3b3d45;
+  --token-breadcrumb-truncation-content-box-shadow: 0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
+  --token-breadcrumb-truncation-content-foreground-color-default: #656a76;
+  --token-breadcrumb-truncation-content-foreground-color-hover: #3b3d45;
+  --token-breadcrumb-truncation-toggle-foreground-color-default: #656a76;
+  --token-breadcrumb-truncation-toggle-foreground-color-hover: #656a76;
+  --token-breadcrumb-truncation-toggle-foreground-color-active: #3b3d45;
+  --token-breadcrumb-truncation-toggle-surface-color-default: rgba(0, 0, 0, 0);
+  --token-breadcrumb-truncation-toggle-surface-color-hover: #ffffff;
+  --token-breadcrumb-truncation-toggle-surface-color-active: #f1f2f3;
   --token-button-height-small: 28px;
   --token-button-height-medium: 36px;
   --token-button-height-large: 48px;
