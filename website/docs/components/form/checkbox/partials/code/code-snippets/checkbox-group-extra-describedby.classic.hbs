@@ -1,0 +1,15 @@
+<Hds::Form::Checkbox::Group @name="demo-methods" as |G|>
+  <G.Legend>Methods <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
+  <G.HelperText>All methods are applied by default unless specified. See
+    <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline>
+    for more details.</G.HelperText>
+  <G.CheckboxField checked as |F|>
+    <F.Label>POST</F.Label>
+  </G.CheckboxField>
+  <G.CheckboxField checked as |F|>
+    <F.Label>GET</F.Label>
+  </G.CheckboxField>
+  <G.CheckboxField checked as |F|>
+    <F.Label>PUT</F.Label>
+  </G.CheckboxField>
+</Hds::Form::Checkbox::Group>
