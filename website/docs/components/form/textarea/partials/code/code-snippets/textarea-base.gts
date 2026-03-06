@@ -13,7 +13,7 @@ export default class LocalComponent extends Component {
       @value="My workspace"
       aria-label="Short description"
       placeholder="Workspace description"
-      @isRequired={{true}}
+      required={{true}}
       name="demo-description"
       {{on "blur" this.yourOnBlurFunction}}
     />

@@ -7,7 +7,7 @@ export default class LocalComponent extends Component {
   @tracked minLength = 100;
 
   get fieldIsInvalid() {
-    return this.value.length && this.value.length < this.minLength;
+    return this.value.length < this.minLength;
   }
 
   @action updateValue(event) {
