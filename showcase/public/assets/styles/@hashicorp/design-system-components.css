@@ -7162,7 +7162,7 @@ button.hds-button[href]::after {
 .hds-icon-tile--size-small .hds-icon-tile__extra {
   width: 1.125rem;
   height: 1.125rem;
-  border-radius: 4px;
+  border-radius: var(--token-border-radius-small);
 }
 .hds-icon-tile--size-small .hds-icon-tile__extra-icon {
   width: 0.75rem;
@@ -7185,7 +7185,7 @@ button.hds-button[href]::after {
 .hds-icon-tile--size-medium .hds-icon-tile__extra {
   width: 1.25rem;
   height: 1.25rem;
-  border-radius: 5px;
+  border-radius: var(--token-border-radius-small);
 }
 .hds-icon-tile--size-medium .hds-icon-tile__extra-icon {
   width: 0.75rem;
@@ -7208,7 +7208,7 @@ button.hds-button[href]::after {
 .hds-icon-tile--size-large .hds-icon-tile__extra {
   width: 1.5rem;
   height: 1.5rem;
-  border-radius: 5px;
+  border-radius: var(--token-border-radius-small);
 }
 .hds-icon-tile--size-large .hds-icon-tile__extra-icon {
   width: 1rem;
