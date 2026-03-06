@@ -561,6 +561,10 @@
     --token-typography-font-weight-medium: 500;
     --token-typography-font-weight-regular: 400;
     --token-typography-font-weight-semibold: 600;
+    --token-typography-letter-spacing-compact: -0.5px;
+    --token-typography-letter-spacing-large: 0px;
+    --token-typography-letter-spacing-none: 0px;
+    --token-typography-letter-spacing-small: 0px;
   }
 }
 
@@ -942,6 +946,10 @@
     --token-typography-font-weight-medium: 400;
     --token-typography-font-weight-regular: 400;
     --token-typography-font-weight-semibold: 600;
+    --token-typography-letter-spacing-compact: 0px;
+    --token-typography-letter-spacing-large: 0.32px;
+    --token-typography-letter-spacing-none: 0px;
+    --token-typography-letter-spacing-small: 0.16px;
   }
 }
 
@@ -1323,6 +1331,10 @@
     --token-typography-font-weight-medium: 400;
     --token-typography-font-weight-regular: 400;
     --token-typography-font-weight-semibold: 600;
+    --token-typography-letter-spacing-compact: 0px;
+    --token-typography-letter-spacing-large: 0.32px;
+    --token-typography-letter-spacing-none: 0px;
+    --token-typography-letter-spacing-small: 0.16px;
   }
 }
 
@@ -1704,6 +1716,10 @@
     --token-typography-font-weight-medium: 400;
     --token-typography-font-weight-regular: 400;
     --token-typography-font-weight-semibold: 600;
+    --token-typography-letter-spacing-compact: 0px;
+    --token-typography-letter-spacing-large: 0.32px;
+    --token-typography-letter-spacing-none: 0px;
+    --token-typography-letter-spacing-small: 0.16px;
   }
 }
 
@@ -2085,6 +2101,10 @@
     --token-typography-font-weight-medium: 400;
     --token-typography-font-weight-regular: 400;
     --token-typography-font-weight-semibold: 600;
+    --token-typography-letter-spacing-compact: 0px;
+    --token-typography-letter-spacing-large: 0.32px;
+    --token-typography-letter-spacing-none: 0px;
+    --token-typography-letter-spacing-small: 0.16px;
   }
 }
 
@@ -2466,6 +2486,10 @@
     --token-typography-font-weight-medium: 400;
     --token-typography-font-weight-regular: 400;
     --token-typography-font-weight-semibold: 600;
+    --token-typography-letter-spacing-compact: 0px;
+    --token-typography-letter-spacing-large: 0.32px;
+    --token-typography-letter-spacing-none: 0px;
+    --token-typography-letter-spacing-small: 0.16px;
   }
 }
 
@@ -2847,6 +2871,10 @@
     --token-typography-font-weight-medium: 400;
     --token-typography-font-weight-regular: 400;
     --token-typography-font-weight-semibold: 600;
+    --token-typography-letter-spacing-compact: 0px;
+    --token-typography-letter-spacing-large: 0.32px;
+    --token-typography-letter-spacing-none: 0px;
+    --token-typography-letter-spacing-small: 0.16px;
   }
 }
 

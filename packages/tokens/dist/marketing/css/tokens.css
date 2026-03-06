@@ -467,6 +467,10 @@
   --token-typography-font-weight-medium: 500;
   --token-typography-font-weight-semibold: 600;
   --token-typography-font-weight-bold: 700;
+  --token-typography-letter-spacing-none: 0px;
+  --token-typography-letter-spacing-compact: -0.5px;
+  --token-typography-letter-spacing-small: 0px;
+  --token-typography-letter-spacing-large: 0px;
   --token-typography-display-500-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   --token-typography-display-500-font-size: 1.875rem; /** 30px/1.875rem */
   --token-typography-display-500-line-height: 1.2666; /** 38px */

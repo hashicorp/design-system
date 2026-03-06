@@ -47,6 +47,18 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
         });
       }
 
+    } else if (key === 'letter-spacing') {
+
+      const letterSpacingTokens = tokens[key];
+
+      if (letterSpacingTokens) {
+        Object.keys(letterSpacingTokens).forEach(spacing => {
+          const selector = `.${PREFIX}-letter-spacing-${spacing}`;
+          const valueLetterSpacing = outputCssVars ? `var(--token-typography-letter-spacing-${spacing})` : letterSpacingTokens[spacing].$value;
+          helpers.push(`${selector} { letter-spacing: ${valueLetterSpacing}; }`);
+        });
+      }
+
     } else {
 
       let stylename = key;

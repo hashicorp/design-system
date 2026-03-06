@@ -201,6 +201,56 @@
         }
       }
     },
+    "letter-spacing": {
+      "none": {
+        "$type": "letter-spacing",
+        "$value": 0,
+        "unit": "px",
+        "$modes": {
+          "default": 0,
+          "cds-g0": 0,
+          "cds-g10": 0,
+          "cds-g90": 0,
+          "cds-g100": 0
+        }
+      },
+      "compact": {
+        "$type": "letter-spacing",
+        "$value": -0.5,
+        "unit": "px",
+        "$modes": {
+          "default": -0.5,
+          "cds-g0": "{carbon.typography.heading05.letter-spacing}",
+          "cds-g10": "{carbon.typography.heading05.letter-spacing}",
+          "cds-g90": "{carbon.typography.heading05.letter-spacing}",
+          "cds-g100": "{carbon.typography.heading05.letter-spacing}"
+        }
+      },
+      "small": {
+        "$type": "letter-spacing",
+        "$value": 0,
+        "unit": "px",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.body01.letter-spacing}",
+          "cds-g10": "{carbon.typography.body01.letter-spacing}",
+          "cds-g90": "{carbon.typography.body01.letter-spacing}",
+          "cds-g100": "{carbon.typography.body01.letter-spacing}"
+        }
+      },
+      "large": {
+        "$type": "letter-spacing",
+        "$value": 0,
+        "unit": "px",
+        "$modes": {
+          "default": 0,
+          "cds-g0": "{carbon.typography.label01.letter-spacing}",
+          "cds-g10": "{carbon.typography.label01.letter-spacing}",
+          "cds-g90": "{carbon.typography.label01.letter-spacing}",
+          "cds-g100": "{carbon.typography.label01.letter-spacing}"
+        }
+      }
+    },
     "display-500": {
       "font-family": {
         "$type": "font-family",

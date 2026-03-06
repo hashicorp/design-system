@@ -271,6 +271,22 @@
   font-weight: var(--token-typography-font-weight-bold);
 }
 
+.hds-letter-spacing-none {
+  letter-spacing: var(--token-typography-letter-spacing-none);
+}
+
+.hds-letter-spacing-compact {
+  letter-spacing: var(--token-typography-letter-spacing-compact);
+}
+
+.hds-letter-spacing-small {
+  letter-spacing: var(--token-typography-letter-spacing-small);
+}
+
+.hds-letter-spacing-large {
+  letter-spacing: var(--token-typography-letter-spacing-large);
+}
+
 .hds-typography-display-500 {
   font-family: var(--token-typography-display-500-font-family);
   font-size: var(--token-typography-display-500-font-size);
