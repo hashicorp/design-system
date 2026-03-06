@@ -201,6 +201,7 @@
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
   --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+  --token-app-footer-focus-color-action-internal: var(--token-color-focus-action-internal);
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
@@ -2101,11 +2102,11 @@
   --app-footer-foreground-color: var(--token-color-foreground-primary);
   --app-footer-border-top-color: var(--token-color-border-primary);
   --app-footer-link-default-color: var(--token-color-foreground-faint);
-  --app-footer-link-hover-color: var(--token-color-palette-neutral-600);
-  --app-footer-link-active-color: var(--token-color-palette-neutral-700);
+  --app-footer-link-hover-color: var(--token-color-foreground-primary);
+  --app-footer-link-active-color: var(--token-color-foreground-strong);
   --app-footer-link-focus-color: var(--token-color-foreground-faint);
-  --app-footer-link-focus-outline-color: var(--token-color-focus-action-internal);
-  --app-footer-copyright-text-color: var(--token-color-foreground-primary);
+  --app-footer-link-focus-outline-color: var(--token-app-footer-focus-color-action-internal);
+  --app-footer-copyright-text-color: var(--token-color-foreground-faint);
   --app-footer-copyright-icon-color: var(--token-color-hashicorp-brand);
   --app-footer-status-link-icon-operational-color: var(--token-color-foreground-success);
   --app-footer-status-link-icon-degraded-color: var(--token-color-foreground-warning);

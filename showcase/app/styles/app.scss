@@ -88,9 +88,13 @@
 
 // carbonization
 
+// components
 @use "./showcase-components/carbonization/comparison-grid";
 @use "./showcase-components/carbonization/style-preview-typography";
 @use "./showcase-components/carbonization/token-preview-color";
+
+// pages
+@use "./showcase-pages/carbonization/app-footer" as carbonization-app-footer;
 @use "./showcase-pages/carbonization/focus-ring" as carbonization-focus-ring;
 @use "./showcase-pages/carbonization/badge" as carbonization-badge;
 @use "./showcase-pages/carbonization/form/radio-card" as carbonization-form-radio-card;

@@ -170,6 +170,7 @@ Router.map(function () {
       this.route('focus-ring');
     });
     this.route('components', function () {
+      this.route('app-footer');
       this.route('badge');
       this.route('badge-count');
       this.route('button');
