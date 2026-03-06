@@ -428,6 +428,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.card">
+            Card
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.form.text-input">
             Form::TextInput
           </LinkTo>

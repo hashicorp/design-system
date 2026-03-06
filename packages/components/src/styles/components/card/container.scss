@@ -9,12 +9,12 @@
 
 $hds-card-container-style: ("surface", "elevation");
 $hds-card-container-levels: ("base", "mid", "high");
-$hds-card-container-border-radius: var(--token-border-radius-medium);
 
 .hds-card__container {
   position: relative;
-  background-color: #fff;
-  border-radius: $hds-card-container-border-radius;
+  padding: var(--token-card-padding);
+  background-color: var(--token-card-surface-color-primary);
+  border-radius: var(--token-border-radius-medium);
 }
 
 // LEVEL (elevation style as "drop" + "border" shadow effects)
@@ -47,11 +47,11 @@ $hds-card-container-border-radius: var(--token-border-radius-medium);
 // BACKGROUND
 
 .hds-card__container--background-neutral-primary {
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-card-surface-color-primary);
 }
 
 .hds-card__container--background-neutral-secondary {
-  background-color: var(--token-color-surface-faint);
+  background-color: var(--token-card-surface-color-secondary);
 }
 
 // OVERFLOW
