@@ -1,0 +1,7 @@
+<Hds::Form::Textarea::Field @value={{this.value}} name="demo-description" {{on "input" this.updateValue}} as |F|>
+  <F.Label>Short description</F.Label>
+  <F.CharacterCount @maxLength={{200}} as |CC|>
+    {{CC.remaining}}
+    characters remaining
+  </F.CharacterCount>
+</Hds::Form::Textarea::Field>
