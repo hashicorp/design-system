@@ -1,5 +1,22 @@
 {
   "pagination": {
+    "bar": {
+      "surface": {
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.surface.primary}",
+            "$modes": {
+              "default": "{color.surface.primary}",
+              "cds-g0": "{carbon.themes.white.layer01}",
+              "cds-g10": "{carbon.themes.g10.layer01}",
+              "cds-g90": "{carbon.themes.g90.layer01}",
+              "cds-g100": "{carbon.themes.g100.layer01}"
+            }
+          }
+        }
+      }
+    },
     "nav": {
       "control": {
         "height": {
@@ -18,6 +35,43 @@
           "$type": "dimension",
           "$value": "4",
           "unit": "px"
+        },
+        "foreground": {
+          "color": {
+            "action": {
+              "$type": "color",
+              "$value": "{color.foreground.action}",
+              "$modes": {
+                "default": "{color.foreground.action}",
+                "cds-g0": "{carbon.themes.white.textPrimary}",
+                "cds-g10": "{carbon.themes.g10.textPrimary}",
+                "cds-g90": "{carbon.themes.g90.textPrimary}",
+                "cds-g100": "{carbon.themes.g100.textPrimary}"
+              }
+            },
+            "action-hover": {
+              "$type": "color",
+              "$value": "{color.foreground.action-hover}",
+              "$modes": {
+                "default": "{color.foreground.action-hover}",
+                "cds-g0": "{carbon.themes.white.textPrimary}",
+                "cds-g10": "{carbon.themes.g10.textPrimary}",
+                "cds-g90": "{carbon.themes.g90.textPrimary}",
+                "cds-g100": "{carbon.themes.g100.textPrimary}"
+              }
+            },
+            "action-active": {
+              "$type": "color",
+              "$value": "{color.foreground.action-active}",
+              "$modes": {
+                "default": "{color.foreground.action-active}",
+                "cds-g0": "{carbon.themes.white.textPrimary}",
+                "cds-g10": "{carbon.themes.g10.textPrimary}",
+                "cds-g90": "{carbon.themes.g90.textPrimary}",
+                "cds-g100": "{carbon.themes.g100.textPrimary}"
+              }
+            }
+          }
         },
         "icon-spacing": {
           "$type": "dimension",
