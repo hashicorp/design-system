@@ -1,0 +1,13 @@
+<Hds::Form::Textarea::Field
+  @value={{this.value}}
+  @isInvalid={{this.fieldIsInvalid}}
+  name="demo-description"
+  {{on "input" this.updateValue}}
+  as |F|
+>
+  <F.Label>Short description</F.Label>
+  <F.CharacterCount @minLength={{this.minLength}} />
+  {{#if this.fieldIsInvalid}}
+    <F.Error>Length should be at least 100 characters</F.Error>
+  {{/if}}
+</Hds::Form::Textarea::Field>
