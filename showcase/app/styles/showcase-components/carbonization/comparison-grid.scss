@@ -2,11 +2,14 @@
 @use '@carbon/themes/scss/themes' as cdsThemes;
 
 .shw-carbonization-comparison-grid {
+  display: grid;
+
   & + & {
     margin-top: 2rem;
   }
+}
 
-  display: grid;
+.shw-carbonization-comparison-grid--row {
   grid-template-areas:
     "hds cds-g0 cds-g10 cds-g90 cds-g100"
     "--- cwc-g0 cwc-g10 cwc-g90 cwc-g100";
@@ -14,6 +17,21 @@
   grid-template-columns: repeat(5, 1fr);
   row-gap: 12px;
   column-gap: 8px;
+}
+
+.shw-carbonization-comparison-grid--column {
+  grid-template-areas:
+    "hds"
+    "cds-g0"
+    "cwc-g0"
+    "cds-g10"
+    "cwc-g10"
+    "cds-g90"
+    "cwc-g90"
+    "cds-g100"
+    "cwc-g100";
+  grid-template-columns: 1fr;
+  row-gap: 12px;
 }
 
 .shw-carbonization-comparison-grid--side-by-side {

@@ -1,4 +1,4 @@
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
 import { helper } from '@ember/component/helper';
 import { hash } from '@ember/helper';
@@ -12,6 +12,7 @@ export interface ShwCarbonizationComparisonGridSignature {
     hideThemeLabels?: boolean;
     hideCarbonLabels?: boolean;
     sideBySide?: boolean;
+    layout?: 'row' | 'column' | 'side-by-side';
   };
   Blocks: {
     label: [];
@@ -35,7 +36,20 @@ const carbonLabel = helper(([hdsLabel]: [string]) => {
   return hdsLabel.replace(/^cds-/, 'carbon/').replace(/g0$/, 'white');
 });
 
-const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComparisonGridSignature> =
+export default class ShwCarbonizationComparisonGrid extends Component<ShwCarbonizationComparisonGridSignature> {
+  get layout(): string {
+    return this.args.layout ?? 'row';
+  }
+
+  get classNames(): string {
+    const classes = ['shw-carbonization-comparison-grid'];
+
+    // add a class based on `this.layout`
+    classes.push(`shw-carbonization-comparison-grid--${this.layout}`);
+
+    return classes.join(' ');
+  }
+
   <template>
     {{#if @label}}
       <ShwLabel
@@ -47,11 +61,7 @@ const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComp
           to="label"
         }}</ShwLabel>
     {{/if}}
-    <div
-      class="shw-carbonization-comparison-grid
-        {{if @sideBySide 'shw-carbonization-comparison-grid--side-by-side'}}"
-      ...attributes
-    >
+    <div class={{this.classNames}} ...attributes>
       {{#if (has-block "theming")}}
         {{#each CONTEXTS as |context|}}
           <ShwCarbonizationComparisonGridItem
@@ -77,6 +87,5 @@ const ShwCarbonizationComparisonGrid: TemplateOnlyComponent<ShwCarbonizationComp
         {{/each}}
       {{/if}}
     </div>
-  </template>;
-
-export default ShwCarbonizationComparisonGrid;
+  </template>
+}
