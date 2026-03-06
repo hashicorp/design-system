@@ -150,7 +150,7 @@
   --token-color-vagrant-gradient-faint-start: #f4faff; /** this is the 'vagrant-50' value at 25% opacity on white */
   --token-color-vagrant-gradient-faint-stop: #d6ebff;
   --token-color-vault-radar-brand: #ffcf25;
-  --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work */
+  --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-radar-foreground: #9a6f00;
   --token-color-vault-radar-surface: #fff9cf;
   --token-color-vault-radar-border: #feec7b;
