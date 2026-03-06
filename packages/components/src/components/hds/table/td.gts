@@ -23,13 +23,8 @@ export interface HdsTableTdSignature {
   };
   Element: HTMLTableCellElement;
 }
+
 export default class HdsTableTd extends Component<HdsTableTdSignature> {
-  /**
-   * @param align
-   * @type {string}
-   * @default left
-   * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
-   */
   get align(): HdsTableHorizontalAlignment {
     const { align = DEFAULT_ALIGN } = this.args;
 
@@ -42,11 +37,6 @@ export default class HdsTableTd extends Component<HdsTableTdSignature> {
     return align;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = [
       'hds-table__td',
@@ -61,4 +51,10 @@ export default class HdsTableTd extends Component<HdsTableTdSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <td class={{this.classNames}} ...attributes>
+      {{yield}}
+    </td>
+  </template>
 }

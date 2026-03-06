@@ -6,9 +6,13 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
+import { or } from 'ember-truth-helpers';
+import style from 'ember-style-modifier';
+
+import { HdsTableHorizontalAlignmentValues } from './types.ts';
+import HdsTableThButtonTooltip from './th-button-tooltip.gts';
 
 import type { HdsTableHorizontalAlignment, HdsTableScope } from './types.ts';
-import { HdsTableHorizontalAlignmentValues } from './types.ts';
 
 export const ALIGNMENTS: HdsTableHorizontalAlignment[] = Object.values(
   HdsTableHorizontalAlignmentValues
@@ -30,19 +34,8 @@ export interface HdsTableThSignature {
 }
 
 export default class HdsTableTh extends Component<HdsTableThSignature> {
-  /**
-   * Generates a unique ID for the <span> element ("label")
-   *
-   * @param _labelId
-   */
   private _labelId = guidFor(this);
 
-  /**
-   * @param align
-   * @type {HdsTableHorizontalAlignment}
-   * @default left
-   * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
-   */
   get align(): HdsTableHorizontalAlignment {
     const { align = DEFAULT_ALIGN } = this.args;
 
@@ -55,11 +48,6 @@ export default class HdsTableTh extends Component<HdsTableThSignature> {
     return align;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-table__th'];
 
@@ -70,4 +58,34 @@ export default class HdsTableTh extends Component<HdsTableThSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <th
+      class={{this.classNames}}
+      {{style width=@width minWidth=@width}}
+      ...attributes
+      scope={{(or @scope "col")}}
+    >
+      {{#if @isVisuallyHidden}}
+        <span class="sr-only">{{yield}}</span>
+      {{else}}
+        {{#if @tooltip}}
+          <div class="hds-table__th-content">
+            <span
+              id={{this._labelId}}
+              class="hds-typography-body-200 hds-font-weight-semibold"
+            >{{yield}}</span>
+            <HdsTableThButtonTooltip
+              @tooltip={{@tooltip}}
+              @labelId={{this._labelId}}
+            />
+          </div>
+        {{else}}
+          <span
+            class="hds-typography-body-200 hds-font-weight-semibold"
+          >{{yield}}</span>
+        {{/if}}
+      {{/if}}
+    </th>
+  </template>
 }
