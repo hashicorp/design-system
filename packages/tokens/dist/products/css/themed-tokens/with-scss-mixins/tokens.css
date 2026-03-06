@@ -444,6 +444,12 @@
     --token-color-waypoint-gradient-primary-start: #cbf1f3;
     --token-color-waypoint-gradient-primary-stop: #62d4dc;
     --token-color-waypoint-surface: #e0fcff;
+    --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
+    --token-dialog-primitive-padding-horizontal: 24px;
+    --token-dialog-primitive-padding-vertical: 16px;
+    --token-dialog-primitive-title-font-weight: var(
+      --token-typography-font-weight-semibold
+    );
     --token-dismiss-button-foreground-color-active: var(
       --token-color-foreground-strong
     );
@@ -836,6 +842,10 @@
     --token-color-waypoint-gradient-primary-start: #cbf1f3;
     --token-color-waypoint-gradient-primary-stop: #62d4dc;
     --token-color-waypoint-surface: #e0fcff;
+    --token-dialog-primitive-border-color: 1.25;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
+    --token-dialog-primitive-title-font-weight: 400;
     --token-dismiss-button-foreground-color-active: #161616;
     --token-dismiss-button-foreground-color-default: #161616;
     --token-dismiss-button-padding: 16px;
@@ -1219,6 +1229,10 @@
     --token-color-waypoint-gradient-primary-start: #008196;
     --token-color-waypoint-gradient-primary-stop: #22a4ac;
     --token-color-waypoint-surface: #007487;
+    --token-dialog-primitive-border-color: #525252;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
+    --token-dialog-primitive-title-font-weight: 400;
     --token-dismiss-button-foreground-color-active: #f4f4f4;
     --token-dismiss-button-foreground-color-default: #f4f4f4;
     --token-dismiss-button-padding: 16px;
@@ -1602,6 +1616,10 @@
     --token-color-waypoint-gradient-primary-start: #cbf1f3;
     --token-color-waypoint-gradient-primary-stop: #62d4dc;
     --token-color-waypoint-surface: #e0fcff;
+    --token-dialog-primitive-border-color: 1.25;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
+    --token-dialog-primitive-title-font-weight: 400;
     --token-dismiss-button-foreground-color-active: #161616;
     --token-dismiss-button-foreground-color-default: #161616;
     --token-dismiss-button-padding: 16px;
@@ -1985,6 +2003,10 @@
     --token-color-waypoint-gradient-primary-start: #cbf1f3;
     --token-color-waypoint-gradient-primary-stop: #62d4dc;
     --token-color-waypoint-surface: #e0fcff;
+    --token-dialog-primitive-border-color: #e0e0e0;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
+    --token-dialog-primitive-title-font-weight: 400;
     --token-dismiss-button-foreground-color-active: #161616;
     --token-dismiss-button-foreground-color-default: #161616;
     --token-dismiss-button-padding: 16px;
@@ -2368,6 +2390,10 @@
     --token-color-waypoint-gradient-primary-start: #008196;
     --token-color-waypoint-gradient-primary-stop: #22a4ac;
     --token-color-waypoint-surface: #007487;
+    --token-dialog-primitive-border-color: #6f6f6f;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
+    --token-dialog-primitive-title-font-weight: 400;
     --token-dismiss-button-foreground-color-active: #f4f4f4;
     --token-dismiss-button-foreground-color-default: #f4f4f4;
     --token-dismiss-button-padding: 16px;
@@ -2751,6 +2777,10 @@
     --token-color-waypoint-gradient-primary-start: #008196;
     --token-color-waypoint-gradient-primary-stop: #22a4ac;
     --token-color-waypoint-surface: #007487;
+    --token-dialog-primitive-border-color: #525252;
+    --token-dialog-primitive-padding-horizontal: 16px;
+    --token-dialog-primitive-padding-vertical: 16px;
+    --token-dialog-primitive-title-font-weight: 400;
     --token-dismiss-button-foreground-color-active: #f4f4f4;
     --token-dismiss-button-foreground-color-default: #f4f4f4;
     --token-dismiss-button-padding: 16px;

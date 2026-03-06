@@ -267,6 +267,10 @@
   --token-color-waypoint-gradient-primary-start: #cbf1f3;
   --token-color-waypoint-gradient-primary-stop: #62d4dc;
   --token-color-waypoint-surface: #e0fcff;
+  --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
+  --token-dialog-primitive-padding-horizontal: 24px;
+  --token-dialog-primitive-padding-vertical: 16px;
+  --token-dialog-primitive-title-font-weight: var(--token-typography-font-weight-semibold);
   --token-dismiss-button-foreground-color-active: var(--token-color-foreground-strong);
   --token-dismiss-button-foreground-color-default: var(--token-color-foreground-faint);
   --token-dismiss-button-padding: 0px;

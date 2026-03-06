@@ -362,12 +362,15 @@
   --token-button-icon-size-small: 12px;
   --token-button-icon-size-medium: 16px;
   --token-button-icon-size-large: 24px;
+  --token-dialog-primitive-padding-horizontal: 24px;
+  --token-dialog-primitive-padding-vertical: 16px;
+  --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
+  --token-dialog-primitive-title-font-weight: 600;
   --token-dismiss-button-padding: 0px;
   --token-dismiss-button-foreground-color-default: #656a76;
   --token-dismiss-button-foreground-color-active: #0c0c0e;
-  --token-dismiss-button-surface-color-hover: rgba(#dedfe3, 0.4);
-  --token-dismiss-button-surface-color-active: rgba(#dedfe3, 0.4);
-  --token-dismiss-button-border-radius: 5px;
+  --token-dismiss-button-surface-color-hover: rgba(222, 223, 227, 0.4);
+  --token-dismiss-button-surface-color-active: rgba(222, 223, 227, 0.4);
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;
@@ -4475,6 +4478,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 :where(.hds-dialog-primitive__wrapper) {
   position: initial;
   inset: initial;
@@ -4485,7 +4492,7 @@ button.hds-button[href]::after {
   margin: 0;
   padding: 0;
   background: var(--token-color-surface-primary);
-  border: none;
+  border: 1px solid var(--token-dialog-primitive-border-color);
 }
 
 .hds-dialog-primitive__wrapper-header {
@@ -4495,6 +4502,13 @@ button.hds-button[href]::after {
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
+.hds-mode-cds-g0 .hds-dialog-primitive__wrapper-header,
+.hds-mode-cds-g10 .hds-dialog-primitive__wrapper-header,
+.hds-mode-cds-g90 .hds-dialog-primitive__wrapper-header,
+.hds-mode-cds-g100 .hds-dialog-primitive__wrapper-header {
+  border-bottom-color: transparent;
+}
+
 .hds-dialog-primitive__wrapper-header:not(:has(> *)) {
   display: none;
 }
@@ -4512,6 +4526,13 @@ button.hds-button[href]::after {
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
+.hds-mode-cds-g0 .hds-dialog-primitive__wrapper-footer,
+.hds-mode-cds-g10 .hds-dialog-primitive__wrapper-footer,
+.hds-mode-cds-g90 .hds-dialog-primitive__wrapper-footer,
+.hds-mode-cds-g100 .hds-dialog-primitive__wrapper-footer {
+  border-top-color: transparent;
+}
+
 .hds-dialog-primitive__wrapper-footer:not(:has(> *)) {
   display: none;
 }
@@ -4520,10 +4541,16 @@ button.hds-button[href]::after {
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  padding: 16px 24px;
+  padding: var(--token-dialog-primitive-padding-vertical) var(--token-dialog-primitive-padding-horizontal);
   color: var(--token-color-foreground-strong);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+}
+.hds-mode-cds-g0 .hds-dialog-primitive__header,
+.hds-mode-cds-g10 .hds-dialog-primitive__header,
+.hds-mode-cds-g90 .hds-dialog-primitive__header,
+.hds-mode-cds-g100 .hds-dialog-primitive__header {
+  position: relative;
 }
 
 .hds-dialog-primitive__icon {
@@ -4534,6 +4561,10 @@ button.hds-button[href]::after {
 .hds-dialog-primitive__title {
   flex-grow: 1;
   margin: 0;
+  font-weight: var(--token-dialog-primitive-title-font-weight);
+  font-size: var(--token-typography-display-300-font-size);
+  font-family: var(--token-typography-display-300-font-family);
+  line-height: var(--token-typography-display-300-line-height);
 }
 
 .hds-dialog-primitive__tagline {
@@ -4544,17 +4575,25 @@ button.hds-button[href]::after {
 .hds-dialog-primitive__dismiss {
   align-self: flex-start;
 }
+.hds-mode-cds-g0 .hds-dialog-primitive__dismiss,
+.hds-mode-cds-g10 .hds-dialog-primitive__dismiss,
+.hds-mode-cds-g90 .hds-dialog-primitive__dismiss,
+.hds-mode-cds-g100 .hds-dialog-primitive__dismiss {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
 .hds-dialog-primitive__description {
-  padding: 0 24px 16px;
+  padding: 0 var(--token-dialog-primitive-padding-horizontal) var(--token-dialog-primitive-padding-vertical);
 }
 
 .hds-dialog-primitive__body {
-  padding: 24px;
+  padding: var(--token-dialog-primitive-padding-horizontal);
 }
 
 .hds-dialog-primitive__footer {
-  padding: 16px 24px;
+  padding: var(--token-dialog-primitive-padding-vertical) var(--token-dialog-primitive-padding-horizontal);
   background: var(--token-color-surface-faint);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
@@ -5610,6 +5649,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-flyout {
   position: fixed;
   z-index: 49;
@@ -5620,6 +5663,13 @@ button.hds-button[href]::after {
   border: none;
   box-shadow: 0 2px 3px 0 rgba(59, 61, 69, 0.2509803922), 0 12px 24px 0 rgba(59, 61, 69, 0.3490196078);
 }
+.hds-mode-cds-g0 .hds-flyout,
+.hds-mode-cds-g10 .hds-flyout,
+.hds-mode-cds-g90 .hds-flyout,
+.hds-mode-cds-g100 .hds-flyout {
+  box-shadow: none;
+}
+
 .hds-flyout:not([open]) {
   display: none;
 }
@@ -7883,6 +7933,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-modal {
   position: fixed;
   z-index: 50;
@@ -7893,6 +7947,13 @@ button.hds-button[href]::after {
   border-radius: var(--token-border-radius-large);
   box-shadow: var(--token-surface-overlay-box-shadow);
 }
+.hds-mode-cds-g0 .hds-modal,
+.hds-mode-cds-g10 .hds-modal,
+.hds-mode-cds-g90 .hds-modal,
+.hds-mode-cds-g100 .hds-modal {
+  box-shadow: none;
+}
+
 .hds-modal:not([open]) {
   display: none;
 }
@@ -7914,8 +7975,15 @@ button.hds-button[href]::after {
 
 .hds-modal--color-warning .hds-dialog-primitive__wrapper-header {
   background: var(--token-color-surface-warning);
-  border-bottom: 1px solid var(--token-color-border-warning);
+  border-bottom-color: var(--token-color-border-warning);
 }
+.hds-mode-cds-g0 .hds-modal--color-warning .hds-dialog-primitive__wrapper-header,
+.hds-mode-cds-g10 .hds-modal--color-warning .hds-dialog-primitive__wrapper-header,
+.hds-mode-cds-g90 .hds-modal--color-warning .hds-dialog-primitive__wrapper-header,
+.hds-mode-cds-g100 .hds-modal--color-warning .hds-dialog-primitive__wrapper-header {
+  border-bottom-color: transparent;
+}
+
 .hds-modal--color-warning .hds-dialog-primitive__header,
 .hds-modal--color-warning .hds-dialog-primitive__tagline {
   color: var(--token-color-foreground-warning-on-surface);
@@ -7923,8 +7991,15 @@ button.hds-button[href]::after {
 
 .hds-modal--color-critical .hds-dialog-primitive__wrapper-header {
   background: var(--token-color-surface-critical);
-  border-bottom: 1px solid var(--token-color-border-critical);
+  border-bottom-color: var(--token-color-border-critical);
 }
+.hds-mode-cds-g0 .hds-modal--color-critical .hds-dialog-primitive__wrapper-header,
+.hds-mode-cds-g10 .hds-modal--color-critical .hds-dialog-primitive__wrapper-header,
+.hds-mode-cds-g90 .hds-modal--color-critical .hds-dialog-primitive__wrapper-header,
+.hds-mode-cds-g100 .hds-modal--color-critical .hds-dialog-primitive__wrapper-header {
+  border-bottom-color: transparent;
+}
+
 .hds-modal--color-critical .hds-dialog-primitive__header,
 .hds-modal--color-critical .hds-dialog-primitive__tagline {
   color: var(--token-color-foreground-critical-on-surface);
