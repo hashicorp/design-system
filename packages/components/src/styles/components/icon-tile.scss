@@ -70,7 +70,7 @@ $hds-icon-tile-size-props: (
     "logo-size": 1.125rem,
     // 18px = 1.125rem
     "extra-size": 1.125rem,
-    "extra-border-radius": 4px,
+    "extra-border-radius": var(--token-border-radius-small),
     "extra-icon-size": 0.75rem,
   ),
   "medium": (
@@ -83,7 +83,7 @@ $hds-icon-tile-size-props: (
     "logo-size": 1.75rem,
     // 20px = 1.25rem
     "extra-size": 1.25rem,
-    "extra-border-radius": 5px,
+    "extra-border-radius": var(--token-border-radius-small),
     // 12px = .75rem
     "extra-icon-size": 0.75rem,
   ),
@@ -97,7 +97,7 @@ $hds-icon-tile-size-props: (
     "logo-size": 2rem,
     // 24px = 1.5rem
     "extra-size": 1.5rem,
-    "extra-border-radius": 5px,
+    "extra-border-radius": var(--token-border-radius-small),
     "extra-icon-size": 1rem,
   ),
 );
