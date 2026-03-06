@@ -85,6 +85,10 @@
   color: var(--token-color-foreground-strong); // default color (applied to both the title and the icon)
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+
+  @include hds-apply-only-if-carbon() {
+    position: relative;
+  }
 }
 
 .hds-dialog-primitive__icon {
@@ -112,6 +116,12 @@
   align-self: flex-start;
   // for visual alignment
   margin: -4px;
+
+  @include hds-apply-only-if-carbon() {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
 
 // DESCRIPTION
