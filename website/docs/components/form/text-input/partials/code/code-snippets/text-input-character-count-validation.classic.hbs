@@ -1,0 +1,13 @@
+<Hds::Form::TextInput::Field
+  @value={{this.value}}
+  @isInvalid={{this.fieldIsInvalid}}
+  {{on "input" this.updateValue}}
+  name="demo-cluster-name"
+  as |F|
+>
+  <F.Label>Cluster name</F.Label>
+  <F.CharacterCount @minLength={{this.minLength}} />
+  {{#if this.fieldIsInvalid}}
+    <F.Error>Length should be at least 30 characters</F.Error>
+  {{/if}}
+</Hds::Form::TextInput::Field>
