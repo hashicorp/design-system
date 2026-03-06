@@ -40,7 +40,7 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
     {{#each COLORS as |color|}}
       <ShwCarbonizationComparisonGrid
         @label={{capitalize color}}
-        @sideBySide={{true}}
+        @layout="side-by-side"
       >
         <:theming>
           <HdsModal
@@ -105,7 +105,7 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Header</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @label="With icon" @sideBySide={{true}}>
+    <ShwCarbonizationComparisonGrid @label="With icon" @layout="side-by-side">
       <:theming>
         <HdsModal open id="modal-example-icon" @size="small" as |M|>
           <M.Header @icon="info">
@@ -145,7 +145,10 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwCarbonizationComparisonGrid @label="With tagline" @sideBySide={{true}}>
+    <ShwCarbonizationComparisonGrid
+      @label="With tagline"
+      @layout="side-by-side"
+    >
       <:theming>
         <HdsModal open id="modal-example-tagline" @size="small" as |M|>
           <M.Header @tagline="Tagline">
@@ -188,7 +191,7 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="With tagline and icon"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         <HdsModal open id="modal-example-tagline-icon" @size="small" as |M|>
@@ -236,7 +239,7 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="With basic style"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         <HdsModal open id="modal-example-basic-content" @size="small" as |M|>
@@ -299,7 +302,7 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Footer</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid @label="One action" @sideBySide={{true}}>
+    <ShwCarbonizationComparisonGrid @label="One action" @layout="side-by-side">
       <:theming>
         <HdsModal open id="modal-example-one-action" @size="small" as |M|>
           <M.Header>
@@ -335,7 +338,7 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwCarbonizationComparisonGrid @label="Two actions" @sideBySide={{true}}>
+    <ShwCarbonizationComparisonGrid @label="Two actions" @layout="side-by-side">
       <:theming>
         <HdsModal open id="modal-example-two-actions" @size="small" as |M|>
           <M.Header>
@@ -375,7 +378,10 @@ const ModalCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwCarbonizationComparisonGrid @label="Three actions" @sideBySide={{true}}>
+    <ShwCarbonizationComparisonGrid
+      @label="Three actions"
+      @layout="side-by-side"
+    >
       <:theming>
         <HdsModal open id="modal-example-three-actions" @size="small" as |M|>
           <M.Header>

@@ -157,7 +157,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
 
       <ShwCarbonizationComparisonGrid
         @label="With standard content"
-        @sideBySide={{true}}
+        @layout="side-by-side"
       >
         <:theming as |T|>
           <HdsFormRadioCardGroup
@@ -209,7 +209,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
 
       <ShwCarbonizationComparisonGrid
         @label="With helper text, required, error"
-        @sideBySide={{true}}
+        @layout="side-by-side"
       >
         <:theming as |T|>
           <HdsFormRadioCardGroup
@@ -269,7 +269,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
       {{#each CONTROL_POSITIONS as |position|}}
         <ShwCarbonizationComparisonGrid
           @label="Position = {{position}}"
-          @sideBySide={{true}}
+          @layout="side-by-side"
         >
           <:theming as |T|>
             <HdsFormRadioCardGroup
@@ -326,7 +326,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
       {{#each ALIGNMENTS as |alignment|}}
         <ShwCarbonizationComparisonGrid
           @label="Alignment = {{alignment}}"
-          @sideBySide={{true}}
+          @layout="side-by-side"
         >
           <:theming as |T|>
             <HdsFormRadioCardGroup
@@ -385,7 +385,7 @@ export default class FormRadioCardCarbonizationIndex extends Component {
       {{#each LAYOUT_TYPES as |layout|}}
         <ShwCarbonizationComparisonGrid
           @label="Layout = {{layout}}"
-          @sideBySide={{true}}
+          @layout="side-by-side"
         >
           <:theming as |T|>
             <HdsFormRadioCardGroup
