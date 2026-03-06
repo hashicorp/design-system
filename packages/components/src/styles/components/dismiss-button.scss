@@ -8,11 +8,12 @@
 //
 
 @use "../mixins/focus-ring" as *;
+@use "../mixins/carbonization" as *;
 
 .hds-dismiss-button {
   flex: none;
-  padding: 0;
-  color: var(--token-color-foreground-faint);
+  padding: var(--token-dismiss-button-padding);
+  color: var(--token-dismiss-button-foreground-color-default);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -21,7 +22,7 @@
   &.mock-hover {
     // we re-use the pseudo-element created by the "focus-ring" mixin
     &::before {
-      background-color: rgba(#dedfe3, 0.4);
+      background-color: var(--token-dismiss-button-surface-color-hover);
     }
   }
 
@@ -30,11 +31,33 @@
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-secondary);
+    color: var(--token-dismiss-button-foreground-color-active);
 
     &::before {
-      background-color: rgba(#dedfe3, 0.4);
+      background-color: var(--token-dismiss-button-surface-color-active);
       border: 1px solid var(--token-color-border-strong);
+
+      @include hds-apply-only-if-carbon() {
+        content: none;
+      }
+    }
+  }
+
+  @include hds-apply-only-if-carbon() {
+    @include hds-focus-ring-basic();
+
+    &::before {
+      content: none;
+    }
+
+    &:hover,
+    &.mock-hover {
+      background-color: var(--token-dismiss-button-surface-color-hover);
+    }
+
+    &:active,
+    &.mock-active {
+      background-color: var(--token-dismiss-button-surface-color-active);
     }
   }
 }

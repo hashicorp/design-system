@@ -4065,10 +4065,14 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-dismiss-button {
   flex: none;
-  padding: 0;
-  color: var(--token-color-foreground-faint);
+  padding: var(--token-dismiss-button-padding);
+  color: var(--token-dismiss-button-foreground-color-default);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -4078,7 +4082,7 @@ button.hds-button[href]::after {
   isolation: isolate;
 }
 .hds-dismiss-button:hover::before, .hds-dismiss-button.mock-hover::before {
-  background-color: rgba(222, 223, 227, 0.4);
+  background-color: var(--token-dismiss-button-surface-color-hover);
 }
 .hds-dismiss-button::before {
   position: absolute;
@@ -4103,11 +4107,79 @@ button.hds-button[href]::after {
   box-shadow: none;
 }
 .hds-dismiss-button:active, .hds-dismiss-button.mock-active {
-  color: var(--token-color-foreground-secondary);
+  color: var(--token-dismiss-button-foreground-color-active);
 }
 .hds-dismiss-button:active::before, .hds-dismiss-button.mock-active::before {
-  background-color: rgba(222, 223, 227, 0.4);
+  background-color: var(--token-dismiss-button-surface-color-active);
   border: 1px solid var(--token-color-border-strong);
+}
+.hds-mode-cds-g0 .hds-dismiss-button:active::before, .hds-mode-cds-g0 .hds-dismiss-button.mock-active::before,
+.hds-mode-cds-g10 .hds-dismiss-button:active::before, .hds-mode-cds-g10 .hds-dismiss-button.mock-active::before,
+.hds-mode-cds-g90 .hds-dismiss-button:active::before, .hds-mode-cds-g90 .hds-dismiss-button.mock-active::before,
+.hds-mode-cds-g100 .hds-dismiss-button:active::before, .hds-mode-cds-g100 .hds-dismiss-button.mock-active::before {
+  content: none;
+}
+
+.hds-mode-cds-g0 .hds-dismiss-button,
+.hds-mode-cds-g10 .hds-dismiss-button,
+.hds-mode-cds-g90 .hds-dismiss-button,
+.hds-mode-cds-g100 .hds-dismiss-button {
+  outline-style: solid;
+  outline-color: transparent;
+}
+.hds-mode-cds-g0 .hds-dismiss-button:focus, .hds-mode-cds-g0 .hds-dismiss-button.mock-focus,
+.hds-mode-cds-g10 .hds-dismiss-button:focus,
+.hds-mode-cds-g10 .hds-dismiss-button.mock-focus,
+.hds-mode-cds-g90 .hds-dismiss-button:focus,
+.hds-mode-cds-g90 .hds-dismiss-button.mock-focus,
+.hds-mode-cds-g100 .hds-dismiss-button:focus,
+.hds-mode-cds-g100 .hds-dismiss-button.mock-focus {
+  box-shadow: var(--token-focus-ring-action-box-shadow);
+}
+.hds-mode-cds-g0 .hds-dismiss-button:focus:not(:focus-visible),
+.hds-mode-cds-g10 .hds-dismiss-button:focus:not(:focus-visible),
+.hds-mode-cds-g90 .hds-dismiss-button:focus:not(:focus-visible),
+.hds-mode-cds-g100 .hds-dismiss-button:focus:not(:focus-visible) {
+  box-shadow: none;
+}
+.hds-mode-cds-g0 .hds-dismiss-button:focus-visible,
+.hds-mode-cds-g10 .hds-dismiss-button:focus-visible,
+.hds-mode-cds-g90 .hds-dismiss-button:focus-visible,
+.hds-mode-cds-g100 .hds-dismiss-button:focus-visible {
+  box-shadow: var(--token-focus-ring-action-box-shadow);
+}
+.hds-mode-cds-g0 .hds-dismiss-button:focus:active, .hds-mode-cds-g0 .hds-dismiss-button.mock-focus.mock-active,
+.hds-mode-cds-g10 .hds-dismiss-button:focus:active,
+.hds-mode-cds-g10 .hds-dismiss-button.mock-focus.mock-active,
+.hds-mode-cds-g90 .hds-dismiss-button:focus:active,
+.hds-mode-cds-g90 .hds-dismiss-button.mock-focus.mock-active,
+.hds-mode-cds-g100 .hds-dismiss-button:focus:active,
+.hds-mode-cds-g100 .hds-dismiss-button.mock-focus.mock-active {
+  box-shadow: none;
+}
+.hds-mode-cds-g0 .hds-dismiss-button::before,
+.hds-mode-cds-g10 .hds-dismiss-button::before,
+.hds-mode-cds-g90 .hds-dismiss-button::before,
+.hds-mode-cds-g100 .hds-dismiss-button::before {
+  content: none;
+}
+.hds-mode-cds-g0 .hds-dismiss-button:hover, .hds-mode-cds-g0 .hds-dismiss-button.mock-hover,
+.hds-mode-cds-g10 .hds-dismiss-button:hover,
+.hds-mode-cds-g10 .hds-dismiss-button.mock-hover,
+.hds-mode-cds-g90 .hds-dismiss-button:hover,
+.hds-mode-cds-g90 .hds-dismiss-button.mock-hover,
+.hds-mode-cds-g100 .hds-dismiss-button:hover,
+.hds-mode-cds-g100 .hds-dismiss-button.mock-hover {
+  background-color: var(--token-dismiss-button-surface-color-hover);
+}
+.hds-mode-cds-g0 .hds-dismiss-button:active, .hds-mode-cds-g0 .hds-dismiss-button.mock-active,
+.hds-mode-cds-g10 .hds-dismiss-button:active,
+.hds-mode-cds-g10 .hds-dismiss-button.mock-active,
+.hds-mode-cds-g90 .hds-dismiss-button:active,
+.hds-mode-cds-g90 .hds-dismiss-button.mock-active,
+.hds-mode-cds-g100 .hds-dismiss-button:active,
+.hds-mode-cds-g100 .hds-dismiss-button.mock-active {
+  background-color: var(--token-dismiss-button-surface-color-active);
 }
 
 /**

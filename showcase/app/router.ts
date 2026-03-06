@@ -181,5 +181,8 @@ Router.map(function () {
       this.route('segmented-group');
       this.route('separator');
     });
+    this.route('utilities', function () {
+      this.route('dismiss-button');
+    });
   });
 });

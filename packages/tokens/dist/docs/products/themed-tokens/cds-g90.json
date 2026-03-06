@@ -10718,6 +10718,176 @@
     ]
   },
   {
+    "key": "{dismiss-button.padding}",
+    "$type": "dimension",
+    "$value": "16px",
+    "unit": "px",
+    "$modes": {
+      "default": "0",
+      "cds-g0": "16",
+      "cds-g10": "16",
+      "cds-g90": "16",
+      "cds-g100": "16"
+    },
+    "original": {
+      "$type": "dimension",
+      "$value": "16",
+      "unit": "px",
+      "$modes": {
+        "default": "0",
+        "cds-g0": "16",
+        "cds-g10": "16",
+        "cds-g90": "16",
+        "cds-g100": "16"
+      },
+      "key": "{dismiss-button.padding}"
+    },
+    "name": "token-dismiss-button-padding",
+    "attributes": {
+      "category": "dismiss-button"
+    },
+    "path": [
+      "dismiss-button",
+      "padding"
+    ]
+  },
+  {
+    "key": "{dismiss-button.foreground.color.default}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#c6c6c6",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.iconPrimary}",
+      "$modes": {
+        "default": "{color.foreground.faint}",
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+      },
+      "key": "{dismiss-button.foreground.color.default}"
+    },
+    "name": "token-dismiss-button-foreground-color-default",
+    "attributes": {
+      "category": "dismiss-button"
+    },
+    "path": [
+      "dismiss-button",
+      "foreground",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{dismiss-button.foreground.color.active}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "#f4f4f4",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.iconPrimary}",
+      "$modes": {
+        "default": "{color.foreground.strong}",
+        "cds-g0": "{carbon.themes.white.iconPrimary}",
+        "cds-g10": "{carbon.themes.g10.iconPrimary}",
+        "cds-g90": "{carbon.themes.g90.iconPrimary}",
+        "cds-g100": "{carbon.themes.g100.iconPrimary}"
+      },
+      "key": "{dismiss-button.foreground.color.active}"
+    },
+    "name": "token-dismiss-button-foreground-color-active",
+    "attributes": {
+      "category": "dismiss-button"
+    },
+    "path": [
+      "dismiss-button",
+      "foreground",
+      "color",
+      "active"
+    ]
+  },
+  {
+    "key": "{dismiss-button.surface.color.hover}",
+    "$type": "color",
+    "$value": "rgba(141, 141, 141, 0.16)",
+    "$modes": {
+      "default": "rgba(222, 223, 227, 0.4)",
+      "cds-g0": "rgba(141, 141, 141, 0.12)",
+      "cds-g10": "rgba(141, 141, 141, 0.12)",
+      "cds-g90": "rgba(141, 141, 141, 0.16)",
+      "cds-g100": "rgba(141, 141, 141, 0.16)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.backgroundHover}",
+      "$modes": {
+        "default": "rgba(222, 223, 227, 0.4)",
+        "cds-g0": "{carbon.themes.white.backgroundHover}",
+        "cds-g10": "{carbon.themes.g10.backgroundHover}",
+        "cds-g90": "{carbon.themes.g90.backgroundHover}",
+        "cds-g100": "{carbon.themes.g100.backgroundHover}"
+      },
+      "key": "{dismiss-button.surface.color.hover}"
+    },
+    "name": "token-dismiss-button-surface-color-hover",
+    "attributes": {
+      "category": "dismiss-button"
+    },
+    "path": [
+      "dismiss-button",
+      "surface",
+      "color",
+      "hover"
+    ]
+  },
+  {
+    "key": "{dismiss-button.surface.color.active}",
+    "$type": "color",
+    "$value": "rgba(141, 141, 141, 0.4)",
+    "$modes": {
+      "default": "rgba(222, 223, 227, 0.4)",
+      "cds-g0": "rgba(141, 141, 141, 0.5)",
+      "cds-g10": "rgba(141, 141, 141, 0.5)",
+      "cds-g90": "rgba(141, 141, 141, 0.4)",
+      "cds-g100": "rgba(141, 141, 141, 0.4)"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.backgroundActive}",
+      "$modes": {
+        "default": "rgba(222, 223, 227, 0.4)",
+        "cds-g0": "{carbon.themes.white.backgroundActive}",
+        "cds-g10": "{carbon.themes.g10.backgroundActive}",
+        "cds-g90": "{carbon.themes.g90.backgroundActive}",
+        "cds-g100": "{carbon.themes.g100.backgroundActive}"
+      },
+      "key": "{dismiss-button.surface.color.active}"
+    },
+    "name": "token-dismiss-button-surface-color-active",
+    "attributes": {
+      "category": "dismiss-button"
+    },
+    "path": [
+      "dismiss-button",
+      "surface",
+      "color",
+      "active"
+    ]
+  },
+  {
     "key": "{form.label.color}",
     "$type": "color",
     "$value": "#f4f4f4",
