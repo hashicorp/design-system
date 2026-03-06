@@ -244,17 +244,20 @@
   --token-color-vagrant-gradient-primary-stop: #7dadff;
   --token-color-vagrant-surface: #064abe;
   --token-color-vault-border: #9a6f00;
+  --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-foreground: #feec7b;
   --token-color-vault-gradient-faint-stop: #8b6400;
   --token-color-vault-gradient-primary-start: #9a6f00;
   --token-color-vault-gradient-primary-stop: #bb8e1a;
   --token-color-vault-radar-border: #9a6f00;
+  --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-radar-foreground: #feec7b;
   --token-color-vault-radar-gradient-faint-stop: #8b6400;
   --token-color-vault-radar-gradient-primary-start: #9a6f00;
   --token-color-vault-radar-gradient-primary-stop: #bb8e1a;
   --token-color-vault-radar-surface: #8b6400;
   --token-color-vault-secrets-border: #9a6f00;
+  --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --token-color-vault-secrets-foreground: #feec7b;
   --token-color-vault-secrets-gradient-faint-stop: #8b6400;
   --token-color-vault-secrets-gradient-primary-start: #9a6f00;

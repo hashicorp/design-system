@@ -4558,12 +4558,26 @@
       "$type": "color",
       "$value": "#000000",
       "group": "branding",
-      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
+      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
       "original": {
         "$type": "color",
         "$value": "#000",
         "group": "branding",
-        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
+        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
         "key": "{color.vault-radar.brand-alt}"
       },
       "name": "token-color-vault-radar-brand-alt",
@@ -4759,11 +4773,25 @@
       "group": "branding",
       "$type": "color",
       "$value": "#000000",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
       "original": {
         "group": "branding",
         "$type": "color",
         "$value": "#000",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
         "key": "{color.vault-secrets.brand-alt}"
       },
@@ -4960,11 +4988,25 @@
       "$type": "color",
       "$value": "#000000",
       "group": "branding",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
       "original": {
         "$type": "color",
         "$value": "#000",
         "group": "branding",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
         "key": "{color.vault.brand-alt}"
       },
@@ -19059,12 +19101,26 @@
       "$type": "color",
       "$value": "#000000",
       "group": "branding",
-      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
+      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
       "original": {
         "$type": "color",
         "$value": "#000",
         "group": "branding",
-        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
+        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
         "key": "{color.vault-radar.brand-alt}"
       },
       "name": "token-color-vault-radar-brand-alt",
@@ -19260,11 +19316,25 @@
       "group": "branding",
       "$type": "color",
       "$value": "#000000",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
       "original": {
         "group": "branding",
         "$type": "color",
         "$value": "#000",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
         "key": "{color.vault-secrets.brand-alt}"
       },
@@ -19461,11 +19531,25 @@
       "$type": "color",
       "$value": "#000000",
       "group": "branding",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
       "original": {
         "$type": "color",
         "$value": "#000",
         "group": "branding",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
         "key": "{color.vault.brand-alt}"
       },
@@ -33560,12 +33644,26 @@
       "$type": "color",
       "$value": "#000000",
       "group": "branding",
-      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
+      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
       "original": {
         "$type": "color",
         "$value": "#000",
         "group": "branding",
-        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
+        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
         "key": "{color.vault-radar.brand-alt}"
       },
       "name": "token-color-vault-radar-brand-alt",
@@ -33761,11 +33859,25 @@
       "group": "branding",
       "$type": "color",
       "$value": "#000000",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
       "original": {
         "group": "branding",
         "$type": "color",
         "$value": "#000",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
         "key": "{color.vault-secrets.brand-alt}"
       },
@@ -33962,11 +34074,25 @@
       "$type": "color",
       "$value": "#000000",
       "group": "branding",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
       "original": {
         "$type": "color",
         "$value": "#000",
         "group": "branding",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
         "key": "{color.vault.brand-alt}"
       },
@@ -48059,14 +48185,28 @@
     "token-color-vault-radar-brand-alt": {
       "key": "{color.vault-radar.brand-alt}",
       "$type": "color",
-      "$value": "#000000",
+      "$value": "#ffffff",
       "group": "branding",
-      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
+      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
       "original": {
         "$type": "color",
-        "$value": "#000",
+        "$value": "#FFF",
         "group": "branding",
-        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
+        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
         "key": "{color.vault-radar.brand-alt}"
       },
       "name": "token-color-vault-radar-brand-alt",
@@ -48261,12 +48401,26 @@
       "key": "{color.vault-secrets.brand-alt}",
       "group": "branding",
       "$type": "color",
-      "$value": "#000000",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
       "original": {
         "group": "branding",
         "$type": "color",
-        "$value": "#000",
+        "$value": "#FFF",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
         "key": "{color.vault-secrets.brand-alt}"
       },
@@ -48461,13 +48615,27 @@
     "token-color-vault-brand-alt": {
       "key": "{color.vault.brand-alt}",
       "$type": "color",
-      "$value": "#000000",
+      "$value": "#ffffff",
       "group": "branding",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
       "original": {
         "$type": "color",
-        "$value": "#000",
+        "$value": "#FFF",
         "group": "branding",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
         "key": "{color.vault.brand-alt}"
       },
@@ -62560,14 +62728,28 @@
     "token-color-vault-radar-brand-alt": {
       "key": "{color.vault-radar.brand-alt}",
       "$type": "color",
-      "$value": "#000000",
+      "$value": "#ffffff",
       "group": "branding",
-      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
+      "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
       "original": {
         "$type": "color",
-        "$value": "#000",
+        "$value": "#FFF",
         "group": "branding",
-        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
+        "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work",
         "key": "{color.vault-radar.brand-alt}"
       },
       "name": "token-color-vault-radar-brand-alt",
@@ -62762,12 +62944,26 @@
       "key": "{color.vault-secrets.brand-alt}",
       "group": "branding",
       "$type": "color",
-      "$value": "#000000",
+      "$value": "#ffffff",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
       "original": {
         "group": "branding",
         "$type": "color",
-        "$value": "#000",
+        "$value": "#FFF",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work",
         "key": "{color.vault-secrets.brand-alt}"
       },
@@ -62962,13 +63158,27 @@
     "token-color-vault-brand-alt": {
       "key": "{color.vault.brand-alt}",
       "$type": "color",
-      "$value": "#000000",
+      "$value": "#ffffff",
       "group": "branding",
+      "$modes": {
+        "default": "#000",
+        "cds-g0": "#000",
+        "cds-g10": "#000",
+        "cds-g90": "#FFF",
+        "cds-g100": "#FFF"
+      },
       "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
       "original": {
         "$type": "color",
-        "$value": "#000",
+        "$value": "#FFF",
         "group": "branding",
+        "$modes": {
+          "default": "#000",
+          "cds-g0": "#000",
+          "cds-g10": "#000",
+          "cds-g90": "#FFF",
+          "cds-g100": "#FFF"
+        },
         "comment": "this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work",
         "key": "{color.vault.brand-alt}"
       },
