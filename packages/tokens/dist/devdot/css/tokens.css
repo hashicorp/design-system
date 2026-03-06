@@ -283,6 +283,15 @@
   --token-badge-icon-size-small: 12px;
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-large: 16px;
+  --token-breadcrumb-typography-font-size: 0.8125rem;
+  --token-breadcrumb-typography-line-height: 1.2308;
+  --token-breadcrumb-spacing-separator: 8px;
+  --token-breadcrumb-spacing-icon-gap: 6px;
+  --token-breadcrumb-foreground-color-link-default: #656a76;
+  --token-breadcrumb-foreground-color-link-hover: #3b3d45;
+  --token-breadcrumb-foreground-color-link-active: #3b3d45;
+  --token-breadcrumb-foreground-color-current: #0c0c0e;
+  --token-breadcrumb-foreground-color-separator: #c2c5cb;
   --token-button-height-small: 28px;
   --token-button-height-medium: 36px;
   --token-button-height-large: 48px;
