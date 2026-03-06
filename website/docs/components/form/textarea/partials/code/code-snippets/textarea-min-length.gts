@@ -7,7 +7,7 @@ import { HdsFormTextareaField } from '@hashicorp/design-system-components/compon
 export default class LocalComponent extends Component {
   @tracked value = 'This is my description';
 
-  updateValue = (event: InputEvent) => {
+  updateValue = (event: Event) => {
     this.value = (event.target as HTMLTextAreaElement).value;
   };
 

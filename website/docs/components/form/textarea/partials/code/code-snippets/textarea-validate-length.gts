@@ -8,11 +8,11 @@ export default class LocalComponent extends Component {
   @tracked value = 'This is my description';
   @tracked minLength = 100;
 
-  get fieldIsInvalid() {
-    return this.value.length && this.value.length < this.minLength;
+  get fieldIsInvalid(): boolean {
+    return this.value.length < this.minLength;
   }
 
-  updateValue = (event: InputEvent) => {
+  updateValue = (event: Event) => {
     this.value = (event.target as HTMLTextAreaElement).value;
   };
 
