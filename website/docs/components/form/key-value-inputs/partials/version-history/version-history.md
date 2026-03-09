@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.24.0
 
 Update the data and returned `R.rowData` to use generic types, so the type of the data is retained.

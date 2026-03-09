@@ -20,7 +20,7 @@ navigation:
     - dropdown
     - powerselect
 status:
-  updated: 6.0.0
+  updated: 6.1.0
 ---
 
 <section data-tab="Guidelines">

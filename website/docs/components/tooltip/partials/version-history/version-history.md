@@ -1,3 +1,8 @@
+## 6.1.0
+
+Fixed issue where showing the Tooltip caused page layout shift by reducing the width of the Tooltip container from 100% to the Tooltip max width of 280px.
+
+
 ## 6.0.0
 
 Converted component to gts format

@@ -20,8 +20,6 @@ navigation:
     - interactive
     - button
     - link
-status:
-  updated: 6.0.0
 ---
 
 <section data-tab="Code">

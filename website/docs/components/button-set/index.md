@@ -17,8 +17,6 @@ navigation:
     - button spacing
     - button alignment
     - button layout
-status:
-  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">

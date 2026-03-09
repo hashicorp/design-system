@@ -17,6 +17,8 @@ navigation:
     - text field
     - search
     - form
+status:
+  updated: 6.1.0
 ---
 
 <section data-tab="Guidelines">

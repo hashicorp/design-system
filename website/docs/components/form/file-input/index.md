@@ -16,6 +16,8 @@ navigation:
     - upload
     - input
     - form
+status:
+  updated: 6.1.0
 ---
 
 <section data-tab="Guidelines">
@@ -34,4 +36,8 @@ navigation:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/version-history.md"
 </section>

@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.17.1
 
 Fixed issue preventing copying of empty string and zero number values

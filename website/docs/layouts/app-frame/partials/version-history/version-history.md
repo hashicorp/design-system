@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.22.1
 
 Changed media query styles for frame header and sidebar containers to use level 3 vs level 4 CSS syntax

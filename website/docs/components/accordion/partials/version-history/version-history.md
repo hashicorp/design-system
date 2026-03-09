@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.20.1
 
 Set `aria-controls` of `Accordion::Item::Button` to `contentId` from `DisclosurePrimitive` for a11y improvements with toggled content

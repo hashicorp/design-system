@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.23.0
 
 Updated exported `HdsIconTileColors` type to use template literals instead of enum values.

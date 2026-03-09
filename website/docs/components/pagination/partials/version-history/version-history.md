@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 6.0.0
 
 Updated HdsIntlService service declaration for `PaginationInfo` to align how services are declared

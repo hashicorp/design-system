@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.16.0
 
 Implement `aria-controls` in tab for a11y improvements with toggled content

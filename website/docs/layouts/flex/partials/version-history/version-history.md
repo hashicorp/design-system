@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.21.1
 
 Fixed issue in which `gap` value was improperly inherited by nested `Flex` components, added "0" as a supported `gap` value.
