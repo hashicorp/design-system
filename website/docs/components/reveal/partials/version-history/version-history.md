@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.22.0
 
 Added support for the `aria-describedby` attribute on the toggle.

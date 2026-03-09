@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 6.0.0
 
 Updated `ember-power-select` library to 8.12.0 and replaced usage of `PowerSelectMultiple` to `PowerSelect` with `@multiple` set to `true`

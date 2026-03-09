@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.24.1
 
 Added width of 100% to prevent the component from overflowing its container and making it consistent with other Input components

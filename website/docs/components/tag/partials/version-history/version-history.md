@@ -1,3 +1,11 @@
+## 6.1.0
+
+Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
+
+
+Converted component to gts format.
+
+
 ## 4.21.1
 
 Fixed a performance issue when many tags are present on a page caused by the ResizeObserver

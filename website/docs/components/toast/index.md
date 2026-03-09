@@ -17,6 +17,8 @@ navigation:
     - notification
     - banner
     - message
+status:
+  updated: 6.1.0
 ---
 
 <section data-tab="Guidelines">

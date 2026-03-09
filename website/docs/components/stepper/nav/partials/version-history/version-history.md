@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.23.1
 
 Fixed bug with stacking context styles causing step content's z-index to not work as expected

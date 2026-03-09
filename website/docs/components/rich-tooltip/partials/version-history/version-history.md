@@ -1,3 +1,11 @@
+## 6.1.0
+
+Added `@onFocusOut` argument to manage focus for dynamic tooltip content and prevent the tooltip from closing when content changes
+
+
+Converted component to gts format.
+
+
 ## 5.2.0
 
 Added Floating UI `boundary` option

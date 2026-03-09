@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted the component to gts format.
+
+
 ## 5.0.0
 
 Removed deprecated `HdsModalHeader`, `HdsModalBody`, and `HdsModalFooter` subcomponents.

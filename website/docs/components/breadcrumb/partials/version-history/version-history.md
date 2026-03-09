@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 6.0.0
 
 Added `@href` argument to `Breadcrumb::Item`.

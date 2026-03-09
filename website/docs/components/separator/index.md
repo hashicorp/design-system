@@ -17,8 +17,6 @@ navigation:
     - section
     - divider
     - break
-status:
-  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">

@@ -1,3 +1,11 @@
+## 6.1.0
+
+Added `@onFocusOut` argument to manage focus for dynamic dropdown content and prevent the dropdown from closing when content changes
+
+
+Converted component to gts format.
+
+
 ## 5.2.0
 
 Added Floating UI `boundary` option

@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 5.2.0
 
 Fixed issue with font-family and font-size targeting so styles will correctly apply to nested element containing code content

@@ -1,3 +1,8 @@
+## 6.1.0
+
+Explicitly set table header tooltip placement to below the tooltip button.
+
+
 ## 6.0.0
 
 Added support for filtering within the table with new `actions` named block and `FilterBar` contextual component

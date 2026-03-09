@@ -15,6 +15,8 @@ navigation:
     - button
     - clipboard
     - code
+status:
+  updated: 6.1.0
 ---
 
 <section data-tab="Guidelines">

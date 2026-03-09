@@ -22,6 +22,8 @@ navigation:
     - progress bar
     - steps
     - tracker
+status:
+  updated: 6.1.0
 ---
 
 <section data-tab="Guidelines">

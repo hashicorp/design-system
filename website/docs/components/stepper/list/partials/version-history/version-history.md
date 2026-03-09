@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.22.0
 
 Fixed type for `status` argument in `List::Step` to be `HdsStepperStatuses` instead of enum `HdsStepperStatusesValues`

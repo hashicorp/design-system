@@ -19,8 +19,6 @@ navigation:
     - pill
     - version number
     - counter
-status:
-  updated: 6.0.0
 ---
 
 <section data-tab="Guidelines">

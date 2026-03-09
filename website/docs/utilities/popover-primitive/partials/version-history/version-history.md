@@ -1,3 +1,14 @@
+## 6.1.0
+
+Added `@onFocusOut` argument to manage focus for dynamic popover content and prevent the popover from closing when content changes
+
+
+Converted component to gts format.
+
+
+Set `anchoredPositionOptions` argument on `setupPrimitivePopover` modifier to optional
+
+
 ## 5.2.0
 
 Added Floating UI `boundary` option

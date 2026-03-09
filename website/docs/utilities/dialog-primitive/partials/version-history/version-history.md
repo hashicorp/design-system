@@ -1,3 +1,8 @@
+## 6.1.0
+
+Converted component to gts format.
+
+
 ## 4.12.0
 
 Fixed issue with `box-sizing` inheritance due to a `all: unset` CSS rule

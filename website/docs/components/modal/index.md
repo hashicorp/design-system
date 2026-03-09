@@ -24,6 +24,8 @@ navigation:
     - popover
     - popup
     - dialog
+status:
+  updated: 6.1.0
 ---
 
 <section data-tab="Guidelines">
