@@ -1,16 +1,22 @@
 ## 6.1.0
 
-
 `Form::CharacterCount` - Converted component to gts format.
-`Form::Error` - Converted component to gts format.
-`Form::Field` - Converted component to gts format.
-`Form::Fieldset` - Converted component to gts format.
-`Form::HelperText` - Converted component to gts format.
-`Form::Indicator` - Converted component to gts format.
-`Form::Label` - Converted component to gts format.
-`Form::Legend` - Converted component to gts format.
-`Form::VisibilityToggle` - Converted component to gts format.
 
+`Form::Error` - Converted component to gts format.
+
+`Form::Field` - Converted component to gts format.
+
+`Form::Fieldset` - Converted component to gts format.
+
+`Form::HelperText` - Converted component to gts format.
+
+`Form::Indicator` - Converted component to gts format.
+
+`Form::Label` - Converted component to gts format.
+
+`Form::Legend` - Converted component to gts format.
+
+`Form::VisibilityToggle` - Converted component to gts format.
 
 ## 4.21.0
 
