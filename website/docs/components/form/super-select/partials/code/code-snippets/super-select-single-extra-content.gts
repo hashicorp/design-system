@@ -28,6 +28,7 @@ export default class LocalComponent extends Component {
       <F.HelperText>This is an experimental feature (<HdsLinkInline
           @href="#"
         >read more</HdsLinkInline>).</F.HelperText>
+      {{! @glint-expect-error }}
       <F.Options>{{F.options}}</F.Options>
     </HdsFormSuperSelectSingleField>
   </template>

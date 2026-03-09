@@ -19,6 +19,7 @@ export default class LocalComponent extends Component {
       as |F|
     >
       <F.Label>Grouped options</F.Label>
+      {{! @glint-expect-error }}
       <F.Options>{{F.options}}</F.Options>
     </HdsFormSuperSelectMultipleField>
   </template>

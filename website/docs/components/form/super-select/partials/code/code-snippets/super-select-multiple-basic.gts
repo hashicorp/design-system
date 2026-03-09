@@ -16,13 +16,14 @@ export default class LocalComponent extends Component {
 
   <template>
     <HdsFormSuperSelectSingleField
-      @onChange={{fn (mut this.SELECTED_OPTION)}}
-      @selected={{this.SELECTED_OPTION}}
+      @onChange={{fn (mut this.SELECTED_OPTIONS)}}
+      @selected={{this.SELECTED_OPTIONS}}
       @options={{this.OPTIONS}}
       @searchEnabled={{true}}
       as |F|
     >
       <F.Label>This is the label</F.Label>
+      {{! @glint-expect-error }}
       <F.Options>{{F.options}}</F.Options>
     </HdsFormSuperSelectSingleField>
   </template>

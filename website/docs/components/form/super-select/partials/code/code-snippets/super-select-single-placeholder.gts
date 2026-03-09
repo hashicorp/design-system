@@ -24,6 +24,7 @@ export default class LocalComponent extends Component {
       as |F|
     >
       <F.Label>Select your location of residence</F.Label>
+      {{! @glint-expect-error }}
       <F.Options>{{F.options}}</F.Options>
     </HdsFormSuperSelectSingleField>
   </template>
