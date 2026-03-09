@@ -457,6 +457,11 @@ const Index: TemplateOnlyComponent = <template>
             Separator
           </LinkTo>
         </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.tabs">
+            Tabs
+          </LinkTo>
+        </li>
       </ol>
     </div>
   </div>
