@@ -9961,7 +9961,7 @@ button.hds-button[href]::after {
   height: 12px;
 }
 
-.hds-tag__dismiss-icon,
+.hds-tag__dismiss,
 .hds-tag__text {
   color: var(--token-tag-foreground-color-default);
 }
@@ -10098,7 +10098,7 @@ button.hds-button[href]::after {
 .hds-tag--color-secondary {
   border: 1px solid var(--token-tag-link-border-color-secondary);
 }
-.hds-tag--color-secondary .hds-tag__link {
+.hds-tag--color-secondary .hds-tag__link, .hds-tag--color-secondary:has(.hds-tag__link) .hds-tag__dismiss {
   color: var(--token-tag-link-foreground-color-secondary-default);
 }
 
