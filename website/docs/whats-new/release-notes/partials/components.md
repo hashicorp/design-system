@@ -14,6 +14,8 @@
 
 ## 6.1.0
 
+[6.1.0 documentation](https://hds-website-6-1-0.vercel.app/)
+
 **Minor changes**
 
 <!-- START components/filter-bar -->
