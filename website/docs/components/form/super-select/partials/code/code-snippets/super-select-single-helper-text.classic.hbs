@@ -1,0 +1,10 @@
+<Hds::Form::SuperSelect::Single::Field
+  @onChange={{fn (mut this.SELECTED_OPTION)}}
+  @selected={{this.SELECTED_OPTION}}
+  @options={{this.OPTIONS}}
+  as |F|
+>
+  <F.Label>Target infrastructure</F.Label>
+  <F.HelperText>The target infrastructure is where you want to deploy your apps.</F.HelperText>
+  <F.Options>{{F.options}}</F.Options>
+</Hds::Form::SuperSelect::Single::Field>

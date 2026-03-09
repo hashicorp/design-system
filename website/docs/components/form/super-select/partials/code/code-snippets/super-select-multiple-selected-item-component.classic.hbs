@@ -1,0 +1,20 @@
+<Hds::Form::SuperSelect::Multiple::Field
+  @onChange={{fn (mut this.SELECTED_OPTIONS)}}
+  @selected={{this.SELECTED_OPTIONS}}
+  @selectedItemComponent={{component "power-select/selected-option-multiple"}}
+  @options={{this.OPTIONS}}
+  as |F|
+>
+  <F.Label>Size</F.Label>
+  <F.Options>
+    {{#let F.options as |option|}}
+      <Hds::Text::Body @size="200">
+        <div class="doc-super-select-option-rich-header">
+          <strong>{{option.size}}</strong>
+          <strong>{{option.price}}</strong>
+        </div>
+        <div>{{option.description}}</div>
+      </Hds::Text::Body>
+    {{/let}}
+  </F.Options>
+</Hds::Form::SuperSelect::Multiple::Field>

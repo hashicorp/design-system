@@ -1,0 +1,12 @@
+<div class="doc-super-select-constrain-width">
+  <Hds::Form::SuperSelect::Single::Field
+    @onChange={{fn (mut this.SELECTED_OPTION)}}
+    @selected="API code"
+    @options={{this.OPTIONS}}
+    @dropdownMaxWidth="25em"
+    as |F|
+  >
+    <F.Label>Choose one</F.Label>
+    <F.Options>{{F.options}}</F.Options>
+  </Hds::Form::SuperSelect::Single::Field>
+</div>
