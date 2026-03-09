@@ -23,14 +23,10 @@ export const IconMinusCircle16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path d="M4.75 7a.75.75 0 000 1.5h6.5a.75.75 0 000-1.5h-6.5z" />
-                    <path
-                        fillRule="evenodd"
-                        d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"
-                        clipRule="evenodd"
-                    />
-                </g>
+                <path
+                    fill={color}
+                    d="M8 0a8 8 0 110 16A8 8 0 018 0zm0 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM11.25 7a.75.75 0 010 1.5h-6.5a.75.75 0 010-1.5h6.5z"
+                />
             </svg>
         );
     }

@@ -26,7 +26,7 @@ export const IconSlash16 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill={color}
                     fillRule="evenodd"
-                    d="M11.126 2.6a.75.75 0 00-1.025.274l-5.5 9.5a.75.75 0 001.298.752l5.5-9.5a.75.75 0 00-.273-1.025z"
+                    d="M10.1 2.874a.752.752 0 011.299.752l-5.5 9.5a.751.751 0 01-1.298-.752l5.5-9.5z"
                     clipRule="evenodd"
                 />
             </svg>

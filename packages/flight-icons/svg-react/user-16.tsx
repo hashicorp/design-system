@@ -23,14 +23,10 @@ export const IconUser16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path
-                        fillRule="evenodd"
-                        d="M8 1a4 4 0 100 8 4 4 0 000-8zM5.5 5a2.5 2.5 0 115 0 2.5 2.5 0 01-5 0z"
-                        clipRule="evenodd"
-                    />
-                    <path d="M5.25 10a3.75 3.75 0 00-3.75 3.75v.5a.75.75 0 001.5 0v-.5a2.25 2.25 0 012.25-2.25h5.5A2.25 2.25 0 0113 13.75v.5a.75.75 0 001.5 0v-.5A3.75 3.75 0 0010.75 10h-5.5z" />
-                </g>
+                <path
+                    fill={color}
+                    d="M10.75 10a3.75 3.75 0 013.75 3.75v.5a.75.75 0 01-1.5 0v-.5a2.25 2.25 0 00-2.25-2.25h-5.5A2.25 2.25 0 003 13.75v.5a.75.75 0 01-1.5 0v-.5A3.75 3.75 0 015.25 10h5.5zM8 1a4 4 0 110 8 4 4 0 010-8zm0 1.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"
+                />
             </svg>
         );
     }

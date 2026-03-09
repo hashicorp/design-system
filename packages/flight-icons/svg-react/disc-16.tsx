@@ -23,10 +23,10 @@ export const IconDisc16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color} fillRule="evenodd" clipRule="evenodd">
-                    <path d="M8 5.05a2.95 2.95 0 100 5.9 2.95 2.95 0 000-5.9zM6.45 8a1.55 1.55 0 113.1 0 1.55 1.55 0 01-3.1 0z" />
-                    <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z" />
-                </g>
+                <path
+                    fill={color}
+                    d="M8 0a8 8 0 110 16A8 8 0 018 0zm0 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zm0 3.55a2.95 2.95 0 110 5.9 2.95 2.95 0 010-5.9zm0 1.4a1.55 1.55 0 100 3.1 1.55 1.55 0 000-3.1z"
+                />
             </svg>
         );
     }

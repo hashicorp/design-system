@@ -23,9 +23,10 @@ export const IconMoreHorizontal24 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path d="M5 10a2 2 0 100 4 2 2 0 000-4zM12 10a2 2 0 100 4 2 2 0 000-4zM19 10a2 2 0 100 4 2 2 0 000-4z" />
-                </g>
+                <path
+                    fill={color}
+                    d="M5 10a2 2 0 110 4 2 2 0 010-4zm7 0a2 2 0 110 4 2 2 0 010-4zm7 0a2 2 0 110 4 2 2 0 010-4z"
+                />
             </svg>
         );
     }

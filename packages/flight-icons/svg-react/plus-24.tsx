@@ -25,7 +25,7 @@ export const IconPlus24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M13 5a.75.75 0 00-1.5 0v6.5H5A.75.75 0 005 13h6.5v6.5a.75.75 0 001.5 0V13h6.5a.75.75 0 000-1.5H13V5z"
+                    d="M12.25 4.25A.75.75 0 0113 5v6.5h6.5a.75.75 0 010 1.5H13v6.5a.75.75 0 01-1.5 0V13H5a.75.75 0 010-1.5h6.5V5a.75.75 0 01.75-.75z"
                 />
             </svg>
         );
