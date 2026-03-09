@@ -501,6 +501,25 @@
   --token-tabs-indicator-transition-function: cubic-bezier(0.5, 1, 0.89, 1);
   --token-tabs-indicator-transition-duration: 0.6s;
   --token-tabs-divider-height: 1px;
+  --token-tag-padding-top: 3px;
+  --token-tag-padding-bottom: 5px;
+  --token-tag-padding-right: 10px;
+  --token-tag-padding-left: 10px;
+  --token-tag-border-radius: 50px;
+  --token-tag-surface-color-default: #ffffff;
+  --token-tag-surface-color-hover: #f1f2f3;
+  --token-tag-surface-color-active: #dedfe3;
+  --token-tag-foreground-color-default: #3b3d45;
+  --token-tag-typography-font-size: 0.8125rem;
+  --token-tag-typography-line-height: 1.2308;
+  --token-tag-link-border-color-primary: #3b3d4566;
+  --token-tag-link-border-color-secondary: #3b3d4566;
+  --token-tag-link-surface-color-primary-default: #ffffff;
+  --token-tag-link-surface-color-primary-hover: #f1f2f3;
+  --token-tag-link-foreground-color-primary-default: #1060ff;
+  --token-tag-link-foreground-color-primary-hover: #0c56e9;
+  --token-tag-link-foreground-color-primary-active: #0046d1;
+  --token-tag-link-foreground-color-secondary-default: #0c0c0e;
   --token-tooltip-max-width: 280px;
   --token-tooltip-padding-horizontal: 12px;
   --token-tooltip-padding-vertical: 8px;
@@ -9773,22 +9792,32 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-tag {
   display: inline-flex;
   align-items: stretch;
   width: fit-content;
   max-width: 100%;
   vertical-align: middle;
-  background-color: var(--token-color-surface-interactive);
+  background-color: var(--token-tag-surface-color-default);
   border: 1px solid var(--token-color-border-strong);
-  border-radius: 50px;
+  border-radius: var(--token-tag-border-radius);
+}
+.hds-mode-cds-g0 .hds-tag:not(.hds-tag--color-primary, .hds-tag--color-secondary),
+.hds-mode-cds-g10 .hds-tag:not(.hds-tag--color-primary, .hds-tag--color-secondary),
+.hds-mode-cds-g90 .hds-tag:not(.hds-tag--color-primary, .hds-tag--color-secondary),
+.hds-mode-cds-g100 .hds-tag:not(.hds-tag--color-primary, .hds-tag--color-secondary) {
+  border: none;
 }
 
 .hds-tag__dismiss {
   flex: 0 0 auto;
   margin: 0;
   padding: 6px 4px 6px 8px;
-  background-color: var(--token-color-surface-interactive);
+  background-color: var(--token-tag-surface-color-default);
   border: none;
   border-radius: inherit;
   border-top-right-radius: 0;
@@ -9802,22 +9831,31 @@ button.hds-button[href]::after {
 
 .hds-tag__dismiss-icon,
 .hds-tag__text {
-  color: var(--token-color-foreground-primary);
+  color: var(--token-tag-foreground-color-default);
 }
 
 .hds-tag__text,
 .hds-tag__link {
   flex: 1 0 0;
   max-width: 166px;
-  padding: 3px 10px 5px 10px;
-  background-color: var(--token-color-surface-interactive);
+  padding: var(--token-tag-padding-top) var(--token-tag-padding-right) var(--token-tag-padding-bottom) var(--token-tag-padding-left);
+  background-color: var(--token-tag-surface-color-default);
   border-radius: inherit;
+}
+
+.hds-mode-cds-g0 .hds-tag__link,
+.hds-mode-cds-g10 .hds-tag__link,
+.hds-mode-cds-g90 .hds-tag__link,
+.hds-mode-cds-g100 .hds-tag__link {
+  text-decoration: none;
 }
 
 .hds-tag__text-container {
   display: -webkit-box;
   overflow: hidden;
-  line-height: 1rem;
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-tag-typography-font-size);
+  line-height: var(--token-tag-typography-line-height);
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -9827,7 +9865,7 @@ button.hds-button[href]::after {
 .hds-tag__dismiss ~ .hds-tag__text,
 .hds-tag__dismiss ~ .hds-tag__link {
   max-width: 160px;
-  padding: 3px 8px 5px 6px;
+  padding: var(--token-tag-padding-top) 8px var(--token-tag-padding-bottom) 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -9839,12 +9877,12 @@ button.hds-button[href]::after {
 .hds-tag__dismiss:hover, .hds-tag__dismiss.mock-hover,
 .hds-tag__link:hover,
 .hds-tag__link.mock-hover {
-  background-color: var(--token-color-surface-interactive-hover);
+  background-color: var(--token-tag-surface-color-hover);
 }
 .hds-tag__dismiss:active, .hds-tag__dismiss.mock-active,
 .hds-tag__link:active,
 .hds-tag__link.mock-active {
-  background-color: var(--token-color-surface-interactive-active);
+  background-color: var(--token-tag-surface-color-active);
 }
 .hds-tag__dismiss:focus, .hds-tag__dismiss.mock-focus,
 .hds-tag__link:focus,
@@ -9909,18 +9947,27 @@ button.hds-button[href]::after {
   box-shadow: none;
 }
 
-.hds-tag--color-primary .hds-tag__link {
-  color: var(--token-color-foreground-action);
+.hds-tag--color-primary {
+  border: 1px solid var(--token-tag-link-border-color-primary);
 }
-.hds-tag--color-primary .hds-tag__link:hover, .hds-tag--color-primary .hds-tag__link.mock-hover {
-  color: var(--token-color-foreground-action-hover);
+.hds-tag--color-primary .hds-tag__link, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss {
+  color: var(--token-tag-link-foreground-color-primary-default);
+  background-color: var(--token-tag-link-surface-color-primary-default);
 }
-.hds-tag--color-primary .hds-tag__link:active, .hds-tag--color-primary .hds-tag__link.mock-active {
-  color: var(--token-color-foreground-action-active);
+.hds-tag--color-primary .hds-tag__link:hover, .hds-tag--color-primary .hds-tag__link.mock-hover, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss:hover, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss.mock-hover {
+  color: var(--token-tag-link-foreground-color-primary-hover);
+  background-color: var(--token-tag-link-surface-color-primary-hover);
+}
+.hds-tag--color-primary .hds-tag__link:active, .hds-tag--color-primary .hds-tag__link.mock-active, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss:active, .hds-tag--color-primary:has(.hds-tag__link) .hds-tag__dismiss.mock-active {
+  color: var(--token-tag-link-foreground-color-primary-active);
+  background-color: var(--token-tag-link-surface-color-primary-hover);
 }
 
+.hds-tag--color-secondary {
+  border: 1px solid var(--token-tag-link-border-color-secondary);
+}
 .hds-tag--color-secondary .hds-tag__link {
-  color: var(--token-color-foreground-strong);
+  color: var(--token-tag-link-foreground-color-secondary-default);
 }
 
 /**
