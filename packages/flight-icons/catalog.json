@@ -10668,6 +10668,28 @@
       "height": 16
     },
     {
+      "id": "10214:266",
+      "fileName": "workspace-24",
+      "iconName": "workspace",
+      "description": "workspace, grid, template, layout, box",
+      "mapping": "Maps to: Workspace",
+      "category": "Interface",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "10214:273",
+      "fileName": "workspace-16",
+      "iconName": "workspace",
+      "description": "workspace, grid, template, layout, box",
+      "mapping": "Maps to: Workspace",
+      "category": "Interface",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "551:236",
       "fileName": "zoom-in-24",
       "iconName": "zoom-in",

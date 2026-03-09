@@ -1,0 +1,33 @@
+import { forwardRef, useMemo } from 'react';
+import { IconProps } from './types';
+
+export const IconWorkspace16 = forwardRef<SVGSVGElement, IconProps>(
+    ({ color = 'currentColor', title, ...props }, svgRef) => {
+        const titleId = useMemo(
+            () =>
+                title
+                    ? 'title-' + Math.random().toString(36).substr(2, 9)
+                    : undefined,
+            [title]
+        );
+        return (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={16}
+                height={16}
+                fill="none"
+                viewBox="0 0 16 16"
+                aria-hidden={!title}
+                ref={svgRef}
+                aria-labelledby={titleId}
+                {...props}
+            >
+                {title ? <title id={titleId}>{title}</title> : null}
+                <path
+                    fill={color}
+                    d="M7.5 7A1.5 1.5 0 019 8.5v5A1.5 1.5 0 017.5 15h-5l-.153-.008A1.5 1.5 0 011 13.5v-5A1.5 1.5 0 012.5 7h5zm-5 6.5h5v-5h-5v5zm11.153-6.492A1.5 1.5 0 0115 8.5v2l-.008.153a1.5 1.5 0 01-1.339 1.34L13.5 12h-2a1.5 1.5 0 01-1.492-1.347L10 10.5v-2A1.5 1.5 0 0111.5 7h2l.153.008zM11.5 10.5h2v-2h-2v2zM4.653 1.008A1.5 1.5 0 016 2.5v2l-.008.153a1.5 1.5 0 01-1.339 1.34L4.5 6h-2a1.5 1.5 0 01-1.492-1.347L1 4.5v-2A1.5 1.5 0 012.5 1h2l.153.008zM13.5 1A1.5 1.5 0 0115 2.5v2l-.008.153A1.5 1.5 0 0113.5 6h-5l-.153-.008a1.5 1.5 0 01-1.34-1.339L7 4.5v-2A1.5 1.5 0 018.5 1h5zm-11 3.5h2v-2h-2v2zm6 0h5v-2h-5v2z"
+                />
+            </svg>
+        );
+    }
+);
