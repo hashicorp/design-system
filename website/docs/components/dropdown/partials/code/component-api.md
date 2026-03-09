@@ -85,10 +85,16 @@ The Dropdown component is composed of different child components each with their
     Sets the Dropdown List’s width to match the width of the Toggle. It overrides the `@width` value if set.
   </C.Property>
   <C.Property @name="preserveContentInDom" @type="boolean" @default="false">
-    Controls if the content is always rendered in the DOM, even when the Dropdown is closed.
+    Controls if the content is always rendered in the DOM, even when the dropdown is closed.
   </C.Property>
   <C.Property @name="onClose" @type="function">
-    Callback function invoked when the Dropdown is closed, if provided.
+    Callback function invoked when the dropdown is closed (if provided).
+  </C.Property>
+  <C.Property @name="onFocusOut" @type="function">
+    A callback function invoked when the dropdown menu loses focus, and focus does not move to another element (if provided).
+    <br />
+    <br />
+    _Notice: Focus can be lost if content inside the dropdown is removed dynamically. This callback should be used to set focus to another element if this occurs. Without this callback the dropdown will close automatically when focus is lost._
   </C.Property>
   <C.Property @name="boundary" @type="Boundary | string">
     Provides an option to specify a parent or ancestor container element to act as the boundary for collision detection vs. the browser window boundaries which is the default. The value provided must be either a `Boundary` type as specified in the [Floating UI library documentation](https://floating-ui.com/docs/detectoverflow#options) or an id string for the boundary container element.
