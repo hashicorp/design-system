@@ -14,7 +14,7 @@ import chalk from 'chalk';
 import * as Figma from 'figma-api';
 
 type ComponentSetData = {
-    [id: string] : {
+    [id: string]: {
         name: string;
         description: string;
     }
@@ -79,8 +79,11 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
                     // @ts-ignore
                     const parentComponentSet = componentSetData[component.containing_frame.containingStateGroup.nodeId]
                     if (parentComponentSet) {
+                        // Relying on a convention for now: if the description of an icon contains the separator, we assume that the part before the separator is meant to be a "clean" description of the icon (without the HDS -> Carbon migration note).
+                        const HDS_CARBON_NOTE_SEPARATOR = '\n\n---------------------\n🔷 HDS -> Carbon Note 🔷\n';
                         assetsMetadata[component.node_id].iconName = parentComponentSet.name;
-                        assetsMetadata[component.node_id].description = parentComponentSet.description;
+                        //  All content including and after the separator is trimmed.
+                        assetsMetadata[component.node_id].description = parentComponentSet.description.split(HDS_CARBON_NOTE_SEPARATOR)[0].trimEnd();
                     }
                 }
 
