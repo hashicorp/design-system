@@ -15,7 +15,9 @@ export type AssetCoreData = {
     // the name of the component set parent of the variant (e.g. "alert-circle")
     iconName: string,
     // the (optional) description contained in the "description" field of the parent component_set
-    description
+    description: string,
+    // the (optional) mapping to an IBM Carbon icon (contained in the "description" field of the parent component_set, after a specific separator)
+    mapping?: string,
     // the icon's category (by convention it's the containing frame's name)
     category: string,
 }
