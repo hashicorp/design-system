@@ -392,6 +392,7 @@
   --token-dismiss-button-foreground-color-default: var(
     --token-color-foreground-faint
   );
+  --token-dismiss-button-icon-size: 16px;
   --token-dismiss-button-padding: 0px;
   --token-dismiss-button-surface-color-active: rgba(222, 223, 227, 0.4);
   --token-dismiss-button-surface-color-hover: rgba(222, 223, 227, 0.4);
@@ -748,7 +749,8 @@
     --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
     --token-dismiss-button-foreground-color-active: #161616;
     --token-dismiss-button-foreground-color-default: #161616;
-    --token-dismiss-button-padding: 16px;
+    --token-dismiss-button-icon-size: 20px;
+    --token-dismiss-button-padding: 14px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
     --token-elevation-high-box-shadow: none;
@@ -1083,7 +1085,8 @@
     --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
     --token-dismiss-button-foreground-color-active: #f4f4f4;
     --token-dismiss-button-foreground-color-default: #f4f4f4;
-    --token-dismiss-button-padding: 16px;
+    --token-dismiss-button-icon-size: 20px;
+    --token-dismiss-button-padding: 14px;
     --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
     --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
     --token-elevation-high-box-shadow: none;
@@ -1417,7 +1420,8 @@
   --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --token-dismiss-button-foreground-color-active: #161616;
   --token-dismiss-button-foreground-color-default: #161616;
-  --token-dismiss-button-padding: 16px;
+  --token-dismiss-button-icon-size: 20px;
+  --token-dismiss-button-padding: 14px;
   --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.5);
   --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-elevation-high-box-shadow: none;
@@ -1750,7 +1754,8 @@
   --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
   --token-dismiss-button-foreground-color-active: #f4f4f4;
   --token-dismiss-button-foreground-color-default: #f4f4f4;
-  --token-dismiss-button-padding: 16px;
+  --token-dismiss-button-icon-size: 20px;
+  --token-dismiss-button-padding: 14px;
   --token-dismiss-button-surface-color-active: rgba(141, 141, 141, 0.4);
   --token-dismiss-button-surface-color-hover: rgba(141, 141, 141, 0.16);
   --token-elevation-high-box-shadow: none;

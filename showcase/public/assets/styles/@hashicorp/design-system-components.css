@@ -368,6 +368,7 @@
   --token-dismiss-button-foreground-color-active: #0c0c0e;
   --token-dismiss-button-surface-color-hover: rgba(222, 223, 227, 0.4);
   --token-dismiss-button-surface-color-active: rgba(222, 223, 227, 0.4);
+  --token-dismiss-button-icon-size: 16px;
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;
@@ -4617,6 +4618,10 @@ button.hds-button[href]::after {
   outline-style: solid;
   outline-color: transparent;
   isolation: isolate;
+}
+.hds-dismiss-button .hds-icon {
+  width: var(--token-dismiss-button-icon-size);
+  height: var(--token-dismiss-button-icon-size);
 }
 .hds-dismiss-button:hover::before, .hds-dismiss-button.mock-hover::before {
   background-color: var(--token-dismiss-button-surface-color-hover);

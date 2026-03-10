@@ -6,10 +6,10 @@
       "unit": "px",
       "$modes": {
         "default": "0",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
+        "cds-g0": "14",
+        "cds-g10": "14",
+        "cds-g90": "14",
+        "cds-g100": "14"
       }
     },
     "foreground": {
@@ -61,6 +61,20 @@
             "cds-g90": "{carbon.themes.g90.backgroundActive}",
             "cds-g100": "{carbon.themes.g100.backgroundActive}"
           }
+        }
+      }
+    },
+    "icon": {
+      "size": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "20",
+          "cds-g10": "20",
+          "cds-g90": "20",
+          "cds-g100": "20"
         }
       }
     }

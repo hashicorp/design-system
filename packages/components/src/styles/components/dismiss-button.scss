@@ -18,6 +18,11 @@
   border: none;
   cursor: pointer;
 
+  .hds-icon {
+    width: var(--token-dismiss-button-icon-size);
+    height: var(--token-dismiss-button-icon-size);
+  }
+
   &:hover,
   &.mock-hover {
     // we re-use the pseudo-element created by the "focus-ring" mixin

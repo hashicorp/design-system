@@ -4087,6 +4087,10 @@ button.hds-button[href]::after {
   outline-color: transparent;
   isolation: isolate;
 }
+.hds-dismiss-button .hds-icon {
+  width: var(--token-dismiss-button-icon-size);
+  height: var(--token-dismiss-button-icon-size);
+}
 .hds-dismiss-button:hover::before, .hds-dismiss-button.mock-hover::before {
   background-color: var(--token-dismiss-button-surface-color-hover);
 }

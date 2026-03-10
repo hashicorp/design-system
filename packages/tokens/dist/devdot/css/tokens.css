@@ -366,6 +366,7 @@
   --token-dismiss-button-foreground-color-active: #0c0c0e;
   --token-dismiss-button-surface-color-hover: rgba(222, 223, 227, 0.4);
   --token-dismiss-button-surface-color-active: rgba(222, 223, 227, 0.4);
+  --token-dismiss-button-icon-size: 16px;
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;
