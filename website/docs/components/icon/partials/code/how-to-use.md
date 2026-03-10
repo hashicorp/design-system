@@ -20,7 +20,7 @@ It renders to this (where the `id` will be unique each time):
   aria-hidden="true"
   data-test-icon="alert-circle"
 >
-  <use href="#flight-alert-circle-16"></use>
+  <use href="#hds-icon-flight-alert-circle-16"></use>
 </svg>
 ```
 

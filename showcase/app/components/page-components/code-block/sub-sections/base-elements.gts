@@ -53,7 +53,7 @@ export default class SubSectionBaseElements extends Component {
 
     <span class="shw-component-code-block-display-none" id="test-target">Copy me</span>
 
-    {{!-- Note: HdsIcons are needed to load the svgs for the copy button statuses --}}
+    {{! Note: HdsIcons are needed to load the svgs for the copy button statuses }}
     <HdsIcon @name="clipboard-checked" {{style display="none"}} />
     <HdsIcon @name="clipboard-x" {{style display="none"}} />
     <ShwGrid @columns={{6}} {{this.replaceCopyStatus}} as |SG|>

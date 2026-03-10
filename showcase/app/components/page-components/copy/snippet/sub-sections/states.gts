@@ -52,7 +52,7 @@ export default class SubSectionBaseElements extends Component {
   <template>
     <ShwTextH2>States</ShwTextH2>
 
-    {{!-- Note: HdsIcons are needed to load the svgs for the copy button statuses --}}
+    {{! Note: HdsIcons are needed to load the svgs for the copy button statuses }}
     <HdsIcon @name="clipboard-checked" {{style display="none"}} />
     <HdsIcon @name="clipboard-x" {{style display="none"}} />
     <div {{this.replaceCopyStatus}}>
