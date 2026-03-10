@@ -10,6 +10,8 @@ import type HdsAccordionItemButtonComponent from './components/hds/accordion/ite
 import type HdsAdvancedTableComponent from './components/hds/advanced-table';
 import type HdsAdvancedTableBodyComponent from './components/hds/advanced-table/body';
 import type HdsAdvancedTableColumnManagerComponent from './components/hds/advanced-table/column-manager/index.gts';
+import type HdsAdvancedTableColumnManagerOrderComponent from './components/hds/advanced-table/column-manager/order.gts';
+import type HdsAdvancedTableColumnManagerWidthComponent from './components/hds/advanced-table/column-manager/width.gts';
 import type HdsAdvancedTableTdComponent from './components/hds/advanced-table/td';
 import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advanced-table/th-button-expand';
 import type HdsAdvancedTableThButtonSortComponent from './components/hds/advanced-table/th-button-sort';
@@ -266,6 +268,10 @@ export default interface HdsComponentsRegistry {
   'hds/advanced-table/body': typeof HdsAdvancedTableBodyComponent;
   'Hds::AdvancedTable::ColumnManager': typeof HdsAdvancedTableColumnManagerComponent;
   'hds/advanced-table/column-manager': typeof HdsAdvancedTableColumnManagerComponent;
+  'Hds::AdvancedTable::ColumnManager::Order': typeof HdsAdvancedTableColumnManagerOrderComponent;
+  'hds/advanced-table/column-manager/order': typeof HdsAdvancedTableColumnManagerOrderComponent;
+  'Hds::AdvancedTable::ColumnManager::Width': typeof HdsAdvancedTableColumnManagerWidthComponent;
+  'hds/advanced-table/column-manager/width': typeof HdsAdvancedTableColumnManagerWidthComponent;
   'Hds::AdvancedTable::Td': typeof HdsAdvancedTableTdComponent;
   'hds/advanced-table/td': typeof HdsAdvancedTableTdComponent;
   'Hds::AdvancedTable::Th': typeof HdsAdvancedTableThComponent;
