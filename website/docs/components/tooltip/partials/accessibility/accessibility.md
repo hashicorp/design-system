@@ -8,6 +8,19 @@ The issue with tooltips, in general, is that of persistence and perceivability. 
 
 Consumers should proceed with caution in this case, and consider designs that make it clear to the user what options are available to them.
 
+## Minimum target size
+
+When the `Hds::TooltipButton` is used to wrap a non-interactive element, whatever is placed within the component needs to be at least 24px by 24px, or is positioned so that there is sufficient spacing around the button.
+
+For example:
+
+- Use the 24px icon variant
+- Add 4px padding around a 16px icon variant
+- Ensure the element you add a Tooltip to is at least 24px by 24px
+
+![Three examples of ways to meet minimum target size](/assets/components/tooltip/tooltip-target-size.png)
+
+[Learn more about WCAG SC 2.5.8: Target size (Minimum) (Level AA)](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)
 
 ## Focus
 
@@ -20,7 +33,7 @@ Consumers should proceed with caution in this case, and consider designs that ma
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
 
-<Doc::WcagList @criteriaList={{array "1.1.1" "1.3.1" "1.3.2" "1.4.1" "1.4.3" "1.4.4" "1.4.10" "1.4.11" "1.4.12" "1.4.13" "2.1.1" "2.1.2" "2.4.7" "4.1.2" }} />
+<Doc::WcagList @criteriaList={{array "1.1.1" "1.3.1" "1.3.2" "1.4.1" "1.4.3" "1.4.4" "1.4.10" "1.4.11" "1.4.12" "1.4.13" "2.1.1" "2.1.2" "2.4.7" "2.5.8" "4.1.2" }} />
 
 ---
 
