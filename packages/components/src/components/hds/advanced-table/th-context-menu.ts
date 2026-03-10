@@ -52,8 +52,9 @@ export interface HdsAdvancedTableThContextMenuSignature {
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
   @service declare readonly hdsIntl: HdsIntlService;
 
-  @tracked toggleElement: HdsDropdownToggleButtonSignature['Element'] | null =
-    null;
+  @tracked private _toggleElement:
+    | HdsDropdownToggleButtonSignature['Element']
+    | null = null;
 
   get _resizeOptions(): HdsAdvancedTableThContextMenuOption[] {
     const { isLastColumn } = this.args;
@@ -207,7 +208,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
   private _registerDropdownToggleElement = modifier(
     (element: HdsDropdownToggleButtonSignature['Element']) => {
-      this.toggleElement = element;
+      this._toggleElement = element;
     }
   );
 
@@ -252,7 +253,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     requestAnimationFrame(() => {
       dropdownCloseCallback?.();
 
-      this.toggleElement?.focus();
+      this._toggleElement?.focus();
     });
   }
 

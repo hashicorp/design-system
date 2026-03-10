@@ -416,7 +416,7 @@ export default class HdsAdvancedTableColumnManagerWidth extends Component<HdsAdv
 
     for (const column of columns) {
       this.columnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
-      this.originalColumnWidths.set(column.key, column.width);
+      this.originalColumnWidths.set(column.key, column.width ?? DEFAULT_WIDTH);
     }
   });
 

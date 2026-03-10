@@ -466,4 +466,39 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .dom('#data-test-advanced-table .hds-advanced-table__empty-state')
       .doesNotExist();
   });
+
+  test('it should not show the bottom scroll indicator when the table is empty', async function (assert) {
+    const context = new TrackedObject({ model: DEFAULT_BASIC_MODEL });
+
+    await render(
+      <template>
+        {{! height constraint forces overflow detection to fire, setting showScrollIndicatorBottom=true }}
+        <HdsAdvancedTable
+          id="data-test-advanced-table"
+          @model={{context.model}}
+          @columns={{DEFAULT_BASIC_COLUMNS}}
+          aria-label="data test table"
+          {{! template-lint-disable no-inline-styles }}
+          style="height: 50px; overflow: auto;"
+        />
+      </template>,
+    );
+
+    // with data + constrained height, the bottom indicator should be active
+    assert
+      .dom(
+        '#data-test-advanced-table .hds-advanced-table__scroll-indicator-bottom',
+      )
+      .exists('bottom scroll indicator shows with overflowing data');
+
+    // switching to empty data should hide the indicator even if showScrollIndicatorBottom is still true
+    context.model = [];
+    await settled();
+
+    assert
+      .dom(
+        '#data-test-advanced-table .hds-advanced-table__scroll-indicator-bottom',
+      )
+      .doesNotExist('bottom scroll indicator hidden when table is empty');
+  });
 });
