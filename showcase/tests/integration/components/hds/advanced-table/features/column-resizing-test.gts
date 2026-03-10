@@ -87,6 +87,14 @@ async function simulateLeftPointerDrag(handle: Element | null) {
   await waitForLayout();
 }
 
+async function simulateLeftPointerDrag(handle: Element | null) {
+  if (!handle) return;
+
+  await triggerEvent(handle, 'pointerdown', { clientX: 100, button: 0 });
+  await triggerEvent(handle, 'pointermove', { clientX: 70, buttons: 1 });
+  await triggerEvent(window, 'pointerup', { button: 0 });
+}
+
 const DEFAULT_RESIZABLE_COLUMNS: HdsAdvancedTableColumn[] = [
   {
     key: 'col1',
