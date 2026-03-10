@@ -34,13 +34,14 @@ export default class SubSectionBaseElements extends Component {
 
       if (icon) {
         if (status === 'success') {
+          // Note: Timeout is needed to allow the copy button component to load the default icon before it's replaced with the status icon
           window.setTimeout(() => {
             icon.setAttribute('href', `#hds-icon-flight-${SUCCESS_ICON}-16`);
-          }, 100);
+          }, 200);
         } else if (status === 'error') {
           window.setTimeout(() => {
             icon.setAttribute('href', `#hds-icon-flight-${ERROR_ICON}-16`);
-          }, 100);
+          }, 200);
         }
       }
     });
@@ -53,7 +54,7 @@ export default class SubSectionBaseElements extends Component {
 
     <span class="shw-component-code-block-display-none" id="test-target">Copy me</span>
 
-    {{! Note: HdsIcons are needed to load the svgs for the copy button statuses }}
+    {{! Note: HdsIcons are needed to preload the SVGs for the copy button statuses }}
     <HdsIcon @name="clipboard-checked" {{style display="none"}} />
     <HdsIcon @name="clipboard-x" {{style display="none"}} />
     <ShwGrid @columns={{6}} {{this.replaceCopyStatus}} as |SG|>
