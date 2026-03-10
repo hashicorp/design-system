@@ -25,15 +25,13 @@ export interface HdsFormKeyValueInputsAddRowButtonSignature {
 export default class HdsFormKeyValueInputsAddRowButton extends Component<HdsFormKeyValueInputsAddRowButtonSignature> {
   @service declare readonly hdsIntl: HdsIntlService;
 
-  get ariaLabel(): string {
-    return (
-      this.args.ariaLabel ??
-      this.hdsIntl.t(
-        'hds.components.form.key-value-inputs.add-row-button.aria-label',
-        {
-          default: 'Add row',
-        }
-      )
+  get ariaDescription(): string {
+    return this.hdsIntl.t(
+      'hds.components.form.key-value-inputs.add-row-button.aria-description',
+      {
+        default:
+          'Adds a new row of one or more inputs at the end of the form field. Press shift tab to move focus back to the newly added row.',
+      }
     );
   }
 
@@ -65,7 +63,7 @@ export default class HdsFormKeyValueInputsAddRowButton extends Component<HdsForm
       @icon="plus"
       @iconPosition="leading"
       class="hds-form-key-value-inputs__add-row-button"
-      aria-description={{this.ariaLabel}}
+      aria-description={{this.ariaDescription}}
       {{on "click" this.onClick}}
       ...attributes
     />
