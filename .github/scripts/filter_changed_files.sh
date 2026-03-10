@@ -28,9 +28,9 @@ fi
 # A---B---C---D---W---X---Y---Z # origin/main
 #             \---E---F         # feature/branch
 #
-# ... `git merge-base origin/main` would return commit `D`
-# `...HEAD` specifies from the common ancestor to the latest commit on the current branch (HEAD)..
-files_to_check=$(git diff --name-only "$(git merge-base origin/main HEAD~)"...HEAD)
+# ... `git merge-base origin/main HEAD` would return commit `D`
+# `...HEAD` specifies from the common ancestor to the latest commit on the current branch (HEAD).
+files_to_check=$(git diff --name-only "$(git merge-base origin/main HEAD)"...HEAD)
 
 # Loop through the changed files and find directories/files that trigger need for tests
 for file_to_check in $files_to_check; do
