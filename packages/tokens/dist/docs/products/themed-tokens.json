@@ -10941,40 +10941,6 @@
         "large"
       ]
     },
-    "token-card-padding": {
-      "key": "{card.padding}",
-      "$type": "dimension",
-      "$value": "0px",
-      "unit": "px",
-      "$modes": {
-        "default": "0",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "0",
-        "unit": "px",
-        "$modes": {
-          "default": "0",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{card.padding}"
-      },
-      "name": "token-card-padding",
-      "attributes": {
-        "category": "card"
-      },
-      "path": [
-        "card",
-        "padding"
-      ]
-    },
     "token-card-surface-color-primary": {
       "key": "{card.surface.color.primary}",
       "$type": "color",
@@ -26017,40 +25983,6 @@
         "icon",
         "size",
         "large"
-      ]
-    },
-    "token-card-padding": {
-      "key": "{card.padding}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "0",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "0",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{card.padding}"
-      },
-      "name": "token-card-padding",
-      "attributes": {
-        "category": "card"
-      },
-      "path": [
-        "card",
-        "padding"
       ]
     },
     "token-card-surface-color-primary": {
@@ -41097,40 +41029,6 @@
         "large"
       ]
     },
-    "token-card-padding": {
-      "key": "{card.padding}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "0",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "0",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{card.padding}"
-      },
-      "name": "token-card-padding",
-      "attributes": {
-        "category": "card"
-      },
-      "path": [
-        "card",
-        "padding"
-      ]
-    },
     "token-card-surface-color-primary": {
       "key": "{card.surface.color.primary}",
       "$type": "color",
@@ -56175,40 +56073,6 @@
         "large"
       ]
     },
-    "token-card-padding": {
-      "key": "{card.padding}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "0",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "0",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{card.padding}"
-      },
-      "name": "token-card-padding",
-      "attributes": {
-        "category": "card"
-      },
-      "path": [
-        "card",
-        "padding"
-      ]
-    },
     "token-card-surface-color-primary": {
       "key": "{card.surface.color.primary}",
       "$type": "color",
@@ -71251,40 +71115,6 @@
         "icon",
         "size",
         "large"
-      ]
-    },
-    "token-card-padding": {
-      "key": "{card.padding}",
-      "$type": "dimension",
-      "$value": "16px",
-      "unit": "px",
-      "$modes": {
-        "default": "0",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "16",
-        "unit": "px",
-        "$modes": {
-          "default": "0",
-          "cds-g0": "16",
-          "cds-g10": "16",
-          "cds-g90": "16",
-          "cds-g100": "16"
-        },
-        "key": "{card.padding}"
-      },
-      "name": "token-card-padding",
-      "attributes": {
-        "category": "card"
-      },
-      "path": [
-        "card",
-        "padding"
       ]
     },
     "token-card-surface-color-primary": {

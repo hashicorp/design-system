@@ -10935,40 +10935,6 @@
     ]
   },
   {
-    "key": "{card.padding}",
-    "$type": "dimension",
-    "$value": "16px",
-    "unit": "px",
-    "$modes": {
-      "default": "0",
-      "cds-g0": "16",
-      "cds-g10": "16",
-      "cds-g90": "16",
-      "cds-g100": "16"
-    },
-    "original": {
-      "$type": "dimension",
-      "$value": "16",
-      "unit": "px",
-      "$modes": {
-        "default": "0",
-        "cds-g0": "16",
-        "cds-g10": "16",
-        "cds-g90": "16",
-        "cds-g100": "16"
-      },
-      "key": "{card.padding}"
-    },
-    "name": "token-card-padding",
-    "attributes": {
-      "category": "card"
-    },
-    "path": [
-      "card",
-      "padding"
-    ]
-  },
-  {
     "key": "{card.surface.color.primary}",
     "$type": "color",
     "$value": "#262626",

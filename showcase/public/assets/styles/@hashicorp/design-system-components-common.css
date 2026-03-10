@@ -3081,7 +3081,6 @@ button.hds-button[href]::after {
   position: relative;
   background-color: var(--token-card-surface-color-primary);
   border-radius: var(--token-border-radius-medium);
-  padding: var(--token-card-padding);
 }
 
 .hds-card__container--level-surface-base {

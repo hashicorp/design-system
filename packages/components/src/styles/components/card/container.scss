@@ -12,7 +12,6 @@ $hds-card-container-levels: ("base", "mid", "high");
 
 .hds-card__container {
   position: relative;
-  padding: var(--token-card-padding);
   background-color: var(--token-card-surface-color-primary);
   border-radius: var(--token-border-radius-medium);
 }
