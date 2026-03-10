@@ -3988,19 +3988,19 @@ button.hds-button[href]::after {
   cursor: pointer;
 }
 .hds-copy-button .hds-button__icon {
-  color: var(--token-color-foreground-action);
+  color: var(--token-copy-button-icon-color-default);
 }
 .hds-copy-button:hover .hds-button__icon, .hds-copy-button.mock-hover .hds-button__icon {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--token-copy-button-icon-color-hover);
 }
 .hds-copy-button:active .hds-button__icon, .hds-copy-button.mock-active .hds-button__icon {
-  color: var(--token-color-foreground-action-active);
+  color: var(--token-copy-button-icon-color-active);
 }
 .hds-copy-button.hds-copy-button--status-success .hds-button__icon {
-  color: var(--token-color-foreground-success);
+  color: var(--token-copy-button-icon-color-success);
 }
 .hds-copy-button.hds-copy-button--status-error .hds-button__icon {
-  color: var(--token-color-foreground-critical);
+  color: var(--token-copy-button-icon-color-error);
 }
 
 /**
