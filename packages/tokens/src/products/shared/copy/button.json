@@ -1,0 +1,65 @@
+{
+  "copy": {
+    "button": {
+      "icon": {
+        "color": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.foreground.action}",
+            "$modes": {
+              "default": "{color.foreground.action}",
+              "cds-g0": "{carbon.themes.white.textOnColor}",
+              "cds-g10": "{carbon.themes.g10.textOnColor}",
+              "cds-g90": "{carbon.themes.g90.textOnColor}",
+              "cds-g100": "{carbon.themes.g100.textOnColor}"
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.foreground.action-hover}",
+            "$modes": {
+              "default": "{color.foreground.action-hover}",
+              "cds-g0": "{carbon.themes.white.textOnColor}",
+              "cds-g10": "{carbon.themes.g10.textOnColor}",
+              "cds-g90": "{carbon.themes.g90.textOnColor}",
+              "cds-g100": "{carbon.themes.g100.textOnColor}"
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{color.foreground.action-active}",
+            "$modes": {
+              "default": "{color.foreground.action-active}",
+              "cds-g0": "{carbon.themes.white.textOnColor}",
+              "cds-g10": "{carbon.themes.g10.textOnColor}",
+              "cds-g90": "{carbon.themes.g90.textOnColor}",
+              "cds-g100": "{carbon.themes.g100.textOnColor}"
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{color.foreground.success}",
+            "$modes": {
+              "default": "{color.foreground.success}",
+              "cds-g0": "{carbon.themes.white.supportSuccessInverse}",
+              "cds-g10": "{carbon.themes.g10.supportSuccessInverse}",
+              "cds-g90": "{carbon.themes.g90.supportSuccess}",
+              "cds-g100": "{carbon.themes.g100.supportSuccess}"
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{color.foreground.critical}",
+            "$modes": {
+              "default": "{color.foreground.critical}",
+              "cds-g0": "{carbon.themes.white.supportErrorInverse}",
+              "cds-g10": "{carbon.themes.g10.supportErrorInverse}",
+              "cds-g90": "{carbon.themes.g90.supportError}",
+              "cds-g100": "{carbon.themes.g100.supportError}"
+            }
+          }
+        }
+      }
+    }
+  }
+}
