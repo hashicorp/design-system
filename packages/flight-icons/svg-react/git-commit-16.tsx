@@ -25,9 +25,7 @@ export const IconGitCommit16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
-                    d="M10.905 7a3.001 3.001 0 00-5.81 0H2.75a.75.75 0 000 1.5h2.345a3.001 3.001 0 005.81 0h2.345a.75.75 0 000-1.5h-2.345zM8 6.25a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
-                    clipRule="evenodd"
+                    d="M8 4.75c1.398 0 2.572.956 2.905 2.25h2.345a.75.75 0 010 1.5h-2.345a3.001 3.001 0 01-5.81 0H2.75a.75.75 0 010-1.5h2.345A3.001 3.001 0 018 4.75zm0 1.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
                 />
             </svg>
         );

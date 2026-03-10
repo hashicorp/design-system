@@ -23,9 +23,10 @@ export const IconBarChart16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path d="M12 2a1 1 0 011 1v10a1 1 0 11-2 0V3a1 1 0 011-1zM8 6a1 1 0 011 1v6a1 1 0 11-2 0V7a1 1 0 011-1zM5 10a1 1 0 00-2 0v3a1 1 0 102 0v-3z" />
-                </g>
+                <path
+                    fill={color}
+                    d="M4 9a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm4-3a1 1 0 011 1v6a1 1 0 11-2 0V7a1 1 0 011-1zm4-4a1 1 0 011 1v10a1 1 0 11-2 0V3a1 1 0 011-1z"
+                />
             </svg>
         );
     }

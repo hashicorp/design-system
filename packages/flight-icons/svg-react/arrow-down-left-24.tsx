@@ -25,7 +25,9 @@ export const IconArrowDownLeft24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M18.78 6.28a.75.75 0 00-1.06-1.06L6.5 16.44V8.75a.75.75 0 00-1.5 0v9.5a.748.748 0 00.218.529l.002.001.001.002A.748.748 0 005.75 19h9.5a.75.75 0 000-1.5H7.56L18.78 6.28z"
+                    fillRule="evenodd"
+                    d="M17.72 5.22a.75.75 0 111.06 1.06L7.56 17.5h7.69a.75.75 0 110 1.5h-9.5a.75.75 0 01-.528-.218l-.004-.004A.75.75 0 015 18.25v-9.5a.75.75 0 011.5 0v7.69L17.72 5.22z"
+                    clipRule="evenodd"
                 />
             </svg>
         );

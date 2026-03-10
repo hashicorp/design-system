@@ -23,9 +23,10 @@ export const IconPause24 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path d="M9 5.25a.75.75 0 00-1.5 0v13.5a.75.75 0 001.5 0V5.25zM16.5 5.25a.75.75 0 00-1.5 0v13.5a.75.75 0 001.5 0V5.25z" />
-                </g>
+                <path
+                    fill={color}
+                    d="M8.25 4.5a.75.75 0 01.75.75v13.5a.75.75 0 01-1.5 0V5.25a.75.75 0 01.75-.75zm7.5 0a.75.75 0 01.75.75v13.5a.75.75 0 01-1.5 0V5.25a.75.75 0 01.75-.75z"
+                />
             </svg>
         );
     }

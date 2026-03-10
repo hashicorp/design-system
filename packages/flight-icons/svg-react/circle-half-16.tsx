@@ -25,9 +25,7 @@ export const IconCircleHalf16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
-                    d="M8 0a8 8 0 100 16A8 8 0 008 0zm0 1.5v13a6.5 6.5 0 100-13z"
-                    clipRule="evenodd"
+                    d="M8 0a8 8 0 110 16A8 8 0 018 0zm0 14.5a6.5 6.5 0 100-13v13z"
                 />
             </svg>
         );

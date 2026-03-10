@@ -25,9 +25,7 @@ export const IconAlertCircleFill16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
-                    d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-4a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 018 4zm0 6a1 1 0 100 2h.007a1 1 0 100-2H8z"
-                    clipRule="evenodd"
+                    d="M8 0a8 8 0 110 16A8 8 0 018 0zm0 10a1 1 0 100 2h.007a1 1 0 000-2H8zm0-6a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 4z"
                 />
             </svg>
         );

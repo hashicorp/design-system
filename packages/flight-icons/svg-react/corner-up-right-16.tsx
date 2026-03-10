@@ -25,7 +25,9 @@ export const IconCornerUpRight16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M9.22 9.22a.75.75 0 101.06 1.06l3.5-3.5a.75.75 0 000-1.06l-3.5-3.5a.75.75 0 10-1.06 1.06l2.22 2.22H5.75A3.25 3.25 0 002.5 8.75v4.5a.75.75 0 001.5 0v-4.5A1.75 1.75 0 015.75 7h5.69L9.22 9.22z"
+                    fillRule="evenodd"
+                    d="M9.22 2.22a.75.75 0 011.06 0l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06L11.44 7H5.75A1.75 1.75 0 004 8.75v4.5a.75.75 0 01-1.5 0v-4.5A3.25 3.25 0 015.75 5.5h5.69L9.22 3.28a.75.75 0 010-1.06z"
+                    clipRule="evenodd"
                 />
             </svg>
         );

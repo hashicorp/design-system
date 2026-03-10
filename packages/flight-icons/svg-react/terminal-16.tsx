@@ -23,9 +23,12 @@ export const IconTerminal16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path d="M3.23 3.174a.75.75 0 00-.96 1.152L6.078 7.5 2.27 10.674a.75.75 0 10.96 1.152l4.5-3.75a.75.75 0 000-1.152l-4.5-3.75zM7.75 12a.75.75 0 000 1.5h5.5a.75.75 0 000-1.5h-5.5z" />
-                </g>
+                <path
+                    fill={color}
+                    fillRule="evenodd"
+                    d="M13.25 12a.75.75 0 010 1.5h-5.5a.75.75 0 010-1.5h5.5zM2.174 3.27a.75.75 0 011.056-.096l4.5 3.75a.75.75 0 010 1.152l-4.5 3.75a.75.75 0 01-.96-1.152L6.078 7.5 2.27 4.326a.75.75 0 01-.096-1.056z"
+                    clipRule="evenodd"
+                />
             </svg>
         );
     }

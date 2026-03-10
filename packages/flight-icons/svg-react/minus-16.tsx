@@ -25,9 +25,7 @@ export const IconMinus16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
-                    d="M3.5 7.75A.75.75 0 014.25 7h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75z"
-                    clipRule="evenodd"
+                    d="M11.75 7a.75.75 0 010 1.5h-7.5a.75.75 0 010-1.5h7.5z"
                 />
             </svg>
         );
