@@ -3,7 +3,7 @@
  */
 
 :root {
-  --token-app-footer-link-focus-outline-color: #0f62fe;
+  --token-app-footer-focus-color-action-internal: #0f62fe;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -54,31 +54,21 @@
   --token-border-radius-medium: 0px;
   --token-border-radius-small: 0px;
   --token-border-radius-x-small: 0px;
-  --token-breadcrumb-divider-color: #161616;
-  --token-breadcrumb-link-foreground-color-active: #161616;
-  --token-breadcrumb-link-foreground-color-default: #0f62fe;
-  --token-breadcrumb-link-foreground-color-hover: #0043ce;
-  --token-breadcrumb-truncation-content-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  --token-breadcrumb-truncation-toggle-foreground-color-active: #161616;
-  --token-breadcrumb-truncation-toggle-foreground-color-default: #0f62fe;
-  --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
-  --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
-  --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
-  --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
   --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
+  --token-button-border-color-critical-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-critical-hover: rgba(0, 0, 0, 0);
-  --token-button-border-color-disabled: #c6c6c6;
   --token-button-border-color-primary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-primary-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-primary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
+  --token-button-border-color-primary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-primary-hover: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-active: rgba(0, 0, 0, 0);
   --token-button-border-color-secondary-default: rgba(0, 0, 0, 0);
+  --token-button-border-color-secondary-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
+  --token-button-border-color-secondary-focus-internal: #ffc0cb; /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: rgba(0, 0, 0, 0);
-  --token-button-border-color-tertiary-active: rgba(0, 0, 0, 0);
-  --token-button-border-color-tertiary-default: #0f62fe;
-  --token-button-border-color-tertiary-disabled: #c6c6c6;
-  --token-button-border-color-tertiary-hover: rgba(0, 0, 0, 0);
   --token-button-foreground-color-critical-active: #ffffff;
   --token-button-foreground-color-critical-default: #ffffff;
   --token-button-foreground-color-critical-focus: #ffffff;
@@ -94,7 +84,6 @@
   --token-button-foreground-color-secondary-hover: #ffffff;
   --token-button-foreground-color-tertiary-active: #ffffff;
   --token-button-foreground-color-tertiary-default: #0f62fe;
-  --token-button-foreground-color-tertiary-disabled: rgba(22, 22, 22, 0.25);
   --token-button-foreground-color-tertiary-focus: #ffffff;
   --token-button-foreground-color-tertiary-hover: #ffffff;
   --token-button-gap: 32px;
@@ -132,8 +121,6 @@
   --token-button-typography-line-height-large: 1.2858;
   --token-button-typography-line-height-medium: 1.2858;
   --token-button-typography-line-height-small: 1.2858;
-  --token-card-surface-color-primary: #ffffff;
-  --token-card-surface-color-secondary: #f4f4f4;
   --token-color-border-action: #0f62fe;
   --token-color-border-critical: #ff8389;
   --token-color-border-faint: #c6c6c6;
@@ -228,12 +215,11 @@
   --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-  --token-dialog-primitive-border-color: #e0e0e0;
-  --token-dialog-primitive-header-tagline-typography-font-size: 0.75rem;
-  --token-dialog-primitive-header-tagline-typography-line-height: 1.33333;
-  --token-dialog-primitive-header-title-typography-font-weight: 400;
-  --token-dialog-primitive-padding-horizontal: 16px;
-  --token-dialog-primitive-padding-vertical: 16px;
+  --token-copy-button-icon-color-active: #ffffff;
+  --token-copy-button-icon-color-default: #ffffff;
+  --token-copy-button-icon-color-error: #fa4d56;
+  --token-copy-button-icon-color-hover: #ffffff;
+  --token-copy-button-icon-color-success: #42be65;
   --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
   --token-dismiss-button-foreground-color-active: #161616;
   --token-dismiss-button-foreground-color-default: #161616;
@@ -267,23 +253,6 @@
   --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
-  --token-modal-header-border-color-critical: rgba(0, 0, 0, 0);
-  --token-modal-header-border-color-warning: rgba(0, 0, 0, 0);
-  --token-modal-header-foreground-color-critical: #161616;
-  --token-modal-header-foreground-color-warning: #161616;
-  --token-modal-header-surface-color-critical: var(--token-color-surface-faint);
-  --token-modal-header-surface-color-warning: var(--token-color-surface-faint);
-  --token-modal-header-tagline-color-critical: #525252;
-  --token-modal-header-tagline-color-warning: #525252;
-  --token-pagination-bar-border-color: #e0e0e0;
-  --token-pagination-bar-surface-color: #ffffff;
-  --token-pagination-nav-control-foreground-color-active: #161616;
-  --token-pagination-nav-control-foreground-color-default: #161616;
-  --token-pagination-nav-control-foreground-color-hover: #161616;
-  --token-pagination-nav-control-height: 40px;
-  --token-pagination-nav-control-typography-font-weight-active: 600;
-  --token-pagination-nav-indicator-height: 4px;
-  --token-pagination-nav-surface-color-hover: rgba(141, 141, 141, 0.12);
   --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(--token-color-palette-alpha-200);
   --token-rich-tooltip-bubble-border-radius: 2px;
@@ -313,36 +282,6 @@
   --token-tabs-tab-selected-border-color-hover: #0f62fe;
   --token-tabs-tab-selected-foreground-color-default: #161616;
   --token-tabs-tab-selected-foreground-color-hover: #161616;
-  --token-tag-border-radius: 16px;
-  --token-tag-dismissible-max-width: 204px;
-  --token-tag-dismissible-padding-left: 4px;
-  --token-tag-link-border-color-primary: #78a9ff;
-  --token-tag-link-border-color-secondary: #a8a8a8;
-  --token-tag-link-foreground-color-primary-active: #0043ce;
-  --token-tag-link-foreground-color-primary-default: #0043ce;
-  --token-tag-link-foreground-color-primary-hover: #0043ce;
-  --token-tag-link-foreground-color-secondary-default: #161616;
-  --token-tag-link-icon-color-primary: #0043ce;
-  --token-tag-link-icon-color-secondary: #161616;
-  --token-tag-link-surface-color-primary-active: #b8d3ff;
-  --token-tag-link-surface-color-primary-default: #d0e2ff;
-  --token-tag-link-surface-color-primary-hover: #b8d3ff;
-  --token-tag-link-surface-color-secondary-active: #d1d1d1;
-  --token-tag-link-surface-color-secondary-default: #e0e0e0;
-  --token-tag-link-surface-color-secondary-hover: #d1d1d1;
-  --token-tag-max-width: 208px;
-  --token-tag-padding-bottom: 3px;
-  --token-tag-padding-left: 8px;
-  --token-tag-padding-right: 8px;
-  --token-tag-static-border-color: rgba(0, 0, 0, 0);
-  --token-tag-static-foreground-color-default: #161616;
-  --token-tag-static-icon-color: #161616;
-  --token-tag-static-surface-color-active: #d1d1d1;
-  --token-tag-static-surface-color-default: #e0e0e0;
-  --token-tag-static-surface-color-hover: #d1d1d1;
-  --token-tag-typography-font-size: 0.75rem;
-  --token-tag-typography-font-weight: 400;
-  --token-tag-typography-line-height: 1.33333;
   --token-tooltip-border-radius: 2px;
   --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
   --token-tooltip-caret-height: 6px;
