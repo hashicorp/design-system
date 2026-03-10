@@ -8,6 +8,7 @@ import { array, hash, get } from '@ember/helper';
 import {
   click,
   find,
+  findAll,
   focus,
   render,
   settled,
@@ -71,6 +72,14 @@ async function simulateRightPointerDrag(handle: Element | null) {
 
   await triggerEvent(handle, 'pointerdown', { clientX: 100, button: 0 });
   await triggerEvent(handle, 'pointermove', { clientX: 130, buttons: 1 });
+  await triggerEvent(window, 'pointerup', { button: 0 });
+}
+
+async function simulateLeftPointerDrag(handle: Element | null) {
+  if (!handle) return;
+
+  await triggerEvent(handle, 'pointerdown', { clientX: 100, button: 0 });
+  await triggerEvent(handle, 'pointermove', { clientX: 70, buttons: 1 });
   await triggerEvent(window, 'pointerup', { button: 0 });
 }
 
@@ -366,6 +375,39 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           'Grid values reset to initial state after resetting column width',
         );
       }
+    });
+
+    test('it should restore a column with no explicit width back to its default when reset', async function (assert) {
+      await createResizableTable({});
+
+      const table = find('.hds-advanced-table');
+      const originalGridValues = getTableGridValues(table);
+
+      const handle = find('.hds-advanced-table__th-resize-handle');
+
+      // drag col1 left so it shrinks and col2 (no explicit width) grows into a pixel value
+      await simulateLeftPointerDrag(handle);
+
+      assert.notOk(
+        gridValuesAreEqual(originalGridValues, getTableGridValues(table)),
+        'grid changed after resize',
+      );
+
+      // find col2 by walking from col1's resize handle
+      const col1Th = handle?.closest('.hds-advanced-table__th');
+      const col2Th = col1Th?.nextElementSibling;
+
+      assert.ok(
+        col2Th?.querySelector('.hds-dropdown-toggle-icon'),
+        'col2 has a context menu toggle',
+      );
+
+      await performContextMenuAction(col2Th ?? null, 'reset-column-width');
+
+      assert.ok(
+        gridValuesAreEqual(originalGridValues, getTableGridValues(table)),
+        'grid returns to original after resetting column with no explicit width',
+      );
     });
 
     test('it should focus the resize handle when the "resize column" context menu option is clicked', async function (assert) {
