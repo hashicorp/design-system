@@ -717,17 +717,12 @@
     --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-    --token-elevation-high-box-shadow:
-      0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
-    --token-elevation-higher-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240;
-    --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #5252521a;
-    --token-elevation-low-box-shadow:
-      0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-elevation-mid-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 8px 16px -10px #52525233;
-    --token-elevation-overlay-box-shadow:
-      0px 2px 3px 0px #39393940, 0px 12px 24px 0px #39393959;
+    --token-elevation-high-box-shadow: none;
+    --token-elevation-higher-box-shadow: none;
+    --token-elevation-inset-box-shadow: none;
+    --token-elevation-low-box-shadow: none;
+    --token-elevation-mid-box-shadow: none;
+    --token-elevation-overlay-box-shadow: none;
     --token-focus-ring-action-box-shadow:
       inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
     --token-focus-ring-critical-box-shadow:
@@ -736,23 +731,13 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
-    --token-surface-base-box-shadow: 0 0 0 1px #52525233;
-    --token-surface-high-box-shadow:
-      0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
-      0px 16px 16px -10px #52525233;
-    --token-surface-higher-box-shadow:
-      0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a,
-      0px 12px 28px 0px #52525240;
-    --token-surface-inset-box-shadow:
-      inset 0 0 0 1px #5252524d, inset 0px 1px 2px 1px #5252521a;
-    --token-surface-low-box-shadow:
-      0 0 0 1px #52525226, 0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-surface-mid-box-shadow:
-      0 0 0 1px #52525226, 0px 2px 3px 0px #5252521a,
-      0px 8px 16px -10px #52525233;
-    --token-surface-overlay-box-shadow:
-      0 0 0 1px #39393940, 0px 2px 3px 0px #39393940,
-      0px 12px 24px 0px #39393959;
+    --token-surface-base-box-shadow: none;
+    --token-surface-high-box-shadow: none;
+    --token-surface-higher-box-shadow: none;
+    --token-surface-inset-box-shadow: none;
+    --token-surface-low-box-shadow: none;
+    --token-surface-mid-box-shadow: none;
+    --token-surface-overlay-box-shadow: none;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1040,17 +1025,12 @@
     --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-    --token-elevation-high-box-shadow:
-      0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
-    --token-elevation-higher-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240;
-    --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #5252521a;
-    --token-elevation-low-box-shadow:
-      0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-elevation-mid-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 8px 16px -10px #52525233;
-    --token-elevation-overlay-box-shadow:
-      0px 2px 3px 0px #39393940, 0px 12px 24px 0px #39393959;
+    --token-elevation-high-box-shadow: none;
+    --token-elevation-higher-box-shadow: none;
+    --token-elevation-inset-box-shadow: none;
+    --token-elevation-low-box-shadow: none;
+    --token-elevation-mid-box-shadow: none;
+    --token-elevation-overlay-box-shadow: none;
     --token-focus-ring-action-box-shadow:
       inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
     --token-focus-ring-critical-box-shadow:
@@ -1059,23 +1039,13 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
-    --token-surface-base-box-shadow: 0 0 0 1px #52525233;
-    --token-surface-high-box-shadow:
-      0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
-      0px 16px 16px -10px #52525233;
-    --token-surface-higher-box-shadow:
-      0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a,
-      0px 12px 28px 0px #52525240;
-    --token-surface-inset-box-shadow:
-      inset 0 0 0 1px #5252524d, inset 0px 1px 2px 1px #5252521a;
-    --token-surface-low-box-shadow:
-      0 0 0 1px #52525226, 0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-surface-mid-box-shadow:
-      0 0 0 1px #52525226, 0px 2px 3px 0px #5252521a,
-      0px 8px 16px -10px #52525233;
-    --token-surface-overlay-box-shadow:
-      0 0 0 1px #39393940, 0px 2px 3px 0px #39393940,
-      0px 12px 24px 0px #39393959;
+    --token-surface-base-box-shadow: none;
+    --token-surface-high-box-shadow: none;
+    --token-surface-higher-box-shadow: none;
+    --token-surface-inset-box-shadow: none;
+    --token-surface-low-box-shadow: none;
+    --token-surface-mid-box-shadow: none;
+    --token-surface-overlay-box-shadow: none;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1363,17 +1333,12 @@
     --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-    --token-elevation-high-box-shadow:
-      0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
-    --token-elevation-higher-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240;
-    --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #5252521a;
-    --token-elevation-low-box-shadow:
-      0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-elevation-mid-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 8px 16px -10px #52525233;
-    --token-elevation-overlay-box-shadow:
-      0px 2px 3px 0px #39393940, 0px 12px 24px 0px #39393959;
+    --token-elevation-high-box-shadow: none;
+    --token-elevation-higher-box-shadow: none;
+    --token-elevation-inset-box-shadow: none;
+    --token-elevation-low-box-shadow: none;
+    --token-elevation-mid-box-shadow: none;
+    --token-elevation-overlay-box-shadow: none;
     --token-focus-ring-action-box-shadow:
       inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
     --token-focus-ring-critical-box-shadow:
@@ -1382,23 +1347,13 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
-    --token-surface-base-box-shadow: 0 0 0 1px #52525233;
-    --token-surface-high-box-shadow:
-      0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
-      0px 16px 16px -10px #52525233;
-    --token-surface-higher-box-shadow:
-      0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a,
-      0px 12px 28px 0px #52525240;
-    --token-surface-inset-box-shadow:
-      inset 0 0 0 1px #5252524d, inset 0px 1px 2px 1px #5252521a;
-    --token-surface-low-box-shadow:
-      0 0 0 1px #52525226, 0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-surface-mid-box-shadow:
-      0 0 0 1px #52525226, 0px 2px 3px 0px #5252521a,
-      0px 8px 16px -10px #52525233;
-    --token-surface-overlay-box-shadow:
-      0 0 0 1px #39393940, 0px 2px 3px 0px #39393940,
-      0px 12px 24px 0px #39393959;
+    --token-surface-base-box-shadow: none;
+    --token-surface-high-box-shadow: none;
+    --token-surface-higher-box-shadow: none;
+    --token-surface-inset-box-shadow: none;
+    --token-surface-low-box-shadow: none;
+    --token-surface-mid-box-shadow: none;
+    --token-surface-overlay-box-shadow: none;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1686,17 +1641,12 @@
     --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-    --token-elevation-high-box-shadow:
-      0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
-    --token-elevation-higher-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240;
-    --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #5252521a;
-    --token-elevation-low-box-shadow:
-      0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-elevation-mid-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 8px 16px -10px #52525233;
-    --token-elevation-overlay-box-shadow:
-      0px 2px 3px 0px #39393940, 0px 12px 24px 0px #39393959;
+    --token-elevation-high-box-shadow: none;
+    --token-elevation-higher-box-shadow: none;
+    --token-elevation-inset-box-shadow: none;
+    --token-elevation-low-box-shadow: none;
+    --token-elevation-mid-box-shadow: none;
+    --token-elevation-overlay-box-shadow: none;
     --token-focus-ring-action-box-shadow:
       inset 0 0 0 1px #ffffff, 0 0 0 3px #0f62fe;
     --token-focus-ring-critical-box-shadow:
@@ -1705,23 +1655,13 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
-    --token-surface-base-box-shadow: 0 0 0 1px #52525233;
-    --token-surface-high-box-shadow:
-      0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
-      0px 16px 16px -10px #52525233;
-    --token-surface-higher-box-shadow:
-      0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a,
-      0px 12px 28px 0px #52525240;
-    --token-surface-inset-box-shadow:
-      inset 0 0 0 1px #5252524d, inset 0px 1px 2px 1px #5252521a;
-    --token-surface-low-box-shadow:
-      0 0 0 1px #52525226, 0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-surface-mid-box-shadow:
-      0 0 0 1px #52525226, 0px 2px 3px 0px #5252521a,
-      0px 8px 16px -10px #52525233;
-    --token-surface-overlay-box-shadow:
-      0 0 0 1px #39393940, 0px 2px 3px 0px #39393940,
-      0px 12px 24px 0px #39393959;
+    --token-surface-base-box-shadow: none;
+    --token-surface-high-box-shadow: none;
+    --token-surface-higher-box-shadow: none;
+    --token-surface-inset-box-shadow: none;
+    --token-surface-low-box-shadow: none;
+    --token-surface-mid-box-shadow: none;
+    --token-surface-overlay-box-shadow: none;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -2009,17 +1949,12 @@
     --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-    --token-elevation-high-box-shadow:
-      0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
-    --token-elevation-higher-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240;
-    --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #5252521a;
-    --token-elevation-low-box-shadow:
-      0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-elevation-mid-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 8px 16px -10px #52525233;
-    --token-elevation-overlay-box-shadow:
-      0px 2px 3px 0px #39393940, 0px 12px 24px 0px #39393959;
+    --token-elevation-high-box-shadow: none;
+    --token-elevation-higher-box-shadow: none;
+    --token-elevation-inset-box-shadow: none;
+    --token-elevation-low-box-shadow: none;
+    --token-elevation-mid-box-shadow: none;
+    --token-elevation-overlay-box-shadow: none;
     --token-focus-ring-action-box-shadow:
       inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
     --token-focus-ring-critical-box-shadow:
@@ -2028,23 +1963,13 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
-    --token-surface-base-box-shadow: 0 0 0 1px #52525233;
-    --token-surface-high-box-shadow:
-      0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
-      0px 16px 16px -10px #52525233;
-    --token-surface-higher-box-shadow:
-      0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a,
-      0px 12px 28px 0px #52525240;
-    --token-surface-inset-box-shadow:
-      inset 0 0 0 1px #5252524d, inset 0px 1px 2px 1px #5252521a;
-    --token-surface-low-box-shadow:
-      0 0 0 1px #52525226, 0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-surface-mid-box-shadow:
-      0 0 0 1px #52525226, 0px 2px 3px 0px #5252521a,
-      0px 8px 16px -10px #52525233;
-    --token-surface-overlay-box-shadow:
-      0 0 0 1px #39393940, 0px 2px 3px 0px #39393940,
-      0px 12px 24px 0px #39393959;
+    --token-surface-base-box-shadow: none;
+    --token-surface-high-box-shadow: none;
+    --token-surface-higher-box-shadow: none;
+    --token-surface-inset-box-shadow: none;
+    --token-surface-low-box-shadow: none;
+    --token-surface-mid-box-shadow: none;
+    --token-surface-overlay-box-shadow: none;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -2332,17 +2257,12 @@
     --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
-    --token-elevation-high-box-shadow:
-      0px 2px 3px 0px #52525226, 0px 16px 16px -10px #52525233;
-    --token-elevation-higher-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 12px 28px 0px #52525240;
-    --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #5252521a;
-    --token-elevation-low-box-shadow:
-      0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-elevation-mid-box-shadow:
-      0px 2px 3px 0px #5252521a, 0px 8px 16px -10px #52525233;
-    --token-elevation-overlay-box-shadow:
-      0px 2px 3px 0px #39393940, 0px 12px 24px 0px #39393959;
+    --token-elevation-high-box-shadow: none;
+    --token-elevation-higher-box-shadow: none;
+    --token-elevation-inset-box-shadow: none;
+    --token-elevation-low-box-shadow: none;
+    --token-elevation-mid-box-shadow: none;
+    --token-elevation-overlay-box-shadow: none;
     --token-focus-ring-action-box-shadow:
       inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
     --token-focus-ring-critical-box-shadow:
@@ -2351,23 +2271,13 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
-    --token-surface-base-box-shadow: 0 0 0 1px #52525233;
-    --token-surface-high-box-shadow:
-      0 0 0 1px #52525240, 0px 2px 3px 0px #52525226,
-      0px 16px 16px -10px #52525233;
-    --token-surface-higher-box-shadow:
-      0 0 0 1px #52525233, 0px 2px 3px 0px #5252521a,
-      0px 12px 28px 0px #52525240;
-    --token-surface-inset-box-shadow:
-      inset 0 0 0 1px #5252524d, inset 0px 1px 2px 1px #5252521a;
-    --token-surface-low-box-shadow:
-      0 0 0 1px #52525226, 0px 1px 1px 0px #5252520d, 0px 2px 2px 0px #5252520d;
-    --token-surface-mid-box-shadow:
-      0 0 0 1px #52525226, 0px 2px 3px 0px #5252521a,
-      0px 8px 16px -10px #52525233;
-    --token-surface-overlay-box-shadow:
-      0 0 0 1px #39393940, 0px 2px 3px 0px #39393940,
-      0px 12px 24px 0px #39393959;
+    --token-surface-base-box-shadow: none;
+    --token-surface-high-box-shadow: none;
+    --token-surface-higher-box-shadow: none;
+    --token-surface-inset-box-shadow: none;
+    --token-surface-low-box-shadow: none;
+    --token-surface-mid-box-shadow: none;
+    --token-surface-overlay-box-shadow: none;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
