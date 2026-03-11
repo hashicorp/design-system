@@ -968,6 +968,8 @@ export { IconUnfoldOpen24 } from './unfold-open-24';
 export { IconUnfoldOpen16 } from './unfold-open-16';
 export { IconUpload24 } from './upload-24';
 export { IconUpload16 } from './upload-16';
+export { IconWorkspace24 } from './workspace-24';
+export { IconWorkspace16 } from './workspace-16';
 export { IconZoomIn24 } from './zoom-in-24';
 export { IconZoomIn16 } from './zoom-in-16';
 export { IconZoomOut24 } from './zoom-out-24';
