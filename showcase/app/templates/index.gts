@@ -123,11 +123,6 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-components.composite">
-            Composite
-          </LinkTo>
-        </li>
-        <li>
           <LinkTo @route="page-components.copy.button">
             Copy::Button
           </LinkTo>
@@ -359,6 +354,11 @@ const Index: TemplateOnlyComponent = <template>
 
       <ShwTextH2>Utilities</ShwTextH2>
       <ol class="shw-text-body">
+        <li>
+          <LinkTo @route="page-utilities.composite">
+            Composite
+          </LinkTo>
+        </li>
         <li>
           <LinkTo @route="page-utilities.dialog-primitive">
             DialogPrimitive
