@@ -10,6 +10,7 @@ import HdsFormCheckboxBase from './base.gts';
 import HdsFormField from '../field/index.gts';
 
 import type { HdsFormFieldSignature } from '../field/index.gts';
+import type { HdsFormCheckboxBaseSignature } from './base.gts';
 
 export interface HdsFormCheckboxFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'isOptional'> & {
@@ -25,7 +26,7 @@ export interface HdsFormCheckboxFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormCheckboxBaseSignature['Element'];
 }
 
 const HdsFormCheckboxField: TemplateOnlyComponent<HdsFormCheckboxFieldSignature> =

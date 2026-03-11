@@ -10,6 +10,7 @@ import HdsFormField from '../field/index.gts';
 import HdsFormToggleBase from './base.gts';
 
 import type { HdsFormFieldSignature } from '../field/index.gts';
+import type { HdsFormToggleBaseSignature } from './base.gts';
 
 export interface HdsFormToggleFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'isOptional'> & {
@@ -24,7 +25,7 @@ export interface HdsFormToggleFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormToggleBaseSignature['Element'];
 }
 
 const HdsFormToggleField: TemplateOnlyComponent<HdsFormToggleFieldSignature> =

@@ -10,6 +10,7 @@ import HdsFormField from '../field/index.gts';
 import HdsFormRadioBase from './base.gts';
 
 import type { HdsFormFieldSignature } from '../field/index.gts';
+import type { HdsFormRadioBaseSignature } from './base.gts';
 
 export interface HdsFormRadioFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'isOptional'> & {
@@ -25,7 +26,7 @@ export interface HdsFormRadioFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormRadioBaseSignature['Element'];
 }
 
 const HdsFormRadioField: TemplateOnlyComponent<HdsFormRadioFieldSignature> =

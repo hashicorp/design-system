@@ -31,7 +31,7 @@ export interface HdsFormSuperSelectMultipleFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormSuperSelectMultipleBaseSignature['Element'];
 }
 
 export default class HdsFormSuperSelectMultipleField extends Component<HdsFormSuperSelectMultipleFieldSignature> {

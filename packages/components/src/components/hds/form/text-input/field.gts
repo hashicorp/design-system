@@ -37,7 +37,7 @@ export interface HdsFormTextInputFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormTextInputBaseSignature['Element'];
 }
 
 export default class HdsFormTextInputField extends Component<HdsFormTextInputFieldSignature> {

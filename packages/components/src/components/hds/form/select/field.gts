@@ -26,7 +26,7 @@ export interface HdsFormSelectFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormSelectBaseSignature['Element'];
 }
 
 const HdsFormSelectField: TemplateOnlyComponent<HdsFormSelectFieldSignature> =

@@ -10,6 +10,7 @@ import HdsFormField from '../field/index.gts';
 import HdsFormFileInputBase from './base.gts';
 
 import type { HdsFormFieldSignature } from '../field/index.gts';
+import type { HdsFormFileInputBaseSignature } from './base.gts';
 
 export interface HdsFormFileInputFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'>;
@@ -22,7 +23,7 @@ export interface HdsFormFileInputFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormFileInputBaseSignature['Element'];
 }
 
 const HdsFormFileInputField: TemplateOnlyComponent<HdsFormFileInputFieldSignature> =
