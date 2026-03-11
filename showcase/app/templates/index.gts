@@ -443,6 +443,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.icon-tile">
+            IconTile
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.modal">
             Modal
           </LinkTo>
@@ -460,6 +465,11 @@ const Index: TemplateOnlyComponent = <template>
         <li>
           <LinkTo @route="page-carbonization.components.tabs">
             Tabs
+          </LinkTo>
+        </li>
+        <li>
+          <LinkTo @route="page-carbonization.components.tooltip">
+            Tooltip
           </LinkTo>
         </li>
       </ol>

@@ -77,8 +77,7 @@ export default class HdsIconTile extends Component<HdsIconTileSignature> {
 
   get icon(): HdsIconSignature['Args']['name'] | undefined {
     if (this.args.logo) {
-      // for the logo version we use the colored versions directly
-      return `${this.args.logo}-color`;
+      return this.args.logo;
     } else if (this.args.icon) {
       return this.args.icon;
     } else {

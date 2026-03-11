@@ -367,6 +367,7 @@
   --token-color-surface-action: var(--token-color-palette-blue-50);
   --token-color-surface-critical: var(--token-color-palette-red-50);
   --token-color-surface-faint: var(--token-color-palette-neutral-50);
+  --token-color-surface-high-contrast: var(--token-color-palette-neutral-700);
   --token-color-surface-highlight: var(--token-color-palette-purple-50);
   --token-color-surface-interactive-active: var(
     --token-color-palette-neutral-200
@@ -410,6 +411,9 @@
     --token-color-focus-action-internal
   );
   --token-form-radiocard-border-radius: 6px;
+  --token-icon-tile-border-color-logo: var(--token-color-border-primary);
+  --token-icon-tile-border-color-overlay: var(--token-color-border-primary);
+  --token-icon-tile-surface-color-overlay: var(--token-color-surface-primary);
   --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
   --token-surface-high-box-shadow:
     0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626,
@@ -424,6 +428,15 @@
     0 0 0 1px #656a7626, 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --token-surface-overlay-box-shadow:
     0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --token-tooltip-border-radius: var(--token-border-radius-small);
+  --token-tooltip-caret-clip-path: path(
+    "M0 7H16L9.11989 0.444571C8.49776 -0.148191 7.50224 -0.148191 6.88011 0.444572L0 7Z"
+  );
+  --token-tooltip-caret-height: 7px;
+  --token-tooltip-caret-width: 16px;
+  --token-tooltip-max-width: 280px;
+  --token-tooltip-padding-horizontal: 12px;
+  --token-tooltip-padding-vertical: 8px;
   --token-typography-body-100-font-family: var(
     --token-typography-font-stack-text
   );
@@ -696,6 +709,7 @@
     --token-color-surface-action: #d0e2ff;
     --token-color-surface-critical: #ffd7d9;
     --token-color-surface-faint: #f4f4f4;
+    --token-color-surface-high-contrast: #393939;
     --token-color-surface-highlight: #e8daff;
     --token-color-surface-interactive-active: #c6c6c6;
     --token-color-surface-interactive-disabled: #c6c6c6;
@@ -722,6 +736,9 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-icon-tile-border-color-logo: #c6c6c6;
+    --token-icon-tile-border-color-overlay: #e0e0e0;
+    --token-icon-tile-surface-color-overlay: #ffffff;
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -729,6 +746,13 @@
     --token-surface-low-box-shadow: none;
     --token-surface-mid-box-shadow: none;
     --token-surface-overlay-box-shadow: none;
+    --token-tooltip-border-radius: 2px;
+    --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    --token-tooltip-caret-height: 6px;
+    --token-tooltip-caret-width: 12px;
+    --token-tooltip-max-width: 288px;
+    --token-tooltip-padding-horizontal: 16px;
+    --token-tooltip-padding-vertical: 16px;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1004,6 +1028,7 @@
     --token-color-surface-action: #0043ce;
     --token-color-surface-critical: #a2191f;
     --token-color-surface-faint: #262626;
+    --token-color-surface-high-contrast: #f4f4f4;
     --token-color-surface-highlight: #6929c4;
     --token-color-surface-interactive-active: #525252;
     --token-color-surface-interactive-disabled: #525252;
@@ -1030,6 +1055,9 @@
     --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
     --token-form-radiocard-border-color-focus: #ffc0cb;
     --token-form-radiocard-border-radius: 0px;
+    --token-icon-tile-border-color-logo: #525252;
+    --token-icon-tile-border-color-overlay: #6f6f6f;
+    --token-icon-tile-surface-color-overlay: #393939;
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -1037,6 +1065,13 @@
     --token-surface-low-box-shadow: none;
     --token-surface-mid-box-shadow: none;
     --token-surface-overlay-box-shadow: none;
+    --token-tooltip-border-radius: 2px;
+    --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    --token-tooltip-caret-height: 6px;
+    --token-tooltip-caret-width: 12px;
+    --token-tooltip-max-width: 288px;
+    --token-tooltip-padding-horizontal: 16px;
+    --token-tooltip-padding-vertical: 16px;
     --token-typography-body-100-font-family:
       "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
       ".SFNSText-Regular", sans-serif;
@@ -1311,6 +1346,7 @@
   --token-color-surface-action: #d0e2ff;
   --token-color-surface-critical: #ffd7d9;
   --token-color-surface-faint: #f4f4f4;
+  --token-color-surface-high-contrast: #393939;
   --token-color-surface-highlight: #e8daff;
   --token-color-surface-interactive-active: #c6c6c6;
   --token-color-surface-interactive-disabled: #c6c6c6;
@@ -1337,6 +1373,9 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-icon-tile-border-color-logo: #c6c6c6;
+  --token-icon-tile-border-color-overlay: #e0e0e0;
+  --token-icon-tile-surface-color-overlay: #ffffff;
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;
@@ -1344,6 +1383,13 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tooltip-border-radius: 2px;
+  --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  --token-tooltip-caret-height: 6px;
+  --token-tooltip-caret-width: 12px;
+  --token-tooltip-max-width: 288px;
+  --token-tooltip-padding-horizontal: 16px;
+  --token-tooltip-padding-vertical: 16px;
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
@@ -1617,6 +1663,7 @@
   --token-color-surface-action: #0043ce;
   --token-color-surface-critical: #a2191f;
   --token-color-surface-faint: #262626;
+  --token-color-surface-high-contrast: #f4f4f4;
   --token-color-surface-highlight: #6929c4;
   --token-color-surface-interactive-active: #525252;
   --token-color-surface-interactive-disabled: #525252;
@@ -1643,6 +1690,9 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-icon-tile-border-color-logo: #525252;
+  --token-icon-tile-border-color-overlay: #6f6f6f;
+  --token-icon-tile-surface-color-overlay: #393939;
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;
@@ -1650,6 +1700,13 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tooltip-border-radius: 2px;
+  --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  --token-tooltip-caret-height: 6px;
+  --token-tooltip-caret-width: 12px;
+  --token-tooltip-max-width: 288px;
+  --token-tooltip-padding-horizontal: 16px;
+  --token-tooltip-padding-vertical: 16px;
   --token-typography-body-100-font-family:
     "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont,
     ".SFNSText-Regular", sans-serif;
@@ -2031,14 +2088,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-tabs-tab-padding-horizontal-large: 20px;
   --token-tabs-tab-padding-horizontal-medium: 12px;
   --token-tabs-tab-padding-vertical: 0px;
-  --token-tooltip-border-radius: 5px;
-  --token-tooltip-color-foreground-primary: var(
-    --token-color-foreground-high-contrast
-  );
-  --token-tooltip-color-surface-primary: var(--token-color-palette-neutral-700);
   --token-tooltip-focus-offset: -2px;
-  --token-tooltip-max-width: 280px;
-  --token-tooltip-padding-horizontal: 12px;
-  --token-tooltip-padding-vertical: 8px;
   --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
 }

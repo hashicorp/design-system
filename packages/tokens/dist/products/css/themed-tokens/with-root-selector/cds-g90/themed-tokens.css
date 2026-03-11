@@ -200,6 +200,7 @@
   --token-color-surface-action: #0f62fe;
   --token-color-surface-critical: #a2191f;
   --token-color-surface-faint: #393939;
+  --token-color-surface-high-contrast: #f4f4f4;
   --token-color-surface-highlight: #6929c4;
   --token-color-surface-interactive-active: #6f6f6f;
   --token-color-surface-interactive-disabled: #6f6f6f;
@@ -224,6 +225,9 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-icon-tile-border-color-logo: #6f6f6f;
+  --token-icon-tile-border-color-overlay: #8d8d8d;
+  --token-icon-tile-surface-color-overlay: #525252;
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;
@@ -231,6 +235,13 @@
   --token-surface-low-box-shadow: none;
   --token-surface-mid-box-shadow: none;
   --token-surface-overlay-box-shadow: none;
+  --token-tooltip-border-radius: 2px;
+  --token-tooltip-caret-clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  --token-tooltip-caret-height: 6px;
+  --token-tooltip-caret-width: 12px;
+  --token-tooltip-max-width: 288px;
+  --token-tooltip-padding-horizontal: 16px;
+  --token-tooltip-padding-vertical: 16px;
   --token-typography-body-100-font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;
   --token-typography-body-100-font-size: 0.875rem; /** 13px/0.8125rem */
   --token-typography-body-100-line-height: 1.28572; /** 18px */

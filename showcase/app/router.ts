@@ -178,10 +178,12 @@ Router.map(function () {
         this.route('text-input');
         this.route('radio-card');
       });
+      this.route('icon-tile');
       this.route('modal');
       this.route('segmented-group');
       this.route('separator');
       this.route('tabs');
+      this.route('tooltip');
     });
   });
 });
