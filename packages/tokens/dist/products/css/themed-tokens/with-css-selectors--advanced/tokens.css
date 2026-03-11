@@ -1027,17 +1027,17 @@
     --token-color-vault-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
     --token-color-vault-radar-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
     --token-color-vault-secrets-brand-alt: #ffffff; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+    --token-copy-button-icon-color-active: #ffffff;
+    --token-copy-button-icon-color-default: #ffffff;
+    --token-copy-button-icon-color-error: #fa4d56;
+    --token-copy-button-icon-color-hover: #ffffff;
+    --token-copy-button-icon-color-success: #42be65;
     --token-elevation-high-box-shadow: none;
     --token-elevation-higher-box-shadow: none;
     --token-elevation-inset-box-shadow: none;
     --token-elevation-low-box-shadow: none;
     --token-elevation-mid-box-shadow: none;
     --token-elevation-overlay-box-shadow: none;
-    --token-copy-button-icon-color-active: #ffffff;
-    --token-copy-button-icon-color-default: #ffffff;
-    --token-copy-button-icon-color-error: #fa4d56;
-    --token-copy-button-icon-color-hover: #ffffff;
-    --token-copy-button-icon-color-success: #42be65;
     --token-focus-ring-action-box-shadow:
       inset 0 0 0 1px #161616, 0 0 0 3px #ffffff;
     --token-focus-ring-critical-box-shadow:
