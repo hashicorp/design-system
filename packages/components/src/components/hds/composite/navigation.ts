@@ -3,7 +3,7 @@ import type {
   HdsCompositeNavigationConfig,
   HdsCompositeNavigationSnapshot,
   HdsCompositeOrientations,
-} from './types';
+} from './types.ts';
 
 function matchesAxis(
   value: boolean | HdsCompositeOrientations,

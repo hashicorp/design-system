@@ -3,5 +3,5 @@
 ---
 
 <!-- START components/composite -->
-`Composite` - Added new component that provides accessible keyboard navigation (roving tabindex) for composite widget patterns such as toolbars, listboxes, and 2D grids.
+`Composite` - Added new component that provides accessible arrow key keyboard navigation for complex components such as Tabs and AdvancedTable.
 <!-- END -->
