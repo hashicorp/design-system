@@ -51,16 +51,15 @@
 
 .tippy-box[data-theme~="hds"] {
   padding: var(--token-tooltip-padding-vertical) var(--token-tooltip-padding-horizontal);
-  color: var(--token-tooltip-foreground-color);
+  color: var(--token-color-foreground-high-contrast);
   font-weight: var(--token-typography-font-weight-regular);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: var(--token-typography-body-200-line-height);
-  letter-spacing: var(--token-tooltip-typography-letter-spacing);
   overflow-wrap: break-word;
-  background-color: var(--token-tooltip-surface-color);
+  background-color: var(--token-color-surface-high-contrast);
   border-radius: var(--token-tooltip-border-radius);
-  box-shadow: var(--token-tooltip-box-shadow);
+  box-shadow: var(--token-elevation-higher-box-shadow);
   transition-property: transform, visibility, opacity;
 
   @include hds-apply-only-if-carbon() {
@@ -99,7 +98,7 @@
       position: absolute;
       width: var(--token-tooltip-caret-width);
       height: var(--token-tooltip-caret-height);
-      background-color: var(--token-tooltip-surface-color);
+      background-color: var(--token-color-surface-high-contrast);
       content: "";
       clip-path: var(--token-tooltip-caret-clip-path);
     }

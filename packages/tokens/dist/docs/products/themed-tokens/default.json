@@ -13239,92 +13239,6 @@
     ]
   },
   {
-    "key": "{tooltip.box-shadow}",
-    "$value": "0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640",
-    "$modes": {
-      "default": "0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640",
-      "cds-g0": "none",
-      "cds-g10": "none",
-      "cds-g90": "none",
-      "cds-g100": "none"
-    },
-    "original": {
-      "$value": "{elevation.higher.box-shadow}",
-      "$modes": {
-        "default": "{elevation.higher.box-shadow}",
-        "cds-g0": "none",
-        "cds-g10": "none",
-        "cds-g90": "none",
-        "cds-g100": "none"
-      },
-      "key": "{tooltip.box-shadow}"
-    },
-    "name": "token-tooltip-box-shadow",
-    "attributes": {
-      "category": "tooltip"
-    },
-    "path": [
-      "tooltip",
-      "box-shadow"
-    ]
-  },
-  {
-    "key": "{tooltip.foreground.color}",
-    "$type": "color",
-    "$value": "#ffffff",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "{color.foreground.high-contrast}",
-      "group": "components",
-      "key": "{tooltip.foreground.color}"
-    },
-    "name": "token-tooltip-foreground-color",
-    "attributes": {
-      "category": "tooltip"
-    },
-    "path": [
-      "tooltip",
-      "foreground",
-      "color"
-    ]
-  },
-  {
-    "key": "{tooltip.surface.color}",
-    "$type": "color",
-    "$value": "#0c0c0e",
-    "group": "components",
-    "$modes": {
-      "default": "#0c0c0e",
-      "cds-g0": "#393939",
-      "cds-g10": "#393939",
-      "cds-g90": "#f4f4f4",
-      "cds-g100": "#f4f4f4"
-    },
-    "original": {
-      "$type": "color",
-      "$value": "{color.palette.neutral-700}",
-      "group": "components",
-      "$modes": {
-        "default": "{color.palette.neutral-700}",
-        "cds-g0": "{carbon.themes.white.backgroundInverse}",
-        "cds-g10": "{carbon.themes.g10.backgroundInverse}",
-        "cds-g90": "{carbon.themes.g90.backgroundInverse}",
-        "cds-g100": "{carbon.themes.g100.backgroundInverse}"
-      },
-      "key": "{tooltip.surface.color}"
-    },
-    "name": "token-tooltip-surface-color",
-    "attributes": {
-      "category": "tooltip"
-    },
-    "path": [
-      "tooltip",
-      "surface",
-      "color"
-    ]
-  },
-  {
     "key": "{tooltip.border.radius}",
     "$type": "dimension",
     "$value": "5px",
@@ -13357,41 +13271,6 @@
       "tooltip",
       "border",
       "radius"
-    ]
-  },
-  {
-    "key": "{tooltip.typography.letter-spacing}",
-    "$type": "letter-spacing",
-    "$value": "0px",
-    "unit": "px",
-    "$modes": {
-      "default": "0",
-      "cds-g0": "0.16px",
-      "cds-g10": "0.16px",
-      "cds-g90": "0.16px",
-      "cds-g100": "0.16px"
-    },
-    "original": {
-      "$type": "letter-spacing",
-      "$value": "0",
-      "unit": "px",
-      "$modes": {
-        "default": "0",
-        "cds-g0": "{carbon.typography.body01.letter-spacing}",
-        "cds-g10": "{carbon.typography.body01.letter-spacing}",
-        "cds-g90": "{carbon.typography.body01.letter-spacing}",
-        "cds-g100": "{carbon.typography.body01.letter-spacing}"
-      },
-      "key": "{tooltip.typography.letter-spacing}"
-    },
-    "name": "token-tooltip-typography-letter-spacing",
-    "attributes": {
-      "category": "tooltip"
-    },
-    "path": [
-      "tooltip",
-      "typography",
-      "letter-spacing"
     ]
   },
   {
@@ -13493,50 +13372,6 @@
       "tooltip",
       "caret",
       "width"
-    ]
-  },
-  {
-    "key": "{tooltip.color.foreground.primary}",
-    "$type": "color",
-    "$value": "var(--token-color-foreground-high-contrast)",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "var(--token-color-foreground-high-contrast)",
-      "group": "components",
-      "key": "{tooltip.color.foreground.primary}"
-    },
-    "name": "token-tooltip-color-foreground-primary",
-    "attributes": {
-      "category": "tooltip"
-    },
-    "path": [
-      "tooltip",
-      "color",
-      "foreground",
-      "primary"
-    ]
-  },
-  {
-    "key": "{tooltip.color.surface.primary}",
-    "$type": "color",
-    "$value": "var(--token-color-palette-neutral-700)",
-    "group": "components",
-    "original": {
-      "$type": "color",
-      "$value": "var(--token-color-palette-neutral-700)",
-      "group": "components",
-      "key": "{tooltip.color.surface.primary}"
-    },
-    "name": "token-tooltip-color-surface-primary",
-    "attributes": {
-      "category": "tooltip"
-    },
-    "path": [
-      "tooltip",
-      "color",
-      "surface",
-      "primary"
     ]
   },
   {

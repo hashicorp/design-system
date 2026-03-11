@@ -38,37 +38,6 @@
         }
       }
     },
-    "box-shadow": {
-      "$value": "{elevation.higher.box-shadow}",
-      "$modes": {
-        "default": "{elevation.higher.box-shadow}",
-        "cds-g0": "none",
-        "cds-g10": "none",
-        "cds-g90": "none",
-        "cds-g100": "none"
-      }
-    },
-    "foreground": {
-      "color": {
-        "$type": "color",
-        "$value": "{color.foreground.high-contrast}",
-        "group": "components"
-      }
-    },
-    "surface": {
-      "color": {
-        "$type": "color",
-        "$value": "{color.palette.neutral-700}",
-        "group": "components",
-        "$modes": {
-          "default": "{color.palette.neutral-700}",
-          "cds-g0": "{carbon.themes.white.backgroundInverse}",
-          "cds-g10": "{carbon.themes.g10.backgroundInverse}",
-          "cds-g90": "{carbon.themes.g90.backgroundInverse}",
-          "cds-g100": "{carbon.themes.g100.backgroundInverse}"
-        }
-      }
-    },
     "border": {
       "radius": {
         "$type": "dimension",
@@ -80,20 +49,6 @@
           "cds-g10": "2",
           "cds-g90": "2",
           "cds-g100": "2"
-        }
-      }
-    },
-    "typography": {
-      "letter-spacing": {
-        "$type": "letter-spacing",
-        "$value": "0",
-        "unit": "px",
-        "$modes": {
-          "default": "0",
-          "cds-g0": "{carbon.typography.body01.letter-spacing}",
-          "cds-g10": "{carbon.typography.body01.letter-spacing}",
-          "cds-g90": "{carbon.typography.body01.letter-spacing}",
-          "cds-g100": "{carbon.typography.body01.letter-spacing}"
         }
       }
     },
@@ -133,22 +88,6 @@
         }
       }
     },
-    "color": {
-      "foreground": {
-        "primary": {
-          "$type": "color",
-          "$value": "var(--token-color-foreground-high-contrast)",
-          "group": "components"
-        }
-      },
-      "surface": {
-        "primary": {
-          "$type": "color",
-          "$value": "var(--token-color-palette-neutral-700)",
-          "group": "components"
-        }
-      }
-    },
     "focus-offset": {
       "$type": "dimension",
       "$value": "-2",
@@ -157,7 +96,12 @@
     "transition": {
       "function": {
         "$type": "cubicBezier",
-        "$value": [0.54, 1.5, 0.38, 1.11]
+        "$value": [
+          0.54,
+          1.5,
+          0.38,
+          1.11
+        ]
       }
     }
   }
