@@ -22,19 +22,15 @@ export interface CodeFragmentWithSortingSignature {
 const CodeFragmentWithSorting: TemplateOnlyComponent<CodeFragmentWithSortingSignature> =
   <template>
     <HdsAdvancedTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{MUSIC}}
       @columns={{@columns}}
       @sortBy={{@sortBy}}
     >
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.artist}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.album}}</B.Td>
           <B.Td @align={{if @hasRightAlignedLastColumn "right"}}>
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.year}}
           </B.Td>
         </B.Tr>

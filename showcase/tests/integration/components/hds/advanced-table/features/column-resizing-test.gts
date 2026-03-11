@@ -117,9 +117,7 @@ const createResizableTable = async (options: {
         >
           <:body as |B|>
             <B.Tr>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "col1"}}</B.Td>
-              {{! @glint-expect-error }}
               <B.Td>{{get B.data "col2"}}</B.Td>
             </B.Tr>
           </:body>
@@ -516,19 +514,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
             >
               <:body as |B|>
                 <B.Tr>
-                  {{! @glint-expect-error }}
                   <B.Td>{{get B.data "name"}}</B.Td>
-                  {{! @glint-expect-error }}
                   <B.Td>{{get B.data "biography"}}</B.Td>
-                  {{! @glint-expect-error }}
                   <B.Td>{{get B.data "occupation"}}</B.Td>
-                  {{! @glint-expect-error }}
                   <B.Td>{{get B.data "age"}}</B.Td>
-                  {{! @glint-expect-error }}
                   <B.Td>{{get B.data "hair"}}</B.Td>
-                  {{! @glint-expect-error }}
                   <B.Td>{{get B.data "eyes"}}</B.Td>
-                  {{! @glint-expect-error }}
                   <B.Td>{{get B.data "salary"}}</B.Td>
                 </B.Tr>
               </:body>

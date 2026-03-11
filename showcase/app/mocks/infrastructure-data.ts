@@ -8,6 +8,7 @@ import type { HdsIconSignature } from '@hashicorp/design-system-components/compo
 export interface InfrastructureResource {
   resource_id: string;
   status: 'active' | 'pending' | 'failing' | 'establishing';
+  isSelected?: boolean;
   namespace: string;
   provider_name: 'aws' | 'gcp' | 'azure' | 'kubernetes';
   created_at: Date;
