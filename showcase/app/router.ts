@@ -170,6 +170,7 @@ Router.map(function () {
       this.route('focus-ring');
     });
     this.route('components', function () {
+      this.route('accordion');
       this.route('application-state');
       this.route('app-footer');
       this.route('badge');
