@@ -1,1 +1,1 @@
-export default `<symbol id="hds-icon-flight-git-commit-24" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M15.93 11a4.001 4.001 0 00-7.86 0H3.75a.75.75 0 000 1.5h4.32a4.001 4.001 0 007.86 0h4.32a.75.75 0 000-1.5h-4.32zM12 9.25a2.5 2.5 0 100 5 2.5 2.5 0 000-5z" clip-rule="evenodd"/></symbol>`;
+export default `<symbol id="hds-icon-flight-git-commit-24" viewBox="0 0 24 24"><path d="M12 7.75c1.953 0 3.579 1.4 3.93 3.25h4.32a.75.75 0 010 1.5h-4.32a4.001 4.001 0 01-7.86 0H3.75a.75.75 0 010-1.5h4.32A4.001 4.001 0 0112 7.75zm0 1.5a2.5 2.5 0 100 5 2.5 2.5 0 000-5z"/></symbol>`;

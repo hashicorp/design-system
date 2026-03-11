@@ -3395,6 +3395,13 @@ export const IconRegistry = {
         },
         carbon: () => import('./carbon/upload.js')
     },
+    workspace: {
+        flight: {
+            16: () => import('./flight/workspace-16.js'),
+            24: () => import('./flight/workspace-24.js')
+        },
+        carbon: null
+    },
     'zoom-in': {
         flight: {
             16: () => import('./flight/zoom-in-16.js'),
