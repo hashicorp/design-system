@@ -32,7 +32,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Content</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid @label="Button trailing">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Button trailing"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.TextInput aria-label="segmented-text-input-button-trailing" />
@@ -46,7 +49,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         </div>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Button leading">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Button leading"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Button @color="secondary" @text="Button" />
@@ -60,7 +66,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         </div>
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Dropdown trailing">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Dropdown trailing"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.TextInput aria-label="segmented-text-input-dropdown-trailing" />
@@ -74,7 +83,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Dropdown leading">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Dropdown leading"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Dropdown as |D|>
@@ -92,7 +104,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
     <ShwDivider @level={{2}} />
 
     {{#each TEXT_INPUT_TYPES as |type|}}
-      <ShwCarbonizationComparisonGrid @label={{capitalize type}}>
+      <ShwCarbonizationComparisonGrid
+        @layout="side-by-side"
+        @label={{capitalize type}}
+      >
         <:theming>
           <HdsSegmentedGroup as |SGR|>
             <SGR.TextInput
@@ -111,7 +126,7 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
       </ShwCarbonizationComparisonGrid>
     {{/each}}
 
-    <ShwCarbonizationComparisonGrid @label="Select">
+    <ShwCarbonizationComparisonGrid @layout="side-by-side" @label="Select">
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Select aria-label="segmented-select" as |SEL|>
@@ -133,7 +148,7 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Within a form field</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid>
+    <ShwCarbonizationComparisonGrid @layout="side-by-side">
       <:theming>
         <HdsFormField @layout="vertical" @isRequired={{true}} as |F|>
           <F.Label>This is the label</F.Label>
@@ -161,7 +176,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Trailing</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @label="Button focused">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Button focused"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.TextInput
@@ -178,7 +196,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Dropdown focused">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Dropdown focused"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Select
@@ -205,7 +226,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Button disabled">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Button disabled"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.TextInput
@@ -218,7 +242,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Dropdown disabled">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Dropdown disabled"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Select
@@ -241,7 +268,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Input focused">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Input focused"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Button @color="secondary" @text="Button" />
@@ -255,7 +285,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Select focused">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Select focused"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Dropdown as |D|>
@@ -279,7 +312,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Input disabled">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Input disabled"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Button @color="secondary" @text="Button" />
@@ -293,7 +329,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Select disabled">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Select disabled"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Dropdown as |D|>
@@ -322,7 +361,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Leading</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @label="Button focused">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Button focused"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Button
@@ -339,7 +381,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Dropdown focused">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Dropdown focused"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Dropdown as |D|>
@@ -366,7 +411,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Button disabled">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Button disabled"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Button @color="secondary" @text="Button" disabled />
@@ -379,7 +427,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Dropdown disabled">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Dropdown disabled"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Dropdown as |D|>
@@ -402,7 +453,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Input focused">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Input focused"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.TextInput
@@ -416,7 +470,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Select focused">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Select focused"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Select
@@ -440,7 +497,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Input disabled">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Input disabled"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.TextInput
@@ -454,7 +514,10 @@ const SegmentedGroupCarbonizationIndex: TemplateOnlyComponent = <template>
         TODO
       </:reference>
     </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Select disabled">
+    <ShwCarbonizationComparisonGrid
+      @layout="side-by-side"
+      @label="Select disabled"
+    >
       <:theming>
         <HdsSegmentedGroup as |SGR|>
           <SGR.Select
