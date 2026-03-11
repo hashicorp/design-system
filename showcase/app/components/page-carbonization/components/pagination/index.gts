@@ -38,7 +38,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="with default features"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         <HdsPaginationNumbered @totalItems={{40}} />
@@ -49,7 +49,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="minimal, without truncation"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
@@ -67,7 +67,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="minimal, with truncation"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
@@ -95,7 +95,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="with default features"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
@@ -111,7 +111,7 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="showLabels=false, showSizeSelector=true"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
