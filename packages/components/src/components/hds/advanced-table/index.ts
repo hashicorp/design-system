@@ -467,8 +467,6 @@ export default class HdsAdvancedTable<
   }
 
   // casts a row from body.gts (Record<string, unknown>) to T so that `data=row.source`
-  // in the template satisfies `data?: T` in the block signature without needing a
-  // @glint-expect-error inside the (hash ...) s-expression (where Handlebars disallows comments)
   _asRowData = (source: Record<string, unknown>): T => source as unknown as T;
 
   private _initializeExpandedRows(model: T[]) {
