@@ -14,7 +14,6 @@ import {
   findAll,
 } from '@ember/test-helpers';
 import { focusable } from 'tabbable';
-import { get } from '@ember/helper';
 
 import { HdsAdvancedTable } from '@hashicorp/design-system-components/components';
 
@@ -53,19 +52,19 @@ const DEFAULT_SORTABLE_COLUMNS = [
 
 const DEFAULT_NESTED_MODEL = [
   {
-    id: 1,
+    id: '1',
     name: 'Policy set 1',
     status: 'PASS',
     description: '',
     children: [
       {
-        id: 11,
+        id: '11',
         name: 'test-advisory-pass.sentinel',
         status: 'PASS',
         description: 'Sample description for this thing.',
       },
       {
-        id: 12,
+        id: '12',
         name: 'test-hard-mandatory-pass.sentinel',
         status: 'PASS',
         description: 'Sample description for this thing.',
@@ -73,19 +72,19 @@ const DEFAULT_NESTED_MODEL = [
     ],
   },
   {
-    id: 2,
+    id: '2',
     name: 'Policy set 2',
     status: 'FAIL',
     description: '',
     children: [
       {
-        id: 21,
+        id: '21',
         name: 'test-advisory-pass.sentinel',
         status: 'PASS',
         description: 'Sample description for this thing.',
         children: [
           {
-            id: 211,
+            id: '211',
             name: 'test-advisory-pass.sentinel.primary',
             status: 'PASS',
             description: 'Sample description for this thing.',
@@ -112,12 +111,9 @@ const createSortableTable = async () => {
       >
         <:body as |B|>
           <B.Tr>
-            {{! @glint-expect-error }}
-            <B.Td>{{get B.data "artist"}}</B.Td>
-            {{! @glint-expect-error }}
-            <B.Td>{{get B.data "album"}}</B.Td>
-            {{! @glint-expect-error }}
-            <B.Td>{{get B.data "year"}}</B.Td>
+            <B.Td>{{B.data.artist}}</B.Td>
+            <B.Td>{{B.data.album}}</B.Td>
+            <B.Td>{{B.data.year}}</B.Td>
           </B.Tr>
         </:body>
       </HdsAdvancedTable>
@@ -134,14 +130,10 @@ const createNestedTable = async () => {
         id="data-test-nested-advanced-table"
       >
         <:body as |B|>
-          {{! @glint-expect-error }}
-          <B.Tr @selectionKey={{get B.data "id"}}>
-            {{! @glint-expect-error }}
-            <B.Th>{{get B.data "name"}}</B.Th>
-            {{! @glint-expect-error }}
-            <B.Td>{{get B.data "status"}}</B.Td>
-            {{! @glint-expect-error }}
-            <B.Td>{{get B.data "description"}}</B.Td>
+          <B.Tr @selectionKey={{B.data.id}}>
+            <B.Th>{{B.data.name}}</B.Th>
+            <B.Td>{{B.data.status}}</B.Td>
+            <B.Td>{{B.data.description}}</B.Td>
           </B.Tr>
         </:body>
       </HdsAdvancedTable>
