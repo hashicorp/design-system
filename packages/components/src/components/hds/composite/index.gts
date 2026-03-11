@@ -159,6 +159,8 @@ export default class Composite extends Component<HdsCompositeSignature> {
       if (this._firstEnabledItem !== undefined) {
         this._currentId = this._firstEnabledItem.id;
       }
+    } else if (this._currentId === newItem.id && newItem.disabled === true) {
+      this._currentId = this._firstEnabledItem !== undefined ? this._firstEnabledItem.id : null;
     }
 
     this._syncAllElements();
@@ -256,10 +258,12 @@ export default class Composite extends Component<HdsCompositeSignature> {
 
     if (item.disabled === true) {
       element.setAttribute('aria-disabled', 'true');
-      element.setAttribute('disabled', ''); 
+      element.setAttribute('disabled', '');
+      element.setAttribute('tabindex', '-1');
     } else {
       element.removeAttribute('aria-disabled');
       element.removeAttribute('disabled');
+      element.setAttribute('tabindex', isCurrent === true ? '0' : '-1');
     }
 
     if (isCurrent === true) {
