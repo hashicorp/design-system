@@ -3395,7 +3395,7 @@
   {
     "key": "{color.hashicorp.brand}",
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#000000",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3437,7 +3437,7 @@
   {
     "key": "{color.boundary.foreground}",
     "$type": "color",
-    "$value": "#fbd7d8",
+    "$value": "#cf2d32",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3458,7 +3458,7 @@
   {
     "key": "{color.boundary.surface}",
     "$type": "color",
-    "$value": "#b21e23",
+    "$value": "#ffecec",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3479,7 +3479,7 @@
   {
     "key": "{color.boundary.border}",
     "$type": "color",
-    "$value": "#cf2d32",
+    "$value": "#fbd7d8",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3523,7 +3523,7 @@
   {
     "key": "{color.boundary.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#ff9da2",
+    "$value": "#db363b",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3571,7 +3571,7 @@
   {
     "key": "{color.boundary.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#b21e23",
+    "$value": "#ffecec",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3615,7 +3615,7 @@
   {
     "key": "{color.consul.foreground}",
     "$type": "color",
-    "$value": "#ffcede",
+    "$value": "#d01c5b",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3636,7 +3636,7 @@
   {
     "key": "{color.consul.surface}",
     "$type": "color",
-    "$value": "#b10743",
+    "$value": "#ffe9f1",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3657,7 +3657,7 @@
   {
     "key": "{color.consul.border}",
     "$type": "color",
-    "$value": "#d01c5b",
+    "$value": "#ffcede",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3701,7 +3701,7 @@
   {
     "key": "{color.consul.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#ffbbd4",
+    "$value": "#da306e",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3749,7 +3749,7 @@
   {
     "key": "{color.consul.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#b10743",
+    "$value": "#ffe9f1",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3772,7 +3772,7 @@
   {
     "key": "{color.hcp.brand}",
     "$type": "color",
-    "$value": "#ffffff",
+    "$value": "#000000",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3814,7 +3814,7 @@
   {
     "key": "{color.nomad.foreground}",
     "$type": "color",
-    "$value": "#bff3dd",
+    "$value": "#008661",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3835,7 +3835,7 @@
   {
     "key": "{color.nomad.surface}",
     "$type": "color",
-    "$value": "#007756",
+    "$value": "#d3fdeb",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3856,7 +3856,7 @@
   {
     "key": "{color.nomad.border}",
     "$type": "color",
-    "$value": "#008661",
+    "$value": "#bff3dd",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3877,7 +3877,7 @@
   {
     "key": "{color.nomad.gradient.primary.start}",
     "$type": "color",
-    "$value": "#008661",
+    "$value": "#bff3dd",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3900,7 +3900,7 @@
   {
     "key": "{color.nomad.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#22a870",
+    "$value": "#60dea9",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3948,7 +3948,7 @@
   {
     "key": "{color.nomad.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#007756",
+    "$value": "#d3fdeb",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3992,7 +3992,7 @@
   {
     "key": "{color.packer.foreground}",
     "$type": "color",
-    "$value": "#b4e4ff",
+    "$value": "#007eb4",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4013,7 +4013,7 @@
   {
     "key": "{color.packer.surface}",
     "$type": "color",
-    "$value": "#0071a1",
+    "$value": "#d4f2ff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4034,7 +4034,7 @@
   {
     "key": "{color.packer.border}",
     "$type": "color",
-    "$value": "#007eb4",
+    "$value": "#b4e4ff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4055,7 +4055,7 @@
   {
     "key": "{color.packer.gradient.primary.start}",
     "$type": "color",
-    "$value": "#007eb4",
+    "$value": "#b4e4ff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4078,7 +4078,7 @@
   {
     "key": "{color.packer.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#1d9ed7",
+    "$value": "#63d0ff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4126,7 +4126,7 @@
   {
     "key": "{color.packer.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#0071a1",
+    "$value": "#d4f2ff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4193,7 +4193,7 @@
   {
     "key": "{color.terraform.foreground}",
     "$type": "color",
-    "$value": "#ebdbfc",
+    "$value": "#773cb4",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4214,7 +4214,7 @@
   {
     "key": "{color.terraform.surface}",
     "$type": "color",
-    "$value": "#5f219e",
+    "$value": "#f4ecff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4235,7 +4235,7 @@
   {
     "key": "{color.terraform.border}",
     "$type": "color",
-    "$value": "#773cb4",
+    "$value": "#ebdbfc",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4279,7 +4279,7 @@
   {
     "key": "{color.terraform.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#d8b7fc",
+    "$value": "#844fba",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4327,7 +4327,7 @@
   {
     "key": "{color.terraform.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#5f219e",
+    "$value": "#f4ecff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4371,7 +4371,7 @@
   {
     "key": "{color.vagrant.foreground}",
     "$type": "color",
-    "$value": "#c7dbfc",
+    "$value": "#1c61d8",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4392,7 +4392,7 @@
   {
     "key": "{color.vagrant.surface}",
     "$type": "color",
-    "$value": "#064abe",
+    "$value": "#d6ebff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4413,7 +4413,7 @@
   {
     "key": "{color.vagrant.border}",
     "$type": "color",
-    "$value": "#1c61d8",
+    "$value": "#c7dbfc",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4457,7 +4457,7 @@
   {
     "key": "{color.vagrant.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#7dadff",
+    "$value": "#2e71e5",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4505,7 +4505,7 @@
   {
     "key": "{color.vagrant.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#064abe",
+    "$value": "#d6ebff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4586,7 +4586,7 @@
   {
     "key": "{color.vault-radar.foreground}",
     "$type": "color",
-    "$value": "#feec7b",
+    "$value": "#9a6f00",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4607,7 +4607,7 @@
   {
     "key": "{color.vault-radar.surface}",
     "$type": "color",
-    "$value": "#8b6400",
+    "$value": "#fff9cf",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4628,7 +4628,7 @@
   {
     "key": "{color.vault-radar.border}",
     "$type": "color",
-    "$value": "#9a6f00",
+    "$value": "#feec7b",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4649,7 +4649,7 @@
   {
     "key": "{color.vault-radar.gradient.primary.start}",
     "$type": "color",
-    "$value": "#9a6f00",
+    "$value": "#feec7b",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4672,7 +4672,7 @@
   {
     "key": "{color.vault-radar.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#bb8e1a",
+    "$value": "#ffe543",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4720,7 +4720,7 @@
   {
     "key": "{color.vault-radar.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#8b6400",
+    "$value": "#fff9cf",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4801,7 +4801,7 @@
   {
     "key": "{color.vault-secrets.foreground}",
     "$type": "color",
-    "$value": "#feec7b",
+    "$value": "#9a6f00",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4822,7 +4822,7 @@
   {
     "key": "{color.vault-secrets.surface}",
     "$type": "color",
-    "$value": "#8b6400",
+    "$value": "#fff9cf",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4843,7 +4843,7 @@
   {
     "key": "{color.vault-secrets.border}",
     "$type": "color",
-    "$value": "#9a6f00",
+    "$value": "#feec7b",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4864,7 +4864,7 @@
   {
     "key": "{color.vault-secrets.gradient.primary.start}",
     "$type": "color",
-    "$value": "#9a6f00",
+    "$value": "#feec7b",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4887,7 +4887,7 @@
   {
     "key": "{color.vault-secrets.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#bb8e1a",
+    "$value": "#ffe543",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -4935,7 +4935,7 @@
   {
     "key": "{color.vault-secrets.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#8b6400",
+    "$value": "#fff9cf",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5016,7 +5016,7 @@
   {
     "key": "{color.vault.foreground}",
     "$type": "color",
-    "$value": "#feec7b",
+    "$value": "#9a6f00",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5037,7 +5037,7 @@
   {
     "key": "{color.vault.surface}",
     "$type": "color",
-    "$value": "#8b6400",
+    "$value": "#fff9cf",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5058,7 +5058,7 @@
   {
     "key": "{color.vault.border}",
     "$type": "color",
-    "$value": "#9a6f00",
+    "$value": "#feec7b",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5079,7 +5079,7 @@
   {
     "key": "{color.vault.gradient.primary.start}",
     "$type": "color",
-    "$value": "#9a6f00",
+    "$value": "#feec7b",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5102,7 +5102,7 @@
   {
     "key": "{color.vault.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#bb8e1a",
+    "$value": "#ffe543",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5150,7 +5150,7 @@
   {
     "key": "{color.vault.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#8b6400",
+    "$value": "#fff9cf",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5194,7 +5194,7 @@
   {
     "key": "{color.waypoint.foreground}",
     "$type": "color",
-    "$value": "#cbf1f3",
+    "$value": "#008196",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5215,7 +5215,7 @@
   {
     "key": "{color.waypoint.surface}",
     "$type": "color",
-    "$value": "#007487",
+    "$value": "#e0fcff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5236,7 +5236,7 @@
   {
     "key": "{color.waypoint.border}",
     "$type": "color",
-    "$value": "#008196",
+    "$value": "#cbf1f3",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5257,7 +5257,7 @@
   {
     "key": "{color.waypoint.gradient.primary.start}",
     "$type": "color",
-    "$value": "#008196",
+    "$value": "#cbf1f3",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5280,7 +5280,7 @@
   {
     "key": "{color.waypoint.gradient.primary.stop}",
     "$type": "color",
-    "$value": "#22a4ac",
+    "$value": "#62d4dc",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5328,7 +5328,7 @@
   {
     "key": "{color.waypoint.gradient.faint.stop}",
     "$type": "color",
-    "$value": "#007487",
+    "$value": "#e0fcff",
     "group": "branding",
     "original": {
       "$type": "color",
