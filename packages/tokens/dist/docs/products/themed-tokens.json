@@ -47031,7 +47031,7 @@
     "token-color-hashicorp-brand": {
       "key": "{color.hashicorp.brand}",
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "#000000",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47073,7 +47073,7 @@
     "token-color-boundary-foreground": {
       "key": "{color.boundary.foreground}",
       "$type": "color",
-      "$value": "#fbd7d8",
+      "$value": "#cf2d32",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47094,7 +47094,7 @@
     "token-color-boundary-surface": {
       "key": "{color.boundary.surface}",
       "$type": "color",
-      "$value": "#b21e23",
+      "$value": "#ffecec",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47115,7 +47115,7 @@
     "token-color-boundary-border": {
       "key": "{color.boundary.border}",
       "$type": "color",
-      "$value": "#cf2d32",
+      "$value": "#fbd7d8",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47159,7 +47159,7 @@
     "token-color-boundary-gradient-primary-stop": {
       "key": "{color.boundary.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#ff9da2",
+      "$value": "#db363b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47207,7 +47207,7 @@
     "token-color-boundary-gradient-faint-stop": {
       "key": "{color.boundary.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#b21e23",
+      "$value": "#ffecec",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47251,7 +47251,7 @@
     "token-color-consul-foreground": {
       "key": "{color.consul.foreground}",
       "$type": "color",
-      "$value": "#ffcede",
+      "$value": "#d01c5b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47272,7 +47272,7 @@
     "token-color-consul-surface": {
       "key": "{color.consul.surface}",
       "$type": "color",
-      "$value": "#b10743",
+      "$value": "#ffe9f1",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47293,7 +47293,7 @@
     "token-color-consul-border": {
       "key": "{color.consul.border}",
       "$type": "color",
-      "$value": "#d01c5b",
+      "$value": "#ffcede",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47337,7 +47337,7 @@
     "token-color-consul-gradient-primary-stop": {
       "key": "{color.consul.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#ffbbd4",
+      "$value": "#da306e",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47385,7 +47385,7 @@
     "token-color-consul-gradient-faint-stop": {
       "key": "{color.consul.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#b10743",
+      "$value": "#ffe9f1",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47408,7 +47408,7 @@
     "token-color-hcp-brand": {
       "key": "{color.hcp.brand}",
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "#000000",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47450,7 +47450,7 @@
     "token-color-nomad-foreground": {
       "key": "{color.nomad.foreground}",
       "$type": "color",
-      "$value": "#bff3dd",
+      "$value": "#008661",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47471,7 +47471,7 @@
     "token-color-nomad-surface": {
       "key": "{color.nomad.surface}",
       "$type": "color",
-      "$value": "#007756",
+      "$value": "#d3fdeb",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47492,7 +47492,7 @@
     "token-color-nomad-border": {
       "key": "{color.nomad.border}",
       "$type": "color",
-      "$value": "#008661",
+      "$value": "#bff3dd",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47513,7 +47513,7 @@
     "token-color-nomad-gradient-primary-start": {
       "key": "{color.nomad.gradient.primary.start}",
       "$type": "color",
-      "$value": "#008661",
+      "$value": "#bff3dd",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47536,7 +47536,7 @@
     "token-color-nomad-gradient-primary-stop": {
       "key": "{color.nomad.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#22a870",
+      "$value": "#60dea9",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47584,7 +47584,7 @@
     "token-color-nomad-gradient-faint-stop": {
       "key": "{color.nomad.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#007756",
+      "$value": "#d3fdeb",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47628,7 +47628,7 @@
     "token-color-packer-foreground": {
       "key": "{color.packer.foreground}",
       "$type": "color",
-      "$value": "#b4e4ff",
+      "$value": "#007eb4",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47649,7 +47649,7 @@
     "token-color-packer-surface": {
       "key": "{color.packer.surface}",
       "$type": "color",
-      "$value": "#0071a1",
+      "$value": "#d4f2ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47670,7 +47670,7 @@
     "token-color-packer-border": {
       "key": "{color.packer.border}",
       "$type": "color",
-      "$value": "#007eb4",
+      "$value": "#b4e4ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47691,7 +47691,7 @@
     "token-color-packer-gradient-primary-start": {
       "key": "{color.packer.gradient.primary.start}",
       "$type": "color",
-      "$value": "#007eb4",
+      "$value": "#b4e4ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47714,7 +47714,7 @@
     "token-color-packer-gradient-primary-stop": {
       "key": "{color.packer.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#1d9ed7",
+      "$value": "#63d0ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47762,7 +47762,7 @@
     "token-color-packer-gradient-faint-stop": {
       "key": "{color.packer.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#0071a1",
+      "$value": "#d4f2ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47829,7 +47829,7 @@
     "token-color-terraform-foreground": {
       "key": "{color.terraform.foreground}",
       "$type": "color",
-      "$value": "#ebdbfc",
+      "$value": "#773cb4",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47850,7 +47850,7 @@
     "token-color-terraform-surface": {
       "key": "{color.terraform.surface}",
       "$type": "color",
-      "$value": "#5f219e",
+      "$value": "#f4ecff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47871,7 +47871,7 @@
     "token-color-terraform-border": {
       "key": "{color.terraform.border}",
       "$type": "color",
-      "$value": "#773cb4",
+      "$value": "#ebdbfc",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47915,7 +47915,7 @@
     "token-color-terraform-gradient-primary-stop": {
       "key": "{color.terraform.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#d8b7fc",
+      "$value": "#844fba",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -47963,7 +47963,7 @@
     "token-color-terraform-gradient-faint-stop": {
       "key": "{color.terraform.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#5f219e",
+      "$value": "#f4ecff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48007,7 +48007,7 @@
     "token-color-vagrant-foreground": {
       "key": "{color.vagrant.foreground}",
       "$type": "color",
-      "$value": "#c7dbfc",
+      "$value": "#1c61d8",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48028,7 +48028,7 @@
     "token-color-vagrant-surface": {
       "key": "{color.vagrant.surface}",
       "$type": "color",
-      "$value": "#064abe",
+      "$value": "#d6ebff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48049,7 +48049,7 @@
     "token-color-vagrant-border": {
       "key": "{color.vagrant.border}",
       "$type": "color",
-      "$value": "#1c61d8",
+      "$value": "#c7dbfc",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48093,7 +48093,7 @@
     "token-color-vagrant-gradient-primary-stop": {
       "key": "{color.vagrant.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#7dadff",
+      "$value": "#2e71e5",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48141,7 +48141,7 @@
     "token-color-vagrant-gradient-faint-stop": {
       "key": "{color.vagrant.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#064abe",
+      "$value": "#d6ebff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48222,7 +48222,7 @@
     "token-color-vault-radar-foreground": {
       "key": "{color.vault-radar.foreground}",
       "$type": "color",
-      "$value": "#feec7b",
+      "$value": "#9a6f00",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48243,7 +48243,7 @@
     "token-color-vault-radar-surface": {
       "key": "{color.vault-radar.surface}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48264,7 +48264,7 @@
     "token-color-vault-radar-border": {
       "key": "{color.vault-radar.border}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48285,7 +48285,7 @@
     "token-color-vault-radar-gradient-primary-start": {
       "key": "{color.vault-radar.gradient.primary.start}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48308,7 +48308,7 @@
     "token-color-vault-radar-gradient-primary-stop": {
       "key": "{color.vault-radar.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#bb8e1a",
+      "$value": "#ffe543",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48356,7 +48356,7 @@
     "token-color-vault-radar-gradient-faint-stop": {
       "key": "{color.vault-radar.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48437,7 +48437,7 @@
     "token-color-vault-secrets-foreground": {
       "key": "{color.vault-secrets.foreground}",
       "$type": "color",
-      "$value": "#feec7b",
+      "$value": "#9a6f00",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48458,7 +48458,7 @@
     "token-color-vault-secrets-surface": {
       "key": "{color.vault-secrets.surface}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48479,7 +48479,7 @@
     "token-color-vault-secrets-border": {
       "key": "{color.vault-secrets.border}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48500,7 +48500,7 @@
     "token-color-vault-secrets-gradient-primary-start": {
       "key": "{color.vault-secrets.gradient.primary.start}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48523,7 +48523,7 @@
     "token-color-vault-secrets-gradient-primary-stop": {
       "key": "{color.vault-secrets.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#bb8e1a",
+      "$value": "#ffe543",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48571,7 +48571,7 @@
     "token-color-vault-secrets-gradient-faint-stop": {
       "key": "{color.vault-secrets.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48652,7 +48652,7 @@
     "token-color-vault-foreground": {
       "key": "{color.vault.foreground}",
       "$type": "color",
-      "$value": "#feec7b",
+      "$value": "#9a6f00",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48673,7 +48673,7 @@
     "token-color-vault-surface": {
       "key": "{color.vault.surface}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48694,7 +48694,7 @@
     "token-color-vault-border": {
       "key": "{color.vault.border}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48715,7 +48715,7 @@
     "token-color-vault-gradient-primary-start": {
       "key": "{color.vault.gradient.primary.start}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48738,7 +48738,7 @@
     "token-color-vault-gradient-primary-stop": {
       "key": "{color.vault.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#bb8e1a",
+      "$value": "#ffe543",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48786,7 +48786,7 @@
     "token-color-vault-gradient-faint-stop": {
       "key": "{color.vault.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48830,7 +48830,7 @@
     "token-color-waypoint-foreground": {
       "key": "{color.waypoint.foreground}",
       "$type": "color",
-      "$value": "#cbf1f3",
+      "$value": "#008196",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48851,7 +48851,7 @@
     "token-color-waypoint-surface": {
       "key": "{color.waypoint.surface}",
       "$type": "color",
-      "$value": "#007487",
+      "$value": "#e0fcff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48872,7 +48872,7 @@
     "token-color-waypoint-border": {
       "key": "{color.waypoint.border}",
       "$type": "color",
-      "$value": "#008196",
+      "$value": "#cbf1f3",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48893,7 +48893,7 @@
     "token-color-waypoint-gradient-primary-start": {
       "key": "{color.waypoint.gradient.primary.start}",
       "$type": "color",
-      "$value": "#008196",
+      "$value": "#cbf1f3",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48916,7 +48916,7 @@
     "token-color-waypoint-gradient-primary-stop": {
       "key": "{color.waypoint.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#22a4ac",
+      "$value": "#62d4dc",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -48964,7 +48964,7 @@
     "token-color-waypoint-gradient-faint-stop": {
       "key": "{color.waypoint.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#007487",
+      "$value": "#e0fcff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61574,7 +61574,7 @@
     "token-color-hashicorp-brand": {
       "key": "{color.hashicorp.brand}",
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "#000000",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61616,7 +61616,7 @@
     "token-color-boundary-foreground": {
       "key": "{color.boundary.foreground}",
       "$type": "color",
-      "$value": "#fbd7d8",
+      "$value": "#cf2d32",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61637,7 +61637,7 @@
     "token-color-boundary-surface": {
       "key": "{color.boundary.surface}",
       "$type": "color",
-      "$value": "#b21e23",
+      "$value": "#ffecec",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61658,7 +61658,7 @@
     "token-color-boundary-border": {
       "key": "{color.boundary.border}",
       "$type": "color",
-      "$value": "#cf2d32",
+      "$value": "#fbd7d8",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61702,7 +61702,7 @@
     "token-color-boundary-gradient-primary-stop": {
       "key": "{color.boundary.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#ff9da2",
+      "$value": "#db363b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61750,7 +61750,7 @@
     "token-color-boundary-gradient-faint-stop": {
       "key": "{color.boundary.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#b21e23",
+      "$value": "#ffecec",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61794,7 +61794,7 @@
     "token-color-consul-foreground": {
       "key": "{color.consul.foreground}",
       "$type": "color",
-      "$value": "#ffcede",
+      "$value": "#d01c5b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61815,7 +61815,7 @@
     "token-color-consul-surface": {
       "key": "{color.consul.surface}",
       "$type": "color",
-      "$value": "#b10743",
+      "$value": "#ffe9f1",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61836,7 +61836,7 @@
     "token-color-consul-border": {
       "key": "{color.consul.border}",
       "$type": "color",
-      "$value": "#d01c5b",
+      "$value": "#ffcede",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61880,7 +61880,7 @@
     "token-color-consul-gradient-primary-stop": {
       "key": "{color.consul.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#ffbbd4",
+      "$value": "#da306e",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61928,7 +61928,7 @@
     "token-color-consul-gradient-faint-stop": {
       "key": "{color.consul.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#b10743",
+      "$value": "#ffe9f1",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61951,7 +61951,7 @@
     "token-color-hcp-brand": {
       "key": "{color.hcp.brand}",
       "$type": "color",
-      "$value": "#ffffff",
+      "$value": "#000000",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -61993,7 +61993,7 @@
     "token-color-nomad-foreground": {
       "key": "{color.nomad.foreground}",
       "$type": "color",
-      "$value": "#bff3dd",
+      "$value": "#008661",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62014,7 +62014,7 @@
     "token-color-nomad-surface": {
       "key": "{color.nomad.surface}",
       "$type": "color",
-      "$value": "#007756",
+      "$value": "#d3fdeb",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62035,7 +62035,7 @@
     "token-color-nomad-border": {
       "key": "{color.nomad.border}",
       "$type": "color",
-      "$value": "#008661",
+      "$value": "#bff3dd",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62056,7 +62056,7 @@
     "token-color-nomad-gradient-primary-start": {
       "key": "{color.nomad.gradient.primary.start}",
       "$type": "color",
-      "$value": "#008661",
+      "$value": "#bff3dd",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62079,7 +62079,7 @@
     "token-color-nomad-gradient-primary-stop": {
       "key": "{color.nomad.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#22a870",
+      "$value": "#60dea9",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62127,7 +62127,7 @@
     "token-color-nomad-gradient-faint-stop": {
       "key": "{color.nomad.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#007756",
+      "$value": "#d3fdeb",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62171,7 +62171,7 @@
     "token-color-packer-foreground": {
       "key": "{color.packer.foreground}",
       "$type": "color",
-      "$value": "#b4e4ff",
+      "$value": "#007eb4",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62192,7 +62192,7 @@
     "token-color-packer-surface": {
       "key": "{color.packer.surface}",
       "$type": "color",
-      "$value": "#0071a1",
+      "$value": "#d4f2ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62213,7 +62213,7 @@
     "token-color-packer-border": {
       "key": "{color.packer.border}",
       "$type": "color",
-      "$value": "#007eb4",
+      "$value": "#b4e4ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62234,7 +62234,7 @@
     "token-color-packer-gradient-primary-start": {
       "key": "{color.packer.gradient.primary.start}",
       "$type": "color",
-      "$value": "#007eb4",
+      "$value": "#b4e4ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62257,7 +62257,7 @@
     "token-color-packer-gradient-primary-stop": {
       "key": "{color.packer.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#1d9ed7",
+      "$value": "#63d0ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62305,7 +62305,7 @@
     "token-color-packer-gradient-faint-stop": {
       "key": "{color.packer.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#0071a1",
+      "$value": "#d4f2ff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62372,7 +62372,7 @@
     "token-color-terraform-foreground": {
       "key": "{color.terraform.foreground}",
       "$type": "color",
-      "$value": "#ebdbfc",
+      "$value": "#773cb4",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62393,7 +62393,7 @@
     "token-color-terraform-surface": {
       "key": "{color.terraform.surface}",
       "$type": "color",
-      "$value": "#5f219e",
+      "$value": "#f4ecff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62414,7 +62414,7 @@
     "token-color-terraform-border": {
       "key": "{color.terraform.border}",
       "$type": "color",
-      "$value": "#773cb4",
+      "$value": "#ebdbfc",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62458,7 +62458,7 @@
     "token-color-terraform-gradient-primary-stop": {
       "key": "{color.terraform.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#d8b7fc",
+      "$value": "#844fba",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62506,7 +62506,7 @@
     "token-color-terraform-gradient-faint-stop": {
       "key": "{color.terraform.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#5f219e",
+      "$value": "#f4ecff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62550,7 +62550,7 @@
     "token-color-vagrant-foreground": {
       "key": "{color.vagrant.foreground}",
       "$type": "color",
-      "$value": "#c7dbfc",
+      "$value": "#1c61d8",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62571,7 +62571,7 @@
     "token-color-vagrant-surface": {
       "key": "{color.vagrant.surface}",
       "$type": "color",
-      "$value": "#064abe",
+      "$value": "#d6ebff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62592,7 +62592,7 @@
     "token-color-vagrant-border": {
       "key": "{color.vagrant.border}",
       "$type": "color",
-      "$value": "#1c61d8",
+      "$value": "#c7dbfc",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62636,7 +62636,7 @@
     "token-color-vagrant-gradient-primary-stop": {
       "key": "{color.vagrant.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#7dadff",
+      "$value": "#2e71e5",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62684,7 +62684,7 @@
     "token-color-vagrant-gradient-faint-stop": {
       "key": "{color.vagrant.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#064abe",
+      "$value": "#d6ebff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62765,7 +62765,7 @@
     "token-color-vault-radar-foreground": {
       "key": "{color.vault-radar.foreground}",
       "$type": "color",
-      "$value": "#feec7b",
+      "$value": "#9a6f00",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62786,7 +62786,7 @@
     "token-color-vault-radar-surface": {
       "key": "{color.vault-radar.surface}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62807,7 +62807,7 @@
     "token-color-vault-radar-border": {
       "key": "{color.vault-radar.border}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62828,7 +62828,7 @@
     "token-color-vault-radar-gradient-primary-start": {
       "key": "{color.vault-radar.gradient.primary.start}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62851,7 +62851,7 @@
     "token-color-vault-radar-gradient-primary-stop": {
       "key": "{color.vault-radar.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#bb8e1a",
+      "$value": "#ffe543",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62899,7 +62899,7 @@
     "token-color-vault-radar-gradient-faint-stop": {
       "key": "{color.vault-radar.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -62980,7 +62980,7 @@
     "token-color-vault-secrets-foreground": {
       "key": "{color.vault-secrets.foreground}",
       "$type": "color",
-      "$value": "#feec7b",
+      "$value": "#9a6f00",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63001,7 +63001,7 @@
     "token-color-vault-secrets-surface": {
       "key": "{color.vault-secrets.surface}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63022,7 +63022,7 @@
     "token-color-vault-secrets-border": {
       "key": "{color.vault-secrets.border}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63043,7 +63043,7 @@
     "token-color-vault-secrets-gradient-primary-start": {
       "key": "{color.vault-secrets.gradient.primary.start}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63066,7 +63066,7 @@
     "token-color-vault-secrets-gradient-primary-stop": {
       "key": "{color.vault-secrets.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#bb8e1a",
+      "$value": "#ffe543",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63114,7 +63114,7 @@
     "token-color-vault-secrets-gradient-faint-stop": {
       "key": "{color.vault-secrets.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63195,7 +63195,7 @@
     "token-color-vault-foreground": {
       "key": "{color.vault.foreground}",
       "$type": "color",
-      "$value": "#feec7b",
+      "$value": "#9a6f00",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63216,7 +63216,7 @@
     "token-color-vault-surface": {
       "key": "{color.vault.surface}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63237,7 +63237,7 @@
     "token-color-vault-border": {
       "key": "{color.vault.border}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63258,7 +63258,7 @@
     "token-color-vault-gradient-primary-start": {
       "key": "{color.vault.gradient.primary.start}",
       "$type": "color",
-      "$value": "#9a6f00",
+      "$value": "#feec7b",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63281,7 +63281,7 @@
     "token-color-vault-gradient-primary-stop": {
       "key": "{color.vault.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#bb8e1a",
+      "$value": "#ffe543",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63329,7 +63329,7 @@
     "token-color-vault-gradient-faint-stop": {
       "key": "{color.vault.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#8b6400",
+      "$value": "#fff9cf",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63373,7 +63373,7 @@
     "token-color-waypoint-foreground": {
       "key": "{color.waypoint.foreground}",
       "$type": "color",
-      "$value": "#cbf1f3",
+      "$value": "#008196",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63394,7 +63394,7 @@
     "token-color-waypoint-surface": {
       "key": "{color.waypoint.surface}",
       "$type": "color",
-      "$value": "#007487",
+      "$value": "#e0fcff",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63415,7 +63415,7 @@
     "token-color-waypoint-border": {
       "key": "{color.waypoint.border}",
       "$type": "color",
-      "$value": "#008196",
+      "$value": "#cbf1f3",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63436,7 +63436,7 @@
     "token-color-waypoint-gradient-primary-start": {
       "key": "{color.waypoint.gradient.primary.start}",
       "$type": "color",
-      "$value": "#008196",
+      "$value": "#cbf1f3",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63459,7 +63459,7 @@
     "token-color-waypoint-gradient-primary-stop": {
       "key": "{color.waypoint.gradient.primary.stop}",
       "$type": "color",
-      "$value": "#22a4ac",
+      "$value": "#62d4dc",
       "group": "branding",
       "original": {
         "$type": "color",
@@ -63507,7 +63507,7 @@
     "token-color-waypoint-gradient-faint-stop": {
       "key": "{color.waypoint.gradient.faint.stop}",
       "$type": "color",
-      "$value": "#007487",
+      "$value": "#e0fcff",
       "group": "branding",
       "original": {
         "$type": "color",
