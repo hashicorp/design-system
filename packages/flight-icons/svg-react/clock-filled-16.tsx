@@ -25,9 +25,7 @@ export const IconClockFilled16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
-                    d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8.5-4.25a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z"
-                    clipRule="evenodd"
+                    d="M8 0a8 8 0 110 16A8 8 0 018 0zm-.25 3a.75.75 0 00-.75.75V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 00.67-1.34L8.5 7.535V3.75A.75.75 0 007.75 3z"
                 />
             </svg>
         );

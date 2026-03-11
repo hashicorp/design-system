@@ -25,9 +25,7 @@ export const IconChevronUp16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
-                    d="M3.235 10.795a.75.75 0 001.06-.03L8 6.842l3.705 3.923a.75.75 0 001.09-1.03l-4.25-4.5a.75.75 0 00-1.09 0l-4.25 4.5a.75.75 0 00.03 1.06z"
-                    clipRule="evenodd"
+                    d="M8 5c.206 0 .403.086.545.235l4.25 4.5a.75.75 0 11-1.09 1.03L8 6.843l-3.705 3.922a.75.75 0 01-1.09-1.03l4.25-4.5A.753.753 0 018 5z"
                 />
             </svg>
         );

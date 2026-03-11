@@ -25,7 +25,9 @@ export const IconDiamondFill24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M10.056 1.924l-8.132 8.132a2.75 2.75 0 000 3.889l8.132 8.131a2.75 2.75 0 003.889 0l8.131-8.131a2.75 2.75 0 000-3.89l-8.131-8.13a2.75 2.75 0 00-3.89 0z"
+                    fillRule="evenodd"
+                    d="M10.057 1.925a2.751 2.751 0 013.888 0l8.132 8.132a2.752 2.752 0 010 3.888l-8.132 8.132a2.752 2.752 0 01-3.888 0l-8.132-8.132a2.751 2.751 0 010-3.888l8.132-8.132z"
+                    clipRule="evenodd"
                 />
             </svg>
         );

@@ -25,7 +25,9 @@ export const IconX16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z"
+                    fillRule="evenodd"
+                    d="M11.72 3.22a.75.75 0 011.06 1.06L9.06 8l3.72 3.72a.753.753 0 010 1.06.753.753 0 01-1.06 0L8 9.062l-3.72 3.72a.75.75 0 01-1.06-1.06L6.94 8 3.22 4.28a.75.75 0 011.06-1.06L8 6.94l3.72-3.72z"
+                    clipRule="evenodd"
                 />
             </svg>
         );

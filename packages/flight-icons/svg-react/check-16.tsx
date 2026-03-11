@@ -25,7 +25,9 @@ export const IconCheck16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    d="M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z"
+                    fillRule="evenodd"
+                    d="M13.72 3.22a.75.75 0 011.06 1.06l-8.5 8.5a.753.753 0 01-1.06 0l-4-4a.75.75 0 011.06-1.06l3.47 3.47 7.97-7.97z"
+                    clipRule="evenodd"
                 />
             </svg>
         );

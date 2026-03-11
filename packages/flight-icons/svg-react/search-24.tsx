@@ -25,9 +25,7 @@ export const IconSearch24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill={color}
-                    fillRule="evenodd"
-                    d="M10.5 2a8.5 8.5 0 105.457 15.017l4.763 4.763a.75.75 0 101.06-1.06l-4.763-4.763A8.5 8.5 0 0010.5 2zm-7 8.5a7 7 0 1114 0 7 7 0 01-14 0z"
-                    clipRule="evenodd"
+                    d="M10.5 2a8.5 8.5 0 016.518 13.957l4.762 4.762a.75.75 0 11-1.06 1.061l-4.763-4.763A8.472 8.472 0 0110.5 19C5.807 18.998 2 15.193 2 10.5 2 5.806 5.807 2 10.5 2zm0 1.5a7.003 7.003 0 00-7 7 7 7 0 107-7z"
                 />
             </svg>
         );

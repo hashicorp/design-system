@@ -23,9 +23,10 @@ export const IconMoreVertical16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path d="M8 2a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM8 6.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM8 11a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" />
-                </g>
+                <path
+                    fill={color}
+                    d="M8 11a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm0-4.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM8 2a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"
+                />
             </svg>
         );
     }

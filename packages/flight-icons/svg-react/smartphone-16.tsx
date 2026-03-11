@@ -23,14 +23,10 @@ export const IconSmartphone16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path d="M8 12a1 1 0 100 2h.007a1 1 0 100-2H8z" />
-                    <path
-                        fillRule="evenodd"
-                        d="M4.25 0A2.25 2.25 0 002 2.25v11.5A2.25 2.25 0 004.25 16h7.5A2.25 2.25 0 0014 13.75V2.25A2.25 2.25 0 0011.75 0h-7.5zM3.5 2.25a.75.75 0 01.75-.75h7.5a.75.75 0 01.75.75v11.5a.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V2.25z"
-                        clipRule="evenodd"
-                    />
-                </g>
+                <path
+                    fill={color}
+                    d="M11.75 0A2.25 2.25 0 0114 2.25v11.5A2.25 2.25 0 0111.75 16h-7.5A2.25 2.25 0 012 13.75V2.25A2.25 2.25 0 014.25 0h7.5zm-7.5 1.5a.75.75 0 00-.75.75v11.5c0 .414.336.75.75.75h7.5a.75.75 0 00.75-.75V2.25a.75.75 0 00-.75-.75h-7.5zM8.007 12a1 1 0 010 2H8a1 1 0 110-2h.007z"
+                />
             </svg>
         );
     }

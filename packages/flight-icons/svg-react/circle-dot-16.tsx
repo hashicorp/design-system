@@ -23,14 +23,10 @@ export const IconCircleDot16 = forwardRef<SVGSVGElement, IconProps>(
                 {...props}
             >
                 {title ? <title id={titleId}>{title}</title> : null}
-                <g fill={color}>
-                    <path d="M8 3a5 5 0 100 10A5 5 0 008 3z" />
-                    <path
-                        fillRule="evenodd"
-                        d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z"
-                        clipRule="evenodd"
-                    />
-                </g>
+                <path
+                    fill={color}
+                    d="M8 0a8 8 0 110 16A8 8 0 018 0zm0 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM8 3a5 5 0 110 10A5 5 0 018 3z"
+                />
             </svg>
         );
     }
