@@ -28,17 +28,6 @@
     },
     "surface": {
       "color": {
-        "neutral": {
-          "$type": "color",
-          "$value": "{color.surface.strong}",
-          "$modes": {
-            "default": "{color.surface.strong}",
-            "cds-g0": "{carbon.themes.white.layerAccent01}",
-            "cds-g10": "{carbon.themes.g10.layerAccent01}",
-            "cds-g90": "{carbon.themes.g90.layerAccent01}",
-            "cds-g100": "{carbon.themes.g100.layerAccent01}"
-          }
-        },
         "overlay": {
           "$type": "color",
           "$value": "{color.surface.primary}",
@@ -48,17 +37,6 @@
             "cds-g10": "{carbon.themes.g10.layer02}",
             "cds-g90": "{carbon.themes.g90.layer02}",
             "cds-g100": "{carbon.themes.g100.layer02}"
-          }
-        },
-        "logo": {
-          "$type": "color",
-          "$value": "{color.surface.primary}",
-          "$modes": {
-            "default": "{color.surface.primary}",
-            "cds-g0": "{carbon.themes.white.layer01}",
-            "cds-g10": "{carbon.themes.g10.layer01}",
-            "cds-g90": "{carbon.themes.g90.layer01}",
-            "cds-g100": "{carbon.themes.g100.layer01}"
           }
         }
       }
