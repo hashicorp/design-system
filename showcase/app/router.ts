@@ -53,7 +53,6 @@ Router.map(function () {
     this.route('card');
     this.route('code-block');
     this.route('code-editor');
-    this.route('composite');
     this.route('dropdown');
     this.route('filter-bar');
     this.route('flyout');
@@ -143,6 +142,7 @@ Router.map(function () {
     });
   });
   this.route('page-utilities', { path: 'utilities' }, function () {
+    this.route('composite');
     this.route('dialog-primitive');
     this.route('disclosure-primitive');
     this.route('dismiss-button');

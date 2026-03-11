@@ -122,78 +122,78 @@ const SubSectionDisabledItems: TemplateOnlyComponent = <template>
     >
       <HdsComposite as |c|>
         <div
-          class="composite-with-grid"
+          class="shw-utility-composite-with-grid"
           role="grid"
           aria-label="Grid with disabled"
           {{c.composite}}
         >
           <HdsLayoutGrid
-            class="composite-with-grid__row"
+            class="shw-utility-composite-with-grid__row"
             role="row"
             @gap="8"
             {{c.group}}
           >
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>A1</ShwTextBody>
             </div>
             <div
-              class="composite-with-grid__cell composite-with-grid__cell--disabled"
+              class="shw-utility-composite-with-grid__cell shw-utility-composite-with-grid__cell--disabled"
               {{c.item disabled=true}}
               role="gridcell"
             >
               <ShwTextBody>A2 (disabled)</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" {{c.item}}>
               <ShwTextBody>A3</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" {{c.item}}>
               <ShwTextBody>A4</ShwTextBody>
             </div>
           </HdsLayoutGrid>
           <HdsLayoutGrid
-            class="composite-with-grid__row"
+            class="shw-utility-composite-with-grid__row"
             role="row"
             @gap="8"
             {{c.group}}
           >
             <div
-              class="composite-with-grid__cell composite-with-grid__cell--disabled"
+              class="shw-utility-composite-with-grid__cell shw-utility-composite-with-grid__cell--disabled"
               {{c.item disabled=true}}
               role="gridcell"
             >
               <ShwTextBody>B1 (disabled)</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
               <ShwTextBody>B2</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
               <ShwTextBody>B3</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
               <ShwTextBody>B4</ShwTextBody>
             </div>
           </HdsLayoutGrid>
           <HdsLayoutGrid
-            class="composite-with-grid__row"
+            class="shw-utility-composite-with-grid__row"
             role="row"
             @gap="8"
             {{c.group}}
           >
-            <div class="composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
               <ShwTextBody>C1</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" {{c.item}} role="gridcell">
+            <div class="shw-utility-composite-with-grid__cell" {{c.item}} role="gridcell">
               <ShwTextBody>C2</ShwTextBody>
             </div>
             <div
-              class="composite-with-grid__cell composite-with-grid__cell--disabled"
+              class="shw-utility-composite-with-grid__cell shw-utility-composite-with-grid__cell--disabled"
               {{c.item disabled=true}}
               role="gridcell"
             >
               <ShwTextBody>C3 (disabled)</ShwTextBody>
             </div>
             <div
-              class="composite-with-grid__cell composite-with-grid__cell--disabled"
+              class="shw-utility-composite-with-grid__cell shw-utility-composite-with-grid__cell--disabled"
               {{c.item disabled=true}}
               role="gridcell"
             >
