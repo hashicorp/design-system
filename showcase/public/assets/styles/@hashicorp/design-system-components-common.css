@@ -138,6 +138,10 @@
   background-color: var(--token-color-surface-strong);
 }
 
+.hds-surface-high-contrast {
+  background-color: var(--token-color-surface-high-contrast);
+}
+
 .hds-surface-interactive {
   background-color: var(--token-color-surface-interactive);
 }

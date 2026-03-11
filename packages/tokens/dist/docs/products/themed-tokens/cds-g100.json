@@ -3078,6 +3078,41 @@
     ]
   },
   {
+    "key": "{color.surface.high-contrast}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "group": "semantic",
+    "$modes": {
+      "default": "#161616",
+      "cds-g0": "#393939",
+      "cds-g10": "#393939",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.backgroundInverse}",
+      "group": "semantic",
+      "$modes": {
+        "default": "{color.palette.neutral-700}",
+        "cds-g0": "{carbon.themes.white.backgroundInverse}",
+        "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+        "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+        "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+      },
+      "key": "{color.surface.high-contrast}"
+    },
+    "name": "token-color-surface-high-contrast",
+    "attributes": {
+      "category": "color"
+    },
+    "path": [
+      "color",
+      "surface",
+      "high-contrast"
+    ]
+  },
+  {
     "key": "{color.surface.interactive}",
     "$type": "color",
     "$value": "#262626",

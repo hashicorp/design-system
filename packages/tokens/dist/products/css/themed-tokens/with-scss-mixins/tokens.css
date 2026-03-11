@@ -371,6 +371,7 @@
     --token-color-surface-action: var(--token-color-palette-blue-50);
     --token-color-surface-critical: var(--token-color-palette-red-50);
     --token-color-surface-faint: var(--token-color-palette-neutral-50);
+    --token-color-surface-high-contrast: var(--token-color-palette-neutral-700);
     --token-color-surface-highlight: var(--token-color-palette-purple-50);
     --token-color-surface-interactive-active: var(
       --token-color-palette-neutral-200
@@ -708,6 +709,7 @@
     --token-color-surface-action: #d0e2ff;
     --token-color-surface-critical: #ffd7d9;
     --token-color-surface-faint: #f4f4f4;
+    --token-color-surface-high-contrast: #393939;
     --token-color-surface-highlight: #e8daff;
     --token-color-surface-interactive-active: #c6c6c6;
     --token-color-surface-interactive-disabled: #c6c6c6;
@@ -1019,6 +1021,7 @@
     --token-color-surface-action: #0043ce;
     --token-color-surface-critical: #a2191f;
     --token-color-surface-faint: #262626;
+    --token-color-surface-high-contrast: #f4f4f4;
     --token-color-surface-highlight: #6929c4;
     --token-color-surface-interactive-active: #525252;
     --token-color-surface-interactive-disabled: #525252;
@@ -1330,6 +1333,7 @@
     --token-color-surface-action: #d0e2ff;
     --token-color-surface-critical: #ffd7d9;
     --token-color-surface-faint: #f4f4f4;
+    --token-color-surface-high-contrast: #393939;
     --token-color-surface-highlight: #e8daff;
     --token-color-surface-interactive-active: #c6c6c6;
     --token-color-surface-interactive-disabled: #c6c6c6;
@@ -1641,6 +1645,7 @@
     --token-color-surface-action: #d0e2ff;
     --token-color-surface-critical: #ffd7d9;
     --token-color-surface-faint: #ffffff;
+    --token-color-surface-high-contrast: #393939;
     --token-color-surface-highlight: #e8daff;
     --token-color-surface-interactive-active: #c6c6c6;
     --token-color-surface-interactive-disabled: #c6c6c6;
@@ -1952,6 +1957,7 @@
     --token-color-surface-action: #0f62fe;
     --token-color-surface-critical: #a2191f;
     --token-color-surface-faint: #393939;
+    --token-color-surface-high-contrast: #f4f4f4;
     --token-color-surface-highlight: #6929c4;
     --token-color-surface-interactive-active: #6f6f6f;
     --token-color-surface-interactive-disabled: #6f6f6f;
@@ -2263,6 +2269,7 @@
     --token-color-surface-action: #0043ce;
     --token-color-surface-critical: #a2191f;
     --token-color-surface-faint: #262626;
+    --token-color-surface-high-contrast: #f4f4f4;
     --token-color-surface-highlight: #6929c4;
     --token-color-surface-interactive-active: #525252;
     --token-color-surface-interactive-disabled: #525252;
