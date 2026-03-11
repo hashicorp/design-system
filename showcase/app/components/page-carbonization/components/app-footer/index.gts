@@ -38,7 +38,7 @@ const AppFooterCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="with status link & other recommended content"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         <HdsAppFooter @theme="light" as |AF|>
@@ -54,7 +54,7 @@ const AppFooterCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="with status link & other recommended content"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         <HdsAppFooter @theme="dark" as |AF|>
