@@ -256,8 +256,10 @@ export default class Composite extends Component<HdsCompositeSignature> {
 
     if (item.disabled === true) {
       element.setAttribute('aria-disabled', 'true');
+      element.setAttribute('disabled', ''); 
     } else {
       element.removeAttribute('aria-disabled');
+      element.removeAttribute('disabled');
     }
 
     if (isCurrent === true) {
