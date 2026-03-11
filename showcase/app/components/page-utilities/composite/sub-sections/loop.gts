@@ -75,7 +75,7 @@ const SubSectionLoop: TemplateOnlyComponent = <template>
           {{c.composite}}
         >
           <HdsButton {{c.item}} @text="Enabled" />
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
           <HdsButton {{c.item}} @text="Enabled" />
         </HdsLayoutFlex>
       </HdsComposite>
