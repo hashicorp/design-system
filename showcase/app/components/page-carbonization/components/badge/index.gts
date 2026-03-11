@@ -316,8 +316,8 @@ const BadgeCarbonizationIndex: TemplateOnlyComponent = <template>
           {{/each}}
         </ShwFlex>
       </:theming>
-      <:reference>
-        <code>???</code>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
       </:reference>
     </ShwCarbonizationComparisonGrid>
 

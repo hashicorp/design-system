@@ -22,7 +22,7 @@ const ApplicationStateCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="With icon and error code"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         <CodeFragmentWithActionVariants
