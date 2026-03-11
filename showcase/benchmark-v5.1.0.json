@@ -1,0 +1,142 @@
+{
+  "version": "5.1.0",
+  "label": "v5.1.0-hbs",
+  "timestamp": "2026-03-11T14:56:30.146Z",
+  "iterations": 3,
+  "buildTime": {
+    "average": 29033.672208666667,
+    "min": 26609.632334,
+    "max": 31737.369709,
+    "all": [
+      31737.369709,
+      26609.632334,
+      28754.014583000004
+    ]
+  },
+  "bundleSizes": {
+    "js": {
+      "raw": 6531492,
+      "gzipped": 1387106,
+      "fileCount": 19,
+      "files": [
+        {
+          "name": "showcase-d43d4bfb297b26536afa40c048963f04.js",
+          "size": 2395746,
+          "gzipped": 271870
+        },
+        {
+          "name": "chunk.881.676f066c78d7916b1fa8.js",
+          "size": 1426089,
+          "gzipped": 392831
+        },
+        {
+          "name": "chunk.637.2e009a4a660e033a9126.js",
+          "size": 1082234,
+          "gzipped": 266726
+        },
+        {
+          "name": "chunk.338.bdec27364736e912e9db.js",
+          "size": 719438,
+          "gzipped": 190153
+        },
+        {
+          "name": "vendor-c04d116fad10c5c70cd1de560e80cc4a.js",
+          "size": 414684,
+          "gzipped": 120174
+        },
+        {
+          "name": "chunk.153.6fc9d984774b4c8c1361.js",
+          "size": 94555,
+          "gzipped": 35207
+        },
+        {
+          "name": "chunk.341.2f607cb7088624367987.js",
+          "size": 86762,
+          "gzipped": 34224
+        },
+        {
+          "name": "chunk.582.27610a5f79b7e3c32b57.js",
+          "size": 84808,
+          "gzipped": 9464
+        },
+        {
+          "name": "chunk.524.4b02bf5d5b8da23306d8.js",
+          "size": 83070,
+          "gzipped": 9081
+        },
+        {
+          "name": "chunk.497.2f352ba6db412e0afc7b.js",
+          "size": 32113,
+          "gzipped": 13007
+        },
+        {
+          "name": "chunk.934.d018c23e6652e3601d29.js",
+          "size": 31103,
+          "gzipped": 12636
+        },
+        {
+          "name": "chunk.704.f4ceb1b8c37607714af1.js",
+          "size": 26432,
+          "gzipped": 8706
+        },
+        {
+          "name": "chunk.198.c6415346f1621728f4a2.js",
+          "size": 16812,
+          "gzipped": 6471
+        },
+        {
+          "name": "chunk.409.577183ec389063bb25b5.js",
+          "size": 12781,
+          "gzipped": 5585
+        },
+        {
+          "name": "chunk.282.79881ee546fe695e5ae3.js",
+          "size": 8657,
+          "gzipped": 3622
+        },
+        {
+          "name": "chunk.114.5a37d665f6d6b1a2d5b0.js",
+          "size": 5644,
+          "gzipped": 2248
+        },
+        {
+          "name": "chunk.888.7af0a17c9b39b5c29bbd.js",
+          "size": 5263,
+          "gzipped": 2229
+        },
+        {
+          "name": "chunk.500.43ec6dab7f22e960a923.js",
+          "size": 2680,
+          "gzipped": 1275
+        },
+        {
+          "name": "chunk.306.48a99b8937b68992e582.js",
+          "size": 2621,
+          "gzipped": 1597
+        }
+      ]
+    },
+    "css": {
+      "raw": 459429,
+      "gzipped": 52316,
+      "fileCount": 2,
+      "files": [
+        {
+          "name": "showcase-75c9e19b32cf8522a52e8f017fc54f88.css",
+          "size": 459429,
+          "gzipped": 52296
+        },
+        {
+          "name": "vendor-d41d8cd98f00b204e9800998ecf8427e.css",
+          "size": 0,
+          "gzipped": 20
+        }
+      ]
+    },
+    "maps": {
+      "raw": 0,
+      "fileCount": 0
+    },
+    "totalFiles": 34
+  }
+}
