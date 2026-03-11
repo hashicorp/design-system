@@ -24,6 +24,9 @@ const SeparatorCarbonizationIndex: TemplateOnlyComponent = <template>
       <:theming>
         <HdsSeparator />
       </:theming>
+      <:reference as |R|>
+        <R.NoEquivalent @isCompact={{true}} />
+      </:reference>
     </ShwCarbonizationComparisonGrid>
   </section>
 </template>;
