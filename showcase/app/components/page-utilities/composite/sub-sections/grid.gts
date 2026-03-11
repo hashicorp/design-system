@@ -41,7 +41,7 @@ const SubSectionGrid: TemplateOnlyComponent = <template>
     >
       <HdsComposite as |c|>
         <div
-          class="composite-with-grid"
+          class="shw-utility-composite-with-grid"
           role="grid"
           aria-label="Uneven grid"
           {{c.composite}}
@@ -50,19 +50,19 @@ const SubSectionGrid: TemplateOnlyComponent = <template>
             @columnWidth="25%"
             @gap="8"
             role="row"
-            class="composite-with-grid__row"
+            class="shw-utility-composite-with-grid__row"
             {{c.group}}
           >
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>A1</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>A2</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>A3</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>A4</ShwTextBody>
             </div>
           </HdsLayoutGrid>
@@ -70,13 +70,13 @@ const SubSectionGrid: TemplateOnlyComponent = <template>
             @columnWidth="25%"
             @gap="8"
             role="row"
-            class="composite-with-grid__row"
+            class="shw-utility-composite-with-grid__row"
             {{c.group}}
           >
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>B1</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>B2</ShwTextBody>
             </div>
           </HdsLayoutGrid>
@@ -84,16 +84,16 @@ const SubSectionGrid: TemplateOnlyComponent = <template>
             @columnWidth="25%"
             @gap="8"
             role="row"
-            class="composite-with-grid__row"
+            class="shw-utility-composite-with-grid__row"
             {{c.group}}
           >
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>C1</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>C2</ShwTextBody>
             </div>
-            <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+            <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
               <ShwTextBody>C3</ShwTextBody>
             </div>
           </HdsLayoutGrid>
