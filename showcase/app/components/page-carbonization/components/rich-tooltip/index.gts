@@ -187,7 +187,7 @@ const RichTooltipCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Placement</ShwTextH3>
 
-    <ShwCarbonizationComparisonGrid @sideBySide={{true}}>
+    <ShwCarbonizationComparisonGrid @layout="side-by-side">
       <:theming>
         <ShwGrid
           class="shw-component-rich-tooltip-placement-grid"
