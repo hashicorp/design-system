@@ -26,7 +26,7 @@ const TabsCarbonizationIndex: TemplateOnlyComponent = <template>
     {{#each SIZES as |size|}}
       <ShwCarbonizationComparisonGrid
         @label={{capitalize size}}
-        @sideBySide={{true}}
+        @layout="side-by-side"
       >
         <:theming>
           <HdsTabs @size={{size}} as |T|>
