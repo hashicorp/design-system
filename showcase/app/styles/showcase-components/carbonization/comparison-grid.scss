@@ -3,6 +3,8 @@
 
 .shw-carbonization-comparison-grid {
   display: grid;
+  row-gap: 12px;
+  column-gap: 8px;
 
   & + & {
     margin-top: 2rem;
@@ -15,8 +17,6 @@
     "--- cwc-g0 cwc-g10 cwc-g90 cwc-g100";
   grid-template-rows: auto auto;
   grid-template-columns: repeat(5, 1fr);
-  row-gap: 12px;
-  column-gap: 8px;
 }
 
 .shw-carbonization-comparison-grid--column {
@@ -31,7 +31,6 @@
     "cds-g100"
     "cwc-g100";
   grid-template-columns: 1fr;
-  row-gap: 12px;
 }
 
 .shw-carbonization-comparison-grid--side-by-side {
@@ -42,7 +41,6 @@
     "--- cds-g100 cwc-g100";
   grid-template-rows: auto auto auto auto;
   grid-template-columns: repeat(3, 1fr);
-
 }
 
 .shw-carbonization-comparison-grid__top-label {
