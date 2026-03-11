@@ -200,6 +200,7 @@
   --token-color-surface-action: var(--token-color-palette-blue-50);
   --token-color-surface-critical: var(--token-color-palette-red-50);
   --token-color-surface-faint: var(--token-color-palette-neutral-50);
+  --token-color-surface-high-contrast: var(--token-color-palette-neutral-700);
   --token-color-surface-highlight: var(--token-color-palette-purple-50);
   --token-color-surface-interactive-active: var(--token-color-palette-neutral-200);
   --token-color-surface-interactive-disabled: var(--token-color-palette-neutral-50);
