@@ -1,0 +1,39 @@
+<Hds::Form::KeyValueInputs @data={{this.exampleData}}>
+  <:header as |H|>
+    <H.Legend>Plugin binaries</H.Legend>
+    <H.HelperText>
+      A zipped binary file for each supported OS and architecture pair.
+    </H.HelperText>
+  </:header>
+  <:row as |R|>
+    <R.Field as |F|>
+      <F.Label>
+        OS and architecture
+      </F.Label>
+      <F.Select>
+        <option></option>
+        <option selected={{if (eq R.rowData.os "darwin") true}}>darwin - arm64</option>
+        <option selected={{if (eq R.rowData.os "linux") true}}>linux - 386</option>
+        <option selected={{if (eq R.rowData.os "windows") true}}>windows - amd64</option>
+      </F.Select>
+    </R.Field>
+    <R.Field as |F|>
+      <F.Label>
+        File
+      </F.Label>
+      <F.FileInput />
+    </R.Field>
+    {{#if this.canDeleteRow}}
+      <R.DeleteRowButton @onClick={{this.onDeleteRow}} />
+    {{/if}}
+  </:row>
+  <:footer as |F|>
+    {{#if (lt this.exampleData.length 3)}}
+      <F.AddRowButton @text="Add OS &amp; Architecture" @onClick={{this.onAddRow}} />
+    {{else}}
+      <F.Alert as |A|>
+        <A.Description>Only 3 binaries can be added at a time.</A.Description>
+      </F.Alert>
+    {{/if}}
+  </:footer>
+</Hds::Form::KeyValueInputs>
