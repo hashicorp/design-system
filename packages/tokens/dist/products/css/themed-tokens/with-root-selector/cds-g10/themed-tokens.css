@@ -224,6 +224,9 @@
   --token-form-radiocard-border-color-default: rgba(0, 0, 0, 0);
   --token-form-radiocard-border-color-focus: #ffc0cb;
   --token-form-radiocard-border-radius: 0px;
+  --token-icon-tile-border-color-logo: #e0e0e0;
+  --token-icon-tile-border-color-overlay: #c6c6c6;
+  --token-icon-tile-surface-color-overlay: #f4f4f4;
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;
