@@ -142,6 +142,41 @@
   }
 }
 
+// no equivalent
+
+.shw-carbonization-comparison-grid__no-equivalent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-size: 16px;
+  opacity: 0.6;
+
+  code {
+    font-size: 1em;
+    line-height: 1em;
+  }
+
+  span {
+    font-size: 0.75em;
+    line-height: 1.2em;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  &.shw-carbonization-comparison-grid__no-equivalent--compact {
+    gap: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+
+    .hds-icon {
+      display: none;
+    }
+  }
+}
+
 // DEBUG
 
 // .shw-carbonization-comparison-grid {

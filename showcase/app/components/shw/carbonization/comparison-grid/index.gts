@@ -5,19 +5,24 @@ import { hash } from '@ember/helper';
 
 import ShwLabel from 'showcase/components/shw/label';
 import ShwCarbonizationComparisonGridItem from './item';
+import ShwCarbonizationComparisonGridNoEquivalent from './no-equivalent';
 
 export interface ShwCarbonizationComparisonGridSignature {
   Args: {
     label?: string;
     hideThemeLabels?: boolean;
     hideCarbonLabels?: boolean;
-    sideBySide?: boolean;
     layout?: 'row' | 'column' | 'side-by-side';
   };
   Blocks: {
     label: [];
     theming: [{ context: Context }];
-    reference: [{ context: Context }];
+    reference: [
+      {
+        context: Context;
+        NoEquivalent: typeof ShwCarbonizationComparisonGridNoEquivalent;
+      },
+    ];
   };
   Element: HTMLDivElement;
 }
@@ -81,7 +86,13 @@ export default class ShwCarbonizationComparisonGrid extends Component<ShwCarboni
               @context={{context}}
               @label={{(unless @hideCarbonLabels (carbonLabel context))}}
             >
-              {{yield (hash context=context) to="reference"}}
+              {{yield
+                (hash
+                  context=context
+                  NoEquivalent=ShwCarbonizationComparisonGridNoEquivalent
+                )
+                to="reference"
+              }}
             </ShwCarbonizationComparisonGridItem>
           {{/unless}}
         {{/each}}
