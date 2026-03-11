@@ -73,30 +73,24 @@ const SubSectionBasic: TemplateOnlyComponent = <template>
   </ul>
 
   <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{BASIC_MUSIC_COLUMNS}}
   >
     <:body as |B|>
       <B.Tr>
         <B.Th @scope="row"><HdsLinkInline @href="#showcase">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.artist}}
           </HdsLinkInline></B.Th>
         <B.Td>
           <div class="shw-component-advanced-table-cell-content-div">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.album}}
           </div>
         </B.Td>
         <B.Td>
           <HdsBadge
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @text={{B.data.year}}
             @type="outlined"
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @color={{B.data.badge-color}}
           />
         </B.Td>

@@ -146,9 +146,7 @@ export default class SubSectionSorting extends Component {
     >
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.peer-name}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.cluster-partition}}</B.Td>
           <B.Td>
             {{#if (eq (get B.data "status") "failing")}}
@@ -181,9 +179,7 @@ export default class SubSectionSorting extends Component {
               />
             {{/if}}
           </B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.services.imported}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.services.exported}}</B.Td>
           <B.Td @align="right">
             <HdsDropdown @isInline={{true}} as |dd|>
@@ -219,7 +215,6 @@ export default class SubSectionSorting extends Component {
       declared in the column hash</ShwTextH4>
 
     <HdsAdvancedTable
-      {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
       @model={{CLUSTERS}}
       @columns={{array
         (hash label="Peer name" isSortable=true key="peer-name")
@@ -240,9 +235,7 @@ export default class SubSectionSorting extends Component {
     >
       <:body as |B|>
         <B.Tr>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.peer-name}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.cluster-partition}}</B.Td>
           <B.Td>
             {{#if (eq (get B.data "status") "failing")}}
@@ -275,9 +268,7 @@ export default class SubSectionSorting extends Component {
               />
             {{/if}}
           </B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.services.imported}}</B.Td>
-          {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
           <B.Td>{{B.data.services.exported}}</B.Td>
           <B.Td @align="right">
             <HdsDropdown @isInline={{true}} as |dd|>

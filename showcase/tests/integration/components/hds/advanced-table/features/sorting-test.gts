@@ -91,11 +91,8 @@ const createSortableTable = async (options: {
       >
         <:body as |B|>
           <B.Tr>
-            {{! @glint-expect-error }}
             <B.Td>{{B.data.artist}}</B.Td>
-            {{! @glint-expect-error }}
             <B.Td>{{B.data.album}}</B.Td>
-            {{! @glint-expect-error }}
             <B.Td>{{B.data.year}}</B.Td>
           </B.Tr>
         </:body>
@@ -372,14 +369,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
           >
             <:body as |B|>
               <B.Tr
-                {{! @glint-expect-error }}
                 @selectionKey={{get B.data "id"}}
-                {{! @glint-expect-error }}
                 @isSelected={{get B.data "isSelected"}}
               >
-                {{! @glint-expect-error }}
                 <B.Td>{{get B.data "name"}}</B.Td>
-                {{! @glint-expect-error }}
                 <B.Td>{{get B.data "age"}}</B.Td>
               </B.Tr>
             </:body>
