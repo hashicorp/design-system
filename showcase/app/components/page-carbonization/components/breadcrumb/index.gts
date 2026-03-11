@@ -31,7 +31,7 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH2>Variants</ShwTextH2>
 
-    <ShwCarbonizationComparisonGrid @label="Text only" @sideBySide={{true}}>
+    <ShwCarbonizationComparisonGrid @label="Text only" @layout="side-by-side">
       <:theming>
         <HdsBreadcrumb aria-label="breadcrumb text only example">
           <HdsBreadcrumbItem @text="Level one" />
@@ -61,7 +61,7 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
       </:reference>
     </ShwCarbonizationComparisonGrid>
 
-    <ShwCarbonizationComparisonGrid @label="With icons" @sideBySide={{true}}>
+    <ShwCarbonizationComparisonGrid @label="With icons" @layout="side-by-side">
       <:theming>
         <HdsBreadcrumb aria-label="breadcrumb with icons example">
           <HdsBreadcrumbItem @text="Level one" @icon="org" />
@@ -96,7 +96,7 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="With truncation"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         <HdsBreadcrumb aria-label="breadcrumb with truncation example">
@@ -164,7 +164,7 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwCarbonizationComparisonGrid
       @label="With long strings / Items can wrap"
-      @sideBySide={{true}}
+      @layout="side-by-side"
     >
       <:theming>
         <HdsBreadcrumb aria-label="breadcrumb with icons example">
@@ -199,7 +199,7 @@ const BreadcrumbCarbonizationIndex: TemplateOnlyComponent = <template>
     {{#each STATES as |state|}}
       <ShwCarbonizationComparisonGrid
         @label={{capitalize state}}
-        @sideBySide={{true}}
+        @layout="side-by-side"
       >
         <:theming>
           <HdsBreadcrumb aria-label="breadcrumb in {{state}} state example">
