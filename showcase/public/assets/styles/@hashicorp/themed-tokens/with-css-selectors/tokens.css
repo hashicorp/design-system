@@ -53,6 +53,15 @@
   --token-border-radius-medium: 0px;
   --token-border-radius-small: 0px;
   --token-border-radius-x-small: 0px;
+  --token-breadcrumb-foreground-color-current: #161616;
+  --token-breadcrumb-foreground-color-link-active: #161616;
+  --token-breadcrumb-foreground-color-link-default: #0f62fe;
+  --token-breadcrumb-foreground-color-link-hover: #0043ce;
+  --token-breadcrumb-foreground-color-separator: #161616;
+  --token-breadcrumb-spacing-icon-gap: 4px;
+  --token-breadcrumb-spacing-separator: 4px;
+  --token-breadcrumb-typography-font-size: 0.875rem;
+  --token-breadcrumb-typography-line-height: 1.2858;
   --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
@@ -360,6 +369,15 @@
     --token-border-radius-medium: 0px;
     --token-border-radius-small: 0px;
     --token-border-radius-x-small: 0px;
+    --token-breadcrumb-foreground-color-current: #161616;
+    --token-breadcrumb-foreground-color-link-active: #161616;
+    --token-breadcrumb-foreground-color-link-default: #0f62fe;
+    --token-breadcrumb-foreground-color-link-hover: #0043ce;
+    --token-breadcrumb-foreground-color-separator: #161616;
+    --token-breadcrumb-spacing-icon-gap: 4px;
+    --token-breadcrumb-spacing-separator: 4px;
+    --token-breadcrumb-typography-font-size: 0.875rem;
+    --token-breadcrumb-typography-line-height: 1.2858;
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
@@ -668,6 +686,15 @@
     --token-border-radius-medium: 0px;
     --token-border-radius-small: 0px;
     --token-border-radius-x-small: 0px;
+    --token-breadcrumb-foreground-color-current: #f4f4f4;
+    --token-breadcrumb-foreground-color-link-active: #f4f4f4;
+    --token-breadcrumb-foreground-color-link-default: #78a9ff;
+    --token-breadcrumb-foreground-color-link-hover: #a6c8ff;
+    --token-breadcrumb-foreground-color-separator: #f4f4f4;
+    --token-breadcrumb-spacing-icon-gap: 4px;
+    --token-breadcrumb-spacing-separator: 4px;
+    --token-breadcrumb-typography-font-size: 0.875rem;
+    --token-breadcrumb-typography-line-height: 1.2858;
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
@@ -975,6 +1002,15 @@
   --token-border-radius-medium: 0px;
   --token-border-radius-small: 0px;
   --token-border-radius-x-small: 0px;
+  --token-breadcrumb-foreground-color-current: #161616;
+  --token-breadcrumb-foreground-color-link-active: #161616;
+  --token-breadcrumb-foreground-color-link-default: #0f62fe;
+  --token-breadcrumb-foreground-color-link-hover: #0043ce;
+  --token-breadcrumb-foreground-color-separator: #161616;
+  --token-breadcrumb-spacing-icon-gap: 4px;
+  --token-breadcrumb-spacing-separator: 4px;
+  --token-breadcrumb-typography-font-size: 0.875rem;
+  --token-breadcrumb-typography-line-height: 1.2858;
   --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */
@@ -1281,6 +1317,15 @@
   --token-border-radius-medium: 0px;
   --token-border-radius-small: 0px;
   --token-border-radius-x-small: 0px;
+  --token-breadcrumb-foreground-color-current: #f4f4f4;
+  --token-breadcrumb-foreground-color-link-active: #f4f4f4;
+  --token-breadcrumb-foreground-color-link-default: #78a9ff;
+  --token-breadcrumb-foreground-color-link-hover: #a6c8ff;
+  --token-breadcrumb-foreground-color-separator: #f4f4f4;
+  --token-breadcrumb-spacing-icon-gap: 4px;
+  --token-breadcrumb-spacing-separator: 4px;
+  --token-breadcrumb-typography-font-size: 0.875rem;
+  --token-breadcrumb-typography-line-height: 1.2858;
   --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
   --token-button-border-color-critical-focus-external: #ff00ff; /** TODO - replace the `magenta` values with the correct ones */

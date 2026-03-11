@@ -50,8 +50,8 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   .hds-breadcrumb__list > & {
     &:not(:last-child)::after {
-      padding: 0 8px;
-      color: var(--token-color-palette-neutral-300);
+      padding: 0 var(--token-breadcrumb-spacing-separator);
+      color: var(--token-breadcrumb-foreground-color-separator);
       content: "/";
     }
   }
@@ -74,7 +74,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   min-width: 0;
   margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
-  color: var(--token-color-foreground-faint);
+  color: var(--token-breadcrumb-foreground-color-link-default);
   background: none;
   border: none;
   border-radius: $hds-breadcrumb-item-border-radius;
@@ -84,7 +84,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-palette-neutral-600);
+    color: var(--token-breadcrumb-foreground-color-link-hover);
 
     > .hds-breadcrumb__text {
       text-decoration-color: currentColor;
@@ -96,7 +96,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-secondary);
+    color: var(--token-breadcrumb-foreground-color-link-active);
 
     > .hds-breadcrumb__text {
       text-decoration-color: currentColor;
@@ -113,7 +113,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   min-width: 0;
   margin: 0 (-$hds-breadcrumb-item-visual-horizontal-padding); // we use a negative horizontal margin to counter-balance the horizonal padding (used to shift the focus from the content)
   padding: 0 $hds-breadcrumb-item-visual-horizontal-padding;
-  color: var(--token-color-foreground-strong);
+  color: var(--token-breadcrumb-foreground-color-current);
 }
 
 // SUB-ELEMENTS
@@ -122,16 +122,16 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   flex: none;
   width: 13px;
   height: 13px;
-  margin-right: 6px;
+  margin-right: var(--token-breadcrumb-spacing-icon-gap);
 }
 
 .hds-breadcrumb__text {
   // we use the extra vertical padding to force the height of the parent item to be exactly $hds-breadcrumb-item-height
   padding: calc((#{$hds-breadcrumb-item-height} - 1rem) / 2) 0;
   overflow: hidden;
-  font-size: 0.8125rem; // 13px
+  font-size: var(--token-breadcrumb-typography-font-size);
   font-family: var(--token-typography-font-stack-text);
-  line-height: 1rem; // 16px
+  line-height: var(--token-breadcrumb-typography-line-height);
   white-space: nowrap;
   text-decoration: underline;
   text-overflow: ellipsis;
