@@ -29,7 +29,7 @@ const LocalComponent: TemplateOnlyComponent = <template>
       <R.DeleteRowButton />
     </:row>
   </HdsFormKeyValueInputs>
-  <hr />
+  <hr class="doc-code-group-hr" />
   <HdsFormKeyValueInputs
     @isOptional={{true}}
     @data={{array (hash email="j.maxene@randatmail.com" name="Judith Maxene")}}
