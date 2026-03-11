@@ -123,11 +123,6 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
-          <LinkTo @route="page-components.composite">
-            Composite
-          </LinkTo>
-        </li>
-        <li>
           <LinkTo @route="page-components.copy.button">
             Copy::Button
           </LinkTo>
