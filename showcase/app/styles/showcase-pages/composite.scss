@@ -5,23 +5,25 @@
 
 // COMPOSITE
 
-.composite-with-grid {
-  .composite-with-grid__row {
-    margin-bottom: 8px;
-  }
+body.page-utilities-composite {
+  .shw-utility-composite-with-grid {
+    .shw-utility-composite-with-grid__row {
+      margin-bottom: 8px;
+    }
 
-  .composite-with-grid__cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100px;
-    padding: 8px;
-    font-family: inherit;
-    background-color: var(--token-color-palette-neutral-100);
-    border-radius: var(--token-border-radius-medium);
+    .shw-utility-composite-with-grid__cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+      padding: 8px;
+      font-family: inherit;
+      background-color: var(--token-color-palette-neutral-100);
+      border-radius: var(--token-border-radius-medium);
 
-    &.composite-with-grid__cell--disabled .shw-text {
-      color: var(--token-color-palette-neutral-400);
+      &.shw-utility-composite-with-grid__cell--disabled .shw-text {
+        color: var(--token-color-palette-neutral-400);
+      }
     }
   }
 }

@@ -37,20 +37,20 @@ const CompositeWithHorizontalButtonList: TemplateOnlyComponent<CompositeWithGrid
       as |c|
     >
       <div
-        class="composite-with-grid"
+        class="shw-utility-composite-with-grid"
         role="grid"
         aria-label={{@ariaLabel}}
         {{c.composite}}
       >
         {{#each (array "A" "B" "C") as |row|}}
           <HdsLayoutGrid
-            class="composite-with-grid__row"
+            class="shw-utility-composite-with-grid__row"
             role="row"
             @gap="8"
             {{c.group}}
           >
             {{#each (array "1" "2" "3" "4") as |col|}}
-              <div class="composite-with-grid__cell" role="gridcell" {{c.item}}>
+              <div class="shw-utility-composite-with-grid__cell" role="gridcell" {{c.item}}>
                 <ShwTextBody>{{row}}{{col}}</ShwTextBody>
               </div>
             {{/each}}
