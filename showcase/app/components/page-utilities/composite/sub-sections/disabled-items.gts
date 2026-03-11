@@ -35,7 +35,7 @@ const SubSectionDisabledItems: TemplateOnlyComponent = <template>
           {{c.composite}}
         >
           <HdsButton {{c.item}} @text="Enabled" />
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
           <HdsButton {{c.item}} @text="Enabled" />
         </HdsLayoutFlex>
       </HdsComposite>
@@ -56,9 +56,9 @@ const SubSectionDisabledItems: TemplateOnlyComponent = <template>
           {{c.composite}}
         >
           <HdsButton {{c.item}} @text="Enabled" />
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
           <HdsButton {{c.item}} @text="Enabled" />
         </HdsLayoutFlex>
       </HdsComposite>
@@ -78,9 +78,9 @@ const SubSectionDisabledItems: TemplateOnlyComponent = <template>
           @gap="4"
           {{c.composite}}
         >
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
         </HdsLayoutFlex>
       </HdsComposite>
     </SF.Item>
@@ -101,12 +101,12 @@ const SubSectionDisabledItems: TemplateOnlyComponent = <template>
           @gap="4"
           {{c.composite}}
         >
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
           <HdsButton {{c.item}} @text="First enabled" />
           <HdsButton {{c.item}} @text="Middle" />
           <HdsButton {{c.item}} @text="Last enabled" />
-          <HdsButton {{c.item disabled=true}} disabled @text="Disabled" />
+          <HdsButton {{c.item disabled=true}} @text="Disabled" />
         </HdsLayoutFlex>
       </HdsComposite>
     </SF.Item>
