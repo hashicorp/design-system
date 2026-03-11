@@ -29,6 +29,7 @@ export function getAssetsCatalog({ config, assetsMetadata, figmaExportPageNode }
             fileName: getAssetFileName(assetCoreData),
             iconName: assetCoreData.iconName,
             description: assetCoreData.description,
+            mapping: assetCoreData.mapping,
             category: assetCoreData.category,
             size: assetCoreData.variantProps?.size || '',
             width: component.absoluteBoundingBox.width,

@@ -14,11 +14,24 @@ import chalk from 'chalk';
 import * as Figma from 'figma-api';
 
 type ComponentSetData = {
-    [id: string] : {
+    [id: string]: {
         name: string;
         description: string;
+        mapping?: string;
     }
 };
+
+// Relying on a convention for now: if the description of an icon contains the separator
+// we assume that the part before the separator is meant to be a "clean" description of the icon
+// and the part after the separator is the HDS -> Carbon migration note
+const HDS_CARBON_NOTE_SEPARATOR = '---------------------\n🔷 HDS -> Carbon Note 🔷';
+
+const splitContent = (mixedContent: string) => {
+    const parts = mixedContent.split(HDS_CARBON_NOTE_SEPARATOR);
+    const description = parts[0].trim();
+    const mapping = parts[1] ? parts[1].trim() : undefined;
+    return { description, mapping: mapping };
+}
 
 export async function getAssetsMetadata(): Promise<AssetsMetadata> {
 
@@ -42,8 +55,8 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
             ) {
                 componentSetData[component_set.node_id] = {
                     name: component_set.name,
-                    description: component_set.description,
-                }
+                    ...splitContent(component_set.description),
+                };
             }
         });
     } else {
@@ -81,6 +94,9 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
                     if (parentComponentSet) {
                         assetsMetadata[component.node_id].iconName = parentComponentSet.name;
                         assetsMetadata[component.node_id].description = parentComponentSet.description;
+                        if (parentComponentSet.mapping) {
+                            assetsMetadata[component.node_id].mapping = parentComponentSet.mapping;
+                        }
                     }
                 }
 
