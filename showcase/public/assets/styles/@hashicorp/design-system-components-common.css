@@ -9329,19 +9329,19 @@ button.hds-button[href]::after {
   text-align: initial;
 }
 .tippy-box[data-theme~=hds] .tippy-svg-arrow::before {
-  content: "";
   position: absolute;
   width: var(--token-tooltip-caret-width);
   height: var(--token-tooltip-caret-height);
   background-image: var(--token-tooltip-caret-data-url);
   background-repeat: no-repeat;
+  content: "";
 }
 .hds-mode-cds-g0 .tippy-box[data-theme~=hds] .tippy-svg-arrow::before,
 .hds-mode-cds-g10 .tippy-box[data-theme~=hds] .tippy-svg-arrow::before,
 .hds-mode-cds-g90 .tippy-box[data-theme~=hds] .tippy-svg-arrow::before,
 .hds-mode-cds-g100 .tippy-box[data-theme~=hds] .tippy-svg-arrow::before {
-  background-image: none;
   background-color: var(--token-tooltip-surface-color);
+  background-image: none;
   clip-path: polygon(0 100%, 50% 0, 100% 100%);
 }
 
@@ -9368,8 +9368,8 @@ button.hds-button[href]::after {
   bottom: 0;
 }
 .tippy-box[data-theme~=hds][data-placement^=top] > .tippy-svg-arrow::before {
-  transform: rotate(180deg);
   bottom: calc(-1 * var(--token-tooltip-caret-height));
+  transform: rotate(180deg);
 }
 .tippy-box[data-theme~=hds][data-placement^=bottom] > .tippy-svg-arrow {
   top: 0;
@@ -9381,15 +9381,15 @@ button.hds-button[href]::after {
   right: 0;
 }
 .tippy-box[data-theme~=hds][data-placement^=left] > .tippy-svg-arrow::before {
-  transform: rotate(90deg);
   right: calc(-1 * var(--token-tooltip-caret-height));
+  transform: rotate(90deg);
 }
 .tippy-box[data-theme~=hds][data-placement^=right] > .tippy-svg-arrow {
   left: 0;
 }
 .tippy-box[data-theme~=hds][data-placement^=right] > .tippy-svg-arrow::before {
-  transform: rotate(-90deg);
   left: calc(-1 * var(--token-tooltip-caret-height));
+  transform: rotate(-90deg);
 }
 
 /**
