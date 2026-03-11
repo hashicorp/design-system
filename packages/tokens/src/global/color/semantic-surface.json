@@ -37,6 +37,18 @@
           "cds-g100": "{carbon.themes.g100.layerAccent01}"
         }
       },
+      "high-contrast": {
+        "$type": "color",
+        "$value": "{color.palette.neutral-700}",
+        "group": "semantic",
+        "$modes": {
+          "default": "{color.palette.neutral-700}",
+          "cds-g0": "{carbon.themes.white.backgroundInverse}",
+          "cds-g10": "{carbon.themes.g10.backgroundInverse}",
+          "cds-g90": "{carbon.themes.g90.backgroundInverse}",
+          "cds-g100": "{carbon.themes.g100.backgroundInverse}"
+        }
+      },
       "interactive": {
         "$type": "color",
         "$value": "{color.palette.neutral-0}",
