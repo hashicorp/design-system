@@ -193,10 +193,10 @@ function handle2DKey(
       return navigateRowEnd(snapshot, 1);
 
     case 'PageDown':
-      return navigateColumnEnd(snapshot, config, 1);
+      return navigateColumnEnd(snapshot, 1);
 
     case 'PageUp':
-      return navigateColumnEnd(snapshot, config, -1);
+      return navigateColumnEnd(snapshot, -1);
 
     default:
       return undefined;
@@ -314,7 +314,6 @@ function navigateColumn(
 
 function navigateColumnEnd(
   snapshot: HdsCompositeNavigationSnapshot,
-  config: HdsCompositeNavigationConfig,
   direction: 1 | -1
 ): HdsCompositeItem | undefined {
   const { currentItem, items, groups } = snapshot;
