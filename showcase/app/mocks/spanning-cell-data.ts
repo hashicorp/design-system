@@ -2,26 +2,17 @@
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+export interface SpanningCellValue {
+  text?: string;
+  rowspan?: number;
+  colspan?: number;
+}
+
 export interface SpanningCell {
   id: number;
-  name?:
-    | {
-        text: string;
-        rowspan?: number;
-      }
-    | string;
-  service?:
-    | {
-        text: string;
-        colspan?: number;
-      }
-    | string;
-  description?:
-    | {
-        text: string;
-        rowspan?: number;
-      }
-    | string;
+  name?: SpanningCellValue;
+  service?: SpanningCellValue;
+  description?: SpanningCellValue;
   email?: string;
 }
 
@@ -32,8 +23,8 @@ const spanningCells: SpanningCell[] = [
       text: "Scope Row with rowspan='3'",
       rowspan: 3,
     },
-    service: 'Cell content',
-    description: 'Cell content',
+    service: { text: 'Cell content' },
+    description: { text: 'Cell content' },
     email: 'Cell content',
   },
   {
@@ -57,7 +48,7 @@ const spanningCells: SpanningCell[] = [
       text: "Scope Row with rowspan='2'",
       rowspan: 2,
     },
-    service: 'Cell content',
+    service: { text: 'Cell content' },
     description: {
       text: "Scope Row with rowspan='3'",
       rowspan: 3,
@@ -66,20 +57,20 @@ const spanningCells: SpanningCell[] = [
   },
   {
     id: 21,
-    service: 'Cell content',
+    service: { text: 'Cell content' },
     email: 'Cell content',
   },
   {
     id: 22,
-    name: 'Cell content',
-    service: 'Cell content',
+    name: { text: 'Cell content' },
+    service: { text: 'Cell content' },
     email: 'Cell content',
   },
   {
     id: 22,
-    name: 'Cell content',
-    description: 'Cell content',
-    service: 'Cell content',
+    name: { text: 'Cell content' },
+    description: { text: 'Cell content' },
+    service: { text: 'Cell content' },
     email: 'Cell content',
   },
 ];

@@ -86,8 +86,7 @@ export default class CodeFragmentWithFiltering extends Component<CodeFragmentWit
       return match;
     };
 
-    const filteredData = MUSIC.filter(filterItem);
-    return filteredData as unknown as Record<string, unknown>[];
+    return MUSIC.filter(filterItem);
   }
 
   isSingleSelectFilterMatch(
@@ -170,23 +169,18 @@ export default class CodeFragmentWithFiltering extends Component<CodeFragmentWit
       <:body as |B|>
         <B.Tr>
           <B.Th @scope="row"><HdsLinkInline @href="#showcase">
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{B.data.artist}}
             </HdsLinkInline></B.Th>
           <B.Td>
             <div class="shw-component-advanced-table-cell-content-div">
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{B.data.album}}
             </div>
           </B.Td>
           <B.Td>
             <HdsBadge
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               @text={{B.data.year}}
               @type="outlined"
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               @color={{B.data.badge-color}}
             />
           </B.Td>

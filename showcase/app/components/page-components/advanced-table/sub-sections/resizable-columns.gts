@@ -55,7 +55,6 @@ const SubSectionResizableColumns: TemplateOnlyComponent = <template>
   <ShwTextH2>Resizable columns</ShwTextH2>
 
   <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{BASE_COLUMNS}}
     @hasResizableColumns={{true}}
@@ -63,23 +62,18 @@ const SubSectionResizableColumns: TemplateOnlyComponent = <template>
     <:body as |B|>
       <B.Tr>
         <B.Th @scope="row"><HdsLinkInline @href="#showcase">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.artist}}
           </HdsLinkInline></B.Th>
         <B.Td>
           <div class="shw-component-advanced-table-cell-content-div">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.album}}
           </div>
         </B.Td>
         <B.Td>
           <HdsBadge
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @text={{B.data.year}}
             @type="outlined"
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @color={{B.data.badge-color}}
           />
         </B.Td>
@@ -114,7 +108,6 @@ const SubSectionResizableColumns: TemplateOnlyComponent = <template>
   <ShwTextH4 @tag="h3">Resizable columns with sorting</ShwTextH4>
 
   <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{SORTABLE_COLUMNS}}
     @hasResizableColumns={{true}}
@@ -122,23 +115,18 @@ const SubSectionResizableColumns: TemplateOnlyComponent = <template>
     <:body as |B|>
       <B.Tr>
         <B.Th @scope="row"><HdsLinkInline @href="#showcase">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.artist}}
           </HdsLinkInline></B.Th>
         <B.Td>
           <div class="shw-component-advanced-table-cell-content-div">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.album}}
           </div>
         </B.Td>
         <B.Td>
           <HdsBadge
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @text={{B.data.year}}
             @type="outlined"
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             @color={{B.data.badge-color}}
           />
         </B.Td>
@@ -173,7 +161,6 @@ const SubSectionResizableColumns: TemplateOnlyComponent = <template>
   <ShwTextH4 @tag="h3">Resizable columns with truncated cell content</ShwTextH4>
 
   <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{array
       (hash key="artist" label="Artist")
@@ -185,22 +172,18 @@ const SubSectionResizableColumns: TemplateOnlyComponent = <template>
     <:body as |B|>
       <B.Tr>
         <B.Th @scope="row"><HdsLinkInline @href="#showcase">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.artist}}
           </HdsLinkInline></B.Th>
         <B.Td>
           <div class="shw-component-advanced-table-cell-content-div">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
             <span class="shw-component-advanced-table-text-truncate">
-              {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
               {{B.data.album}}
             </span>
           </div>
         </B.Td>
         <B.Td>
           <span class="shw-component-advanced-table-text-truncate">
-            {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
             {{B.data.quote}}
           </span>
         </B.Td>
@@ -211,36 +194,29 @@ const SubSectionResizableColumns: TemplateOnlyComponent = <template>
   <ShwTextH4 @tag="h3">Resizable and reorderable columns</ShwTextH4>
 
   <HdsAdvancedTable
-    {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
     @model={{MUSIC}}
     @columns={{BASE_COLUMNS}}
     @hasResizableColumns={{true}}
     @hasReorderableColumns={{true}}
   >
     <:body as |B|>
-      {{! @glint-expect-error - this argument shouldn't be required, will be fixed by https://hashicorp.atlassian.net/browse/HDS-5167}}
       <B.Tr @selectionKey="{{B.data.id}}" as |R|>
         {{#each R.orderedCells as |C|}}
           {{#if (eq C.columnKey "artist")}}
             <B.Th @scope="row"><HdsLinkInline @href="#showcase">
-                {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                 {{B.data.artist}}
               </HdsLinkInline></B.Th>
           {{else}}
             <B.Td>
               {{#if (eq C.columnKey "album")}}
                 <div class="shw-component-advanced-table-cell-content-div">
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   <HdsIcon @name={{B.data.icon}} @isInline={{true}} />
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   {{B.data.album}}
                 </div>
               {{else if (eq C.columnKey "year")}}
                 <HdsBadge
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   @text={{B.data.year}}
                   @type="outlined"
-                  {{! @glint-expect-error - will be fixed by https://hashicorp.atlassian.net/browse/HDS-5090}}
                   @color={{B.data.badge-color}}
                 />
               {{else}}

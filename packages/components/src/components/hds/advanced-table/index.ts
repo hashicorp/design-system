@@ -128,7 +128,7 @@ const getStickyColumnLeftOffset = (
   return `${leftOffset}px`;
 };
 
-export interface HdsAdvancedTableSignature {
+export interface HdsAdvancedTableSignature<T = Record<string, unknown>> {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     caption?: string;
@@ -138,7 +138,7 @@ export interface HdsAdvancedTableSignature {
     identityKey?: string;
     isSelectable?: boolean;
     isStriped?: boolean;
-    model: HdsAdvancedTableModel;
+    model: T[];
     reorderedMessageText?: string;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
@@ -194,7 +194,7 @@ export interface HdsAdvancedTableSignature {
           | 'isStickyColumnPinned'
           | 'onClickToggle'
         >;
-        data?: Record<string, unknown>;
+        data: T;
         rowIndex?: number | string;
         isOpen?: HdsAdvancedTableExpandState;
       },
@@ -204,7 +204,9 @@ export interface HdsAdvancedTableSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
+export default class HdsAdvancedTable<
+  T = Record<string, unknown>,
+> extends Component<HdsAdvancedTableSignature<T>> {
   @service declare readonly hdsIntl: HdsIntlService;
 
   @tracked
@@ -237,7 +239,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   // row expansion properties
   expandedRowIds = new TrackedSet<string>();
 
-  constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
+  constructor(owner: Owner, args: HdsAdvancedTableSignature<T>['Args']) {
     super(owner, args);
 
     const { hasStickyFirstColumn, model, sortBy, sortOrder } = args;
@@ -262,9 +264,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const { model } = this.args;
 
     return model.some((record) => {
-      const children = record[this.childrenKey] as
-        | Record<string, unknown>[]
-        | undefined;
+      const children = (record as Record<string, unknown>)[
+        this.childrenKey
+      ] as Record<string, unknown>[] | undefined;
 
       return Array.isArray(children) && children.length > 0;
     });
@@ -290,7 +292,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       });
     };
 
-    collect(model);
+    collect(model as Record<string, unknown>[]);
 
     return ids;
   }
@@ -464,9 +466,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _initializeExpandedRows(
-    model: HdsAdvancedTableSignature['Args']['model']
-  ) {
+  // casts a row from body.gts (Record<string, unknown>) to T so that `data=row.source`
+  // in the template satisfies `data?: T` in the block signature without needing a
+  // @glint-expect-error inside the (hash ...) s-expression (where Handlebars disallows comments)
+  _asRowData = (source: Record<string, unknown>): T => source as unknown as T;
+
+  private _initializeExpandedRows(model: T[]) {
     const traverse = (items: Record<string, unknown>[]) => {
       items.forEach((item) => {
         if (item['isOpen'] === true) {
@@ -483,7 +488,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       });
     };
 
-    traverse(model);
+    traverse(model as Record<string, unknown>[]);
   }
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
