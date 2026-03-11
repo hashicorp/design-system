@@ -5,7 +5,7 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
-import CompositeIndex from 'showcase/components/page-components/composite';
+import CompositeIndex from 'showcase/components/page-utilities/composite';
 
 const PageComponentsComposite: TemplateOnlyComponent = <template>
   <CompositeIndex />
