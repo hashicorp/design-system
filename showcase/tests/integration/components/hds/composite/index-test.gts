@@ -30,7 +30,7 @@ module('Integration | Component | hds/composite/index', function (hooks) {
     assert.dom('#item-2').hasAttribute('tabindex', '-1');
   });
 
-  test('it skips disabled items', async function (assert) {
+  test('it sets aria-disabled on disabled items', async function (assert) {
     await render(
       <template>
         <HdsComposite as |composite|>
