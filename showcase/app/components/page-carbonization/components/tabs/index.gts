@@ -71,7 +71,6 @@ const TabsCarbonizationIndex: TemplateOnlyComponent = <template>
               id="tab-staging-{{size}}"
               target="panel-staging-{{size}}"
               value="staging"
-              disabled
             >
               Three
             </cds-tab>
