@@ -16,21 +16,13 @@ The basic invocation requires a `Label`. This creates:
 - a `<label>` element with a `for` attribute automatically associated with the input `ID` attribute.
 - a `<input type="text">` control with an automatically generated `ID` attribute.
 
-```handlebars
-<Hds::Form::TextInput::Field name="demo-cluster-name" as |F|>
-  <F.Label>Cluster name</F.Label>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-basic]]
 
 #### Input value
 
 Pass a `@value` argument to pre-populate the input.
 
-```handlebars
-<Hds::Form::TextInput::Field @value="my-cluster-1234" name="demo-cluster-name" as |F|>
-  <F.Label>Cluster name</F.Label>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-value]]
 
 #### Type
 
@@ -43,26 +35,13 @@ Pass a `@type` argument to change the type of input.
 `@type="number"` is not supported as it causes [accessibility and usability problems](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/). If you are looking for additional validation or to display a numeric keypad on devices with dynamic keypads we recommend using `inputmode="numeric" pattern="[0-9]*"`. For the list of supported types, see [Component API](#component-api).
 !!!
 
-```handlebars
-<Hds::Form::TextInput::Field @type="email" @value="janedoe@email.com" name="demo-email" as |F|>
-  <F.Label>Email</F.Label>
-</Hds::Form::TextInput::Field>
-<br />
-<Hds::Form::TextInput::Field @type="date" name="demo-birthday" as |F|>
-  <F.Label>Date of birth</F.Label>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-type]]
 
 #### Helper text
 
 You can add extra information to the field using helper text. When helper text is added, the component automatically adds an `aria-describedby` attribute to the input control, associating it with the automatically generated `ID` of the helper text element.
 
-```handlebars
-<Hds::Form::TextInput::Field @value="036140285924" name="demo-aws-account-id" as |F|>
-  <F.Label>AWS Account ID</F.Label>
-  <F.HelperText>Copy this ID to your AWS Resource Access Manager to initiate the resource share.</F.HelperText>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-helper-text]]
 
 #### Extra content in label and helper text
 
@@ -75,117 +54,49 @@ If a link is used within a label, helper text, or error text, it will not be pre
 
 The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.
 
-```handlebars
-<Hds::Form::TextInput::Field name="demo-aws-account-id" as |F|>
-  <F.Label>AWS Account ID <Hds::Badge @size="small" @text="Beta" /></F.Label>
-  <F.HelperText>This is an experimental feature (<Hds::Link::Inline @href="#">read more</Hds::Link::Inline>).</F.HelperText>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-extra-content]]
 
 #### Required vs. optional
 
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
-```handlebars
-<Hds::Form as |FORM|>
-  <FORM.Section>
-    <Hds::Form::TextInput::Field @isRequired={{true}} name="demo-aws-account-id" as |F|>
-      <F.Label>AWS Account ID</F.Label>
-      <F.HelperText>Copy this ID to your AWS Resource Access Manager to initiate the resource share.</F.HelperText>
-    </Hds::Form::TextInput::Field>
-
-    <Hds::Form::TextInput::Field @isOptional={{true}} name="demo-aws-account-id" as |F|>
-      <F.Label>AWS Account ID</F.Label>
-      <F.HelperText>Copy this ID to your AWS Resource Access Manager to initiate the resource share.</F.HelperText>
-    </Hds::Form::TextInput::Field>
-  </FORM.Section>
-</Hds::Form>
-```
+[[code-snippets/text-input-required-optional]]
 
 #### Character count
 
 If the user input needs to be limited to a certain number of characters, use `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements. This property does not restrict the users from entering characters over the limit. To define the maximum string length that the user can enter, set `maxlength` attribute on the associated input field.
 
-```handlebars
-<Hds::Form::TextInput::Field @value={{this.value1}} name="demo-cluster-name" {{on "input" (fn this.updateValue "value1")}} as |F|>
-  <F.Label>Cluster name</F.Label>
-  <F.CharacterCount @maxLength={{30}}/>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-character-count-max]]
 
 If the user input is required to have a certain number of characters, use `@minLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
 
-```handlebars
-<Hds::Form::TextInput::Field @value={{this.value2}} name="demo-cluster-name" {{on "input" (fn this.updateValue "value2")}} as |F|>
-  <F.Label>Cluster name</F.Label>
-  <F.CharacterCount @minLength={{20}}/>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-character-count-min]]
 
 When the user input needs to be in a certain range, use both `@minLength` and `@maxLength` on a `CharacterCount` contextual component to guide the user in meeting the length requirements.
 
-```handlebars
-<Hds::Form::TextInput::Field @value={{this.value3}} name="demo-cluster-name" {{on "input" (fn this.updateValue "value3")}} as |F|>
-  <F.Label>Cluster name</F.Label>
-  <F.CharacterCount @minLength={{20}} @maxLength={{30}}/>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-character-count-range]]
 
 ##### Custom message
 
 For custom messages, you can use the following arguments to build a relevant message: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
 
-```handlebars
-<Hds::Form::TextInput::Field @value={{this.value4}} name="demo-cluster-name" {{on "input" (fn this.updateValue "value4")}} as |F|>
-  <F.Label>Cluster name</F.Label>
-  <F.CharacterCount @maxLength={{30}} as |CC|>
-    {{CC.remaining}} characters remaining
-  </F.CharacterCount>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-character-count-custom]]
 
 ##### Validation based on length
 
 You can raise an error based on the number of characters entered into a field using a custom validation function.
 
-```handlebars
-  <Hds::Form::TextInput::Field
-    @value={{this.value5}}
-    @isInvalid={{this.fieldIsInvalid}}
-    {{on "input" (fn this.updateValue "value5")}}
-    name="demo-cluster-name"
-    as |F|
-  >
-    <F.Label>Cluster name</F.Label>
-    <F.CharacterCount @minLength={{this.minLength}} />
-    {{#if this.fieldIsInvalid}}
-      <F.Error>Length should be at least 30 characters</F.Error>
-    {{/if}}
-  </Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-character-count-validation]]
 
 #### Validation
 
 To indicate a field is invalid, declare that it’s invalid by using the `@isInvalid` argument and provide an error message using the `Error` contextual component.
 
-```handlebars
-<Hds::Form::TextInput::Field @type="email" @value="jane.doe@.com" @isInvalid={{true}} name="demo-email" as |F|>
-  <F.Label>Email</F.Label>
-  <F.Error>The provided email is not valid.</F.Error>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-validation-simple]]
 
 Add more than one error message using the more specific `Message` contextual component.
 
-```handlebars
-<Hds::Form::TextInput::Field @type="password" @value="1234" @isInvalid={{true}} name="demo-password" as |F|>
-  <F.Label>Password</F.Label>
-  <F.Error as |E|>
-    <E.Message>Length should be at least 12 characters</E.Message>
-    <E.Message>Must contain at least a special character</E.Message>
-  </F.Error>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-validation-multiple]]
 
 #### Custom control ID
 
@@ -193,50 +104,25 @@ If needing a custom ID for the control instead of the one automatically generate
 
 In this case all the internal references (`id/for/aria-describedby`) between the different parts of the field are still automatically generated and will use the custom ID provided.
 
-```handlebars
-<Hds::Form::TextInput::Field @id="my-control" name="demo-aws-account-id" as |F|>
-  <F.Label>AWS Account ID</F.Label>
-  <F.HelperText>Copy this ID to your AWS Resource Access Manager to initiate the resource share.</F.HelperText>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-custom-id]]
 
 #### Additional `aria-describedby`
 
 Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
 
-```handlebars
-<Hds::Form::TextInput::Field @extraAriaDescribedBy="my-extra-element-ID" name="demo-aws-account-id" as |F|>
-  <F.Label>AWS Account ID</F.Label>
-  <F.HelperText>Copy this ID to your AWS Resource Access Manager to initiate the resource share.</F.HelperText>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-extra-aria]]
 
 #### HTML native attributes
 
 This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the `<input>` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control, or adding `min`, `max`, `minlength`, `maxlength`, or `pattern` attributes to it).
 
-```handlebars
-<Hds::Form::TextInput::Field
-  @type="password"
-  name="demo-user-password"
-  placeholder="Insert your password here"
-  minlength="4"
-  maxlength="64"
-  as |F|
->
-  <F.Label>Password</F.Label>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-native-attributes]]
 
 #### Events handling
 
 Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `blur`, `change`), validation, etc.
 
-```handlebars
-<Hds::Form::TextInput::Field @type="email" placeholder="eg. name.surname@email.com" name="demo-email" {{on "blur" this.yourOnBlurFunction}} as |F|>
-  <F.Label>Email</F.Label>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-events]]
 
 #### Custom width
 
@@ -244,30 +130,17 @@ By default, the input control width is set to fill the parent container, with th
 
 Pass a custom width for the control using the `@width` argument.
 
-```handlebars
-<Hds::Form::TextInput::Field @type="search" placeholder="Search clusters" @width="200px" name="demo-filter" as |F|>
-  <F.Label>Filter the list:</F.Label>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-custom-width]]
 
 #### Password
 
 By default, password fields render with a button allowing users to toggle between visible and obfuscated input content.
 
-```handlebars
-<Hds::Form::TextInput::Field @type="password" @value="1234567890" name="demo-password" as |F|>
-  <F.Label>Password</F.Label>
-</Hds::Form::TextInput::Field>
-```
+[[code-snippets/text-input-password]]
 
 You can remove the visibility toggle button by setting `@hasVisibilityToggle` to `false`.
 
-```handlebars
-<Hds::Form::TextInput::Field @hasVisibilityToggle={{false}} @type="password" @value="1234567890" name="demo-password" as |F|>
-  <F.Label>Password</F.Label>
-</Hds::Form::TextInput::Field>
-```
-
+[[code-snippets/text-input-password-no-toggle]]
 
 {{! ================= }} {{! ===== BASE ===== }} {{! ================= }}
 
@@ -282,14 +155,4 @@ The Base component is intended for rare cases where the Field component can’t 
 
 A basic invocation requires a `@type` argument to be passed. This creates a `<input type="text">` control with an automatically generated `ID` attribute.
 
-```handlebars
-<Hds::Form::TextInput::Base
-  @type="email"
-  @value="janedoe@email.com"
-  aria-label="User email"
-  placeholder="eg. name.surname@email.com"
-  @isRequired={{true}}
-  name="demo-email"
-  {{on "blur" this.yourOnBlurFunction}}
-/>
-```
+[[code-snippets/text-input-base]]
