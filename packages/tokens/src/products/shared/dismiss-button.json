@@ -64,6 +64,21 @@
         }
       }
     },
+    "border": {
+      "color": {
+        "active": {
+          "$type": "color",
+          "$value": "{color.border.strong}",
+          "$modes": {
+            "default": "{color.border.strong}",
+            "cds-g0": "transparent",
+            "cds-g10": "transparent",
+            "cds-g90": "transparent",
+            "cds-g100": "transparent"
+          }
+        }
+      }
+    },
     "icon": {
       "size": {
         "$type": "dimension",
