@@ -453,6 +453,11 @@ const Index: TemplateOnlyComponent = <template>
           </LinkTo>
         </li>
         <li>
+          <LinkTo @route="page-carbonization.components.pagination">
+            Pagination
+          </LinkTo>
+        </li>
+        <li>
           <LinkTo @route="page-carbonization.components.segmented-group">
             SegmentedGroup
           </LinkTo>
