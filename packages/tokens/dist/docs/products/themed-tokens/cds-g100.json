@@ -10935,37 +10935,37 @@
     ]
   },
   {
-    "key": "{dismiss-button.padding}",
+    "key": "{dismiss-button.size}",
     "$type": "dimension",
-    "$value": "14px",
+    "$value": "48px",
     "unit": "px",
     "$modes": {
-      "default": "0",
-      "cds-g0": "14",
-      "cds-g10": "14",
-      "cds-g90": "14",
-      "cds-g100": "14"
+      "default": "24",
+      "cds-g0": "48",
+      "cds-g10": "48",
+      "cds-g90": "48",
+      "cds-g100": "48"
     },
     "original": {
       "$type": "dimension",
-      "$value": "14",
+      "$value": "48",
       "unit": "px",
       "$modes": {
-        "default": "0",
-        "cds-g0": "14",
-        "cds-g10": "14",
-        "cds-g90": "14",
-        "cds-g100": "14"
+        "default": "24",
+        "cds-g0": "48",
+        "cds-g10": "48",
+        "cds-g90": "48",
+        "cds-g100": "48"
       },
-      "key": "{dismiss-button.padding}"
+      "key": "{dismiss-button.size}"
     },
-    "name": "token-dismiss-button-padding",
+    "name": "token-dismiss-button-size",
     "attributes": {
       "category": "dismiss-button"
     },
     "path": [
       "dismiss-button",
-      "padding"
+      "size"
     ]
   },
   {
@@ -11100,6 +11100,40 @@
     "path": [
       "dismiss-button",
       "surface",
+      "color",
+      "active"
+    ]
+  },
+  {
+    "key": "{dismiss-button.border.color.active}",
+    "$type": "color",
+    "$value": "rgba(0, 0, 0, 0)",
+    "$modes": {
+      "default": "#6f6f6f",
+      "cds-g0": "transparent",
+      "cds-g10": "transparent",
+      "cds-g90": "transparent",
+      "cds-g100": "transparent"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "transparent",
+      "$modes": {
+        "default": "{color.border.strong}",
+        "cds-g0": "transparent",
+        "cds-g10": "transparent",
+        "cds-g90": "transparent",
+        "cds-g100": "transparent"
+      },
+      "key": "{dismiss-button.border.color.active}"
+    },
+    "name": "token-dismiss-button-border-color-active",
+    "attributes": {
+      "category": "dismiss-button"
+    },
+    "path": [
+      "dismiss-button",
+      "border",
       "color",
       "active"
     ]

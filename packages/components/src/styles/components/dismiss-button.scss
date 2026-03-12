@@ -40,6 +40,6 @@
   &.mock-active {
     color: var(--token-dismiss-button-foreground-color-active);
     background-color: var(--token-dismiss-button-surface-color-active);
-    border-color: var(--token-color-border-strong);
+    border-color: var(--token-dismiss-button-border-color-active);
   }
 }
