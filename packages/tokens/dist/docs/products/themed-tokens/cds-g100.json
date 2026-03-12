@@ -13497,6 +13497,74 @@
     ]
   },
   {
+    "key": "{tabs.foreground-color.selected.default}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "var(--token-color-foreground-action)",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.textPrimary}",
+      "$modes": {
+        "default": "var(--token-color-foreground-action)",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{tabs.foreground-color.selected.default}"
+    },
+    "name": "token-tabs-foreground-color-selected-default",
+    "attributes": {
+      "category": "tabs"
+    },
+    "path": [
+      "tabs",
+      "foreground-color",
+      "selected",
+      "default"
+    ]
+  },
+  {
+    "key": "{tabs.foreground-color.selected.hover}",
+    "$type": "color",
+    "$value": "#f4f4f4",
+    "$modes": {
+      "default": "var(--token-color-foreground-action-hover)",
+      "cds-g0": "#161616",
+      "cds-g10": "#161616",
+      "cds-g90": "#f4f4f4",
+      "cds-g100": "#f4f4f4"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g100.textPrimary}",
+      "$modes": {
+        "default": "var(--token-color-foreground-action-hover)",
+        "cds-g0": "{carbon.themes.white.textPrimary}",
+        "cds-g10": "{carbon.themes.g10.textPrimary}",
+        "cds-g90": "{carbon.themes.g90.textPrimary}",
+        "cds-g100": "{carbon.themes.g100.textPrimary}"
+      },
+      "key": "{tabs.foreground-color.selected.hover}"
+    },
+    "name": "token-tabs-foreground-color-selected-hover",
+    "attributes": {
+      "category": "tabs"
+    },
+    "path": [
+      "tabs",
+      "foreground-color",
+      "selected",
+      "hover"
+    ]
+  },
+  {
     "key": "{tabs.tab.height.medium}",
     "$type": "dimension",
     "$value": "36px",
