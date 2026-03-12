@@ -8903,6 +8903,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-tabs__tablist-wrapper {
   position: relative;
 }
@@ -8947,6 +8951,12 @@ button.hds-button[href]::after {
 }
 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator {
   background: var(--token-color-foreground-action-hover);
+}
+.hds-mode-cds-g0 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
+.hds-mode-cds-g10 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
+.hds-mode-cds-g90 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button,
+.hds-mode-cds-g100 .hds-tabs__tab.hds-tabs__tab--is-selected .hds-tabs__tab-button {
+  font-weight: 600;
 }
 
 .hds-tabs__tab-button {
@@ -9012,6 +9022,12 @@ button.hds-button[href]::after {
     transition-timing-function: var(--token-tabs-indicator-transition-function);
     transition-duration: var(--token-tabs-indicator-transition-duration);
     transition-property: left, width;
+  }
+  .hds-mode-cds-g0 .hds-tabs__tab-indicator,
+  .hds-mode-cds-g10 .hds-tabs__tab-indicator,
+  .hds-mode-cds-g90 .hds-tabs__tab-indicator,
+  .hds-mode-cds-g100 .hds-tabs__tab-indicator {
+    transition: color 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
   }
 }
 
