@@ -363,6 +363,11 @@
   --token-button-icon-size-small: 12px;
   --token-button-icon-size-medium: 16px;
   --token-button-icon-size-large: 24px;
+  --token-copy-button-icon-color-default: #1060ff;
+  --token-copy-button-icon-color-hover: #0c56e9;
+  --token-copy-button-icon-color-active: #0046d1;
+  --token-copy-button-icon-color-success: #008a22;
+  --token-copy-button-icon-color-error: #e52228;
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;
@@ -4330,19 +4335,19 @@ button.hds-button[href]::after {
   cursor: pointer;
 }
 .hds-copy-button .hds-button__icon {
-  color: var(--token-color-foreground-action);
+  color: var(--token-copy-button-icon-color-default);
 }
 .hds-copy-button:hover .hds-button__icon, .hds-copy-button.mock-hover .hds-button__icon {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--token-copy-button-icon-color-hover);
 }
 .hds-copy-button:active .hds-button__icon, .hds-copy-button.mock-active .hds-button__icon {
-  color: var(--token-color-foreground-action-active);
+  color: var(--token-copy-button-icon-color-active);
 }
 .hds-copy-button.hds-copy-button--status-success .hds-button__icon {
-  color: var(--token-color-foreground-success);
+  color: var(--token-copy-button-icon-color-success);
 }
 .hds-copy-button.hds-copy-button--status-error .hds-button__icon {
-  color: var(--token-color-foreground-critical);
+  color: var(--token-copy-button-icon-color-error);
 }
 
 /**

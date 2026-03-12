@@ -8800,7 +8800,6 @@
     "key": "{button.typography.line-height.small}",
     "$type": "number",
     "$value": 1.2858,
-    "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
     "$modes": {
       "default": 0.9286,
       "cds-g0": 1.2858,
@@ -8808,16 +8807,23 @@
       "cds-g90": 1.2858,
       "cds-g100": 1.2858
     },
+    "comments": {
+      "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+      "cds": "18px/14px ~ 1.2858"
+    },
     "original": {
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
       "$modes": {
         "default": 0.9286,
         "cds-g0": 1.2858,
         "cds-g10": 1.2858,
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
+      },
+      "comments": {
+        "hds": "14px/13px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)",
+        "cds": "18px/14px ~ 1.2858"
       },
       "key": "{button.typography.line-height.small}"
     },
@@ -8836,7 +8842,6 @@
     "key": "{button.typography.line-height.medium}",
     "$type": "number",
     "$value": 1.2858,
-    "comment": "14px ~ 1.1429",
     "$modes": {
       "default": 1.1429,
       "cds-g0": 1.2858,
@@ -8844,16 +8849,23 @@
       "cds-g90": 1.2858,
       "cds-g100": 1.2858
     },
+    "comments": {
+      "hds": "16px/14px ~ 1.1429",
+      "cds": "18px/14px ~ 1.2858"
+    },
     "original": {
       "$type": "number",
       "$value": 1.2858,
-      "comment": "14px ~ 1.1429",
       "$modes": {
         "default": 1.1429,
         "cds-g0": 1.2858,
         "cds-g10": 1.2858,
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
+      },
+      "comments": {
+        "hds": "16px/14px ~ 1.1429",
+        "cds": "18px/14px ~ 1.2858"
       },
       "key": "{button.typography.line-height.medium}"
     },
@@ -8872,7 +8884,6 @@
     "key": "{button.typography.line-height.large}",
     "$type": "number",
     "$value": 1.2858,
-    "comment": "24px = 1.5",
     "$modes": {
       "default": 1.5,
       "cds-g0": 1.2858,
@@ -8880,16 +8891,23 @@
       "cds-g90": 1.2858,
       "cds-g100": 1.2858
     },
+    "comments": {
+      "hds": "24px/16px = 1.5",
+      "cds": "18px/14px ~ 1.2858"
+    },
     "original": {
       "$type": "number",
       "$value": 1.2858,
-      "comment": "24px = 1.5",
       "$modes": {
         "default": 1.5,
         "cds-g0": 1.2858,
         "cds-g10": 1.2858,
         "cds-g90": 1.2858,
         "cds-g100": 1.2858
+      },
+      "comments": {
+        "hds": "24px/16px = 1.5",
+        "cds": "18px/14px ~ 1.2858"
       },
       "key": "{button.typography.line-height.large}"
     },
@@ -10104,24 +10122,10 @@
     "$type": "dimension",
     "$value": "0px",
     "unit": "px",
-    "$modes": {
-      "default": "0px",
-      "cds-g0": "0",
-      "cds-g10": "0",
-      "cds-g90": "0",
-      "cds-g100": "0"
-    },
     "original": {
       "$type": "dimension",
-      "$value": "0",
+      "$value": "{border.radius.small}",
       "unit": "px",
-      "$modes": {
-        "default": "{border.radius.small}",
-        "cds-g0": "0",
-        "cds-g10": "0",
-        "cds-g90": "0",
-        "cds-g100": "0"
-      },
       "key": "{button.border.radius}"
     },
     "name": "token-button-border-radius",
@@ -10932,6 +10936,181 @@
       "icon",
       "size",
       "large"
+    ]
+  },
+  {
+    "key": "{copy.button.icon.color.default}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#0f62fe",
+      "cds-g0": "#ffffff",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.textOnColor}",
+      "$modes": {
+        "default": "{color.foreground.action}",
+        "cds-g0": "{carbon.themes.white.textOnColor}",
+        "cds-g10": "{carbon.themes.g10.textOnColor}",
+        "cds-g90": "{carbon.themes.g90.textOnColor}",
+        "cds-g100": "{carbon.themes.g100.textOnColor}"
+      },
+      "key": "{copy.button.icon.color.default}"
+    },
+    "name": "token-copy-button-icon-color-default",
+    "attributes": {
+      "category": "copy"
+    },
+    "path": [
+      "copy",
+      "button",
+      "icon",
+      "color",
+      "default"
+    ]
+  },
+  {
+    "key": "{copy.button.icon.color.hover}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#0043ce",
+      "cds-g0": "#ffffff",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.textOnColor}",
+      "$modes": {
+        "default": "{color.foreground.action-hover}",
+        "cds-g0": "{carbon.themes.white.textOnColor}",
+        "cds-g10": "{carbon.themes.g10.textOnColor}",
+        "cds-g90": "{carbon.themes.g90.textOnColor}",
+        "cds-g100": "{carbon.themes.g100.textOnColor}"
+      },
+      "key": "{copy.button.icon.color.hover}"
+    },
+    "name": "token-copy-button-icon-color-hover",
+    "attributes": {
+      "category": "copy"
+    },
+    "path": [
+      "copy",
+      "button",
+      "icon",
+      "color",
+      "hover"
+    ]
+  },
+  {
+    "key": "{copy.button.icon.color.active}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "#0043ce",
+      "cds-g0": "#ffffff",
+      "cds-g10": "#ffffff",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.textOnColor}",
+      "$modes": {
+        "default": "{color.foreground.action-active}",
+        "cds-g0": "{carbon.themes.white.textOnColor}",
+        "cds-g10": "{carbon.themes.g10.textOnColor}",
+        "cds-g90": "{carbon.themes.g90.textOnColor}",
+        "cds-g100": "{carbon.themes.g100.textOnColor}"
+      },
+      "key": "{copy.button.icon.color.active}"
+    },
+    "name": "token-copy-button-icon-color-active",
+    "attributes": {
+      "category": "copy"
+    },
+    "path": [
+      "copy",
+      "button",
+      "icon",
+      "color",
+      "active"
+    ]
+  },
+  {
+    "key": "{copy.button.icon.color.success}",
+    "$type": "color",
+    "$value": "#42be65",
+    "$modes": {
+      "default": "#198038",
+      "cds-g0": "#42be65",
+      "cds-g10": "#42be65",
+      "cds-g90": "#42be65",
+      "cds-g100": "#42be65"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.supportSuccessInverse}",
+      "$modes": {
+        "default": "{color.foreground.success}",
+        "cds-g0": "{carbon.themes.white.supportSuccessInverse}",
+        "cds-g10": "{carbon.themes.g10.supportSuccessInverse}",
+        "cds-g90": "{carbon.themes.g90.supportSuccess}",
+        "cds-g100": "{carbon.themes.g100.supportSuccess}"
+      },
+      "key": "{copy.button.icon.color.success}"
+    },
+    "name": "token-copy-button-icon-color-success",
+    "attributes": {
+      "category": "copy"
+    },
+    "path": [
+      "copy",
+      "button",
+      "icon",
+      "color",
+      "success"
+    ]
+  },
+  {
+    "key": "{copy.button.icon.color.error}",
+    "$type": "color",
+    "$value": "#fa4d56",
+    "$modes": {
+      "default": "#da1e28",
+      "cds-g0": "#fa4d56",
+      "cds-g10": "#fa4d56",
+      "cds-g90": "#ff8389",
+      "cds-g100": "#fa4d56"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.white.supportErrorInverse}",
+      "$modes": {
+        "default": "{color.foreground.critical}",
+        "cds-g0": "{carbon.themes.white.supportErrorInverse}",
+        "cds-g10": "{carbon.themes.g10.supportErrorInverse}",
+        "cds-g90": "{carbon.themes.g90.supportError}",
+        "cds-g100": "{carbon.themes.g100.supportError}"
+      },
+      "key": "{copy.button.icon.color.error}"
+    },
+    "name": "token-copy-button-icon-color-error",
+    "attributes": {
+      "category": "copy"
+    },
+    "path": [
+      "copy",
+      "button",
+      "icon",
+      "color",
+      "error"
     ]
   },
   {
