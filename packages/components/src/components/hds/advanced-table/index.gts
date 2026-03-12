@@ -187,7 +187,6 @@ export interface HdsAdvancedTableSignature {
           | 'didInsert'
           | 'willDestroy'
           | 'selectionAriaLabelSuffix'
-          | 'hasStickyColumn'
           | 'isStickyColumnPinned'
           | 'isParentRow'
           | 'depth'
@@ -633,13 +632,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       assert(
         `Cannot have resizable columns if there are nested rows.`,
         !hasResizableColumns
-      );
-    }
-
-    if (hasReorderableColumns) {
-      assert(
-        'Cannot have both reorderable columns and a sticky first column.',
-        hasStickyFirstColumn === undefined
       );
     }
   }
