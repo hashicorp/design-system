@@ -8,6 +8,10 @@ import type HdsAccordionComponent from './components/hds/accordion';
 import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
 import type HdsAdvancedTableComponent from './components/hds/advanced-table';
+import type HdsAdvancedTableBodyComponent from './components/hds/advanced-table/body';
+import type HdsAdvancedTableColumnManagerComponent from './components/hds/advanced-table/column-manager/index.gts';
+import type HdsAdvancedTableColumnManagerOrderComponent from './components/hds/advanced-table/column-manager/order.gts';
+import type HdsAdvancedTableColumnManagerWidthComponent from './components/hds/advanced-table/column-manager/width.gts';
 import type HdsAdvancedTableTdComponent from './components/hds/advanced-table/td';
 import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advanced-table/th-button-expand';
 import type HdsAdvancedTableThButtonSortComponent from './components/hds/advanced-table/th-button-sort';
@@ -17,10 +21,8 @@ import type HdsAdvancedTableThContextMenu from './components/hds/advanced-table/
 import type HdsAdvancedTableThReorderDropTarget from './components/hds/advanced-table/th-reorder-drop-target';
 import type HdsAdvancedTableThReorderHandle from './components/hds/advanced-table/th-reorder-handle';
 import type HdsAdvancedTableThResizeHandle from './components/hds/advanced-table/th-resize-handle';
-import type HdsAdvancedTableThSortComponent from './components/hds/advanced-table/th-sort';
 import type HdsAdvancedTableThSelectableComponent from './components/hds/advanced-table/th-selectable';
 import type HdsAdvancedTableTrComponent from './components/hds/advanced-table/tr';
-import type HdsAdvancedTableExpandableTrGroupComponent from './components/hds/advanced-table/expandable-tr-group.ts';
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
@@ -262,6 +264,14 @@ export default interface HdsComponentsRegistry {
   // Advanced Table
   'Hds::AdvancedTable': typeof HdsAdvancedTableComponent;
   'hds/advanced-table': typeof HdsAdvancedTableComponent;
+  'Hds::AdvancedTable::Body': typeof HdsAdvancedTableBodyComponent;
+  'hds/advanced-table/body': typeof HdsAdvancedTableBodyComponent;
+  'Hds::AdvancedTable::ColumnManager': typeof HdsAdvancedTableColumnManagerComponent;
+  'hds/advanced-table/column-manager': typeof HdsAdvancedTableColumnManagerComponent;
+  'Hds::AdvancedTable::ColumnManager::Order': typeof HdsAdvancedTableColumnManagerOrderComponent;
+  'hds/advanced-table/column-manager/order': typeof HdsAdvancedTableColumnManagerOrderComponent;
+  'Hds::AdvancedTable::ColumnManager::Width': typeof HdsAdvancedTableColumnManagerWidthComponent;
+  'hds/advanced-table/column-manager/width': typeof HdsAdvancedTableColumnManagerWidthComponent;
   'Hds::AdvancedTable::Td': typeof HdsAdvancedTableTdComponent;
   'hds/advanced-table/td': typeof HdsAdvancedTableTdComponent;
   'Hds::AdvancedTable::Th': typeof HdsAdvancedTableThComponent;
@@ -282,12 +292,8 @@ export default interface HdsComponentsRegistry {
   'Hds::AdvancedTable::ThResizeHandle': typeof HdsAdvancedTableThResizeHandle;
   'hds/advanced-table/th-resize-handle': typeof HdsAdvancedTableThResizeHandle;
   'hds/advanced-table/th-button-tooltip': typeof HdsAdvancedTableThButtonTooltipComponent;
-  'Hds::AdvancedTable::ThSort': typeof HdsAdvancedTableThSortComponent;
-  'hds/advanced-table/th-sort': typeof HdsAdvancedTableThSortComponent;
   'Hds::AdvancedTable::ThSelectable': typeof HdsAdvancedTableThSelectableComponent;
   'hds/advanced-table/th-selectable': typeof HdsAdvancedTableThSelectableComponent;
-  'Hds::AdvancedTable::ExpandableTrGroup': typeof HdsAdvancedTableExpandableTrGroupComponent;
-  'hds/advanced-table/expandable-tr-group': typeof HdsAdvancedTableExpandableTrGroupComponent;
 
   // Alert
   'Hds::Alert': typeof HdsAlertComponent;
