@@ -97,6 +97,8 @@ $hds-dialog-primitive-vertical-padding: 16px;
 
 .hds-dialog-primitive__dismiss {
   align-self: flex-start;
+  // for visual alignment
+  margin: -4px;
 }
 
 // DESCRIPTION

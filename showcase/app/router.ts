@@ -185,5 +185,8 @@ Router.map(function () {
       this.route('separator');
       this.route('tooltip');
     });
+    this.route('utilities', function () {
+      this.route('dismiss-button');
+    });
   });
 });
