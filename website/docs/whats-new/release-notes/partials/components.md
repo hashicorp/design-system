@@ -12,39 +12,91 @@
   </a>
 </p>
 
+## 6.1.1
+
+**Patch changes**
+
+<!-- START components/form/checkbox -->
+
+`Checkbox` - Fixed `CheckboxField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
+
+<!-- END -->
+
+<!-- START components/form/file-input -->
+
+`FileInput` - Fixed `FileInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
+
+<!-- END -->
+
+<!-- START components/form/radio -->
+
+`Radio` - Fixed `RadioField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
+
+<!-- END -->
+
+<!-- START components/form/select -->
+
+`Select` - Fixed `SelectField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
+
+<!-- END -->
+
+<!-- START components/form/text-input -->
+
+`TextInput` - Fixed `TextInputField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
+
+<!-- END -->
+
+<!-- START components/form/textarea -->
+
+`Textarea` - Fixed `TextareaField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
+
+<!-- END -->
+
+<!-- START components/form/toggle -->
+
+`Toggle` - Fixed `ToggleField` signature element to be `HTMLInputElement` instead of `HTMLElement`.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3700](https://github.com/hashicorp/design-system/pull/3700)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+<!-- START components/table/table -->
+
+`Table` - Converted component to gts format.
+
+<!-- END -->
+
+<small class="doc-whats-new-changelog-metadata">[#3607](https://github.com/hashicorp/design-system/pull/3607)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@5.0.0
+
 ## 6.1.0
 
 [6.1.0 documentation](https://hds-website-6-1-0.vercel.app/)
 
 **Minor changes**
 
-
 `FilterBar` - Added support for an array of values for the `generic` filter type data
 
-
-
 `FilterBar` - Added `@onClear` argument to `FilterGroup` contextual component
-
 
 <small class="doc-whats-new-changelog-metadata">[#3591](https://github.com/hashicorp/design-system/pull/3591)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `PopoverPrimitive` - Added `@onFocusOut` argument to manage focus for dynamic popover content and prevent the popover from closing when content changes
-
-
 
 `Dropdown` - Added `@onFocusOut` argument to manage focus for dynamic dropdown content and prevent the dropdown from closing when content changes
 
-
-
 `FilterBar` - Added `@onFocusOut` argument to the `FiltersDropdown` to help manage focus for dynamic dropdown content and prevent the dropdown from closing when content changes
 
-
-
 `RichTooltip` - Added `@onFocusOut` argument to manage focus for dynamic tooltip content and prevent the tooltip from closing when content changes
-
 
 <small class="doc-whats-new-changelog-metadata">[#3571](https://github.com/hashicorp/design-system/pull/3571)</small>
 
@@ -52,122 +104,87 @@
 
 **Patch changes**
 
-
 `AppHeader` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3580](https://github.com/hashicorp/design-system/pull/3580)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Checkbox` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3585](https://github.com/hashicorp/design-system/pull/3585)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `ApplicationState` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3605](https://github.com/hashicorp/design-system/pull/3605)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `RadioCard` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3597](https://github.com/hashicorp/design-system/pull/3597)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `FormLayout` - Converted components to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3614](https://github.com/hashicorp/design-system/pull/3614)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CodeEditor` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3646](https://github.com/hashicorp/design-system/pull/3646)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppFooter` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsLinkInline`.
-
-
 
 `AppHeader` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
 
-
-
 `Button` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
-
-
 
 `LinkInline` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
 
-
-
 `LinkStandalone` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
 
-
-
 `Tag` - Removed usage of `hdsLinkToModels` and `hdsLinkToQuery` helpers, instead forward the arguments to `HdsInteractive`.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3621](https://github.com/hashicorp/design-system/pull/3621)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Flex` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3625](https://github.com/hashicorp/design-system/pull/3625)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppFrame` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3581](https://github.com/hashicorp/design-system/pull/3581)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `KeyValueInputs` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3619](https://github.com/hashicorp/design-system/pull/3619)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `PopoverPrimitive` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3600](https://github.com/hashicorp/design-system/pull/3600)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Tabs` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3635](https://github.com/hashicorp/design-system/pull/3635)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
 
 `FormCharacterCount` - Converted component to gts format.
 `FormError` - Converted component to gts format.
@@ -179,298 +196,221 @@
 `FormLegend` - Converted component to gts format.
 `FormVisibilityToggle` - Converted component to gts format.
 
-
 <small class="doc-whats-new-changelog-metadata">[#3554](https://github.com/hashicorp/design-system/pull/3554)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Accordion` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3567](https://github.com/hashicorp/design-system/pull/3567)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Toggle` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3593](https://github.com/hashicorp/design-system/pull/3593)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Stepper::List` - Converted component to gts format.
-
-
 
 `Stepper::Nav` - Converted component to gts format.
 
-
-
 `Stepper::Indicator` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3636](https://github.com/hashicorp/design-system/pull/3636)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Modal` - Converted the component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3573](https://github.com/hashicorp/design-system/pull/3573)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CodeBlock` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3640](https://github.com/hashicorp/design-system/pull/3640)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `CopyButton` - Converted component to gts format.
 
-
-
 `CopySnippet` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3589](https://github.com/hashicorp/design-system/pull/3589)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Flyout` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3574](https://github.com/hashicorp/design-system/pull/3574)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `FileInput` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3586](https://github.com/hashicorp/design-system/pull/3586)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppSideNav` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3639](https://github.com/hashicorp/design-system/pull/3639)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `DisclosurePrimitive` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3542](https://github.com/hashicorp/design-system/pull/3542)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Reveal` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3577](https://github.com/hashicorp/design-system/pull/3577)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Pagination` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3628](https://github.com/hashicorp/design-system/pull/3628)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `PageHeader` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3627](https://github.com/hashicorp/design-system/pull/3627)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Radio` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3582](https://github.com/hashicorp/design-system/pull/3582)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `IconTile` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3578](https://github.com/hashicorp/design-system/pull/3578)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Breadcrumb` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3620](https://github.com/hashicorp/design-system/pull/3620)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Tooltip` - Fixed issue where showing the Tooltip caused page layout shift by reducing the width of the Tooltip container from 100% to the Tooltip max width of 280px.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3651](https://github.com/hashicorp/design-system/pull/3651)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Dropdown` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3606](https://github.com/hashicorp/design-system/pull/3606)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `MaskedInput` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3615](https://github.com/hashicorp/design-system/pull/3615)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `SuperSelect` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3617](https://github.com/hashicorp/design-system/pull/3617)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Select` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3616](https://github.com/hashicorp/design-system/pull/3616)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `TextInput` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3596](https://github.com/hashicorp/design-system/pull/3596)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Time` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3637](https://github.com/hashicorp/design-system/pull/3637)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppFooter` - Translated strings for AppFooter ariaLabel and AppFooterLegalLinks ariaLabel
-
 
 <small class="doc-whats-new-changelog-metadata">[#3658](https://github.com/hashicorp/design-system/pull/3658)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `RichTooltip` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3631](https://github.com/hashicorp/design-system/pull/3631)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Textarea` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3594](https://github.com/hashicorp/design-system/pull/3594)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Grid` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3626](https://github.com/hashicorp/design-system/pull/3626)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Card` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3543](https://github.com/hashicorp/design-system/pull/3543)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `DialogPrimitive` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3544](https://github.com/hashicorp/design-system/pull/3544)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AppFooter` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3579](https://github.com/hashicorp/design-system/pull/3579)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Tag` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3576](https://github.com/hashicorp/design-system/pull/3576)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `FilterBar` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3648](https://github.com/hashicorp/design-system/pull/3648)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `PopoverPrimitive` - Set `anchoredPositionOptions` argument on `setupPrimitivePopover` modifier to optional
-
 
 <small class="doc-whats-new-changelog-metadata">[#3668](https://github.com/hashicorp/design-system/pull/3668)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `Toast` - Converted component to gts format.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3529](https://github.com/hashicorp/design-system/pull/3529)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-
 `AdvancedTable` - Explicitly set table header tooltip placement to below the tooltip button.
-
 
 <small class="doc-whats-new-changelog-metadata">[#3659](https://github.com/hashicorp/design-system/pull/3659)</small>
 
@@ -1811,132 +1751,6 @@ Updated `MaskedInput`, `TextInput`, and `Textarea` to use `ensure-safe-component
 **🔄 Updated dependencies:**
 
 - @hashicorp/flight-icons@3.10.0
-
-## 4.17.1
-
-[4.17.1 documentation](https://hds-website-4-17-1.vercel.app/)
-
-**Minor changes**
-
-`Tag` - Truncated any text that is longer than about 20 characters, and added a tooltip with the full text when truncation occurs
-
-`Tag` - Added `@tooltipPlacement` argument
-
-<small class="doc-whats-new-changelog-metadata">[#2655](https://github.com/hashicorp/design-system/pull/2655)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`MaskedInput` - Added support for externally controlled content masking
-
-<small class="doc-whats-new-changelog-metadata">[#2716](https://github.com/hashicorp/design-system/pull/2716)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Badge` - Updated foreground and background colors to improve contrast for a11y
-
-`BadgeCount` - Updated foreground color of neutral variant to improve contrast for a11y
-
-<small class="doc-whats-new-changelog-metadata">[#2695](https://github.com/hashicorp/design-system/pull/2695)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeBlock` - Added `@copyButtonText` argument to `CodeBlock` and `@text` argument to the `CodeBlock::CopyButton` subcomponent to customize the `aria-label` of the Copy Button. The default label is still "Copy".
-
-`CodeEditor` - Added `@copyButtonText` argument to customize the `aria-label` of the Copy Button. The default label is still "Copy".
-
-<small class="doc-whats-new-changelog-metadata">[#2696](https://github.com/hashicorp/design-system/pull/2696)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-code-editor` modifier - Added language syntax highlighting support for JavaScript and Rego
-
-`CodeEditor` - Added language syntax highlighting support for JavaScript and Rego
-
-Dependencies - added @codemirror/lang-javascript
-
-<small class="doc-whats-new-changelog-metadata">[#2684](https://github.com/hashicorp/design-system/pull/2684)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Time` - Updated visual style to display a dotted underline when the `hasTooltip` argument is true
-
-`RichTooltip` - Fixed Safari bug causing the dotted underline style not to display
-
-<small class="doc-whats-new-changelog-metadata">[#2725](https://github.com/hashicorp/design-system/pull/2725)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-code-editor` modifier - Added `hasLineWrapping` named argument that sets line wrapping behavior within the code editor.
-
-`CodeEditor` - Added `@hasLineWrapping` argument that is passed to the `hds-code-editor` modifier
-
-<small class="doc-whats-new-changelog-metadata">[#2712](https://github.com/hashicorp/design-system/pull/2712)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Time` - Fixed type declarations
-
-`CodeEditor` - Added missing `@lezer/highlight` dependency
-
-<small class="doc-whats-new-changelog-metadata">[#2700](https://github.com/hashicorp/design-system/pull/2700) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`hds-tooltip` - Changed structure of tooltip content to add a wrapper that is always in the DOM and set `aria-controls` on trigger elements for a11y improvements with toggled content
-
-`Tooltip` - Changed structure of tooltip content to add a wrapper that is always in the DOM and set `aria-controls` on button for a11y improvements with toggled content
-
-<small class="doc-whats-new-changelog-metadata">[#2648](https://github.com/hashicorp/design-system/pull/2648)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CopyButton` - Fixed issue preventing copying of empty string and zero number values
-
-`CopySnippet` - Fixed issue preventing copying of empty string and zero number values
-
-<small class="doc-whats-new-changelog-metadata">[#2685](https://github.com/hashicorp/design-system/pull/2685)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeEditor` - Fixed import path for `HdsCodeEditorModifierSignature`
-
-<small class="doc-whats-new-changelog-metadata">[#2681](https://github.com/hashicorp/design-system/pull/2681)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Swapped unmaintained `ember-composable-helpers` with `@nullvoxpopuli/ember-composable-helpers`
-
-<small class="doc-whats-new-changelog-metadata">[#2493](https://github.com/hashicorp/design-system/pull/2493) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Migrated our tooling from yarn to pnpm and updated our JavaScript compiler configuration
-
-Updated `decorator-transforms` from `1.2.1` to `2.3.0`
-
-<small class="doc-whats-new-changelog-metadata">[#2671](https://github.com/hashicorp/design-system/pull/2671) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AdvancedTable` - Refactored keyboard navigation to a new modifier `hds-advanced-table-cell` for reusability, and disabled default behavior for arrow keys in focused cells.
-
-<small class="doc-whats-new-changelog-metadata">[#2659](https://github.com/hashicorp/design-system/pull/2659)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Table` - Removed unused `updateAriaLabel` function and event listener
-
-<small class="doc-whats-new-changelog-metadata">[#2690](https://github.com/hashicorp/design-system/pull/2690)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tooltip` - Removed style import from Tippy.js, copied arrow positioning styles into component styles
-
-<small class="doc-whats-new-changelog-metadata">[#2726](https://github.com/hashicorp/design-system/pull/2726)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---
