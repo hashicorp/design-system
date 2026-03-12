@@ -54,10 +54,10 @@ $hds-tabs-sizes: ("medium", "large");
   }
 
   &.hds-tabs__tab--is-selected {
-    color: var(--token-color-foreground-action);
+    color: var(--tabs-foreground-color-selected-default);
 
     &:hover {
-      color: var(--token-color-foreground-action-hover);
+      color: var(--tabs-foreground-color-selected-hover);
 
       & ~ .hds-tabs__tab-indicator {
         background: var(--token-color-foreground-action-hover);
