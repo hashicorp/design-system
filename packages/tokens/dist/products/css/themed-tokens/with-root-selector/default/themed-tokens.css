@@ -3,6 +3,9 @@
  */
 
 :root {
+  --token-accordion-gap-large: 12px;
+  --token-accordion-gap-medium: 8px;
+  --token-accordion-gap-small: 4px;
   --token-app-footer-focus-color-action-internal: var(--token-color-focus-action-internal);
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
@@ -54,6 +57,17 @@
   --token-border-radius-medium: 6px;
   --token-border-radius-small: 5px;
   --token-border-radius-x-small: 3px;
+  --token-breadcrumb-divider-color: var(--token-color-palette-neutral-300);
+  --token-breadcrumb-link-foreground-color-active: var(--token-color-foreground-primary);
+  --token-breadcrumb-link-foreground-color-default: var(--token-color-foreground-faint);
+  --token-breadcrumb-link-foreground-color-hover: var(--token-color-foreground-primary);
+  --token-breadcrumb-truncation-content-box-shadow: var(--token-surface-high-box-shadow);
+  --token-breadcrumb-truncation-toggle-foreground-color-active: var(--token-color-foreground-primary);
+  --token-breadcrumb-truncation-toggle-foreground-color-default: var(--token-color-foreground-faint);
+  --token-breadcrumb-truncation-toggle-foreground-color-hover: var(--token-color-foreground-faint);
+  --token-breadcrumb-truncation-toggle-surface-color-active: var(--token-color-surface-interactive-active);
+  --token-breadcrumb-truncation-toggle-surface-color-hover: var(--token-color-surface-interactive);
+  --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
   --token-button-border-color-critical-active: var(--token-color-palette-red-400);
   --token-button-border-color-critical-default: var(--token-color-foreground-critical-on-surface);
   --token-button-border-color-critical-focus-external: var(--token-color-focus-critical-external); /** TODO - replace the `magenta` values with the correct ones */
@@ -62,14 +76,13 @@
   --token-button-border-color-primary-active: var(--token-color-palette-blue-400);
   --token-button-border-color-primary-default: var(--token-color-palette-blue-300);
   --token-button-border-color-primary-focus-external: var(--token-color-focus-action-external); /** TODO - replace the `magenta` values with the correct ones */
-  --token-button-border-color-primary-focus-internal: var(--token-color-focus-action-internal); /** TODO - replace the `pink` values with the correct ones */
+  --token-button-border-color-primary-focus-internal: var(--token-color-palette-neutral-0); /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-primary-hover: var(--token-color-palette-blue-300);
   --token-button-border-color-secondary-active: var(--token-color-border-strong);
   --token-button-border-color-secondary-default: var(--token-color-border-strong);
   --token-button-border-color-secondary-focus-external: var(--token-color-focus-action-external); /** TODO - replace the `magenta` values with the correct ones */
   --token-button-border-color-secondary-focus-internal: var(--token-color-focus-action-internal); /** TODO - replace the `pink` values with the correct ones */
   --token-button-border-color-secondary-hover: var(--token-color-border-strong);
-  --token-button-border-radius: var(--token-border-radius-small);
   --token-button-foreground-color-critical-active: var(--token-color-foreground-high-contrast);
   --token-button-foreground-color-critical-default: var(--token-color-foreground-critical-on-surface);
   --token-button-foreground-color-critical-focus: var(--token-color-foreground-critical-on-surface);
@@ -119,9 +132,11 @@
   --token-button-typography-font-size-large: 1rem;
   --token-button-typography-font-size-medium: 0.875rem;
   --token-button-typography-font-size-small: 0.8125rem;
-  --token-button-typography-line-height-large: 1.5; /** 24px = 1.5 */
-  --token-button-typography-line-height-medium: 1.1429; /** 14px ~ 1.1429 */
-  --token-button-typography-line-height-small: 0.9286; /** 14px ~ 0.9286 - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-button-typography-line-height-large: 1.5;
+  --token-button-typography-line-height-medium: 1.1429;
+  --token-button-typography-line-height-small: 0.9286;
+  --token-card-surface-color-primary: var(--token-color-surface-primary);
+  --token-card-surface-color-secondary: var(--token-color-surface-faint);
   --token-color-border-action: var(--token-color-palette-blue-100);
   --token-color-border-critical: var(--token-color-palette-red-100);
   --token-color-border-faint: var(--token-color-palette-alpha-100);
@@ -224,6 +239,12 @@
   --token-copy-button-surface-color-active: var(--token-button-surface-color-secondary-active);
   --token-copy-button-surface-color-default: var(--token-button-surface-color-secondary-default);
   --token-copy-button-surface-color-hover: var(--token-button-surface-color-secondary-hover);
+  --token-dialog-primitive-border-color: rgba(0, 0, 0, 0);
+  --token-dialog-primitive-header-tagline-font-size: var(--token-typography-body-100-font-size);
+  --token-dialog-primitive-header-tagline-line-height: var(--token-typography-body-100-line-height);
+  --token-dialog-primitive-header-title-font-weight: var(--token-typography-font-weight-semibold);
+  --token-dialog-primitive-padding-horizontal: 24px;
+  --token-dialog-primitive-padding-vertical: 16px;
   --token-dismiss-button-border-color-active: var(--token-color-border-strong);
   --token-dismiss-button-foreground-color-active: var(--token-color-foreground-strong);
   --token-dismiss-button-foreground-color-default: var(--token-color-foreground-faint);
@@ -257,6 +278,14 @@
   --token-link-standalone-typography-line-height-large: 1.5; /** 24px = 1.5 */
   --token-link-standalone-typography-line-height-medium: 1.143; /** 16px ~= 1.143 */
   --token-link-standalone-typography-line-height-small: 1.231; /** 16px ~= 1.231 */
+  --token-modal-header-border-color-critical: var(--token-color-border-critical);
+  --token-modal-header-border-color-warning: var(--token-color-border-warning);
+  --token-modal-header-foreground-color-critical: var(--token-color-foreground-critical-on-surface);
+  --token-modal-header-foreground-color-warning: var(--token-color-foreground-warning-on-surface);
+  --token-modal-header-surface-color-critical: var(--token-color-surface-critical);
+  --token-modal-header-surface-color-warning: var(--token-color-surface-warning);
+  --token-modal-header-tagline-color-critical: var(--token-color-foreground-critical-on-surface);
+  --token-modal-header-tagline-color-warning: var(--token-color-foreground-warning-on-surface);
   --token-rich-tooltip-bubble-arrow-size: 20px;
   --token-rich-tooltip-bubble-border-color: #656a7633;
   --token-rich-tooltip-bubble-border-radius: var(--token-border-radius-small);
@@ -273,6 +302,8 @@
   --token-surface-low-box-shadow: 0 0 0 1px #656a7626, 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
   --token-surface-mid-box-shadow: 0 0 0 1px #656a7626, 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
+  --token-tabs-foreground-color-selected-default: var(--token-color-foreground-action);
+  --token-tabs-foreground-color-selected-hover: var(--token-color-foreground-action-hover);
   --token-tag-border-radius: 50px;
   --token-tag-foreground-color-default: var(--token-color-foreground-primary);
   --token-tag-icon-color: var(--token-color-foreground-primary);
