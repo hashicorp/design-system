@@ -11,7 +11,6 @@ interface DocCodeGroupExpandButtonSignature {
   Args: {
     isExpanded: boolean;
     onToggleExpand: () => void;
-    filename?: string;
   };
   Element: HTMLButtonElement;
 }

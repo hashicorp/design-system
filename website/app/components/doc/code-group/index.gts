@@ -175,7 +175,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
             @currentLanguage={{this.currentView}}
             @options={{this.languageOptions}}
             @onLanguageChange={{this.handleLanguageChange}}
-            @filename={{@filename}}
           />
         </:primary>
         <:secondary>
@@ -205,7 +204,6 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
             <DocCodeGroupExpandButton
               @isExpanded={{this.isExpanded}}
               @onToggleExpand={{this.handleExpandClick}}
-              @filename={{@filename}}
             />
           </div>
         {{/if}}

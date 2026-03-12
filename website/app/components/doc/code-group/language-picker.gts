@@ -12,7 +12,6 @@ interface DocCodeGroupLanguagePickerSignature {
     currentLanguage: string;
     options: Array<{ label: string; value: string }>;
     onLanguageChange: (event: Event) => void;
-    filename?: string;
   };
   Element: HTMLFieldSetElement;
 }
