@@ -448,6 +448,8 @@
   --token-pagination-nav-indicator-spacing: 6px;
   --token-pagination-child-spacing-vertical: 8px;
   --token-pagination-child-spacing-horizontal: 20px;
+  --token-tabs-foreground-color-selected-default: var(--token-color-foreground-action);
+  --token-tabs-foreground-color-selected-hover: var(--token-color-foreground-action-hover);
   --token-tabs-tab-height-medium: 36px;
   --token-tabs-tab-height-large: 48px;
   --token-tabs-tab-padding-horizontal-medium: 12px;
@@ -9457,10 +9459,10 @@ button.hds-button[href]::after {
   color: var(--token-color-foreground-action);
 }
 .hds-tabs__tab.hds-tabs__tab--is-selected {
-  color: var(--token-color-foreground-action);
+  color: var(--tabs-foreground-color-selected-default);
 }
 .hds-tabs__tab.hds-tabs__tab--is-selected:hover {
-  color: var(--token-color-foreground-action-hover);
+  color: var(--tabs-foreground-color-selected-hover);
 }
 .hds-tabs__tab.hds-tabs__tab--is-selected:hover ~ .hds-tabs__tab-indicator {
   background: var(--token-color-foreground-action-hover);

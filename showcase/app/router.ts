@@ -182,6 +182,7 @@ Router.map(function () {
       this.route('modal');
       this.route('segmented-group');
       this.route('separator');
+      this.route('tabs');
       this.route('tooltip');
     });
   });
