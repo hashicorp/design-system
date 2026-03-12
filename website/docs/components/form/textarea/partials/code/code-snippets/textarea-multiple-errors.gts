@@ -13,7 +13,6 @@ const LocalComponent: TemplateOnlyComponent = <template>
     <F.Error as |E|>
       <E.Message>Length should be at least 12 characters</E.Message>
       <E.Message>Can not contain HTML</E.Message>
-      <E.Message>B</E.Message>
     </F.Error>
   </HdsFormTextareaField>
 </template>;
