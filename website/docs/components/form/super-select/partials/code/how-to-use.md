@@ -56,6 +56,8 @@ To group similar sets of options, pass a nested data structure specifying the `g
 If options are implemented as an array of strings and have the same name, they will be treated as the same, so selecting one will select others with the same name. To avoid this, implement your options using objects. (e.g. [{name: "name", label: "label"}, ...])
 !!!
 
+Note that the options in the JavaScript in this example are stored as a nested array.
+
 [[code-snippets/super-select-multiple-grouped]]
 
 ### Rich-content options
@@ -76,7 +78,7 @@ By default, all content of selected options displays in the “trigger”. Visua
 
 To simplify the content displayed in the selected options, use `@selectedItemComponent` to specify a custom component with only the content you wish to display.
 
-An example of a custom `selectedItemComponent` example:
+An example of a custom `selectedItemComponent`:
 
 [[code-snippets/example-selected-item-component execute=false]]
 
