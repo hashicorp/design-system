@@ -1,5 +1,23 @@
 # @hashicorp/flight-icons
 
+## 5.0.0
+
+### Major Changes
+
+"Carbonized" all the assets, by adding two glyphs under the same icon (one for the "classic" HDS Flight icon, one for the IBM Carbon icon; in Figma they're controlled by `isHDS`/`isCDS` variables, while in code they are handled by the `HdsIcon` component). This change has updated the internal SVG code for every icon (hence the "major" version change), but visually everything should remain the same.
+
+<small class="doc-whats-new-changelog-metadata">[#3692](https://github.com/hashicorp/design-system/pull/3692)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Minor Changes
+
+`workspace` icon added
+
+<small class="doc-whats-new-changelog-metadata">[#3689](https://github.com/hashicorp/design-system/pull/3689)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.2.1
 
 ### Patch Changes

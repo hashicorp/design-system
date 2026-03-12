@@ -12,6 +12,24 @@
   </a>
 </p>
 
+## 5.0.0
+
+**Major changes**
+
+"Carbonized" all the assets, by adding two glyphs under the same icon (one for the "classic" HDS Flight icon, one for the IBM Carbon icon; in Figma they're controlled by `isHDS`/`isCDS` variables, while in code they are handled by the `HdsIcon` component). This change has updated the internal SVG code for every icon (hence the "major" version change), but visually everything should remain the same.
+
+<small class="doc-whats-new-changelog-metadata">[#3692](https://github.com/hashicorp/design-system/pull/3692)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Minor changes**
+
+`workspace` icon added
+
+<small class="doc-whats-new-changelog-metadata">[#3689](https://github.com/hashicorp/design-system/pull/3689)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.2.1
 
 **Patch changes**
@@ -225,24 +243,6 @@ Added two icon logos: `minio` and `git`.
 `sparkle` icon added
 
 <small class="doc-whats-new-changelog-metadata">[#2081](https://github.com/hashicorp/design-system/pull/2081)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 3.1.0
-
-**Minor changes**
-
-Reorganized the icons within the "Core" icon set into 16 more descriptive categories.
-
-<small class="doc-whats-new-changelog-metadata">[#1986](https://github.com/hashicorp/design-system/pull/1986)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-Added "category" to the icons' metadata in the `catalog.json` file.
-
-<small class="doc-whats-new-changelog-metadata">[#1967](https://github.com/hashicorp/design-system/pull/1967)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
