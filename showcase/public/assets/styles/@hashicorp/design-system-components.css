@@ -363,6 +363,8 @@
   --token-button-icon-size-small: 12px;
   --token-button-icon-size-medium: 16px;
   --token-button-icon-size-large: 24px;
+  --token-card-surface-color-primary: #ffffff;
+  --token-card-surface-color-secondary: #fafafa;
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;
@@ -3596,7 +3598,7 @@ button.hds-button[href]::after {
  */
 .hds-card__container {
   position: relative;
-  background-color: #fff;
+  background-color: var(--token-card-surface-color-primary);
   border-radius: var(--token-border-radius-medium);
 }
 
@@ -3685,11 +3687,11 @@ button.hds-button[href]::after {
 }
 
 .hds-card__container--background-neutral-primary {
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-card-surface-color-primary);
 }
 
 .hds-card__container--background-neutral-secondary {
-  background-color: var(--token-color-surface-faint);
+  background-color: var(--token-card-surface-color-secondary);
 }
 
 .hds-card__container--overflow-hidden {
