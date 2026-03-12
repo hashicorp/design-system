@@ -29,6 +29,11 @@ const isCarbonizationRoute = (routeName: string | null | undefined) => {
   return routeName && routeName?.match(/^page-carbonization/) ? true : false;
 };
 
+const SESSIONSTORAGE_PREVIOUS_STYLESHEET =
+  'shw-carbonization-previous-stylesheet';
+const SESSIONSTORAGE_PREVIOUS_THEME = 'shw-carbonization-previous-theme';
+const SESSIONSTORAGE_PREVIOUS_MODE = 'shw-carbonization-previous-mode';
+
 export default class Application extends Component {
   @service declare readonly router: RouterService;
   @service declare readonly hdsTheming: HdsThemingService;
@@ -77,8 +82,10 @@ export default class Application extends Component {
       this.isCurrentRouteCarbonized === undefined
     ) {
       if (this.isCarbonizationPage) {
+        // we use the "advanced" stylesheet, because it contains the tokens for all the `cds` modes
         this.shwTheming.setStylesheet('css-selectors--advanced');
-        // TODO should we set theme and mode here too, in some conditions?
+        // we don't want any HDS theming applied to the page, because all the themes are controlled at `<ShwCarbonizationComparisonGrid>` level
+        this.hdsTheming.setTheme({ theme: undefined });
       }
     }
     // transitioning from a carbonized page to a non-carbonized
@@ -86,10 +93,26 @@ export default class Application extends Component {
       this.isPreviousRouteCarbonized === true &&
       this.isCurrentRouteCarbonized === false
     ) {
+      this.previousStylesheet = (sessionStorage.getItem(
+        SESSIONSTORAGE_PREVIOUS_STYLESHEET,
+      ) || undefined) as ShwStylesheets | undefined;
+      this.previousTheme = (sessionStorage.getItem(
+        SESSIONSTORAGE_PREVIOUS_THEME,
+      ) || undefined) as HdsThemes | undefined;
+      this.previousMode = (sessionStorage.getItem(
+        SESSIONSTORAGE_PREVIOUS_MODE,
+      ) || undefined) as HdsModes | undefined;
+
       // we restore the previous stylesheet/theme/mode
       const stylesheet: ShwStylesheets =
         this.previousStylesheet ?? ('standard' as ShwStylesheets);
+      const theme: HdsThemes = this.previousTheme ?? ('light' as HdsThemes);
       this.shwTheming.setStylesheet(stylesheet);
+      this.hdsTheming.setTheme({ theme });
+
+      sessionStorage.removeItem(SESSIONSTORAGE_PREVIOUS_STYLESHEET);
+      sessionStorage.removeItem(SESSIONSTORAGE_PREVIOUS_THEME);
+      sessionStorage.removeItem(SESSIONSTORAGE_PREVIOUS_MODE);
     }
     // transitioning from a non-carbonized page to a carbonized page
     if (
@@ -100,10 +123,24 @@ export default class Application extends Component {
       this.previousStylesheet = this.shwTheming.currentStylesheet;
       this.previousTheme = this.hdsTheming.currentTheme;
       this.previousMode = this.hdsTheming.currentMode;
+
+      sessionStorage.setItem(
+        SESSIONSTORAGE_PREVIOUS_STYLESHEET,
+        this.previousStylesheet ?? '',
+      );
+      sessionStorage.setItem(
+        SESSIONSTORAGE_PREVIOUS_THEME,
+        this.previousTheme ?? '',
+      );
+      sessionStorage.setItem(
+        SESSIONSTORAGE_PREVIOUS_MODE,
+        this.previousMode ?? '',
+      );
+
+      // we use the "advanced" stylesheet, because it contains the tokens for all the `cds` modes
       this.shwTheming.setStylesheet('css-selectors--advanced');
-      if (this.previousTheme === undefined && this.previousMode === undefined) {
-        this.hdsTheming.setTheme({ theme: 'light' });
-      }
+      // we don't want any HDS theming applied to the page, because all the themes are controlled at `<ShwCarbonizationComparisonGrid>` level
+      this.hdsTheming.setTheme({ theme: undefined });
     }
   };
 
