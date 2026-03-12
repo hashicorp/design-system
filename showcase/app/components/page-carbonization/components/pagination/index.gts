@@ -106,12 +106,9 @@ const PaginationCarbonizationIndex: TemplateOnlyComponent = <template>
 
     <ShwTextH3>Closest Carbon equivalent</ShwTextH3>
 
-    <mark>ISSUE: Carbon Pagination has a responsive layout and hides part of the
-      UI in this comparison view</mark>
-
     <ShwCarbonizationComparisonGrid
       @label="showLabels=false, showSizeSelector=true"
-      @layout="side-by-side"
+      @layout="column"
     >
       <:theming>
         {{!-- <ShwOutliner {{style outline-offset="7px"}}> --}}
