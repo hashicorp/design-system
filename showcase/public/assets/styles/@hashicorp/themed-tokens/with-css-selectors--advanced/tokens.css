@@ -4,6 +4,9 @@
 
 :root,
 .hds-theme-default {
+  --token-app-footer-focus-color-action-internal: var(
+    --token-color-focus-action-internal
+  );
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
   --token-badge-count-padding-horizontal-medium: 12px;
@@ -320,6 +323,8 @@
     --token-color-palette-amber-300
   );
   --token-color-foreground-warning: var(--token-color-palette-amber-200);
+  --token-color-hashicorp-brand: #000000;
+  --token-color-hcp-brand: #000000;
   --token-color-page-faint: var(--token-color-palette-neutral-50);
   --token-color-page-primary: var(--token-color-palette-neutral-0);
   --token-color-palette-alpha-100: #656a761a;
@@ -538,6 +543,7 @@
 
 @media (prefers-color-scheme: light) {
   .hds-theme-system {
+    --token-app-footer-focus-color-action-internal: #0f62fe;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -688,6 +694,8 @@
     --token-color-foreground-warning-high-contrast: #483700;
     --token-color-foreground-warning-on-surface: #684e00;
     --token-color-foreground-warning: #8e6a00;
+    --token-color-hashicorp-brand: #000000;
+    --token-color-hcp-brand: #000000;
     --token-color-page-faint: #ffffff;
     --token-color-page-primary: #ffffff;
     --token-color-palette-alpha-100: #e0e0e0;
@@ -875,6 +883,7 @@
 
 @media (prefers-color-scheme: dark) {
   .hds-theme-system {
+    --token-app-footer-focus-color-action-internal: #ffffff;
     --token-badge-border-radius: var(--token-border-radius-rounded);
     --token-badge-count-padding-horizontal-large: 12px;
     --token-badge-count-padding-horizontal-medium: 8px;
@@ -1025,6 +1034,8 @@
     --token-color-foreground-warning-high-contrast: #fddc69;
     --token-color-foreground-warning-on-surface: #f1c21b;
     --token-color-foreground-warning: #d2a106;
+    --token-color-hashicorp-brand: #ffffff;
+    --token-color-hcp-brand: #ffffff;
     --token-color-page-faint: #161616;
     --token-color-page-primary: #161616;
     --token-color-palette-alpha-100: #393939;
@@ -1212,6 +1223,7 @@
 
 .hds-theme-light,
 .hds-mode-cds-g0 {
+  --token-app-footer-focus-color-action-internal: #0f62fe;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -1362,6 +1374,8 @@
   --token-color-foreground-warning-high-contrast: #483700;
   --token-color-foreground-warning-on-surface: #684e00;
   --token-color-foreground-warning: #8e6a00;
+  --token-color-hashicorp-brand: #000000;
+  --token-color-hcp-brand: #000000;
   --token-color-page-faint: #ffffff;
   --token-color-page-primary: #ffffff;
   --token-color-palette-alpha-100: #e0e0e0;
@@ -1548,6 +1562,7 @@
 
 .hds-theme-dark,
 .hds-mode-cds-g100 {
+  --token-app-footer-focus-color-action-internal: #ffffff;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -1698,6 +1713,8 @@
   --token-color-foreground-warning-high-contrast: #fddc69;
   --token-color-foreground-warning-on-surface: #f1c21b;
   --token-color-foreground-warning: #d2a106;
+  --token-color-hashicorp-brand: #ffffff;
+  --token-color-hcp-brand: #ffffff;
   --token-color-page-faint: #161616;
   --token-color-page-primary: #161616;
   --token-color-palette-alpha-100: #393939;
@@ -1883,6 +1900,7 @@
 }
 
 .hds-mode-cds-g10 {
+  --token-app-footer-focus-color-action-internal: #0f62fe;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -2033,6 +2051,8 @@
   --token-color-foreground-warning-high-contrast: #483700;
   --token-color-foreground-warning-on-surface: #684e00;
   --token-color-foreground-warning: #8e6a00;
+  --token-color-hashicorp-brand: #000000;
+  --token-color-hcp-brand: #000000;
   --token-color-page-faint: #f4f4f4;
   --token-color-page-primary: #f4f4f4;
   --token-color-palette-alpha-100: #c6c6c6;
@@ -2218,6 +2238,7 @@
 }
 
 .hds-mode-cds-g90 {
+  --token-app-footer-focus-color-action-internal: #ffffff;
   --token-badge-border-radius: var(--token-border-radius-rounded);
   --token-badge-count-padding-horizontal-large: 12px;
   --token-badge-count-padding-horizontal-medium: 8px;
@@ -2368,6 +2389,8 @@
   --token-color-foreground-warning-high-contrast: #fddc69;
   --token-color-foreground-warning-on-surface: #f1c21b;
   --token-color-foreground-warning: #d2a106;
+  --token-color-hashicorp-brand: #ffffff;
+  --token-color-hcp-brand: #ffffff;
   --token-color-page-faint: #262626;
   --token-color-page-primary: #262626;
   --token-color-palette-alpha-100: #525252;
@@ -2660,8 +2683,6 @@ we redeclare each "computed" variable in every theme scope where its "source" va
   --token-color-consul-gradient-primary-start: #ff99be;
   --token-color-consul-gradient-primary-stop: #da306e;
   --token-color-consul-surface: #ffe9f1;
-  --token-color-hashicorp-brand: #000000;
-  --token-color-hcp-brand: #000000;
   --token-color-nomad-border: #bff3dd;
   --token-color-nomad-brand: #06d092;
   --token-color-nomad-foreground: #008661;

@@ -3,6 +3,7 @@
  */
 
 :root {
+  --token-app-footer-focus-color-action-internal: var(--token-color-focus-action-internal);
   --token-badge-border-radius: var(--token-border-radius-small);
   --token-badge-count-padding-horizontal-large: 14px;
   --token-badge-count-padding-horizontal-medium: 12px;
@@ -153,6 +154,8 @@
   --token-color-foreground-warning-high-contrast: var(--token-color-palette-amber-500);
   --token-color-foreground-warning-on-surface: var(--token-color-palette-amber-300);
   --token-color-foreground-warning: var(--token-color-palette-amber-200);
+  --token-color-hashicorp-brand: #000000;
+  --token-color-hcp-brand: #000000;
   --token-color-page-faint: var(--token-color-palette-neutral-50);
   --token-color-page-primary: var(--token-color-palette-neutral-0);
   --token-color-palette-alpha-100: #656a761a;

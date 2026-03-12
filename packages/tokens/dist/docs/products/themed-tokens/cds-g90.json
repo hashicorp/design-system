@@ -3430,7 +3430,7 @@
   {
     "key": "{color.hashicorp.brand}",
     "$type": "color",
-    "$value": "#000000",
+    "$value": "#ffffff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -3807,7 +3807,7 @@
   {
     "key": "{color.hcp.brand}",
     "$type": "color",
-    "$value": "#000000",
+    "$value": "#ffffff",
     "group": "branding",
     "original": {
       "$type": "color",
@@ -5818,6 +5818,41 @@
       "focus-ring",
       "critical",
       "box-shadow"
+    ]
+  },
+  {
+    "key": "{app-footer.focus.color.action.internal}",
+    "$type": "color",
+    "$value": "#ffffff",
+    "$modes": {
+      "default": "var(--token-color-focus-action-internal)",
+      "cds-g0": "#0f62fe",
+      "cds-g10": "#0f62fe",
+      "cds-g90": "#ffffff",
+      "cds-g100": "#ffffff"
+    },
+    "original": {
+      "$type": "color",
+      "$value": "{carbon.themes.g90.focus}",
+      "$modes": {
+        "default": "var(--token-color-focus-action-internal)",
+        "cds-g0": "{carbon.themes.white.focus}",
+        "cds-g10": "{carbon.themes.g10.focus}",
+        "cds-g90": "{carbon.themes.g90.focus}",
+        "cds-g100": "{carbon.themes.g100.focus}"
+      },
+      "key": "{app-footer.focus.color.action.internal}"
+    },
+    "name": "token-app-footer-focus-color-action-internal",
+    "attributes": {
+      "category": "app-footer"
+    },
+    "path": [
+      "app-footer",
+      "focus",
+      "color",
+      "action",
+      "internal"
     ]
   },
   {
