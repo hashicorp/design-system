@@ -98,11 +98,11 @@
 // DISMISS
 
 .hds-alert__dismiss {
-  margin-top: 2px; // for alignment with the main icon and text
-  margin-left: 16px;
+  // for visual alignment with the main icon and text
+  margin: -2px -4px -4px 12px;
 
   .hds-alert--type-compact & {
-    margin-top: 1px;
+    margin-top: -3px;
   }
 }
 
