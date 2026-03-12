@@ -57,7 +57,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
     }
 
     @include hds-apply-only-if-carbon() {
-      &::after {
+      &:last-child::after {
         padding: 0 8px;
         color: var(--token-breadcrumb-divider-color);
         content: "/";
