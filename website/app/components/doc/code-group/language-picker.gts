@@ -6,9 +6,6 @@ import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { eq } from 'ember-truth-helpers';
 import { guidFor } from '@ember/object/internals';
-import { service } from '@ember/service';
-
-import EventTrackingService from 'website/services/event-tracking';
 
 interface DocCodeGroupLanguagePickerSignature {
   Args: {
@@ -21,21 +18,7 @@ interface DocCodeGroupLanguagePickerSignature {
 }
 
 export default class DocCodeGroupLanguagePicker extends Component<DocCodeGroupLanguagePickerSignature> {
-  @service declare readonly eventTracking: EventTrackingService;
-
   id = guidFor(this);
-
-  onClick = (event: Event) => {
-    const { filename, onLanguageChange } = this.args;
-
-    onLanguageChange(event);
-
-    const target = event.target as HTMLInputElement;
-
-    this.eventTracking.trackEvent(
-      `Demo - ${filename} - Language Picker - ${target.value}`,
-    );
-  };
 
   <template>
     <fieldset
