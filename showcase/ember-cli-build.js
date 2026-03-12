@@ -18,8 +18,10 @@ module.exports = function (defaults) {
       precision: 4,
       includePaths: [
         'node_modules/@hashicorp/design-system-tokens/dist/products/css',
-        // we use src/styles (instead of dist/styles) to enable hot reload during development
+        // use src/styles (instead of dist/styles) to enable hot reload during development
         'node_modules/@hashicorp/design-system-components/src/styles',
+        // fallback to dist styles for compiled assets in CI and tests
+        'node_modules/@hashicorp/design-system-components/dist/styles',
         'node_modules/ember-power-select/vendor',
       ],
     },
