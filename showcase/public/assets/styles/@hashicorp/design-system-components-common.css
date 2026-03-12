@@ -7479,6 +7479,10 @@ button.hds-button[href]::after {
  * Copyright IBM Corp. 2021, 2025
  * SPDX-License-Identifier: MPL-2.0
  */
+/**
+ * Copyright IBM Corp. 2021, 2025
+ * SPDX-License-Identifier: MPL-2.0
+ */
 .hds-pagination {
   display: grid;
   grid-template-areas: "info nav selector";
@@ -7631,6 +7635,12 @@ button.hds-button[href]::after {
   background-color: currentColor;
   border-radius: 2px;
   content: "";
+}
+.hds-mode-cds-g0 .hds-pagination-nav__number--is-selected > .hds-font-weight-medium,
+.hds-mode-cds-g10 .hds-pagination-nav__number--is-selected > .hds-font-weight-medium,
+.hds-mode-cds-g90 .hds-pagination-nav__number--is-selected > .hds-font-weight-medium,
+.hds-mode-cds-g100 .hds-pagination-nav__number--is-selected > .hds-font-weight-medium {
+  font-weight: 600;
 }
 
 .hds-pagination-nav__ellipsis {
