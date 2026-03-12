@@ -5,7 +5,7 @@ import { on } from '@ember/modifier';
 import { HdsFormTextInputField } from '@hashicorp/design-system-components/components';
 
 export default class LocalComponent extends Component {
-  @tracked value = '';
+  @tracked value = 'my-cluster-1234';
   minLength = 30;
 
   get fieldIsInvalid() {

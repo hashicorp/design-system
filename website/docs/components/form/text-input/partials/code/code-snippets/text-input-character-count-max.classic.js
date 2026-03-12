@@ -3,7 +3,7 @@ import { tracked } from '@glimmer/tracking';
 import Component from '@glimmer/component';
 
 export default class LocalComponent extends Component {
-  @tracked value = '';
+  @tracked value = 'my-cluster-1234';
 
   @action
   updateValue(event) {
