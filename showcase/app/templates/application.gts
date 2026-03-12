@@ -77,8 +77,10 @@ export default class Application extends Component {
       this.isCurrentRouteCarbonized === undefined
     ) {
       if (this.isCarbonizationPage) {
+        // we use the "advanced" stylesheet, because it contains the tokens for all the `cds` modes
         this.shwTheming.setStylesheet('css-selectors--advanced');
-        // TODO should we set theme and mode here too, in some conditions?
+        // we don't want any HDS theming applied to the page, because all the themes are controlled at `<ShwCarbonizationComparisonGrid>` level
+        this.hdsTheming.setTheme({ theme: undefined });
       }
     }
     // transitioning from a carbonized page to a non-carbonized
@@ -89,7 +91,10 @@ export default class Application extends Component {
       // we restore the previous stylesheet/theme/mode
       const stylesheet: ShwStylesheets =
         this.previousStylesheet ?? ('standard' as ShwStylesheets);
+      const theme: HdsThemes = this.previousTheme ?? ('light' as HdsThemes);
       this.shwTheming.setStylesheet(stylesheet);
+      // this.hdsTheming.setTheme({ theme, options: undefined });
+      this.hdsTheming.setTheme({ theme });
     }
     // transitioning from a non-carbonized page to a carbonized page
     if (
@@ -100,10 +105,10 @@ export default class Application extends Component {
       this.previousStylesheet = this.shwTheming.currentStylesheet;
       this.previousTheme = this.hdsTheming.currentTheme;
       this.previousMode = this.hdsTheming.currentMode;
+      // we use the "advanced" stylesheet, because it contains the tokens for all the `cds` modes
       this.shwTheming.setStylesheet('css-selectors--advanced');
-      if (this.previousTheme === undefined && this.previousMode === undefined) {
-        this.hdsTheming.setTheme({ theme: 'light' });
-      }
+      // we don't want any HDS theming applied to the page, because all the themes are controlled at `<ShwCarbonizationComparisonGrid>` level
+      this.hdsTheming.setTheme({ theme: undefined });
     }
   };
 

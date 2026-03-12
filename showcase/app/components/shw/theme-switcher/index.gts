@@ -121,6 +121,7 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
       {{#if this.hasDebuggingPanel}}
         <ShwThemeSwitcherDebuggingPanel
           @showAdvancedOptions={{this.showAdvancedOptions}}
+          @isCarbonizationPage={{@isCarbonizationPage}}
         />
       {{/if}}
     </div>

@@ -14,6 +14,7 @@ import HdsThemingService from '@hashicorp/design-system-components/services/hds-
 interface ShwThemeSwitcherDebuggingPanelSignature {
   Args: {
     showAdvancedOptions?: boolean;
+    isCarbonizationPage?: boolean;
   };
 }
 
@@ -29,30 +30,32 @@ export default class ShwThemeSwitcherDebuggingPanel extends Component<ShwThemeSw
       <ShwLabel
         class="shw-theme-switcher__debugging-panel-value"
       >{{this.shwTheming.currentStylesheet}}</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-key"
-      >currentTheme:</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-value"
-      >{{this.hdsTheming.currentTheme}}</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-key"
-      >currentMode:</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-value"
-      >{{this.hdsTheming.currentMode}}</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-key"
-      >currentLightTheme:</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-value"
-      >{{this.hdsTheming.currentLightTheme}}</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-key"
-      >currentDarkTheme:</ShwLabel>
-      <ShwLabel
-        class="shw-theme-switcher__debugging-panel-value"
-      >{{this.hdsTheming.currentDarkTheme}}</ShwLabel>
+      {{#unless @isCarbonizationPage}}
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-key"
+        >currentTheme:</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-value"
+        >{{this.hdsTheming.currentTheme}}</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-key"
+        >currentMode:</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-value"
+        >{{this.hdsTheming.currentMode}}</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-key"
+        >currentLightTheme:</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-value"
+        >{{this.hdsTheming.currentLightTheme}}</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-key"
+        >currentDarkTheme:</ShwLabel>
+        <ShwLabel
+          class="shw-theme-switcher__debugging-panel-value"
+        >{{this.hdsTheming.currentDarkTheme}}</ShwLabel>
+      {{/unless}}
     </div>
   </template>
 }
