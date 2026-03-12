@@ -286,7 +286,6 @@
   --token-badge-icon-size-medium: 16px;
   --token-badge-icon-size-large: 16px;
   --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
-  --token-breadcrumb-typography-letter-spacing: 0;
   --token-breadcrumb-divider-color: #c2c5cb;
   --token-breadcrumb-link-foreground-color-default: #656a76;
   --token-breadcrumb-link-foreground-color-hover: #3b3d45;
