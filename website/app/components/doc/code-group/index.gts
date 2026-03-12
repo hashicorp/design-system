@@ -7,6 +7,8 @@ import { CodeBlock } from 'ember-shiki';
 import { tracked } from '@glimmer/tracking';
 import { notEq } from 'ember-truth-helpers';
 import { modifier } from 'ember-modifier';
+import { service } from '@ember/service';
+
 import type Owner from '@ember/owner';
 
 import DocCodeGroupActionBar from 'website/components/doc/code-group/action-bar';
@@ -14,6 +16,7 @@ import DocCodeGroupExpandButton from 'website/components/doc/code-group/expand-b
 import DocCodeGroupLanguagePicker from 'website/components/doc/code-group/language-picker';
 import DocCopyButton from 'website/components/doc/copy-button';
 import DynamicTemplate from 'website/components/dynamic-template';
+import EventTrackingService from 'website/services/event-tracking';
 
 interface DocCodeGroupSignature {
   Args: {
@@ -38,6 +41,8 @@ const unescapeCode = (code: string) => {
 };
 
 export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
+  @service declare readonly eventTracking: EventTrackingService;
+
   @tracked currentView = 'hbs';
   @tracked isExpanded = false;
   @tracked languageOptions: Array<{ label: string; value: string }> = [];
@@ -135,10 +140,18 @@ export default class DocCodeGroup extends Component<DocCodeGroupSignature> {
     if (input.checked) {
       this.currentView = input.value;
     }
+
+    this.eventTracking.trackEvent(
+      `Demo - ${this.args.filename} - Language Picker - ${input.value}`,
+    );
   };
 
   handleExpandClick = () => {
     this.isExpanded = !this.isExpanded;
+
+    this.eventTracking.trackEvent(
+      `Demo - ${this.args.filename} - Expand Button - ${this.isExpanded}`,
+    );
   };
 
   // NOTE: we don't have access to the code element inside the CodeBlock component, so we need to set the tabindex using query selectors (need to set tabindex because the code element can be scrollable and it needs to be focusable for keyboard users)
