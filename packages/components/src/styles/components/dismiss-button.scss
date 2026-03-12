@@ -11,8 +11,11 @@
 @use "../mixins/carbonization" as *;
 
 .hds-dismiss-button {
+  display: inline-flex;
   flex: none;
-  padding: var(--token-dismiss-button-padding);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   color: var(--token-dismiss-button-foreground-color-default);
   background-color: transparent;
   border: none;
