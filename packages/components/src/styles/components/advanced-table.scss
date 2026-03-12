@@ -127,10 +127,19 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       }
     }
 
+    .hds-advanced-table__th--is-sticky-column ~ .hds-advanced-table__th:not(.hds-advanced-table__th--is-sticky-column) {
+      z-index: 0;
+
+      &:has(.hds-advanced-table__th-reorder-drop-target--is-dragging-over) {
+        z-index: 1;
+      }
+    }
+
     .hds-advanced-table__th-reorder-drop-target {
       position: absolute;
       top: 0;
       right: 0;
+      bottom: 0;
       left: 0;
       z-index: 1;
     }
@@ -255,6 +264,17 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       position: sticky;
       // has a higher z-index than the sticky header content
       z-index: 7;
+
+      &:has(~.hds-advanced-table__th .hds-advanced-table__th-reorder-handle)::after {
+        position: absolute;
+        right: 0;
+        bottom: -14px;
+        left: 0;
+        height: 14px;
+        background-color: var(--token-color-surface-primary);
+        content: "";
+        pointer-events: none;
+      }
     }
 
     .hds-advanced-table__th--is-sticky-column-pinned {

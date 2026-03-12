@@ -173,15 +173,6 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       allGroups = [...allGroups, this._reorderOptions];
     }
 
-    // we don't allow pinning/unpinning of the sticky column if columns are reorderable
-    if (
-      isStickyColumn !== undefined &&
-      column.isFirst &&
-      !hasReorderableColumns
-    ) {
-      allGroups = [...allGroups, this._stickyColumnOptions];
-    }
-
     return allGroups.reduce<HdsAdvancedTableThContextMenuOption[]>(
       (options, group, index) => {
         // Add a separator before each group except the first
