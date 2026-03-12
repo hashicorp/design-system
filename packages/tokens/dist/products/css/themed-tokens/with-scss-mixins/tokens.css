@@ -148,7 +148,6 @@
     --token-breadcrumb-truncation-toggle-surface-color-hover: var(
       --token-color-surface-interactive
     );
-    --token-breadcrumb-typography-letter-spacing: 0;
     --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: var(
       --token-color-palette-red-400
@@ -620,7 +619,6 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
-    --token-breadcrumb-typography-letter-spacing: 0.16px;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -954,7 +952,6 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
-    --token-breadcrumb-typography-letter-spacing: 0.16px;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -1288,7 +1285,6 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
-    --token-breadcrumb-typography-letter-spacing: 0.16px;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -1622,7 +1618,6 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #0043ce;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
-    --token-breadcrumb-typography-letter-spacing: 0.16px;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -1956,7 +1951,6 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
-    --token-breadcrumb-typography-letter-spacing: 0.16px;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);
@@ -2290,7 +2284,6 @@
     --token-breadcrumb-truncation-toggle-foreground-color-hover: #a6c8ff;
     --token-breadcrumb-truncation-toggle-surface-color-active: rgba(0, 0, 0, 0);
     --token-breadcrumb-truncation-toggle-surface-color-hover: rgba(0, 0, 0, 0);
-    --token-breadcrumb-typography-letter-spacing: 0.16px;
     --token-breadcrumb-typography-line-height: 1.28572; /** 16px = 1.2308 */
     --token-button-border-color-critical-active: rgba(0, 0, 0, 0);
     --token-button-border-color-critical-default: rgba(0, 0, 0, 0);

@@ -8363,41 +8363,6 @@
         "line-height"
       ]
     },
-    "token-breadcrumb-typography-letter-spacing": {
-      "key": "{breadcrumb.typography.letter-spacing}",
-      "$type": "number",
-      "$value": 0,
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.16px",
-        "cds-g10": "0.16px",
-        "cds-g90": "0.16px",
-        "cds-g100": "0.16px"
-      },
-      "original": {
-        "$type": "number",
-        "$value": 0,
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g10": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g90": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g100": "{carbon.typography.bodyCompact01.letter-spacing}"
-        },
-        "key": "{breadcrumb.typography.letter-spacing}"
-      },
-      "name": "token-breadcrumb-typography-letter-spacing",
-      "attributes": {
-        "category": "breadcrumb"
-      },
-      "path": [
-        "breadcrumb",
-        "typography",
-        "letter-spacing"
-      ]
-    },
     "token-breadcrumb-divider-color": {
       "key": "{breadcrumb.divider.color}",
       "$type": "color",
@@ -23851,41 +23816,6 @@
         "breadcrumb",
         "typography",
         "line-height"
-      ]
-    },
-    "token-breadcrumb-typography-letter-spacing": {
-      "key": "{breadcrumb.typography.letter-spacing}",
-      "$type": "number",
-      "$value": "0.16px",
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.16px",
-        "cds-g10": "0.16px",
-        "cds-g90": "0.16px",
-        "cds-g100": "0.16px"
-      },
-      "original": {
-        "$type": "number",
-        "$value": "{carbon.typography.bodyCompact01.letter-spacing}",
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g10": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g90": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g100": "{carbon.typography.bodyCompact01.letter-spacing}"
-        },
-        "key": "{breadcrumb.typography.letter-spacing}"
-      },
-      "name": "token-breadcrumb-typography-letter-spacing",
-      "attributes": {
-        "category": "breadcrumb"
-      },
-      "path": [
-        "breadcrumb",
-        "typography",
-        "letter-spacing"
       ]
     },
     "token-breadcrumb-divider-color": {
@@ -39343,41 +39273,6 @@
         "line-height"
       ]
     },
-    "token-breadcrumb-typography-letter-spacing": {
-      "key": "{breadcrumb.typography.letter-spacing}",
-      "$type": "number",
-      "$value": "0.16px",
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.16px",
-        "cds-g10": "0.16px",
-        "cds-g90": "0.16px",
-        "cds-g100": "0.16px"
-      },
-      "original": {
-        "$type": "number",
-        "$value": "{carbon.typography.bodyCompact01.letter-spacing}",
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g10": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g90": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g100": "{carbon.typography.bodyCompact01.letter-spacing}"
-        },
-        "key": "{breadcrumb.typography.letter-spacing}"
-      },
-      "name": "token-breadcrumb-typography-letter-spacing",
-      "attributes": {
-        "category": "breadcrumb"
-      },
-      "path": [
-        "breadcrumb",
-        "typography",
-        "letter-spacing"
-      ]
-    },
     "token-breadcrumb-divider-color": {
       "key": "{breadcrumb.divider.color}",
       "$type": "color",
@@ -54833,41 +54728,6 @@
         "line-height"
       ]
     },
-    "token-breadcrumb-typography-letter-spacing": {
-      "key": "{breadcrumb.typography.letter-spacing}",
-      "$type": "number",
-      "$value": "0.16px",
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.16px",
-        "cds-g10": "0.16px",
-        "cds-g90": "0.16px",
-        "cds-g100": "0.16px"
-      },
-      "original": {
-        "$type": "number",
-        "$value": "{carbon.typography.bodyCompact01.letter-spacing}",
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g10": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g90": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g100": "{carbon.typography.bodyCompact01.letter-spacing}"
-        },
-        "key": "{breadcrumb.typography.letter-spacing}"
-      },
-      "name": "token-breadcrumb-typography-letter-spacing",
-      "attributes": {
-        "category": "breadcrumb"
-      },
-      "path": [
-        "breadcrumb",
-        "typography",
-        "letter-spacing"
-      ]
-    },
     "token-breadcrumb-divider-color": {
       "key": "{breadcrumb.divider.color}",
       "$type": "color",
@@ -70321,41 +70181,6 @@
         "breadcrumb",
         "typography",
         "line-height"
-      ]
-    },
-    "token-breadcrumb-typography-letter-spacing": {
-      "key": "{breadcrumb.typography.letter-spacing}",
-      "$type": "number",
-      "$value": "0.16px",
-      "unit": "px",
-      "$modes": {
-        "default": 0,
-        "cds-g0": "0.16px",
-        "cds-g10": "0.16px",
-        "cds-g90": "0.16px",
-        "cds-g100": "0.16px"
-      },
-      "original": {
-        "$type": "number",
-        "$value": "{carbon.typography.bodyCompact01.letter-spacing}",
-        "unit": "px",
-        "$modes": {
-          "default": 0,
-          "cds-g0": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g10": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g90": "{carbon.typography.bodyCompact01.letter-spacing}",
-          "cds-g100": "{carbon.typography.bodyCompact01.letter-spacing}"
-        },
-        "key": "{breadcrumb.typography.letter-spacing}"
-      },
-      "name": "token-breadcrumb-typography-letter-spacing",
-      "attributes": {
-        "category": "breadcrumb"
-      },
-      "path": [
-        "breadcrumb",
-        "typography",
-        "letter-spacing"
       ]
     },
     "token-breadcrumb-divider-color": {

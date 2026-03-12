@@ -65,7 +65,6 @@
   --token-breadcrumb-truncation-toggle-foreground-color-hover: var(--token-color-foreground-faint);
   --token-breadcrumb-truncation-toggle-surface-color-active: var(--token-color-surface-interactive-hover);
   --token-breadcrumb-truncation-toggle-surface-color-hover: var(--token-color-surface-interactive);
-  --token-breadcrumb-typography-letter-spacing: 0;
   --token-breadcrumb-typography-line-height: 1.2308; /** 16px = 1.2308 */
   --token-button-border-color-critical-active: var(--token-color-palette-red-400);
   --token-button-border-color-critical-default: var(--token-color-foreground-critical-on-surface);
