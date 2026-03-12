@@ -1,0 +1,11 @@
+<Hds::Form::SuperSelect::Single::Field
+  @onChange={{fn (mut this.SELECTED_OPTION)}}
+  @selected={{this.SELECTED_OPTION}}
+  @options={{this.OPTIONS}}
+  @ariaLabel="Label"
+  as |F|
+>
+  <F.Label>Target infrastructure <Hds::Badge @size="small" @text="Beta" /></F.Label>
+  <F.HelperText>This is an experimental feature (<Hds::Link::Inline @href="#">read more</Hds::Link::Inline>).</F.HelperText>
+  <F.Options>{{F.options}}</F.Options>
+</Hds::Form::SuperSelect::Single::Field>
