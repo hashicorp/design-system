@@ -31,7 +31,7 @@ export interface HdsFormTextareaFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormTextareaBaseSignature['Element'];
 }
 
 const HdsFormTextareaField: TemplateOnlyComponent<HdsFormTextareaFieldSignature> =

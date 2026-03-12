@@ -28,7 +28,7 @@ export interface HdsFormMaskedInputFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormMaskedInputBaseSignature['Element'];
 }
 
 const HdsFormMaskedInputField: TemplateOnlyComponent<HdsFormMaskedInputFieldSignature> =

@@ -31,7 +31,7 @@ export interface HdsFormSuperSelectSingleFieldSignature {
       },
     ];
   };
-  Element: HdsFormFieldSignature['Element'];
+  Element: HdsFormSuperSelectSingleBaseSignature['Element'];
 }
 
 export default class HdsFormSuperSelectSingleField extends Component<HdsFormSuperSelectSingleFieldSignature> {
