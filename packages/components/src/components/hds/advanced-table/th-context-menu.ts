@@ -168,12 +168,8 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const {
-      hasReorderableColumns,
-      hasResizableColumns,
-      isFirstColumn,
-      isStickyColumn,
-    } = this.args;
+    const { hasReorderableColumns, hasResizableColumns, isStickyColumn } =
+      this.args;
 
     let allGroups: HdsAdvancedTableThContextMenuOption[][] = [];
 
@@ -183,15 +179,6 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     if (hasReorderableColumns && isStickyColumn === undefined) {
       allGroups = [...allGroups, this._reorderOptions];
-    }
-
-    // we don't allow pinning/unpinning of the sticky column if columns are reorderable
-    if (
-      isStickyColumn !== undefined &&
-      isFirstColumn &&
-      !hasReorderableColumns
-    ) {
-      allGroups = [...allGroups, this._stickyColumnOptions];
     }
 
     return allGroups.reduce<HdsAdvancedTableThContextMenuOption[]>(
