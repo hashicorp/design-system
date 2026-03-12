@@ -12974,8 +12974,8 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-height": {
-      "key": "{rich-tooltip.bubble.arrow.height}",
+    "token-rich-tooltip-bubble-arrow-size": {
+      "key": "{rich-tooltip.bubble.arrow.size}",
       "$type": "dimension",
       "$value": "20px",
       "unit": "px",
@@ -12997,9 +12997,9 @@
           "cds-g90": "12",
           "cds-g100": "12"
         },
-        "key": "{rich-tooltip.bubble.arrow.height}"
+        "key": "{rich-tooltip.bubble.arrow.size}"
       },
-      "name": "token-rich-tooltip-bubble-arrow-height",
+      "name": "token-rich-tooltip-bubble-arrow-size",
       "attributes": {
         "category": "rich-tooltip"
       },
@@ -13007,43 +13007,7 @@
         "rich-tooltip",
         "bubble",
         "arrow",
-        "height"
-      ]
-    },
-    "token-rich-tooltip-bubble-arrow-width": {
-      "key": "{rich-tooltip.bubble.arrow.width}",
-      "$type": "dimension",
-      "$value": "20px",
-      "unit": "px",
-      "$modes": {
-        "default": "20",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "20",
-        "unit": "px",
-        "$modes": {
-          "default": "20",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
-        },
-        "key": "{rich-tooltip.bubble.arrow.width}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-width",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "width"
+        "size"
       ]
     },
     "token-rich-tooltip-toggle-gap-horizontal": {
@@ -13153,19 +13117,19 @@
       "$value": "#656a76",
       "$modes": {
         "default": "#656a76",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
       },
       "original": {
         "$value": "{color.foreground.faint}",
         "$modes": {
           "default": "{color.foreground.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
         "key": "{rich-tooltip.toggle.foreground.color.active}"
       },
@@ -28344,8 +28308,8 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-height": {
-      "key": "{rich-tooltip.bubble.arrow.height}",
+    "token-rich-tooltip-bubble-arrow-size": {
+      "key": "{rich-tooltip.bubble.arrow.size}",
       "$type": "dimension",
       "$value": "12px",
       "unit": "px",
@@ -28367,9 +28331,9 @@
           "cds-g90": "12",
           "cds-g100": "12"
         },
-        "key": "{rich-tooltip.bubble.arrow.height}"
+        "key": "{rich-tooltip.bubble.arrow.size}"
       },
-      "name": "token-rich-tooltip-bubble-arrow-height",
+      "name": "token-rich-tooltip-bubble-arrow-size",
       "attributes": {
         "category": "rich-tooltip"
       },
@@ -28377,43 +28341,7 @@
         "rich-tooltip",
         "bubble",
         "arrow",
-        "height"
-      ]
-    },
-    "token-rich-tooltip-bubble-arrow-width": {
-      "key": "{rich-tooltip.bubble.arrow.width}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "$modes": {
-        "default": "20",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "$modes": {
-          "default": "20",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
-        },
-        "key": "{rich-tooltip.bubble.arrow.width}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-width",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "width"
+        "size"
       ]
     },
     "token-rich-tooltip-toggle-gap-horizontal": {
@@ -28520,22 +28448,22 @@
     },
     "token-rich-tooltip-toggle-foreground-color-active": {
       "key": "{rich-tooltip.toggle.foreground.color.active}",
-      "$value": "#161616",
+      "$value": "#525252",
       "$modes": {
         "default": "#525252",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
       },
       "original": {
-        "$value": "{carbon.themes.white.textPrimary}",
+        "$value": "{carbon.themes.white.textSecondary}",
         "$modes": {
           "default": "{color.foreground.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
         "key": "{rich-tooltip.toggle.foreground.color.active}"
       },
@@ -43714,8 +43642,8 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-height": {
-      "key": "{rich-tooltip.bubble.arrow.height}",
+    "token-rich-tooltip-bubble-arrow-size": {
+      "key": "{rich-tooltip.bubble.arrow.size}",
       "$type": "dimension",
       "$value": "12px",
       "unit": "px",
@@ -43737,9 +43665,9 @@
           "cds-g90": "12",
           "cds-g100": "12"
         },
-        "key": "{rich-tooltip.bubble.arrow.height}"
+        "key": "{rich-tooltip.bubble.arrow.size}"
       },
-      "name": "token-rich-tooltip-bubble-arrow-height",
+      "name": "token-rich-tooltip-bubble-arrow-size",
       "attributes": {
         "category": "rich-tooltip"
       },
@@ -43747,43 +43675,7 @@
         "rich-tooltip",
         "bubble",
         "arrow",
-        "height"
-      ]
-    },
-    "token-rich-tooltip-bubble-arrow-width": {
-      "key": "{rich-tooltip.bubble.arrow.width}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "$modes": {
-        "default": "20",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "$modes": {
-          "default": "20",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
-        },
-        "key": "{rich-tooltip.bubble.arrow.width}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-width",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "width"
+        "size"
       ]
     },
     "token-rich-tooltip-toggle-gap-horizontal": {
@@ -43890,22 +43782,22 @@
     },
     "token-rich-tooltip-toggle-foreground-color-active": {
       "key": "{rich-tooltip.toggle.foreground.color.active}",
-      "$value": "#161616",
+      "$value": "#525252",
       "$modes": {
         "default": "#525252",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
       },
       "original": {
-        "$value": "{carbon.themes.g10.textPrimary}",
+        "$value": "{carbon.themes.g10.textSecondary}",
         "$modes": {
           "default": "{color.foreground.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
         "key": "{rich-tooltip.toggle.foreground.color.active}"
       },
@@ -59084,8 +58976,8 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-height": {
-      "key": "{rich-tooltip.bubble.arrow.height}",
+    "token-rich-tooltip-bubble-arrow-size": {
+      "key": "{rich-tooltip.bubble.arrow.size}",
       "$type": "dimension",
       "$value": "12px",
       "unit": "px",
@@ -59107,9 +58999,9 @@
           "cds-g90": "12",
           "cds-g100": "12"
         },
-        "key": "{rich-tooltip.bubble.arrow.height}"
+        "key": "{rich-tooltip.bubble.arrow.size}"
       },
-      "name": "token-rich-tooltip-bubble-arrow-height",
+      "name": "token-rich-tooltip-bubble-arrow-size",
       "attributes": {
         "category": "rich-tooltip"
       },
@@ -59117,43 +59009,7 @@
         "rich-tooltip",
         "bubble",
         "arrow",
-        "height"
-      ]
-    },
-    "token-rich-tooltip-bubble-arrow-width": {
-      "key": "{rich-tooltip.bubble.arrow.width}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "$modes": {
-        "default": "20",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "$modes": {
-          "default": "20",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
-        },
-        "key": "{rich-tooltip.bubble.arrow.width}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-width",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "width"
+        "size"
       ]
     },
     "token-rich-tooltip-toggle-gap-horizontal": {
@@ -59260,22 +59116,22 @@
     },
     "token-rich-tooltip-toggle-foreground-color-active": {
       "key": "{rich-tooltip.toggle.foreground.color.active}",
-      "$value": "#f4f4f4",
+      "$value": "#c6c6c6",
       "$modes": {
         "default": "#c6c6c6",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
       },
       "original": {
-        "$value": "{carbon.themes.g90.textPrimary}",
+        "$value": "{carbon.themes.g90.textSecondary}",
         "$modes": {
           "default": "{color.foreground.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
         "key": "{rich-tooltip.toggle.foreground.color.active}"
       },
@@ -74454,8 +74310,8 @@
         "radius"
       ]
     },
-    "token-rich-tooltip-bubble-arrow-height": {
-      "key": "{rich-tooltip.bubble.arrow.height}",
+    "token-rich-tooltip-bubble-arrow-size": {
+      "key": "{rich-tooltip.bubble.arrow.size}",
       "$type": "dimension",
       "$value": "12px",
       "unit": "px",
@@ -74477,9 +74333,9 @@
           "cds-g90": "12",
           "cds-g100": "12"
         },
-        "key": "{rich-tooltip.bubble.arrow.height}"
+        "key": "{rich-tooltip.bubble.arrow.size}"
       },
-      "name": "token-rich-tooltip-bubble-arrow-height",
+      "name": "token-rich-tooltip-bubble-arrow-size",
       "attributes": {
         "category": "rich-tooltip"
       },
@@ -74487,43 +74343,7 @@
         "rich-tooltip",
         "bubble",
         "arrow",
-        "height"
-      ]
-    },
-    "token-rich-tooltip-bubble-arrow-width": {
-      "key": "{rich-tooltip.bubble.arrow.width}",
-      "$type": "dimension",
-      "$value": "12px",
-      "unit": "px",
-      "$modes": {
-        "default": "20",
-        "cds-g0": "12",
-        "cds-g10": "12",
-        "cds-g90": "12",
-        "cds-g100": "12"
-      },
-      "original": {
-        "$type": "dimension",
-        "$value": "12",
-        "unit": "px",
-        "$modes": {
-          "default": "20",
-          "cds-g0": "12",
-          "cds-g10": "12",
-          "cds-g90": "12",
-          "cds-g100": "12"
-        },
-        "key": "{rich-tooltip.bubble.arrow.width}"
-      },
-      "name": "token-rich-tooltip-bubble-arrow-width",
-      "attributes": {
-        "category": "rich-tooltip"
-      },
-      "path": [
-        "rich-tooltip",
-        "bubble",
-        "arrow",
-        "width"
+        "size"
       ]
     },
     "token-rich-tooltip-toggle-gap-horizontal": {
@@ -74630,22 +74450,22 @@
     },
     "token-rich-tooltip-toggle-foreground-color-active": {
       "key": "{rich-tooltip.toggle.foreground.color.active}",
-      "$value": "#f4f4f4",
+      "$value": "#c6c6c6",
       "$modes": {
         "default": "#c6c6c6",
-        "cds-g0": "#161616",
-        "cds-g10": "#161616",
-        "cds-g90": "#f4f4f4",
-        "cds-g100": "#f4f4f4"
+        "cds-g0": "#525252",
+        "cds-g10": "#525252",
+        "cds-g90": "#c6c6c6",
+        "cds-g100": "#c6c6c6"
       },
       "original": {
-        "$value": "{carbon.themes.g100.textPrimary}",
+        "$value": "{carbon.themes.g100.textSecondary}",
         "$modes": {
           "default": "{color.foreground.faint}",
-          "cds-g0": "{carbon.themes.white.textPrimary}",
-          "cds-g10": "{carbon.themes.g10.textPrimary}",
-          "cds-g90": "{carbon.themes.g90.textPrimary}",
-          "cds-g100": "{carbon.themes.g100.textPrimary}"
+          "cds-g0": "{carbon.themes.white.textSecondary}",
+          "cds-g10": "{carbon.themes.g10.textSecondary}",
+          "cds-g90": "{carbon.themes.g90.textSecondary}",
+          "cds-g100": "{carbon.themes.g100.textSecondary}"
         },
         "key": "{rich-tooltip.toggle.foreground.color.active}"
       },

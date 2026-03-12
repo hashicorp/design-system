@@ -230,14 +230,13 @@
   --token-icon-tile-border-color-logo: #c6c6c6;
   --token-icon-tile-border-color-overlay: #e0e0e0;
   --token-icon-tile-surface-color-overlay: #ffffff;
-  --token-rich-tooltip-bubble-arrow-height: 12px;
-  --token-rich-tooltip-bubble-arrow-width: 12px;
+  --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
   );
   --token-rich-tooltip-bubble-border-radius: 2px;
   --token-rich-tooltip-bubble-max-width: 288px;
-  --token-rich-tooltip-toggle-foreground-color-active: #161616;
+  --token-rich-tooltip-toggle-foreground-color-active: #525252;
   --token-rich-tooltip-toggle-foreground-color-default: #525252;
   --token-rich-tooltip-toggle-foreground-color-hover: #161616;
   --token-rich-tooltip-toggle-gap-horizontal: 8px;
@@ -560,14 +559,13 @@
     --token-icon-tile-border-color-logo: #c6c6c6;
     --token-icon-tile-border-color-overlay: #e0e0e0;
     --token-icon-tile-surface-color-overlay: #ffffff;
-    --token-rich-tooltip-bubble-arrow-height: 12px;
-    --token-rich-tooltip-bubble-arrow-width: 12px;
+    --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
     );
     --token-rich-tooltip-bubble-border-radius: 2px;
     --token-rich-tooltip-bubble-max-width: 288px;
-    --token-rich-tooltip-toggle-foreground-color-active: #161616;
+    --token-rich-tooltip-toggle-foreground-color-active: #525252;
     --token-rich-tooltip-toggle-foreground-color-default: #525252;
     --token-rich-tooltip-toggle-foreground-color-hover: #161616;
     --token-rich-tooltip-toggle-gap-horizontal: 8px;
@@ -891,14 +889,13 @@
     --token-icon-tile-border-color-logo: #525252;
     --token-icon-tile-border-color-overlay: #6f6f6f;
     --token-icon-tile-surface-color-overlay: #393939;
-    --token-rich-tooltip-bubble-arrow-height: 12px;
-    --token-rich-tooltip-bubble-arrow-width: 12px;
+    --token-rich-tooltip-bubble-arrow-size: 12px;
     --token-rich-tooltip-bubble-border-color: var(
       --token-color-palette-alpha-200
     );
     --token-rich-tooltip-bubble-border-radius: 2px;
     --token-rich-tooltip-bubble-max-width: 288px;
-    --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
+    --token-rich-tooltip-toggle-foreground-color-active: #c6c6c6;
     --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
     --token-rich-tooltip-toggle-foreground-color-hover: #f4f4f4;
     --token-rich-tooltip-toggle-gap-horizontal: 8px;
@@ -1221,14 +1218,13 @@
   --token-icon-tile-border-color-logo: #c6c6c6;
   --token-icon-tile-border-color-overlay: #e0e0e0;
   --token-icon-tile-surface-color-overlay: #ffffff;
-  --token-rich-tooltip-bubble-arrow-height: 12px;
-  --token-rich-tooltip-bubble-arrow-width: 12px;
+  --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
   );
   --token-rich-tooltip-bubble-border-radius: 2px;
   --token-rich-tooltip-bubble-max-width: 288px;
-  --token-rich-tooltip-toggle-foreground-color-active: #161616;
+  --token-rich-tooltip-toggle-foreground-color-active: #525252;
   --token-rich-tooltip-toggle-foreground-color-default: #525252;
   --token-rich-tooltip-toggle-foreground-color-hover: #161616;
   --token-rich-tooltip-toggle-gap-horizontal: 8px;
@@ -1550,14 +1546,13 @@
   --token-icon-tile-border-color-logo: #525252;
   --token-icon-tile-border-color-overlay: #6f6f6f;
   --token-icon-tile-surface-color-overlay: #393939;
-  --token-rich-tooltip-bubble-arrow-height: 12px;
-  --token-rich-tooltip-bubble-arrow-width: 12px;
+  --token-rich-tooltip-bubble-arrow-size: 12px;
   --token-rich-tooltip-bubble-border-color: var(
     --token-color-palette-alpha-200
   );
   --token-rich-tooltip-bubble-border-radius: 2px;
   --token-rich-tooltip-bubble-max-width: 288px;
-  --token-rich-tooltip-toggle-foreground-color-active: #f4f4f4;
+  --token-rich-tooltip-toggle-foreground-color-active: #c6c6c6;
   --token-rich-tooltip-toggle-foreground-color-default: #c6c6c6;
   --token-rich-tooltip-toggle-foreground-color-hover: #f4f4f4;
   --token-rich-tooltip-toggle-gap-horizontal: 8px;
