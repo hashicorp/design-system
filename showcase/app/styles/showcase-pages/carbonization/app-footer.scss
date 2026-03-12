@@ -6,20 +6,20 @@
 // APP-FOOTER
 
 body.page-carbonization-components-app-footer {
-  // Add dark barkground to HDS default theme examples for AppFooter with @theme="dark"
-  .shw-carbonization-comparison-grid__item--area-default {
-    .hds-app-footer--theme-dark {
-      position: relative;
-      background: var(--token-color-palette-neutral-700);
+  .shw-carbonization-app-footer-list {
+    // override alignment for better visual comparison
+    justify-content: flex-start;
+  }
 
-      &::after {
-        position: absolute;
-        z-index: -1;
-        display: block;
-        background: inherit;
-        content: "";
-        inset: -8px;
-      }
-    }
+  .shw-carbonization-app-footer-demo-page {
+    padding: 30px 20px;
+  }
+
+  .shw-carbonization-app-footer-demo-page-content {
+    margin: 24px 0;
+  }
+
+  .shw-carbonization-app-footer-demo-dark-background-wrapper {
+    background-color: var(--token-color-palette-neutral-700);
   }
 }
