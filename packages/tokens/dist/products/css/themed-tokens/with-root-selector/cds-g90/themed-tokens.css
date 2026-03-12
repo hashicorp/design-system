@@ -133,7 +133,7 @@
   --token-color-focus-action-internal: #161616;
   --token-color-focus-critical-external: #ffffff; /** this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #161616;
-  --token-color-foreground-action-active: #a6c8ff;
+  --token-color-foreground-action-active: #78a9ff;
   --token-color-foreground-action-hover: #a6c8ff;
   --token-color-foreground-action: #78a9ff;
   --token-color-foreground-critical-high-contrast: #ffd7d9;
@@ -228,6 +228,17 @@
   --token-icon-tile-border-color-logo: #6f6f6f;
   --token-icon-tile-border-color-overlay: #8d8d8d;
   --token-icon-tile-surface-color-overlay: #525252;
+  --token-link-inline-icon-margin-horizontal: 0.5em;
+  --token-link-standalone-icon-size-large: 1.25rem;
+  --token-link-standalone-icon-size-small: 1rem;
+  --token-link-standalone-padding-vertical: 0px;
+  --token-link-standalone-typography-font-size-small: 0.75rem;
+  --token-link-standalone-typography-letter-spacing-large: 0px;
+  --token-link-standalone-typography-letter-spacing-medium: 0.16px;
+  --token-link-standalone-typography-letter-spacing-small: 0.32px;
+  --token-link-standalone-typography-line-height-large: 1.375; /** 24px = 1.5 */
+  --token-link-standalone-typography-line-height-medium: 1.28572; /** 16px ~= 1.143 */
+  --token-link-standalone-typography-line-height-small: 1.33333; /** 16px ~= 1.231 */
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;
