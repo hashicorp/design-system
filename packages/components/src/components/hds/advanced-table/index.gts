@@ -651,13 +651,6 @@ export default class HdsAdvancedTable<
         !hasResizableColumns
       );
     }
-
-    if (hasReorderableColumns) {
-      assert(
-        'Cannot have both reorderable columns and a sticky first column.',
-        hasStickyFirstColumn === undefined
-      );
-    }
   }
 
   private _onColumnReorder: HdsAdvancedTableColumnReorderCallback = ({
