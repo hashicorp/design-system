@@ -9,6 +9,7 @@
 
 @use "../mixins/focus-ring" as *;
 @use "../mixins/breakpoints" as *;
+@use "../mixins/carbonization" as *;
 
 // * Pagination Parent (wrapper) component
 // -------------------------------------------------------------------
@@ -172,6 +173,13 @@
 
     // TODO: Carbon sets an explicit width for this underline
     // inline-size: 1rem;
+  }
+
+  // Note: We override the font-weight for the carbon themes
+  > .hds-font-weight-medium {
+    @include hds-apply-only-if-carbon() {
+      font-weight: 600;
+    }
   }
 }
 
