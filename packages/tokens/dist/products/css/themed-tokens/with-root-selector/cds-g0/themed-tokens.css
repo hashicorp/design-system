@@ -213,6 +213,10 @@
   --token-color-vault-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
   --token-color-vault-radar-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Radar would not work */
   --token-color-vault-secrets-brand-alt: #000000; /** this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-dialog-primitive-border-color: 1.25;
+  --token-dialog-primitive-padding-horizontal: 16px;
+  --token-dialog-primitive-padding-vertical: 16px;
+  --token-dialog-primitive-title-font-weight: 400;
   --token-dismiss-button-border-color-active: rgba(0, 0, 0, 0);
   --token-dismiss-button-foreground-color-active: #161616;
   --token-dismiss-button-foreground-color-default: #161616;

@@ -1,0 +1,59 @@
+{
+  "dialog-primitive": {
+    "padding": {
+      "horizontal": {
+        "$type": "dimension",
+        "$value": "24",
+        "unit": "px",
+        "$modes": {
+          "default": "24",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        }
+      },
+      "vertical": {
+        "$type": "dimension",
+        "$value": "16",
+        "unit": "px",
+        "$modes": {
+          "default": "16",
+          "cds-g0": "16",
+          "cds-g10": "16",
+          "cds-g90": "16",
+          "cds-g100": "16"
+        }
+      }
+    },
+    "border": {
+      "color": {
+        "$type": "color",
+        "$value": "transparent",
+        "$modes": {
+          "default": "transparent",
+          "cds-g0": "{carbon.typography.heading05.line-height}",
+          "cds-g10": "{carbon.color.gray.20}",
+          "cds-g90": "{carbon.color.gray.60}",
+          "cds-g100": "{carbon.color.gray.70}"
+        }
+      }
+    },
+    "title": {
+      "font-weight": {
+        "$type": "font-weight",
+        "$value": "{typography.font-weight.semibold}",
+        "$modes": {
+          "default": "{typography.font-weight.semibold}",
+          "cds-g0": "{carbon.typography.heading03.font-weight}",
+          "cds-g10": "{carbon.typography.heading03.font-weight}",
+          "cds-g90": "{carbon.typography.heading03.font-weight}",
+          "cds-g100": "{carbon.typography.heading03.font-weight}"
+        },
+        "comments": {
+          "hds": "we need a component-level token for this, to account for the difference in font-weight between HDS and CDS for the title"
+        }
+      }
+    }
+  }
+}
