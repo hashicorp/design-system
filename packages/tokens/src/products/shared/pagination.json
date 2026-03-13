@@ -83,7 +83,14 @@
         "height": {
           "$type": "dimension",
           "$value": "2",
-          "unit": "px"
+          "unit": "px",
+          "$modes": {
+            "default": "2",
+            "cds-g0": "4",
+            "cds-g10": "4",
+            "cds-g90": "4",
+            "cds-g100": "4"
+          }
         },
         "spacing": {
           "$type": "dimension",

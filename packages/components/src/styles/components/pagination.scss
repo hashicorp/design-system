@@ -168,7 +168,7 @@
     // TODO: The blue color is different in Carbon from HDS (need to use themed token)
     color: var(--token-color-foreground-action);
     background-color: currentColor;
-    border-radius: 2px;
+    border-radius: var(--token-border-radius-x-small);
     content: "";
 
     // TODO: Carbon sets an explicit width for this underline
