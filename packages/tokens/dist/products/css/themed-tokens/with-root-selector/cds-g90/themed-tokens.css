@@ -232,6 +232,7 @@
   --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
   --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+  --token-pagination-nav-indicator-height: 4px;
   --token-surface-base-box-shadow: none;
   --token-surface-high-box-shadow: none;
   --token-surface-higher-box-shadow: none;

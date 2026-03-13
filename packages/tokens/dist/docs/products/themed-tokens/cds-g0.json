@@ -12922,12 +12922,26 @@
   {
     "key": "{pagination.nav.indicator.height}",
     "$type": "dimension",
-    "$value": "2px",
+    "$value": "4px",
     "unit": "px",
+    "$modes": {
+      "default": "2",
+      "cds-g0": "4",
+      "cds-g10": "4",
+      "cds-g90": "4",
+      "cds-g100": "4"
+    },
     "original": {
       "$type": "dimension",
-      "$value": "2",
+      "$value": "4",
       "unit": "px",
+      "$modes": {
+        "default": "2",
+        "cds-g0": "4",
+        "cds-g10": "4",
+        "cds-g90": "4",
+        "cds-g100": "4"
+      },
       "key": "{pagination.nav.indicator.height}"
     },
     "name": "token-pagination-nav-indicator-height",

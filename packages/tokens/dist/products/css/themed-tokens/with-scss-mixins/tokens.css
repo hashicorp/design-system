@@ -430,6 +430,7 @@
     --token-pagination-nav-control-foreground-color-action: var(
       --token-color-foreground-action
     );
+    --token-pagination-nav-indicator-height: 2px;
     --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
     --token-surface-high-box-shadow:
       0 0 0 1px #656a7640, 0px 2px 3px 0px #656a7626,
@@ -764,6 +765,7 @@
     --token-pagination-nav-control-foreground-color-action-active: #161616;
     --token-pagination-nav-control-foreground-color-action-hover: #161616;
     --token-pagination-nav-control-foreground-color-action: #161616;
+    --token-pagination-nav-indicator-height: 4px;
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -1087,6 +1089,7 @@
     --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+    --token-pagination-nav-indicator-height: 4px;
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -1410,6 +1413,7 @@
     --token-pagination-nav-control-foreground-color-action-active: #161616;
     --token-pagination-nav-control-foreground-color-action-hover: #161616;
     --token-pagination-nav-control-foreground-color-action: #161616;
+    --token-pagination-nav-indicator-height: 4px;
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -1733,6 +1737,7 @@
     --token-pagination-nav-control-foreground-color-action-active: #161616;
     --token-pagination-nav-control-foreground-color-action-hover: #161616;
     --token-pagination-nav-control-foreground-color-action: #161616;
+    --token-pagination-nav-indicator-height: 4px;
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -2056,6 +2061,7 @@
     --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+    --token-pagination-nav-indicator-height: 4px;
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -2379,6 +2385,7 @@
     --token-pagination-nav-control-foreground-color-action-active: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action-hover: #f4f4f4;
     --token-pagination-nav-control-foreground-color-action: #f4f4f4;
+    --token-pagination-nav-indicator-height: 4px;
     --token-surface-base-box-shadow: none;
     --token-surface-high-box-shadow: none;
     --token-surface-higher-box-shadow: none;
@@ -2747,7 +2754,6 @@
     --token-pagination-nav-control-height: 36px;
     --token-pagination-nav-control-icon-spacing: 6px;
     --token-pagination-nav-control-padding-horizontal: 12px;
-    --token-pagination-nav-indicator-height: 2px;
     --token-pagination-nav-indicator-spacing: 6px;
     --token-tabs-divider-height: 1px;
     --token-tabs-indicator-height: 3px;

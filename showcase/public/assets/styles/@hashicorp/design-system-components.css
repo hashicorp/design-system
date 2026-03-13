@@ -8154,7 +8154,7 @@ button.hds-button[href]::after {
   margin: 0 auto;
   color: var(--token-color-foreground-action);
   background-color: currentColor;
-  border-radius: 2px;
+  border-radius: var(--token-border-radius-x-small);
   content: "";
 }
 .hds-mode-cds-g0 .hds-pagination-nav__number--is-selected > .hds-font-weight-medium,
