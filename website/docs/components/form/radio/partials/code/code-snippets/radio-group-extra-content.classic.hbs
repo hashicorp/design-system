@@ -1,0 +1,15 @@
+<Hds::Form::Radio::Group @layout="horizontal" @name="method-demo1" as |G|>
+  <G.Legend>Method <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
+  <G.HelperText>Choose which HTTP method to use for the communication channel. See
+    <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline>
+    for more details.</G.HelperText>
+  <G.RadioField as |F|>
+    <F.Label>POST</F.Label>
+  </G.RadioField>
+  <G.RadioField as |F|>
+    <F.Label>GET</F.Label>
+  </G.RadioField>
+  <G.RadioField as |F|>
+    <F.Label>PUT</F.Label>
+  </G.RadioField>
+</Hds::Form::Radio::Group>
