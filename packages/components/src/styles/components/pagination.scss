@@ -60,12 +60,30 @@
       margin-top: var(--token-pagination-child-spacing-vertical);
       margin-right: var(--token-pagination-child-spacing-horizontal);
     }
+
+    @include hds-apply-only-if-carbon() {
+      height: 100%;
+    }
   }
 }
 
 // Pagination Compact (equivilant to Carbon Pagination)
 .hds-pagination--compact {
   background-color: var(--token-pagination-bar-surface-color-default);
+
+  @include hds-apply-only-if-carbon() {
+    grid-template-areas: "selector info nav";
+    grid-template-columns: auto 1fr auto;
+    border-top: 1px solid var(--token-pagination-bar-border-color);
+
+    .hds-pagination-size-selector {
+      border-right: 1px solid var(--token-pagination-bar-border-color);
+    }
+
+    .hds-pagination-nav__control {
+      border-left: 1px solid var(--token-pagination-bar-border-color);
+    }
+  }
 }
 
 // * Sub-component: Info
@@ -211,5 +229,9 @@
     font-family: var(--token-typography-body-100-font-family);
     line-height: var(--token-typography-body-100-line-height);
     background-position: center right 5px;
+
+    @include hds-apply-only-if-carbon() {
+      border: 0;
+    }
   }
 }
