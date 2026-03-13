@@ -440,6 +440,7 @@
   --token-icon-tile-border-color-overlay: #656a7633;
   --token-icon-tile-border-color-logo: #656a7633;
   --token-icon-tile-surface-color-overlay: #ffffff;
+  --token-pagination-bar-border-color: rgba(0, 0, 0, 0);
   --token-pagination-bar-surface-color-default: #ffffff;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
@@ -8051,9 +8052,35 @@ button.hds-button[href]::after {
     margin-right: var(--token-pagination-child-spacing-horizontal);
   }
 }
+.hds-mode-cds-g0 .hds-pagination .hds-pagination-size-selector,
+.hds-mode-cds-g10 .hds-pagination .hds-pagination-size-selector,
+.hds-mode-cds-g90 .hds-pagination .hds-pagination-size-selector,
+.hds-mode-cds-g100 .hds-pagination .hds-pagination-size-selector {
+  height: 100%;
+}
 
 .hds-pagination--compact {
   background-color: var(--token-pagination-bar-surface-color-default);
+}
+.hds-mode-cds-g0 .hds-pagination--compact,
+.hds-mode-cds-g10 .hds-pagination--compact,
+.hds-mode-cds-g90 .hds-pagination--compact,
+.hds-mode-cds-g100 .hds-pagination--compact {
+  grid-template-areas: "selector info nav";
+  grid-template-columns: auto 1fr auto;
+  border-top: 1px solid var(--token-pagination-bar-border-color);
+}
+.hds-mode-cds-g0 .hds-pagination--compact .hds-pagination-size-selector,
+.hds-mode-cds-g10 .hds-pagination--compact .hds-pagination-size-selector,
+.hds-mode-cds-g90 .hds-pagination--compact .hds-pagination-size-selector,
+.hds-mode-cds-g100 .hds-pagination--compact .hds-pagination-size-selector {
+  border-right: 1px solid var(--token-pagination-bar-border-color);
+}
+.hds-mode-cds-g0 .hds-pagination--compact .hds-pagination-nav__control,
+.hds-mode-cds-g10 .hds-pagination--compact .hds-pagination-nav__control,
+.hds-mode-cds-g90 .hds-pagination--compact .hds-pagination-nav__control,
+.hds-mode-cds-g100 .hds-pagination--compact .hds-pagination-nav__control {
+  border-left: 1px solid var(--token-pagination-bar-border-color);
 }
 
 .hds-pagination-info {
@@ -8187,6 +8214,12 @@ button.hds-button[href]::after {
   font-family: var(--token-typography-body-100-font-family);
   line-height: var(--token-typography-body-100-line-height);
   background-position: center right 5px;
+}
+.hds-mode-cds-g0 .hds-pagination-size-selector > select,
+.hds-mode-cds-g10 .hds-pagination-size-selector > select,
+.hds-mode-cds-g90 .hds-pagination-size-selector > select,
+.hds-mode-cds-g100 .hds-pagination-size-selector > select {
+  border: 0;
 }
 
 /**
