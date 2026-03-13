@@ -174,6 +174,7 @@ Router.map(function () {
       this.route('app-footer');
       this.route('badge');
       this.route('badge-count');
+      this.route('breadcrumb');
       this.route('button');
       this.route('form', function (): void {
         this.route('text-input');
