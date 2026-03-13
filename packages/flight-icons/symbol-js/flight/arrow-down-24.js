@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-arrow-down-24" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M11.75 3c.413.001.75.336.75.75v14.645l5.96-6.166a.752.752 0 011.061-.018.753.753 0 01.018 1.06l-7.25 7.5a.753.753 0 01-1.078 0l-7.25-7.5a.75.75 0 011.078-1.043l5.96 6.167V3.75a.75.75 0 01.75-.75z" clip-rule="evenodd"/></symbol>`;

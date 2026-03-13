@@ -1,0 +1,1 @@
+export default `<symbol id="hds-icon-flight-align-center-16" viewBox="0 0 16 16"><path d="M12.25 12a.75.75 0 010 1.5h-8.5a.75.75 0 010-1.5h8.5zm2-3a.75.75 0 010 1.5H1.75a.75.75 0 010-1.5h12.5zm-2-3a.75.75 0 010 1.5h-8.5a.75.75 0 010-1.5h8.5zm2-3a.75.75 0 010 1.5H1.75a.75.75 0 010-1.5h12.5z"/></symbol>`;

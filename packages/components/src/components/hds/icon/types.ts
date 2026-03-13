@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import type { HdsIconModule } from '@hashicorp/flight-icons/symbol-js/registry';
+
 export enum HdsIconSizeValues {
   Sixteen = '16',
   TwentyFour = '24',
@@ -33,3 +35,11 @@ export enum HdsIconColorValues {
   CriticalHighContrast = 'critical-high-contrast',
 }
 export type HdsIconColors = `${HdsIconColorValues}`;
+
+export enum HdsIconLibraryValues {
+  Flight = 'flight',
+  Carbon = 'carbon',
+}
+export type HdsIconLibraries = `${HdsIconLibraryValues}`;
+
+export type HdsIconLoader = () => Promise<HdsIconModule>;
