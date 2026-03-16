@@ -36,13 +36,9 @@
 .hds-dialog-primitive__wrapper-header {
   flex: none;
   background: var(--token-color-surface-faint);
-  border-bottom: 1px solid var(--token-color-border-primary);
+  border-bottom: 1px solid var(--token-dialog-primitive-header-border-color-primary);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
-
-  @include hds-apply-only-if-carbon() {
-    border-bottom-color: transparent;
-  }
 
   // because of the way in which Ember generates whitespace, we need to use this complicated selector to hide the container when it's "empty" (no children)
   &:not(:has(> *)) {
@@ -61,13 +57,9 @@
 
 .hds-dialog-primitive__wrapper-footer {
   flex: none;
-  border-top: 1px solid var(--token-color-border-primary);
+  border-top: 1px solid var(--token-dialog-primitive-header-border-color-primary);
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
-
-  @include hds-apply-only-if-carbon() {
-    border-top-color: transparent;
-  }
 
   // because of the way in which Ember generates whitespace, we need to use this complicated selector to hide the container when it's "empty" (no children)
   &:not(:has(> *)) {
