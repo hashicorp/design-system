@@ -32,10 +32,49 @@
         "$value": "transparent",
         "$modes": {
           "default": "transparent",
-          "cds-g0": "{carbon.typography.heading05.line-height}",
+          "cds-g0": "{carbon.color.gray.30}",
           "cds-g10": "{carbon.color.gray.20}",
           "cds-g90": "{carbon.color.gray.60}",
           "cds-g100": "{carbon.color.gray.70}"
+        }
+      }
+    },
+    "header": {
+      "border": {
+        "color": {
+          "primary": {
+            "$type": "color",
+            "$value": "{color.border.primary}",
+            "$modes": {
+              "default": "{color.border.primary}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{color.border.warning}",
+            "$modes": {
+              "default": "{color.border.warning}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          },
+          "critical": {
+            "$type": "color",
+            "$value": "{color.border.critical}",
+            "$modes": {
+              "default": "{color.border.critical}",
+              "cds-g0": "transparent",
+              "cds-g10": "transparent",
+              "cds-g90": "transparent",
+              "cds-g100": "transparent"
+            }
+          }
         }
       }
     },
