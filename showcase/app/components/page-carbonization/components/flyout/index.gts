@@ -1,8 +1,6 @@
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import { pageTitle } from 'ember-page-title';
-// import { capitalize } from '@ember/string';
-// import { get } from '@ember/object';
-// import { eq } from 'ember-truth-helpers';
+import { modifier } from 'ember-modifier';
 
 import ShwTextH1 from 'showcase/components/shw/text/h1';
 import ShwTextH2 from 'showcase/components/shw/text/h2';
@@ -14,170 +12,334 @@ import {
   HdsFlyout,
   HdsButton,
   HdsButtonSet,
-  HdsLinkInline,
 } from '@hashicorp/design-system-components/components';
 
-const FlyoutCarbonizationIndex: TemplateOnlyComponent = <template>
-  {{pageTitle "Flyout - Carbonization"}}
+export default class FlyoutCarbonizationIndex extends Component {
+  forceStaticC4PSidePanel = modifier((element: HTMLElement) => {
+    const TAG = 'c4p-side-panel';
+    const STYLE_ID = 'shw-carbonization-c4p-side-panel-force-static';
+    let observer: MutationObserver | undefined;
+    let isDestroyed = false;
 
-  <ShwTextH1>Flyout - Carbonization</ShwTextH1>
+    const applyToHost = (host: Element) => {
+      if (!(host instanceof HTMLElement) || !host.shadowRoot) {
+        return false;
+      }
 
-  <section>
-    <ShwTextH2>Content</ShwTextH2>
+      let style = host.shadowRoot.querySelector(`#${STYLE_ID}`);
+      if (!style) {
+        style = document.createElement('style');
+        style.id = STYLE_ID;
+        host.shadowRoot.appendChild(style);
+      }
 
-    <ShwTextH3>Header</ShwTextH3>
+      style.textContent = `
+        .c4p--side-panel {
+          position: static !important;
+          inset: auto !important;
+          top: auto !important;
+          right: auto !important;
+          bottom: auto !important;
+          left: auto !important;
+          z-index: auto !important;
+          block-size: 300px !important;
+        }
+        .c4p--side-panel__title {
+          position: static !important;
+        }
+        .c4p--side-panel__actions-container {
+          position: static !important;
+        }
+      `;
 
-    <ShwCarbonizationComparisonGrid @label="Title with icon">
-      <:theming>
-        <HdsFlyout open id="flyout-example-icon" as |F|>
-          <F.Header @icon="info">
-            Title
-          </F.Header>
-          <F.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">
-              Flyout content
-            </p>
-          </F.Body>
-        </HdsFlyout>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Title with tagline">
-      <:theming>
-        <HdsFlyout open id="flyout-example-tagline" as |F|>
-          <F.Header @tagline="Tagline">
-            Title
-          </F.Header>
-          <F.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">
-              Flyout content
-            </p>
-          </F.Body>
-        </HdsFlyout>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Title with tagline and icon">
-      <:theming>
-        <HdsFlyout open id="flyout-example-tagline-icon" as |F|>
-          <F.Header @tagline="Tagline" @icon="info">
-            Title
-          </F.Header>
-          <F.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">
-              Flyout content
-            </p>
-          </F.Body>
-        </HdsFlyout>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Title with description">
-      <:theming>
-        <HdsFlyout open id="flyout-example-description" as |F|>
-          <F.Header>
-            Title
-          </F.Header>
-          <F.Description>
-            Lorem ipsum dolor
-          </F.Description>
-          <F.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">
-              Flyout content
-            </p>
-          </F.Body>
-        </HdsFlyout>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
+      return true;
+    };
 
-    <ShwDivider @level={{2}} />
+    const applyAll = () => {
+      let updated = 0;
 
-    <ShwTextH3 @tag="h2">Body</ShwTextH3>
+      element.querySelectorAll(TAG).forEach((host) => {
+        if (applyToHost(host)) {
+          updated++;
+        }
+      });
 
-    <ShwCarbonizationComparisonGrid @label="With basic style">
-      <:theming>
-        <HdsFlyout open id="flyout-example-basic-style" as |F|>
-          <F.Header @tagline="Tagline" @icon="info">
-            Title
-          </F.Header>
-          <F.Description>
-            Description
-          </F.Description>
-          <F.Body tabindex="0">
-            <p class="hds-typography-body-300 hds-foreground-primary">Lorem
-              ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </F.Body>
-        </HdsFlyout>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
+      return updated;
+    };
 
-    <ShwDivider @level={{2}} />
+    void customElements.whenDefined(TAG).then(() => {
+      if (isDestroyed) {
+        return;
+      }
 
-    <ShwTextH3 @tag="h2">Footer</ShwTextH3>
+      applyAll();
+      observer = new MutationObserver(() => applyAll());
+      observer.observe(element, { childList: true, subtree: true });
+    });
 
-    <ShwCarbonizationComparisonGrid @label="One action">
-      <:theming>
-        <HdsFlyout open id="flyout-example-one-action" as |F|>
-          <F.Header>
-            Title
-          </F.Header>
-          <F.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">
-              Flyout content
-            </p>
-          </F.Body>
-          <F.Footer>
-            <HdsButton type="submit" @text="Primary" />
-          </F.Footer>
-        </HdsFlyout>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Two actions">
-      <:theming>
-        <HdsFlyout open id="flyout-example-two-actions" as |F|>
-          <F.Header>
-            Title
-          </F.Header>
-          <F.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">
-              Flyout content
-            </p>
-          </F.Body>
-          <F.Footer>
-            <HdsButtonSet>
+    return () => {
+      isDestroyed = true;
+      observer?.disconnect();
+    };
+  });
+
+  <template>
+    {{pageTitle "Flyout - Carbonization"}}
+
+    <ShwTextH1>Flyout - Carbonization</ShwTextH1>
+
+    <section {{this.forceStaticC4PSidePanel}}>
+      <ShwTextH2>Content</ShwTextH2>
+
+      <ShwTextH3>Header</ShwTextH3>
+
+      <ShwCarbonizationComparisonGrid
+        @label="Title with icon"
+        @layout="side-by-side"
+      >
+        <:theming>
+          <HdsFlyout open id="flyout-example-icon" as |F|>
+            <F.Header @icon="info">
+              Title
+            </F.Header>
+            <F.Body>
+              <p class="hds-typography-body-300 hds-foreground-primary">
+                Flyout content
+              </p>
+            </F.Body>
+          </HdsFlyout>
+        </:theming>
+        <:reference>
+          <c4p-side-panel open size="md" title="Title" animate-title="false">
+            <p>Flyout content</p>
+          </c4p-side-panel>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid
+        @label="Title with tagline"
+        @layout="side-by-side"
+      >
+        <:theming>
+          <HdsFlyout open id="flyout-example-tagline" as |F|>
+            <F.Header @tagline="Tagline">
+              Title
+            </F.Header>
+            <F.Body>
+              <p class="hds-typography-body-300 hds-foreground-primary">
+                Flyout content
+              </p>
+            </F.Body>
+          </HdsFlyout>
+        </:theming>
+        <:reference>
+          <c4p-side-panel
+            open
+            size="md"
+            title="Title"
+            label-text="Tagline"
+            animate-title="false"
+          >
+            <p>Flyout content</p>
+          </c4p-side-panel>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid
+        @label="Title with tagline and icon"
+        @layout="side-by-side"
+      >
+        <:theming>
+          <HdsFlyout open id="flyout-example-tagline-icon" as |F|>
+            <F.Header @tagline="Tagline" @icon="info">
+              Title
+            </F.Header>
+            <F.Body>
+              <p class="hds-typography-body-300 hds-foreground-primary">
+                Flyout content
+              </p>
+            </F.Body>
+          </HdsFlyout>
+        </:theming>
+        <:reference>
+          <c4p-side-panel
+            open
+            size="md"
+            title="Title"
+            label-text="Tagline"
+            animate-title="false"
+          >
+            <p>Flyout content</p>
+          </c4p-side-panel>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid
+        @label="Title with description"
+        @layout="side-by-side"
+      >
+        <:theming>
+          <HdsFlyout open id="flyout-example-description" as |F|>
+            <F.Header>
+              Title
+            </F.Header>
+            <F.Description>
+              Lorem ipsum dolor
+            </F.Description>
+            <F.Body>
+              <p class="hds-typography-body-300 hds-foreground-primary">
+                Flyout content
+              </p>
+            </F.Body>
+          </HdsFlyout>
+        </:theming>
+        <:reference>
+          <c4p-side-panel
+            open
+            size="md"
+            title="Title"
+            label-text="Tagline"
+            animate-title="false"
+          >
+            <div slot="subtitle">Lorem ipsum dolor</div>
+            <p>Flyout content</p>
+          </c4p-side-panel>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+
+      <ShwDivider @level={{2}} />
+
+      <ShwTextH3 @tag="h2">Body</ShwTextH3>
+
+      <ShwCarbonizationComparisonGrid
+        @label="With basic style"
+        @layout="side-by-side"
+      >
+        <:theming>
+          <HdsFlyout open id="flyout-example-basic-style" as |F|>
+            <F.Header @tagline="Tagline" @icon="info">
+              Title
+            </F.Header>
+            <F.Description>
+              Description
+            </F.Description>
+            <F.Body tabindex="0">
+              <p class="hds-typography-body-300 hds-foreground-primary">Lorem
+                ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </F.Body>
+          </HdsFlyout>
+        </:theming>
+        <:reference>
+          <c4p-side-panel
+            open
+            size="md"
+            title="Title"
+            label-text="Tagline"
+            animate-title="false"
+          >
+            <div slot="subtitle">Lorem ipsum dolor</div>
+            <p>Flyout content</p>
+          </c4p-side-panel>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+
+      <ShwDivider @level={{2}} />
+
+      <ShwTextH3 @tag="h2">Footer</ShwTextH3>
+
+      <ShwCarbonizationComparisonGrid
+        @label="One action"
+        @layout="side-by-side"
+      >
+        <:theming>
+          <HdsFlyout open id="flyout-example-one-action" as |F|>
+            <F.Header>
+              Title
+            </F.Header>
+            <F.Body>
+              <p class="hds-typography-body-300 hds-foreground-primary">
+                Flyout content
+              </p>
+            </F.Body>
+            <F.Footer>
               <HdsButton type="submit" @text="Primary" />
-              <HdsButton type="button" @text="Secondary" @color="secondary" />
-            </HdsButtonSet>
-          </F.Footer>
-        </HdsFlyout>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
-    <ShwCarbonizationComparisonGrid @label="Three actions">
-      <:theming>
-        <HdsFlyout open id="flyout-example-three-action" as |F|>
-          <F.Header>
-            Title
-          </F.Header>
-          <F.Body>
-            <p class="hds-typography-body-300 hds-foreground-primary">
-              Flyout content
-            </p>
-          </F.Body>
-          <F.Footer>
-            <HdsButtonSet>
-              <HdsButton type="submit" @text="Primary" />
-              <HdsButton type="button" @text="Secondary" @color="secondary" />
-              <HdsButton
-                type="button"
-                @text="Tertiary"
-                @color="tertiary"
-                @icon="arrow-right"
-                @iconPosition="trailing"
-              />
-            </HdsButtonSet>
-          </F.Footer>
-        </HdsFlyout>
-      </:theming>
-    </ShwCarbonizationComparisonGrid>
+            </F.Footer>
+          </HdsFlyout>
+        </:theming>
+        <:reference>
+          <c4p-side-panel open size="md" title="Title" animate-title="false">
+            <div slot="subtitle">Lorem ipsum dolor</div>
+            <p>Flyout content</p>
+            <cds-button slot="actions" kind="primary">Primary</cds-button>
+          </c4p-side-panel>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid
+        @label="Two actions"
+        @layout="side-by-side"
+      >
+        <:theming>
+          <HdsFlyout open id="flyout-example-two-actions" as |F|>
+            <F.Header>
+              Title
+            </F.Header>
+            <F.Body>
+              <p class="hds-typography-body-300 hds-foreground-primary">
+                Flyout content
+              </p>
+            </F.Body>
+            <F.Footer>
+              <HdsButtonSet>
+                <HdsButton type="submit" @text="Primary" />
+                <HdsButton type="button" @text="Secondary" @color="secondary" />
+              </HdsButtonSet>
+            </F.Footer>
+          </HdsFlyout>
+        </:theming>
+        <:reference>
+          <c4p-side-panel open size="md" title="Title" animate-title="false">
+            <p>Flyout content</p>
+            <cds-button slot="actions" kind="primary">Primary</cds-button>
+            <cds-button slot="actions" kind="secondary">Secondary</cds-button>
+          </c4p-side-panel>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
+      <ShwCarbonizationComparisonGrid
+        @label="Three actions"
+        @layout="side-by-side"
+      >
+        <:theming>
+          <HdsFlyout open id="flyout-example-three-action" as |F|>
+            <F.Header>
+              Title
+            </F.Header>
+            <F.Body>
+              <p class="hds-typography-body-300 hds-foreground-primary">
+                Flyout content
+              </p>
+            </F.Body>
+            <F.Footer>
+              <HdsButtonSet>
+                <HdsButton type="submit" @text="Primary" />
+                <HdsButton type="button" @text="Secondary" @color="secondary" />
+                <HdsButton
+                  type="button"
+                  @text="Tertiary"
+                  @color="tertiary"
+                  @icon="arrow-right"
+                  @iconPosition="trailing"
+                />
+              </HdsButtonSet>
+            </F.Footer>
+          </HdsFlyout>
+        </:theming>
+        <:reference>
+          <c4p-side-panel open size="md" title="Title" animate-title="false">
+            <p>Flyout content</p>
+            <cds-button slot="actions" kind="primary">Primary</cds-button>
+            <cds-button slot="actions" kind="secondary">Secondary</cds-button>
+            <cds-button slot="actions" kind="ghost">Tertiary</cds-button>
+          </c4p-side-panel>
+        </:reference>
+      </ShwCarbonizationComparisonGrid>
 
-  </section>
-</template>;
-
-export default FlyoutCarbonizationIndex;
+    </section>
+  </template>
+}
