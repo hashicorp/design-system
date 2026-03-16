@@ -19,10 +19,6 @@
   border-radius: var(--token-border-radius-large);
   box-shadow: var(--token-surface-overlay-box-shadow);
 
-  @include hds-apply-only-if-carbon() {
-    box-shadow: none;
-  }
-
   // the `<dialog>` element uses a special "open" attribute to determine its visibility status
   &:not([open]) {
     display: none;
