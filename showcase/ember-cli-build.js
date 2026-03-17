@@ -9,12 +9,17 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const fs = require('fs');
 const path = require('path');
 
+const componentsSrcStylesFolder =
+  'node_modules/@hashicorp/design-system-components/src/styles';
+const componentsDistStylesFolder =
+  'node_modules/@hashicorp/design-system-components/dist/styles';
+
 // check if `src/styles` exists (only available in local dev via pnpm workspace symlink)
-const componentsSrcStyles = path.resolve(
+const componentsSrcStylesPath = path.resolve(
   __dirname,
-  'node_modules/@hashicorp/design-system-components/src/styles',
+  componentsSrcStylesFolder,
 );
-const hasSrcStyles = fs.existsSync(componentsSrcStyles);
+const hasSrcStyles = fs.existsSync(componentsSrcStylesPath);
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
@@ -27,9 +32,10 @@ module.exports = function (defaults) {
       precision: 4,
       includePaths: [
         'node_modules/@hashicorp/design-system-tokens/dist/products/css',
-        // use src/styles for hot reload in local dev, fall back to dist/styles in CI/tests
-        ...(hasSrcStyles ? [componentsSrcStyles] : []),
-        'node_modules/@hashicorp/design-system-components/dist/styles',
+        // use `src/styles` for hot reload in local dev, fall back to `dist/styles` in CI/tests
+        ...(hasSrcStyles
+          ? [componentsSrcStylesFolder]
+          : [componentsDistStylesFolder]),
         'node_modules/ember-power-select/vendor',
       ],
     },
